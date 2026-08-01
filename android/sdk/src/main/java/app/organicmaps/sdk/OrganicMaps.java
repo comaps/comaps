@@ -2,22 +2,12 @@ package app.organicmaps.sdk;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.AssetManager;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.preference.PreferenceManager;
 import app.organicmaps.sdk.bookmarks.data.BookmarkManager;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import app.organicmaps.sdk.bookmarks.data.Icon;
 import app.organicmaps.sdk.downloader.Android7RootCertificateWorkaround;
 import app.organicmaps.sdk.editor.OsmOAuth;
@@ -184,7 +174,6 @@ public final class OrganicMaps implements DefaultLifecycleObserver
     // to work at all. So, we just ignore native part initialization in this case, e.g. when the
     // external storage is damaged or not available (read-only).
     createPlatformDirectories(writablePath, privatePath, tempPath);
-    extractBundledMaps(writablePath, mContext.getAssets());
 
     nativeInitPlatform(mContext, apkPath, writablePath, privatePath, tempPath, mFlavor, BuildConfig.BUILD_TYPE,
                        /* isTablet */ false);
@@ -242,85 +231,6 @@ public final class OrganicMaps implements DefaultLifecycleObserver
     nativeAddLocalization("core_placepage_unknown_place", mContext.getString(R.string.core_placepage_unknown_place));
     nativeAddLocalization("postal_code", mContext.getString(R.string.postal_code));
     nativeAddLocalization("wifi", mContext.getString(R.string.category_wifi));
-  }
-
-  /** @TODO: REMOVE BUNDLED MWM LOGIC AND INCLUDES BEFORE MERGE
-   * Copies any .mwm files bundled in APK assets (except World/WorldCoasts, which C++ handles) into
-   * the versioned maps directory so FindAllLocalMapsAndCleanup can discover them on first launch.
-   */
-  private void extractBundledMaps(@NonNull String writablePath, @NonNull AssetManager assets)
-  {
-    try {
-      long version = readCountriesVersion(assets);
-      if (version <= 0) {
-        Logger.w(TAG, "extractBundledMaps: could not read countries version");
-        return;
-      }
-      // Extract to the current version dir using real countries.txt IDs so Storage registers
-      // them in m_localFiles (not m_localFilesForFakeCountries) and the download prompt is
-      // suppressed. For real country IDs, the size-mismatch check only logs LWARNING, no crash.
-      String dirVersion = String.valueOf(version);
-      File versionDir = new File(writablePath, dirVersion);
-      if (!versionDir.exists() && !versionDir.mkdirs()) {
-        Logger.e(TAG, "extractBundledMaps: failed to create " + versionDir);
-        return;
-      }
-
-      // Maps asset filename → countries.txt country ID (= destination filename).
-      Map<String, String> bundledMaps = new LinkedHashMap<>();
-      bundledMaps.put("Berlin.mwm",        "Germany_Berlin.mwm");
-      bundledMaps.put("MallOfAmerica.mwm",  "US_Minnesota_Minneapolis.mwm");
-      bundledMaps.put("SanFrancisco.mwm",   "US_California_Santa_Clara_Palo Alto.mwm");
-      bundledMaps.put("SantaRosa.mwm",      "US_California_Chico.mwm");
-      bundledMaps.put("France_Ile-de-France_Seine-et-Marne.mwm", "France_Ile-de-France_Seine-et-Marne.mwm");
-
-      // Remove stale copies (old fake names or old version dirs) from every version directory
-      // so Storage never encounters a fake country at m_currentVersion (which would crash).
-      File writableDir = new File(writablePath);
-      File[] siblings = writableDir.listFiles(File::isDirectory);
-      if (siblings != null) {
-        for (File sibling : siblings) {
-          for (Map.Entry<String, String> e : bundledMaps.entrySet()) {
-            for (String name : new String[]{e.getKey(), e.getValue()}) {
-              File stale = new File(sibling, name);
-              if (!stale.equals(new File(versionDir, e.getValue())) && stale.exists()) {
-                Logger.i(TAG, "extractBundledMaps: removing stale " + stale);
-                stale.delete();
-              }
-            }
-          }
-        }
-      }
-
-      for (Map.Entry<String, String> e : bundledMaps.entrySet()) {
-        File dest = new File(versionDir, e.getValue());
-        if (dest.exists()) continue;
-        Logger.i(TAG, "extractBundledMaps: extracting " + e.getKey() + " as " + e.getValue());
-        try (InputStream in = assets.open(e.getKey());
-             FileOutputStream out = new FileOutputStream(dest)) {
-          byte[] buf = new byte[65536];
-          int n;
-          while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
-        }
-        Logger.i(TAG, "extractBundledMaps: done " + e.getValue() + " (" + dest.length() + " bytes)");
-      }
-    } catch (IOException e) {
-      Logger.e(TAG, "extractBundledMaps: " + e.getMessage());
-    }
-  }
-
-  private long readCountriesVersion(@NonNull AssetManager assets)
-  {
-    try (InputStream in = assets.open("countries.txt");
-         BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
-      char[] buf = new char[1024];
-      int n = reader.read(buf);
-      Matcher m = Pattern.compile("\"v\"\\s*:\\s*(\\d+)").matcher(new String(buf, 0, n));
-      if (m.find()) return Long.parseLong(m.group(1));
-    } catch (IOException e) {
-      Logger.e(TAG, "readCountriesVersion: " + e.getMessage());
-    }
-    return -1;
   }
 
   /**
