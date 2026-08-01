@@ -61,6 +61,8 @@ sudo dnf install @development-tools cmake qt6-qtbase qt6-qtsvg qt6-qtpositioning
 
 </details>
 
+### Install Python protobuf and run ./configure.sh
+
 The data generation tools require a specific Python `protobuf` version. You don't
 need to install it manually: `./configure.sh` (run below) creates a local `.venv`
 in the repository root and installs the correct version into it automatically.
@@ -68,11 +70,6 @@ in the repository root and installs the correct version into it automatically.
 If you prefer to manage `protobuf` via your system Python (e.g. a distro
 `python3-protobuf` package), set `SKIP_PYTHON_VENV=1` before running `./configure.sh`
 and the venv step will be skipped.
-
-
-
-
-### Configure running bash script
 
 Go into the cloned repository and configure it for development:
 ```bash
