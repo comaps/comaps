@@ -130,8 +130,6 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
     } else {
       self.routePreview.drivingOptionsState = MWMDrivingOptionsStateDefine;
     }
-    
-    [self.baseRoutePreviewStatus setDirectionsPreviewAvailable:YES];
   }
 }
 
