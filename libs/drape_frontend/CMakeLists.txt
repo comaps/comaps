@@ -124,6 +124,8 @@ set(SRC
   my_position_controller.hpp
   navigator.cpp
   navigator.hpp
+  non_downloaded_overlay.cpp
+  non_downloaded_overlay.hpp
   overlay_batcher.cpp
   overlay_batcher.hpp
   overlays_tracker.cpp

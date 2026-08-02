@@ -1,4 +1,5 @@
 #include "drape_frontend/area_shape.hpp"
+#include "drape_frontend/non_downloaded_overlay.hpp"
 #include "drape_frontend/render_state_extension.hpp"
 
 #include "shaders/programs.hpp"
@@ -32,8 +33,10 @@ AreaShape::AreaShape(std::vector<m2::PointD> triangleList, BuildingOutline && bu
 void AreaShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batcher> batcher,
                      ref_ptr<dp::TextureManager> textures) const
 {
+  bool const maskOnly =
+      m_params.m_depthLayer == DepthLayer::MwmBorderLayer && g_nonDownloadedMaskEnabled.load();
   dp::TextureManager::ColorRegion region;
-  textures->GetColorRegion(m_params.m_color, region);
+  textures->GetColorRegion(maskOnly ? dp::Color::Transparent() : m_params.m_color, region);
   m2::PointD const colorUv(region.GetTexRect().Center());
   m2::PointD outlineUv(0.0, 0.0);
   if (m_buildingOutline.m_generateOutline)

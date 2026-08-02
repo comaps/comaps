@@ -14,6 +14,7 @@
 #include "drape_frontend/gui/scale_fps_helper.hpp"
 #include "drape_frontend/message.hpp"
 #include "drape_frontend/message_subclasses.hpp"
+#include "drape_frontend/non_downloaded_overlay.hpp"
 #include "drape_frontend/overlay_batcher.hpp"
 #include "drape_frontend/postprocess_renderer.hpp"
 #include "drape_frontend/route_renderer.hpp"
@@ -174,6 +175,7 @@ FrontendRenderer::FrontendRenderer(Params && params)
   , m_enable3dBuildings(params.m_allow3dBuildings)
   , m_isIsometry(false)
   , m_blockTapEvents(params.m_blockTapEvents)
+  , m_showNonDownloaded(params.m_showNonDownloaded)
   , m_choosePositionMode(false)
   , m_screenshotMode(params.m_myPositionParams.m_hints.m_screenshotMode)
   , m_mapLangIndex(localisation::kDefaultNameIndex)
@@ -205,6 +207,8 @@ FrontendRenderer::FrontendRenderer(Params && params)
   ASSERT(m_modelViewChangedHandler, ());
   ASSERT(m_tapEventInfoHandler, ());
   ASSERT(m_userPositionChangedHandler, ());
+
+  g_nonDownloadedMaskEnabled.store(m_showNonDownloaded);
 
   m_gpsTrackRenderer = make_unique_dp<GpsTrackRenderer>([this](uint32_t pointsCount)
   {
@@ -1397,10 +1401,12 @@ void FrontendRenderer::RenderScene(ScreenBase const & modelView, bool activeFram
     RefreshBgColor();
 
     uint32_t clearBits = dp::ClearBits::ColorBit | dp::ClearBits::DepthBit;
-    if (m_apiVersion == dp::ApiVersion::OpenGLES3)
-      clearBits |= dp::ClearBits::StencilBit;
-
     uint32_t storeBits = dp::ClearBits::ColorBit;
+    if (m_showNonDownloaded || m_apiVersion == dp::ApiVersion::OpenGLES3)
+      clearBits |= dp::ClearBits::StencilBit;
+    if (m_showNonDownloaded)
+      storeBits |= dp::ClearBits::StencilBit;
+
     if (m_postprocessRenderer->IsEffectEnabled(PostprocessRenderer::Effect::Antialiasing))
     {
       clearBits |= dp::ClearBits::StencilBit;
@@ -1678,6 +1684,44 @@ void FrontendRenderer::RenderMwmBorderLayer(ScreenBase const & modelView)
     return;
 
   CHECK(m_context != nullptr, ());
+  if (m_showNonDownloaded)
+  {
+    DEBUG_LABEL(m_context, "Non-Downloaded Tint Layer");
+
+    // Reuse the stencil buffer to mark the downloaded regions, so the tint can be inverted below.
+    m_context->Clear(dp::ClearBits::DepthBit, dp::kClearBitsStoreAll);
+
+    // Render the downloaded country polygons as an invisible stencil mask: stencil value 1
+    // marks the areas that are already downloaded. The geometry builder reads the persistent
+    // flag g_nonDownloadedMaskEnabled (set in the constructor) to render this fill invisibly.
+    m_context->SetStencilTestEnabled(true);
+    m_context->SetStencilFunction(dp::StencilFace::FrontAndBack, dp::TestFunction::Always);
+    m_context->SetStencilActions(dp::StencilFace::FrontAndBack, dp::StencilAction::Keep, dp::StencilAction::Keep,
+                                 dp::StencilAction::Replace);
+    m_context->SetStencilReferenceValue(1);
+
+    for (drape_ptr<RenderGroup> & group : renderGroups)
+      RenderSingleGroup(m_context, modelView, make_ref(group));
+
+    // Draw a full-screen tint only where the stencil is NOT equal to 1 (i.e. the map is NOT downloaded).
+    dp::TextureManager::ColorRegion region;
+    m_texMng->GetColorRegion(dp::Color(0x1A, 0x32, 0x5C, 80 /* ~31% opacity */), region);
+    CHECK(region.GetTexture() != nullptr, ("Texture manager is not initialized"));
+    m_screenQuadRenderer->SetTextureRect(m_context, region.GetTexRect());
+
+    m_context->SetStencilFunction(dp::StencilFace::FrontAndBack, dp::TestFunction::NotEqual);
+    m_context->SetStencilActions(dp::StencilFace::FrontAndBack, dp::StencilAction::Keep, dp::StencilAction::Keep,
+                                 dp::StencilAction::Keep);
+    m_screenQuadRenderer->RenderTexture(m_context, make_ref(m_gpuProgramManager), region.GetTexture(), 1.0f,
+                                        false /* invertV */);
+
+    // Restore the stencil reference expected by the antialiasing (SMAA) pass for overlays.
+    if (m_postprocessRenderer->IsEffectEnabled(PostprocessRenderer::Effect::Antialiasing))
+      m_context->SetStencilReferenceValue(2);
+    m_context->SetStencilTestEnabled(false);
+    return;
+  }
+
   DEBUG_LABEL(m_context, "Mmw Border Layer");
   m_context->Clear(dp::ClearBits::DepthBit, dp::kClearBitsStoreAll);
 
