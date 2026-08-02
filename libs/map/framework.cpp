@@ -135,6 +135,7 @@ std::string_view constexpr kFontScaleFactor = "FontScaleFactor";
 std::string_view constexpr kPreferredGraphicsAPI = "PreferredGraphicsAPI";
 std::string_view constexpr kShowDebugInfo = "DebugInfo";
 std::string_view constexpr kShowDownloadedRegions = "DownloadedRegions";
+std::string_view constexpr kShowNonDownloadedRegions = "NonDownloadedRegions";
 std::string_view constexpr kScreenViewport = "ScreenClipRect";
 
 // Old (pre-modes) settings keys, kept for backward-compatible fallback reads.
@@ -427,6 +428,7 @@ Framework::Framework(FrameworkParams const & params, bool loadMaps)
     LoadMapsSync();
 
   UNUSED_VALUE(settings::Get(kShowDownloadedRegions, m_showDownloadedRegions));
+  UNUSED_VALUE(settings::Get(kShowNonDownloadedRegions, m_showNonDownloaded));
 }
 
 Framework::~Framework()
@@ -1536,7 +1538,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   {
     m_featuresFetcher.ForEachFeatureID(r, fn, scale);
 
-    if (m_showDownloadedRegions && scale <= 7)
+    if ((m_showDownloadedRegions || m_showNonDownloaded) && scale <= 7)
     {
       auto names = m_featuresFetcher.GetDataSource().GetLoadedCountryNames(r);
       ASSERT(base::IsSortedAndUnique(names), ());
@@ -1608,7 +1610,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
                           std::move(updateCurrentCountryFn)),
       params.m_hints, params.m_visualScale, fontsScaleFactor, std::move(params.m_widgetsInitInfo),
       std::move(myPositionModeChangedFn), allow3dBuildings, hasTraffic, hasContourLines, params.m_isChoosePositionMode,
-      params.m_isChoosePositionMode, GetSelectedFeatureTriangles(),
+      params.m_isChoosePositionMode, m_showNonDownloaded, GetSelectedFeatureTriangles(),
       m_routingManager.IsRoutingActive() && m_routingManager.IsRoutingFollowing(), isAutozoomEnabled,
       simplifiedTrafficColors, std::nullopt /* arrow3dCustomDecl */, std::move(overlaysShowStatsFn),
       std::move(onGraphicsContextInitialized), std::move(params.m_renderInjectionHandler));
@@ -3085,6 +3087,18 @@ bool Framework::ParseDrapeDebugCommand(string const & query)
     settings::Set(kShowDownloadedRegions, false);
     m_showDownloadedRegions = false;
     InvalidateRect(GetCurrentViewport());
+    return true;
+  }
+  if (query == "?show-non-downloaded")
+  {
+    settings::Set(kShowNonDownloadedRegions, true);
+    m_showNonDownloaded = true;
+    return true;
+  }
+  if (query == "?no-show-non-downloaded")
+  {
+    settings::Set(kShowNonDownloadedRegions, false);
+    m_showNonDownloaded = false;
     return true;
   }
 
