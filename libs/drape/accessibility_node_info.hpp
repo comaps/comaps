@@ -1,26 +1,5 @@
 #pragma once
 
-/*
- * Plumbing data for screen readers
- * Data flow diagram:
- * df/rule_drawer.cpp -> df/apply_feature_functors.cpp
- *                                       |
- *                                       v
- * e.g. dp/line_overlay.cpp <- e.g. dp/line_shape.cpp
- *             |                         |
- *             v                         v
- *   dp/accessibility_node_info.hpp -> dp/overlay_handle.hpp
- *                                       |
- *                                       v
- *   dp/accessibility_data.hpp <- df/frontend_renderer.cpp
- *            \                          |
- *                                       v
- *             -----------------> df/drape_engine.cpp
- *                                       |
- *                                       v
- *    platform impl  <->  dp/accessibility_presenter.cpp
- */
-
 #include <string>
 
 #include "base/string_utils.hpp"
@@ -49,10 +28,13 @@ constexpr ExplorationType operator|(ExplorationType a, ExplorationType b)
 constexpr ExplorationType ExplorationType_MASK_FOCUSABLE =
     ANNOUNCE_LABEL_ON_LONG_HOVER | ANNOUNCE_LABEL_ALWAYS | SIGNAL_PRESENCE_ALWAYS;
 
+/**
+ * Do not subclass
+ * See docs/SCREEN_READERS.md for more info
+ */
 struct AccessibilityNodeInfo
 {
   AccessibilityNodeInfo(std::string accessibilityLabel, ExplorationType explorationType)
-    // Note: already copied in the constructor invocation, so we can move it now
     : m_accessibilityLabel(std::move(accessibilityLabel))
     , m_explorationType(explorationType)
   {}
@@ -66,5 +48,6 @@ struct AccessibilityNodeInfo
 
   std::string m_accessibilityLabel;
   ExplorationType m_explorationType;
+  /* Do not add any pointers or refs here, as this struct gets copied between threads */
 };
 }  // namespace dp
