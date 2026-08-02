@@ -81,6 +81,12 @@
 
     <include layout="@layout/place_page_latlon"/>
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/place_page_add_review_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="app.organicmaps.widget.placepage.sections.PlacePageAddReviewFragment" />
+
     <include layout="@layout/place_page_open_in"/>
   </LinearLayout>
 

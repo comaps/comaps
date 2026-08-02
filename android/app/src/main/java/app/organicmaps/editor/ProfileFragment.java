@@ -6,11 +6,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.app.FragmentManager;
+
+import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
+import com.google.android.material.textview.MaterialTextView;
+
 import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmToolbarFragment;
 import app.organicmaps.sdk.editor.OsmOAuth;
@@ -20,31 +25,14 @@ import app.organicmaps.sdk.util.concurrency.UiThread;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils;
-import app.organicmaps.widget.StackedButtonDialogFragment;
-import com.google.android.material.imageview.ShapeableImageView;
-import com.google.android.material.progressindicator.CircularProgressIndicator;
-import com.google.android.material.textview.MaterialTextView;
+import app.organicmaps.widget.MobileDataDialogFragment;
+
 import java.text.NumberFormat;
 
 public class ProfileFragment extends BaseMwmToolbarFragment
 {
   @NonNull
-  private static final NetworkPolicy.DialogPresenter mDialogPresenter = new NetworkPolicy.DialogPresenter() {
-    @Override
-    public void showDialogIfNeeded(@NonNull FragmentManager fragmentManager,
-                                   @NonNull NetworkPolicy.NetworkPolicyListener listener, @NonNull NetworkPolicy policy,
-                                   boolean isToday)
-    {
-      StackedButtonDialogFragment.showDialogIfNeeded(fragmentManager, listener, policy, isToday);
-    }
-
-    @Override
-    public void showDialog(@NonNull FragmentManager fragmentManager,
-                           @NonNull NetworkPolicy.NetworkPolicyListener listener)
-    {
-      StackedButtonDialogFragment.showDialog(fragmentManager, listener);
-    }
-  };
+  private static final NetworkPolicy.DialogPresenter mMobileDataDialogPresenter = new MobileDataDialogFragment.Presenter();
 
   private View mUserInfoBlock;
   private MaterialTextView mEditsSent;
@@ -104,7 +92,7 @@ public class ProfileFragment extends BaseMwmToolbarFragment
           UiUtils.show(mProfileInfoLoading);
           UiUtils.hide(mUserInfoBlock);
         }
-        final int profileEditCount = OsmOAuth.getOsmChangesetsCount(mDialogPresenter, getParentFragmentManager());
+        final int profileEditCount = OsmOAuth.getOsmChangesetsCount(mMobileDataDialogPresenter, getParentFragmentManager());
         final String profileUsername = OsmOAuth.getUsername();
         final Bitmap profilePicture = OsmOAuth.getProfilePicture();
 

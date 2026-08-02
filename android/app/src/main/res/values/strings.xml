@@ -620,13 +620,13 @@
     <string name="accept">Accept</string>
     <!-- For the first routing -->
     <string name="decline">Decline</string>
-    <string name="mobile_data_dialog">Use mobile internet to show detailed information?</string>
+    <string name="mobile_data_dialog">Use mobile internet?</string>
     <string name="mobile_data_option_always">Use Always</string>
     <string name="mobile_data_option_today">Only Today</string>
     <string name="mobile_data_option_not_today">Do Not Use Today</string>
     <string name="mobile_data">Mobile Internet</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Mobile internet is required for map update notifications and uploading edits</string>
+    <string name="mobile_data_description">Mobile internet is required for map update notifications, uploading edits and linking to review websites</string>
     <string name="mobile_data_option_never">Never Use</string>
     <string name="mobile_data_option_ask">Always Ask</string>
     <string name="traffic_update_maps_text">To display traffic data, maps must be updated</string>
@@ -1057,5 +1057,9 @@
     <string name="place_reviews_title">Place Reviews</string>
     <string name="place_reviews">%1$s Reviews</string>
     <string name="rating_stars_description">stars: %.1f</string>
-    <string name="reviews_by_mangrove">Reviews from Mangrove.\nAdd reviews in <a href="https://mapcomplete.org">MapComplete</a>.</string>
+    <string name="reviews_by_mangrove">Reviews from Mangrove</string>
+    <string name="add_review">Add a Review via %1$s</string>
+    <string name="add_review_url_resolution_failed">Place not found in the latest OpenStreetMap.</string>
+    <string name="add_review_url_resolution_failed_dev">Place not found in the DEV OpenStreetMap.</string>
+    <string name="internet_unavailable">No Internet connection</string>
 </resources>

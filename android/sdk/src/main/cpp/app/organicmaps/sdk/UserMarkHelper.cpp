@@ -3,6 +3,8 @@
 #include "app/organicmaps/sdk/routing/RoutePointInfo.hpp"
 #include "app/organicmaps/sdk/util/Distance.hpp"
 
+#include "editor/review.hpp"
+
 #include "indexer/reviews_display.hpp"
 #include "indexer/reviews_model.hpp"
 
@@ -76,6 +78,7 @@ struct MapObjectArgs
   jni::TScopedLocalRef jAddress;
   jni::TScopedLocalRef jStarRating;
   jint reviewCount;
+  jni::TScopedLocalRef jReviewEditorAppName;
   jni::TScopedLocalRef jWikiDescription;
   jni::TScopedLocalRef jOsmDescription;
 
@@ -99,6 +102,9 @@ struct MapObjectArgs
     // rely on the count variable, not on the number of elements in the review collection.
     , reviewCount(static_cast<jint>(
           info.GetReviews().transform([](reviews::FeatureReviews const & r) { return r.reviews.size(); }).value_or(0)))
+    , jReviewEditorAppName(env, reviews::GetReviewEditorApp(info)
+                                    .transform([&env](std::string const & s) { return jni::ToJavaString(env, s); })
+                                    .value_or(nullptr))
     , jWikiDescription(env, jni::ToJavaString(env, info.GetWikiDescription()))
     , jOsmDescription(env, jni::ToJavaString(env, info.GetOSMDescription()))
   {}
@@ -120,11 +126,12 @@ jobject CreateMapObject(JNIEnv * env, place_page::Info const & info, int mapObje
                         jobjectArray jrawTypes)
 {
   //  public MapObject(@NonNull FeatureId featureId, @MapObjectType int mapObjectType, String title,
-  //                   @Nullable String secondaryTitle, String subtitle, String address, double lat, double lon,
-  //                   String apiId, @Nullable RoutePointInfo routePointInfo, @OpeningMode int openingMode,
-  //                   Popularity popularity, @Nullable Float starRating,
-  //                   int reviewCount, @NonNull String wikiArticle, @NonNull String osmDescription,
-  //                   int roadWarningType, @Nullable String[] rawTypes)
+  //              @Nullable String secondaryTitle, String subtitle, String address, double lat, double lon,
+  //              Metadata metadata, String apiId, @Nullable RoutePointInfo routePointInfo,
+  //              @OpeningMode int openingMode, Popularity popularity, @Nullable Float starRating,
+  //              int reviewCount, @Nullable String reviewEditorAppName, @NonNull String wikiArticle, @NonNull String
+  //              osmDescription, int roadWarningType,
+  //              @Nullable String[] rawTypes)
   static jmethodID const ctorId =
       jni::GetConstructorID(env, g_mapObjectClazz,
                             "("
@@ -141,6 +148,7 @@ jobject CreateMapObject(JNIEnv * env, place_page::Info const & info, int mapObje
                             "Lapp/organicmaps/sdk/search/Popularity;"         // popularity
                             "Ljava/lang/Float;"                               // starRating
                             "I"                                               // reviewCount
+                            "Ljava/lang/String;"                              // reviewEditorAppName
                             "Ljava/lang/String;"                              // wikiArticle
                             "Ljava/lang/String;"                              // osmDescription
                             "I"                                               // roadWarnType
@@ -150,11 +158,12 @@ jobject CreateMapObject(JNIEnv * env, place_page::Info const & info, int mapObje
   MapObjectArgs args(env, info);
   jni::TScopedLocalRef jApiId(env, jni::ToJavaString(env, parseApi ? info.GetApiUrl() : ""));
 
-  jobject mapObject = env->NewObject(g_mapObjectClazz, ctorId, args.jFeatureId.get(), mapObjectType, args.jTitle.get(),
-                                     args.jSecondaryTitle.get(), args.jSubtitle.get(), args.jAddress.get(), lat, lon,
-                                     jApiId.get(), routingPointInfo, static_cast<jint>(info.GetOpeningMode()),
-                                     popularity, args.jStarRating.get(), args.reviewCount, args.jWikiDescription.get(),
-                                     args.jOsmDescription.get(), static_cast<jint>(info.GetRoadType()), jrawTypes);
+  jobject mapObject =
+      env->NewObject(g_mapObjectClazz, ctorId, args.jFeatureId.get(), mapObjectType, args.jTitle.get(),
+                     args.jSecondaryTitle.get(), args.jSubtitle.get(), args.jAddress.get(), lat, lon, jApiId.get(),
+                     routingPointInfo, static_cast<jint>(info.GetOpeningMode()), popularity, args.jStarRating.get(),
+                     args.reviewCount, args.jReviewEditorAppName.get(), args.jWikiDescription.get(),
+                     args.jOsmDescription.get(), static_cast<jint>(info.GetRoadType()), jrawTypes);
 
   if (info.GetReviews().has_value())
     InjectReviews(env, g_mapObjectClazz, mapObject, info.GetReviews().value());
@@ -169,7 +178,7 @@ jobject CreateTrack(JNIEnv * env, place_page::Info const & info, jni::TScopedLoc
   //  Track(@NonNull FeatureId featureId, @IntRange(from = 0) long categoryId, @IntRange(from = 0) long trackId,
   //        String title, @Nullable String secondaryTitle, @Nullable String subtitle, @Nullable String address,
   //        @Nullable RoutePointInfo routePointInfo, @OpeningMode int openingMode, @NonNull Popularity popularity,
-  //        @Nullable Float starRating, @IntRange(from = 0) int reviewCount,
+  //        @Nullable Float starRating, @IntRange(from = 0) int reviewCount, @Nullable String reviewEditorAppName,
   //        @NonNull String wikiArticle, @NonNull String osmDescription, @Nullable String[] rawTypes, int color,
   //        Distance length, double lat, double lon)
   static jmethodID const ctorId =
@@ -187,6 +196,7 @@ jobject CreateTrack(JNIEnv * env, place_page::Info const & info, jni::TScopedLoc
                             "Lapp/organicmaps/sdk/search/Popularity;"         // popularity
                             "Ljava/lang/Float;"                               // starRating
                             "I"                                               // reviewCount
+                            "Ljava/lang/String;"                              // reviewEditorAppName
                             "Ljava/lang/String;"                              // wikiArticle
                             "Ljava/lang/String;"                              // osmDescription
                             "[Ljava/lang/String;"                             // rawTypes
@@ -205,8 +215,8 @@ jobject CreateTrack(JNIEnv * env, place_page::Info const & info, jni::TScopedLoc
   jobject mapObject = env->NewObject(
       g_trackClazz, ctorId, args.jFeatureId.get(), static_cast<jlong>(categoryId), static_cast<jlong>(trackId),
       args.jTitle.get(), args.jSecondaryTitle.get(), args.jSubtitle.get(), args.jAddress.get(), routingPointInfo.get(),
-      info.GetOpeningMode(), popularity, args.jStarRating.get(), args.reviewCount, args.jWikiDescription.get(),
-      args.jOsmDescription.get(), jrawTypes.get(), androidColor,
+      info.GetOpeningMode(), popularity, args.jStarRating.get(), args.reviewCount, args.jReviewEditorAppName.get(),
+      args.jWikiDescription.get(), args.jOsmDescription.get(), jrawTypes.get(), androidColor,
       ToJavaDistance(env, platform::Distance::CreateFormatted(track->GetLengthMeters())),
       static_cast<jdouble>(ll.m_lat), static_cast<jdouble>(ll.m_lon));
 
@@ -221,11 +231,12 @@ jobject CreateBookmark(JNIEnv * env, place_page::Info const & info, jni::TScoped
                        jni::TScopedLocalRef const & routingPointInfo, jobject const & popularity)
 {
   //  public Bookmark(@NonNull FeatureId featureId, @IntRange(from = 0) long categoryId,
-  //                  @IntRange(from = 0) long bookmarkId, String title, @Nullable String secondaryTitle,
-  //                  @Nullable String subtitle, @Nullable String address, @Nullable RoutePointInfo routePointInfo,
-  //                  @OpeningMode int openingMode, @NonNull Popularity popularity, @Nullable Float starRating, int
-  //                  reviewCount, @NonNull String wikiArticle,
-  //                  @NonNull String osmDescription, @Nullable String[] rawTypes)
+  //             @IntRange(from = 0) long bookmarkId, String title, @Nullable String secondaryTitle,
+  //             @Nullable String subtitle, @Nullable String address, @Nullable RoutePointInfo routePointInfo,
+  //             @OpeningMode int openingMode, @NonNull Popularity popularity, @Nullable Float starRating, int
+  //             reviewCount,
+  //             @Nullable String reviewEditorAppName, @NonNull String wikiArticle, @NonNull String osmDescription,
+  //             @Nullable String[] rawTypes)
   static jmethodID const ctorId =
       jni::GetConstructorID(env, g_bookmarkClazz,
                             "("
@@ -241,6 +252,7 @@ jobject CreateBookmark(JNIEnv * env, place_page::Info const & info, jni::TScoped
                             "Lapp/organicmaps/sdk/search/Popularity;"         // popularity
                             "Ljava/lang/Float;"                               // starRating
                             "I"                                               // reviewCount
+                            "Ljava/lang/String;"                              // reviewEditorAppName
                             "Ljava/lang/String;"                              // wikiArticle
                             "Ljava/lang/String;"                              // osmDescription
                             "[Ljava/lang/String;"                             // rawTypes
@@ -250,11 +262,11 @@ jobject CreateBookmark(JNIEnv * env, place_page::Info const & info, jni::TScoped
   auto const categoryId = info.GetBookmarkCategoryId();
   MapObjectArgs args(env, info);
 
-  jobject mapObject = env->NewObject(g_bookmarkClazz, ctorId, args.jFeatureId.get(), static_cast<jlong>(categoryId),
-                                     static_cast<jlong>(bookmarkId), args.jTitle.get(), args.jSecondaryTitle.get(),
-                                     args.jSubtitle.get(), args.jAddress.get(), routingPointInfo.get(),
-                                     info.GetOpeningMode(), popularity, args.jStarRating.get(), args.reviewCount,
-                                     args.jWikiDescription.get(), args.jOsmDescription.get(), jrawTypes.get());
+  jobject mapObject = env->NewObject(
+      g_bookmarkClazz, ctorId, args.jFeatureId.get(), static_cast<jlong>(categoryId), static_cast<jlong>(bookmarkId),
+      args.jTitle.get(), args.jSecondaryTitle.get(), args.jSubtitle.get(), args.jAddress.get(), routingPointInfo.get(),
+      info.GetOpeningMode(), popularity, args.jStarRating.get(), args.reviewCount, args.jReviewEditorAppName.get(),
+      args.jWikiDescription.get(), args.jOsmDescription.get(), jrawTypes.get());
 
   if (info.GetReviews().has_value())
     InjectReviews(env, g_mapObjectClazz, mapObject, info.GetReviews().value());

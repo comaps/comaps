@@ -525,13 +525,13 @@
     <string name="accept">Zaakceptuj</string>
     <!-- For the first routing -->
     <string name="decline">Odrzuć</string>
-    <string name="mobile_data_dialog">Wykorzystać dane mobilne, aby wyświetlić dane szczegółowe?</string>
+    <string name="mobile_data_dialog">Wykorzystać dane mobilne?</string>
     <string name="mobile_data_option_always">Stosuj zawsze</string>
     <string name="mobile_data_option_today">Tylko dzisiaj</string>
     <string name="mobile_data_option_not_today">Nie stosuj dzisiaj</string>
     <string name="mobile_data">Dane mobilne</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Dane mobilne są wymagane do powiadomień o aktualizacji map i wysyłania edycji</string>
+    <string name="mobile_data_description">Dane mobilne są wymagane do powiadomień o aktualizacji map, wysyłania edycji oraz przekierowania do edytora recenzji</string>
     <string name="mobile_data_option_never">Nigdy nie stosuj</string>
     <string name="mobile_data_option_ask">Zawsze pytaj</string>
     <string name="traffic_update_maps_text">Aby wyświetlić dane o ruchu, mapy muszą zostać zaktualizowane.</string>
@@ -994,5 +994,9 @@
     <string name="place_reviews_title">Recenzje miejsca</string>
     <string name="place_reviews">Recenzje %1$s</string>
     <string name="rating_stars_description">liczba gwiazdek: %.1f</string>
-    <string name="reviews_by_mangrove">Recenzje z Mangrove.\nRecenzuj miejsca w <a href="https://mapcomplete.org">MapComplete</a>.</string>
+    <string name="reviews_by_mangrove">Recenzje z Mangrove</string>
+    <string name="add_review">Dodaj recenzję przez %1$s</string>
+    <string name="add_review_url_resolution_failed">Nie odnaleziono miejsca na najnowszej OpenStreetMap.</string>
+    <string name="add_review_url_resolution_failed_dev">Nie odnaleziono miejsca na OpenStreetMap DEV.</string>
+    <string name="internet_unavailable">Brak połączenia z Internetem</string>
 </resources>

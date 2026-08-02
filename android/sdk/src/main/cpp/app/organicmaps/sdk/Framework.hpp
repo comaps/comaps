@@ -15,6 +15,8 @@
 #include "drape/pointers.hpp"
 
 #include "indexer/feature_decl.hpp"
+#include "indexer/map_object.hpp"
+#include "indexer/map_style.hpp"
 
 #include "platform/country_defines.hpp"
 #include "platform/location.hpp"
@@ -214,6 +216,7 @@ public:
   void CleanWidgets();
 
   place_page::Info & GetPlacePageInfo();
+  osm::MapObject GetMapObjectByID(FeatureID const & featureId) const;
 
   bool IsAutoRetryDownloadFailed();
   bool IsDownloadOn3gEnabled();

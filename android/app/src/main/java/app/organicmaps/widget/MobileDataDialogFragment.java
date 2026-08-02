@@ -11,9 +11,22 @@ import app.organicmaps.R;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.NetworkPolicy;
 
-public class StackedButtonDialogFragment extends DialogFragment
+public class MobileDataDialogFragment extends DialogFragment
 {
   private static final String TAG_NETWORK_POLICY = "network_policy";
+
+  public static void showDialog(@NonNull FragmentManager fragmentManager,
+                                @NonNull NetworkPolicy.NetworkPolicyListener listener)
+  {
+    MobileDataDialogFragment dialog =
+        (MobileDataDialogFragment) fragmentManager.findFragmentByTag(TAG_NETWORK_POLICY);
+    if (dialog != null)
+      dialog.dismiss();
+
+    dialog = new MobileDataDialogFragment();
+    dialog.setListener(listener);
+    dialog.show(fragmentManager, TAG_NETWORK_POLICY);
+  }
 
   @Nullable
   private NetworkPolicy.NetworkPolicyListener mListener;
@@ -49,7 +62,7 @@ public class StackedButtonDialogFragment extends DialogFragment
   }
 
   @Override
-  public void show(@NonNull FragmentManager manager, @NonNull String tag)
+  public void show(@NonNull FragmentManager manager, @Nullable String tag)
   {
     FragmentTransaction ft = manager.beginTransaction();
     ft.add(this, tag);
@@ -73,16 +86,21 @@ public class StackedButtonDialogFragment extends DialogFragment
     showDialog(fragmentManager, listener);
   }
 
-  public static void showDialog(@NonNull FragmentManager fragmentManager,
-                                @NonNull NetworkPolicy.NetworkPolicyListener listener)
+  public static class Presenter implements NetworkPolicy.DialogPresenter
   {
-    StackedButtonDialogFragment dialog =
-        (StackedButtonDialogFragment) fragmentManager.findFragmentByTag(TAG_NETWORK_POLICY);
-    if (dialog != null)
-      dialog.dismiss();
+    @Override
+    public void showDialogIfNeeded(@NonNull FragmentManager fragmentManager,
+                                   @NonNull NetworkPolicy.NetworkPolicyListener listener, @NonNull NetworkPolicy policy,
+                                   boolean isToday)
+    {
+      MobileDataDialogFragment.showDialogIfNeeded(fragmentManager, listener, policy, isToday);
+    }
 
-    dialog = new StackedButtonDialogFragment();
-    dialog.setListener(listener);
-    dialog.show(fragmentManager, TAG_NETWORK_POLICY);
+    @Override
+    public void showDialog(@NonNull FragmentManager fragmentManager,
+                           @NonNull NetworkPolicy.NetworkPolicyListener listener)
+    {
+      MobileDataDialogFragment.showDialog(fragmentManager, listener);
+    }
   }
 }

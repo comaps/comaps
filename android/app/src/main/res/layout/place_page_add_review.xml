@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/ll__add_review"
+    style="@style/PlacePageItemFrame"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:tag="website"
+    tools:background="#20FF0000">
+
+  <com.google.android.material.imageview.ShapeableImageView
+      android:id="@+id/iv__add_review"
+      style="@style/PlacePageMetadataIcon"
+      app:srcCompat="@drawable/ic_open_in"
+      app:tint="?colorSecondary" />
+
+  <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/tv__add_review"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/add_review"
+      android:textAlignment="viewStart"
+      android:textAppearance="@style/MwmTextAppearance.PlacePage.Accent"
+      tools:text="Add a Review via EditorApp"/>
+</LinearLayout>
