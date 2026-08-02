@@ -130,12 +130,12 @@ final class CarPlayService: NSObject {
   private var hasAppliedDefaultCarZoom = false
   private var followPolicy = CarPlayFollowPolicy()
   private var isFollowReconciliationScheduled = false
-  private var needsDefaultCameraRestoreOnViewportReady = false
+  private var needsDefaultZoomRestoreOnViewportReady = false
   private func resetCarSessionDefaults() {
     hasAppliedDefaultCarZoom = false
     followPolicy.reset()
     isFollowReconciliationScheduled = false
-    needsDefaultCameraRestoreOnViewportReady = false
+    needsDefaultZoomRestoreOnViewportReady = false
     isCarMapViewportReady = false
     isWaitingForCarMapViewport = false
     carMapViewportReadinessAttempts = 0
@@ -669,15 +669,19 @@ final class CarPlayService: NSObject {
     }
   }
 
-  private func restoreStandardCarCamera() {
+  private func restoreDefaultCarZoom() {
     guard mapHost == .carplay || mapHost == .dashboard else { return }
     guard isCarMapViewportReady else {
-      needsDefaultCameraRestoreOnViewportReady = true
+      needsDefaultZoomRestoreOnViewportReady = true
       return
     }
-    needsDefaultCameraRestoreOnViewportReady = false
+    needsDefaultZoomRestoreOnViewportReady = false
     hasAppliedDefaultCarZoom = true
     FrameworkHelper.setZoomLevel(Self.kDefaultCarZoomLevel, animated: true)
+  }
+
+  private func recenterStandardCarCamera() {
+    restoreDefaultCarZoom()
     scheduleCarFollowReconciliation()
   }
 
@@ -708,17 +712,17 @@ final class CarPlayService: NSObject {
     isWaitingForCarMapViewport = false
     carMapViewportReadinessAttempts = 0
     isCarMapViewportReady = true
-    if needsDefaultCameraRestoreOnViewportReady {
-      restoreStandardCarCamera()
+    if needsDefaultZoomRestoreOnViewportReady {
+      restoreDefaultCarZoom()
     } else {
       applyDefaultCarZoomIfNeeded()
-      scheduleCarFollowReconciliation()
     }
+    scheduleCarFollowReconciliation()
   }
 
   func switchMyPositionModeFromCarPlayControl() {
     if currentPositionMode == .notFollow || currentPositionMode == .notFollowNoPosition {
-      restoreStandardCarCamera()
+      recenterStandardCarCamera()
       return
     }
     followPolicy.recordExplicitModeSwitch(from: currentPositionMode)
@@ -726,7 +730,7 @@ final class CarPlayService: NSObject {
   }
 
   func recenterFromCarPlayControl() {
-    restoreStandardCarCamera()
+    recenterStandardCarCamera()
   }
 
   // MARK: - Dashboard scene
@@ -861,7 +865,7 @@ final class CarPlayService: NSObject {
       carplayVC.hideSpeedControl()
     }
     updateMapTemplateUIToBase()
-    restoreStandardCarCamera()
+    restoreDefaultCarZoom()
   }
 
   func updateCameraUI(isCameraOnRoute: Bool, speedLimitMps limit: Double?) {
@@ -1076,7 +1080,7 @@ extension CarPlayService: CPMapTemplateDelegate {
     } else {
       MapTemplateBuilder.configureBaseUI(mapTemplate: mapTemplate)
     }
-    restoreStandardCarCamera()
+    recenterStandardCarCamera()
   }
 
   @objc(mapTemplate:panEndedWithDirection:)
@@ -1317,7 +1321,7 @@ extension CarPlayService: CarPlayRouterListener {
       carplayVC.hideSpeedControl()
     }
     updateMapTemplateUIToTripFinished(trip)
-    restoreStandardCarCamera()
+    restoreDefaultCarZoom()
   }
 }
 
@@ -1516,7 +1520,7 @@ extension CarPlayService {
     let noAction = CPAlertAction(title: L("cancel"), style: .cancel, handler: { [unowned self] _ in
       self.router?.completeRouteAndRemovePoints()
       self.interfaceController?.dismissTemplate(animated: true)
-      self.restoreStandardCarCamera()
+      self.recenterStandardCarCamera()
     })
     let title = isTypeCorrect ? L("dialog_routing_rebuild_from_current_location_carplay") : L("dialog_routing_rebuild_for_vehicle_carplay")
     let alert = CPAlertTemplate(titleVariants: [title], actions: [noAction, yesAction])
