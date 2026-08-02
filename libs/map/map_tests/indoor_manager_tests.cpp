@@ -213,6 +213,28 @@ UNIT_CLASS_TEST(IndoorManagerTest, HoldDuringRouting)
   TEST(m_manager.GetViewportLevels().empty(), ());
 }
 
+UNIT_CLASS_TEST(IndoorManagerTest, IsNearActiveIndoorContext)
+{
+  m2::PointD const center(0.0, 0.0);
+
+  auto room0 = MakeIndoorRoom(center, "0");
+
+  BuildCountry("IndoorLand", [&](TestMwmBuilder & builder) { builder.Add(room0); });
+
+  // No active context yet: nothing counts as near.
+  TEST(!m_manager.IsNearActiveIndoorContext(center), ());
+
+  m_manager.UpdateViewport(MakeScreen(center, 17));
+  TEST_EQUAL(m_manager.GetViewportLevels(), std::vector<std::string>({"0"}), ());
+
+  // Right on top of the building: near.
+  TEST(m_manager.IsNearActiveIndoorContext(center), ());
+  // Far away (well beyond the ~5 m proximity margin): not near. This is what lets an indoor
+  // context held during navigation actually clear once the trip has moved well past the building,
+  // instead of staying stuck for the rest of the route.
+  TEST(!m_manager.IsNearActiveIndoorContext(m2::PointD(1.0, 1.0)), ());
+}
+
 UNIT_CLASS_TEST(IndoorManagerTest, ClosestToGroundWhenNoGroundFloor)
 {
   m2::PointD const center(0.0, 0.0);

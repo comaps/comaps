@@ -1631,9 +1631,13 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   });
   m_indoorManager.SetShouldHoldPredicate([this]()
   {
-    // Preserve an already-active indoor context throughout route planning and navigation, so temporary
-    // automatic route-planning zooms/pans don't drop out of indoor mode
-    return m_routingManager.IsRoutingActive();
+    // Preserve an already-active indoor context so temporary automatic route-planning zooms/pans
+    // don't drop out of indoor mode, but only while still near the building the context is for —
+    // otherwise indoor mode would stay stuck for the rest of the trip once it triggers once.
+    if (!m_routingManager.IsRoutingActive())
+      return false;
+    auto const pos = GetCurrentPosition();
+    return pos && m_indoorManager.IsNearActiveIndoorContext(*pos);
   });
   m_searchMarks.SetDrapeEngine(make_ref(m_drapeEngine));
 

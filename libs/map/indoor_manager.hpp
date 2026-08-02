@@ -67,6 +67,11 @@ public:
   std::string GetActiveLevel() const;
   void SelectLevel(std::string const & level);
 
+  // True if |position| is still within/near the currently active indoor context's polygon rects.
+  // Used by the ShouldHold predicate so an active context is preserved only while the user is
+  // actually near the building, not for an entire navigation session regardless of distance.
+  bool IsNearActiveIndoorContext(m2::PointD const & position) const;
+
 private:
   void ScheduleScan(m2::RectD const & rect);
   void ApplyScanResult(uint64_t generation, std::vector<double> && levels,

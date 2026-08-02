@@ -167,6 +167,20 @@ void IndoorManager::SelectLevel(std::string const & level)
   NotifyListener();
 }
 
+bool IndoorManager::IsNearActiveIndoorContext(m2::PointD const & position) const
+{
+  // Same ~5 m margin as the POI proximity filter in drape_frontend/indoor_filter.hpp.
+  double constexpr kProximityDeg = 0.00005;
+  for (auto const & r : m_indoorPolygonRects)
+  {
+    m2::RectD const expanded(r.minX() - kProximityDeg, r.minY() - kProximityDeg, r.maxX() + kProximityDeg,
+                             r.maxY() + kProximityDeg);
+    if (expanded.IsPointInside(position))
+      return true;
+  }
+  return false;
+}
+
 void IndoorManager::ScheduleScan(m2::RectD const & rect)
 {
   uint64_t const generation = ++m_generation;
