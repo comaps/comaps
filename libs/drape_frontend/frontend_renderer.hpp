@@ -116,7 +116,8 @@ public:
            ModelViewChangedHandler && modelViewChangedHandler, TapEventInfoHandler && tapEventHandler,
            UserPositionChangedHandler && positionChangedHandler, ref_ptr<RequestedTiles> requestedTiles,
            OverlaysShowStatsCallback && overlaysShowStatsCallback, bool allow3dBuildings, bool trafficEnabled,
-           bool blockTapEvents, std::vector<PostprocessRenderer::Effect> && enabledEffects,
+           bool blockTapEvents, bool showNonDownloaded,
+           std::vector<PostprocessRenderer::Effect> && enabledEffects,
            OnGraphicsContextInitialized const & onGraphicsContextInitialized,
            dp::RenderInjectionHandler && renderInjectionHandler)
       : BaseRenderer::Params(apiVersion, commutator, factory, texMng, onGraphicsContextInitialized)
@@ -130,6 +131,7 @@ public:
       , m_allow3dBuildings(allow3dBuildings)
       , m_trafficEnabled(trafficEnabled)
       , m_blockTapEvents(blockTapEvents)
+      , m_showNonDownloaded(showNonDownloaded)
       , m_enabledEffects(std::move(enabledEffects))
       , m_renderInjectionHandler(std::move(renderInjectionHandler))
     {}
@@ -144,6 +146,7 @@ public:
     bool m_allow3dBuildings;
     bool m_trafficEnabled;
     bool m_blockTapEvents;
+    bool m_showNonDownloaded;
     std::vector<PostprocessRenderer::Effect> m_enabledEffects;
     dp::RenderInjectionHandler m_renderInjectionHandler;
   };
@@ -362,6 +365,7 @@ private:
   bool m_isIsometry;
 
   bool m_blockTapEvents;
+  bool m_showNonDownloaded = false;
 
   bool m_choosePositionMode;
   bool m_screenshotMode;
