@@ -99,8 +99,8 @@ DrapeEngine::DrapeEngine(Params && params)
       std::move(mpParams), m_viewport, std::bind(&DrapeEngine::ModelViewChanged, this, _1),
       std::bind(&DrapeEngine::TapEvent, this, _1), std::bind(&DrapeEngine::UserPositionChanged, this, _1, _2),
       make_ref(m_requestedTiles), std::move(params.m_overlaysShowStatsCallback), params.m_allow3dBuildings,
-      params.m_trafficEnabled, params.m_blockTapEvents, std::move(effects), params.m_onGraphicsContextInitialized,
-      std::move(params.m_renderInjectionHandler));
+      params.m_trafficEnabled, params.m_blockTapEvents, params.m_showNonDownloaded, std::move(effects),
+      params.m_onGraphicsContextInitialized, std::move(params.m_renderInjectionHandler));
 
   BackendRenderer::Params brParams(params.m_apiVersion, frParams.m_commutator, frParams.m_oglContextFactory,
                                    frParams.m_texMng, params.m_model, params.m_model.UpdateCurrentCountryFn(),

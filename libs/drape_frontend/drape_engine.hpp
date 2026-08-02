@@ -72,7 +72,8 @@ public:
            MapDataProvider const & model, Hints const & hints, double vs, double fontsScaleFactor,
            gui::TWidgetsInitInfo && info, location::TMyPositionModeChanged && myPositionModeChanged,
            bool allow3dBuildings, bool trafficEnabled, bool isolinesEnabled, bool blockTapEvents,
-           bool showChoosePositionMark, std::vector<m2::TriangleD> && boundAreaTriangles, bool isRoutingActive,
+           bool showChoosePositionMark, bool showNonDownloaded,
+           std::vector<m2::TriangleD> && boundAreaTriangles, bool isRoutingActive,
            bool isAutozoomEnabled, bool simplifiedTrafficColors, std::optional<Arrow3dCustomDecl> arrow3dCustomDecl,
            OverlaysShowStatsCallback && overlaysShowStatsCallback,
            OnGraphicsContextInitialized && onGraphicsContextInitialized,
@@ -91,6 +92,7 @@ public:
       , m_isolinesEnabled(isolinesEnabled)
       , m_blockTapEvents(blockTapEvents)
       , m_showChoosePositionMark(showChoosePositionMark)
+      , m_showNonDownloaded(showNonDownloaded)
       , m_boundAreaTriangles(std::move(boundAreaTriangles))
       , m_isRoutingActive(isRoutingActive)
       , m_isAutozoomEnabled(isAutozoomEnabled)
@@ -116,6 +118,7 @@ public:
     bool m_isolinesEnabled;
     bool m_blockTapEvents;
     bool m_showChoosePositionMark;
+    bool m_showNonDownloaded;
     std::vector<m2::TriangleD> m_boundAreaTriangles;
     bool m_isRoutingActive;
     bool m_isAutozoomEnabled;
