@@ -23,6 +23,8 @@
 			<key>other</key>
 			<string>%lld leow</string>
 		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
 	</dict>
 	<key>bookmarks_detect_message</key>
 	<dict>
@@ -45,6 +47,8 @@
 			<key>other</key>
 			<string>Yth esa %lld restrennow kevys. Ty a yll gweles wosa treylyans.</string>
 		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
 	</dict>
 	<key>tracks</key>
 	<dict>
@@ -67,6 +71,8 @@
 			<key>other</key>
 			<string>%lld lerghow</string>
 		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
 	</dict>
 	<key>population</key>
 	<dict>
@@ -89,6 +95,8 @@
 			<key>other</key>
 			<string>%lld teythyogyon</string>
 		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
 	</dict>
 	<key>rooms</key>
 	<dict>
@@ -110,6 +118,56 @@
 			<string>%lld stevellow</string>
 			<key>other</key>
 			<string>%lld stevellow</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld dedicated disabled spaces</string>
+			<key>one</key>
+			<string>%lld dedicated disabled space</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld spaces with chargers</string>
+			<key>one</key>
+			<string>%lld space with a charger</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld spaces</string>
+			<key>one</key>
+			<string>%lld space</string>
 		</dict>
 	</dict>
 </dict>

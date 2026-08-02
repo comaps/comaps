@@ -33,13 +33,13 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
 			<key>zero</key>
-			<string>S&apos;han trobat %lld fitxers. Podeu veure&apos;ls després de la conversió.</string>
+			<string>S'han trobat %lld fitxers. Podeu veure'ls després de la conversió.</string>
 			<key>one</key>
-			<string>S&apos;ha trobat %lld fitxer. Podeu veure&apos;l després de la conversió.</string>
+			<string>S'ha trobat %lld fitxer. Podeu veure'l després de la conversió.</string>
 			<key>many</key>
-			<string>S&apos;han trobat %lld fitxers. Podeu veure&apos;ls després de la conversió.</string>
+			<string>S'han trobat %lld fitxers. Podeu veure'ls després de la conversió.</string>
 			<key>other</key>
-			<string>S&apos;han trobat %lld fitxers. Podeu veure&apos;ls després de la conversió.</string>
+			<string>S'han trobat %lld fitxers. Podeu veure'ls després de la conversió.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
@@ -60,38 +60,6 @@
 			<string>%lld recorreguts</string>
 			<key>other</key>
 			<string>%lld recorreguts</string>
-		</dict>
-	</dict>
-	<key>population</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@nevertranslate@</string>
-		<key>nevertranslate</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>lld</string>
-			<key>other</key>
-			<string>%lld residents</string>
-			<key>one</key>
-			<string>%lld resident</string>
-		</dict>
-	</dict>
-	<key>rooms</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@nevertranslate@</string>
-		<key>nevertranslate</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>lld</string>
-			<key>other</key>
-			<string>%lld rooms</string>
-			<key>one</key>
-			<string>%lld room</string>
 		</dict>
 	</dict>
 	<key>population</key>
@@ -132,6 +100,54 @@
 			<string>%lld habitacions</string>
 			<key>other</key>
 			<string>%lld habitacions</string>
+		</dict>
+	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld dedicated disabled spaces</string>
+			<key>one</key>
+			<string>%lld dedicated disabled space</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld spaces with chargers</string>
+			<key>one</key>
+			<string>%lld space with a charger</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld spaces</string>
+			<key>one</key>
+			<string>%lld space</string>
 		</dict>
 	</dict>
 </dict>

@@ -16,6 +16,8 @@
 			<string>无书签</string>
 			<key>other</key>
 			<string>%lld 个书签</string>
+			<key>one</key>
+			<string>%lld place</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
@@ -32,6 +34,8 @@
 			<string>未找到文件。</string>
 			<key>other</key>
 			<string>找到 %lld 个文件，转换后您可以看到它们。</string>
+			<key>one</key>
+			<string>%lld file was found. You can see it after conversion.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
@@ -48,6 +52,8 @@
 			<string>无轨迹</string>
 			<key>other</key>
 			<string>%lld 个轨迹</string>
+			<key>one</key>
+			<string>%lld track</string>
 		</dict>
 	</dict>
 	<key>population</key>
@@ -80,6 +86,54 @@
 			<string>%lld rooms</string>
 			<key>one</key>
 			<string>%lld room</string>
+		</dict>
+	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld dedicated disabled spaces</string>
+			<key>one</key>
+			<string>%lld dedicated disabled space</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld spaces with chargers</string>
+			<key>one</key>
+			<string>%lld space with a charger</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld spaces</string>
+			<key>one</key>
+			<string>%lld space</string>
 		</dict>
 	</dict>
 </dict>

@@ -94,6 +94,8 @@
 	</dict>
 	<key>capacity_disabled</key>
 	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
 		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
@@ -104,6 +106,38 @@
 			<string>%lld ausgewiesener Behindertenparkplatz</string>
 			<key>other</key>
 			<string>%lld ausgewiesene Behindertenparkplätze</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld Stellplatz mit Ladestation</string>
+			<key>other</key>
+			<string>%lld Stellplätze mit Ladestationen</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld Stellplatz</string>
+			<key>other</key>
+			<string>%lld Stellplätze</string>
 		</dict>
 	</dict>
 </dict>

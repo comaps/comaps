@@ -27,6 +27,7 @@ on:
       - libs/pyhelpers/**
       - qt*/**
       - tools/**
+      - '!tools/python/ios_copy_english_translations.py'
 
 jobs:
   ios-check:
@@ -58,6 +59,9 @@ jobs:
 
       - name: Checkout sources
         uses: actions/checkout@v6
+
+      - name: Validate iOS plural translations
+        run: python3 tools/python/ios_copy_english_translations.py --check --file-type stringsdict
 
       - name: Parallel submodules checkout
         shell: bash

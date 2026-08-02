@@ -20,6 +20,7 @@ on:
       - iphone/**
       - '!iphone/metadata/**'
       - '!**/*_tests/**'
+      - tools/python/ios_copy_english_translations.py
       - private.h
       - xcode/**
     branches:
@@ -43,6 +44,9 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
+
+      - name: Validate iOS plural translations
+        run: python3 tools/python/ios_copy_english_translations.py --check --file-type stringsdict
 
       - name: Update submodules
         uses: ./.forgejo/actions/update-submodules

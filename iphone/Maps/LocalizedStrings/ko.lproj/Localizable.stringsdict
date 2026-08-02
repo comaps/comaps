@@ -14,6 +14,10 @@
 			<string>lld</string>
 			<key>other</key>
 			<string>%lld 북마크</string>
+			<key>zero</key>
+			<string>Zero places</string>
+			<key>one</key>
+			<string>%lld place</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
@@ -28,6 +32,8 @@
 			<string>lld</string>
 			<key>other</key>
 			<string>%lld 개의 파일이 발견되었습니다. 변환 후 확인할 수 있습니다.</string>
+			<key>one</key>
+			<string>%lld file was found. You can see it after conversion.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
@@ -42,6 +48,8 @@
 			<string>lld</string>
 			<key>other</key>
 			<string>%lld 추적</string>
+			<key>one</key>
+			<string>%lld track</string>
 		</dict>
 	</dict>
 	<key>population</key>
@@ -74,6 +82,54 @@
 			<string>%lld rooms</string>
 			<key>one</key>
 			<string>%lld room</string>
+		</dict>
+	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld dedicated disabled spaces</string>
+			<key>one</key>
+			<string>%lld dedicated disabled space</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld spaces with chargers</string>
+			<key>one</key>
+			<string>%lld space with a charger</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld spaces</string>
+			<key>one</key>
+			<string>%lld space</string>
 		</dict>
 	</dict>
 </dict>

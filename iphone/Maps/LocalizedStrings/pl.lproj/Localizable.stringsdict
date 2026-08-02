@@ -20,6 +20,8 @@
 			<string>%lld zakładki</string>
 			<key>many</key>
 			<string>%lld zakładek</string>
+			<key>other</key>
+			<string>%lld places</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
@@ -40,6 +42,8 @@
 			<string>Znaleziono %lld pliki. Zobaczysz je po konwersji.</string>
 			<key>many</key>
 			<string>Znaleziono %lld plików. Zobaczysz je po konwersji.</string>
+			<key>other</key>
+			<string>%lld files were found. You can see them after conversion.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
@@ -60,6 +64,8 @@
 			<string>%lld trasy</string>
 			<key>many</key>
 			<string>%lld tras</string>
+			<key>other</key>
+			<string>%lld tracks</string>
 		</dict>
 	</dict>
 	<key>population</key>
@@ -80,6 +86,8 @@
 			<string>%lld mieszkańców</string>
 			<key>many</key>
 			<string>%lld mieszkańców</string>
+			<key>other</key>
+			<string>%lld residents</string>
 		</dict>
 	</dict>
 	<key>rooms</key>
@@ -100,6 +108,56 @@
 			<string>%lld pokoje</string>
 			<key>many</key>
 			<string>%lld pokoi</string>
+			<key>other</key>
+			<string>%lld rooms</string>
+		</dict>
+	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld dedicated disabled spaces</string>
+			<key>one</key>
+			<string>%lld dedicated disabled space</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld spaces with chargers</string>
+			<key>one</key>
+			<string>%lld space with a charger</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld spaces</string>
+			<key>one</key>
+			<string>%lld space</string>
 		</dict>
 	</dict>
 </dict>
