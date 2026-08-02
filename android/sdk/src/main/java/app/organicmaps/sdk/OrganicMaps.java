@@ -269,10 +269,10 @@ public final class OrganicMaps implements DefaultLifecycleObserver
       // Maps asset filename → countries.txt country ID (= destination filename).
       Map<String, String> bundledMaps = new LinkedHashMap<>();
       bundledMaps.put("Berlin.mwm",        "Germany_Berlin.mwm");
-      bundledMaps.put("MallOfAmerica.mwm",  "US_Minnesota_Minneapolis.mwm");
       bundledMaps.put("SanFrancisco.mwm",   "US_California_Santa_Clara_Palo Alto.mwm");
       bundledMaps.put("SantaRosa.mwm",      "US_California_Chico.mwm");
       bundledMaps.put("France_Ile-de-France_Seine-et-Marne.mwm", "France_Ile-de-France_Seine-et-Marne.mwm");
+      bundledMaps.put("Salem.mwm",          "US_Oregon_Portland.mwm");
 
       // Remove stale copies (old fake names or old version dirs) from every version directory
       // so Storage never encounters a fake country at m_currentVersion (which would crash).

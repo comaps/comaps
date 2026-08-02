@@ -66,7 +66,9 @@ UNIT_TEST(IndoorFilter_ShouldSkipIndoorFeature)
   // when viewing a nearby mall with floors 0-3.
   TEST(!df::ShouldSkipIndoorFeature(poi, "-1", 1.0, poiCenter, {nearbyPoly}, {0.0, 1.0, 2.0, 3.0}), ());
 
-  // When no level is active (selector inactive / panned away), nothing is skipped.
+  // No active level hides indoor.
+  TEST(df::ShouldSkipIndoorFeature(indoorRoom, "0;1", indoor::kNoActiveLevel, m2::PointD(0, 0), {}, {}), ());
+  // Others still visible.
   TEST(!df::ShouldSkipIndoorFeature(poi, "2", indoor::kNoActiveLevel, m2::PointD(0, 0), {}, {}), ());
-  TEST(!df::ShouldSkipIndoorFeature(indoorRoom, "0;1", indoor::kNoActiveLevel, m2::PointD(0, 0), {}, {}), ());
+  TEST(!df::ShouldSkipIndoorFeature(building, "5", indoor::kNoActiveLevel, m2::PointD(0, 0), {}, {}), ());
 }

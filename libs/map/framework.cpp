@@ -138,6 +138,9 @@ auto constexpr kLargeFontsScaleFactor = 1.6;
 size_t constexpr kMaxTrafficCacheSizeBytes = 64 /* Mb */ * 1024 * 1024;
 double constexpr kCloseDistance = 1.0;
 
+// Max speed for free-browse entry.
+double constexpr kIndoorFreeBrowseMaxSpeedMps = 0.7;  // 2.5 km/h
+
 // TODO!
 // To adjust GpsTrackFilter was added secret command "?gpstrackaccuracy:xxx;"
 // where xxx is a new value for horizontal accuracy.
@@ -207,6 +210,9 @@ void Framework::OnLocationUpdate(GpsInfo const & info)
 #endif
 
   m_routingManager.OnLocationUpdate(rInfo);
+
+  if (rInfo.HasSpeed())
+    m_lastSpeedMps = rInfo.m_speed;
 
   bool const isRoutingActive = m_routingManager.IsRoutingActive();
 
@@ -1621,20 +1627,25 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   });
   m_indoorManager.SetCanEnterPredicate([this]()
   {
-    // Freely enter indoor mode while browsing or planning a route; during active navigation only do
-    // so on foot (pedestrian/transit), so a driver passing buildings doesn't get indoor popups. An
-    // already-active indoor context is preserved regardless (the predicate isn't consulted then).
-    if (!m_routingManager.IsRoutingFollowing())
+    // Skip on car screens.
+    if (m_isCarScreenMode)
+      return false;
+    // Car routing skips indoor mode.
+    if (m_routingManager.IsRoutingActive())
+      return m_routingManager.GetCurrentRouterType() != routing::RouterType::Vehicle;
+    // Speed check only while auto-following.
+    auto const mode = GetMyPositionMode();
+    bool const isAutoFollowing = mode == location::Follow || mode == location::FollowAndRotate;
+    if (!isAutoFollowing)
       return true;
-    auto const router = m_routingManager.GetCurrentRouterType();
-    return router == routing::RouterType::Pedestrian || router == routing::RouterType::Transit;
+    return m_lastSpeedMps <= kIndoorFreeBrowseMaxSpeedMps;
   });
   m_indoorManager.SetShouldHoldPredicate([this]()
   {
-    // Preserve an already-active indoor context so temporary automatic route-planning zooms/pans
-    // don't drop out of indoor mode, but only while still near the building the context is for —
-    // otherwise indoor mode would stay stuck for the rest of the trip once it triggers once.
-    if (!m_routingManager.IsRoutingActive())
+    // Hold near building while routing.
+    // Never hold for car mode.
+    if (m_isCarScreenMode || !m_routingManager.IsRoutingActive() ||
+        m_routingManager.GetCurrentRouterType() == routing::RouterType::Vehicle)
       return false;
     auto const pos = GetCurrentPosition();
     return pos && m_indoorManager.IsNearActiveIndoorContext(*pos);

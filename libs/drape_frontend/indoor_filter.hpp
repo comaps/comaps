@@ -12,28 +12,21 @@
 
 namespace df
 {
-// Returns true if a feature isn't part of the active indoor level and should be skipped at rendering
+// True if feature should be hidden.
 //
-// Indoor-typed features (indoor=*) are always filtered by the active level.
-//
-// Non-indoor features that carry a level=* tag (POIs, stairs, etc.) are filtered ONLY when:
-//   1. Their center is within ~5 m of an indoor polygon rect AND
-//   2. Their level intersects the building's available floor set.
-// If either is false the feature stays visible. This prevents transit platforms or external
-// footways from being hidden just because they happen to share a level tag with a nearby mall.
-//
-// The building shell (building / building:part) is never filtered: it spans all floors.
-//
-// When no indoor level is active (kNoActiveLevel) nothing is skipped.
+// Indoor types hidden if inactive.
+// Leveled POIs skipped near mismatch.
+// Building shell always visible.
 inline bool ShouldSkipIndoorFeature(feature::TypesHolder const & types, std::string_view levelMeta,
                                     double activeLevel, m2::PointD const & featureCenter,
                                     std::vector<m2::RectD> const & indoorPolygonRects,
                                     std::vector<double> const & availableLevels)
 {
-  if (!indoor::HasActiveLevel(activeLevel))
-    return false;
-
   bool const isIndoor = ftypes::IsIndoorChecker::Instance()(types);
+
+  if (!indoor::HasActiveLevel(activeLevel))
+    return isIndoor;
+
   bool const isLeveled = !levelMeta.empty() && !ftypes::IsBuildingChecker::Instance()(types) &&
                          !ftypes::IsBuildingPartChecker::Instance()(types);
   if (!isIndoor && !isLeveled)

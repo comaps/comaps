@@ -69,6 +69,7 @@
 #include <functional>
 #include <memory>
 #include <string>
+#include <utility>
 #include <vector>
 
 class FeatureType;
@@ -802,4 +803,7 @@ public:
 private:
   void Refresh3dMode();
   bool m_wasRoutingActive = false;
+
+  // Last GPS speed sample.
+  double m_lastSpeedMps = -1.0;
 };
