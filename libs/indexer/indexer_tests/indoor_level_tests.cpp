@@ -62,10 +62,51 @@ UNIT_TEST(IndoorLevel_LevelsContain)
 UNIT_TEST(IndoorLevel_FormatLevel)
 {
   TEST_EQUAL(indoor::FormatLevel(0.0), "0", ());
+  TEST_EQUAL(indoor::FormatLevel(0.2), "0.2", ());
+  TEST_EQUAL(indoor::FormatLevel(0.25), "0.25", ());
   TEST_EQUAL(indoor::FormatLevel(1.0), "1", ());
-  TEST_EQUAL(indoor::FormatLevel(-1.0), "-1", ());
+  TEST_EQUAL(indoor::FormatLevel(1.2), "1.2", ());
+  TEST_EQUAL(indoor::FormatLevel(1.25), "1.25", ());
   TEST_EQUAL(indoor::FormatLevel(1.5), "1.5", ());
+  TEST_EQUAL(indoor::FormatLevel(-0.2), "-0.2", ());
+  TEST_EQUAL(indoor::FormatLevel(-0.25), "-0.25", ());
   TEST_EQUAL(indoor::FormatLevel(-0.5), "-0.5", ());
+  TEST_EQUAL(indoor::FormatLevel(-1.0), "-1", ());
+  TEST_EQUAL(indoor::FormatLevel(-1.2), "-1.2", ());
+  TEST_EQUAL(indoor::FormatLevel(-1.25), "-1.25", ());
+}
+
+UNIT_TEST(IndoorLevel_FormatLevelLocale)
+{
+  double d1 = 0.25; // fractional test
+  double d2 = 1.00; // whole test
+
+  struct TestData
+  {
+    std::string localeName;
+    std::string d1String;
+    std::string d2String;
+  };
+
+  TestData testData[] = {// Locale, Fractional, Whole
+                         {"en_US.UTF-8", "0.25", "1"},
+                         {"es_ES.UTF-8", "0,25", "1"},
+                         {"fr_FR.UTF-8", "0,25", "1"},
+                         {"ru_RU.UTF-8", "0,25", "1"}};
+
+  for (TestData const & data : testData)
+  {
+    Locale loc;
+
+    if (!GetLocale(data.localeName, loc))
+    {
+      std::cout << "Locale '" << data.localeName << "' not found!! Skipping test..." << std::endl;
+      continue;
+    }
+
+    TEST_EQUAL(indoor::FormatLevel(d1), data.d1String, ());
+    TEST_EQUAL(indoor::FormatLevel(d2), data.d2String, ());
+  }
 }
 
 UNIT_TEST(IndoorLevel_IsIndoorChecker)

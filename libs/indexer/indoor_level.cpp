@@ -11,8 +11,6 @@ namespace indoor
 {
 namespace
 {
-double constexpr kLevelEpsilon = 1e-9;
-
 // Splits a token like "0-2" or "-2--1" into a from-to range.
 // An interior '-' is a range separator; a leading '-' is a sign.
 bool ParseRange(std::string_view token, double & from, double & to)
@@ -36,7 +34,7 @@ bool ParseRange(std::string_view token, double & from, double & to)
 void AppendUnique(std::vector<double> & levels, double level)
 {
   for (double const existing : levels)
-    if (std::fabs(existing - level) < kLevelEpsilon)
+    if (LevelsEqual(existing, level))
       return;
   levels.push_back(level);
 }
@@ -96,20 +94,16 @@ bool LevelsContain(std::string_view s, double level)
     return std::fabs(level) < kLevelEpsilon;
 
   for (double const l : levels)
-    if (std::fabs(l - level) < kLevelEpsilon)
+    if (LevelsEqual(l, level))
       return true;
   return false;
 }
 
 std::string FormatLevel(double level)
 {
-  if (std::fabs(level - std::round(level)) < kLevelEpsilon)
-    return std::to_string(static_cast<int64_t>(std::llround(level)));
+  if (LevelsEqual(level, std::round(level)))
+    return ToStringPrecision(level, 0);
 
-  // Classic locale so a half-level renders as "0.5" regardless of the process locale (never "0,5").
-  std::ostringstream ss;
-  ss.imbue(std::locale::classic());
-  ss << level;
-  return ss.str();
+  return ToStringPrecision(level, 2);
 }
 }  // namespace indoor

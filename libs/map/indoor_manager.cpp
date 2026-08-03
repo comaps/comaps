@@ -21,15 +21,10 @@
 namespace
 {
 int constexpr kMinIndoorZoom = 17;
-double constexpr kLevelEpsilon = 1e-9;
 // City-sized polygons or transit networks sometimes tagged indoor=* would trigger indoor mode across
 // a wide area. Skip any feature whose bounding rect exceeds this. The world's largest indoor spaces
 // (airport terminals, mega-malls) should be well under 0.1°.
 double constexpr kMaxIndoorRectDeg = 0.1;
-bool LevelsEqual(double lhs, double rhs)
-{
-  return std::fabs(lhs - rhs) < kLevelEpsilon;
-}
 // True if triangle |a,b,c| actually overlaps |rect| (not just their bounding boxes).
 // Catches a vertex inside the rect, the rect fully inside the triangle, or an edge crossing.
 bool TriangleIntersectsRect(m2::RectD const & rect, m2::PointD const & a, m2::PointD const & b,
@@ -58,7 +53,7 @@ double ClosestToGround(std::vector<double> const & levels)
   return *std::min_element(levels.begin(), levels.end(), [](double lhs, double rhs)
   {
     double const dl = std::fabs(lhs), dr = std::fabs(rhs);
-    if (!LevelsEqual(dl, dr))
+    if (!indoor::LevelsEqual(dl, dr))
       return dl < dr;
     return lhs > rhs;
   });
@@ -163,7 +158,7 @@ void IndoorManager::SelectLevel(std::string const & level)
   if (parsed.size() != 1)
     return;
 
-  SetActiveLevel(parsed.front(), true /* notifyDrape */);
+  SetActiveLevel(parsed.front());
   NotifyListener();
 }
 
@@ -234,12 +229,12 @@ void IndoorManager::ScheduleScan(m2::RectD const & rect)
 
       auto parsed = indoor::ParseLevels(levelMeta);
       if (parsed.empty())
-        parsed.push_back(0.0);  // Indoor feature without a level is on the ground floor.
+        parsed.push_back(0.0);  // Indoor feature without a valid level is considered on the ground floor.
 
       for (double const level : parsed)
       {
         if (std::none_of(levels.begin(), levels.end(),
-                         [level](double existing) { return LevelsEqual(existing, level); }))
+                         [level](double existing) { return indoor::LevelsEqual(existing, level); }))
           levels.push_back(level);
       }
       // Bounding rect for proximity filtering of level-tagged POIs.
@@ -310,7 +305,7 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
   // mode now (the viewport just gained indoor data).
   bool const entering = !active;
   bool const activePresent = std::any_of(m_levels.begin(), m_levels.end(),
-                                         [this](double level) { return LevelsEqual(level, m_activeLevel); });
+                                         [this](double level) { return indoor::LevelsEqual(level, m_activeLevel); });
   // On entering a building, auto-select the floor closest to ground level (0). Also fall back to it
   // when the remembered floor isn't present in the newly focused building.
   if (entering || !activePresent)
@@ -325,14 +320,13 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
   NotifyListener();
 }
 
-void IndoorManager::SetActiveLevel(double level, bool notifyDrape)
+void IndoorManager::SetActiveLevel(double level)
 {
-  if (LevelsEqual(m_activeLevel, level))
+  if (indoor::LevelsEqual(m_activeLevel, level))
     return;
 
   m_activeLevel = level;
-  if (notifyDrape)
-    m_drapeEngine.SafeCall(&df::DrapeEngine::SetIndoorLevel, level, m_levels, m_indoorPolygonRects);
+  m_drapeEngine.SafeCall(&df::DrapeEngine::SetIndoorLevel, level, m_levels, m_indoorPolygonRects);
 }
 
 void IndoorManager::NotifyListener()

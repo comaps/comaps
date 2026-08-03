@@ -65,6 +65,8 @@ public:
 
   std::vector<std::string> GetViewportLevels() const;
   std::string GetActiveLevel() const;
+
+  // Set the active level to the specified level, if valid. Otherwise do nothing.
   void SelectLevel(std::string const & level);
 
   // True if |position| is still within/near the currently active indoor context's polygon rects.

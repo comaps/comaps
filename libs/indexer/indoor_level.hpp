@@ -12,6 +12,14 @@ namespace indoor
 // panned away from an indoor context. Features are never level-filtered against this value.
 inline constexpr double kNoActiveLevel = std::numeric_limits<double>::quiet_NaN();
 
+// Minimum step between two levels before considering them the same
+double constexpr kLevelEpsilon = 0.05;
+
+inline bool LevelsEqual(double lhs, double rhs)
+{
+  return std::fabs(lhs - rhs) < kLevelEpsilon;
+}
+
 // True if |level| is a real, active indoor level rather than the kNoActiveLevel sentinel.
 inline bool HasActiveLevel(double level) { return !std::isnan(level); }
 
@@ -24,6 +32,7 @@ std::vector<double> ParseLevels(std::string_view s);
 // A missing or unparsable value is treated as level 0 (ground floor)
 bool LevelsContain(std::string_view s, double level);
 
-// Formats a level for UI display: "0", "-1", "1.5".
+// Formats a level for UI display: "0", "-1", "1.5", "0.25".
+// Uses locale to return period or comma as appropriate
 std::string FormatLevel(double level);
 }  // namespace indoor
