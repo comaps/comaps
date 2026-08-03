@@ -27,6 +27,7 @@ namespace editor
 {
 DECLARE_EXCEPTION(XMLFeatureError, RootException);
 DECLARE_EXCEPTION(InvalidXML, XMLFeatureError);
+DECLARE_EXCEPTION(NoId, XMLFeatureError);
 DECLARE_EXCEPTION(NoLatLon, XMLFeatureError);
 DECLARE_EXCEPTION(NoXY, XMLFeatureError);
 DECLARE_EXCEPTION(NoTimestamp, XMLFeatureError);
@@ -77,6 +78,8 @@ public:
 
   Type GetType() const;
   std::string GetTypeString() const;
+
+  std::string GetOSMIdString() const;
 
   m2::PointD GetMercatorCenter() const;
   ms::LatLon GetCenter() const;

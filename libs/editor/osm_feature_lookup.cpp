@@ -90,6 +90,19 @@ void OsmFeatureLookup::LoadXmlFromOSM(ms::LatLon const & min, ms::LatLon const &
             ("Can't parse OSM server response for GetXmlFeaturesInRect request", response.second));
 }
 
+editor::XMLFeature OsmFeatureLookup::GetMatchingFeatureFromOSM(osm::MapObject const & o) const
+{
+  ASSERT_NOT_EQUAL(o.GetGeomType(), feature::GeomType::Line, ("Line features are not supported yet."));
+  if (o.GetGeomType() == feature::GeomType::Point)
+    return GetMatchingNodeFeatureFromOSM(o.GetMercator());
+
+  auto const & geometry = o.GetTriangesAsPoints();
+
+  ASSERT_GREATER_OR_EQUAL(geometry.size(), 3, ("Is it an area feature?"));
+
+  return GetMatchingAreaFeatureFromOSM(geometry);
+}
+
 editor::XMLFeature OsmFeatureLookup::GetMatchingNodeFeatureFromOSM(m2::PointD const & center) const
 {
   // Match with OSM node.

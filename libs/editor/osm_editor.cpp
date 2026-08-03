@@ -105,19 +105,6 @@ bool NeedsUpload(string const & uploadStatus)
          uploadStatus != kFailed;
 }
 
-XMLFeature GetMatchingFeatureFromOSM(osm::OsmFeatureLookup const & lookup, osm::EditableMapObject const & o)
-{
-  ASSERT_NOT_EQUAL(o.GetGeomType(), feature::GeomType::Line, ("Line features are not supported yet."));
-  if (o.GetGeomType() == feature::GeomType::Point)
-    return lookup.GetMatchingNodeFeatureFromOSM(o.GetMercator());
-
-  auto const & geometry = o.GetTriangesAsPoints();
-
-  ASSERT_GREATER_OR_EQUAL(geometry.size(), 3, ("Is it an area feature?"));
-
-  return lookup.GetMatchingAreaFeatureFromOSM(geometry);
-}
-
 uint64_t GetMwmCreationTimeByMwmId(MwmSet::MwmId const & mwmId)
 {
   return mwmId.GetInfo()->m_version.GetSecondsSinceEpoch();
@@ -687,7 +674,7 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
           case EditingLifecycle::MODIFIED:
           {
             // Load existing OSM object (Throws, see catch below)
-            XMLFeature feature = GetMatchingFeatureFromOSM(lookup, fti.m_object);
+            XMLFeature feature = lookup.GetMatchingFeatureFromOSM(fti.m_object);
 
             // Update tags of XMLFeature
             UpdateXMLFeatureTags(feature, journal, changeset);
@@ -718,7 +705,7 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
             continue;
           }
           LOG(LINFO, ("DELETED OSM Feature ID", fti.m_object.GetID()));
-          changeset.Delete(GetMatchingFeatureFromOSM(lookup, *originalObjectPtr));
+          changeset.Delete(lookup.GetMatchingFeatureFromOSM(*originalObjectPtr));
           break;
         }
         uploadInfo.m_uploadStatus = kUploaded;

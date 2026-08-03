@@ -272,6 +272,7 @@ UNIT_TEST(XMLFeature_FromOSM)
   TEST_EQUAL(node.GetAttribute("id"), "4", ());
   TEST_EQUAL(node.GetTagValue("test"), "value", ());
   TEST_EQUAL(features[2].GetTagValue("hi"), "test", ());
+  TEST_EQUAL(features[2].GetOSMIdString(), "3", ());
 }
 
 UNIT_TEST(XMLFeature_FromXmlNode)
@@ -287,10 +288,10 @@ UNIT_TEST(XMLFeature_FromXmlNode)
   pugi::xml_document doc;
   doc.load_string(kTestNode);
   XMLFeature const feature(doc.child("osm").child("node"));
-  TEST_EQUAL(feature.GetAttribute("id"), "4", ());
+  TEST_EQUAL(feature.GetOSMIdString(), "4", ());
   TEST_EQUAL(feature.GetTagValue("amenity"), "fountain", ());
   XMLFeature const copy(feature);
-  TEST_EQUAL(copy.GetAttribute("id"), "4", ());
+  TEST_EQUAL(copy.GetOSMIdString(), "4", ());
   TEST_EQUAL(copy.GetTagValue("amenity"), "fountain", ());
 }
 

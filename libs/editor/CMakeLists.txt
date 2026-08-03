@@ -30,6 +30,8 @@ set(SRC
   osm_editor.hpp
   osm_feature_lookup.cpp
   osm_feature_lookup.hpp
+  review.cpp
+  review.hpp
   server_api.cpp
   server_api.hpp
   ui2oh.cpp
