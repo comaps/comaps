@@ -629,6 +629,16 @@ bool Framework::SetAccessibilityUpdateCallback(std::optional<dp::AccessibilityPr
   return !cb;
 }
 
+void Framework::SetAccessibilityFreezeFrame(bool freeze)
+{
+  // we could just freeze the accessibility presenter, but better to freeze the whole drape engine so that the screen aligns
+  // (e.g. for low vision users who still use sight during touch exploration)
+  if (freeze)
+    m_work.SetRenderingDisabled(false /* destroySurface */);
+  else
+    m_work.SetRenderingEnabled();
+}
+
 ::Framework * Framework::NativeFramework()
 {
   return &m_work;

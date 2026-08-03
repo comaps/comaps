@@ -267,4 +267,10 @@ JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Map_nativeSetAccessibilityUp
   g_framework->SetAccessibilityUpdateCallback({});
   return true;
 }
+
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Map_nativeSetAccessibilityFreezeFrame(JNIEnv * env, jclass,
+                                                                                      jboolean freeze)
+{
+  g_framework->SetAccessibilityFreezeFrame(freeze);
+}
 }  // extern "C"

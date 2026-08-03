@@ -1403,6 +1403,9 @@ public class MwmActivity extends BaseMwmFragmentActivity
   @Override
   public boolean dispatchGenericMotionEvent(MotionEvent event)
   {
+    if (mDisplayManager.isDeviceDisplayUsed())
+      mMapController.getView().dispatchWindowMotionEvent(event);
+
     if (event.getActionMasked() == MotionEvent.ACTION_SCROLL)
     {
       int exponent = event.getAxisValue(MotionEvent.AXIS_VSCROLL) < 0 ? -1 : 1;

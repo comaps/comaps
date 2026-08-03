@@ -358,6 +358,11 @@ public final class Map
     return nativeGetAllAccessibilityNodes();
   }
 
+  public static void setAccessibilityFreezeFrame(boolean freeze)
+  {
+    nativeSetAccessibilityFreezeFrame(freeze);
+  }
+
   public static boolean isEngineCreated()
   {
     return nativeIsEngineCreated();
@@ -470,4 +475,6 @@ public final class Map
   private static native void nativeGetAccessibilityNode(int id, Framework.AccessibilityNodeContext recycle);
 
   private static native boolean nativeSetAccessibilityUpdateCallback(AccessibilityUpdateCallback callback);
+
+  private static native boolean nativeSetAccessibilityFreezeFrame(boolean freeze);
 }

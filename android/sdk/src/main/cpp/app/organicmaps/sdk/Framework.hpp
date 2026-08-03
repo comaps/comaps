@@ -149,6 +149,8 @@ public:
 
   bool SetAccessibilityUpdateCallback(std::optional<dp::AccessibilityPresenter::TUpdateCallback> const & cb);
 
+  void SetAccessibilityFreezeFrame(bool freeze);
+
   bool Search(search::EverywhereSearchParams const & params);
   std::string GetLastSearchQuery() { return m_searchQuery; }
   void ClearLastSearchQuery() { m_searchQuery.clear(); }

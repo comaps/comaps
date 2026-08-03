@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.accessibility.AccessibilityNodeInfo;
+import android.view.MotionEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
@@ -190,5 +191,27 @@ class MapViewAccessibilityDelegate extends ExploreByTouchHelper implements Map.A
       {
         invalidateVirtualView(id);
       }
+  }
+
+  public void dispatchWindowMotionEvent(@NonNull MotionEvent event)
+  {
+    if (!mExplorationEnabled)
+      return;
+
+    switch (event.getAction()) {
+      //case MotionEvent.ACTION_HOVER_MOVE:
+      case MotionEvent.ACTION_HOVER_ENTER:
+        setFreezeFrame(true);
+        break;
+      case MotionEvent.ACTION_HOVER_EXIT:
+        setFreezeFrame(false);
+        break;
+    }
+  }
+
+  private void setFreezeFrame(boolean freeze)
+  {
+    // Keep the map still while user is exploring by touch
+    Map.setAccessibilityFreezeFrame(freeze);
   }
 }

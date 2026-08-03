@@ -92,6 +92,11 @@ public class MapView extends SurfaceView
     ViewCompat.setAccessibilityDelegate(this, mAccessibilityDelegate);
   }
 
+  public void dispatchWindowMotionEvent(MotionEvent event)
+  {
+    mAccessibilityDelegate.dispatchWindowMotionEvent(event);
+  }
+
   @Override
   public boolean dispatchHoverEvent(MotionEvent event)
   {
