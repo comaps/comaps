@@ -6,22 +6,14 @@ final class IndoorLevelPickerViewController: MWMViewController {
     static let spacing = CGFloat(1)
     static let trailingOffset = CGFloat(10)
     static let cornerRadius = CGFloat(8)
-    // Cap the visible height at 4 buttons. With the active floor centered that leaves 1.5 buttons on
-    // each side - a full button plus a half-button peek top and bottom - so it's obvious there's more
-    // (no floors flush-hidden past an edge, e.g. basements below the centered floor 0). Fewer floors
-    // shrink to fit.
+    // Cap at 4 buttons high
     static let maxVisibleHeight = buttonHeight * 4 + spacing * 3
   }
 
-  // A scroll view keeps the picker on-screen when there are more floors than fit; the inner stack
-  // holds one button per floor. A 1pt stack spacing over the scroll view's background paints the
-  // thin separators between buttons.
   private let scrollView = UIScrollView()
   private let stackView = UIStackView()
   private var trailingConstraint = NSLayoutConstraint()
 
-  // Right-side area not covered by other controls (search, tab bar, landscape navigation). Fed by
-  // SideButtonsArea, exactly like the zoom buttons, so the picker follows the same usable region.
   private static var availableArea: CGRect = .zero
   private static var trailingConstraintValue: CGFloat {
     if availableArea == .zero {
@@ -104,8 +96,7 @@ final class IndoorLevelPickerViewController: MWMViewController {
       stackView.addArrangedSubview(makeLevelButton(title: level, active: level == activeLevel))
     }
 
-    // Center the active floor in the scroll view once the stack has been laid out, so floors on both
-    // sides of it (e.g. basements below floor 0) stay visible rather than being clipped at an edge.
+    // Center the active floor so there's visible cutoff at the edges
     scrollView.layoutIfNeeded()
     if let index = levels.firstIndex(of: activeLevel), index < stackView.arrangedSubviews.count {
       let activeFrame = stackView.arrangedSubviews[index].frame
@@ -119,7 +110,7 @@ final class IndoorLevelPickerViewController: MWMViewController {
     let button = UIButton(type: .custom)
     button.setTitle(title, for: .normal)
     button.titleLabel?.font = .systemFont(ofSize: 15, weight: active ? .semibold : .regular)
-    // Active floor is highlighted with the accent colour; others use the control background.
+    // Highlight the currently selected floor
     button.backgroundColor = active ? .linkBlue() : .systemBackground
     button.setTitleColor(active ? .white : .label, for: .normal)
     button.isEnabled = !active
