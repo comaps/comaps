@@ -262,13 +262,6 @@
 "type.building.garage" = "Garage";
 "type.building.train_station" = "Station Building";
 "type.building.warehouse" = "Warehouse";
-"type.indoor" = "Indoor";
-"type.indoor.area" = "Area";
-"type.indoor.corridor" = "Corridor";
-"type.indoor.door" = "Door";
-"type.indoor.level" = "Level";
-"type.indoor.room" = "Room";
-"type.indoor.wall" = "Wall";
 "type.cemetery.grave" = "Grave";
 "type.craft" = "Craft";
 "type.craft.beekeeper" = "Beekeeper";
