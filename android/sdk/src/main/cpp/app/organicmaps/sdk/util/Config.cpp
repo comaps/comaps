@@ -99,13 +99,13 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_util_Config_nativeSetString(JNIE
 
 JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_util_Config_nativeGetLargeFontsSize(JNIEnv * env, jclass thiz)
 {
-  return frm()->LoadLargeFontsSize();
+  return frm()->LoadFontScaleFactor() > 1.0;
 }
 
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_util_Config_nativeSetLargeFontsSize(JNIEnv * env, jclass thiz,
                                                                                     jboolean value)
 {
-  frm()->SetLargeFontsSize(value);
+  frm()->SetFontScaleFactor(value ? 1.6 : 1.0);
 }
 
 JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_util_Config_nativeGetAlternativeMapLanguageHandling(JNIEnv * env, jclass thiz)

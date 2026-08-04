@@ -803,8 +803,8 @@ public:
   localisation::AlternativeMapLanguageHandling GetAlternativeMapLanguageHandling();
   void SetAlternativeMapLanguageHandling(localisation::AlternativeMapLanguageHandling const alternativeMapLanguageHandling = localisation::AlternativeMapLanguageHandling::LocalOnly);
 
-  void SetLargeFontsSize(bool isLargeSize);
-  bool LoadLargeFontsSize();
+  void SetFontScaleFactor(double scaleFactor);
+  double LoadFontScaleFactor();
 
   bool LoadAutoZoom();
   void AllowAutoZoom(bool allowAutoZoom);

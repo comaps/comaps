@@ -64,7 +64,7 @@ double VisualParams::GetFontScale() const
 void VisualParams::SetFontScale(double fontScale)
 {
   ASSERT_INITED;
-  m_fontScale = math::Clamp(fontScale, 0.5, 2.0);
+  m_fontScale = math::Clamp(fontScale, 0.5, 4.0);
 }
 
 void VisualParams::SetVisualScale(double visualScale)

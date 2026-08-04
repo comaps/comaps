@@ -81,9 +81,9 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
 
   QCheckBox * largeFontCheckBox = new QCheckBox("Use larger font on the map");
   {
-    largeFontCheckBox->setChecked(framework.LoadLargeFontsSize());
+    largeFontCheckBox->setChecked(framework.LoadFontScaleFactor() > 1.0);
     connect(largeFontCheckBox, &QCheckBox::stateChanged,
-            [&framework](int i) { framework.SetLargeFontsSize(static_cast<bool>(i)); });
+            [&framework](int i) { framework.SetFontScaleFactor(static_cast<bool>(i) ? 1.0 : 1.6); });
   }
 
   QCheckBox * transliterationCheckBox = new QCheckBox("Transliterate to Latin");
