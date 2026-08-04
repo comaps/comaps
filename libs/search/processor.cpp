@@ -36,6 +36,8 @@
 
 #include "coding/files_container.hpp"
 
+#include "platform/preferred_languages.hpp"
+
 #include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 
@@ -72,8 +74,15 @@ enum LanguageTier
 // Sets language (plus similar languages) for scorer tier
 void SetTierLanguages(KeywordLangMatcher & scorer, LanguageTier tier, std::string const & locale)
 {
-  localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
-  std::vector<localisation::LanguageIndex> languageIndexes = {languageIndex};
+  // Try full locale first to match custom codes like "ja_rm" or "zh_pinyin"; fall back to the bare
+  // language subtag ("en_CA" -> "en") so regional locales never produce kUnsupportedLanguageIndex.
+  localisation::LanguageIndex languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
+  if (!localisation::IsSupportedLanguageIndex(languageIndex))
+    languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(languages::Normalize(locale));
+
+  std::vector<localisation::LanguageIndex> languageIndexes;
+  if (localisation::IsSupportedLanguageIndex(languageIndex))
+    languageIndexes.push_back(languageIndex);
   auto const similarLanguageIndexes = localisation::SimilarLanguageIndexes(languageIndex);
   languageIndexes.insert(languageIndexes.cend(), similarLanguageIndexes.cbegin(), similarLanguageIndexes.cend());
   scorer.SetLanguages(tier, std::move(languageIndexes));
