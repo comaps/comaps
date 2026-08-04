@@ -79,11 +79,23 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     });
   }
 
-  QCheckBox * largeFontCheckBox = new QCheckBox("Use larger font on the map");
+  QHBoxLayout * fontScaleFactorBox = new QHBoxLayout();
   {
-    largeFontCheckBox->setChecked(framework.LoadFontScaleFactor() > 1.0);
-    connect(largeFontCheckBox, &QCheckBox::stateChanged,
-            [&framework](int i) { framework.SetFontScaleFactor(static_cast<bool>(i) ? 1.0 : 1.6); });
+    QLabel * fontScaleFactorLabel = new QLabel("Text size on map");
+    QSlider * fontScaleFactorSlider = new QSlider(Qt::Horizontal);
+
+    fontScaleFactorSlider->setMinimum(100);
+    fontScaleFactorSlider->setMaximum(400);
+    fontScaleFactorSlider->setSingleStep(5);
+    fontScaleFactorSlider->setPageStep(25);
+    fontScaleFactorSlider->setTickPosition(QSlider::NoTicks);
+    fontScaleFactorSlider->setValue(framework.LoadFontScaleFactor() * 100.0);
+    connect(fontScaleFactorSlider, &QSlider::valueChanged,
+            [&framework](int v) { framework.SetFontScaleFactor(static_cast<double>(v) / 100.0); });
+
+    fontScaleFactorBox->addWidget(fontScaleFactorLabel);
+    fontScaleFactorBox->addStretch();
+    fontScaleFactorBox->addWidget(fontScaleFactorSlider);
   }
 
   QCheckBox * transliterationCheckBox = new QCheckBox("Transliterate to Latin");
@@ -239,7 +251,7 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
 
   QVBoxLayout * finalLayout = new QVBoxLayout();
   finalLayout->addWidget(unitsRadioBox);
-  finalLayout->addWidget(largeFontCheckBox);
+  finalLayout->addLayout(fontScaleFactorBox);
   finalLayout->addWidget(transliterationCheckBox);
   finalLayout->addWidget(developerModeCheckBox);
   finalLayout->addWidget(mapLanguageLabel);
