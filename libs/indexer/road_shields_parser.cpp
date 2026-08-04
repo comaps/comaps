@@ -621,6 +621,73 @@ public:
   {}
 };
 
+// Since the 2024 October 30 reclassification, Kazakhstan uses:
+// - "KAZ" + 2 digits: inter-regional highways of international significance, e.g. "KAZ01".
+// - "KZ" + 2 digits + "-" + 2 digits: intra-regional highways of international/republican
+//   significance, e.g. "KZ03-01".
+// - "K*" prefix + digits: highways of local significance (a region-specific two-letter prefix,
+//   e.g. "KC" for Akmola, "KB" for Almaty/Jetisu).
+// Motorways have tolls and motorway roadshields are green; all other KAZ/KZ/K* roads' roadshields
+// are blue. Important: the same route can carry both green and blue across different sections.
+//
+// Anything without one of these prefixes, like pre-2024 leftover highways with refs with
+// M-/A-/P- prefixes falls back to the default white shield.
+// See more at https://en.wikipedia.org/wiki/Roads_in_Kazakhstan
+class KazakhstanRoadShieldParser : public RoadShieldParser
+{
+public:
+    KazakhstanRoadShieldParser(std::string const & baseRoadNumber, HighwayClass highwayClass)
+            : RoadShieldParser(baseRoadNumber)
+            , m_highwayClass(highwayClass)
+    {}
+
+    RoadShield ParseRoadShield(std::string_view rawText, uint8_t index) const override
+    {
+      if (rawText.size() > kMaxRoadShieldBytesSize)
+        return RoadShield();
+
+      if (rawText.starts_with("KAZ") || rawText.starts_with("KZ"))
+        return RoadShield(m_highwayClass == HighwayClass::Motorway ? RoadShieldType::Generic_Green
+                                                                    : RoadShieldType::Generic_Blue,
+                           rawText);
+
+      // Local-significance roads use a region-specific two-letter "K*" prefix, e.g. "KC-123".
+      if (rawText.starts_with("K"))
+        return RoadShield(RoadShieldType::Generic_Blue, rawText);
+
+      return RoadShield(RoadShieldType::Generic_White, rawText);
+    }
+
+private:
+    HighwayClass const m_highwayClass;
+};
+
+// Kyrgyz law splits public roads into three classes, each with its own prefix:
+// - "ЭМ" (Эл аралык магистраль, international significance, 2-digit number),
+// - "М" (Мамлекеттик магистраль, state significance, 3-digit number) and
+// - "Ж" (Жергиликтүү жолдор, local significance, 3-digit number).
+// All three get a blue shield; anything without one of these prefixes falls back to the default white one.
+// See more at https://en.wikipedia.org/wiki/Roads_in_Kyrgyzstan
+class KyrgyzstanRoadShieldParser : public SimpleUnicodeRoadShieldParser
+{
+public:
+  // The second parameter in each entry is a cyrillic symbol.
+  explicit KyrgyzstanRoadShieldParser(std::string const & baseRoadNumber)
+    : SimpleUnicodeRoadShieldParser(baseRoadNumber, {{"EM-","ЭМ-", RoadShieldType::Generic_Blue},
+                                                     {"M-","М-", RoadShieldType::Generic_Blue},
+                                                     {"Zh-", "Ж-", RoadShieldType::Generic_Blue}},
+                                    RoadShieldType::Generic_White)
+  {}
+};
+
+class LiechtensteinRoadShieldParser : public SimpleRoadShieldParser
+{
+public:
+  explicit LiechtensteinRoadShieldParser(std::string const & baseRoadNumber)
+    : SimpleRoadShieldParser(baseRoadNumber, {{"A", RoadShieldType::Highway_Hexagon_Red}})
+  {}
+};
+
 class MoldovaRoadShieldParser : public SimpleRoadShieldParser
 {
 public:
@@ -653,6 +720,14 @@ public:
                                               {"DJ", RoadShieldType::Generic_Blue},
                                               {"DC", RoadShieldType::Generic_Blue}})
   {}
+};
+
+class RussiaRoadShieldParser : public DefaultTypeRoadShieldParser
+{
+public:
+    explicit RussiaRoadShieldParser(std::string const & baseRoadNumber)
+            : DefaultTypeRoadShieldParser(baseRoadNumber, RoadShieldType::Generic_Blue)
+    {}
 };
 
 class SerbiaRoadShieldParser : public SimpleRoadShieldParser
@@ -718,27 +793,27 @@ public:
   {}
 };
 
-class LiechtensteinRoadShieldParser : public SimpleRoadShieldParser
-{
-public:
-  explicit LiechtensteinRoadShieldParser(std::string const & baseRoadNumber)
-    : SimpleRoadShieldParser(baseRoadNumber, {{"A", RoadShieldType::Highway_Hexagon_Red}})
-  {}
-};
-
-class RussiaRoadShieldParser : public DefaultTypeRoadShieldParser
-{
-public:
-  explicit RussiaRoadShieldParser(std::string const & baseRoadNumber)
-    : DefaultTypeRoadShieldParser(baseRoadNumber, RoadShieldType::Generic_Blue)
-  {}
-};
-
 class SpainRoadShieldParser : public DefaultTypeRoadShieldParser
 {
 public:
   explicit SpainRoadShieldParser(std::string const & baseRoadNumber)
     : DefaultTypeRoadShieldParser(baseRoadNumber, RoadShieldType::Generic_Blue)
+  {}
+};
+
+// Tajikistan roads are split into two classes, each with its own prefix:
+// - "РБ" (Роҳи Байналмилалӣ, international significance, РБ01-РБ19) and
+// - "РҶ" (Роҳи Ҷумҳуриявӣ, republic significance, РҶ001-РҶ095).
+// Anything without one of these prefixes falls back to the default white shield.
+// See more at https://en.wikipedia.org/wiki/Roads_in_Tajikistan
+class TajikistanRoadShieldParser : public SimpleUnicodeRoadShieldParser
+{
+public:
+  // The second parameter in each entry is a cyrillic symbol.
+  explicit TajikistanRoadShieldParser(std::string const & baseRoadNumber)
+    : SimpleUnicodeRoadShieldParser(baseRoadNumber, {{"RB", "РБ", RoadShieldType::Generic_Red},
+                                                     {"RJ", "РҶ", RoadShieldType::Generic_Red}},
+                                    RoadShieldType::Generic_White)
   {}
 };
 
@@ -752,6 +827,23 @@ public:
                                     {"A", HighwayClass::Trunk, RoadShieldType::UK_Highway, true},
                                     {"A", HighwayClass::Primary, RoadShieldType::Generic_White_Bordered},
                                     {"B", HighwayClass::Secondary, RoadShieldType::Generic_White_Bordered}})
+  {}
+};
+
+// Uzbekistan roads use three prefixes for roads of international/state significance:
+// "M" and "A" (international significance, inherited from the Soviet road network) and
+// "D" (state significance, D001-D240).
+// Roads of local significance use a two-digit region code followed by "V" (viloyat) instead of
+// a letter prefix, e.g. "10V", and fall back to the default white shield along with anything else.
+// See more at https://en.wikipedia.org/wiki/Roads_in_Uzbekistan
+class UzbekistanRoadShieldParser : public SimpleRoadShieldParser
+{
+public:
+  explicit UzbekistanRoadShieldParser(std::string const & baseRoadNumber)
+    : SimpleRoadShieldParser(baseRoadNumber, {{"M", RoadShieldType::Generic_Blue},
+                                              {"A", RoadShieldType::Generic_Blue},
+                                              {"D", RoadShieldType::Generic_Blue}},
+                             RoadShieldType::Generic_White)
   {}
 };
 
@@ -1160,6 +1252,14 @@ RoadShieldsSetT GetRoadShields(std::string_view mwmName, std::string const & roa
     return MexicoRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Cyprus")
     return CyprusRoadShieldParser(roadNumber).GetRoadShields();
+  if (mwmName == "Kazakhstan")
+    return KazakhstanRoadShieldParser(roadNumber, highwayClass).GetRoadShields();
+  if (mwmName == "Kyrgyzstan")
+    return KyrgyzstanRoadShieldParser(roadNumber).GetRoadShields();
+  if (mwmName == "Tajikistan")
+    return TajikistanRoadShieldParser(roadNumber).GetRoadShields();
+  if (mwmName == "Uzbekistan")
+    return UzbekistanRoadShieldParser(roadNumber).GetRoadShields();
 
   return SimpleRoadShieldParser(roadNumber, SimpleRoadShieldParser::ShieldTypes()).GetRoadShields();
 }
