@@ -9,11 +9,11 @@ body:
         ⚠ **Have you searched for similar, already existing issues?**
         Please do that before submitting a new one ;)
         Please describe your issue with a clear and concise description.
-        (If needed: Also describe what you expect should happen)
+        Optional - Also describe what you expect should happen
         Add Steps on how to reproduce it.
           - Go to
           - Click on
           - Scroll down
           - See the error ...
         Add System Information (e.g. Android 15; Xiaomi 14 Note; HyperOS 3; CoMaps 2026-07.16-10)
-        (If needed: add Screenshots)
+        Optional - add Screenshots
