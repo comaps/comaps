@@ -170,10 +170,10 @@ public class NavigationContentProvider extends ContentProvider
             row.add(column, i);
             break;
           case NavigationContract.Route.Columns.LAT:
-            row.add(column, geometry.mLatLon[i * 2]);
+            row.add(column, geometry.mJunctions[i].mLat);
             break;
           case NavigationContract.Route.Columns.LON:
-            row.add(column, geometry.mLatLon[i * 2 + 1]);
+            row.add(column, geometry.mJunctions[i].mLon);
             break;
           case NavigationContract.Route.Columns.REVISION:
             row.add(column, geometry.mRevision);

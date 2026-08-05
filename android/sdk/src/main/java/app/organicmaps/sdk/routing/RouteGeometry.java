@@ -5,24 +5,26 @@ import androidx.annotation.Nullable;
 
 public final class RouteGeometry
 {
+  private static final JunctionInfo[] NO_JUNCTIONS = new JunctionInfo[0];
+
   @NonNull
-  public static final RouteGeometry EMPTY = new RouteGeometry(0, new double[0], Double.NaN, Double.NaN, null);
+  public static final RouteGeometry EMPTY = new RouteGeometry(0, NO_JUNCTIONS, Double.NaN, Double.NaN, null);
 
   public final int mRevision;
 
   @NonNull
-  public final double[] mLatLon;
+  public final JunctionInfo[] mJunctions;
 
   public final double mDestLat;
   public final double mDestLon;
   @Nullable
   public final String mDestTitle;
 
-  private RouteGeometry(int revision, @NonNull double[] latLon, double destLat, double destLon,
+  private RouteGeometry(int revision, @NonNull JunctionInfo[] junctions, double destLat, double destLon,
                         @Nullable String destTitle)
   {
     mRevision = revision;
-    mLatLon = latLon;
+    mJunctions = junctions;
     mDestLat = destLat;
     mDestLon = destLon;
     mDestTitle = destTitle;
@@ -30,7 +32,7 @@ public final class RouteGeometry
 
   public int getPointCount()
   {
-    return mLatLon.length / 2;
+    return mJunctions.length;
   }
 
   public boolean hasDestination()
@@ -41,28 +43,13 @@ public final class RouteGeometry
   @NonNull
   public static RouteGeometry empty(int revision)
   {
-    return new RouteGeometry(revision, new double[0], Double.NaN, Double.NaN, null);
+    return new RouteGeometry(revision, NO_JUNCTIONS, Double.NaN, Double.NaN, null);
   }
 
   @NonNull
   public static RouteGeometry from(int revision, @Nullable JunctionInfo[] junctions,
                                    @Nullable RouteMarkData[] routePoints)
   {
-    final double[] latLon;
-    if (junctions == null || junctions.length == 0)
-    {
-      latLon = new double[0];
-    }
-    else
-    {
-      latLon = new double[junctions.length * 2];
-      for (int i = 0; i < junctions.length; ++i)
-      {
-        latLon[i * 2] = junctions[i].mLat;
-        latLon[i * 2 + 1] = junctions[i].mLon;
-      }
-    }
-
     double destLat = Double.NaN;
     double destLon = Double.NaN;
     String destTitle = null;
@@ -80,6 +67,6 @@ public final class RouteGeometry
       }
     }
 
-    return new RouteGeometry(revision, latLon, destLat, destLon, destTitle);
+    return new RouteGeometry(revision, junctions != null ? junctions : NO_JUNCTIONS, destLat, destLon, destTitle);
   }
 }

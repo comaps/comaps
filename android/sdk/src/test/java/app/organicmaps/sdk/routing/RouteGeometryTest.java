@@ -1,9 +1,9 @@
 package app.organicmaps.sdk.routing;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -19,14 +19,14 @@ public class RouteGeometryTest
   }
 
   @Test
-  public void packsJunctionsInterleaved()
+  public void keepsTheJunctionsAsGiven()
   {
     final JunctionInfo[] junctions = {new JunctionInfo(59.437, 24.753), new JunctionInfo(59.438, 24.755)};
 
     final RouteGeometry geometry = RouteGeometry.from(1, junctions, null);
 
     assertEquals(2, geometry.getPointCount());
-    assertArrayEquals(new double[] {59.437, 24.753, 59.438, 24.755}, geometry.mLatLon, DELTA);
+    assertSame(junctions, geometry.mJunctions);
   }
 
   @Test
@@ -35,7 +35,7 @@ public class RouteGeometryTest
     final RouteGeometry geometry = RouteGeometry.from(1, new JunctionInfo[0], null);
 
     assertEquals(0, geometry.getPointCount());
-    assertEquals(0, geometry.mLatLon.length);
+    assertEquals(0, geometry.mJunctions.length);
   }
 
   @Test
