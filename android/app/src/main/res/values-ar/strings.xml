@@ -528,7 +528,7 @@
     <string name="mobile_data_option_never">عدم الاستخدام مطلقًا</string>
     <string name="mobile_data_option_ask">إسأل دائمًا</string>
     <string name="traffic_update_maps_text">لعرض البيانات المرورية، يجب تحديث الخرائط</string>
-    <string name="big_font">زيادة حجم الخط على الخريطة</string>
+    <string name="increase_font_size">زيادة حجم الخط على الخريطة</string>
     <string name="traffic_update_app">يُرجى تحديث CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">البيانات المرورية غير متاحة</string>

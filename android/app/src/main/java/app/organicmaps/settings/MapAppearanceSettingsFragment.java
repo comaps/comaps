@@ -1,13 +1,13 @@
 package app.organicmaps.settings;
-import androidx.annotation.Keep;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
+import androidx.preference.SeekBarPreference;
 import androidx.preference.TwoStatePreference;
 
 import app.organicmaps.R;
@@ -86,13 +86,17 @@ public class MapAppearanceSettingsFragment extends BaseXmlSettingsFragment imple
 
   private void initLargeFontSizePrefsCallbacks()
   {
-    final Preference pref = getPreference(getString(R.string.pref_large_fonts_size));
-    ((TwoStatePreference) pref).setChecked(Config.isLargeFontsSize());
+    final SeekBarPreference pref = getPreference(getString(R.string.pref_font_scale_factor));
+    pref.setValue((int) (Config.getFontScaleFactor() * 4.0));
+    pref.setSummaryProvider((preference) -> pref.getValue() * 25 + "%");
     pref.setOnPreferenceChangeListener((preference, newValue) -> {
-      final boolean oldVal = Config.isLargeFontsSize();
-      final boolean newVal = (Boolean) newValue;
+      final double oldVal = Config.getFontScaleFactor();
+      final double newVal = ((Integer) newValue).doubleValue() / 4.0;
       if (oldVal != newVal)
-        Config.setLargeFontsSize(newVal);
+      {
+        Config.setFontScaleFactor(newVal);
+        pref.setSummaryProvider(pref.getSummaryProvider()); // hack to trigger updating summary
+      }
       return true;
     });
   }

@@ -7,11 +7,16 @@
     android:title="@string/pref_map_3d_buildings_title"
     android:widgetLayout="@layout/preference_switch"
     app:singleLineTitle="false" />
-  <SwitchPreferenceCompat
-    android:defaultValue="false"
-    android:key="@string/pref_large_fonts_size"
-    android:title="@string/big_font"
-    android:widgetLayout="@layout/preference_switch"
+  <SeekBarPreference
+    android:defaultValue="1.0"
+    android:key="@string/pref_font_scale_factor"
+    android:id="@+id/pref_font_scale_factor"
+    android:title="@string/pref_font_size"
+    app:defaultValue="4"
+    app:min="4"
+    android:max="16"
+    app:seekBarIncrement="1"
+    app:updatesContinuously="false"
     app:icon="@drawable/ic_text_fields"
     app:singleLineTitle="false" />
   <Preference

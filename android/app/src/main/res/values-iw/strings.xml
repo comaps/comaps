@@ -524,7 +524,7 @@
     <string name="mobile_data_option_never">אף פעם אל תשתמש</string>
     <string name="mobile_data_option_ask">שאל תמיד</string>
     <string name="traffic_update_maps_text">יש לעדכן את המפות בשביל להציג את נתוני עומס התנועה</string>
-    <string name="big_font">הגדל תגיות במפה</string>
+    <string name="increase_font_size">הגדל תגיות במפה</string>
     <string name="traffic_update_app">נא לעדכן את CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">נתוני עומס התנועה אינם זמינים</string>

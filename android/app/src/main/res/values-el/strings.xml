@@ -530,7 +530,7 @@
     <string name="mobile_data_option_never">Μη Χρησιμοποιείται ποτέ</string>
     <string name="mobile_data_option_ask">Πάντα Ερώτηση</string>
     <string name="traffic_update_maps_text">Για να εμφανιστούν πληροφορίες για την κίνηση, πρέπει να ενημερωθούν οι χάρτες</string>
-    <string name="big_font">Αύξηση μεγέθους γραμματοσειράς ετικετών χάρτη</string>
+    <string name="increase_font_size">Αύξηση μεγέθους γραμματοσειράς ετικετών χάρτη</string>
     <string name="traffic_update_app">Παρακαλούμε ενημερώστε το CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">Οι πληροφορίες για την κίνηση δεν είναι διαθέσιμες</string>

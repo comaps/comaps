@@ -237,7 +237,7 @@
     <string name="mobile_data">Internet celular</string>
     <string name="mobile_data_option_never">Mos e përdor asnjëherë</string>
     <string name="mobile_data_option_ask">Gjithmonë pyet</string>
-    <string name="big_font">Rrit madhësinë për etiketat e hartës</string>
+    <string name="increase_font_size">Rrit madhësinë për etiketat e hartës</string>
     <string name="traffic_data_unavailable">Të dhënat e trafikut nuk janë të disponueshme</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">Mos përdorni alternativa</string>
     <string name="routing_add_start_point">Përdorni kërkimin ose prekni në hartë për të shtuar një pikënisje të itinerarit</string>

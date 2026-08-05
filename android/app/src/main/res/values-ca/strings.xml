@@ -533,7 +533,7 @@
     <string name="mobile_data_option_never">Mai</string>
     <string name="mobile_data_option_ask">Demana-ho sempre</string>
     <string name="traffic_update_maps_text">Per a mostrar les dades de trànsit, els mapes han d\'estar actualitzats</string>
-    <string name="big_font">Augmenta la mida de lletra del mapa</string>
+    <string name="increase_font_size">Augmenta la mida de lletra del mapa</string>
     <string name="traffic_update_app">Actualitzeu l’CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">No hi ha dades de trànsit disponibles</string>

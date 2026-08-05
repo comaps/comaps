@@ -536,7 +536,7 @@
     <string name="mobile_data_option_never">No usar nunca</string>
     <string name="mobile_data_option_ask">Preguntar siempre</string>
     <string name="traffic_update_maps_text">Para mostrar los datos de tráfico, deben actualizarse los mapas</string>
-    <string name="big_font">Aumentar tamaño del texto en el mapa</string>
+    <string name="increase_font_size">Aumentar tamaño del texto en el mapa</string>
     <string name="traffic_update_app">Actualiza CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">Los datos de tráfico no están disponibles</string>

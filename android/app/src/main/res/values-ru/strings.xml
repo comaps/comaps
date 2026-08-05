@@ -538,7 +538,7 @@
     <string name="mobile_data_option_never">Никогда</string>
     <string name="mobile_data_option_ask">Всегда спрашивать</string>
     <string name="traffic_update_maps_text">Для отображения пробок необходимо обновить карты</string>
-    <string name="big_font">Увеличить шрифт на карте</string>
+    <string name="increase_font_size">Увеличить шрифт на карте</string>
     <string name="traffic_update_app">Обновите CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">Данные о пробках недоступны</string>

@@ -506,7 +506,7 @@
     <string name="mobile_data_option_never">전혀 사용 안 함</string>
     <string name="mobile_data_option_ask">항상 표시</string>
     <string name="traffic_update_maps_text">교통 데이터를 표시하려면 지도를 업데이트해야 합니다.</string>
-    <string name="big_font">지도에서 글꼴 크기 늘리기</string>
+    <string name="increase_font_size">지도에서 글꼴 크기 늘리기</string>
     <string name="traffic_update_app">CoMaps를 업데이트하세요</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">교통 데이터를 사용할 수 없습니다</string>

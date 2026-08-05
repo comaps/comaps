@@ -327,14 +327,14 @@ public final class Config
     }
   }
 
-  public static boolean isLargeFontsSize()
+  public static double getFontScaleFactor()
   {
-    return nativeGetLargeFontsSize();
+    return nativeGetFontScaleFactor();
   }
 
-  public static void setLargeFontsSize(boolean value)
+  public static void setFontScaleFactor(double value)
   {
-    nativeSetLargeFontsSize(value);
+    nativeSetFontScaleFactor(value);
   }
 
   @NonNull
@@ -538,8 +538,8 @@ public final class Config
   private static native void nativeSetDouble(String name, double value);
   private static native String nativeGetString(String name, String defaultValue);
   private static native void nativeSetString(String name, String value);
-  private static native boolean nativeGetLargeFontsSize();
-  private static native void nativeSetLargeFontsSize(boolean value);
+  private static native double nativeGetFontScaleFactor();
+  private static native void nativeSetFontScaleFactor(double value);
   private static native int nativeGetAlternativeMapLanguageHandling();
   private static native void nativeSetAlternativeMapLanguageHandling(int value);
   private static native boolean nativeGetTransliteration();
