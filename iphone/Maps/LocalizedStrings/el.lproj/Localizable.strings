@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Μη Χρησιμοποιείται ποτέ";
 "mobile_data_option_ask" = "Πάντα Ερώτηση";
 "traffic_update_maps_text" = "Για να εμφανιστούν πληροφορίες για την κίνηση, πρέπει να ενημερωθούν οι χάρτες.";
-"big_font" = "Αύξηση μεγέθους γραμματοσειράς ετικετών χάρτη";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Για να εμφανιστούν πληροφορίες για την κίνηση, πρέπει να γίνει ενημέρωση της εφαρμογής.";
 /* "traffic" as in "road congestion" */

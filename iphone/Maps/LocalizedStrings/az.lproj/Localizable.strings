@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Heç vaxt istifadə etməyin";
 "mobile_data_option_ask" = "Həmişə Soruşun";
 "traffic_update_maps_text" = "Nəqliyyat məlumatlarını göstərmək üçün xəritələr yenilənməlidir.";
-"big_font" = "Xəritədə şrift ölçüsünü artırın";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Nəqliyyat məlumatlarına baxmaq üçün tətbiq yenilənməlidir.";
 /* "traffic" as in "road congestion" */

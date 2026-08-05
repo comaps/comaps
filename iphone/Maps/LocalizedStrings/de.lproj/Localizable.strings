@@ -571,7 +571,6 @@
 "mobile_data_option_never" = "Nie verwenden";
 "mobile_data_option_ask" = "Immer fragen";
 "traffic_update_maps_text" = "Um die Verkehrsdaten anzuzeigen, müssen die Karten aktualisiert werden.";
-"big_font" = "Schrift auf der Karte vergrößern";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Zum Anzeigen von Verkehrsdaten muss die Anwendung aktualisiert werden.";
 /* "traffic" as in "road congestion" */

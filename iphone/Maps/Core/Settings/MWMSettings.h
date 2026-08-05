@@ -32,8 +32,8 @@ NS_SWIFT_NAME(SettingsBridge)
 + (NSString *)spotlightLocaleLanguageId;
 + (void)setSpotlightLocaleLanguageId:(NSString *)spotlightLocaleLanguageId;
 
-+ (BOOL)largeFontSize;
-+ (void)setLargeFontSize:(BOOL)largeFontSize;
++ (double)fontScaleFactor;
++ (void)setFontScaleFactor:(double)fontScaleFactor;
 
 + (NSDictionary<NSString *, NSString *> *)availableMapLanguages;
 + (NSString *)mapLanguageCode;

@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Älä käytä koskaan";
 "mobile_data_option_ask" = "Kysy aina";
 "traffic_update_maps_text" = "Liikennetietojen näyttämiseksi kartat on päivitettävä.";
-"big_font" = "Suurenna fonttikokoa kartalla";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Liikennetietojen näyttämiseksi sovellus on päivitettävä.";
 /* "traffic" as in "road congestion" */

@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "عدم الاستخدام مطلقًا";
 "mobile_data_option_ask" = "إسأل دائمًا";
 "traffic_update_maps_text" = "لعرض البيانات المرورية، يجب تحديث الخرائط.";
-"big_font" = "زيادة حجم الخط على الخريطة";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "لعرض البيانات المرورية، يجب تحديث التطبيق.";
 /* "traffic" as in "road congestion" */

@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Asla Kullanma";
 "mobile_data_option_ask" = "Her Zaman Sor";
 "traffic_update_maps_text" = "Trafik verilerini görüntülemek için haritaların güncellenmesi gerekiyor.";
-"big_font" = "Haritadaki yazı tipi boyutunu artır";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Trafik verilerini görüntülemek için uygulamanın güncellenmesi gerekiyor.";
 /* "traffic" as in "road congestion" */

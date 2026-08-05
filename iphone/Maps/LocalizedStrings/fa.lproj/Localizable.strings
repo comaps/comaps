@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "هرگز";
 "mobile_data_option_ask" = "همیشه بپرس";
 "traffic_update_maps_text" = "برای نمایش ترافیک، نقشه می بایستی بروزرسانی شود.";
-"big_font" = "افزایش اندازه متن بر روی نقشه";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "برای نمایش ترافیک باید اپلیکیشن را بروزرسانی کنید.";
 /* "traffic" as in "road congestion" */

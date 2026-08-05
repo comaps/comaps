@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Mos e përdor asnjëherë";
 "mobile_data_option_ask" = "Gjithmonë pyet";
 "traffic_update_maps_text" = "Për të shfaqur të dhënat e rrugëve, hartat duhet të përditësohen.";
-"big_font" = "Rrit madhësinë për etiketat e hartës";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Për të shfaqur të dhënat e trafikut, aplikacioni duhet të përditësohet.";
 /* "traffic" as in "road congestion" */

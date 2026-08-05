@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Nu utiliza niciodată";
 "mobile_data_option_ask" = "Întreabă întotdeauna";
 "traffic_update_maps_text" = "Pentru a afișa datele privind traficul, hărțile trebuie actualizate.";
-"big_font" = "Mărește dimensiunea literelor pe hartă";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Pentru a afișa datele privind traficul, aplicația trebuie actualizată.";
 /* "traffic" as in "road congestion" */

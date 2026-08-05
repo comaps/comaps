@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Brug aldrig";
 "mobile_data_option_ask" = "Spørg altid";
 "traffic_update_maps_text" = "Kort skal opdateres for at vise trafikdata.";
-"big_font" = "Forøg størrelsen på kortetiketter";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Appen skal opdateres for at kunne vise trafikdata.";
 /* "traffic" as in "road congestion" */

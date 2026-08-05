@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Gebruik nooit";
 "mobile_data_option_ask" = "Vraag altijd";
 "traffic_update_maps_text" = "Om verkeersgegevens weer te geven, moeten de kaarten bijgewerkt worden.";
-"big_font" = "Vergroot lettergrootte op de kaart";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Om verkeersgegevens weer te geven, moet de applicatie bijgewerkt worden.";
 /* "traffic" as in "road congestion" */

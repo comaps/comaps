@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "ไม่ใช้เลย";
 "mobile_data_option_ask" = "ถามก่อนเสมอ";
 "traffic_update_maps_text" = "ต้องอัปเดตแผนที่เพื่อแสดงข้อมูลการจราจร";
-"big_font" = "เพิ่มขนาดฟอนต์บนแผนที่";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "ในการแสดงข้อมูลการจราจร แอปพลิเคชั่นจะต้องอัปเดตก่อน";
 /* "traffic" as in "road congestion" */

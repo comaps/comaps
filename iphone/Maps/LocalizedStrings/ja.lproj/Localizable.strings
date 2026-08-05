@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "使用しない";
 "mobile_data_option_ask" = "常に確認";
 "traffic_update_maps_text" = "交通データを表示するには、地図を更新する必要があります。";
-"big_font" = "地図上のフォントサイズを大きくする";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "交通データを表示するには、アプリケーションをアップデートする必要があります。";
 /* "traffic" as in "road congestion" */

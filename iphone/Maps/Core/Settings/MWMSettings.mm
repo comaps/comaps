@@ -176,13 +176,13 @@ NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
   [ud setObject:spotlightLocaleLanguageId forKey:kSpotlightLocaleLanguageId];
 }
 
-+ (BOOL)largeFontSize
++ (double)fontScaleFactor
 {
-  return GetFramework().LoadFontScaleFactor() > 1.0;
+  return GetFramework().LoadFontScaleFactor();
 }
-+ (void)setLargeFontSize:(BOOL)largeFontSize
++ (void)setFontScaleFactor:(double)fontScaleFactor
 {
-  GetFramework().SetFontScaleFactor(static_cast<bool>(largeFontSize) ? 1.6 : 1.0);
+  GetFramework().SetFontScaleFactor(static_cast<double>(fontScaleFactor));
 }
 
 + (NSDictionary<NSString *, NSString *> *)availableMapLanguages;

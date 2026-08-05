@@ -40,8 +40,8 @@ struct SettingsView: View {
     @State private var selectedMapAppearance: Settings.Appearance = .auto
     
     
-    /// If an increased font size should be used for map labels
-    @State private var hasIncreasedFontsize: Bool = false
+    /// Font size to use for map labels
+    @State private var fontScaleFactor: Double = 1.0
     
     
     /// The selected language for the map
@@ -173,9 +173,22 @@ struct SettingsView: View {
                     } label: {
                         Text("pref_mapappearance_title")
                     }
-                    
-                    Toggle("big_font", isOn: $hasIncreasedFontsize)
-                        .tint(.accent)
+
+                    VStack(alignment: .leading) {
+                        Text("pref_font_size")
+                        Slider(
+                            value: $fontScaleFactor,
+                            in: 1.0...4.0,
+                            step: 0.25,
+                        ) {
+                            Text("font_size")
+                        } minimumValueLabel: {
+                            Text(verbatim: "100%")
+                        } maximumValueLabel: {
+                            Text(verbatim: "400%")
+                        }
+                            .tint(.accent)
+                    }
                     
                     Picker(selection: $selectedLanguageForMap) {
                         ForEach(Settings.availableLanguagesForMap) { languageForMap in
@@ -333,7 +346,7 @@ struct SettingsView: View {
             selectedCustomButtonKind = Settings.customButtonKind
             hasZoomButtons = Settings.hasZoomButtons
             selectedMapAppearance = Settings.mapAppearance
-            hasIncreasedFontsize = Settings.hasIncreasedFontsize
+            fontScaleFactor = Settings.fontScaleFactor
             selectedLanguageForMap = Settings.languageForMap
             alternativeMapLanguageHandling = Settings.alternativeMapLanguageHandling
             shouldTransliterateToLatin = Settings.shouldTransliterateToLatin
@@ -365,8 +378,8 @@ struct SettingsView: View {
         .onChange(of: selectedMapAppearance) { changedSelectedMapAppearance in
             Settings.mapAppearance = changedSelectedMapAppearance
         }
-        .onChange(of: hasIncreasedFontsize) { changedHasIncreasedFontsize in
-            Settings.hasIncreasedFontsize = changedHasIncreasedFontsize
+        .onChange(of: fontScaleFactor) { changedFontScaleFactor in
+            Settings.fontScaleFactor = changedFontScaleFactor
         }
         .onChange(of: selectedLanguageForMap) { changedSelectedLanguageForMap in
             if let changedSelectedLanguageForMap {

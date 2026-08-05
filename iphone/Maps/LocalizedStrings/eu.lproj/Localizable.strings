@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Ez erabili inoiz";
 "mobile_data_option_ask" = "Galdetu beti";
 "traffic_update_maps_text" = "Trafiko datuak bistaratzeko, mapak eguneratu behar dira.";
-"big_font" = "Handitu letra tamaina mapan";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Trafiko datuak bistaratzeko, aplikazioa eguneratu behar duzu.";
 /* "traffic" as in "road congestion" */

@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "从不使用";
 "mobile_data_option_ask" = "总是询问";
 "traffic_update_maps_text" = "要显示交通数据，必须更新地图。";
-"big_font" = "增大地图上的字体大小";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "要显示交通数据，必须更新应用。";
 /* "traffic" as in "road congestion" */

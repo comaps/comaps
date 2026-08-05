@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Tuża Qatt";
 "mobile_data_option_ask" = "Staqsi Dejjem";
 "traffic_update_maps_text" = "Biex tintwera d-dejta dwar it-traffiku, il-mapep iridu jiġu aġġornati.";
-"big_font" = "Żid id-daqs għat-tikketti tal-mapep";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "To display traffic data, the application must be updated.";
 /* "traffic" as in "road congestion" */

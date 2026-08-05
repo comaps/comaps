@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "전혀 사용 안 함";
 "mobile_data_option_ask" = "항상 표시";
 "traffic_update_maps_text" = "교통 데이터를 표시하려면 지도를 업데이트해야 합니다.";
-"big_font" = "지도에서 글꼴 크기 늘리기";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "교통 데이터를 표시하려면 응용 프로그램을 업데이트해야 합니다.";
 /* "traffic" as in "road congestion" */

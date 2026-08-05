@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "No usar nunca";
 "mobile_data_option_ask" = "Preguntar siempre";
 "traffic_update_maps_text" = "Para mostrar los datos de tráfico, deben actualizarse los mapas.";
-"big_font" = "Aumentar tamaño del texto en el mapa";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Para mostrar los datos de tráfico, debe actualizar la aplicación.";
 /* "traffic" as in "road congestion" */

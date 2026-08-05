@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Никад не користи";
 "mobile_data_option_ask" = "Увек ме питај";
 "traffic_update_maps_text" = "Да би се приказали подаци о саобраћају, мапа мора да се ажурира.";
-"big_font" = "Увећана слова на мапи";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Да бисте видели податке о саобраћају, морате да ажурирате апликацију.";
 /* "traffic" as in "road congestion" */

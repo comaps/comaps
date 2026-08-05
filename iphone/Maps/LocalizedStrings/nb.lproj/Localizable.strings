@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Aldri bruk";
 "mobile_data_option_ask" = "Alltid spør";
 "traffic_update_maps_text" = "For å vise trafikkdata må kartene i appen være oppdaterte.";
-"big_font" = "Øk størrelsen på kartpåskrifter";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Du må oppdatere applikasjonen for å kunne se trafikkdata.";
 /* "traffic" as in "road congestion" */

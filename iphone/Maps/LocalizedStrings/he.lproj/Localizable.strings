@@ -561,7 +561,6 @@
 "mobile_data_option_never" = "אף פעם אל תשתמש";
 "mobile_data_option_ask" = "שאל תמיד";
 "traffic_update_maps_text" = "כדי להציג מידע על עומס תנועה, יש לעדכן את המפות.";
-"big_font" = "הגדל תגיות במפה";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "כדי להציג מידע על עומס תנועה, יש לעדכן את האפליקצייה.";
 /* "traffic" as in "road congestion" */

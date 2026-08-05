@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Ніколи";
 "mobile_data_option_ask" = "Завжди питати";
 "traffic_update_maps_text" = "Для відображення інформації про трафік необхідно оновити мапи.";
-"big_font" = "Збільшити розмір шрифту на мапі";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Для показу даних про трафік оновіть застосунок.";
 /* "traffic" as in "road congestion" */

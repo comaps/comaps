@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Nekad neizmantot";
 "mobile_data_option_ask" = "Jautāt vienmēr";
 "traffic_update_maps_text" = "Lai parādītu satiksmes datus, kartes ir jāatjaunina.";
-"big_font" = "Palielināt fonta lielumu kartē";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Lai parādītu satiksmes datus, lietotne ir jāatjaunina.";
 /* "traffic" as in "road congestion" */

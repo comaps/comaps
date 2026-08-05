@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Nikad ne koristite";
 "mobile_data_option_ask" = "Always Ask";
 "traffic_update_maps_text" = "To display traffic data, maps must be updated.";
-"big_font" = "Povećaj veličinu oznaka na karti";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "To display traffic data, the application must be updated.";
 /* "traffic" as in "road congestion" */

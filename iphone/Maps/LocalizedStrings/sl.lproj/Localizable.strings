@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Nikoli ne uporabi";
 "mobile_data_option_ask" = "Vedno vprašaj";
 "traffic_update_maps_text" = "Za prikazovanje prometnih podatkov je treba posodobiti zemljevide.";
-"big_font" = "Povečaj velikost oznak na zemljevidu";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Za prikazovanje prometnih podatkov je treba posodobiti to orodje.";
 /* "traffic" as in "road congestion" */

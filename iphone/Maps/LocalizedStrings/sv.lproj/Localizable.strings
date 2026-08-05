@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Använd aldrig";
 "mobile_data_option_ask" = "Fråga alltid";
 "traffic_update_maps_text" = "Kartor måste uppdateras för att visa trafikdata.";
-"big_font" = "Öka teckenstorlek på kartan";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Applikationen måste uppdateras för att trafikdata ska kunna visas.";
 /* "traffic" as in "road congestion" */

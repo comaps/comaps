@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Không bao giờ sử dụng";
 "mobile_data_option_ask" = "Luôn Hỏi";
 "traffic_update_maps_text" = "Để hiển thị dữ liệu giao thông, cần cập nhật bản đồ.";
-"big_font" = "Tăng kích thước các nhãn trên bản đồ";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Để hiển thị dữ liệu giao thông, ứng dụng cần phải được cập nhật.";
 /* "traffic" as in "road congestion" */

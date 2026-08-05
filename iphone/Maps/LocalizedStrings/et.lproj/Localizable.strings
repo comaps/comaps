@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Ära kasuta kunagi";
 "mobile_data_option_ask" = "Küsi alati";
 "traffic_update_maps_text" = "Liiklusinfo kuvamiseks palun uuenda kaardid.";
-"big_font" = "Suurenda teksti suurust kaardil";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Liiklusinfo kuvamiseks pead rakendust uuendama.";
 /* "traffic" as in "road congestion" */

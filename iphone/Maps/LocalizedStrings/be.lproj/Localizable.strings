@@ -568,7 +568,6 @@
 "mobile_data_option_never" = "Ніколі не выкарыстоўваць";
 "mobile_data_option_ask" = "Заўсёды пытаць";
 "traffic_update_maps_text" = "Каб паказаць даныя пра заторы, трэба абнавіць карты.";
-"big_font" = "Павялічыць шрыфт карты";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Для паказу інфармацыі пра рух трэба абнавіць праграмы.";
 /* "traffic" as in "road congestion" */

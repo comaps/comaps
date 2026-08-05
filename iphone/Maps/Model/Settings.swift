@@ -124,13 +124,13 @@ import Combine
     }
     
     
-    /// If an increased font size should be used for map labels
-    @objc static var hasIncreasedFontsize: Bool {
+    /// Font scale factor for map labels
+    @objc static var fontScaleFactor: Double {
         get {
-            return SettingsBridge.largeFontSize()
+            return SettingsBridge.fontScaleFactor()
         }
         set {
-            SettingsBridge.setLargeFontSize(newValue)
+            SettingsBridge.setFontScaleFactor(newValue)
         }
     }
     
