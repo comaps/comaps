@@ -45,6 +45,7 @@
 #include "drape/texture_types.hpp"
 #include "drape/utils/projection.hpp"
 
+#include "indexer/classificator_loader.hpp"
 #include "indexer/drawing_rules.hpp"
 #include "indexer/scales.hpp"
 
