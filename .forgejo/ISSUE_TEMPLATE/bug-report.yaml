@@ -6,6 +6,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        ⚠ **Have you searched for similar, already existing issues? Please do that before!**
+        ⚠ **Please check if a similar suggestion already exists search before submitting a new Issue!**
         Describe the bug with a clear and concise description. Include a list of steps to reproduce it, with your system information and CoMaps version (e.g. Android 15; Xiaomi 14 Note; HyperOS 3; CoMaps 2026-07.16-10).
         Additionally, please provide screenshots if applicable.
