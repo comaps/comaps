@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:parentTag="com.google.android.material.button.MaterialButtonToggleGroup">
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/button_false"
+    android:contentDescription="@string/no"
+    style="@style/Widget.Material3.Button.OutlinedButton"
+    app:backgroundTint="@color/tristate_color_selector"
+    app:iconTint="@color/button_icon_tint_selector"
+    android:layout_width="wrap_content"
+    android:padding="0dp"
+    android:layout_height="wrap_content"
+    android:minWidth="48dp"
+    android:minHeight="48dp"
+    app:icon="@drawable/ic_close"
+    app:iconGravity="textStart"
+    app:iconPadding="0dp" />
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/button_indeterminate"
+    android:contentDescription="@string/unknown"
+    style="@style/Widget.Material3.Button.OutlinedButton"
+    app:backgroundTint="@color/tristate_color_selector"
+    app:iconTint="@color/button_icon_tint_selector"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="0dp"
+    android:minWidth="48dp"
+    android:minHeight="48dp"
+    app:icon="@drawable/ic_indeterminate"
+    app:iconGravity="textStart"
+    app:iconPadding="0dp" />
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/button_true"
+    android:contentDescription="@string/yes"
+    style="@style/Widget.Material3.Button.OutlinedButton"
+    app:backgroundTint="@color/tristate_color_selector"
+    app:iconTint="@color/button_icon_tint_selector"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="0dp"
+    android:minWidth="48dp"
+    android:minHeight="48dp"
+    app:icon="@drawable/ic_checkmark"
+    app:iconGravity="textStart"
+    app:iconPadding="0dp" />
+</merge>
