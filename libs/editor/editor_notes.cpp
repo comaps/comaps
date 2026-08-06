@@ -173,8 +173,9 @@ void Notes::Upload(osm::OsmOAuth const & auth)
   {
     try
     {
+      auto note = m_notes.front();
       dataAccessLock.unlock();
-      auto const id = api.CreateNote(m_notes.front().m_point, m_notes.front().m_note);
+      auto const id = api.CreateNote(note.m_point, note.m_note);
       dataAccessLock.lock();
       LOG(LINFO, ("A note uploaded with id", id));
     }
