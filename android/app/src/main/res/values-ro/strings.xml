@@ -890,7 +890,7 @@
     <string name="prefs_speed_cameras_information">Avertizările pentru radare sunt dezactivate unde avertizarea este interzisă de legea locală.</string>
     <string name="navigation_start_tts_disabled_message">Instrucțiuni vocale dezactivate: Nu este disponibil niciun sistem TTS</string>
     <string name="charge_socket_count">Număr</string>
-    <string name="unknown_count">Necunoscut</string>
+    <string name="unknown">Necunoscut</string>
     <string name="pref_speedlimit_title">Afișează limita de viteză</string>
     <string name="rooms">%s camere</string>
     <string name="downloader_check_updates_button">Caută actualizări</string>

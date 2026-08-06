@@ -874,7 +874,7 @@
     <string name="charge_socket_power">Võimsus (kW)</string>
     <string name="editor_socket">Muuda pistikut</string>
     <string name="error_value_must_be_positive">Sisestuse väärtus peab olema positiitve</string>
-    <string name="unknown_count">tundmatu</string>
+    <string name="unknown">tundmatu</string>
     <string name="error_invalid_number">Vigane number</string>
     <string name="editor_place_doesnt_exist_description">Kirjelda selle koha praegust välimust ja lisa veamärge OpenStreetMapi kogukonnale</string>
     <string name="avoid_steps">Väldi treppe</string>

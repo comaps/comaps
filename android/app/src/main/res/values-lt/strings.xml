@@ -859,7 +859,7 @@
     <string name="charge_socket_count">Kiekis</string>
     <string name="charge_socket_power">Galia (kW)</string>
     <string name="editor_socket">Taisyti jungtį</string>
-    <string name="unknown_count">nežinomas</string>
+    <string name="unknown">nežinomas</string>
     <string name="error_value_must_be_positive">Reikšmė turi būti teigiama</string>
     <string name="error_invalid_number">Netinkamas skaičius</string>
     <string name="offline_explanation_title">Žemėlapio parsisiuntimas</string>

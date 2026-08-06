@@ -878,7 +878,7 @@
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="charge_socket_count">Recuento</string>
     <string name="charge_socket_power">Potencia (kW)</string>
-    <string name="unknown_count">desconocido</string>
+    <string name="unknown">desconocido</string>
     <string name="avoid_steps">Evitar escaleras</string>
     <string name="charge_socket_schuko">Doméstico UE</string>
     <string name="unknown_socket_type">enchufe desconocido</string>

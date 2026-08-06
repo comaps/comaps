@@ -627,7 +627,7 @@
     <string name="charge_socket_count">எண்ணுங்கள்</string>
     <string name="charge_socket_power">ஆற்றல் (kW)</string>
     <string name="editor_socket">சாக்கெட்டை திருத்து</string>
-    <string name="unknown_count">தெரியவில்லை</string>
+    <string name="unknown">தெரியவில்லை</string>
     <string name="error_value_must_be_positive">மதிப்பு நேர்மறையாக இருக்க வேண்டும்</string>
     <string name="error_invalid_number">தவறான எண்</string>
     <string name="list_description_empty">விளக்கத்தைச் சேர்க்க பட்டியலைத் திருத்தவும்</string>

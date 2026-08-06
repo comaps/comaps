@@ -905,7 +905,7 @@
     <string name="charge_socket_count">計算</string>
     <string name="charge_socket_power">瓦數 (kW)</string>
     <string name="editor_socket">編輯接口</string>
-    <string name="unknown_count">未知</string>
+    <string name="unknown">未知</string>
     <string name="error_value_must_be_positive">值必須是正的</string>
     <string name="error_invalid_number">無效的數字</string>
     <string name="offline_explanation_title">離線地圖</string>

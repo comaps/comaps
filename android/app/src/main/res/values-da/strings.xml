@@ -867,7 +867,7 @@
     <string name="charge_socket_count">Antal</string>
     <string name="charge_socket_power">Effekt (kW)</string>
     <string name="editor_socket">Rediger stik</string>
-    <string name="unknown_count">ukendt</string>
+    <string name="unknown">ukendt</string>
     <string name="error_value_must_be_positive">Værdien skal være positiv</string>
     <string name="error_invalid_number">Ugyldigt nummer</string>
     <string name="offline_explanation_title">Offlinekort</string>

@@ -863,7 +863,7 @@
     <string name="error_value_must_be_positive">Verdien må være positiv</string>
     <string name="unknown_power_output">ukjent</string>
     <string name="charge_socket_count">Antall</string>
-    <string name="unknown_count">ukjent</string>
+    <string name="unknown">ukjent</string>
     <string name="error_enter_correct_fediverse_page">Angi et gyldig Mastodon-brukernavn eller nettadresse</string>
     <string name="error_enter_correct_bluesky_page">Angi et gyldig Bluesky-brukernavn eller nettadresse</string>
     <string name="list_description_empty">Rediger listen for å legge til en beskrivelse</string>

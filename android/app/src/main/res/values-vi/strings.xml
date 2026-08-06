@@ -807,7 +807,7 @@
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="charge_socket_count">Số lượng</string>
-    <string name="unknown_count">Không rõ</string>
+    <string name="unknown">Không rõ</string>
     <string name="editor_submit">Gửi</string>
     <string name="destination">Điểm đến</string>
     <string name="stop">Điểm dừng</string>

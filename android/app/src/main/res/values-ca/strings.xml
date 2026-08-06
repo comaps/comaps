@@ -876,7 +876,7 @@
     <string name="charge_socket_count">Recompte</string>
     <string name="charge_socket_power">Potència (kW)</string>
     <string name="editor_socket">Editar endoll</string>
-    <string name="unknown_count">desconegut</string>
+    <string name="unknown">desconegut</string>
     <string name="error_value_must_be_positive">El valor ha de ser positiu</string>
     <string name="error_invalid_number">Número invàlid</string>
     <string name="offline_explanation_text">S\'ha de descarregar un mapa per a veure i navegar aquesta àrea.\nDescarregueu mapes per a àrees on vulgueu viatjar.</string>

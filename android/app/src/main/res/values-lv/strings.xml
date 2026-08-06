@@ -813,7 +813,7 @@
     <string name="charge_socket_unknown_other">Cits vai nezināms</string>
     <string name="charging_station_available_sockets">Pieejamās ligzdas</string>
     <string name="edit_socket_info_tooltip">Pievienot jaunas ligzdas vai labot esošās.</string>
-    <string name="unknown_count">nezināms</string>
+    <string name="unknown">nezināms</string>
     <string name="offline_explanation_title">Bezsaistes kartes</string>
     <string name="offline_explanation_text">Ir nepieciešams lejupielādēt karti, lai apskatītu un pārvietotos apgabalā.\nJālejupielādē apgabalu, kuros vēlies ceļot, kartes.</string>
     <string name="avoid_steps">Izvairīties no kāpnēm</string>

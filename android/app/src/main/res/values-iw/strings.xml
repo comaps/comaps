@@ -857,7 +857,7 @@
     <string name="charge_socket_type2_combo">סוג 2 משולב</string>
     <string name="charge_socket_type1">סוג 1</string>
     <string name="charge_socket_type1_combo">סוג 1 משולב</string>
-    <string name="unknown_count">לא ידוע</string>
+    <string name="unknown">לא ידוע</string>
     <string name="error_invalid_number">מספר לא תקני</string>
     <string name="location_privacy">פרטיות המיקום</string>
     <string name="rooms">%s חדרים</string>

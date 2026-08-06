@@ -855,7 +855,7 @@
     <string name="charge_socket_count">Quantidade</string>
     <string name="charge_socket_power">Potência (kW)</string>
     <string name="editor_socket">Editar tomada</string>
-    <string name="unknown_count">desconhecida</string>
+    <string name="unknown">desconhecida</string>
     <string name="error_value_must_be_positive">O valor deve ser positivo</string>
     <string name="error_invalid_number">Número inválido</string>
     <string name="offline_explanation_text">É necessário baixar um mapa para visualizar e navegar pela área.\nBaixe mapas das áreas que você deseja visitar.</string>

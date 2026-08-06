@@ -880,7 +880,7 @@
     <string name="charge_socket_count">数量</string>
     <string name="charge_socket_power">功率（千瓦）</string>
     <string name="editor_socket">编辑充电接口</string>
-    <string name="unknown_count">未知</string>
+    <string name="unknown">未知</string>
     <string name="error_value_must_be_positive">值必须为正数</string>
     <string name="error_invalid_number">无效的数字</string>
     <string name="editor_place_doesnt_exist_description">描述该地点的现状，以便向 OpenStreetMap 社区发送错误注记</string>

@@ -880,7 +880,7 @@
     <string name="charge_socket_count">Numero</string>
     <string name="charge_socket_power">Potenza (kW)</string>
     <string name="editor_socket">Modifica Connettore</string>
-    <string name="unknown_count">sconosciuto</string>
+    <string name="unknown">sconosciuto</string>
     <string name="error_value_must_be_positive">Il valore deve essere positivo</string>
     <string name="error_invalid_number">Numero non valido</string>
     <string name="editor_business_vacant_button">L\'attività è vacante</string>

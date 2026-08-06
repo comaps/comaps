@@ -863,7 +863,7 @@
     <string name="osm_note_toast">Напомена ће бити послата на OpenStreetMap</string>
     <string name="error_invalid_number">Неисправан број</string>
     <string name="error_value_must_be_positive">Вредност мора бити већа од нуле</string>
-    <string name="unknown_count">непознато</string>
+    <string name="unknown">непознато</string>
     <string name="unknown_power_output">непознато</string>
     <string name="charge_socket_type2">Тип 2 (без кабла)</string>
     <string name="charge_socket_type2_cable">Тип 2 (са каблом)</string>

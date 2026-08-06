@@ -835,7 +835,7 @@
     <string name="avoid_steps">Αποφυγή σκαλοπατιών</string>
     <string name="avoid_paved">Αποφυγή στρωμένων δρόμων</string>
     <string name="unknown_power_output">άγνωστο</string>
-    <string name="unknown_count">άγνωστο</string>
+    <string name="unknown">άγνωστο</string>
     <string name="charge_socket_count">Πλήθος</string>
     <string name="ruler">Χάρακας</string>
     <string name="clear">Εκκαθάριση</string>

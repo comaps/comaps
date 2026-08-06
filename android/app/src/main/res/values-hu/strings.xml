@@ -869,7 +869,7 @@
     <string name="charge_socket_count">Darabszám</string>
     <string name="charge_socket_power">Teljesítmény (kW)</string>
     <string name="editor_socket">Aljzat szerkesztése</string>
-    <string name="unknown_count">ismeretlen</string>
+    <string name="unknown">ismeretlen</string>
     <string name="error_value_must_be_positive">Az érték csak pozitív egész szám lehet</string>
     <string name="error_invalid_number">Érvénytelen szám</string>
     <string name="offline_explanation_title">Offline térképek</string>

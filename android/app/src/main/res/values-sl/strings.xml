@@ -620,7 +620,7 @@
     <string name="charge_socket_count">Število</string>
     <string name="charge_socket_power">Moč (kW)</string>
     <string name="editor_socket">Uredi vtičnico</string>
-    <string name="unknown_count">neznano</string>
+    <string name="unknown">neznano</string>
     <string name="error_value_must_be_positive">Vrednosti mora biti pozitivna</string>
     <string name="charge_socket_type2_cable">Vrsta 2 (s kablom)</string>
     <string name="clear">Počisti</string>

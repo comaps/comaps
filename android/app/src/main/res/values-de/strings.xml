@@ -882,7 +882,7 @@
     <string name="unknown_power_output">unbekannt</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="charge_socket_count">Anzahl</string>
-    <string name="unknown_count">unbekannt</string>
+    <string name="unknown">unbekannt</string>
     <string name="error_invalid_number">ungültige Zahl</string>
     <string name="list_description_empty">Bearbeite die Liste, um eine Beschreibung hinzuzufügen</string>
     <string name="avoid_paved">Befestigte Straßen meiden</string>

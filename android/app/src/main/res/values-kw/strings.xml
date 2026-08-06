@@ -369,7 +369,7 @@
     <string name="charge_socket_count">Somm</string>
     <string name="charge_socket_power">Gallosedh (kW)</string>
     <string name="editor_socket">Golegi kraw</string>
-    <string name="unknown_count">ankoth</string>
+    <string name="unknown">ankoth</string>
     <string name="error_value_must_be_positive">Res yw dhe\'n niver bos positiv</string>
     <string name="error_invalid_number">Niver anewn</string>
     <string name="offline_explanation_title">Mappys Dhywarlinen</string>

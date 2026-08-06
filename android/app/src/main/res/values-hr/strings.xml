@@ -634,7 +634,7 @@
     <string name="charge_socket_count">Broj</string>
     <string name="charge_socket_power">Snaga (kW)</string>
     <string name="editor_socket">Uredi utičnicu</string>
-    <string name="unknown_count">nepoznato</string>
+    <string name="unknown">nepoznato</string>
     <string name="error_value_must_be_positive">Vrijednost mora biti pozitivna</string>
     <string name="error_invalid_number">Nevažeći broj</string>
     <string name="offline_explanation_title">Izvanmrežne karte</string>

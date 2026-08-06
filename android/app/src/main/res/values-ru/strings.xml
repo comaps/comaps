@@ -907,7 +907,7 @@
     <string name="error_invalid_number">Неверное число</string>
     <string name="unknown_socket_type">неизвестная розетка</string>
     <string name="charge_socket_count">Количество</string>
-    <string name="unknown_count">неизвестно</string>
+    <string name="unknown">неизвестно</string>
     <string name="edit_socket_info_tooltip">Добавьте новые розетки или отредактируйте существующие.</string>
     <string name="charge_socket_unknown_other">Другая или неизвестная</string>
     <string name="list_description_empty">Отредактируйте список, чтобы добавить описание</string>

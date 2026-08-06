@@ -888,7 +888,7 @@
     <string name="charge_socket_count">Liczba</string>
     <string name="charge_socket_power">Moc (kW)</string>
     <string name="editor_socket">Edytuj gniazdo</string>
-    <string name="unknown_count">nieznana</string>
+    <string name="unknown">nieznana</string>
     <string name="error_value_must_be_positive">Wartość musi być dodatnia</string>
     <string name="error_invalid_number">Nieprawidłowa liczba</string>
     <string name="opens_at">Otwarcie o %s</string>

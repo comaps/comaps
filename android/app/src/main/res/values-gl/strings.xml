@@ -611,7 +611,7 @@
     <string name="charge_socket_count">Cantidade</string>
     <string name="charge_socket_power">Potencia (kW)</string>
     <string name="editor_socket">Editar enganche</string>
-    <string name="unknown_count">descoñecido</string>
+    <string name="unknown">descoñecido</string>
     <string name="error_value_must_be_positive">O valor ten que ser positivo</string>
     <string name="error_invalid_number">Número non válido</string>
     <string name="edit_socket_info_tooltip">Crear novos enganches ou editar os existentes.</string>

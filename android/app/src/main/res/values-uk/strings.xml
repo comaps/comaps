@@ -826,7 +826,7 @@
     <string name="opens_at">Відчиняється о %s</string>
     <string name="unknown_power_output">невідомо</string>
     <string name="charge_socket_count">Кількість</string>
-    <string name="unknown_count">невідомо</string>
+    <string name="unknown">невідомо</string>
     <string name="editor_submit">Надіслати</string>
     <string name="pref_left_button_disable">Вимкнути</string>
     <string name="clear">Очистити</string>

@@ -617,7 +617,7 @@
     <string name="charge_socket_count">Aazahl</string>
     <string name="charge_socket_power">Leischtig (kW)</string>
     <string name="editor_socket">Aaschluss bearbeite</string>
-    <string name="unknown_count">unbekannt</string>
+    <string name="unknown">unbekannt</string>
     <string name="error_value_must_be_positive">Wert muess positiv sii</string>
     <string name="error_invalid_number">ungültigi Zahl</string>
     <string name="offline_explanation_text">Zum d Gegend chönne aazluege, muess e Charte abeglade werde.\nLad Charte für die Gebiet abe, wo du bereise möchtsch.</string>

@@ -874,7 +874,7 @@
     <string name="charge_socket_count">Quantidade</string>
     <string name="charge_socket_power">Potência (kW)</string>
     <string name="editor_socket">Editar tomada</string>
-    <string name="unknown_count">desconhecido</string>
+    <string name="unknown">desconhecido</string>
     <string name="error_value_must_be_positive">O valor tem que ser positivo</string>
     <string name="error_invalid_number">Número inválido</string>
     <string name="avoid_paved">Evitar rotas pavimentadas</string>

@@ -882,7 +882,7 @@
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="charge_socket_count">Quantité</string>
     <string name="charge_socket_power">Puissance (kW)</string>
-    <string name="unknown_count">inconnue</string>
+    <string name="unknown">inconnue</string>
     <string name="edit_socket_info_tooltip">Créer de nouvelles prises ou modifier celles existantes.</string>
     <string name="charge_socket_unknown_other">Autre ou inconnue</string>
     <string name="editor_socket">Modifier la prise</string>

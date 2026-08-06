@@ -1004,7 +1004,7 @@
     <string name="charge_socket_count">Count</string>
     <string name="charge_socket_power">Power (kW)</string>
     <string name="editor_socket">Edit socket</string>
-    <string name="unknown_count">unknown</string>
+    <string name="unknown">unknown</string>
     <string name="error_value_must_be_positive">The value must be positive</string>
     <string name="error_invalid_number">Invalid number</string>
     <string name="offline_explanation_title">Offline Maps</string>

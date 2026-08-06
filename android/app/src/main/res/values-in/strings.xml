@@ -896,7 +896,7 @@
     <string name="charge_socket_count">Jumlah</string>
     <string name="charge_socket_power">Daya (kW)</string>
     <string name="editor_socket">Edit soket</string>
-    <string name="unknown_count">tidak diketahui</string>
+    <string name="unknown">tidak diketahui</string>
     <string name="error_value_must_be_positive">Nilai harus positif</string>
     <string name="error_invalid_number">Nomor tidak valid</string>
     <string name="list_description_empty">Edit daftar untuk menambah deskripsi</string>

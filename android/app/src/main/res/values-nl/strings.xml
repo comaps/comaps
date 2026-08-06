@@ -876,7 +876,7 @@
     <string name="unknown_power_output">onbekend</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="unknown_socket_type">onbekende stekker</string>
-    <string name="unknown_count">onbekend</string>
+    <string name="unknown">onbekend</string>
     <string name="error_invalid_number">Ongeldig aantal</string>
     <string name="edit_socket_info_tooltip">Maak nieuwe stekkers aan of bewerk bestaande.</string>
     <string name="charging_station_available_sockets">Beschikbare stekkers</string>

@@ -18,7 +18,7 @@
     <string name="try_again">پدا وار اس خل</string>
     <string name="route_finished">کسر پورہ مس</string>
     <string name="on_route">کسر اٹ</string>
-    <string name="unknown_count">نامعلوم</string>
+    <string name="unknown">نامعلوم</string>
     <string name="offline_explanation_title">آفائن نکشہ</string>
     <string name="pref_speedlimit_title">رفتار نا ہد نشاد ایت</string>
     <string name="rooms">%s کمرہغاک</string>

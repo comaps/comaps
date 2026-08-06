@@ -926,7 +926,7 @@
     <string name="charge_socket_unknown_other">أخرى أو مجهولة</string>
     <string name="charge_socket_count">العدّ</string>
     <string name="charge_socket_power">القدرة (كيلوواط)</string>
-    <string name="unknown_count">مجهول</string>
+    <string name="unknown">مجهول</string>
     <string name="error_value_must_be_positive">يجب أن تكون القيمة موجبة</string>
     <string name="error_invalid_number">رقم غير صالح</string>
     <string name="offline_explanation_title">خرائط بلا اتصال بالإنترنت</string>
