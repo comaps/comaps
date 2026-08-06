@@ -65,6 +65,20 @@ extern "C"
 {
 using osm::Editor;
 
+void setYesWifiPreservingTags()
+{
+  switch (g_editableMapObject.GetInternet())
+  {
+    case feature::Internet::Yes:
+    case feature::Internet::Wlan:
+    case feature::Internet::Wired:
+    case feature::Internet::Terminal:
+      return;
+    default: g_editableMapObject.SetInternet(feature::Internet::Wlan); break;
+  }
+}
+
+
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeInit(JNIEnv * env, jclass)
 {
   g_localNameClazz = jni::GetGlobalClassRef(env, "app/organicmaps/sdk/editor/data/LocalizedName");
@@ -194,15 +208,31 @@ JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeGetMaxEditab
   return osm::EditableMapObject::kMaximumLevelsEditableByUsers;
 }
 
-JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeHasWifi(JNIEnv *, jclass)
+JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeHasWifi(JNIEnv *, jclass)
 {
-  return g_editableMapObject.GetInternet() == feature::Internet::Wlan;
+  switch(g_editableMapObject.GetInternet())
+  {
+    case feature::Internet::No:
+      return static_cast<jint>(0);
+    case feature::Internet::Wlan:
+    case feature::Internet::Terminal:
+    case feature::Internet::Wired:
+    case feature::Internet::Yes:
+      return static_cast<jint>(1);
+    case feature::Internet::Unknown:
+      return static_cast<jint>(2);
+  }
 }
 
-JNIEXPORT void JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeSetHasWifi(JNIEnv *, jclass, jboolean hasWifi)
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeSetHasWifi(JNIEnv *, jclass, jint noYesUnknown)
 {
-  if (hasWifi != (g_editableMapObject.GetInternet() == feature::Internet::Wlan))
-    g_editableMapObject.SetInternet(hasWifi ? feature::Internet::Wlan : feature::Internet::Unknown);
+  switch (static_cast<int>(noYesUnknown))
+  {
+      case 0: g_editableMapObject.SetInternet(feature::Internet::No); break;
+      case 1: setYesWifiPreservingTags(); break;
+      case 2: g_editableMapObject.SetInternet(feature::Internet::Unknown); break;
+      default: return;
+  }
 }
 
 JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeSaveEditedFeature(JNIEnv *, jclass)

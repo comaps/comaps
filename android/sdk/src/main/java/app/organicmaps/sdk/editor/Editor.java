@@ -88,19 +88,8 @@ public final class Editor
   {
     nativeSetMetadata(Metadata.MetadataType.FMD_BUILDING_LEVELS.toInt(), levels);
   }
-  public static native boolean nativeHasWifi();
-  public static native void nativeSetHasWifi(boolean hasWifi);
-
-  public static void nativeSetSwitchInput(int id, Boolean switchValue, String checkedValue, String uncheckedValue)
-  {
-    nativeSetMetadata(id, switchValue ? checkedValue : uncheckedValue);
-  }
-
-  public static boolean nativeGetSwitchInput(int id, String checkedValue)
-  {
-    String value = nativeGetMetadata(id);
-    return value.equals(checkedValue);
-  }
+  public static native int nativeHasWifi();
+  public static native void nativeSetHasWifi(int noYesUnknown);
 
   public static native boolean nativeIsAddressEditable();
   public static native boolean nativeIsNameEditable();

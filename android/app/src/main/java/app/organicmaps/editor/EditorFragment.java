@@ -25,6 +25,7 @@ import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import app.organicmaps.R;
+import app.organicmaps.widget.TriStateButtonView;
 import app.organicmaps.base.BaseMwmFragment;
 import app.organicmaps.dialog.EditTextDialogFragment;
 import app.organicmaps.editor.data.TimeFormatUtils;
@@ -116,7 +117,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
   private MaterialTextView mPhone;
   private MaterialButton mEditPhoneLink;
   private MaterialTextView mCuisine;
-  private MaterialSwitch mWifi;
+  private TriStateButtonView mWifi;
   private MaterialTextView mSelfService;
   private MaterialSwitch mOutdoorSeating;
 
@@ -220,7 +221,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     String selfServiceMetadata = Editor.nativeGetMetadata(Metadata.MetadataType.FMD_SELF_SERVICE.toInt());
     mSelfService.setText(Utils.getTagValueLocalized(view.getContext(), "self_service", selfServiceMetadata));
     initMetadataEntry(Metadata.MetadataType.FMD_OPERATOR, 0);
-    mWifi.setChecked(Editor.nativeHasWifi());
+    mWifi.setState(Editor.nativeHasWifi());
     // TODO Reimplement this to avoid https://github.com/organicmaps/organicmaps/issues/9049
     // mOutdoorSeating.setChecked(Editor.nativeGetSwitchInput(Metadata.MetadataType.FMD_OUTDOOR_SEATING.toInt(),"yes"));
     refreshChargeSockets();
@@ -243,7 +244,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
 
     Editor.nativeSetHouseNumber(mHouseNumber.getText().toString());
     Editor.nativeSetBuildingLevels(mBuildingLevels.getText().toString());
-    Editor.nativeSetHasWifi(mWifi.isChecked());
+    Editor.nativeSetHasWifi(mWifi.getState());
     Editor.nativeSetNames(mParent.getNamesAsArray());
 
     // TODO Reimplement this to avoid https://github.com/organicmaps/organicmaps/issues/9049
@@ -827,8 +828,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     mCuisine = view.findViewById(R.id.cuisine);
 
     View blockWifi = view.findViewById(R.id.block_wifi);
-    mWifi = view.findViewById(R.id.sw__wifi);
-    blockWifi.setOnClickListener(this);
+    mWifi = findInputAndInitTristateBlock(blockWifi, R.drawable.ic_wifi, app.organicmaps.sdk.R.string.category_wifi);
 
     View blockSelfService = view.findViewById(R.id.block_self_service);
     blockSelfService.setOnClickListener(this);
@@ -897,6 +897,13 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     return input.findViewById(R.id.input);
   }
 
+  private static TriStateButtonView findInputAndInitTristateBlock(@NonNull View tristateBlock, @DrawableRes int icon, @StringRes int title)
+  {
+    ((ShapeableImageView) tristateBlock.findViewById(R.id.icon)).setImageResource(icon);
+    ((MaterialTextView) tristateBlock.findViewById(R.id.title)).setText(title);
+    return tristateBlock.findViewById(R.id.button_container);
+  }
+
   @Override
   public void onClick(View v)
   {
@@ -905,8 +912,6 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
       mParent.editTimetable();
     else if (id == R.id.phone || id == R.id.edit_phone)
       mParent.editPhone();
-    else if (id == R.id.block_wifi)
-      mWifi.toggle();
     else if (id == R.id.block_self_service)
       mParent.editSelfService();
     else if (id == R.id.block_street)
