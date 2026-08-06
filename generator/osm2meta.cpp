@@ -441,9 +441,7 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_self_service(std::string
 std::string MetadataTagProcessorImpl::ValidateAndFormat_outdoor_seating(std::string v)
 {
   strings::AsciiToLower(v);
-  if (v == "yes" || v == "no")
-    return v;
-  return {};
+  return v;
 }
 
 std::string MetadataTagProcessorImpl::ValidateAndFormat_duration(std::string const & v) const

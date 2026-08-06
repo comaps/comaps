@@ -286,27 +286,9 @@
               android:layout_marginTop="@dimen/margin_quarter_plus" />
         </RelativeLayout>
 
-        <RelativeLayout
+        <include
             android:id="@+id/block_outdoor_seating"
-            style="@style/MwmWidget.Editor.MetadataBlock.Clickable">
-          <com.google.android.material.imageview.ShapeableImageView
-              style="@style/MwmWidget.Editor.MetadataIcon"
-              app:srcCompat="@drawable/ic_outdoor_seating" />
-          <com.google.android.material.textview.MaterialTextView
-              style="@style/MwmWidget.Editor.FieldLayout.EditText"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_centerVertical="true"
-              android:layout_marginStart="@dimen/editor_margin_left"
-              android:layout_toStartOf="@+id/sw__outdoor_seating"
-              android:text="@string/outdoor_seating"/>
-          <com.google.android.material.materialswitch.MaterialSwitch
-              android:id="@+id/sw__outdoor_seating"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_alignParentEnd="true"
-              android:layout_centerVertical="true"/>
-        </RelativeLayout>
+            layout="@layout/item_tristate_checkbox" />
       </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

@@ -91,6 +91,24 @@ public final class Editor
   public static native int nativeHasWifi();
   public static native void nativeSetHasWifi(int noYesUnknown);
 
+  public static int nativeHasOutdoorSeating()
+  {
+    String currentVal = nativeGetMetadata(Metadata.MetadataType.FMD_OUTDOOR_SEATING.toInt());
+    // 0=no, 1=yes of some variety, 2 = unknown
+    return currentVal.equals("no") ? 0 : currentVal.isEmpty() ? 2 : 1;
+  }
+
+  public static void nativeSetHasOutdoorSeating(int noYesUnknown)
+  {
+    final int odSeatingId = Metadata.MetadataType.FMD_OUTDOOR_SEATING.toInt();
+    final String currentVal = nativeGetMetadata(odSeatingId);
+    // Don't overwrite more specific yes vals like "sidewalk"
+    if (noYesUnknown == 1 && !currentVal.isEmpty() && !currentVal.equals("no"))
+      return;
+    // 0=no, 1=yes, 2 = unknown
+    nativeSetMetadata(odSeatingId, (noYesUnknown == 0) ? "no" : (noYesUnknown == 1) ? "yes" : "");
+  }
+
   public static native boolean nativeIsAddressEditable();
   public static native boolean nativeIsNameEditable();
   public static native boolean nativeCanMarkPlaceAsDisused();
