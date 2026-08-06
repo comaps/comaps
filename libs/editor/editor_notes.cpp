@@ -185,6 +185,12 @@ void Notes::Upload(osm::OsmOAuth const & auth)
       // Don't attempt upload for other notes as they will likely suffer from the same error.
       return;
     }
+    catch (RootException const & e)
+    {
+      LOG(LERROR, ("Unexpected error during note upload.", e.Msg()));
+      // Don't attempt upload for other notes as they will likely suffer from the same error.
+      return;
+    }
 
     m_notes.pop_front();
     --size;
