@@ -6,6 +6,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        ⚠ **Have you searched for similar, already existing issues? Please do that before!**
+        ⚠ **Please check if a similar suggestion already exists search before submitting a new Issue!**
         What is your suggestion and what problem would it help solve? Would it benefit most of our users?
         Describe how we should implement it. You can include screenshots, mockups, or pictures of other apps to help explain your suggestion.
