@@ -830,7 +830,8 @@ line|z17[man_made=embankment],
 line|z18-[man_made=embankment],
 {width: 7; dashes: 8,4,4,3;}
 
-
+line|z17-[natural=tree_row],
+{color: @woods; width: 3.5;}
 line|z18-[natural=tree_row],
 {color: @woods; width: 6;}
 line|z19-[natural=tree_row],
