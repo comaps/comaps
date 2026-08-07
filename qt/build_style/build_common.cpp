@@ -16,7 +16,8 @@
 #include <regex>
 #include <string>
 
-QString ExecProcess(QString const & program, std::initializer_list<QString> args, QProcessEnvironment const * env)
+QString ExecProcess(QString const & program, std::initializer_list<QString> args, QProcessEnvironment const * env,
+                    QString * stderrOut)
 {
   QStringList qargs(args);
   QProcess p;
@@ -29,6 +30,8 @@ QString ExecProcess(QString const & program, std::initializer_list<QString> args
   int const exitCode = p.exitCode();
   QString output = p.readAllStandardOutput();
   QString const error = p.readAllStandardError();
+  if (nullptr != stderrOut)
+    *stderrOut = error;
   if (exitCode != 0)
   {
     QString msg = "Error: " + program + " " + qargs.join(" ") + "\nReturned " + QString::number(exitCode);

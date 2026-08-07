@@ -27,8 +27,13 @@ QString GetStyleStatistics(QString const & mapcssMappingFile, QString const & dr
   env.insert("PROTOBUF_EGG_PATH", GetProtobufEggPath());
 
   // Run the script.
-#if defined(OMIM_OS_MAC)
-  return ExecProcess("python3",
+#if defined(OMIM_OS_MAC) || defined(OMIM_OS_LINUX)
+  // Prefer the repo-local venv's python3 (provisioned by tools/unix/activate_venv.sh),
+  // since it has the protobuf version this script needs and the GUI app's environment
+  // won't have that venv activated the way a shell running configure.sh would.
+  QString const venvPython = JoinPathQt({GetPlatform().ResourcesDir().c_str(), "..", ".venv", "bin", "python3"});
+  QString const pythonInterpreter = QFileInfo::exists(venvPython) ? venvPython : QString("python3");
+  return ExecProcess(pythonInterpreter,
                      {
                          GetExternalPath("drules_info.py", "kothic/src", "../tools/python/stylesheet"),
                          mapcssMappingFile,

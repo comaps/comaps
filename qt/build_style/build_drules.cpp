@@ -29,8 +29,13 @@ void BuildDrawingRulesImpl(QString const & mapcssFile, QString const & outputDir
   env.insert("PROTOBUF_EGG_PATH", GetProtobufEggPath());
 
   // Run the script
-#if defined(OMIM_OS_MAC)
-  (void)ExecProcess("python3",
+#if defined(OMIM_OS_MAC) || defined(OMIM_OS_LINUX)
+  // Prefer the repo-local venv's python3 (provisioned by tools/unix/activate_venv.sh),
+  // since it has the protobuf version this script needs and the GUI app's environment
+  // won't have that venv activated the way a shell running configure.sh would.
+  QString const venvPython = JoinPathQt({GetPlatform().ResourcesDir().c_str(), "..", ".venv", "bin", "python3"});
+  QString const pythonInterpreter = QFileInfo::exists(venvPython) ? venvPython : QString("python3");
+  (void)ExecProcess(pythonInterpreter,
                     {
                         GetExternalPath("libkomwm.py", "kothic/src", "../tools/kothic/src"),
                         "-s",

@@ -108,8 +108,13 @@ void RunRecalculationGeometryScript(QString const & mapcssFile)
   CopyFromResources("classificator.txt", geometryToolResourceDir);
   CopyFromResources("types.txt", geometryToolResourceDir);
 
-#if defined(OMIM_OS_MAC)
-  (void)ExecProcess("python3", {
+#if defined(OMIM_OS_MAC) || defined(OMIM_OS_LINUX)
+  // Prefer the repo-local venv's python3 (provisioned by tools/unix/activate_venv.sh),
+  // since it has the protobuf version this script needs and the GUI app's environment
+  // won't have that venv activated the way a shell running configure.sh would.
+  QString const venvPython = JoinPathQt({resourceDir, "..", ".venv", "bin", "python3"});
+  QString const pythonInterpreter = QFile::exists(venvPython) ? venvPython : QString("python3");
+  (void)ExecProcess(pythonInterpreter, {
                                    GetRecalculateGeometryScriptPath(),
                                    resourceDir,
                                    writableDir,

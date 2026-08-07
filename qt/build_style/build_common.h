@@ -10,7 +10,9 @@ class QProcessEnvironment;
 
 // Returns stdout output of the program, throws std::runtime_error in case of non-zero exit code.
 // Quotes all arguments to avoid issues with space-containing paths.
-QString ExecProcess(QString const & program, std::initializer_list<QString> args, QProcessEnvironment const * env = nullptr);
+// If stderrOut is non-null, it is filled with the program's stderr output.
+QString ExecProcess(QString const & program, std::initializer_list<QString> args,
+                    QProcessEnvironment const * env = nullptr, QString * stderrOut = nullptr);
 
 bool CopyFile(QString const & oldFile, QString const & newFile);
 
