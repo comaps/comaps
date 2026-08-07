@@ -1,10 +1,8 @@
+• Fixed crash during navigation when app is opened after running in the background for a long time
+
+Changes in the previous release:
 • Show enabled routing options and a button to change them when building a route
 • Turn-by-turn navigation directions preview
-• Separate routing options per transport mode
 • Improved turn instructions for roundabouts, U-turns and other cases
 • Destination and intermediate stop icons in navigation progress bar
 • Added road shields to next turn direction signs and improved turn descriptions
-• Search across all favorites lists
-• Settings split into sub-pages
-
-More details on comaps.app/latest

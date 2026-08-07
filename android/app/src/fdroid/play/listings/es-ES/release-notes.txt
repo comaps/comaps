@@ -1,9 +1,0 @@
-• Se muestran las opciones de ruta activas y un botón para cambiarlas al crear una ruta
-• Vista previa de las indicaciones de navegación
-• Opciones de ruta separadas según el modo de transporte
-• Mejora de las indicaciones en rotondas, cambios de sentido y otros casos
-• Iconos de destino y paradas intermedias en la barra de progreso de navegación
-• Búsqueda en todas las listas de favoritos
-• Ajustes reorganizados en subpáginas
-
-Más detalles en comaps.app/latest
