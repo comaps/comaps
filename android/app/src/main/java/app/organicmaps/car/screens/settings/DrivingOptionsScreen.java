@@ -10,11 +10,13 @@ import androidx.car.app.model.ListTemplate;
 import androidx.car.app.model.OnClickListener;
 import androidx.car.app.model.Row;
 import androidx.car.app.model.Template;
+import androidx.car.app.navigation.model.MapWithContentTemplate;
 import androidx.lifecycle.LifecycleOwner;
 import app.organicmaps.R;
 import app.organicmaps.car.renderer.Renderer;
 import app.organicmaps.car.screens.base.BaseMapScreen;
 import app.organicmaps.car.util.Toggle;
+import app.organicmaps.car.util.UiHelpers;
 import app.organicmaps.sdk.Router;
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingOptions;
@@ -49,7 +51,10 @@ public class DrivingOptionsScreen extends BaseMapScreen
   @Override
   protected Template onGetTemplateImpl()
   {
-    return createDrivingOptionsListTemplate();
+    final MapWithContentTemplate.Builder builder = new MapWithContentTemplate.Builder();
+    builder.setMapController(UiHelpers.createMapController(getCarContext(), getSurfaceRenderer()));
+    builder.setContentTemplate(createDrivingOptionsListTemplate());
+    return builder.build();
   }
 
   @Override

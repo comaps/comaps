@@ -9,10 +9,12 @@ import androidx.car.app.model.ItemList;
 import androidx.car.app.model.ListTemplate;
 import androidx.car.app.model.Row;
 import androidx.car.app.model.Template;
+import androidx.car.app.navigation.model.MapWithContentTemplate;
 import app.organicmaps.BuildConfig;
 import app.organicmaps.R;
 import app.organicmaps.car.renderer.Renderer;
 import app.organicmaps.car.screens.base.BaseMapScreen;
+import app.organicmaps.car.util.UiHelpers;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.util.DateUtils;
 
@@ -27,7 +29,10 @@ public class HelpScreen extends BaseMapScreen
   @Override
   protected Template onGetTemplateImpl()
   {
-    return createSettingsListTemplate();
+    final MapWithContentTemplate.Builder builder = new MapWithContentTemplate.Builder();
+    builder.setMapController(UiHelpers.createMapController(getCarContext(), getSurfaceRenderer()));
+    builder.setContentTemplate(createSettingsListTemplate());
+    return builder.build();
   }
 
   @NonNull
