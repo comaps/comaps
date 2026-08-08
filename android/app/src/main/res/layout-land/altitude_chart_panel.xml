@@ -69,13 +69,16 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="6dp"
-      style="@style/Widget.Material3.Button.TextButton"
+      style="@style/MwmWidget.M3.Button.TextButton"
+      android:ellipsize="end"
+      android:maxLines="1"
       android:text="@string/planning_route_manage_route"
+      android:textAlignment="viewStart"
       android:textColor="?android:textColorPrimary"
       android:textAppearance="@style/MwmTextAppearance.Body1"
-      app:icon="@drawable/ic_manage_route"
-      app:iconTint="?android:textColorPrimary"
-      app:iconPadding="6dp"/>
+      app:icon="@drawable/ic_edit"
+      app:iconGravity="textStart"
+      app:iconTint="?android:textColorPrimary" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn__directions_preview"
@@ -84,11 +87,12 @@
         android:layout_weight="0"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="@dimen/margin_base"
-        android:minHeight="@dimen/primary_button_min_height"
-        style="@style/Widget.Material3.Button.TextButton"
-        android:text="@string/planning_route_preview"
-        android:textColor="?android:textColorPrimary"
-        android:textAppearance="@style/MwmTextAppearance.Body1"/>
+        style="@style/MwmWidget.M3.Button.TextButton.IconOnly"
+        android:contentDescription="@string/planning_route_preview"
+        app:icon="@drawable/ic_list_with_icons"
+        app:iconGravity="textStart"
+        app:iconTint="?android:textColorPrimary"
+        app:iconPadding="@dimen/margin_quarter_plus"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn__save"
@@ -96,12 +100,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="@dimen/margin_base"
-        android:minHeight="@dimen/primary_button_min_height"
-        style="@style/Widget.Material3.Button.TextButton"
-        android:text="@string/save"
-        android:textColor="?android:textColorPrimary"
-        android:textAppearance="@style/MwmTextAppearance.Body1"/>
+        android:layout_marginStart="@dimen/margin_quarter"
+        style="@style/MwmWidget.M3.Button.TextButton.IconOnly"
+        android:contentDescription="@string/save"
+        app:icon="@drawable/ic_download"
+        app:iconGravity="textStart"
+        app:iconTint="?android:textColorPrimary"
+        app:iconPadding="@dimen/margin_quarter_plus"/>
 
     <com.google.android.material.button.MaterialButton
       android:id="@+id/start"

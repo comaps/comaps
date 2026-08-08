@@ -24,6 +24,7 @@ import android.widget.ScrollView;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import app.organicmaps.MwmApplication;
@@ -171,7 +172,7 @@ final class RoutingBottomMenuController implements View.OnClickListener
     showRoutingDetails();
     UiUtils.show(mAltitudeChartFrame);
     MaterialButton saveButton = mAltitudeChartFrame.findViewById(R.id.btn__save);
-    saveButton.setText(R.string.save);
+    saveButton.setContentDescription(mContext.getString(R.string.save));
     saveButton.setEnabled(true);
   }
 
@@ -481,9 +482,10 @@ final class RoutingBottomMenuController implements View.OnClickListener
     else if (id == R.id.btn__save)
     {
       Framework.nativeSaveRoute();
-      Button saveButton = v.findViewById(R.id.btn__save);
+      MaterialButton saveButton = (MaterialButton) v;
       saveButton.setEnabled(false);
-      saveButton.setText(R.string.saved);
+      saveButton.setIcon(AppCompatResources.getDrawable(mContext, R.drawable.ic_checkmark));
+      saveButton.setContentDescription(mContext.getString(R.string.saved));
     }
   }
 }
