@@ -12,13 +12,11 @@ import androidx.car.app.model.GridTemplate;
 import androidx.car.app.model.Header;
 import androidx.car.app.model.ItemList;
 import androidx.car.app.model.Template;
-import androidx.car.app.navigation.model.MapWithContentTemplate;
 import androidx.core.graphics.drawable.IconCompat;
 import app.organicmaps.R;
 import app.organicmaps.car.renderer.Renderer;
 import app.organicmaps.car.screens.base.BaseMapScreen;
 import app.organicmaps.car.screens.search.SearchOnMapScreen;
-import app.organicmaps.car.util.UiHelpers;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,6 +38,7 @@ public class CategoriesScreen extends BaseMapScreen
   public CategoriesScreen(@NonNull CarContext carContext, @NonNull Renderer surfaceRenderer)
   {
     super(carContext, surfaceRenderer);
+
     final ConstraintManager constraintManager = getCarContext().getCarService(ConstraintManager.class);
     MAX_CATEGORIES_SIZE = constraintManager.getContentLimit(ConstraintManager.CONTENT_LIMIT_TYPE_LIST);
   }
@@ -48,10 +47,7 @@ public class CategoriesScreen extends BaseMapScreen
   @Override
   protected Template onGetTemplateImpl()
   {
-    final MapWithContentTemplate.Builder builder = new MapWithContentTemplate.Builder();
-    builder.setMapController(UiHelpers.createMapController(getCarContext(), getSurfaceRenderer()));
-    builder.setContentTemplate(createCategoriesListTemplate());
-    return builder.build();
+    return createCategoriesListTemplate();
   }
 
   @NonNull

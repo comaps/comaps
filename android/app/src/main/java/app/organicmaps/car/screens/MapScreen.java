@@ -11,6 +11,7 @@ import androidx.core.graphics.drawable.IconCompat;
 import app.organicmaps.R;
 import app.organicmaps.car.renderer.Renderer;
 import app.organicmaps.car.screens.base.BaseMapScreen;
+import app.organicmaps.car.screens.bookmarks.BookmarkCategoriesScreen;
 import app.organicmaps.car.screens.search.SearchScreen;
 import app.organicmaps.car.util.SuggestionsHelpers;
 import app.organicmaps.car.util.UiHelpers;
@@ -37,8 +38,8 @@ public class MapScreen extends BaseMapScreen
   private ActionStrip createActionStrip()
   {
     final ActionStrip.Builder builder = new ActionStrip.Builder();
+    builder.addAction(createIconAction(R.drawable.ic_bookmarks, this::openBookmarks));
     builder.addAction(createIconAction(R.drawable.ic_search, this::openSearch));
-    builder.addAction(createIconAction(R.drawable.ic_address, this::openCategories));
     builder.addAction(UiHelpers.createSettingsAction(this, getSurfaceRenderer()));
     return builder.build();
   }
@@ -61,11 +62,11 @@ public class MapScreen extends BaseMapScreen
     getScreenManager().push(new SearchScreen.Builder(getCarContext(), getSurfaceRenderer()).build());
   }
 
-  private void openCategories()
+  private void openBookmarks()
   {
     // Details in UiHelpers.createSettingsAction()
     if (getScreenManager().getTop() != this)
       return;
-    getScreenManager().push(new CategoriesScreen(getCarContext(), getSurfaceRenderer()));
+    getScreenManager().push(new BookmarkCategoriesScreen(getCarContext(), getSurfaceRenderer()));
   }
 }
