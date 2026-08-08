@@ -24,6 +24,7 @@ using std::string;
 
 std::string_view kMeasurementUnits = "Units";
 std::string_view kDeveloperMode = "DeveloperMode";
+std::string_view kShowBookmarkLabels = "ShowBookmarkLabels";
 std::string_view kDonateUrl = "DonateUrl";
 std::string_view kNY = "NY";
 
