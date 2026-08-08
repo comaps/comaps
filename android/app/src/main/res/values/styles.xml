@@ -309,6 +309,21 @@
     <item name="android:textColor">?colorSecondary</item>
   </style>
 
+  <style name="MwmWidget.M3.Button.TextButton" parent="Widget.Material3.Button.TextButton">
+    <item name="android:paddingStart">0dp</item>
+    <item name="android:paddingEnd">0dp</item>
+    <item name="iconPadding">@dimen/margin_quarter_plus</item>
+  </style>
+
+  <style name="MwmWidget.M3.Button.TextButton.IconOnly" parent="Widget.Material3.Button.TextButton">
+    <item name="android:minWidth">12dp</item>
+    <item name="android:insetLeft">0dp</item>
+    <item name="android:insetRight">0dp</item>
+    <item name="android:paddingStart">12dp</item>
+    <item name="android:paddingEnd">12dp</item>
+    <item name="iconPadding">0dp</item>
+  </style>
+
   <style name="MwmWidget.M3.FAB.Primary" parent="@style/Widget.Material3.FloatingActionButton.Primary">
     <item name="shapeAppearance">@style/ShapeAppearanceOverlay.Material3.FloatingActionButton</item>
     <item name="backgroundTint">?colorSecondary</item>
