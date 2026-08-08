@@ -108,18 +108,13 @@ int Bookmark::GetMinTitleZoom() const
   return std::max(m_data.m_minZoom, kMinTitleZoomLevel);
 }
 
-drape_ptr<df::UserPointMark::TitlesInfo> Bookmark::GetTitleDeclEx(settings::Placement p, dp::Color outlineColor) const
+drape_ptr<df::UserPointMark::TitlesInfo> Bookmark::GetTitleDeclEx(bool showLabel, dp::Color outlineColor) const
 {
-  if (p == settings::Placement::None)
+  if (!showLabel)
     return nullptr;
 
   dp::TitleDecl title;
-  switch (p)
-  {
-  case settings::Placement::Right: title.m_anchor = dp::Left; break;
-  case settings::Placement::Bottom: title.m_anchor = dp::Top; break;
-  default: UNREACHABLE();
-  }
+  title.m_anchor = dp::Left;
 
   title.m_primaryTextFont.m_color = df::GetColorConstant(GetColorConstant());
   title.m_primaryTextFont.m_outlineColor = outlineColor;
@@ -132,15 +127,9 @@ drape_ptr<df::UserPointMark::TitlesInfo> Bookmark::GetTitleDeclEx(settings::Plac
   return titles;
 }
 
-df::DepthLayer Bookmark::GetDepthLayerEx(settings::Placement p) const
+df::DepthLayer Bookmark::GetDepthLayerEx(bool showLabel) const
 {
-  if (p == settings::Placement::None)
-    return df::DepthLayer::UserMarkLayer;
-
-  // Used for bookmark captions only, see DrapeEngine::GenerateMarkRenderInfo().
-  // SearchMarkLayer captions are placed through a separate OverlayTree pass,
-  // so bookmark captions displace only other bookmark captions.
-  return df::DepthLayer::SearchMarkLayer;
+  return showLabel ? df::DepthLayer::SearchMarkLayer : df::DepthLayer::UserMarkLayer;
 }
 
 dp::Anchor Bookmark::GetAnchor() const
