@@ -351,6 +351,7 @@ def step_reviews(env: Env, country: AnyStr, **kwargs):
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),
         data_path=env.paths.mwm_path,
+        user_resource_path=env.paths.user_resource_path,
         reviews_path=env.paths.reviews_path,
         output=country,
         generate_reviews=True,
