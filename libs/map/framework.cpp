@@ -783,7 +783,8 @@ void Framework::FillPointInfo(place_page::Info & info, m2::PointD const & mercat
   auto const fid = GetFeatureAtPoint(mercator, std::move(matcher));
   if (fid.IsValid())
   {
-    m_featuresFetcher.GetDataSource().ReadFeature([&](FeatureType & ft) {
+    m_featuresFetcher.GetDataSource().ReadFeature([&](FeatureType & ft)
+    {
       FillInfoFromFeatureType(ft, info);
       // If all types are either deprecated or unsupported (new maps in older app),
       // then act like its just a map point without features.
@@ -818,7 +819,6 @@ void Framework::FillPostcodeInfo(string const & postcode, m2::PointD const & mer
 
 void Framework::FillInfoFromFeatureType(FeatureType & ft, place_page::Info & info) const
 {
-
   auto const featureStatus = osm::Editor::Instance().GetFeatureStatus(ft.GetID());
   ASSERT_NOT_EQUAL(featureStatus, FeatureStatus::Deleted, ("Deleted features cannot be selected from UI."));
   info.SetFeatureStatus(featureStatus);
@@ -1896,7 +1896,7 @@ void Framework::SetMapStyle(MapStyle mapStyle, bool const forceRerendering)
   if (m_drapeEngine != nullptr)
     m_drapeEngine->UpdateMapStyle(forceRerendering);
   InvalidateUserMarks();
-  UpdateBookmarksTextPlacement();
+  UpdateBookmarkLabels();
   UpdateMinBuildingsTapZoom();
 }
 
@@ -2094,9 +2094,9 @@ place_page::Info & Framework::GetCurrentPlacePageInfo()
   return *m_currentPlacePageInfo;
 }
 
-void Framework::UpdateBookmarksTextPlacement()
+void Framework::UpdateBookmarkLabels()
 {
-  m_bmManager->UpdateBookmarksTextPlacement();
+  m_bmManager->UpdateBookmarkLabels();
 }
 
 void Framework::ActivateMapSelection()
@@ -2677,18 +2677,17 @@ void Framework::SaveAutoZoom(bool allowAutoZoom)
   settings::Set(kAllowAutoZoom, allowAutoZoom);
 }
 
-settings::Placement Framework::GetBookmarksTextPlacement()
+bool Framework::GetShowBookmarkLabels()
 {
-  using namespace settings;
-  auto setting = kDefaultBookmarksTextPlacement;
-  TryGet(kBookmarksTextPlacement, setting);
-  return setting;
+  bool show = true;
+  settings::TryGet(settings::kShowBookmarkLabels, show);
+  return show;
 }
 
-void Framework::SetBookmarksTextPlacement(settings::Placement setting)
+void Framework::SetShowBookmarkLabels(bool show)
 {
-  settings::Set(settings::kBookmarksTextPlacement, setting);
-  UpdateBookmarksTextPlacement();
+  settings::Set(settings::kShowBookmarkLabels, show);
+  UpdateBookmarkLabels();
 }
 
 void Framework::SwitchToMapAppearance(MapAppearance const mapAppearance)

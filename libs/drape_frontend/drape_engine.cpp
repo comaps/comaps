@@ -80,7 +80,7 @@ DrapeEngine::DrapeEngine(Params && params)
   if (!settings::Get(kLastEnterBackground, m_startBackgroundTime))
     m_startBackgroundTime = base::Timer::LocalTime();
 
-  (void)settings::Get(settings::kBookmarksTextPlacement, m_bookmarksTextPlacement);
+  (void)settings::Get(settings::kShowBookmarkLabels, m_showBookmarkLabels);
 
   std::vector<PostprocessRenderer::Effect> effects;
 
@@ -260,13 +260,13 @@ void DrapeEngine::InvalidateUserMarks()
                                   MessagePriority::Normal);
 }
 
-void DrapeEngine::UpdateBookmarksTextPlacement(UserMarksProvider * provider)
+void DrapeEngine::UpdateBookmarkLabels(UserMarksProvider * provider)
 {
   using namespace settings;
-  Placement s;
-  if (Get(kBookmarksTextPlacement, s))
+  bool show = false;
+  if (Get(kShowBookmarkLabels, show))
   {
-    m_bookmarksTextPlacement = s;
+    m_showBookmarkLabels = show;
 
     UpdateUserMarks(provider, true /* firstTime */);
 
@@ -959,13 +959,13 @@ drape_ptr<UserMarkRenderParams> DrapeEngine::GenerateMarkRenderInfo(UserPointMar
     renderInfo->m_customDepth = true;
   }
   renderInfo->m_depthLayer = mark->GetDepthLayer();
-  renderInfo->m_titleDepthLayer = mark->GetDepthLayerEx(m_bookmarksTextPlacement);
+  renderInfo->m_titleDepthLayer = mark->GetDepthLayerEx(m_showBookmarkLabels);
   renderInfo->m_minZoom = mark->GetMinZoom();
   renderInfo->m_minTitleZoom = mark->GetMinTitleZoom();
   renderInfo->m_isVisible = mark->IsVisible();
   renderInfo->m_pivot = mark->GetPivot();
   renderInfo->m_pixelOffset = mark->GetPixelOffset();
-  renderInfo->m_titleDecl = mark->GetTitleDeclEx(m_bookmarksTextPlacement, outlineColor);
+  renderInfo->m_titleDecl = mark->GetTitleDeclEx(m_showBookmarkLabels, outlineColor);
   renderInfo->m_symbolNames = mark->GetSymbolNames();
   renderInfo->m_coloredSymbols = mark->GetColoredSymbols();
   renderInfo->m_symbolSizes = mark->GetSymbolSizes();

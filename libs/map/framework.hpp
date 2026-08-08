@@ -48,7 +48,6 @@
 #include "storage/storage_defines.hpp"
 
 #include "platform/location.hpp"
-#include "platform/placement_settings.hpp"
 #include "platform/platform.hpp"
 #include "platform/safe_callback.hpp"
 #include "platform/settings.hpp"
@@ -406,7 +405,7 @@ public:
   m2::PointD GetMinDistanceBetweenResults() const override;
 
 private:
-  void UpdateBookmarksTextPlacement();
+  void UpdateBookmarkLabels();
 
   void ActivateMapSelection();
   void InvalidateUserMarks();
@@ -817,8 +816,8 @@ public:
   void AllowAutoZoom(bool allowAutoZoom);
   void SaveAutoZoom(bool allowAutoZoom);
 
-  static settings::Placement GetBookmarksTextPlacement();
-  void SetBookmarksTextPlacement(settings::Placement setting);
+  static bool GetShowBookmarkLabels();
+  void SetShowBookmarkLabels(bool show);
 
   // Direct access to managers only for legacy Android listener support. So please dont use directly anymore!
   TrafficManager & GetTrafficManager();
