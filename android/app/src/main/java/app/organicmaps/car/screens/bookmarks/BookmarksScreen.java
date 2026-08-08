@@ -9,11 +9,13 @@ import androidx.car.app.model.Header;
 import androidx.car.app.model.ItemList;
 import androidx.car.app.model.ListTemplate;
 import androidx.car.app.model.Template;
+import androidx.car.app.navigation.model.MapWithContentTemplate;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.lifecycle.LifecycleOwner;
 import app.organicmaps.R;
 import app.organicmaps.car.renderer.Renderer;
 import app.organicmaps.car.screens.base.BaseMapScreen;
+import app.organicmaps.car.util.UiHelpers;
 import app.organicmaps.sdk.bookmarks.data.BookmarkCategory;
 
 public class BookmarksScreen extends BaseMapScreen
@@ -41,7 +43,10 @@ public class BookmarksScreen extends BaseMapScreen
   @Override
   protected Template onGetTemplateImpl()
   {
-    return createBookmarksListTemplate();
+    final MapWithContentTemplate.Builder builder = new MapWithContentTemplate.Builder();
+    builder.setMapController(UiHelpers.createMapController(getCarContext(), getSurfaceRenderer()));
+    builder.setContentTemplate(createBookmarksListTemplate());
+    return builder.build();
   }
 
   @Override

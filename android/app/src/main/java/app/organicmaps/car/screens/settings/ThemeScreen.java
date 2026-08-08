@@ -9,11 +9,13 @@ import androidx.car.app.model.ItemList;
 import androidx.car.app.model.ListTemplate;
 import androidx.car.app.model.Row;
 import androidx.car.app.model.Template;
+import androidx.car.app.navigation.model.MapWithContentTemplate;
 import androidx.core.graphics.drawable.IconCompat;
 import app.organicmaps.R;
 import app.organicmaps.car.renderer.Renderer;
 import app.organicmaps.car.screens.base.BaseMapScreen;
 import app.organicmaps.car.util.ThemeUtils;
+import app.organicmaps.car.util.UiHelpers;
 
 public class ThemeScreen extends BaseMapScreen
 {
@@ -35,7 +37,10 @@ public class ThemeScreen extends BaseMapScreen
   @Override
   protected Template onGetTemplateImpl()
   {
-    return createRadioButtonsTemplate();
+    final MapWithContentTemplate.Builder builder = new MapWithContentTemplate.Builder();
+    builder.setMapController(UiHelpers.createMapController(getCarContext(), getSurfaceRenderer()));
+    builder.setContentTemplate(createRadioButtonsTemplate());
+    return builder.build();
   }
 
   @NonNull
