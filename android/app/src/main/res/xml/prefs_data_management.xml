@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <Preference
+    android:key="@string/pref_storage"
+    android:summary="@string/maps_storage_summary"
+    android:title="@string/maps_storage"
+    app:icon="@drawable/ic_sd_card"
+    app:singleLineTitle="false" />
+  <Preference
+    android:key="@string/pref_backup"
+    android:persistent="false"
+    android:summary="@string/pref_backup_summary"
+    android:title="@string/pref_backup_title"
+    app:icon="@drawable/ic_settings_backup_restore"
+    app:singleLineTitle="false" />
+  <SwitchPreferenceCompat
+    android:key="@string/pref_autodownload"
+    android:title="@string/autodownload"
+    android:widgetLayout="@layout/preference_switch"
+    app:icon="@drawable/ic_download_st"
+    app:singleLineTitle="false" />
+
+</androidx.preference.PreferenceScreen>

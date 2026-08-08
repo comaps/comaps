@@ -3,9 +3,9 @@
 #include "base/logging.hpp"
 #include "base/macros.hpp"
 
-#include <drape_frontend/render_state_extension.hpp>
+#include "drape_frontend/render_state_extension.hpp"
 
-#include <shaders/program_manager.hpp>
+#include "shaders/program_manager.hpp"
 
 #include <imgui/imgui.h>
 

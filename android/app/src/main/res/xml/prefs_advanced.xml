@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <SwitchPreferenceCompat
+    android:defaultValue="false"
+    android:key="@string/pref_enable_logging"
+    android:summary="@string/enable_logging_warning_message"
+    android:title="@string/enable_logging"
+    android:widgetLayout="@layout/preference_switch"
+    app:icon="@drawable/ic_browse_activity"
+    app:singleLineTitle="false" />
+  <SwitchPreferenceCompat
+    android:defaultValue="false"
+    android:key="@string/pref_emulate_bad_external_storage"
+    android:title="@string/setting_emulate_bad_storage"
+    android:widgetLayout="@layout/preference_switch"
+    app:isPreferenceVisible="false"
+    app:singleLineTitle="false" />
+  <Preference
+    android:key="@string/pref_open_external_links"
+    android:persistent="false"
+    android:summary="@string/pref_openexternallinks_summary"
+    android:title="@string/pref_openexternallinks_title"
+    app:icon="@drawable/ic_open_in"
+    app:isPreferenceVisible="false" />
+  <Preference
+    android:key="@string/pref_custom_map_download_url"
+    android:title="@string/download_resources_custom_url_title"
+    app:icon="@drawable/ic_cloud_download" />
+
+</androidx.preference.PreferenceScreen>

@@ -46,6 +46,7 @@ import app.organicmaps.widget.SearchToolbarController;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -142,8 +143,10 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
   }
 
   private View mResultsFrame;
+  private View mTabFrame;
   private PlaceholderView mResultsPlaceholder;
   private ExtendedFloatingActionButton mShowOnMapFab;
+  private FloatingActionButton mOpenContactPicker;
 
   @NonNull
   private SearchToolbarController mToolbarController;
@@ -173,14 +176,21 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
       registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                                 activityResult -> mToolbarController.onVoiceRecognitionResult(activityResult));
 
+  private final ActivityResultLauncher<Intent> mContactPickerLauncher =
+          registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+          result -> {
+            if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null)
+            {
+              mToolbarController.setQuery(Utils.getContactAddress(requireContext(), result.getData().getData()));
+            }
+          }
+  );
+
   private final LocationListener mLocationListener = new LocationListener() {
     @Override
     public void onLocationUpdated(@NonNull Location location)
     {
       mLastPosition.set(location.getLatitude(), location.getLongitude());
-
-      if (!TextUtils.isEmpty(getQuery()))
-        mSearchAdapter.notifyDataSetChanged();
     }
   };
 
@@ -225,6 +235,12 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
 
     UiUtils.showIf(hasQuery, mResultsFrame);
     UiUtils.showIf(hasQuery, mShowOnMapFab);
+
+    if (hasQuery)
+      mTabFrame.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
+    else
+      mTabFrame.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
+    UiUtils.showIf(!hasQuery, mOpenContactPicker);
     if (hasQuery)
       hideDownloadSuggest();
     else if (doShowDownloadSuggest())
@@ -255,7 +271,7 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     readArguments();
 
     ViewGroup root = (ViewGroup) view;
-    View mTabFrame = root.findViewById(R.id.tab_frame);
+    mTabFrame = root.findViewById(R.id.tab_frame);
     ViewPager2 pager = mTabFrame.findViewById(R.id.pages);
 
     mToolbarController = new ToolbarController(view);
@@ -285,6 +301,9 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
                                                });
     mShowOnMapFab = root.findViewById(R.id.show_on_map_fab);
     mShowOnMapFab.setOnClickListener(v -> showAllResultsOnMap());
+    mOpenContactPicker = root.findViewById(R.id.open_contact_picker);
+    mOpenContactPicker.setOnClickListener(v -> mContactPickerLauncher.launch(Utils.openContactPicker()));
+    ViewCompat.setOnApplyWindowInsetsListener(mResultsPlaceholder, new WindowInsetUtils.ScrollableContentInsetsListener(mResultsPlaceholder, mOpenContactPicker));
 
     mResults.setLayoutManager(new LinearLayoutManager(view.getContext()));
     mResults.setAdapter(mSearchAdapter);

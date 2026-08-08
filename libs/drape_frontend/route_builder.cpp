@@ -5,6 +5,10 @@
 #include "drape/graphics_context.hpp"
 #include "drape/texture_manager.hpp"
 
+#include "geometry/rect2d.hpp"
+
+#include "base/assert.hpp"
+
 namespace df
 {
 RouteBuilder::RouteBuilder(FlushFn && flushFn, FlushArrowsFn && flushArrowsFn, FlushMarkersFn && flushMarkersFn)

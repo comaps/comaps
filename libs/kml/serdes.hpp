@@ -1,17 +1,19 @@
 #pragma once
 
-#include "kml/serdes_common.hpp"
+#include "kml/type_utils.hpp"
 #include "kml/types.hpp"
 
 #include "coding/parse_xml.hpp"
 #include "coding/reader.hpp"
-#include "coding/writer.hpp"
 
 #include "geometry/point2d.hpp"
 
 #include "base/exception.hpp"
+#include "base/logging.hpp"
 
 #include <string>
+
+class Writer;
 
 namespace kml
 {

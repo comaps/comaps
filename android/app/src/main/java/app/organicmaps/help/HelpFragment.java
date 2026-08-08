@@ -113,7 +113,7 @@ public class HelpFragment extends BaseMwmFragment implements View.OnClickListene
     if (id == R.id.web)
       Utils.openUrl(requireActivity(), getResources().getString(R.string.app_site_url));
     else if (id == R.id.news)
-      Utils.openUrl(requireActivity(), getResources().getString(R.string.app_site_url) + "news/");
+      Utils.openUrl(requireActivity(), "https://www.comaps.app/news/");
     else if (id == R.id.email)
       Utils.sendTo(requireContext(), BuildConfig.SUPPORT_MAIL, getString(R.string.project_name));
     else if (id == R.id.code_repo)

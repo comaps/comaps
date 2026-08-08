@@ -75,7 +75,6 @@
 		67F1837A1BD5045700AB1840 /* mwm_url_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 674A29CF1B26FCFE001A525C /* mwm_url_tests.cpp */; };
 		BB1C0196241BF73C0067FD5C /* track_mark.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BB1C0194241BF73C0067FD5C /* track_mark.hpp */; };
 		BB1C0197241BF73C0067FD5C /* track_mark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB1C0195241BF73C0067FD5C /* track_mark.cpp */; };
-		BB421D6C1E8C0031005BFA4D /* transliteration_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB421D6A1E8C0026005BFA4D /* transliteration_test.cpp */; };
 		BB4E5F251FCC664A00A77250 /* transit_display.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB4E5F211FCC664A00A77250 /* transit_display.cpp */; };
 		BB4E5F261FCC664A00A77250 /* transit_display.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BB4E5F221FCC664A00A77250 /* transit_display.hpp */; };
 		BB4E5F271FCC664A00A77250 /* transit_reader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BB4E5F231FCC664A00A77250 /* transit_reader.hpp */; };
@@ -225,7 +224,6 @@
 		679624A51D1017C200AE4E3C /* mwm_set_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mwm_set_test.cpp; sourceTree = "<group>"; };
 		BB1C0194241BF73C0067FD5C /* track_mark.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = track_mark.hpp; sourceTree = "<group>"; };
 		BB1C0195241BF73C0067FD5C /* track_mark.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = track_mark.cpp; sourceTree = "<group>"; };
-		BB421D6A1E8C0026005BFA4D /* transliteration_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = transliteration_test.cpp; sourceTree = "<group>"; };
 		BB4E5F211FCC664A00A77250 /* transit_display.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = transit_display.cpp; path = transit/transit_display.cpp; sourceTree = "<group>"; };
 		BB4E5F221FCC664A00A77250 /* transit_display.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = transit_display.hpp; path = transit/transit_display.hpp; sourceTree = "<group>"; };
 		BB4E5F231FCC664A00A77250 /* transit_reader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = transit_reader.hpp; path = transit/transit_reader.hpp; sourceTree = "<group>"; };
@@ -356,7 +354,6 @@
 				40ACC79523191C2600238E21 /* power_manager_tests.cpp */,
 				671ED38A20D403B300D4317E /* search_api_tests.cpp */,
 				674A29EE1B26FD5F001A525C /* testingmain.cpp */,
-				BB421D6A1E8C0026005BFA4D /* transliteration_test.cpp */,
 				674A2A351B27011A001A525C /* working_time_tests.cpp */,
 				ED49D74B2CEF3CE3004AF27E /* elevation_info_tests.cpp */,
 				ED85D1CF2D5F508700D8075D /* track_statistics_tests.cpp */,
@@ -657,7 +654,6 @@
 				ED49D74C2CEF3D69004AF27E /* elevation_info_tests.cpp in Sources */,
 				67F183761BD5045700AB1840 /* bookmarks_test.cpp in Sources */,
 				FAA8387626BB3C17002E54C6 /* extrapolator_tests.cpp in Sources */,
-				BB421D6C1E8C0031005BFA4D /* transliteration_test.cpp in Sources */,
 				679624B21D1017DB00AE4E3C /* mwm_set_test.cpp in Sources */,
 				679624AD1D1017DB00AE4E3C /* address_tests.cpp in Sources */,
 				67F183791BD5045700AB1840 /* kmz_unarchive_test.cpp in Sources */,

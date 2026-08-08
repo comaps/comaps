@@ -199,11 +199,23 @@ endif()
 # Fix for #include <boost/regex.hpp>
 include_directories("${OMIM_ROOT}/3party/boost")
 
-# without this, cmake might ignore the Python Virtual Environment when defined 
-set(Python3_FIND_VIRTUALENV FIRST)
 
 # Used in qt/ and shaders/
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
+
+# Detect python virtual environment and use it if available
+if(DEFINED ENV{VIRTUAL_ENV})
+  set(PYTHON_VENV_PATH "$ENV{VIRTUAL_ENV}")
+  set(Python3_EXECUTABLE "python3")
+  message(STATUS "==> Python Virtual Environment detected : ${PYTHON_VENV_PATH}"  "  ==>  "  "Using python command: ${Python3_EXECUTABLE}" )
+elseif(EXISTS "${OMIM_ROOT}/.venv")
+  if(EXISTS "${OMIM_ROOT}/.venv/bin/python3")
+    set(Python3_EXECUTABLE "${OMIM_ROOT}/.venv/bin/python3")
+  elseif(EXISTS "${OMIM_ROOT}/.venv/Scripts/python.exe")
+    set(Python3_EXECUTABLE "${OMIM_ROOT}/.venv/Scripts/python.exe")
+  endif()
+  message(STATUS "==> Python Virtual Environment detected : ${OMIM_ROOT}/.venv"  "  ==>  "  "Using python command: ${Python3_EXECUTABLE}" )
+endif()
 
 execute_process(
     COMMAND ${Python3_EXECUTABLE} -c "import google.protobuf; 
@@ -216,12 +228,12 @@ print(google.protobuf.__version__)"
 
 if(PROTOBUF_CHECK EQUAL 0)
     if(PROTOBUF_VERSION VERSION_LESS "3.20.0" OR PROTOBUF_VERSION VERSION_GREATER_EQUAL "4.0.0")
-        message(FATAL_ERROR "Python protobuf ${PROTOBUF_VERSION} found, but version (>=3.20, <4.0) is required")
+        message(FATAL_ERROR "Python protobuf ${PROTOBUF_VERSION} found, but version (>=3.20, <4.0) is required. Run ./configure.sh to provision a local .venv with the correct version, or set SKIP_PYTHON_VENV=1 to manage protobuf via your system Python.")
     else()
         message(STATUS "Python protobuf ${PROTOBUF_VERSION} found (>=3.20, <4.0)")
     endif()
 else()
-    message(FATAL_ERROR "Python protobuf not found. Install version (>=3.20, <4.0)")
+    message(FATAL_ERROR "Python protobuf not found. Run ./configure.sh to provision a local .venv with the correct version (>=3.20, <4.0), or set SKIP_PYTHON_VENV=1 to manage protobuf via your system Python.")
 endif()
 
 

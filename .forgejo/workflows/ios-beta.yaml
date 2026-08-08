@@ -1,38 +1,12 @@
 name: iOS Beta
 on:
   workflow_dispatch: # Manual trigger
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - .gitignore
-      - .forgejo/**
-      - '!.forgejo/workflows/ios-beta.yaml'  # Run check on self change
-      - '**/*_tests/**'
-      - CONTRIBUTORS
-      - LICENSE
-      - NOTICE
-      - README.md
-      - android/**
-      - data/*-strings/**
-      - docs/**
-      - generator/**
-      - packaging/**
-      - libs/platform/*_android*
-      - libs/platform/*_linux*
-      - libs/platform/*_mac*
-      - libs/platform/*qt*
-      - libs/platform/*_win*
-      - libs/pyhelpers/**
-      - qt*/**
-      - tools/**
 
 jobs:
   ios-beta:
     name: Apple TestFlight
-    runs-on: macos-15
+    runs-on: comaps-macos-tahoe
     env:
-      DEVELOPER_DIR: /Applications/Xcode_26.app/Contents/Developer
       LANG: en_US.UTF-8  # Fastlane complains that the terminal is using ASCII.
       LANGUAGE: en_US.UTF-8
       LC_ALL: en_US.UTF-8
@@ -46,8 +20,8 @@ jobs:
         with:
           fetch-depth: 100 # enough to get all commits for the current day
 
-      - name: Parallel submodules checkout
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(sysctl -n hw.logicalcpu) * 20))
+      - name: Update submodules
+        uses: ./.forgejo/actions/update-submodules
 
       - name: Restore beta keys
         shell: bash
@@ -76,7 +50,7 @@ jobs:
         working-directory: xcode
 
       - name: Upload ipa and DSYMs artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: ipa and DSYM archive ${{ env.IOS_VERSION }}
           path: xcode/build/*

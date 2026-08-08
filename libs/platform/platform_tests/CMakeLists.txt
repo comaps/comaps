@@ -3,10 +3,8 @@ project(platform_tests)
 set(SRC
   country_file_tests.cpp
   distance_tests.cpp
-  duration_tests.cpp
   downloader_tests/downloader_test.cpp
   downloader_utils_tests.cpp
-  get_text_by_id_tests.cpp
   glaze_test.cpp
   jansson_test.cpp
   language_test.cpp
@@ -21,8 +19,15 @@ set(SRC
 omim_add_test(${PROJECT_NAME} ${SRC} REQUIRE_QT REQUIRE_SERVER)
 
 target_link_libraries(${PROJECT_NAME}
-  platform_tests_support
-  platform
-  cppjansson
-  glaze::glaze
+  PRIVATE
+    base
+    coding
+    cppjansson
+    platform
+    platform_tests_support
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PRIVATE
+    glaze::glaze
 )

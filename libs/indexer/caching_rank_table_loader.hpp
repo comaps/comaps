@@ -1,6 +1,5 @@
 #pragma once
 
-#include "indexer/feature_decl.hpp"
 #include "indexer/mwm_set.hpp"
 #include "indexer/rank_table.hpp"
 

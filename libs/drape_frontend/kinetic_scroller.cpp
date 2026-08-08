@@ -1,6 +1,12 @@
 #include "kinetic_scroller.hpp"
 #include "visual_params.hpp"
 
+#include "drape_frontend/animation/animation.hpp"
+
+#include "geometry/screenbase.hpp"
+
+#include "base/assert.hpp"
+
 #include <algorithm>
 
 namespace df

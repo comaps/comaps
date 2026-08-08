@@ -1,0 +1,1607 @@
+{
+    "@category_eat": {
+        "defaultMessage": "Nerede yenir|Yemek"
+    },
+    "@category_food": {
+        "defaultMessage": "3Market|Bakkal|Yiyecek"
+    },
+    "@category_transport": {
+        "defaultMessage": "4Ulaşım"
+    },
+    "@category_fuel": {
+        "defaultMessage": "3Benzinlik|3Yakıt|3Akaryakıt|2Dizel|2Gaz"
+    },
+    "@category_parking": {
+        "defaultMessage": "3Otopark"
+    },
+    "@category_shopping": {
+        "defaultMessage": "4Alışveriş"
+    },
+    "@category_hotel": {
+        "defaultMessage": "Otel|Oteller"
+    },
+    "@category_tourism": {
+        "defaultMessage": "4Görülecek yerler|3Turizm"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "Eğlence"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "Gece hayatı"
+    },
+    "@category_children": {
+        "defaultMessage": "Aile tatili"
+    },
+    "@category_atm": {
+        "defaultMessage": "3Bankamatik"
+    },
+    "@category_rv": {
+        "defaultMessage": "4Karavan tesisleri"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "3para"
+    },
+    "@category_bank": {
+        "defaultMessage": "3Banka"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "İkinci el"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "3para"
+    },
+    "@category_recycling": {
+        "defaultMessage": "4Geri dönüşüm|4Atık kullanımı|4Geri dönüştürülebilir nesneler|4Ayrı çöp toplama|4Atık ayırma|5Yeniden kullanım"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "3Döviz bürosu|3para"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "2Bar|3bira|pub|içki|Meyhane"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "4Kafeterya|kafe|2Cafe"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "4Fast food|3kafeterya"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "3Restoran|3kafeterya|3lokanta"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "3Yakıt|3Benzin istasyonu|2gaz|Benzinlik"
+    },
+    "@shop": {
+        "defaultMessage": "Mağaza"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "3Fırın|Hamur işi"
+    },
+    "shop-cannabis|@shop": {
+        "defaultMessage": "4Kenevir|4Esrar"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "4Bakım ürünleri|3güzellik merkezi|Kozmetik"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "Bakkal"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "Şarküteri"
+    },
+    "shop-farm|@category_food|@shop": {
+        "defaultMessage": "Çiftlik gıdaları|Çiftlik Gıda Dükkanı"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "Çocuk yuvası|kreş|Anasınıfı|Anaokulu"
+    },
+    "shop-grocery|@category_food|@shop": {
+        "defaultMessage": "Market"
+    },
+    "shop-health_food|@category_food|@shop": {
+        "defaultMessage": "Sağlıklı Gıda"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "İşitme Cihazları"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "3Cep telefonu mağazası|3elektronik mağazası|telefon|cep telefonu|akıllı telefon"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "Çiçekçi"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "Kasap"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "4Mobilya mağazası|eşya mağazası"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "Mutfak Mağazası"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "İçki dükkanı|alkol"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "3Kitapçı|3kitap mağazası|3kitaplar"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "Ayakkabı mağazası|Ayakkabıcı"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "4Elektronik mağazası|Teknoloji"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "Hırdavatçı|Nalbur"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "Ev eşyaları"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "Kuyumcu"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "Gözlükçü|2Optik"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "Hediyelik eşya mağazası"
+    },
+    "shop-beauty": {
+        "defaultMessage": "Güzellik salonu"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "Manav"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "4Spor ürünleri"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "3Süpermarket|3market"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "Alışveriş merkezi|AVM"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "Alışveriş merkezi|büyük mağaza|market|büyük market"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "İçecek"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "Bilgisayar mağazası"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "Şekerci|tatlıcı|Şekerlemeci"
+    },
+    "shop-laundry": {
+        "defaultMessage": "4Çamaşırhane"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "Oyuncakçı|Oyuncak Mağazası|Oyuncak|Çocuklar"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "3Pazaryeri"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "Para Transferi|Para Aktarma"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "Giyim mağazası|Giysi Mağazası"
+    },
+    "shop-caravan|@category_rv|@shop": {
+        "defaultMessage": "Karavan galerisi|Karavan Bayiliği"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "Otomobil mağazası|Araba mağazası|Araba showroomu|Otomobil showroomu|Araba galerisi|Otomobil galerisi|Oto showroom|Otoshowroom"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "4Bisikletçi|Bisiklet"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "Büfe"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "Otobüs durağı|3otobüs|3dolmuş|durak|dolmuş durağı"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "3Tramvay durağı|Tramvay|durak"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "4Otobüs terminali|3Otobüs durağı|3otobüs"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "2Gar|3demiryolları|İstasyon|Tren|tren istasyonu"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "Füniküler"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "2Metro|3yer altı metrosu"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "3Feribot|terminal"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "3Taksi"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "3Belediye binası"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "3Cazibe merkezleri|3görülecek yerler"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "3Resim|3Sanat"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "3Manzara"
+    },
+    "tourism-information": {
+        "defaultMessage": "4Turist bilgilendirme|4Bilgi"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "3Piknik alanı|Barbekü Izgarası"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "4Ibadet yerleri|3tapınak"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "Kilise|katedral|bazilika|ibadet yerleri|tapınak"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "3Cami|ibadet yerleri|tapınak"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "Tapınak|ibadet yerleri"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "Tapınak|ibadet yerleri"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "Mabet|ibadet yerleri|tapınak"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "4Sinagog|ibadet yerleri|tapınak"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "Tapınak|ibadet yerleri"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "2Müze|sergi|3galeri|turistik mekanlar"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "2Şelale"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "3Arkeolojik alan|Kazı alanı|Sit alanı|ören yeri"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "Harp Meydanı"
+    },
+    "historic-stone": {
+        "defaultMessage": "Tarihi Taş"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "Sınır Taşı"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "Kale|Saray|şato|kule|Tepe Kalesi"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "Şehir kapısı"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "Şehir Duvarı"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "Hisar"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "Darağacı"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "Anıt|abide"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "Anıt haç"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "Hatıra Plaketi|Anı plaketi"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "Heykel"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "Heykel"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "Tökezleyen Taşlar|Stolperstein"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "Savaş anıtı"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "Abide|anıt"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "Boyunduruk"
+    },
+    "historic-cannon": {
+        "defaultMessage": "Top"
+    },
+    "historic-anchor": {
+        "defaultMessage": "Tarihi Çapa"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "Harabeler"
+    },
+    "historic-mine": {
+        "defaultMessage": "Tarihi Maden"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "Gemi|Tekne|Bot"
+    },
+    "historic-wreck": {
+        "defaultMessage": "Gemi enkazı"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "Tarihi Lokomotif"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "Tarihi Tank"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "Tarihi Uçak"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "Türbe|mezar|lahit|kabir"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "Yol kenarı haçı|Yol kenarında haç|yol üstü haç|yol üstünde haç"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "Yol üstünde türbe|yol üstü türbe|yol kenarı türbe|yol kenarında türbe"
+    },
+    "leisure-dog_park": {
+        "defaultMessage": "3Köpek parkı"
+    },
+    "leisure-garden": {
+        "defaultMessage": "2Bahçe"
+    },
+    "amenity-bench": {
+        "defaultMessage": "Bank"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "Bisiklet kiralama|4Bisiklet"
+    },
+    "amenity-bicycle_repair_station": {
+        "defaultMessage": "4Bisiklet tamiri|4Bisiklet|Bisiklet tamircisi"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "Araç Paylaşımı|ortak araç"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "3Araç kiralama|araba"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "Motosiklet Kiralama"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "3Sinema"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "Bowling pisti"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "3Tiyatro"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "3Gece kulübü|dans"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "Genelev"
+    },
+    "@gambling": {
+        "defaultMessage": "Kumar"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "Casino|Gazino|Kumarhane"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "Yetişkin Oyun Merkezi"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "Oyun makinesi"
+    },
+    "amenity-college": {
+        "defaultMessage": "Kolej"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "İtfaiye"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "3Çeşme"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "3Mezarlık"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "Cenaze Levazımcısı"
+    },
+    "@category_hospital": {
+        "defaultMessage": "4Hastane"
+    },
+    "amenity-hospital|@category_hospital": {
+        "defaultMessage": "hastane|3klinik|doktor|sağlık merkezi|sağlık hizmetleri|ilk yardım|sağlık ocağı"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "4Klinik|hastane"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "Doktor muayenehanesi|Klinik|hastane|Doktor"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "Diş hekimi|dişçi"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "Tıbbi laboratuvar"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "Fizyoterapist"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "Alternatif tıp"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "Odyoloji|Odyolog"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "Kan Bağışı"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "Optometri|Optometrist"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "Podiatri|Podiatrist"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "Psikoterapi|Psikoterapist"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "Logopedi|Konuşma terapisti"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "Avlanma alanı"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "4Anaokulu|Anasınıfı"
+    },
+    "amenity-library": {
+        "defaultMessage": "3Kütüphane"
+    },
+    "amenity-parking|amenity-parking_entrance|@category_parking": {
+        "defaultMessage": "Otopark"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "3Eczane"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "eczane"
+    },
+    "@category_post": {
+        "defaultMessage": "3Posta"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "3Posta kutusu|posta"
+    },
+    "amenity-post_office|post_office-post_partner|@category_post": {
+        "defaultMessage": "3Postane"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "Araç muayenesi"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "Çöplük|Çöp kutusu|çöp"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "4Geri dönüşüm merkezi"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "4Geri Dönüşüm Kutusu|Atık Toplama Merkezi"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "3Piller|Atık Pil Toplama|Atık pil kutusu"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "4Eski kıyafetler|Eski kıyafetler geri dönüşümü|Kıyafet toplama kutusu|giysi toplama kutusu|Kıyafet"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "4Cam şişeler Geri Dönüşümü"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "5Kağıt atıkları Geri Dönüşümü|Kağıt Atıklar"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "5Plastik atıklar Geri Dönüşümü|Plastik Atıklar"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "5Plastik şişeler Geri Dönüşümü"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "5Hurda Metaller Geri Dönüşümü"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "5Elektronik Geri Dönüşümü"
+    },
+    "recycling-cardboard|@category_recycling": {
+        "defaultMessage": "5Karton Geri Dönüşümü|Karton"
+    },
+    "recycling-cans|@category_recycling": {
+        "defaultMessage": "4Kutu Geri Dönüşümü|Tenekeler"
+    },
+    "recycling-shoes|@category_recycling": {
+        "defaultMessage": "5Ayakkabı Geri Dönüşümü|Ayakkabı Toplama Kutusu|Ayakkabılar"
+    },
+    "recycling-green_waste|@category_recycling": {
+        "defaultMessage": "5Yeşil Atıkların Geri Dönüşümü"
+    },
+    "recycling-cartons|@category_recycling": {
+        "defaultMessage": "5Karton Kutu Geri Dönüşümü|4Tetrapak|içecek kutusu geri dönüşümü|Kartonlar"
+    },
+    "amenity-sanitary_dump_station|@category_rv": {
+        "defaultMessage": "6Karavan Çöplüğü|Karavanlar için çöplük"
+    },
+    "amenity-school": {
+        "defaultMessage": "3Okul"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "Barınak"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "Bivouac Kulübe"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "Barınak"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "Striptiz kulübü"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "2Telefon"
+    },
+    "@category_toilet": {
+        "defaultMessage": "3Tuvalet|WC|Umumi tuvalet"
+    },
+    "amenity-toilets|toilets-yes|@category_toilet": {
+        "defaultMessage": "WC|tuvalet|umumi tuvalet"
+    },
+    "amenity-university": {
+        "defaultMessage": "4Üniversite"
+    },
+    "place-continent": {
+        "defaultMessage": "Kıta"
+    },
+    "place-country": {
+        "defaultMessage": "Ülke"
+    },
+    "place-city": {
+        "defaultMessage": "Şehir|il|ilçe"
+    },
+    "place-town": {
+        "defaultMessage": "Şehir|il|ilçe|İlçe"
+    },
+    "place-city-capital": {
+        "defaultMessage": "Başkent"
+    },
+    "place-county": {
+        "defaultMessage": "Kırsal kesim"
+    },
+    "place-state": {
+        "defaultMessage": "Eyalet|İl"
+    },
+    "place-region": {
+        "defaultMessage": "Bölge"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "Ada"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "Banliyö|ilçe|Mahalle"
+    },
+    "place-hamlet": {
+        "defaultMessage": "Mezra|köy|muhit"
+    },
+    "place-village": {
+        "defaultMessage": "Köy|küçük köy|Mezra"
+    },
+    "place-locality": {
+        "defaultMessage": "Semt|Arazi"
+    },
+    "place-farm": {
+        "defaultMessage": "Çiftlik"
+    },
+    "highway-raceway": {
+        "defaultMessage": "Koşu yolu|Yarış Pisti"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "Yol"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "Sokak|Sokağı"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "2Çıkış|3kavşak"
+    },
+    "highway-elevator": {
+        "defaultMessage": "Asansör"
+    },
+    "@mountain": {
+        "defaultMessage": "2Zirve|dağ"
+    },
+    "natural-saddle|mountain_pass": {
+        "defaultMessage": "Sırt|geçit|Dağ Eyeri"
+    },
+    "natural-strait": {
+        "defaultMessage": "Boğaz"
+    },
+    "landuse-forest": {
+        "defaultMessage": "Orman"
+    },
+    "leisure-park": {
+        "defaultMessage": "Park"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "Akvaryum"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "3Pansiyon|motel"
+    },
+    "tourism-hotel|@category_hotel": {
+        "defaultMessage": "motel"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "Misafir evi|pansiyon|misafirhane"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "3Motel|pansiyon"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "3Dağda konaklama|otel"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "3Kuaför|berber|tıraş"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "3Havaalanı|uçak|havalimanı"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "4Stadyum|arena"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "Oyun alanı"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "Spor Merkezi"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "Golf sahası"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "Minigolf"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "Kaçış odası"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "Spor sahası|Spor alanı|spor"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "2Yüzme havuzu|havuz|spor"
+    },
+    "sport-american_football": {
+        "defaultMessage": "Amerikan futbolu"
+    },
+    "sport-archery": {
+        "defaultMessage": "Okçuluk"
+    },
+    "sport-athletics": {
+        "defaultMessage": "Atletik|Atletizm"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "Avustralya futbolu"
+    },
+    "sport-baseball": {
+        "defaultMessage": "Beyzbol"
+    },
+    "sport-basketball": {
+        "defaultMessage": "Basketbol"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "Plaj voleybolu|sahil voleybolu"
+    },
+    "sport-bowls": {
+        "defaultMessage": "Kuka Oynu|Kuka oyunu"
+    },
+    "sport-chess": {
+        "defaultMessage": "Satranç"
+    },
+    "sport-cricket": {
+        "defaultMessage": "Kriket"
+    },
+    "sport-curling": {
+        "defaultMessage": "Körling"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "Binicilik"
+    },
+    "sport-golf": {
+        "defaultMessage": "Golf"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "Jimnastik"
+    },
+    "sport-handball": {
+        "defaultMessage": "Hentbol"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "Dalış alanı|tüplü dalış alanı|dalış sahası|tüplü dalış sahası"
+    },
+    "sport-shooting": {
+        "defaultMessage": "Poligon|Atış Poligonu|Atış menzili"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "Kaykay"
+    },
+    "sport-skiing": {
+        "defaultMessage": "Kayak|kayakçılık"
+    },
+    "sport-soccer": {
+        "defaultMessage": "Futbol"
+    },
+    "sport-swimming": {
+        "defaultMessage": "Yüzme"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "Masa tenisi"
+    },
+    "sport-tennis": {
+        "defaultMessage": "Tenis"
+    },
+    "sport-padel": {
+        "defaultMessage": "Padel"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "Voleybol"
+    },
+    "building": {
+        "defaultMessage": "Bina"
+    },
+    "building-address": {
+        "defaultMessage": "Adres"
+    },
+    "@category_police": {
+        "defaultMessage": "3Polis"
+    },
+    "amenity-police|@category_police": {
+        "defaultMessage": "Polis"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "4Elçilik"
+    },
+    "natural-bay": {
+        "defaultMessage": "Koy"
+    },
+    "@category_water": {
+        "defaultMessage": "Su Kaynağı|Su"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "4İçme suyu"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "Kaplıca"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "Pınar|Kaynak"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "Su kuyusu"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "Su Noktası|Karavanlar için su noktası"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "Çeşme Suyu|su musluğu|musluk|çeşme"
+    },
+    "@waterbody": {
+        "defaultMessage": "Su birikintisi|Su kaynağı|Su kütlesi"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "Havza"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "Gölet"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "Göl"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "5Rezervuar"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "Nehir|Çay|Dere|Irmak"
+    },
+    "waterway-canal": {
+        "defaultMessage": "Kanal"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "3Oto tamir dükkanı|araba servisi|araba tamir"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "2Kamp alanı|kamp|kamp yeri"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "4Karavan alanı|3karavan parkı"
+    },
+    "office": {
+        "defaultMessage": "Ofis|şirket|iş yeri"
+    },
+    "office-company": {
+        "defaultMessage": "Şirket bürosu|ofis"
+    },
+    "office-government": {
+        "defaultMessage": "Devlet dairesi"
+    },
+    "office-lawyer": {
+        "defaultMessage": "4Avukatlık bürosu|avukat"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "Cep telefonu operatörü|telekom|GSM Operatörü"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "Arıcı"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "Demirci"
+    },
+    "craft-brewery": {
+        "defaultMessage": "Bira fabrikası"
+    },
+    "craft-caterer": {
+        "defaultMessage": "Yemek şirketi"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "Marangoz"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "Şekerlemeci"
+    },
+    "craft-electrician": {
+        "defaultMessage": "4Elektrikçi"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "Elektronik Tamircisi"
+    },
+    "craft-gardener": {
+        "defaultMessage": "Bahçe Düzenleyici|Bahçeci|bahçıvan"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "Değirmen"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "El İşi"
+    },
+    "craft-hvac": {
+        "defaultMessage": "Klimacı"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "Dökümcü|metal işleri"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "Anahtar Kopyalama"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "Çilingir"
+    },
+    "craft-painter": {
+        "defaultMessage": "Boyacı"
+    },
+    "craft-photographer": {
+        "defaultMessage": "Fotoğraf stüdyosu|4Fotoğrafçı"
+    },
+    "craft-plumber": {
+        "defaultMessage": "Tesisatçı"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "Kereste Fabrikası"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "Ayakkabı tamircisi|kunduracı"
+    },
+    "craft-winery": {
+        "defaultMessage": "Şaraphane"
+    },
+    "craft-tailor": {
+        "defaultMessage": "Terzi"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "Meydan"
+    },
+    "place-sea": {
+        "defaultMessage": "Deniz"
+    },
+    "place-ocean": {
+        "defaultMessage": "Okyanus"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "3İnternet"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "Plaj|sahil"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "Deniz Feneri"
+    },
+    "man_made-survey_point": {
+        "defaultMessage": "4veri toplama istasyonu|4nirengi istasyonu|4jeodezik ölçüm noktası|4ölçüm istasyonu"
+    },
+    "man_made-flagpole": {
+        "defaultMessage": "Bayrak Direği"
+    },
+    "man_made-mast": {
+        "defaultMessage": "Direk"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "İletişim Kulesi"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "Petrol Kuyusu"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "eko|biyo|sağlıklı|biyolojik|ekolojik|doğal|organik"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "4Kopyalama Merkezi|Yazıcı|copy center|copycenter"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "4Fotoğrafçı|çerçeve"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "Kamera Mağazası"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "Seyahat Acentesi|turlar"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "Dış Mekan Ekipmanları|yürüyüş|tırmanma|kamp"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "Kuru Temizleme|temizleme"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "Tekerlekçi|lastikçi"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "Araba Yıkama|oto yıkama"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "4Veteriner"
+    },
+    "@charging_station": {
+        "defaultMessage": "Şarj İstasyonu|şarj etme"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "4Bisiklet Şarjı"
+    },
+    "amenity-charging_station-motorcar|@charging_station": {
+        "defaultMessage": "4Otomobil Şarj Cihazı|4Araba Şarj Cihazı|4Araç Şarj Cihazı|3Trugo|4TOGG Şarj"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "Çocuk Yuvası|Kreş"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "4Bisiklet park etme|bisiklet park"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "Çöp Kutusu"
+    },
+    "emergency-phone": {
+        "defaultMessage": "Acil telefon"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "3Fitness Merkezi"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "3Sauna"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "Lastik tamiri|tekerlek tamiri"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "Temizlik Ürünleri Mağazası"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "Evcil Hayvan Mağazası"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "Hayvanat bahçesi"
+    },
+    "attraction-animal": {
+        "defaultMessage": "Hayvan Muhafazası"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "3Turist Ofisi"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Ziyaretçi Merkezi"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "Toplum Merkezi|Halkevi"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "Basınçlı hava"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "Adliye|Mahkeme|adalet sarayı"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "Sigara Dispenseri"
+    },
+    "amenity-vending_machine-coffee": {
+        "defaultMessage": "4Kahve Dispenseri|Kahve Makinesi"
+    },
+    "amenity-vending_machine-condoms": {
+        "defaultMessage": "5Prezervatif Dispenseri|Kondom dispenseri"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "İçecek Dispenseri"
+    },
+    "amenity-vending_machine-food|@category_food": {
+        "defaultMessage": "Otomat|Yiyecek dispenseri|atıştırmalık"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "4Park Etme Biletleri|Park sayacı|park bileti"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "Toplu taşıma biletleri için otomatlar|toplu taşıma bileti|bilet"
+    },
+    "amenity-vending_machine-newspapers": {
+        "defaultMessage": "4Gazete dispenseri|Gazetelik"
+    },
+    "amenity-vending_machine-sweets": {
+        "defaultMessage": "Tatlı dispenseri|şekerler"
+    },
+    "amenity-vending_machine-excrement_bags": {
+        "defaultMessage": "5Dışkı torbası dispenseri"
+    },
+    "amenity-parcel_locker|@category_post": {
+        "defaultMessage": "4kilitli dolap|4kitli dolap|kasa"
+    },
+    "shop-outpost": {
+        "defaultMessage": "Alım Noktası"
+    },
+    "amenity-vending_machine-fuel|@category_fuel": {
+        "defaultMessage": "Yakıt dağıtıcı"
+    },
+    "building-garage": {
+        "defaultMessage": "Garaj"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "Otoyol Dinlenme Alanı|4Servis Alanı"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "Fabrika Bacası"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "Kule"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "Bahisçi"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "4Deniz ürünleri mağazası|3balıkçı"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "İkinci El Mağazası"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "Hayır Dükkanı"
+    },
+    "shop-ticket": {
+        "defaultMessage": "Biletçi|gişe|Bilet Satıcısı"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "Şarap mağazası|şarapçı"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "Araba parçaları"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "Tatil Kulübesi"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "Bilgi Panosu"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "Turist Haritası"
+    },
+    "aerialway-station": {
+        "defaultMessage": "Teleferik İstasyonu|Teleferik Durağı"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "Helikopter pisti"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "Sınır kontrolü|Gümrük"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "Su parkı|3Aquapark|Akuapark"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "Su Kulesi"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "Rüzgar gülü|Yel değirmeni"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "Mağara"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "4Volkan|Yanardağ"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "Emlak|Emlakçı"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "Eklüz Kapağı"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "Kitap Değişimi|Kitap paylaşma"
+    },
+    "sport-climbing": {
+        "defaultMessage": "Tırmanma Merkezi"
+    },
+    "sport-yoga": {
+        "defaultMessage": "Yoga"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "5Apart otel|Tatil Apartmanı"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "Tatil köyü"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "Bira bahçesi"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "Sürücü Kursu"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "Müzik Okulu|Müzik kursu"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "Dil Okulu|Dil kursu"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "Dondurma Standı"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "3İnternet Cafe|3İnternet Kafe"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "4Motosiklet Parkı|4Motorsiklet Parkı"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "Engelli park yeri"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "Huzurevi"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "Ödeme Noktası"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "Hamam"
+    },
+    "amenity-shower": {
+        "defaultMessage": "Duş"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "Acil Toplanma Noktası"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "4Defibrilatör"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "Yangın Söndürme Musluğu|yangın musluğu"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "Acil Can Kurtaran|Cankurtaran"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "Acil Dağ Kurtarma"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "Fitness Salonu"
+    },
+    "office-insurance": {
+        "defaultMessage": "Sigorta Acentesi"
+    },
+    "office-ngo": {
+        "defaultMessage": "STK Binası"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "4Erotik Ürünler Mağazası"
+    },
+    "shop-massage": {
+        "defaultMessage": "5Masaj Salonu"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "4Motosiklet Dükkanı|4Motorsiklet dükkanı"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "Motosiklet Tamircisi"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "Gazete Standı"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "Tefeci"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "Kırtasiye Mağazası|Kırtasiye"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "Dövme Salonu"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "Ucuz Ürünler Mağazası"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "4Video mağazası"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "Video oyunları mağazası"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "Vahşi Doğa Kulübesi"
+    },
+    "tourism-gallery|@category_tourism": {
+        "defaultMessage": "3Galeri|müze"
+    },
+    "tourism-theme_park|@category_tourism|@category_children": {
+        "defaultMessage": "Tema parkı|Eğlence parkı"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "Ulusal park|Milli park|Millipark"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "Doğa koruma alanı"
+    },
+    "natural-cape": {
+        "defaultMessage": "Burun"
+    },
+    "natural-geyser": {
+        "defaultMessage": "3Gayzer"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "Buzul"
+    },
+    "highway-ford": {
+        "defaultMessage": "Geçit"
+    },
+    "leisure-marina": {
+        "defaultMessage": "İskele|Marina|Rıhtım|Liman"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "Kayak|Kayak pisti"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "Etkinlik mekanı|etkinlik alanı"
+    },
+    "shop-chocolate|@category_food|@shop": {
+        "defaultMessage": "Çikolata mağazası|Çikolata Dükkanı"
+    },
+    "shop-coffee|@category_food|@shop": {
+        "defaultMessage": "Kahve mağazası|Kahve Dükkanı"
+    },
+    "shop-fabric|@shop": {
+        "defaultMessage": "Kumaş mağazası|Tekstil mağazası"
+    },
+    "shop-money_lender": {
+        "defaultMessage": "Tefeci"
+    },
+    "shop-music|@shop": {
+        "defaultMessage": "Plak mağazası|Müzik Dükkanı"
+    },
+    "shop-musical_instrument|@shop": {
+        "defaultMessage": "Enstrüman Mağazası"
+    },
+    "shop-tea|@shop": {
+        "defaultMessage": "Çay mağazası|Çay Dükkanı"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Antika"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "Sanat Mağazası"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "Çocuk mağazası"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "Çanta Mağazası|Çantacı"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "Peynirci|Peynir Dükkanı"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "Süt Ürünleri"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "Elektronik eşya dükkanı|Elektronik mağazası|Elektirikli eşya dükkanı"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "Balıkçılık Dükkanı|Balıkçılık Mağazası|Balıkçılık|Balıkçı Dükkanı"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "İç Dekorasyon"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "Piyango bileti"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "Tıbbi malzemeler|medikalci"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "Besin Takviyeleri|Takviye besin|takviye gıda|gıda takviyesi"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "Boya|boyacı"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "Parfümeri|parfümcü"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "Dikiş malzemeleri"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "Depolama Kiralama"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "Tütüncü|Tütün"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "Esnaf Malzemeleri|İş yeri malzemeleri|Dükkan malzemeleri"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "Saatçi|Saatler"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "Toptan satış mağazası|toptancı"
+    },
+    "leisure-track": {
+        "defaultMessage": "Pist"
+    },
+    "power-plant": {
+        "defaultMessage": "Enerji santrali|Elektrik santrali"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "Müzayede"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Koleksiyoncu|Koleksiyon eşyaları"
+    },
+    "man_made-cairn": {
+        "defaultMessage": "Höyük"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "Tekerlekli Sandalye"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "Sosyal Tesis"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "Spor salonu"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "Sanat Merkezi"
+    },
+    "amenity-prison": {
+        "defaultMessage": "hapishane"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "Sergi Merkezi"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "Banyo Mobilya Mağazası"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "Yatak Mağazası"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "Butik"
+    },
+    "amenity-food_court": {
+        "defaultMessage": "Yemek katı"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "Perdeci"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "Gaz İstasyonu"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "Evcil Hayvan Bakıcısı"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "Plakçı"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "Konferans merkezi"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "Aktar"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "Beyaz Eşya Mağazası"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "Zirai Ürünler Mağazası"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "Moda Aksesuarları"
+    },
+    "amenity-waste_transfer_station": {
+        "defaultMessage": "Atık Transfer İstasyonu"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "Halıcı"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "Makarna"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "Bagaj Dolabı"
+    },
+    "amenity-studio": {
+        "defaultMessage": "Stüdyo"
+    },
+    "man_made-cross": {
+        "defaultMessage": "Haç"
+    },
+    "leisure-dance|@category_entertainment": {
+        "defaultMessage": "2Dans|Dans kursu"
+    },
+    "leisure-firepit": {
+        "defaultMessage": "4Ateş çukuru"
+    },
+    "amenity-love_hotel": {
+        "defaultMessage": "3Aşk Oteli|4Seks Oteli|5Yetişkin Oteli"
+    },
+    "healthcare-sample_collection": {
+        "defaultMessage": "Numune alım yeri"
+    },
+    "natural-peak|@mountain": {
+        "defaultMessage": "Zirve"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "Bilgisayar Korsanı Alanı"
+    },
+    "amenity-animal_shelter": {
+        "defaultMessage": "Hayvan Barınağı"
+    },
+    "man_made-crane": {
+        "defaultMessage": "Vinç"
+    },
+    "shop-lighting|@shop": {
+        "defaultMessage": "Aydınlatma|4Armatürler|Lambalar"
+    },
+    "attraction-amusement_ride|attraction-carousel|attraction-roller_coaster|attraction-maze|attraction-historic|attraction-big_wheel|attraction-bumper_car|@category_children": {
+        "defaultMessage": "Eğlence|Eğlenme|Oyun|Lunapark"
+    },
+    "office-security": {
+        "defaultMessage": "Güvenlik Ofisi"
+    },
+    "building-guardhouse": {
+        "defaultMessage": "Koruma"
+    },
+    "shop-craft|@shop": {
+        "defaultMessage": "Zanaat"
+    },
+    "tourism-artwork-sculpture": {
+        "defaultMessage": "Heykel"
+    },
+    "@fastfood": {
+        "defaultMessage": "Fast food"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "Simit"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "Kahvaltı"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "Hamburger"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "Pasta"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "Kahve"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "Köri"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "Vagon restoran"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "Donut"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "Balık ve patates cipsi"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "Kızartma"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "ızgara"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "Sosisli"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "Dondurma"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "Kebap"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "Erişte"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "Gözleme|Krep"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "Makarna"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "Pizza"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "Japon eriştesi"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "Sandviç"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "Sucuk"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "Deniz ürünleri|Balık"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "Erişte"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "Et lokantası"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "Suşi"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "Tapas"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "Çay"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "Vejetaryen mutfağı"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "Vegan mutfağı"
+    }
+}

@@ -3,12 +3,10 @@
 #include "search/cancel_exception.hpp"
 #include "search/categories_cache.hpp"
 #include "search/cbv.hpp"
-#include "search/cities_boundaries_table.hpp"
+#include "search/common.hpp"
 #include "search/feature_offset_match.hpp"
-#include "search/features_layer.hpp"
 #include "search/features_layer_path_finder.hpp"
 #include "search/filtering_params.hpp"
-#include "search/geocoder_context.hpp"
 #include "search/geocoder_locality.hpp"
 #include "search/geometry_cache.hpp"
 #include "search/mode.hpp"
@@ -21,10 +19,12 @@
 #include "search/tracer.hpp"
 
 #include "indexer/mwm_set.hpp"
+#include "indexer/scales.hpp"
 
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
+#include "base/buffer_vector.hpp"
 #include "base/cancellable.hpp"
 #include "base/dfa_helpers.hpp"
 #include "base/levenshtein_dfa.hpp"
@@ -45,6 +45,7 @@ class CountryInfoGetter;
 
 namespace search
 {
+class CitiesBoundariesTable;
 class FeaturesFilter;
 class FeaturesLayerMatcher;
 class PreRanker;

@@ -1,9 +1,9 @@
 #pragma once
 
-#include "routing/edge_estimator.hpp"
 #include "routing/fake_ending.hpp"
 #include "routing/fake_vertex.hpp"
 #include "routing/guides_graph.hpp"
+#include "routing/latlon_with_altitude.hpp"
 #include "routing/router.hpp"
 #include "routing/segment.hpp"
 
@@ -19,6 +19,8 @@
 
 namespace routing
 {
+using NumMwmId = std::uint16_t;
+
 // Information needed to attach guide track to the OSM segments via fake edges.
 struct ConnectionToOsm
 {

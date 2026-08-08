@@ -1,17 +1,23 @@
 #include "map/search_api.hpp"
 
+#include "map/bookmark_helpers.hpp"
 #include "map/bookmarks_search_params.hpp"
 #include "map/everywhere_search_params.hpp"
 
+#include "search/bookmarks/types.hpp"
 #include "search/geometry_utils.hpp"
-#include "search/utils.hpp"
 
 #include "storage/downloader_search_params.hpp"
+
+#include "indexer/categories_holder.hpp"
 
 #include "platform/preferred_languages.hpp"
 
 #include "geometry/mercator.hpp"
 
+#include "i18n/localisation.hpp"
+
+#include "base/assert.hpp"
 #include "base/checked_cast.hpp"
 
 #include <algorithm>
@@ -145,7 +151,7 @@ SearchAPI::SearchAPI(DataSource & dataSource, storage::Storage const & storage,
   , m_infoGetter(infoGetter)
   , m_delegate(delegate)
   , m_engine(m_dataSource, GetDefaultCategories(), m_infoGetter,
-             Engine::Params(languages::GetCurrentMapTwine() /* locale */, numThreads))
+             Engine::Params(languages::GetTwine(localisation::GetMapLanguageCode()) /* locale */, numThreads))
 {}
 
 void SearchAPI::OnViewportChanged(m2::RectD const & viewport)

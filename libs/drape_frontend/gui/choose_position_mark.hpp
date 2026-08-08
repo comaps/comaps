@@ -2,6 +2,14 @@
 
 #include "drape_frontend/gui/shape.hpp"
 
+#include "drape/pointers.hpp"
+
+namespace dp
+{
+class GraphicsContext;
+class TextureManager;
+}  // namespace dp
+
 namespace gui
 {
 class ChoosePositionMark : public Shape

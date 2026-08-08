@@ -1,0 +1,323 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Hold til højre."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Drej til højre."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Skarpt til højre."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "Ved rundkørslen."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Forlad rundkørslen."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Hold til venstre."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Drej til venstre."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Skarpt til venstre."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Vend om."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "Fortsæt lige ud."
+    },
+    "exit": {
+        "defaultMessage": "Afkørsel."
+    },
+    "onto": {
+        "defaultMessage": "ad"
+    },
+    "take_exit_number": {
+        "defaultMessage": "Afkørsel ad"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Genberegning af ruten"
+    },
+    "destination": {
+        "defaultMessage": "Ankommer du."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "Du er ankommet."
+    },
+    "in_50_meters": {
+        "defaultMessage": "Om halvtreds meter"
+    },
+    "in_100_meters": {
+        "defaultMessage": "Om et hundrede meter"
+    },
+    "in_200_meters": {
+        "defaultMessage": "Om to hundrede meter"
+    },
+    "in_250_meters": {
+        "defaultMessage": "Om to hundrede og halvtreds meter"
+    },
+    "in_300_meters": {
+        "defaultMessage": "Om tre hundrede meter"
+    },
+    "in_400_meters": {
+        "defaultMessage": "Om fire hundrede meter"
+    },
+    "in_500_meters": {
+        "defaultMessage": "Om fem hundrede meter"
+    },
+    "in_600_meters": {
+        "defaultMessage": "Om seks hundrede meter"
+    },
+    "in_700_meters": {
+        "defaultMessage": "Om syv hundrede meter"
+    },
+    "in_750_meters": {
+        "defaultMessage": "Om syv hundrede og halvtreds meter"
+    },
+    "in_800_meters": {
+        "defaultMessage": "Om otte hundrede meter"
+    },
+    "in_900_meters": {
+        "defaultMessage": "Om ni hundrede meter"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "Om en kilometer"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "Om halvanden kilometer"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "Om to kilometer"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "Om en kilometer"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "Om tre kilometer"
+    },
+    "then": {
+        "defaultMessage": "Derefter"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Tag den første afkørsel."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Tag den anden afkørsel."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Tag den tredje afkørsel."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Tag den fjerde afkørsel."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Tag den femte afkørsel."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Tag den sjette afkørsel."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Tag den syvende afkørsel."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Tag ottende afkørsel."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Tag den niende afkørsel."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Tag den tiende afkørsel."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Tag den ellevte afkørsel."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "Om halvtreds fod"
+    },
+    "in_100_feet": {
+        "defaultMessage": "Om et hundrede fod"
+    },
+    "in_200_feet": {
+        "defaultMessage": "Om to hundrede fod"
+    },
+    "in_300_feet": {
+        "defaultMessage": "Om tre hundrede fod"
+    },
+    "in_400_feet": {
+        "defaultMessage": "Om fire hundrede fod"
+    },
+    "in_500_feet": {
+        "defaultMessage": "Om femte hundrede fod"
+    },
+    "in_600_feet": {
+        "defaultMessage": "Om sjette hundrede fod"
+    },
+    "in_700_feet": {
+        "defaultMessage": "Om syv hundrede fod"
+    },
+    "in_800_feet": {
+        "defaultMessage": "Om otte hundrede fod"
+    },
+    "in_900_feet": {
+        "defaultMessage": "Om ni hundrede fod"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "Om et tusind fod"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "Om et tusind fem hundrede fod"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "Om to tusind fod"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "Om to tusinde fem hundrede fod"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "Om tre tusind fod"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "Om tre tusind fem hundrede fod"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "Om fire tusind fod"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "Om fire tusind fem hundrede fod"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "Om fem tusind fod"
+    },
+    "in_1_mile": {
+        "defaultMessage": "Om en mil"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "Om halvanden mil"
+    },
+    "in_2_miles": {
+        "defaultMessage": "Om to mil"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Kamera foran dig"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "Ved enden af vejen,"
+    }
+}

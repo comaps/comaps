@@ -1,5 +1,8 @@
 #include "storage/country_tree_helpers.hpp"
 
+#include "storage/country.hpp"
+
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 
 #include <utility>

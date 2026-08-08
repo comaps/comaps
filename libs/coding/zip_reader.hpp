@@ -1,7 +1,6 @@
 #pragma once
 
 #include "coding/file_reader.hpp"
-#include "coding/file_writer.hpp"
 
 #include "base/exception.hpp"
 

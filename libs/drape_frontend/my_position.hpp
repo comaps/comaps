@@ -1,24 +1,31 @@
 #pragma once
 
 #include "drape_frontend/arrow3d.hpp"
-#include "drape_frontend/frame_values.hpp"
 #include "drape_frontend/render_node.hpp"
 
 #include "shaders/program_manager.hpp"
 
-#include "drape/batcher.hpp"
+#include "drape/pointers.hpp"
 #include "drape/texture_manager.hpp"
 #include "drape/vertex_array_buffer.hpp"
 
-#include "geometry/screenbase.hpp"
+#include "geometry/point2d.hpp"
 
 #include <optional>
 #include <string>
 #include <utility>
 #include <vector>
 
+namespace dp
+{
+class Batcher;
+class GraphicsContext;
+}  // namespace dp
+
 namespace df
 {
+struct FrameValues;
+
 class MyPosition
 {
 public:

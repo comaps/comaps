@@ -11,5 +11,13 @@ set(SRC
 omim_add_test(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  kml
+  PRIVATE
+    base
+    coding
+    geometry
+    i18n
+    indexer
+    kml
+    map
+    platform
 )

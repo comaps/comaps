@@ -239,7 +239,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">ขยับโทรศัพท์เป็นเลขแปดเพื่อปรับเทียบเข็มทิศและกำหนดทิศทางลูกศรบนแผนที่</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">แตะยาวบนแผนที่อีกครั้งเพื่อดูอินเทอร์เฟซ</string>
+    <string name="enable_long_tap_fullscreen_description">แตะยาวบนแผนที่อีกครั้งเพื่อดูอินเทอร์เฟซ</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">อัปเดตทั้งหมด</string>
     <!-- Cancel all button text -->
@@ -559,7 +559,7 @@
         <item quantity="other">%d ติดตามต่าง ๆ</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">ความเป็นส่วนตัว</string>
+    <string name="prefs_group_privacy">ความเป็นส่วนตัว</string>
     <string name="privacy_policy">นโยบายความเป็นส่วนตัว</string>
     <string name="terms_of_use">ข้อกำหนดในการใช้งาน</string>
     <string name="button_layer_traffic">การจราจร</string>
@@ -587,7 +587,7 @@
     <string name="power_managment_setting_auto">อัตโนมัติ</string>
     <string name="power_managment_setting_manual_max">ประหยัดพลังงานสูงสุด</string>
     <string name="enable_logging_warning_message">ออปชันเพื่อเปิดการบันทึกประวัติการทำงานเพื่อการวินิจฉัย ประวัติดังกล่าวอาจเป็นประโยชน์กับทีมงานช่วยเหลือของเราที่คอยจัดการกับปัญหาที่เจอระหว่างแอปทำงาน โปรดเปิดออปชันดังกล่าวจากการร้องข้อการสนับสนุนจาก CoMaps เท่านั้น</string>
-    <string name="driving_options_title">ทางเลือกเส้นทางขับขี่</string>
+    <string name="routing_options_title">ทางเลือกเส้นทางขับขี่</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">หลีกเลี่ยงถนนที่เก็บค่าผ่านทาง</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

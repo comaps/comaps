@@ -1,10 +1,7 @@
 #include "drape_frontend/overlay_batcher.hpp"
 
+#include "drape_frontend/batcher_bucket.hpp"
 #include "drape_frontend/map_shape.hpp"
-
-#include "drape/batcher.hpp"
-#include "drape/render_bucket.hpp"
-#include "drape/texture_manager.hpp"
 
 namespace df
 {

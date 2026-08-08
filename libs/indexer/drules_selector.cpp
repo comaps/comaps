@@ -1,11 +1,15 @@
 #include "indexer/drules_selector.hpp"
+
 #include "indexer/drules_selector_parser.hpp"
+#include "indexer/feature.hpp"
+#include "indexer/feature_decl.hpp"
 #include "indexer/ftypes_matcher.hpp"
 
 #include "geometry/mercator.hpp"
 
 #include "base/assert.hpp"
 #include "base/logging.hpp"
+#include "base/string_utils.hpp"
 
 namespace drule
 {

@@ -2,6 +2,9 @@
 
 #include "app/organicmaps/sdk/platform/AndroidPlatform.hpp"
 
+#include "drape/vulkan/vulkan_base_context.hpp"
+#include "drape/vulkan/vulkan_utils.hpp"
+
 #include "base/assert.hpp"
 #include "base/logging.hpp"
 #include "base/macros.hpp"

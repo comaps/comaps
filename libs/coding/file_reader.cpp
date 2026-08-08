@@ -3,11 +3,15 @@
 #include "coding/internal/file_data.hpp"
 #include "coding/reader_cache.hpp"
 
-#include "base/logging.hpp"
+#include "base/exception.hpp"
 
 #ifndef LOG_FILE_READER_STATS
 #define LOG_FILE_READER_STATS 0
 #endif  // LOG_FILE_READER_STATS
+
+#if LOG_FILE_READER_STATS
+#include "base/logging.hpp"
+#endif
 
 #if LOG_FILE_READER_STATS && !defined(LOG_FILE_READER_EVERY_N_READS_MASK)
 #define LOG_FILE_READER_EVERY_N_READS_MASK 0xFFFFFFFF

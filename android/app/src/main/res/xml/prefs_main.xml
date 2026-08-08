@@ -5,289 +5,72 @@
 
   <Preference
     android:key="@string/pref_osm_profile"
-    android:order="1"
     android:title="@string/profile"
     app:icon="@drawable/ic_profile"
     app:singleLineTitle="false"
     tools:summary="LongLongUsernameHere" />
-  <androidx.preference.PreferenceCategory
-    android:key="@string/pref_settings_general"
-    android:order="2"
-    android:title="@string/prefs_group_general">
-    <ListPreference
-      android:entries="@array/measument_units"
-      android:entryValues="@array/measument_units_values"
-      android:key="@string/pref_munits"
-      android:order="1"
-      android:summary="@string/measurement_units_summary"
-      android:title="@string/measurement_units"
-      app:icon="@drawable/ic_straighten"
-      app:singleLineTitle="false" />
-    <SwitchPreferenceCompat
-      android:key="@string/pref_show_zoom_buttons"
-      android:order="2"
-      android:summary="@string/pref_zoom_summary"
-      android:title="@string/pref_zoom_title"
-      android:widgetLayout="@layout/preference_switch"
-      app:singleLineTitle="false" />
-    <ListPreference
-      android:key="@string/pref_left_button"
-      android:order="3"
-      android:persistent="true"
-      android:title="@string/pref_left_button_title"
-      app:singleLineTitle="false" />
-    <SwitchPreferenceCompat
-      android:key="@string/pref_3d_buildings"
-      android:order="4"
-      android:title="@string/pref_map_3d_buildings_title"
-      android:widgetLayout="@layout/preference_switch"
-      app:singleLineTitle="false" />
-    <SwitchPreferenceCompat
-      android:key="@string/pref_autodownload"
-      android:order="5"
-      android:title="@string/autodownload"
-      android:widgetLayout="@layout/preference_switch"
-      app:icon="@drawable/ic_download_st"
-      app:singleLineTitle="false" />
-    <SwitchPreferenceCompat
-      android:defaultValue="false"
-      android:key="@string/pref_large_fonts_size"
-      android:order="6"
-      android:title="@string/big_font"
-      android:widgetLayout="@layout/preference_switch"
-      app:icon="@drawable/ic_text_fields"
-      app:singleLineTitle="false" />
-    <Preference
-      android:key="@string/pref_map_locale"
-      android:order="7"
-      android:persistent="false"
-      android:title="@string/change_map_locale"
-      app:icon="@drawable/ic_translate"
-      app:singleLineTitle="false" />
-    <Preference
-      android:key="@string/pref_app_locale"
-      android:order="8"
-      android:persistent="false"
-      android:title="@string/change_app_locale"
-      app:icon="@drawable/ic_translate"
-      app:singleLineTitle="false" />
-    <ListPreference
-      android:defaultValue="2"
-      android:entries="@array/pref_alt_map_lang_handling_options"
-      android:entryValues="@array/pref_alt_map_lang_handling_options_values"
-      android:key="@string/pref_alt_map_lang_handling_key"
-      android:order="9"
-      android:title="@string/pref_alt_map_lang_handling"
-      app:singleLineTitle="false" />
-    <SwitchPreferenceCompat
-      android:defaultValue="false"
-      android:key="@string/pref_transliteration"
-      android:order="10"
-      android:title="@string/transliteration_title"
-      android:widgetLayout="@layout/preference_switch"
-      app:icon="@drawable/ic_translate_indic"
-      app:singleLineTitle="false" />
-    <Preference
-      android:key="@string/pref_storage"
-      android:order="11"
-      android:summary="@string/maps_storage_summary"
-      android:title="@string/maps_storage"
+
+  <PreferenceScreen
+      android:key="pref_screen_nav"
+      android:title="@string/prefs_group_route"
+      app:fragment="app.organicmaps.settings.NavigationSettingsFragment"
+      app:icon="@drawable/ic_navigation"
+      android:summary="@string/prefs_group_route_summary" />
+
+  <PreferenceScreen
+    android:key="pref_screen_map_appearance"
+    android:title="@string/prefs_group_map_appearance"
+    app:fragment="app.organicmaps.settings.MapAppearanceSettingsFragment"
+    app:icon="@drawable/ic_show_on_map"
+    android:summary="@string/prefs_group_map_appearance_summary" />
+
+  <PreferenceScreen
+    android:key="pref_screen_interface"
+    android:title="@string/prefs_group_interface"
+    app:fragment="app.organicmaps.settings.InterfaceSettingsFragment"
+    app:icon="@drawable/ic_phone_android"
+    android:summary="@string/prefs_group_interface_summary" />
+
+  <PreferenceScreen
+      android:key="pref_screen_data_management"
+      android:title="@string/prefs_group_data_management"
+      app:fragment="app.organicmaps.settings.DataManagementSettingsFragment"
       app:icon="@drawable/ic_sd_card"
-      app:singleLineTitle="false" />
-    <Preference
-      android:key="@string/pref_backup"
-      android:order="12"
-      android:persistent="false"
-      android:summary="@string/pref_backup_summary"
-      android:title="@string/pref_backup_title"
-      app:icon="@drawable/ic_settings_backup_restore"
-      app:singleLineTitle="false" />
-    <SwitchPreferenceCompat
-      android:defaultValue="false"
-      android:key="@string/pref_enable_logging"
-      android:order="13"
-      android:summary="@string/enable_logging_warning_message"
-      android:title="@string/enable_logging"
-      android:widgetLayout="@layout/preference_switch"
-      app:icon="@drawable/ic_browse_activity"
-      app:singleLineTitle="false" />
-    <SwitchPreferenceCompat
-      android:defaultValue="false"
-      android:key="@string/pref_emulate_bad_external_storage"
-      android:order="14"
-      android:title="@string/setting_emulate_bad_storage"
-      android:widgetLayout="@layout/preference_switch"
-      app:isPreferenceVisible="false"
-      app:singleLineTitle="false" />
-    <Preference
-      android:key="@string/pref_open_external_links"
-      android:order="15"
-      android:persistent="false"
-      android:summary="@string/pref_openexternallinks_summary"
-      android:title="@string/pref_openexternallinks_title"
-      app:icon="@drawable/ic_open_in"
-      app:isPreferenceVisible="false" />
-  </androidx.preference.PreferenceCategory>
+      android:summary="@string/prefs_group_data_management_summary" />
 
-  <androidx.preference.PreferenceCategory
-    android:key="@string/pref_navigation"
-    android:order="3"
-    android:title="@string/prefs_group_route">
-    <SwitchPreferenceCompat
-      android:key="@string/pref_3d"
-      android:order="1"
-      android:title="@string/pref_map_3d_title"
-      android:widgetLayout="@layout/preference_switch"
-      app:icon="@drawable/ic_three_d_rotation"
-      app:singleLineTitle="false" />
-    <SwitchPreferenceCompat
-      android:key="@string/pref_auto_zoom"
-      android:order="2"
-      android:title="@string/pref_map_auto_zoom"
-      android:widgetLayout="@layout/preference_switch"
-      app:singleLineTitle="false" />
-    <Preference
-      android:key="@string/pref_tts_screen"
-      android:order="3"
-      android:persistent="false"
-      android:title="@string/pref_tts_enable_title"
-      app:icon="@drawable/ic_record_voice_over"
-      app:singleLineTitle="false"/>
-    <PreferenceScreen
-      android:key="@string/prefs_routing"
-      android:order="4"
-      android:title="@string/driving_options_title"
-      app:icon="@drawable/ic_instant_mix">
-      <intent
-        android:targetClass="app.organicmaps.settings.DrivingOptionsActivity"
-        android:targetPackage="@string/app_id">
-        <extra
-          android:name="from"
-          android:value="settings" />
-      </intent>
-    </PreferenceScreen>
-    <SwitchPreferenceCompat
-      android:defaultValue="true"
-      android:key="@string/pref_speedlimit"
-      android:title="@string/pref_speedlimit_title"
-      android:widgetLayout="@layout/preference_switch"
-      app:icon="@drawable/ic_speed"
-      app:singleLineTitle="true" />
-  </androidx.preference.PreferenceCategory>
+  <PreferenceScreen
+      android:key="pref_screen_traffic"
+      android:title="@string/prefs_group_traffic"
+      app:fragment="app.organicmaps.settings.TrafficSettingsFragment"
+      app:icon="@drawable/ic_traffic"
+      android:summary="@string/prefs_group_traffic_summary" />
 
-  <PreferenceCategory
-    android:key="@string/pref_power"
-    android:order="4"
-    android:title="@string/power_management">
-    <ListPreference
-      android:entries="@array/map_style"
-      android:key="@string/pref_map_style"
-      android:order="1"
-      android:title="@string/pref_map_style_title"
-      app:icon="@drawable/ic_dark_mode"
-      app:singleLineTitle="false" />
-    <ListPreference
-      android:entries="@array/mobile_data_options"
-      android:entryValues="@array/mobile_data_options_values"
-      android:key="@string/pref_use_mobile_data"
-      android:order="2"
-      android:summary="@string/mobile_data_description"
-      android:title="@string/mobile_data"
-      app:icon="@drawable/ic_network_manage"
-      app:singleLineTitle="false" />
-    <ListPreference
-      android:entries="@array/power_management_scheme"
-      android:entryValues="@array/power_management_scheme_values"
-      android:key="@string/pref_power_management"
-      android:order="3"
-      android:summary="@string/power_managment_description"
-      android:title="@string/power_managment_title"
-      app:icon="@drawable/ic_eco"
-      app:singleLineTitle="false" />
-    <SwitchPreferenceCompat
-      android:defaultValue="false"
-      android:key="@string/pref_keep_screen_on"
-      android:order="4"
-      android:summary="@string/enable_keep_screen_on_description"
-      android:title="@string/enable_keep_screen_on"
-      android:widgetLayout="@layout/preference_switch"
-      app:singleLineTitle="false" />
-    <SwitchPreferenceCompat
-      android:defaultValue="true"
-      android:key="@string/pref_show_on_lock_screen"
-      android:order="5"
-      android:summary="@string/enable_show_on_lock_screen_description"
-      android:title="@string/enable_show_on_lock_screen"
-      android:widgetLayout="@layout/preference_switch"
-      app:icon="@drawable/ic_mobile_lock_portrait"
-      app:singleLineTitle="false" />
-  </PreferenceCategory>
+  <PreferenceScreen
+    android:key="pref_screen_power"
+    android:title="@string/power_management"
+    app:fragment="app.organicmaps.settings.PowerSettingsFragment"
+    app:icon="@drawable/ic_eco"
+    android:summary="@string/prefs_group_power_summary" />
 
-  <androidx.preference.PreferenceCategory
-    android:key="@string/pref_traffic"
-    android:title="@string/prefs_group_traffic"
-    android:order="4">
-    <SwitchPreferenceCompat
-      android:key="@string/pref_traffic_http_enabled"
-      android:title="@string/traffic_http_enabled"
-      app:singleLineTitle="false"
-      android:summary="@string/traffic_http_enabled_description"
-      android:defaultValue="true"
-      android:widgetLayout="@layout/preference_switch"
-      android:order="1"/>
-    <EditTextPreference
-      android:key="@string/pref_traffic_http_url"
-      android:title="@string/traffic_http_url"
-      app:singleLineTitle="false"
-      android:order="2"/>
-    <MultiSelectListPreference
-      android:key="@string/pref_traffic_apps"
-      android:title="@string/traffic_apps"
-      app:singleLineTitle="false"
-      android:order="3"/>
-    <SwitchPreferenceCompat
-      android:key="@string/pref_traffic_legacy_enabled"
-      android:title="@string/traffic_legacy_enabled"
-      app:singleLineTitle="false"
-      android:summary="@string/traffic_legacy_enabled_description"
-      android:defaultValue="true"
-      android:widgetLayout="@layout/preference_switch"
-      android:order="4"/>
-  </androidx.preference.PreferenceCategory>
+  <PreferenceScreen
+    android:key="pref_screen_privacy"
+    android:title="@string/prefs_group_privacy"
+    app:fragment="app.organicmaps.settings.PrivacySettingsFragment"
+    app:icon="@drawable/ic_privacy"
+    android:summary="@string/prefs_group_privacy_summary" />
 
-  <androidx.preference.PreferenceCategory
-    android:key="@string/pref_privacy"
-    android:order="5"
-    android:title="@string/privacy">
-    <SwitchPreferenceCompat
-      android:defaultValue="true"
-      android:key="@string/pref_play_services"
-      android:order="1"
-      android:summary="@string/pref_use_google_play"
-      android:title="@string/google_play_services"
-      android:widgetLayout="@layout/preference_switch"
-      app:icon="@drawable/ic_wifi_find"
-      app:singleLineTitle="false" />
-    <SwitchPreferenceCompat
-      android:defaultValue="true"
-      android:key="@string/pref_search_history"
-      android:order="2"
-      android:title="@string/search_history_title"
-      android:widgetLayout="@layout/preference_switch"
-      app:icon="@drawable/ic_search_recent_st"
-      app:singleLineTitle="false" />
+  <PreferenceScreen
+    android:key="pref_screen_advanced"
+    android:title="@string/prefs_group_advanced"
+    app:fragment="app.organicmaps.settings.AdvancedSettingsFragment"
+    app:icon="@drawable/ic_settings_dark"
+    android:summary="@string/prefs_group_advanced_summary" />
 
-  </androidx.preference.PreferenceCategory>
-
-  <androidx.preference.PreferenceCategory
-    android:key="@string/pref_advanced"
-    android:order="6"
-    android:title="@string/advanced">
-    <Preference
-      android:key="@string/pref_custom_map_download_url"
-      android:order="1"
-      android:title="@string/download_resources_custom_url_title"
-      app:icon="@drawable/ic_cloud_download" />
-  </androidx.preference.PreferenceCategory>
+  <Preference
+    android:key="@string/pref_about"
+    android:title="@string/about_menu_title"
+    app:icon="@drawable/ic_logo_monochrome_settings"
+    app:singleLineTitle="false"
+    tools:summary="@string/pref_about_summary" />
 
 </androidx.preference.PreferenceScreen>

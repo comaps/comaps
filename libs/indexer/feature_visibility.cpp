@@ -4,12 +4,14 @@
 #include "indexer/drawing_rules.hpp"
 #include "indexer/feature.hpp"
 #include "indexer/feature_data.hpp"
+#include "indexer/feature_decl.hpp"
 #include "indexer/ftypes_matcher.hpp"
 #include "indexer/ftypes_subtypes.hpp"
 #include "indexer/scales.hpp"
 
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"
+#include "base/stl_helpers.hpp"
 
 #include <algorithm>
 #include <array>
@@ -183,10 +185,19 @@ bool IsUsefulNondrawableType(uint32_t type, GeomType geomType = GeomType::Undefi
 
   static uint32_t const hwtag = cl.GetTypeByPath({"hwtag"});
   static uint32_t const psurface = cl.GetTypeByPath({"psurface"});
+  static uint32_t const trafficSignalForward = cl.GetTypeByPath({"hwtag", "traffic_signals_forward"});
+  static uint32_t const trafficSignalBackward = cl.GetTypeByPath({"hwtag", "traffic_signals_backward"});
 
   /// @todo "roundabout" type itself has caption drawing rules (for point junctions?).
   if ((geomType == GeomType::Line || geomType == GeomType::Undefined) && ftypes::IsRoundAboutChecker::Instance()(type))
     return true;
+
+  // Point hwtags marking the direction a traffic signal node faces along its road.
+  if ((geomType == GeomType::Point || geomType == GeomType::Undefined) &&
+      (type == trafficSignalForward || type == trafficSignalBackward))
+  {
+    return true;
+  }
 
   ftype::TruncValue(type, 1);
   if (geomType == GeomType::Line || geomType == GeomType::Undefined)

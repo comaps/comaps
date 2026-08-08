@@ -27,6 +27,7 @@ struct CPConstants {
   struct Maneuvers {
     static let primary = "primary"
     static let secondary = "secondary"
+    static let lanes = "lanes"
   }
   
   struct Trip {

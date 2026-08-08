@@ -1,11 +1,5 @@
 #include "search/search_params.hpp"
 
-#include "geometry/mercator.hpp"
-
-#include "coding/string_utf8_multilang.hpp"
-
-#include "base/assert.hpp"
-
 #include <sstream>
 
 using namespace std;

@@ -1,15 +1,17 @@
 #pragma once
 
+#include "routing/base/small_list.hpp"
 #include "routing/cross_mwm_ids.hpp"
+#include "routing/route_weight.hpp"
 #include "routing/segment.hpp"
 
-#include "routing/base/small_list.hpp"
+#include "routing_common/num_mwm_id.hpp"
 
 #include "coding/map_uint32_to_val.hpp"
 #include "coding/sparse_vector.hpp"
 
 #include "base/assert.hpp"
-#include "base/buffer_vector.hpp"
+#include "base/checked_cast.hpp"
 
 #include <string>
 #include <vector>

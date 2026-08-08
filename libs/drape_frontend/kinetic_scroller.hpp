@@ -1,14 +1,18 @@
 #pragma once
 
-#include "animation_system.hpp"
-
 #include "drape/pointers.hpp"
+
+#include "geometry/point2d.hpp"
 
 #include <chrono>
 #include <deque>
 
+class ScreenBase;
+
 namespace df
 {
+class Animation;
+
 class KineticScroller
 {
 public:

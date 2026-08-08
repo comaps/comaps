@@ -97,6 +97,14 @@
       android:layout_gravity="bottom|center"
       android:layout_margin="@dimen/margin_base"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/open_contact_picker"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      style="@style/MwmWidget.M3.FAB.Primary"
+      android:layout_gravity="bottom|end"
+      android:layout_margin="@dimen/margin_base"
+      app:srcCompat="@drawable/ic_contacts"/>
 
   </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </FrameLayout>

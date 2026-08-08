@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="34dp"
+    android:layout_marginTop="@dimen/margin_eighth"
+    android:layout_marginBottom="@dimen/margin_eighth"
+    android:layout_marginStart="@dimen/margin_quarter"
+    android:layout_marginEnd="@dimen/margin_quarter"
+    android:paddingTop="@dimen/margin_eighth"
+    android:paddingBottom="@dimen/margin_eighth"
+    android:paddingStart="@dimen/margin_half"
+    android:paddingEnd="@dimen/margin_half"
+    android:textSize="12sp"
+    app:cornerSize="4dp"
+    app:icon="@drawable/ic_checkmark"
+    app:iconSize="16dp"
+    app:iconPadding="@dimen/margin_eighth"
+    style="@style/Widget.Material3.Button.UnelevatedButton" />

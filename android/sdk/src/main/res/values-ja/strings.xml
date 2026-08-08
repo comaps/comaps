@@ -36,4 +36,10 @@
     <string name="gb">GB</string>
     <string name="mb">MB</string>
     <string name="today">今日は</string>
+    <string name="yesterday">昨日</string>
+    <string name="days_ago">%s日前</string>
+    <string name="week_ago">%s週間前</string>
+    <string name="weeks_ago">%s週間前</string>
+    <string name="months_ago">%sヶ月前</string>
+    <string name="month_ago">1ケ月前</string>
 </resources>

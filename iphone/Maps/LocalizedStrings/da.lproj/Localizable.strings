@@ -493,7 +493,7 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Operatør: %@";
 "editor_category_unsuitable_title" = "Kan du ikke finde en passende kategori?";
-"editor_category_unsuitable_text" = "CoMaps giver kun mulighed for at tilføje simple punktkategorier, dvs. ingen byer, veje, søer, bygningsomrids etc. Tilføj sådanne kategorier direkte til <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Se vores <a href=\"https://www.comaps.app/support/advanced-map-editing/\">guide</a> for detaljerede trin for trin-instruktioner.";
+"editor_category_unsuitable_text" = "CoMaps giver kun mulighed for at tilføje simple punktkategorier, dvs. ingen byer, veje, søer, bygningsomrids etc. Tilføj sådanne kategorier direkte på <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Se vores <a href=\"https://www.comaps.app/support/advanced-map-editing/\">guide</a> for detaljerede trin for trin-instruktioner.";
 "downloader_no_downloaded_maps_title" = "Du har ikke downloadet nogen kort";
 "downloader_no_downloaded_maps_message" = "Download kort for at søge og navigere offline.";
 "current_location_unknown_error_title" = "Aktuel placering er ukendt.";
@@ -681,8 +681,6 @@
 "yes_available" = "Ja";
 /* E.g. "WiFi:No" */
 "no_available" = "Nej";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Kapacitet: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Netværk: %@";
 "trip_finished" = "Du er ankommet!";
@@ -768,7 +766,7 @@
 /* edit track screen title */
 "track_title" = "Spor";
 /* Translated CoMaps site */
-"translated_om_site_url" = "https://www.comaps.app/";
+"translated_om_site_url" = "https://www.comaps.app/da/";
 /* App Tip #00 */
 "app_tip_00" = "Tak, fordi du bruger vores fællesskabsskabte kort!";
 /* App tip #01 */
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Tilføj sted";
 "contribute_to_osm_update_map" = "Opdater kortet for at bidrage";
 "contribute_to_osm_update_map_description" = "Du skal opdatere %@-kortet til den nyeste version, før du kan bidrage til OpenStreetMap-dataene";
+"downloader_check_updates_button" = "Søg efter opdateringer";
+"downloader_check_updates_checking" = "Søger efter opdateringer...";
+"downloader_check_updates_updated" = "Kortopdateringer tilgængelige!";
+"downloader_check_updates_no_updates" = "Ingen opdateringer tilgængelige";
+"downloader_check_updates_eol" = "Der kommer ikke flere kortopdateringer til denne version af appen. Opdater appen!";
+"downloader_check_updates_error" = "Fejl ved søgning efter opdateringer";
+"editor_add_select_category_recent_subtitle" = "Nyligt anvendt";
+"oh_unknown" = "Åbningstider ukendt";
+"carplay_highway_exit" = "Afkørsel %@";
+"capacity_disabled_yes" = "Har særlige pladser for handicappede";
+"capacity_disabled_no" = "Ingen særlige parkeringspladser for handicappede";
+"capacity_charging_yes" = "Har pladser med ladere";
+"capacity_charging_no" = "Ingen pladser med ladere";
+"planning_route_preview" = "Forhåndsvisning";
+"planning_route_preview_sheet_title" = "Forhåndsvisning af rute";

@@ -207,6 +207,10 @@ class PathProvider:
         return os.path.join(self.build_path, "status")
 
     @property
+    def reviews_path(self) -> AnyStr:
+        return settings.REVIEWS_PATH
+
+    @property
     @create_if_not_exist
     def descriptions_path(self) -> AnyStr:
         return os.path.join(self.intermediate_data_path, "descriptions")

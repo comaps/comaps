@@ -1,0 +1,950 @@
+{
+    "@category_eat": {
+        "defaultMessage": "Дзе паесці|паесці|ежа"
+    },
+    "@category_food": {
+        "defaultMessage": "4Прадукты|Ежа"
+    },
+    "@category_transport": {
+        "defaultMessage": "5Транспарт"
+    },
+    "@category_fuel": {
+        "defaultMessage": "3бензін|3дызель|4паліва|газ|АЗС"
+    },
+    "@category_parking": {
+        "defaultMessage": "4Паркоўка"
+    },
+    "@category_shopping": {
+        "defaultMessage": "3Шопінг|4Закупы"
+    },
+    "@category_hotel": {
+        "defaultMessage": "4Гатэль|гатэлі"
+    },
+    "@category_tourism": {
+        "defaultMessage": "4Славутасці|4турызм"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "Забавы"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "Начное жыццё|патусіць"
+    },
+    "@category_children": {
+        "defaultMessage": "Сямейны адпачынак"
+    },
+    "@category_atm": {
+        "defaultMessage": "3Банкамат"
+    },
+    "@category_rv": {
+        "defaultMessage": "Для аўтадамоў|5Аўтадом|5Трэйлер|5Караван|Дом на колах"
+    },
+    "@category_bank": {
+        "defaultMessage": "3Банк"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "4Сэканд-хэнд"
+    },
+    "@category_recycling": {
+        "defaultMessage": "Перапрацоўка|5Перапрацоўка адходаў|Утылізацыя адходаў|5Прыём другаснай сыравіны|5Здаць другсыравіну|Паасобны збор смецця|Сартаванне смецця|Паўторнае выкарыстанне|Утыль"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "азс|агзс|агнкс|бензакалонка|бензазапраўка|4аўтазапраўка|3запраўка"
+    },
+    "@shop": {
+        "defaultMessage": "4Магазін|Крама"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "3Булачная|3Пякарня|Торт|3Тарты"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "4Касметыка"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "4Прадуктовы|Харчаванне"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "Дэлікатэсы"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "Слыхавыя апараты"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "4Кветкі|кветак"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "Мяса|Мясны"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "4Мэбля|мэблі"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "Кухні|кухань"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "4Алкаголь|Спіртныя напоі"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "Кнігі"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "3Абутак|абутку"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "Электратэхніка|4Электроніка"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "Гаспадарчы|Будаўнічы"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "4Пасуда|4Бытавыя тавары"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "4Оптыка|Акуляры"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "4Падарункі"
+    },
+    "shop-beauty": {
+        "defaultMessage": "5Салон прыгажосці"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "Садавіна|Агародніна"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "4Спартыўны"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "3Супермаркет"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "4Гандлевы цэнтр"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "4Універмаг|4Універсам"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "4Напоі|3сокі|сакаў"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "4Кандытарская"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "Цацкі|цацак"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "Грашовыя пераводы|Грошы"
+    },
+    "shop-caravan|@category_rv|@shop": {
+        "defaultMessage": "Аўтадом|Продаж аўтадамоў"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "4Аўтасалон|Машыны"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "Веламагазін|Веласіпеды"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "Кіеск|Шапік"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "Фунікулёр"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "4Адміністрацыя|4ратуша"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "4Аглядальная пляцоўка"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "3Археалагічны помнік"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "Поле бітвы"
+    },
+    "historic-stone": {
+        "defaultMessage": "Гістарычны камень"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "Межавы камень"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "Замак|Каструм|Крэпасць|Гарадзішча|Крэмль|Сядзіба|Палац"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "Гарадская брама"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "Гарадскі вал"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "Форт"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "Шыбеніца"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "Мемарыял"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "Памятны крыж"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "Памятная дошка"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "Скульптура"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "Статуя"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "Камяні спатыкнення"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "Ваенны мемарыял"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "4Помнік"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "Пазорны слуп"
+    },
+    "historic-cannon": {
+        "defaultMessage": "Гармата"
+    },
+    "historic-anchor": {
+        "defaultMessage": "Гістарычны якар"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "Руіны"
+    },
+    "historic-mine": {
+        "defaultMessage": "Гістарычная шахта"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "Судна"
+    },
+    "historic-wreck": {
+        "defaultMessage": "Караблекрушэнне"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "Гістарычны паравоз"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "Гістарычны танк"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "Гістарычныя самалёты"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "Склеп|магіла"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "Прыдарожны крыж"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "Прыдарожная святыня"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "Пракат матацыклаў"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "Боўлінг"
+    },
+    "@gambling": {
+        "defaultMessage": "Азартныя гульні"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "Гульнявы цэнтр для дарослых"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "Аркада"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "4Пажарная частка|Пажарная станцыя|Пажарныя"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "5Могілкі"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "4Рытуальныя паслугі|Пахавальнае бюро"
+    },
+    "@category_hospital": {
+        "defaultMessage": "4Бальніца"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "4Стаматолаг|Стаматалогія"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "Медыцынская лабараторыя"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "Фізіятэрапеўт"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "Альтэрнатыўная медыцына"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "Аўдыялогія|Аўдыёлаг"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "Донарства крыві"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "Оптаметрыя|Акуліст"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "Подологія|Артапед"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "Псіхатэрапія|Псіхатэрапеўт"
+    },
+    "healthcare-sample_collection": {
+        "defaultMessage": "Аналізы"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "лагапедыя|Лагапед"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "Дзіцячы садок|сад"
+    },
+    "amenity-parking|amenity-parking_entrance|@category_parking": {
+        "defaultMessage": "Аўтастаянка"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "3Аптэка"
+    },
+    "@category_post": {
+        "defaultMessage": "3Пошта"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "3Паштовая скрыня"
+    },
+    "amenity-post_office|post_office-post_partner|@category_post": {
+        "defaultMessage": "3Паштовае аддзяленне"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "Тэхагляд аўтамабіля"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "5Пункт прыёму другаснай сыравіны"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "Кантэйнер для другаснай сыравіны"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "5Прыём батарэек|Утылізацыя батарэек|5Перапрацоўка батарэек|5Здаць батарэйкі|4Збор батарэек|5Батарэйкі"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "5Прыём адзення|Старае адзенне|Здаць непатрэбныя рэчы|Здаць рэчы|5Здаць адзенне"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "5Прыём шклатары|Прыём шкла|5Перапрацоўка шкла|5Здаць шклатару|Здаць бутэлькі|4Збор шклотары|5Шклатара|Шклабало|Шкляныя бутэлькі"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "5Прыём паперы|Прыём макулатуры|5Перапрацоўка паперы|5Здаць паперу|Здаць макулатуру|4Збор паперы|Збор макулатуры|5Макулатура"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "5Прыём пластыка|5Перапрацоўка пластыка|5Здаць пластык|4Збор пластыка|5Пластык"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "5Прыём пластыкавых бутэлек|5Перапрацоўка пластыкавых бутэлек|5Здаць пластыкавыя бутэлькі|4Збор пластыкавых бутэлек|5Пластыкавыя бутэлькі"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "5Прыём металалому|5Перапрацоўка металалому|Утылізацыя металалому|5Здаць металалом|4Збор металалому|5Металалом"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "5Прыём электронікі|5Перапрацоўка электронікі|Утылізацыя электронікі|5Здаць электроніку|4Збор электронікі|Электраадходы"
+    },
+    "recycling-cardboard|@category_recycling": {
+        "defaultMessage": "5Прыём кардона|Прыём макулатуры|5Перапрацоўка кардона|5Здаць кардон|Здаць макулатуру|4Збор кардона|Збор макулатуры|5Макулатура"
+    },
+    "recycling-cans|@category_recycling": {
+        "defaultMessage": "5Прыём бляшаных і алюмініевых слоікаў|5Перапрацоўка бляшаных і алюмініевых слоікаў|5Здаць бляшаныя і алюмініевыя банкі|4Збор бляшаных і алюмініевых слоікаў|6Кансервовыя банкі|5Бляшаныя банкі|5Алюмініевыя банкі|Піўныя банкі"
+    },
+    "recycling-shoes|@category_recycling": {
+        "defaultMessage": "5Прыём абутку|Стары абутак|5Здаць абутак"
+    },
+    "recycling-green_waste|@category_recycling": {
+        "defaultMessage": "5Прыём арганічных адходаў|Прыём харчовых адходаў|5Здаць арганічныя адходы|4Збор арганічных адходаў|Збор харчовых адходаў|5Харчовыя адходы|6Садовыя адходы"
+    },
+    "recycling-cartons|@category_recycling": {
+        "defaultMessage": "5Прыём тетрапака|5Здаць тетрапак|4Збор тетрапака|5Тетрапак"
+    },
+    "amenity-sanitary_dump_station|@category_rv": {
+        "defaultMessage": "4Зліў нечыстотаў для аўтадамоў|сліў прыбіральні|сліў для туалета|нечыстоты|каналізація"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "4Прытулак"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "Хаціна-бівак"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "Бівальны навес"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "Стрыптыз-клуб"
+    },
+    "@category_toilet": {
+        "defaultMessage": "4Прыбіральня|3Туалет"
+    },
+    "natural-saddle|mountain_pass": {
+        "defaultMessage": "4Седлавіна|5Перавал"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "Акварыум"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "4Горны прытулак|4турыстычная хатка|турыстычны прытулак|4прытулак"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "4Цырулья|Цырульнік"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "Мінігольф"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "4Квест-пакой"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "Хакерская прастора"
+    },
+    "sport-american_football": {
+        "defaultMessage": "Амерыканскі футбол"
+    },
+    "sport-archery": {
+        "defaultMessage": "Стральба з лука"
+    },
+    "sport-athletics": {
+        "defaultMessage": "Лёгкая атлетыка"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "Аўстралійскі футбол"
+    },
+    "sport-baseball": {
+        "defaultMessage": "Бейсбол"
+    },
+    "sport-basketball": {
+        "defaultMessage": "Баскетбол"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "Пляжны валейбол"
+    },
+    "sport-bowls": {
+        "defaultMessage": "Боўлз"
+    },
+    "sport-chess": {
+        "defaultMessage": "Шахматы"
+    },
+    "sport-cricket": {
+        "defaultMessage": "Крикет"
+    },
+    "sport-curling": {
+        "defaultMessage": "Кёрлінг"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "Конны спорт"
+    },
+    "sport-golf": {
+        "defaultMessage": "Гольф"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "Гімнастыка"
+    },
+    "sport-handball": {
+        "defaultMessage": "Гандбол"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "Месца для дайвінга"
+    },
+    "sport-shooting": {
+        "defaultMessage": "Стральба"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "Скейтбордынг|скейтборд|скейт"
+    },
+    "sport-skiing": {
+        "defaultMessage": "Катанне на лыжах"
+    },
+    "sport-soccer": {
+        "defaultMessage": "Футбол"
+    },
+    "sport-swimming": {
+        "defaultMessage": "Басейн|плаванне"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "Настольны тэніс"
+    },
+    "sport-tennis": {
+        "defaultMessage": "Тэніс"
+    },
+    "sport-padel": {
+        "defaultMessage": "Падэль"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "Валейбол"
+    },
+    "building-address": {
+        "defaultMessage": "Адрас"
+    },
+    "@category_police": {
+        "defaultMessage": "4Паліцыя|міліція"
+    },
+    "@category_water": {
+        "defaultMessage": "3Вада|крыніца"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "3Пітная вада"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "4Гарачая крыніца|4Геатэрмальная крыніца"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "4Крыніца"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "4Калодзеж|студня"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "Запраўка вадой|вада для каравану|вада для аўтадома"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "5Вадаправодны кран"
+    },
+    "@waterbody": {
+        "defaultMessage": "Вадаём"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "Рэзервуар"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "5Сажалка"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "Возера"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "5Вадасховішча"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "Рака|ручай"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "4Аўтакемпінг|4кемпінг для аўтадамоў|4стаянка для аўтадамоў"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "Пчаляр"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "Кузня"
+    },
+    "craft-brewery": {
+        "defaultMessage": "Крафтавы бровар"
+    },
+    "craft-caterer": {
+        "defaultMessage": "Кейтэрынг"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "Цясляр"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "Кандытар"
+    },
+    "craft-electrician": {
+        "defaultMessage": "Электрык"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "Рамонт электронікі"
+    },
+    "craft-gardener": {
+        "defaultMessage": "Садоўнік"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "Млын"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "Рамесніцтва"
+    },
+    "craft-hvac": {
+        "defaultMessage": "Ацяпленне, вентыляцыя і кандыцыянаванне"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "5Металаканструкцыі"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "Выраб ключоў"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "Слесар"
+    },
+    "craft-painter": {
+        "defaultMessage": "Мастак"
+    },
+    "craft-photographer": {
+        "defaultMessage": "Фатограф"
+    },
+    "craft-plumber": {
+        "defaultMessage": "Вадаправодчык"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "Лесапільня"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "Шавец"
+    },
+    "craft-winery": {
+        "defaultMessage": "Вінакурня"
+    },
+    "craft-tailor": {
+        "defaultMessage": "Кравец"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi"
+    },
+    "man_made-survey_point": {
+        "defaultMessage": "4Геадэзічны пункт"
+    },
+    "man_made-flagpole": {
+        "defaultMessage": "Флагшток"
+    },
+    "man_made-mast": {
+        "defaultMessage": "Мачта|вышка"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "Вежа сувязі|вышка сувязі|сотавая вышка"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "4Нафтавая свідравіна|Свідравіна"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "эка|5натуральная|5арганічная|5біялагічная|5экалагічная|біо|біа|бія|5здаровая"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "Фотатавары"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "Фотаапараты"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "Турыстычны"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "4Хімчыстка"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "Шыны|шын"
+    },
+    "@charging_station": {
+        "defaultMessage": "4Зарадная станцыя|зарадка|электразарадка|зарадзіць"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "Зарадка ровара"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "Яслі"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "4Велапаркоўка|веластаянка"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "Шынамантаж"
+    },
+    "attraction-animal": {
+        "defaultMessage": "Вальера для жывёл"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Цэнтр для наведвальнікаў"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "Сціснутае паветра"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "Аўтамат з цыгарэтамі|Цыгарэтны аўтамат|4Цыгарэты"
+    },
+    "amenity-vending_machine-coffee": {
+        "defaultMessage": "3Кававы аўтамат|кава"
+    },
+    "amenity-vending_machine-condoms": {
+        "defaultMessage": "Аўтамат з прэзерватывамі|5прэзерватывы|5кандамат"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "Аўтамат з напоямі|Газіроўка|4Напоі|3Сокі"
+    },
+    "amenity-vending_machine-food|@category_food": {
+        "defaultMessage": "Аўтамат з ежай|5перакус|4снэкі"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "4Паркамат|Аплата паркоўкі"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "Автомат по продаже билетов"
+    },
+    "amenity-vending_machine-newspapers": {
+        "defaultMessage": "Газетны аўтамат|газетамат|3газеты|4прэса"
+    },
+    "amenity-vending_machine-sweets": {
+        "defaultMessage": "Аўтамат з прысмакамі|4прысмакі|4цукеркі"
+    },
+    "amenity-vending_machine-excrement_bags": {
+        "defaultMessage": "5Мяшкі дзеля экскрыментаў|Какашкі|5Пакеты для какашак"
+    },
+    "amenity-parcel_locker|@category_post": {
+        "defaultMessage": "3Паштамат|5Атрыманне пасылак"
+    },
+    "shop-outpost": {
+        "defaultMessage": "Пункт самавывазу"
+    },
+    "amenity-vending_machine-fuel|@category_fuel": {
+        "defaultMessage": "Паліўная калонка|бензакалонка|палівараздатачная калонка"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "4Зона адпачынку|4Зона абслугоўвання"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "Рыба|Рыбны"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "Дабрачынная"
+    },
+    "shop-ticket": {
+        "defaultMessage": "4Білетная каса|білет|білеты|квіток|квіткі|браніраванне білетаў|продаж білетаў|квіткоў"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "Віно"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "Катэдж для адпачынку"
+    },
+    "sport-climbing": {
+        "defaultMessage": "Скаладром"
+    },
+    "sport-yoga": {
+        "defaultMessage": "Ёга"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "Аўташкола"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "Музычная школа"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "Моўная школа"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "4Марозіва"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "Паркоўка для інвалідаў"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "Грамадская лазня"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "Аварыйны зборны пункт"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "4Дэфібрылятар"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "4Пажарны гідрант|гідрант"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "Ратавальнік"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "4Аварыйна-выратавальная служба ў гарах|Горная выратавальная служба"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "Рамонт матацыклаў"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "Турыстычная хатка|турыстычны прытулак|прытулак"
+    },
+    "leisure-marina": {
+        "defaultMessage": "4Прычал|3Марына"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "Лыжы|Лыжная траса"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "Месца правядзення мерапрыемстваў"
+    },
+    "shop-chocolate|@category_food|@shop": {
+        "defaultMessage": "Шакалад"
+    },
+    "shop-coffee|@category_food|@shop": {
+        "defaultMessage": "Кава"
+    },
+    "shop-money_lender": {
+        "defaultMessage": "Ліхвяр"
+    },
+    "shop-music|@shop": {
+        "defaultMessage": "Музыка"
+    },
+    "shop-musical_instrument|@shop": {
+        "defaultMessage": "Музычныя інструменты"
+    },
+    "shop-tea|@shop": {
+        "defaultMessage": "Гарбата"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Антыкварыят"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "Мастацтва|мастацтваў"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "Дзіцячая"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "Крама сумак"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "Сыр|Сырны"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "Малако|Малочныя прадукты"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "4Электроніка"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "Рыбалоўны"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "Ўпрыгажэнні інтэр'еру"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "Латарэя|Латарэйныя білеты"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "Медыцынскія прыналежнасці"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "Харчовыя дабаўкі"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "Фарбы"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "Парфум|Парфумерыя"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "4Швейныя прыналежнасці"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "Арэнда сховішчаў"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "Тытунь"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "Гандлёвая прыналежнасць"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "Гадзіннік"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "Аптовая"
+    },
+    "power-plant": {
+        "defaultMessage": "Электрастанцыя"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "Аўкцыён"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Калекцыянер"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "Інвалідны вазок|5Інвалід"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "Сацыяльная ўстанова"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "Спартыўная зала"
+    },
+    "amenity-prison": {
+        "defaultMessage": "турма"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "Выставачны цэнтр"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "Мэбля для ванных пакояў"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "Крама ложкаў"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "Буцік"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "Шторы"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "Газавая крама"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "Грумінг"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "HiFi аўдыё"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "Канферэнц-цэнтр"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "Магазін траў"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "Крама бытавой тэхнікі"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "Сельскагаспадарчы магазін"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "Модныя аксэсуары"
+    },
+    "amenity-waste_transfer_station": {
+        "defaultMessage": "Станцыя перавалкі адходаў"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "Дываны"
+    },
+    "shop-craft|@shop": {
+        "defaultMessage": "Рамяство|Творчасць"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "Макароны"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "5Камера захоўвання|шафка|4багаж"
+    },
+    "cuisine-bubble_tea": {
+        "defaultMessage": "Чай з бурбалкамі"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "Хот-доги|хотдог"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "Кафе-марозіва"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "Кебабы|кебаб|шаурма"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "Бліны|панкейкі"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "Морапрадукты|рыба|рыбны"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "Вегетарыянская кухня"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "Веганская кухня"
+    }
+}

@@ -1,9 +1,17 @@
 #include "search/search_tests_support/helpers.hpp"
 
+#include "search/result.hpp"
+#include "search/search_params.hpp"
+
+#include "editor/editable_data_source.hpp"
+
+#include "storage/country_decl.hpp"
 #include "storage/country_info_getter.hpp"
 
+#include "indexer/mwm_set.hpp"
 #include "indexer/scales.hpp"
 
+#include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 #include "geometry/rect2d.hpp"
 

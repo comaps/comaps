@@ -140,7 +140,7 @@
 "tracks_title" = "مسیر";
 /* Length of track in cell that describes route */
 "length" = "طول";
-"share_my_location" = "به اشتراک گذاری موقعیت مکانی من";
+"share_my_location" = "همرسانی گیاگ من";
 "prefs_group_route" = "مسیریابی";
 "pref_zoom_title" = "دکمه‌های بزرگنمایی";
 "pref_left_button_type" = "Left Main Button";
@@ -179,7 +179,7 @@
 /* Settings «Route» category: «Tts announce street names» description */
 "pref_tts_street_names_description" = "وقتی فعال باشد، نام خیابان یا خروجی که باید به آن بپیچید با صدای بلند گفته می شود.";
 /* Settings «Route» category: «Tts language» title */
-"pref_tts_language_title" = "زبان صوت";
+"pref_tts_language_title" = "زبان صدا";
 /* Settings «Route» category: «Test Voice Directions» title */
 "pref_tts_test_voice_title" = "تست دستورالعمل های صوتی";
 /* Title for "Other" section in TTS settings. */
@@ -238,11 +238,11 @@
 /* Alert text */
 "email_error_body" = "کلاینت ایمیل شما پیکربندی نشده است.لطفا آن را پیکربندی کنید یا از طریق دیگر با ما تماس بگیرید %@";
 /* Alert title */
-"email_error_title" = "خطا در ارسال ایمیل";
+"email_error_title" = "ایرنگ در فرستادن ایمیل";
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "دوباره روی نقشه ضربه طولانی بزنید تا رابط کاربری را ببینید";
 /* Update all button text */
-"downloader_update_all_button" = "آپدیت همه";
+"downloader_update_all_button" = "بروزرسانی همه";
 /* Downloaded maps list header */
 "downloader_downloaded_subtitle" = "دانلود شده";
 /* Downloaded maps category */
@@ -365,13 +365,13 @@
 "p2p_to_here" = "مسیر به";
 "p2p_only_from_current" = "مسیر‌یابی فقط از موقعیت کنونی شما قابل انجام است.";
 "p2p_reroute_from_current" = "آیا می خواهید یک مسیر را از موقعیت فعلیتان برنامه ریزی کنیم؟";
-"editor_time_add" = "اضافه کردن برنامه ریزی";
+"editor_time_add" = "افرودن برنامه ریزی";
 "editor_time_delete" = "ستردن برنامه‌ریزی";
 /* Text for allday switch. */
 "editor_time_allday" = "شبانه‌روزی (۲۴ ساعته)";
 "editor_time_open" = "باز";
 "editor_time_close" = "بسته";
-"editor_time_add_closed" = "اضافه کردن ساعات غیر کاری";
+"editor_time_add_closed" = "افزودن ساعات غیر کاری";
 "editor_time_title" = "ساعات کاری";
 "editor_time_advanced" = "حالت پیشرفته";
 "editor_time_simple" = "حالت ساده";
@@ -437,8 +437,8 @@
 "house_number" = "شماره ساختمان";
 "details" = "جزئیات";
 /* Text field to enter non-existing street name, below list of known streets around */
-"add_street" = "اضافه کردن خیابان";
-"choose_language" = "انتخاب یک زبان";
+"add_street" = "افزودن خیابان";
+"choose_language" = "گزیدن یک زبان";
 "choose_street" = "انتخاب یک خیابان";
 "postal_code" = "کد پستی";
 "cuisine" = "غذا‌خوری";
@@ -464,7 +464,7 @@
 "editor_add_place_title" = "درحال افزودن";
 "editor_edit_place_name_hint" = "نام مکان";
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
-"editor_default_language_hint" = "همانطور که به زبان محلی نوشته شده است";
+"editor_default_language_hint" = "همان‌گونه که به زبان بومی نوشته شده است";
 "editor_edit_place_category_title" = "دسته بندی";
 "whatsnew_editor_message_1" = "اضافه کردن مکان به نقشه و ویرایش آن مستقیما از طریق این اپلیکیشن.";
 "dialog_incorrect_feature_position" = "تغییر موقعیت";
@@ -543,9 +543,9 @@
 "error_enter_correct_web" = "ادرس وب معتبری وارد نمایید";
 "error_enter_correct_email" = "ایمیل معتبری وارد نمایید";
 "refresh" = "بروزرسانی";
-"placepage_add_place_button" = "گیاگ را به OpenStreetMap بیافزایید";
+"placepage_add_place_button" = "افزودن گیاگ به OpenStreetMap";
 /* Displayed when saving some edits to the map to warn against publishing personal data */
-"editor_share_to_all_dialog_title" = "آیا می خواهید آن را برای دیگر کاربران ارسال کنید؟";
+"editor_share_to_all_dialog_title" = "آیا می‌خواهید آن را برای دیگر کاربران بفرستید؟";
 /* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "مطمئن شوید که هیچ اطلاعات شخصی وارد نکرده باشد.";
 "editor_share_to_all_dialog_message_2" = "ویرایشگران OpenStreetMap ﺗﻐﯿﯿﺮﺍﺕ ﺭﺍ ﺑﺮﺭﺳﯽ ﮐﺮﺩﻩ ﻭ ﺩﺭ ﺻﻮﺭﺕ ﺩﺍﺷﺘﻦ ﻫﺮﮔﻮﻧﻪ ﺳﻮﺍﻝ ﺑﺎ ﺷﻤﺎ ﺗﻤﺎﺱ ﺧﻮﺍﻫﻨﺪ ﮔﺮﻓﺖ.";
@@ -594,27 +594,27 @@
 "button_plan" = "برنامه";
 "placepage_remove_stop" = "توقف را بستردانید";
 "planning_route_remove_title" = "برای ستردن به اینجا بکشید";
-"placepage_add_stop" = "اضافه کردن توقف";
+"placepage_add_stop" = "افزودن توقف";
 "start_from_my_position" = "شروع از";
 /* Title for button when a route was saved. */
 "saved" = "ذخیره شد";
 "core_entrance" = "آدین";
 "error_enter_correct_name" = "لطفا نام صحیح را وارد کنید";
-"bookmark_lists" = "لیست‌ها";
+"bookmark_lists" = "سیاهه‌ها";
 /* Do not display all bookmark lists on the map */
 "bookmark_lists_hide_all" = "پنهان کردن همه";
 "bookmark_lists_show_all" = "نمایش همه";
-"bookmarks_create_new_group" = "ایجاد لیست جدید";
+"bookmarks_create_new_group" = "ساخت سیاهه‌ای نو";
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
 "bookmarks_import" = "وارد کردن نشانک ها و آهنگ ها";
 "downloader_hide_screen" = "پنهان کردن صفحه";
 "downloader_percent" = "%@ (%@ از %@)";
 "downloader_process" = "در حال دانلود %@…";
 "downloader_applying" = "اعمال %@…";
-"bookmarks_error_message_share_general" = "با توجه به خطای برنامه، امکان اشتراک گذاری وجود ندارد";
-"bookmarks_error_title_share_empty" = "خطای اشتراک";
-"bookmarks_error_message_share_empty" = "یک لیست خالی را نمی توان به اشتراک گذاشت";
-"bookmarks_error_message_empty_list_name" = "لطفا نام لیست را وارد کنید";
+"bookmarks_error_message_share_general" = "با توجه به خطای برنامه، امکان همرسانی وجود ندارد";
+"bookmarks_error_title_share_empty" = "ایرنگ در همرسانی";
+"bookmarks_error_message_share_empty" = "سیاهه تهی را نمی‌توان همرسانی کرد";
+"bookmarks_error_message_empty_list_name" = "لطفا نام سیاهه را وارد کنید";
 "bookmarks_error_title_list_name_already_taken" = "این اسم قبلا انتخاب شده است";
 "bookmarks_error_title_list_name_too_long" = "این نام خیلی طولانی است";
 "profile" = "OpenStreetMap نمایه";
@@ -654,12 +654,12 @@
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_tolls" = "از جاده های عوارضی خودداری کنید";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_unpaved" = "اجتناب از جاده‌های آسفالت نشده";
-"avoid_paved" = "Avoid paved roads";
+"avoid_unpaved" = "پرهیز از جاده‌های خاکی";
+"avoid_paved" = "پرهیز از جاده‌های روساخته";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_steps" = "Avoid stairs";
+"avoid_steps" = "پرهیز از پله‌ها";
 "avoid_ferry" = "اجتناب از گذرگاه‌های کشتی";
-"avoid_motorways" = "از بزرگراه دوری کنید";
+"avoid_motorways" = "پرهیز از بزرگراه‌ها";
 "unable_to_calc_alert_title" = "امکان محاسبه مسیر نیست";
 "unable_to_calc_alert_subtitle" = "متأسفانه، احتمالاً به دلیل گزینه‌های تعریف شده شما، مسیری پیدا نشد. لطفاً تنظیمات را تغییر داده و مجدد تلاش کنید.";
 "define_to_avoid_btn" = "جاده‌های لغو شده را تعریف نمایید";
@@ -681,8 +681,6 @@
 "yes_available" = "بلی";
 /* E.g. "WiFi:No" */
 "no_available" = "خیر";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "ظرفیت: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "شبکه: %@";
 "trip_finished" = "شما به مقصد رسیدید!";
@@ -697,7 +695,7 @@
 "dialog_routing_rebuild_for_vehicle_carplay" = "مسیر به مسیر خودرویی تغییر خواهد کرد";
 "not_all_shown_bookmarks_carplay" = "همه نشانک ها نشان داده نمی شوند";
 "switch_to_phone_bookmarks_carplay" = "برای دیدن همه نشانکu200cها به تلفن بروید";
-"ok" = "موافقت کردن";
+"ok" = "باشد";
 "speedcams_alert_title_carplay_1" = "دوربین سرعت";
 "speedcams_alert_title_carplay_2" = "هشدارهای سرعت";
 "download_map_carplay" = "لطفا نقشه‌ها را در نرم افزار CoMaps روی دستگاه خود دانلود کنید";
@@ -730,7 +728,7 @@
 "parkings" = "پارکینگها";
 "fuel_places" = "پمپ بنزین";
 "medicine" = "پزشکی";
-"search_in_the_list" = "جستجو در لیست";
+"search_in_the_list" = "جستجو در سیاهه";
 "religious_places" = "اماکن مقدس";
 "transit_not_found" = "راهنمای مترو در این منطقه هنوز دردسترس نیست";
 "dialog_pedestrian_route_is_long_header" = "مسیر مترو یافت نشد";
@@ -750,7 +748,7 @@
 "downloader_updating_ios" = "در حال بروزرسانی";
 "downloader_loading_ios" = "در حال دانلود";
 /* Autoupdate dialog on start */
-"whats_new_auto_update_title" = "نقشه‌های دانلود شده خود را به روز کنید";
+"whats_new_auto_update_title" = "نقشه‌های دانلود شده خود را بروز کنید";
 /* Autoupdate dialog on start */
 "whats_new_auto_update_message" = "بروزرسانی نقشه‌ها اطلاعات مربوط به اشیا را به روز نگه می دارد";
 /* Autoupdate dialog on start */
@@ -839,7 +837,7 @@
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "نشستن در فضای باز";
 /* Title for the "Recently Deleted Lists" button on the Bookmarks and Lists screen. */
-"bookmarks_recently_deleted" = "لیست های اخیرا سترده شده";
+"bookmarks_recently_deleted" = "سیاهه‌های اخیرا سترده شده";
 /* Title for the "Clear" button on the Recently Deleted Lists screen. */
 "clear" = "پاک کردن";
 /* Title for the "Delete All" button on the Recently Deleted Lists screen. */
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Add Place";
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"downloader_check_updates_button" = "کاوش برای بروزرسانی‌ها";
+"downloader_check_updates_checking" = "کاویدن برای بروزرسانی‌ها...";
+"downloader_check_updates_updated" = "Map updates available!";
+"downloader_check_updates_no_updates" = "No updates available";
+"downloader_check_updates_eol" = "No more map updates for this app version. Please update the app!";
+"downloader_check_updates_error" = "ایرنگ هنگام کاوش برای بروزرسانی‌ها";
+"editor_add_select_category_recent_subtitle" = "Recently Used";
+"oh_unknown" = "Opening hours unknown";
+"carplay_highway_exit" = "Exit %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "No dedicated disabled spaces";
+"capacity_charging_yes" = "Has spaces with chargers";
+"capacity_charging_no" = "No spaces with chargers";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

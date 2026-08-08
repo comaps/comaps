@@ -1,6 +1,15 @@
 #include "drape_frontend/path_text_handle.hpp"
 #include "drape_frontend/visual_params.hpp"
 
+#include "drape/drape_global.hpp"
+#include "drape/glsl_types.hpp"
+#include "drape/utils/vertex_decl.hpp"
+
+#include "geometry/screenbase.hpp"
+
+#include "coding/point_coding.hpp"
+
+#include "base/assert.hpp"
 #include "base/math.hpp"
 
 #include <utility>

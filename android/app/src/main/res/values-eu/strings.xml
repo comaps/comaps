@@ -187,13 +187,14 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Luzera</string>
     <string name="share_my_location">Partekatu nire kokapena</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Ezarpen orokorrak</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Informazioa</string>
     <string name="prefs_group_route">Nabigazioa</string>
     <string name="pref_zoom_title">Zoom botoiak</string>
     <string name="pref_zoom_summary">Erakutsi mapan</string>
+    <string name="download_resources_custom_url_message">Gainidatzi erabiltzen den mapa deskargatzeko zerbitzari lehenetsia. Utzi hutsik CoMaps zerbitzari lehenetsia erabiltzeko.</string>
+    <string name="download_resources_custom_url_summary_none">Ezarri gabe</string>
+    <string name="download_resources_custom_url_error_scheme">Sartu http:// edo https://-rekin hasten den URL bat</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Gaueko modua</string>
     <!-- Generic «Off» string -->
@@ -252,7 +253,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Mugitu telefonoa zortzi irudiko mugimenduan iparrorratza kalibratzeko eta geziaren norabidea mapan finkatzeko.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Sakatu luze berriro mapan interfazea ikusteko</string>
+    <string name="enable_long_tap_fullscreen_description">Sakatu luze berriro mapan interfazea ikusteko</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Eguneratu guztiak</string>
     <!-- Cancel all button text -->
@@ -587,7 +588,7 @@
         <item quantity="other">%d arrasto</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Pribatutasuna</string>
+    <string name="prefs_group_privacy">Pribatutasuna</string>
     <string name="privacy_policy">Pribatutasun politika</string>
     <string name="terms_of_use">Erabilera baldintzak</string>
     <string name="button_layer_traffic">Trafikoa</string>
@@ -615,7 +616,7 @@
     <string name="power_managment_setting_auto">Automatikoa</string>
     <string name="power_managment_setting_manual_max">Energia aurrezpen handiena</string>
     <string name="enable_logging_warning_message">Aukera hau diagnostiko helburua duten erregistro ekintzetarako gaituta dago. Honek gure taldeari aplikazioarekin arazoak identifikatzen laguntzen dio. Gaitu aukera CoMaps laguntzari eskatuta soilik.</string>
-    <string name="driving_options_title">Bideratzeko aukerak</string>
+    <string name="routing_options_title">Bideratzeko aukerak</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Bidesariak saihestea</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -875,9 +876,6 @@
     <string name="unknown_power_output">ezezaguna</string>
     <string name="error_value_must_be_positive">Balioa positiboa izan behar du</string>
     <string name="list_description_empty">Editatu zerrenda deskribapen bat gehitzeko</string>
-    <string name="download_resources_custom_url_message">Gainidatzi erabiltzen den mapa deskargatzeko zerbitzari lehenetsia. Utzi hutsik CoMaps zerbitzari lehenetsia erabiltzeko.</string>
-    <string name="download_resources_custom_url_summary_none">Ezarri gabe</string>
-    <string name="download_resources_custom_url_error_scheme">Sartu http:// edo https://-rekin hasten den URL bat</string>
     <string name="pref_speedlimit_title">Erakutsi abiadura mugak</string>
     <string name="on_route">Bidean</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">Ez erabili alternatibarik</string>
@@ -886,4 +884,22 @@
     <string name="share_track">Partekatu Track hau</string>
     <string name="hours_confirmed_time_ago">%s baieztatuta</string>
     <string name="existence_confirmed_time_ago">%s baieztatutako existentzia</string>
+    <string name="tts_toggle_enable">Gaitu ahots-argibideak</string>
+    <string name="tts_toggle_disable">Ezgaitu ahots-argibideak</string>
+    <string name="downloader_check_updates_button">Bilatu eguneratzeak</string>
+    <string name="downloader_check_updates_checking">Eguneratzeak bilatzen...</string>
+    <string name="downloader_check_updates_updated">Mapen eguneraketak eskuragarri!</string>
+    <string name="downloader_check_updates_no_updates">Ez dago eguneratzerik</string>
+    <string name="downloader_check_updates_eol">Ez dago mapa eguneratze gehiago aplikazio honen bertsiorako. Eguneratu aplikazioa!</string>
+    <string name="downloader_check_updates_error">Ezin izan dira eguneratzeak bilatu</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <string name="oh_unknown">Ordutegi ezezaguna</string>
+    <string name="editor_business_vacant_button">Negozioa hutsik dago</string>
+    <string name="editor_mark_business_vacant_title">Markatu negozioa hutsik bezala</string>
+    <string name="editor_submit">Bidali</string>
+    <string name="avoid_steps">Saihestu eskailerak</string>
+    <string name="avoid_paved">Saihestu asfaltatutako errepideak</string>
 </resources>

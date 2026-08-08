@@ -126,7 +126,8 @@
               style="@style/MwmWidget.Editor.FieldLayout"
               android:layout_below="@id/street_title"
               android:layout_marginTop="@dimen/margin_quarter"
-              android:gravity="center_vertical"
+              android:gravity="center_vertical|start"
+              android:textAlignment="viewStart"
               android:textAppearance="@style/MwmTextAppearance.Body1"
               tools:text="Red str."
               app:drawableEndCompat="@drawable/ic_arrow_down" />
@@ -188,7 +189,8 @@
               style="@style/MwmWidget.Editor.FieldLayout"
               android:layout_below="@id/title_cuisine"
               android:layout_marginTop="@dimen/margin_quarter"
-              android:gravity="center_vertical"
+              android:gravity="center_vertical|start"
+              android:textAlignment="viewStart"
               android:textAppearance="@style/MwmTextAppearance.Body1"
               tools:text="italian, russian, coffee_shop, sandwich, dessert, cake, regional, sausage, sandwich, breakfast, pizza"
               app:drawableEndCompat="@drawable/ic_arrow_down" />
@@ -421,7 +423,8 @@
               android:id="@+id/input"
               style="@style/MwmWidget.Editor.FieldLayout.EditText"
               android:inputType="textMultiLine"
-              android:gravity="top"
+              android:textAlignment="viewStart"
+              android:gravity="top|start"
               android:hint="@string/editor_note_hint"/>
         </com.google.android.material.textfield.TextInputLayout>
       </LinearLayout>

@@ -2,8 +2,13 @@
 
 #include "drape/data_buffer.hpp"
 
+template <typename T>
+class ref_ptr;
+
 namespace dp
 {
+class GraphicsContext;
+
 class IndexBuffer : public DataBuffer
 {
 public:

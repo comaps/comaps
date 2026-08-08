@@ -681,8 +681,6 @@
 "yes_available" = "Var";
 /* E.g. "WiFi:No" */
 "no_available" = "Yox";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Tutumu: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Şəbəkə: %@";
 "trip_finished" = "Sən gəldin!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Add Place";
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"downloader_check_updates_button" = "Check for updates";
+"downloader_check_updates_checking" = "Checking for updates...";
+"downloader_check_updates_updated" = "Map updates available!";
+"downloader_check_updates_no_updates" = "No updates available";
+"downloader_check_updates_eol" = "No more map updates for this app version. Please update the app!";
+"downloader_check_updates_error" = "Error checking for updates";
+"editor_add_select_category_recent_subtitle" = "Recently Used";
+"oh_unknown" = "Opening hours unknown";
+"carplay_highway_exit" = "Exit %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "No dedicated disabled spaces";
+"capacity_charging_yes" = "Has spaces with chargers";
+"capacity_charging_no" = "No spaces with chargers";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

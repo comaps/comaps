@@ -1,6 +1,10 @@
 #include "tracking/archival_reporter.hpp"
 
-#include "base/file_name_utils.hpp"
+#include "routing/router.hpp"
+
+#include "platform/location.hpp"
+
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 
 #include "defines.hpp"

@@ -1,5 +1,8 @@
 #include "drape/pointers.hpp"
+
+#ifdef TRACK_POINTERS
 #include "base/logging.hpp"
+#endif
 
 #if defined(TRACK_POINTERS)
 DpPointerTracker & DpPointerTracker::Instance()

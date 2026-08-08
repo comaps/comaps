@@ -1,6 +1,8 @@
 #include "animation_system.hpp"
 
+#ifdef DEBUG_ANIMATIONS
 #include "base/logging.hpp"
+#endif
 
 #include <vector>
 

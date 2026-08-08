@@ -187,13 +187,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Longitud</string>
     <string name="share_my_location">Compartir mi ubicación</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Ajustes generales</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Información</string>
     <string name="prefs_group_route">Navegación</string>
     <string name="pref_zoom_title">Botones de zoom</string>
     <string name="pref_zoom_summary">Ver en el mapa</string>
+    <string name="prefs_group_advanced">Opciones avanzadas</string>
+    <string name="download_resources_custom_url_title">Servidor de mapas personalizado</string>
+    <string name="download_resources_custom_url_message">Sobreescribe el servidor de mapas por defecto. Déjalo en blanco para usar el servidor de CoMaps por defecto.</string>
+    <string name="download_resources_custom_url_summary_none">No establecido</string>
+    <string name="download_resources_custom_url_error_scheme">Por favor introduce un URL empezando con http:// o https://</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Modo nocturno</string>
     <!-- Generic «Off» string -->
@@ -252,7 +255,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Mueve el teléfono en forma de ocho para calibrar la brújula y fijar la dirección de la flecha en el mapa.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Vuelva a pulsar prolongadamente sobre el mapa para ver la interfaz</string>
+    <string name="enable_long_tap_fullscreen_description">Vuelva a pulsar prolongadamente sobre el mapa para ver la interfaz</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Actualizar todos</string>
     <!-- Cancel all button text -->
@@ -455,7 +458,7 @@
     <string name="editor_report_problem_other_title">Un problema diferente</string>
     <string name="message_invalid_feature_position">No se puede ubicar ningún objeto aquí</string>
     <!-- Text in About and OSM Login screens. First %@ is replaced by a local, human readable date. -->
-    <string name="osm_presentation">Datos de OpenStreetMap creados por la comunidad a partir de %s. Más información sobre cómo editar y actualizar el mapa en OpenStreetMap.org</string>
+    <string name="osm_presentation">Datos de OpenStreetMap creados por la comunidad a fecha de %s. Más información sobre cómo editar y actualizar el mapa en OpenStreetMap.org</string>
     <!-- OSM explanation on Android login screen -->
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) es un proyecto comunitario para construir un mapa libre y abierto. Es la principal fuente de datos cartográficos de CoMaps y funciona de forma similar a Wikipedia. Puedes añadir o editar lugares y estos pasan a estar disponibles para millones de usuarios en todo el mundo.\n¡Únete a la comunidad y ayuda a crear un mapa mejor para todos!</string>
     <string name="login_to_make_edits_visible">Cree una cuenta OpenStreetMap o inicie sesión para publicar sus ediciones de mapas en todo el mundo</string>
@@ -473,7 +476,7 @@
     <!-- Hint of the input field in the OSM note section of the editor -->
     <string name="editor_note_hint">Describe los errores en el mapa o las cosas que no se pueden editar con CoMaps</string>
     <!-- Information about OSM at the top of the editing page -->
-    <string name="editor_about_osm">Sus ediciones se cargan en la base de datos pública <a href="https://wiki.openstreetmap.org/wiki/ES:Acerca_de_OpenStreetMap">OpenStreetMap</a>. Por favor, no añada información personal o protegida por derechos de autor.</string>
+    <string name="editor_about_osm">Tus modificaciones se suben a la base de datos pública <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a>. Por favor, no añadas información personal ni protegida por derechos de autor.</string>
     <string name="editor_more_about_osm">Más acerca de OpenStreetMap</string>
     <string name="editor_osm_history">Tu historial de ediciones</string>
     <string name="editor_osm_notes">Tus notas del mapa</string>
@@ -592,7 +595,7 @@
         <item quantity="other">%d trazas</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Privacidad</string>
+    <string name="prefs_group_privacy">Privacidad</string>
     <string name="privacy_policy">Política de privacidad</string>
     <string name="terms_of_use">Condiciones de uso</string>
     <string name="button_layer_traffic">Tráfico</string>
@@ -620,7 +623,7 @@
     <string name="power_managment_setting_auto">Cuando queda poca energía</string>
     <string name="power_managment_setting_manual_max">Siempre</string>
     <string name="enable_logging_warning_message">Activa esta opción temporalmente para grabar y enviar de forma manual registros para diagnosticar defectos mediante la opción «Informar de un fallo» en el diálogo Ayuda. Los registros pueden incluir ubicaciones.</string>
-    <string name="driving_options_title">Opciones de enrutamiento</string>
+    <string name="routing_options_title">Opciones de la ruta</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Evitar peajes</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -630,7 +633,7 @@
     <string name="avoid_motorways">Evitar autopistas</string>
     <string name="unable_to_calc_alert_title">No se puede calcular la ruta</string>
     <string name="unable_to_calc_alert_subtitle">No se pudo encontrar una ruta. Quizás se deba a las opciones de enrutamiento o a datos faltantes en OpenStreetMap. Revisa tus opciones de enrutamiento y vuelve a intentarlo.</string>
-    <string name="define_to_avoid_btn">Defina los caminos para evitar</string>
+    <string name="define_to_avoid_btn">Elige las opciones de rutas</string>
     <string name="change_driving_options_btn">Opciones de enrutamiento activadas</string>
     <string name="toll_road">Carretera de peaje</string>
     <string name="unpaved_road">Camino sin pavimentar</string>
@@ -704,7 +707,7 @@
     <string name="downloader_loading_ios">Descargando</string>
     <string name="download_map_title">Descarga el mapa mundial de previsualización</string>
     <!-- Used in DownloadResources startup screen -->
-    <string name="disk_error">No se ha podido crear la carpeta y mover los ficheros en la memoria interna del dispositivo o en la tarjeta SD</string>
+    <string name="disk_error">No se pueden crear carpetas ni mover archivos al almacenamiento del dispositivo ni a la tarjeta SD.</string>
     <!-- Used in DownloadResources startup screen -->
     <string name="disk_error_title">Error de disco</string>
     <!-- Used in DownloadResources startup screen -->
@@ -912,11 +915,6 @@
     <string name="prefs_speed_cameras_information">Las advertencias de radares de velocidad están deshabilitadas en países donde las alertas están prohibidas por ley.</string>
     <string name="navigation_start_tts_message">"Iniciando Navegación, idioma de las instrucciones por voz: "</string>
     <string name="navigation_start_tts_disabled_message">Instrucciones por voz deshabilitadas: Motor de TTS no disponible</string>
-    <string name="advanced">Opciones avanzadas</string>
-    <string name="download_resources_custom_url_title">Servidor de mapas personalizado</string>
-    <string name="download_resources_custom_url_message">Sobreescribe el servidor de mapas por defecto. Déjalo en blanco para usar el servidor de CoMaps por defecto.</string>
-    <string name="download_resources_custom_url_summary_none">No establecido</string>
-    <string name="download_resources_custom_url_error_scheme">Por favor introduce un URL empezando con http:// o https://</string>
     <string name="pref_maplanguage_local">Idioma local</string>
     <string name="rooms">%s habitaciones</string>
     <string name="mb_downloaded">%1$d MB / %2$d MB</string>
@@ -945,4 +943,48 @@
     <string name="population">Población: %s</string>
     <string name="setting_value_system_default">Configuración predeterminada del sistema</string>
     <string name="change_app_locale">Idioma de la aplicación</string>
+    <string name="downloader_check_updates_button">Buscar actualizaciones</string>
+    <string name="downloader_check_updates_error">Error al buscar actualizaciones</string>
+    <string name="downloader_check_updates_checking">Buscando actualizaciones…</string>
+    <string name="downloader_check_updates_updated">¡Hay actualizaciones de mapas disponibles!</string>
+    <string name="downloader_check_updates_no_updates">Sin actualizaciones</string>
+    <string name="downloader_check_updates_eol">No habrá más actualizaciones para esta versión de la aplicación. ¡Por favor, actualiza la aplicación!</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_aa_support_summary_yes">La aplicación se ha instalado desde Google Play y puedes usarla en tu coche.</string>
+    <string name="pref_aa_support_summary_no">La aplicación no se ha instalado desde Google Play, por lo que no puedes usarla en tu coche. Pulsa en Ajustes para obtener más información en nuestras Preguntas frecuentes.</string>
+    <string name="tts_toggle_enable">Activar indicaciones por voz</string>
+    <string name="tts_toggle_disable">Desactivar indicaciones por voz</string>
+    <string name="editor_add_select_category_recent_subtitle">Usado recientemente</string>
+    <string name="oh_unknown">Horario desconocido</string>
+    <string name="editor_add_select_category_all_subtitle">Todas las categorías</string>
+    <string name="sort_categories">Ordenar favoritos</string>
+    <string name="by_recently_used">Por los más recientes</string>
+    <string name="by_custom">Personalizado</string>
+    <string name="enable_long_tap_fullscreen">Mantén pulsado para ocultar la interfaz de usuario</string>
+    <string name="long_tap_disabled_toast">Para ocultar la interfaz, active la opción de pulsación larga en los ajustes</string>
+    <string name="capacity_disabled">Plazas de aparcamiento para personas con discapacidad: %s</string>
+    <string name="capacity_disabled_yes">Dispone de plazas de aparcamiento reservadas para personas con discapacidad</string>
+    <string name="capacity_disabled_no">No hay plazas reservadas para personas con discapacidad</string>
+    <string name="capacity_charging">Plazas con cargadores: %s</string>
+    <string name="capacity_charging_yes">Dispone de plazas con cargadores</string>
+    <string name="capacity_charging_no">No hay plazas con cargadores</string>
+    <string name="prefs_group_route_summary">Unidades, instrucciones de voz, opciones de ruta</string>
+    <string name="prefs_group_privacy_summary">Historial de búsquedas</string>
+    <string name="prefs_group_power_summary">Tiempo de inactividad de la pantalla, datos móviles</string>
+    <string name="prefs_group_map_appearance">Aspecto del mapa</string>
+    <string name="prefs_group_map_appearance_summary">Idioma del mapa, tamaño de las etiquetas, edificios en 2D/3D</string>
+    <string name="planning_route_preview">Vista previa</string>
+    <string name="search_in_all_lists">Buscar en todas las listas</string>
+    <string name="permission_read_navigation_label">Leer los datos de navegación de CoMaps</string>
+    <string name="permission_read_navigation_description">leer información de navegación en tiempo real, como los próximos giros o el nombre de la calle por la que circulas</string>
+    <string name="pref_about_summary">Informar de problemas, solicitar ayuda, hacer una donación\nVersión: v%1$s</string>
+    <string name="prefs_group_interface">Interfaz</string>
+    <string name="prefs_group_interface_summary">Modo nocturno, botones, idioma</string>
+    <string name="prefs_group_data_management">Gestión de datos</string>
+    <string name="prefs_group_data_management_summary">Almacenamiento de mapas, copia de seguridad de favoritos</string>
+    <string name="prefs_group_advanced_summary">Activar el registro</string>
+    <string name="pref_enable_auto_reroute_title">Redireccionamiento automático</string>
+    <string name="pref_enable_auto_reroute_description">Si se activa esta opción, se creará automáticamente una nueva ruta en cuanto te desvíes de la ruta planificada.</string>
+    <string name="recalculate_route">Recalcular</string>
+    <string name="off_route">Te has desviado de la ruta</string>
 </resources>

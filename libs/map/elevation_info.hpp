@@ -2,7 +2,6 @@
 
 #include "kml/types.hpp"
 
-#include "geometry/latlon.hpp"
 #include "geometry/point_with_altitude.hpp"
 
 #include "platform/location.hpp"

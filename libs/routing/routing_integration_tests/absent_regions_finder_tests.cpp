@@ -3,8 +3,12 @@
 #include "map/framework.hpp"
 #include "map/routing_manager.hpp"
 
+#include "storage/country_info_getter.hpp"
 #include "storage/routing_helpers.hpp"
 #include "storage/storage.hpp"
+
+#include "routing/absent_regions_finder.hpp"
+#include "routing/regions_decl.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
 

@@ -4,6 +4,7 @@
 #include "search/cities_boundaries_table.hpp"
 #include "search/emitter.hpp"
 #include "search/intermediate_result.hpp"
+#include "search/keyword_lang_matcher.hpp"
 #include "search/model.hpp"
 #include "search/pre_ranker.hpp"
 #include "search/ranker.hpp"

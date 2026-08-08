@@ -1,15 +1,27 @@
 #include "drape_frontend/line_shape.hpp"
 
+#include "drape_frontend/render_state_extension.hpp"
+
 #include "shaders/programs.hpp"
 
 #include "drape/attribute_provider.hpp"
 #include "drape/batcher.hpp"
+#include "drape/binding_info.hpp"
+#include "drape/drape_global.hpp"
 #include "drape/glsl_types.hpp"
+#include "drape/graphics_context.hpp"
+#include "drape/render_state.hpp"
 #include "drape/support_manager.hpp"
 #include "drape/texture_manager.hpp"
 #include "drape/utils/vertex_decl.hpp"
 
 #include "indexer/scales.hpp"
+
+#include "geometry/rect2d.hpp"
+
+#include "coding/point_coding.hpp"
+
+#include "base/assert.hpp"
 
 #include <algorithm>
 #include <vector>

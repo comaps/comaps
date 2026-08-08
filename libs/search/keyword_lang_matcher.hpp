@@ -2,8 +2,6 @@
 
 #include "search/keyword_matcher.hpp"
 
-#include "base/string_utils.hpp"
-
 #include <string>
 #include <vector>
 

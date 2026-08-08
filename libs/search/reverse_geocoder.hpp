@@ -2,10 +2,13 @@
 
 #include "indexer/feature_decl.hpp"
 #include "indexer/house_to_street_iface.hpp"
+#include "indexer/mwm_set.hpp"
 
 #include "storage/storage_defines.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "geometry/point2d.hpp"
+
+#include "i18n/string_utf8_multilang.hpp"
 
 #include <memory>
 #include <optional>

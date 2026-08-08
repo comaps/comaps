@@ -1,0 +1,320 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "ชิดขวาไว้"
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "เลี้ยวขวา"
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "หักมุมขวา"
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "เข้าสู่วงเวียน"
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "ออกจากวงเวียน"
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "ชิดซ้ายไว้"
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "เลี้ยวซ้าย"
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "หักมุมซ้าย"
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "กลับรถ"
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "ตรงไป"
+    },
+    "exit": {
+        "defaultMessage": "ทางออก."
+    },
+    "onto": {
+        "defaultMessage": "เข้าสู่"
+    },
+    "take_exit_number": {
+        "defaultMessage": "ทางออก เข้าสู่"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "การคำนวณเส้นทางใหม่"
+    },
+    "destination": {
+        "defaultMessage": "คุณจะถึง"
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "คุณมาถึงแล้ว"
+    },
+    "in_50_meters": {
+        "defaultMessage": "อีกห้าสิบเมตร"
+    },
+    "in_100_meters": {
+        "defaultMessage": "อีกหนึ่งร้อยเมตร"
+    },
+    "in_200_meters": {
+        "defaultMessage": "อีกสองร้อยเมตร"
+    },
+    "in_250_meters": {
+        "defaultMessage": "อีกสองร้อยห้าสิบเมตร"
+    },
+    "in_300_meters": {
+        "defaultMessage": "อีกสามร้อยเมตร"
+    },
+    "in_400_meters": {
+        "defaultMessage": "อีกสี่ร้อยเมตร"
+    },
+    "in_500_meters": {
+        "defaultMessage": "อีกห้าร้อยเมตร"
+    },
+    "in_600_meters": {
+        "defaultMessage": "อีกหกร้อยเมตร"
+    },
+    "in_700_meters": {
+        "defaultMessage": "อีกเจ็ดร้อยเมตร"
+    },
+    "in_750_meters": {
+        "defaultMessage": "อีกเจ็ดร้อยห้าสิบเมตร"
+    },
+    "in_800_meters": {
+        "defaultMessage": "อีกแปดร้อยเมตร"
+    },
+    "in_900_meters": {
+        "defaultMessage": "อีกเก้าร้อยเมตร"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "อีกหนึ่งกิโลเมตร"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "อีกหนึ่งกิโลเมตรครึ่ง"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "อีกสองกิโลเมตร"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "อีกสองกิโลเมตรครึ่ง"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "อีกสามกิโลเมตร"
+    },
+    "then": {
+        "defaultMessage": "จากนั้น"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "ออกทางออกที่หนึ่ง"
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "ออกทางออกที่สอง"
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "ออกทางออกที่สาม"
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "ออกทางออกที่สี่"
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "ออกทางออกที่ห้า"
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "ออกทางออกที่หก"
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "ออกทางออกที่เจ็ด"
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "ออกทางออกที่แปด"
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "ออกทางออกที่เก้า"
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "ออกทางออกที่สิบ"
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "ออกทางออกที่สิบเอ็ด"
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "อีกห้าสิบฟุต"
+    },
+    "in_100_feet": {
+        "defaultMessage": "อีกหนึ่งร้อยฟุต"
+    },
+    "in_200_feet": {
+        "defaultMessage": "อีกสองร้อยฟุต"
+    },
+    "in_300_feet": {
+        "defaultMessage": "อีกสามร้อยฟุต"
+    },
+    "in_400_feet": {
+        "defaultMessage": "อีกสี่ร้อยฟุต"
+    },
+    "in_500_feet": {
+        "defaultMessage": "อีกห้าร้อยฟุต"
+    },
+    "in_600_feet": {
+        "defaultMessage": "อีกหกร้อยฟุต"
+    },
+    "in_700_feet": {
+        "defaultMessage": "อีกเจ็ดร้อยฟุต"
+    },
+    "in_800_feet": {
+        "defaultMessage": "อีกแปดร้อยฟุต"
+    },
+    "in_900_feet": {
+        "defaultMessage": "อีกเก้าร้อยฟุต"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "อีกหนึ่งพันฟุต"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "อีกหนึ่งพันห้าร้อยฟุต"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "อีกสองพันฟุต"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "อีกสองพันห้าร้อยฟุต"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "อีกสามพันฟุต"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "อีกสามพันห้าร้อยฟุต"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "อีกสี่พันฟุต"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "อีกสี่พันห้าร้อยฟุต"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "อีกห้าพันฟุต"
+    },
+    "in_1_mile": {
+        "defaultMessage": "อีกหนึ่งไมล์"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "อีกหนึ่งไมล์ครึ่ง"
+    },
+    "in_2_miles": {
+        "defaultMessage": "อีกสองไมล์"
+    },
+    "unknown_camera": {
+        "defaultMessage": "มีกล้องอยู่ข้างหน้า"
+    }
+}

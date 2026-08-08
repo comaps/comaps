@@ -102,6 +102,7 @@ amenity-police                                      # area z15- (also has icon z
 amenity-ranger_station                              # area z13- (also has icon z13-, caption(optional) z14-)
 amenity-recycling-centre                            # area z15- (also has icon z16-, caption(optional) z16-)
 amenity-social_facility                             # area z15- (also has icon z17-, caption(optional) z17-)
+amenity-stage                                       # area z17- (also has icon z17-, caption(optional) z17-)
 amenity-vehicle_inspection                          # area z15- (also has icon z16-, caption(optional) z16-)
 emergency-mountain_rescue                           # area z13- (also has icon z12-, caption(optional) z12-)
 highway-pedestrian-area                             # area z14- (also has line z13-, line::border z14-, pathtext z14-)

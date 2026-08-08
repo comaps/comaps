@@ -1,10 +1,12 @@
 #include "editor/feature_matcher.hpp"
 
+#include "editor/xml_feature.hpp"
+
 #include "geometry/intersection_score.hpp"
 #include "geometry/mercator.hpp"
 
+#include "base/assert.hpp"
 #include "base/logging.hpp"
-#include "base/stl_helpers.hpp"
 #include "base/stl_iterator.hpp"
 
 #include <algorithm>

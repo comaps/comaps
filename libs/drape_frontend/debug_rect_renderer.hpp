@@ -3,14 +3,23 @@
 #include "drape/debug_renderer.hpp"
 #include "drape/gpu_program.hpp"
 #include "drape/mesh_object.hpp"
+#include "drape/overlay_tree.hpp"
+#include "drape/pointers.hpp"
 #include "drape/render_state.hpp"
 
 #include "shaders/program_params.hpp"
 
+#include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
-#include "geometry/screenbase.hpp"
 
 #include <vector>
+
+class ScreenBase;
+
+namespace dp
+{
+class GraphicsContext;
+}  // namespace dp
 
 namespace df
 {

@@ -1,0 +1,1868 @@
+{
+    "@category_eat": {
+        "defaultMessage": "Где јести|Јело|Храна|Gde jesti|Jelo|Hrana"
+    },
+    "@category_food": {
+        "defaultMessage": "Намирнице|Храна|Namirnice|Hrana"
+    },
+    "@category_transport": {
+        "defaultMessage": "5Транспорт|5Transport"
+    },
+    "@category_fuel": {
+        "defaultMessage": "5Гориво|4Бензин|3Дизел|Гас|Бензинска станица|Бензинска пумпа|5Gorivo|4Benzin|3Dizel|Gas|Benzinska stanica|Benzinska pumpa"
+    },
+    "@category_parking": {
+        "defaultMessage": "4Паркинг|4Parking"
+    },
+    "@category_shopping": {
+        "defaultMessage": "Шопинг|Куповина|Šoping|Kupovina"
+    },
+    "@category_hotel": {
+        "defaultMessage": "Хотел|Хотели|Hotel|Hoteli"
+    },
+    "@category_tourism": {
+        "defaultMessage": "5Туристичка атракција|5Атракција|Атракције|6Знаменитости|5Туризам|5Turistička atrakcija|5Atrakcija|Atrakcije|6Znamenitosti|5Turizam"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "4Забава|4Zabava"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "3Ноћни живот|3Noćni život"
+    },
+    "@category_children": {
+        "defaultMessage": "Све за децу|Sve za decu"
+    },
+    "@category_atm": {
+        "defaultMessage": "5Банкомат|5Bankomat"
+    },
+    "@category_rv": {
+        "defaultMessage": "За кампер возила|Za kamper vozila"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "новац|novac"
+    },
+    "@category_bank": {
+        "defaultMessage": "4Банка|3Banka"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "6Секонд-хенд|6Sekond-hend"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "новац|novac"
+    },
+    "@category_recycling": {
+        "defaultMessage": "6Рециклажа|6Reciklaža"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "3Мењачница|4Menjačnica"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "Бар|паб|kафана|пиво|пиће|таверна|Bar|pab|kafana|pivo|piće|taverna"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "Кафе|кафић|kafe|kafić"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "4Брза храна|4brza hrana"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "4Ресторан|4restoran"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "4Бензинска пумпа|4Бензинска станица|4Benzinska pumpa|4Benzinska stanica"
+    },
+    "@shop": {
+        "defaultMessage": "Продавница|Prodavnica"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "5Пекара|Посластичарница|5Pekara|Poslastičarnica"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "5Козметика|5Kozmetika"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "4Мини-маркет|Дућан|4Mini-market|Dućan"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "Деликатес|Delikates"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "5Расадник|Собне биљке|6Баштенски материјал|5Rasadnik|Sobne biljke|6Baštenski materijal"
+    },
+    "shop-health_food|@category_food|@shop": {
+        "defaultMessage": "6Здрава храна|6Zdrava hrana"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "Мобилни телефони|Mobilni telefoni"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "Цвећара|Cvećara"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "Месара|Mesara"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "Намештај|Nameštaj"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "Кухињска опрема|Kuhinjska oprema"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "Алкохол|Alkohol"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "Књижара|Knjižara"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "Обућа|Obuća"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "Електроника|Elektronika"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "3Златара|3Јувелирница|3Кујунџија|4Дијаманти|3Zlatara|3Juvelirnica|3Kujundžija|4Dijamanti"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "Оптика|Optika"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "Поклони|Pokloni"
+    },
+    "shop-beauty": {
+        "defaultMessage": "Салон лепоте|Salon lepote"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "Спортска опрема|Sportska oprema"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "Супермаркет|Supermarket"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "Тржни центар|Шопинг центар|Tržni centar|Šoping centar"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "Робна кућа|Robna kuća"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "Пиће|Piće"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "Рачунари|Računari"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "Слаткиши|Slatkiši"
+    },
+    "shop-laundry": {
+        "defaultMessage": "Прање веша|Pranje veša"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "Играчке|Igračke"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "Пијаца|Pijaca"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "Трансфер новца|Transfer novca"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "Бутик|Одећа|Butik|Odeća"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "Салон аутомобила|Salon automobila"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "Бицикли|Bicikli"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "Киоск|Kiosk"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "Аутобуска станица|Autobuska stanica"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "Железничка станица|Železnička stanica"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "Метро|Metro"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "Трајект|Trajekt"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "4Такси|7Такси станица|4Taksi|7Taksi stanica"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "Атракција|Atrakcija"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "4Видиковац|4Vidikovac"
+    },
+    "tourism-information": {
+        "defaultMessage": "Туристичке информације|Turističke informacije"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "Место за пикник|Mesto za piknik"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "Храм|Hram"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "Црква|Crkva"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "Џамија|Džamija"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "Храм|будисти|Hram|budisti"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "Храм|хиндуисти|Hram|hinduisti"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "Синагога|Sinagoga"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "Музеј|Muzej"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "Водопад|Vodopad"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "Археолошко налазиште|Arheološko nalazište"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "Бојно поље|Bojno polje"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "Замак|Дворац|Палата|Тврђава|Утврђење|Zamak|Dvorac|Palata|Tvrđava|Utvrđenje"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "Градска капија|Gradska kapija"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "Градске зидине|Gradske zidine"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "Тврђава|Tvrđava"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "3Скулптура|3Skulptura"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "3Статуа|3Statua"
+    },
+    "historic-cannon": {
+        "defaultMessage": "Топ|Top"
+    },
+    "leisure-dog_park": {
+        "defaultMessage": "Парк за псе|Park za pse"
+    },
+    "leisure-garden": {
+        "defaultMessage": "Башта|Bašta"
+    },
+    "amenity-bench": {
+        "defaultMessage": "Клупа|Klupa"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "5Изнајмљивање бицикала|5Iznajmljivanje bicikala"
+    },
+    "amenity-bicycle_repair_station": {
+        "defaultMessage": "7Станица за поправку бицикала"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "Рентакар|Изнајмљивање аутомобила|Rentakar|Iznajmljivanje automobila"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "3Биоскоп|Филм|3Bioskop|Film"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "Куглање|Kuglanje"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "Позориште|Pozorište"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "Дискотека|Diskoteka"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "Бордел|јавна кућа|Bordel|javna kuća"
+    },
+    "@gambling": {
+        "defaultMessage": "Коцка|Kocka"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "Казино|Kazino"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "Видео игре|Video igre"
+    },
+    "amenity-college": {
+        "defaultMessage": "Колеџ|Koledž"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "Ватрогасци|Ватрогасна станица|Vatrogasci|Vatrogasna stanica"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "Фонтана|Fontana"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "Гробље|Groblje"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "Погребне услуге|Pogrebne usluge"
+    },
+    "@category_hospital": {
+        "defaultMessage": "Болница|Bolnica"
+    },
+    "amenity-hospital|@category_hospital": {
+        "defaultMessage": "Болница|Bolnica"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "Поликлиника|Дом здравља|Poliklinika|Dom zdravlja"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "Доктор|Doktor"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "Стоматолог|Зубар|Stomatolog|Zubar"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "Медицинска лабораторија|Medicinska laboratorija"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "5Физиотерапеут|5Fizioterapeut"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "Алтернативна медицина|Alternativna medicina"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "Аудиологија|Аудиолог|Audiologija|Audiolog"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "Добровољно давање крви|Dobrovoljno davanje krvi"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "Подолог|Подологија|Podolog|Podologija"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "Психотерапија|Психотерапеут|Psihoterapija|Psihoterapeut"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "Логопедија|Логопед|Logopedija|Logoped"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "Чека|Čeka"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "Вртић|Обданиште|Vrtić|Obdanište"
+    },
+    "amenity-library": {
+        "defaultMessage": "Библиотека|Biblioteka"
+    },
+    "amenity-parking|amenity-parking_entrance|@category_parking": {
+        "defaultMessage": "Паркинг|Parking"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "4Апотека|Апотеке|4Apoteka|Apoteke"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "4Апотека|Апотеке|4Apoteka|Apoteke"
+    },
+    "@category_post": {
+        "defaultMessage": "Пошта|Pošta"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "Поштанско сандуче|Poštansko sanduče"
+    },
+    "amenity-post_office|post_office-post_partner|@category_post": {
+        "defaultMessage": "Пошта|Pošta"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "8Технички преглед возила|8Tehnički pregled vozila"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "Контејнер за смеће|Kontejner za smeće"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "Рециклажни центар|Reciklažni centar"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "Рециклажни контејнер|Reciklažni kontejner"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "Рециклажа батерија|Reciklaža baterija"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "Рециклажа одеће|Reciklaža odeće"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "Рециклажа стакла|Reciklaža stakla"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "Рециклажа папира|Reciklaža papira"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "Рециклажа пластике|Reciklaža plastike"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "Рециклажа пластичних флаша|Reciklaža plastičnih flaša"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "Рециклажа метала|Reciklaža metala"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "Рециклажа електронског отпада|Reciklaža elektronskog otpada"
+    },
+    "recycling-cardboard|@category_recycling": {
+        "defaultMessage": "Рециклажа картона|Reciklaža kartona"
+    },
+    "recycling-cans|@category_recycling": {
+        "defaultMessage": "Рециклажа лименки|Reciklaža limenki"
+    },
+    "recycling-shoes|@category_recycling": {
+        "defaultMessage": "Рециклажа обуће|Reciklaža obuće"
+    },
+    "amenity-school": {
+        "defaultMessage": "Школа|Škola"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "Склониште|Sklonište"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "Надстрешница|Nadstrešnica"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "Стриптиз клуб|Стриптиз клуб"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "Телефон|Telefon"
+    },
+    "@category_toilet": {
+        "defaultMessage": "Тоалет|Toalet"
+    },
+    "amenity-toilets|toilets-yes|@category_toilet": {
+        "defaultMessage": "тоалет|toalet"
+    },
+    "amenity-university": {
+        "defaultMessage": "Универзитет|Univerzitet"
+    },
+    "place-continent": {
+        "defaultMessage": "Континент|Kontinent"
+    },
+    "place-country": {
+        "defaultMessage": "Држава|Država"
+    },
+    "place-city": {
+        "defaultMessage": "Град|Grad"
+    },
+    "place-town": {
+        "defaultMessage": "Град|Grad"
+    },
+    "place-city-capital": {
+        "defaultMessage": "Главни град|Glavni grad"
+    },
+    "place-county": {
+        "defaultMessage": "Округ|Okrug"
+    },
+    "place-state": {
+        "defaultMessage": "Држава|Država"
+    },
+    "place-region": {
+        "defaultMessage": "Регион|Region"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "Острво|Ostrvo"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "Округ|Okrug"
+    },
+    "place-hamlet": {
+        "defaultMessage": "Село|Selo"
+    },
+    "place-village": {
+        "defaultMessage": "Село|Selo"
+    },
+    "place-locality": {
+        "defaultMessage": "Локалитет|Lokalitet"
+    },
+    "place-farm": {
+        "defaultMessage": "Фарма|Farma"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "Стаза|Staza"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "Улица|Ulica"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "Излаз|Izlaz"
+    },
+    "highway-elevator": {
+        "defaultMessage": "Лифт|Lift"
+    },
+    "@mountain": {
+        "defaultMessage": "Планина|Врх|Planina|Vrh"
+    },
+    "natural-saddle|mountain_pass": {
+        "defaultMessage": "Седло|Sedlo"
+    },
+    "landuse-forest": {
+        "defaultMessage": "Шума|Šuma"
+    },
+    "leisure-park": {
+        "defaultMessage": "Парк|Park"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "Акваријум|Akvarijum"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "Хостел|Hostel"
+    },
+    "tourism-hotel|@category_hotel": {
+        "defaultMessage": "Мотел|Motel"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "Мотел|Motel"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "4Фризер|4Frizer|7Фризерски салон|7Frizerski salon"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "Аеродром|Aerodrom"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "Стадион|Stadion"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "Игралиште|Igralište"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "Спортски центар|Sportski centar"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "Голф терен|Golf teren"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "Мини-голф|Mini-golf"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "5Спортски терен|5Sportski teren"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "Базен|Bazen"
+    },
+    "sport-american_football": {
+        "defaultMessage": "Амерички фудбал|Američki fudbal"
+    },
+    "sport-archery": {
+        "defaultMessage": "Стреличарство|Streličarstvo"
+    },
+    "sport-athletics": {
+        "defaultMessage": "Ателтика|Atletika"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "Аустралијски фудбал|Australijski fudbal"
+    },
+    "sport-baseball": {
+        "defaultMessage": "Бејзбол|Bejzbol"
+    },
+    "sport-basketball": {
+        "defaultMessage": "Кошарка|Košarka"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "Одбојка на песку|Odbojka na pesku"
+    },
+    "sport-chess": {
+        "defaultMessage": "Шах|Šah"
+    },
+    "sport-cricket": {
+        "defaultMessage": "Крикет|Kriket"
+    },
+    "sport-curling": {
+        "defaultMessage": "Карлинг|Karling"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "Јахање|Jahanje"
+    },
+    "sport-golf": {
+        "defaultMessage": "Голф|Golf"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "Гимнастика|Gimnastika"
+    },
+    "sport-handball": {
+        "defaultMessage": "Рукомет|Rukomet"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "Роњење|Ronjenje"
+    },
+    "sport-shooting": {
+        "defaultMessage": "Стрељана|Streljana"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "Скејтбординг|Skejtbording"
+    },
+    "sport-skiing": {
+        "defaultMessage": "Скијање|Skijanje"
+    },
+    "sport-soccer": {
+        "defaultMessage": "Фудбал|Fudbal"
+    },
+    "sport-swimming": {
+        "defaultMessage": "Базен|Пливање|Bazen|Plivanje"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "Стони тенис|Stoni tenis"
+    },
+    "sport-tennis": {
+        "defaultMessage": "Тенис|Tenis"
+    },
+    "sport-padel": {
+        "defaultMessage": "Падел|Padel"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "Одбојка|Odbojka"
+    },
+    "building": {
+        "defaultMessage": "Зграда|Zgrada"
+    },
+    "building-address": {
+        "defaultMessage": "Адреса"
+    },
+    "@category_police": {
+        "defaultMessage": "Полиција|Policija"
+    },
+    "amenity-police|@category_police": {
+        "defaultMessage": "5Полицијска станица|Полиција|5Policijska stanica|Policija"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "Амбасада|Конзулат|Ambasada|Konzulat"
+    },
+    "natural-bay": {
+        "defaultMessage": "Залив|Zaliv"
+    },
+    "@category_water": {
+        "defaultMessage": "Вода|Voda"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "Вода за пиће|Voda za piće"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "Термални извор|Termalni izvor"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "Извор|Izvor"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "Бунар|Bunar"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "Вода за кампере|Voda za kampere"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "Јавна чесма|Чесма|Javna česma|Česma"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "Резервоар|Rezervoar"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "Језерце|Jezerce"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "Језеро|Jezero"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "Река|Reka"
+    },
+    "waterway-canal": {
+        "defaultMessage": "Канал|Kanal"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "4Ауто-сервис|Аутосервис|4Auto-servis|Autoservis"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "Камп|Kamp"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "Паркинг за кампере|Parking za kampere"
+    },
+    "office": {
+        "defaultMessage": "Канцеларија|Kancelarija"
+    },
+    "office-company": {
+        "defaultMessage": "Канцеларија фирме|Kancelarija firme"
+    },
+    "office-government": {
+        "defaultMessage": "5Владина канцеларија|5Vladina kancelarija"
+    },
+    "office-lawyer": {
+        "defaultMessage": "3Адвокат|3Advokat"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "5Мобилни оператер|5Mobilni operater"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "Пчелар|Pčelar"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "Ковач|Kovač"
+    },
+    "craft-brewery": {
+        "defaultMessage": "Крафт пиво|Kraft pivo"
+    },
+    "craft-caterer": {
+        "defaultMessage": "5Кетеринг|5Ketering"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "Столар|Stolar"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "Слаткиши|Slatkiši"
+    },
+    "craft-electrician": {
+        "defaultMessage": "Електричар|Električar"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "Сервис електронике|Servis elektronike"
+    },
+    "craft-gardener": {
+        "defaultMessage": "Баштован|Baštovan"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "Млин|Mlin"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "Ручни рад|Ručni rad"
+    },
+    "craft-hvac": {
+        "defaultMessage": "Клима|Klima"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "4Кључар|4Бравар|5Нарезивање кључева|4Ključar|4Bravar|5Narezivanje ključeva"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "Бравар|Bravar"
+    },
+    "craft-painter": {
+        "defaultMessage": "Молер|Moler"
+    },
+    "craft-photographer": {
+        "defaultMessage": "Фотограф|Fotograf"
+    },
+    "craft-plumber": {
+        "defaultMessage": "4Водоинсталатер|4Vodoinstalater"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "Пилана|Стругара|Pilana|Strugara"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "Обућар|Obućar"
+    },
+    "craft-winery": {
+        "defaultMessage": "Винарија|Вино|Vinarija|Vino"
+    },
+    "craft-tailor": {
+        "defaultMessage": "Кројач|Krojač"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "Трг|Trg"
+    },
+    "place-sea": {
+        "defaultMessage": "Море|More"
+    },
+    "place-ocean": {
+        "defaultMessage": "Океан|Okean"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "3Интернет|3Internet"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "Плажа|Plaža"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "6Светионик|6Svetionik"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "Комуникациони торањ|Komunikacioni toranj"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "4Нафтна бушотина|4Нафтна бушотина"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "органско|organsko"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "Копирница|Kopirnica"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "Фото радња|Foto radnja"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "4Фото-апарати|4Foto-aparati"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "Туристичка агенција|Turistička agencija"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "Планинарска опрема|Опрема за планинарење|Камп опрема|Опрема за камповање|Planinarska oprema|Oprema za planinarenje|Kamp oprema|Oprema za kampovanje"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "Хемијско чишћење|Hemijsko čišćenje"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "Гуме|Ауто гуме|Gume|Auto gume"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "Прање аутомобила|Pranje automobila"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "5Ветеринар|5Veterinar"
+    },
+    "@charging_station": {
+        "defaultMessage": "6Станица за пуњење|6Stanica za punjenje"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "Јасле|Jasle"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "Паркинг за бицикле|Parking za bicikle"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "5Канта за смеће|5Kanta za smeće"
+    },
+    "emergency-phone": {
+        "defaultMessage": "СОС телефон|SOS telefon"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "5Теретана|4фитнес центар|фитнес студио|5Teretana|4fitnes centar|fitnes studio"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "Сауна|Sauna"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "Вулканизер|Vulkanizer"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "5Кућна хемија|5Kućna hemija"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "Кућни љубимци|Пет шоп|Kućni ljubimci|Pet šop"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "3Зоолошки врт|3Zoološki vrt"
+    },
+    "attraction-animal": {
+        "defaultMessage": "Животињски кавез|Životinjski kavez"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Турист инфо|4Туристичке информације|Turist info|4Turističke informacije"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "6Центар за посетиоце|6Centar za posetioce"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "3Дом културе|6Центар за културу|3Dom kulture|6Centar za kulturu"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "5Компресор|5Kompresor"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "Суд|Sud"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "5Аутомат за цигарете|5Automat za cigarete"
+    },
+    "amenity-vending_machine-coffee": {
+        "defaultMessage": "5Аутомат за кафу|5Automat za kafu"
+    },
+    "amenity-vending_machine-condoms": {
+        "defaultMessage": "5Аутомат за кондоме|5Automat za kondome"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "5Аутомат за пиће|5Automat za piće"
+    },
+    "amenity-vending_machine-food|@category_food": {
+        "defaultMessage": "5Аутомат за храну|5Automat za hranu"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "4Паркомат|4Parkomat"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "5Аутомат за карте за јавни превоз|5Automat za karte za javni prevoz"
+    },
+    "amenity-parcel_locker|@category_post": {
+        "defaultMessage": "Пакетомат|Paketomat"
+    },
+    "shop-outpost": {
+        "defaultMessage": "Место сусрета|Mesto susreta"
+    },
+    "amenity-vending_machine-fuel|@category_fuel": {
+        "defaultMessage": "Самоуслужно точење горива|Samouslužno točenje goriva"
+    },
+    "building-garage": {
+        "defaultMessage": "Гаража|Garaža"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "4Одмориште|станица|4Odmorište|stanica"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "Фабрички димњак|Fabrički dimnjak"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "Торањ|Кула|Toranj|Kula"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "Кладионица|Kladionica"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "Рибарница|Риба|Ribarnica|Riba"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "5Секонд хенд|5Sekond hend"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "5Добротворна организација|5Dobrotvorna organizacija"
+    },
+    "shop-ticket": {
+        "defaultMessage": "Билетарница|Продаја карата|Biletarnica|Prodaja karata"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "Вино|Vino"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "4Ауто-делови|Аутоделови|4Auto-delovi|Autodelovi"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "Викендица|Vikendica"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "Инфо табла|Info tabla"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "6Туристичка мапа|6Turistička mapa"
+    },
+    "aerialway-station": {
+        "defaultMessage": "7Станица жичаре|7Stanica žičare"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "5Хелиодром|5Heliodrom"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "Гранични прелаз|Granični prelaz"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "4Аква парк|4Водени парк|4Akva park|4Vodeni park"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "Водоторањ|Vodotoranj"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "4Ветрењача|4Vetrenjača"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "Пећина|Pećina"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "Вулкан|Vulkan"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "Агент за некретнине|Agent za nekretnine"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "Капија|Kapija"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "7Размена књига|7Razmena knjiga"
+    },
+    "sport-climbing": {
+        "defaultMessage": "4Вештачка стена|Слободно пењање|4Veštačka stena|Slobodno penjanje"
+    },
+    "sport-yoga": {
+        "defaultMessage": "Јога|Joga"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "Апартман|Apartman"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "Одмаралиште|Ризорт|Odmaralište|Rizort"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "Пивница|Pivnica"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "4Ауто-школа|Аутошкола|4Auto-škola|Autoškola"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "5Музичка школа|5Muzička škola"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "5Школа страних језика|5Škola stranih jezika"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "4Сладолед|4Sladoled"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "3Интернет кафе|3Internet kafe"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "Паркинг за мотоцикле|Паркинг за моторе|Parking za motocikle|Parking za motore"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "7Паркинг за особе са инвалидитетом|Паркинг за инвалиде|7Parking za osobe sa invaliditetom|Parking za invalide"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "Дом за старе|Dom za stare"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "8Терминал за плаћање|8Terminal za plaćanje"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "5Јавно купатило|5Javno kupatilo"
+    },
+    "amenity-shower": {
+        "defaultMessage": "Туш|Tuš"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "5Место састанка у случају опасности|5Mesto sastanka u slučaju opasnosti"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "Дефибрилатор|Defibrilator"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "6Противпожарни хидрант|4Хидрант|6Protivpožarni hidrant|4Hidrant"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "Хитан спасиоц|Спасиоц"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "6Планинска спасилачка служба|6Горска служба спашавања|6Planinska spasilačka služba|6Gorska služba spašavanja"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "5Теретана на отвореном|5Teretana na otvorenom"
+    },
+    "office-insurance": {
+        "defaultMessage": "Осигурање|Osiguranje"
+    },
+    "office-ngo": {
+        "defaultMessage": "НВО|Невладина организација|Удружење грађана|NVO|Nevladina organizacija|Udruženje građana"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "Секс шоп|Seks šop"
+    },
+    "shop-massage": {
+        "defaultMessage": "Масажа|Салон за масажу|Masaža|Salon za masažu"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "Мотоцикли|Motocikli"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "Сервис за мотоцикле|Servis za motocikle"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "Киоск|Kiosk"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "Залагаоница|Zalagaonica"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "3Књижара|4Канцеларијски прибор|3Школски прибор|3Knjižara|4Kancelarijski pribor|3Školski pribor"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "Тетовирање|Tetoviranje"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "5Видео-клуб|5Video-klub"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "5Видео-игре|5Видео-игрице|5Video-igre|5Video-igrice"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "Викендица|Vikendica"
+    },
+    "tourism-gallery|@category_tourism": {
+        "defaultMessage": "Галерија|музеј|Galerija|muzej"
+    },
+    "tourism-theme_park|@category_tourism|@category_children": {
+        "defaultMessage": "5Забавни парк|5Zabavni park"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "5Национални парк|5Nacionalni park"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "7Резерват природе|7Rezervat prirode"
+    },
+    "natural-cape": {
+        "defaultMessage": "Рт|Rt"
+    },
+    "natural-geyser": {
+        "defaultMessage": "Гејзир|Gejzir"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "Глечер|Glečer"
+    },
+    "highway-ford": {
+        "defaultMessage": "Газ|Gaz"
+    },
+    "leisure-marina": {
+        "defaultMessage": "Марина|Marina"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "Ски-стаза|Скијање|Ski-staza|Skijanje"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "Хала|Дворана|Концертна хала|Спортска хала|Концертна дворана|Hala|Dvorana|Koncertna hala|Sportska hala|Koncertna dvorana"
+    },
+    "shop-chocolate|@category_food|@shop": {
+        "defaultMessage": "4Чоколада|4Čokolada"
+    },
+    "shop-coffee|@category_food|@shop": {
+        "defaultMessage": "Кафа|Kafa"
+    },
+    "shop-fabric|@shop": {
+        "defaultMessage": "Текстил|Метража|Tekstil|Metraža"
+    },
+    "shop-money_lender": {
+        "defaultMessage": "4Новчане позајмице|4Novčane pozajmice"
+    },
+    "shop-music|@shop": {
+        "defaultMessage": "Музика|Muzika"
+    },
+    "shop-musical_instrument|@shop": {
+        "defaultMessage": "5Музички инструменти|5Muzički instrumenti"
+    },
+    "shop-tea|@shop": {
+        "defaultMessage": "Чај|Čaj"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "5Антиквитети|Антикварница|5Antikviteti|Antikvarnica"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "Продајна галерија|Prodajna galerija"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "5Опрема за бебе|3беби-опрема|5Oprema za bebe|3bebi-oprema"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "Кофери|торбе|путне торбе|Koferi|torbe|putne torbe"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "Сир|Sir"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "Млечни производи|Mlečni proizvodi"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "Електро-опрема|Електро-материјал|Elektro-oprema|Elektro-materijal"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "Риболовачка опрема|Риболов|Ribolovačka oprema|Ribolov"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "4Уређење ентеријера|4Uređenje enterijera"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "Лутрија|Lutrija"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "5Медицинска помагала|4Ортопедска помагала|5Medicinska pomagala|4Ortopedska pomagala"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "6Додаци исхрани|4Суплементи|6Dodaci ishrani|4Suplementi"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "Фарба|Фарбара|Farba|Farbara"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "4Парфимерија|Парфем|4Parfimerija|Parfem"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "4Позамантерија|4Pozamanterija"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "5Закуп магацина|5Zakup magacina"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "Дуван|Duvan"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "Сатови|Satovi"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "Велепродаја|Veleprodaja"
+    },
+    "leisure-track": {
+        "defaultMessage": "Атлетска стаза|Трим стаза|Atletska staza|Trim staza"
+    },
+    "power-plant": {
+        "defaultMessage": "Електрана|Elektrana"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "Аукција|Aukcija"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Колекционар|Kolekcionar"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "7Инвалидска колица|7Invalidska kolica"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "5Социјални рад|5Socijalni rad"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "Спортска хала|Sportska hala"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "6Центар за културу|5Уметнички центар|6Centar za kulturu|5Umetnički centar"
+    },
+    "amenity-prison": {
+        "defaultMessage": "4затвор|4zatvor"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "5Изложбени центар|5Izložbeni centar"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "6Опрема за купатило|6Oprema za kupatilo"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "4Кревети|Продавница кревета|4Kreveti|Prodavnica kreveta"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "Бутик|Butik"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "3Завесе|3Zavese"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "4Плинске боце|4Pliske boce"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "Грумер|Салон за негу паса|Шишање паса|Груминг паса|Салон за негу животиња|Шишање животиња|Груминг животиња|Grumer|Salon za negu pasa|Šišanje pasa|Gruming pasa|Salong za negu životinja|Šišanje životinja|Gruming životinja"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "6ХајФај аудио|6HajFaj audio"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "4Конференцијски центар|4Konferencijski centar"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "Травар|Продавница биља|Travar|Prodavnica bilja"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "4Бела техника|5Кућни апарати|4Bela tehnika|5Kućni aparati"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "4Пољопривреда|4Poljoprivreda"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "4Модни аксесоари|4Аксесоари|4Modni aksesoari|4Aksesoari"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "4Теписи|4Tepisi"
+    },
+    "shop-craft|@shop": {
+        "defaultMessage": "4Рукотворине|4Rukotvorine"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "Паста|Pasta"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "Војни меморијал"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "Спомен-крст"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "6Спомен-плоча|6историјска плоча|6Spomen-ploča|6istorijska ploča"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "Крст поред пута"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "Светилиште поред пута"
+    },
+    "@fastfood": {
+        "defaultMessage": "Fast Food|Фаст фуд|Брза храна|Fast fud|Brza hrana"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "Доручак|doručak"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "4Бургер|4Хамбургер|4Burger|4Hamburger"
+    },
+    "cuisine-bubble_tea": {
+        "defaultMessage": "Боба чај|бабл ти|Чај с мехурићима|Boba čaj|babl ti|Čaj s mehurićima"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "Колачи|Торта|Kolači|Torta"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "Кафа|кофи шоп|кафетерија|Kafa|kofi šop|kafeterija"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "Јела од карија|Кари|Jela od karija|Kari"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "Дајнер|Dajner"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "4Крофне|4Krofne"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "Риба и чипс|Фиш енд чипс|Riba i čips|Fiš end čips"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "6Пржена храна|Пржено|6Pržena hrana|Prženo"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "Грил|Роштиљ|Јела са роштиља|Gril|Roštilj|Jela sa roštilja"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "Хотдог|Хот дог|Хот-дог|Hotdog|Hot dog|Hot-dog"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "4Сладолед|4Sladoled"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "Кебаб|Kebab"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "Нудле|Nudle"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "Палачинка|Палачинке|Palačinka|Palačinke"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "Тестенина|Паста|Testenina|Pasta"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "Пица|пицерија|Pica|picerija"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "Рамен|Ramen"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "4Сендвич|4Sendvič"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "Кобасица|Kobasica"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "5Морски плодови|4Плодови мора|риба|5Morski plodovi|4Plodovi mora|riba"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "Бифтек|Одрезак|Стек|Biftek|Odrezak|Stek"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "Суши|Suši"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "Тапас|Tapas"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "Чај|Čaj"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "Вегетаријанска|Вегетаријанци|Vegetarijanska|Vegetarijanci"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "8Веганска храна|10Веганска кухиња|Вегани|8Veganska hrana|10Veganska kuhinja|Vegani"
+    },
+    "historic-stone": {
+        "defaultMessage": "Историјски камен"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "Гранични камен"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "Вешала"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "Стуб срама"
+    },
+    "historic-anchor": {
+        "defaultMessage": "Историјско сидро"
+    },
+    "historic-mine": {
+        "defaultMessage": "Историјски рудник"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "Историјска локомотива"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "Историјски тенк"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "Историјски авион"
+    },
+    "man_made-cross": {
+        "defaultMessage": "Крст"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "Центар за игру одраслих"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "5Паркинг за бицикле|5Parking za bicikle"
+    },
+    "amenity-community_centre-youth_centre": {
+        "defaultMessage": "5Омладински центар|5Omladinski centar"
+    },
+    "man_made-crane": {
+        "defaultMessage": "Кран"
+    },
+    "tourism-information-guidepost": {
+        "defaultMessage": "4Путоказ|4Putokaz"
+    },
+    "barrier-toll_booth": {
+        "defaultMessage": "4Наплатна рампа|4Naplatna rampa"
+    },
+    "amenity-studio": {
+        "defaultMessage": "5Медијски студио|студио|5Medijski studio|studio"
+    },
+    "shop-cannabis|@shop": {
+        "defaultMessage": "Канабис|Kanabis"
+    },
+    "tourism-artwork-painting": {
+        "defaultMessage": "Слика|Уметничко дело|Slika|Umetničko delo"
+    },
+    "leisure-firepit": {
+        "defaultMessage": "5Огњиште|5Ognjište"
+    },
+    "natural-peak|@mountain": {
+        "defaultMessage": "Врх|Vrh"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "4Планинарски дом|4Planinarski dom"
+    },
+    "leisure-sports_centre-sport-swimming": {
+        "defaultMessage": "4Пливачки центар|4Plivački centar"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "6Хакерски простор|6Hakerski prostor"
+    },
+    "leisure-indoor_play": {
+        "defaultMessage": "4Играоница|3Дечја играоница|Дечија играоница|4Igraonica|3Dečja igraonica|Dečija igraonica"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "3Успињача|3Uspinjača"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "5Камен спотицања|5Kamen spoticanja"
+    },
+    "historic-wreck": {
+        "defaultMessage": "4Олупина брода|4Olupina broda"
+    },
+    "natural-strait": {
+        "defaultMessage": "Мореуз|Moreuz"
+    },
+    "sport-bowls": {
+        "defaultMessage": "Боћање"
+    },
+    "sport-10pin": {
+        "defaultMessage": "Куглање|Kuglanje"
+    },
+    "sport-four_square": {
+        "defaultMessage": "Четири квадрата"
+    },
+    "sport-9pin": {
+        "defaultMessage": "Куглање"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "Резервоар|Rezervoar"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "5Металне конструкције|5Metalne konstrukcije"
+    },
+    "man_made-flagpole": {
+        "defaultMessage": "4Јарбол са заставом|4Jarbol sa zastavom"
+    },
+    "man_made-telescope|man_made-telescope-optical|man_made-telescope-radio|man_made-telescope-gamma": {
+        "defaultMessage": "4Телескоп|4Teleskop"
+    },
+    "man_made-observatory": {
+        "defaultMessage": "4Опсерваторија|4Opservatorija"
+    },
+    "amenity-waste_transfer_station": {
+        "defaultMessage": "Станица за прераду отпада"
+    },
+    "amenity-vending_machine": {
+        "defaultMessage": "5Аутомат|5Automat"
+    },
+    "leisure-fitness_centre-sport-yoga": {
+        "defaultMessage": "4Јога студио|4Joga studio"
+    },
+    "amenity-car_pooling|@category_parking": {
+        "defaultMessage": "5Заједничка вожња|5Zajednička vožnja"
+    },
+    "amenity-payment_centre": {
+        "defaultMessage": "4Плаћање рачуна|4Plaćanje računa"
+    },
+    "leisure-bandstand": {
+        "defaultMessage": "4Музички павиљон|Бина|4Muzički paviljon|Bina"
+    },
+    "power-generator-wind": {
+        "defaultMessage": "5Ветрогенератор|5Vetrogenerator"
+    },
+    "man_made-cairn": {
+        "defaultMessage": "5Громила|5Gromila"
+    },
+    "social_facility-soup_kitchen": {
+        "defaultMessage": "5Народна кухиња|5Narodna kuhinja"
+    },
+    "amenity-food_sharing": {
+        "defaultMessage": "Дељење хране"
+    },
+    "shop-farm|@category_food|@shop": {
+        "defaultMessage": "Сеоска храна|Seoska hrana"
+    },
+    "shop-water|@category_water|@category_food|@shop": {
+        "defaultMessage": "4Вода за пиће|3Питка вода|4Флаширана вода|4Voda za piće|3Pitka voda|4Flaširana voda"
+    },
+    "shop-grocery|@category_food|@shop": {
+        "defaultMessage": "5Намирнице|5Namirnice"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "4Слушни апарати|4Slušni aparati"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "4Грађевински материјал|5Уради сам|4Građevinski materijal|5Uradi sam"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "4Потрепштине за дом|4Potrebštine za dom"
+    },
+    "shop-beauty-nails": {
+        "defaultMessage": "4Нокти|5Салон за нокте|4Nokti|5Salon za nokte"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "4Воће и поврће|4Voće i povrće|4Поврће и воће|4Povrće i voće"
+    },
+    "amenity-mobile_money_agent": {
+        "defaultMessage": "7Мобилни новчани агент|7Mobilni novčani agent"
+    },
+    "shop-caravan|@category_rv|@shop": {
+        "defaultMessage": "Продаја кампера|Prodaja kampera"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "2Аутобуска станица|2Аутобуско стајалиште|2Autobuska stanica|2Autobusko stajalište"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "3Трамвајска станица|3Трамвајско стајалиште|3Tramvajska stanica|3Tramvajsko stajalište"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "3Општина|3Градска кућа|3Opština|3Gradska kuća"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "3Уметничко дело|3Umetničko delo"
+    },
+    "tourism-artwork-sculpture": {
+        "defaultMessage": "Скулптура|Уметничко дело|Skulptura|Umetničko delo"
+    },
+    "tourism-artwork-statue": {
+        "defaultMessage": "Статуа|Уметничко дело|Statua|Umetničko delo"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "6Светилиште|6Богомоља|3Храм|6Svetilište|6Bogomolja|3Hram"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "3Храм|Таоисти|3Hram|Taoisti"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "4Меморијал|Споменик|помен|4Memorijal|Spomen|pomen"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "4Споменик|4Spomenik"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "4Историјске рушевине|3Рушевине|4Istorijske ruševine|3Ruševine"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "Брод|Чамац|Brod|Čamac"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "Гробница|Гроб|Меморијал|Grobnica|Grob|Memorijal"
+    },
+    "leisure-dance|@category_entertainment": {
+        "defaultMessage": "4Плес|5Школа плеса|4Ples|5Škola plesa"
+    },
+    "amenity-boat_rental": {
+        "defaultMessage": "4Изнајмљивање чамаца|3Изнајмљивање|4Iznajmljivanje čamaca|3Iznajmljivanje"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "6Дељење аутомобила|8Дељење превоза|6Deljenje automobila|8Deljenje prevoza"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "4Изнајмљивање мотоцикала|4Iznajmljivanje motocikala"
+    },
+    "amenity-love_hotel": {
+        "defaultMessage": "4Хотел за одрасле|Љубавни хотел|4Hotel za odrasle|Ljubavni hotel"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "4Оптометрија|Оптометриста|4Optometrija|Optometrista"
+    },
+    "healthcare-sample_collection": {
+        "defaultMessage": "7Узимање узорака|7Uzimanje uzoraka"
+    },
+    "recycling-green_waste|@category_recycling": {
+        "defaultMessage": "4Рециклажа биоотпада|5Рециклажа органског отпада|4Reciklaža biootpada|5Reciklaža organskog otpada"
+    },
+    "recycling-cartons|@category_recycling": {
+        "defaultMessage": "4Рециклажа картонске амбалаже|Рециклажа тетра-пак амбалаже|4Reciklaža kartonske ambalaže|Reciklaža tetra-pak ambalaže"
+    },
+    "amenity-sanitary_dump_station|@category_rv": {
+        "defaultMessage": "Пражњење отпадних вода кампера|Pražnjenje otpadnih voda kampera"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "3Склониште|4Уточиште|3Sklonište|4Utočište"
+    },
+    "highway-raceway": {
+        "defaultMessage": "5Тркачка стаза|Трка|5Trkačka staza|Trka"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "4Конак|4Пансион|4Konak|4Pansion"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "4Соба за бекство|4Soba za bekstvo"
+    },
+    "sport-boules": {
+        "defaultMessage": "4Боћање|4Bocanje"
+    },
+    "@waterbody": {
+        "defaultMessage": "Водено тело|Водена површина|Vodeno telo|Vodena površina"
+    },
+    "waterway-fuel": {
+        "defaultMessage": "Горивна пристаница|Gorivna pristanista"
+    },
+    "man_made-survey_point": {
+        "defaultMessage": "4Геодетска тачка|4Geodetska tačka"
+    },
+    "man_made-mast": {
+        "defaultMessage": "Јарбол|Стуб|Jarbol|Stub"
+    },
+    "amenity-animal_shelter": {
+        "defaultMessage": "6Уточиште за животиње|5Прихватилиште за животиње|6Utočište za životinje|5Prihvatilište za životinje"
+    },
+    "amenity-charging_station-motorcycle|@charging_station": {
+        "defaultMessage": "5Станица за пуњење мотоцикала|5Stanica za punjenje motocikala"
+    },
+    "amenity-charging_station-motorcar|@charging_station": {
+        "defaultMessage": "3Станица за пуњење аутомобила|3Stanica za punjenje automobila"
+    },
+    "amenity-vending_machine-newspapers": {
+        "defaultMessage": "4Аутомат за новине|Новине|4Automat za novine|Novine"
+    },
+    "amenity-vending_machine-sweets": {
+        "defaultMessage": "4Аутомат за слаткише|Слаткиши|4Automat za slatkiše|Slatkiši"
+    },
+    "amenity-vending_machine-excrement_bags": {
+        "defaultMessage": "5Кесице за измет|4Кесице за пса|5Kesice za izmet|4Kesice za psa"
+    },
+    "tourism-information-tactile_map": {
+        "defaultMessage": "Тактилна мапа|Мапа|4Информације|Taktilna mapa|Mapa|4Informacije"
+    },
+    "amenity-sailing_school": {
+        "defaultMessage": "4Школа једрења|4Наутичка школа|4Škola jedrenja|4Nautička škola"
+    },
+    "amenity-flight_school": {
+        "defaultMessage": "5Школа летења|6Ваздухопловна школа|4Авио-школа|5Škola letenja|6Vazduhoplovna škola|4Avio-škola"
+    },
+    "amenity-prep_school": {
+        "defaultMessage": "3Припремна школа|Школа за припрему|3Pripremna škola|Škola za pripremu"
+    },
+    "emergency-access_point": {
+        "defaultMessage": "5Тачка хитне помоћи|Хитно место|5Tačka hitne pomoći|Hitno mesto"
+    },
+    "emergency-disaster_help_point": {
+        "defaultMessage": "5Тачка помоћи у катастрофи|5Tačka pomoći u katastrofi"
+    },
+    "emergency-life_ring": {
+        "defaultMessage": "5Спасилачки прстен|6Спасилачки прслук|5Spasilački prsten|6Spasilački prsluk"
+    },
+    "amenity-hydrant": {
+        "defaultMessage": "Хидрант|Hidrant"
+    },
+    "shop-beauty-day_spa": {
+        "defaultMessage": "4Дневни спа|Велнес|4Dnevni spa|Velnes"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "4Разноврсна роба|Разна роба|4Raznovrsna roba|Razna roba"
+    },
+    "shop-telecommunication|@shop": {
+        "defaultMessage": "6Телекомуникациона продавница|Телеком|6Telekomunikaciona prodavnica|Telekom"
+    },
+    "shop-lighting|@shop": {
+        "defaultMessage": "4Расвета|4Лампе|4Rasveta|4Lampe"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "Трговачки материјал|Trgovački materijal"
+    },
+    "social_facility-food_bank": {
+        "defaultMessage": "4Банка хране|Поклон хране|4Banka hrane|Poklon hrane"
+    },
+    "amenity-give_box": {
+        "defaultMessage": "Кутија за поклоне|Kutija za poklone"
+    },
+    "amenity-food_court": {
+        "defaultMessage": "5Фуд корт|5Ресторански центар|5Fud kort|5Restorantski centar"
+    },
+    "attraction-amusement_ride|attraction-carousel|attraction-roller_coaster|attraction-maze|attraction-historic|attraction-big_wheel|attraction-bumper_car|@category_children": {
+        "defaultMessage": "Атракција|Забава|Лавиринт|Atrakcija|Zabava|Lavirint"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "5Одлагалиште пртљага|4Ормарић|Пртљаг|5Odlagalište prtljaga|4Ormarić|Prtljag"
+    },
+    "office-security": {
+        "defaultMessage": "4Безбедносна служба|4Bezbednosna služba"
+    },
+    "building-guardhouse": {
+        "defaultMessage": "4Стражара|4Stražara"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "Багел|Bagel"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "Соба|Soba"
+    },
+    "@cuisine_all_asian": {
+        "defaultMessage": "7Азијска храна|9Азијска кухиња|7Azijska hrana|9Azijska kuhinja"
+    },
+    "cuisine-vietnamese|@cuisine_all_asian": {
+        "defaultMessage": "11Вијетнамска храна|13Вијетнамска кухиња|11Vijetnamska hrana|13Vijetnamska kuhinja"
+    },
+    "cuisine-turkish": {
+        "defaultMessage": "6Турска храна|8Турска кухиња|6Turska hrana|8Turska kuhinja"
+    },
+    "cuisine-thai|@cuisine_all_asian": {
+        "defaultMessage": "10Тајландска храна|12Тајландска кухиња|10Tajlandska hrana|12Tajlandska kuhinja"
+    },
+    "cuisine-spanish": {
+        "defaultMessage": "7Шпанска храна|9Шпанска кухиња|7Španska hrana|9Španska kuhinja"
+    },
+    "cuisine-russian": {
+        "defaultMessage": "5Руска храна|7Руска кухиња|5Ruska hrana|7Ruska kuhinja"
+    },
+    "cuisine-portuguese": {
+        "defaultMessage": "11Португалска храна|13Португалска кухиња|11Portugalska hrana|13Portugalska kuhinja"
+    },
+    "cuisine-polish": {
+        "defaultMessage": "6Пољска храна|8Пољска кухиња|7Poljska hrana|9Poljska kuhinja"
+    },
+    "cuisine-peruvian": {
+        "defaultMessage": "9Перуанска храна|11Перуанска кухиња|9Peruanska hrana|11Peruanska kuhinja"
+    },
+    "cuisine-persian": {
+        "defaultMessage": "9Персијска храна|11Персијска кухиња|9Persijska hrana|11Persijska kuhinja"
+    },
+    "cuisine-oriental": {
+        "defaultMessage": "13Далекоисточна храна|15Далекоисточна кухиња|11Оријентална храна|13Оријентална кухиња|13Dalekoistočna hrana|15Dalekoistočna kuhinja|11Orijentalna hrana|13Orijentalna kuhinja"
+    },
+    "cuisine-moroccan": {
+        "defaultMessage": "10Мароканска храна|12Мароканска кухиња|10Marokanska hrana|12Marokanska kuhinja"
+    },
+    "cuisine-mexican": {
+        "defaultMessage": "8Мексичка храна|10Мексичка кухиња|8Meksička hrana|10Meksička kuhinja"
+    },
+    "cuisine-mediterranean": {
+        "defaultMessage": "12Медитеранска храна|14Медитеранска кухиња|12Mediteranska hrana|14Mediteranska kuhinja"
+    },
+    "cuisine-malaysian|@cuisine_all_asian": {
+        "defaultMessage": "10Малезијска храна|12Малезијска кухиња|10Malezijska hrana|12Malezijska kuhinja"
+    },
+    "cuisine-malagasy": {
+        "defaultMessage": "9Малагашка храна|11Малагашка кухиња|9Malagaška hrana|11Malagaška kuhinja"
+    },
+    "cuisine-lebanese": {
+        "defaultMessage": "8Либанска храна|10Либанска кухиња|8Libanska hrana|10Libanska kuhinja"
+    },
+    "cuisine-lao|@cuisine_all_asian": {
+        "defaultMessage": "6Лаоска храна|8Лаоска кухиња|6Laoska hrana|8Laoska kuhinja"
+    },
+    "cuisine-korean|@cuisine_all_asian": {
+        "defaultMessage": "8Корејска храна|10Корејска кухиња|8Korejska hrana|10Korejska kuhinja"
+    },
+    "cuisine-japanese|@cuisine_all_asian": {
+        "defaultMessage": "8Јапанска храна|10Јапанска кухиња|8Japanska hrana|10Japanska kuhinja"
+    },
+    "cuisine-italian": {
+        "defaultMessage": "11Италијанска храна|13Италијанска кухиња|11Italijanska hrana|13Italijanska kuhinja"
+    },
+    "cuisine-irish": {
+        "defaultMessage": "5Ирска храна|7Ирска кухиња|5Irska hrana|7Irska kuhinja"
+    },
+    "cuisine-indonesian|@cuisine_all_asian": {
+        "defaultMessage": "12Индонежанска храна|14Индонежанска кухиња|12Indonežanska hrana|14Indonežanska kuhinja"
+    },
+    "cuisine-indian": {
+        "defaultMessage": "8Индијска храна|10Индијска кухиња|8Indijska hrana|10Indijska kuhinja"
+    },
+    "cuisine-hungarian": {
+        "defaultMessage": "8Мађарска храна|10Мађарска кухиња|8Mađarska hrana|10Mađarska kuhinja"
+    },
+    "cuisine-greek": {
+        "defaultMessage": "5Грчка храна|7Грчка кухиња|5Grčka hrana|7Grčka kuhinja"
+    },
+    "cuisine-german": {
+        "defaultMessage": "7Немачка храна|9Немачка кухиња|7Nemačka hrana|9Nemačka kuhinja"
+    },
+    "cuisine-georgian": {
+        "defaultMessage": "9Грузијска храна|11Грузијска кухиња|9Gruzijska hrana|11Gruzijska kuhinja"
+    },
+    "cuisine-french": {
+        "defaultMessage": "9Француска храна|11Француска кухиња|9Francuska hrana|11Francuska kuhinja"
+    },
+    "cuisine-filipino": {
+        "defaultMessage": "10Филипинска храна|12Филипинска кухиња|10Filipinska hrana|12Filipinska kuhinja"
+    },
+    "cuisine-ethiopian": {
+        "defaultMessage": "8Етиопска храна|10Етиопска кухиња|8Etiopska hrana|10Etiopska kuhinja"
+    },
+    "cuisine-croatian": {
+        "defaultMessage": "8Хрватска храна|10Хрватска кухиња|8Hrvatska hrana|10Hrvatska kuhinja"
+    },
+    "cuisine-chinese|@cuisine_all_asian": {
+        "defaultMessage": "7Кинеска храна|9Кинеска кухиња|7Kineska hrana|9Kineska kuhinja"
+    },
+    "cuisine-caribbean": {
+        "defaultMessage": "8Карипска храна|10Карипска кухиња|8Karipska hrana|10Karipska kuhinja"
+    },
+    "cuisine-brazilian": {
+        "defaultMessage": "9Бразилска храна|11Бразилска кухиња|9Brazilska hrana|11Brazilska kuhinja"
+    },
+    "cuisine-bavarian": {
+        "defaultMessage": "8Баварска храна|10Баварска кухиња|8Bavarska hrana|10Bavarska kuhinja"
+    },
+    "cuisine-balkan": {
+        "defaultMessage": "9Балканска храна|11Балканска кухиња|9Balkanska hrana|11Balkanska kuhinja"
+    },
+    "cuisine-austrian": {
+        "defaultMessage": "10Аустријска храна|12Аустријска кухиња|10Austrijska hrana|12Austrijska kuhinja"
+    },
+    "cuisine-argentinian": {
+        "defaultMessage": "11Аргентинска храна|13Аргентинска кухиња|11Argentinska hrana|13Argentinska kuhinja"
+    },
+    "cuisine-arab": {
+        "defaultMessage": "7Арапска храна|9Арапска кухиња|7Arapska hrana|9Arapska kuhinja"
+    },
+    "cuisine-american": {
+        "defaultMessage": "8Америчка храна|10Америчка кухиња|8Američka hrana|10Američka kuhinja"
+    },
+    "cuisine-african": {
+        "defaultMessage": "7Афричка храна|9Афричка кухиња|7Afrička hrana|9Afrička kuhinja"
+    },
+    "cuisine-vegetarian|@cuisine_all_vegetarian": {
+        "defaultMessage": "4Вегетаријанска храна|16Вегетаријанска кухиња|4Vegetarijanska kuhinja|16Vegetarijanska hrana"
+    },
+    "cuisine-asian|@cuisine_all_asian": {
+        "defaultMessage": "4Азијска храна|9Азијска кухиња|4Azijska hrana|9Azijska kuhinja"
+    },
+    "amenity-stage": {
+        "defaultMessage": "Бина|Bina"
+    },
+    "amenity-planetarium|@category_tourism": {
+        "defaultMessage": "5Планетаријум|5Plantarijum"
+    },
+    "amenity-animal_boarding": {
+        "defaultMessage": "5Хотел за љубимце|5Хотел за животиње|5Hotel za ljubimce|5Hotel za životinje"
+    }
+}

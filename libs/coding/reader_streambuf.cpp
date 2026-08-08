@@ -1,6 +1,8 @@
 #include "coding/reader_streambuf.hpp"
+
 #include "coding/file_writer.hpp"
 #include "coding/reader.hpp"
+#include "coding/writer.hpp"
 
 #include <algorithm>
 

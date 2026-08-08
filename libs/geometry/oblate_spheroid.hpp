@@ -1,6 +1,9 @@
 #pragma once
 
-#include "geometry/latlon.hpp"
+namespace ms
+{
+class LatLon;
+}  // namespace ms
 
 namespace oblate_spheroid
 {

@@ -32,42 +32,42 @@ on:
 jobs:
   ios-check:
     name: Build iOS
-    runs-on: macos-15
+    runs-on: comaps-macos-tahoe
     env:
-      DEVELOPER_DIR: /Applications/Xcode_26.app/Contents/Developer
-      LANG: en_US.UTF-8  # Fastlane complains that the terminal is using ASCII.
-      LANGUAGE: en_US.UTF-8
-      LC_ALL: en_US.UTF-8
-      TEST_RESULTS_BUNDLE_NAME: CoMaps-Test-Results
-    strategy:
-      fail-fast: false
-      matrix:
-        buildType: [Debug, Release]
+      DEBUG_RESULTS_BUNDLE_NAME: CoMaps-Debug-Test-Results
+      DERIVED_DATA_PATH: /Users/forgejo/Library/Developer/Xcode/DerivedData/CoMaps-CI
+      RELEASE_RESULTS_BUNDLE_NAME: CoMaps-Release-Build-Results
     # Cancels previous jobs if the same branch or PR was updated again.
     concurrency:
-      group: ${{ github.workflow }}-${{ matrix.buildType }}-${{ github.event.pull_request.number || github.ref }}
+      group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
 
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
 
-      - name: Parallel submodules checkout
-        shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(sysctl -n hw.logicalcpu) * 20))
+      - name: Update submodules
+        uses: ./.forgejo/actions/update-submodules
+
+      - name: Cache world map
+        uses: actions/cache@v4
+        with:
+          path: data/world_mwm
+          key: world-mwm
 
       - name: Configure repository
         shell: bash
         run: ./configure.sh
 
-      - name: Configure XCode cache
-        uses: irgaly/xcode-cache@v1
+      - name: Configure Xcode cache
+        uses: https://github.com/irgaly/xcode-cache@4141f139f00e335c6e1031fb93e667181f86146f # v1.9.2
         with:
-          key: xcode-cache-deriveddata-${{ github.workflow }}-${{ matrix.buildType }}-${{ github.sha }}
-          restore-keys: xcode-cache-deriveddata-${{ github.workflow }}-${{ matrix.buildType }}
+          key: xcode-cache-deriveddata-v2-ios-check-${{ github.sha }}
+          restore-keys: xcode-cache-deriveddata-v2-ios-check-
+          deriveddata-directory: ${{ env.DERIVED_DATA_PATH }}
 
       - name: Build and Run Tests (Debug)
-        if: matrix.buildType == 'Debug'
+        id: debug_test
         shell: bash
         run: |
           xcodebuild test \
@@ -75,22 +75,24 @@ jobs:
             -scheme CoMaps \
             -configuration Debug \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 16 Pro Max,OS=latest' \
+            -destination 'platform=iOS Simulator,name=iPhone 17 Pro Max,OS=latest' \
+            -derivedDataPath "${DERIVED_DATA_PATH}" \
             -quiet \
-            -resultBundlePath ${{ env.TEST_RESULTS_BUNDLE_NAME }}.xcresult \
+            -resultBundlePath ${{ env.DEBUG_RESULTS_BUNDLE_NAME }}.xcresult \
             CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO
+            CODE_SIGNING_ALLOWED=NO \
+            COMPILER_INDEX_STORE_ENABLE=NO
 
       - name: Upload Test Results On Failure (Debug)
-        if: ${{ matrix.buildType == 'Debug' && failure() }}
-        uses: actions/upload-artifact@v4
+        if: ${{ failure() && steps.debug_test.outcome == 'failure' }}
+        uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.TEST_RESULTS_BUNDLE_NAME }}-${{ github.run_number }}.xcresult
-          path: ${{ env.TEST_RESULTS_BUNDLE_NAME }}.xcresult
+          name: ${{ env.DEBUG_RESULTS_BUNDLE_NAME }}-${{ github.run_number }}.xcresult
+          path: ${{ env.DEBUG_RESULTS_BUNDLE_NAME }}.xcresult
           if-no-files-found: error
 
       - name: Build (Release)
-        if: matrix.buildType == 'Release'
+        id: release_build
         shell: bash
         run: |
           xcodebuild build \
@@ -98,6 +100,23 @@ jobs:
             -scheme CoMaps \
             -configuration Release \
             -destination 'generic/platform=iOS' \
+            -derivedDataPath "${DERIVED_DATA_PATH}" \
             -quiet \
+            -resultBundlePath ${{ env.RELEASE_RESULTS_BUNDLE_NAME }}.xcresult \
             CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO
+            CODE_SIGNING_ALLOWED=NO \
+            COMPILER_INDEX_STORE_ENABLE=NO
+
+      - name: Upload Build Results On Failure (Release)
+        if: ${{ failure() && steps.release_build.outcome == 'failure' }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.RELEASE_RESULTS_BUNDLE_NAME }}-${{ github.run_number }}.xcresult
+          path: ${{ env.RELEASE_RESULTS_BUNDLE_NAME }}.xcresult
+          if-no-files-found: error
+
+      - name: Trim index store from DerivedData before caching
+        if: always()
+        shell: bash
+        # Index.noindex is Xcode's code-navigation database, drop if it exists
+        run: rm -rf "${DERIVED_DATA_PATH}/Index.noindex"

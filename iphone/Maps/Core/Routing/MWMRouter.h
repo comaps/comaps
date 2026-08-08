@@ -1,5 +1,6 @@
 #import "MWMRoutePoint.h"
 #import "MWMRouterType.h"
+#import "MWMRouteStepInfo.h"
 
 typedef NS_ENUM(NSInteger, MWMRoadType) {
   MWMRoadTypeToll,
@@ -46,6 +47,8 @@ typedef void (^MWMImageHeightBlock)(UIImage *, NSString *, NSString *);
 + (BOOL)areTurnNotificationsEnabled;
 + (void)setTurnNotificationsLocale:(NSString *)locale;
 + (NSArray<NSString *> *)turnNotifications;
+
++ (NSArray<MWMRouteStepInfo *> *)routeStepsForLocale:(NSString *)locale;
 
 + (void)addPoint:(MWMRoutePoint *)point;
 + (void)removePoint:(MWMRoutePoint *)point;

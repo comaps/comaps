@@ -1,7 +1,5 @@
 #include "search/geometry_utils.hpp"
 
-#include "indexer/scales.hpp"
-
 #include "geometry/mercator.hpp"
 
 namespace search

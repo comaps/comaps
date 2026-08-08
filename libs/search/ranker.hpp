@@ -4,17 +4,13 @@
 #include "search/emitter.hpp"
 #include "search/geocoder.hpp"
 #include "search/intermediate_result.hpp"
-#include "search/keyword_lang_matcher.hpp"
 #include "search/locality_finder.hpp"
 #include "search/region_info_getter.hpp"
 #include "search/result.hpp"
 #include "search/reverse_geocoder.hpp"
-#include "search/suggest.hpp"
 
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
-
-#include "base/string_utils.hpp"
 
 #include <algorithm>
 #include <string>
@@ -31,8 +27,10 @@ class CountryInfoGetter;
 namespace search
 {
 class CitiesBoundariesTable;
+class KeywordLangMatcher;
 class RankerResultMaker;
 class VillagesCache;
+struct Suggest;
 
 class Ranker
 {

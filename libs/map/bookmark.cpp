@@ -3,6 +3,7 @@
 
 #include "indexer/scales.hpp"
 
+#include "base/assert.hpp"
 #include "base/string_utils.hpp"
 
 #include <sstream>

@@ -4,6 +4,7 @@
 
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
+#include "base/macros.hpp"
 #include "base/random.hpp"
 #include "base/string_utils.hpp"
 

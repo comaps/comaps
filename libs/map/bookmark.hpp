@@ -3,9 +3,19 @@
 #include "map/user_mark.hpp"
 #include "map/user_mark_layer.hpp"
 
+#include "drape_frontend/color_constants.hpp"
+#include "drape_frontend/user_marks_provider.hpp"
+
+#include "drape/drape_global.hpp"
+#include "drape/pointers.hpp"
+
+#include "kml/type_utils.hpp"
 #include "kml/types.hpp"
 
 #include "search/reverse_geocoder.hpp"
+
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 
 #include <string>
 #include <vector>

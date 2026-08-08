@@ -1,0 +1,977 @@
+{
+    "@category_eat": {
+        "defaultMessage": "Sehemu ya kula"
+    },
+    "@category_food": {
+        "defaultMessage": "Migahawani"
+    },
+    "@category_fuel": {
+        "defaultMessage": "Sheli"
+    },
+    "@category_shopping": {
+        "defaultMessage": "Manunuzi"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "Shughuli za usiku"
+    },
+    "@category_children": {
+        "defaultMessage": "Mapumziko ya familia"
+    },
+    "@category_atm": {
+        "defaultMessage": "Benki|fedha"
+    },
+    "@category_rv": {
+        "defaultMessage": "Kwa RV"
+    },
+    "@category_bank": {
+        "defaultMessage": "Benki|fedha"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "Mtumba"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "Baa|vinywaji"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "Mgahawa"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "Restorenti|mgahawa"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "mafuta"
+    },
+    "@shop": {
+        "defaultMessage": "Duka"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "Kituo cha kuwoka mikate"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "Vipodozi"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "Duka"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "Misaada ya kusikia"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "Duka la simu"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "Duka la Jikoni"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "Bidhaa za nyumbani"
+    },
+    "shop-beauty": {
+        "defaultMessage": "Uzuri saluni"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "Supamaketi"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "Ununuzi maduka"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "Soko"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "Uhamisho wa pesa"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "Duka la nguo|nguo"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "Yadi|duka la gari|gari"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "Duka la baiskeli|baiskeli"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "3Kioski"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "Kituo cha basi|basi|usafiri"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "Stendi ya basi|basi|stendi|usafiri"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "Kituo cha treni|treni|usafiri"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "Funicular"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "Reli ya chini"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "Bandali|kivuko"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "3Teksi|usafiri"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "Ukumbi|utalii"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "Kivutio|utalii"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "Kazi ya kisanaa|utalii"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "Genge|utalii"
+    },
+    "tourism-information": {
+        "defaultMessage": "Taarifa ya utalii|taarifa"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "Sehemu ya madhazi"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "Sehemu ya kusali"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "Makumbusho|kivutio|utalii"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "Maporomoko ya maji"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "Machimbo ya kihistoria|kivutio|utalii"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "Uwanja wa vita"
+    },
+    "historic-stone": {
+        "defaultMessage": "Jiwe la Kihistoria"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "Jiwe la mpaka"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "Ngome|kivutio|utalii|Kanisa lililoimarishwa|Kremlin|Nyumba ya manor|Ikulu"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "Lango la jiji"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "Ukuta wa jiji"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "Ngome"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "Kunyongea"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "Makumbusho|kumbukumbu ya kihistoria|kivutio|utalii"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "Msalaba wa kumbukumbu"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "Plaque"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "Uchongaji"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "Sanamu"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "Kikwazo"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "Kumbukumbu ya vita"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "Makumbusho|kivutio|utalii"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "Pillory"
+    },
+    "historic-cannon": {
+        "defaultMessage": "Kanuni"
+    },
+    "historic-anchor": {
+        "defaultMessage": "Nanga ya kihistoria"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "Maeneo ya kale|jengo la kale|chakavu"
+    },
+    "historic-mine": {
+        "defaultMessage": "Mgodi wa Kihistoria"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "Meli"
+    },
+    "historic-wreck": {
+        "defaultMessage": "Ajali ya meli"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "Locomotive ya kihistoria"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "Tangi ya kihistoria"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "Ndege ya kihistoria"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "Kaburi"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "Msalaba wa njiani"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "Kaburi la njia"
+    },
+    "leisure-garden": {
+        "defaultMessage": "Bustani"
+    },
+    "amenity-bench": {
+        "defaultMessage": "Benchi"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "Kodi ya baiskeli|baiskeli|kodi"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "Kushiriki Gari"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "Kodi ya gari|gari|kodi"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "Kukodisha pikipiki"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "4Sinema|burudani"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "Njia ya Bowling"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "Thieta|burudani|maonyesho"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "Ukumbi wa starehe|klabu|burudani"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "Danguro"
+    },
+    "@gambling": {
+        "defaultMessage": "Kamari"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "Kasino|burudani"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "Kituo cha Michezo ya Watu Wazima"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "Ukumbi wa michezo"
+    },
+    "amenity-college": {
+        "defaultMessage": "Chuo"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "Kituo cha zimamoto"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "Makabulini"
+    },
+    "@category_hospital": {
+        "defaultMessage": "4Hospitali"
+    },
+    "amenity-hospital|@category_hospital": {
+        "defaultMessage": "zahanati|daktari"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "Maabara ya Matibabu"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "Mtaalamu wa Physiotherapist"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "Dawa mbadala"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "Mtaalamu wa kusikia|Audiology"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "Utoaji wa damu"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "Optometry|Daktari wa macho"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "Matibabu ya miguu|Daktari wa miguu"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "Tiba ya kisaikolojia|Mwanasaikolojia"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "Tiba ya hotuba|Mtaalamu wa hotuba"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "Uwanja wa mawindo"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "Chekechea"
+    },
+    "amenity-library": {
+        "defaultMessage": "Maktaba"
+    },
+    "amenity-parking|amenity-parking_entrance|@category_parking": {
+        "defaultMessage": "Maegesho"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "Duka la dawa"
+    },
+    "@category_post": {
+        "defaultMessage": "3Posta"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "Sanduku la posta"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "Ukaguzi wa Gari"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "Betri"
+    },
+    "amenity-school": {
+        "defaultMessage": "Shule|skuli"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "Malazi"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "Kibanda cha Bivouac"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "Malazi"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "Klabu ya Strip"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "Simu"
+    },
+    "@category_toilet": {
+        "defaultMessage": "Choo"
+    },
+    "amenity-university": {
+        "defaultMessage": "Chuo"
+    },
+    "place-continent": {
+        "defaultMessage": "Bara"
+    },
+    "place-country": {
+        "defaultMessage": "Nchi"
+    },
+    "place-city": {
+        "defaultMessage": "Mji"
+    },
+    "place-town": {
+        "defaultMessage": "Mji mdogo"
+    },
+    "place-city-capital": {
+        "defaultMessage": "Mji mkuu"
+    },
+    "place-state": {
+        "defaultMessage": "Jimbo"
+    },
+    "place-region": {
+        "defaultMessage": "Mkoa"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "Kisiwa"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "Kiunga"
+    },
+    "place-hamlet": {
+        "defaultMessage": "Kijiji kidogo"
+    },
+    "place-village": {
+        "defaultMessage": "Kijiji"
+    },
+    "place-locality": {
+        "defaultMessage": "Mahali jirani"
+    },
+    "place-farm": {
+        "defaultMessage": "Shamba"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "Jia"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "mtaani"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "Njia panda"
+    },
+    "@mountain": {
+        "defaultMessage": "Kilele|mlima"
+    },
+    "natural-strait": {
+        "defaultMessage": "Mlango Bahari"
+    },
+    "landuse-forest": {
+        "defaultMessage": "Msitu"
+    },
+    "leisure-park": {
+        "defaultMessage": "Mbuga"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "Aquarium"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "Bweni"
+    },
+    "tourism-hotel|@category_hotel": {
+        "defaultMessage": "Hoteli"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "Gesti"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "Saluni"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "Uwanja wa ndege"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "Kiwanja cha michezo"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "Viwanja vya michezo"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "Viwanja vya michezo"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "Uwanja wa gofu|michezo"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "Minigofu"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "Chumba cha kutoroka"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "Uwanja|michezo"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "Bwawa la kuogelea"
+    },
+    "sport-american_football": {
+        "defaultMessage": "Soka ya Marekani"
+    },
+    "sport-archery": {
+        "defaultMessage": "Upigaji mishale"
+    },
+    "sport-baseball": {
+        "defaultMessage": "Baseball"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "Mpira wa wavu wa pwani"
+    },
+    "sport-chess": {
+        "defaultMessage": "Sataranji"
+    },
+    "sport-curling": {
+        "defaultMessage": "Kukunja"
+    },
+    "sport-golf": {
+        "defaultMessage": "Gofu"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "Gymnastics"
+    },
+    "sport-handball": {
+        "defaultMessage": "Mpira wa mikono"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "Upigaji mbizi wa Scuba"
+    },
+    "sport-shooting": {
+        "defaultMessage": "Kupiga risasi"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "Skateboarding|skateboard"
+    },
+    "sport-skiing": {
+        "defaultMessage": "Skii"
+    },
+    "sport-soccer": {
+        "defaultMessage": "Soka"
+    },
+    "sport-swimming": {
+        "defaultMessage": "Kuogelea"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "Tenisi ya meza"
+    },
+    "sport-tennis": {
+        "defaultMessage": "Tenisi"
+    },
+    "sport-padel": {
+        "defaultMessage": "Padel"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "Voliboli"
+    },
+    "building": {
+        "defaultMessage": "Jengo"
+    },
+    "building-address": {
+        "defaultMessage": "Anwani"
+    },
+    "@category_police": {
+        "defaultMessage": "4Polisi"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "Ubalozi"
+    },
+    "natural-bay": {
+        "defaultMessage": "Ghuba"
+    },
+    "@category_water": {
+        "defaultMessage": "4Maji"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "4Maji ya kunywa"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "Majira ya joto"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "Chemchemi"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "Kituo cha Maji"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "Bomba la Maji"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "Bonde la Maji"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "Bwawa"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "Ziwa"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "Hifadhi"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "Mto"
+    },
+    "waterway-canal": {
+        "defaultMessage": "Mfereji"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "Fundi wa gari"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "Kambi"
+    },
+    "office": {
+        "defaultMessage": "Ofisi|kampuni"
+    },
+    "office-government": {
+        "defaultMessage": "Ofisi ya serikali"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "Mfugaji nyuki"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "Mhunzi"
+    },
+    "craft-brewery": {
+        "defaultMessage": "Kiwanda cha pombe"
+    },
+    "craft-caterer": {
+        "defaultMessage": "Mpishi"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "Seremala"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "Confectioner"
+    },
+    "craft-electrician": {
+        "defaultMessage": "Fundi umeme"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "Urekebishaji wa Elektroniki"
+    },
+    "craft-gardener": {
+        "defaultMessage": "Mtunza bustani"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "Kinu"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "Kazi za mikono"
+    },
+    "craft-hvac": {
+        "defaultMessage": "Kiyoyozi"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "Mfanyikazi wa chuma"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "Kukata Muhimu"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "Fundi wa kufuli"
+    },
+    "craft-painter": {
+        "defaultMessage": "Mchoraji"
+    },
+    "craft-photographer": {
+        "defaultMessage": "Mpiga picha"
+    },
+    "craft-plumber": {
+        "defaultMessage": "Fundi bomba"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "Sumel"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "Mtengeneza viatu"
+    },
+    "craft-winery": {
+        "defaultMessage": "Mvinyo"
+    },
+    "craft-tailor": {
+        "defaultMessage": "Mshonaji nguo"
+    },
+    "place-sea": {
+        "defaultMessage": "Bahari"
+    },
+    "place-ocean": {
+        "defaultMessage": "Bahari"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "4Intaneti"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "Pwani"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "Mnara wa Mawasiliano"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "Kisima cha Mafuta"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "eco|bio|afya|kibaolojia|kiikolojia|asili|kikaboni"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "Duka la Kamera"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "Kuchaji Baiskeli"
+    },
+    "emergency-phone": {
+        "defaultMessage": "Simu ya dharura"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "Duka la Kemikali na Dawa za Nyumbani"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "Zoo"
+    },
+    "attraction-animal": {
+        "defaultMessage": "Hifadhi ya Wanyama"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Kituo cha Wageni"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "Air compressed"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "Mashine ya kuuzia tiketi za usafiri wa umma"
+    },
+    "shop-outpost": {
+        "defaultMessage": "Sehemu ya kuchukua"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Duka la Mitumba"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "Duka la msaada"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "Vipuri vya magari"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "Nyumba ndogo ya Likizo"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "Bustani ya Bia"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "Shule ya Uendeshaji Gari"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "Shule ya Muziki"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "Shule ya Lugha"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "Duka la Aiskrimu"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "Mkahawa wa Intaneti"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "Uegeshaji Pikipiki"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "Nafasi ya maegesho iliyozimwa"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "Makazi ya Utunzaji"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "Kituo cha Malipo"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "Bafu ya Umma"
+    },
+    "amenity-shower": {
+        "defaultMessage": "Bafu"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "Sehemu ya Mkutano wa Dharura"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "4Difaibrileta"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "Bomba la Kuzima Moto"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "Mwokozi wa Dharura"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "Uokoaji wa Dharura Milimani"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "Kituo cha Mazoezi"
+    },
+    "office-insurance": {
+        "defaultMessage": "Ofisi ya Bima"
+    },
+    "office-ngo": {
+        "defaultMessage": "Ofisi ya NGO"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "Duka la Nyenzo za Kimapenzi"
+    },
+    "shop-massage": {
+        "defaultMessage": "Kituo cha Kuchua"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "Duka la Pikipiki"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "Ukarabati wa Pikipiki"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "Duka la Gazeti"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "Mtoaji Mikopo kwa Vitu"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "Duka la Vitabu"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "Kituo cha Tattoo"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "Duka la Vitu Mbalimbali"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "Duka la Video"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "Duka la Video za Michezo"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "Kibanda cha Mwituni"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "Hifadhi ya taifa"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "Hifadhi"
+    },
+    "natural-cape": {
+        "defaultMessage": "Rasi"
+    },
+    "natural-geyser": {
+        "defaultMessage": "Chemchem ya maji moto"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "Mto barafu"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "Skiing|Mbio za kuteleza"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "Ukumbi wa Matukio"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Mambo ya kale"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "Duka la Sanaa"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "Duka la watoto"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "Hifadhi ya Mifuko"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "Duka la Jibini"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "Bidhaa za Maziwa"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "Duka la Umeme"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "Duka la Uvuvi"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "Mapambo ya Ndani"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "Tikiti za Bahati nasibu"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "Vifaa vya Matibabu"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "Virutubisho vya Lishe"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "Rangi"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "Perfumery"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "Vifaa vya kushona"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "Kukodisha Hifadhi"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "Tumbaku"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "Ugavi wa Biashara"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "Saa"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "Duka la Jumla"
+    },
+    "power-plant": {
+        "defaultMessage": "Kiwanda cha nguvu"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "Mnada"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Mkusanyaji"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "Kiti cha magurudumu"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "Kituo cha Kijamii"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "Ukumbi wa michezo"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "Kituo cha sanaa"
+    },
+    "amenity-prison": {
+        "defaultMessage": "jela"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "Kituo cha Maonyesho"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "Vyombo vya Bafuni"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "Duka la vitanda"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "Boutique"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "Mapazia"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "Duka la gesi"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "Utunzaji wa Kipenzi"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "Sauti ya HiFi"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "Kituo cha Mikutano"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "Duka la mimea"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "Duka la vifaa"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "Duka la kilimo"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "Vifaa vya Mtindo"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "Mazulia"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "Pasta"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "Locker ya mizigo"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "Kahawa"
+    }
+}

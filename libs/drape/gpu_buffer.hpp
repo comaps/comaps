@@ -1,8 +1,6 @@
 #pragma once
 
 #include "drape/buffer_base.hpp"
-#include "drape/drape_diagnostics.hpp"
-#include "drape/pointers.hpp"
 
 namespace dp
 {

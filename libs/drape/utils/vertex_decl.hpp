@@ -1,9 +1,13 @@
 #pragma once
 
-#include "drape/binding_info.hpp"
 #include "drape/glsl_types.hpp"
 
 #include "base/buffer_vector.hpp"
+
+namespace dp
+{
+class BindingInfo;
+}  // namespace dp
 
 namespace gpu
 {

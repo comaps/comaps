@@ -3,13 +3,12 @@
 #include "search/base/text_index/dictionary.hpp"
 #include "search/base/text_index/header.hpp"
 #include "search/base/text_index/postings.hpp"
+#include "search/base/text_index/reader.hpp"
+#include "search/base/text_index/text_index.hpp"
 
 #include "coding/file_writer.hpp"
-#include "coding/varint.hpp"
-#include "coding/write_to_sink.hpp"
 
 #include "base/assert.hpp"
-#include "base/logging.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <algorithm>

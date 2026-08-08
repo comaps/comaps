@@ -1,10 +1,10 @@
 #pragma once
 
-#include "indexer/feature.hpp"
-
 #include <memory>
 #include <string>
 #include <vector>
+
+class FeatureType;
 
 namespace drule
 {

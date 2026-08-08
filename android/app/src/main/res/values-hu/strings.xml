@@ -66,9 +66,9 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Új lista hozzáadása</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Könyvjelzőlista neve</string>
+    <string name="bookmark_set_name">Lista neve</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Könyvjelzők</string>
+    <string name="bookmarks">Helyek</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
     <string name="bookmarks_and_tracks">Kedvencek</string>
     <!-- Add bookmark dialog - bookmark name -->
@@ -146,13 +146,13 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Jegyzetek</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">Egy CoMaps könyvjelzőt osztottak meg Önnel</string>
+    <string name="share_bookmarks_email_subject">Saját CoMaps kedvencek</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Könyvjelzők betöltése</string>
+    <string name="load_kmz_title">Kedvencek betöltése</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">A könyvjelzők sikeresen betöltődtek! Megtalálhatja őket a térképen vagy a Könyvjelzők kezelése képernyőn.</string>
+    <string name="load_kmz_successful">A kedvencek sikeresen betöltődtek! Megtalálhatja őket a térképen vagy a Kedvencek kezelése képernyőn.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Nem sikerült betölteni a könyvjelzőket. A fájl sérült vagy hibás lehet.</string>
+    <string name="load_kmz_failed">Nem sikerült betölteni a kedvenceket. A fájl sérült vagy hibás lehet.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Az alkalmazás nem ismeri fel a következő fájltípust:\n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -189,6 +189,8 @@
     <string name="prefs_group_route">Navigáció</string>
     <string name="pref_zoom_title">Nagyítás/kicsinyítés gombok</string>
     <string name="pref_zoom_summary">Megjelenítés a térképen</string>
+    <string name="prefs_group_advanced">Speciális</string>
+    <string name="download_resources_custom_url_title">Egyéni térképkiszolgáló</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Éjszakai mód</string>
     <!-- Generic «Off» string -->
@@ -231,7 +233,7 @@
     <!-- Text in menu -->
     <string name="help">Súgó</string>
     <!-- Button in the main Help dialog -->
-    <string name="faq">GYIK</string>
+    <string name="faq">Gyakran ismételt kérdések</string>
     <!-- Button in the main menu -->
     <string name="donate">Adományozás</string>
     <!-- Button in the main Help dialog -->
@@ -245,7 +247,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Mozgassa az eszközt egy nyolcas mozdulattal az iránytű kalibrálásához és a nyíl irányának rögzítéséhez a térképen.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Érintse meg újra hosszan a térképet a kezelőfelület megjelenítéséhez</string>
+    <string name="enable_long_tap_fullscreen_description">Érintse meg újra hosszan a térképet a kezelőfelület megjelenítéséhez</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Összes frissítése</string>
     <!-- Cancel all button text -->
@@ -260,7 +262,7 @@
     <string name="downloader_download_all_button">Összes letöltése</string>
     <string name="downloader_downloading">Letöltés:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">A térkép törléséhez állítsa le a navigációt</string>
+    <string name="downloader_delete_map_while_routing_dialog">A térkép törléséhez előbb állítsa le a navigációt</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Csak olyan útvonalakat lehet létrehozni, amelyek teljes egészében egy régió térképén belül helyezkednek el.</string>
     <!-- Context menu item for downloader. -->
@@ -286,7 +288,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Kapcsolja be a helymeghatározási szolgáltatást</string>
     <string name="save">Mentés</string>
-    <string name="create">létrehozás</string>
+    <string name="create">Létrehozás</string>
     <!-- red color -->
     <string name="red">Piros</string>
     <!-- yellow color -->
@@ -448,10 +450,10 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d / %2$d</string>
     <string name="download_over_mobile_header">Biztosan letölti mobiladat-kapcsolaton keresztül?</string>
-    <string name="download_over_mobile_message">Ez egyes díjcsomagok vagy roaming esetén jelentős költségekkel járhat</string>
+    <string name="download_over_mobile_message">Ez egyes díjcsomagok vagy roaming esetén jelentős költségekkel járhat.</string>
     <string name="error_enter_correct_house_number">Adjon meg egy érvényes házszámot</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">Ez az épület legfeljebb %d emeletes lehet</string>
+    <string name="error_enter_correct_storey_number">Legfeljebb %d emeletes lehet</string>
     <string name="editor_zip_code">Irányítószám</string>
     <string name="error_enter_correct_zip_code">Adjon meg egy érvényes irányítószámot</string>
     <!-- Title for OSM note section in the editor -->
@@ -467,7 +469,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Üzemeltető: %s</string>
     <string name="editor_category_unsuitable_title">Nem találja a megfelelő kategóriát?</string>
-    <string name="editor_category_unsuitable_text">A CoMaps csak egyszerű pontkategóriák hozzáadását teszi lehetővé, azaz nem tartalmaz városokat, utakat, tavakat, épületek körvonalait stb., az ilyen kategóriákat közvetlenül az <a href="https://www.openstreetmap.org">OpenStreetMap.org</a> oldalon adhatja hozzá. A részletes, lépésről lépésre történő útmutatásért tekintse meg az <a href="https://www.comaps.app/support/advanced-map-editing/">útmutatónkat</a>.</string>
+    <string name="editor_category_unsuitable_text">A CoMaps csak egyszerű pontkategóriák hozzáadását teszi lehetővé, nem tud városokat, utakat, tavakat, épületkörvonalakat stb. hozzáadni, az ilyen kategóriákat közvetlenül az <a href="https://www.openstreetmap.org">OpenStreetMap.org</a> oldalon adhatja hozzá. A részletes, lépésről lépésre történő útmutatásért tekintse meg az <a href="https://www.comaps.app/support/advanced-map-editing/">útmutatónkat</a>.</string>
     <string name="downloader_no_downloaded_maps_title">Még nem töltött le térképet</string>
     <string name="downloader_no_downloaded_maps_message">Térképek letöltése az offline kereséshez és navigáláshoz</string>
     <!-- abbreviation for kilometers per hour -->
@@ -477,10 +479,10 @@
     <string name="minute">p</string>
     <string name="day">nap</string>
     <string name="placepage_more_button">Tovább</string>
-    <string name="placepage_edit_bookmark_button">Könyvjelző szerkesztése</string>
+    <string name="placepage_edit_bookmark_button">Mentett hely szerkesztése</string>
     <string name="placepage_personal_notes_hint">Személyes jegyzetek (szöveg vagy html)</string>
     <string name="editor_reset_edits_message">Elveti az összes módosítást?</string>
-    <string name="editor_reset_edits_button">Elvetés</string>
+    <string name="editor_reset_edits_button">Változtatások elvetése</string>
     <string name="editor_remove_place_message">Törli a hozzáadott helyet?</string>
     <string name="editor_remove_place_button">Törlés</string>
     <string name="editor_place_doesnt_exist">A hely nem létezik</string>
@@ -490,10 +492,10 @@
     <string name="error_enter_correct_email">Adjon meg egy érvényes e-mail-címet</string>
     <string name="placepage_add_place_button">Hely hozzáadása az OpenStreetMap adatbázisához</string>
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
-    <string name="editor_share_to_all_dialog_title">Szeretné elküldeni az összes felhasználónak?</string>
+    <string name="editor_share_to_all_dialog_title">Elküldi az összes felhasználónak?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Győződjön meg arról, hogy nem ad meg semmilyen magánjellegű vagy személyes adatokat</string>
-    <string name="editor_share_to_all_dialog_message_2">Az OpenStreetMap szerkesztői ellenőrzik a változásokat, és felveszik Önnel a kapcsolatot, ha bármilyen kérdésük adódik</string>
+    <string name="editor_share_to_all_dialog_message_1">Győződjön meg arról, hogy nem ad meg semmilyen magánjellegű vagy személyes adatot.</string>
+    <string name="editor_share_to_all_dialog_message_2">Az OpenStreetMap szerkesztői ellenőrzik a változásokat, és felveszik Önnel a kapcsolatot, ha bármilyen kérdésük adódik.</string>
     <string name="navigation_stop_button">Megállítás</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Nyomvonal rögzítése</string>
@@ -518,8 +520,8 @@
     <string name="enable_logging">Naplózás engedélyezése</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Általános visszajelzés</string>
-    <string name="prefs_languages_information">Az CoMaps TTS-rendszert használ a hangnavigációhoz. Sok androidos eszköz használja a Google TTS-t; töltse le vagy frissítse a Google Play áruházból (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Egyes nyelveknél másik beszédszintetizátort vagy további nyelvi csomagot kell telepítenie az alkalmazás-áruházból (Google Play, Galaxy Store, App Gallery, FDroid).\nNyissa meg az eszköz beállításait → Nyelv és bevitel → Beszéd → Szöveg-beszéd átalakító kimenet.\nItt kezelheti a beszédszintézis beállításokat (például: nyelvi csomag letöltése a kapcsolat nélküli használathoz) és másik szövegfelolvasót jelölhet ki.</string>
+    <string name="prefs_languages_information">A CoMaps TTS-rendszert használ a hangnavigációhoz. Sok androidos eszköz használja a Google TTS-t; töltse le vagy frissítse a Google Play áruházból (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">Egyes nyelveknél másik beszédszintetizátort vagy további nyelvi csomagot kell telepítenie az alkalmazás-áruházból (Google Play, Galaxy Store, App Gallery, F-Droid).\nNyissa meg az eszköz beállításait → Nyelv és bevitel → Beszéd → Beszédfelismerés és -szintézis.\nItt kezelheti a beszédszintézis beállításait (például: nyelvi csomag letöltése kapcsolat nélküli használathoz) és másik szövegfelolvasót jelölhet ki.</string>
     <string name="prefs_languages_information_off_link">Ebben az útmutatóban további tájékoztatást talál</string>
     <string name="transliteration_title">Átírás latin betűkre</string>
     <string name="learn_more">Tudjon meg többet</string>
@@ -535,17 +537,17 @@
     <string name="dialog_error_storage_message">Külső tárhely nem áll rendelkezésre, valószínűleg az SD-kártyát eltávolították vagy sérült, vagy rendszerfájl csak olvasható. Ellenőrizze, és lépjen kapcsolatba velünk a support@comaps.app címen</string>
     <string name="setting_emulate_bad_storage">Sérült tároló emulálása</string>
     <string name="error_enter_correct_name">Adjon meg egy érvényes nevet</string>
-    <string name="bookmark_lists">Listák</string>
+    <string name="bookmark_lists">Kedvenclisták</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Összes elrejtése</string>
     <string name="bookmark_lists_show_all">Összes megjelenítése</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d könyvjelző</item>
-        <item quantity="other">%d könyvjelző</item>
+        <item quantity="one">%d mentett hely</item>
+        <item quantity="other">%d mentett hely</item>
     </plurals>
     <string name="bookmarks_create_new_group">Új lista létrehozása</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Könyvjelzők és nyomvonalak importálása</string>
+    <string name="bookmarks_import">Kedvencek importálása</string>
     <string name="bookmarks_error_message_share_general">Egy alkalmazáshiba miatt nem lehet megosztani</string>
     <string name="bookmarks_error_title_share_empty">Megosztási hiba</string>
     <string name="bookmarks_error_message_share_empty">Üres lista nem osztható meg</string>
@@ -567,14 +569,14 @@
         <item quantity="other">%d nyomvonal</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Adatvédelem</string>
+    <string name="prefs_group_privacy">Adatvédelem</string>
     <string name="privacy_policy">Adatvédelmi irányelvek</string>
     <string name="terms_of_use">Felhasználási feltételek</string>
     <string name="button_layer_traffic">Forgalom</string>
     <string name="subway">Metró</string>
     <string name="layers_title">Térképstílusok és rétegek</string>
     <string name="bookmarks_empty_list_title">Ez a lista üres</string>
-    <string name="bookmarks_empty_list_message">Egy könyvjelző hozzáadásához érintsen meg a térképen egy helyet, majd érintse meg a csillag ikont</string>
+    <string name="bookmarks_empty_list_message">Egy hely mentéséhez koppintson egy helyre a térképen, majd koppintson a csillag ikonra</string>
     <string name="category_desc_more">…továbbiak</string>
     <string name="export_file">Exportálás KMZ-fájlba</string>
     <string name="export_file_gpx">Exportálás GPX-fájlba</string>
@@ -595,7 +597,7 @@
     <string name="power_managment_setting_auto">Alacsony akkumulátorszinten</string>
     <string name="power_managment_setting_manual_max">Mindig</string>
     <string name="enable_logging_warning_message">Engedélyezze ideiglenesen ezt a beállítást, hogy rögzíthesse és elküldhesse nekünk a problémájával kapcsolatos részletes diagnosztikai naplókat a „Névjegy és súgó” képernyő „Hibajelentés” funkciójával. A naplók tartalmazhatnak helyadatokat.</string>
-    <string name="driving_options_title">Útvonaltervezési beállítások</string>
+    <string name="routing_options_title">Útvonaltervezési beállítások</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Díjköteles utak elkerülése</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -605,7 +607,7 @@
     <string name="avoid_motorways">Autópályák elkerülése</string>
     <string name="unable_to_calc_alert_title">Nem lehet kiszámítani az útvonalat</string>
     <string name="unable_to_calc_alert_subtitle">Nem sikerült útvonalat találni. Ennek oka lehet az útvonaltervezési beállítások vagy a hiányos OpenStreetMap-adatok. Módosítsa az útvonaltervezési beállításokat, és próbálja meg újra.</string>
-    <string name="define_to_avoid_btn">Elkerülendő utak meghatározása</string>
+    <string name="define_to_avoid_btn">Útvonaltervezési beállítások</string>
     <string name="change_driving_options_btn">Útvonaltervezési beállítások engedélyezve</string>
     <string name="toll_road">Díjköteles utak</string>
     <string name="unpaved_road">Burkolatlan utak</string>
@@ -627,7 +629,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Rendezés…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Könyvjelzők rendezése</string>
+    <string name="sort_bookmarks">Kedvencek rendezése</string>
     <!-- Android -->
     <string name="by_default">Alapértelmezés szerint</string>
     <!-- Android -->
@@ -736,7 +738,7 @@
     <string name="browser_not_available">A webböngésző nem érhető el</string>
     <string name="volume">Hangerő</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Összes könyvjelző és nyomvonal exportálása</string>
+    <string name="bookmarks_export">Összes kedvenc exportálása</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Beszédszintézis-beállítások</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -768,7 +770,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Rögzítés folytatása</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Menti a könyvjelzők és nyomvonalak közé?</string>
+    <string name="track_recording_alert_title">Menti a kedvencek közé?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">A nyomvonal üres - nincs mit menteni</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -781,7 +783,6 @@
     <string name="wikimedia_commons">Wikimédia Commons</string>
     <string name="empty_street_name_error">Adjon meg egy utcanevet</string>
     <string name="read_in_wikipedia">Wikipédia</string>
-    <string name="prefs_group_general">Általános beállítások</string>
     <string name="menu">Menü</string>
     <string name="closes_in">Bezár %s múlva</string>
     <string name="opens_in">Kinyit %s múlva</string>
@@ -797,7 +798,7 @@
     <string name="editor_add_phone">Telefonszám hozzáadása</string>
     <string name="download_map_title">Áttekintő világtérkép letöltése</string>
     <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
-    <string name="share_bookmarks_email_body">Üdvözlöm!\n\nCsatoltam a könyvjelzőimet; nyissa meg őket a CoMaps alkalmazásban. Ha még nem telepítette, akkor innen tudja letölteni: https://www.comaps.app/download/\n\nJó utat kívánok a CoMaps alkalmazással!</string>
+    <string name="share_bookmarks_email_body">Üdvözlöm!\n\nCsatoltam a kedvenceimet; nyissa meg őket a CoMaps alkalmazásban. Ha még nem telepítette, akkor innen tudja letölteni: https://www.comaps.app/download/\n\nJó utat kívánok a CoMaps alkalmazással!</string>
     <string name="disconnect_usb_cable_title">USB-kábel leválasztása</string>
     <string name="error_enter_correct_facebook_page">Adjon meg egy érvényes Facebook webcímet, fiók- vagy oldalnevet</string>
     <string name="error_enter_correct_twitter_page">Adjon meg egy érvényes X (Twitter) felhasználónevet vagy webcímet</string>
@@ -815,18 +816,18 @@
     <string name="error_enter_correct_level">Adja meg az emeletek számát</string>
     <string name="editor_building_levels">Emeletek (beleértve a földszintet, kivéve a tetőt)</string>
     <string name="error_enter_correct_fediverse_page">Adjon meg egy érvényes Mastodon felhasználónevet vagy webcímet</string>
-    <string name="osm_note_hint">Vagy írjon egy megjegyzést az OpenStreetMap közösségnek, hogy valaki más hozzáadhassa vagy kijavíthassa itt a helyet.</string>
+    <string name="osm_note_hint">Vagy hagyjon egy jegyzetet az OpenStreetMap közösségnek, hogy valaki más hozzáadhassa vagy kijavíthassa itt a helyet.</string>
     <string name="error_enter_correct_bluesky_page">Adjon meg egy érvényes Bluesky felhasználónevet vagy webcímet</string>
-    <string name="osm_note_toast">A megjegyzés el lesz küldve az OpenStreetMap közösségnek</string>
+    <string name="osm_note_toast">A jegyzet el lesz küldve az OpenStreetMap közösségnek</string>
     <string name="pref_left_button_disable">Letiltás</string>
     <string name="pref_backup_now_summary_progress">Biztonsági mentés folyamatban…</string>
     <string name="pref_backup_now_summary">Készítsen biztonsági mentést most</string>
     <string name="pref_backup_now_summary_ok">A biztonsági mentés sikeresen befejeződött</string>
-    <string name="pref_backup_now_summary_empty_lists">Nincsenek könyvjelzők és nyomvonalak a biztonsági mentéshez</string>
+    <string name="pref_backup_now_summary_empty_lists">Nincsenek kedvencek a biztonsági mentéshez</string>
     <string name="pref_backup_now_title">Biztonsági mentés most</string>
     <string name="pref_backup_location_summary_initial">Válasszon ki egy mappát és adja meg az írási/olvasási engedélyt</string>
     <string name="pref_left_button_title">Bal oldali gomb beállítása</string>
-    <string name="pref_backup_title">Könyvjelzők és nyomvonalak biztonsági mentése</string>
+    <string name="pref_backup_title">Kedvencek biztonsági mentése</string>
     <string name="pref_backup_summary">Automatikus biztonsági mentés az eszközön lévő mappába</string>
     <string name="pref_backup_now_summary_folder_unavailable">Nem érhető el a biztonsági mentés mappája</string>
     <string name="pref_backup_status_summary_success">Az utolsó sikeres biztonsági mentés</string>
@@ -847,14 +848,14 @@
     <string name="pedestrian">Gyalogos</string>
     <string name="bicycle">Kerékpár</string>
     <string name="ruler">Vonalzó</string>
-    <string name="bookmark_color">Könyvjelző színe</string>
+    <string name="bookmark_color">Kedvenc színe</string>
     <string name="about_help">Névjegy és súgó</string>
     <string name="share_track">Nyomvonal megosztása</string>
-    <string name="pref_tts_no_system_tts_short">Nem található szövegfelovasási szolgáltatás (TTS), ellenőrizze az alkalmazás beállításait a „Hangutasítások” müpontban</string>
+    <string name="pref_tts_no_system_tts_short">Nem található szövegfelolvasási szolgáltatás (TTS), ellenőrizze az alkalmazás beállításait a „Hangutasítások” menüpontban</string>
     <string name="dialog_report_error_with_logs">Küldjön hibajelentést:\n - „Naplózás engedélyezése” a beállításokban\n - reprodukálja a hibát\n - A „Névjegy és súgó” képernyőn nyomja meg a „Hibajelentés” gombot, és küldje el e-mailben vagy csevegésben.\n - naplózás kikapcsolása</string>
     <string name="charge_socket_type2">2. típus (nincs kábel)</string>
     <string name="charge_socket_type2_cable">2. típus (kábel nélküli)</string>
-    <string name="charge_socket_type2_combo">2. típus kombinált</string>
+    <string name="charge_socket_type2_combo">2. típus, kombinált</string>
     <string name="charge_socket_type1">1. típus</string>
     <string name="charge_socket_nacs">NACS (Észak-Amerikai töltőszabvány)</string>
     <string name="charge_socket_chademo">Gyors töltési szabvány Japán autókhoz</string>
@@ -873,4 +874,89 @@
     <string name="error_invalid_number">Érvénytelen szám</string>
     <string name="offline_explanation_title">Offline térképek</string>
     <string name="offline_explanation_text">A terület megtekintéséhez és az azon való navigálásához egy térképet kell letölteni.\nTöltsön le térképeket azokra a területekre, ahová utazni szeretne.</string>
+    <string name="prefs_group_route_summary">Hangutasítások, útvonaltervezési beállítások</string>
+    <string name="tts_toggle_enable">Hangutasítások engedélyezése</string>
+    <string name="tts_toggle_disable">Hangutasítások letiltása</string>
+    <string name="enable_long_tap_fullscreen">Érintse meg hosszan a felület elrejtéséhez</string>
+    <string name="long_tap_disabled_toast">A felület elrejtéséhez kapcsolja be a hosszú érintést a beállításokban</string>
+    <string name="downloader_check_updates_button">Frissítések keresése</string>
+    <string name="downloader_check_updates_checking">Frissítések keresése…</string>
+    <string name="downloader_check_updates_updated">Térképfrissítések érhetők el!</string>
+    <string name="downloader_check_updates_no_updates">Nincsenek térképfrissítések</string>
+    <string name="downloader_check_updates_eol">Nem érhető el további térképfrissítés ehhez a verzióhoz. Frissítse az alkalmazást!</string>
+    <string name="downloader_check_updates_error">Hiba a frissítések keresése során</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="opens_at">Nyitás: %s</string>
+    <string name="closes_at">Zárás: %s</string>
+    <string name="opens_day_at">Nyitás: %1$s %2$s</string>
+    <string name="closes_day_at">Zárás: %1$s %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d perc</item>
+        <item quantity="other">%d perc</item>
+    </plurals>
+    <string name="oh_unknown">A nyitvatartás ismeretlen</string>
+    <string name="editor_business_vacant_button">Az üzlet üres</string>
+    <string name="editor_mark_business_vacant_title">Üzlet megjelölése üresként</string>
+    <string name="editor_mark_business_vacant_description">Akkor használja, ha az üzlet kiköltözött, a hely üres, és új bérlőre vár.</string>
+    <string name="editor_submit">Elküldés</string>
+    <string name="place_page_map_too_old_title">Elavult térképadatok</string>
+    <string name="place_page_map_too_old_description">A jelenlegi térkép nagyon régi, frissítse a térképet.</string>
+    <string name="place_page_app_too_old_description">A jelenlegi térkép nagyon régi, frissítse a CoMaps alkalmazást.</string>
+    <string name="place_page_update_too_old_map">Térképterület frissítése</string>
+    <string name="place_page_too_old_to_edit">Az OpenStreetMap szerkesztése le van tiltva, mert a térképadatok túl régiek.</string>
+    <string name="prefs_group_privacy_summary">Google Play szolgáltatások, keresési előzmények</string>
+    <string name="power_management">Energiagazdálkodás</string>
+    <string name="prefs_group_power_summary">Térképstílus, képernyő időtúllépése</string>
+    <string name="population">Népesség: %s</string>
+    <string name="sort_categories">Kedvenclisták rendezése</string>
+    <string name="setting_value_system_default">Rendszer alapértelmezése</string>
+    <string name="by_recently_used">Legutóbbi használat szerint</string>
+    <string name="by_custom">Egyéni sorrend szerint</string>
+    <string name="editor_add_select_category_all_subtitle">Összes kategória</string>
+    <string name="change_app_locale">Alkalmazás nyelve</string>
+    <string name="pref_maplanguage_local">Helyi nyelv</string>
+    <string name="destination">Célállomás</string>
+    <string name="stop">Állj</string>
+    <string name="navigation_start_tts_message">"Navigáció indítása, hangutasítások nyelve: "</string>
+    <string name="navigation_start_tts_disabled_message">Hangutasítások letiltva: nem érhető el TTS szolgáltatás</string>
+    <string name="charge_socket_type1_combo">1. típus, kombinált</string>
+    <string name="charge_socket_schuko">Helyi, EU-s</string>
+    <string name="bookmark_share_email_subject">Kövesse a %1$s hivatkozást, vagy illessze be a %2$s koordinátákat a térképalkalmazásába a hely megtekintéséhez.</string>
+    <string name="my_position_share_email">Kövesse a %1$s hivatkozást, vagy illessze be a %2$s koordinátákat a térképalkalmazásába a helyem megtekintéséhez.</string>
+    <string name="prefs_speed_cameras_information">A sebességkamera-figyelmeztetések le vannak tiltva azokban az országokban, ahol ezeket tiltja a törvényt.</string>
+    <string name="avoid_paved">Burkolt utak elkerülése</string>
+    <string name="list_description_empty">A lista szerkesztése leírás hozzáadása céljából</string>
+    <string name="download_resources_custom_url_message">Az alapértelmezett térképletöltési kiszolgáló felülbírálása. A CoMaps alapértelmezésének használatához hagyja üresen.</string>
+    <string name="download_resources_custom_url_summary_none">Nincs beállítva</string>
+    <string name="download_resources_custom_url_error_scheme">Adjon meg egy http:// vagy https:// kezdetű webcímet</string>
+    <string name="pref_alt_map_lang_handling">Alternatív térképnyelvek</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Ne használjon alternatívákat</string>
+    <string name="pref_alt_map_lang_handling_system_order">Rendszersorrend használata</string>
+    <string name="pref_alt_map_lang_handling_local_only">Helyi nyelv előnyben részítése</string>
+    <string name="location_privacy_info">Az alkalmazások az operációs rendszer helymeghatározó szolgáltatásától kapják a helyadatokat, amelyek a felhasználó tartózkodási helyét megoszthatják a Google-lel és az eszköz gyártójával is. Ennek elkerülése érdekében használjon olyan Android operációs rendszert, amely védi a magánszféráját.</string>
+    <string name="location_privacy">Helyadatok adatvédelme</string>
+    <string name="pref_speedlimit_title">Sebességkorlátok megjelenítése</string>
+    <string name="rooms">%s szoba</string>
+    <string name="invalid_route">Érvénytelen útvonal</string>
+    <string name="building_route">Útvonal összeállítása…</string>
+    <string name="route_not_started">Az útvonal nincs elindítva</string>
+    <string name="on_route">Úton</string>
+    <string name="route_needs_rebuild">Az útvonalat újra kell építeni</string>
+    <string name="route_finished">Az útvonal kész</string>
+    <string name="not_following_route">Nem követi az útvonalat</string>
+    <string name="route_recalculating">Útvonal újraszámítása…</string>
+    <string name="pref_openexternallinks_title">Külső hivatkozások automatikus megnyitása</string>
+    <string name="pref_openexternallinks_summary">Külső hivatkozások automatikus megnyitása a CoMapsban</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_aa_support_summary_yes">Az alkalmazás a Google Playből lett telepítve, így használhatja az autójában.</string>
+    <string name="pref_aa_support_summary_no">Az alkalmazás nem a Google Playből lett telepítve, így nem használhatja az autójában. Koppintson a beállításra, hogy több információt kapjon a GYIK oldalunkon.</string>
+    <string name="editor_add_select_category_recent_subtitle">Legutóbb használt</string>
+    <string name="capacity_disabled">Mozgássérült parkolóhelyek: %s</string>
+    <string name="capacity_disabled_yes">Van kijelölt mozgássérült hely</string>
+    <string name="capacity_disabled_no">Nincs kijelölt mozgássérült hely</string>
+    <string name="capacity_charging">Helyek töltővel: %s</string>
+    <string name="capacity_charging_yes">Van hely töltővel</string>
+    <string name="capacity_charging_no">Nincs hely töltővel</string>
+    <string name="permission_read_navigation_label">CoMaps navigáció adatok olvasása</string>
+    <string name="permission_read_navigation_description">élő navigációs információk felolvasása, mint a következő kanyarok, vagy a jelenleg használt út neve</string>
 </resources>

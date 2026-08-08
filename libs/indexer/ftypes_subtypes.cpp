@@ -1,9 +1,15 @@
 #include "indexer/ftypes_subtypes.hpp"
 
-#include "base/assert.hpp"
 #include "coding/csv_reader.hpp"
+#include "coding/reader.hpp"
 #include "coding/reader_streambuf.hpp"
+
 #include "platform/platform.hpp"
+
+#include "base/assert.hpp"
+#include "base/string_utils.hpp"
+
+#include "defines.hpp"
 
 namespace ftypes
 {

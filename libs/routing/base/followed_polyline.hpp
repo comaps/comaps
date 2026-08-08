@@ -1,10 +1,12 @@
 #pragma once
 
-#include "geometry/mercator.hpp"
+#include "geometry/parametrized_segment.hpp"
 
 #include "geometry/point2d.hpp"
 #include "geometry/polyline2d.hpp"
 #include "geometry/rect2d.hpp"
+
+#include "base/assert.hpp"
 
 #include <cstddef>
 #include <limits>
@@ -124,6 +126,9 @@ public:
   Iter GetClosestMatchingProjectionInInterval(m2::RectD const & posRect, size_t startIdx, size_t endIdx) const;
 
   bool IsFakeSegment(size_t index) const;
+
+  /// \brief Obtain a point |lookaheadDistanceM| meters along the current route
+  m2::PointD GetLookaheadPoint(double lookaheadDistanceM) const;
 
 private:
   /// \returns iterator to the best projection of center of |posRect| to the |m_poly|.

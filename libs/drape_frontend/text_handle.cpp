@@ -1,6 +1,10 @@
 #include "drape_frontend/text_handle.hpp"
 
+#include "drape/attribute_buffer_mutator.hpp"
+#include "drape/binding_info.hpp"
 #include "drape/texture_manager.hpp"
+
+#include "base/assert.hpp"
 
 namespace df
 {

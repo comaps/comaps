@@ -2,6 +2,7 @@
 
 #include "testing/testing.hpp"
 
+#include "routing/checkpoints.hpp"
 #include "routing/features_road_graph.hpp"
 #include "routing/router_delegate.hpp"
 

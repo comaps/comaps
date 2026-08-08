@@ -9,6 +9,8 @@
 
 #include "geometry/point2d.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
 #include "base/logging.hpp"
 

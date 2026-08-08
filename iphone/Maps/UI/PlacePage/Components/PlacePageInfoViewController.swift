@@ -52,6 +52,7 @@ class PlacePageInfoViewController: UIViewController {
   private var blueskyView: InfoItemView?
   private var panoramaxView: InfoItemView?
   private var cuisineView: InfoItemView?
+  private var organicView: InfoItemView?
   private var operatorView: InfoItemView?
   private var wifiView: InfoItemView?
   private var atmView: InfoItemView?
@@ -68,6 +69,8 @@ class PlacePageInfoViewController: UIViewController {
   private var driveThroughView: InfoItemView?
   private var networkView: InfoItemView?
   private var populationView: InfoItemView?
+  private var capacityDisabledView: InfoItemView?
+  private var capacityChargingView: InfoItemView?
 
   weak var placePageInfoData: PlacePageInfoData!
   weak var delegate: PlacePageInfoViewControllerDelegate?
@@ -96,12 +99,24 @@ class PlacePageInfoViewController: UIViewController {
       addToStack(openingHoursViewController.view)
       openingHoursViewController.didMove(toParent: self)
     } else if let openingHoursString = placePageInfoData.openingHoursString {
-      rawOpeningHoursView = createInfoItem(openingHoursString, icon: UIImage(systemName: "clock.fill"))
-      rawOpeningHoursView?.infoLabel.numberOfLines = 0
+      switch openingHoursString.lowercased() {
+      case "off", "closed":
+        rawOpeningHoursView = createInfoItem(L("day_off"), icon: UIImage(systemName: "clock.fill"))
+        rawOpeningHoursView?.infoLabel.textColor = StyleManager.shared.theme?.colors.red
+      case "unknown":
+        rawOpeningHoursView = createInfoItem(L("oh_unknown"), icon: UIImage(systemName: "clock.fill"))
+      default:
+        rawOpeningHoursView = createInfoItem(openingHoursString, icon: UIImage(systemName: "clock.fill"))
+        rawOpeningHoursView?.infoLabel.numberOfLines = 0
+      }
     }
 
     if let cuisine = placePageInfoData.cuisine {
       cuisineView = createInfoItem(cuisine, icon: UIImage(systemName: "fork.knife"))
+    }
+	
+	if let organic = placePageInfoData.organic {
+      organicView = createInfoItem(organic, icon: UIImage(systemName: "leaf.fill"))
     }
 
     /// @todo Entrance is missing compared with Android. It's shown in title, but anyway ..
@@ -197,6 +212,14 @@ class PlacePageInfoViewController: UIViewController {
 
     if let capacity = placePageInfoData.capacity {
       capacityView = createInfoItem(capacity, icon: UIImage(systemName: "viewfinder"))
+    }
+      
+    if let capacityCharging = placePageInfoData.capacityCharging {
+      capacityChargingView = createInfoItem(capacityCharging, icon: UIImage(named: "powerplug.portrait.viewfinder"))
+    }
+      
+    if let capacityDisabled = placePageInfoData.capacityDisabled {
+      capacityDisabledView = createInfoItem(capacityDisabled, icon: UIImage(named: "figure.roll.viewfinder"))
     }
 	
     if let rooms = placePageInfoData.rooms {

@@ -1,5 +1,7 @@
 #include "drape/utils/gpu_mem_tracker.hpp"
 
+#include "base/assert.hpp"
+
 #include <iomanip>
 #include <sstream>
 

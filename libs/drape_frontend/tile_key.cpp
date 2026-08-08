@@ -4,7 +4,9 @@
 #include "drape_frontend/tile_utils.hpp"
 
 #include "geometry/mercator.hpp"
+#include "geometry/screenbase.hpp"
 
+#include "base/assert.hpp"
 #include "base/string_utils.hpp"
 
 #include <sstream>

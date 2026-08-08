@@ -10,7 +10,7 @@
 #include "geometry/mercator.hpp"
 #include "geometry/rect2d.hpp"
 
-#include "base/logging.hpp"
+#include "base/assert.hpp"
 
 #include <cstdint>
 #include <set>

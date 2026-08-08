@@ -1,6 +1,11 @@
 #pragma once
 
-#include "platform/country_file.hpp"
+#include <string_view>
+
+namespace platform
+{
+class CountryFile;
+}  // namespace platform
 
 namespace routing
 {

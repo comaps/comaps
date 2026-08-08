@@ -1,22 +1,33 @@
 #pragma once
 
 #include "drape_frontend/color_constants.hpp"
-#include "drape_frontend/map_shape.hpp"
 #include "drape_frontend/render_state_extension.hpp"
-#include "drape_frontend/shape_view_params.hpp"
 
+#include "drape/drape_global.hpp"
+#include "drape/glsl_types.hpp"
 #include "drape/pointers.hpp"
 #include "drape/render_bucket.hpp"
+#include "drape/render_state.hpp"
 #include "drape/utils/vertex_decl.hpp"
+
+#include "shaders/programs.hpp"
 
 #include "traffic/speed_groups.hpp"
 
+#include "geometry/point2d.hpp"
 #include "geometry/polyline2d.hpp"
+#include "geometry/rect2d.hpp"
 
 #include <array>
 #include <cmath>
 #include <memory>
 #include <vector>
+
+namespace dp
+{
+class GraphicsContext;
+class TextureManager;
+}  // namespace dp
 
 namespace df
 {

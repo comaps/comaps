@@ -2,6 +2,8 @@
 
 #include "indexer/feature_decl.hpp"
 
+#include "geometry/point2d.hpp"
+
 #include <chrono>
 #include <functional>
 #include <list>

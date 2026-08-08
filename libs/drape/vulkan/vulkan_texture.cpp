@@ -1,5 +1,11 @@
 #include "drape/vulkan/vulkan_texture.hpp"
 #include "drape/vulkan/vulkan_base_context.hpp"
+#include "drape/vulkan/vulkan_staging_buffer.hpp"
+
+#include "drape/graphics_context.hpp"
+#include "drape/texture_types.hpp"
+
+#include "base/assert.hpp"
 
 drape_ptr<dp::HWTextureAllocator> CreateVulkanAllocator()
 {
@@ -40,6 +46,8 @@ drape_ptr<HWTexture> VulkanTextureAllocator::CreateTexture(ref_ptr<dp::GraphicsC
 {
   return make_unique_dp<VulkanTexture>(make_ref(this));
 }
+
+VulkanTexture::VulkanTexture(ref_ptr<VulkanTextureAllocator>) {}
 
 VulkanTexture::~VulkanTexture()
 {

@@ -2,13 +2,21 @@
 
 #include "drape_frontend/drape_api.hpp"
 
+#include "drape/pointers.hpp"
 #include "drape/render_bucket.hpp"
 #include "drape/render_state.hpp"
 #include "drape/texture_manager.hpp"
 
+#include "geometry/point2d.hpp"
+
 #include <string>
 #include <utility>
 #include <vector>
+
+namespace dp
+{
+class GraphicsContext;
+}  // namespace dp
 
 namespace df
 {

@@ -1,5 +1,6 @@
 #include "routing/fake_ending.hpp"
 
+#include "routing/geometry.hpp"
 #include "routing/index_graph.hpp"
 #include "routing/world_graph.hpp"
 

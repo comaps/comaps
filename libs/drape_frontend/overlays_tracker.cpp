@@ -1,5 +1,7 @@
 #include "drape_frontend/overlays_tracker.hpp"
 
+#include "base/assert.hpp"
+
 namespace df
 {
 void OverlaysTracker::SetTrackedOverlaysFeatures(std::vector<FeatureID> && ids)

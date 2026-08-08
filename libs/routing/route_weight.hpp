@@ -2,6 +2,7 @@
 
 #include "routing/base/astar_weight.hpp"
 
+#include "base/assert.hpp"
 #include "base/math.hpp"
 
 #include <cstdint>

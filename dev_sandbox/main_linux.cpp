@@ -19,11 +19,15 @@
 // /usr/include/X11/Xlib.h:83:16: note: expanded from macro 'Status'
 #undef Status
 
+#include "drape/vulkan/vulkan_base_context.hpp"
 #include "drape/vulkan/vulkan_context_factory.hpp"
+#include "drape/vulkan/vulkan_utils.hpp"
 
 #include "drape/gl_functions.hpp"
 #include "drape/gl_includes.hpp"
 #include "drape/oglcontext.hpp"
+
+#include "base/logging.hpp"
 
 #include <array>
 #include <atomic>

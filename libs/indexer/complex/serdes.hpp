@@ -5,9 +5,10 @@
 
 #include "coding/reader.hpp"
 #include "coding/varint.hpp"
-#include "coding/writer.hpp"
+#include "coding/write_to_sink.hpp"
 
-#include "base/logging.hpp"
+#include "base/assert.hpp"
+#include "base/checked_cast.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <string>

@@ -1,9 +1,15 @@
 #include "editor/feature_type_to_osm.hpp"
 
-#include "base/assert.hpp"
-#include "coding/reader_streambuf.hpp"
 #include "indexer/classificator.hpp"
+#include "indexer/types_mapping.hpp"
+
+#include "coding/reader.hpp"
+#include "coding/reader_streambuf.hpp"
+
 #include "platform/platform.hpp"
+
+#include "base/assert.hpp"
+#include "base/string_utils.hpp"
 
 #include <string>
 

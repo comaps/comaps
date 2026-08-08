@@ -1,0 +1,455 @@
+{
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Püsi paremal."
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Pööra järsult paremale."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Pööra vasakule."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Pööra paremale."
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "Oled ringteel."
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Lahku ringteelt."
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Püsi vasakul."
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Pööra järsult vasakule."
+    },
+    "exit": {
+        "defaultMessage": "Välju."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "Oled kohale jõudnud."
+    },
+    "then": {
+        "defaultMessage": "Seejärel"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "go_straight": {
+        "defaultMessage": "Sõida otse."
+    },
+    "onto": {
+        "defaultMessage": "teele"
+    },
+    "take_exit_number": {
+        "defaultMessage": "Pööra teele"
+    },
+    "destination": {
+        "defaultMessage": "Oled saabumas."
+    },
+    "route_recalculating": {
+        "defaultMessage": "Koostan teekonda uuesti"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Pööra tagasi."
+    },
+    "in_50_meters": {
+        "defaultMessage": "Viiekümne meetri pärast"
+    },
+    "in_100_meters": {
+        "defaultMessage": "Saja meetri pärast"
+    },
+    "in_200_meters": {
+        "defaultMessage": "Kahesaja meetri pärast"
+    },
+    "in_250_meters": {
+        "defaultMessage": "Kahesaja viiekümne meetri pärast"
+    },
+    "in_300_meters": {
+        "defaultMessage": "Kolmesaja meetri pärast"
+    },
+    "in_400_meters": {
+        "defaultMessage": "Neljasaja meetri pärast"
+    },
+    "in_500_meters": {
+        "defaultMessage": "Viiesaja meetri pärast"
+    },
+    "in_600_meters": {
+        "defaultMessage": "Kuuesaja meetri pärast"
+    },
+    "in_700_meters": {
+        "defaultMessage": "Seitsmesaja meetri pärast"
+    },
+    "in_750_meters": {
+        "defaultMessage": "Seitsmesaja viiekümne meetri pärast"
+    },
+    "in_800_meters": {
+        "defaultMessage": "Kaheksasaja meetri pärast"
+    },
+    "in_900_meters": {
+        "defaultMessage": "Üheksasaja meetri pärast"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "Ühe kilomeetri pärast"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "Pooleteise kilomeetri pärast"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "Kahe kilomeetri pärast"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "Kahe ja poole kilomeetri pärast"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Pööra ära esimesest ärapöördest."
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Pööra ära teisest ärapöördest."
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Pööra ära kolmandast ärapöördest."
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Pööra ära viiendast ärapöördest."
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Pööra ära kuuendast ärapöördest."
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Pööra ära seitsmendast ärapöördest."
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Pööra ära kaheksandast ärapöördest."
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Pööra ära kümnendast ärapöördest."
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Pööra ära üheteistkümnendast ärapöördest."
+    },
+    "in_50_feet": {
+        "defaultMessage": "Viiekümne jala pärast"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "Kahe tuhande viiesaja jala pärast"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "Kolme tuhande jala pärast"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "Kolme tuhande viiesaja jala pärast"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "Nelja tuhande jala pärast"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "Nelja tuhande viiesaja jala pärast"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "Viie tuhande jala pärast"
+    },
+    "in_1_mile": {
+        "defaultMessage": "Ühe miili pärast"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "Pooleteise miili pärast"
+    },
+    "in_2_miles": {
+        "defaultMessage": "Kahe miili pärast"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Ees on kiiruskaamera"
+    },
+    "in_300_feet": {
+        "defaultMessage": "Kolmesaja jala pärast"
+    },
+    "in_400_feet": {
+        "defaultMessage": "Neljasaja jala pärast"
+    },
+    "in_600_feet": {
+        "defaultMessage": "Kuuesaja jala pärast"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "Tuhande jala pärast"
+    },
+    "in_700_feet": {
+        "defaultMessage": "Seitsmesaja jala pärast"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "Tuhande viiesaja jala pärast"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "Kahe tuhande jala pärast"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Pööra ära üheksandast ärapöördest."
+    },
+    "in_200_feet": {
+        "defaultMessage": "Kahesaja jala pärast"
+    },
+    "in_500_feet": {
+        "defaultMessage": "Viiesaja jala pärast"
+    },
+    "in_800_feet": {
+        "defaultMessage": "Kaheksasaja jala pärast"
+    },
+    "in_900_feet": {
+        "defaultMessage": "Üheksasaja jala pärast"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "Kolme kilomeetri pärast"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Pööra ära neljandast ärapöördest."
+    },
+    "in_100_feet": {
+        "defaultMessage": "Saja jala pärast"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "Tee lõpus,"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Oled teekonnast %1$s kaugusel"
+    },
+    "from_50_meters": {
+        "defaultMessage": "viiekümne meetri"
+    },
+    "from_100_meters": {
+        "defaultMessage": "saja meetri"
+    },
+    "from_200_meters": {
+        "defaultMessage": "kahesaja meetri"
+    },
+    "from_250_meters": {
+        "defaultMessage": "kahesaja viiekümne meetri"
+    },
+    "from_300_meters": {
+        "defaultMessage": "kolmesaja meetri"
+    },
+    "from_400_meters": {
+        "defaultMessage": "neljasaja meetri"
+    },
+    "from_500_meters": {
+        "defaultMessage": "viiesaja meetri"
+    },
+    "from_600_meters": {
+        "defaultMessage": "kuuesaja meetri"
+    },
+    "from_700_meters": {
+        "defaultMessage": "seitsmesaja meetri"
+    },
+    "from_750_meters": {
+        "defaultMessage": "seitsmesaja viiekümne meetri"
+    },
+    "from_800_meters": {
+        "defaultMessage": "kaheksasaja meetri"
+    },
+    "from_900_meters": {
+        "defaultMessage": "üheksasaja meetri"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "ühe kilomeetri"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "pooleteise kilomeetri"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "kahe kilomeetri"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "kahe ja poole kilomeetri"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "kolme kilomeetri"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "enam kui kolme kilomeetri"
+    },
+    "from_50_feet": {
+        "defaultMessage": "viiekümne jala"
+    },
+    "from_100_feet": {
+        "defaultMessage": "saja jala"
+    },
+    "from_200_feet": {
+        "defaultMessage": "kahesaja jala"
+    },
+    "from_300_feet": {
+        "defaultMessage": "kolmesaja jala"
+    },
+    "from_400_feet": {
+        "defaultMessage": "neljasaja jala"
+    },
+    "from_500_feet": {
+        "defaultMessage": "viiesaja jala"
+    },
+    "from_600_feet": {
+        "defaultMessage": "kuuesaja jala"
+    },
+    "from_700_feet": {
+        "defaultMessage": "seitsmesaja jala"
+    },
+    "from_800_feet": {
+        "defaultMessage": "kaheksasaja jala"
+    },
+    "from_900_feet": {
+        "defaultMessage": "ühekdsasaja jala"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "tuhande jala"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "tuhande viiesaja jala"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "kahe tuhande jala"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "kahe tuhande viiesaja jala"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "kolme tuhande jala"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "kolme tuhande viiesaja jala"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "nelja tuhande jala"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "nelja tuhande viiesaja jala"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "viie tuhande jala"
+    },
+    "from_1_mile": {
+        "defaultMessage": "ühe miili"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "pooleteise miili"
+    },
+    "from_2_miles": {
+        "defaultMessage": "kahe miili"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "enam kui kahe miili"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Enam kui kolme kilomeetri pärast"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "Enam kui kahe miili pärast"
+    }
+}

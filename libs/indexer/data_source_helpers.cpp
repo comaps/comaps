@@ -1,8 +1,17 @@
 #include "indexer/data_source_helpers.hpp"
 
 #include "indexer/data_source.hpp"
+#include "indexer/feature.hpp"
 #include "indexer/feature_algo.hpp"
+#include "indexer/feature_decl.hpp"
 #include "indexer/scales.hpp"
+
+#include "coding/point_coding.hpp"
+
+#include "geometry/mercator.hpp"
+#include "geometry/rect2d.hpp"
+
+#include "base/assert.hpp"
 
 namespace indexer
 {

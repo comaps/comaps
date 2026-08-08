@@ -1,7 +1,8 @@
 #pragma once
 
 #include "coding/read_write_utils.hpp"
-#include "coding/string_utf8_multilang.hpp"
+
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/buffer_vector.hpp"
 

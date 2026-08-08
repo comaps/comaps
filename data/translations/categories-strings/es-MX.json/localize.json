@@ -1,0 +1,104 @@
+{
+    "@category_recycling": {
+        "defaultMessage": "Reciclaje|Reciclaje de desechos|Eliminación de desechos|Materiales reciclables|Recogida separada de basura|Clasificación de desechos|Reutilización"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "Enseres domésticos|Tienda de artículos para el hogar"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "Contenedor de reciclaje"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "Ropa vieja|Reciclaje de cosas innecesarias|Ropa"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "Envase de vidrio"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "Desechos de papel|Papel"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "Desechos de plástico|Plástico"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "Botellas de plástico"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "Desechos de metal"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "Desechos electrónico"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "Parada de autobús|Parada|Autobús|Bus|omnibus|omni|bondi|colectivo|camión"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "3Estación de autobuses|Estación de ómnibus|Estación de micros|Estación de colectivos|Autobús|Bus|Terminal de buses|Terminal de autobuses|camión"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "Cabaña Vivac"
+    },
+    "natural-strait": {
+        "defaultMessage": "Estrecho"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "Espacio hacker"
+    },
+    "sport-american_football": {
+        "defaultMessage": "Fútbol americano"
+    },
+    "sport-archery": {
+        "defaultMessage": "Tiro al arco"
+    },
+    "sport-baseball": {
+        "defaultMessage": "Béisbol"
+    },
+    "sport-curling": {
+        "defaultMessage": "Curling|Curlin"
+    },
+    "sport-golf": {
+        "defaultMessage": "Golf"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "Gimnasia"
+    },
+    "sport-handball": {
+        "defaultMessage": "Balonmano"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "Submarinismo"
+    },
+    "sport-shooting": {
+        "defaultMessage": "Tiroteo|Tiro deportivo"
+    },
+    "sport-skiing": {
+        "defaultMessage": "Esquí"
+    },
+    "sport-soccer": {
+        "defaultMessage": "Fútbol"
+    },
+    "sport-tennis": {
+        "defaultMessage": "Tenis"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "Máquina expendedora de billetes de transporte público"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "Cabaña de vacaciones|Casa de vacaciones"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "Tienda de vídeo"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "Tienda de videojuegos"
+    },
+    "highway-ford": {
+        "defaultMessage": "Vado|3Cruce|3Paso"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Coleccionista|Coleccionables"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "Centro de artes"
+    }
+}

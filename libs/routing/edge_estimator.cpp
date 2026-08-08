@@ -1,7 +1,8 @@
 #include "routing/edge_estimator.hpp"
+
 #include "routing/geometry.hpp"
 #include "routing/latlon_with_altitude.hpp"
-#include "routing/routing_helpers.hpp"
+#include "routing/segment.hpp"
 #include "routing/traffic_stash.hpp"
 
 #include "traffic/speed_groups.hpp"
@@ -9,11 +10,10 @@
 #include "geometry/distance_on_sphere.hpp"
 #include "geometry/point_with_altitude.hpp"
 
-#include "coding/csv_reader.hpp"
+#include "platform/measurement_utils.hpp"
 
 #include "base/assert.hpp"
 #include "base/logging.hpp"
-#include "platform/platform.hpp"
 
 namespace routing
 {
@@ -741,8 +741,8 @@ public:
   {
     switch (purpose)
     {
-    case Purpose::Weight: return 20 * 60;  // seconds
-    case Purpose::ETA: return 20 * 60;     // seconds
+    case Purpose::Weight: return 10 * 60;  // seconds
+    case Purpose::ETA: return 10 * 60;     // seconds
     }
     UNREACHABLE();
   }
@@ -826,6 +826,11 @@ shared_ptr<EdgeEstimator> EdgeEstimator::Create(VehicleType vehicleType, double 
   case VehicleType::Bicycle: return make_shared<BicycleEstimator>(maxWeighSpeedKMpH, offroadSpeedKMpH);
   case VehicleType::Car:
     return make_shared<CarEstimator>(dataSourcePtr, numMwmIds, trafficStash, maxWeighSpeedKMpH, offroadSpeedKMpH);
+  /*
+   * VehicleType::Decoder is for use with the TraFF decoder, which creates its EdgeEstimator by
+   * explicitly calling the constructor for the appropriate subclass.
+   */
+  case VehicleType::Decoder: CHECK(false, ("Creating EdgeEstimator for Decoder is not supported")); return nullptr;
   case VehicleType::Count: CHECK(false, ("Can't create EdgeEstimator for", vehicleType)); return nullptr;
   }
   UNREACHABLE();

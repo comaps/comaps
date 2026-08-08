@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Túnel";
 "type.highway.bus_stop" = "Paragem de autocarros";
 "type.highway.construction" = "Estrada em construção";
+"type.highway.construction.motorway" = "Estrada em construção";
+"type.highway.construction.motorway_link" = "Estrada em construção";
+"type.highway.construction.trunk" = "Estrada em construção";
+"type.highway.construction.trunk_link" = "Estrada em construção";
+"type.highway.construction.primary" = "Estrada em construção";
+"type.highway.construction.primary_link" = "Estrada em construção";
+"type.highway.construction.secondary" = "Estrada em construção";
+"type.highway.construction.secondary_link" = "Estrada em construção";
+"type.highway.construction.tertiary" = "Estrada em construção";
+"type.highway.construction.tertiary_link" = "Estrada em construção";
+"type.highway.construction.residential" = "Estrada em construção";
+"type.highway.construction.unclassified" = "Estrada em construção";
+"type.highway.construction.service" = "Estrada em construção";
+"type.highway.construction.living_street" = "Estrada em construção";
+"type.highway.construction.road" = "Estrada em construção";
+"type.highway.construction.track" = "Estrada em construção";
 "type.highway.cycleway" = "Ciclovia";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Ponte";
@@ -864,8 +880,8 @@
 "type.office.lawyer" = "Advogado";
 "type.office.ngo" = "Escritório de ONG";
 "type.office.telecommunication" = "Operadora de telecomunicações";
-"type.organic.only" = "Orgânico";
-"type.organic.yes" = "Orgânico";
+"type.organic.only" = "Orgânico apenas";
+"type.organic.yes" = "Opções Orgânicas";
 "type.place.city" = "Cidade";
 "type.place.city.capital" = "Capital";
 "type.place.city.capital.10" = "Cidade";
@@ -1515,3 +1531,9 @@
 "type.leisure.sports_centre.sport.boules" = "Centro Desportivo";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Centro Desportivo";
+"type.organic.no" = "Sem opções orgânicas";
+"type.amenity.stage" = "Lugar";
+"type.amenity.animal_boarding" = "Hotel de Animais";
+"type.amenity.toilets.customers" = "Acesso para Clientes";
+"type.amenity.toilets.private" = "Acesso Privado";
+"type.amenity.planetarium" = "Planetário";

@@ -1,26 +1,51 @@
-#include "drape_frontend/gui/drape_gui.hpp"
-
 #include "drape_frontend/backend_renderer.hpp"
+
+#include "drape_frontend/batcher_bucket.hpp"
 #include "drape_frontend/batchers_pool.hpp"
 #include "drape_frontend/circles_pack_shape.hpp"
 #include "drape_frontend/drape_api_builder.hpp"
-#include "drape_frontend/drape_measurer.hpp"
 #include "drape_frontend/map_shape.hpp"
+#include "drape_frontend/message.hpp"
 #include "drape_frontend/message_subclasses.hpp"
 #include "drape_frontend/metaline_manager.hpp"
+#include "drape_frontend/my_position.hpp"
+#include "drape_frontend/postprocess_renderer.hpp"
 #include "drape_frontend/read_manager.hpp"
+#include "drape_frontend/render_node.hpp"
 #include "drape_frontend/route_builder.hpp"
+#include "drape_frontend/selection_shape.hpp"
 #include "drape_frontend/selection_shape_generator.hpp"
+#include "drape_frontend/threads_commutator.hpp"
+#include "drape_frontend/tile_key.hpp"
+#include "drape_frontend/tile_utils.hpp"
+#include "drape_frontend/traffic_generator.hpp"
+#include "drape_frontend/transit_scheme_builder.hpp"
+#include "drape_frontend/user_mark_generator.hpp"
 #include "drape_frontend/user_mark_shapes.hpp"
+#include "drape_frontend/user_marks_provider.hpp"
 #include "drape_frontend/visual_params.hpp"
 
+#include "drape/batcher.hpp"
+#include "drape/drape_global.hpp"
+#include "drape/graphics_context.hpp"
+#include "drape/graphics_context_factory.hpp"
+#include "drape/hw_texture.hpp"
 #include "drape/support_manager.hpp"
 #include "drape/texture_manager.hpp"
 
+#include "indexer/feature_decl.hpp"
+
+#include "kml/type_utils.hpp"
+
+#include "geometry/screenbase.hpp"
+
 #include "platform/platform.hpp"
 
+#include "base/assert.hpp"
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
+
+#include "std/target_os.hpp"
 
 #include <algorithm>
 #include <utility>

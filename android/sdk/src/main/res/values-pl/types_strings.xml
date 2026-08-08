@@ -380,7 +380,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunel</string>
     <string name="type.highway.bus_stop">Przystanek autobusowy</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.motorway">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.motorway_link">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.trunk">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.trunk_link">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.primary">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.primary_link">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.secondary">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.secondary_link">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.tertiary">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.tertiary_link">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.residential">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.unclassified">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.service">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.living_street">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.road">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.track">Droga w trakcie budowy</string>
     <string name="type.highway.cycleway">Droga rowerowa</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Most drogowy dla rowerów</string>
@@ -767,7 +784,7 @@
     <string name="type.place.town">Miasteczko</string>
     <string name="type.place.village">Wieś</string>
     <string name="type.power.generator.solar">Generator słoneczny</string>
-    <string name="type.power.generator.wind">Generator wiatru</string>
+    <string name="type.power.generator.wind">Turbina wiatrowa</string>
     <string name="type.power.generator.gas">Elektrownia z turbiną gazową</string>
     <string name="type.power.generator.hydro">Elektrownia wodna</string>
     <string name="type.power.line">Linia wysokiego napięcia</string>
@@ -1318,8 +1335,8 @@
     <string name="type.man_made">Stworzone przez człowieka</string>
     <string name="type.man_made.storage_tank">Zbiornik</string>
     <string name="type.mountain_pass">Przełęcz górska</string>
-    <string name="type.organic.only">Organiczny</string>
-    <string name="type.organic.yes">Organiczny</string>
+    <string name="type.organic.only">Tylko produkty ekologiczne</string>
+    <string name="type.organic.yes">Oferuje produkty ekologiczne</string>
     <string name="type.power.generator">Generator prądu</string>
     <string name="type.railway.abandoned">Opuszczona kolej</string>
     <string name="type.railway.funicular.bridge">Most kolejki linowej</string>
@@ -1508,4 +1525,7 @@
     <string name="type.attraction">Atrakcja</string>
     <string name="type.amenity.community_centre.youth_centre">Centrum młodzieżowe</string>
     <string name="type.emergency.disaster_help_point">Punkt pomocy dla ofiar klęski żywiołowej</string>
+    <string name="type.organic.no">Nie oferuje produktów ekologicznych</string>
+    <string name="type.sport.four_square">Four Square</string>
+    <string name="type.sport.pickleball">Pickleball</string>
 </resources>

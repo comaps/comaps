@@ -4,8 +4,14 @@
 #include "routing/fake_feature_ids.hpp"
 #include "routing/index_graph_starter.hpp"
 #include "routing/latlon_with_altitude.hpp"
-#include "routing/routing_exceptions.hpp"
 #include "routing/transit_graph.hpp"
+
+#include "indexer/feature.hpp"
+#include "indexer/feature_data.hpp"
+#include "indexer/feature_decl.hpp"
+
+#include "base/assert.hpp"
+#include "base/logging.hpp"
 
 #include <cstdint>
 #include <utility>

@@ -1,7 +1,31 @@
 #include "framework.hpp"
 
 #include "routing/city_roads.hpp"
+#include "routing/cross_mwm_connector.hpp"
+#include "routing/cross_mwm_connector_serialization.hpp"
 #include "routing/cross_mwm_index_graph.hpp"
+#include "routing/routing_helpers.hpp"
+#include "routing/vehicle_mask.hpp"
+
+#include "search/cities_boundaries_table.hpp"
+
+#include "drape/color.hpp"
+
+#include "indexer/city_boundary.hpp"
+#include "indexer/data_source.hpp"
+#include "indexer/feature.hpp"
+#include "indexer/feature_data.hpp"
+#include "indexer/mwm_set.hpp"
+#include "indexer/scales.hpp"
+
+#include "platform/country_file.hpp"
+
+#include "i18n/localisation.hpp"
+
+#include "base/assert.hpp"
+#include "base/geo_object_id.hpp"
+#include "base/stl_helpers.hpp"
+#include "base/string_utils.hpp"
 
 namespace
 {

@@ -5,7 +5,6 @@
 #include "geometry/mercator.hpp"
 
 #include "base/assert.hpp"
-#include "base/stl_helpers.hpp"
 
 namespace df
 {

@@ -11,18 +11,30 @@
 
 #include "indexer/classificator.hpp"
 #include "indexer/editable_map_object.hpp"
+#include "indexer/feature_covering.hpp"
 #include "indexer/feature_data.hpp"
+#include "indexer/feature_decl.hpp"
 #include "indexer/feature_source.hpp"
+#include "indexer/mwm_set.hpp"
 #include "indexer/search_string_utils.hpp"
 #include "indexer/trie_reader.hpp"
 
-#include "platform/mwm_version.hpp"
-
 #include "coding/compressed_bit_vector.hpp"
+#include "coding/files_container.hpp"
 #include "coding/reader_wrapper.hpp"
 
+#include "platform/mwm_traits.hpp"
+
+#include "base/assert.hpp"
 #include "base/checked_cast.hpp"
 #include "base/control_flow.hpp"
+#include "base/dfa_helpers.hpp"
+#include "base/levenshtein_dfa.hpp"
+#include "base/stl_helpers.hpp"
+#include "base/string_utils.hpp"
+#include "base/uni_string_dfa.hpp"
+
+#include "defines.hpp"
 
 #include <algorithm>
 #include <cstddef>

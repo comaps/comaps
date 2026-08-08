@@ -10,6 +10,7 @@
 #include "base/assert.hpp"
 #include "base/bits.hpp"
 #include "base/checked_cast.hpp"
+#include "base/logging.hpp"
 
 #include <algorithm>
 #include <cstdint>

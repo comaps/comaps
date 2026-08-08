@@ -1,9 +1,12 @@
 #include "routing/routing_quality/api/google/google_api.hpp"
 
+#include "routing/checkpoints.hpp"
+
 #include "platform/http_client.hpp"
 
 #include "coding/serdes_json.hpp"
 
+#include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 
 #include "base/assert.hpp"

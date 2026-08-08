@@ -59,7 +59,7 @@ Automatically [generated](STYLES.md#technical-details):
 
 [Translation files](TRANSLATIONS.md#translation-files):
 - `strings/`
-- `categories.txt`,`categories_cuisines.txt`,`categories_brands.txt`,`countries_names.txt`
+- `categories.txt`, `categories_brands.txt`, `countries_names.txt`
 
 Misc strings:
 - `countries_synonyms.csv` - alternative country names.

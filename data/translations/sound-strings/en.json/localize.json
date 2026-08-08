@@ -1,0 +1,537 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Keep right."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Turn right."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Sharp right."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "At the roundabout."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Exit the roundabout."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Keep left."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Turn left."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Sharp left."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Make a u-turn."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "Go straight."
+    },
+    "exit": {
+        "defaultMessage": "Exit."
+    },
+    "onto": {
+        "defaultMessage": "onto"
+    },
+    "take_exit_number": {
+        "defaultMessage": "Take exit"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "You are %1$s from the route"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Recalculating the route"
+    },
+    "destination": {
+        "defaultMessage": "You’ll arrive."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "You have arrived."
+    },
+    "in_50_meters": {
+        "defaultMessage": "In fifty meters",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_100_meters": {
+        "defaultMessage": "In one hundred meters",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_200_meters": {
+        "defaultMessage": "In two hundred meters",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_250_meters": {
+        "defaultMessage": "In two hundred and fifty meters",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_300_meters": {
+        "defaultMessage": "In three hundred meters",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_400_meters": {
+        "defaultMessage": "In four hundred meters",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_500_meters": {
+        "defaultMessage": "In five hundred meters",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_600_meters": {
+        "defaultMessage": "In six hundred meters",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_700_meters": {
+        "defaultMessage": "In seven hundred meters",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_750_meters": {
+        "defaultMessage": "In seven hundred and fifty meters",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_800_meters": {
+        "defaultMessage": "In eight hundred meters",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_900_meters": {
+        "defaultMessage": "In nine hundred meters",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "In one kilometer",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "In one and a half kilometers",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "In two kilometers",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "In two and a half kilometers",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "In three kilometers",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "In more than three kilometers",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty meters you will arrive"
+    },
+    "from_50_meters": {
+        "defaultMessage": "fifty meters",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_100_meters": {
+        "defaultMessage": "one hundred meters",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_200_meters": {
+        "defaultMessage": "two hundred meters",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_250_meters": {
+        "defaultMessage": "two hundred and fifty meters",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_300_meters": {
+        "defaultMessage": "three hundred meters",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_400_meters": {
+        "defaultMessage": "four hundred meters",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_500_meters": {
+        "defaultMessage": "five hundred meters",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_600_meters": {
+        "defaultMessage": "six hundred meters",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_700_meters": {
+        "defaultMessage": "seven hundred meters",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_750_meters": {
+        "defaultMessage": "seven hundred and fifty meters",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_800_meters": {
+        "defaultMessage": "eight hundred meters",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_900_meters": {
+        "defaultMessage": "nine hundred meters",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "one kilometer",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "one and a half kilometers",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "two kilometers",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "two and a half kilometers",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "three kilometers",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "more than three kilometers",
+        "description": "Used in route_not_recalculating, e.g. you are fifty meters from the route"
+    },
+    "then": {
+        "defaultMessage": "Then"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "At the end of the road,"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Take the first exit."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Take the second exit."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Take the third exit."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Take the fourth exit."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Take the fifth exit."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Take the sixth exit."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Take the seventh exit."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Take the eighth exit."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Take the ninth exit."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Take the tenth exit."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Take the eleventh exit."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "In fifty feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_100_feet": {
+        "defaultMessage": "In one hundred feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_200_feet": {
+        "defaultMessage": "In two hundred feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_300_feet": {
+        "defaultMessage": "In three hundred feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_400_feet": {
+        "defaultMessage": "In four hundred feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_500_feet": {
+        "defaultMessage": "In five hundred feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_600_feet": {
+        "defaultMessage": "In six hundred feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_700_feet": {
+        "defaultMessage": "In seven hundred feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_800_feet": {
+        "defaultMessage": "In eight hundred feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_900_feet": {
+        "defaultMessage": "In nine hundred feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "In one thousand feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "In fifteen hundred feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "In two thousand feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "In twenty five hundred feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "In three thousand feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "In thirty five hundred feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "In four thousand feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "In forty five hundred feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "In five thousand feet",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_1_mile": {
+        "defaultMessage": "In one mile",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "In one and a half miles",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_2_miles": {
+        "defaultMessage": "In two miles",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "In more than two miles",
+        "description": "Used in dist_direction_onto_street, e.g. in fifty feet you will arrive"
+    },
+    "from_50_feet": {
+        "defaultMessage": "fifty feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_100_feet": {
+        "defaultMessage": "one hundred feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_200_feet": {
+        "defaultMessage": "two hundred feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_300_feet": {
+        "defaultMessage": "three hundred feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_400_feet": {
+        "defaultMessage": "four hundred feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_500_feet": {
+        "defaultMessage": "five hundred feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_600_feet": {
+        "defaultMessage": "six hundred feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_700_feet": {
+        "defaultMessage": "seven hundred feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_800_feet": {
+        "defaultMessage": "eight hundred feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_900_feet": {
+        "defaultMessage": "nine hundred feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "one thousand feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "fifteen hundred feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "two thousand feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "twenty five hundred feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "three thousand feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "thirty five hundred feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "four thousand feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "forty five hundred feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "five thousand feet",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_1_mile": {
+        "defaultMessage": "one mile",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "one and a half miles",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_2_miles": {
+        "defaultMessage": "two miles",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "more than two miles",
+        "description": "Used in route_not_recalculating, e.g. you are fifty feet from the route"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Speed camera ahead"
+    }
+}

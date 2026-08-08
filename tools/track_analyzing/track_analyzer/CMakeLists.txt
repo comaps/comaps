@@ -20,7 +20,21 @@ set(SRC
 omim_add_executable(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  map
-  track_analyzing
-  gflags::gflags
+  PUBLIC
+    base
+    routing
+    routing_common
+    storage
+    track_analyzing
+  PRIVATE
+    coding
+    geometry
+    indexer
+    platform
+    traffic
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PRIVATE
+    gflags::gflags
 )

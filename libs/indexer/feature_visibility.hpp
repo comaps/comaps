@@ -1,7 +1,8 @@
 #pragma once
 
 #include "indexer/drawing_rule_def.hpp"
-#include "indexer/feature_decl.hpp"
+
+#include "geometry/rect2d.hpp"
 
 #include <initializer_list>
 #include <utility>

@@ -5,8 +5,9 @@
 
 #include "base/dfa_helpers.hpp"
 
-#include "indexer/categories_holder.hpp"
 #include "indexer/feature_data.hpp"
+
+#include "base/assert.hpp"
 
 #include <algorithm>
 #include <sstream>

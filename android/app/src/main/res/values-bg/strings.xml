@@ -180,8 +180,6 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Дължина</string>
     <string name="share_my_location">Споделяне на местоположение</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Общи настройки</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Информация</string>
     <string name="prefs_group_route">Навигация</string>
@@ -242,7 +240,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Преместете телефона с движение тип \"осмица\", за да калибрирате компаса и да фиксирате посоката на стрелката върху картата.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Докоснете отново картата, за да видите интерфейса</string>
+    <string name="enable_long_tap_fullscreen_description">Докоснете отново картата, за да видите интерфейса</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Обновяване на всичко</string>
     <!-- Cancel all button text -->
@@ -542,7 +540,7 @@
         <item quantity="other">%d пътеки</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Поверителност</string>
+    <string name="prefs_group_privacy">Поверителност</string>
     <string name="privacy_policy">Политика за поверителност</string>
     <string name="terms_of_use">Условия за ползване</string>
     <string name="button_layer_traffic">Трафик</string>
@@ -570,7 +568,7 @@
     <string name="power_managment_setting_auto">Автоматично</string>
     <string name="power_managment_setting_manual_max">Максимално пестене на енергия</string>
     <string name="enable_logging_warning_message">Тази настройка е разрешена, за да се записват действия за диагностични цели, които помагат на нашия екип да идентифицира проблеми с приложението. Временно активирайте тази настройка само за изпращане на подробна информация за проблема, който сте открили с приложението.</string>
-    <string name="driving_options_title">Опции за маршрутизация</string>
+    <string name="routing_options_title">Опции за маршрутизация</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Избягвайте платените пътища</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

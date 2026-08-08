@@ -2,6 +2,7 @@
 
 #include "indexer/city_boundary.hpp"
 #include "indexer/feature_decl.hpp"
+#include "indexer/mwm_set.hpp"
 
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"

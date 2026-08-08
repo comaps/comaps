@@ -42,10 +42,6 @@ set(SRC
   levenshtein_dfa.hpp
   limited_priority_queue.hpp
   linked_map.hpp
-  localisation.cpp
-  localisation.hpp
-  localisation_translation.cpp
-  localisation_translation.hpp
   logging.cpp
   logging.hpp
   lower_case.cpp
@@ -117,7 +113,7 @@ endif()
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 target_link_libraries(${PROJECT_NAME} INTERFACE Threads::Threads)
-target_link_libraries(${PROJECT_NAME} PUBLIC utf8cpp::utf8cpp platform)
+target_link_libraries(${PROJECT_NAME} PUBLIC utf8cpp::utf8cpp)
 
 if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
   target_include_directories(${PROJECT_NAME} PRIVATE "${OMIM_ROOT}/3party/fast_double_parser/include")

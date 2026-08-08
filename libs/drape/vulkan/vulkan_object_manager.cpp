@@ -1,6 +1,7 @@
 #include "drape/vulkan/vulkan_object_manager.hpp"
 
 #include "drape/drape_routine.hpp"
+#include "drape/texture_types.hpp"
 
 #include "platform/trace.hpp"
 

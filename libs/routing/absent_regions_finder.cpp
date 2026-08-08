@@ -1,5 +1,9 @@
 #include "routing/absent_regions_finder.hpp"
+
+#include "routing/checkpoints.hpp"
 #include "routing/regions_router.hpp"
+
+#include "base/assert.hpp"
 
 namespace routing
 {

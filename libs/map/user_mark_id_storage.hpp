@@ -2,7 +2,12 @@
 
 #include "map/user_mark.hpp"
 
-#include "kml/types.hpp"
+#include "kml/type_utils.hpp"
+
+namespace kml
+{
+struct FileData;
+}  // namespace kml
 
 class UserMarkIdStorage
 {

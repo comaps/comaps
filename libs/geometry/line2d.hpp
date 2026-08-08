@@ -3,8 +3,6 @@
 #include "geometry/point2d.hpp"
 #include "geometry/segment2d.hpp"
 
-#include "base/assert.hpp"
-
 #include <string>
 
 namespace m2

@@ -1,8 +1,10 @@
 #include "qt/place_page_dialog_developer.hpp"
 #include "qt/place_page_dialog_common.hpp"
+#include "qt/star_rating_widget.hpp"
 
 #include "qt/qt_common/text_dialog.hpp"
 
+#include "indexer/reviews_display.hpp"
 #include "map/place_page_info.hpp"
 
 #include <QtWidgets/QDialogButtonBox>
@@ -50,6 +52,23 @@ PlacePageDialogDeveloper::PlacePageDialogDeveloper(QWidget * parent, place_page:
   if (auto const & subTitle = info.GetSubtitle(); !subTitle.empty())
     addEntry("Subtitle", subTitle);
 
+  if (auto const & featureReviews = info.GetReviews(); featureReviews.has_value())
+  {
+    grid->addWidget(new QLabel(QString::fromStdString("Reviews")), row, 0);
+    auto const & [averageRating, reviews] = featureReviews.value();
+    auto * reviewLine = new QHBoxLayout();
+    reviewLine->setSpacing(5);
+    grid->addLayout(reviewLine, row++, 1);
+    auto const starRating = reviews::ToStarRating(averageRating);
+    reviewLine->addWidget(new qt::StarRatingWidget(starRating));
+    std::string const summary = "avg rating: " + strings::to_string(static_cast<uint16_t>(averageRating)) +
+                                "; stars: " + strings::to_string_dac(starRating, 1) +
+                                "; review count: " + strings::to_string(reviews.size());
+    auto * label = new QLabel(QString::fromStdString(summary));
+    reviewLine->addWidget(label);
+    reviewLine->addStretch(1);
+  }
+
   addEntry("Address", address.FormatAddress());
 
   if (info.IsBookmark())
@@ -89,6 +108,23 @@ PlacePageDialogDeveloper::PlacePageDialogDeveloper(QWidget * parent, place_page:
 
   QDialogButtonBox * dbb = new QDialogButtonBox();
   place_page_dialog::addCommonButtons(this, dbb, info.ShouldShowEditPlace());
+
+  if (auto const & reviews = info.GetReviews(); reviews.has_value())
+  {
+    auto * reviewsButton = new QPushButton("Reviews");
+    std::string content;
+    for (auto const & [rating, opinion, author, date] : reviews.value().reviews)
+    {
+      content += "<p>" + strings::to_string_dac(reviews::ToStarRating(rating), 1) + " " + strings::format_date(date) +
+                 " " + author + "<br>" + opinion + "</p>";
+    }
+    connect(reviewsButton, &QAbstractButton::clicked, this, [this, content, title]
+    {
+      auto textDialog = TextDialog(this, QString::fromStdString(content), QString::fromStdString("Reviews: " + title));
+      textDialog.exec();
+    });
+    dbb->addButton(reviewsButton, QDialogButtonBox::ActionRole);
+  }
 
   if (auto const & descr = info.GetWikiDescription(); !descr.empty())
   {

@@ -1,5 +1,7 @@
 #include "drape_frontend/animation/linear_animation.hpp"
 
+#include "geometry/screenbase.hpp"
+
 #include "base/assert.hpp"
 
 #include <algorithm>

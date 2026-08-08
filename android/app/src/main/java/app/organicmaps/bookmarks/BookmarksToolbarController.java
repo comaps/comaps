@@ -3,17 +3,27 @@ package app.organicmaps.bookmarks;
 import android.app.Activity;
 import android.view.View;
 import androidx.annotation.NonNull;
+import java.util.function.Consumer;
 import app.organicmaps.widget.SearchToolbarController;
 
 public class BookmarksToolbarController extends SearchToolbarController
 {
   @NonNull
-  private final BookmarksListFragment mFragment;
+  private final Runnable mOnDeactivate;
+  @NonNull
+  private final Consumer<String> mOnSearch;
+  @NonNull
+  private final Runnable mOnCancel;
 
-  BookmarksToolbarController(@NonNull View root, @NonNull Activity activity, @NonNull BookmarksListFragment fragment)
+  BookmarksToolbarController(@NonNull View root, @NonNull Activity activity,
+                              @NonNull Runnable onDeactivate,
+                              @NonNull Consumer<String> onSearch,
+                              @NonNull Runnable onCancel)
   {
     super(root, activity);
-    mFragment = fragment;
+    mOnDeactivate = onDeactivate;
+    mOnSearch = onSearch;
+    mOnCancel = onCancel;
   }
 
   @Override
@@ -26,16 +36,16 @@ public class BookmarksToolbarController extends SearchToolbarController
   protected void onClearClick()
   {
     super.onClearClick();
-    mFragment.deactivateSearch();
+    mOnDeactivate.run();
   }
 
   @Override
   protected void onTextChanged(String query)
   {
     if (hasQuery())
-      mFragment.runSearch(getQuery());
+      mOnSearch.accept(getQuery());
     else
-      mFragment.cancelSearch();
+      mOnCancel.run();
   }
 
   @Override

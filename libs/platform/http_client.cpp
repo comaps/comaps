@@ -2,8 +2,6 @@
 
 #include "coding/base64.hpp"
 
-#include "base/string_utils.hpp"
-
 #include <sstream>
 
 namespace platform

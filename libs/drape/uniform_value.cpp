@@ -1,6 +1,8 @@
 #include "drape/uniform_value.hpp"
 #include "drape/gl_functions.hpp"
 
+#include "base/assert.hpp"
+
 namespace dp
 {
 namespace

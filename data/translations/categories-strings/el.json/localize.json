@@ -1,0 +1,1424 @@
+{
+    "@category_eat": {
+        "defaultMessage": "Μέρη για φαγητό|Φαγητό"
+    },
+    "@category_food": {
+        "defaultMessage": "Παντοπωλεία|Φαγητό"
+    },
+    "@category_transport": {
+        "defaultMessage": "Συγκοινωνία"
+    },
+    "@category_fuel": {
+        "defaultMessage": "Βενζινάδικο|Υγρά Καύσιμα|Βενζίνη|Πετρέλαιο|Ντίζελ"
+    },
+    "@category_parking": {
+        "defaultMessage": "Χώρος στάθμευσης"
+    },
+    "@category_shopping": {
+        "defaultMessage": "Ψώνια"
+    },
+    "@category_hotel": {
+        "defaultMessage": "4Ξενοδοχείο|Διαμονή|Ξενοδοχεία"
+    },
+    "@category_tourism": {
+        "defaultMessage": "4Αξιοθέατα"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "Ψυχαγωγία"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "Νυχτερινή Ζωή"
+    },
+    "@category_children": {
+        "defaultMessage": "Οικογενειακές Διακοπές"
+    },
+    "@category_atm": {
+        "defaultMessage": "ATM"
+    },
+    "@category_rv": {
+        "defaultMessage": "Για RV"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "χρήματα"
+    },
+    "@category_bank": {
+        "defaultMessage": "Τράπεζα"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "Μεταχειρισμένα"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "χρήματα"
+    },
+    "@category_recycling": {
+        "defaultMessage": "Ανακύκλωση|Ανακύκλωση απορριμμάτων|Ανακυκλώσιμα|Ξεχωριστή συλλογή απορριμμάτων|Διαλογή απορριμμάτων|Επαναχρησιμοποίηση"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "Συνάλλαγμα|ανταλλακτήριο|χρήματα"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "Μπαρ|Παμπ|μπύρα|ποτό|φαγητό"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "Καφετέρια|φαγητό"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "Ταχυφαγίο|καφετέρια|φαγητό για το σπίτι"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "Εστιατόριο|καφετέρια"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "Βενζινάδικο|καύσιμο|βενζίνη|πρατήριο"
+    },
+    "@shop": {
+        "defaultMessage": "Κατάστημα"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "Αρτοποιείο|Φούρνος|κατάστημα|Ζύμη"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "Καλλυντικά"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "Ψιλικατζίδικο|κατάστημα"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "Εκλεκτά τρόφιμα"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "Κατάστημα ειδών κήπου|κατάστημα"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "Βοηθήματα ακοής"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "Κινητή Τηλεφωνία|Κινητά|κατάστημα ηλεκτρονικών|κατάστημα"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "Ανθοπωλείο|κατάστημα"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "Κρεοπωλείο|κατάστημα"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "Κατάστημα επίπλων|κατάστημα"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "Κατάστημα κουζίνας"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "Κάβα|ποτά|κατάστημα"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "Βιβλιοπωλείο|κατάστημα"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "Υποδηματοπωλείο|κατάστημα"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "Ηλεκτρονικά|κατάστημα"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "Είδη κιγκαλερίας|DIY|Κάν'το μόνος σου|κατάστημα"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "Οικιακά αγαθά"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "Κοσμηματοπωλείο|κατάστημα"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "Κατάστημα οπτικών"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "Είδη δώρου|κατάστημα"
+    },
+    "shop-beauty": {
+        "defaultMessage": "Σαλόνι αισθητικής"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "Μανάβικο|οπωροπωλείο|παντοπωλείο|κατάστημα"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "Αθλητικά είδη|κατάστημα"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "Σούπερ μάρκετ|κατάστημα"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "Εμπορικό κέντρο|μαγαζί"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "Πολυκατάστημα|κατάστημα"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "Οινοπνευματώδη|ποτά|κατάστημα"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "Κατάστημα πληροφορικής"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "Γλυκά|ζαχαροπλαστική|ζαχαροπλαστείο|κατάστημα|Ζαχαροπλάστης"
+    },
+    "shop-laundry": {
+        "defaultMessage": "Άπλυτα|κατάστημα με πλυντήρια ρούχων"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "Κατάστημα παιχνιδιών|κατάστημα"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "Αγορά|αγορά|κατάστημα"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "Μεταφορά χρημάτων"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "Κατάστημα ρούχων|ρούχα|κατάστημα"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "Αντιπροσωπεία αυτοκινήτων|κατάστημα"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "Κατάστημα ποδηλάτων|ποδηλασία|ποδήλατο|κατάστημα"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "Περίπτερο|κατάστημα"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "Στάση λεωφορείου|λεωφορείο|στάση|μεταφορές"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "Στάση τραμ|τραμ|στάση|μεταφορές"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "Σταθμός λεωφορείων|λεωφορείο|σταθμός|μεταφορές"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "Σιδηροδρομικός σταθμός|σιδηρόδρομος|σιδηροδρομικό|τρένο|σταθμός|μεταφορές"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "Μονωτικό τρενάκι"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "Μετρό|υπόγειος|ηλεκτρικός|σιδηρόδρομος|μεταφορές|συγκοινωνίες"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "Πορθμείο|τερματικό|μεταφορές"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "Ταξί|πιάτσα|μεταφορές"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "Δημαρχείο|τουρισμός|αξιοθέατα"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "Αξιοθέατα|τουρισμός|περιηγήσεις"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "Έργα τέχνης|τουρισμός|αξιοθέατα"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "Θέα|ξάγναντο|τουρισμός|αξιοθέατα"
+    },
+    "tourism-information": {
+        "defaultMessage": "Τουριστικές πληροφορίες|πληροφορίες|αξιοθέατα"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "Χώρος εκδρομής|Ψησταριά μπάρμπεκιου"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "Χώρος λατρείας|ναός|αξιοθέατα"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "Εκκλησία|τόπος λατρείας|ναός|αξιοθέατα"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "Τζαμί|τεκκέ|τόπος λατρείας|ναός|αξιοθέατα"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "Ναός|τόπος λατρείας|αξιοθέατα"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "Ναός|τόπος λατρείας|αξιοθέατα"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "Ιερό|τόπος λατρείας|ναός|αξιοθέατα"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "Συναγωγή|τόπος λατρείας|ναός|αξιοθέατα"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "Ναός|τόπος λατρείας|αξιοθέατα"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "Μουσείο|θέαμα|τουρισμός|αξιοθέατα"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "Καταρράκτης|αξιοθέατα"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "Αρχαιολογικός χώρος|θέαμα|τουρισμός|αξιοθέατα"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "Πεδίο μάχης"
+    },
+    "historic-stone": {
+        "defaultMessage": "Ιστορική Πέτρα"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "Οριακή πέτρα"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "Κάστρο|θέαμα|τουρισμός|αξιοθέατα|Ρωμαϊκό κάστρο|Οχυρωμένη εκκλησία|Φρούριο|Κρεμλίνο|Αρχοντικό|Παλάτι"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "Πύλη της πόλης"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "Τείχος της πόλης"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "Φορτ"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "Αγχόνη"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "Μνημείο|θέαμα|τουρισμός|αξιοθέατα"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "Σταυρός μνήμης"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "Μνημείο"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "Μνημείο"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "Μνημείο"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "Λίθοι Μνήμης"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "Μνημείο του Αγνώστου Στρατιώτη"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "Μνημείο|θέαμα|τουρισμός|αξιοθέατα"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "Κύφωνας"
+    },
+    "historic-cannon": {
+        "defaultMessage": "Κανόνι"
+    },
+    "historic-anchor": {
+        "defaultMessage": "Ιστορική Άγκυρα"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "Ερείπια|χαλάσματα|θέαμα|τουρισμός|αξιοθέατα"
+    },
+    "historic-mine": {
+        "defaultMessage": "Ιστορικό Ορυχείο"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "Αξιοθέατο"
+    },
+    "historic-wreck": {
+        "defaultMessage": "Ναυάγιο"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "Ιστορική Ατμομηχανή"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "Ιστορική δεξαμενή"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "Ιστορικό αεροσκάφος"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "Αξιοθέατο"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "Σταυρός στην άκρη του δρόμου"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "Εικονοστάσιο στην άκρη του δρόμου"
+    },
+    "leisure-garden": {
+        "defaultMessage": "Κήπος αναψυχής|αξιοθέατα"
+    },
+    "amenity-bench": {
+        "defaultMessage": "Παγκάκι"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "Ενοικιάσεις ποδηλάτων|δίκυκλο|ποδήλατο|ενοικιάσεις"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "Παραχώρηση αυτοκινήτου"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "Ενοικίαση αυτοκινήτου|αυτοκίνητο|ενοικιάσεις|κοινή χρήση"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "Ενοικίαση μοτοσικλέτας"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "Κινηματογράφος"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "Αίθουσα σφαιρίσεως"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "Θέατρο|θέατρο"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "Νυχτερινό κέντρο διασκέδασης|ντίσκο|μπουζούκια|χορός"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "Πορνείο|οίκος ανοχής"
+    },
+    "@gambling": {
+        "defaultMessage": "Τυχερά παιχνίδια"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "Καζίνο"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "Κέντρο παιχνιδιών ενηλίκων"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "Στοά"
+    },
+    "amenity-college": {
+        "defaultMessage": "Κολέγιο"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "Σταθμός πυρόσβεσης"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "Συντριβάνι"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "Νεκροταφείο|κοιμητήριο"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "Γραφεία τελετών"
+    },
+    "@category_hospital": {
+        "defaultMessage": "Νοσοκομείο"
+    },
+    "amenity-hospital|@category_hospital": {
+        "defaultMessage": "κλινική|γιατρός"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "Κλινική|νοσοκομείο|γιατρός"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "Γιατροί|ιατροί|κλινική|νοσοκομείο"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "Οδοντίατρος"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "Ιατρικό Εργαστήριο"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "Φυσικοθεραπευτής"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "Εναλλακτική ιατρική"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "Ακοολογία|Ακουολόγος"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "Αιμοδοσία"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "Οπτομετρία|Οπτομέτρης"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "Ποδιατρική|Ποδίατρος"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "Ψυχοθεραπεία|Ψυχοθεραπευτής"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "Λογοθεραπεία|Λογοθεραπευτής"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "Βάση σκόπευσης|καρτέρι"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "Νηπιαγωγείο"
+    },
+    "amenity-library": {
+        "defaultMessage": "Βιβλιοθήκη"
+    },
+    "amenity-parking|amenity-parking_entrance|@category_parking": {
+        "defaultMessage": "Στάθμευση"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "Φαρμακείο"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "φαρμακείο|φαρμακοποιός|χορήγηση φαρμάκων"
+    },
+    "@category_post": {
+        "defaultMessage": "Ταχυδρομείο"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "Ταχυδρομική θυρίδα|ταχυδρομείο"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "Έλεγχος οχήματος"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "Διαχείριση απορριμμάτων|σκουπίδια"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "Κέντρο ανακύκλωσης"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "Κάδος ανακύκλωσης"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "Μπαταρίες"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "Παλιά ρούχα|Ανακύκλωση παλαιών ρούχων"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "Γυάλινα μπουκάλια"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "Απορρίμματα χαρτιού"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "Πλαστικά απορρίμματα"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "Πλαστικά μπουκάλια"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "Παλιοσίδερα"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "Ηλεκτρονικά απορρίμματα"
+    },
+    "amenity-school": {
+        "defaultMessage": "Σχολείο"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "Καταφύγιο"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "καταφύγιο bivouac"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "Καταφύγιο"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "Stripclub"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "Τηλέφωνο"
+    },
+    "@category_toilet": {
+        "defaultMessage": "Τουαλέτα"
+    },
+    "amenity-toilets|toilets-yes|@category_toilet": {
+        "defaultMessage": "μπάνιο|χώρος ανάγκης|αποχωρητήριο|wc"
+    },
+    "amenity-university": {
+        "defaultMessage": "Πανεπιστήμιο"
+    },
+    "place-continent": {
+        "defaultMessage": "Ήπειρος"
+    },
+    "place-country": {
+        "defaultMessage": "Χώρα"
+    },
+    "place-city": {
+        "defaultMessage": "Πόλη|κωμόπολη"
+    },
+    "place-town": {
+        "defaultMessage": "Κωμόπολη|πόλη"
+    },
+    "place-city-capital": {
+        "defaultMessage": "Πρωτεύουσα|πόλη"
+    },
+    "place-county": {
+        "defaultMessage": "Δήμος"
+    },
+    "place-state": {
+        "defaultMessage": "Πολιτεία|επαρχία"
+    },
+    "place-region": {
+        "defaultMessage": "Περιοχή"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "Νησί|νησίδα"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "Προάστιο|συνοικία|Γειτονιά"
+    },
+    "place-hamlet": {
+        "defaultMessage": "Χωριουδάκι|χωριό"
+    },
+    "place-village": {
+        "defaultMessage": "Χωριό|χωριουδάκι"
+    },
+    "place-locality": {
+        "defaultMessage": "Τοποθεσία"
+    },
+    "place-farm": {
+        "defaultMessage": "Αγρόκτημα"
+    },
+    "highway-raceway": {
+        "defaultMessage": "Πίστα αγώνων"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "Διαδρομή"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "δρόμος"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "Έξοδος|διασταύρωση"
+    },
+    "@mountain": {
+        "defaultMessage": "Κορυφή|βουνό"
+    },
+    "natural-strait": {
+        "defaultMessage": "Πορθμός"
+    },
+    "landuse-forest": {
+        "defaultMessage": "Δάσος"
+    },
+    "leisure-park": {
+        "defaultMessage": "Πάρκο"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "Ενυδρείο"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "Πανδοχείο|ξενοδοχείο|μοτέλ"
+    },
+    "tourism-hotel|@category_hotel": {
+        "defaultMessage": "μοτέλ"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "Ξενώνας|ξενοδοχείο|ξενώνας"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "Μοτέλ|ξενοδοχείο|ξενώνας"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "Ορεινό καταφύγιο|ξενοδοχείο|ξενώνας|αλπική καλύβα"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "Κομμωτής"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "3Αεροδρόμιο|αεροπλάνο"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "Γήπεδο|στάδιο|αθλητισμός|σπορ"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "Παιδική χαρά"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "Αθλητικό κέντρο|Αθλητισμός"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "Γήπεδο γκολφ|Αθλητισμός"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "Δωμάτιο απόδρασης"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "Γήπεδο αθλοπαιδιών|Αθλητισμός"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "Πισίνα|Αθλητισμός"
+    },
+    "sport-american_football": {
+        "defaultMessage": "αμερικάνικο ποδόσφαιρο"
+    },
+    "sport-archery": {
+        "defaultMessage": "Τοξοβολία"
+    },
+    "sport-athletics": {
+        "defaultMessage": "Στίβος"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "Αυστραλιανό ποδόσφαιρο"
+    },
+    "sport-baseball": {
+        "defaultMessage": "Μπέιζμπολ"
+    },
+    "sport-basketball": {
+        "defaultMessage": "Καλαθόσφαιρα|Μπάσκετ"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "Μπιτς βόλεϊ"
+    },
+    "sport-chess": {
+        "defaultMessage": "Σκάκι"
+    },
+    "sport-curling": {
+        "defaultMessage": "Κέρλινγκ"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "Ιππασία"
+    },
+    "sport-golf": {
+        "defaultMessage": "Γκολφ"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "Γυμναστική"
+    },
+    "sport-handball": {
+        "defaultMessage": "Τόπι"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "Κατάδυση"
+    },
+    "sport-shooting": {
+        "defaultMessage": "Σκοπευτήριο|βεληνεκές"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "Σκέιτμπορντινγκ"
+    },
+    "sport-skiing": {
+        "defaultMessage": "Χιονοδρόμια"
+    },
+    "sport-soccer": {
+        "defaultMessage": "Ποδόσφαιρο"
+    },
+    "sport-swimming": {
+        "defaultMessage": "Κολυμβητήριο|πισίνα"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "Επιτραπέζια αντισφαίριση"
+    },
+    "sport-tennis": {
+        "defaultMessage": "Τένις"
+    },
+    "sport-padel": {
+        "defaultMessage": "Πάντελ"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "Πετοσφαίριση"
+    },
+    "building": {
+        "defaultMessage": "Κτίριο"
+    },
+    "building-address": {
+        "defaultMessage": "Διεύθυνση"
+    },
+    "@category_police": {
+        "defaultMessage": "Αστυνομία"
+    },
+    "amenity-police|@category_police": {
+        "defaultMessage": "Αστυνομία"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "Πρεσβεία"
+    },
+    "natural-bay": {
+        "defaultMessage": "Κόλπος"
+    },
+    "@category_water": {
+        "defaultMessage": "3Νερό"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "4Πόσιμο νερό"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "Θερμή πηγή|Ιαματική πηγή"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "Πηγή νερού"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "Πηγάδι νερού"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "Παροχή νερού"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "Βρύση νερού"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "Μια λεκάνη νερού"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "Δεξαμενή"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "Λίμνη"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "Δεξαμενή"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "Ποταμός|ρυάκι"
+    },
+    "waterway-canal": {
+        "defaultMessage": "Κανάλι"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "Συνεργείο αυτοκινήτων|φανοποιείο|γκαράζ"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "Κάμπινγκ|χώρος κάμπινγκ|χώρος κατασκήνωσης"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "Χώρος για τροχόσπιτα|Χώρος για οχήματα RV"
+    },
+    "office": {
+        "defaultMessage": "Γραφείο|εταιρεία"
+    },
+    "office-company": {
+        "defaultMessage": "Γραφείο επιχείρησης"
+    },
+    "office-government": {
+        "defaultMessage": "Κυβερνητικό γραφείο"
+    },
+    "office-lawyer": {
+        "defaultMessage": "Δικηγόρος|υπεράσπιση|πληρεξούσιος|συνήγορος|σύνεδρος|σύμβουλος|νομικός"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "Εταιρεία κινητής τηλεφωνίας"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "Μελισσοκόμος"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "Σιδηρουργός"
+    },
+    "craft-brewery": {
+        "defaultMessage": "Ζυθοποιείο"
+    },
+    "craft-caterer": {
+        "defaultMessage": "Τροφοδότης"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "Ξυλουργός"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "Ζαχαροπλάστης"
+    },
+    "craft-electrician": {
+        "defaultMessage": "Ηλεκτρολόγος"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "Επισκευή ηλεκτρονικών"
+    },
+    "craft-gardener": {
+        "defaultMessage": "Κηπουρός"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "Μύλος"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "Χειροτεχνία"
+    },
+    "craft-hvac": {
+        "defaultMessage": "Ψυκτικός"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "5Μεταλλουργός"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "Κοπή κλειδιού"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "Κλειδαράς"
+    },
+    "craft-painter": {
+        "defaultMessage": "Μπογιατζής"
+    },
+    "craft-photographer": {
+        "defaultMessage": "Φωτογράφος|Στούντιο φωτογραφίας"
+    },
+    "craft-plumber": {
+        "defaultMessage": "Υδραυλικός"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "Πριστήριο"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "Υποδηματοποιός|τσαγκάρης"
+    },
+    "craft-winery": {
+        "defaultMessage": "Οινοποιείο"
+    },
+    "craft-tailor": {
+        "defaultMessage": "Ράφτης|ράπτης"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "Πλατεία"
+    },
+    "place-sea": {
+        "defaultMessage": "Θάλασσα"
+    },
+    "place-ocean": {
+        "defaultMessage": "Ωκεανός"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "Ίντερνετ|διαδίκτυο"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "Παραλία|ακρογιαλιά|Αμμουδιά"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "Φάρος"
+    },
+    "man_made-survey_point": {
+        "defaultMessage": "4Γεωδαιτικό σημείο"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "Πύργος Επικοινωνιών"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "Πετρελαιοπηγή"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "οικολογικό|βιολογικό|υγιεινό|φυσικό"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "Φωτοτυπείο|Εκτυπωτής"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "Φωτογραφείο|πλαίσια|κατάστημα"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "Κατάστημα φωτογραφικών μηχανών"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "Ταξιδιωτικό γραφείο|Τουριστικός πράκτορας|Περιηγήσεις"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "Εξοπλισμός υπαίθρου|πεζοπορία|αναρρίχηση|κάμπινγκ|κατάστημα"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "Στεγνό καθάρισμα|καθαρισμός"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "Βουλκανιζατέρ|κατάστημα ελαστικών"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "Καθαρισμός αυτοκινήτων"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "Κτηνίατρος"
+    },
+    "@charging_station": {
+        "defaultMessage": "Σταθμός φόρτισης|φόρτιση"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "Φόρτιση ποδηλάτων"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "Βρεφικός σταθμός|Φροντίδα παιδιών"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "Χώρος στάθμευσης ποδηλάτων"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "Κάδος απορριμμάτων|Δοχείο απορριμάτων|Καλάθι αποβλήτων"
+    },
+    "emergency-phone": {
+        "defaultMessage": "Τηλέφωνο έκτακτης ανάγκης"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "Κέντρο γυμναστικής|Γυμναστήριο"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "Σάουνα"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "Βουλκανιζατέρ|επισκευή ελαστικών|ελαστικά|λάστιχα"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "Χημικά προϊόντα|φαρμακείο"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "Κατάστημα για κατοικίδια"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "Ζωολογικός κήπος"
+    },
+    "attraction-animal": {
+        "defaultMessage": "Περίφραξη ζώων"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Ενημέρωση τουριστών|πληροφορίες"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Κέντρο Επισκεπτών"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "Κέντρο κοινότητας"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "Πεπιεσμένος αέρας"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "Δικαστικό μέγαρο"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "Αυτόματος πωλητής τσιγάρων"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "Αυτόματος πωλητής ποτών"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "Εισιτήρια στάθμευσης"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "Μηχάνημα αυτόματης πώλησης εισιτηρίων για τα μέσα μαζικής μεταφοράς"
+    },
+    "shop-outpost": {
+        "defaultMessage": "Σημείο παραλαβής"
+    },
+    "building-garage": {
+        "defaultMessage": "Γκαράζ"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "Χώρος ανάπαυσης αυτοκινητιστών|Περιοχή εξυπηρέτησης"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "Καμινάδα εργοστασίου"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "Πύργος"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "Πράκτορας στοιχημάτων|Προποτζίδικο"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "Κατάστημα με θαλασσινά"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Κατάστημα μεταχειρισμένων"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "Φιλανθρωπικό κατάστημα"
+    },
+    "shop-ticket": {
+        "defaultMessage": "Κατάστημα πώλησης εισιτηρίων|Γκισέ"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "Οινοπωλείο"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "Εξαρτήματα αυτοκινήτου|ανταλλακτικά"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "Εξοχικό σπίτι διακοπών"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "Πίνακας πληροφοριών"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "Τουριστικός χάρτης"
+    },
+    "aerialway-station": {
+        "defaultMessage": "Σταθμός αερομεταφοράς|Σταθμός τελεφερίκ"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "Ελικοδρόμιο"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "Έλεγχος συνόρων"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "Υδάτινο πάρκο"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "Υδατόπυργος"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "Ανεμόμυλος"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "Σπήλαιο"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "Ηφαίστειο"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "Κτηματομεσίτης|Μεσίτης"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "Φράγμα"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "Ανταλλαγή βιβλίων|Βιβλιοθήκη|Εναλλαγή βιβλίων"
+    },
+    "sport-climbing": {
+        "defaultMessage": "Κέντρο αναρρίχησης"
+    },
+    "sport-yoga": {
+        "defaultMessage": "Στούντιο γιόγκα"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "Διαμερίσματα|Διαμέρισμα διακοπών"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "Θέρετρο"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "Μπυραρία"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "Σχολή οδήγησης"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "Μουσική Σχολή"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "Σχολή Γλωσσών"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "Παγωτατζίδικο"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "Καφετέρια με Ίντερνετ"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "Χώρος στάθμευσης μοτοσικλετών"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "Χώρος στάθμευσης για ΑΜΕΑ"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "Γηροκομείο"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "Τερματικό πληρωμών"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "Δημόσιο Λουτρό"
+    },
+    "amenity-shower": {
+        "defaultMessage": "Ντους"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "Σημείο συναρμολόγησης έκτακτης ανάγκης"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "Πρώτες βοήθειες|απινιδωτής"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "Πυροσβεστικός κρουνός"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "Επείγον ναυαγοσώστης|Ναυαγοσώστης"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "Επείγουσα ορεινή διάσωση"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "Γυμναστήριο"
+    },
+    "office-insurance": {
+        "defaultMessage": "Ασφαλιστικό γραφείο"
+    },
+    "office-ngo": {
+        "defaultMessage": "Γραφείο ΜΚΟ"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "Κατάστημα ερωτικών ειδών"
+    },
+    "shop-massage": {
+        "defaultMessage": "Αίθουσα μασάζ"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "Κατάστημα μοτοσυκλετών"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "Επισκευή μοτοσυκλετών"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "Εφημεριδοπώλης|πρακτορείο εφημερίδων"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "Ενεχυροδανειστήριο"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "Κατάστημα γραφικής ύλης|χαρτικά"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "4Τατουάζ|δερματοστιξία"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "Παντοπωλείο|Μπακάλικο|Ψιλικατζίδικο"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "Βίντεο Κλαμπ"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "Κατάστημα βιντεοπαιχνιδιών"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "Καλύβα|αγροικία"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "Εθνικό πάρκο"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "Φυσικό απόθεμα"
+    },
+    "natural-cape": {
+        "defaultMessage": "Ακρωτήρι"
+    },
+    "natural-geyser": {
+        "defaultMessage": "Θερμοπίδακας"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "Παγετώνας"
+    },
+    "highway-ford": {
+        "defaultMessage": "Πέρασμα"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "Σκι|Πίστα σκι"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "Κέντρο εκδηλώσεων"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Αντίκες"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "Κατάστημα Τεχνών"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "Παιδικό κατάστημα"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "Κατάστημα τσαντών"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "Τυροκομείο"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "Γαλακτοκομικά προϊόντα"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "Μαγαζί ηλεκτρικών ειδών"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "Κατάστημα ψαρέματος"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "Διακοσμήσεις εσωτερικών χώρων"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "Λαχεία"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "Ιατρικά Είδη"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "Συμπληρώματα Διατροφής"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "Βαφές"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "Αρωματοποιία"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "Είδη Ραπτικής"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "Ενοικίαση αποθηκευτικού χώρου"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "Καπνός"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "Εμπόριο Προμήθειες"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "Ρολόγια"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "Κατάστημα χονδρικής"
+    },
+    "power-plant": {
+        "defaultMessage": "Εργοστάσιο ηλεκτρισμού"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "Δημοπρασία"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Συλλέκτης|Συλλεκτικά αντικείμενα"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "Αναπηρικό αμαξίδιο|Εξοπλισμένο για άτομα με ειδικές ανάγκες"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "Κοινωνική διευκόλυνση"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "Αθλητική αίθουσα"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "Κέντρο καλών τεχνών"
+    },
+    "amenity-prison": {
+        "defaultMessage": "φυλακή"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "Εκθεσιακό Κέντρο"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "Έπιπλα μπάνιου"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "Κατάστημα κρεβατιών"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "Μπουτίκ"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "Κουρτίνες"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "Κατάστημα υγραερίου"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "Περιποίηση κατοικίδιων ζώων"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "Ήχος HiFi"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "Συνεδριακό Κέντρο"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "Κατάστημα με βότανα"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "Κατάστημα οικιακών συσκευών"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "Αγροτικό κατάστημα"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "Αξεσουάρ μόδας"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "Χαλιά"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "Ζυμαρικά"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "Θυρίδα αποσκευών"
+    },
+    "@fastfood": {
+        "defaultMessage": "Ταχυφαγίο"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "Κουλούρι|Μπάγκελ"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "Πρωινό"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "Μπιφτέκι|Χάμπουργκερ"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "Κέικ|αρτοποιείο"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "Καφές|καφενείο"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "Κάρι"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "Μικροεστιατόριο"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "Ντόνατ"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "Ψάρια και πατάτες"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "Τηγανητά"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "Ψησταριά"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "Χοτ Ντογκ"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "Παγωτό"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "Κεμπάπ"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "Μακαρόνια|Ζυμαρικά"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "Τηγανίτα|Κρέπα"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "Ζυμαρικά|Πάστα"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "Πίτσα"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "Ράμεν"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "Σάντουιτς"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "Λουκάνικο"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "Θαλασσινά|Ψάρια"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "Σόμπα (λεπτά μακαρόνια)"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "Μπριζολάδικο"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "Σούσι"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "Τάπας"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "Τσάι"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "Χορτοφαγική"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "Για χορτοφάγους"
+    }
+}

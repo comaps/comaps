@@ -2,9 +2,7 @@
 
 #include "coding/read_write_utils.hpp"
 #include "coding/reader.hpp"
-#include "coding/writer.hpp"
 
-#include "base/assert.hpp"
 #include "base/control_flow.hpp"
 #include "base/ref_counted.hpp"
 
@@ -14,6 +12,8 @@
 #include <string>
 #include <utility>
 #include <vector>
+
+class Writer;
 
 namespace coding
 {

@@ -5,6 +5,8 @@
 
 #include "generator/feature_builder.hpp"
 
+#include "search/ranking_info.hpp"
+#include "search/ranking_utils.hpp"
 #include "search/search_tests_support/helpers.hpp"
 #include "search/search_tests_support/test_results_matching.hpp"
 #include "search/search_tests_support/test_search_request.hpp"
@@ -21,6 +23,8 @@
 #include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
+
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/checked_cast.hpp"
 #include "base/scope_guard.hpp"

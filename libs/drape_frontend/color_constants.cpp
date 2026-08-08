@@ -4,11 +4,14 @@
 #include "platform/platform.hpp"
 
 #include "indexer/drawing_rules.hpp"
+#include "indexer/map_style.hpp"
 #include "indexer/map_style_reader.hpp"
 
 #include "coding/reader.hpp"
 
 #include "base/assert.hpp"
+#include "base/exception.hpp"
+#include "base/logging.hpp"
 #include "base/string_utils.hpp"
 
 #include "cppjansson/cppjansson.hpp"

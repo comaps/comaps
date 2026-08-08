@@ -1,23 +1,33 @@
 #include "drape_frontend/gui/layer_render.hpp"
+
 #include "drape_frontend/gui/choose_position_mark.hpp"
 #include "drape_frontend/gui/compass.hpp"
 #include "drape_frontend/gui/copyright_label.hpp"
-#include "drape_frontend/gui/debug_label.hpp"
 #include "drape_frontend/gui/drape_gui.hpp"
 #include "drape_frontend/gui/gui_text.hpp"
 #include "drape_frontend/gui/ruler.hpp"
 #include "drape_frontend/gui/ruler_helper.hpp"
+#include "drape_frontend/gui/scale_fps_helper.hpp"
+#include "drape_frontend/gui/shape.hpp"
 
-#include "drape_frontend/visual_params.hpp"
-
-#include "drape/batcher.hpp"
+#include "drape/drape_global.hpp"
 #include "drape/graphics_context.hpp"
-#include "drape/render_bucket.hpp"
+#include "drape/overlay_handle.hpp"
+#include "drape/texture_manager.hpp"
 
-#include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"
 
-#include "base/stl_helpers.hpp"
+#include "base/assert.hpp"
+
+#ifdef RENDER_DEBUG_INFO_LABELS
+#include "drape_frontend/gui/debug_label.hpp"
+#include "drape_frontend/visual_params.hpp"
+
+#include "geometry/mercator.hpp"
+#include "geometry/screenbase.hpp"
+
+#include "base/math.hpp"
+#endif
 
 #include <functional>
 #include <ios>
@@ -248,7 +258,7 @@ drape_ptr<LayerRenderer> LayerCacher::RecacheDebugLabels(ref_ptr<dp::GraphicsCon
   DebugInfoLabels debugLabels = DebugInfoLabels(Position(m2::PointF(10.0f * vs, 50.0f * vs), dp::Center));
 
   debugLabels.AddLabel(textures,
-                       "visible: km2, readed: km2, ratio:", [](ScreenBase const & screen, string & content) -> bool
+                       "visible: km2, readed: km2, ratio:", [](ScreenBase const & screen, std::string & content) -> bool
   {
     double const sizeX = screen.PixelRectIn3d().SizeX();
     double const sizeY = screen.PixelRectIn3d().SizeY();
@@ -279,7 +289,7 @@ drape_ptr<LayerRenderer> LayerCacher::RecacheDebugLabels(ref_ptr<dp::GraphicsCon
   });
 
   debugLabels.AddLabel(textures, "scale2d: m/px, scale2d * vs: m/px",
-                       [](ScreenBase const & screen, string & content) -> bool
+                       [](ScreenBase const & screen, std::string & content) -> bool
   {
     double const distanceG = mercator::DistanceOnEarth(screen.PtoG(screen.PixelRect().LeftBottom()),
                                                        screen.PtoG(screen.PixelRect().RightBottom()));
@@ -294,7 +304,7 @@ drape_ptr<LayerRenderer> LayerCacher::RecacheDebugLabels(ref_ptr<dp::GraphicsCon
     return true;
   });
 
-  debugLabels.AddLabel(textures, "distance: m", [](ScreenBase const & screen, string & content) -> bool
+  debugLabels.AddLabel(textures, "distance: m", [](ScreenBase const & screen, std::string & content) -> bool
   {
     double const sizeX = screen.PixelRectIn3d().SizeX();
     double const sizeY = screen.PixelRectIn3d().SizeY();
@@ -308,7 +318,7 @@ drape_ptr<LayerRenderer> LayerCacher::RecacheDebugLabels(ref_ptr<dp::GraphicsCon
     return true;
   });
 
-  debugLabels.AddLabel(textures, "angle: ", [](ScreenBase const & screen, string & content) -> bool
+  debugLabels.AddLabel(textures, "angle: ", [](ScreenBase const & screen, std::string & content) -> bool
   {
     std::ostringstream out;
     out << std::fixed << std::setprecision(2) << "angle: " << screen.GetRotationAngle() * 180.0 / math::pi;

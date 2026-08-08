@@ -392,6 +392,12 @@ extension CarPlayService: CPSessionConfigurationDelegate {
 
 // MARK: - CPMapTemplateDelegate implementation
 extension CarPlayService: CPMapTemplateDelegate {
+  // Instrument cluster maneuver display
+  @available(iOS 17.4, *)
+  public func mapTemplateShouldProvideNavigationMetadata(_ mapTemplate: CPMapTemplate) -> Bool {
+    return true
+  }
+
   public func mapTemplateDidShowPanningInterface(_ mapTemplate: CPMapTemplate) {
     isUserPanMap = false
     MapTemplateBuilder.configurePanUI(mapTemplate: mapTemplate)
@@ -477,9 +483,12 @@ extension CarPlayService: CPMapTemplateDelegate {
   }
 
   func mapTemplate(_ mapTemplate: CPMapTemplate, displayStyleFor maneuver: CPManeuver) -> CPManeuverDisplayStyle {
-    if let type = maneuver.userInfo as? String,
-      type == CPConstants.Maneuvers.secondary {
-      return .trailingSymbol
+    if let type = maneuver.userInfo as? String {
+      switch type {
+      case CPConstants.Maneuvers.lanes: return .symbolOnly
+      case CPConstants.Maneuvers.secondary: return .trailingSymbol
+      default: break
+      }
     }
     return .leadingSymbol
   }
@@ -643,23 +652,23 @@ extension CarPlayService: LocationModeListener {
     // exit if we're navigating
     guard let info = rootMapTemplate.userInfo as? MapInfo,
               info.type == CPConstants.TemplateType.main else {
-        MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate, newMode: mode)
+        MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
         return
     }
     switch mode {
     case .follow, .followAndRotate:
       if !rootMapTemplate.isPanningInterfaceVisible {
         MapTemplateBuilder.setupDestinationButton(mapTemplate: rootMapTemplate)
-        MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate, newMode: mode)
+        MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
       }
     case .notFollow:
       if !rootMapTemplate.isPanningInterfaceVisible {
         MapTemplateBuilder.setupRecenterButton(mapTemplate: rootMapTemplate)
-        MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate, newMode: mode)
+        MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
       }
     case .pendingPosition, .notFollowNoPosition:
       rootMapTemplate.leadingNavigationBarButtons = []
-      MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate, newMode: mode)
+      MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
     }
   }
 }

@@ -92,5 +92,59 @@
 			<string>%lld tuba</string>
 		</dict>
 	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>0 puuetega inimestele mõeldud parkimiskohta</string>
+			<key>one</key>
+			<string>%lld puuetega inimestele mõeldud parkimiskoht</string>
+			<key>other</key>
+			<string>%lld puuetega inimestele mõeldud parkimiskohta</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>0 laadijaga parkimiskohta</string>
+			<key>one</key>
+			<string>%lld laadijaga parkimiskoht</string>
+			<key>other</key>
+			<string>%lld laadijaga parkimiskohta</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>0 parkimiskohta</string>
+			<key>one</key>
+			<string>%lld parkimiskoht</string>
+			<key>other</key>
+			<string>%lld parkimiskohta</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+	</dict>
 </dict>
 </plist>

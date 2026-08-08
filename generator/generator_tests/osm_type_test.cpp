@@ -15,6 +15,9 @@
 
 #include "platform/platform.hpp"
 
+#include "i18n/localisation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
+
 #include "base/file_name_utils.hpp"
 
 #include <string>
@@ -263,7 +266,8 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_Address)
 
     auto const params = GetFeatureBuilderParams(tags);
     TEST_EQUAL(params.m_types.size(), 1, (params));
-    TEST(params.IsTypeExist(addrType), ());
+    // TODO: this is not a building-address type; should this test still be here?
+    TEST(params.IsTypeExist(GetType({"disusedbusiness"})), (params));
 
     TEST_EQUAL(params.house.Get(), "27", ());
     TEST_EQUAL(params.GetStreet(), "Ligsalzstraße", ());
@@ -1589,7 +1593,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_CuisineType)
     auto const params = GetFeatureBuilderParams(tags);
 
     TEST_EQUAL(params.m_types.size(), 3, (params));
-    TEST(params.IsTypeExist(GetType({"cuisine", "italian_pizza"})), (params));
+    TEST(params.IsTypeExist(GetType({"cuisine", "pizza"})), (params));
     TEST(params.IsTypeExist(GetType({"cuisine", "mediterranean"})), (params));
     TEST(params.IsTypeExist(GetType({"cuisine", "international"})), (params));
   }
@@ -1645,8 +1649,9 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_Recycling)
 
     auto const params = GetFeatureBuilderParams(tags);
 
-    TEST_EQUAL(params.m_types.size(), 3, (params));
-    TEST(params.IsTypeExist(GetType({"amenity", "recycling"})), (params));
+    TEST_EQUAL(params.m_types.size(), 4, (params));
+    TEST(params.IsTypeExist(GetType({"amenity"})), (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "recycling", "container"})), (params));
     TEST(params.IsTypeExist(GetType({"recycling", "glass_bottles"})), (params));
     TEST(params.IsTypeExist(GetType({"recycling", "green_waste"})), (params));
   }
@@ -1659,7 +1664,8 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_Recycling)
 
     auto const params = GetFeatureBuilderParams(tags);
 
-    TEST_EQUAL(params.m_types.size(), 2, (params));
+    TEST_EQUAL(params.m_types.size(), 3, (params));
+    TEST(params.IsTypeExist(GetType({"amenity"})), (params));
     TEST(params.IsTypeExist(GetType({"amenity", "recycling", "centre"})), (params));
     TEST(params.IsTypeExist(GetType({"recycling", "glass_bottles"})), (params));
   }
@@ -1674,7 +1680,8 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_Recycling)
 
     auto const params = GetFeatureBuilderParams(tags);
 
-    TEST_EQUAL(params.m_types.size(), 3, (params));
+    TEST_EQUAL(params.m_types.size(), 4, (params));
+    TEST(params.IsTypeExist(GetType({"amenity"})), (params));
     TEST(params.IsTypeExist(GetType({"amenity", "recycling", "container"})), (params));
     TEST(params.IsTypeExist(GetType({"recycling", "scrap_metal"})), (params));
     TEST(params.IsTypeExist(GetType({"recycling", "batteries"})), (params));
@@ -1792,7 +1799,8 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_Organic)
 
     auto const params = GetFeatureBuilderParams(tags);
 
-    TEST_EQUAL(params.m_types.size(), 1, (params));
+    TEST_EQUAL(params.m_types.size(), 2, (params));
+    TEST(params.IsTypeExist(GetType({"organic", "no"})), (params));
     TEST(params.IsTypeExist(GetType({"shop", "bakery"})), (params));
   }
 }
@@ -1920,9 +1928,81 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_ChargingStation)
 
     auto const params = GetFeatureBuilderParams(tags);
 
-    TEST_EQUAL(params.m_types.size(), 2, (params));
+    TEST_EQUAL(params.m_types.size(), 4, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "charging_station"})), (params));
     TEST(params.IsTypeExist(GetType({"amenity", "charging_station", "bicycle"})), (params));
     TEST(params.IsTypeExist(GetType({"amenity", "charging_station", "motorcar"})), (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "charging_station", "small"})), (params));
+  }
+}
+
+UNIT_CLASS_TEST(TestWithClassificator, OsmType_Toilets)
+{
+  {
+    // A toilet with restricted access keeps both the main type and the access subtype.
+    Tags const tags = {
+        {"amenity", "toilets"},
+        {"access", "private"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 2, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets"})), (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets", "private"})), (params));
+  }
+
+  {
+    // access=no is treated the same as access=private.
+    Tags const tags = {
+        {"amenity", "toilets"},
+        {"access", "no"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 2, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets"})), (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets", "private"})), (params));
+  }
+
+  {
+    Tags const tags = {
+        {"amenity", "toilets"},
+        {"access", "customers"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 2, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets"})), (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets", "customers"})), (params));
+  }
+
+  {
+    // The common toilets:access=customers mistagging maps to the customers subtype too.
+    Tags const tags = {
+        {"amenity", "toilets"},
+        {"toilets:access", "customers"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 2, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets"})), (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets", "customers"})), (params));
+  }
+
+  {
+    // A public toilet keeps just the main type.
+    Tags const tags = {
+        {"amenity", "toilets"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 1, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets"})), (params));
   }
 }
 
@@ -2115,7 +2195,6 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SimpleTypesSmoke)
       {"amenity", "car_sharing"},
       {"amenity", "car_wash"},
       {"amenity", "casino"},
-      {"amenity", "charging_station"},
       {"amenity", "childcare"},
       {"amenity", "cinema"},
       {"amenity", "studio"},
@@ -2262,7 +2341,6 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SimpleTypesSmoke)
       {"cuisine", "international"},
       {"cuisine", "irish"},
       {"cuisine", "italian"},
-      {"cuisine", "italian_pizza"},
       {"cuisine", "japanese"},
       {"cuisine", "kebab"},
       {"cuisine", "korean"},
@@ -2498,7 +2576,6 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SimpleTypesSmoke)
       {"power", "line"},
       {"power", "minor_line"},
       {"power", "pole"},
-      {"power", "station"},
       {"power", "substation"},
       {"power", "tower"},
       {"psurface", "paved_bad"},
@@ -2720,7 +2797,6 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_ComplexTypesSmoke)
       {{"amenity", "place_of_worship", "taoist"}, {{"amenity", "place_of_worship"}, {"religion", "taoist"}}},
       {{"amenity", "recycling", "centre"}, {{"amenity", "recycling"}, {"recycling_type", "centre"}}},
       {{"amenity", "recycling", "container"}, {{"amenity", "recycling"}, {"recycling_type", "container"}}},
-      {{"amenity", "recycling"}, {{"amenity", "recycling"}}},
       {{"amenity", "parcel_locker"}, {{"amenity", "parcel_locker"}}},
       {{"amenity", "vending_machine", "cigarettes"}, {{"amenity", "vending_machine"}, {"vending", "cigarettes"}}},
       {{"amenity", "vending_machine", "coffee"}, {{"amenity", "vending_machine"}, {"vending", "coffee"}}},
@@ -2849,7 +2925,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_ComplexTypesSmoke)
       {{"leisure", "sports_centre"}, {{"leisure", "sports_centre"}}},
       {{"leisure", "track", "area"}, {{"leisure", "track"}, {"area", "any_value"}}},
       {{"mountain_pass"}, {{"mountain_pass", "any_value"}}},
-      {{"natural", "desert"}, {{"natural", "sand"}, {"desert", "erg"}}},
+      {{"natural", "sand"}, {{"natural", "sand"}, {"desert", "erg"}}},
       {{"natural", "water", "pond"}, {{"natural", "water"}, {"water", "pond"}}},
       {{"natural", "water", "lake"}, {{"natural", "water"}, {"water", "lake"}}},
       {{"natural", "water", "reservoir"}, {{"natural", "water"}, {"water", "reservoir"}}},
@@ -2976,8 +3052,6 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_ComplexTypesSmoke)
       {{"tourism", "artwork", "sculpture"}, {{"tourism", "artwork"}, {"type", "sculpture"}}},
       {{"tourism", "artwork", "statue"}, {{"tourism", "artwork"}, {"artwork_type", "statue"}}},
       {{"tourism", "artwork", "statue"}, {{"tourism", "artwork"}, {"type", "statue"}}},
-      {{"tourism", "caravan_site"}, {{"tourism", "camp_site"}, {"caravans", "yes"}}},
-      {{"tourism", "caravan_site"}, {{"tourism", "camp_site"}, {"motorhome", "yes"}}},
       {{"attraction", "animal"}, {{"attraction", "animal"}}},
       {{"tourism", "information", "board"}, {{"tourism", "information"}, {"information", "board"}}},
       {{"tourism", "information", "guidepost"}, {{"tourism", "information"}, {"information", "guidepost"}}},

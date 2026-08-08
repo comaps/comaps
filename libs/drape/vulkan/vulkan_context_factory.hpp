@@ -2,14 +2,17 @@
 
 #include "drape/graphics_context_factory.hpp"
 #include "drape/pointers.hpp"
-#include "drape/vulkan/vulkan_base_context.hpp"
-#include "drape/vulkan/vulkan_layers.hpp"
-#include "drape/vulkan/vulkan_object_manager.hpp"
+
+#include <vulkan_wrapper.h>
 
 namespace dp
 {
 namespace vulkan
 {
+class Layers;
+class VulkanBaseContext;
+class VulkanObjectManager;
+
 class VulkanContextFactory : public dp::GraphicsContextFactory
 {
 public:

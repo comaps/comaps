@@ -41,4 +41,8 @@
         <file>busy.png</file>
         <file>x.png</file>
     </qresource>
+    <qresource prefix="/reviews">
+        <file>star_empty.png</file>
+        <file>star_full.png</file>
+    </qresource>
 </RCC>

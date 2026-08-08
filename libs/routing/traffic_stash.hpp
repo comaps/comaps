@@ -1,23 +1,24 @@
 #pragma once
 
-#include "routing/segment.hpp"
-
-#include "traffic/traffic_cache.hpp"
+#include "traffic/speed_groups.hpp"
 #include "traffic/traffic_info.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
-
-#include "indexer/mwm_set.hpp"
-
-#include "base/assert.hpp"
 
 #include <memory>
 #include <utility>
 
 #include "3party/ankerl/unordered_dense.h"
 
+namespace traffic
+{
+class TrafficCache;
+}  // namespace traffic
+
 namespace routing
 {
+class Segment;
+
 class TrafficStash final
 {
 public:

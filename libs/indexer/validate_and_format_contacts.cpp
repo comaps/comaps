@@ -1,7 +1,10 @@
 #include "indexer/validate_and_format_contacts.hpp"
 
+#include "indexer/map_object.hpp"
+
 #include "coding/url.hpp"
 
+#include "base/assert.hpp"
 #include "base/string_utils.hpp"
 
 #include <cstring>  // strlen

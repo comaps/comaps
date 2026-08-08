@@ -2,6 +2,7 @@
 
 #include "generator/affiliation.hpp"
 
+#include "transit/world_feed/color_picker.hpp"
 #include "transit/world_feed/world_feed.hpp"
 
 #include "platform/platform.hpp"

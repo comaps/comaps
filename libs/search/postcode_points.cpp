@@ -1,9 +1,13 @@
 #include "search/postcode_points.hpp"
 
+#include "search/mwm_context.hpp"
+
+#include "indexer/data_header.hpp"
 #include "indexer/trie_reader.hpp"
 
 #include "platform/mwm_traits.hpp"
 
+#include "coding/files_container.hpp"
 #include "coding/reader_wrapper.hpp"
 
 #include "base/checked_cast.hpp"

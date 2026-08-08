@@ -5,7 +5,9 @@
 #include "drape/drape_routine.hpp"
 #include "drape/pointers.hpp"
 
-#include "indexer/feature_decl.hpp"
+#include "indexer/mwm_set.hpp"
+
+#include "geometry/spline.hpp"
 
 #include <memory>
 #include <mutex>

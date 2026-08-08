@@ -1,13 +1,19 @@
 #pragma once
 
-#include "map/bookmark.hpp"
+#include "search/reverse_geocoder.hpp"
 
-#include "coding/reader.hpp"
+#include "kml/type_utils.hpp"
+#include "kml/types.hpp"
 
 #include "geometry/rect2d.hpp"
 
+#include "base/assert.hpp"
+
 #include <memory>
 #include <string>
+
+class Reader;
+class Writer;
 
 struct BookmarkInfo
 {

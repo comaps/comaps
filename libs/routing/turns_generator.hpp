@@ -1,13 +1,6 @@
 #pragma once
 
-#include "routing/routing_result_graph.hpp"
-#include "routing/routing_settings.hpp"
-#include "routing/turn_candidate.hpp"
-#include "routing/turns.hpp"
-
-#include "routing_common/num_mwm_id.hpp"
-
-#include "geometry/point_with_altitude.hpp"
+#include "geometry/point2d.hpp"
 
 #include <cstdint>
 #include <functional>
@@ -24,7 +17,10 @@ enum class HighwayClass;
 
 namespace routing
 {
+class NumMwmIds;
+class Segment;
 struct RoutingMapping;
+struct RoutingSettings;
 
 namespace turns
 {
@@ -33,7 +29,10 @@ namespace turns
  */
 using TGetIndexFunction = std::function<size_t(std::pair<size_t, size_t>)>;
 
+class IRoutingResult;
 struct RoutePointIndex;
+struct TurnCandidate;
+struct TurnCandidates;
 struct TurnInfo;
 
 /*!

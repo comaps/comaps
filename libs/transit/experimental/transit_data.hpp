@@ -1,9 +1,9 @@
 #pragma once
 
 #include "transit/experimental/transit_types_experimental.hpp"
+#include "transit/transit_entities.hpp"
 
 #include "coding/reader.hpp"
-#include "coding/writer.hpp"
 
 #include "base/geo_object_id.hpp"
 #include "base/visitor.hpp"
@@ -15,7 +15,10 @@
 
 #include "3party/ankerl/unordered_dense.h"
 
-#include "cppjansson/cppjansson.hpp"
+namespace base
+{
+class Json;
+}  // namespace base
 
 namespace transit
 {

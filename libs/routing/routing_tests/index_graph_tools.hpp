@@ -132,7 +132,7 @@ class TestTransitGraphLoader : public TransitGraphLoader
 {
 public:
   // TransitGraphLoader overrides:
-  ~TestTransitGraphLoader() override = default;
+  ~TestTransitGraphLoader() override;
 
   TransitGraph & GetTransitGraph(NumMwmId mwmId, IndexGraph & indexGraph) override;
   void Clear() override;

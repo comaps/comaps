@@ -2,6 +2,7 @@
 
 #include "platform/platform.hpp"
 
+#include "coding/internal/file_data.hpp"
 #include "coding/zip_creator.hpp"
 
 #include "base/assert.hpp"

@@ -1,5 +1,7 @@
 #include "search/suggest.hpp"
 
+#include "search/common.hpp"
+
 #include "indexer/search_string_utils.hpp"
 
 #include <algorithm>

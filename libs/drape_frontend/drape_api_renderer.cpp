@@ -1,9 +1,22 @@
 #include "drape_frontend/drape_api_renderer.hpp"
+#include "drape_frontend/drape_api_builder.hpp"
+#include "drape_frontend/frame_values.hpp"
 #include "drape_frontend/shape_view_params.hpp"
 #include "drape_frontend/visual_params.hpp"
 
-#include "drape/overlay_handle.hpp"
+#include "drape/glsl_types.hpp"
+#include "drape/gpu_program.hpp"
+#include "drape/render_bucket.hpp"
+#include "drape/render_state.hpp"
 #include "drape/vertex_array_buffer.hpp"
+
+#include "shaders/program_manager.hpp"
+#include "shaders/program_params.hpp"
+#include "shaders/programs.hpp"
+
+#include "geometry/screenbase.hpp"
+
+#include "base/matrix.hpp"
 
 #include <algorithm>
 

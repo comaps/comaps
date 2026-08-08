@@ -2,16 +2,18 @@
 
 #include "drape_frontend/drape_engine_safe_ptr.hpp"
 
-#include "transit/experimental/transit_data.hpp"
+#include "drape/pointers.hpp"
+
 #include "transit/transit_display_info.hpp"
 
-#include "indexer/data_source.hpp"
+#include "indexer/feature.hpp"
 #include "indexer/feature_decl.hpp"
+#include "indexer/mwm_set.hpp"
 
+#include "geometry/rect2d.hpp"
 #include "geometry/screenbase.hpp"
 
 #include "base/thread.hpp"
-#include "base/thread_pool.hpp"
 
 #include <chrono>
 #include <condition_variable>
@@ -25,6 +27,21 @@
 #include <vector>
 
 class DataSource;
+
+namespace base
+{
+class ThreadPool;
+}  // namespace base
+
+namespace df
+{
+class DrapeEngine;
+}  // namespace df
+
+namespace transit::experimental
+{
+class TransitData;
+}  // namespace transit::experimental
 
 using FeatureCallback = std::function<void(FeatureType &)>;
 using TReadFeaturesFn = std::function<void(FeatureCallback const &, std::vector<FeatureID> const &)>;

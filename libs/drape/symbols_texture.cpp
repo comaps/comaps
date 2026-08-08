@@ -1,12 +1,16 @@
 #include "drape/symbols_texture.hpp"
 
-#include "indexer/map_style_reader.hpp"
+#include "drape/hw_texture.hpp"
+#include "drape/texture_types.hpp"
 
-#include "platform/platform.hpp"
+#include "indexer/map_style_reader.hpp"
 
 #include "coding/parse_xml.hpp"
 #include "coding/reader.hpp"
 
+#include "base/assert.hpp"
+#include "base/exception.hpp"
+#include "base/logging.hpp"
 #include "base/string_utils.hpp"
 
 #include "3party/stb_image/stb_image.h"

@@ -177,7 +177,7 @@ UNIT_TEST(TurnsSound_MetersTwoTurnsTest)
       {\
       \"in_600_meters\":\"In 600 meters.\",\
       \"make_a_sharp_right_turn\":\"Make a sharp right turn.\",\
-      \"enter_the_roundabout\":\"Enter the roundabout.\"\
+      \"enter_the_roundabout\":\"At the roundabout.\"\
       }";
   auto notificationManager = NotificationManager::CreateNotificationManagerForTesting(
       5 /* startBeforeSeconds */, 10 /* minStartBeforeMeters */, 100 /* maxStartBeforeMeters */,
@@ -234,7 +234,7 @@ UNIT_TEST(TurnsSound_MetersTwoTurnsTest)
   // without the first one.
   turns2.front().m_distMeters = 40.;
   notificationManager.GenerateTurnNotifications(turns2, turnNotifications);
-  vector<string> const expectedNotification3 = {{"Enter the roundabout."}};
+  vector<string> const expectedNotification3 = {{"At the roundabout."}};
   TEST_EQUAL(turnNotifications, expectedNotification3, ());
 
   TEST(notificationManager.IsEnabled(), ());
@@ -246,7 +246,7 @@ UNIT_TEST(TurnsSound_FeetTest)
       "\
       {\
       \"in_2000_feet\":\"In 2000 feet.\",\
-      \"enter_the_roundabout\":\"Enter the roundabout.\"\
+      \"enter_the_roundabout\":\"At the roundabout.\"\
       }";
   auto notificationManager = NotificationManager::CreateNotificationManagerForTesting(
       5 /* startBeforeSeconds */, 10 /* minStartBeforeMeters */, 100 /* maxStartBeforeMeters */,
@@ -274,7 +274,7 @@ UNIT_TEST(TurnsSound_FeetTest)
   // then 20 seconds * 30 meters per seconds + 100 meters = 700 meters.
   turns.front().m_distMeters = 699.;
   notificationManager.GenerateTurnNotifications(turns, turnNotifications);
-  vector<string> const expectedNotification1 = {{"In 2000 feet. Enter the roundabout."}};
+  vector<string> const expectedNotification1 = {{"In 2000 feet. At the roundabout."}};
   TEST_EQUAL(turnNotifications, expectedNotification1, ());
 
   // 650 meters till the turn. No sound notifications is required.
@@ -295,7 +295,7 @@ UNIT_TEST(TurnsSound_FeetTest)
   // 99 meters till the turn. It's time to pronounce the second voice notification.
   turns.front().m_distMeters = 99.;
   notificationManager.GenerateTurnNotifications(turns, turnNotifications);
-  vector<string> const expectedNotification2 = {{"Enter the roundabout."}};
+  vector<string> const expectedNotification2 = {{"At the roundabout."}};
   TEST_EQUAL(turnNotifications, expectedNotification2, ());
 
   // 99 meters till the turn again. No sound notifications is required.
@@ -324,7 +324,8 @@ UNIT_TEST(TurnsSound_ComposedTurnTest)
       \"in_600_meters\":\"In 600 meters.\",\
       \"in_200_meters\":\"In 200 meters.\",\
       \"make_a_right_turn\":\"Turn right.\",\
-      \"enter_the_roundabout\":\"Enter the roundabout.\",\
+      \"enter_the_roundabout\":\"At the roundabout.\",\
+      \"take_the_2_exit\":\"Take the second exit.\",\
       \"then\":\"Then.\",\
       \"you_have_reached_the_destination\":\"You have reached the destination.\"\
       }";
@@ -343,11 +344,13 @@ UNIT_TEST(TurnsSound_ComposedTurnTest)
   TEST(turnNotifications.empty(), ());
   TEST_EQUAL(notificationManager.GetSecondTurnNotification(), CarDirection::None, ());
 
-  // 620 meters till the first turn.
+  // 620 meters till the first turn, roundabout 45m further with exit 2.
   turnNotifications.clear();
-  vector<TurnItemDist> const turns2 = {{{5 /* idx */, CarDirection::TurnRight}, 620. /* m_distMeters */},
-                                       {{10 /* idx */, CarDirection::EnterRoundAbout}, 665. /* m_distMeters */}};
-  vector<string> const expectedNotification2 = {{"In 600 meters. Turn right."}, {"Then. Enter the roundabout."}};
+  vector<TurnItemDist> const turns2 = {
+      {{5 /* idx */, CarDirection::TurnRight}, 620. /* m_distMeters */},
+      {{10 /* idx */, CarDirection::EnterRoundAbout, 2 /* m_exitNum */}, 665. /* m_distMeters */},
+      {{12 /* idx */, CarDirection::LeaveRoundAbout, 2 /* m_exitNum */}, 720. /* m_distMeters */}};
+  vector<string> const expectedNotification2 = {{"In 600 meters. Turn right. Then. At the roundabout. Take the second exit."}};
   notificationManager.GenerateTurnNotifications(turns2, turnNotifications);
   TEST_EQUAL(turnNotifications, expectedNotification2, ());
   TEST_EQUAL(notificationManager.GetSecondTurnNotification(), CarDirection::EnterRoundAbout, ());
@@ -364,7 +367,7 @@ UNIT_TEST(TurnsSound_ComposedTurnTest)
   turnNotifications.clear();
   vector<TurnItemDist> const turns4 = {{{5 /* idx */, CarDirection::TurnRight}, 20. /* m_distMeters */},
                                        {{10 /* idx */, CarDirection::EnterRoundAbout}, 220. /* m_distMeters */}};
-  vector<string> const expectedNotification4 = {{"Turn right."}, {"Then. In 200 meters. Enter the roundabout."}};
+  vector<string> const expectedNotification4 = {{"Turn right. Then. In 200 meters. At the roundabout."}};
   notificationManager.GenerateTurnNotifications(turns4, turnNotifications);
   TEST_EQUAL(turnNotifications, expectedNotification4, ());
   TEST_EQUAL(notificationManager.GetSecondTurnNotification(), CarDirection::EnterRoundAbout, ());
@@ -383,7 +386,7 @@ UNIT_TEST(TurnsSound_ComposedTurnTest)
   vector<TurnItemDist> const turns6 = {
       {{10 /* idx */, CarDirection::EnterRoundAbout}, 10. /* m_distMeters */},
       {{15 /* idx */, CarDirection::ReachedYourDestination}, 1010. /* m_distMeters */}};
-  vector<string> const expectedNotification6 = {{"Enter the roundabout."}};
+  vector<string> const expectedNotification6 = {{"At the roundabout."}};
   notificationManager.GenerateTurnNotifications(turns6, turnNotifications);
   TEST_EQUAL(turnNotifications, expectedNotification6, ());
   TEST_EQUAL(notificationManager.GetSecondTurnNotification(), CarDirection::None, ());
@@ -394,13 +397,15 @@ UNIT_TEST(TurnsSound_RoundaboutTurnTest)
   string const engShortJson =
       "\
       {\
-      \"enter_the_roundabout\":\"Enter the roundabout.\",\
+      \"enter_the_roundabout\":\"At the roundabout.\",\
       \"leave_the_roundabout\":\"Leave the roundabout.\",\
       \"take_the_1_exit\":\"Take the first exit.\",\
       \"take_the_2_exit\":\"Take the second exit.\",\
       \"take_the_4_exit\":\"Take the fourth exit.\",\
       \"in_600_meters\":\"In 600 meters.\",\
       \"in_1_kilometer\":\"In 1 kilometer.\",\
+      \"onto\":\"onto\",\
+      \"dist_direction_onto_street\":\"%1$s %2$s %3$s %4$s\",\
       \"then\":\"Then.\"\
       }";
   auto notificationManager = NotificationManager::CreateNotificationManagerForTesting(
@@ -420,21 +425,20 @@ UNIT_TEST(TurnsSound_RoundaboutTurnTest)
   TEST_EQUAL(notificationManager.GetSecondTurnNotification(), CarDirection::None, ());
 
   // 620 meters till the first turn.
+  // Classic roundabout entrance+exit: combined "In X meters, at the roundabout, take the Nth exit".
   vector<TurnItemDist> const turns2 = {
       {{5 /* idx */, CarDirection::EnterRoundAbout, 2 /* m_exitNum */}, 620. /* m_distMeters */},
       {{10 /* idx */, CarDirection::LeaveRoundAbout, 2 /* m_exitNum */}, 1620. /* m_distMeters */}};
-  vector<string> const expectedNotification2 = {{"In 600 meters. Enter the roundabout."},
-                                                {"Then. In 1 kilometer. Take the second exit."}};
+  vector<string> const expectedNotification2 = {{"In 600 meters. At the roundabout. Take the second exit."}};
   notificationManager.GenerateTurnNotifications(turns2, turnNotifications);
   TEST_EQUAL(turnNotifications, expectedNotification2, ());
   TEST_EQUAL(notificationManager.GetSecondTurnNotification(), CarDirection::None, ());
 
-  // 3 meters till the first turn.
+  // 3 meters till the first turn — reminder at entrance: "Take the Nth exit".
   vector<TurnItemDist> const turns3 = {
       {{5 /* idx */, CarDirection::EnterRoundAbout, 2 /* m_exitNum */}, 3. /* m_distMeters */},
       {{10 /* idx */, CarDirection::LeaveRoundAbout, 2 /* m_exitNum */}, 1003. /* m_distMeters */}};
-  vector<string> const expectedNotification3 = {{"Enter the roundabout."},
-                                                {"Then. In 1 kilometer. Take the second exit."}};
+  vector<string> const expectedNotification3 = {{"Take the second exit."}};
   notificationManager.GenerateTurnNotifications(turns3, turnNotifications);
   TEST_EQUAL(turnNotifications, expectedNotification3, ());
   TEST_EQUAL(notificationManager.GetSecondTurnNotification(), CarDirection::None, ());
@@ -455,21 +459,20 @@ UNIT_TEST(TurnsSound_RoundaboutTurnTest)
   TEST(turnNotifications.empty(), ());
   TEST_EQUAL(notificationManager.GetSecondTurnNotification(), CarDirection::None, ());
 
-  // 3 meters till the second turn.
+  // 3 meters till the exit — small-roundabout exit notifications are suppressed (GPS+TTS
+  // latency would deliver the announcement after the user has already exited).
   vector<TurnItemDist> const turns6 = {
       {{10 /* idx */, CarDirection::LeaveRoundAbout, 2 /* m_exitNum */}, 3. /* m_distMeters */},
       {{15 /* idx */, CarDirection::EnterRoundAbout, 1 /* m_exitNum */}, 1003. /* m_distMeters */}};
-  vector<string> const expectedNotification6 = {{"Leave the roundabout."}};
   notificationManager.GenerateTurnNotifications(turns6, turnNotifications);
-  TEST_EQUAL(turnNotifications, expectedNotification6, ());
+  TEST(turnNotifications.empty(), ());
   TEST_EQUAL(notificationManager.GetSecondTurnNotification(), CarDirection::None, ());
 
-  // 5 meters till the third turn.
+  // 5 meters till the third turn — first call fast-forwards, second emits the reminder.
   vector<TurnItemDist> const turns7 = {
       {{15 /* idx */, CarDirection::EnterRoundAbout, 1 /* m_exitNum */}, 5. /* m_distMeters */},
       {{20 /* idx */, CarDirection::LeaveRoundAbout, 1 /* m_exitNum */}, 1005. /* m_distMeters */}};
-  vector<string> const expectedNotification7 = {{"Enter the roundabout."},
-                                                {"Then. In 1 kilometer. Take the first exit."}};
+  vector<string> const expectedNotification7 = {{"Take the first exit."}};
   notificationManager.GenerateTurnNotifications(turns7, turnNotifications);  // The first notification fast forwarding.
   notificationManager.GenerateTurnNotifications(turns7, turnNotifications);
   TEST_EQUAL(turnNotifications, expectedNotification7, ());
@@ -484,12 +487,12 @@ UNIT_TEST(TurnsSound_RoundaboutTurnTest)
   TEST(turnNotifications.empty(), ());
   TEST_EQUAL(notificationManager.GetSecondTurnNotification(), CarDirection::None, ());
 
-  // 620 meters till the 4th turn.
+  // 620 meters till the 4th turn — combined announcement now includes the exit street name.
   vector<TurnItemDist> const turns9 = {
       {{25 /* idx */, CarDirection::EnterRoundAbout, 4 /* m_exitNum */}, 620. /* m_distMeters */},
       {{30 /* idx */, CarDirection::LeaveRoundAbout, 4 /* m_exitNum */}, 1000. /* m_distMeters */}};
-  vector<string> const expectedNotification9 = {{"In 600 meters. Enter the roundabout."},
-                                                {"Then. Take the fourth exit."}};
+  vector<string> const expectedNotification9 = {
+      {"In 600 meters. At the roundabout. Take the fourth exit onto Main street"}};
   notificationManager.GenerateTurnNotifications(turns9, turnNotifications,
                                                 routing::RouteSegment::RoadNameInfo("Main street"));
   TEST_EQUAL(turnNotifications, expectedNotification9, ());

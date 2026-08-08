@@ -3,8 +3,10 @@
 #include "drape_frontend/map_shape.hpp"
 #include "drape_frontend/path_text_handle.hpp"
 #include "drape_frontend/shape_view_params.hpp"
-#include "drape_frontend/text_layout.hpp"
 
+#include "drape/pointers.hpp"
+
+#include "geometry/point2d.hpp"
 #include "geometry/spline.hpp"
 
 #include <memory>
@@ -12,7 +14,10 @@
 
 namespace dp
 {
+class Batcher;
+class GraphicsContext;
 class OverlayHandle;
+class TextureManager;
 }  // namespace dp
 
 namespace df

@@ -5,7 +5,7 @@
 
 #include "indexer/search_string_utils.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "i18n/localisation.hpp"
 
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"

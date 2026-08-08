@@ -1,15 +1,17 @@
 #pragma once
-#include "indexer/scales.hpp"
 
+#include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
-#include "geometry/screenbase.hpp"
 
+#include "base/assert.hpp"
 #include "base/macros.hpp"
 
 #include <atomic>
 #include <cstdint>
 #include <string>
 #include <vector>
+
+class ScreenBase;
 
 namespace df
 {

@@ -1,0 +1,320 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Đi về phía bên phải."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Rẽ phải."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Ngoặt phải."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "Đi vào vòng xuyến."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Ra khỏi vòng xuyến."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Đi về phía bên trái."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Rẽ trái."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Ngoặt trái."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Quay đầu."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "Đi thẳng."
+    },
+    "exit": {
+        "defaultMessage": "Đi ra."
+    },
+    "onto": {
+        "defaultMessage": "vào"
+    },
+    "take_exit_number": {
+        "defaultMessage": "Đi theo lối ra số"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Tính toán lại lộ trình"
+    },
+    "destination": {
+        "defaultMessage": "Bạn sẽ đến."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "Bạn đã đến."
+    },
+    "in_50_meters": {
+        "defaultMessage": "Sau năm mươi mét nữa"
+    },
+    "in_100_meters": {
+        "defaultMessage": "Sau một trăm mét nữa"
+    },
+    "in_200_meters": {
+        "defaultMessage": "Sau hai trăm mét nữa"
+    },
+    "in_250_meters": {
+        "defaultMessage": "Sau hai trăm năm mươi mét"
+    },
+    "in_300_meters": {
+        "defaultMessage": "Sau ba trăm mét nữa"
+    },
+    "in_400_meters": {
+        "defaultMessage": "Sau bốn trăm mét nữa"
+    },
+    "in_500_meters": {
+        "defaultMessage": "Sau năm trăm mét nữa"
+    },
+    "in_600_meters": {
+        "defaultMessage": "Sau sáu trăm mét nữa"
+    },
+    "in_700_meters": {
+        "defaultMessage": "Sau bảy trăm mét nữa"
+    },
+    "in_750_meters": {
+        "defaultMessage": "Sau bảy trăm năm mươi mét nữa"
+    },
+    "in_800_meters": {
+        "defaultMessage": "Sau tám trăm mét nữa"
+    },
+    "in_900_meters": {
+        "defaultMessage": "Sau chín trăm mét nữa"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "Sau một kilômét nữa"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "Sau một kilômét rưỡi nữa"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "Sau hai kilômét nữa"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "Sau hai kilômét rưỡi nữa"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "Sau ba kilômét nữa"
+    },
+    "then": {
+        "defaultMessage": "Sau đó"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Đi theo lối ra đầu tiên."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Đi theo lối ra thứ hai."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Đi theo lối ra thứ ba."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Đi theo lối ra thứ tư."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Đi theo lối ra thứ năm."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Đi theo lối ra thứ sáu."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Đi theo lối ra thứ bảy."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Đi theo lối ra thứ tám."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Đi theo lối ra thứ chín."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Đi theo lối ra thứ mười."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Đi theo lối ra thứ mười một."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "Trong năm mươi feet nữa"
+    },
+    "in_100_feet": {
+        "defaultMessage": "Trong một trăm feet nữa"
+    },
+    "in_200_feet": {
+        "defaultMessage": "Trong hai trăm feet nữa"
+    },
+    "in_300_feet": {
+        "defaultMessage": "Trong ba trăm feet nữa"
+    },
+    "in_400_feet": {
+        "defaultMessage": "Trong bốn trăm feet nữa"
+    },
+    "in_500_feet": {
+        "defaultMessage": "Trong năm trăm feet nữa"
+    },
+    "in_600_feet": {
+        "defaultMessage": "Trong sáu trăm feet nữa"
+    },
+    "in_700_feet": {
+        "defaultMessage": "Trong bảy trăm feet nữa"
+    },
+    "in_800_feet": {
+        "defaultMessage": "Trong tám trăm feet nữa"
+    },
+    "in_900_feet": {
+        "defaultMessage": "Trong chín trăm feet nữa"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "Trong một ngàn feet nữa"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "Trong một ngàn năm trăm feet nữa"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "Trong hai ngàn feet nữa"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "Trong hai ngàn năm trăm feet nữa"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "Trong ba ngàn feet nữa"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "Trong ba ngàn năm trăm feet nữa"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "Trong bốn ngàn feet nữa"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "Trong bốn ngàn năm trăm feet nữa"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "Trong năm ngàn feet nữa"
+    },
+    "in_1_mile": {
+        "defaultMessage": "Trong một dặm nữa"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "Trong một dặm rưỡi nữa"
+    },
+    "in_2_miles": {
+        "defaultMessage": "Trong hai dặm nữa"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Camera tốc độ ở phía trước"
+    }
+}

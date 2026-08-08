@@ -1,7 +1,6 @@
 #pragma once
 
 #include "routing/base/astar_graph.hpp"
-#include "routing/base/astar_vertex_data.hpp"
 #include "routing/mwm_hierarchy_handler.hpp"
 #include "routing/route_weight.hpp"
 #include "routing/segment.hpp"

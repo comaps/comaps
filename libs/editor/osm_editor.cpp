@@ -6,17 +6,20 @@
 #include "editor/xml_feature.hpp"
 
 #include "indexer/fake_feature_ids.hpp"
+#include "indexer/feature_data.hpp"
 #include "indexer/feature_decl.hpp"
 #include "indexer/feature_meta.hpp"
 #include "indexer/feature_source.hpp"
 #include "indexer/mwm_set.hpp"
 
-#include "platform/local_country_file_utils.hpp"
+#include "platform/mwm_version.hpp"
 #include "platform/platform.hpp"
 
+#include "geometry/latlon.hpp"
+
+#include "base/assert.hpp"
 #include "base/exception.hpp"
 #include "base/logging.hpp"
-#include "base/stl_helpers.hpp"
 #include "base/thread_checker.hpp"
 #include "base/timer.hpp"
 

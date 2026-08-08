@@ -20,9 +20,18 @@ set(SRC
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  generator
-  tracking
-  platform
+  PUBLIC
+    base
+    coding
+    geometry
+    indexer
+    platform
+    routing
+    routing_common
+    storage
+  PRIVATE
+    generator
+    tracking
 )
 
 omim_add_tool_subdirectory(track_analyzer)

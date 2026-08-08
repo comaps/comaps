@@ -4,6 +4,8 @@
 
 #include "coding/parse_xml.hpp"
 
+#include "base/assert.hpp"
+#include "base/logging.hpp"
 #include "base/string_utils.hpp"
 
 #include <memory>

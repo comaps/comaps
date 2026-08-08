@@ -1,8 +1,11 @@
 #include "indexer/scales.hpp"
 
-#include "base/math.hpp"
-#include "geometry/mercator.hpp"
 #include "indexer/feature_algo.hpp"
+
+#include "geometry/mercator.hpp"
+
+#include "base/assert.hpp"
+#include "base/math.hpp"
 
 #include <algorithm>
 

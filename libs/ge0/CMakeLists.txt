@@ -10,12 +10,11 @@ set(SRC
 )
 
 omim_add_library(${PROJECT_NAME} ${SRC})
-target_link_libraries(${PROJECT_NAME}
-  PUBLIC
-    coding
 
+target_link_libraries(${PROJECT_NAME}
   PRIVATE
     base
+    coding
     geometry
 )
 

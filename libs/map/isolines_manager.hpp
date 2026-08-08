@@ -2,11 +2,10 @@
 
 #include "drape_frontend/drape_engine_safe_ptr.hpp"
 
-#include "indexer/data_source.hpp"
+#include "drape/pointers.hpp"
+
 #include "indexer/isolines_info.hpp"
 #include "indexer/mwm_set.hpp"
-
-#include "platform/local_country_file.hpp"
 
 #include "geometry/rect2d.hpp"
 #include "geometry/screenbase.hpp"
@@ -17,6 +16,11 @@
 #include <optional>
 #include <set>
 #include <string>
+
+namespace df
+{
+class DrapeEngine;
+}  // namespace df
 
 class IsolinesManager final
 {

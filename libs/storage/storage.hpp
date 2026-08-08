@@ -5,18 +5,25 @@
 #include "storage/country.hpp"
 #include "storage/country_name_getter.hpp"
 #include "storage/country_tree.hpp"
+#include "storage/diff_scheme/diff_types.hpp"
 #include "storage/diff_scheme/diffs_data_source.hpp"
+#include "storage/downloader_queue_universal.hpp"
 #include "storage/downloading_policy.hpp"
 #include "storage/map_files_downloader.hpp"
 #include "storage/queued_country.hpp"
 #include "storage/storage_defines.hpp"
 
+#include "platform/country_defines.hpp"
+#include "platform/country_file.hpp"
 #include "platform/downloader_defines.hpp"
 #include "platform/local_country_file.hpp"
 
+#include "base/assert.hpp"
 #include "base/cancellable.hpp"
+#include "base/geo_object_id.hpp"
 #include "base/thread_checker.hpp"
-#include "base/thread_pool_delayed.hpp"
+
+#include "defines.hpp"
 
 #include <functional>
 #include <list>
@@ -165,6 +172,7 @@ public:
   using StartDownloadingCallback = std::function<void()>;
   using UpdateCallback = std::function<void(storage::CountryId const &, LocalFilePtr const)>;
   using DeleteCallback = std::function<bool(storage::CountryId const &, LocalFilePtr const)>;
+  using CheckUpdatesFunction = std::function<void(storage::CheckUpdatesStatus const &)>;
   using ChangeCountryFunction = std::function<void(CountryId const &)>;
   using ProgressFunction = std::function<void(CountryId const &, downloader::Progress const &)>;
   using DownloadingCountries = ankerl::unordered_dense::map<CountryId, downloader::Progress>;
@@ -181,11 +189,9 @@ private:
   std::string m_pendingCountriesBuffer;
   int64_t m_pendingCountriesVersion = 0;
   bool m_hasPendingCountries = false;
+  bool m_isCheckUpdatesRunning = false;
 
-  inline bool IsIdleForCountriesApply() const
-  {
-    return m_downloader->GetQueue().IsEmpty() && m_downloadingCountries.empty() && m_diffsBeingApplied.empty();
-  }
+  inline bool IsIdleForCountriesApply() const { return m_downloadingCountries.empty() && m_diffsBeingApplied.empty(); }
   inline bool IsInitialResourcesDownloadRequired() const
   {
     std::vector<platform::CountryFile> missing;
@@ -215,8 +221,10 @@ private:
   void ApplyCountriesInMemory(std::string const & buffer);
   void ApplyPendingCountriesIfAny();
   void PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int64_t parsedVersion);
+  /// \param isEOL is true if no more updates are planned for this map series
   /// @return 0 If error.
-  int64_t ParseServerMapsAndGetLatestVersion(std::string const & buffer) const;
+  int64_t ParseServerMapsAndGetLatestVersion(std::string const & buffer, bool & isEOL) const;
+  void NotifyCheckUpdatesResult(storage::CheckUpdatesStatus const status);
 
   /// Set of mwm files which have been downloaded recently.
   /// When a mwm file is downloaded it's added to |m_justDownloaded|.
@@ -261,6 +269,9 @@ private:
   };
 
   std::list<CountryObservers> m_observers;
+
+  // Called when "check for map updates" operation status has updated. Should be always run in the GUI/main thread.
+  CheckUpdatesFunction m_onCheckUpdates;
   //@}
 
   // This function is called each time all files requested for a
@@ -559,6 +570,9 @@ public:
   /// @return unique identifier that should be used with Unsubscribe function
   int Subscribe(ChangeCountryFunction change, ProgressFunction progress);
   void Unsubscribe(int slotId);
+
+  // Listener should be called in the GUI/main thread.
+  void SetCheckUpdatesListener(CheckUpdatesFunction listener);
 
   /// Returns information about selected counties downloading progress.
   /// |countries| - watched CountryId, ONLY leaf expected.

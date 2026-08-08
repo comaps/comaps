@@ -5,9 +5,16 @@
 
 #include "drape/attribute_provider.hpp"
 #include "drape/batcher.hpp"
+#include "drape/color.hpp"
+#include "drape/render_state.hpp"
+#include "drape/texture.hpp"
 #include "drape/texture_manager.hpp"
+#include "drape/texture_types.hpp"
 #include "drape/utils/vertex_decl.hpp"
 
+#include "geometry/rect2d.hpp"
+
+#include "base/assert.hpp"
 #include "base/buffer_vector.hpp"
 
 #include <algorithm>

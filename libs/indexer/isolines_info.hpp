@@ -5,6 +5,8 @@
 #include "coding/reader.hpp"
 #include "coding/write_to_sink.hpp"
 
+#include "base/assert.hpp"
+
 #include <cstdint>
 
 class DataSource;

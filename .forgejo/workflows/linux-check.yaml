@@ -12,8 +12,9 @@ on:
       - .forgejo/workflows/linux-check.yaml  # Run check on self change
       - libs/**
       - '!**/*_tests/**'
-      - '!libs/platform/*apple*'
-      - '!libs/platform/*_ios*'
+      - '!libs/**/*apple*'
+      - '!libs/**/*_ios*'
+      - '!libs/platform/apple/**'
       - '!libs/platform/*_linux*'
       - '!libs/platform/*_mac*'
       - '!libs/platform/*_win*'
@@ -23,6 +24,8 @@ on:
       - generator/**
       - tools/unix/build_omim.sh
       - tools/unix/run_tests.sh
+      - '!iphone/**'
+      - '!xcode/**'
     branches:
       - main
   pull_request:
@@ -86,27 +89,16 @@ jobs:
         include:
           - compiler: {CXX: g++, CC: gcc}
             CMAKE_BUILD_TYPE: RelWithDebInfo
-            allow_failure: false
-          # The following builds currently fail on main.
-          # Allow failures so that the fail/pass results from CI can be helpful
-          # in the assesment of code changes.
-          # Let's bring them back to the matrix without failures allowed
-          # after the errors are resolved.
-          - compiler: {CXX: clang, CC: clang}
-            CMAKE_BUILD_TYPE: Debug
-            allow_failure: true
-          - compiler: {CXX: clang, CC: clang}
-            CMAKE_BUILD_TYPE: RelWithDebInfo
-            allow_failure: true
           - compiler: {CXX: g++, CC: gcc}
             CMAKE_BUILD_TYPE: Debug
-            allow_failure: true
+          - compiler: {CXX: clang++, CC: clang}
+            CMAKE_BUILD_TYPE: Debug
+          - compiler: {CXX: clang++, CC: clang}
+            CMAKE_BUILD_TYPE: RelWithDebInfo
     # Cancels previous jobs if the same branch or PR was updated again.
     concurrency:
       group: ${{ github.workflow }}-unity-${{ matrix.compiler.CC }}-${{ matrix.CMAKE_BUILD_TYPE }}-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
-
-    continue-on-error: ${{ matrix.allow_failure }}
 
     steps:
       - name: Checkout sources

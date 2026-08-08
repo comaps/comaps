@@ -6,7 +6,15 @@
 
 #include "routing_common/vehicle_model.hpp"
 
+#include "indexer/feature.hpp"
+#include "indexer/feature_data.hpp"
+
 #include "coding/point_coding.hpp"
+
+#include "geometry/mercator.hpp"
+#include "geometry/point_with_altitude.hpp"
+
+#include "base/assert.hpp"
 
 #include <limits>
 

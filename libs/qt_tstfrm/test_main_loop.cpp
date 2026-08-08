@@ -6,8 +6,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QWidget>
 
-#include "base/scope_guard.hpp"
-
 #include <cstring>
 #include <memory>
 #include <vector>

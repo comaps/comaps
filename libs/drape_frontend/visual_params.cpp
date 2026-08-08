@@ -1,6 +1,9 @@
 #include "drape_frontend/visual_params.hpp"
 
+#include "indexer/scales.hpp"
+
 #include "geometry/mercator.hpp"
+#include "geometry/screenbase.hpp"
 
 #include "base/assert.hpp"
 #include "base/logging.hpp"

@@ -107,7 +107,7 @@
 "category_water" = "Вода";
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "За кампер возила";
-"share_bookmarks_email_body" = "Здраво! \n \nУ прилогу су моји фаворити; молим те да их отвориш у CoMaps-у. Ако га немаш већ инсталираног, можеш да га преузмеш одавде: https://www.comaps.app/download/ \n \nУживај у путовању са CoMaps-ом!";
+"share_bookmarks_email_body" = "Здраво! \n \nУ прилогу су моји маркери; молим те да их отвориш у CoMaps-у. Ако га немаш већ инсталираног, можеш да га преузмеш одавде: https://www.comaps.app/download/ \n \nУживај у путовању са CoMaps-ом!";
 /* message title of loading file */
 "load_kmz_title" = "Учитавање маркера";
 /* Kmz file successful loading */
@@ -385,7 +385,7 @@
 /* Voice */
 "voice" = "Глас";
 "voice_explanation" = "Можете изабрати бољи глас у *Приступачност*, *Читање и говор*, *Гласови*.";
-"voice_explanation_before_version26" = "Можете изабрати бољи глас у системским подешавањима под *Приступачност*, *Гласовни садржај*, *Гласови*.";
+"voice_explanation_before_version26" = "Можете изабрати бољи глас у системским подешавањима под *Приступачност*, *Читање и говор*, *Гласови*.";
 "unknown" = "Непознато";
 /* Place page confirmation messages and time ago formatting */
 "existence_confirmed_time_ago" = "Проверено да постоји %@";
@@ -581,7 +581,7 @@
 "pref_alt_map_lang_handling" = "Алтернативни језици мапе";
 "pref_alt_map_lang_handling_ignore_alternatives" = "Не користите алтернативе";
 "pref_alt_map_lang_handling_system_order" = "Користите системски редослед";
-"pref_alt_map_lang_handling_local_only" = "Преферирају и користе само тамо где матерњи";
+"pref_alt_map_lang_handling_local_only" = "Преферирај и користи само ако је локални језик";
 "transliteration_title" = "Транслитерација у латиницу";
 "transliteration_title_disabled_summary" = "Онемогућено када увек користите локални језик за мапу";
 /* Subway exits for public transport marks on the map */
@@ -681,8 +681,6 @@
 "yes_available" = "Да";
 /* E.g. "WiFi:No" */
 "no_available" = "Не";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Број места: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Мрежа: %@";
 "trip_finished" = "Стигли сте!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Додај место";
 "contribute_to_osm_update_map" = "Ажурирајте мапу ради доприноса";
 "contribute_to_osm_update_map_description" = "Морате да ажурирате мапу %@ на најновију верзију да бисте могли да допринесете подацима OpenStreetMap";
+"downloader_check_updates_button" = "Провери ажурирања";
+"downloader_check_updates_checking" = "Проверавам ажурирања...";
+"downloader_check_updates_updated" = "Доступна су ажурирања мапе!";
+"downloader_check_updates_no_updates" = "Нема доступних ажурирања";
+"downloader_check_updates_eol" = "За ову верзију апликације више нема ажурирања мапе. Молим Вас, ажурирајте апликацију!";
+"downloader_check_updates_error" = "Грешка при провери ажурирања";
+"editor_add_select_category_recent_subtitle" = "Недавно коришћено";
+"oh_unknown" = "Непознато радно време";
+"carplay_highway_exit" = "Излаз %@";
+"capacity_disabled_yes" = "Има посебна места за особе са инвалидитетом";
+"capacity_disabled_no" = "Нема одвојен простор за особе са инвалидитетом";
+"capacity_charging_yes" = "Има места са пуњачима";
+"capacity_charging_no" = "Нема места са пуњачима";
+"planning_route_preview" = "Преглед";
+"planning_route_preview_sheet_title" = "Преглед руте";

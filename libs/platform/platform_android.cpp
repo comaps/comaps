@@ -10,6 +10,8 @@
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 
+#include "defines.hpp"
+
 #include <memory>
 #include <string>
 

@@ -1,5 +1,6 @@
 #include "testing/testing.hpp"
 
+#include "platform/locale.hpp"
 #include "platform/measurement_utils.hpp"
 
 #include "base/math.hpp"

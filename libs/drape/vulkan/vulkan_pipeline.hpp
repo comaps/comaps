@@ -3,8 +3,8 @@
 #include "drape/binding_info.hpp"
 #include "drape/graphics_context.hpp"
 #include "drape/pointers.hpp"
-#include "drape/texture_types.hpp"
-#include "drape/vulkan/vulkan_gpu_program.hpp"
+
+#include <vulkan_wrapper.h>
 
 #include <cstdint>
 #include <map>
@@ -13,6 +13,8 @@ namespace dp
 {
 namespace vulkan
 {
+class VulkanGpuProgram;
+
 class VulkanPipeline
 {
 public:

@@ -187,13 +187,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Länge</string>
     <string name="share_my_location">Meinen Standort teilen</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Allgemeine Einstellungen</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Information</string>
     <string name="prefs_group_route">Navigation</string>
     <string name="pref_zoom_title">Zoom-Tasten</string>
     <string name="pref_zoom_summary">Zur Anzeige auf der Karte</string>
+    <string name="prefs_group_advanced">Fortgeschritten</string>
+    <string name="download_resources_custom_url_title">Benutzerdefinierter Kartenserver</string>
+    <string name="download_resources_custom_url_message">Standardserver für Kartendownloads überschreiben. Leer lassen, um den CoMaps-Standardserver zu nutzen.</string>
+    <string name="download_resources_custom_url_summary_none">Nicht konfiguriert</string>
+    <string name="download_resources_custom_url_error_scheme">Bitte eine vollständige URL eingeben, die mit https:// oder http:// anfängt</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Nachtmodus</string>
     <!-- Generic «Off» string -->
@@ -203,7 +206,7 @@
     <!-- Generic «Auto» string -->
     <string name="auto">Auto</string>
     <!-- Settings «Map» category: «Perspective view» title -->
-    <string name="pref_map_3d_title">Perspektivische Ansicht</string>
+    <string name="pref_map_3d_title">3D-Ansicht</string>
     <!-- Settings «Map» category: «3D buildings» title -->
     <string name="pref_map_3d_buildings_title">3D-Gebäude</string>
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
@@ -250,7 +253,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Bewege das Smartphone so, als wenn du damit eine acht (8) in der Luft zeichnen würdest, um den Kompass zu kalibrieren und die Pfeilrichtung auf der Karte festzulegen.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Tippe erneut lange auf die Karte, um die Benutzeroberfläche anzuzeigen</string>
+    <string name="enable_long_tap_fullscreen_description">Tippe erneut lange auf die Karte, um die Benutzeroberfläche anzuzeigen</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Alle Karten aktualisieren</string>
     <!-- Cancel all button text -->
@@ -586,7 +589,7 @@
         <item quantity="other">%d Routen</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Privatsphäre</string>
+    <string name="prefs_group_privacy">Privatsphäre</string>
     <string name="privacy_policy">Datenschutzerklärung</string>
     <string name="terms_of_use">Nutzungsbedingungen</string>
     <string name="button_layer_traffic">Verkehr</string>
@@ -614,7 +617,7 @@
     <string name="power_managment_setting_auto">Bei niedrigem Akkustand</string>
     <string name="power_managment_setting_manual_max">Immer</string>
     <string name="enable_logging_warning_message">Aktiviere diese Option zeitweise, um manuell Aktivitäten zwecks Diagnostik aufzuzeichnen und zu senden. Das hilft unserem Team, Probleme mit der App zu erkennen. Aktiviere diese Option, reproduziere das Problem und sende die Protokolle über die Schaltfläche \"Fehler melden\" an uns.</string>
-    <string name="driving_options_title">Routenoptionen</string>
+    <string name="routing_options_title">Routenoptionen</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Mautstraßen vermeiden</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -624,7 +627,7 @@
     <string name="avoid_motorways">Autobahnen meiden</string>
     <string name="unable_to_calc_alert_title">Route kann nicht berechnet werden</string>
     <string name="unable_to_calc_alert_subtitle">Es konnte keine Route gefunden werden. Dies kann an deinen Routingoptionen oder an unvollständigen OpenStreetMap-Daten liegen. Bitte ändere deine Routingoptionen und versuche es erneut.</string>
-    <string name="define_to_avoid_btn">Routenoptionen einstellen</string>
+    <string name="define_to_avoid_btn">Routenoptionen auswählen</string>
     <string name="change_driving_options_btn">Routenoptionen aktiv</string>
     <string name="toll_road">Mautstraße</string>
     <string name="unpaved_road">Unbefestigte Straße</string>
@@ -905,11 +908,6 @@
     <string name="prefs_speed_cameras_information">Blitzerwarnungen sind in Ländern deaktiviert, in denen Warnungen durch lokale Gesetze verboten sind.</string>
     <string name="navigation_start_tts_message">"Navigation wird gestartet, Sprache der Sprachansagen: "</string>
     <string name="navigation_start_tts_disabled_message">Sprachansagen deaktiviert: TTS-Engine nicht verfügbar</string>
-    <string name="download_resources_custom_url_title">Benutzerdefinierter Kartenserver</string>
-    <string name="advanced">Fortgeschritten</string>
-    <string name="download_resources_custom_url_summary_none">Nicht konfiguriert</string>
-    <string name="download_resources_custom_url_message">Standardserver für Kartendownloads überschreiben. Leer lassen, um den CoMaps-Standardserver zu nutzen.</string>
-    <string name="download_resources_custom_url_error_scheme">Bitte eine vollständige URL eingeben, die mit https:// oder http:// anfängt</string>
     <string name="pref_maplanguage_local">Lokale Sprache</string>
     <string name="location_privacy_info">Apps erhalten Standortdaten von deinem Standortdienst des Betriebssystems, der deinen Standort möglicherweise an Google und/oder deinen Gerätehersteller weitergibt. Verwende ein datenschutzkonformes Android-Betriebssystem, um dies zu vermeiden.</string>
     <string name="location_privacy">Standort-Datenschutz</string>
@@ -938,4 +936,48 @@
     <string name="population">Einwohner: %s</string>
     <string name="setting_value_system_default">Systemstandard</string>
     <string name="change_app_locale">App-Sprache</string>
+    <string name="downloader_check_updates_button">Auf Updates überprüfen</string>
+    <string name="downloader_check_updates_checking">Suche nach Aktualisierungen …</string>
+    <string name="downloader_check_updates_updated">Karten-Aktualisierungen verfügbar!</string>
+    <string name="downloader_check_updates_no_updates">Keine Aktualisierungen verfügbar</string>
+    <string name="downloader_check_updates_eol">Kartenaktualisierungen wurden für diese App-Version eingestellt. Bitte aktualisiere die App!</string>
+    <string name="downloader_check_updates_error">Fehler beim Prüfen auf Aktualisierungen</string>
+    <string name="tts_toggle_enable">Sprachführung aktivieren</string>
+    <string name="tts_toggle_disable">Sprachführung deaktvieren</string>
+    <string name="oh_unknown">Unbekannte Öffnungszeiten</string>
+    <string name="editor_add_select_category_all_subtitle">Alle Kategorien</string>
+    <string name="pref_aa_support_summary_yes">Die App wurde über Google Play installiert, du kannst sie in deinem Auto nutzen.</string>
+    <string name="pref_aa_support_summary_no">Die App wurde nicht über Google Play installiert, du kannst sie nicht in deinem Auto nutzen. Gehe zu den Einstellungen um mehr Details aus unserem FAQ zu erfahren.</string>
+    <string name="editor_add_select_category_recent_subtitle">Kürzlich verwendet</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="enable_long_tap_fullscreen">Tippen und Halten, um die Benutzeroberfläche zu verstecken</string>
+    <string name="long_tap_disabled_toast">Um die Benutzeroberfläche zu verstecken, aktiviere „Tippen und Halten, um die Benutzeroberfläche zu verstecken“ in den Einstellungen</string>
+    <string name="sort_categories">Favoritenliste sortieren</string>
+    <string name="by_recently_used">Zuletzt verwendet</string>
+    <string name="by_custom">benutzerdefiniert</string>
+    <string name="capacity_disabled">Behindertenparkplätze: %s</string>
+    <string name="pref_about_summary">Melde Probleme, bekomme Hilfe, spende\nVersion: v%1$s</string>
+    <string name="prefs_group_map_appearance">Kartendarstellung</string>
+    <string name="prefs_group_map_appearance_summary">Kartensprache, Schriftgröße, 2D/3D-Gebäude</string>
+    <string name="prefs_group_interface_summary">Nachtmodus, Menüfelder, Sprache</string>
+    <string name="prefs_group_data_management">Speicherverwaltung</string>
+    <string name="prefs_group_data_management_summary">Kartenspeicher, Favoriten sichern</string>
+    <string name="prefs_group_route_summary">Einheiten, Sprachführung, Routenoptionen</string>
+    <string name="prefs_group_advanced_summary">Protokollierung aktivieren</string>
+    <string name="planning_route_preview">Vorschau</string>
+    <string name="prefs_group_power_summary">Bildschirmauszeit, mobile Daten</string>
+    <string name="search_in_all_lists">Suche in allen Listen</string>
+    <string name="pref_enable_auto_reroute_title">Automatische Routenneuberechnung</string>
+    <string name="pref_enable_auto_reroute_description">Wenn aktiviert, wird eine neue Route automatisch erstellt sofern du die geplante Route verlässt.</string>
+    <string name="recalculate_route">Neuberechnung</string>
+    <string name="off_route">Du hast die Route verlassen</string>
+    <string name="capacity_disabled_yes">Verfügt über ausgewiesene Behindertenparkplätze</string>
+    <string name="capacity_disabled_no">Keine ausgewiesenen Behindertenparkplätze</string>
+    <string name="capacity_charging">Ladestellplätze: %s</string>
+    <string name="capacity_charging_yes">Verfügt über Ladestellplätze</string>
+    <string name="capacity_charging_no">Keine Ladestellplätze</string>
+    <string name="permission_read_navigation_label">CoMaps-Navigationsdaten lesen</string>
+    <string name="permission_read_navigation_description">Abrufen von Live-Navigationsinformationen wie anstehende Abbiegungen oder den Namen der Straße auf der du dich gerade befindest</string>
+    <string name="prefs_group_interface">Benutzeroberfläche</string>
+    <string name="prefs_group_privacy_summary">Suchverlauf</string>
 </resources>

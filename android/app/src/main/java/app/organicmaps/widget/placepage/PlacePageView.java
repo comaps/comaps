@@ -145,6 +145,10 @@ public class PlacePageView extends Fragment
   private MaterialTextView mTvCharge;
   private View mWheelchair;
   private MaterialTextView mTvWheelchair;
+  private View mCapacityDisabled;
+  private MaterialTextView mTvCapacityDisabled;
+  private View mCapacityCharging;
+  private MaterialTextView mTvCapacityCharging;
   private View mDriveThrough;
   private MaterialTextView mTvDriveThrough;
   private View mSelfService;
@@ -326,6 +330,10 @@ public class PlacePageView extends Fragment
     mTvCharge = mFrame.findViewById(R.id.tv__place_charge);
     mWheelchair = mFrame.findViewById(R.id.ll__place_wheelchair);
     mTvWheelchair = mFrame.findViewById(R.id.tv__place_wheelchair);
+    mCapacityDisabled = mFrame.findViewById(R.id.ll__place_capacity_disabled);
+    mTvCapacityDisabled = mFrame.findViewById(R.id.tv__place_capacity_disabled);
+    mCapacityCharging = mFrame.findViewById(R.id.ll__place_capacity_charging);
+    mTvCapacityCharging = mFrame.findViewById(R.id.tv__place_capacity_charging);
     mDriveThrough = mFrame.findViewById(R.id.ll__place_drive_through);
     mTvDriveThrough = mFrame.findViewById(R.id.tv__place_drive_through);
     mSelfService = mFrame.findViewById(R.id.ll__place_self_service);
@@ -353,6 +361,8 @@ public class PlacePageView extends Fragment
     mRooms.setOnLongClickListener(this);
     mCharge.setOnLongClickListener(this);
     mWheelchair.setOnLongClickListener(this);
+    mCapacityDisabled.setOnLongClickListener(this);
+    mCapacityCharging.setOnLongClickListener(this);
     mDriveThrough.setOnLongClickListener(this);
     mSelfService.setOnLongClickListener(this);
     mOutdoorSeating.setOnLongClickListener(this);
@@ -705,6 +715,30 @@ public class PlacePageView extends Fragment
     final String wheelchair =
         getLocalizedFeatureType(getContext(), mMapObject.getMetadata(Metadata.MetadataType.FMD_WHEELCHAIR));
     refreshMetadataOrHide(wheelchair, mWheelchair, mTvWheelchair);
+
+    String capacityDisabled = mMapObject.getMetadata(Metadata.MetadataType.FMD_CAPACITY_DISABLED);
+	if (!TextUtils.isEmpty(capacityDisabled))
+	{
+		capacityDisabled = switch (capacityDisabled)
+		{
+		    case "yes" -> getString(R.string.capacity_disabled_yes);
+            case "no" -> getString(R.string.capacity_disabled_no);
+            default -> getString(R.string.capacity_disabled, capacityDisabled);
+        };
+	}
+	refreshMetadataOrHide(capacityDisabled, mCapacityDisabled, mTvCapacityDisabled);
+
+    String capacityCharging = mMapObject.getMetadata(Metadata.MetadataType.FMD_CAPACITY_CHARGING);
+	if (!TextUtils.isEmpty(capacityCharging))
+	{
+        capacityCharging = switch (capacityCharging)
+		{
+            case "yes" -> getString(R.string.capacity_charging_yes);
+            case "no" -> getString(R.string.capacity_charging_no);
+            default -> getString(R.string.capacity_charging, capacityCharging);
+		};
+    }
+	refreshMetadataOrHide(capacityCharging, mCapacityCharging, mTvCapacityCharging);
 
     final String driveThrough = mMapObject.getMetadata(Metadata.MetadataType.FMD_DRIVE_THROUGH);
     refreshMetadataOrHide(driveThrough.equals("yes") ? getString(R.string.drive_through) : "", mDriveThrough,
@@ -1121,6 +1155,10 @@ public class PlacePageView extends Fragment
       items.add(mTvCharge.getText().toString());
     else if (id == R.id.ll__place_wheelchair)
       items.add(mTvWheelchair.getText().toString());
+    else if (id == R.id.ll__place_capacity_disabled)
+        items.add(mTvCapacityDisabled.getText().toString());
+    else if (id == R.id.ll__place_capacity_charging)
+        items.add(mTvCapacityCharging.getText().toString());
     else if (id == R.id.ll__place_drive_through)
       items.add(mTvDriveThrough.getText().toString());
     else if (id == R.id.ll__place_outdoor_seating)

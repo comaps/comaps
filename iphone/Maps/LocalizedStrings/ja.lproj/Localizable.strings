@@ -46,15 +46,15 @@
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "新しいセットを作成";
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "ブックマークセット名称";
+"bookmark_set_name" = "リストの名前";
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "ブックマークセット";
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "ブックマーク";
+"bookmarks" = "お気に入り";
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "ブックマークとトラック";
+"bookmarks_and_tracks" = "お気に入り";
 /* Default bookmark list name */
-"core_my_places" = "マイロケーション";
+"core_my_places" = "私のお気に入り";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "住所";
 /* Settings button in system menu */
@@ -681,8 +681,6 @@
 "yes_available" = "はい";
 /* E.g. "WiFi:No" */
 "no_available" = "いいえ";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "定員：%@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "ネットワーク： %@";
 "trip_finished" = "到着しました!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Add Place";
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"downloader_check_updates_button" = "アップデートを確認";
+"downloader_check_updates_checking" = "アップデートを確認中…";
+"downloader_check_updates_updated" = "アップデートが利用可能";
+"downloader_check_updates_no_updates" = "すでに最新版です";
+"downloader_check_updates_eol" = "No more map updates for this app version. Please update the app!";
+"downloader_check_updates_error" = "アップデート確認中のエラー";
+"editor_add_select_category_recent_subtitle" = "Recently Used";
+"oh_unknown" = "営業時間不明";
+"carplay_highway_exit" = "Exit %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "No dedicated disabled spaces";
+"capacity_charging_yes" = "Has spaces with chargers";
+"capacity_charging_no" = "No spaces with chargers";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

@@ -2,10 +2,17 @@
 
 #include "routing/data_source.hpp"
 #include "routing/routing_exceptions.hpp"
+#include "routing/segment.hpp"
 #include "routing/transit_graph.hpp"
+#include "routing/vehicle_mask.hpp"
+
+#include "geometry/rect2d.hpp"
+
+#include "platform/country_file.hpp"
 
 #include "base/assert.hpp"
-#include "base/stl_helpers.hpp"
+#include "base/exception.hpp"
+#include "base/logging.hpp"
 
 #include "defines.hpp"
 

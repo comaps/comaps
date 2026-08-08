@@ -1,9 +1,14 @@
 #include "indexer/mwm_set.hpp"
 
 #include "indexer/features_offsets_table.hpp"
+#include "indexer/house_to_street_iface.hpp"
 #include "indexer/metadata_serdes.hpp"  // needed for MwmValue dtor
 #include "indexer/scales.hpp"
 
+#include "coding/reader.hpp"
+
+#include "platform/country_defines.hpp"
+#include "platform/country_file.hpp"
 #include "platform/local_country_file_utils.hpp"
 
 #include "base/assert.hpp"

@@ -10,10 +10,17 @@ set(SRC
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  routing
-  indexer
-  platform
-  storage
+  PUBLIC
+    base
+    geometry
+    indexer
+    platform
+    routing
+    routing_common
+    storage
+    traffic
+  PRIVATE
+    coding
 )
 
 omim_add_tool_subdirectory(routes_builder_tool)

@@ -46,13 +46,13 @@
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "Agregar un grupo novo";
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Nome do grupo de marcadores";
+"bookmark_set_name" = "Nome da lista";
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Grupos de marcadores";
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Marcadores";
+"bookmarks" = "Lugares";
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Marcadores e traxectos";
+"bookmarks_and_tracks" = "Favoritos";
 /* Default bookmark list name */
 "core_my_places" = "Os meus lugares";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
@@ -109,9 +109,9 @@
 "category_rv" = "Instalacións para autocaravanas";
 "share_bookmarks_email_body" = "Ola!\n\nAdxunto os meus marcadores. Por favor, ábraos en CoMaps. Se non o tes instalado podes descargalo aquí:: https://www.comaps.app/download/\n\nGozar viaxando con CoMaps!";
 /* message title of loading file */
-"load_kmz_title" = "Cargando marcadores";
+"load_kmz_title" = "Cargando favoritos";
 /* Kmz file successful loading */
-"load_kmz_successful" = "Os marcadores cargáronse con éxito! Pode atopalos no mapa ou na pantalla de Xestión de marcadores.";
+"load_kmz_successful" = "Os favoritos cargáronse con éxito! Podes atopalos no mapa ou na pantalla de xestión de favoritos.";
 /* Kml file loading failed */
 "load_kmz_failed" = "Non se puideron cargar os marcadores. O arquivo podería ter danos ou defectos.";
 /* resource for context menu */
@@ -351,7 +351,7 @@
 "history" = "Historial";
 "search_not_found" = "Non se atopou ningún resultado.";
 /* The message when user did not find anything in the search. */
-"search_not_found_query" = "Descargue a rexión na que está a buscar ou probe a engadir o nome dunha cidade/poboo próximo.";
+"search_not_found_query" = "Descargue a rexión na que está a buscar ou probe a engadir o nome dunha cidade/vila próxima.";
 "search_history_title" = "Historial de procuras";
 "search_history_text" = "Ver procuras recentes.";
 "clear_search" = "Baleirar historial de procuras";
@@ -681,8 +681,6 @@
 "yes_available" = "Si";
 /* E.g. "WiFi:No" */
 "no_available" = "Non";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Capacidade: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Rede: %@";
 "trip_finished" = "Chegou!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Add Place";
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"downloader_check_updates_button" = "Buscar actualizacións";
+"downloader_check_updates_checking" = "Comprobando as actualizacións…";
+"downloader_check_updates_updated" = "Hai actualizacións para os mapas!";
+"downloader_check_updates_no_updates" = "Non hai actualizacións";
+"downloader_check_updates_eol" = "Non vai haber novos mapas para esta versión da app. Actualiza a app!";
+"downloader_check_updates_error" = "Erro ao comprobar as actualizacións";
+"editor_add_select_category_recent_subtitle" = "Recently Used";
+"oh_unknown" = "Opening hours unknown";
+"carplay_highway_exit" = "Exit %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "No dedicated disabled spaces";
+"capacity_charging_yes" = "Has spaces with chargers";
+"capacity_charging_no" = "No spaces with chargers";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

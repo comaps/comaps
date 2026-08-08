@@ -1,26 +1,20 @@
-#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-#include "platform/preferred_languages.hpp"
-#endif
-
 #include "map/mwm_url.hpp"
 
 #include "map/api_mark_point.hpp"
 #include "map/bookmark_manager.hpp"
 #include "map/framework.hpp"
-#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-// #include "map/everywhere_search_params.hpp"
-#include "map/routing_manager.hpp"
-#include "map/routing_mark.hpp"
-
-// #include "search/result.hpp"
-#endif
+#include "map/place_page_info.hpp"
+#include "map/user_mark.hpp"
 
 #include "ge0/geo_url_parser.hpp"
 #include "ge0/parser.hpp"
 
-#include "geometry/latlon.hpp"
-#include "geometry/mercator.hpp"
 #include "indexer/scales.hpp"
+
+#include "geometry/mercator.hpp"
+#include "geometry/rect2d.hpp"
+
+#include "coding/url.hpp"
 
 #include "drape_frontend/visual_params.hpp"
 
@@ -28,9 +22,12 @@
 #include "base/scope_guard.hpp"
 #include "base/string_utils.hpp"
 
-/*#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-#include <future>
-#endif*/
+#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
+#include "map/routing_manager.hpp"
+#include "map/routing_mark.hpp"
+
+#include "platform/preferred_languages.hpp"
+#endif
 
 namespace url_scheme
 {
@@ -127,7 +124,7 @@ ParsedMapApi::UrlType ParsedMapApi::SetUrlAndParse(std::string const & raw)
 
   if (auto const [prefix, checkForGe0Link] = FindUrlPrefix(raw); prefix != std::string::npos)
   {
-    url::Url const url{"cm://" + raw.substr(prefix)};
+    url::Url const url{"comaps://" + raw.substr(prefix)};
     if (!url.IsValid())
       return m_requestType = UrlType::Incorrect;
 

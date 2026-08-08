@@ -1,5 +1,7 @@
 #include "cppjansson.hpp"
 
+#include "base/string_utils.hpp"
+
 #include <type_traits>
 
 namespace

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "shaders/program_pool.hpp"
+#include "shaders/programs.hpp"
 
 #include "drape/graphics_context.hpp"
 #include "drape/pointers.hpp"

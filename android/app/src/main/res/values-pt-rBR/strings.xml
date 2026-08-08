@@ -181,13 +181,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Comprimento</string>
     <string name="share_my_location">Compartilhar a minha localização</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Configurações gerais</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Informação</string>
     <string name="prefs_group_route">Navegação</string>
     <string name="pref_zoom_title">Botões de zoom</string>
     <string name="pref_zoom_summary">Mostrar na tela</string>
+    <string name="prefs_group_advanced">Avançadas</string>
+    <string name="download_resources_custom_url_title">Servidor de Mapas Personalizado</string>
+    <string name="download_resources_custom_url_message">Substitua o servidor padrão usado para baixar mapas. Deixe em branco para usar o servidor padrão do CoMaps.</string>
+    <string name="download_resources_custom_url_summary_none">Não definido</string>
+    <string name="download_resources_custom_url_error_scheme">Insira uma URL começando com http:// ou https://</string>
     <!-- Generic «Auto» string -->
     <string name="auto">Automático</string>
     <!-- Settings «Map» category: «Perspective view» title -->
@@ -398,7 +401,7 @@
     <string name="editor_login_error_dialog">Erro ao iniciar sessão</string>
     <string name="editor_profile_changes">Alterações verificadas</string>
     <string name="editor_edit_place_title">Edição</string>
-    <string name="editor_add_place_title">Adicionando</string>
+    <string name="editor_add_place_title">Adicionar</string>
     <string name="editor_edit_place_name_hint">Nome do local</string>
     <string name="editor_edit_place_category_title">Categoria</string>
     <string name="detailed_problem_description">Descrição detalhada do problema</string>
@@ -549,17 +552,17 @@
     <string name="power_managment_setting_auto">Automático</string>
     <string name="power_managment_setting_manual_max">Máxima economia de energia</string>
     <string name="enable_logging_warning_message">Ative esta opção temporariamente para criar registros de execução e manualmente nos enviar registros diagnósticos detalhados sobre seu problema usando \"Relatar um problema\" no diálogo de Ajuda. Registros de execução podem conter dados de localização.</string>
-    <string name="driving_options_title">Opções de trajeto</string>
+    <string name="routing_options_title">Opções de trajeto</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Evitar pedágios</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_unpaved">Evitar não pavimentadas</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_ferry">Evitar balsas</string>
-    <string name="avoid_motorways">Evitar rodovias</string>
+    <string name="avoid_motorways">Evitar autoestradas</string>
     <string name="unable_to_calc_alert_title">Incapaz de calcular rota</string>
     <string name="unable_to_calc_alert_subtitle">Infelizmente, não conseguimos encontrar uma rota, provavelmente por causa das opções escolhidas ou dados do OpenStreetMap em falta. Por favor, altere as configurações e tente novamente.</string>
-    <string name="define_to_avoid_btn">Definir as estradas a serem evitadas</string>
+    <string name="define_to_avoid_btn">Escolher opções de roteamento</string>
     <string name="change_driving_options_btn">Opções de direção ativadas</string>
     <string name="toll_road">Pedágio</string>
     <string name="unpaved_road">Via não pavimentada</string>
@@ -742,7 +745,7 @@
     <string name="how_to_support_us">Voluntarie-se e melhore o CoMaps</string>
     <string name="google_play_services">Serviço de localização integrada do Google</string>
     <string name="editor_time_title">Horário de funcionamento</string>
-    <string name="long_tap_toast">Dê um toque longo no mapa novamente para ver a interface</string>
+    <string name="enable_long_tap_fullscreen_description">Dê um toque longo no mapa novamente para ver a interface</string>
     <string name="editor_time_add">Adicionar horário</string>
     <string name="editor_time_open">Aberto</string>
     <string name="editor_time_close">Fechado</string>
@@ -760,7 +763,7 @@
     <string name="editor_focus_map_on_location">Mova o mapa para colocar a cruz na localização da empresa ou do local.</string>
     <string name="pref_left_button_disable">Desabilitar</string>
     <string name="saved">Salvo</string>
-    <string name="privacy">Privacidade</string>
+    <string name="prefs_group_privacy">Privacidade</string>
     <string name="pref_tts_speedcams_auto">Avisar se exceder limite de velocidade</string>
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="elevation_profile_ascent">Subida</string>
@@ -794,7 +797,7 @@
     <string name="error_enter_correct_vk_page">Digite um nome de usuário ou endereço da web válido do VK</string>
     <string name="error_enter_correct_fediverse_page">Digite um nome de usuário ou endereço da web válido do Mastodon</string>
     <string name="error_enter_correct_bluesky_page">Digite um nome de usuário ou endereço da web válido do Bluesky</string>
-    <string name="prefs_languages_information_off">Para alguns idiomas, você precisará instalar um sintetizador de voz ou um pacote de idiomas adicional a partir de uma loja de aplicativos (Google Play, Galaxy Store, App Gallery, FDroid).\nAbra as configurações do seu dispositivo → Idioma e entrada → Fala → Saída de texto para fala.\nAqui, você pode gerenciar as configurações de síntese de voz (por exemplo, baixar o pacote de idiomas para uso offline) e selecionar diferentes mecanismo de conversão de texto para fala.</string>
+    <string name="prefs_languages_information_off">Para alguns idiomas, você precisará instalar um sintetizador de voz ou um pacote de idiomas adicional a partir de uma loja de aplicativos (Google Play, Galaxy Store, App Gallery, FDroid).\nAbra as configurações do seu dispositivo → Idioma e entrada → Fala → Saída de texto para fala.\nAqui, você pode gerenciar as configurações de síntese de voz (por exemplo, baixar o pacote de idiomas para uso offline) e selecionar outro mecanismo de conversão de texto para fala.</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="editor_building_levels">Andares (incl. térreo, excl. sótão)</string>
     <string name="error_enter_correct_level">Digite um número de andares válido</string>
@@ -883,11 +886,6 @@
     <string name="prefs_speed_cameras_information">Alertas de radar fotográfico de velocidade estão desativados em países onde os alertas são proibidos pelas leis locais.</string>
     <string name="navigation_start_tts_message">"Iniciando navegação, idioma da instrução por voz: "</string>
     <string name="navigation_start_tts_disabled_message">Instrução por voz desativada: nenhum motor de texto para voz disponível</string>
-    <string name="advanced">Avançadas</string>
-    <string name="download_resources_custom_url_title">Servidor de Mapas Personalizado</string>
-    <string name="download_resources_custom_url_message">Substitua o servidor padrão usado para baixar mapas. Deixe em branco para usar o servidor padrão do CoMaps.</string>
-    <string name="download_resources_custom_url_summary_none">Não definido</string>
-    <string name="download_resources_custom_url_error_scheme">Insira uma URL começando com http:// ou https://</string>
     <string name="pref_maplanguage_local">Linguagem Local</string>
     <string name="location_privacy_info">Os aplicativos usam dados de localização do serviço de localização, que podem compartilhar sua localização com o Google e/ou com o fabricante do seu dispositivo. Use um sistema Android que preserve a sua privacidade para evitar isso.</string>
     <string name="location_privacy">Privacidade da localização</string>
@@ -916,4 +914,48 @@
     <string name="population">População: %s</string>
     <string name="setting_value_system_default">Padrão do sistema</string>
     <string name="change_app_locale">Idioma do app</string>
+    <string name="downloader_check_updates_button">Buscar atualizações</string>
+    <string name="downloader_check_updates_checking">Buscando atualizações...</string>
+    <string name="downloader_check_updates_updated">Atualizações do mapa disponíveis!</string>
+    <string name="downloader_check_updates_no_updates">Nenhuma atualização disponível</string>
+    <string name="downloader_check_updates_eol">Não haverá mais atualizações de mapas para esta versão do aplicativo. Por favor, atualize o aplicativo!</string>
+    <string name="downloader_check_updates_error">Erro ao buscar atualizações</string>
+    <string name="oh_unknown">Horário de funcionamento desconhecido</string>
+    <string name="tts_toggle_enable">Ativar orientação por voz</string>
+    <string name="tts_toggle_disable">Desativar orientação por voz</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_aa_support_summary_yes">O aplicativo foi instalado a partir do Google Play e você pode usá-lo no seu carro.</string>
+    <string name="pref_aa_support_summary_no">O aplicativo não foi instalado a partir do Google Play, portanto, você não pode usá-lo no seu carro. Vá para as configurações para obter mais detalhes em nossas perguntas frequentes.</string>
+    <string name="editor_add_select_category_all_subtitle">Todas as categorias</string>
+    <string name="editor_add_select_category_recent_subtitle">Recentemente usadas</string>
+    <string name="long_tap_disabled_toast">Para ocultar a interface, ative o toque longo nas configurações</string>
+    <string name="enable_long_tap_fullscreen">Toque longo para ocultar a interface do usuário</string>
+    <string name="by_recently_used">Por usado recentemente</string>
+    <string name="by_custom">Por ordem personalizada</string>
+    <string name="sort_categories">Ordenar listas de favoritos</string>
+    <string name="capacity_disabled_no">Sem espaços dedicados para deficientes</string>
+    <string name="capacity_charging_yes">Possui espaços com carregadores</string>
+    <string name="capacity_charging_no">Sem espaços com carregadores</string>
+    <string name="prefs_group_route_summary">Unidades, instruções de voz, opções de roteamento</string>
+    <string name="prefs_group_privacy_summary">Histórico de pesquisa</string>
+    <string name="prefs_group_power_summary">Tempo limite da tela, dados móveis</string>
+    <string name="capacity_disabled">Vagas de estacionamento para deficientes: %s</string>
+    <string name="capacity_disabled_yes">Possui espaço dedicado para deficientes</string>
+    <string name="capacity_charging">Espaços com carregadores: %s</string>
+    <string name="permission_read_navigation_label">Ler os dados de navegação do CoMaps</string>
+    <string name="permission_read_navigation_description">ler informações de navegação ao vivo, como as próximas curvas ou o nome da estrada em que você está</string>
+    <string name="planning_route_preview">Pré-visualizar</string>
+    <string name="pref_about_summary">Reportar problemas, obter ajuda, fazer uma doação\nVersão: v%1$s</string>
+    <string name="prefs_group_map_appearance">Aparência do mapa</string>
+    <string name="prefs_group_map_appearance_summary">Idioma do mapa, tamanho dos rótulos, edifícios 2D/3D</string>
+    <string name="prefs_group_interface">Interface</string>
+    <string name="prefs_group_interface_summary">Modo noturno, botões, idioma</string>
+    <string name="prefs_group_data_management">Gestão de dados</string>
+    <string name="prefs_group_data_management_summary">Armazenamento de mapas, backup de favoritos</string>
+    <string name="prefs_group_advanced_summary">Ativar registros de execução</string>
+    <string name="search_in_all_lists">Buscar em todas as listas</string>
+    <string name="pref_enable_auto_reroute_title">Redirecionamento automático</string>
+    <string name="pref_enable_auto_reroute_description">Quando ativado, uma nova rota será automaticamente calculada se sair da rota planejada.</string>
+    <string name="recalculate_route">Recalcular</string>
+    <string name="off_route">Você saiu da rota planejada</string>
 </resources>

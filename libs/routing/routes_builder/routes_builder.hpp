@@ -3,10 +3,8 @@
 #include "routing/routes_builder/data_source_storage.hpp"
 
 #include "routing/checkpoints.hpp"
-#include "routing/index_router.hpp"
 #include "routing/router_delegate.hpp"
 #include "routing/routing_callbacks.hpp"
-#include "routing/segment.hpp"
 #include "routing/vehicle_mask.hpp"
 
 #include "traffic/traffic_cache.hpp"
@@ -20,11 +18,8 @@
 
 #include "platform/platform.hpp"
 
-#include "coding/file_reader.hpp"
-#include "coding/file_writer.hpp"
-#include "coding/reader.hpp"
-
 #include "geometry/latlon.hpp"
+#include "geometry/point2d.hpp"
 
 #include "base/macros.hpp"
 #include "base/thread_pool_computational.hpp"
@@ -35,8 +30,12 @@
 #include <string>
 #include <vector>
 
+class FrozenDataSource;
+
 namespace routing
 {
+class IndexRouter;
+
 namespace routes_builder
 {
 // TODO (@gmoryes)
@@ -104,6 +103,7 @@ private:
   public:
     Processor(std::shared_ptr<NumMwmIds> numMwmIds, DataSourceStorage & dataSourceStorage,
               std::weak_ptr<storage::CountryParentGetter> cpg, std::weak_ptr<storage::CountryInfoGetter> cig);
+    ~Processor();
 
     Processor(Processor && rhs) noexcept;
 

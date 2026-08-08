@@ -29,12 +29,8 @@ on:
 
 jobs:
   macos-matrix:
-    name: macOS builds and tests
-    runs-on: macos-15
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_26.app/Contents/Developer
-      HOMEBREW_NO_ANALYTICS: 1
-      HOMEBREW_NO_INSTALL_CLEANUP: 1
+    name: macOS builds and tests (${{ matrix.CMAKE_BUILD_TYPE }})
+    runs-on: comaps-macos-tahoe
     strategy:
       fail-fast: false
       matrix:
@@ -48,17 +44,17 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v4
 
-      - name: Parallel submodules checkout
-        shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(sysctl -n hw.logicalcpu) * 20))
+      - name: Update submodules
+        uses: ./.forgejo/actions/update-submodules
 
-      - name: Install build tools and dependencies
-        shell: bash
-        run: |
-          HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1 brew install ninja qt@6
+      - name: Cache world map
+        uses: actions/cache@v4
+        with:
+          path: data/world_mwm
+          key: world-mwm
 
       - name: Configure ccache
-        uses: hendrikmuhs/ccache-action@v1.2
+        uses: https://github.com/hendrikmuhs/ccache-action@d62db5f07c26379fc4b4e0916f098a92573c3b03 # v1.2.23
         with:
           key: ${{ github.workflow }}-${{ matrix.CMAKE_BUILD_TYPE }}
 

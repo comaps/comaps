@@ -2,12 +2,13 @@
 
 #include "platform/distance.hpp"
 
+#include "indexer/ftypes_matcher.hpp"
+#include "indexer/road_shields_parser.hpp"
+
 #include "routing/lanes/lane_info.hpp"
 #include "routing/routing_callbacks.hpp"
 #include "routing/turns.hpp"
 
-#include <algorithm>
-#include <cstdint>
 #include <string>
 #include <vector>
 
@@ -16,6 +17,14 @@ namespace routing
 class FollowingInfo
 {
 public:
+  struct RoadShieldInfo
+  {
+    /// An array of road shields for the target street
+    ftypes::RoadShieldsSetT m_targetRoadShields;
+    /// An array of road shields for the junction
+    ftypes::RoadShieldsSetT m_junctionRoadShields;
+  };
+
   FollowingInfo()
     : m_turn(turns::CarDirection::None)
     , m_nextTurn(turns::CarDirection::None)
@@ -49,10 +58,31 @@ public:
   std::vector<std::string> m_turnNotifications;
   // Current street name. May be empty.
   std::string m_currentStreetName;
+  // Road shields for the current street.
+  RoadShieldInfo m_currentStreetShields;
   // The next street name. May be empty.
   std::string m_nextStreetName;
+  // Road shields for the next street.
+  RoadShieldInfo m_nextStreetShields;
   // The next next street name. May be empty.
   std::string m_nextNextStreetName;
+  // Road shields for the next next street.
+  RoadShieldInfo m_nextNextStreetShields;
+
+  // Structured, presentation-safe components of the next turn's road, mirroring
+  // RouteSegment::RoadNameInfo. Unlike m_nextStreetName these are not pre-formatted, letting
+  // platform UIs (e.g. CarPlay) build their own width-appropriate instruction variants.
+  // All may be empty.
+  std::string m_nextName;             // E.g. "Bayshore Freeway".
+  std::string m_nextRef;              // Road number, e.g. "CA 85".
+  std::string m_nextJunctionRef;      // Junction/exit number, e.g. "6A".
+  std::string m_nextDestinationRef;   // Number of the road the exit leads to, e.g. "US 101 South".
+  std::string m_nextDestination;      // E.g. "San Jose; San Francisco International Airport".
+  bool m_nextIsLink = false;          // True when the next segment is a link (ramp).
+  ftypes::HighwayClass m_nextHighwayClass = ftypes::HighwayClass::Undefined;
+
+  // True in left-hand-driving regions (e.g. UK, Japan)
+  bool m_isLeftHandTraffic = false;
 
   // Percentage of the route completion.
   double m_completionPercent;

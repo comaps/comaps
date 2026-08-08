@@ -1,10 +1,11 @@
 #pragma once
 
-#include "indexer/data_source.hpp"
 #include "indexer/mwm_set.hpp"
 
 #include <memory>
 #include <vector>
+
+class DataSource;
 
 namespace indexer
 {

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
 #include <cstdint>

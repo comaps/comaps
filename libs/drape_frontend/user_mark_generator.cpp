@@ -1,12 +1,17 @@
 #include "drape_frontend/user_mark_generator.hpp"
+
+#include "drape_frontend/batcher_bucket.hpp"
 #include "drape_frontend/tile_utils.hpp"
 
 #include "drape/batcher.hpp"
+#include "drape/render_state.hpp"
 
 #include "geometry/mercator.hpp"
-#include "geometry/rect_intersect.hpp"
+#include "geometry/rect2d.hpp"
 
 #include "indexer/scales.hpp"
+
+#include "base/assert.hpp"
 
 #include <algorithm>
 

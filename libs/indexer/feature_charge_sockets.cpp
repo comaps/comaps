@@ -1,6 +1,7 @@
 
 #include "indexer/feature_charge_sockets.hpp"
 
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 
@@ -9,6 +10,8 @@
 #include <sstream>  // for std::to_string alternative
 #include <string_view>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 // helper to format doubles (avoids trailing zeros)
 inline std::string to_string_trimmed(double value, int precision = 2)

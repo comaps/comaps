@@ -4,7 +4,14 @@
 "cancel_download" = "Cancel Download";
 /* Button which deletes downloaded country */
 "delete" = "Delete";
+/* Download/update Maps page */
 "download_maps" = "Download Maps";
+"downloader_check_updates_button" = "Check for updates";
+"downloader_check_updates_checking" = "Checking for updates...";
+"downloader_check_updates_updated" = "Map updates available!";
+"downloader_check_updates_no_updates" = "No updates available";
+"downloader_check_updates_eol" = "No more map updates for this app version. Please update the app!";
+"downloader_check_updates_error" = "Error checking for updates";
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "Downloading…";
 /* Title of offline maps explanation */
@@ -397,6 +404,7 @@
 "twentyfour_seven" = "24/7";
 "day_off_today" = "Closed today";
 "day_off" = "Closed";
+"oh_unknown" = "Opening hours unknown";
 "today" = "Today";
 "opens_tomorrow_at" = "Opens tomorrow at %@";
 "opens_dayoftheweek_at" = "Opens %1$@ at %2$@";
@@ -459,6 +467,7 @@
 "editor_focus_map_on_location" = "Drag the map to place the cross at the location of the place or business.";
 "editor_add_select_category" = "Select category";
 "editor_add_select_category_popular_subtitle" = "Popular";
+"editor_add_select_category_recent_subtitle" = "Recently Used";
 "editor_add_select_category_all_subtitle" = "All Categories";
 "editor_edit_place_title" = "Editing";
 "editor_add_place_title" = "Adding";
@@ -599,6 +608,8 @@
 /* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
 "routing_add_finish_point" = "Use search or tap on the map to add a destination point";
 "planning_route_manage_route" = "Manage Route";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";
 "button_plan" = "Plan";
 "placepage_remove_stop" = "Remove Stop";
 "planning_route_remove_title" = "Drag here to remove";
@@ -690,8 +701,6 @@
 "yes_available" = "Yes";
 /* E.g. "WiFi:No" */
 "no_available" = "No";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Capacity: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Network: %@";
 "trip_finished" = "You have arrived!";
@@ -711,6 +720,8 @@
 "speedcams_alert_title_carplay_2" = "Speed warnings";
 "download_map_carplay" = "Please download maps in the app on your mobile device";
 "carplay_roundabout_exit" = "%@ exit";
+/* CarPlay navigation: highway exit label, e.g. "Exit 6A". %@ is the junction/exit number. */
+"carplay_highway_exit" = "Exit %@";
 /* max. 10 symbols, both iOS and Android */
 "sort" = "Sort…";
 /* iOS */
@@ -879,3 +890,9 @@
 "contribute_to_osm_add_place" = "Add Place";
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+/* To indicate the number of disabled spaces */
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "No dedicated disabled spaces";
+/* To indicate the number of charging spaces */
+"capacity_charging_yes" = "Has spaces with chargers";
+"capacity_charging_no" = "No spaces with chargers";

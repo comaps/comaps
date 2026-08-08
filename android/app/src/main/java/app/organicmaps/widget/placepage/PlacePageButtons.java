@@ -16,6 +16,7 @@ import app.organicmaps.R;
 import app.organicmaps.util.Graphics;
 import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetFragment;
+import app.organicmaps.sdk.routing.RoutingController;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
 import java.util.ArrayList;
@@ -114,7 +115,13 @@ public final class PlacePageButtons extends Fragment implements Observer<List<Pl
     title.setText(current.getTitle());
     parent.setContentDescription(getString(current.getTitle()));
     @AttrRes
-    final int tint = current.getType() == ButtonType.BOOKMARK_DELETE ? R.attr.iconTintActive : R.attr.iconTint;
+    final int tint;
+    if (current.getType() == ButtonType.BOOKMARK_DELETE)
+      tint = R.attr.iconTintActive;
+    else if (current.getType() == ButtonType.ROUTE_TO && RoutingController.get().getEndPoint() == null)
+      tint = com.google.android.material.R.attr.colorSecondary;
+    else
+      tint = R.attr.iconTint;
     icon.setImageDrawable(Graphics.tint(getContext(), current.getIcon(), tint));
     parent.setOnClickListener((view) -> {
       if (current.getType() == ButtonType.MORE)

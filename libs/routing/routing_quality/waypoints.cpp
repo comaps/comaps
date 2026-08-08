@@ -1,9 +1,10 @@
 #include "routing/routing_quality/waypoints.hpp"
 
 #include "routing/base/followed_polyline.hpp"
+#include "routing/vehicle_mask.hpp"
 
 #include "geometry/mercator.hpp"
-#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 
 #include "base/assert.hpp"
 #include "base/logging.hpp"

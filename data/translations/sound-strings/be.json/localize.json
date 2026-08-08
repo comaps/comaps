@@ -1,0 +1,320 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Трымайцеся правей."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Павярніце направа."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Рэзка павярніце направа."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "Павярніце на круг."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Збочце з круга."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Трымайцеся лявей."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Павярніце налева."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Рэзка павярніце налева."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Развярніцеся."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "Рухайцеся прама."
+    },
+    "exit": {
+        "defaultMessage": "З'езд."
+    },
+    "onto": {
+        "defaultMessage": "на"
+    },
+    "take_exit_number": {
+        "defaultMessage": "З'езд на"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Пераразлік маршруту"
+    },
+    "destination": {
+        "defaultMessage": "Вы прыбудзеце ў пункт прызначэння."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "Вы прыбылі ў пункт прызначэння."
+    },
+    "in_50_meters": {
+        "defaultMessage": "Праз пяцьдзесят метраў"
+    },
+    "in_100_meters": {
+        "defaultMessage": "Праз сто метраў"
+    },
+    "in_200_meters": {
+        "defaultMessage": "Праз дзвесце метраў"
+    },
+    "in_250_meters": {
+        "defaultMessage": "Праз дзвесце пяцьдзесят метраў"
+    },
+    "in_300_meters": {
+        "defaultMessage": "Праз трыста метраў"
+    },
+    "in_400_meters": {
+        "defaultMessage": "Праз чатырыста метраў"
+    },
+    "in_500_meters": {
+        "defaultMessage": "Праз пяцьсот метраў"
+    },
+    "in_600_meters": {
+        "defaultMessage": "Праз шэсцьсот метраў"
+    },
+    "in_700_meters": {
+        "defaultMessage": "Праз сямсот метраў"
+    },
+    "in_750_meters": {
+        "defaultMessage": "Праз сямсот пяцьдзясят метраў"
+    },
+    "in_800_meters": {
+        "defaultMessage": "Праз васямсот метраў"
+    },
+    "in_900_meters": {
+        "defaultMessage": "Праз дзевяцьсот метраў"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "Праз кіламетр"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "Праз паўтара кіламетра"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "Праз два кіламетры"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "Праз два з паловай кіламетры"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "Праз тры кіламетры"
+    },
+    "then": {
+        "defaultMessage": "Потым"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Збочце на першы з'езд."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Збочце на другі з'езд."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Збочце на трэці з'езд."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Збочце на чацвёрты з'езд."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Збочце на пяты з'езд."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Збочце на шосты з'езд."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Збочце на сёмы з'езд."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Збочце на восьмы з'езд."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Збочце на дзявяты з'езд."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Збочце на дзясяты з'езд."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Збочце на адзінаццаты з'езд."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "Праз пяцьдзесят футаў"
+    },
+    "in_100_feet": {
+        "defaultMessage": "Праз сто футаў"
+    },
+    "in_200_feet": {
+        "defaultMessage": "Праз дзвесце футаў"
+    },
+    "in_300_feet": {
+        "defaultMessage": "Праз трыста футаў"
+    },
+    "in_400_feet": {
+        "defaultMessage": "Праз чатырыста футаў"
+    },
+    "in_500_feet": {
+        "defaultMessage": "Праз пяцьсот футаў"
+    },
+    "in_600_feet": {
+        "defaultMessage": "Праз шэсцьсот футаў"
+    },
+    "in_700_feet": {
+        "defaultMessage": "Праз сямсот футаў"
+    },
+    "in_800_feet": {
+        "defaultMessage": "Праз васямсот футаў"
+    },
+    "in_900_feet": {
+        "defaultMessage": "Праз дзевяцьсот футаў"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "Праз тысячу футаў"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "Праз тысячу пяцьсот футаў"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "Праз дзве тысячы футаў"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "Праз дзве тысячы пяцьсот футаў"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "Праз тры тысячы футаў"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "Праз тры тысячы пяцьсот футаў"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "Праз чатыры тысячы футаў"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "Праз чатыры тысячы пяцьсот футаў"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "Праз пяць тысяч футаў"
+    },
+    "in_1_mile": {
+        "defaultMessage": "Праз адну мілю"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "Праз паўтары мілі"
+    },
+    "in_2_miles": {
+        "defaultMessage": "Праз дзве мілі"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Наперадзе камера"
+    }
+}

@@ -1,7 +1,5 @@
 #pragma once
 
-#include "editor/server_api.hpp"
-
 #include "geometry/latlon.hpp"
 
 #include "base/macros.hpp"
@@ -10,6 +8,11 @@
 #include <memory>
 #include <mutex>
 #include <string>
+
+namespace osm
+{
+class OsmOAuth;
+}  // namespace osm
 
 namespace editor
 {

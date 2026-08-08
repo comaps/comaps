@@ -3,8 +3,9 @@
 #include "indexer/data_source.hpp"
 #include "indexer/scales.hpp"
 
+#include "geometry/rect2d.hpp"
+
 #include "base/assert.hpp"
-#include "base/macros.hpp"
 #include "base/thread_checker.hpp"
 
 #include <memory>

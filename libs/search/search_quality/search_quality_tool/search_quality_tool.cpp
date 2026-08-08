@@ -11,9 +11,8 @@
 #include "indexer/data_source.hpp"
 #include "indexer/mwm_set.hpp"
 
-#include "platform/platform_tests_support/helpers.hpp"
-
 #include "platform/country_file.hpp"
+#include "platform/helpers.hpp"
 #include "platform/platform.hpp"
 
 #include "geometry/mercator.hpp"
@@ -344,7 +343,7 @@ void RunRequests(TestSearchEngine & engine, m2::RectD const & viewport, string q
 
 int main(int argc, char * argv[])
 {
-  platform::tests_support::ChangeMaxNumberOfOpenFiles(kMaxOpenFiles);
+  platform::ChangeMaxNumberOfOpenFiles(kMaxOpenFiles);
   CheckLocale();
 
   gflags::SetUsageMessage("Search quality tests.");

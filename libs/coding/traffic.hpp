@@ -1,12 +1,11 @@
 #pragma once
 
 #include "coding/point_coding.hpp"
-#include "coding/reader.hpp"
 #include "coding/varint.hpp"
-#include "coding/writer.hpp"
 
 #include "geometry/latlon.hpp"
 
+#include "base/assert.hpp"
 #include "base/checked_cast.hpp"
 
 #include <limits>

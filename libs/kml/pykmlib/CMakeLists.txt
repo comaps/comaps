@@ -18,6 +18,7 @@ omim_link_libraries(
   platform
   coding
   geometry
+  i18n
   base
   ICU::i18n
   cppjansson

@@ -2,6 +2,8 @@
 #include "drape/data_buffer_impl.hpp"
 #include "drape/drape_global.hpp"
 
+#include "base/assert.hpp"
+
 namespace dp
 {
 DataBuffer::DataBuffer(uint8_t elementSize, uint32_t capacity)

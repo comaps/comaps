@@ -1,0 +1,320 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Tieni la destra."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Gira a destra."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Svolta a destra."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "Entra nella rotonda."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Esci dalla rotonda."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Mantieni la sinistra."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Gira a sinistra."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Svolta a sinistra."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Effettua un'inversione a U."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "Prosegui dritto."
+    },
+    "exit": {
+        "defaultMessage": "Esci."
+    },
+    "onto": {
+        "defaultMessage": "in"
+    },
+    "take_exit_number": {
+        "defaultMessage": "Esci su"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Ricalcolo del percorso"
+    },
+    "destination": {
+        "defaultMessage": "Sarai arrivato."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "Sei arrivato."
+    },
+    "in_50_meters": {
+        "defaultMessage": "Tra cinquanta metri"
+    },
+    "in_100_meters": {
+        "defaultMessage": "Tra cento metri"
+    },
+    "in_200_meters": {
+        "defaultMessage": "Tra duecento metri"
+    },
+    "in_250_meters": {
+        "defaultMessage": "Tra duecentocinquanta metri"
+    },
+    "in_300_meters": {
+        "defaultMessage": "Tra trecento metri"
+    },
+    "in_400_meters": {
+        "defaultMessage": "Tra quattrocento metri"
+    },
+    "in_500_meters": {
+        "defaultMessage": "Tra cinquecento metri"
+    },
+    "in_600_meters": {
+        "defaultMessage": "Tra seicento metri"
+    },
+    "in_700_meters": {
+        "defaultMessage": "Tra settecento metri"
+    },
+    "in_750_meters": {
+        "defaultMessage": "Tra settecentocinquanta metri"
+    },
+    "in_800_meters": {
+        "defaultMessage": "Tra ottocento metri"
+    },
+    "in_900_meters": {
+        "defaultMessage": "Tra novecento metri"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "Tra un chilometro"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "Tra un chilometro e mezzo"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "Tra due chilometri"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "Tra due chilometri e mezzo"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "Tra tre chilometri"
+    },
+    "then": {
+        "defaultMessage": "Poi"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Prendi la prima uscita."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Prendi la seconda uscita."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Prendi la terza uscita."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Prendi la quarta uscita."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Prendi la quinta uscita."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Prendi la sesta uscita."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Prendi la settima uscita."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Prendi l'ottava uscita."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Prendi la nona uscita."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Prendi la decima uscita."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Prendi l'undicesima uscita."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "Tra cinquanta piedi"
+    },
+    "in_100_feet": {
+        "defaultMessage": "Tra cento piedi"
+    },
+    "in_200_feet": {
+        "defaultMessage": "Tra duecento piedi"
+    },
+    "in_300_feet": {
+        "defaultMessage": "Tra trecento piedi"
+    },
+    "in_400_feet": {
+        "defaultMessage": "Tra quattrocento piedi"
+    },
+    "in_500_feet": {
+        "defaultMessage": "Tra cinquecento piedi"
+    },
+    "in_600_feet": {
+        "defaultMessage": "Tra seicento piedi"
+    },
+    "in_700_feet": {
+        "defaultMessage": "Tra settecento piedi"
+    },
+    "in_800_feet": {
+        "defaultMessage": "Tra ottocento piedi"
+    },
+    "in_900_feet": {
+        "defaultMessage": "Tra novecento piedi"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "Tra mille piedi"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "Tra mille cinquecento piedi"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "Tra duemila piedi"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "Tra duemila cinquecento piedi"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "Tra tremila piedi"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "Tra tremila cinquecento piedi"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "Tra quattromila piedi"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "Tra quattromila cinquecento piedi"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "Tra cinquemila piedi"
+    },
+    "in_1_mile": {
+        "defaultMessage": "Tra un miglio"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "Tra un miglio e mezzo"
+    },
+    "in_2_miles": {
+        "defaultMessage": "Tra due miglia"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Autovelox in prossimità"
+    }
+}

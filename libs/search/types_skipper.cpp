@@ -1,9 +1,11 @@
 #include "search/types_skipper.hpp"
 
 #include "indexer/classificator.hpp"
+#include "indexer/feature_data.hpp"
 #include "indexer/ftypes_matcher.hpp"
 
 #include "base/stl_helpers.hpp"
+#include "base/string_utils.hpp"
 
 #include <algorithm>
 

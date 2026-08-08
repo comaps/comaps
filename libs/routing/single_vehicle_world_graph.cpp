@@ -1,5 +1,14 @@
 #include "routing/single_vehicle_world_graph.hpp"
 
+#include "routing/base/astar_vertex_data.hpp"
+#include "routing/geometry.hpp"
+#include "routing/joint_segment.hpp"
+#include "routing/latlon_with_altitude.hpp"
+#include "routing/route_weight.hpp"
+#include "routing/segment.hpp"
+#include "routing_common/maxspeed_conversion.hpp"
+#include "routing_common/num_mwm_id.hpp"
+
 #include "base/assert.hpp"
 
 #include <algorithm>

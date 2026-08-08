@@ -1,5 +1,6 @@
 #include "testing/testing.hpp"
 
+#include "shaders/gl_program_info.hpp"
 #include "shaders/gl_shaders.hpp"
 
 #include "platform/platform.hpp"

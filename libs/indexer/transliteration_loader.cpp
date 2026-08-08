@@ -2,12 +2,15 @@
 
 #include "platform/platform.hpp"
 
-#include "coding/transliteration.hpp"
+#include "i18n/transliteration.hpp"
+
+#ifdef OMIM_OS_ANDROID
 #include "coding/zip_reader.hpp"
 
 #include "base/exception.hpp"
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
+#endif
 
 #include <string>
 

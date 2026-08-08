@@ -4,7 +4,6 @@
 #include "editor/xml_feature.hpp"
 
 #include "geometry/point2d.hpp"
-#include "geometry/rect2d.hpp"
 
 #include "base/exception.hpp"
 

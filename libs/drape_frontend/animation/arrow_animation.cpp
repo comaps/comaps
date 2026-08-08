@@ -1,5 +1,7 @@
 #include "drape_frontend/animation/arrow_animation.hpp"
 
+#include "base/assert.hpp"
+
 #include <algorithm>
 
 namespace df

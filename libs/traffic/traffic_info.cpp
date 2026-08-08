@@ -1,11 +1,13 @@
 #include "traffic/traffic_info.hpp"
 
+#include "platform/country_defines.hpp"
 #include "platform/http_client.hpp"
-#include "platform/platform.hpp"
+#include "platform/local_country_file.hpp"
 
 #include "routing_common/car_model.hpp"
 
-#include "indexer/feature_algo.hpp"
+#include "indexer/feature.hpp"
+#include "indexer/feature_data.hpp"
 #include "indexer/feature_processor.hpp"
 
 #include "coding/bit_streams.hpp"
@@ -19,7 +21,9 @@
 #include "coding/zlib.hpp"
 
 #include "base/assert.hpp"
+#include "base/exception.hpp"
 #include "base/logging.hpp"
+#include "base/macros.hpp"
 #include "base/string_utils.hpp"
 
 #include <algorithm>

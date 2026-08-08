@@ -1,5 +1,4 @@
 #include "3party/monocypher/monocypher-ed25519.h"
-#include "3party/monocypher/monocypher.h"
 #include "ed25519.hpp"
 
 namespace platform::crypto

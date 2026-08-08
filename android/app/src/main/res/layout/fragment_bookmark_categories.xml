@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView
+<FrameLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  android:id="@+id/recycler"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="match_parent"
-  android:layout_height="match_parent" />
+  android:layout_height="match_parent">
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recycler"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:clipToPadding="false" />
+    <app.organicmaps.widget.PlaceholderView
+      android:id="@+id/placeholder"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:visibility="gone"
+      android:gravity="center_horizontal"
+      android:paddingStart="@dimen/margin_double_and_half"
+      android:paddingTop="@dimen/placeholder_margin_top"
+      android:paddingEnd="@dimen/margin_double_and_half"
+      app:imgSrcDefault="@drawable/ic_close"
+      app:subTitleDefault="@string/bookmarks_empty_list_message"
+      app:titleDefault="@string/bookmarks_empty_list_title" />
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>

@@ -459,7 +459,7 @@
 "editor_focus_map_on_location" = "Kéo bản đồ để đặt dấu thập vào vị trí của địa điểm hoặc doanh nghiệp.";
 "editor_add_select_category" = "Chọn thể loại";
 "editor_add_select_category_popular_subtitle" = "Phổ biến";
-"editor_add_select_category_all_subtitle" = "Mọi thể loại";
+"editor_add_select_category_all_subtitle" = "Tất cả danh mục";
 "editor_edit_place_title" = "Chỉnh sửa";
 "editor_add_place_title" = "Thêm";
 "editor_edit_place_name_hint" = "Tên địa điểm";
@@ -681,8 +681,6 @@
 "yes_available" = "Có";
 /* E.g. "WiFi:No" */
 "no_available" = "Không";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Công suất: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Mạng: %@";
 "trip_finished" = "Bạn đã tới nơi!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Add Place";
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"downloader_check_updates_button" = "Kiểm tra cập nhật";
+"downloader_check_updates_checking" = "Đang tìm bản cập nhật...";
+"downloader_check_updates_updated" = "Có bản cập nhật mới!";
+"downloader_check_updates_no_updates" = "Không có bản cập nhật mới";
+"downloader_check_updates_eol" = "Phiên bản ứng dụng này không còn nhận được các bản cập nhật bản đồ. Vui lòng cập nhật ứng dụng!";
+"downloader_check_updates_error" = "Xảy ra lỗi khi kiểm tra cập nhật";
+"editor_add_select_category_recent_subtitle" = "Đã dùng gần đây";
+"oh_unknown" = "Giờ mở cửa không được biết";
+"carplay_highway_exit" = "Exit %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "No dedicated disabled spaces";
+"capacity_charging_yes" = "Has spaces with chargers";
+"capacity_charging_no" = "No spaces with chargers";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

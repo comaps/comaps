@@ -1,11 +1,15 @@
 #pragma once
 
+#include "kml/type_utils.hpp"
 #include "kml/types.hpp"
 
 #include "map/elevation_info.hpp"
 #include "map/track_statistics.hpp"
 
 #include "drape_frontend/user_marks_provider.hpp"
+
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 
 #include <string>
 

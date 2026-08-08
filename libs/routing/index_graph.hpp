@@ -1,8 +1,7 @@
 #pragma once
 
 #include "routing/base/astar_graph.hpp"
-#include "routing/base/astar_vertex_data.hpp"
-
+#include "routing/base/small_list.hpp"
 #include "routing/edge_estimator.hpp"
 #include "routing/geometry.hpp"
 #include "routing/joint.hpp"
@@ -12,13 +11,10 @@
 #include "routing/road_access.hpp"
 #include "routing/road_index.hpp"
 #include "routing/road_penalty.hpp"
-#include "routing/road_point.hpp"
 #include "routing/routing_options.hpp"
 #include "routing/segment.hpp"
 
-#include "indexer/feature_meta.hpp"
-
-#include "geometry/point2d.hpp"
+#include "base/assert.hpp"
 
 #include <memory>
 #include <optional>
@@ -28,6 +24,10 @@
 
 namespace routing
 {
+class RouteWeight;
+
+using NumMwmId = std::uint16_t;
+
 bool IsUTurn(Segment const & u, Segment const & v);
 
 enum class WorldGraphMode;

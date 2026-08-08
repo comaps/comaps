@@ -3,11 +3,15 @@
 #include "drape_frontend/screen_quad_renderer.hpp"
 
 #include "shaders/program_manager.hpp"
+#include "shaders/program_params.hpp"
+#include "shaders/programs.hpp"
 
+#include "drape/color.hpp"
 #include "drape/glsl_types.hpp"
 #include "drape/graphics_context.hpp"
-#include "drape/mesh_object.hpp"
 #include "drape/render_state.hpp"
+#include "drape/texture_types.hpp"
+#include "drape/viewport.hpp"
 
 #include "platform/trace.hpp"
 

@@ -1,16 +1,10 @@
 #pragma once
 
-#include "generator/affiliation.hpp"
-
 #include "transit/transit_entities.hpp"
 #include "transit/transit_graph_data.hpp"
+#include "transit/transit_types.hpp"
 #include "transit/world_feed/feed_helpers.hpp"
 #include "transit/world_feed/world_feed.hpp"
-
-#include "geometry/mercator.hpp"
-#include "geometry/point2d.hpp"
-
-#include "defines.hpp"
 
 #include <cstdint>
 #include <string>
@@ -19,7 +13,6 @@
 #include <vector>
 
 #include "3party/ankerl/unordered_dense.h"
-#include "3party/opening_hours/opening_hours.hpp"
 
 namespace transit
 {

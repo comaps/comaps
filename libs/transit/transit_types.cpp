@@ -1,9 +1,6 @@
 #include "transit/transit_types.hpp"
 
-#include "transit/transit_serdes.hpp"
 #include "transit/transit_version.hpp"
-
-#include "base/string_utils.hpp"
 
 namespace
 {

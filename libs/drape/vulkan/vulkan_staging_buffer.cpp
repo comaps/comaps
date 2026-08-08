@@ -1,8 +1,7 @@
 #include "drape/vulkan/vulkan_staging_buffer.hpp"
-#include "drape/vulkan/vulkan_utils.hpp"
+#include "drape/vulkan/vulkan_memory_manager.hpp"
 
 #include "base/assert.hpp"
-#include "base/logging.hpp"
 
 #include <algorithm>
 

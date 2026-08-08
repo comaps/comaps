@@ -11,6 +11,15 @@
 #include "indexer/scale_index.hpp"
 #include "indexer/unique_index.hpp"
 
+#include "indexer/data_header.hpp"
+#include "indexer/feature.hpp"
+
+#include "coding/reader.hpp"
+
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
+
+#include "base/assert.hpp"
 #include "base/macros.hpp"
 
 #include <cstdint>

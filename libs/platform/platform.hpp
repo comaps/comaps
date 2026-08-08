@@ -1,11 +1,7 @@
 #pragma once
 
 #include "platform/battery_tracker.hpp"
-#include "platform/country_defines.hpp"
-#include "platform/gui_thread.hpp"
 #include "platform/secure_storage.hpp"
-
-#include "coding/reader.hpp"
 
 #include "base/assert.hpp"
 #include "base/exception.hpp"
@@ -20,8 +16,6 @@
 
 #include <boost/regex.hpp>
 
-#include "defines.hpp"
-
 DECLARE_EXCEPTION(FileAbsentException, RootException);
 DECLARE_EXCEPTION(FileSystemException, RootException);
 
@@ -30,6 +24,7 @@ namespace platform
 class LocalCountryFile;
 }
 
+class ModelReader;
 class Platform;
 
 extern Platform & GetPlatform();

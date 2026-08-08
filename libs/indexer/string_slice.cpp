@@ -1,5 +1,7 @@
 #include "indexer/string_slice.hpp"
 
+#include "base/assert.hpp"
+
 namespace search
 {
 JoinIterator::JoinIterator(StringSliceBase const & slice, Position position) : m_slice(slice)

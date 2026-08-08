@@ -32,6 +32,7 @@ public class BookmarkListAdapter extends RecyclerView.Adapter<Holders.BaseBookma
 
   @NonNull
   private final DataSource<BookmarkCategory> mDataSource;
+  private final boolean mShowCategoryName;
   @Nullable
   private List<Long> mSearchResults;
   @Nullable
@@ -83,6 +84,8 @@ public class BookmarkListAdapter extends RecyclerView.Adapter<Holders.BaseBookma
     public abstract long getBookmarkId(@NonNull SectionPosition pos);
     public abstract long getTrackId(@NonNull SectionPosition pos);
     public abstract void onDelete(@NonNull SectionPosition pos);
+
+    boolean showCategoryName() { return false; }
   }
 
   private static class CategorySectionsDataSource extends SectionsDataSource
@@ -190,12 +193,18 @@ public class BookmarkListAdapter extends RecyclerView.Adapter<Holders.BaseBookma
   {
     @NonNull
     private final List<Long> mSearchResults;
+    private final boolean mShowCategoryName;
 
-    SearchResultsSectionsDataSource(@NonNull DataSource<BookmarkCategory> dataSource, @NonNull List<Long> searchResults)
+    SearchResultsSectionsDataSource(@NonNull DataSource<BookmarkCategory> dataSource, @NonNull List<Long> searchResults,
+                                    boolean showCategoryName)
     {
       super(dataSource);
       mSearchResults = searchResults;
+      mShowCategoryName = showCategoryName;
     }
+
+    @Override
+    boolean showCategoryName() { return mShowCategoryName; }
 
     @Override
     public int getSectionsCount()
@@ -358,14 +367,20 @@ public class BookmarkListAdapter extends RecyclerView.Adapter<Holders.BaseBookma
 
   BookmarkListAdapter(@NonNull DataSource<BookmarkCategory> dataSource)
   {
+    this(dataSource, false);
+  }
+
+  BookmarkListAdapter(@NonNull DataSource<BookmarkCategory> dataSource, boolean showCategoryName)
+  {
     mDataSource = dataSource;
+    mShowCategoryName = showCategoryName;
     refreshSections();
   }
 
   private void refreshSections()
   {
     if (mSearchResults != null)
-      mSectionsDataSource = new SearchResultsSectionsDataSource(mDataSource, mSearchResults);
+      mSectionsDataSource = new SearchResultsSectionsDataSource(mDataSource, mSearchResults, mShowCategoryName);
     else if (mSortedResults != null)
       mSectionsDataSource = new SortedSectionsDataSource(mDataSource, mSortedResults);
     else

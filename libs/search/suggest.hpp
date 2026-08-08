@@ -1,11 +1,11 @@
 #pragma once
 
-#include "search/common.hpp"
-
 #include "base/string_utils.hpp"
 
 namespace search
 {
+struct QueryString;
+
 struct Suggest
 {
   Suggest(strings::UniString const & name, uint8_t len, int8_t locale)

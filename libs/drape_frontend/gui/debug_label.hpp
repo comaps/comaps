@@ -3,9 +3,19 @@
 #include "drape_frontend/gui/gui_text.hpp"
 #include "drape_frontend/gui/shape.hpp"
 
+#include "drape/pointers.hpp"
+
 #include <functional>
 #include <string>
 #include <vector>
+
+class ScreenBase;
+
+namespace dp
+{
+class GraphicsContext;
+class TextureManager;
+}  // namespace dp
 
 namespace gui
 {

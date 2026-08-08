@@ -1,16 +1,20 @@
 #include "drape/vulkan/vulkan_pipeline.hpp"
 #include "drape/vulkan/vulkan_utils.hpp"
 
+#include "drape/gl_constants.hpp"
 #include "drape/support_manager.hpp"
+#include "drape/vulkan/vulkan_gpu_program.hpp"
 
 #include "platform/platform.hpp"
 
 #include "coding/file_reader.hpp"
 #include "coding/file_writer.hpp"
+#include "coding/reader.hpp"
 #include "coding/write_to_sink.hpp"
 
 #include "base/assert.hpp"
 #include "base/file_name_utils.hpp"
+#include "base/logging.hpp"
 
 #include <array>
 #include <string>

@@ -29,6 +29,7 @@
 #include "base/assert.hpp"
 #include "base/exception.hpp"
 #include "base/logging.hpp"
+#include "base/macros.hpp"
 #include "base/string_utils.hpp"
 
 #include <boost/uuid/uuid_generators.hpp>

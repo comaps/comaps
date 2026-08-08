@@ -5,8 +5,6 @@
 #include "routing/index_graph_starter.hpp"
 #include "routing/segment.hpp"
 
-#include "base/math.hpp"
-
 #include <cstdint>
 #include <map>
 #include <set>

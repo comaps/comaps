@@ -3,7 +3,13 @@
 
 #include "indexer/cell_id.hpp"
 #include "indexer/fake_feature_ids.hpp"
+#include "indexer/feature_decl.hpp"
 #include "indexer/feature_source.hpp"
+#include "indexer/house_to_street_iface.hpp"
+
+#include "coding/files_container.hpp"
+
+#include "defines.hpp"
 
 namespace search
 {

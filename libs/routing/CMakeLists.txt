@@ -198,12 +198,22 @@ set(SRC
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  base
-  routing_common
-  platform
-  traffic
-  transit
-  opening_hours
+  PUBLIC
+    base
+    coding
+    geometry
+    i18n
+    indexer
+    kml
+    platform
+    routing_common
+    traffic
+    transit
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    opening_hours
 )
 
 if (PLATFORM_DESKTOP)

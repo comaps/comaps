@@ -112,5 +112,71 @@
 		<key>NSStringLocalizedFormatKey</key>
 		<string>%#@nevertranslate@</string>
 	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Brez parkirnih mest</string>
+			<key>one</key>
+			<string>%lld parkirno mesto</string>
+			<key>two</key>
+			<string>%lld parkirni mesti</string>
+			<key>few</key>
+			<string>%lld parkirnih mest</string>
+			<key>other</key>
+			<string>%lld parkirnih mest</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nikoliprevajat@</string>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Ni mest za polnjenje</string>
+			<key>one</key>
+			<string>%lld mesto za polnjenje</string>
+			<key>two</key>
+			<string>%lld mesti za polnjenje</string>
+			<key>few</key>
+			<string>%lld mesta za polnjenje</string>
+			<key>other</key>
+			<string>%lld mest za polnjenje</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nikoliprevajaj@</string>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Ni mest</string>
+			<key>one</key>
+			<string>%lld mesto</string>
+			<key>two</key>
+			<string>%lld mesti</string>
+			<key>few</key>
+			<string>%lld mesta</string>
+			<key>other</key>
+			<string>%lld mest</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nikoliprevajaj@</string>
+	</dict>
 </dict>
 </plist>

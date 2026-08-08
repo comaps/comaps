@@ -9,8 +9,12 @@ set(
 
 omim_add_test(${PROJECT_NAME} ${SRC})
 
-omim_link_libraries(${PROJECT_NAME}
-  platform_tests_support
-  tracking
-  routing
+target_link_libraries(${PROJECT_NAME}
+  PRIVATE
+    base
+    coding
+    geometry
+    platform
+    platform_tests_support
+    tracking
 )

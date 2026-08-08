@@ -1,5 +1,7 @@
 #include "platform/mwm_traits.hpp"
 
+#include "base/assert.hpp"
+
 namespace version
 {
 MwmTraits::MwmTraits(MwmVersion const & version) : m_version(version) {}

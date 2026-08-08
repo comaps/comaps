@@ -1,21 +1,21 @@
 #pragma once
 
-#include "drape_frontend/map_data_provider.hpp"
-#include "drape_frontend/metaline_manager.hpp"
-#include "drape_frontend/render_node.hpp"
-
-#include "drape/graphics_context.hpp"
 #include "drape/pointers.hpp"
 
 #include "indexer/feature_decl.hpp"
 
 namespace dp
 {
+class GraphicsContext;
 class TextureManager;
 }  // namespace dp
 
 namespace df
 {
+class MapDataProvider;
+class MetalineManager;
+class RenderNode;
+
 class SelectionShapeGenerator
 {
 public:

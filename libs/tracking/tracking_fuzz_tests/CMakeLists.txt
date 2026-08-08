@@ -6,4 +6,10 @@ set(SRC
 
 omim_add_executable(${PROJECT_NAME} ${SRC})
 
-target_link_libraries(${PROJECT_NAME} tracking)
+target_link_libraries(${PROJECT_NAME}
+  PRIVATE
+    base
+    coding
+    geometry
+    tracking
+)

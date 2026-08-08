@@ -51,7 +51,7 @@ void BackgroundDownloaderAdapter::Clear()
   m_queue.Clear();
 }
 
-QueueInterface const & BackgroundDownloaderAdapter::GetQueue() const
+QueueInterface & BackgroundDownloaderAdapter::GetQueue()
 {
   if (m_queue.IsEmpty())
     return MapFilesDownloader::GetQueue();
@@ -68,10 +68,10 @@ void BackgroundDownloaderAdapter::Download(QueuedCountry && queuedCountry)
   }
 
   auto const countryId = queuedCountry.GetCountryId();
-  auto urls = MakeUrlList(queuedCountry.GetRelativeUrl());
+  auto urls = MakeUrlList(queuedCountry.GetRelativeUrl(m_dataVersion));
   // Get urls order from worst to best.
   std::reverse(urls.begin(), urls.end());
-  auto const path = queuedCountry.GetFileDownloadPath();
+  auto const path = queuedCountry.GetFileDownloadPath(m_dataVersion);
 
   // The order is important here: add to the queue first, notify start downloading then.
   // Infinite recursion possible here, otherwise:

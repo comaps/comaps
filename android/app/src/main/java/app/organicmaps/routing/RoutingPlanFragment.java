@@ -22,7 +22,7 @@ public class RoutingPlanFragment extends BaseMwmFragment
     final MwmActivity activity = (MwmActivity) requireActivity();
     View res = inflater.inflate(R.layout.fragment_routing, container, false);
     mPlanController =
-        new RoutingPlanController(res, activity, activity.startDrivingOptionsForResult, activity, activity);
+        new RoutingPlanController(res, activity, activity.startRoutingOptionsForResult, activity, activity);
     return res;
   }
 

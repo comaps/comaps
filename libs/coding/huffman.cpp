@@ -1,7 +1,5 @@
 #include "coding/huffman.hpp"
 
-#include "base/logging.hpp"
-
 #include <queue>
 #include <utility>
 

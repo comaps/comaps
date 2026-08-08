@@ -16,6 +16,8 @@
 
 #include "routing_common/car_model.hpp"
 
+#include "indexer/ftypes_matcher.hpp"
+
 #include "storage/country_parent_getter.hpp"
 
 #include "geometry/mercator.hpp"

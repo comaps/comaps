@@ -4,6 +4,7 @@
 
 #include "kml/serdes.hpp"
 #include "kml/serdes_binary.hpp"
+#include "kml/serdes_common.hpp"
 
 #include "map/bookmark_helpers.hpp"
 
@@ -15,8 +16,9 @@
 #include "coding/file_writer.hpp"
 #include "coding/hex.hpp"
 #include "coding/reader.hpp"
-#include "coding/string_utf8_multilang.hpp"
 #include "coding/writer.hpp"
+
+#include "i18n/localisation.hpp"
 
 #include "base/file_name_utils.hpp"
 #include "base/scope_guard.hpp"

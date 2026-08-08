@@ -244,6 +244,7 @@ class StageMwm(Stage):
             StageUgc,
             StageSrtm,
             StageIsolinesInfo,
+            StageReviews,
             StageDescriptions,
             # call after descriptions
             StagePopularity,
@@ -329,6 +330,11 @@ class StageIsolinesInfo(Stage):
     def apply(self, env: Env, country, **kwargs):
         steps.step_isolines_info(env, country, **kwargs)
 
+@country_stage
+class StageReviews(Stage):
+    def apply(self, env: Env, country, **kwargs):
+        steps.step_reviews(env, country, **kwargs)
+
 
 @country_stage
 class StageDescriptions(Stage):
@@ -412,25 +418,6 @@ class StageCountriesTxt(Stage):
                 logger.info(f"Verified {signature_path}")
             else:
                 raise SigningError(f"Verification of {signature_path} with {env.publish_key_public} failed!")
-
-        def _symlink_suffixed(file_name, link_path):
-            file_name = os.path.basename(file_name)
-            # use relative path
-            target = os.path.join(env.mwm_version, file_name)
-            link_name = file_name
-            # inject optional build suffix, e.g. "countries-test.txt.sig"
-            if env.build_suffix:
-                name, ext = file_name.split(".", 1)
-                link_name = f"{name}-{env.build_suffix}.{ext}"
-            symlink_path = os.path.join(link_path, link_name)
-            make_symlink(target, symlink_path, force=True)
-            logger.info(f'Symlinked {symlink_path} to {target}')
-
-        if env.publish_path and env.min_compat_app_v:
-            mcav_path = os.path.join(env.publish_path, env.min_compat_app_v)
-            _symlink_suffixed(env.paths.countries_txt_path, mcav_path)
-            if signature_path:
-                _symlink_suffixed(signature_path, mcav_path)
 
 
 @outer_stage

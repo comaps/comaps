@@ -2,6 +2,7 @@
 
 #include "testing/testing.hpp"
 
+#include "routing/checkpoints.hpp"
 #include "routing/route.hpp"
 #include "routing/routing_callbacks.hpp"
 

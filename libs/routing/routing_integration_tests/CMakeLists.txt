@@ -32,8 +32,18 @@ set(SRC
 omim_add_test(${PROJECT_NAME} ${SRC} REQUIRE_SERVER)
 
 target_link_libraries(${PROJECT_NAME}
-  platform_tests_support
-  tracking
-  routing
-  map
+  PUBLIC
+    map
+    platform
+    routing
+    storage
+    traffic
+  PRIVATE
+    base
+    coding
+    geometry
+    indexer
+    platform_tests_support
+    routing_common
+    tracking
 )

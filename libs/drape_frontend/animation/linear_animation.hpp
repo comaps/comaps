@@ -3,6 +3,9 @@
 #include "animation.hpp"
 #include "interpolators.hpp"
 
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
+
 namespace df
 {
 class MapLinearAnimation : public Animation

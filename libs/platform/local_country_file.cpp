@@ -1,6 +1,5 @@
 #include "platform/local_country_file.hpp"
 
-#include "platform/mwm_version.hpp"
 #include "platform/platform.hpp"
 
 #include "coding/internal/file_data.hpp"

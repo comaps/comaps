@@ -1,6 +1,5 @@
 #pragma once
 
-#include "routing/index_graph.hpp"
 #include "routing/restrictions_serialization.hpp"
 
 #include "coding/files_container.hpp"
@@ -12,6 +11,8 @@ class MwmValue;
 
 namespace routing
 {
+class IndexGraph;
+
 class RestrictionLoader
 {
 public:

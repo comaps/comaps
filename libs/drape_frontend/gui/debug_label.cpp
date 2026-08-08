@@ -2,6 +2,8 @@
 
 #include "drape_frontend/gui/drape_gui.hpp"
 
+#include "geometry/point2d.hpp"
+
 #include <functional>
 #include <set>
 #include <utility>

@@ -1,5 +1,8 @@
 #include "geo_url_parser.hpp"
 
+#include "coding/url.hpp"
+
+#include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 
 #include "base/assert.hpp"

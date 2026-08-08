@@ -1,6 +1,7 @@
 #include "drape/harfbuzz_shaping.hpp"
 
 #include "base/assert.hpp"
+#include "base/checked_cast.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 

@@ -1,5 +1,11 @@
 #include "storage/routing_helpers.hpp"
 
+#include "storage/country.hpp"
+#include "storage/country_info_getter.hpp"
+#include "storage/storage.hpp"
+
+#include "platform/country_file.hpp"
+
 namespace routing
 {
 

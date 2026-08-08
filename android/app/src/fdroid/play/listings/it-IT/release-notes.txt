@@ -1,0 +1,9 @@
+• Mostra opzioni di percorso attivate e pulsante per modificarle durante la creazione
+• Anteprima delle indicazioni di navigazione passo dopo passo
+• Opzioni di percorso per mezzo di trasporto
+• Istruzioni migliorate per rotatorie, inversioni a u e altri casi
+• Icone di destinazione e fermate sulla barra di avanzamento
+• Aggiunti simboli stradali ai segnali di direzione e migliori descrizioni delle manovre
+• Ricerca in tutte le liste dei preferiti
+
+Maggiori dettagli su comaps.app/latest

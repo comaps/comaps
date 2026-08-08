@@ -1,10 +1,11 @@
 #pragma once
 
-#include "editor/xml_feature.hpp"
-
+#include "geometry/latlon.hpp"
 #include "geometry/point2d.hpp"
 
 #include <vector>
+
+#include <pugixml.hpp>
 
 namespace matcher
 {

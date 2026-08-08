@@ -1,16 +1,23 @@
 #include "search/search_quality/helpers.hpp"
 
+#include "search/engine.hpp"
+
 #include "indexer/data_source.hpp"
 
+#include "platform/country_defines.hpp"
+#include "platform/country_file.hpp"
 #include "platform/local_country_file.hpp"
 #include "platform/local_country_file_utils.hpp"
+#include "platform/mwm_version.hpp"
 #include "platform/platform.hpp"
 
-#include "coding/reader.hpp"
+#include "coding/files_container.hpp"
 
 #include "geometry/mercator.hpp"
+#include "geometry/point2d.hpp"
 
 #include "base/assert.hpp"
+#include "base/checked_cast.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 

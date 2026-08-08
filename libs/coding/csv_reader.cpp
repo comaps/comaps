@@ -1,5 +1,7 @@
 #include "coding/csv_reader.hpp"
 
+#include "coding/reader.hpp"
+
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 

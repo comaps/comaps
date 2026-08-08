@@ -2,7 +2,9 @@
 
 #include "editor/osm_editor.hpp"
 
-#include "indexer/editable_map_object.hpp"
+#include "indexer/mwm_set.hpp"
+
+#include "geometry/point2d.hpp"
 
 #include <memory>
 #include <string>

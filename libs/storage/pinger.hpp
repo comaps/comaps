@@ -1,7 +1,5 @@
 #pragma once
 
-#include "platform/safe_callback.hpp"
-
 #include <string>
 #include <vector>
 

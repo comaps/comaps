@@ -1,12 +1,25 @@
 #include "routing/regions_router.hpp"
 
+#include "routing/base/astar_progress.hpp"
+#include "routing/base/routing_result.hpp"
 #include "routing/dummy_world_graph.hpp"
-#include "routing/index_graph_loader.hpp"
+#include "routing/fake_ending.hpp"
 #include "routing/index_graph_starter.hpp"
 #include "routing/junction_visitor.hpp"
+#include "routing/latlon_with_altitude.hpp"
 #include "routing/regions_sparse_graph.hpp"
+#include "routing/router_delegate.hpp"
 #include "routing/routing_helpers.hpp"
+#include "routing/segment.hpp"
+#include "routing/world_graph.hpp"
 
+#include "routing_common/num_mwm_id.hpp"
+
+#include "geometry/mercator.hpp"
+
+#include "platform/country_file.hpp"
+
+#include "base/assert.hpp"
 #include "base/scope_guard.hpp"
 
 namespace routing

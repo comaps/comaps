@@ -1,10 +1,9 @@
 #pragma once
 
+#include "routing/route.hpp"
+#include "routing/turns.hpp"
 #include "routing/turns_sound_settings.hpp"
 #include "routing/turns_tts_text.hpp"
-
-#include "platform/measurement_utils.hpp"
-#include "platform/settings.hpp"
 
 #include <cstdint>
 #include <string>
@@ -51,6 +50,9 @@ public:
 
   /// \brief Generate text of route rebuild notification.
   std::string GenerateRecalculatingText() const;
+
+  /// \brief Generate text of off route notification.
+  std::string GenerateOffRouteText(uint32_t distanceMeters) const;
 
   /// \brief Generate text of speed camera notification.
   std::string GenerateSpeedCameraText() const;
@@ -103,11 +105,19 @@ public:
 
 private:
   std::string GenerateTurnText(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance,
-                               TurnItem const & turn, RouteSegment::RoadNameInfo const & nextStreetInfo) const;
+                               TurnItem const & turn, RouteSegment::RoadNameInfo const & nextStreetInfo,
+                               bool useAtRoundaboutPrefix = false) const;
 
   /// Generates turn sound notification for the nearest to the current position turn.
   std::string GenerateFirstTurnSound(TurnItem const & turn, double distanceToTurnMeters,
                                      RouteSegment::RoadNameInfo const & nextStreetInfo);
+
+  /// Generates a combined "In X meters, at the roundabout, take the Nth exit [onto Street]"
+  /// notification when the upcoming turn pair is a classic roundabout entrance+exit.
+  /// Mirrors GenerateFirstTurnSound's progress tracking but emits a single combined notification
+  /// instead of "Enter the roundabout" followed by "Then take the Nth exit".
+  std::string GenerateRoundaboutNotification(TurnItemDist const & entranceTurn, TurnItemDist const & exitTurn,
+                                             RouteSegment::RoadNameInfo const & nextStreetInfo);
 
   /// Changes the state of the class to emulate that first turn notification is pronounced
   /// without pronunciation.

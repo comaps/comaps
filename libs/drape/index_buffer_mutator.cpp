@@ -1,5 +1,4 @@
 #include "drape/index_buffer_mutator.hpp"
-#include "drape/vertex_array_buffer.hpp"
 
 #include <algorithm>
 #include <cstring>

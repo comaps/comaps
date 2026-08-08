@@ -1,6 +1,8 @@
 #include "routing/joint_index.hpp"
 
-#include "routing/routing_exceptions.hpp"
+#include "routing/road_index.hpp"
+
+#include "base/macros.hpp"
 
 namespace routing
 {

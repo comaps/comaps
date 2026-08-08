@@ -3,8 +3,6 @@
 #include "drape_frontend/drape_engine.hpp"
 #include "drape_frontend/visual_params.hpp"
 
-#include "platform/mwm_traits.hpp"
-
 #include "base/assert.hpp"
 #include "base/logging.hpp"
 

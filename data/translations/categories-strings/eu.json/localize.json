@@ -1,0 +1,1454 @@
+{
+    "@category_eat": {
+        "defaultMessage": "Non jan|Jaten"
+    },
+    "@category_food": {
+        "defaultMessage": "Produktuak|Jan"
+    },
+    "@category_transport": {
+        "defaultMessage": "5Garraioa"
+    },
+    "@category_fuel": {
+        "defaultMessage": "3Gasolindegia"
+    },
+    "@category_parking": {
+        "defaultMessage": "5Aparkalekua"
+    },
+    "@category_shopping": {
+        "defaultMessage": "4Erosketak"
+    },
+    "@category_hotel": {
+        "defaultMessage": "Hotela"
+    },
+    "@category_tourism": {
+        "defaultMessage": "4Turismoa"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "Entretenimendua"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "Gaueko bizitza"
+    },
+    "@category_children": {
+        "defaultMessage": "Umeekin atseden hartu"
+    },
+    "@category_atm": {
+        "defaultMessage": "4Kutxazain automatikoa"
+    },
+    "@category_rv": {
+        "defaultMessage": "Karabanak"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "3dirua"
+    },
+    "@category_bank": {
+        "defaultMessage": "3Bankua"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "Bigarren eskuko"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "3dirua|Banketxea"
+    },
+    "@category_recycling": {
+        "defaultMessage": "Hondakinen birziklapena|Hondakinak ezabatzea|Material birziklagarriak|Zabor bilketa selektiboa|Hondakinak sailkatzea|Berrerabilpena"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "3Moneta-trukea|dirua"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "2Taberna|2pub"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "3Kafetegia|3Jatetxea"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "4Fast food|jatetxea|kafetegia"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "3Jatetxea|3Kafetegia"
+    },
+    "@shop": {
+        "defaultMessage": "Denda"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "3Okindegia"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "4Produktu kosmetikoak"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "Auzoko denda"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "Delitua"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "Haurtzaindegia|lorategi denda"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "Entzungailuak"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "Sakelako telefonoak|Sakelako telefono denda|elektronika denda"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "4Loredenda"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "4Harategia|haragia"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "Altzari denda"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "Sukalde-denda"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "4Likore-denda|likore"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "4Liburudenda"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "4Oinetako denda"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "4Elektronika"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "Hardwarea|Bricolajea|Burdindegia"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "Etxeko ondasunak"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "Bitxiak"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "4Optika"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "Denda"
+    },
+    "shop-beauty": {
+        "defaultMessage": "Apaindegia"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "4Barazaina"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "Kirol artikuluak"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "3Supermerkatua"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "Merkataritza-gune"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "Denda handiak"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "4Edariak"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "4Informatika-denda"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "4Gozogintza|Gozokiak"
+    },
+    "shop-laundry": {
+        "defaultMessage": "4Garbitegia"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "Jostailu-denda"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "3Merkatua"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "Diru transferentzia"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "3Arropa denda"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "Autoen salmenta"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "4Bizikleta-denda|4bizikleta"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "4Kioskoa"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "Autobus geltokia"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "Tranbiaren geltokia"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "Autobus geltokia"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "3Tren geltokia|3tren"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "Funikularra"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "3Metro"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "3Ferry|terminal"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "3Taxia"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "3Udaletxea"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "3Turismo-erakarpena|3turismoa|Erakarpen turistikoa"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "3Artelan"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "3Bista panoramikoa|Begiratokia"
+    },
+    "tourism-information": {
+        "defaultMessage": "4Informazioa"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "3Piknika|Barbakoa parrilla"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "4Gurtzalekua|3tenplua"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "3Eliza|tenplua|gurtzalekua|basilika"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "4Meskita|tenplua|gurtzalekua"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "3Tenplua|4gurtzalekua"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "3Tenplua|4gurtzalekua"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "Ermita|tenplua|gurtzalekua"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "4Sinagoga|tenplua|gurtzalekua"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "Tenplua|gurtzalekua"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "2Museoa"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "3Kaskada|Ur-jauzia"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "Aztarnategi arkeologikoa"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "Gudu zelai"
+    },
+    "historic-stone": {
+        "defaultMessage": "Harri historikoa"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "Zedarri"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "4Gaztelua|Castrum|Eliza-gotorleku|Gotorlekua|Kastro|Kremlina|Jauregitxo|Jauregi|Gaztelu"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "Portale"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "Hiri harresia"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "Gotorlekua"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "Urkamendi"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "4Oroigarria|Oroimen-gunea"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "Oroimenezko gurutzea|Oroimen-gurutzea"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "Oroitzapenezko plaka|Oroimen-plaka"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "Eskultura"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "Estatua"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "Stolperstein"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "Gerra memoriala"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "4Monumentua"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "Urkabe"
+    },
+    "historic-cannon": {
+        "defaultMessage": "Kanoia"
+    },
+    "historic-anchor": {
+        "defaultMessage": "Aingura Historikoa"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "3Hondakinak"
+    },
+    "historic-mine": {
+        "defaultMessage": "Meategi historikoa"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "Turismoa"
+    },
+    "historic-wreck": {
+        "defaultMessage": "Naufragioa"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "Lokomotora historikoa"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "Depositu historikoa"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "Hegazkin historikoa"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "Ehorztoki|Hilobia"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "Bideko gurutze"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "Bide bazterreko baseliza"
+    },
+    "leisure-garden": {
+        "defaultMessage": "2Lorategia|Lorategi"
+    },
+    "amenity-bench": {
+        "defaultMessage": "Bankua"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "Bizikleta alokairua|4bizikleta|3alokairua"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "Partekatu autoa"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "3Autoa alokairua|alokairua"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "Motorren alokairua"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "3Zinema|Filmak"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "Bolatokia"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "3Antzerkia"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "3Diskoteka"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "Bordela"
+    },
+    "@gambling": {
+        "defaultMessage": "Jokoa"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "Kasinoa"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "Helduen Joko Zentroa"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "Arcade"
+    },
+    "amenity-college": {
+        "defaultMessage": "4Unibertsitatea"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "Suhiltzaileen parkea"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "4Iturria"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "5Hilerria"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "5Beilatokia"
+    },
+    "@category_hospital": {
+        "defaultMessage": "4Ospitalea"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "4Klinika|osasun zentroa|ospitalea"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "Medikua|Klinika|Ospitalea|Kontsulta medikoa"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "4Odontologoa|Dentista"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "Medikuntza laborategia"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "Fisioterapeuta"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "Medikuntza alternatiboa"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "Audiologia|Audiologoa"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "Odol ematea"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "Optometria|Optometrista"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "Podologia|Podologoa"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "Psikoterapia|Psikoterapeuta"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "Logopedia|Logopeda"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "Ehiza galeria"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "Haurtzaindegia"
+    },
+    "amenity-library": {
+        "defaultMessage": "3Liburutegia"
+    },
+    "amenity-parking|amenity-parking_entrance|@category_parking": {
+        "defaultMessage": "3Aparkalekua"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "3Farmazia"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "3Farmazia|Botika"
+    },
+    "@category_post": {
+        "defaultMessage": "Posta bulegoa"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "3Postontzia"
+    },
+    "amenity-post_office|post_office-post_partner|@category_post": {
+        "defaultMessage": "4Posta bulegoa|3post"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "Ibilgailuen Ikuskapena"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "Zaborrontzia"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "Birziklatze zentroa|garbigune|Birziklapen zentroa"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "Birziklatzeko edukiontzia"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "Bateriak"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "Arropa zaharra|Alferrikako gauzak birziklatzea|Arropa"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "Botila kaskoak"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "Hondakin-papera|Hondar-papera|Papera"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "Hondakin plastikoa|Hondakin plastikoa|Plastikoa"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "Plastikozko botilak"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "Hondakin metalikoak|Chatarra"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "Hondakin elektronikoak|Chatarra elektronikoa"
+    },
+    "amenity-school": {
+        "defaultMessage": "3Eskola|institutua"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "Aterpea"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "Bivouac Borda"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "Aterpea"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "Stripclub|Striptease kluba"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "3Telefonoa"
+    },
+    "@category_toilet": {
+        "defaultMessage": "Komuna"
+    },
+    "amenity-toilets|toilets-yes|@category_toilet": {
+        "defaultMessage": "3Komunak|3konketa"
+    },
+    "amenity-university": {
+        "defaultMessage": "4Unibertsitatea"
+    },
+    "place-continent": {
+        "defaultMessage": "Kontinentea"
+    },
+    "place-country": {
+        "defaultMessage": "Herrialdea"
+    },
+    "place-city": {
+        "defaultMessage": "Herria"
+    },
+    "place-town": {
+        "defaultMessage": "Herria"
+    },
+    "place-city-capital": {
+        "defaultMessage": "Hiriburua|hiria|Hiriburu"
+    },
+    "place-county": {
+        "defaultMessage": "Udalerria"
+    },
+    "place-state": {
+        "defaultMessage": "Estatu|probintzia|Baldintza"
+    },
+    "place-region": {
+        "defaultMessage": "Eskualdea"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "Uhartea"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "Auzoa|Barrutia"
+    },
+    "place-hamlet": {
+        "defaultMessage": "Herria"
+    },
+    "place-village": {
+        "defaultMessage": "Herri"
+    },
+    "place-locality": {
+        "defaultMessage": "Kokapena"
+    },
+    "place-farm": {
+        "defaultMessage": "Baserria"
+    },
+    "highway-raceway": {
+        "defaultMessage": "Zirkuitua"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "Bidea"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "Kalea"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "Irten|3elkargunea"
+    },
+    "@mountain": {
+        "defaultMessage": "Goia|gailurra|mendia"
+    },
+    "natural-strait": {
+        "defaultMessage": "Estua"
+    },
+    "landuse-forest": {
+        "defaultMessage": "Basoa"
+    },
+    "leisure-park": {
+        "defaultMessage": "Parkea"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "Aquariuma"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "3Gazte aterpea|aterpetxea|motel"
+    },
+    "tourism-hotel|@category_hotel": {
+        "defaultMessage": "Motel"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "Ostatua|gaztetxea|aterpea"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "3Motel|gazte aterpea|aterpetxea"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "4Kabina|alpetar kabina|mendiko hotela|hotela"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "4Ile-apaintzailea|Ile-apaindegia"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "3Aireportua|3Hegazkina"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "5Estadioa|4kirola"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "Jolastokia"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "Kiroldegia|Kirola"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "Golf kurtsoa"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "Minigolf"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "Ihes gela"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "Kiroldegia|Lurra|Kirola"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "4Igerilekua|kirola"
+    },
+    "sport-american_football": {
+        "defaultMessage": "Futbol amerikarra"
+    },
+    "sport-archery": {
+        "defaultMessage": "Arku-tiroa"
+    },
+    "sport-athletics": {
+        "defaultMessage": "Atletismoa"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "Australiako futbol araua"
+    },
+    "sport-baseball": {
+        "defaultMessage": "Beisbol"
+    },
+    "sport-basketball": {
+        "defaultMessage": "Saskibaloia"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "Hondartza-bolei"
+    },
+    "sport-chess": {
+        "defaultMessage": "Xake"
+    },
+    "sport-cricket": {
+        "defaultMessage": "Kilkerra"
+    },
+    "sport-curling": {
+        "defaultMessage": "Curling"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "Zaldi-kirolak|Zaldi-lasterketa"
+    },
+    "sport-golf": {
+        "defaultMessage": "Golfa"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "Gimnasia"
+    },
+    "sport-handball": {
+        "defaultMessage": "Eskubaloia"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "Urpekaritza"
+    },
+    "sport-shooting": {
+        "defaultMessage": "Tiro eremua"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "Skateboarding|skateboard"
+    },
+    "sport-skiing": {
+        "defaultMessage": "Eskia"
+    },
+    "sport-soccer": {
+        "defaultMessage": "Futbola"
+    },
+    "sport-swimming": {
+        "defaultMessage": "Igeriketa zentroa"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "Mahai-tenis"
+    },
+    "sport-tennis": {
+        "defaultMessage": "Tenisa|Tenis kantxa"
+    },
+    "sport-padel": {
+        "defaultMessage": "Padel"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "Boleibol"
+    },
+    "building": {
+        "defaultMessage": "Eraikin"
+    },
+    "building-address": {
+        "defaultMessage": "Helbidea"
+    },
+    "@category_police": {
+        "defaultMessage": "4Poliziak"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "4Enbaxada"
+    },
+    "natural-bay": {
+        "defaultMessage": "Badia"
+    },
+    "@category_water": {
+        "defaultMessage": "3Ura"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "3Edateko ura|Edateko uraren iturria"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "Iturri geotermala"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "Udaberria"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "Ur putzua"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "Ur iturria|karabanarako ura"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "Ur txorrota"
+    },
+    "@waterbody": {
+        "defaultMessage": "Ur-masa"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "Arroa"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "Urmaela"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "Lakua"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "Urtegia"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "Ibai"
+    },
+    "waterway-canal": {
+        "defaultMessage": "Kanala"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "4Tailerra|3autoen konponketa|autoa|automobila"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "4Kanpalekua|kanpamentua|kanpina"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "Karabana gunea|kanpalekua"
+    },
+    "office": {
+        "defaultMessage": "Bulegoa"
+    },
+    "office-company": {
+        "defaultMessage": "Bulegoa"
+    },
+    "office-government": {
+        "defaultMessage": "Gobernu bulegoa"
+    },
+    "office-lawyer": {
+        "defaultMessage": "Abokatu bulego|abokatu bulego"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "Telefono mugikorren operadorea"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "Erlezaina"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "Errementari"
+    },
+    "craft-brewery": {
+        "defaultMessage": "5Garagardotegia|Garagardo fabrika"
+    },
+    "craft-caterer": {
+        "defaultMessage": "Catering"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "5Arotza"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "Gozogilea"
+    },
+    "craft-electrician": {
+        "defaultMessage": "4Elektrizista"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "Elektronika Konponketa"
+    },
+    "craft-gardener": {
+        "defaultMessage": "Paisaia|Lorezaina"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "Errota"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "Eskulangintza"
+    },
+    "craft-hvac": {
+        "defaultMessage": "Aire girotua"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "Metalgintzako langilea"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "Giltza-mozketa"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "Sarrailagilea"
+    },
+    "craft-painter": {
+        "defaultMessage": "Margolaria"
+    },
+    "craft-photographer": {
+        "defaultMessage": "4Argazkilaria|argazki estudioa"
+    },
+    "craft-plumber": {
+        "defaultMessage": "Iturgina"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "Zerrategi"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "5Zapatari"
+    },
+    "craft-winery": {
+        "defaultMessage": "Upategi"
+    },
+    "craft-tailor": {
+        "defaultMessage": "Jostun|jantzi"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "Plaza"
+    },
+    "place-sea": {
+        "defaultMessage": "Itsasoa"
+    },
+    "place-ocean": {
+        "defaultMessage": "Ozeanoa"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "3Internet"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "Hondartza"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "Itsasargia"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "Komunikazio Dorrea"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "Petrolio putzua"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "Eko|4ekologikoa|4organikoa|4biologikoa|bio|naturala|osasuntsua"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "4Kopiagailu denda|4inprimaketa|Kopia zentroa|Fotokopia zentroa|Kopiatu zentroa"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "Argazkilaritza artikuluak"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "Kamera Denda"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "Bidaia agentzia|bidaia"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "Ekipamendua|mendi-ibilaldiak|eskalada|kanpalekua"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "Garbigailua"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "Pneumatikoen denda"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "5Auto-garbiketa"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "Albaitaritzako klinika"
+    },
+    "@charging_station": {
+        "defaultMessage": "Kargatzeko geltokia"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "Bizikleta kargatzea"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "Haurtzaindegia"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "Bizikleta aparkalekua"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "Paper-ontzia"
+    },
+    "emergency-phone": {
+        "defaultMessage": "3Larrialdietarako telefonoa|Larrialdi zenbakia"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "Fitness zentroa|gimnasioa"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "3Sauna"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "Pneumatikoen konponketa"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "4Botika|Parafarmazia"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "Animali denda"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "Zooa|Zoo"
+    },
+    "attraction-animal": {
+        "defaultMessage": "Animalien itxitura"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Turismo bulegoa"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Bisitarien Zentroa"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "Komunitate Zentroa"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "Aire konprimitua"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "Auzitegia"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "4Tabakoa saltzeko makina"
+    },
+    "amenity-vending_machine-coffee": {
+        "defaultMessage": "3Kafea saltzeko makina|Kafea"
+    },
+    "amenity-vending_machine-condoms": {
+        "defaultMessage": "4Kondoiak saltzeko makina|Preserbatiboak"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "4Edari saltzeko makina"
+    },
+    "amenity-vending_machine-food|@category_food": {
+        "defaultMessage": "4Janaria saltzeko makina|Elikagaia|Askariak"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "4Aparkatzeko txartelak ordaintzeko makina"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "4Garraio publikorako txartelak saltzeko makina"
+    },
+    "amenity-vending_machine-newspapers": {
+        "defaultMessage": "4Egunkariak saltzeko makina|Egunkariak"
+    },
+    "amenity-vending_machine-sweets": {
+        "defaultMessage": "4Gozokiak saltzeko makina|Gozokiak"
+    },
+    "shop-outpost": {
+        "defaultMessage": "Jasotzeko puntua"
+    },
+    "building-garage": {
+        "defaultMessage": "Garajea"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "Atseden gunea|Zerbitzugunea"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "Fabrikako tximinia"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "Dorrea"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "Apustu etxea"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "Arrain-denda|Arrandegia"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Bigarren eskuko denda"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "Ongintzazko Denda"
+    },
+    "shop-ticket": {
+        "defaultMessage": "Sarreren salmenta"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "Ardo-denda|Ardoa|Ardotegia"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "Autoen piezak"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "Oporretako Etxea"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "Informazio taula"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "Mapa turistikoa"
+    },
+    "aerialway-station": {
+        "defaultMessage": "Teleferiko geltokia"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "Heliportua"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "Muga kontrola"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "Ur-parkea"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "Ur depositua"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "Haize-errota"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "4Haitzuloa"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "4Sumendia|Sumendi"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "Higiezinen agentea"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "Atea"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "Liburu-trukea|liburudenda"
+    },
+    "sport-climbing": {
+        "defaultMessage": "Eskalada zentroa"
+    },
+    "sport-yoga": {
+        "defaultMessage": "Yoga"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "5Apartamentuak|Oporretako apartamentua"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "Hotela|Oporleku"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "5Biergarten"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "4Autoeskola"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "Musika Eskola"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "Hizkuntza Eskola"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "5Izozkitegia"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "5Internet kafetegia"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "Motoentzako aparkalekua"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "Ezinduentzako aparkalekua"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "Zaharren egoitza"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "Ordainketa terminala"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "Bainu Publikoa"
+    },
+    "amenity-shower": {
+        "defaultMessage": "Dutxa"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "Larrialdietako Batzar Puntua"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "Desfibriladorea"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "Suteen hidrantea"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "Larrialdietako soroslea|Soroslea"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "Mendiko erreskate postua|Mendiko salbamendu postua"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "Gimnasioa"
+    },
+    "office-insurance": {
+        "defaultMessage": "Aseguru bulegoa|Aseguru-bulegoa"
+    },
+    "office-ngo": {
+        "defaultMessage": "GKEen egoitza"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "3Sex Shop"
+    },
+    "shop-massage": {
+        "defaultMessage": "Masaje gela"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "Moto denda"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "Motoen Konponketa"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "Kioskoa"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "Peoia"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "Papergintza"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "4Tatuajeak"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "Barietate Denda"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "Bideo-denda"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "Bideo-jokoen denda"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "4Kabina"
+    },
+    "tourism-gallery|@category_tourism": {
+        "defaultMessage": "3Arte galeria|museoa"
+    },
+    "tourism-theme_park|@category_tourism|@category_children": {
+        "defaultMessage": "Parke tematiko"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "Parke Nazionala"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "Erreserbatutako lurraldea"
+    },
+    "natural-cape": {
+        "defaultMessage": "Lurmuturra"
+    },
+    "natural-geyser": {
+        "defaultMessage": "3Geiserra|Geyserra"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "Glaziarra"
+    },
+    "highway-ford": {
+        "defaultMessage": "Ford|lekukoa|ibia"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "Eskia|Eski pista"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "Ekitaldien Lekua"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Antigoalekoak"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "Arte Denda"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "Haurrentzako denda"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "Poltsen Denda"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "Gazta Denda"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "Esnekiak"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "Elektrizitate Denda"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "Arrantza Denda"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "Barruko Apaingarriak"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "Loteria Sarrerak|Loteria"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "Medikuntza-hornidura"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "Nutrizio osagarriak"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "Margoak"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "Lurringintza"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "Josteko hornigaiak"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "Biltegiratzeko alokairua"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "Tabakoa"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "Lanbideen hornidurak"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "Erlojuak"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "Handizkako denda"
+    },
+    "power-plant": {
+        "defaultMessage": "Elektrizitate-parkea"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "Enkantea"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Bildumatzailea|Bildumagarriak"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "Gurpil-aulkia|Ezinduentzako hornitua"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "Gizarte-ekipamendua"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "Kiroldegia"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "Arte galeria"
+    },
+    "amenity-prison": {
+        "defaultMessage": "espetxe|kartzela"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "Erakusketa Zentroa"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "Bainugelako altzariak"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "Ohe denda"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "Boutique"
+    },
+    "amenity-food_court": {
+        "defaultMessage": "Jantokia"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "Gortinak"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "Gas biltegia"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "Animalien apainketa"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "HiFi Audioa"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "Biltzar Jauregia"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "Belar denda"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "Etxetresna elektrikoen denda"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "Nekazaritza denda"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "Moda Osagarriak"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "Alfonbrak"
+    },
+    "shop-craft|@shop": {
+        "defaultMessage": "eskulanak"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "Pasta"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "Ekipajearen aldagela"
+    },
+    "@fastfood": {
+        "defaultMessage": "Janari azkarra"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "Bagel"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "Gosariak"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "Hanburgesak"
+    },
+    "cuisine-bubble_tea": {
+        "defaultMessage": "Burbuila tea"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "Pastelak"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "Kafea"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "Curry"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "Afaria"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "Donutsak"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "Arrain arrautza patatekin"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "Frijituak"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "Erretegia"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "Txakur beroak"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "Izozkiak"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "Kebabak"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "Fideoak"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "Krepeak"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "Pasta"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "Pizza"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "Ramen"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "Ogitartekoak"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "Saltxitxak"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "Itsaskia|Arraina"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "Soba"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "Txu"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "Sushia"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "Txapelak"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "Tea"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "Sukaldaritza begetarianoa"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "Sukaldaritza beganoa"
+    }
+}

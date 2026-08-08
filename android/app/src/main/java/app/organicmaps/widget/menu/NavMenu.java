@@ -1,35 +1,40 @@
 package app.organicmaps.widget.menu;
 
+import static androidx.core.content.ContextCompat.getString;
+
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.view.RoundedCornerCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.preference.PreferenceManager;
 import app.organicmaps.R;
+import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.routing.RoutingInfo.RoutingSessionState;
 import app.organicmaps.sdk.sound.TtsPlayer;
 import app.organicmaps.sdk.util.DateUtils;
 import app.organicmaps.sdk.util.Distance;
-import app.organicmaps.util.Graphics;
 import app.organicmaps.util.UiUtils;
+import app.organicmaps.widget.RouteProgressBar;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.color.MaterialColors;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
-import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.google.android.material.textview.MaterialTextView;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
-
-import static androidx.core.content.ContextCompat.getString;
 
 public class NavMenu
 {
@@ -52,9 +57,10 @@ public class NavMenu
   private final MaterialTextView mDistanceValue;
   private final MaterialTextView mDistanceUnits;
   private final ShapeableImageView mDotsSwitch;
-  private final LinearProgressIndicator mRouteProgress;
+  private final RouteProgressBar mRouteProgress;
   private final MaterialTextView mRoutingState;
   private final CircularProgressIndicator mRebuildingRouteProgressBar;
+  private final MaterialButton mRebuildRouteButton;
 
   private final AppCompatActivity mActivity;
   private final SharedPreferences mSharedPreferences;
@@ -69,6 +75,9 @@ public class NavMenu
   // Variable to switch the display of distance and time info between final destination or
   // the next intermediate stop.
   private boolean mShowInfoToFinalDestination;
+
+  // Array of progress percentage to route intermediate stops.
+  private double[] mIntermediateStopsProgress;
 
   public interface OnMenuSizeChangedListener
   {
@@ -136,6 +145,8 @@ public class NavMenu
     mRouteProgress.setOnClickListener(view -> toggleInfoDisplay());
     mRoutingState = bottomFrame.findViewById(R.id.routing_state);
     mRebuildingRouteProgressBar = bottomFrame.findViewById(R.id.rebuilding_route_progress_bar);
+    mRebuildRouteButton = bottomFrame.findViewById(R.id.rebuild_route);
+    mRebuildRouteButton.setOnClickListener(view -> Framework.nativeAutoReroute());
 
     // Bottom frame buttons.
     ShapeableImageView mSettings = bottomFrame.findViewById(R.id.settings);
@@ -144,6 +155,37 @@ public class NavMenu
     mTts.setOnClickListener(v -> onTtsClicked());
     MaterialButton stop = bottomFrame.findViewById(R.id.stop);
     stop.setOnClickListener(v -> onStopClicked());
+
+    // Check window insets to detect possible display conflicts due to window bottom round corners.
+    ViewCompat.setOnApplyWindowInsetsListener(mHeaderFrame, (view, windowInsets) -> {
+
+      if (mRouteProgress.getWidth() > 0)
+      {
+        RoundedCornerCompat roundedCorner =
+          windowInsets.getRoundedCorner(RoundedCornerCompat.POSITION_BOTTOM_LEFT);
+
+        if (roundedCorner != null)
+        {
+          // The rounded corner area is inside the application's bounds.
+          // Get radius of round corners.
+          int bottomCornerRadius = roundedCorner.getRadius();
+
+          // Get navigation panel height.
+          int bottomNavSize =
+            windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom;
+
+          int margin = Math.max(bottomCornerRadius - bottomNavSize, 0);
+
+          final ViewGroup.MarginLayoutParams layoutParams =
+            (ViewGroup.MarginLayoutParams) mRouteProgress.getLayoutParams();
+          layoutParams.setMarginStart(margin);
+          layoutParams.setMarginEnd(margin);
+          mRouteProgress.setLayoutParams(layoutParams);
+        }
+      }
+
+      return windowInsets;
+    });
 
     // Set OnTouchListener on header frame to collect vertical click coordinate.
     mHeaderFrame.setOnTouchListener((view, motionEvent) -> {
@@ -243,9 +285,10 @@ public class NavMenu
 
   public void refreshTts()
   {
-    mTts.setImageDrawable(TtsPlayer.isEnabled() ? Graphics.tint(mActivity, R.drawable.ic_voice_on,
-                                                                com.google.android.material.R.attr.colorSecondary)
-                                                : Graphics.tint(mActivity, R.drawable.ic_voice_off));
+    boolean ttsEnabled = TtsPlayer.isEnabled();
+    mTts.setImageResource(ttsEnabled ? R.drawable.ic_voice_on : R.drawable.ic_voice_off);
+    mTts.setImageTintList(MaterialColors.getColorStateListOrNull(mActivity, ttsEnabled ? com.google.android.material.R.attr.colorSecondary : R.attr.iconTint));
+    mTts.setContentDescription(mActivity.getResources().getString(ttsEnabled ? R.string.tts_toggle_disable : R.string.tts_toggle_enable));
   }
 
   private void updateTime(int timeInSeconds)
@@ -306,13 +349,6 @@ public class NavMenu
                            distToTarget.getUnitsStr(mActivity.getApplicationContext()));
   }
 
-  private void updateRouteProgress(double completionPercent)
-  {
-    // Start progress at 1% according to M3 guidelines.
-    final int progress = (completionPercent < 1) ? 1 : (int) completionPercent;
-    mRouteProgress.setProgressCompat(progress, true);
-  }
-
   private void updateRoutingSessionState(RoutingSessionState routingSessionState)
   {
     // Show and update route state.
@@ -327,6 +363,7 @@ public class NavMenu
         case RouteFinished -> R.string.route_finished;
         case RouteNoFollowing -> R.string.not_following_route;
         case RouteRebuilding -> R.string.route_recalculating;
+        case OffRoute -> R.string.off_route;
       }));
   }
 
@@ -342,7 +379,7 @@ public class NavMenu
     if ((mShowInfoToFinalDestination) || (mRoutingInfo.indexOfNextStop <= 0))
     {
       destinationText = mActivity.getString(R.string.destination);
-      iconId = R.drawable.route_point_finish;
+      iconId = R.drawable.route_finish;
       distance = mRoutingInfo.distToTarget;
       timeInSeconds = mRoutingInfo.totalTimeInSeconds;
     }
@@ -392,6 +429,45 @@ public class NavMenu
     updateControls();
   }
 
+  private void showNavigableState()
+  {
+    // Update destination labels (to final destination or to the next intermediate stop).
+    Pair<Distance, Integer> displayInfo = updateDestination();
+
+    // Show & update time info.
+    UiUtils.show(mTimeValuesContainer);
+    UiUtils.show(mEtaViewContainer);
+    updateTime(displayInfo.second);
+
+    // Show & update distance info.
+    UiUtils.show(mDistanceViewContainer);
+    updateDistance(displayInfo.first);
+
+    // Show & update route progress bar.
+    UiUtils.show(mRouteProgress);
+    mRouteProgress.update(mRoutingInfo.completionPercent, mRoutingInfo.indexOfNextStop, mShowInfoToFinalDestination,
+                          mIntermediateStopsProgress);
+
+    // Update dots switch.
+    updateDotsSwitch();
+  }
+
+  private void hideNavigableState()
+  {
+    // Hide time info.
+    UiUtils.hide(mTimeValuesContainer);
+    UiUtils.hide(mEtaViewContainer);
+
+    // Hide distance info.
+    UiUtils.hide(mDistanceViewContainer);
+
+    // Hide route progress bar.
+    UiUtils.invisible(mRouteProgress);
+
+    // Hide intermediate stop/final destination dots switch.
+    UiUtils.hide(mDotsSwitch);
+  }
+
   private void updateControls()
   {
     if (mRoutingInfo == null)
@@ -400,46 +476,42 @@ public class NavMenu
     // Hide/show & update controls based on routing session state.
     if (RoutingSessionState.isNavigable(mRoutingInfo.routingSessionState))
     {
-      // Update destination labels (to final destination or to the next intermediate stop).
-      Pair<Distance, Integer> displayInfo = updateDestination();
+      if (mRoutingInfo.routingSessionState == RoutingSessionState.OffRoute)
+      {
+        // This is a weird one, it is theoretically navigable,
+        // but our time estimates etc are wrong because the user is not on the route
+        hideNavigableState();
 
-      // Show & update time info.
-      UiUtils.show(mTimeValuesContainer);
-      UiUtils.show(mEtaViewContainer);
-      updateTime(displayInfo.second);
+        // Show the button to recalculate the route
+        UiUtils.show(mRebuildRouteButton);
 
-      // Show & update distance info.
-      UiUtils.show(mDistanceViewContainer);
-      updateDistance(displayInfo.first);
+        // Hide rebuilding route circular progress bar.
+        UiUtils.hide(mRebuildingRouteProgressBar);
 
-      // Show & update route progress bar.
-      UiUtils.show(mRouteProgress);
-      updateRouteProgress(mRoutingInfo.completionPercent);
+        // Update routing session state message.
+        UiUtils.setTextAndShow(mRoutingState, mActivity.getString(R.string.off_route));
+      }
+      else
+      {
+        showNavigableState();
 
-      // Update dots switch.
-      updateDotsSwitch();
+        // Hide the button to recalculate the route
+        UiUtils.hide(mRebuildRouteButton);
 
-      // Hide rebuilding route circular progress bar.
-      UiUtils.hide(mRebuildingRouteProgressBar);
+        // Hide rebuilding route circular progress bar.
+        UiUtils.hide(mRebuildingRouteProgressBar);
 
-      // Hide routing session state message.
-      mRoutingState.setText("");
-      UiUtils.invisible(mRoutingState);
+        // Hide routing session state message.
+        mRoutingState.setText("");
+        UiUtils.invisible(mRoutingState);
+      }
     }
     else
     {
-      // Hide time info.
-      UiUtils.hide(mTimeValuesContainer);
-      UiUtils.hide(mEtaViewContainer);
+      hideNavigableState();
 
-      // Hide distance info.
-      UiUtils.hide(mDistanceViewContainer);
-
-      // Hide route progress bar.
-      UiUtils.invisible(mRouteProgress);
-
-      // Hide intermediate stop/final destination dots switch.
-      UiUtils.hide(mDotsSwitch);
+      // Hide the button to recalculate the route
+      UiUtils.hide(mRebuildRouteButton);
 
       // Show rebuilding route circular progress bar.
       UiUtils.show(mRebuildingRouteProgressBar);
@@ -447,6 +519,17 @@ public class NavMenu
       // Update routing session state message.
       updateRoutingSessionState(mRoutingInfo.routingSessionState);
     }
+  }
+
+  public void setIntermediateStopsProgress(double[] intermediateStopsProgress)
+  {
+    mIntermediateStopsProgress = intermediateStopsProgress;
+
+    if (mRoutingInfo == null)
+      return;
+
+    mRouteProgress.update(mRoutingInfo.completionPercent, mRoutingInfo.indexOfNextStop,
+                          mShowInfoToFinalDestination, mIntermediateStopsProgress);
   }
 
   public interface NavMenuListener

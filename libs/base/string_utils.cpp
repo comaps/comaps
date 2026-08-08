@@ -199,6 +199,11 @@ void NormalizeDigits(UniString & us)
   }
 }
 
+size_t Utf8Length(std::string_view const & s)
+{
+  return utf8::unchecked::distance(s.begin(), s.end());
+}
+
 void AsciiToLower(std::string & s)
 {
   std::transform(s.begin(), s.end(), s.begin(), [](char in)
@@ -427,6 +432,23 @@ std::string to_string_dac(double d, int dac)
 
   ss << std::setprecision(dac) << d;
   return ss.str();
+}
+
+std::string format_date(std::chrono::year_month_day const & ymd)
+{
+  std::ostringstream oss;
+
+  oss << std::setfill('0');
+
+  oss << std::setw(4) << static_cast<int>(ymd.year());
+  oss << '-';
+
+  oss << std::setw(2) << static_cast<unsigned>(ymd.month());
+  oss << '-';
+
+  oss << std::setw(2) << static_cast<unsigned>(ymd.day());
+
+  return oss.str();
 }
 
 bool IsHTML(std::string const & utf8)

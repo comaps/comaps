@@ -14,7 +14,6 @@ setup(
     [
         "borders_vs_osm.csv",
         "categories_brands.txt",
-        "categories_cuisines.txt",
         "categories.txt",
         "classificator.txt",
         "colors.txt",

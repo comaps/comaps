@@ -10,6 +10,7 @@
 #include "drape_frontend/gui/skin.hpp"
 #include "drape_frontend/message.hpp"
 #include "drape_frontend/my_position.hpp"
+#include "drape_frontend/my_position_controller.hpp"
 #include "drape_frontend/overlay_batcher.hpp"
 #include "drape_frontend/postprocess_renderer.hpp"
 #include "drape_frontend/render_node.hpp"
@@ -481,28 +482,22 @@ private:
 class GpsInfoMessage : public Message
 {
 public:
-  GpsInfoMessage(location::GpsInfo const & info, bool isNavigable, double distToNextTurn, double speedLimit,
+  GpsInfoMessage(location::GpsInfo const & info, df::NavigationContext const & navigationContext,
                  location::RouteMatchingInfo const & routeInfo)
     : m_info(info)
-    , m_isNavigable(isNavigable)
-    , m_distToNextTurn(distToNextTurn)
-    , m_speedLimit(speedLimit)
+    , m_navigationContext(navigationContext)
     , m_routeInfo(routeInfo)
   {}
 
   Type GetType() const override { return Type::GpsInfo; }
 
   location::GpsInfo const & GetInfo() const { return m_info; }
-  bool IsNavigable() const { return m_isNavigable; }
-  double const & GetSpeedLimit() const { return m_speedLimit; }
-  double const & GetDistanceToNextTurn() const { return m_distToNextTurn; }
+  df::NavigationContext const & GetNavigationContext() const { return m_navigationContext; }
   location::RouteMatchingInfo const & GetRouteInfo() const { return m_routeInfo; }
 
 private:
   location::GpsInfo const m_info;
-  bool const m_isNavigable;
-  double const m_distToNextTurn;
-  double const m_speedLimit;
+  df::NavigationContext const m_navigationContext;
   location::RouteMatchingInfo const m_routeInfo;
 };
 
@@ -746,11 +741,13 @@ public:
 class FollowRouteMessage : public Message
 {
 public:
-  FollowRouteMessage(int preferredZoomLevel, int preferredZoomLevelIn3d, bool enableAutoZoom, bool isArrowGlued)
+  FollowRouteMessage(int preferredZoomLevel, int preferredZoomLevelIn3d, bool enableAutoZoom, bool isArrowGlued,
+                     bool allowRouteRotation)
     : m_preferredZoomLevel(preferredZoomLevel)
     , m_preferredZoomLevelIn3d(preferredZoomLevelIn3d)
     , m_enableAutoZoom(enableAutoZoom)
     , m_isArrowGlued(isArrowGlued)
+    , m_allowRouteRotation(allowRouteRotation)
   {}
 
   Type GetType() const override { return Type::FollowRoute; }
@@ -759,12 +756,14 @@ public:
   int GetPreferredZoomLevelIn3d() const { return m_preferredZoomLevelIn3d; }
   bool EnableAutoZoom() const { return m_enableAutoZoom; }
   bool IsArrowGlued() const { return m_isArrowGlued; }
+  bool AllowRouteRotation() const { return m_allowRouteRotation; }
 
 private:
   int const m_preferredZoomLevel;
   int const m_preferredZoomLevelIn3d;
   bool const m_enableAutoZoom;
   bool const m_isArrowGlued;
+  bool const m_allowRouteRotation;
 };
 
 class SwitchMapStyleMessage : public BaseBlockingMessage

@@ -38,6 +38,16 @@ public enum BookmarkManager {
   public static final int SORT_BY_TIME = 2;
   public static final int SORT_BY_NAME = 3;
 
+  @Retention(RetentionPolicy.SOURCE)
+  @IntDef({SORT_CATEGORIES_BY_LAST_MODIFIED, SORT_CATEGORIES_BY_NAME, SORT_CATEGORIES_MANUAL})
+  public @interface CategorySortType
+  {}
+
+  // These values have to match BookmarkManager::CategorySortType.
+  public static final int SORT_CATEGORIES_BY_LAST_MODIFIED = 0;
+  public static final int SORT_CATEGORIES_BY_NAME = 1;
+  public static final int SORT_CATEGORIES_MANUAL = 2;
+
   // These values have to match the values of kml::CompilationType from kml/types.hpp
   public static final int CATEGORY = 0;
 
@@ -501,6 +511,16 @@ public enum BookmarkManager {
     nativePrepareForSearch(catId);
   }
 
+  public void prepareForSearchAll()
+  {
+    nativePrepareForSearchAll();
+  }
+
+  public void releaseSearch()
+  {
+    nativeReleaseSearch();
+  }
+
   public boolean areAllCategoriesVisible()
   {
     return nativeAreAllCategoriesVisible();
@@ -555,6 +575,22 @@ public enum BookmarkManager {
   public void resetLastSortingType(long catId)
   {
     nativeResetLastSortingType(catId);
+  }
+
+  public void moveCategoryToPosition(long catId, int targetPos)
+  {
+    nativeMoveCategoryToPosition(catId, targetPos);
+  }
+
+  @CategorySortType
+  public int getCategorySortType()
+  {
+    return nativeGetCategorySortType();
+  }
+
+  public void setCategorySortType(@CategorySortType int sortType)
+  {
+    nativeSetCategorySortType(sortType);
   }
 
   @NonNull
@@ -808,6 +844,10 @@ public enum BookmarkManager {
 
   private static native void nativePrepareForSearch(long catId);
 
+  private static native void nativePrepareForSearchAll();
+
+  private static native void nativeReleaseSearch();
+
   private static native boolean nativeAreAllCategoriesVisible();
 
   private static native boolean nativeAreAllCategoriesInvisible();
@@ -846,6 +886,13 @@ public enum BookmarkManager {
   private native void nativeSetLastSortingType(long catId, @SortingType int sortingType);
 
   private native void nativeResetLastSortingType(long catId);
+
+  private native void nativeMoveCategoryToPosition(long catId, int targetPos);
+
+  @CategorySortType
+  private native int nativeGetCategorySortType();
+
+  private native void nativeSetCategorySortType(@CategorySortType int sortType);
 
   @NonNull
   @SortingType

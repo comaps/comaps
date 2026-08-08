@@ -16,4 +16,12 @@
     <string name="track_recording_alert_title">Save to Favourites?</string>
     <string name="pref_backup_title">Backup Favourites</string>
     <string name="pref_backup_now_summary_empty_lists">No Favourites to backup</string>
+    <string name="feedback">Feedback</string>
+    <string name="oh_unknown">Opening hours unknown</string>
+    <string name="downloader_check_updates_button">Check for updates</string>
+    <string name="downloader_check_updates_checking">Checking for updates...</string>
+    <string name="downloader_check_updates_updated">Map updates available!</string>
+    <string name="downloader_check_updates_no_updates">No updates available</string>
+    <string name="cancel">Cancel</string>
+    <string name="category_toilet">Washroom</string>
 </resources>

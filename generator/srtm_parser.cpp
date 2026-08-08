@@ -3,6 +3,7 @@
 #include "platform/platform.hpp"
 
 #include "coding/endianness.hpp"
+#include "coding/internal/file_data.hpp"
 #include "coding/zip_reader.hpp"
 
 #include "base/file_name_utils.hpp"

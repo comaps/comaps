@@ -11,8 +11,7 @@
 #include "indexer/classificator_loader.hpp"
 #include "indexer/ftypes_matcher.hpp"
 
-#include "platform/platform_tests_support/helpers.hpp"
-
+#include "platform/helpers.hpp"
 #include "platform/platform.hpp"
 
 #include "base/assert.hpp"
@@ -162,7 +161,7 @@ public:
     // rsync -v -p testdata.mapsme.cloud.devmail.ru::testdata/features-2019_07_17__13_39_20.zip .
     Init("features-2019_07_17__13_39_20" /* archiveName */);
     size_t const kMaxOpenFiles = 4096;
-    platform::tests_support::ChangeMaxNumberOfOpenFiles(kMaxOpenFiles);
+    platform::ChangeMaxNumberOfOpenFiles(kMaxOpenFiles);
   }
 
   ~FeatureIntegrationTests()

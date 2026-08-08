@@ -1,10 +1,8 @@
 #pragma once
 
 #include "routing/latlon_with_altitude.hpp"
-#include "routing/road_graph.hpp"
 #include "routing/segment.hpp"
 
-#include "geometry/latlon.hpp"
 #include "geometry/point2d.hpp"
 
 #include <vector>

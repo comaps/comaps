@@ -1,17 +1,35 @@
 #include "drape_frontend/my_position.hpp"
+
 #include "drape_frontend/batcher_bucket.hpp"
 #include "drape_frontend/color_constants.hpp"
+#include "drape_frontend/frame_values.hpp"
 #include "drape_frontend/map_shape.hpp"
+#include "drape_frontend/render_state_extension.hpp"
 #include "drape_frontend/shape_view_params.hpp"
+#include "drape_frontend/tile_key.hpp"
 #include "drape_frontend/tile_utils.hpp"
 
+#include "shaders/program_params.hpp"
 #include "shaders/programs.hpp"
 
+#include "drape/attribute_provider.hpp"
+#include "drape/batcher.hpp"
+#include "drape/binding_info.hpp"
 #include "drape/constants.hpp"
+#include "drape/gl_constants.hpp"
 #include "drape/glsl_func.hpp"
 #include "drape/glsl_types.hpp"
 #include "drape/overlay_handle.hpp"
 #include "drape/render_bucket.hpp"
+#include "drape/render_state.hpp"
+
+#include "geometry/rect2d.hpp"
+#include "geometry/screenbase.hpp"
+
+#include "base/assert.hpp"
+#include "base/buffer_vector.hpp"
+#include "base/math.hpp"
+#include "base/matrix.hpp"
 
 namespace df
 {

@@ -8,6 +8,8 @@
 
 #include "coding/url.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/logging.hpp"
 #include "base/math.hpp"
 #include "base/string_utils.hpp"
@@ -344,7 +346,7 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_wikimedia_commons(std::s
 
 std::string MetadataTagProcessorImpl::ValidateAndFormat_panoramax(std::string v)
 {
-  static auto const s_panoramaxRegex = std::regex(R"(^([a-z0-9]{8}(-[a-z0-9]{4}){3}-[a-z0-9]{12})$)");
+  static auto const s_panoramaxRegex = std::regex(R"(^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$)");
 
   if (std::regex_match(v, s_panoramaxRegex))
     return v;
@@ -352,7 +354,13 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_panoramax(std::string v)
   if (std::string const * paramValue = parsedUrl.GetParamValue("pic"))
   {
     if (std::regex_match(*paramValue, s_panoramaxRegex))
-      return v;
+    {
+      if (std::string const * xyzValue = parsedUrl.GetParamValue("xyz"))
+      {
+        return *paramValue + "&xyz=" + *xyzValue;
+      }
+      return *paramValue;
+	}
   }
   LOG(LDEBUG, ("Invalid Panoramax tag value:", v));
   return {};
@@ -392,9 +400,18 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_brand(std::string const 
   return v;
 }
 
-std::string MetadataTagProcessorImpl::ValidateAndFormat_capacity(std::string const & v)
+std::string MetadataTagProcessorImpl::ValidateAndFormat_capacity(std::string v)
 {
-  return v;
+  strings::AsciiToLower(v);
+  if (v == "yes" || v == "no")
+    return v;
+
+  strings::NormalizeDigits(v);
+  unsigned int i = 0;
+  if (strings::to_uint(v, i))
+    return v;
+  else
+    return {};
 }
 
 std::string MetadataTagProcessorImpl::ValidateAndFormat_local_ref(std::string const & v)
@@ -405,8 +422,10 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_local_ref(std::string co
 std::string MetadataTagProcessorImpl::ValidateAndFormat_drive_through(std::string v)
 {
   strings::AsciiToLower(v);
-  if (v == "yes" || v == "no")
-    return v;
+  if (v == "yes" || v == "sidewalk" || v == "terrace" || v == "pedestrian_zone" || v == "patio" || v == "only" || v == "veranda" || v == "garden" || v == "parklet" || v == "street" || v == "balcony" || v == "beach" || v == "roof")
+	  return "yes";
+  else if (v == "no")
+	  return v;
   return {};
 }
 
@@ -654,6 +673,8 @@ void MetadataTagProcessor::operator()(std::string const & k, std::string const &
   case Metadata::FMD_OUTDOOR_SEATING: valid = ValidateAndFormat_outdoor_seating(v); break;
   case Metadata::FMD_NETWORK: valid = ValidateAndFormat_operator(v); break;
   case Metadata::FMD_CHARGE_SOCKETS: m_chargeSockets.AggregateChargeSocketKey(k, v); break;
+  case Metadata::FMD_CAPACITY_DISABLED: valid = ValidateAndFormat_capacity(v); break;
+  case Metadata::FMD_CAPACITY_CHARGING: valid = ValidateAndFormat_capacity(v); break;
 
   // Metadata types we do not get from OSM.
   case Metadata::FMD_CUISINE:

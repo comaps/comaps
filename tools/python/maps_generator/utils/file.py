@@ -190,8 +190,8 @@ def is_verified(name: AnyStr) -> bool:
 
 
 def make_symlink(target: AnyStr, link_name: AnyStr, force: bool = False):
-    if force and os.path.exists(target):
-        os.remove(target)
+    if force and os.path.lexists(link_name):
+        os.remove(link_name)
     try:
         os.symlink(target, link_name)
     except OSError as e:

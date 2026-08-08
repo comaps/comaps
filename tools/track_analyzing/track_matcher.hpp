@@ -9,7 +9,7 @@
 
 #include "indexer/data_source.hpp"
 
-#include <storage/storage.hpp>
+#include "storage/storage.hpp"
 
 #include "geometry/point2d.hpp"
 

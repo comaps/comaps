@@ -1,11 +1,14 @@
 #include "drape/render_state.hpp"
 
 #include "drape/drape_global.hpp"
+#include "drape/gl_constants.hpp"
 #include "drape/gl_functions.hpp"
 #include "drape/gl_gpu_program.hpp"
+#include "drape/hw_texture.hpp"
 
 #include "drape/vulkan/vulkan_base_context.hpp"
 #include "drape/vulkan/vulkan_gpu_program.hpp"
+#include "drape/vulkan/vulkan_param_descriptor.hpp"
 #include "drape/vulkan/vulkan_texture.hpp"
 
 namespace dp

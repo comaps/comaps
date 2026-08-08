@@ -1,11 +1,13 @@
 #include "storage/diff_scheme/apply_diff.hpp"
 
+#include "platform/country_defines.hpp"
 #include "platform/platform.hpp"
 
 #include "coding/internal/file_data.hpp"
 
 #include "base/assert.hpp"
-#include "base/cancellable.hpp"
+
+#include "defines.hpp"
 
 namespace storage
 {

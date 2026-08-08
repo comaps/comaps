@@ -1,5 +1,8 @@
 #pragma once
 
+#include "drape/binding_info.hpp"
+#include "drape/color.hpp"
+#include "drape/drape_global.hpp"
 #include "drape/graphics_context.hpp"
 #include "drape/pointers.hpp"
 #include "drape/vulkan/vulkan_gpu_program.hpp"
@@ -7,10 +10,7 @@
 #include "drape/vulkan/vulkan_param_descriptor.hpp"
 #include "drape/vulkan/vulkan_pipeline.hpp"
 #include "drape/vulkan/vulkan_staging_buffer.hpp"
-#include "drape/vulkan/vulkan_texture.hpp"
 #include "drape/vulkan/vulkan_utils.hpp"
-
-#include "geometry/point2d.hpp"
 
 #include <array>
 #include <atomic>
@@ -24,6 +24,8 @@ namespace dp
 {
 namespace vulkan
 {
+class VulkanTexture;
+
 class VulkanBaseContext : public dp::GraphicsContext
 {
 public:

@@ -2,13 +2,18 @@
 
 #include "coding/url.hpp"
 
+#include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 
+#include "platform/platform.hpp"
+
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 #include "base/math.hpp"
 #include "base/string_utils.hpp"
 #include "base/timer.hpp"
-#include "platform/platform.hpp"
+
+#include "std/target_os.hpp"
 
 #include <algorithm>
 #include <sstream>

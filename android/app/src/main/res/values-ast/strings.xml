@@ -69,7 +69,7 @@
     <string name="traffic_update_app">Anueva CoMaps</string>
     <string name="placepage_add_stop">Amestar parada</string>
     <string name="placepage_remove_stop">Desaniciar parada</string>
-    <string name="privacy">Privacidá</string>
+    <string name="prefs_group_privacy">Privacidá</string>
     <string name="layers_title">Estilos y capes del mapa</string>
     <string name="subway">Metro</string>
     <string name="delete_list">Desaniciar llista</string>

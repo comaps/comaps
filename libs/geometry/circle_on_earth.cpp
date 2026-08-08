@@ -1,10 +1,12 @@
 #include "geometry/circle_on_earth.hpp"
 
 #include "geometry/distance_on_sphere.hpp"
+#include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 #include "geometry/point3d.hpp"
 
 #include "base/assert.hpp"
+#include "base/math.hpp"
 
 namespace
 {

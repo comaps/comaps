@@ -181,13 +181,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Lungime</string>
     <string name="share_my_location">Trimite poziția mea</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Opțiuni generale</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Informații</string>
     <string name="prefs_group_route">Navigare</string>
     <string name="pref_zoom_title">Butoane zoom</string>
     <string name="pref_zoom_summary">Arată pe hartă</string>
+    <string name="prefs_group_advanced">Avansate</string>
+    <string name="download_resources_custom_url_title">Server hărți custom</string>
+    <string name="download_resources_custom_url_message">Înlocuiți serverul prestabilit folosit pentru descărcarea hărților. Lăsați liber pentru serverul prestabilit.</string>
+    <string name="download_resources_custom_url_summary_none">Nesetat</string>
+    <string name="download_resources_custom_url_error_scheme">Introduceți o adresă completă care începe cu https:// și se termină cu /</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Mod nocturn</string>
     <!-- Generic «Off» string -->
@@ -244,7 +247,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Mișcați telefonul într-o mișcare în formă de opt pentru a calibra busola și a fixa direcția săgeții pe hartă.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Atingeți lung pe hartă din nou pentru a vedea interfața</string>
+    <string name="enable_long_tap_fullscreen_description">Atingeți lung pe hartă din nou pentru a vedea interfața</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Actualizează tot</string>
     <!-- Cancel all button text -->
@@ -584,7 +587,7 @@
         <item quantity="other">%d trasee</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Confidențialitate</string>
+    <string name="prefs_group_privacy">Confidențialitate</string>
     <string name="privacy_policy">Confidențialitate</string>
     <string name="terms_of_use">Termeni de utilizare</string>
     <string name="button_layer_traffic">Trafic</string>
@@ -612,7 +615,7 @@
     <string name="power_managment_setting_auto">Automat</string>
     <string name="power_managment_setting_manual_max">Economisire maximă a energiei</string>
     <string name="enable_logging_warning_message">Opțiunea activează jurnalizarea în scopuri de diagnosticare. Aceasta poate fi utilă echipei noastre pentru a rezolva problemele cu aplicația. Activează temporar această opțiune pentru a înregistra și a ne trimite jurnale detaliate despre problema ta.</string>
-    <string name="driving_options_title">Opțiuni de ocolire</string>
+    <string name="routing_options_title">Opțiuni de ocolire</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Evitați drumurile cu taxă</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -888,11 +891,17 @@
     <string name="navigation_start_tts_disabled_message">Instrucțiuni vocale dezactivate: Nu este disponibil niciun sistem TTS</string>
     <string name="charge_socket_count">Număr</string>
     <string name="unknown_count">Necunoscut</string>
-    <string name="download_resources_custom_url_error_scheme">Introduceți o adresă completă care începe cu https:// și se termină cu /</string>
-    <string name="download_resources_custom_url_summary_none">Nesetat</string>
-    <string name="download_resources_custom_url_title">Server hărți custom</string>
-    <string name="download_resources_custom_url_message">Înlocuiți serverul prestabilit folosit pentru descărcarea hărților. Lăsați liber pentru serverul prestabilit.</string>
-    <string name="advanced">Avansate</string>
     <string name="pref_speedlimit_title">Afișează limita de viteză</string>
     <string name="rooms">%s camere</string>
+    <string name="downloader_check_updates_button">Caută actualizări</string>
+    <string name="downloader_check_updates_checking">Se verifică actualizările...</string>
+    <string name="downloader_check_updates_no_updates">Nu sunt disponibile actualizări</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%1$d min</item>
+        <item quantity="few">%1$d min</item>
+        <item quantity="other">%1$d min</item>
+    </plurals>
+    <string name="change_app_locale">Limba aplicației</string>
+    <string name="destination">Destinație</string>
+    <string name="pref_maplanguage_local">Limbă Locală</string>
 </resources>

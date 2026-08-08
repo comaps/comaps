@@ -41,9 +41,21 @@ set(SRC
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  indexer
-  opening_hours
-  pugixml
+  PUBLIC
+    base
+    geometry
+    i18n
+    indexer
+  PRIVATE
+    coding
+    cppjansson
+    platform
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    opening_hours
+    pugixml
 )
 
 omim_add_test_subdirectory(editor_tests)

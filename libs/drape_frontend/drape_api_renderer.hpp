@@ -1,17 +1,27 @@
 #pragma once
 
-#include "drape_frontend/drape_api_builder.hpp"
-#include "drape_frontend/frame_values.hpp"
-
-#include "shaders/program_manager.hpp"
-
-#include "geometry/screenbase.hpp"
+#include "drape/pointers.hpp"
 
 #include <string>
 #include <vector>
 
+class ScreenBase;
+
+namespace dp
+{
+class GraphicsContext;
+}  // namespace dp
+
+namespace gpu
+{
+class ProgramManager;
+}  // namespace gpu
+
 namespace df
 {
+struct DrapeApiRenderProperty;
+struct FrameValues;
+
 class DrapeApiRenderer
 {
 public:

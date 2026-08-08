@@ -174,25 +174,30 @@ if (PLATFORM_MAC)
   set_target_properties(${PROJECT_NAME} PROPERTIES XCODE_ATTRIBUTE_CLANG_ENABLE_OBJC_ARC YES)
 endif()
 
-set(DRAPE_LINK_LIBRARIES
-  indexer
-  platform
-  geometry
-  coding
-  base
-  Freetype::Freetype
-  vulkan_wrapper
-  stb_image
-  harfbuzz::harfbuzz
-  ICU::i18n
-  expat::expat
-  $<$<BOOL:${PLATFORM_MAC}>:-framework\ OpenGL>
-  $<$<BOOL:${PLATFORM_MAC}>:-framework\ Metal>
-  $<$<BOOL:${PLATFORM_LINUX}>:OpenGL::GL>
-  $<$<BOOL:${PLATFORM_WIN}>:OpenGL::GL>
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    base
+    coding
+    geometry
+    i18n
+    indexer
+    kml
+    platform
 )
 
-target_link_libraries(${PROJECT_NAME} ${DRAPE_LINK_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    Freetype::Freetype
+    vulkan_wrapper
+    stb_image
+    harfbuzz::harfbuzz
+    ICU::i18n
+    expat::expat
+    $<$<BOOL:${PLATFORM_MAC}>:-framework\ OpenGL>
+    $<$<BOOL:${PLATFORM_MAC}>:-framework\ Metal>
+    $<$<BOOL:${PLATFORM_LINUX}>:OpenGL::GL>
+    $<$<BOOL:${PLATFORM_WIN}>:OpenGL::GL>
+)
 
 omim_add_test_subdirectory(drape_tests)
 

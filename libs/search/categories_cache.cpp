@@ -1,11 +1,14 @@
 #include "search/categories_cache.hpp"
 
+#include "search/feature_offset_match.hpp"
 #include "search/mwm_context.hpp"
 #include "search/retrieval.hpp"
 
 #include "indexer/classificator.hpp"
 #include "indexer/ftypes_matcher.hpp"
 #include "indexer/search_string_utils.hpp"
+
+#include "base/uni_string_dfa.hpp"
 
 namespace search
 {

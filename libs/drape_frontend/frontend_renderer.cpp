@@ -1,37 +1,65 @@
 #include "drape_frontend/frontend_renderer.hpp"
+
 #include "drape_frontend/animation/interpolation_holder.hpp"
 #include "drape_frontend/animation_system.hpp"
+#include "drape_frontend/color_constants.hpp"
 #include "drape_frontend/debug_rect_renderer.hpp"
+#include "drape_frontend/drape_api_renderer.hpp"
 #include "drape_frontend/drape_measurer.hpp"
 #include "drape_frontend/drape_notifier.hpp"
+#include "drape_frontend/gps_track_renderer.hpp"
 #include "drape_frontend/gui/drape_gui.hpp"
+#include "drape_frontend/gui/layer_render.hpp"
 #include "drape_frontend/gui/ruler_helper.hpp"
+#include "drape_frontend/gui/scale_fps_helper.hpp"
+#include "drape_frontend/message.hpp"
 #include "drape_frontend/message_subclasses.hpp"
+#include "drape_frontend/overlay_batcher.hpp"
 #include "drape_frontend/postprocess_renderer.hpp"
+#include "drape_frontend/route_renderer.hpp"
+#include "drape_frontend/route_shape.hpp"
 #include "drape_frontend/scenario_manager.hpp"
 #include "drape_frontend/screen_operations.hpp"
 #include "drape_frontend/screen_quad_renderer.hpp"
+#include "drape_frontend/selection_shape.hpp"
+#include "drape_frontend/traffic_renderer.hpp"
+#include "drape_frontend/transit_scheme_builder.hpp"
+#include "drape_frontend/transit_scheme_renderer.hpp"
 #include "drape_frontend/user_mark_shapes.hpp"
 #include "drape_frontend/visual_params.hpp"
 
+#include "shaders/program_manager.hpp"
 #include "shaders/programs.hpp"
 
+#include "drape/color.hpp"
 #include "drape/constants.hpp"
 #include "drape/drape_global.hpp"
 #include "drape/framebuffer.hpp"
+#include "drape/graphics_context.hpp"
+#include "drape/graphics_context_factory.hpp"
+#include "drape/overlay_handle.hpp"
+#include "drape/render_bucket.hpp"
+#include "drape/render_state.hpp"
 #include "drape/support_manager.hpp"
+#include "drape/texture_manager.hpp"
+#include "drape/texture_types.hpp"
 #include "drape/utils/projection.hpp"
 
-#include "indexer/classificator_loader.hpp"
 #include "indexer/drawing_rules.hpp"
 #include "indexer/scales.hpp"
 
+#include "geometry/angles.hpp"
 #include "geometry/any_rect2d.hpp"
 
 #include "platform/trace.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
+#include "base/buffer_vector.hpp"
 #include "base/logging.hpp"
+#include "base/math.hpp"
+#include "base/matrix.hpp"
 #include "base/stl_helpers.hpp"
 #include "base/timer.hpp"
 
@@ -438,8 +466,8 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
       break;
 #endif
     ref_ptr<GpsInfoMessage> msg = message;
-    m_myPositionController->OnLocationUpdate(msg->GetInfo(), msg->IsNavigable(), msg->GetDistanceToNextTurn(),
-                                             msg->GetSpeedLimit(), m_userEventStream.GetCurrentScreen());
+    m_myPositionController->OnLocationUpdate(msg->GetInfo(), msg->GetNavigationContext(),
+                                             m_userEventStream.GetCurrentScreen());
 
     location::RouteMatchingInfo const & info = msg->GetRouteInfo();
     if (info.HasDistanceFromBegin())
@@ -512,7 +540,8 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
     if (m_pendingFollowRoute != nullptr)
     {
       FollowRoute(m_pendingFollowRoute->m_preferredZoomLevel, m_pendingFollowRoute->m_preferredZoomLevelIn3d,
-                  m_pendingFollowRoute->m_enableAutoZoom, m_pendingFollowRoute->m_isArrowGlued);
+                  m_pendingFollowRoute->m_enableAutoZoom, m_pendingFollowRoute->m_isArrowGlued,
+                  m_pendingFollowRoute->m_allowRouteRotation);
       m_pendingFollowRoute.reset();
     }
     break;
@@ -584,13 +613,14 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
     // receive FollowRoute message before FlushSubroute message, so we need to postpone its processing.
     if (m_routeRenderer->GetSubroutes().empty())
     {
-      m_pendingFollowRoute = std::make_unique<FollowRouteData>(
-          msg->GetPreferredZoomLevel(), msg->GetPreferredZoomLevelIn3d(), msg->EnableAutoZoom(), msg->IsArrowGlued());
+      m_pendingFollowRoute =
+          std::make_unique<FollowRouteData>(msg->GetPreferredZoomLevel(), msg->GetPreferredZoomLevelIn3d(),
+                                            msg->EnableAutoZoom(), msg->IsArrowGlued(), msg->AllowRouteRotation());
     }
     else
     {
       FollowRoute(msg->GetPreferredZoomLevel(), msg->GetPreferredZoomLevelIn3d(), msg->EnableAutoZoom(),
-                  msg->IsArrowGlued());
+                  msg->IsArrowGlued(), msg->AllowRouteRotation());
     }
     break;
   }
@@ -1057,10 +1087,11 @@ void FrontendRenderer::UpdateContextDependentResources()
 }
 
 void FrontendRenderer::FollowRoute(int preferredZoomLevel, int preferredZoomLevelIn3d, bool enableAutoZoom,
-                                   bool isArrowGlued)
+                                   bool isArrowGlued, bool allowRouteRotation)
 {
   m_myPositionController->ActivateRouting(
-      !m_enablePerspectiveInNavigation ? preferredZoomLevel : preferredZoomLevelIn3d, enableAutoZoom, isArrowGlued);
+      !m_enablePerspectiveInNavigation ? preferredZoomLevel : preferredZoomLevelIn3d, enableAutoZoom, isArrowGlued,
+      allowRouteRotation);
 
   if (m_enablePerspectiveInNavigation)
     AddUserEvent(make_unique_dp<SetAutoPerspectiveEvent>(true /* isAutoPerspective */));

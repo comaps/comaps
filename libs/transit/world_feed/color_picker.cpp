@@ -1,6 +1,7 @@
 #include "transit/world_feed/color_picker.hpp"
 
 #include "drape_frontend/apply_feature_functors.hpp"
+#include "drape_frontend/color_constants.hpp"
 
 #include "drape/color.hpp"
 

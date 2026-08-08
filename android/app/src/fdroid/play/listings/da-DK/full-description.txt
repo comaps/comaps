@@ -19,15 +19,14 @@ Slut dig til fælleskabet og hjælp til med at bygge den bedste kortapp i verden
 • Gangstier og cykelstier
 • Steder, der kan besøges, som f.eks. restauranter, tankstationer, hoteller, butikker, seværdigheder og mange andre.
 • Søg efter stednavn, adresse, eller type af sted.
-• Gem dine yndlingssteder som bogmærker med et enkelt tryk. 
-• iCloud synkronisering af bogmærker og optagede spor.
+• Navigation med stemmeinstruktioner til vandring, cycling og i bil.
+• Gem dine yndlingssteder som bogmærker med et enkelt tryk.
 • Offline artikler fra Wikipedia.
 • Metro-lag med navigation.
 • Optagelse af spor.
 • Eksport og import af bogmærker og spor i formaterne KML, KMZ og GPX.
 • Mørk tilstand til brug om natten.
 • Mulighed for at forbedre kortet vha. en indbygget editor.
-• CarPlay understøttes.
 
 <b>Friheden er ankommet</b>
 Opdag din rejse, find vej i verden med privatliv og fællesskab i førersædet!

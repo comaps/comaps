@@ -655,9 +655,9 @@
 "avoid_tolls" = "Bidesariak saihestea";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_unpaved" = "Asfaltatu gabeko saihestea";
-"avoid_paved" = "Avoid paved roads";
+"avoid_paved" = "Saihestu asfaltatutako errepideak";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_steps" = "Avoid stairs";
+"avoid_steps" = "Saihestu eskailerak";
 "avoid_ferry" = "Ferriak saihestea";
 "avoid_motorways" = "Autobideak saihestea";
 "unable_to_calc_alert_title" = "Ezin da ibilbidea proposatu";
@@ -681,8 +681,6 @@
 "yes_available" = "Bai";
 /* E.g. "WiFi:No" */
 "no_available" = "Ez";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Edukiera: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Sarea: %@";
 "trip_finished" = "Iritsi zara!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Gehitu lekua";
 "contribute_to_osm_update_map" = "Eguneratu mapa ekarpenak egiteko";
 "contribute_to_osm_update_map_description" = "%@ ko mapa azken bertsiora eguneratu behar duzu OpenStreetMapeko datuetan lagundu aurretik";
+"downloader_check_updates_button" = "Bilatu eguneratzeak";
+"downloader_check_updates_checking" = "Eguneratzeak bilatzen...";
+"downloader_check_updates_updated" = "Mapen eguneraketak eskuragarri!";
+"downloader_check_updates_no_updates" = "Ez dago eguneratzerik";
+"downloader_check_updates_eol" = "Ez dago mapa eguneratze gehiago aplikazio honen bertsiorako. Eguneratu aplikazioa!";
+"downloader_check_updates_error" = "Ezin izan dira eguneratzeak bilatu";
+"editor_add_select_category_recent_subtitle" = "Recently Used";
+"oh_unknown" = "Ordutegi ezezaguna";
+"carplay_highway_exit" = "Exit %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "No dedicated disabled spaces";
+"capacity_charging_yes" = "Has spaces with chargers";
+"capacity_charging_no" = "No spaces with chargers";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

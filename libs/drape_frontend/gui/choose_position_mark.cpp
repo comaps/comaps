@@ -1,11 +1,24 @@
 #include "drape_frontend/gui/choose_position_mark.hpp"
-#include "drape_frontend/gui/drape_gui.hpp"
 
 #include "drape_frontend/batcher_bucket.hpp"
+#include "drape_frontend/render_state_extension.hpp"
+
+#include "drape/attribute_provider.hpp"
+#include "drape/batcher.hpp"
+#include "drape/binding_info.hpp"
+#include "drape/gl_constants.hpp"
+#include "drape/glsl_types.hpp"
+#include "drape/overlay_handle.hpp"
+#include "drape/render_state.hpp"
+#include "drape/texture_manager.hpp"
 
 #include "shaders/programs.hpp"
 
-#include "drape/utils/vertex_decl.hpp"
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
+#include "geometry/screenbase.hpp"
+
+#include "base/assert.hpp"
 
 #include <functional>
 #include <utility>

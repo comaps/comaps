@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		276A00522FCD8CF800CE3020 /* reviews_section_builder.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 276A00502FCD8CF800CE3020 /* reviews_section_builder.hpp */; };
+		276A00532FCD8CF800CE3020 /* reviews_section_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 276A00512FCD8CF800CE3020 /* reviews_section_builder.cpp */; };
 		39F7E3AA20E1023400DA7A14 /* test_with_classificator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39F7E3A520E1022E00DA7A14 /* test_with_classificator.cpp */; };
 		39F7E3AB20E1023400DA7A14 /* test_with_classificator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 39F7E3A420E1022E00DA7A14 /* test_with_classificator.hpp */; };
 		39F7E3AC20E1023400DA7A14 /* test_with_custom_mwms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39F7E3A320E1022E00DA7A14 /* test_with_custom_mwms.cpp */; };
@@ -293,6 +295,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		276A00502FCD8CF800CE3020 /* reviews_section_builder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = reviews_section_builder.hpp; sourceTree = "<group>"; };
+		276A00512FCD8CF800CE3020 /* reviews_section_builder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = reviews_section_builder.cpp; sourceTree = "<group>"; };
 		34AF87CF1DBE52DC00E5E7DC /* common-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "common-debug.xcconfig"; path = "../common-debug.xcconfig"; sourceTree = "<group>"; };
 		34AF87D01DBE52DC00E5E7DC /* common-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "common-release.xcconfig"; path = "../common-release.xcconfig"; sourceTree = "<group>"; };
 		39F7E3A220E1022E00DA7A14 /* test_with_custom_mwms.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = test_with_custom_mwms.hpp; sourceTree = "<group>"; };
@@ -891,6 +895,8 @@
 				FACB7ACA26B913F400810C9C /* restriction_generator.hpp */,
 				FACB797E26B913F300810C9C /* restriction_writer.cpp */,
 				FACB7A9826B913F300810C9C /* restriction_writer.hpp */,
+				276A00512FCD8CF800CE3020 /* reviews_section_builder.cpp */,
+				276A00502FCD8CF800CE3020 /* reviews_section_builder.hpp */,
 				FACB79EE26B913F300810C9C /* road_access_generator.cpp */,
 				FACB7A6A26B913F300810C9C /* road_access_generator.hpp */,
 				FACB798026B913F300810C9C /* routing_city_boundaries_processor.cpp */,
@@ -1004,6 +1010,7 @@
 				FACB7BBA26B913F400810C9C /* node_mixer.hpp in Headers */,
 				FACB7B8E26B913F400810C9C /* maxspeeds_parser.hpp in Headers */,
 				FACB7BC726B913F400810C9C /* isolines_generator.hpp in Headers */,
+				276A00522FCD8CF800CE3020 /* reviews_section_builder.hpp in Headers */,
 				FACB7BA526B913F400810C9C /* processor_simple.hpp in Headers */,
 				FACB7BE526B913F400810C9C /* city_roads_generator.hpp in Headers */,
 				FACB7BA826B913F400810C9C /* feature_helpers.hpp in Headers */,
@@ -1221,6 +1228,7 @@
 				FACB7BB526B913F400810C9C /* mini_roundabout_transformer.cpp in Sources */,
 				FACB7BD726B913F400810C9C /* camera_info_collector.cpp in Sources */,
 				FACB7B1A26B913F400810C9C /* holes.cpp in Sources */,
+				276A00532FCD8CF800CE3020 /* reviews_section_builder.cpp in Sources */,
 				FACB7BCC26B913F400810C9C /* maxspeeds_parser.cpp in Sources */,
 				FACB7BBE26B913F400810C9C /* relation_tags.cpp in Sources */,
 				FACB7BF126B913F400810C9C /* feature_merger.cpp in Sources */,

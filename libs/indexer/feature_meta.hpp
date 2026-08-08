@@ -1,7 +1,10 @@
 #pragma once
 
-#include "coding/string_utf8_multilang.hpp"
+#include "coding/varint.hpp"
 
+#include "i18n/string_utf8_multilang.hpp"
+
+#include "base/assert.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <map>
@@ -128,6 +131,8 @@ public:
     FMD_ROOMS = 57,
     FMD_CHARGE = 58,
     FMD_POPULATION = 59,
+    FMD_CAPACITY_DISABLED = 60,
+    FMD_CAPACITY_CHARGING = 61,
     FMD_COUNT
   };
 
@@ -144,9 +149,12 @@ public:
   bool Has(EType type) const { return MetadataBase::Has(static_cast<uint8_t>(type)); }
   std::string_view Get(EType type) const { return MetadataBase::Get(static_cast<uint8_t>(type)); }
 
-  std::string_view Set(EType type, std::string value)
+  std::string_view Set(EType type, std::string value) { return MetadataBase::Set(base::Underlying(type), std::move(value)); }
+  // Used in MetadataDeserializer::Get(), skips unsupported metadata in newer maps.
+  void Set(uint8_t type, std::string value)
   {
-    return MetadataBase::Set(static_cast<uint8_t>(type), std::move(value));
+    if (type < base::Underlying(Metadata::FMD_COUNT))
+      MetadataBase::Set(type, std::move(value));
   }
   void Drop(EType type) { Set(type, std::string()); }
 

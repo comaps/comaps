@@ -1,16 +1,13 @@
 #pragma once
 
-#include "routing/edge_estimator.hpp"
 #include "routing/index_graph.hpp"
-#include "routing/transit_graph.hpp"
-
-#include "routing_common/num_mwm_id.hpp"
 
 #include <memory>
 
 namespace routing
 {
 class MwmDataSource;
+class TransitGraph;
 
 class TransitGraphLoader
 {

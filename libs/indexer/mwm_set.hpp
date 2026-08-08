@@ -1,7 +1,6 @@
 #pragma once
 #include "indexer/data_header.hpp"
 #include "indexer/feature_meta.hpp"
-#include "indexer/house_to_street_iface.hpp"
 
 #include "platform/local_country_file.hpp"
 #include "platform/mwm_version.hpp"
@@ -23,6 +22,8 @@
 #include <string>
 #include <utility>
 #include <vector>
+
+class HouseToStreetTable;
 
 namespace feature
 {

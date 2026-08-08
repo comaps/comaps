@@ -1,5 +1,7 @@
 #include "drape/utils/vertex_decl.hpp"
 
+#include "drape/binding_info.hpp"
+
 namespace gpu
 {
 namespace

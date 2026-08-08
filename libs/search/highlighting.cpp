@@ -1,4 +1,9 @@
 #include "search/highlighting.hpp"
+
+#include "search/result.hpp"
+
+#include "base/assert.hpp"
+
 #include "std/target_os.hpp"
 
 namespace search

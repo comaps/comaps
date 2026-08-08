@@ -1,7 +1,6 @@
 #pragma once
 
 #include "routing/regions_decl.hpp"
-#include "routing/router_delegate.hpp"
 
 #include "base/thread.hpp"
 
@@ -12,6 +11,8 @@
 
 namespace routing
 {
+class RouterDelegate;
+
 using LocalFileCheckerFn = std::function<bool(std::string const &)>;
 
 /**

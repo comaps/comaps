@@ -2,10 +2,12 @@
 
 #include "search/reverse_geocoder.hpp"
 
-#include "editor/editable_data_source.hpp"
-
+#include "indexer/data_source.hpp"
 #include "indexer/data_source_helpers.hpp"
+#include "indexer/editable_map_object.hpp"
 #include "indexer/feature_decl.hpp"
+
+#include "platform/country_file.hpp"
 
 using namespace std;
 

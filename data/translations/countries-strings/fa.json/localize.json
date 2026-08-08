@@ -1,0 +1,1580 @@
+{
+    "Abkhazia": {
+        "defaultMessage": "آبخازستان"
+    },
+    "Afghanistan": {
+        "defaultMessage": "افغانستان"
+    },
+    "Alabama": {
+        "defaultMessage": "آلاباما"
+    },
+    "Albania": {
+        "defaultMessage": "آلبانی"
+    },
+    "Algeria": {
+        "defaultMessage": "الجزایر"
+    },
+    "Algeria_Central": {
+        "defaultMessage": "الجزایر — ناوند"
+    },
+    "Algeria_Coast": {
+        "defaultMessage": "الجزایر — اپاختر"
+    },
+    "Andorra": {
+        "defaultMessage": "آندورا"
+    },
+    "Angola": {
+        "defaultMessage": "آنگولا"
+    },
+    "Anguilla": {
+        "defaultMessage": "آنگویلا"
+    },
+    "Arizona": {
+        "defaultMessage": "آریزونا"
+    },
+    "Antarctica": {
+        "defaultMessage": "رَپیهویندران"
+    },
+    "Antigua and Barbuda": {
+        "defaultMessage": "آنتیگوآ اود باربودا"
+    },
+    "Argentina": {
+        "defaultMessage": "آرژانتین"
+    },
+    "Argentina_Buenos Aires_North": {
+        "defaultMessage": "استان بوینوس آیرس — اپاختر"
+    },
+    "Argentina_Buenos Aires_South": {
+        "defaultMessage": "استان بوینوس آیرس — اواخشتر"
+    },
+    "Argentina_Cuyo": {
+        "defaultMessage": "کویو"
+    },
+    "Argentina_Mesopotamia": {
+        "defaultMessage": "میان‌رودان"
+    },
+    "Argentina_Northwest": {
+        "defaultMessage": "آرژانتین اپاختر‌خاور"
+    },
+    "Argentina_Pampas": {
+        "defaultMessage": "پامپاس"
+    },
+    "Argentina_Patagonia": {
+        "defaultMessage": "پاتاگونیا"
+    },
+    "Armenia": {
+        "defaultMessage": "ارمنستان"
+    },
+    "Australia": {
+        "defaultMessage": "استرالیا"
+    },
+    "Australia_Melbourne": {
+        "defaultMessage": "ملبورن"
+    },
+    "Australia_New South Wales": {
+        "defaultMessage": "ولز اواخشتری نو"
+    },
+    "Australia_Northern Territory": {
+        "defaultMessage": "سرزمین اپاختری"
+    },
+    "Australia_Queensland": {
+        "defaultMessage": "کوینزلند"
+    },
+    "Australia_South Australia": {
+        "defaultMessage": "اواخشتر استرالیا"
+    },
+    "Australia_Tasmania": {
+        "defaultMessage": "تاسمانی"
+    },
+    "Australia_Victoria": {
+        "defaultMessage": "ویکتوریا"
+    },
+    "Australia_Western Australia": {
+        "defaultMessage": "استرالیای خاوری"
+    },
+    "Austria": {
+        "defaultMessage": "اتریش"
+    },
+    "Austria_Burgenland": {
+        "defaultMessage": "بورگنلند"
+    },
+    "Austria_Carinthia": {
+        "defaultMessage": "کرنتِن"
+    },
+    "Austria_Lower Austria_West": {
+        "defaultMessage": "اتریش اِرتَر — خاور"
+    },
+    "Austria_Lower Austria_Wien": {
+        "defaultMessage": "وین اود اتریش اِرتَر — باختر"
+    },
+    "Austria_Salzburg": {
+        "defaultMessage": "سالزبورگ"
+    },
+    "Austria_Styria": {
+        "defaultMessage": "اشتایرمارک"
+    },
+    "Austria_Tyrol": {
+        "defaultMessage": "تیرول"
+    },
+    "Austria_Upper Austria": {
+        "defaultMessage": "اتریش اُل‌تر"
+    },
+    "Austria_Vorarlberg": {
+        "defaultMessage": "فورآرلبرگ"
+    },
+    "Azerbaijan": {
+        "defaultMessage": "آذربایجان"
+    },
+    "Azerbaijan Region": {
+        "defaultMessage": "آذربایجان"
+    },
+    "Bahrain": {
+        "defaultMessage": "میش‌ماهیگ"
+    },
+    "Bangladesh": {
+        "defaultMessage": "بنگلادش"
+    },
+    "Barbados": {
+        "defaultMessage": "باربادوس"
+    },
+    "Belarus": {
+        "defaultMessage": "بلاروس"
+    },
+    "Belarus_Brest Region": {
+        "defaultMessage": "پایگوس بریست"
+    },
+    "Belarus_Homiel Region": {
+        "defaultMessage": "پایگوس گومل"
+    },
+    "Belarus_Hrodna Region": {
+        "defaultMessage": "پایگوس گرودنو"
+    },
+    "Belarus_Maglieu Region": {
+        "defaultMessage": "پایگوس موگیلِو"
+    },
+    "Belarus_Minsk Region": {
+        "defaultMessage": "پایگوس مینسک"
+    },
+    "Belarus_Vitebsk Region": {
+        "defaultMessage": "پایگوس ویتبسک"
+    },
+    "Belgium": {
+        "defaultMessage": "بلژیک"
+    },
+    "Belgium_Antwerp": {
+        "defaultMessage": "استان آنتورپ"
+    },
+    "Belgium_East Flanders": {
+        "defaultMessage": "استان فلاندر باختری"
+    },
+    "Belgium_Flemish Brabant": {
+        "defaultMessage": "استان برابانت فلاندر"
+    },
+    "Belgium_Hainaut": {
+        "defaultMessage": "استان انو"
+    },
+    "Belgium_Liege": {
+        "defaultMessage": "استان لیژ"
+    },
+    "Belgium_Limburg": {
+        "defaultMessage": "استان لیمبورگ"
+    },
+    "Belgium_Luxembourg": {
+        "defaultMessage": "استان لوکزامبورگ"
+    },
+    "Belgium_Namur": {
+        "defaultMessage": "استان نامور"
+    },
+    "Belgium_Walloon Brabant": {
+        "defaultMessage": "استان برابانت والونی"
+    },
+    "Belgium_West Flanders": {
+        "defaultMessage": "استان فلاندر خاوری"
+    },
+    "Belize": {
+        "defaultMessage": "بلیز"
+    },
+    "Benin": {
+        "defaultMessage": "بنین"
+    },
+    "Bermuda": {
+        "defaultMessage": "برمودا"
+    },
+    "Bhutan": {
+        "defaultMessage": "بوتان"
+    },
+    "Bolivia": {
+        "defaultMessage": "بولیوی"
+    },
+    "Bolivia_North": {
+        "defaultMessage": "بولیوی – اپاختر"
+    },
+    "Bolivia_South": {
+        "defaultMessage": "بولیوی – اواخشتر"
+    },
+    "Bosnia and Herzegovina": {
+        "defaultMessage": "بوسنی اود هرزگوین"
+    },
+    "Bosnia and Herzegovina_Brcko district of Bosnia and Herzegowina": {
+        "defaultMessage": "کوست برچکو"
+    },
+    "Bosnia and Herzegovina_Entity Federation of Bosnia and Herzegovina": {
+        "defaultMessage": "فدراسیون بوسنی اود هرزگوین"
+    },
+    "Bosnia and Herzegovina_Republic of Srpska": {
+        "defaultMessage": "جمهوری صربسکا"
+    },
+    "Botswana": {
+        "defaultMessage": "بوتسوانا"
+    },
+    "Brazil": {
+        "defaultMessage": "برزیل"
+    },
+    "Brazil_Bahia": {
+        "defaultMessage": "باهیا"
+    },
+    "Brazil_Goias": {
+        "defaultMessage": "گوییاس"
+    },
+    "Brazil_Mato Grosso": {
+        "defaultMessage": "ماتو گروسو"
+    },
+    "Brazil_Mato Grosso Do Sul": {
+        "defaultMessage": "ماتو گروسو دو سول"
+    },
+    "Brazil_North Region": {
+        "defaultMessage": "پایگوس اپاختری، برزیل"
+    },
+    "Brazil_Northeast Region": {
+        "defaultMessage": "پایگوس اپاختر باختری"
+    },
+    "Brazil_Paraiba": {
+        "defaultMessage": "پاراییبا"
+    },
+    "Brazil_Parana": {
+        "defaultMessage": "پارانا"
+    },
+    "Brazil_Rio Grande do Norte": {
+        "defaultMessage": "ریوگرانده دو نورتی"
+    },
+    "Brazil_Santa Catarina": {
+        "defaultMessage": "سانتا کاتارینا"
+    },
+    "Brazil_Southeast Region_Rio de Janeiro": {
+        "defaultMessage": "ریو دو ژانیرو"
+    },
+    "Brazil_Southeast Region_Sao Paulo_Campinas": {
+        "defaultMessage": "ساوپاولو — کمپیناس"
+    },
+    "Brazil_Southeast Region_Sao Paulo_City": {
+        "defaultMessage": "ساوپاولو — سانتوس"
+    },
+    "Brazil_South Region": {
+        "defaultMessage": "اواخشتر برزیل"
+    },
+    "Brazil_Southeast Region_Espirito Santo": {
+        "defaultMessage": "اسپیریتو سانتو"
+    },
+    "Brazil_Southeast Region_Minas Gerais_Contagem": {
+        "defaultMessage": "میناس گرایس — کنتاگم"
+    },
+    "Brazil_Southeast Region_Minas Gerais_North": {
+        "defaultMessage": "میناس گرایس — اپاختر"
+    },
+    "Brazil_Southeast Region_Sao Paulo_West": {
+        "defaultMessage": "ساوپاولو — ریبرآ پرتو"
+    },
+    "British Indian Ocean Territory": {
+        "defaultMessage": "اقلیم زراهی هندی بریتانیایی"
+    },
+    "British Virgin Islands": {
+        "defaultMessage": "گزیرگ‌های دوشیزه‌ی بریتانیایی"
+    },
+    "Brunei": {
+        "defaultMessage": "برونای"
+    },
+    "Bulgaria": {
+        "defaultMessage": "بلغارستان"
+    },
+    "Burkina Faso": {
+        "defaultMessage": "بورکینافاسو"
+    },
+    "Burundi": {
+        "defaultMessage": "بوروندی"
+    },
+    "California": {
+        "defaultMessage": "کالیفرنیا"
+    },
+    "Cambodia": {
+        "defaultMessage": "کامبوج"
+    },
+    "Cameroon": {
+        "defaultMessage": "کامرون"
+    },
+    "Cameroon_Central": {
+        "defaultMessage": "کامرون — ناوند"
+    },
+    "Cameroon_West": {
+        "defaultMessage": "کامرون — خاور"
+    },
+    "Campo de Hielo Sur": {
+        "defaultMessage": "میدان یخچالی پاتاگونیای اواخشتری"
+    },
+    "Canada": {
+        "defaultMessage": "کانادا"
+    },
+    "Canada_Alberta": {
+        "defaultMessage": "آلبرتا"
+    },
+    "Canada_Alberta_Edmonton": {
+        "defaultMessage": "ادمونتون"
+    },
+    "Canada_Alberta_North": {
+        "defaultMessage": "آلبرتا — اپاحتر"
+    },
+    "Canada_Alberta_South": {
+        "defaultMessage": "آلبرتا — اواخشتر"
+    },
+    "Canada_British Columbia": {
+        "defaultMessage": "کلمبیا‌ی بریتانیایی"
+    },
+    "Canada_British Columbia_Central": {
+        "defaultMessage": "کلمبیا‌ی بریتانیایی — ناوند"
+    },
+    "Canada_British Columbia_Far_North": {
+        "defaultMessage": "کلمبیا‌ی بریتانیایی — باختر"
+    },
+    "Canada_British Columbia_Islands": {
+        "defaultMessage": "گزیرگ ونکوور"
+    },
+    "Canada_British Columbia_North": {
+        "defaultMessage": "کلمبیا‌ی بریتانیایی — خاور"
+    },
+    "Canada_British Columbia_Northeast": {
+        "defaultMessage": "کلمبیا‌ی بریتانیایی — اپاختر"
+    },
+    "Canada_British Columbia_Southeast": {
+        "defaultMessage": "کِلونا"
+    },
+    "Canada_British Columbia_Vancouver": {
+        "defaultMessage": "ونکوور"
+    },
+    "Canada_Labrador": {
+        "defaultMessage": "لابرادور"
+    },
+    "Canada_Labrador_North": {
+        "defaultMessage": "لابرادور — اپاختر"
+    },
+    "Canada_Labrador_South": {
+        "defaultMessage": "لابرادور — اواخشتر"
+    },
+    "Canada_Labrador_West": {
+        "defaultMessage": "لابرادور — خاور"
+    },
+    "Canada_Manitoba": {
+        "defaultMessage": "مانیتوبا"
+    },
+    "Canada_Manitoba_Northeast": {
+        "defaultMessage": "مانیتوبا — اپاختر"
+    },
+    "Canada_Manitoba_Northwest": {
+        "defaultMessage": "مانیتوبا — خاور"
+    },
+    "Canada_Manitoba_South": {
+        "defaultMessage": "برندون"
+    },
+    "Canada_Manitoba_Winnipeg": {
+        "defaultMessage": "وینیپگ"
+    },
+    "Canada_New Brunswick": {
+        "defaultMessage": "برانزویک نو"
+    },
+    "Canada_Newfoundland": {
+        "defaultMessage": "نیوفاوندلند"
+    },
+    "Canada_Newfoundland_East": {
+        "defaultMessage": "نیوفاوندلند — باختر"
+    },
+    "Canada_Newfoundland_North": {
+        "defaultMessage": "نیوفاوندلند — اپاختر"
+    },
+    "Canada_Newfoundland_South": {
+        "defaultMessage": "نیوفاوندلند — اواخشتر"
+    },
+    "Canada_Newfoundland_West": {
+        "defaultMessage": "نیوفاوندلند — خاور"
+    },
+    "Canada_Northwest Territories": {
+        "defaultMessage": "بوم اپاختر‌خاوری"
+    },
+    "Canada_Northwest Territories_East": {
+        "defaultMessage": "بوم اپاختر‌خاوری — باختر"
+    },
+    "Canada_Northwest Territories_North": {
+        "defaultMessage": "بوم اپاختر‌خاوری — اپاختر"
+    },
+    "Canada_Northwest Territories_Yellowknife": {
+        "defaultMessage": "یلونایف"
+    },
+    "Canada_Nova Scotia": {
+        "defaultMessage": "نوا اسکوشیا"
+    },
+    "Canada_Nova Scotia_Halifax": {
+        "defaultMessage": "هالیفاکس"
+    },
+    "Canada_Nova Scotia_Sydney": {
+        "defaultMessage": "سیدنی"
+    },
+    "Canada_Nunavut": {
+        "defaultMessage": "نوناووت"
+    },
+    "Canada_Nunavut_North": {
+        "defaultMessage": "نوناووت — اپاختر"
+    },
+    "Canada_Nunavut_South": {
+        "defaultMessage": "نوناووت — اواخشتر"
+    },
+    "Canada_Ontario": {
+        "defaultMessage": "آنتاریو"
+    },
+    "Canada_Ontario_Bame": {
+        "defaultMessage": "بَری"
+    },
+    "Canada_Ontario_Kingston": {
+        "defaultMessage": "کینگزتون"
+    },
+    "Canada_Ontario_London": {
+        "defaultMessage": "لندن"
+    },
+    "Canada_Ontario_Northeastern_Central": {
+        "defaultMessage": "تیمینس"
+    },
+    "Canada_Ontario_Northeastern_North": {
+        "defaultMessage": "موس فکتوری"
+    },
+    "Canada_Ontario_Northeastern_S": {
+        "defaultMessage": "سادبری مهتر"
+    },
+    "Canada_Ontario_Northeastern_SE": {
+        "defaultMessage": "نورت بَی"
+    },
+    "Canada_Ontario_Northeastern_SW": {
+        "defaultMessage": "سو سَینت مری"
+    },
+    "Canada_Ontario_Northeastern_Wawa": {
+        "defaultMessage": "واوا"
+    },
+    "Canada_Ontario_Northern": {
+        "defaultMessage": "تاندر بَی"
+    },
+    "Canada_Ontario_Northwestern": {
+        "defaultMessage": "آنتاریو — اپاختر"
+    },
+    "Canada_Ontario_Toronto": {
+        "defaultMessage": "تورنتو"
+    },
+    "Canada_Prince Edward Island": {
+        "defaultMessage": "گزیرگ شاهزاده ادوارد"
+    },
+    "Canada_Quebec": {
+        "defaultMessage": "کِبِک"
+    },
+    "Canada_Quebec_Quebec": {
+        "defaultMessage": "شهر کِبِک"
+    },
+    "Canada_Quebek_Far North": {
+        "defaultMessage": "کِبِک — اپاختر"
+    },
+    "Canada_Quebek_Montreal": {
+        "defaultMessage": "مونترال"
+    },
+    "Canada_Quebek_North": {
+        "defaultMessage": "ست-ایل"
+    },
+    "Canada_Quebek_Southeast_Rimouski": {
+        "defaultMessage": "ریموسکی"
+    },
+    "Canada_Quebek_Southeast_Saguenay": {
+        "defaultMessage": "سَگِنه"
+    },
+    "Canada_Quebek_West_Chibougamau": {
+        "defaultMessage": "شیبوگامو"
+    },
+    "Canada_Quebek_West_Rouyn-Noranda": {
+        "defaultMessage": "روین-نوراندا"
+    },
+    "Canada_Saskatchewan": {
+        "defaultMessage": "ساسکاچوان"
+    },
+    "Canada_Saskatchewan_North": {
+        "defaultMessage": "ساسکاچوان — اپاختر"
+    },
+    "Canada_Saskatchewan_South": {
+        "defaultMessage": "ساسکاچوان — اواخشتر"
+    },
+    "Canada_Yukon": {
+        "defaultMessage": "یوکان"
+    },
+    "Canada_Yukon_North": {
+        "defaultMessage": "یوکان — اپاختر"
+    },
+    "Canada_Yukon_Whitehorse": {
+        "defaultMessage": "وایت‌هورس"
+    },
+    "Cape Verde": {
+        "defaultMessage": "دماغه‌ی سبز"
+    },
+    "Caribees": {
+        "defaultMessage": "آنتیل کهتر"
+    },
+    "Caribisch Nederland": {
+        "defaultMessage": "آروبا، کوراساو اود کاراییب هلند"
+    },
+    "Cayman Islands": {
+        "defaultMessage": "گزیرگ‌های کایمن"
+    },
+    "Central African Republic": {
+        "defaultMessage": "جمهوری آفریکای میانی"
+    },
+    "Central Anatolia Region": {
+        "defaultMessage": "پایگوس آناتولی میانی"
+    },
+    "Chad": {
+        "defaultMessage": "چاد"
+    },
+    "Chile": {
+        "defaultMessage": "شیلی"
+    },
+    "Chile_North": {
+        "defaultMessage": "شیلی — اپاختر"
+    },
+    "Chile_South": {
+        "defaultMessage": "شیلی — اواخشتر"
+    },
+    "China_Anhui": {
+        "defaultMessage": "آن‌هوی"
+    },
+    "China_Chongqing": {
+        "defaultMessage": "چونگ‌چینگ"
+    },
+    "China_Fujian": {
+        "defaultMessage": "فوجیان"
+    },
+    "China_Gansu": {
+        "defaultMessage": "گانسو"
+    },
+    "China_Guangdong": {
+        "defaultMessage": "گوانگ‌دونگ"
+    },
+    "China_Guangxi": {
+        "defaultMessage": "پایگوس خودگردان گوانگشی ژوانگ"
+    },
+    "China_Guizhou": {
+        "defaultMessage": "گوی‌ژو"
+    },
+    "China_Hebei": {
+        "defaultMessage": "خه بِی"
+    },
+    "China_Heilongjiang": {
+        "defaultMessage": "هیلونگ‌جیانگ"
+    },
+    "China_Henan": {
+        "defaultMessage": "هنان"
+    },
+    "China_Hubei": {
+        "defaultMessage": "هوبِی"
+    },
+    "China_Hunan": {
+        "defaultMessage": "هونان"
+    },
+    "China_Inner Mongolia": {
+        "defaultMessage": "مغولستان درونی"
+    },
+    "China_Jiangsu": {
+        "defaultMessage": "جیانگ‌سو"
+    },
+    "China_Jiangxi": {
+        "defaultMessage": "جیانگژی"
+    },
+    "China_Jilin": {
+        "defaultMessage": "جی‌لین"
+    },
+    "China_Liaoning": {
+        "defaultMessage": "لیاونینگ"
+    },
+    "China_Ningxia Hui": {
+        "defaultMessage": "پایگوس خودگردان هویی نینگ‌شیا"
+    },
+    "China_Qinghai": {
+        "defaultMessage": "چینگهای"
+    },
+    "China_Shaanxi": {
+        "defaultMessage": "شَنشی"
+    },
+    "China_Shandong": {
+        "defaultMessage": "شاندونگ"
+    },
+    "China_Shanghai": {
+        "defaultMessage": "شانگهای"
+    },
+    "China_Shanxi": {
+        "defaultMessage": "شانشی"
+    },
+    "China_Sichuan": {
+        "defaultMessage": "سی‌چوآن"
+    },
+    "China_Tibet Autonomous Region": {
+        "defaultMessage": "پایگوس خودگردان تَبت"
+    },
+    "China_Xinjiang": {
+        "defaultMessage": "پایگوس خودگردان سین‌کیانگ اویغور"
+    },
+    "China_Yunnan": {
+        "defaultMessage": "یون‌نان"
+    },
+    "China_Zhejiang": {
+        "defaultMessage": "ژجیانگ"
+    },
+    "Colombia": {
+        "defaultMessage": "کلمبیا"
+    },
+    "Colombia_East": {
+        "defaultMessage": "کلمبیا — باختر"
+    },
+    "Colombia_North": {
+        "defaultMessage": "کلمبیا — اپاختر"
+    },
+    "Colombia_West": {
+        "defaultMessage": "کلمبیا — خاور"
+    },
+    "Colorado": {
+        "defaultMessage": "کالرادو"
+    },
+    "Comoros": {
+        "defaultMessage": "کومور"
+    },
+    "Congo-Brazzaville": {
+        "defaultMessage": "جمهوری کنگو"
+    },
+    "Congo-Kinshasa": {
+        "defaultMessage": "جمهوری مردم‌سالارانه‌ی کنگو"
+    },
+    "Cook Islands": {
+        "defaultMessage": "گزیرگ‌های کوک"
+    },
+    "Costa Rica": {
+        "defaultMessage": "کاستاریکا"
+    },
+    "Cote dIvoire": {
+        "defaultMessage": "بار‌پیلَس"
+    },
+    "Crimea": {
+        "defaultMessage": "آبخومان کریمه"
+    },
+    "Croatia": {
+        "defaultMessage": "کرواسی"
+    },
+    "Cuba": {
+        "defaultMessage": "کوبا"
+    },
+    "Cyprus": {
+        "defaultMessage": "قبرس"
+    },
+    "Czech Republic": {
+        "defaultMessage": "جمهوری چک"
+    },
+    "Czech_Jihovychod_Jihomoravsky kraj": {
+        "defaultMessage": "پایگوس موراویای اواخشتری"
+    },
+    "Denmark": {
+        "defaultMessage": "دانمارک"
+    },
+    "Denmark_Capital Region of Denmark": {
+        "defaultMessage": "پایگوس پایتختی دانمارک"
+    },
+    "Denmark_Central Denmark Region": {
+        "defaultMessage": "پایگوس میانی دانمارک"
+    },
+    "Denmark_North Denmark Region": {
+        "defaultMessage": "پایگوس اپاختر دانمارک"
+    },
+    "Denmark_Region Zealand": {
+        "defaultMessage": "پایگوس زیلند"
+    },
+    "Denmark_Region of Southern Denmark": {
+        "defaultMessage": "پایگوس اواخشتر دانمارک"
+    },
+    "Djibouti": {
+        "defaultMessage": "جیبوتی"
+    },
+    "Dominica": {
+        "defaultMessage": "دومینیکا"
+    },
+    "Dominican Republic": {
+        "defaultMessage": "جمهوری دومینیکن"
+    },
+    "East Timor": {
+        "defaultMessage": "تیمور باختری"
+    },
+    "Ecuador": {
+        "defaultMessage": "اکوادور"
+    },
+    "Egypt": {
+        "defaultMessage": "مصر"
+    },
+    "El Salvador": {
+        "defaultMessage": "ال‌سالوادور"
+    },
+    "Equatorial Guinea": {
+        "defaultMessage": "گینه‌ی استوایی"
+    },
+    "Eritrea": {
+        "defaultMessage": "اریتره"
+    },
+    "Estonia": {
+        "defaultMessage": "استونی"
+    },
+    "Estonia_East": {
+        "defaultMessage": "استونی — باختر"
+    },
+    "Estonia_West": {
+        "defaultMessage": "استونی — خاور"
+    },
+    "Ethiopia": {
+        "defaultMessage": "اتیوپی"
+    },
+    "Falkland Islands": {
+        "defaultMessage": "گزیرگ‌های مالویناس"
+    },
+    "Faroe Islands": {
+        "defaultMessage": "گزیرگ‌های فارو"
+    },
+    "Fiji": {
+        "defaultMessage": "فیجی"
+    },
+    "Finland": {
+        "defaultMessage": "فنلاند"
+    },
+    "Finland_Eastern Finland": {
+        "defaultMessage": "فنلاند باختری"
+    },
+    "Finland_Northern Finland": {
+        "defaultMessage": "فنلاند اپاختری"
+    },
+    "Finland_Southern Finland_Helsinki": {
+        "defaultMessage": "فنلاند اواخشتری — هلسینکی"
+    },
+    "Florida": {
+        "defaultMessage": "فلوریدا"
+    },
+    "France": {
+        "defaultMessage": "فرانسه"
+    },
+    "France_Nord-Pas-de-Calais_Lille": {
+        "defaultMessage": "لیل"
+    },
+    "Gabon": {
+        "defaultMessage": "گابُن"
+    },
+    "Georgia Region": {
+        "defaultMessage": "گرجستان"
+    },
+    "Georgia": {
+        "defaultMessage": "گرجستان"
+    },
+    "Ghana": {
+        "defaultMessage": "غنا"
+    },
+    "Gibraltar": {
+        "defaultMessage": "کوهِ تارق"
+    },
+    "Greece": {
+        "defaultMessage": "یونان"
+    },
+    "Greece_Decentralized Administration of Aegean": {
+        "defaultMessage": "اژه"
+    },
+    "Greenland": {
+        "defaultMessage": "گرینلند"
+    },
+    "Guatemala": {
+        "defaultMessage": "گواتامالا"
+    },
+    "Haiti": {
+        "defaultMessage": "هایتی"
+    },
+    "Honduras": {
+        "defaultMessage": "هندوراس"
+    },
+    "Greece_Decentralized Administration of Crete": {
+        "defaultMessage": "کِرِت"
+    },
+    "Hungary": {
+        "defaultMessage": "مجارستان"
+    },
+    "Hungary_Kozep-Magyarorszag": {
+        "defaultMessage": "مجارستان میانی"
+    },
+    "Hungary_Northern Great Plain": {
+        "defaultMessage": "مجارستان — باختر"
+    },
+    "Hungary_Transdanubia": {
+        "defaultMessage": "مجارستان — خاور"
+    },
+    "Iceland": {
+        "defaultMessage": "ایسلند"
+    },
+    "Illinois": {
+        "defaultMessage": "ایلینوی"
+    },
+    "India": {
+        "defaultMessage": "هند"
+    },
+    "India_Gujarat": {
+        "defaultMessage": "گجرات"
+    },
+    "India_Delhi": {
+        "defaultMessage": "دهلی"
+    },
+    "India_Haryana": {
+        "defaultMessage": "هاریانا"
+    },
+    "India_Himachal Pradesh": {
+        "defaultMessage": "هیماچال پرادِش"
+    },
+    "India_Jammu and Kashmir": {
+        "defaultMessage": "جامو اود کشمیر"
+    },
+    "India_Jharkhand": {
+        "defaultMessage": "جارکاند"
+    },
+    "India_Karnataka": {
+        "defaultMessage": "کارناتاکا"
+    },
+    "India_Kerala": {
+        "defaultMessage": "کرالا"
+    },
+    "India_Madhya Pradesh": {
+        "defaultMessage": "مادایا پرادِش"
+    },
+    "India_Maharashtra": {
+        "defaultMessage": "ماهاراشترا"
+    },
+    "India_Manipur": {
+        "defaultMessage": "مانی‌پور"
+    },
+    "India_Meghalaya": {
+        "defaultMessage": "مگالایا"
+    },
+    "India_Mizoram": {
+        "defaultMessage": "میزورام"
+    },
+    "India_Nagaland": {
+        "defaultMessage": "ناگالند"
+    },
+    "India_Odisha": {
+        "defaultMessage": "اودیسا"
+    },
+    "India_Punjab": {
+        "defaultMessage": "پنجاب"
+    },
+    "India_Rajasthan": {
+        "defaultMessage": "راجستان"
+    },
+    "India_Sikkim": {
+        "defaultMessage": "سیکیم"
+    },
+    "India_Tamil Nadu": {
+        "defaultMessage": "تامیل نادو"
+    },
+    "India_Telangana": {
+        "defaultMessage": "تِلانگانا"
+    },
+    "India_Tripura": {
+        "defaultMessage": "تریپورا"
+    },
+    "India_Uttar Pradesh": {
+        "defaultMessage": "اوتار پرادِش"
+    },
+    "India_Uttarakhand": {
+        "defaultMessage": "اوتاراکهَند"
+    },
+    "India_West Bengal": {
+        "defaultMessage": "بنگال خاوری"
+    },
+    "Indiana": {
+        "defaultMessage": "ایندیانا"
+    },
+    "Indonesia": {
+        "defaultMessage": "اندونزی"
+    },
+    "Iran": {
+        "defaultMessage": "ایران"
+    },
+    "Iran_North": {
+        "defaultMessage": "ایران — اپاختر"
+    },
+    "Iran_South": {
+        "defaultMessage": "ایران — اواخشتر"
+    },
+    "Iraq": {
+        "defaultMessage": "اراک"
+    },
+    "Ireland": {
+        "defaultMessage": "ایرلند"
+    },
+    "Italy": {
+        "defaultMessage": "ایتالیا"
+    },
+    "Italy_Emilia-Romagna_Bologna": {
+        "defaultMessage": "استان بولونیا"
+    },
+    "Italy_Emilia-Romagna_Parma": {
+        "defaultMessage": "استان پارما"
+    },
+    "Italy_Calabria": {
+        "defaultMessage": "استان کالابریا"
+    },
+    "Italy_Lazio": {
+        "defaultMessage": "لاتزیو"
+    },
+    "Italy_Sicily": {
+        "defaultMessage": "سیسیلی"
+    },
+    "Jamaica": {
+        "defaultMessage": "جاماییکا"
+    },
+    "Japan": {
+        "defaultMessage": "ژاپن"
+    },
+    "Jerusalem": {
+        "defaultMessage": "اوریشلیم"
+    },
+    "Jordan": {
+        "defaultMessage": "اردُن"
+    },
+    "Kansas": {
+        "defaultMessage": "کانزاس"
+    },
+    "Kazakhstan": {
+        "defaultMessage": "کزاکستان"
+    },
+    "Kentucky": {
+        "defaultMessage": "کنتاکی"
+    },
+    "Kenya": {
+        "defaultMessage": "کنیا"
+    },
+    "Kuwait": {
+        "defaultMessage": "کویت"
+    },
+    "Latvia": {
+        "defaultMessage": "لاتویا"
+    },
+    "Lebanon": {
+        "defaultMessage": "لبنان"
+    },
+    "Liberia": {
+        "defaultMessage": "لیبریا"
+    },
+    "Libya": {
+        "defaultMessage": "لیبی"
+    },
+    "France_Nord-Pas-de-Calais_Nord": {
+        "defaultMessage": "نورد"
+    },
+    "Germany": {
+        "defaultMessage": "آلمان"
+    },
+    "Germany_North Rhine-Westphalia_Regierungsbezirk Detmold": {
+        "defaultMessage": "دتمولد"
+    },
+    "Germany_North Rhine-Westphalia_Regierungsbezirk Dusseldorf_Dusseldorf": {
+        "defaultMessage": "دوسلدورف — دوسلدورف"
+    },
+    "Germany_North Rhine-Westphalia_Regierungsbezirk Dusseldorf_Mulheim": {
+        "defaultMessage": "دوسلدورف — مولهایم آن در رور"
+    },
+    "Germany_North Rhine-Westphalia_Regierungsbezirk Dusseldorf_Wesel": {
+        "defaultMessage": "دوسلدورف — وزل"
+    },
+    "Germany_North Rhine-Westphalia_Regierungsbezirk Koln_Aachen": {
+        "defaultMessage": "کُلن — آخن"
+    },
+    "Germany_North Rhine-Westphalia_Regierungsbezirk Koln_Koln": {
+        "defaultMessage": "کُلن — کُلن"
+    },
+    "Germany_North Rhine-Westphalia_Regierungsbezirk Munster_Munster": {
+        "defaultMessage": "مونستر — مونستر"
+    },
+    "Germany_North Rhine-Westphalia_Regierungsbezirk Munster_Recklinghausen": {
+        "defaultMessage": "رکلینگهاوزن — مونستر"
+    },
+    "Germany_Rhineland-Palatinate_Koblenz": {
+        "defaultMessage": "کوبلنتس"
+    },
+    "Germany_Rhineland-Palatinate_South": {
+        "defaultMessage": "ماینتس"
+    },
+    "Germany_Saarland": {
+        "defaultMessage": "زارلاند"
+    },
+    "Germany_Saxony-Anhalt": {
+        "defaultMessage": "زاکسن آنهالت"
+    },
+    "Germany_Saxony_Dresden": {
+        "defaultMessage": "درِسدِن"
+    },
+    "Germany_Saxony_Leipzig": {
+        "defaultMessage": "زاکسن — لایپزیگ"
+    },
+    "Germany_Schleswig-Holstein": {
+        "defaultMessage": "شلسویگ-هولشتاین"
+    },
+    "Germany_Thuringia": {
+        "defaultMessage": "تورینگن"
+    },
+    "Greece_Decentralized Administration of Attica": {
+        "defaultMessage": "آتیکا"
+    },
+    "Greece_Decentralized Administration of Epirus - Western Macedonia": {
+        "defaultMessage": "اپیروس اود مقدونیه‌ی خاوری"
+    },
+    "Greece_Decentralized Administration of Macedonia and Thrace": {
+        "defaultMessage": "مقدونیه اود تراکیه"
+    },
+    "Greece_Decentralized Administration of Thessaly - Central Greece": {
+        "defaultMessage": "تسالی اود یونان ناوندی"
+    },
+    "Greece_Decentralized Administration of West Greece": {
+        "defaultMessage": "پِلوپونِز"
+    },
+    "Grenada": {
+        "defaultMessage": "گرنادا"
+    },
+    "Guadeloupe": {
+        "defaultMessage": "گوادِلوپ"
+    },
+    "Guernsey": {
+        "defaultMessage": "گرنزی"
+    },
+    "Italy_Lombardy_Milan": {
+        "defaultMessage": "استان میلان"
+    },
+    "Isle of Man": {
+        "defaultMessage": "گزیرگ مَن"
+    },
+    "Liechtenstein": {
+        "defaultMessage": "لیختن‌اشتاین"
+    },
+    "Lithuania": {
+        "defaultMessage": "لیتوانی"
+    },
+    "Louisiana": {
+        "defaultMessage": "لوییزیانا"
+    },
+    "Luxembourg": {
+        "defaultMessage": "لوکزامبورگ"
+    },
+    "Macedonia": {
+        "defaultMessage": "مَقدونیه‌ی اپاختری"
+    },
+    "Madagascar": {
+        "defaultMessage": "ماداگاسکار"
+    },
+    "Malawi": {
+        "defaultMessage": "مالاوی"
+    },
+    "Malaysia": {
+        "defaultMessage": "مالزی"
+    },
+    "Maldives": {
+        "defaultMessage": "مالدیو"
+    },
+    "Mali": {
+        "defaultMessage": "مالی"
+    },
+    "Malta": {
+        "defaultMessage": "مالت"
+    },
+    "Marshall Islands": {
+        "defaultMessage": "گزیرگ‌های مارشال"
+    },
+    "Martinique": {
+        "defaultMessage": "مارتینیک"
+    },
+    "Maryland": {
+        "defaultMessage": "مری‌لند"
+    },
+    "Massachusetts": {
+        "defaultMessage": "ماساچوسِت"
+    },
+    "Mauritania": {
+        "defaultMessage": "موریتانی"
+    },
+    "Mauritius": {
+        "defaultMessage": "موریس"
+    },
+    "Mexico": {
+        "defaultMessage": "مکزیک"
+    },
+    "Mexico_California": {
+        "defaultMessage": "باخا کالیفرنیا"
+    },
+    "Mexico_Mexico": {
+        "defaultMessage": "شهر مکزیک"
+    },
+    "Mexico_North": {
+        "defaultMessage": "مکزیک — اپاختر"
+    },
+    "Mexico_South": {
+        "defaultMessage": "مکزیک — اواخشتر"
+    },
+    "Mexico_East": {
+        "defaultMessage": "مکزیک — باختر"
+    },
+    "Michigan": {
+        "defaultMessage": "میشیگان"
+    },
+    "Minnesota": {
+        "defaultMessage": "مینه‌سوتا"
+    },
+    "Missouri": {
+        "defaultMessage": "میزوری"
+    },
+    "Moldova": {
+        "defaultMessage": "مولداوی"
+    },
+    "Monaco": {
+        "defaultMessage": "موناکو"
+    },
+    "Mongolia": {
+        "defaultMessage": "مغولستان"
+    },
+    "Montenegro": {
+        "defaultMessage": "مونته‌نگرو"
+    },
+    "Montserrat": {
+        "defaultMessage": "مونتسرات"
+    },
+    "Morocco": {
+        "defaultMessage": "مراکِش"
+    },
+    "Nepal": {
+        "defaultMessage": "نپال"
+    },
+    "Netherlands": {
+        "defaultMessage": "هلند"
+    },
+    "New Jersey": {
+        "defaultMessage": "نیو‌جرسی"
+    },
+    "New York": {
+        "defaultMessage": "نیو‌یورک"
+    },
+    "New Zealand": {
+        "defaultMessage": "زلاند‌نو"
+    },
+    "Niger": {
+        "defaultMessage": "نیجر"
+    },
+    "Nigeria": {
+        "defaultMessage": "نیجریه"
+    },
+    "Niue": {
+        "defaultMessage": "نیووی"
+    },
+    "North Carolina": {
+        "defaultMessage": "کارولینای اپاختری"
+    },
+    "North Dakota": {
+        "defaultMessage": "داکوتای اپاختری"
+    },
+    "North Korea": {
+        "defaultMessage": "کُره‌ی اپاختری"
+    },
+    "Norway": {
+        "defaultMessage": "نروژ"
+    },
+    "Norway_Bouvet Island": {
+        "defaultMessage": "گزیرگ بووه"
+    },
+    "Norway_Central": {
+        "defaultMessage": "اُسلو"
+    },
+    "Norway_Hedmark": {
+        "defaultMessage": "هدمارک"
+    },
+    "Norway_Oppland": {
+        "defaultMessage": "اوپلاند"
+    },
+    "Norway_Southern": {
+        "defaultMessage": "نروژ اواخشتری"
+    },
+    "Norway_Svalbard": {
+        "defaultMessage": "سوالبارد"
+    },
+    "Norway_Trondelag": {
+        "defaultMessage": "تروندِلاگ"
+    },
+    "Norway_Western": {
+        "defaultMessage": "نروژ خاوری"
+    },
+    "Oman": {
+        "defaultMessage": "عمان"
+    },
+    "Oregon": {
+        "defaultMessage": "اورِگان"
+    },
+    "Pakistan": {
+        "defaultMessage": "پاکستان"
+    },
+    "People's Republic of China": {
+        "defaultMessage": "چین"
+    },
+    "Philippines": {
+        "defaultMessage": "فیلیپین"
+    },
+    "Poland": {
+        "defaultMessage": "لهستان"
+    },
+    "Portugal": {
+        "defaultMessage": "پرتغال"
+    },
+    "Qatar": {
+        "defaultMessage": "قطر"
+    },
+    "Romania": {
+        "defaultMessage": "رومانی"
+    },
+    "Portugal_North": {
+        "defaultMessage": "پرتغال — اپاختر"
+    },
+    "Portugal_South": {
+        "defaultMessage": "پرتغال — اواخشتر"
+    },
+    "Russia_Moscow": {
+        "defaultMessage": "مُسکو"
+    },
+    "Russian Federation": {
+        "defaultMessage": "روسیه"
+    },
+    "Rwanda": {
+        "defaultMessage": "رواندا"
+    },
+    "San Marino": {
+        "defaultMessage": "سان مارینو"
+    },
+    "Saudi Arabia": {
+        "defaultMessage": "عربستان سعودی"
+    },
+    "Senegal": {
+        "defaultMessage": "سنگال"
+    },
+    "Serbia": {
+        "defaultMessage": "صربستان"
+    },
+    "Singapore": {
+        "defaultMessage": "سنگاپور"
+    },
+    "Slovakia": {
+        "defaultMessage": "اِسلُواکی"
+    },
+    "Somalia": {
+        "defaultMessage": "سومالی"
+    },
+    "South Africa": {
+        "defaultMessage": "آفریکای اواخشتری"
+    },
+    "Slovenia": {
+        "defaultMessage": "اسلوونی"
+    },
+    "Seychelles": {
+        "defaultMessage": "سیشل"
+    },
+    "Sierra Leone": {
+        "defaultMessage": "سیرا لِون"
+    },
+    "South Korea": {
+        "defaultMessage": "کُره‌ی اواخشتری"
+    },
+    "South Korea_North": {
+        "defaultMessage": "کُره‌ی اواخشتری — اپاختر"
+    },
+    "South Korea_South": {
+        "defaultMessage": "کُره‌ی اواخشتری — اواخشتر"
+    },
+    "South Ossetia": {
+        "defaultMessage": "اوسِتیای اواخشتری"
+    },
+    "South Sudan": {
+        "defaultMessage": "سودان اواخشتری"
+    },
+    "Spain": {
+        "defaultMessage": "اسپانیا"
+    },
+    "Spain_Andalusia": {
+        "defaultMessage": "اَندَلُس"
+    },
+    "Spain_Aragon": {
+        "defaultMessage": "آراگون"
+    },
+    "Spain_Basque Country": {
+        "defaultMessage": "باسک"
+    },
+    "Spain_Canary Islands": {
+        "defaultMessage": "گزیرگ‌های کَناری"
+    },
+    "Spain_Cantabria": {
+        "defaultMessage": "کانتابریا"
+    },
+    "Spain_Castile and Leon": {
+        "defaultMessage": "کاستیا و لِون"
+    },
+    "Spain_Castile-La Mancha": {
+        "defaultMessage": "کاستیا لا مانچا"
+    },
+    "Spain_Catalonia_Provincia de Barcelona": {
+        "defaultMessage": "کاتالونیا – استان بارسلونا"
+    },
+    "Spain_Catalonia_Provincia de Girona": {
+        "defaultMessage": "کاتالونیا – استان ژیرونا"
+    },
+    "Spain_Catalonia_Provincia de Lleida": {
+        "defaultMessage": "کاتالونیا – استان لِریدا"
+    },
+    "Sri Lanka": {
+        "defaultMessage": "سری لانکا"
+    },
+    "Sudan": {
+        "defaultMessage": "سودان"
+    },
+    "Suriname": {
+        "defaultMessage": "سورینام"
+    },
+    "Swaziland": {
+        "defaultMessage": "اسواتینی"
+    },
+    "Sweden": {
+        "defaultMessage": "سوئد"
+    },
+    "Switzerland": {
+        "defaultMessage": "سوئیس"
+    },
+    "Switzerland_Central": {
+        "defaultMessage": "سوئیس میانی"
+    },
+    "Switzerland_Eastern": {
+        "defaultMessage": "سوئیس باختری"
+    },
+    "Switzerland_Espace Mittelland": {
+        "defaultMessage": "بوم ميته‌لند"
+    },
+    "Switzerland_Lake Geneva region": {
+        "defaultMessage": "پایگوس دریاچه‌ی ژنو"
+    },
+    "Switzerland_Northwestern": {
+        "defaultMessage": "اپاختر‌خاور سوئیس"
+    },
+    "Switzerland_Ticino": {
+        "defaultMessage": "تیچینو"
+    },
+    "Switzerland_Zurich": {
+        "defaultMessage": "زوریخ"
+    },
+    "Syria": {
+        "defaultMessage": "آسورستان"
+    },
+    "Taiwan": {
+        "defaultMessage": "تایوان"
+    },
+    "Tajikistan": {
+        "defaultMessage": "تاجیکستان"
+    },
+    "Tanzania": {
+        "defaultMessage": "تانزانیا"
+    },
+    "Thailand": {
+        "defaultMessage": "تایلند"
+    },
+    "Tunisia": {
+        "defaultMessage": "تونس"
+    },
+    "Turkey": {
+        "defaultMessage": "ترکیه"
+    },
+    "Turkey_Aegean Region": {
+        "defaultMessage": "پایگوس اژه"
+    },
+    "Turkey_Black Sea Region": {
+        "defaultMessage": "پایگوس دریای سیاه"
+    },
+    "Turkey_Eastern Anatolia Region": {
+        "defaultMessage": "پایگوس آناتولی باختری"
+    },
+    "Turkey_Marmara Region": {
+        "defaultMessage": "پایگوس مرمره"
+    },
+    "Turkey_Mediterranean Region": {
+        "defaultMessage": "پایگوس دریای سپید"
+    },
+    "Turkey_Southeastern Anatolia Region": {
+        "defaultMessage": "پایگوس اواخشتر‌باختری آناتولی"
+    },
+    "Turkmenistan": {
+        "defaultMessage": "ترکمنستان"
+    },
+    "UK_Wales": {
+        "defaultMessage": "ولز"
+    },
+    "US_Alabama_Birmingham": {
+        "defaultMessage": "بیرمینگهام"
+    },
+    "US_Alaska": {
+        "defaultMessage": "آلاسکا"
+    },
+    "US_California_San Diego": {
+        "defaultMessage": "سان دیِگو"
+    },
+    "US_California_Santa_Clara_Palo Alto": {
+        "defaultMessage": "سان فرانسیسکو"
+    },
+    "US_California_Santa_Clara_Santa Cruz": {
+        "defaultMessage": "سانتا کروز"
+    },
+    "Iran_East": {
+        "defaultMessage": "ایران — باختر"
+    },
+    "Iraq_North": {
+        "defaultMessage": "اپاختر اراک"
+    },
+    "Iran_East Description": {
+        "defaultMessage": "مشهد، زاهدان، یزد"
+    },
+    "Iran_North Description": {
+        "defaultMessage": "تهران، کرج، تبریز"
+    },
+    "Iran_South Description": {
+        "defaultMessage": "اسپهان، شیراز، اهواز"
+    },
+    "Japan_Kinki Region_Osaka_Osaka": {
+        "defaultMessage": "اوساکا"
+    },
+    "Japan_Kinki Region_Osaka_West": {
+        "defaultMessage": "اوساکا — خاور"
+    },
+    "Lithuania_East": {
+        "defaultMessage": "لیتوانی — باختر"
+    },
+    "Lithuania_West": {
+        "defaultMessage": "لیتوانی — خاور"
+    },
+    "Mexico_Chihuahua": {
+        "defaultMessage": "چی‌واوا"
+    },
+    "Mexico_Sonora": {
+        "defaultMessage": "سونورا"
+    },
+    "Nepal_Kathmandu": {
+        "defaultMessage": "کاتماندو"
+    },
+    "Nigeria_North": {
+        "defaultMessage": "نیجریه — اپاختر"
+    },
+    "Nigeria_South": {
+        "defaultMessage": "نیجریه — اواخشتر"
+    },
+    "Norway_Hordaland": {
+        "defaultMessage": "هوردالاند"
+    },
+    "Norway_Nordland": {
+        "defaultMessage": "نوردلاند"
+    },
+    "Peru_Lima": {
+        "defaultMessage": "لیما"
+    },
+    "Portugal_Islands": {
+        "defaultMessage": "گزیرگ‌های پرتغال"
+    },
+    "US_Virginia_Alexandria": {
+        "defaultMessage": "الکساندریه"
+    },
+    "Yemen": {
+        "defaultMessage": "یمن"
+    },
+    "Yemen Description": {
+        "defaultMessage": "صنعا، عدن"
+    },
+    "Zambia": {
+        "defaultMessage": "زامبیا"
+    },
+    "Zimbabwe": {
+        "defaultMessage": "زیمبابوه"
+    },
+    "Vietnam": {
+        "defaultMessage": "ویتنام"
+    },
+    "Ukraine": {
+        "defaultMessage": "اوکراین"
+    },
+    "Uganda": {
+        "defaultMessage": "اوگاندا"
+    },
+    "Peru": {
+        "defaultMessage": "پرو"
+    },
+    "Panama": {
+        "defaultMessage": "پاناما"
+    },
+    "Mozambique": {
+        "defaultMessage": "موزامبیک"
+    },
+    "Germany_Berlin": {
+        "defaultMessage": "برلین"
+    },
+    "Germany_Free State of Bavaria": {
+        "defaultMessage": "باواریا"
+    },
+    "Germany_Lower Saxony_Hannover": {
+        "defaultMessage": "هانوفر"
+    },
+    "Guinea": {
+        "defaultMessage": "گینه"
+    },
+    "Egypt Description": {
+        "defaultMessage": "قاهره، الکساندریه، گیزه"
+    },
+    "Myanmar": {
+        "defaultMessage": "برمه"
+    },
+    "World": {
+        "defaultMessage": "پیش‌نمایش جهان"
+    },
+    "Jersey": {
+        "defaultMessage": "جرسی"
+    },
+    "Uzbekistan": {
+        "defaultMessage": "ازبکستان"
+    },
+    "Togo": {
+        "defaultMessage": "توگو"
+    },
+    "The Gambia": {
+        "defaultMessage": "گامبیا"
+    },
+    "Samoa": {
+        "defaultMessage": "ساموا"
+    },
+    "Papua New Guinea": {
+        "defaultMessage": "پاپوا گینه نو"
+    },
+    "Namibia": {
+        "defaultMessage": "نامیبیا"
+    },
+    "Sudan_East": {
+        "defaultMessage": "سودان — باختر"
+    },
+    "Sudan_West": {
+        "defaultMessage": "سودان — خاور"
+    }
+}

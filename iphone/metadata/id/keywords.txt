@@ -1,0 +1,1 @@
+comaps,peta,open street maps,osm,perjalanan,mendaki,bersepeda,berkendara,offline,privasi,navigasi,gps

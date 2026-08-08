@@ -27,6 +27,7 @@ import app.organicmaps.sdk.routing.CarDirection;
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.util.StringUtils;
+import app.organicmaps.sdk.widget.roadshield.RoadShieldUtils;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils;
@@ -179,12 +180,13 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
 
   private void updateStreetView(@NonNull RoutingInfo info)
   {
-    boolean hasStreet = !TextUtils.isEmpty(info.nextStreet);
+    final CharSequence instruction = RoadShieldUtils.composeInstruction(info, mNextStreet.getTextSize());
+    boolean hasStreet = !TextUtils.isEmpty(instruction);
     // Sic: don't use UiUtils.showIf() here because View.GONE breaks layout
     // https://github.com/organicmaps/organicmaps/issues/3732
     UiUtils.visibleIf(hasStreet, mStreetFrame);
-    if (!TextUtils.isEmpty(info.nextStreet))
-      mNextStreet.setText(info.nextStreet);
+    if (hasStreet)
+      mNextStreet.setText(instruction);
     int margin = dimen(mFrame.getContext(), R.dimen.nav_frame_padding);
     if (hasStreet)
       margin += mStreetFrame.getHeight();
@@ -217,6 +219,9 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
   {
     mNavMenu.refreshTts();
     UiUtils.showIf(mSharedPreferences.getBoolean(getString(context, R.string.pref_speedlimit), true), mSpeedLimit);
+
+    // Update intermediate stops in progress bar in navigation panel.
+    mNavMenu.setIntermediateStopsProgress(Framework.nativeGetIntermediateStopsProgress());
   }
 
   @Override

@@ -2,10 +2,13 @@ package app.organicmaps.car.util;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
+import android.text.style.CharacterStyle;
+import android.util.TypedValue;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.car.app.CarContext;
 import androidx.car.app.model.CarIcon;
+import androidx.car.app.model.CarIconSpan;
 import androidx.car.app.navigation.model.Destination;
 import androidx.car.app.navigation.model.Lane;
 import androidx.car.app.navigation.model.Step;
@@ -17,6 +20,8 @@ import app.organicmaps.sdk.routing.LaneInfo;
 import app.organicmaps.sdk.routing.LaneWay;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.util.Distance;
+import app.organicmaps.sdk.widget.roadshield.RoadShieldDrawable;
+import app.organicmaps.sdk.widget.roadshield.RoadShieldUtils;
 import app.organicmaps.util.Graphics;
 import app.organicmaps.widget.LanesDrawable;
 import java.time.ZonedDateTime;
@@ -64,7 +69,10 @@ public final class RoutingUtils
   private static Step createCurrentStep(@NonNull final CarContext context, @NonNull RoutingInfo info)
   {
     final Step.Builder builder = new Step.Builder();
-    builder.setCue(info.nextStreet);
+    final float shieldTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 42f,
+                                                           context.getResources().getDisplayMetrics());
+    builder.setCue(RoadShieldUtils.composeInstruction(RoutingUtils::createRoadShieldSpan, info, shieldTextSize,
+                                                      /* drawOutline */ false));
     builder.setRoad(info.nextStreet);
     builder.setManeuver(RoutingHelpers.createManeuver(context, info.carDirection, info.exitNum));
     if (info.lanes != null)
@@ -103,5 +111,13 @@ public final class RoutingUtils
         .setRemainingTimeSeconds(time)
         .setRemainingDistanceColor(Colors.DISTANCE)
         .build();
+  }
+
+  @NonNull
+  private static CharacterStyle createRoadShieldSpan(@NonNull RoadShieldDrawable roadShieldDrawable)
+  {
+    final CarIcon carIcon =
+        new CarIcon.Builder(IconCompat.createWithBitmap(Graphics.drawableToBitmap(roadShieldDrawable))).build();
+    return CarIconSpan.create(carIcon, CarIconSpan.ALIGN_BOTTOM);
   }
 }

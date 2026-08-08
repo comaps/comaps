@@ -1,16 +1,22 @@
 #pragma once
 
-#include "indexer/feature.hpp"
 #include "indexer/ftypes_matcher.hpp"
 
 #include "geometry/rect2d.hpp"
+
+#include "base/buffer_vector.hpp"
 
 #include <map>
 #include <string>
 #include <vector>
 
+class FeatureType;
+
 namespace ftypes
 {
+
+// Any new values added here must also be added to
+// android/sdk/src/main/cpp/app/organicmaps/sdk/routing/roadshield/RoadShieldType.cpp
 enum class RoadShieldType
 {
   Default = 0,
@@ -19,11 +25,13 @@ enum class RoadShieldType
   Generic_Blue,
   Generic_Red,
   Generic_Orange,
+  Generic_Grey,
   Generic_White_Bordered,
   Generic_Green_Bordered,
   Generic_Blue_Bordered,
   Generic_Red_Bordered,
   Generic_Orange_Bordered,
+  Generic_Grey_Bordered,
   Generic_Pill_White,
   Generic_Pill_Green,
   Generic_Pill_Blue,
@@ -47,6 +55,8 @@ enum class RoadShieldType
   Hungary_Blue,
   Argentina_RN,
   Bolivia_Fundamental,
+  Brazil_National,
+  Brazil_State,
   Hidden,
   Count
 };
@@ -54,8 +64,15 @@ enum class RoadShieldType
 struct RoadShield
 {
   RoadShieldType m_type;
+  // Text drawn inside the shield symbol on the map (bare reference, e.g. "116"): the network prefix
+  // is part of the symbol graphic, so it is not included here.
   std::string m_name;
+  // Text drawn next to (outside) the shield, e.g. the road direction "East" for US highways.
   std::string m_additionalText;
+  // Text a generic drawn shield (no country-specific symbol graphic, e.g. the navigation UI) should
+  // show inside the box. Empty means "use m_name". Lets parsers restore a prefix that would otherwise
+  // be baked into the symbol, e.g. Brazilian "BR-116" / "CE-040".
+  std::string m_shieldText;
 
   RoadShield() = default;
   RoadShield(RoadShieldType const & type, std::string_view name) : m_type(type), m_name(name) {}
@@ -64,6 +81,16 @@ struct RoadShield
     , m_name(name)
     , m_additionalText(additionalText)
   {}
+  RoadShield(RoadShieldType const & type, std::string const & name, std::string const & additionalText,
+             std::string const & shieldText)
+    : m_type(type)
+    , m_name(name)
+    , m_additionalText(additionalText)
+    , m_shieldText(shieldText)
+  {}
+
+  // Text to draw inside a generic shield: m_shieldText if set, otherwise the bare m_name.
+  std::string const & GetShieldText() const { return m_shieldText.empty() ? m_name : m_shieldText; }
 
   inline bool operator<(RoadShield const & other) const
   {
@@ -85,11 +112,14 @@ struct RoadShield
 // Use specific country road shield styles based on mwm feature belongs to.
 using RoadShieldsSetT = buffer_vector<RoadShield, 2>;
 RoadShieldsSetT GetRoadShields(FeatureType & f);
-RoadShieldsSetT GetRoadShields(std::string const & mwmName, std::string const & roadNumber,
+RoadShieldsSetT GetRoadShields(std::string_view mwmName, std::string const & roadNumber,
                                HighwayClass const & highwayClass);
 
 // Simple parsing without specific country styles.
 RoadShieldsSetT GetRoadShields(std::string const & rawRoadNumber);
+
+// Removes network from the network/ref route relation encoding
+std::string GetRoadShieldDisplayRef(std::string const & rawRoadNumber);
 
 // Returns names of road shields if |ft| is a "highway" feature.
 std::vector<std::string> GetRoadShieldsNames(FeatureType & ft);

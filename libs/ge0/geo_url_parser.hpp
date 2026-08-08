@@ -1,10 +1,13 @@
 #pragma once
 
-#include "coding/url.hpp"
-
 #include <string>
 
 #include <boost/regex.hpp>
+
+namespace url
+{
+class Url;
+}  // namespace url
 
 namespace geo
 {

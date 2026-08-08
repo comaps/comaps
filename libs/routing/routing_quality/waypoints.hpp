@@ -2,10 +2,6 @@
 
 #include "routing/routes_builder/routes_builder.hpp"
 
-#include "routing/vehicle_mask.hpp"
-
-#include "routing/base/followed_polyline.hpp"
-
 #include "geometry/latlon.hpp"
 
 #include <vector>

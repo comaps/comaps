@@ -1,6 +1,7 @@
 #include "routing/index_graph_loader.hpp"
 
 #include "routing/data_source.hpp"
+#include "routing/geometry.hpp"
 #include "routing/index_graph_serialization.hpp"
 #include "routing/restriction_loader.hpp"
 #include "routing/road_access.hpp"
@@ -8,12 +9,21 @@
 #include "routing/road_penalty.hpp"
 #include "routing/road_penalty_serialization.hpp"
 #include "routing/route.hpp"
+#include "routing/segment.hpp"
 #include "routing/speed_camera_ser_des.hpp"
 
+#include "indexer/mwm_set.hpp"
+
 #include "coding/files_container.hpp"
+#include "coding/reader.hpp"
 
 #include "base/assert.hpp"
+#include "base/exception.hpp"
+#include "base/logging.hpp"
+#include "base/stl_helpers.hpp"
 #include "base/timer.hpp"
+
+#include "defines.hpp"
 
 #include <algorithm>
 #include <map>
@@ -227,7 +237,12 @@ bool ReadRoadPenaltyFromMwm(MwmValue const & mwmValue, VehicleType vehicleType, 
 
     // Read number of vehicle types
     uint32_t numVehicleTypes = ReadPrimitiveFromSource<uint32_t>(src);
-    CHECK_EQUAL(numVehicleTypes, static_cast<uint32_t>(VehicleType::Count), ());
+    if (numVehicleTypes <= static_cast<uint32_t>(vehicleType)
+        && vehicleType == VehicleType::Decoder
+        && numVehicleTypes > static_cast<uint32_t>(VehicleType::Car))
+        // This is expected for older mwm files (up to v11) - not an error
+        vehicleType = VehicleType::Car;
+    CHECK(numVehicleTypes > static_cast<uint32_t>(vehicleType), ());
 
     // Skip to the correct vehicle type
     for (uint32_t i = 0; i < static_cast<uint32_t>(vehicleType); ++i)

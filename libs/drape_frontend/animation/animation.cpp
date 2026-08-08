@@ -1,5 +1,9 @@
 #include "drape_frontend/animation/animation.hpp"
 
+#include "drape_frontend/animation/interpolators.hpp"
+
+#include "geometry/screenbase.hpp"
+
 #include <algorithm>
 
 namespace df

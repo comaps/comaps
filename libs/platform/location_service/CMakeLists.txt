@@ -18,11 +18,18 @@ set(SRC
 
 omim_add_library(${PROJECT_NAME} ${SRC})
 
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    platform
+  PRIVATE
+    base
+)
+
 if (QT_LOCATION_SERVICE)
   target_compile_definitions(${PROJECT_NAME} PRIVATE "QT_LOCATION_SERVICE")
-  target_link_libraries(${PROJECT_NAME} Qt6::Positioning)
+  target_link_libraries(${PROJECT_NAME} PUBLIC Qt6::Positioning)
   set_target_properties(${PROJECT_NAME} PROPERTIES AUTOMOC ON)
 elseif(APPLE_LOCATION_SERVICE)
   target_compile_definitions(${PROJECT_NAME} PRIVATE "APPLE_LOCATION_SERVICE")
-  target_link_libraries(${PROJECT_NAME} -framework\ CoreLocation)
+  target_link_libraries(${PROJECT_NAME} PRIVATE -framework\ CoreLocation)
 endif()

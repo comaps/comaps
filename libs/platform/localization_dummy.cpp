@@ -1,5 +1,5 @@
 #include <ctime>
-#include "indexer/localized_types_map.cpp"
+#include "platform/localized_types_map.cpp"
 #include "platform/localization.hpp"
 
 namespace platform

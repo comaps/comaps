@@ -1,8 +1,8 @@
 #pragma once
 
 #include "indexer/feature_decl.hpp"
-#include "indexer/feature_meta.hpp"
-#include "indexer/feature_utils.hpp"
+
+#include "geometry/point2d.hpp"
 
 #include <functional>
 #include <string>

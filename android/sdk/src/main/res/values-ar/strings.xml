@@ -19,7 +19,7 @@
     <string name="category_wifi">واي فاي</string>
     <string name="postal_code">الرمز البريدي</string>
     <!-- Place Page title for long tap -->
-    <string name="core_placepage_unknown_place">نقطة الخريطة</string>
+    <string name="core_placepage_unknown_place">نقطة على خريطة</string>
     <!-- abbreviation for meters -->
     <string name="m">متر</string>
     <!-- abbreviation for kilometers -->

@@ -1,6 +1,9 @@
 #pragma once
 
+#include "drape/pointers.hpp"
 #include "drape/texture.hpp"
+
+#include "geometry/rect2d.hpp"
 
 #include <string>
 #include <vector>
@@ -9,6 +12,9 @@
 
 namespace dp
 {
+class GraphicsContext;
+class HWTextureAllocator;
+
 class SymbolsTexture : public Texture
 {
 public:

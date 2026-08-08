@@ -1,11 +1,9 @@
 #pragma once
 
-#include "drape_frontend/color_constants.hpp"
 #include "drape_frontend/route_shape.hpp"
 
+#include "drape/drape_global.hpp"
 #include "drape/pointers.hpp"
-
-#include "traffic/speed_groups.hpp"
 
 #include "geometry/polyline2d.hpp"
 

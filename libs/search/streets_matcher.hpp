@@ -1,7 +1,6 @@
 #pragma once
 
 #include "search/cbv.hpp"
-#include "search/geocoder_context.hpp"
 #include "search/token_range.hpp"
 
 #include <vector>
@@ -10,6 +9,7 @@ namespace search
 {
 class FeaturesFilter;
 class QueryParams;
+struct BaseContext;
 
 class StreetsMatcher
 {

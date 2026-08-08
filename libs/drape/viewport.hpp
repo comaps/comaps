@@ -1,6 +1,7 @@
 #pragma once
 
 #include "drape/graphics_context.hpp"
+#include "drape/pointers.hpp"
 
 #include "geometry/point2d.hpp"
 

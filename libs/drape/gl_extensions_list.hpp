@@ -1,7 +1,5 @@
 #pragma once
 
-#include "drape/drape_global.hpp"
-
 #include "base/macros.hpp"
 
 #include <map>

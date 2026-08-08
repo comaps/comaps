@@ -111,7 +111,7 @@
     <!-- Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! -->
     <string name="category_parking">Stationnement</string>
     <!-- Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! -->
-    <string name="category_shopping">Magasins</string>
+    <string name="category_shopping">Shopping</string>
     <!-- Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! -->
     <string name="category_secondhand">D’occasion</string>
     <!-- Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! -->
@@ -148,7 +148,7 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Notes</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">Mes favoris CoMaps.</string>
+    <string name="share_bookmarks_email_subject">Mes Favoris CoMaps</string>
     <string name="share_bookmarks_email_body">Bonjour,\n \nVous trouverez ci-joint mes Favoris, veuillez les ouvrir dans l’application CoMaps. Si vous ne l’avez pas encore installée, téléchargez l\'application depuis : https://www.comaps.app/download/ \n \nBon voyage avec CoMaps !</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Chargement des favoris</string>
@@ -191,13 +191,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Longueur</string>
     <string name="share_my_location">Partager ma position</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Paramètres généraux</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Information</string>
     <string name="prefs_group_route">Navigation</string>
     <string name="pref_zoom_title">Boutons de zoom</string>
     <string name="pref_zoom_summary">Afficher sur la carte</string>
+    <string name="prefs_group_advanced">Avancé</string>
+    <string name="download_resources_custom_url_title">Serveur de cartes personnalisé</string>
+    <string name="download_resources_custom_url_message">Serveur pour télécharger les cartes. Laissez vide pour utiliser le serveur par défaut CoMaps.</string>
+    <string name="download_resources_custom_url_summary_none">Non défini</string>
+    <string name="download_resources_custom_url_error_scheme">Veuillez saisir une URL complète commençant par http:// ou https://</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Mode nuit</string>
     <!-- Generic «Off» string -->
@@ -256,7 +259,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Déplacez le téléphone en huit pour étalonner la boussole et fixer la direction de la flèche sur la carte.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Appuyez à nouveau longuement sur la carte pour voir l’interface</string>
+    <string name="enable_long_tap_fullscreen_description">Appuyez à nouveau longuement sur la carte pour voir l’interface</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Tout mettre à jour</string>
     <!-- Cancel all button text -->
@@ -478,7 +481,7 @@
     <!-- Hint of the input field in the OSM note section of the editor -->
     <string name="editor_note_hint">Décrivez les erreurs sur la carte ou les éléments qui ne peuvent pas être modifiés avec CoMaps</string>
     <!-- Information about OSM at the top of the editing page -->
-    <string name="editor_about_osm">Vos modifications sont téléversées dans la base de données publique <a href="https://wiki.openstreetmap.org/wiki/FR:À_propos_d’OpenStreetMap">OpenStreetMap</a>. Veuillez ne pas ajouter d’informations personnelles ou protégées par le droit d’auteur.</string>
+    <string name="editor_about_osm">Vos modifications sont enregistrées dans la base de données publique <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a>. Veuillez ne pas ajouter d\'informations à caractère personnel ou protégées par des droits d\'auteur.</string>
     <string name="editor_more_about_osm">En savoir plus sur OpenStreetMap</string>
     <string name="editor_osm_history">Votre historique de modifications</string>
     <string name="editor_osm_notes">Vos notes sur les données cartographiques</string>
@@ -486,7 +489,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Opérateur : %s</string>
     <string name="editor_category_unsuitable_title">Vous ne trouvez pas de catégorie appropriée ?</string>
-    <string name="editor_category_unsuitable_text">CoMaps ne peut ajouter que des catégories de points simples, il ne peut pas ajouter de villes, de routes, de lacs, de contours de bâtiments, etc. Veuillez ajouter ces catégories directement sur <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consultez notre <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> pour obtenir des instructions détaillées étape par étape.</string>
+    <string name="editor_category_unsuitable_text">CoMaps ne permet d\'ajouter que des catégories de points simples ; il ne peut pas ajouter de villes, de routes, de lacs, de contours de bâtiments, etc. Veuillez ajouter ces catégories directement sur <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consultez notre <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> pour obtenir des instructions détaillées.</string>
     <string name="downloader_no_downloaded_maps_title">Vous n’avez téléchargé aucune carte</string>
     <string name="downloader_no_downloaded_maps_message">Télécharger des cartes pour rechercher un lieu et utiliser la navigation hors ligne</string>
     <string name="current_location_unknown_error_title">L’emplacement actuel est inconnu</string>
@@ -544,8 +547,8 @@
     <string name="enable_logging">Activer la journalisation</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Feedback général</string>
-    <string name="prefs_languages_information">Nous utilisons le système TTS pour les instructions vocales. De nombreux appareils Android utilisent Google TTS, que vous pouvez télécharger ou mettre à jour depuis le Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts).</string>
-    <string name="prefs_languages_information_off">Pour certaines langues, vous devrez installer un synthétiseur vocal ou un pack linguistique supplémentaire à partir d\'une boutique d\'applications (Google Play, Galaxy Store, App Gallery, F-Droid).\n\nOuvrez les paramètres de votre appareil → Langue et saisie → Parole → Sortie texte-parole.\n\nVous pouvez ici gérer les paramètres de synthèse vocale (par exemple, télécharger un pack linguistique pour une utilisation hors ligne) et sélectionner un autre moteur de synthèse texte-parole.</string>
+    <string name="prefs_languages_information">Nous utilisons le système de synthèse vocale (TTS) pour les instructions vocales. De nombreux appareils Android utilisent Google TTS ; vous pouvez le télécharger ou le mettre à jour depuis le Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">Pour certaines langues, vous devrez installer un synthétiseur vocal ou un pack linguistique supplémentaire depuis une boutique d\'applications (Google Play, Galaxy Store, App Gallery, F-Droid). \n\nOuvrez les paramètres de votre appareil → Langue et saisie → Voix → Synthèse vocale. \n\nVous pouvez y gérer les paramètres de synthèse vocale (par exemple, pour télécharger un pack linguistique à utiliser hors ligne) et sélectionner un autre moteur de synthèse vocale.</string>
     <string name="prefs_languages_information_off_link">Pour plus d’informations, veuillez consulter ce guide</string>
     <string name="transliteration_title">Translittérer en alphabet latin</string>
     <string name="learn_more">En savoir plus</string>
@@ -596,7 +599,7 @@
         <item quantity="other">%d pistes</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Vie privée</string>
+    <string name="prefs_group_privacy">Vie privée</string>
     <string name="privacy_policy">Politique de confidentialité</string>
     <string name="terms_of_use">Conditions d’utilisation</string>
     <string name="button_layer_traffic">Trafic</string>
@@ -624,7 +627,7 @@
     <string name="power_managment_setting_auto">Automatique</string>
     <string name="power_managment_setting_manual_max">Économie d’énergie maximale</string>
     <string name="enable_logging_warning_message">Cette option est activée pour l’identification des actions à des fins de diagnostic. Cela aide l’équipe à identifier les problèmes liés à l’application. Activez cette option uniquement à la demande du support CoMaps.</string>
-    <string name="driving_options_title">Paramètres des itinéraires</string>
+    <string name="routing_options_title">Paramètres des itinéraires</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Éviter les routes à péages</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -634,7 +637,7 @@
     <string name="avoid_motorways">Éviter les autoroutes</string>
     <string name="unable_to_calc_alert_title">Impossible de calculer l’itinéraire</string>
     <string name="unable_to_calc_alert_subtitle">Malheureusement aucun itinéraire n’a pu être calculé soit en raison d’un manque de données OpenStreetMap soit à cause des options de routage choisies. Modifiez les paramètres de routage et réessayez.</string>
-    <string name="define_to_avoid_btn">Définissez les routes à éviter</string>
+    <string name="define_to_avoid_btn">Définissez les préférences d’itinéraire</string>
     <string name="change_driving_options_btn">Paramètres d’itinéraire activés</string>
     <string name="toll_road">Route à péages</string>
     <string name="unpaved_road">Routes non revêtues</string>
@@ -708,7 +711,7 @@
     <string name="downloader_loading_ios">Téléchargement</string>
     <string name="download_map_title">Télécharger la carte générale du monde</string>
     <!-- Used in DownloadResources startup screen -->
-    <string name="disk_error">Impossible de créer un dossier et de déplacer les fichiers vers la mémoire interne de l’appareil ou la carte SD</string>
+    <string name="disk_error">Impossible de créer un dossier et de déplacer des fichiers sur la mémoire interne de l\'appareil ou sur la carte SD</string>
     <!-- Used in DownloadResources startup screen -->
     <string name="disk_error_title">Erreur de disque</string>
     <!-- Used in DownloadResources startup screen -->
@@ -872,9 +875,9 @@
     <string name="unknown_power_output">inconnue</string>
     <string name="charge_socket_type2">Type 2 (sans câble)</string>
     <string name="charge_socket_type2_cable">Type 2 (avec câble)</string>
-    <string name="charge_socket_type2_combo">Type 2 combo</string>
+    <string name="charge_socket_type2_combo">Combo de type 2</string>
     <string name="charge_socket_type1">Type 1</string>
-    <string name="charge_socket_type1_combo">Type 1 combo</string>
+    <string name="charge_socket_type1_combo">Combo de type 1</string>
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="charge_socket_count">Quantité</string>
@@ -916,11 +919,6 @@
     <string name="prefs_speed_cameras_information">Les avertissements relatifs aux radars de vitesse sont désactivés dans les pays où les alertes sont interdites par la législation locale.</string>
     <string name="navigation_start_tts_message">"Navigation de démarrage, langue des instructions vocales : "</string>
     <string name="navigation_start_tts_disabled_message">Instructions vocales désactivées : moteur de synthèse vocale non disponible</string>
-    <string name="advanced">Avancé</string>
-    <string name="download_resources_custom_url_summary_none">Non défini</string>
-    <string name="download_resources_custom_url_title">Serveur de cartes personnalisé</string>
-    <string name="download_resources_custom_url_error_scheme">Veuillez saisir une URL complète commençant par http:// ou https://</string>
-    <string name="download_resources_custom_url_message">Serveur pour télécharger les cartes. Laissez vide pour utiliser le serveur par défaut CoMaps.</string>
     <string name="pref_maplanguage_local">Langue locale</string>
     <string name="pref_speedlimit_title">Afficher les limites de vitesse</string>
     <string name="location_privacy_info">Les applications reçoivent des données de localisation provenant du service de localisation de votre système d\'exploitation, qui peut partager votre position avec Google et/ou le fabricant de votre appareil. Pour éviter cela, utilisez un système d\'exploitation Android préservant la confidentialité.</string>
@@ -946,4 +944,48 @@
     <string name="population">Population : %s</string>
     <string name="setting_value_system_default">Paramètres par défaut du système</string>
     <string name="change_app_locale">Langue de l\'application</string>
+    <string name="downloader_check_updates_no_updates">Aucune mise à jour disponible</string>
+    <string name="downloader_check_updates_button">Vérifier les mises à jour</string>
+    <string name="downloader_check_updates_checking">Recherche de mises à jour...</string>
+    <string name="downloader_check_updates_updated">Mises à jour cartographiques disponibles !</string>
+    <string name="downloader_check_updates_eol">Cette version de l\'application ne bénéficie plus de mises à jour cartographiques. Veuillez mettre à jour l\'application !</string>
+    <string name="downloader_check_updates_error">Erreur lors de la recherche de mises à jour</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_aa_support_summary_yes">L\'application a été installée depuis Google Play, vous pouvez l\'utiliser dans votre voiture.</string>
+    <string name="pref_aa_support_summary_no">L\'application n\'a pas été installée depuis Google Play ; vous ne pouvez pas l\'utiliser dans votre voiture. Cliquez sur le paramètre pour obtenir plus d\'informations dans notre FAQ.</string>
+    <string name="tts_toggle_enable">Activer les instructions vocales</string>
+    <string name="tts_toggle_disable">Désactiver les instructions vocales</string>
+    <string name="oh_unknown">Horaires d\'ouverture inconnus</string>
+    <string name="editor_add_select_category_all_subtitle">Toutes les catégories</string>
+    <string name="editor_add_select_category_recent_subtitle">Récemment utilisés</string>
+    <string name="sort_categories">Trier les listes de favoris</string>
+    <string name="by_recently_used">Par utilisation récente</string>
+    <string name="by_custom">Par ordre personnalisé</string>
+    <string name="enable_long_tap_fullscreen">Appuyez longuement pour masquer l\'interface utilisateur</string>
+    <string name="long_tap_disabled_toast">Pour masquer l\'interface, activez la fonction « Appuyer longuement » dans les paramètres</string>
+    <string name="capacity_disabled">Places de stationnement pour handicapé : %s</string>
+    <string name="capacity_disabled_yes">Possède des places de stationnement pour handicapé</string>
+    <string name="capacity_disabled_no">Ne possède pas de place de stationnement pour handicapé</string>
+    <string name="capacity_charging">Emplacements avec chargeur : %s</string>
+    <string name="capacity_charging_yes">Possède des emplacements de stationnement avec chargeur</string>
+    <string name="capacity_charging_no">Ne possède pas d’emplacement de stationnement avec chargeur</string>
+    <string name="prefs_group_route_summary">Unités, instructions vocales, options d\'itinéraire</string>
+    <string name="prefs_group_privacy_summary">Historique des recherches</string>
+    <string name="prefs_group_power_summary">Délai d’extinction de l\'écran, données mobiles</string>
+    <string name="prefs_group_map_appearance">Apparence de la carte</string>
+    <string name="search_in_all_lists">Rechercher dans toutes les listes</string>
+    <string name="recalculate_route">Recalculer</string>
+    <string name="pref_about_summary">Signaler une anomalie, obtenir de l\'aide, faire un don\nVersion : v%1$s</string>
+    <string name="prefs_group_map_appearance_summary">Langue de la carte, taille des libellés, bâtiments en 2D / 3D</string>
+    <string name="prefs_group_interface_summary">Mode nuit, boutons, langue</string>
+    <string name="prefs_group_data_management">Gestion des données</string>
+    <string name="off_route">Vous êtes en dehors de l\'itinéraire</string>
+    <string name="prefs_group_data_management_summary">Stockage des cartes, sauvegarde des favoris</string>
+    <string name="pref_enable_auto_reroute_title">Recalcule automatique</string>
+    <string name="pref_enable_auto_reroute_description">Si activé, recalcule un nouvel itinéraire lorsque vous vous éloignez de l\'itinéraire planifié.</string>
+    <string name="permission_read_navigation_label">Énoncer les informations d\'itinéraire</string>
+    <string name="permission_read_navigation_description">Énonce les informations d’itinéraire en temps réel comme la prochaine bifurcation ou le nom de la voie courante</string>
+    <string name="prefs_group_interface">Interface</string>
+    <string name="prefs_group_advanced_summary">Activer la journalisation</string>
+    <string name="planning_route_preview">Aperçu</string>
 </resources>

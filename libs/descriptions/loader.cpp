@@ -1,6 +1,9 @@
 #include "descriptions/loader.hpp"
 
 #include "indexer/data_source.hpp"
+#include "indexer/feature_decl.hpp"
+
+#include "coding/files_container.hpp"
 
 #include "base/assert.hpp"
 

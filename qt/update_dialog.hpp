@@ -42,8 +42,12 @@ public:
 
   void ShowModal();
 
+protected:
+  void done(int r) override;
+
 private slots:
   void OnItemClick(QTreeWidgetItem * item, int column);
+  void OnCheckUpdatesClick();
   void OnCloseClick();
   void OnLocaleTextChanged(QString const & text);
   void OnQueryTextChanged(QString const & text);
@@ -73,6 +77,8 @@ private:
   inline storage::Storage & GetStorage() const { return m_framework.GetStorage(); }
 
   QTreeWidget * m_tree;
+  QLabel * m_pCheckUpdatesLabel;
+  QPushButton * m_pCheckUpdatesButton;
   Framework & m_framework;
   int m_observerSlotId;
 

@@ -5,16 +5,20 @@
 
 #include "indexer/classificator.hpp"
 #include "indexer/editable_map_object.hpp"
+#include "indexer/feature_data.hpp"
+#include "indexer/feature_decl.hpp"
 #include "indexer/ftypes_matcher.hpp"
-#include "indexer/validate_and_format_contacts.hpp"
-
-#include "coding/string_utf8_multilang.hpp"
+#include "indexer/osm_element.hpp"
+#include "indexer/types_mapping.hpp"
 
 #include "geometry/latlon.hpp"
+#include "geometry/mercator.hpp"
 
-#include "base/exception.hpp"
+#include "i18n/string_utf8_multilang.hpp"
+
+#include "base/logging.hpp"
 #include "base/macros.hpp"
-#include "base/string_utils.hpp"
+#include "base/stl_helpers.hpp"
 #include "base/timer.hpp"
 
 #include <array>

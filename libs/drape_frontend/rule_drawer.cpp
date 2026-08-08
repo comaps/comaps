@@ -2,21 +2,35 @@
 
 #include "drape_frontend/apply_feature_functors.hpp"
 #include "drape_frontend/engine_context.hpp"
+#include "drape_frontend/metaline_manager.hpp"
 #include "drape_frontend/stylist.hpp"
+#include "drape_frontend/tile_key.hpp"
 #include "drape_frontend/traffic_renderer.hpp"
 #include "drape_frontend/visual_params.hpp"
 
-#include "indexer/drawing_rules.hpp"
 #include "indexer/feature.hpp"
 #include "indexer/feature_algo.hpp"
-#include "indexer/feature_visibility.hpp"
+#include "indexer/feature_data.hpp"
+#include "indexer/feature_decl.hpp"
+#include "indexer/feature_meta.hpp"
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/mwm_set.hpp"
 #include "indexer/scales.hpp"
 
+#include "traffic/traffic_info.hpp"
+
+#include "geometry/any_rect2d.hpp"
 #include "geometry/clipping.hpp"
 #include "geometry/mercator.hpp"
+#include "geometry/point2d.hpp"
+#include "geometry/polyline2d.hpp"
+#include "geometry/screenbase.hpp"
+
+#include "i18n/localisation.hpp"
 
 #include "base/assert.hpp"
+#include "base/macros.hpp"
+#include "base/string_utils.hpp"
 
 #ifdef DRAW_TILE_NET
 #include "drape/drape_diagnostics.hpp"

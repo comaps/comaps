@@ -1,9 +1,8 @@
 #pragma once
 
+#include "routing/base/small_list.hpp"
 #include "routing/road_graph.hpp"
 #include "routing/segment.hpp"
-
-#include "routing_common/num_mwm_id.hpp"
 
 #include "geometry/point_with_altitude.hpp"
 

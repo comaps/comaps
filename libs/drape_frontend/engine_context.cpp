@@ -1,6 +1,6 @@
 #include "drape_frontend/engine_context.hpp"
 
-#include "drape/texture_manager.hpp"
+#include "drape_frontend/message.hpp"
 #include "drape_frontend/message_subclasses.hpp"
 
 #include <utility>

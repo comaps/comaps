@@ -1,8 +1,14 @@
 #include "drape/vulkan/vulkan_base_context.hpp"
 
+#include "drape/vulkan/vulkan_texture.hpp"
+
 #include "drape/framebuffer.hpp"
+#include "drape/hw_texture.hpp"
+#include "drape/texture.hpp"
+#include "drape/texture_types.hpp"
 
 #include "base/assert.hpp"
+#include "base/macros.hpp"
 
 #include <algorithm>
 #include <limits>

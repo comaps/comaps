@@ -1,7 +1,10 @@
 #include "testing/testing.hpp"
 
+#include "transit/world_feed/color_picker.hpp"
 #include "transit/world_feed/subway_converter.hpp"
 #include "transit/world_feed/world_feed.hpp"
+
+#include "generator/affiliation.hpp"
 
 #include "platform/platform.hpp"
 

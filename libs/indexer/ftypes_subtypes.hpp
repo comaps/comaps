@@ -1,6 +1,7 @@
 #pragma once
 
 #include "indexer/classificator.hpp"
+#include "indexer/types_mapping.hpp"
 
 #include <cstdint>
 #include <map>

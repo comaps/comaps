@@ -7,8 +7,7 @@
 
 #include "search/search_quality/helpers.hpp"
 
-#include "platform/platform_tests_support/helpers.hpp"
-
+#include "platform/helpers.hpp"
 #include "platform/platform.hpp"
 
 #include <QtWidgets/QApplication>
@@ -22,7 +21,7 @@ DEFINE_uint64(num_threads, 4, "Number of search engine threads");
 
 int main(int argc, char ** argv)
 {
-  platform::tests_support::ChangeMaxNumberOfOpenFiles(search::search_quality::kMaxOpenFiles);
+  platform::ChangeMaxNumberOfOpenFiles(search::search_quality::kMaxOpenFiles);
 
   gflags::SetUsageMessage("Assessment tool.");
   gflags::ParseCommandLineFlags(&argc, &argv, true);

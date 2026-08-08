@@ -14,14 +14,15 @@
 
 #include "indexer/feature.hpp"
 #include "indexer/feature_algo.hpp"
+#include "indexer/feature_decl.hpp"
+#include "indexer/feature_utils.hpp"
 #include "indexer/ftypes_matcher.hpp"
-#include "indexer/mwm_set.hpp"
 
 #include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
-#include "base/cancellable.hpp"
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 
@@ -31,6 +32,11 @@
 #include <vector>
 
 class DataSource;
+
+namespace base
+{
+class Cancellable;
+}  // namespace base
 
 namespace search
 {

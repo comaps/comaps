@@ -1,7 +1,5 @@
 #pragma once
 
-#include "search/result.hpp"
-
 #include "indexer/mwm_set.hpp"
 
 #include <initializer_list>
@@ -23,6 +21,9 @@ class TestFeature;
 
 namespace search
 {
+class Result;
+class Results;
+
 namespace tests_support
 {
 class MatchingRule

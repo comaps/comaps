@@ -1,0 +1,320 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "از راست ادامه دهید."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "به راست بگردید."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "به سوی راست تیز بچرخید."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "به میدان اَندر آیید."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "از میدان بیاُوزید."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "از چپ ادامه دهید."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "به چپ بگردید."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "به سوی چپ تیز بچرخید."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "دور بزنید."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "سر‌راست بروید."
+    },
+    "exit": {
+        "defaultMessage": "اوزین."
+    },
+    "onto": {
+        "defaultMessage": "به"
+    },
+    "take_exit_number": {
+        "defaultMessage": "اوزیدن به"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "در حال بازهَماریدن راه"
+    },
+    "destination": {
+        "defaultMessage": "شما می‌رسید."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "شما رسیده‌اید."
+    },
+    "in_50_meters": {
+        "defaultMessage": "در پنجاه متری"
+    },
+    "in_100_meters": {
+        "defaultMessage": "در صد متری"
+    },
+    "in_200_meters": {
+        "defaultMessage": "در دویست متری"
+    },
+    "in_250_meters": {
+        "defaultMessage": "در دوصد و پنجاه متری"
+    },
+    "in_300_meters": {
+        "defaultMessage": "در سیصد متری"
+    },
+    "in_400_meters": {
+        "defaultMessage": "در چهارصد متری"
+    },
+    "in_500_meters": {
+        "defaultMessage": "در پانصد متری"
+    },
+    "in_600_meters": {
+        "defaultMessage": "در ششصد متری"
+    },
+    "in_700_meters": {
+        "defaultMessage": "در هفتصد متری"
+    },
+    "in_750_meters": {
+        "defaultMessage": "در هفتصد و پنجاه متری"
+    },
+    "in_800_meters": {
+        "defaultMessage": "در هشتصد متری"
+    },
+    "in_900_meters": {
+        "defaultMessage": "در نهصد متری"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "در یک کیلومتری"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "در یک و نیم کیلومتری"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "در دو کیلومتری"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "در دو و نیم کیلومتری"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "در سه کیلومتری"
+    },
+    "then": {
+        "defaultMessage": "سپس"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "نخستین اوزین را اَندر آیید."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "دومین اوزین را اَندر آیید."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "سومین اوزین را اَندر آیید."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "چهارمین اوزین را اَندر آیید."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "پنجمین اوزین را اَندر آیید."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "ششمین اوزین را اَندر آیید."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "هفتمین اوزین را اَندر آیید."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "هشتمین اوزین را اَندر آیید."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "نهمین اوزین را اَندر آیید."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "دهمین اوزین را اَندر آیید."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "یازدهمین اوزین را اَندر آیید."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "در پنجاه پایی"
+    },
+    "in_100_feet": {
+        "defaultMessage": "در یک صد پایی"
+    },
+    "in_200_feet": {
+        "defaultMessage": "در دویست پایی"
+    },
+    "in_300_feet": {
+        "defaultMessage": "در سیصد پایی"
+    },
+    "in_400_feet": {
+        "defaultMessage": "در چهارصد پایی"
+    },
+    "in_500_feet": {
+        "defaultMessage": "در پانصد پایی"
+    },
+    "in_600_feet": {
+        "defaultMessage": "در ششصد پایی"
+    },
+    "in_700_feet": {
+        "defaultMessage": "در هفتصد پایی"
+    },
+    "in_800_feet": {
+        "defaultMessage": "در هشتصد پایی"
+    },
+    "in_900_feet": {
+        "defaultMessage": "در نه صد پایی"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "در یک‌هزار پایی"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "در یک‌هزار و پانصد پایی"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "در دو هزار پایی"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "در دو‌هزار و پانصد پایی"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "در سه هزار پایی"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "در سه هزار و پانصد پایی"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "در چهار هزار پایی"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "در چهار هزار و پانصد پایی"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "در پنج هزار پایی"
+    },
+    "in_1_mile": {
+        "defaultMessage": "در یک مایلی"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "در یک و نیم مایلی"
+    },
+    "in_2_miles": {
+        "defaultMessage": "در دو مایلی"
+    },
+    "unknown_camera": {
+        "defaultMessage": "دوربین در پیشِ‌رو"
+    }
+}

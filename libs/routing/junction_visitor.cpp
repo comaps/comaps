@@ -1,10 +1,5 @@
 #include "junction_visitor.hpp"
 
-#include "routing/joint_segment.hpp"
-#include "routing/route_weight.hpp"
-
-#include "base/logging.hpp"
-
 namespace routing
 {
 

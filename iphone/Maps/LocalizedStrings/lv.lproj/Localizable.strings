@@ -184,7 +184,7 @@
 "pref_tts_test_voice_title" = "Pārbaudīt balss norādes";
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "Cita";
-"pref_map_auto_zoom" = "Automātisks mērogs";
+"pref_map_auto_zoom" = "Automātiska tālummaiņa";
 "placepage_distance" = "Attālums";
 "search_show_on_map" = "Rādīt kartē";
 /* Text in menu */
@@ -581,7 +581,7 @@
 "pref_alt_map_lang_handling" = "Kartes papildu valodas";
 "pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
 "pref_alt_map_lang_handling_system_order" = "Izmantot sistēmas secībā";
-"pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
+"pref_alt_map_lang_handling_local_only" = "Priekšroku dot un izmantot tikai tur, kur dzimtā";
 "transliteration_title" = "Transliterācija uz latīņu alfabētu";
 "transliteration_title_disabled_summary" = "Atspējota, kad kartēs vienmēr izmanto vietējo valodu";
 /* Subway exits for public transport marks on the map */
@@ -681,8 +681,6 @@
 "yes_available" = "Pieejams";
 /* E.g. "WiFi:No" */
 "no_available" = "Nav pieejams";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Ietilpība: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Tīkls: %@";
 "trip_finished" = "Ieradāties galamērķī!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Pievienot vietu";
 "contribute_to_osm_update_map" = "Jāatjaunina karte, lai līdzdarbotos";
 "contribute_to_osm_update_map_description" = "Ir nepieciešams atjaunināt %@ karti uz jaunāko versiju, lai varētu sniegt savu devumu OpenStreetMap datiem";
+"downloader_check_updates_button" = "Pārbaudīt, vai ir pieejami atjauninājumi";
+"downloader_check_updates_checking" = "Pārbauda, vai ir pieejami atjauninājumi...";
+"downloader_check_updates_updated" = "Pieejami karšu atjauninājumi.";
+"downloader_check_updates_no_updates" = "Atjauninājumi nav pieejami";
+"downloader_check_updates_eol" = "Šai lietotnes versijai vairs nav karšu atjauninājumu. Lūgums atjaunināt lietotni.";
+"downloader_check_updates_error" = "Error checking for updates";
+"editor_add_select_category_recent_subtitle" = "Nesen izmantotās";
+"oh_unknown" = "Darba laiks nav zināms";
+"carplay_highway_exit" = "Izbraukt %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "Nav atsevišķu invalīdu vietu";
+"capacity_charging_yes" = "Ir vietas ar lādētājiem";
+"capacity_charging_no" = "Nav vietu ar lādētājiem";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

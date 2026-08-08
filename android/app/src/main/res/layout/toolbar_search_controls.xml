@@ -28,6 +28,7 @@
     android:background="@null"
     android:hint="@string/search"
     android:imeOptions="actionSearch|flagNoExtractUi"
+    android:textAlignment="viewStart"
     android:inputType="text"
     android:padding="@dimen/margin_half_plus"
     android:textCursorDrawable="@drawable/cursor_drawable" />

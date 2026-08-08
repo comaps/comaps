@@ -2,17 +2,30 @@
 
 #include "drape_frontend/gui/shape.hpp"
 
-#include "base/buffer_vector.hpp"
-
-#include "drape/binding_info.hpp"
+#include "drape/batcher.hpp"
 #include "drape/drape_global.hpp"
 #include "drape/glsl_types.hpp"
+#include "drape/glyph.hpp"
+#include "drape/glyph_manager.hpp"
+#include "drape/pointers.hpp"
+#include "drape/render_state.hpp"
 #include "drape/texture_manager.hpp"
+
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
+
+#include "base/buffer_vector.hpp"
+#include "base/string_utils.hpp"
 
 #include <functional>
 #include <string>
 
 #include "3party/ankerl/unordered_dense.h"
+
+namespace dp
+{
+class GraphicsContext;
+}  // namespace dp
 
 namespace gui
 {

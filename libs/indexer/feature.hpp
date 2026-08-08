@@ -1,13 +1,18 @@
 #pragma once
+
+#include "indexer/data_header.hpp"
 #include "indexer/feature_data.hpp"
+#include "indexer/feature_decl.hpp"
+#include "indexer/feature_meta.hpp"
 #include "indexer/metadata_serdes.hpp"
 #include "indexer/route_relation.hpp"
 
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/buffer_vector.hpp"
-#include "base/localisation_translation.hpp"
 #include "base/macros.hpp"
 
 #include <array>

@@ -187,13 +187,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Длина</string>
     <string name="share_my_location">Поделиться местоположением</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Общие настройки</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Информация</string>
     <string name="prefs_group_route">Навигация</string>
     <string name="pref_zoom_title">Кнопки масштаба</string>
     <string name="pref_zoom_summary">Показать на карте</string>
+    <string name="prefs_group_advanced">Расширенные</string>
+    <string name="download_resources_custom_url_title">Альтернативный сервер карт</string>
+    <string name="download_resources_custom_url_message">Переопределить сервер карт по умолчанию, используемый для их загрузки. Оставьте поле пустым, чтобы использовать сервер CoMaps по умолчанию.</string>
+    <string name="download_resources_custom_url_summary_none">Не настроено</string>
+    <string name="download_resources_custom_url_error_scheme">Пожалуйста, введите URL, начинающийся с http:// или https://</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Ночной режим</string>
     <!-- Generic «Off» string -->
@@ -252,7 +255,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Двигайте телефон восьмёркой, чтобы откалибровать компас и зафиксировать направление стрелки на карте.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Долгое нажатие на карту вернет интерфейс обратно</string>
+    <string name="enable_long_tap_fullscreen_description">Долгое нажатие на карту вернет интерфейс обратно</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Обновить все</string>
     <!-- Cancel all button text -->
@@ -584,7 +587,7 @@
     <string name="phone_number">Номер телефона</string>
     <string name="profile">Профиль OpenStreetMap</string>
     <plurals name="bookmarks_detect_message">
-        <item quantity="one">Был найден один файл. Вы увидите его после конвертации.</item>
+        <item quantity="one">Был найден %d файл. Вы увидите их после конвертации.</item>
         <item quantity="few">%d файла были найдены. Вы увидите их после конвертации.</item>
         <item quantity="many">%d файлов были найдены. Вы увидите их после конвертации.</item>
         <item quantity="other">%d файлов были найдены. Вы увидите их после конвертации.</item>
@@ -597,8 +600,8 @@
         <item quantity="other">%d маршрутов</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Приватность</string>
-    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="prefs_group_privacy">Безопасность данных</string>
+    <string name="privacy_policy">Политика безопасности данных</string>
     <string name="terms_of_use">Условия использования</string>
     <string name="button_layer_traffic">Пробки</string>
     <string name="subway">Метро</string>
@@ -625,7 +628,7 @@
     <string name="power_managment_setting_auto">При низком заряде</string>
     <string name="power_managment_setting_manual_max">Всегда</string>
     <string name="enable_logging_warning_message">Эта настройка включается для записи действий в целях диагностики, чтобы помочь нашей команде выявить проблемы с приложением. Включайте ее только на время для отправки детальной информации о неполадках, обнаруженных в приложении, через кнопку «Сообщить о проблеме». Логи могут включать данные о местоположении.</string>
-    <string name="driving_options_title">Настройки объезда</string>
+    <string name="routing_options_title">Настройки объезда</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Избегать платные дороги</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -917,8 +920,6 @@
     <string name="place_page_too_old_to_edit">Редактирование OpenStreetMap отключено, так как данные карты слишком старые.</string>
     <string name="pref_alt_map_lang_handling_local_only">Предпочитать и использовать только там, где они исконные</string>
     <string name="pref_speedlimit_title">Отображать ограничения скорости</string>
-    <string name="download_resources_custom_url_title">Альтернативный сервер карт</string>
-    <string name="download_resources_custom_url_message">Переопределить сервер карт по умолчанию, используемый для их загрузки. Оставьте поле пустым, чтобы использовать сервер CoMaps по умолчанию.</string>
     <string name="pref_alt_map_lang_handling">Альтернативные языки карты</string>
     <string name="pref_openexternallinks_title">Автоматически открывать сторонние ссылки</string>
     <string name="pref_openexternallinks_summary">Открывать сторонние ссылки в CoMaps по умолчанию</string>
@@ -947,10 +948,7 @@
     <string name="charge_socket_type1">Type 1</string>
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_schuko">Домашняя европейская</string>
-    <string name="advanced">Расширенные</string>
-    <string name="download_resources_custom_url_error_scheme">Пожалуйста, введите URL, начинающийся с http:// или https://</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
-    <string name="download_resources_custom_url_summary_none">Не настроено</string>
     <string name="rooms">%s комнат</string>
     <string name="invalid_route">Неверный маршрут</string>
     <string name="route_recalculating">Пересчёт маршрута…</string>

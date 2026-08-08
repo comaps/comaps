@@ -3,9 +3,6 @@
 #include "editor/osm_auth.hpp"
 #include "editor/xml_feature.hpp"
 
-#include "geometry/latlon.hpp"
-#include "geometry/rect2d.hpp"
-
 #include "base/exception.hpp"
 
 #include <map>

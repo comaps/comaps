@@ -1,27 +1,20 @@
 #pragma once
 
-#include "routing/base/astar_vertex_data.hpp"
-
 #include "routing/cross_mwm_graph.hpp"
 #include "routing/edge_estimator.hpp"
-#include "routing/geometry.hpp"
 #include "routing/index_graph_loader.hpp"
-#include "routing/segment.hpp"
 #include "routing/transit_graph_loader.hpp"
-#include "routing/transit_info.hpp"
 #include "routing/world_graph.hpp"
-
-#include "transit/transit_types.hpp"
-
-#include "routing_common/num_mwm_id.hpp"
-
-#include "geometry/latlon.hpp"
 
 #include <memory>
 #include <vector>
 
 namespace routing
 {
+class RouteWeight;
+
+using NumMwmId = std::uint16_t;
+
 // WorldGraph for transit + pedestrian routing
 class TransitWorldGraph final : public WorldGraph
 {

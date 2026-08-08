@@ -3,9 +3,11 @@
 
 #include "drape_frontend/visual_params.hpp"
 
-#include "indexer/scales.hpp"
+#include "drape/color.hpp"
 
 #include "geometry/mercator.hpp"
+
+#include "base/assert.hpp"
 
 UserMark::UserMark(kml::MarkId id, m2::PointD const & ptOrg, UserMark::Type type)
   : df::UserPointMark(id == kml::kInvalidMarkId ? UserMarkIdStorage::Instance().GetNextUserMarkId(type) : id)
@@ -98,6 +100,7 @@ std::string DebugPrint(UserMark::Type type)
   case UserMark::Type::ROUTING: return "ROUTING";
   case UserMark::Type::ROAD_WARNING: return "ROAD_WARNING";
   case UserMark::Type::SPEED_CAM: return "SPEED_CAM";
+  case UserMark::Type::TRAFFIC_LIGHT: return "TRAFFIC_LIGHT";
   case UserMark::Type::LOCAL_ADS: return "LOCAL_ADS";
   case UserMark::Type::TRANSIT: return "TRANSIT";
   case UserMark::Type::TRACK_INFO: return "TRACK_INFO";

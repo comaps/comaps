@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libxinerama-dev \
   libxcursor-dev \
   libxi-dev \
-  optipng
+  optipng \
+  python3 \
+  python3-venv
 WORKDIR /root/comaps
 CMD ./gradlew -Parm64 assembleFdroidDebug

@@ -27,6 +27,15 @@ NS_SWIFT_NAME(StorageObserver)
 
 @end
 
+// Note: This enum must be kept in sync with storage::CheckUpdatesStatus in storage_defines.hpp
+typedef NS_ENUM(NSInteger, MWMCheckUpdatesStatus) {
+  MWMCheckUpdatesStatusUndefined = 0,
+  MWMCheckUpdatesStatusUpdated,
+  MWMCheckUpdatesStatusNoUpdate,
+  MWMCheckUpdatesStatusEOL,
+  MWMCheckUpdatesStatusError
+};
+
 NS_SWIFT_NAME(Storage)
 @interface MWMStorage : NSObject
 
@@ -48,6 +57,9 @@ ignoreUnsavedEdits:(BOOL)force
 
 - (void)addObserver:(id<MWMStorageObserver>)observer;
 - (void)removeObserver:(id<MWMStorageObserver>)observer;
+
+- (void)startCheckUpdates;
+- (void)setCheckUpdatesListener:(void (^ _Nullable)(MWMCheckUpdatesStatus status))listener;
 
 #pragma mark - Attributes
 

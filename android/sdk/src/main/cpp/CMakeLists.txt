@@ -26,6 +26,12 @@ set(SRC
   app/organicmaps/sdk/search/DisplayedCategories.cpp
   app/organicmaps/sdk/search/SearchEngine.cpp
   app/organicmaps/sdk/search/SearchRecents.cpp
+  app/organicmaps/sdk/routing/roadshield/RoadShield.cpp
+  app/organicmaps/sdk/routing/roadshield/RoadShield.hpp
+  app/organicmaps/sdk/routing/roadshield/RoadShieldInfo.cpp
+  app/organicmaps/sdk/routing/roadshield/RoadShieldInfo.hpp
+  app/organicmaps/sdk/routing/roadshield/RoadShieldType.cpp
+  app/organicmaps/sdk/routing/roadshield/RoadShieldType.hpp
   app/organicmaps/sdk/routing/JunctionInfo.hpp
   app/organicmaps/sdk/routing/LaneInfo.cpp
   app/organicmaps/sdk/routing/LaneInfo.hpp
@@ -33,6 +39,8 @@ set(SRC
   app/organicmaps/sdk/routing/RouteMarkType.hpp
   app/organicmaps/sdk/routing/RoutePointInfo.hpp
   app/organicmaps/sdk/routing/RouteRecommendationType.hpp
+  app/organicmaps/sdk/routing/RouteStepInfo.cpp
+  app/organicmaps/sdk/routing/RouteStepInfo.hpp
   app/organicmaps/sdk/routing/RoutingInfo.hpp
   app/organicmaps/sdk/routing/RoutingOptions.cpp
   app/organicmaps/sdk/routing/TransitRouteInfo.hpp

@@ -6,6 +6,8 @@
 #import "MWMSearch+CoreSpotlight.h"
 #import "MWMSettings.h"
 
+#include "search/displayed_categories.hpp"
+
 @implementation MWMSearch (CoreSpotlight)
 
 + (void)addCategoriesToSpotlight

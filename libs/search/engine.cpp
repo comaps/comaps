@@ -1,13 +1,14 @@
 #include "search/engine.hpp"
 
 #include "search/processor.hpp"
-
-#include "storage/country_info_getter.hpp"
+#include "search/search_params.hpp"
 
 #include "indexer/categories_holder.hpp"
 #include "indexer/search_string_utils.hpp"
 
+#include "base/logging.hpp"
 #include "base/scope_guard.hpp"
+#include "base/string_utils.hpp"
 #include "base/timer.hpp"
 
 #include <algorithm>

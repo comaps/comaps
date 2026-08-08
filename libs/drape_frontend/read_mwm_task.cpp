@@ -1,5 +1,9 @@
 #include "drape_frontend/read_mwm_task.hpp"
 
+#include "drape_frontend/tile_info.hpp"
+
+#include "base/assert.hpp"
+
 namespace df
 {
 ReadMWMTask::ReadMWMTask(MapDataProvider & model) : m_model(model)

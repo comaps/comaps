@@ -42,6 +42,7 @@ set(SRC
   relation_tags_tests.cpp
   restriction_collector_test.cpp
   restriction_test.cpp
+  reviews_section_builder_tests.cpp
   road_access_test.cpp
   source_data.cpp
   source_data.hpp
@@ -57,7 +58,20 @@ set(SRC
 omim_add_test(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  platform_tests_support
-  generator_tests_support
-  generator
+  PUBLIC
+    base
+    indexer
+  PRIVATE
+    coding
+    descriptions
+    generator
+    generator_tests_support
+    geometry
+    i18n
+    platform
+    platform_tests_support
+    routing
+    routing_common
+    search
+    traffic
 )

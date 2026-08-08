@@ -3,9 +3,10 @@ import os
 import json
 import sys
 
+# Languages list should correspond to libs/indexer/categories_holder.hpp::kLocaleMapping
 LANGUAGES = (
-    'af', 'ar', 'be', 'bg', 'ca', 'cs', 'da', 'de', 'el', 'en', 'en-AU',
-    'en-GB', 'en-US', 'es', 'es-MX', 'et', 'eu', 'fa', 'fi', 'fr', 'fr-CA',
+    'ar', 'be', 'bg', 'ca', 'cs', 'da', 'de', 'el', 'en', 'en-AU',
+    'en-GB', 'en-US', 'es', 'es-MX', 'et', 'eu', 'fa', 'fi', 'fr',
     'he', 'hi', 'hu', 'id', 'it', 'ja', 'ko', 'lt', 'lv', 'mr', 'nb', 'nl',
     'pl', 'pt', 'pt-BR', 'ro', 'ru', 'sk', 'sr', 'sv', 'sw', 'th', 'tr', 'uk',
     'vi', 'zh-Hans', 'zh-Hant'
@@ -31,7 +32,7 @@ def collect_all_keys(base_dir):
     for lang_dir in lang_dirs:
         lang = lang_dir.replace('.json', '')
         if lang not in LANGUAGES:
-            print(f"Skipping unsupported language directory: {lang_dir}")
+            print(f"WARNING: Skipping unsupported language directory: {lang_dir}")
             continue
         full_path = os.path.join(base_dir, lang_dir)
         if os.path.isdir(full_path):

@@ -681,8 +681,6 @@
 "yes_available" = "olemas";
 /* E.g. "WiFi:No" */
 "no_available" = "puudub";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Kohti: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Võrgustik: %@";
 "trip_finished" = "Oled kohal!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Lisa koht";
 "contribute_to_osm_update_map" = "Kaastöö tegemiseks palun uuenda kaarti";
 "contribute_to_osm_update_map_description" = "Enne OpenStreetMapi andmete täiendamist palun uuenda „%@“ kaart viimase versioonini";
+"downloader_check_updates_button" = "Kontrolli uuendusi";
+"downloader_check_updates_checking" = "Kontrollin uuendusi...";
+"downloader_check_updates_updated" = "Saadaval on kaartide uuendused!";
+"downloader_check_updates_no_updates" = "Uuendusi pole saadaval";
+"downloader_check_updates_eol" = "Selle rakenduse versiooni jaoks enam kaardiuuendusi ei lisandu. Palun uuenda rakendust!";
+"downloader_check_updates_error" = "Viga uuenduste olemaolu kontrollimisel";
+"editor_add_select_category_recent_subtitle" = "Hiljuti kasutatud";
+"oh_unknown" = "Tööaeg pole teada";
+"carplay_highway_exit" = "Ärapööre %@";
+"capacity_disabled_yes" = "On eraldi kohad puuetega inimeste jaoks";
+"capacity_disabled_no" = "Pole eraldi parkimiskohti puuetega inimeste jaoks";
+"capacity_charging_yes" = "On laadijatega parkimiskohad";
+"capacity_charging_no" = "Pole laadijatega parkimiskohti";
+"planning_route_preview" = "Eelvaade";
+"planning_route_preview_sheet_title" = "Teekonna eelvaade";

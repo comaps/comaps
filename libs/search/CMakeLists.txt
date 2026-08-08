@@ -42,8 +42,6 @@ set(SRC
   doc_vec.hpp
   downloader_search_callback.cpp
   downloader_search_callback.hpp
-  dummy_rank_table.cpp
-  dummy_rank_table.hpp
   editor_delegate.cpp
   editor_delegate.hpp
   emitter.hpp
@@ -171,10 +169,23 @@ set(SRC
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  editor
-  storage
-  ge0
-  openlocationcode
+  PUBLIC
+    base
+    coding
+    editor
+    ge0
+    geometry
+    i18n
+    indexer
+    kml
+    storage
+  PRIVATE
+    platform
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    openlocationcode
 )
 
 if(NOT (SKIP_TOOLS AND SKIP_TESTS))

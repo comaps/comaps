@@ -2,10 +2,21 @@
 
 #include "drape_frontend/visual_params.hpp"
 
+#include "drape/attribute_buffer_mutator.hpp"
 #include "drape/glsl_func.hpp"
+#include "drape/gpu_program.hpp"
+#include "drape/graphics_context.hpp"
+#include "drape/render_bucket.hpp"
 #include "drape/utils/projection.hpp"
 
+#include "indexer/feature_decl.hpp"
+#include "indexer/mwm_set.hpp"
+
+#include "geometry/screenbase.hpp"
+
+#include "base/assert.hpp"
 #include "base/logging.hpp"
+#include "base/macros.hpp"
 
 #include <algorithm>
 #include <array>

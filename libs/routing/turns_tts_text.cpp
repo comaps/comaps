@@ -1,10 +1,15 @@
 #include "routing/turns_tts_text.hpp"
 
+#include "routing/route.hpp"
+#include "routing/turns.hpp"
 #include "routing/turns_sound_settings.hpp"
 #include "routing/turns_tts_text_i18n.hpp"
 
 #include "indexer/road_shields_parser.hpp"
 
+#include "platform/measurement_utils.hpp"
+
+#include "base/assert.hpp"
 #include "base/string_utils.hpp"
 
 #include <string>
@@ -18,11 +23,13 @@ namespace
 {
 
 template <class TIter>
-std::string DistToTextId(TIter begin, TIter end, uint32_t dist)
+std::string DistToTextId(TIter begin, TIter end, uint32_t dist, std::string overflowTextId)
 {
   TIter const it = std::lower_bound(begin, end, dist, [](auto const & p1, uint32_t p2) { return p1.first < p2; });
   if (it == end)
   {
+    if (overflowTextId != "")
+      return overflowTextId;
     ASSERT(false, ("notification.m_distanceUnits is not correct."));
     return {};
   }
@@ -105,8 +112,13 @@ std::string GetTtsText::GetTurnNotification(Notification const & notification) c
   std::string dirStr = GetTextByIdTrimmed(dirKey);
 
   if (notification.m_distanceUnits == 0 && !notification.m_useThenInsteadOfDistance &&
-      notification.m_nextStreetInfo.empty())
+      !notification.m_useAtRoundaboutPrefix && notification.m_nextStreetInfo.empty())
+  {
+    if (notification.m_removeLastDot)
+      RemoveLastDot(dirStr);
+
     return dirStr;
+  }
 
   if (notification.IsPedestrianNotification())
   {
@@ -120,18 +132,55 @@ std::string GetTtsText::GetTurnNotification(Notification const & notification) c
   if (dirStr.empty())
     return {};
 
-  std::string thenStr;
+  std::string prefixStr;
+  // Add "Then" prefix if useThenInsteadOfDistance is set, except for the roundabout-entrance
+  // reminder case (LeaveRoundAbout at distance 0 without the roundabout prefix) — that's the
+  // "take the Nth exit" reminder issued right at the entrance, where "Then" would be wrong.
   if (notification.m_useThenInsteadOfDistance)
   {
-    // add "then" and space only if needed, for appropriate languages
-    thenStr = GetTextByIdTrimmed("then");
-    if (localeKey != "ja")
-      thenStr.push_back(' ');
+    bool const isRoundaboutEntranceReminder = notification.m_turnDir == CarDirection::LeaveRoundAbout &&
+                                              notification.m_distanceUnits == 0 &&
+                                              !notification.m_useAtRoundaboutPrefix;
+    if (!isRoundaboutEntranceReminder)
+    {
+      prefixStr = GetTextByIdTrimmed("then");
+      if (localeKey != "ja")
+        prefixStr.push_back(' ');
+    }
   }
 
   std::string distStr;
   if (notification.m_distanceUnits > 0)
-    distStr = GetTextByIdTrimmed(GetDistanceTextId(notification));
+    distStr =
+        GetTextByIdTrimmed(GetDistanceUntilTextId(notification.m_distanceUnits, notification.m_lengthUnits, false));
+
+  // For T-junction turns, "At the end of the road, ..." replaces the distance phrase.
+  if (notification.m_useAtEndOfRoadPrefix)
+  {
+    std::string endOfRoadStr = GetTextByIdTrimmed("at_the_end_of_the_road");
+    if (!endOfRoadStr.empty())
+      distStr = std::move(endOfRoadStr);
+  }
+
+  // "At the roundabout, take the Nth exit" — distance moves into the prefix so it reads
+  // naturally as "In 500 meters, at the roundabout, take the Nth exit".
+  if (notification.m_useAtRoundaboutPrefix)
+  {
+    if (!distStr.empty())
+    {
+      prefixStr += distStr;
+      if (localeKey != "ja")
+        prefixStr.push_back(' ');
+      distStr.clear();
+    }
+    std::string atRoundaboutStr = GetTextByIdTrimmed("enter_the_roundabout");
+    if (!atRoundaboutStr.empty())
+    {
+      if (localeKey != "ja")
+        atRoundaboutStr.push_back(' ');
+      prefixStr += atRoundaboutStr;
+    }
+  }
 
   // Get a string like 245; CA 123; Highway 99; San Francisco
   // In the future we could use the full RoadNameInfo struct to do some nice formatting.
@@ -231,7 +280,7 @@ std::string GetTtsText::GetTurnNotification(Notification const & notification) c
     // trim leading spaces
     strings::Trim(cleanOut);
 
-    return thenStr + cleanOut;
+    return prefixStr + cleanOut;
   }
 
   std::string out;
@@ -239,14 +288,17 @@ std::string GetTtsText::GetTurnNotification(Notification const & notification) c
   {
     // add distance and/or space only if needed, for appropriate languages
     if (localeKey != "ja")
-      out = thenStr + distStr + " " + dirStr;
+      out = prefixStr + distStr + " " + dirStr;
     else
-      out = thenStr + distStr + dirStr;
+      out = prefixStr + distStr + dirStr;
   }
   else
   {
-    out = thenStr + dirStr;
+    out = prefixStr + dirStr;
   }
+
+  if (notification.m_removeLastDot)
+    RemoveLastDot(out);
 
   return out;
 }
@@ -254,6 +306,15 @@ std::string GetTtsText::GetTurnNotification(Notification const & notification) c
 std::string GetTtsText::GetRecalculatingNotification() const
 {
   return GetTextById("route_recalculating");
+}
+
+std::string GetTtsText::GetOffRouteNotification(uint32_t distanceUnits, measurement_utils::Units lengthUnits) const
+{
+  char ttsOut[100];
+  std::string notRecalculatingMessage = GetTextById("route_not_recalculating");
+  std::snprintf(ttsOut, std::size(ttsOut), notRecalculatingMessage.c_str(),
+                GetTextById(GetDistanceFromTextId(distanceUnits, lengthUnits, true)).c_str());
+  return ttsOut;
 }
 
 std::string GetTtsText::GetSpeedCameraNotification() const
@@ -290,18 +351,31 @@ std::string GetTtsText::GetTextById(std::string const & textId) const
   return (*m_getCurLang)(textId);
 }
 
-std::string GetDistanceTextId(Notification const & notification)
+std::string GetDistanceUntilTextId(uint32_t distanceUnits, measurement_utils::Units lengthUnits, bool allowOverflow)
 {
-  //  if (notification.m_useThenInsteadOfDistance)
-  //    return "then";
-
-  switch (notification.m_lengthUnits)
+  switch (lengthUnits)
   {
   case measurement_utils::Units::Metric:
-    return DistToTextId(GetAllSoundedDistMeters().cbegin(), GetAllSoundedDistMeters().cend(),
-                        notification.m_distanceUnits);
+    return DistToTextId(GetAllSoundedDistUntilMeters().cbegin(), GetAllSoundedDistUntilMeters().cend(), distanceUnits,
+                        allowOverflow ? "in_over_3_kilometers" : "");
   case measurement_utils::Units::Imperial:
-    return DistToTextId(GetAllSoundedDistFeet().cbegin(), GetAllSoundedDistFeet().cend(), notification.m_distanceUnits);
+    return DistToTextId(GetAllSoundedDistUntilFeet().cbegin(), GetAllSoundedDistUntilFeet().cend(), distanceUnits,
+                        allowOverflow ? "in_over_2_miles" : "");
+  }
+  UNREACHABLE();
+  return {};
+}
+
+std::string GetDistanceFromTextId(uint32_t distanceUnits, measurement_utils::Units lengthUnits, bool allowOverflow)
+{
+  switch (lengthUnits)
+  {
+  case measurement_utils::Units::Metric:
+    return DistToTextId(GetAllSoundedDistFromMeters().cbegin(), GetAllSoundedDistFromMeters().cend(), distanceUnits,
+                        allowOverflow ? "from_over_3_kilometers" : "");
+  case measurement_utils::Units::Imperial:
+    return DistToTextId(GetAllSoundedDistFromFeet().cbegin(), GetAllSoundedDistFromFeet().cend(), distanceUnits,
+                        allowOverflow ? "from_over_2_miles" : "");
   }
   ASSERT(false, ());
   return {};
@@ -314,7 +388,12 @@ std::string GetRoundaboutTextId(Notification const & notification)
     ASSERT(false, ());
     return {};
   }
-  if (!notification.m_useThenInsteadOfDistance)
+
+  // "Take the Nth exit" is used either as a chained "Then. Take the third exit." instruction
+  // (m_useThenInsteadOfDistance) or as an advance "In 500 meters, at the roundabout, take the
+  // third exit." instruction (m_useAtRoundaboutPrefix).
+  if (!notification.m_useAtRoundaboutPrefix && !notification.m_alwaysUseRoundaboutExitNumbers &&
+      !notification.m_useThenInsteadOfDistance)
     return "leave_the_roundabout";  // Notification just before leaving a roundabout.
 
   static constexpr uint8_t kMaxSoundedExit = 11;

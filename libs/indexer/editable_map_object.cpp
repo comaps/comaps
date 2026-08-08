@@ -3,12 +3,21 @@
 #include "indexer/classificator.hpp"
 #include "indexer/edit_journal.hpp"
 #include "indexer/feature_charge_sockets.hpp"
+#include "indexer/feature_data.hpp"
+#include "indexer/feature_decl.hpp"
 #include "indexer/feature_meta.hpp"
+#include "indexer/feature_utils.hpp"
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/mwm_set.hpp"
 #include "indexer/postcodes_matcher.hpp"
 #include "indexer/validate_and_format_contacts.hpp"
 
-#include "base/control_flow.hpp"
+#include "i18n/string_utf8_multilang.hpp"
+
+#include "base/assert.hpp"
+#include "base/logging.hpp"
+#include "base/macros.hpp"
+#include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
 #include <algorithm>
@@ -17,6 +26,8 @@
 #include <iomanip>
 #include <regex>
 #include <sstream>
+
+#include <utf8/unchecked.h>
 
 namespace osm
 {

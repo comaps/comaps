@@ -2,7 +2,6 @@
 
 #include "drape/attribute_provider.hpp"
 #include "drape/graphics_context.hpp"
-#include "drape/overlay_handle.hpp"
 #include "drape/pointers.hpp"
 #include "drape/render_bucket.hpp"
 #include "drape/render_state.hpp"

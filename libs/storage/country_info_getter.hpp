@@ -3,9 +3,8 @@
 #include "storage/country_decl.hpp"
 #include "storage/storage_defines.hpp"
 
-#include "platform/platform.hpp"
-
 #include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 #include "geometry/region2d.hpp"
 
 #include "coding/files_container.hpp"
@@ -20,6 +19,8 @@
 #include <vector>
 
 #include "3party/ankerl/unordered_dense.h"
+
+class Platform;
 
 namespace storage
 {

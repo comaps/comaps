@@ -3,6 +3,7 @@
 #include "tracking/protocol.hpp"
 #include "tracking/reporter.hpp"
 
+#include "coding/reader.hpp"
 #include "coding/traffic.hpp"
 
 #include "platform/location.hpp"

@@ -15,7 +15,7 @@
     <string name="type.aeroway.aerodrome">Havaalanı</string>
     <string name="type.aeroway.aerodrome.international">Uluslararası Havalimanı</string>
     <string name="type.aeroway.apron">Peron</string>
-    <string name="type.aeroway.gate">Geçit</string>
+    <string name="type.aeroway.gate">Kapı</string>
     <string name="type.aeroway.helipad">Helikopter Pisti</string>
     <string name="type.aeroway.runway">Pist</string>
     <string name="type.aeroway.taxiway">Taksi Yolu</string>
@@ -376,7 +376,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tünel</string>
     <string name="type.highway.bus_stop">Otobüs Durağı</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.motorway">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.motorway_link">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.trunk">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.trunk_link">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.primary">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.primary_link">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.secondary">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.secondary_link">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.tertiary">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.tertiary_link">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.residential">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.unclassified">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.service">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.living_street">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.road">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.track">Yapım Aşamasında Yol</string>
     <string name="type.highway.cycleway">Bisiklet Yolu</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Köprü</string>
@@ -626,7 +643,7 @@
     <string name="type.leisure.ice_rink">Buz Pateni Pisti</string>
     <string name="type.leisure.marina">Liman</string>
     <string name="type.leisure.nature_reserve">Doğal Koruma Alanı</string>
-    <string name="type.leisure.outdoor_seating">Dış mekan oturma</string>
+    <string name="type.leisure.outdoor_seating">Açık Oturma Alanı</string>
     <string name="type.leisure.park">Park</string>
     <string name="type.leisure.park.no.access">Park</string>
     <string name="type.leisure.park.permissive">Park</string>
@@ -638,8 +655,8 @@
     <string name="type.leisure.sauna">Sauna</string>
     <string name="type.leisure.slipway">Kızak</string>
     <string name="type.leisure.sports_centre">Spor Merkezi</string>
-    <string name="type.sport.climbing">Tırmanma Merkezi</string>
-    <string name="type.sport.yoga">Yoga Stüdyosu</string>
+    <string name="type.sport.climbing">Tırmanma</string>
+    <string name="type.sport.yoga">Yoga</string>
     <string name="type.leisure.stadium">Stadyum</string>
     <string name="type.leisure.swimming_pool">Yüzme Havuzu</string>
     <string name="type.leisure.swimming_pool.private">Yüzme Havuzu</string>
@@ -1415,4 +1432,9 @@
     <string name="type.amenity.car_pooling">Araç Paylaşım İstasyonu</string>
     <string name="type.amenity.payment_centre">Ödeme Merkezi</string>
     <string name="type.shop.beauty.nails">Tırnak Salonu</string>
+    <string name="type.amenity.planetarium">Planetaryum</string>
+    <string name="type.entrance.garage">Garaj Girişi</string>
+    <string name="type.entrance.emergency">Acil Çıkış</string>
+    <string name="type.railway.disused.tunnel">Kullanılmayan Demir Yolu Tüneli</string>
+    <string name="type.amenity.stage">Sahne</string>
 </resources>

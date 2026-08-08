@@ -68,9 +68,9 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Lisää uusi valikoima</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Kirjanmerkkivalikoiman nimi</string>
+    <string name="bookmark_set_name">Listan nimi</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Kirjanmerkit</string>
+    <string name="bookmarks">Paikat</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
     <string name="bookmarks_and_tracks">Suosikit</string>
     <!-- Add bookmark dialog - bookmark name -->
@@ -186,13 +186,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Pituus</string>
     <string name="share_my_location">Jaa sijaintini</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Yleiset asetukset</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Tietoja</string>
     <string name="prefs_group_route">Navigointi</string>
     <string name="pref_zoom_title">Zoomauspainikkeet</string>
     <string name="pref_zoom_summary">Näytä kartalla</string>
+    <string name="prefs_group_advanced">Lisäasetukset</string>
+    <string name="download_resources_custom_url_title">Mukautettu karttapalvelin</string>
+    <string name="download_resources_custom_url_message">Ohita karttalatausten oletuspalvelin. Jätä tyhjäksi käyttääksesi CoMapsin oletuspalvelinta.</string>
+    <string name="download_resources_custom_url_summary_none">Ei asetettu</string>
+    <string name="download_resources_custom_url_error_scheme">Anna URL-osoite, joka alkaa http:// tai https://</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Yötila</string>
     <!-- Generic «Off» string -->
@@ -251,7 +254,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Liikuta puhelinta kahdeksikon suuntaisella liikkeellä kompassin kalibroimiseksi ja nuolen suunnan määrittämiseksi kartalla.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Paina karttaa pitkään uudelleen nähdäksesi käyttöliittymän</string>
+    <string name="enable_long_tap_fullscreen_description">Paina karttaa pitkään uudelleen nähdäksesi käyttöliittymän</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Päivitä kaikki</string>
     <!-- Cancel all button text -->
@@ -588,7 +591,7 @@
         <item quantity="other">%d reittiä</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Yksityisyys</string>
+    <string name="prefs_group_privacy">Yksityisyys</string>
     <string name="privacy_policy">Yksityisyyskäytäntö</string>
     <string name="terms_of_use">Käyttöehdot</string>
     <string name="button_layer_traffic">Liikenne</string>
@@ -616,7 +619,7 @@
     <string name="power_managment_setting_auto">Automaattinen</string>
     <string name="power_managment_setting_manual_max">Täysi virransäästö</string>
     <string name="enable_logging_warning_message">Valinta ottaa käyttöön lokikirjaukset diagnostiikkaa varten. Se voi auttaa tukihenkilöstöämme, kun he korjaavat sovelluksen ongelmia. Ota tämä ominaisuus käyttöön vain, jos CoMaps:n tuki pyytää.</string>
-    <string name="driving_options_title">Reititysvalinnat</string>
+    <string name="routing_options_title">Reititysvalinnat</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Vältä maksullisia teitä</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -901,11 +904,6 @@
     <string name="prefs_speed_cameras_information">Nopeuskameravaroitukset on poistettu käytöstä niissä maissa, missä varoitukset on kielletty lain nojalla.</string>
     <string name="power_management">Virranhallinta</string>
     <string name="navigation_start_tts_message">"Käynnistetään navigointi, ääniohjeistuksen kieli: "</string>
-    <string name="advanced">Lisäasetukset</string>
-    <string name="download_resources_custom_url_title">Mukautettu karttapalvelin</string>
-    <string name="download_resources_custom_url_summary_none">Ei asetettu</string>
-    <string name="download_resources_custom_url_error_scheme">Anna URL-osoite, joka alkaa http:// tai https://</string>
-    <string name="download_resources_custom_url_message">Ohita karttalatausten oletuspalvelin. Jätä tyhjäksi käyttääksesi CoMapsin oletuspalvelinta.</string>
     <string name="navigation_start_tts_disabled_message">Ääniohjeistukset pois käytöstä: TTS-moottori ei saatavilla</string>
     <string name="charge_socket_schuko">EU</string>
     <string name="pref_speedlimit_title">Näytä nopeusrajoitukset</string>

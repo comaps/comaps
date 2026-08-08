@@ -1,10 +1,10 @@
-• Dados do OSM de 21/04
-• Adicionada a configuração do idioma da interface da aplicação
-• Android Auto: exibição do limite de velocidade durante a navegação
-• Android Auto: cores de fundo padrão em vez do verde personalizado
-• Alternância no painel de navegação entre próxima paragem e destino final
-• Corrigidos erros na navegação por voz
-• Vários ajustes e correções na interface do utilizador
-• Maior contraste nos nomes dos corpos de água no modo claro
+• Mostra opções de percurso ativadas e botão para alterar ao criar
+• Pré-visualização das instruções de navegação passo a passo
+• Opções de percurso por meio de transporte
+• Instruções melhoradas para rotundas, inversões e outros casos
+• Ícones de destino e paragens na barra de progresso
+• Adicionados símbolos de estrada aos sinais de direção e melhores descrições de manobra
+• Pesquisa em todas as listas de favoritos
+• Definições divididas em subpáginas
 
 Mais detalhes em comaps.app/latest

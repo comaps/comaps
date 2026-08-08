@@ -1,6 +1,8 @@
 #include "lanes_recommendation.hpp"
 
+#include "routing/lanes/lane_way.hpp"
 #include "routing/route.hpp"
+#include "routing/turns.hpp"
 
 namespace routing::turns::lanes
 {

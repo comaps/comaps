@@ -1,7 +1,7 @@
 #pragma once
 #include "descriptions/serdes.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "i18n/localisation.hpp"
 
 #include "base/assert.hpp"
 #include "base/geo_object_id.hpp"

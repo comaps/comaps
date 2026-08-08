@@ -1,6 +1,8 @@
 #include "qt/about.hpp"
 #include "qt/html_processor.hpp"
 
+#include "coding/reader.hpp"
+
 #include "platform/platform.hpp"
 #include "platform/preferred_languages.hpp"
 

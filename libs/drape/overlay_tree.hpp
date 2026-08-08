@@ -1,8 +1,14 @@
 #pragma once
 
+#include "drape/color.hpp"
 #include "drape/drape_diagnostics.hpp"
 #include "drape/overlay_handle.hpp"
+#include "drape/pointers.hpp"
 
+#include "indexer/feature_decl.hpp"
+
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 #include "geometry/screenbase.hpp"
 #include "geometry/tree4d.hpp"
 

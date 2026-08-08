@@ -1,15 +1,21 @@
 #include "drape_frontend/poi_symbol_shape.hpp"
 
 #include "drape_frontend/color_constants.hpp"
+#include "drape_frontend/render_state_extension.hpp"
+#include "drape_frontend/tile_key.hpp"
 
 #include "shaders/programs.hpp"
 
 #include "drape/attribute_provider.hpp"
 #include "drape/batcher.hpp"
+#include "drape/glsl_types.hpp"
+#include "drape/overlay_handle.hpp"
+#include "drape/render_state.hpp"
 #include "drape/texture_manager.hpp"
 #include "drape/utils/vertex_decl.hpp"
 
 #include "base/buffer_vector.hpp"
+#include "base/macros.hpp"
 
 #include <utility>
 

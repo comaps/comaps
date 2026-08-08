@@ -386,7 +386,24 @@
     <string name="type.highway.busway.bridge">பாலம்</string>
     <string name="type.highway.busway.tunnel">சுரங்கப்பாதை</string>
     <string name="type.highway.bus_stop">பேருந்து நிறுத்தம்</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.motorway">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.motorway_link">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.trunk">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.trunk_link">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.primary">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.primary_link">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.secondary">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.secondary_link">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.tertiary">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.tertiary_link">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.residential">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.unclassified">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.service">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.living_street">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.road">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.track">சாலை கட்டுமானத்தில் உள்ளது</string>
     <string name="type.highway.cycleway">சைக்கிள் பாதை</string>
     <string name="type.highway.cycleway.bridge">பாலம்</string>
     <string name="type.highway.cycleway.permissive">சைக்கிள் பாதை</string>
@@ -738,8 +755,8 @@
     <string name="type.office.lawyer">வழக்கறிஞர்</string>
     <string name="type.office.ngo">அரசு சாரா அமைப்பு</string>
     <string name="type.office.telecommunication">டெலிகாம் நிறுவனம்</string>
-    <string name="type.organic.only">ஆர்கானிக்</string>
-    <string name="type.organic.yes">ஆர்கானிக்</string>
+    <string name="type.organic.only">கரிம மட்டும்</string>
+    <string name="type.organic.yes">கரிம விருப்பங்கள்</string>
     <string name="type.place.city">நகரம்</string>
     <string name="type.place.city.capital">மூலதனம்</string>
     <string name="type.place.city.capital.10">நகரம்</string>
@@ -1252,7 +1269,7 @@
     <string name="type.tourism.artwork.painting">ஓவியம்</string>
     <string name="type.tourism.artwork.sculpture">சிற்பம்</string>
     <string name="type.tourism.artwork.statue">சிலை</string>
-    <string name="type.tourism.attraction">ஈர்ப்பு</string>
+    <string name="type.tourism.attraction">சுற்றுலா ஈர்ப்பு</string>
     <string name="type.attraction.amusement_ride">பொழுதுபோக்கு சவாரி</string>
     <string name="type.attraction.animal">விலங்கு அடைப்பு</string>
     <string name="type.attraction.bumper_car">பம்பர் கார்</string>
@@ -1413,4 +1430,15 @@
     <string name="type.railway.miniature.tunnel">சிறிய சித்திரம் தொடர்வண்டி சுரங்கப்பாதை</string>
     <string name="type.railway.turntable">தொடர்வண்டி திரும்புமேசை</string>
     <string name="type.tourism.information.tactile_map">தொட்டுணரக்கூடிய வரைபடம்</string>
+    <string name="type.amenity.community_centre.youth_centre">இளைஞர் மையம்</string>
+    <string name="type.leisure.sports_centre.sport.boules">விளையாட்டு நடுவண்</string>
+    <string name="type.leisure.sports_centre.sport.four_square">விளையாட்டு நடுவண்</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">விளையாட்டு நடுவண்</string>
+    <string name="type.organic.no">கரிம விருப்பங்கள் இல்லை</string>
+    <string name="type.shop.water">தண்ணீர் கடை</string>
+    <string name="type.sport.boules">பந்துகள்</string>
+    <string name="type.sport.four_square">நான்கு சதுரம்</string>
+    <string name="type.sport.pickleball">ஊறுகாய் பந்து</string>
+    <string name="type.attraction">ஈர்ப்பு</string>
+    <string name="type.waterway.fuel">மெரினா எரிபொருள் கப்பல்துறை</string>
 </resources>

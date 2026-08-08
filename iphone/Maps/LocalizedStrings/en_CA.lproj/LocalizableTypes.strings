@@ -935,7 +935,7 @@
 "type.railway.funicular" = "Funicular";
 "type.railway.funicular.bridge" = "Funicular Bridge";
 "type.railway.funicular.tunnel" = "Funicular Tunnel";
-"type.railway.halt" = "Rail Halt";
+"type.railway.halt" = "Rail Stop";
 "type.railway.level_crossing" = "Level Crossing";
 "type.railway.light_rail" = "Light Rail";
 "type.railway.light_rail.bridge" = "Light Rail Bridge";

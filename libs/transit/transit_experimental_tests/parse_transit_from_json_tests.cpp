@@ -10,6 +10,8 @@
 #include <utility>
 #include <vector>
 
+#include "cppjansson/cppjansson.hpp"
+
 namespace transit
 {
 namespace experimental

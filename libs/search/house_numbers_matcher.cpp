@@ -2,6 +2,8 @@
 
 #include "indexer/string_set.hpp"
 
+#include "base/assert.hpp"
+
 #include <algorithm>
 #include <iterator>
 #include <limits>

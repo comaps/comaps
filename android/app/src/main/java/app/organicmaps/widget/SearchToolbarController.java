@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import app.organicmaps.R;
+import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.util.InputUtils;
 import app.organicmaps.util.UiUtils;
@@ -76,6 +77,8 @@ public class SearchToolbarController extends ToolbarController implements View.O
 
       return (isSearchDown || isSearchAction) && onStartSearchClick();
     });
+    if (!Config.isSearchHistoryEnabled())
+      mQuery.setImeOptions(mQuery.getImeOptions() | EditorInfo.IME_FLAG_NO_PERSONALIZED_LEARNING);
     mProgress = mSearchContainer.findViewById(R.id.progress);
     mVoiceInput = mSearchContainer.findViewById(R.id.voice_input);
     mVoiceInput.setOnClickListener(this);

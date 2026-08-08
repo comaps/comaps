@@ -59,6 +59,8 @@ set(SRC
   search_panel.cpp
   search_panel.hpp
   selection.hpp
+  star_rating_widget.cpp
+  star_rating_widget.hpp
   update_dialog.cpp
   update_dialog.hpp
 )
@@ -68,16 +70,34 @@ omim_add_executable(${PROJECT_NAME} MACOSX_BUNDLE ${RES_SOURCES} ${SRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES AUTOMOC ON)
 
 target_link_libraries(${PROJECT_NAME}
-  generator  # For borders::LoadBorders
-  qt_common
-  map
-  gflags::gflags
-  location_service
-  traffxml
+  PUBLIC
+    base
+    drape_frontend
+    geometry
+    indexer
+    kml
+    location_service
+    map
+    platform
+    qt_common
+    routing
+    search
+    storage
+    traffxml
+  PRIVATE
+    coding
+    editor
+    generator  # For borders::LoadBorders
+    i18n
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PRIVATE
+    gflags::gflags
 )
 
 if (BUILD_DESIGNER)
-  target_link_libraries(${PROJECT_NAME} generator)
+  target_link_libraries(${PROJECT_NAME} PRIVATE generator)
   set(BUNDLE_NAME "CoMaps-Designer")
   set(BUNDLE_DISPLAY_NAME "CoMaps Designer")
   set(BUNDLE_ICON designer.icns)
@@ -112,7 +132,6 @@ set(DATA_FILES
   symbols
   welcome.html
   categories.txt
-  categories_cuisines.txt
   classificator.txt
   colors.txt
   copyright.html

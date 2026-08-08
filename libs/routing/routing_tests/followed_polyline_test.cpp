@@ -2,6 +2,7 @@
 
 #include "routing/base/followed_polyline.hpp"
 
+#include "geometry/mercator.hpp"
 #include "geometry/polyline2d.hpp"
 
 namespace routing_test

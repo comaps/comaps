@@ -1,6 +1,6 @@
 #include "storage/map_files_downloader.hpp"
 
-#include "storage/queued_country.hpp"
+#include "storage/downloading_policy.hpp"
 
 #include "platform/downloader_utils.hpp"
 #include "platform/http_client.hpp"
@@ -12,31 +12,13 @@
 #include "coding/url.hpp"
 
 #include "base/assert.hpp"
-#include "base/string_utils.hpp"
+#include "base/logging.hpp"
 
 namespace storage
 {
 void MapFilesDownloader::DownloadMapFile(QueuedCountry && queuedCountry)
 {
-  /// @todo(pastk): check for new map versions before every download session
-
-  if (!m_serversList.empty())
-  {
-    Download(std::move(queuedCountry));
-    return;
-  }
-
   m_pendingRequests.Append(std::move(queuedCountry));
-
-  if (!m_isMetaConfigRequested)
-  {
-    RunMetaConfigAsync([this]()
-    {
-      m_pendingRequests.ForEachCountry([this](QueuedCountry & country) { Download(std::move(country)); });
-
-      m_pendingRequests.Clear();
-    });
-  }
 }
 
 void MapFilesDownloader::RunMetaConfigAsync(std::function<void()> && callback)
@@ -68,9 +50,25 @@ void MapFilesDownloader::Clear()
   m_pendingRequests.Clear();
 }
 
-QueueInterface const & MapFilesDownloader::GetQueue() const
+QueueInterface & MapFilesDownloader::GetQueue()
 {
   return m_pendingRequests;
+}
+
+Queue & MapFilesDownloader::GetPendingRequests()
+{
+  return m_pendingRequests;
+}
+
+void MapFilesDownloader::StartPendingMapDownloads()
+{
+  if (!m_pendingRequests.IsEmpty())
+    EnsureMetaConfigReady([this]()
+    {
+      LOG(LINFO, ("Starting pending map downloads..."));
+      m_pendingRequests.ForEachCountry([this](QueuedCountry & country) { Download(std::move(country)); });
+      m_pendingRequests.Clear();
+    });
 }
 
 void MapFilesDownloader::DownloadAsStringFromMeta(std::string url, std::function<bool(std::string const &)> && callback,
@@ -96,13 +94,10 @@ void MapFilesDownloader::DownloadAsStringFromMeta(std::string url, std::function
     bool deleteRequest = true;
     auto const & buffer = request.GetData();
 
-    LOG(LDEBUG, ("DownloadAsString: status=", request.GetStatus(), "bytes=", buffer.size()));
+    LOG(LDEBUG, ("DownloadAsStringFromMeta: status=", request.GetStatus(), "bytes=", buffer.size()));
 
-    if (!buffer.empty())
-    {
-      // Update deleteRequest flag if new download was requested in callback.
-      deleteRequest = !callback(buffer);
-    }
+    // Update deleteRequest flag if new download was requested in callback.
+    deleteRequest = !callback(buffer);
 
     if (deleteRequest)
       m_fileRequest.reset();
@@ -117,6 +112,7 @@ void MapFilesDownloader::DownloadAsString(std::string url, std::function<bool(st
     if ((m_fileRequest && !forceReset) || m_serversList.empty())
       return;
 
+    /// @todo(pastk): try to download from several servers - similar to map files
     // Servers are sorted from best to worst.
     m_fileRequest.reset(RequestT::Get(url::Join(m_serversList.front(), url),
                                       [this, callback = std::move(callback)](RequestT & request)
@@ -126,11 +122,8 @@ void MapFilesDownloader::DownloadAsString(std::string url, std::function<bool(st
 
       LOG(LDEBUG, ("DownloadAsString: status=", request.GetStatus(), "bytes=", buffer.size()));
 
-      if (!buffer.empty())
-      {
-        // Update deleteRequest flag if new download was requested in callback.
-        deleteRequest = !callback(buffer);
-      }
+      // Update deleteRequest flag if new download was requested in callback.
+      deleteRequest = !callback(buffer);
 
       if (deleteRequest)
         m_fileRequest.reset();

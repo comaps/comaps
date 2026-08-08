@@ -1,7 +1,7 @@
 #include "indexer/types_mapping.hpp"
 #include "indexer/classificator.hpp"
 
-#include "base/stl_helpers.hpp"
+#include "base/assert.hpp"
 #include "base/string_utils.hpp"
 
 using namespace std;

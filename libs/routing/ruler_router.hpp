@@ -1,7 +1,10 @@
 #pragma once
 
-#include <string>
 #include "routing/router.hpp"
+
+#include "geometry/point2d.hpp"
+
+#include <string>
 
 namespace routing
 {

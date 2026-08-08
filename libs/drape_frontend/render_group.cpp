@@ -1,12 +1,21 @@
 #include "drape_frontend/render_group.hpp"
+
+#include "drape_frontend/frame_values.hpp"
+#include "drape_frontend/render_state_extension.hpp"
 #include "drape_frontend/visual_params.hpp"
 
 #include "shaders/program_manager.hpp"
+#include "shaders/programs.hpp"
 
+#include "drape/glsl_types.hpp"
+#include "drape/gpu_program.hpp"
 #include "drape/vertex_array_buffer.hpp"
 #include "drape_frontend/debug_rect_renderer.hpp"
 
 #include "geometry/screenbase.hpp"
+
+#include "base/assert.hpp"
+#include "base/matrix.hpp"
 
 #include <algorithm>
 #include <sstream>

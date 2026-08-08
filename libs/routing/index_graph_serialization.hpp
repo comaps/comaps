@@ -3,6 +3,7 @@
 #include "routing/coding.hpp"
 #include "routing/index_graph.hpp"
 #include "routing/joint.hpp"
+#include "routing/road_point.hpp"
 #include "routing/routing_exceptions.hpp"
 #include "routing/vehicle_mask.hpp"
 
@@ -10,7 +11,9 @@
 #include "coding/reader.hpp"
 #include "coding/write_to_sink.hpp"
 
+#include "base/assert.hpp"
 #include "base/checked_cast.hpp"
+#include "base/exception.hpp"
 
 #include <limits>
 #include <type_traits>

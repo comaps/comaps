@@ -80,6 +80,45 @@ UNIT_TEST(SearchApiAdvanced)
 {
   {
     // Ignore wrong cll=.
+    ParsedMapApi test("comaps://search?query=aaa&cll=1,1,1");
+    TEST_EQUAL(test.GetRequestType(), UrlType::Search, ());
+    auto const & request = test.GetSearchRequest();
+    ms::LatLon latlon = test.GetCenterLatLon();
+    TEST_EQUAL(request.m_query, "aaa", ());
+    TEST_EQUAL(request.m_locale, "", ());
+    TEST(!request.m_isSearchOnMap, ());
+    TEST_EQUAL(latlon.m_lat, ms::LatLon::kInvalid, ());
+    TEST_EQUAL(latlon.m_lon, ms::LatLon::kInvalid, ());
+  }
+
+  {
+    // Don't fail on unsupported parameters.
+    ParsedMapApi test("comaps://search?query=aaa&ignoreThisParam=sure");
+    TEST_EQUAL(test.GetRequestType(), UrlType::Search, ());
+    auto const & request = test.GetSearchRequest();
+    ms::LatLon latlon = test.GetCenterLatLon();
+    TEST_EQUAL(request.m_query, "aaa", ());
+    TEST_EQUAL(request.m_locale, "", ());
+    TEST(!request.m_isSearchOnMap, ());
+    TEST_EQUAL(latlon.m_lat, ms::LatLon::kInvalid, ());
+    TEST_EQUAL(latlon.m_lon, ms::LatLon::kInvalid, ());
+  }
+
+  {
+    // Query parameter position doesn't matter
+    ParsedMapApi test("comaps://search?cll=1,1&locale=ru&query=aaa");
+    TEST_EQUAL(test.GetRequestType(), UrlType::Search, ());
+    auto const & request = test.GetSearchRequest();
+    ms::LatLon latlon = test.GetCenterLatLon();
+    TEST_EQUAL(request.m_query, "aaa", ());
+    TEST_EQUAL(request.m_locale, "ru", ());
+    TEST(!request.m_isSearchOnMap, ());
+    TEST_ALMOST_EQUAL_ABS(latlon.m_lat, 1.0, kEps, ());
+    TEST_ALMOST_EQUAL_ABS(latlon.m_lon, 1.0, kEps, ());
+  }
+
+  {
+    // Ignore wrong cll=.
     ParsedMapApi test("cm://search?query=aaa&cll=1,1,1");
     TEST_EQUAL(test.GetRequestType(), UrlType::Search, ());
     auto const & request = test.GetSearchRequest();
@@ -266,6 +305,25 @@ UNIT_TEST(MapApiUrl)
 UNIT_TEST(MapApiGe0)
 {
   {
+    ParsedMapApi api("comaps://o4B4pYZsRs");
+    TEST_EQUAL(api.GetRequestType(), UrlType::Map, ());
+    TEST_EQUAL(api.GetMapPoints().size(), 1, ());
+    MapPoint const & p0 = api.GetMapPoints()[0];
+    TEST_ALMOST_EQUAL_ABS(p0.m_lat, 47.3859, 1e-4, ());
+    TEST_ALMOST_EQUAL_ABS(p0.m_lon, 8.5766, 1e-4, ());
+  }
+
+  {
+    ParsedMapApi api("comaps://o4B4pYZsRs/Zoo_Zürich");
+    TEST_EQUAL(api.GetRequestType(), UrlType::Map, ());
+    TEST_EQUAL(api.GetMapPoints().size(), 1, ());
+    MapPoint const & p0 = api.GetMapPoints()[0];
+    TEST_ALMOST_EQUAL_ABS(p0.m_lat, 47.3859, 1e-4, ());
+    TEST_ALMOST_EQUAL_ABS(p0.m_lon, 8.5766, 1e-4, ());
+    TEST_EQUAL(p0.m_name, "Zoo Zürich", ());
+  }
+
+  {
     ParsedMapApi api("cm://o4B4pYZsRs");
     TEST_EQUAL(api.GetRequestType(), UrlType::Map, ());
     TEST_EQUAL(api.GetMapPoints().size(), 1, ());
@@ -289,6 +347,14 @@ UNIT_TEST(MapApiGe0)
   }
   {
     ParsedMapApi api("https://comaps.at/o4B4pYZsRs/Zoo_Zürich");
+    TEST_EQUAL(api.GetRequestType(), UrlType::Map, ());
+  }
+  {
+    ParsedMapApi api("http://cm.at/o4B4pYZsRs/Zoo_Zürich");
+    TEST_EQUAL(api.GetRequestType(), UrlType::Map, ());
+  }
+  {
+    ParsedMapApi api("https://cm.at/o4B4pYZsRs/Zoo_Zürich");
     TEST_EQUAL(api.GetRequestType(), UrlType::Map, ());
   }
   {
@@ -378,7 +444,7 @@ UNIT_TEST(SearchApiGeoScheme)
 UNIT_TEST(CrosshairApi)
 {
   {
-    ParsedMapApi api("cm://crosshair?cll=47.3813,8.5889&appname=Google%20Maps");
+    ParsedMapApi api("comaps://crosshair?cll=47.3813,8.5889&appname=Google%20Maps");
     TEST_EQUAL(api.GetRequestType(), UrlType::Crosshair, ());
     ms::LatLon latlon = api.GetCenterLatLon();
     TEST_ALMOST_EQUAL_ABS(latlon.m_lat, 47.3813, kEps, ());
@@ -387,6 +453,22 @@ UNIT_TEST(CrosshairApi)
   }
   {
     ParsedMapApi api("https://comaps.at/crosshair?cll=47.3813,8.5889&appname=Google%20Maps");
+    TEST_EQUAL(api.GetRequestType(), UrlType::Crosshair, ());
+    ms::LatLon latlon = api.GetCenterLatLon();
+    TEST_ALMOST_EQUAL_ABS(latlon.m_lat, 47.3813, kEps, ());
+    TEST_ALMOST_EQUAL_ABS(latlon.m_lon, 8.5889, kEps, ());
+    TEST_EQUAL(api.GetAppName(), "Google Maps", ());
+  }
+  {
+    ParsedMapApi api("cm://crosshair?cll=47.3813,8.5889&appname=Google%20Maps");
+    TEST_EQUAL(api.GetRequestType(), UrlType::Crosshair, ());
+    ms::LatLon latlon = api.GetCenterLatLon();
+    TEST_ALMOST_EQUAL_ABS(latlon.m_lat, 47.3813, kEps, ());
+    TEST_ALMOST_EQUAL_ABS(latlon.m_lon, 8.5889, kEps, ());
+    TEST_EQUAL(api.GetAppName(), "Google Maps", ());
+  }
+  {
+    ParsedMapApi api("https://cm.at/crosshair?cll=47.3813,8.5889&appname=Google%20Maps");
     TEST_EQUAL(api.GetRequestType(), UrlType::Crosshair, ());
     ms::LatLon latlon = api.GetCenterLatLon();
     TEST_ALMOST_EQUAL_ABS(latlon.m_lat, 47.3813, kEps, ());
@@ -406,8 +488,8 @@ UNIT_TEST(GlobalBackUrl)
     TEST_EQUAL(api.GetGlobalBackUrl(), "ge0://", ());
   }
   {
-    ParsedMapApi api("cm://map?ll=1,2&n=PointName&backurl=cm://");
-    TEST_EQUAL(api.GetGlobalBackUrl(), "cm://", ());
+    ParsedMapApi api("comaps://map?ll=1,2&n=PointName&backurl=comaps://");
+    TEST_EQUAL(api.GetGlobalBackUrl(), "comaps://", ());
   }
   {
     ParsedMapApi api("mwm://map?ll=1,2&n=PointName&backurl=ge0%3A%2F%2F");

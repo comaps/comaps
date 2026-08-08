@@ -2,6 +2,8 @@
 
 #include "drape_frontend/animation_system.hpp"
 
+#include "geometry/screenbase.hpp"
+
 #include "base/assert.hpp"
 
 namespace df

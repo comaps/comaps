@@ -1,14 +1,33 @@
 #include "drape_frontend/drape_engine.hpp"
 
+#include "drape_frontend/backend_renderer.hpp"
 #include "drape_frontend/gui/drape_gui.hpp"
+#include "drape_frontend/message.hpp"
 #include "drape_frontend/message_subclasses.hpp"
 #include "drape_frontend/my_position_controller.hpp"
+#include "drape_frontend/requested_tiles.hpp"
+#include "drape_frontend/threads_commutator.hpp"
+#include "drape_frontend/traffic_generator.hpp"
+#include "drape_frontend/user_event_stream.hpp"
+#include "drape_frontend/user_mark_shapes.hpp"
+#include "drape_frontend/user_marks_provider.hpp"
 #include "drape_frontend/visual_params.hpp"
 
 #include "drape/drape_routine.hpp"
 #include "drape/support_manager.hpp"
+#include "drape/texture_manager.hpp"
+
+#include "traffic/speed_groups.hpp"
+#include "traffic/traffic_info.hpp"
+
+#include "indexer/feature_decl.hpp"
 
 #include "platform/settings.hpp"
+#include "routing/base/followed_polyline.hpp"
+
+#include "base/assert.hpp"
+#include "base/logging.hpp"
+#include "base/timer.hpp"
 
 #include "3party/ankerl/unordered_dense.h"
 
@@ -449,13 +468,12 @@ void DrapeEngine::SetCompassInfo(location::CompassInfo const & info)
                                   MessagePriority::Normal);
 }
 
-void DrapeEngine::SetGpsInfo(location::GpsInfo const & info, bool isNavigable, double distToNextTurn, double speedLimit,
+void DrapeEngine::SetGpsInfo(location::GpsInfo const & info, df::NavigationContext const & navigationContext,
                              location::RouteMatchingInfo const & routeInfo)
 {
-  m_threadCommutator->PostMessage(
-      ThreadsCommutator::RenderThread,
-      make_unique_dp<GpsInfoMessage>(info, isNavigable, distToNextTurn, speedLimit, routeInfo),
-      MessagePriority::Normal);
+  m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread,
+                                  make_unique_dp<GpsInfoMessage>(info, navigationContext, routeInfo),
+                                  MessagePriority::Normal);
 }
 
 void DrapeEngine::SwitchMyPositionNextMode()
@@ -488,12 +506,13 @@ void DrapeEngine::StopLocationFollow()
                                   MessagePriority::Normal);
 }
 
-void DrapeEngine::FollowRoute(int preferredZoomLevel, int preferredZoomLevel3d, bool enableAutoZoom, bool isArrowGlued)
+void DrapeEngine::FollowRoute(int preferredZoomLevel, int preferredZoomLevel3d, bool enableAutoZoom, bool isArrowGlued,
+                              bool allowRouteRotation)
 {
-  m_threadCommutator->PostMessage(
-      ThreadsCommutator::RenderThread,
-      make_unique_dp<FollowRouteMessage>(preferredZoomLevel, preferredZoomLevel3d, enableAutoZoom, isArrowGlued),
-      MessagePriority::Normal);
+  m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread,
+                                  make_unique_dp<FollowRouteMessage>(preferredZoomLevel, preferredZoomLevel3d,
+                                                                     enableAutoZoom, isArrowGlued, allowRouteRotation),
+                                  MessagePriority::Normal);
 }
 
 void DrapeEngine::SetModelViewListener(ModelViewChangedHandler && fn)

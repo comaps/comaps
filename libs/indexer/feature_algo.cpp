@@ -1,10 +1,14 @@
 #include "indexer/feature_algo.hpp"
+
 #include "indexer/feature.hpp"
+#include "indexer/feature_decl.hpp"
 
 #include "geometry/algorithm.hpp"
 #include "geometry/mercator.hpp"
 #include "geometry/parametrized_segment.hpp"
 #include "geometry/triangle2d.hpp"
+
+#include "base/assert.hpp"
 
 #include <limits>
 

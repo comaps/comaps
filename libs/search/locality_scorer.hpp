@@ -1,7 +1,10 @@
 #pragma once
 
-#include "search/cbv.hpp"
 #include "search/geocoder_locality.hpp"
+
+#include "indexer/mwm_set.hpp"
+
+#include "geometry/point2d.hpp"
 
 #include <limits>
 #include <optional>

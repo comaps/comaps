@@ -1,7 +1,5 @@
 #pragma once
 
-#include "search/common.hpp"
-
 #include "base/string_utils.hpp"
 
 #include <string>
@@ -9,6 +7,8 @@
 
 namespace search
 {
+struct QueryString;
+
 class KeywordMatcher
 {
 public:

@@ -2,8 +2,6 @@
 
 #include "traffic/speed_groups.hpp"
 
-#include "platform/location.hpp"
-
 #include "coding/point_coding.hpp"
 #include "coding/reader.hpp"
 #include "coding/varint.hpp"
@@ -28,6 +26,11 @@
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
+
+namespace location
+{
+class GpsInfo;
+}  // namespace location
 
 namespace tracking
 {

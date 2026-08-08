@@ -20,6 +20,7 @@
 #include "generator/postcode_points_builder.hpp"
 #include "generator/raw_generator.hpp"
 #include "generator/restriction_generator.hpp"
+#include "generator/reviews_section_builder.hpp"
 #include "generator/road_access_generator.hpp"
 #include "generator/road_penalty_generator.hpp"
 #include "generator/routing_index_generator.hpp"
@@ -132,6 +133,8 @@ DEFINE_bool(generate_maxspeed, false, "Generate section with maxspeed of road fe
 
 // Sponsored-related.
 DEFINE_string(complex_hierarchy_data, "", "Path to complex hierarchy in csv format.");
+
+DEFINE_string(reviews_path, "", "Path to reviews file. If set, adds reviews section.");
 
 DEFINE_string(wikipedia_pages, "", "Input dir with wikipedia pages.");
 DEFINE_string(idToWikidata, "", "Path to file with id to wikidata mapping.");
@@ -518,6 +521,11 @@ MAIN_WITH_ERROR_HANDLING([](int argc, char ** argv)
         BuildTransitCrossMwmSection(path, dataFile, country, *countryParentGetter, transitEdgeFeatureIds,
                                     false /* experimentalTransit */);
       }
+    }
+
+    if (!FLAGS_reviews_path.empty())
+    {
+      BuildReviewsSection(FLAGS_reviews_path, dataFile);
     }
 
     // Check !generate_popular_places to avoid mixing, generate_popular_places stage uses the same wiki flags.

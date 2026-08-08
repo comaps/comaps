@@ -1,6 +1,18 @@
 #include "routing/speed_camera_manager.hpp"
 
+#include "routing/route.hpp"
 #include "routing/speed_camera.hpp"
+#include "routing/turns_notification_manager.hpp"
+
+#include "platform/location.hpp"
+#include "platform/measurement_utils.hpp"
+#include "platform/settings.hpp"
+
+#include "geometry/mercator.hpp"
+#include "geometry/point_with_altitude.hpp"
+
+#include "base/assert.hpp"
+#include "base/string_utils.hpp"
 
 #include <cmath>
 

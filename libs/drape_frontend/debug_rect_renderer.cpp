@@ -1,6 +1,14 @@
 #include "drape_frontend/debug_rect_renderer.hpp"
 #include "drape_frontend/render_state_extension.hpp"
 
+#include "drape/glsl_types.hpp"
+
+#include "shaders/programs.hpp"
+
+#include "geometry/screenbase.hpp"
+
+#include "base/assert.hpp"
+
 #include <vector>
 
 namespace df

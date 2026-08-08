@@ -1,3 +1,4 @@
+#include "drape/index_buffer.hpp"
 #include "drape/pointers.hpp"
 #include "drape/vertex_array_buffer.hpp"
 #include "drape/vulkan/vulkan_base_context.hpp"

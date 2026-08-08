@@ -1,6 +1,7 @@
 #pragma once
 
 #include "transit/transit_entities.hpp"
+#include "transit/transit_schedule.hpp"
 
 #include "indexer/feature_decl.hpp"
 

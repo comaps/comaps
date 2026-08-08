@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmToolbarFragment;
+import app.organicmaps.sdk.Router;
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingOptions;
 import app.organicmaps.sdk.settings.RoadType;
@@ -21,12 +23,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public class DrivingOptionsFragment extends BaseMwmToolbarFragment
+public class DrivingOptionsFragment extends Fragment
 {
-  public static final String BUNDLE_ROAD_TYPES = "road_types";
-  @NonNull
-  private Set<RoadType> mRoadTypes = Collections.emptySet();
-
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -34,125 +32,64 @@ public class DrivingOptionsFragment extends BaseMwmToolbarFragment
   {
     View root = inflater.inflate(R.layout.fragment_driving_options, container, false);
     initViews(root);
-    mRoadTypes = savedInstanceState != null && savedInstanceState.containsKey(BUNDLE_ROAD_TYPES)
-                   ? makeRouteTypes(savedInstanceState)
-                   : RoutingOptions.getActiveRoadTypes();
     return root;
-  }
-
-  @NonNull
-  private Set<RoadType> makeRouteTypes(@NonNull Bundle bundle)
-  {
-    Set<RoadType> result = new HashSet<>();
-    List<Integer> items = Objects.requireNonNull(bundle.getIntegerArrayList(BUNDLE_ROAD_TYPES));
-    for (Integer each : items)
-    {
-      result.add(RoadType.values()[each]);
-    }
-    return result;
-  }
-
-  @Override
-  public void onSaveInstanceState(@NonNull Bundle outState)
-  {
-    super.onSaveInstanceState(outState);
-    ArrayList<Integer> savedRoadTypes = new ArrayList<>();
-    for (RoadType each : mRoadTypes)
-    {
-      savedRoadTypes.add(each.ordinal());
-    }
-    outState.putIntegerArrayList(BUNDLE_ROAD_TYPES, savedRoadTypes);
-  }
-
-  private boolean areSettingsNotChanged()
-  {
-    Set<RoadType> lastActiveRoadTypes = RoutingOptions.getActiveRoadTypes();
-    return mRoadTypes.equals(lastActiveRoadTypes);
-  }
-
-  @Override
-  public boolean onBackPressed()
-  {
-    if (areSettingsNotChanged())
-    {
-      requireActivity().setResult(Activity.RESULT_CANCELED);
-    }
-    else
-    {
-      requireActivity().setResult(Activity.RESULT_OK);
-      RoutingController.get().rebuildLastRoute();
-    }
-
-    return super.onBackPressed();
   }
 
   private void initViews(@NonNull View root)
   {
-    MaterialSwitch tollsBtn = root.findViewById(R.id.avoid_tolls_btn);
-    tollsBtn.setChecked(RoutingOptions.hasOption(RoadType.Toll));
-    CompoundButton.OnCheckedChangeListener tollBtnListener = new ToggleRoutingOptionListener(RoadType.Toll, root);
+    MaterialSwitch tollsBtn = root.findViewById(R.id.avoid_tolls_vehicle_btn);
+    tollsBtn.setChecked(RoutingOptions.hasOption(RoadType.Toll, Router.Vehicle));
+    CompoundButton.OnCheckedChangeListener tollBtnListener =
+        new ToggleRoutingOptionListener(RoadType.Toll, root, Router.Vehicle);
     tollsBtn.setOnCheckedChangeListener(tollBtnListener);
 
-    MaterialSwitch motorwaysBtn = root.findViewById(R.id.avoid_motorways_btn);
-    motorwaysBtn.setChecked(RoutingOptions.hasOption(RoadType.Motorway));
+    MaterialSwitch motorwaysBtn = root.findViewById(R.id.avoid_motorways_vehicle_btn);
+    motorwaysBtn.setChecked(RoutingOptions.hasOption(RoadType.Motorway, Router.Vehicle));
     CompoundButton.OnCheckedChangeListener motorwayBtnListener =
-        new ToggleRoutingOptionListener(RoadType.Motorway, root);
+        new ToggleRoutingOptionListener(RoadType.Motorway, root, Router.Vehicle);
     motorwaysBtn.setOnCheckedChangeListener(motorwayBtnListener);
 
-    MaterialSwitch ferriesBtn = root.findViewById(R.id.avoid_ferries_btn);
-    ferriesBtn.setChecked(RoutingOptions.hasOption(RoadType.Ferry));
-    CompoundButton.OnCheckedChangeListener ferryBtnListener = new ToggleRoutingOptionListener(RoadType.Ferry, root);
+    MaterialSwitch ferriesBtn = root.findViewById(R.id.avoid_ferries_vehicle_btn);
+    ferriesBtn.setChecked(RoutingOptions.hasOption(RoadType.Ferry, Router.Vehicle));
+    CompoundButton.OnCheckedChangeListener ferryBtnListener =
+        new ToggleRoutingOptionListener(RoadType.Ferry, root, Router.Vehicle);
     ferriesBtn.setOnCheckedChangeListener(ferryBtnListener);
 
-    MaterialSwitch dirtyRoadsBtn = root.findViewById(R.id.avoid_dirty_roads_btn);
-    dirtyRoadsBtn.setChecked(RoutingOptions.hasOption(RoadType.Dirty));
-    dirtyRoadsBtn.setEnabled(!RoutingOptions.hasOption(RoadType.Paved) || RoutingOptions.hasOption(RoadType.Dirty));
-    CompoundButton.OnCheckedChangeListener dirtyBtnListener = new ToggleRoutingOptionListener(RoadType.Dirty, root);
+    MaterialSwitch dirtyRoadsBtn = root.findViewById(R.id.avoid_dirty_roads_vehicle_btn);
+    dirtyRoadsBtn.setChecked(RoutingOptions.hasOption(RoadType.Dirty, Router.Vehicle));
+    CompoundButton.OnCheckedChangeListener dirtyBtnListener =
+        new ToggleRoutingOptionListener(RoadType.Dirty, root, Router.Vehicle);
     dirtyRoadsBtn.setOnCheckedChangeListener(dirtyBtnListener);
 
-    MaterialSwitch stepsBtn = root.findViewById(R.id.avoid_steps_btn);
-    stepsBtn.setChecked(RoutingOptions.hasOption(RoadType.Steps));
-    CompoundButton.OnCheckedChangeListener stepsBtnListener = new ToggleRoutingOptionListener(RoadType.Steps, root);
-    stepsBtn.setOnCheckedChangeListener(stepsBtnListener);
-
-    MaterialSwitch pavedBtn = root.findViewById(R.id.avoid_paved_roads_btn);
-    pavedBtn.setChecked(RoutingOptions.hasOption(RoadType.Paved));
-    pavedBtn.setEnabled(!RoutingOptions.hasOption(RoadType.Dirty) || RoutingOptions.hasOption(RoadType.Paved));
-    CompoundButton.OnCheckedChangeListener pavedBtnListener = new ToggleRoutingOptionListener(RoadType.Paved, root);
+    MaterialSwitch pavedBtn = root.findViewById(R.id.avoid_paved_roads_vehicle_btn);
+    pavedBtn.setChecked(RoutingOptions.hasOption(RoadType.Paved, Router.Vehicle));
+    CompoundButton.OnCheckedChangeListener pavedBtnListener =
+        new ToggleRoutingOptionListener(RoadType.Paved, root, Router.Vehicle);
     pavedBtn.setOnCheckedChangeListener(pavedBtnListener);
   }
 
-  private record ToggleRoutingOptionListener(@NonNull RoadType mRoadType,
-                                             @NonNull View mRoot) implements CompoundButton.OnCheckedChangeListener {
-
+  private record
+      ToggleRoutingOptionListener(@NonNull RoadType mRoadType, @NonNull View mRoot, @NonNull Router mRouterType)
+      implements CompoundButton.OnCheckedChangeListener {
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
     {
       if (isChecked)
-        RoutingOptions.addOption(mRoadType);
+      {
+        if (mRoadType == RoadType.Dirty)
+        {
+          MaterialSwitch btn = mRoot.findViewById(R.id.avoid_paved_roads_vehicle_btn);
+          btn.setChecked(false);
+        }
+        else if (mRoadType == RoadType.Paved)
+        {
+          MaterialSwitch btn = mRoot.findViewById(R.id.avoid_dirty_roads_vehicle_btn);
+          btn.setChecked(false);
+        }
+        RoutingOptions.addOption(mRoadType, mRouterType);
+      }
       else
-        RoutingOptions.removeOption(mRoadType);
-
-      MaterialSwitch dirtyRoadsBtn = mRoot.findViewById(R.id.avoid_dirty_roads_btn);
-      MaterialSwitch pavedBtn = mRoot.findViewById(R.id.avoid_paved_roads_btn);
-      if (mRoadType == RoadType.Dirty)
-      {
-        pavedBtn.setEnabled(!isChecked);
-        if (isChecked)
-        {
-          pavedBtn.setChecked(false);
-          dirtyRoadsBtn.setEnabled(true);
-        }
-      }
-      else if (mRoadType == RoadType.Paved)
-      {
-        dirtyRoadsBtn.setEnabled(!isChecked);
-        if (isChecked)
-        {
-          dirtyRoadsBtn.setChecked(false);
-          pavedBtn.setEnabled(true);
-        }
-      }
+        RoutingOptions.removeOption(mRoadType, mRouterType);
     }
   }
 }

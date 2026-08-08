@@ -1,7 +1,6 @@
 #pragma once
 
 #include "drape/index_storage.hpp"
-#include "drape/pointers.hpp"
 
 #include <cstdint>
 

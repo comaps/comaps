@@ -4,15 +4,27 @@
 #include "drape_frontend/stylist.hpp"
 #include "drape_frontend/visual_params.hpp"
 
+#include "transit/experimental/transit_data.hpp"
+#include "transit/experimental/transit_types_experimental.hpp"
+#include "transit/transit_entities.hpp"
 #include "transit/transit_graph_data.hpp"
+#include "transit/transit_types.hpp"
 #include "transit/transit_version.hpp"
 
 #include "indexer/data_source.hpp"
-#include "indexer/drawing_rules.hpp"
 #include "indexer/drules_include.hpp"  // needed despite of IDE warning
 #include "indexer/feature_algo.hpp"
 
+#include "coding/files_container.hpp"
 #include "coding/reader.hpp"
+
+#include "i18n/localisation.hpp"
+
+#include "base/assert.hpp"
+#include "base/logging.hpp"
+#include "base/thread_pool.hpp"
+
+#include "defines.hpp"
 
 #include <algorithm>
 #include <chrono>

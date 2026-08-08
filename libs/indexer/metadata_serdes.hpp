@@ -4,8 +4,8 @@
 #include "coding/reader.hpp"
 #include "coding/text_storage.hpp"
 #include "coding/write_to_sink.hpp"
-#include "coding/writer.hpp"
 
+#include "base/assert.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <memory>
@@ -17,7 +17,6 @@
 
 namespace feature
 {
-class MetadataBase;
 class Metadata;
 }  // namespace feature
 
@@ -62,13 +61,13 @@ public:
   static std::unique_ptr<MetadataDeserializer> Load(Reader & reader);
   static std::unique_ptr<MetadataDeserializer> Load(FilesContainerR const & cont);
 
-  // Tries to get metadata of the feature with id |featureId|. Returns false if table
-  // does not have entry for the feature.
+  // Tries to get metadata of the feature with id |featureId|.
+  // Returns false if table does not have entry for the feature.
   // This method is threadsafe.
-  [[nodiscard]] bool Get(uint32_t featureId, feature::MetadataBase & meta);
+  [[nodiscard]] bool Get(uint32_t featureId, feature::Metadata & meta);
 
-  // Tries to get string ids for metagata of the feature with id |featureId|. Returns false
-  // if table does not have entry for the feature.
+  // Tries to get string ids for metadata of the feature with id |featureId|.
+  // Returns false if table does not have entry for the feature.
   // This method is threadsafe.
   [[nodiscard]] bool GetIds(uint32_t featureId, MetaIds & metaIds) const;
 

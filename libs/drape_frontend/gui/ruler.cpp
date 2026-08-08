@@ -5,10 +5,19 @@
 #include "drape_frontend/gui/drape_gui.hpp"
 #include "drape_frontend/gui/gui_text.hpp"
 #include "drape_frontend/gui/ruler_helper.hpp"
+#include "drape_frontend/render_state_extension.hpp"
 
 #include "shaders/programs.hpp"
 
+#include "drape/attribute_provider.hpp"
+#include "drape/batcher.hpp"
+#include "drape/binding_info.hpp"
 #include "drape/glsl_types.hpp"
+#include "drape/render_state.hpp"
+
+#include "geometry/point2d.hpp"
+
+#include "base/buffer_vector.hpp"
 
 #include <functional>
 

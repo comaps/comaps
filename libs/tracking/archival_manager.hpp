@@ -4,8 +4,6 @@
 
 #include "coding/file_writer.hpp"
 
-#include "base/logging.hpp"
-
 #include <chrono>
 #include <cstdint>
 #include <exception>

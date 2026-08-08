@@ -3,14 +3,12 @@
 #include "routing/cross_mwm_ids.hpp"
 #include "routing/cross_mwm_index_graph.hpp"
 #include "routing/regions_decl.hpp"
-#include "routing/segment.hpp"
-#include "routing/vehicle_mask.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
-#include "routing_common/vehicle_model.hpp"
 
 #include "geometry/tree4d.hpp"
 
+#include "base/assert.hpp"
 #include "base/geo_object_id.hpp"
 
 #include <memory>
@@ -20,6 +18,7 @@
 namespace routing
 {
 class MwmDataSource;
+class RouteWeight;
 
 /// \brief Getting information for cross mwm routing.
 class CrossMwmGraph final

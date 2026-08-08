@@ -59,7 +59,7 @@
       app:iconSpaceReserved="false" />
   <Preference
       android:enabled="true"
-      android:key="@string/pref_tts_info_link"
+      android:key="@string/pref_tts_speed_cameras_info"
       android:persistent="false"
       android:selectable="false"
       android:summary="@string/prefs_speed_cameras_information"

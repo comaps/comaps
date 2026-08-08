@@ -1,21 +1,25 @@
 #include "search/intermediate_result.hpp"
 
-#include "search/reverse_geocoder.hpp"
-
-#include "geometry/mercator.hpp"
-
 #include "storage/country_info_getter.hpp"
 
 #include "indexer/classificator.hpp"
 #include "indexer/feature.hpp"
 #include "indexer/feature_algo.hpp"
+#include "indexer/feature_meta.hpp"
 #include "indexer/feature_utils.hpp"
 #include "indexer/ftypes_matcher.hpp"
 #include "indexer/road_shields_parser.hpp"
 
-#include "platform/localization.hpp"
 #include "platform/measurement_utils.hpp"
 
+#include "geometry/mercator.hpp"
+
+#include "i18n/localisation.hpp"
+#include "i18n/localisation_translation.hpp"
+
+#include "base/assert.hpp"
+#include "base/macros.hpp"
+#include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
 #include <algorithm>
@@ -167,7 +171,8 @@ RankerResult::RankerResult(FeatureType & ft, m2::PointD const & center, string d
 }
 
 RankerResult::RankerResult(FeatureType & ft, std::string const & fileName)
-  : RankerResult(ft, feature::GetCenter(ft, FeatureType::WORST_GEOMETRY), ft.GetTranslatedName().m_primary.value(), fileName)
+  : RankerResult(ft, feature::GetCenter(ft, FeatureType::WORST_GEOMETRY),
+                 ft.GetTranslatedName().m_primary.value_or(std::string()), fileName)
 {}
 
 RankerResult::RankerResult(double lat, double lon)

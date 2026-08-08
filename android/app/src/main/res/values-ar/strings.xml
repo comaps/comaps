@@ -2,7 +2,7 @@
 <resources>
     <!-- SECTION: Strings -->
     <!-- Button text (should be short) -->
-    <string name="back">ارجع</string>
+    <string name="back">رجوع</string>
     <!-- Button text (should be short) -->
     <string name="cancel">ألغِ</string>
     <!-- Button which deletes downloaded country -->
@@ -141,7 +141,7 @@
     <!-- Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type -->
     <string name="category_water">ماء</string>
     <!-- Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! -->
-    <string name="category_rv">منشآت للمنازل المتنقلة</string>
+    <string name="category_rv">منشآت المركبات الترفيهية</string>
     <!-- SECTION: Other translations -->
     <!-- Notes field in Bookmarks view -->
     <string name="description">ملاحظات</string>
@@ -185,13 +185,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">الطول</string>
     <string name="share_my_location">شارك موقعي</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">الإعدادات العامة</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">معلومات</string>
     <string name="prefs_group_route">الملاحة</string>
     <string name="pref_zoom_title">أزرار تقريب/تبعيد</string>
     <string name="pref_zoom_summary">اعرض على الخريطة</string>
+    <string name="prefs_group_advanced">متقدم</string>
+    <string name="download_resources_custom_url_title">خادم خرائط مخصَّص</string>
+    <string name="download_resources_custom_url_message">تجاوز خادم تنزيل الخرائط المبدئي المستخدم لتنزيل الخرائط. اتركه فارغًا لاستخدام خادم CoMaps المبدئي.</string>
+    <string name="download_resources_custom_url_summary_none">غير مُعيِّن</string>
+    <string name="download_resources_custom_url_error_scheme">يُرجى إدخال رابط يبدأ بـ https:// أو http://</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">الوضع الليلي</string>
     <!-- Generic «Off» string -->
@@ -230,7 +233,7 @@
     <!-- Text in About menu, opens CoMaps news website -->
     <string name="news">أخبار</string>
     <!-- Settings: Send feedback button and dialog title -->
-    <string name="feedback">إرسال التعليقات</string>
+    <string name="feedback">تغذية راجعة</string>
     <!-- Text in menu -->
     <string name="rate_the_app">قيّم التطبيق</string>
     <!-- Text in menu -->
@@ -250,7 +253,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">حرك الهاتف في حركة على شكل ثمانية لمعايرة البوصلة وإصلاح اتجاه السهم على الخريطة.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">اضغط مطولاً على الخريطة مرة أخرى لرؤية الواجهة</string>
+    <string name="enable_long_tap_fullscreen_description">اضغط مطولاً على الخريطة مرة أخرى لرؤية الواجهة</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">حدِّث الكل</string>
     <!-- Cancel all button text -->
@@ -355,7 +358,7 @@
     <!-- «Hide» context menu -->
     <string name="hide">أخفِ</string>
     <string name="categories">التصنيفات</string>
-    <string name="history">سجل البحث</string>
+    <string name="history">التأريخ</string>
     <string name="search_not_found">المعذرة، لم أعثر على أية نتائج</string>
     <!-- The message when user did not find anything in the search. -->
     <string name="search_not_found_query">نزّل المنطقة التي تبحث فيها أو حاول إضافة اسم بلدة/قرية قريبة.</string>
@@ -593,7 +596,7 @@
         <item quantity="other">%d مسار</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">خصوصية</string>
+    <string name="prefs_group_privacy">خصوصية</string>
     <string name="privacy_policy">سياسة الخصوصية</string>
     <string name="terms_of_use">شروط الاستخدام</string>
     <string name="button_layer_traffic">حركة مرور</string>
@@ -621,7 +624,7 @@
     <string name="power_managment_setting_auto">تلقائي</string>
     <string name="power_managment_setting_manual_max">توفير الطاقة الأقصى</string>
     <string name="enable_logging_warning_message">فعِّل هذا الخيار مؤقتًا لتسجيل وإرسال سجلات تشخيصية مفصلة حول مشكلتك إلينا يدويًا باستخدام \"بلِّغ عن علة\" في مربع حوار المساعدة. قد تتضمن السجلات معلومات الموقع.</string>
-    <string name="driving_options_title">خيارات رسم المسار</string>
+    <string name="routing_options_title">خيارات رسم المسار</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">تجنب الطرق ذات الرسوم</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -631,7 +634,7 @@
     <string name="avoid_motorways">تجنب الطريق السريع</string>
     <string name="unable_to_calc_alert_title">تعذر حساب المسار</string>
     <string name="unable_to_calc_alert_subtitle">لم يتم العثور على مسار. قد يكون هذا بسبب خيارات توجيهك أو بيانات OpenStreetMap غير المكتملة. يُرجى تغيير خيارات توجيهك وإعادة المحاولة.</string>
-    <string name="define_to_avoid_btn">حدد الطرق التي يجب تجنبها</string>
+    <string name="define_to_avoid_btn">اختر خيارات المسار</string>
     <string name="change_driving_options_btn">فُعِّل خيارات التوجيه</string>
     <string name="toll_road">طريق برسوم مرور</string>
     <string name="unpaved_road">طريق غير معبد</string>
@@ -705,7 +708,7 @@
     <string name="downloader_loading_ios">ينزل</string>
     <string name="download_map_title">نزّل خريطة العالم</string>
     <!-- Used in DownloadResources startup screen -->
-    <string name="disk_error">تعذر إنشاء المجلد ونقل الملفات على الذاكرة الداخلية للجهاز أو على بطاقة SD</string>
+    <string name="disk_error">تعذّر إنشاء المجلد ونقل الملفات على الذاكرة الداخلية للجهاز أو على بطاقة SD</string>
     <!-- Used in DownloadResources startup screen -->
     <string name="disk_error_title">حدث خطأ في التخزين</string>
     <!-- Used in DownloadResources startup screen -->
@@ -844,7 +847,7 @@
         <item quantity="many">%d دقائق</item>
         <item quantity="other">%d دقيقة</item>
     </plurals>
-    <string name="hours_confirmed_time_ago">أُكِّد %s</string>
+    <string name="hours_confirmed_time_ago">تم التأكيد %s</string>
     <string name="existence_confirmed_time_ago">أُكِّد الوجود %s</string>
     <string name="level_value_generic">المستوى: %s</string>
     <string name="editor_building_levels">عدد الطوابق (بما في ذلك الطابق الأرضي، باستثناء السطح)</string>
@@ -880,7 +883,7 @@
     <string name="dialog_report_error_missing_folder">موقع النسخ الاحتياطي المحدد غير متاح أو غير قابل للكتابة. يُرجى اختيار موقع آخر.</string>
     <string name="clear">امحُ</string>
     <string name="bookmark_color">لون المفضلة</string>
-    <string name="open_now">افتح الآن</string>
+    <string name="open_now">مفتوح الآن</string>
     <string name="at">على %s</string>
     <string name="share_track">شارك المسار</string>
     <string name="pref_tts_no_system_tts_short">لم يُعثر على محرك تحويل النص إلى كلام، يُرجى التحقق من إعدادات التطبيق</string>
@@ -892,8 +895,6 @@
     <string name="charge_socket_type2_combo">النوع 2 كومبو</string>
     <string name="charge_socket_type1">النوع 1</string>
     <string name="charge_socket_nacs">NACS</string>
-    <string name="download_resources_custom_url_summary_none">غير مُعيِّن</string>
-    <string name="download_resources_custom_url_error_scheme">يُرجى إدخال رابط يبدأ بـ https:// أو http://</string>
     <string name="pref_alt_map_lang_handling">لغات بديلة للخريطة</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">لا تستخدم بدائل</string>
     <string name="pref_alt_map_lang_handling_system_order">استخدم حسب ترتيب النظام</string>
@@ -930,9 +931,6 @@
     <string name="error_invalid_number">رقم غير صالح</string>
     <string name="offline_explanation_title">خرائط بلا اتصال بالإنترنت</string>
     <string name="offline_explanation_text">يجب تنزيل خريطة لعرض المنطقة والتنقل فيها.\nنزِّل خرائط للمناطق التي ترغب في السفر إليها.</string>
-    <string name="advanced">متقدم</string>
-    <string name="download_resources_custom_url_title">خادم خرائط مخصَّص</string>
-    <string name="download_resources_custom_url_message">تجاوز خادم تنزيل الخرائط المبدئي المستخدم لتنزيل الخرائط. اتركه فارغًا لاستخدام خادم CoMaps المبدئي.</string>
     <string name="ruler">مسطرة</string>
     <string name="route_type">نوع المسار</string>
     <string name="vehicle">مركبة</string>
@@ -950,4 +948,48 @@
     <string name="population">السكان: %s</string>
     <string name="setting_value_system_default">النظام المبدئي</string>
     <string name="change_app_locale">لغة التطبيق</string>
+    <string name="downloader_check_updates_button">التحقق من التحديثات</string>
+    <string name="downloader_check_updates_checking">جارٍ التحقق من التحديثات...</string>
+    <string name="downloader_check_updates_updated">تحديثات الخرائط متوفرة!</string>
+    <string name="downloader_check_updates_no_updates">لا توجد تحديثات متوفرة</string>
+    <string name="downloader_check_updates_eol">لا توجد تحديثات خرائط إضافية لهذا الإصدار من التطبيق. يُرجى تحديث التطبيق!</string>
+    <string name="downloader_check_updates_error">حدث خطأ أثناء التحقق من التحديثات</string>
+    <string name="tts_toggle_enable">فعِّل التعليمات الصوتية</string>
+    <string name="tts_toggle_disable">عطِّل التعليمات الصوتية</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_aa_support_summary_yes">ثُبّت التطبيق من متجر جوجل Play، ويمكنك استخدامه في سيارتك.</string>
+    <string name="pref_aa_support_summary_no">لم يُثبّت التطبيق من متجر جوجل Play، لذا لا يمكنك استخدامه في سيارتك. اضغط على الإعدادات للحصول على مزيد من التفاصيل من خلال الأسئلة الشائعة.</string>
+    <string name="oh_unknown">ساعات العمل غير معروفة</string>
+    <string name="editor_add_select_category_all_subtitle">كل الفئات</string>
+    <string name="editor_add_select_category_recent_subtitle">مستخدمة حديثًا</string>
+    <string name="enable_long_tap_fullscreen">اضغط مطولاً لإخفاء واجهة المستخدم</string>
+    <string name="long_tap_disabled_toast">لإخفاء الواجهة،فعِّل الضغط المطول في الإعدادات</string>
+    <string name="sort_categories">رتّب قوائم المفضلة</string>
+    <string name="by_recently_used">حسب أحدث استخدام</string>
+    <string name="by_custom">حسب الترتيب المخصّص</string>
+    <string name="capacity_disabled">مواقف السيارات المخصّصة لذوي الإعاقة: %s</string>
+    <string name="capacity_disabled_yes">يحتوي على مواقف مخصّصة لذوي الإعاقة</string>
+    <string name="capacity_disabled_no">لا مواقف مخصّصة لذوي الإعاقة</string>
+    <string name="capacity_charging">أماكن مزودة بشواحن: %s</string>
+    <string name="capacity_charging_yes">يحتوي على أماكن مزودة بشواحن</string>
+    <string name="capacity_charging_no">لا أماكن مزودة بشواحن</string>
+    <string name="prefs_group_route_summary">الوحدات والتعليمات الصوتية وخيارات المسار</string>
+    <string name="prefs_group_privacy_summary">سجل البحث</string>
+    <string name="prefs_group_power_summary">مهلة الشاشة وبيانات الجوّال</string>
+    <string name="permission_read_navigation_label">قراءة بيانات الملاحة من CoMaps</string>
+    <string name="permission_read_navigation_description">قراءة معلومات الملاحة المباشرة، مثل المنعطفات القادمة أو اسم الطريق الذي تسير عليه</string>
+    <string name="prefs_group_map_appearance">مظهر الخريطة</string>
+    <string name="prefs_group_map_appearance_summary">لغة الخريطة وحجم التسميات و مباني 2D/3D</string>
+    <string name="planning_route_preview">معاينة</string>
+    <string name="search_in_all_lists">ابحث في كل القوائم</string>
+    <string name="pref_about_summary">بلِغ عن علل واحصل على مساعدة وتبرَّع\nإصدار: v%1$s</string>
+    <string name="prefs_group_interface_summary">الوضع الليلي والأزرار واللغة</string>
+    <string name="prefs_group_data_management">إدارة البيانات</string>
+    <string name="prefs_group_data_management_summary">مساحة الخريطة ونسخ احتياطي المفضلات</string>
+    <string name="prefs_group_advanced_summary">فعِّل التسجيل</string>
+    <string name="pref_enable_auto_reroute_title">إعادة المسار التلقائي</string>
+    <string name="pref_enable_auto_reroute_description">عند تفعيل هذه الميزة، سيُنشئ مسار جديد تلقائيًّا عند الخروج عن المسار المخطّط.</string>
+    <string name="off_route">أنت خارج المسار</string>
+    <string name="prefs_group_interface">الواجهة</string>
+    <string name="recalculate_route">أعِد الحساب</string>
 </resources>

@@ -6,6 +6,8 @@
 #include "generator/road_access_generator.hpp"
 #include "generator/routing_helpers.hpp"
 
+#include "routing/route_weight.hpp"
+
 #include "indexer/classificator_loader.hpp"
 
 #include "platform/platform.hpp"

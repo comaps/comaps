@@ -1,19 +1,25 @@
 #include "search/pre_ranker.hpp"
 
-#include "search/dummy_rank_table.hpp"
 #include "search/lazy_centers_table.hpp"
 #include "search/pre_ranking_info.hpp"
 
 #include "editor/osm_editor.hpp"
 
 #include "indexer/data_source.hpp"
+#include "indexer/dummy_rank_table.hpp"
+#include "indexer/editable_map_object.hpp"
+#include "indexer/feature_source.hpp"
 #include "indexer/mwm_set.hpp"
 #include "indexer/rank_table.hpp"
 
 #include "geometry/mercator.hpp"
 #include "geometry/nearby_points_sweeper.hpp"
 
+#include "base/assert.hpp"
+#include "base/logging.hpp"
 #include "base/stl_helpers.hpp"
+
+#include "defines.hpp"
 
 #include <algorithm>
 #include <iterator>

@@ -1,12 +1,10 @@
 #include "storage/http_map_files_downloader.hpp"
 
 #include "storage/downloader.hpp"
+#include "storage/queued_country.hpp"
 
 #include "platform/downloader_defines.hpp"
-#include "platform/servers_list.hpp"
-
-#include "base/assert.hpp"
-#include "base/string_utils.hpp"
+#include "platform/http_request.hpp"
 
 #include <algorithm>
 #include <functional>
@@ -53,8 +51,8 @@ void HttpMapFilesDownloader::Download()
 
   auto const & queuedCountry = m_queue.GetFirstCountry();
 
-  auto const urls = MakeUrlList(queuedCountry.GetRelativeUrl());
-  auto const path = queuedCountry.GetFileDownloadPath();
+  auto const urls = MakeUrlList(queuedCountry.GetRelativeUrl(m_dataVersion));
+  auto const path = queuedCountry.GetFileDownloadPath(m_dataVersion);
   auto const size = queuedCountry.GetDownloadSize();
 
   m_request.reset();
@@ -103,7 +101,7 @@ void HttpMapFilesDownloader::Clear()
   m_queue.Clear();
 }
 
-QueueInterface const & HttpMapFilesDownloader::GetQueue() const
+QueueInterface & HttpMapFilesDownloader::GetQueue()
 {
   CHECK_THREAD_CHECKER(m_checker, ());
 

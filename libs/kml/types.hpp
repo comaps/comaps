@@ -11,6 +11,9 @@
 
 #include "drape/color.hpp"
 
+#include "geometry/point2d.hpp"
+#include "geometry/point_with_altitude.hpp"
+
 #include <string>
 #include <vector>
 

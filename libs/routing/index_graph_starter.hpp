@@ -2,18 +2,19 @@
 
 #include "routing/base/astar_graph.hpp"
 #include "routing/base/astar_vertex_data.hpp"
+#include "routing/edge_estimator.hpp"
 #include "routing/fake_ending.hpp"
 #include "routing/fake_feature_ids.hpp"
 #include "routing/fake_graph.hpp"
-#include "routing/fake_vertex.hpp"
 #include "routing/guides_graph.hpp"
 #include "routing/index_graph.hpp"
-#include "routing/latlon_with_altitude.hpp"
 #include "routing/route_weight.hpp"
 #include "routing/segment.hpp"
 #include "routing/world_graph.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
+
+#include "base/checked_cast.hpp"
 
 #include <memory>
 #include <set>
@@ -23,6 +24,7 @@ namespace routing
 {
 class FakeEdgesContainer;
 class RegionsSparseGraph;
+class RoutingOptions;
 
 // Group highway types on categories (classes) to use in leaps candidates filtering.
 enum class HighwayCategory : uint8_t

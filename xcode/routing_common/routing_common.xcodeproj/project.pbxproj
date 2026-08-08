@@ -18,6 +18,8 @@
 		671E788D1E6A3C5D00B2859B /* pedestrian_model.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 671E78851E6A3C5D00B2859B /* pedestrian_model.hpp */; };
 		671E788E1E6A3C5D00B2859B /* vehicle_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 671E78861E6A3C5D00B2859B /* vehicle_model.cpp */; };
 		671E788F1E6A3C5D00B2859B /* vehicle_model.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 671E78871E6A3C5D00B2859B /* vehicle_model.hpp */; };
+		DEC0DE001E6A3C5D00B2859B /* decoder_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEC0DE021E6A3C5D00B2859B /* decoder_model.cpp */; };
+		DEC0DE011E6A3C5D00B2859B /* decoder_model.hpp in Headers */ = {isa = PBXBuildFile; fileRef = DEC0DE031E6A3C5D00B2859B /* decoder_model.hpp */; };
 		671E78B11E6A3FF400B2859B /* testingmain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 671E78AF1E6A3FEF00B2859B /* testingmain.cpp */; };
 		671E78B21E6A3FF900B2859B /* vehicle_model_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 671E78AD1E6A3FDB00B2859B /* vehicle_model_test.cpp */; };
 		671E78B71E6A405700B2859B /* librouting_common.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 671E78721E6A3BE200B2859B /* librouting_common.a */; };
@@ -39,6 +41,8 @@
 		671E78851E6A3C5D00B2859B /* pedestrian_model.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pedestrian_model.hpp; sourceTree = "<group>"; };
 		671E78861E6A3C5D00B2859B /* vehicle_model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vehicle_model.cpp; sourceTree = "<group>"; };
 		671E78871E6A3C5D00B2859B /* vehicle_model.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vehicle_model.hpp; sourceTree = "<group>"; };
+		DEC0DE021E6A3C5D00B2859B /* decoder_model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = decoder_model.cpp; sourceTree = "<group>"; };
+		DEC0DE031E6A3C5D00B2859B /* decoder_model.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = decoder_model.hpp; sourceTree = "<group>"; };
 		671E78901E6A3C9C00B2859B /* common-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "common-debug.xcconfig"; path = "../common-debug.xcconfig"; sourceTree = "<group>"; };
 		671E78911E6A3C9C00B2859B /* common-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "common-release.xcconfig"; path = "../common-release.xcconfig"; sourceTree = "<group>"; };
 		671E78961E6A3DA700B2859B /* routing_common_tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = routing_common_tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +108,8 @@
 				671E78851E6A3C5D00B2859B /* pedestrian_model.hpp */,
 				671E78861E6A3C5D00B2859B /* vehicle_model.cpp */,
 				671E78871E6A3C5D00B2859B /* vehicle_model.hpp */,
+				DEC0DE021E6A3C5D00B2859B /* decoder_model.cpp */,
+				DEC0DE031E6A3C5D00B2859B /* decoder_model.hpp */,
 			);
 			name = routing_common;
 			path = ../../libs/routing_common;
@@ -139,6 +145,7 @@
 				671E78891E6A3C5D00B2859B /* bicycle_model.hpp in Headers */,
 				671E788B1E6A3C5D00B2859B /* car_model.hpp in Headers */,
 				671E788F1E6A3C5D00B2859B /* vehicle_model.hpp in Headers */,
+				DEC0DE011E6A3C5D00B2859B /* decoder_model.hpp in Headers */,
 				F6E4ECE0223AB60600C8A79A /* car_model_coefs.hpp in Headers */,
 				5631B666219B11D5009F47D4 /* maxspeed_conversion.hpp in Headers */,
 			);
@@ -239,6 +246,7 @@
 				671E78881E6A3C5D00B2859B /* bicycle_model.cpp in Sources */,
 				5631B665219B11D5009F47D4 /* maxspeed_conversion.cpp in Sources */,
 				671E788E1E6A3C5D00B2859B /* vehicle_model.cpp in Sources */,
+				DEC0DE001E6A3C5D00B2859B /* decoder_model.cpp in Sources */,
 				671E788C1E6A3C5D00B2859B /* pedestrian_model.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

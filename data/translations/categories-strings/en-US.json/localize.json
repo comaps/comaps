@@ -1,0 +1,26 @@
+{
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "4Garden Center"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "3Movie Theatre|3Cinema|Movies|Film|U+1F3A6|U+1F3AC"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "4Theater"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "4Recycling Center|U+1F6AE|U+267B"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "3Tire|tires"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "3Fitness Center"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "3Tire Repair|tires|tire puncture repair|flat tire repair|tire fix|tire replacement"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "4Community Center"
+    }
+}

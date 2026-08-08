@@ -1,11 +1,12 @@
 #pragma once
 
-#include "geometry/latlon.hpp"
 #include "geometry/point3d.hpp"
 
 // namespace ms - "math on sphere", similar to namespace m2.
 namespace ms
 {
+class LatLon;
+
 double constexpr kEarthRadiusMeters = 6378000.0;
 // Distance on unit sphere between (lat1, lon1) and (lat2, lon2).
 // lat1, lat2, lon1, lon2 - in degrees.

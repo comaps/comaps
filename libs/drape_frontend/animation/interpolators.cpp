@@ -1,7 +1,11 @@
 #include "drape_frontend/animation/interpolators.hpp"
 #include "drape_frontend/animation/interpolations.hpp"
 
+#include "geometry/angles.hpp"
+#include "geometry/screenbase.hpp"
+
 #include "base/assert.hpp"
+#include "base/math.hpp"
 
 #include <algorithm>
 

@@ -1,6 +1,9 @@
 #include "routing/directions_engine_helpers.hpp"
 
 #include "geometry/mercator.hpp"
+#include "geometry/point_with_altitude.hpp"
+
+#include "base/assert.hpp"
 
 namespace routing
 {

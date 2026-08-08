@@ -1,18 +1,26 @@
 #pragma once
 
-#include "storage/diff_scheme/diffs_data_source.hpp"
 #include "storage/storage_defines.hpp"
 
 #include "platform/country_defines.hpp"
-#include "platform/country_file.hpp"
 
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
+
+namespace platform
+{
+class CountryFile;
+}  // namespace platform
 
 namespace storage
 {
 class CountryInfoGetter;
 class Storage;
+
+namespace diffs
+{
+class DiffsDataSource;
+}  // namespace diffs
 
 /// \returns true if |position| is covered by a downloaded mwms and false otherwise.
 /// \note |position| has coordinates in mercator.

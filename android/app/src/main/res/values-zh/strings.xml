@@ -27,7 +27,7 @@
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">精度有限</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">为确保导航准确，请在设置中启用 \"精确定位\"</string>
+    <string name="precise_location_is_disabled_long_text">为确保导航准确，请在设置中启用确切位置</string>
     <!-- View and button titles for accessibility -->
     <string name="zoom_to_country">在地图上显示</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
@@ -48,13 +48,13 @@
     <!-- The button that opens system location settings -->
     <string name="location_settings">位置设置</string>
     <string name="close">关闭</string>
-    <string name="unsupported_phone">该应用程序需要硬件加速的 OpenGL。很遗憾，您的设备不受支持。</string>
+    <string name="unsupported_phone">该应用需要硬件加速的 OpenGL。很遗憾，您的设备不受支持。</string>
     <string name="download">下载</string>
     <!-- Used in DownloadResources startup screen -->
     <string name="disconnect_usb_cable">请拔除 USB 线或插入 SD 卡以使用 CoMaps</string>
     <!-- Used in DownloadResources startup screen -->
     <string name="not_enough_free_space_on_sdcard">请先释放一些 SD 卡 / USB 存储空间以便使用 CoMaps</string>
-    <string name="download_resources">在您开始使用此应用程序之前，请下载全球地图到您的设备。 \n它将使用 %s 的存储空间。</string>
+    <string name="download_resources">在您开始使用该应用之前，请先将世界概览地图下载到您的设备上。\n它将使用 %s 的存储空间。</string>
     <string name="download_resources_continue">前往地图</string>
     <string name="downloading_country_can_proceed">正在下载%1$s (%2$s)。您现在可以 \n继续查看地图。</string>
     <string name="download_country_ask">下载%1$s的地图吗？ (%2$s)</string>
@@ -157,7 +157,7 @@
     <!-- Kml file loading failed -->
     <string name="load_kmz_failed">无法加载收藏，文件可能已损坏或不完整。</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
-    <string name="unknown_file_type">应用程序无法识别该文件类型： \n%1$s</string>
+    <string name="unknown_file_type">应用无法识别该文件类型：\n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
     <string name="failed_to_open_file">无法打开文件 %1$s \n \n%2$s</string>
     <!-- resource for context menu -->
@@ -187,13 +187,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">长度</string>
     <string name="share_my_location">分享我的位置</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">常规设置</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">信息</string>
     <string name="prefs_group_route">导航</string>
     <string name="pref_zoom_title">缩放按钮</string>
     <string name="pref_zoom_summary">在屏幕上显示</string>
+    <string name="prefs_group_advanced">高级</string>
+    <string name="download_resources_custom_url_title">自定义地图服务器</string>
+    <string name="download_resources_custom_url_message">覆盖用于地图下载的默认地图下载服务器。留空则使用 CoMaps 默认服务器。</string>
+    <string name="download_resources_custom_url_summary_none">未设置</string>
+    <string name="download_resources_custom_url_error_scheme">请输入以 http:// 或 https:// 开头的 URL</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">夜间模式</string>
     <!-- Generic «Off» string -->
@@ -209,7 +212,7 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D 建筑在省电模式下处于关闭状态</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">语音指导</string>
+    <string name="pref_tts_enable_title">语音提示</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
     <string name="pref_tts_street_names_title">播报街道名称</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
@@ -242,7 +245,7 @@
     <!-- Button in the main Help dialog -->
     <string name="faq">问题和解答</string>
     <!-- Button in the main menu -->
-    <string name="donate">捐助我们</string>
+    <string name="donate">捐赠</string>
     <!-- Button in the main Help dialog -->
     <string name="how_to_support_us">志愿改进 CoMaps</string>
     <!-- Button in the main Help dialog -->
@@ -254,7 +257,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">通过以 8 字形移动手机以校准罗盘，并在地图上固定箭头方向。</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">再次长按地图即可查看界面</string>
+    <string name="enable_long_tap_fullscreen_description">再次长按地图即可查看界面</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">更新全部</string>
     <!-- Cancel all button text -->
@@ -546,7 +549,7 @@
     <string name="enable_logging">启用日志记录</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">常规反馈</string>
-    <string name="prefs_languages_information">我们的语音导航使用“文本转语音”系统。许多 Android 设备使用 Google 的文本转语音系统，您可以从 Google Play 商店下载或更新此功能 (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information">我们使用系统文本转语音功能提供语音提示。许多 Android 设备使用 Google 的文本转语音系统，您可以从 Google Play 商店下载或更新此功能 (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
     <string name="prefs_languages_information_off">部分语言需要特意从应用商店（Google Play、三星 Galaxy Store、华为应用市场、F-Droid）中安装相关的语音合成器或语言包，才能使用该功能。\n打开您的设备的设置 → 语言和输入法 → 语音 → 文字转语音 (TTS) 输出。\n您可以在此处管理语音合成的设置（例如，下载语言包供离线使用）和选择其他 TTS 引擎。</string>
     <string name="prefs_languages_information_off_link">如需了解详情，请查阅此指南</string>
     <string name="transliteration_title">拉丁字母音译</string>
@@ -592,7 +595,7 @@
         <item quantity="other">%d 个轨迹</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">隐私</string>
+    <string name="prefs_group_privacy">隐私</string>
     <string name="privacy_policy">隐私政策</string>
     <string name="terms_of_use">使用条款</string>
     <string name="button_layer_traffic">路况</string>
@@ -620,7 +623,7 @@
     <string name="power_managment_setting_auto">当电量低时</string>
     <string name="power_managment_setting_manual_max">最大程度省电</string>
     <string name="enable_logging_warning_message">临时启用此选项，以便使用“报告错误”功能在帮助对话框中记录并手动发送详细诊断日志给我们。日志可能包含位置信息。</string>
-    <string name="driving_options_title">绕行设置</string>
+    <string name="routing_options_title">路线选项</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">避开收费公路</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -630,8 +633,8 @@
     <string name="avoid_motorways">避开高速公路</string>
     <string name="unable_to_calc_alert_title">无法规划路线</string>
     <string name="unable_to_calc_alert_subtitle">很遗憾，找不到可行的路线。这可能是因为您的路线选项当前不可用或 OpenStreetMap 数据不完整。请更改路线选项再重试。</string>
-    <string name="define_to_avoid_btn">选择要避开的道路</string>
-    <string name="change_driving_options_btn">绕行设置已开启</string>
+    <string name="define_to_avoid_btn">选择路线选项</string>
+    <string name="change_driving_options_btn">路线选项已启用</string>
     <string name="toll_road">收费公路</string>
     <string name="unpaved_road">非铺装道路</string>
     <string name="ferry_crossing">轮渡</string>
@@ -711,13 +714,13 @@
     <string name="connection_failure">连接失败</string>
     <!-- Used in DownloadResources startup screen -->
     <string name="disconnect_usb_cable_title">断开 USB 线连接</string>
-    <string name="enable_keep_screen_on">保持屏幕打开</string>
+    <string name="enable_keep_screen_on">保持屏幕开启</string>
     <!-- Description in preferences -->
-    <string name="enable_keep_screen_on_description">启用后，显示地图时屏幕将始终打开。</string>
+    <string name="enable_keep_screen_on_description">启用后，显示地图时屏幕将始终保持开启状态。</string>
     <!-- A preference title; keep short! -->
     <string name="enable_show_on_lock_screen">在锁屏上显示</string>
     <!-- Description in preferences -->
-    <string name="enable_show_on_lock_screen_description">启用后，即使设备已锁定，应用程序仍将在锁屏上运行。</string>
+    <string name="enable_show_on_lock_screen_description">启用后，即使设备处于锁定状态，应用仍将在锁屏上运行。</string>
     <!-- Current language of the map! -->
     <string name="change_map_locale">地图语言</string>
     <!-- OpenStreetMap text on splash screen -->
@@ -731,7 +734,7 @@
     <!-- App tip #01 -->
     <string name="app_tip_01">有了您的捐赠和支持，我们可以创造世界上最好的地图！</string>
     <!-- App tip #02 -->
-    <string name="app_tip_02">您喜欢我们的应用吗？请捐款以支持发展！还不喜欢吗？请告诉我们，我们会修复您提到的问题！</string>
+    <string name="app_tip_02">您喜欢我们的应用吗？请捐赠以支持开发！还不喜欢吗？请告诉我们原因，我们会解决的！</string>
     <!-- App tip #03 -->
     <string name="app_tip_03">如果您认识软件开发人员，您可以要求他实现您需要的功能。</string>
     <!-- App tip #04 -->
@@ -739,9 +742,9 @@
     <!-- App tip #05 -->
     <string name="app_tip_05">您知道您可以在地图上选择您当前的位置吗？</string>
     <!-- App tip #06 -->
-    <string name="app_tip_06">您可以帮助将我们的应用程序翻译成您的语言。</string>
+    <string name="app_tip_06">您可以帮助将我们的应用翻译成您的语言。</string>
     <!-- App tip #07 -->
-    <string name="app_tip_07">我们的应用程序是由一些爱好者和社区开发的。</string>
+    <string name="app_tip_07">我们的应用由几位爱好者和社区共同开发。</string>
     <!-- App tip #08 -->
     <string name="app_tip_08">您可以轻松修复和改进地图数据。</string>
     <!-- App tip #09 -->
@@ -759,7 +762,7 @@
     <!-- Ask user to grant location permissions -->
     <string name="aa_location_permissions_request">CoMaps 需要位置访问权限。在安全的情况下，请查看手机上的通知。</string>
     <!-- Notification title for permission request from AA. -->
-    <string name="aa_request_permission_notification">此应用程序需要您的许可</string>
+    <string name="aa_request_permission_notification">此应用需要您授予相应权限</string>
     <!-- The text in the activity for location permission request. -->
     <string name="aa_request_permission_activity_text">Android Auto 中的 CoMaps 需要位置权限才能有效工作</string>
     <!-- Grant Permissions button. -->
@@ -806,12 +809,12 @@
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">轨迹为空 — 无内容可保存</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
-    <string name="error_no_file_manager_app">由于您的设备上未安装合适的应用程序，因此无法显示文件夹选择对话框。请安装文件管理器应用并重试。</string>
+    <string name="error_no_file_manager_app">由于您的设备上未安装合适的应用，因此无法显示文件夹选择对话框。请安装文件管理器应用并重试。</string>
     <string name="choose_color">选择颜色</string>
     <string name="edit_track">编辑轨迹</string>
     <string name="uri_open_location_failed">未安装可以打开位置的应用</string>
     <!-- preference string for using auto theme only in navigation mode -->
-    <string name="nav_auto">自动导航</string>
+    <string name="nav_auto">导航中自动</string>
     <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="app_site_url">https://comaps.app/zh-Hans/</string>
@@ -899,19 +902,14 @@
     <string name="avoid_paved">避开铺装道路</string>
     <string name="power_management">电源管理</string>
     <string name="charge_socket_schuko">欧盟标准</string>
-    <string name="navigation_start_tts_message">"启动导航，语音指令语言： "</string>
+    <string name="navigation_start_tts_message">"启动导航，语音提示语言： "</string>
     <string name="prefs_speed_cameras_information">在当地法律禁止发出警报的国家/地区，测速摄像头警告功能将被禁用。</string>
-    <string name="navigation_start_tts_disabled_message">语音指令已禁用：TTS 引擎不可用</string>
+    <string name="navigation_start_tts_disabled_message">语音提示已禁用：TTS 引擎不可用</string>
     <string name="place_page_map_too_old_title">地图数据已过时</string>
     <string name="place_page_map_too_old_description">您当前的地图数据非常旧，请更新地图。</string>
     <string name="place_page_app_too_old_description">您当前的地图数据非常旧，请更新 CoMaps 应用。</string>
     <string name="place_page_update_too_old_map">更新地图区域</string>
     <string name="place_page_too_old_to_edit">由于地图数据太旧，OpenStreetMap 编辑被禁用。</string>
-    <string name="download_resources_custom_url_summary_none">未设置</string>
-    <string name="download_resources_custom_url_error_scheme">请输入以 http:// 或 https:// 开头的 URL</string>
-    <string name="advanced">高级</string>
-    <string name="download_resources_custom_url_title">自定义地图服务器</string>
-    <string name="download_resources_custom_url_message">覆盖用于地图下载的默认地图下载服务器。留空则使用 CoMaps 默认服务器。</string>
     <string name="pref_maplanguage_local">本地语言</string>
     <string name="location_privacy">位置隐私</string>
     <string name="location_privacy_info">应用会从您的操作系统位置信息服务接收位置数据，该服务可能会将您的位置信息共享给 Google 和/或您的设备供应商。如需避免这种情况，可以使用注重隐私保护的 Android 操作系统。</string>
@@ -940,4 +938,48 @@
     <string name="population">人口：%s</string>
     <string name="setting_value_system_default">系统默认</string>
     <string name="change_app_locale">应用语言</string>
+    <string name="downloader_check_updates_button">检查更新</string>
+    <string name="downloader_check_updates_checking">正在检查更新…</string>
+    <string name="downloader_check_updates_updated">地图有更新可用！</string>
+    <string name="downloader_check_updates_no_updates">没有可用更新</string>
+    <string name="downloader_check_updates_eol">此应用版本不再有地图更新。请更新应用！</string>
+    <string name="downloader_check_updates_error">检查更新时出错</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_aa_support_summary_yes">该应用已从 Google Play 安装，您可以在车内使用它。</string>
+    <string name="pref_aa_support_summary_no">该应用未从 Google Play 安装，您无法在车内使用它。点击设置查看常见问题中的更多详情。</string>
+    <string name="tts_toggle_enable">启用语音提示</string>
+    <string name="tts_toggle_disable">禁用语音提示</string>
+    <string name="oh_unknown">营业时间未知</string>
+    <string name="editor_add_select_category_all_subtitle">所有类别</string>
+    <string name="editor_add_select_category_recent_subtitle">最近用过</string>
+    <string name="enable_long_tap_fullscreen">长按隐藏用户界面</string>
+    <string name="long_tap_disabled_toast">要隐藏界面，请在设置中启用长按功能</string>
+    <string name="sort_categories">排序收藏列表</string>
+    <string name="by_recently_used">按最近使用过</string>
+    <string name="by_custom">按自定义顺序</string>
+    <string name="planning_route_preview">预览</string>
+    <string name="capacity_disabled_no">无专用无障碍停车位</string>
+    <string name="capacity_charging_yes">有带充电桩的停车位</string>
+    <string name="capacity_charging_no">无带充电桩的停车位</string>
+    <string name="pref_about_summary">报告问题、获取帮助、捐赠\n版本：v%1$s</string>
+    <string name="prefs_group_map_appearance">地图外观</string>
+    <string name="prefs_group_map_appearance_summary">地图语言、标签大小、2D/3D 建筑</string>
+    <string name="prefs_group_interface">界面</string>
+    <string name="prefs_group_interface_summary">夜间模式、按钮、语言</string>
+    <string name="prefs_group_data_management">数据管理</string>
+    <string name="prefs_group_data_management_summary">地图存储、备份收藏</string>
+    <string name="prefs_group_route_summary">单位、语音提示、路线选项</string>
+    <string name="prefs_group_advanced_summary">启用日志记录</string>
+    <string name="prefs_group_privacy_summary">搜索历史记录</string>
+    <string name="prefs_group_power_summary">屏幕超时、移动数据</string>
+    <string name="search_in_all_lists">在所有列表中搜索</string>
+    <string name="pref_enable_auto_reroute_title">自动重新规划路线</string>
+    <string name="pref_enable_auto_reroute_description">启用后，当您偏离计划路线时，将自动规划新路线。</string>
+    <string name="recalculate_route">重新计算</string>
+    <string name="off_route">您已偏离路线</string>
+    <string name="capacity_disabled">无障碍停车位：%s</string>
+    <string name="capacity_disabled_yes">有专用无障碍停车位</string>
+    <string name="capacity_charging">带充电桩的停车位：%s</string>
+    <string name="permission_read_navigation_label">读取 CoMaps 导航数据</string>
+    <string name="permission_read_navigation_description">读取实时导航信息，例如即将到来的转弯或您当前所在道路的名称</string>
 </resources>

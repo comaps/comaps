@@ -7,6 +7,13 @@
 #include <utility>
 #include <vector>
 
+struct TrackStatistics;
+
+namespace location
+{
+class GpsInfo;
+}  // namespace location
+
 class GpsTracker
 {
 public:

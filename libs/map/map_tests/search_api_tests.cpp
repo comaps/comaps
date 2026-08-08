@@ -10,6 +10,7 @@
 #include "search/search_tests_support/test_results_matching.hpp"
 #include "search/search_tests_support/test_with_custom_mwms.hpp"
 
+#include "map/bookmark_helpers.hpp"
 #include "map/bookmarks_search_params.hpp"
 #include "map/search_api.hpp"
 #include "map/search_product_info.hpp"

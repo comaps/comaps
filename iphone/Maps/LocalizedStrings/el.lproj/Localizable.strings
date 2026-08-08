@@ -131,7 +131,7 @@
 /* place preview title */
 "info" = "Πληροφορίες";
 /* Used for bookmark editing */
-"done" = "Ολοκλήρωση";
+"done" = "Έτοιμο";
 /* Prints version number in About dialog */
 "version" = "Έκδοση CoMaps: %@";
 "version %@ (%@)" = "Έκδοση %@ (%@)";
@@ -159,17 +159,17 @@
 /* Generic «Disabled» string */
 "disabled" = "Απενεργοποιημένο";
 /* Generic «Off» string */
-"off" = "Απενεργ.";
+"off" = "Ανενεργό";
 /* Generic «On» string */
-"on" = "Ενεργ.";
+"on" = "Ενεργό";
 /* Generic «Auto» string */
 "auto" = "Αυτόματα";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Οπτική γωνία";
 /* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "Τρισδιάστατα κτίρια";
+"pref_map_3d_buildings_title" = "3D κτίρια";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
-"pref_map_3d_buildings_disabled_summary" = "Τα τρισδιάστατα κτίρια είναι απενεργοποιημένα σε λειτουργία εξοικονόμησης ενέργειας";
+"pref_map_3d_buildings_disabled_summary" = "Τα 3D κτίρια είναι απενεργοποιημένα σε λειτουργία εξοικονόμησης ενέργειας";
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_title" = "Φωνητικές οδηγίες";
 /* Settings «Route» category: «Tts enable» title */
@@ -244,7 +244,7 @@
 /* Update all button text */
 "downloader_update_all_button" = "Ενημέρωση όλων";
 /* Downloaded maps list header */
-"downloader_downloaded_subtitle" = "Κατεβασμένοι";
+"downloader_downloaded_subtitle" = "Κατέβηκαν";
 /* Downloaded maps category */
 "downloader_available_maps" = "Διαθέσιμοι";
 /* Country queued for download */
@@ -294,7 +294,7 @@
 /* pink color */
 "pink" = "Ροζ";
 /* deep purple color */
-"deep_purple" = "Βαθύ μωβ";
+"deep_purple" = "Σκούρο μωβ";
 /* light blue color */
 "light_blue" = "Γαλάζιο";
 /* cyan color */
@@ -304,15 +304,15 @@
 /* lime color */
 "lime" = "Λάιμ";
 /* deep orange color */
-"deep_orange" = "Βαθύ πορτοκαλί";
+"deep_orange" = "Σκούρο πορτοκαλί";
 /* gray color */
 "gray" = "Γκρι";
 /* blue gray color */
 "blue_gray" = "Γκρίζο μπλε";
 "dialog_routing_disclaimer_title" = "Όταν ακολουθείτε την διαδρομή, να θυμάστε:";
-"dialog_routing_disclaimer_priority" = "- Οι οδικές συνθήκες, οι κανόνες οδικής κυκλοφορίας και οι πινακίδες έχουν πάντα προτεραιότητα έναντι των συμβουλών πλοήγησης;";
-"dialog_routing_disclaimer_precision" = "— Ο Χάρτης μπορεί να είναι ανακριβής, και η προτεινόμενη διαδρομή μπορεί να μην είναι πάντα ο βέλτιστος τρόπος να φτάσετε στον προορισμό;";
-"dialog_routing_disclaimer_recommendations" = "— Οι προτεινόμενες διαδρομές πρέπει να ερμηνεύονται μόνο ως συστάσεις;";
+"dialog_routing_disclaimer_priority" = "— Οι οδικές συνθήκες, οι κανόνες οδικής κυκλοφορίας και οι πινακίδες έχουν πάντα προτεραιότητα έναντι των συμβουλών πλοήγησης,";
+"dialog_routing_disclaimer_precision" = "— Ο Χάρτης μπορεί να είναι ανακριβής, και η προτεινόμενη διαδρομή μπορεί να μην είναι πάντα ο βέλτιστος τρόπος να φτάσετε στον προορισμό,";
+"dialog_routing_disclaimer_recommendations" = "— Οι προτεινόμενες διαδρομές πρέπει να ερμηνεύονται μόνο ως συστάσεις,";
 "dialog_routing_disclaimer_borders" = "— Προσέξτε τις διαδρομές στις παραμεθόριες περιοχές: οι διαδρομές που δημιουργούνται από την εφαρμογή μας μπορεί μερικές φορές να διαπερνούν τα εθνικά σύνορα σε απαγορευμένες περιοχές.";
 "dialog_routing_disclaimer_beware" = "Να είστε πάντα σε εγρήγορση και να οδηγείτε με ασφάλεια στους δρόμους!";
 "dialog_routing_check_gps" = "Ελέγξτε το σήμα GPS";
@@ -356,7 +356,7 @@
 "search_history_text" = "Προβολή πρόσφατων αναζητήσεων.";
 "clear_search" = "Εκκαθάριση ιστορικού αναζητήσεων";
 /* Place Page link to Wikipedia article (if map object has it). */
-"read_in_wikipedia" = "Βικιπέδια";
+"read_in_wikipedia" = "Βικιπαίδεια";
 /* Place Page link to Wikimedia Commons. */
 "wikimedia_commons" = "Κοινά της Wikimedia";
 "p2p_your_location" = "Η τοποθεσία σας";
@@ -365,7 +365,7 @@
 "p2p_to_here" = "Διαδρομή προς";
 "p2p_only_from_current" = "Η πλοήγηση είναι διαθέσιμη μόνο από την τρέχουσα τοποθεσία σας.";
 "p2p_reroute_from_current" = "Θέλετε να σχεδιαστεί μια διαδρομή από την τρέχουσα τοποθεσία σας;";
-"editor_time_add" = "Προσθέσετε χρονοδιάγραμμα";
+"editor_time_add" = "Προσθήκη χρονοδιαγράμματος";
 "editor_time_delete" = "Διαγραφή χρονοδιαγράμματος";
 /* Text for allday switch. */
 "editor_time_allday" = "Όλη την ημέρα (24 ώρες)";
@@ -381,7 +381,7 @@
 "editor_done_dialog_1" = "Έχετε αλλάξει τον παγκόσμιο χάρτη. Μην το κρατάτε για τον εαυτό σας! Πείτε το στους φίλους σας και κάντε αλλαγές μαζί.";
 "share_with_friends" = "Μοιραστείτε το με φίλους";
 "editor_report_problem_send_button" = "Αποστολή";
-"autodownload" = "Αυτόματη λήψη";
+"autodownload" = "Αυτόματη λήψη χαρτών";
 /* Voice */
 "voice" = "Φωνή";
 "voice_explanation" = "Είναι δυνατό να επιλέξετε μια καλύτερη φωνή στις ρυθμίσεις συστήματος κατώ από *Προσβασιμότητα*, *Ανάγνωση & Ομιλία*, *Φωνές*.";
@@ -449,7 +449,7 @@
 "level" = "Όροφος";
 "please_note" = "Λάβετε υπόψη";
 "downloader_delete_map_dialog" = "Όλες οι αλλαγές που έχετε κάνει στο χάρτη θα διαγραφούν μαζί με το χάρτη.";
-"downloader_update_maps" = "Ενημέρωση χαρτών";
+"downloader_update_maps" = "Ενημέρωση Χαρτών";
 "downloader_search_field_hint" = "Εύρεση χάρτη";
 "migration_download_error_dialog" = "Σφάλμα λήψης";
 "common_check_internet_connection_dialog" = "Βεβαιωθείτε ότι η συσκευή σας είναι συνδεδεμένη στο Internet.";
@@ -460,8 +460,8 @@
 "editor_add_select_category" = "Επιλέξτε κατηγορία";
 "editor_add_select_category_popular_subtitle" = "Δημοφιλή";
 "editor_add_select_category_all_subtitle" = "Όλες οι κατηγορίες";
-"editor_edit_place_title" = "Επεξεργασία";
-"editor_add_place_title" = "Προσθήκη";
+"editor_edit_place_title" = "Επεξεργάζεται";
+"editor_add_place_title" = "Προστίθεται";
 "editor_edit_place_name_hint" = "Όνομα τοποθεσίας";
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
 "editor_default_language_hint" = "Όπως είναι γραμμένο στην τοπική γλώσσα";
@@ -511,17 +511,17 @@
 /* abbreviation for meters */
 "m" = "μ";
 /* abbreviation for kilometers */
-"km" = "χμ";
+"km" = "χλμ";
 /* abbreviation for kilometers per hour */
-"kilometers_per_hour" = "χμ/ω";
+"kilometers_per_hour" = "χλμ/ω";
 /* abbreviation for mile(s) */
-"mi" = "μι";
+"mi" = "μιλ";
 /* A unit of measure */
 "ft" = "πόδια";
 "miles_per_hour" = "μλ/ώ";
 "hour" = "ώ";
 "minute" = "λεπ";
-"day" = "μέρ";
+"day" = "η";
 "placepage_more_button" = "Περισσότερα";
 "book_button" = "Κράτηση";
 "placepage_call_button" = "Κλήση";
@@ -549,7 +549,7 @@
 /* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "Βεβαιωθείτε ότι δεν έχετε εισάγει προσωπικά δεδομένα.";
 "editor_share_to_all_dialog_message_2" = "Οι συντάκτες του OpenStreetMap θα ελέγξουν τις αλλαγές και θα επικοινωνήσουν μαζί σας εάν έχουν απορίες.";
-"navigation_stop_button" = "Τέλος";
+"navigation_stop_button" = "Διακοπή";
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
 "recent_track_background_dialog_title" = "Θέλετε να απενεργοποιήσετε την καταγραφή της πρόσφατης διαδρομής σας;";
 "off_recent_track_background_button" = "Απενεργοποίηση";
@@ -562,16 +562,16 @@
 /* For the first routing */
 "decline" = "Διαφωνώ";
 "mobile_data_dialog" = "Θέλετε να χρησιμοποιήσετε το δίκτυο κινητής τηλεφωνίας για να εμφανίσετε αναλυτικές πληροφορίες;";
-"mobile_data_option_always" = "Να χρησιμοποιείται πάντα";
-"mobile_data_option_today" = "Μόνο σήμερα";
-"mobile_data_option_not_today" = "Να μην χρησιμοποιηθεί σήμερα";
+"mobile_data_option_always" = "Χρήση Πάντα";
+"mobile_data_option_today" = "Μόνο Σήμερα";
+"mobile_data_option_not_today" = "Μη Χρησιμοποιηθεί Σήμερα";
 "mobile_data" = "Ίντερνετ μέσω δικτύου κινητής";
 /* NOTE to translators: please synchronize your translation with the English one. */
 "mobile_data_description" = "Απαιτείται πρόσβαση στο διαδίκτυο μέσω δικτύου κινητής για τις ειδοποιήσεις ενημερώσεων χάρτη και μεταφορτώσεως επεξεργασιών.";
-"mobile_data_option_never" = "Να μην χρησιμοποιείται ποτέ";
-"mobile_data_option_ask" = "Να γίνεται πάντα ερώτηση";
+"mobile_data_option_never" = "Μη Χρησιμοποιείται ποτέ";
+"mobile_data_option_ask" = "Πάντα Ερώτηση";
 "traffic_update_maps_text" = "Για να εμφανιστούν πληροφορίες για την κίνηση, πρέπει να ενημερωθούν οι χάρτες.";
-"big_font" = "Αύξηση μεγέθους γραμματοσειράς στο χάρτη";
+"big_font" = "Αύξηση μεγέθους γραμματοσειράς ετικετών χάρτη";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Για να εμφανιστούν πληροφορίες για την κίνηση, πρέπει να γίνει ενημέρωση της εφαρμογής.";
 /* "traffic" as in "road congestion" */
@@ -681,8 +681,6 @@
 "yes_available" = "Ναι";
 /* E.g. "WiFi:No" */
 "no_available" = "Όχι";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Χωρητικότητα: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Δίκτυο: %@";
 "trip_finished" = "Μόλις φτάσατε!";
@@ -697,7 +695,7 @@
 "dialog_routing_rebuild_for_vehicle_carplay" = "Η διαδρομή θα μετατραπεί σε διαδρομή με αυτοκίνητο";
 "not_all_shown_bookmarks_carplay" = "Δεν εμφανίζονται όλοι οι σελιδοδείκτες";
 "switch_to_phone_bookmarks_carplay" = "Μεταβείτε στο τηλέφωνο για να δείτε όλους τους σελιδοδείκτες";
-"ok" = "Οκ";
+"ok" = "OK";
 "speedcams_alert_title_carplay_1" = "Κάμερες ταχύτητας";
 "speedcams_alert_title_carplay_2" = "Ειδοποιήσεις ταχύτητας";
 "download_map_carplay" = "Κάντε λήψη χαρτών στην εφαρμογή, στη συσκευή σας";
@@ -706,15 +704,15 @@
 "sort" = "Ταξινόμηση…";
 /* iOS */
 "sort_default" = "Ταξινόμηση κατά προεπιλογή";
-"sort_type" = "Ταξινόμηση ανά τύπο";
+"sort_type" = "Ταξινόμηση κατά τύπο";
 "sort_distance" = "Ταξινόμηση κατά απόσταση";
 "sort_date" = "Ταξινόμηση κατά ημερομηνία";
-"sort_name" = "Ταξινόμηση με βάση το όνομα";
+"sort_name" = "Ταξινόμηση κατά όνομα";
 "week_ago_sorttype" = "Μια βδομάδα πριν";
 "month_ago_sorttype" = "Ένα μήνα πριν";
 "moremonth_ago_sorttype" = "Περισσότερο από έναν μήνα πριν";
 "moreyear_ago_sorttype" = "Περισσότερο από ένα χρόνο πριν";
-"near_me_sorttype" = "Δίπλα μου";
+"near_me_sorttype" = "Κοντά μου";
 "others_sorttype" = "Άλλα";
 "food_places" = "Φαγητό";
 "tourist_places" = "Αξιοθέατα";
@@ -723,7 +721,7 @@
 "swim_places" = "Κολύμβηση";
 "mountains" = "Βουνά";
 "animals" = "Ζώα";
-"hotels" = "Διαμονή";
+"hotels" = "Ξενοδοχεία";
 "buildings" = "Κτήρια";
 "money" = "Χρήματα";
 "shops" = "Καταστήματα";
@@ -731,13 +729,13 @@
 "fuel_places" = "Πρατήρια βενζίνης";
 "medicine" = "Φαρμακεία";
 "search_in_the_list" = "Αναζήτηση στη λίστα";
-"religious_places" = "Χώροι Λατρείας";
-"transit_not_found" = "Η πλοήγηση με μετρό γι' αυτή την περιοχή δεν είναι ακόμα διαθέσιμη";
+"religious_places" = "Χώροι λατρείας";
+"transit_not_found" = "Η πλοήγηση με μετρό σ' αυτήν την περιοχή δεν είναι ακόμη διαθέσιμη";
 "dialog_pedestrian_route_is_long_header" = "Δεν βρέθηκε διαδρομή του μετρό";
-"dialog_pedestrian_route_is_long_message" = "Επιλέξτε το σημείο εκκίνησης ή τέλους διαδρομής πιο κοντά στο σταθμό του μετρό";
-"button_layer_isolines" = "Υψομετρικά";
-"isolines_activation_error_dialog" = "Για να χρησιμοποιήσετε υψομετρικές γραμμές, ενημερώστε ή κατεβάστε τον χάρτη της επιθυμητής περιοχής";
-"isolines_location_error_dialog" = "Οι υψομετρικές γραμμές δεν είναι ακόμα διαθέσιμες σε αυτή την περιοχή";
+"dialog_pedestrian_route_is_long_message" = "Επιλέξτε το σημείο εκκίνησης ή τέλους διαδρομής πιο κοντά σε σταθμό του μετρό";
+"button_layer_isolines" = "Υψοομετρικές γραμμές";
+"isolines_activation_error_dialog" = "Η ενεργοποίηση των υψομετρικών γραμμών απαιτεί τη λήψη των δεδομένων χάρτη αυτής της περιοχής";
+"isolines_location_error_dialog" = "Οι υψομετρικές γραμμές δεν είναι ακόμη διαθέσιμες σε αυτήν την περιοχή";
 "elevation_profile_diff_level" = "Επίπεδο δυσκολίας";
 "elevation_profile_diff_level_easy" = "Εύκολο";
 "elevation_profile_diff_level_moderate" = "Μέτριο";
@@ -746,7 +744,7 @@
 "elevation_profile_descent" = "Κατάβαση";
 "elevation_profile_min_elevation" = "Ελάχ. υψόμετρο";
 "elevation_profile_max_elevation" = "Μέγ. υψόμετρο";
-"isolines_toast_zooms_1_10" = "Μεγεθύνετε για να δείτε περιγράμματα";
+"isolines_toast_zooms_1_10" = "Μεγεθύνετε για να δείτε ισογραμμές";
 "downloader_updating_ios" = "Γίνεται ενημέρωση";
 "downloader_loading_ios" = "Κατέβασμα";
 /* Autoupdate dialog on start */
@@ -774,7 +772,7 @@
 /* App tip #01 */
 "app_tip_01" = "Με τις δωρεές και την υποστήριξή σας, μπορούμε να δημιουργήσουμε τους καλύτερους χάρτες στον κόσμο!";
 /* App tip #02 */
-"app_tip_02" = "Σας αρέσει η εφαρμογή μας; Παρακαλούμε κάντε μια δωρεά για να στηρίξετε την ανάπτυξη! Ακόμα δεν σας αρέσει; Ενημερώστε μας και θα το διορθώσουμε!";
+"app_tip_02" = "Σας αρέσει η εφαρμογή μας; Παρακαλούμε κάντε μια δωρεά για να στηρίξετε την ανάπτυξη! Ακόμη δεν σας αρέσει; Ενημερώστε μας γιατί, και θα το διορθώσουμε!";
 /* App tip #03 */
 "app_tip_03" = "Εάν γνωρίζετε έναν προγραμματιστή λογισμικού, μπορείτε να του ζητήσετε να υλοποιήσει μια λειτουργία που χρειάζεστε.";
 /* App tip #04 */
@@ -790,22 +788,22 @@
 /* App tip #09 */
 "app_tip_09" = "Ο κύριος στόχος μας είναι να δημιουργήσουμε γρήγορους, εύχρηστους και με σεβασμό στην ιδιωτικότητα χάρτες που θα λατρέψετε.";
 /* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
-"car_used_on_the_phone_screen" = "Αυτή τη στιγμή το CoMaps βρίσκεται στην οθόνη του κινητού";
+"car_used_on_the_phone_screen" = "Τώρα χρησιμοποιείτε το CoMaps στην οθόνη του κινητού";
 /* Text on the phone placeholder screen that maps are displayed on the car screen */
-"car_used_on_the_car_screen" = "Αυτή τη στιγμή το CoMaps βρίσκεται στην οθόνη του αυτοκινήτου";
+"car_used_on_the_car_screen" = "Τώρα χρησιμοποιείτε το CoMaps στην οθόνη του αυτοκινήτου";
 /* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
 "car_continue_on_the_phone" = "Συνέχεια στο κινητό";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Στην οθόνη του αυτοκινήτου";
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Πεζοπορία";
+"button_layer_outdoor" = "Εξωτερικοί Χώροι";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Εξαγωγή όλων των Αγαπημένων";
 /* Text for the editing the Track's color button. */
 "change_color" = "Αλλαγή χρώματος";
 /* Main screen title "Map" displayed in the navigation back button's menu. */
 "map" = "Χάρτης";
-"drive_through" = "Οδηγώ μέσα από";
+"drive_through" = "Εξυπηρέτηση απ' το αυτοκίνητο";
 /* Restaurant or other food place's menu URL field in the Editor */
 "website_menu" = "Σύνδεσμος μενού";
 /* Message for the bug report alert. */
@@ -851,11 +849,11 @@
 /* Prompt to start recording a track. */
 "start_track_recording" = "Εγγραφή ίχνους";
 /* Prompt for stopping a track recording. */
-"stop_track_recording" = "Σταματήστε την εγγραφή ίχνους";
+"stop_track_recording" = "Διακοπή εγγραφής ίχνους";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
-"stop_without_saving" = "Σταματήστε χωρίς αποθήκευση";
+"stop_without_saving" = "Διακοπή Χωρίς Αποθήκευση";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
-"continue_recording" = "Συνέχεια εγγραφής";
+"continue_recording" = "Συνέχεια Εγγραφής";
 /* Title for the alert when saving a track recording. */
 "track_recording_alert_title" = "Αποθήκευση στα Αγαπημένα;";
 /* Message for the toast when saving the track recording is finished but nothing to save. */
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Προσθήκη μέρους";
 "contribute_to_osm_update_map" = "Ενημέρωση του χάρτη για συνεισφορά";
 "contribute_to_osm_update_map_description" = "Πρέπει να ενημερώσετε τον χάρτη %@ στην τελευταία έκδοση ώστε να μπορέσετε να συνεισφέρετε στα δεδομένα του OpenStreetMap";
+"downloader_check_updates_button" = "Έλεγχος για ενημερώσεις";
+"downloader_check_updates_checking" = "Γίνεται έλεγχος για ενημερώσεις...";
+"downloader_check_updates_updated" = "Διαθέσιμες ενημερώσεις χάρτη!";
+"downloader_check_updates_no_updates" = "Δεν υπάρχουν διαθέσιμες ενημερώσεις";
+"downloader_check_updates_eol" = "Δεν υπάρχουν άλλες ενημερώσεις χαρτών για αυτήν την έκδοση της εφαρμογής. Παρακαλούμε ενημερώστε την εφαρμογή!";
+"downloader_check_updates_error" = "Σφάλμα κατά τον έλεγχο για ενημερώσεις";
+"editor_add_select_category_recent_subtitle" = "Πρόσφατα χρησιμοποιημένα";
+"oh_unknown" = "Άγνωστο ωράριο λειτουργίας";
+"carplay_highway_exit" = "Έξοδος %@";
+"capacity_disabled_yes" = "Έχει θέσεις για ΑΜΕΑ";
+"capacity_disabled_no" = "Δεν έχει θέσεις για ΑΜΕΑ";
+"capacity_charging_yes" = "Έχει θέσεις με φορτιστές";
+"capacity_charging_no" = "Δεν έχει θέσεις με φορτιστές";
+"planning_route_preview" = "Προεπισκόπηση";
+"planning_route_preview_sheet_title" = "Προεπισκόπηση διαδρομής";

@@ -1,5 +1,7 @@
 #include "geometry/oblate_spheroid.hpp"
+
 #include "geometry/distance_on_sphere.hpp"
+#include "geometry/latlon.hpp"
 #include "geometry/point2d.hpp"
 
 #include "base/math.hpp"

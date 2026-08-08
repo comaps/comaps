@@ -1,0 +1,167 @@
+{
+    "Abkhazia": {
+        "defaultMessage": "அப்காசியா"
+    },
+    "Afghanistan": {
+        "defaultMessage": "அஃப்கானிஸ்தான்"
+    },
+    "Alabama": {
+        "defaultMessage": "அலபாமா"
+    },
+    "Albania": {
+        "defaultMessage": "ஆல்பேனியா"
+    },
+    "Algeria": {
+        "defaultMessage": "ஆல்ஜீரியா"
+    },
+    "Algeria_Central": {
+        "defaultMessage": "ஆல்ஜீரியா — மையம்"
+    },
+    "Algeria_Coast": {
+        "defaultMessage": "அல்ஜீரியா — வடக்கு"
+    },
+    "Andorra": {
+        "defaultMessage": "அந்தோரா"
+    },
+    "Angola": {
+        "defaultMessage": "அங்கோலா"
+    },
+    "Anguilla": {
+        "defaultMessage": "அங்கியுலா"
+    },
+    "Antarctica": {
+        "defaultMessage": "அண்டார்ட்டிக்கா"
+    },
+    "Antigua and Barbuda": {
+        "defaultMessage": "அன்டிகுவாவும் பர்புடாவும்"
+    },
+    "Argentina": {
+        "defaultMessage": "அர்ஜென்டினா"
+    },
+    "Argentina_Buenos Aires_North": {
+        "defaultMessage": "புவெனஸ் ஐரிஸ் மாநிலம் — வடக்கு"
+    },
+    "Argentina_Buenos Aires_South": {
+        "defaultMessage": "புவெனஸ் ஐரிஸ் மாநிலம் — தெற்கு"
+    },
+    "Argentina_Cuyo": {
+        "defaultMessage": "குயோ"
+    },
+    "Argentina_Mesopotamia": {
+        "defaultMessage": "மெசொப்பொதாமியா"
+    },
+    "Argentina_Northwest": {
+        "defaultMessage": "அர்ஜென்டினா — வடமேற்கு"
+    },
+    "Argentina_Pampas": {
+        "defaultMessage": "பம்பாஸ்"
+    },
+    "Argentina_Patagonia": {
+        "defaultMessage": "படகோனியா"
+    },
+    "Arizona": {
+        "defaultMessage": "அரிசோனா"
+    },
+    "Armenia": {
+        "defaultMessage": "ஆர்மீனியா"
+    },
+    "Australia": {
+        "defaultMessage": "ஆஸ்திரேலியா"
+    },
+    "Australia_Melbourne": {
+        "defaultMessage": "மெல்பேர்ண்"
+    },
+    "Australia_New South Wales": {
+        "defaultMessage": "நியூ சவுத் வேல்சு"
+    },
+    "Australia_Northern Territory": {
+        "defaultMessage": "வட ஆள்புலம்"
+    },
+    "Australia_Queensland": {
+        "defaultMessage": "குயின்ஸ்லாந்து"
+    },
+    "Australia_South Australia": {
+        "defaultMessage": "தெற்கு ஆஸ்திரேலியா"
+    },
+    "Australia_Tasmania": {
+        "defaultMessage": "தாசுமேனியா"
+    },
+    "Australia_Victoria": {
+        "defaultMessage": "விக்டோரியா"
+    },
+    "Australia_Western Australia": {
+        "defaultMessage": "மேர்கு ஆஸ்திரேலியா"
+    },
+    "Austria": {
+        "defaultMessage": "ஆஸ்திரியா"
+    },
+    "Austria_Burgenland": {
+        "defaultMessage": "புர்கென்லான்ட்"
+    },
+    "Austria_Carinthia": {
+        "defaultMessage": "கரின்தையா"
+    },
+    "Austria_Lower Austria_West": {
+        "defaultMessage": "கீழ் ஆஸ்திரியா — மேற்கு"
+    },
+    "Austria_Lower Austria_Wien": {
+        "defaultMessage": "வியன்னா மற்றும் கிழக்கத்திய கீழ் ஆஸ்திரியா"
+    },
+    "Austria_Salzburg": {
+        "defaultMessage": "சல்பேர்க்"
+    },
+    "Austria_Styria": {
+        "defaultMessage": "சிடிரியா"
+    },
+    "Austria_Tyrol": {
+        "defaultMessage": "டைரொல்"
+    },
+    "Austria_Upper Austria": {
+        "defaultMessage": "மேல் ஆஸ்திரியா"
+    },
+    "Austria_Vorarlberg": {
+        "defaultMessage": "வொரர்ல்பேர்க்"
+    },
+    "Azerbaijan": {
+        "defaultMessage": "அசர்பைஜான்"
+    },
+    "Azerbaijan Region": {
+        "defaultMessage": "அசர்பைஜான்"
+    },
+    "Bahrain": {
+        "defaultMessage": "பகுரைன்"
+    },
+    "Bangladesh": {
+        "defaultMessage": "வங்களதேசம்"
+    },
+    "Barbados": {
+        "defaultMessage": "பார்படோசு"
+    },
+    "Belarus": {
+        "defaultMessage": "பெலருஸ்"
+    },
+    "Belarus_Brest Region": {
+        "defaultMessage": "பிரெஸ்ட் வட்டாரம்"
+    },
+    "Belarus_Homiel Region": {
+        "defaultMessage": "கோமெல் வட்டாரம்"
+    },
+    "Belarus_Hrodna Region": {
+        "defaultMessage": "கிரோட்னோ வட்டாரம்"
+    },
+    "Belarus_Maglieu Region": {
+        "defaultMessage": "மொகிலெவ் வட்டாரம்"
+    },
+    "Belarus_Minsk Region": {
+        "defaultMessage": "மின்ஸ்க் வட்டாரம்"
+    },
+    "Belarus_Vitebsk Region": {
+        "defaultMessage": "வைடெப்ஸ்க் வட்டாரம்"
+    },
+    "Belgium": {
+        "defaultMessage": "பெல்ஜியம்"
+    },
+    "Belgium_Antwerp": {
+        "defaultMessage": "ஆண்ட்வெர்ப் மாவட்டாரம்"
+    }
+}

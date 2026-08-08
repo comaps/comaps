@@ -1,7 +1,8 @@
 #pragma once
 
-#include "drape/data_buffer.hpp"
+#include "drape/buffer_base.hpp"
 #include "drape/data_buffer_impl.hpp"
+#include "drape/graphics_context.hpp"
 #include "drape/pointers.hpp"
 #include "drape/vulkan/vulkan_base_context.hpp"
 #include "drape/vulkan/vulkan_object_manager.hpp"

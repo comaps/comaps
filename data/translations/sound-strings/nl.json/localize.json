@@ -1,0 +1,455 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Rechts aanhouden."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "een flauwe bocht naar rechts"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Sla rechtsaf."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "Sla rechtsaf"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Scherp rechtsaf."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "scherp naar rechts afslaan"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "Op de rotonde."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "de rotonde op"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "Rij"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Verlaat de rotonde."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "de rotonde"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "Verlaat"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Links aanhouden."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "een flauwe bocht naar links"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Sla linksaf."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "Sla linksaf"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Scherp linksaf."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "scherp naar links afslaan"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Keer om."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "om"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "Keer"
+    },
+    "go_straight": {
+        "defaultMessage": "Rij rechtdoor."
+    },
+    "exit": {
+        "defaultMessage": "Neem de afslag."
+    },
+    "onto": {
+        "defaultMessage": "naar"
+    },
+    "take_exit_number": {
+        "defaultMessage": "Neem de afslag"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Route herberekenen"
+    },
+    "destination": {
+        "defaultMessage": "Arriveert u."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "Bestemming bereikt."
+    },
+    "in_50_meters": {
+        "defaultMessage": "Over vijftig meter"
+    },
+    "in_100_meters": {
+        "defaultMessage": "Over honderd meter"
+    },
+    "in_200_meters": {
+        "defaultMessage": "Over tweehonderd meter"
+    },
+    "in_250_meters": {
+        "defaultMessage": "Over tweehonderdvijftig meter"
+    },
+    "in_300_meters": {
+        "defaultMessage": "Over driehonderd meter"
+    },
+    "in_400_meters": {
+        "defaultMessage": "Over vierhonderd meter"
+    },
+    "in_500_meters": {
+        "defaultMessage": "Over vijfhonderd meter"
+    },
+    "in_600_meters": {
+        "defaultMessage": "Over zeshonderd meter"
+    },
+    "in_700_meters": {
+        "defaultMessage": "Over zevenhonderd meter"
+    },
+    "in_750_meters": {
+        "defaultMessage": "Over zevenhonderdvijftig meter"
+    },
+    "in_800_meters": {
+        "defaultMessage": "Over achthonderd meter"
+    },
+    "in_900_meters": {
+        "defaultMessage": "Over negenhonderd meter"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "Over één kilometer"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "Over anderhalve kilometer"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "Over twee kilometer"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "Over tweeëneenhalve kilometer"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "Over drie kilometer"
+    },
+    "then": {
+        "defaultMessage": "Daarna"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%5$s %1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Neem de eerste afslag."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "de eerste afslag"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Neem de tweede afslag."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "de tweede afslag"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Neem de derde afslag."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "de derde afslag"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Neem de vierde afslag."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "de vierde afslag"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Neem de vijfde afslag."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "de vijfde afslag"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Neem de zesde afslag."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "de zesde afslag"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Neem de zevende afslag."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "de zevende afslag"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Neem de achtste afslag."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "de achtste afslag"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Neem de negende afslag."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "de negende afslag"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Neem de tiende afslag."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "de tiende afslag"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Neem de elfde afslag."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "de elfde afslag"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "in_50_feet": {
+        "defaultMessage": "Over vijftig voet"
+    },
+    "in_100_feet": {
+        "defaultMessage": "Over honderd voet"
+    },
+    "in_200_feet": {
+        "defaultMessage": "Over tweehonderd voet"
+    },
+    "in_300_feet": {
+        "defaultMessage": "Over driehonderd voet"
+    },
+    "in_400_feet": {
+        "defaultMessage": "Over vierhonderd voet"
+    },
+    "in_500_feet": {
+        "defaultMessage": "Over vijfhonderd voet"
+    },
+    "in_600_feet": {
+        "defaultMessage": "Over zeshonderd voet"
+    },
+    "in_700_feet": {
+        "defaultMessage": "Over zevenhonderd voet"
+    },
+    "in_800_feet": {
+        "defaultMessage": "Over achthonderd voet"
+    },
+    "in_900_feet": {
+        "defaultMessage": "Over negenhonderd voet"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "Over duizend voet"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "Over vijftienhonderd voet"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "Over tweeduizend voet"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "Over vijfentwintighonderd voet"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "Over drieduizend voet"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "Over vijfendertighonderd voet"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "Over vierduizend voet"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "Over vijfenveertighonderd voet"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "Over vijfduizend voet"
+    },
+    "in_1_mile": {
+        "defaultMessage": "Over één mijl"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "Over anderhalve mijl"
+    },
+    "in_2_miles": {
+        "defaultMessage": "Over twee mijl"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Flitser in zicht"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "Neem"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "Bij het verlaten van de routine,"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Over meer dan drie kilometer"
+    },
+    "from_50_meters": {
+        "defaultMessage": "vijftig meter"
+    },
+    "from_100_meters": {
+        "defaultMessage": "honderd meter"
+    },
+    "from_200_meters": {
+        "defaultMessage": "tweehonderd meter"
+    },
+    "from_250_meters": {
+        "defaultMessage": "tweehonderdvijftig meter"
+    },
+    "from_300_meters": {
+        "defaultMessage": "driehonderd meter"
+    },
+    "from_400_meters": {
+        "defaultMessage": "vierhonderd meter"
+    },
+    "from_500_meters": {
+        "defaultMessage": "vijfhonderd meter"
+    },
+    "from_600_meters": {
+        "defaultMessage": "zeshonderd meter"
+    },
+    "from_700_meters": {
+        "defaultMessage": "zevenhonderd meter"
+    },
+    "from_750_meters": {
+        "defaultMessage": "zevenhonderdvijftig meter"
+    },
+    "from_800_meters": {
+        "defaultMessage": "achthonderd meter"
+    },
+    "from_900_meters": {
+        "defaultMessage": "negenhonderd meter"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "één kilometer"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "anderhalve kilometer"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "twee kilometer"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "tweeëneenhalf kilometer"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "drie kilometer"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "meer dan drie kilometer"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "Over meer dan twee mijl"
+    },
+    "from_50_feet": {
+        "defaultMessage": "vijftig voet"
+    },
+    "from_100_feet": {
+        "defaultMessage": "honderd voet"
+    },
+    "from_200_feet": {
+        "defaultMessage": "tweehonderd voet"
+    },
+    "from_300_feet": {
+        "defaultMessage": "driehonderd voet"
+    },
+    "from_400_feet": {
+        "defaultMessage": "vierhonderd voet"
+    },
+    "from_500_feet": {
+        "defaultMessage": "vijfhonderd voet"
+    },
+    "from_600_feet": {
+        "defaultMessage": "zeshonderd voet"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "U bent %1$s van de route"
+    },
+    "from_700_feet": {
+        "defaultMessage": "zevenhonderd voet"
+    },
+    "from_800_feet": {
+        "defaultMessage": "achthonderd voet"
+    },
+    "from_900_feet": {
+        "defaultMessage": "negenhonderd voet"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "duizend voet"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "vijftienhonderd voet"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "tweeduizend voet"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "tweeëneenhalf duizend voet"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "drieduizend voet"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "drieënhalf duizend voet"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "vierduizend voet"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "vierenhalf duizend voet"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "vijfduizend voet"
+    },
+    "from_1_mile": {
+        "defaultMessage": "één mijl"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "anderhalf mijl"
+    },
+    "from_2_miles": {
+        "defaultMessage": "twee mijl"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "meer dan twee mijl"
+    }
+}

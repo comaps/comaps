@@ -16,16 +16,11 @@ An overview of currently used icons can be found in the [Wiki](https://codeberg.
 
 ## Requirements
 
-To work with styles first [clone the CoMaps repository](INSTALL.md#getting-sources).
-
-Install a `protobuf` python package with `pip`
-```
-pip install "protobuf<3.21"
-```
-or with your OS package manager, e.g for Ubuntu 
-```
-sudo apt install python3-protobuf 
-```
+To work with styles first [clone the CoMaps repository](INSTALL.md#getting-sources)
+and run `./configure.sh`. That sets up a local `.venv` in the repository root with
+the required Python `protobuf` version, which the style generation scripts pick up
+automatically. To manage `protobuf` via your system Python instead, set
+`SKIP_PYTHON_VENV=1` before running `./configure.sh`.
 
 To run the `generate_symbols.sh` script, you need to install `optipng`, e.g. for Ubuntu
 ```
@@ -34,23 +29,38 @@ sudo apt install optipng
 
 If you use WSL on Windows 10 you might need to run [X Server](INSTALL.md#windows-10-wsl) before running `generate_symbols.sh`
 
-## Files
+## Styles directories and files
 
-Map styles are defined in text files located in `data/styles/default/include/`:
+Map styles are defined in text files located in `data/styles/`:
+
+**There are 3 subdirectories**:
+* `default`: the default style
+* `outdoors`: the outdoors specific style, which inherits from `default` ( outdoors style files include default style files, then add their own rules )
+* `vehicle`: specific to the navigation mode
+
+Each style directory has again 3 parts:
+* `light`:  entry point style.mapcss and colors definitions for the "light mode", which is the default
+* `dark`: same thing for the "dark mode"
+* `include` :  style definitions .mapcss files  and priorities files
+
+**The style definitions files**:
 * Forests, rivers, buildings, etc. [`Basemap.mapcss`](../data/styles/default/include/Basemap.mapcss)
 * Their text labels [`Basemap_label.mapcss`](../data/styles/default/include/Basemap_label.mapcss)
 * Roads, bridges, foot and bicycle paths, etc. [`Roads.mapcss`](../data/styles/default/include/Roads.mapcss)
 * Their text labels [`Roads_label.mapcss`](../data/styles/default/include/Roads_label.mapcss)
 * Icons for POIs and other features [`Icons.mapcss`](../data/styles/default/include/Icons.mapcss)
 * City-specific subway networks [`Subways.mapcss`](../data/styles/default/include/Subways.mapcss)
-* Light (default) theme colors: [`light/colors.mapcss`](../data/styles/default/light/colors.mapcss)
-* Dark/night theme colors: [`dark/colors.mapcss`](../data/styles/default/dark/colors.mapcss)
+
+**Priorities files**:   
+They describe the rendering priority of each feature-type.   
+A high priority number means that the feature-type is rendered **after** the others.   
+Look at the detailed description in the header of each file, to get a good understanding of their role, and format.   
 * Priorities of overlays (icons, captions..) [`priorities_4_overlays.prio.txt`](../data/styles/default/include/priorities_4_overlays.prio.txt)
 * Priorities of lines and areas [`priorities_3_FG.prio.txt`](../data/styles/default/include/priorities_3_FG.prio.txt), [`priorities_2_BG-top.prio.txt`](../data/styles/default/include/priorities_2_BG-top.prio.txt), [`priorities_1_BG-by-size.prio.txt`](../data/styles/default/include/priorities_1_BG-by-size.prio.txt)
 
-There is a separate set of these style files for the navigation mode in `data/styles/vehicle/`.
 
-Icons are stored in [`data/styles/default/light/symbols/`](../data/styles/default/light/symbols/) and their dark/night counterparts are in [`data/styles/default/dark/symbols/`](../data/styles/default/dark/symbols/).
+**Icons**:   
+They are stored in [`data/styles/default/light/symbols/`](../data/styles/default/light/symbols/) and their dark/night counterparts are in [`data/styles/default/dark/symbols/`](../data/styles/default/dark/symbols/).
 
 ## How to add a new icon
 
@@ -67,13 +77,13 @@ preferably look for icons in [collections CoMaps uses already](../data/copyright
 2. If necessary merge similar tags in via `data/replaced_tags.txt`
 3. Define a priority for the new feature type in e.g. [`priorities_4_overlays.prio.txt`](../data/styles/default/include/priorities_4_overlays.prio.txt) and/or other priorities files
 4. Add a new icon (see [above](#how-to-add-a-new-icon)) and/or other styling (area, line..)
-5. If a new POI is a subtype or has subtypes, add it accordingly to `data/subtypes.csv`
-6. If a new POI should be OSM-addable/editable then add it to `data/editor.config`
-7. Add the English string (and optionally translations e.g. for your native language) into iOS (`iphone/Maps/LocalizedStrings/en.lproj/LocalizableTypes.strings`) and Android (`android/sdk/src/main/res/values/types_strings.xml`) type strings
-8. Add search keywords into `data/categories-strings/en.json/localize.json`
-9. Add new or fix current classifier tests at `generator/generator_tests/osm_type_tests.cpp` if you can
-10. [Test](#testing-your-changes) your changes
-11. Relax and wait for the next maps update :)
+5. If a new POI should be OSM-addable/editable then add it to `data/editor.config`
+6. Add the English string (and optionally translations e.g. for your native language) into iOS and Android type strings
+e strings
+7. Add search keywords into `data/categories.txt`
+8. Add new or fix current classifier tests at `generator/generator_tests/osm_type_tests.cpp` if you can
+9. [Test](#testing-your-changes) your changes
+10. Relax and wait for the next maps update :)
 
 ## Testing your changes
 
@@ -110,5 +120,10 @@ though the specification is not supported in full and there are CoMaps-specific 
 The `tools/unix/generate_drules.sh` script uses a customized version of [Kothic](https://codeberg.org/comaps/kothic)
 stylesheet processor to compile MapCSS files into binary drawing rules files `data/drules_proto*.bin`.
 The processor also produces text versions of these files (`data/drules_proto*.txt`) to ease debugging.
+
+Those binary files, are generated by a Python Serialize operation applied on python structures.   
+For each feature type, and for each acceptable zoom level , they contain the styles to apply.      
+( looks like: `array[feature-type][zoom] ==> style` )
+
 
 The `tools/unix/generate_symbols.sh` script assembles all icons into skin files in various resolutions (`data/resources-*/symbols.png` and `symbols.sdf`).

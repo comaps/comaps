@@ -4,16 +4,27 @@
 #include "drape_frontend/render_state_extension.hpp"
 
 #include "shaders/program_manager.hpp"
+#include "shaders/program_params.hpp"
+#include "shaders/programs.hpp"
 
-#include "drape/batcher.hpp"
+#include "drape/drape_global.hpp"
 #include "drape/glsl_types.hpp"
-#include "drape/graphics_context.hpp"
 #include "drape/overlay_handle.hpp"
-#include "drape/texture_manager.hpp"
+#include "drape/pointers.hpp"
+#include "drape/render_state.hpp"
 #include "drape/vertex_array_buffer.hpp"
+
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 
 #include <functional>
 #include <vector>
+
+namespace dp
+{
+class GraphicsContext;
+class RenderBucket;
+}  // namespace dp
 
 namespace gui
 {

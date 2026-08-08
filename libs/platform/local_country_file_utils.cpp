@@ -1,14 +1,14 @@
 #include "platform/local_country_file_utils.hpp"
 
-#include "platform/country_file.hpp"
+#include "platform/country_defines.hpp"
 #include "platform/mwm_version.hpp"
 #include "platform/platform.hpp"
-#include "platform/settings.hpp"
 
 #include "coding/internal/file_data.hpp"
 #include "coding/reader.hpp"
 
 #include "base/assert.hpp"
+#include "base/exception.hpp"
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
 #include "base/stl_helpers.hpp"
@@ -18,8 +18,6 @@
 #include <cctype>
 #include <memory>
 #include <sstream>
-
-#include "3party/ankerl/unordered_dense.h"
 
 #include <boost/regex.hpp>
 

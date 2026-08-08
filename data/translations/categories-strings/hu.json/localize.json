@@ -1,0 +1,1484 @@
+{
+    "@category_eat": {
+        "defaultMessage": "Hol lehet enni valamit|Étkezés|Étterem|Étel|Kaja"
+    },
+    "@category_food": {
+        "defaultMessage": "Élelmiszer|Ennivaló|Üzlet"
+    },
+    "@category_transport": {
+        "defaultMessage": "Közlekedés|Tömegközlekedés"
+    },
+    "@category_fuel": {
+        "defaultMessage": "Benzinkút|Üzemanyag|Benzin|Gázolaj"
+    },
+    "@category_parking": {
+        "defaultMessage": "4Parkoló"
+    },
+    "@category_shopping": {
+        "defaultMessage": "Bevásárlás"
+    },
+    "@category_hotel": {
+        "defaultMessage": "Szálloda|Szállodák|Hotel|Hotelek"
+    },
+    "@category_tourism": {
+        "defaultMessage": "4Látnivalók|4Túrizmus"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "Szórakozás"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "Éjjeli élet|Éjszakai élet"
+    },
+    "@category_children": {
+        "defaultMessage": "Családi kiruccanás|kirándulás"
+    },
+    "@category_atm": {
+        "defaultMessage": "ATM|4Pénzautomata"
+    },
+    "@category_rv": {
+        "defaultMessage": "Lakókocsis létesítmények|lakókocsi|lakóautó"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "pénz|ATM|Bankautomata|U+1F3E7|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"
+    },
+    "@category_bank": {
+        "defaultMessage": "3Bank"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "4Használt cikk"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "pénz|U+1F3E6|U+1F4B0|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"
+    },
+    "@category_recycling": {
+        "defaultMessage": "Újrahasznosítás|Hulladékhasznosítás|Újrahasznosítható|Elkülönített hulladékgyűjtés|Hulladék válogatás|Újrafelhasználás"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "3Pénzváltó|pénz|U+1F4B1|U+1F4B2|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "2Bár|2kocsma|sör|ital|U+1F37A|U+1F37B|U+1F376"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "3Kávézó|3kávé|U+2615|U+1F356|U+1F357|U+1F35A|U+1F35B|U+1F35C|U+1F35D|U+1F363|U+1F366|U+1F367|U+1F368|U+1F369|U+1F370|U+1F372|U+1F374|U+1F377|U+1F60B|U+1F375"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "4Gyorsétterem|elvitel|U+1F354|U+1F355|U+1F35F|U+1F363|U+1F366|U+1F367|U+1F368|U+1F369|U+1F370|U+1F372|U+1F374"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "3Étterem|U+1F356|U+1F357|U+1F35A|U+1F35B|U+1F35C|U+1F35D|U+1F363|U+1F366|U+1F367|U+1F368|U+1F369|U+1F370|U+1F372|U+1F374|U+1F377|U+1F60B"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "3Benzinkút|benzin"
+    },
+    "@shop": {
+        "defaultMessage": "Bolt|Üzlet|U+1F3EA|U+1F3EC"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "3Pékség|Cukrászda|sütemény|U+1F35E"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "4Kozmetikum|házi gondozás|Kozmetikai üzlet"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "Csemegebolt|ábécé"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "Csemege"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "Kertészet|Kertészeti áruház"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "Hallókészülékek"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "Mobiltelefon üzlet|elektronikai szaküzlet|okostelefon|U+1F4F1|U+1F4F2"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "Virágbolt|virágárus|Virágüzlet|virág|U+1F337|U+1F338|U+1F339|U+1F33A|U+1F33B|U+1F33C|U+1F490|U+1F33E"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "Hentes|Mészáros"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "Bútoráruház"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "Konyhabolt"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "Italbolt|ital"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "Könyvesbolt"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "Cipőbolt"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "4Elektronika"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "Vas-műszaki bolt|Vaskereskedés|Barkácsüzlet|ezermester|Barkácsáruház"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "Háztartási cikkek"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "Ékszer"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "4Optika"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "Ajándékbolt|4Souvenir|Szuvenír"
+    },
+    "shop-beauty": {
+        "defaultMessage": "Szépségszalon|fodrász|U+1F484|haj|hajvágás"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "Zöldséges|Zöldség-gyümölcs|U+1F345|U+1F346|U+1F33D|U+1F360|U+1F348|U+1F347|U+1F349|U+1F34A|U+1F34C|U+1F34D|U+1F34E|U+1F34F|U+1F350|U+1F351|U+1F353"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "4Sporteszközök|U+1F3BF|U+1F3A3|U+1F3C2|U+1F6B4|U+26BD|U+1F3C0|U+1F3C8|U+26BE|U+1F3BE|U+1F3C9|U+26F3"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "3Szupermarket"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "Bevásárlóközpont"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "Áruház|Nagyáruház"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "Italok|üdítők|U+1F379"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "Számítógépüzlet|Számítógép üzlet|U+1F4BB"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "Cukrászüzlet|édességbolt|Cukrászműhely|U+1F36C|U+1F36D"
+    },
+    "shop-laundry": {
+        "defaultMessage": "4Mosoda"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "Játékbolt|játék|gyerekjáték"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "2Piac|piactér"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "Pénzátutalás|átutalás"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "Ruhabolt|Ruházati bolt|4ruhák|U+1F45A|U+1F457|U+1F456|U+1F455|ruha"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "Autókereskedés|Autószalon|Kocsi|U+1F697|U+1F698|U+1F699"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "4Kerékpárüzlet|U+1F6B2|U+1F6B4|U+1F6B5|bicikli"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "Trafik|U+1F4F0"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "2Buszmegálló|2busz|megálló|U+1F68C|U+1F68F|U+1F68E|U+1F690"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "4Villamosmegálló|3villamos|megálló|U+1F683"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "2Buszpályaudvar|Buszállomás|2busz|megálló|U+1F68C|U+1F68F|U+1F68D"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "3Vasútállomás|Vasúti megálló|Vonatmegálló|4vonat|4megálló|U+1F684|U+1F685|U+1F689|U+1F682|U+1F686|U+1F688|U+1F68A|U+1F68B"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "Siklóvasút|kötélpálya"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "3Metró|Földalatti|U+1F687"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "3Komp|U+1F6A2|U+1F6A4|U+2693"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "3Taxiállomás|taxi|U+1F695|U+1F696"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "3Városháza|Községháza|Önkormányzat"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "3Látnivaló|3látványosság|U+1F3A0|U+1F3A1|U+1F3A2|U+1F3AA"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "3Műalkotás|U+1F3A8"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "4Kilátó|Panoráma"
+    },
+    "tourism-information": {
+        "defaultMessage": "4Turistainformáció|4információ|Turisztikai tájékoztatás|U+1F481"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "3Piknikezőhely|Grillezőhely|piknik"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "3Templom|Istentiszteleti hely|U+1F64F"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "Templom|Székesegyház|Katedrális|Dóm|Bazilika|Istentiszteleti hely|U+1F64F|U+26EA|U+271D|U+2626"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "Mecset|U+1F64F|U+262A|U+1F54B|U+1F54C|U+262A"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "Buddhista szentély|U+1F64F|U+26EA|U+2638"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "Hindu szentély|U+1F64F|U+1F549"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "Szentély|U+1F64F|U+26E9"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "4Zsinagóga|imaház|U+1F64F|U+1F54D|U+2721"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "Taoista szentély|U+1F64F|U+262F"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "2Múzeum|kiállítás|3galéria|látványosság|U+1F3A8"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "2Vízesés"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "Ásatás"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "Csatatér"
+    },
+    "historic-stone": {
+        "defaultMessage": "Történelmi kő"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "Határkő"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "Vár|Kastély|Erőd|Palota|Castrum|Erősített templom|Erődrendszer|Földvár|Kreml|Udvarház|U+1F3EF|U+1F3F0|U+1F451|U+1F478"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "Városkapu"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "Városi fal|Városfal"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "Erőd"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "Akasztófa"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "3Emlékmű|Monumentális emlékmű|U+1F5FC|U+1F5FD|U+1F5FF"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "Emlékkereszt"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "Emlékmű|Emléktábla"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "Emlékmű|Absztrakt szobor"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "Emlékmű|Szobor"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "Botlatókő"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "Háborús emlékmű"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "4Monumentális emlékmű|Monumentális, épületszerű műemlék|U+1F5FD|U+1F5FF"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "Pellengér"
+    },
+    "historic-cannon": {
+        "defaultMessage": "Ágyú"
+    },
+    "historic-anchor": {
+        "defaultMessage": "Történelmi horgony"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "Romok|Történelmi rom|U+1F5FF"
+    },
+    "historic-mine": {
+        "defaultMessage": "Történelmi bánya"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "Turizmus|Hajó|Csónak"
+    },
+    "historic-wreck": {
+        "defaultMessage": "Hajóroncs"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "Történelmi mozdony|Vonat"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "Történelmi tank|Tank"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "Történelmi repülőgép|Repülőgép"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "Történelmi sír|Sírhely|Sír"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "Útszéli kereszt"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "Útmenti szentély|Szentély"
+    },
+    "leisure-garden": {
+        "defaultMessage": "2Kert"
+    },
+    "amenity-bench": {
+        "defaultMessage": "Pad"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "4Kerékpárkölcsönző|kerékpár|3bérlés|U+1F6B2|U+1F6B4|U+1F6B5|Kölcsönző"
+    },
+    "amenity-bicycle_repair_station": {
+        "defaultMessage": "4Kerékpár javítás|kerékpár"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "Gépjárműmegosztás|U+1F697|U+1F698|U+1F699|telekocsi"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "3Gépkocsikölcsönző|kocsi|bérlés|U+1F697|U+1F698|U+1F699"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "Motorkerékpár bérlés|Motor|Bérlés|Roller"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "3Mozi|U+1F3A6|U+1F3AC"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "Tekepálya"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "3Színház|U+1F3AD"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "3Éjszakai mulató|3diszkó|tánc|U+1F378|U+1F379|U+1F46F|U+1F483|Éjszakai"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "Bordély|U+1F3E9"
+    },
+    "@gambling": {
+        "defaultMessage": "Szerencsejáték"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "Kaszinó|U+1F3B0|U+1F3B2|U+1F3B4|Szerencsejáték"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "Felnőtt Játékközpont"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "Árkád|U+1F47E|U+1F579|U+1F3AE|Játékterem"
+    },
+    "amenity-college": {
+        "defaultMessage": "Főiskola|U+1F3EB"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "Tűzoltóság|U+1F692"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "Szökőkút|U+26F2"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "Temető"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "Temetkezési vállalkozó"
+    },
+    "@category_hospital": {
+        "defaultMessage": "4Kórház"
+    },
+    "amenity-hospital|@category_hospital": {
+        "defaultMessage": "rendelőintézet|3orvos"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "Rendelőintézet|kórház|szanatórium"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "Rendelő|Klinika|orvosi rendelő|kórház"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "Fogorvos"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "Orvosi laboratórium"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "Fizioterapeuta|Fizioterápia"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "Alternatív gyógyászat"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "Audiológia|Audiológus"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "Véradás"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "Optometria|Optometrista"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "Podiatria|Podiatrist|Lábgyógyászat"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "Pszichoterápia|Pszichoterapeuta"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "Logopédia|Logopédus"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "Magasles"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "Óvoda"
+    },
+    "amenity-library": {
+        "defaultMessage": "3Könyvtár"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "3Gyógyszertár|patika"
+    },
+    "@category_post": {
+        "defaultMessage": "3Posta"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "3Postaláda|Levelesláda"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "Gépjármű átvizsgálás"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "Szemeteskonténer|Kuka|Hulladék|Szemét"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "Hulladékudvar|Újrahasznosító központ|hulladékgyűjtő központ"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "Újrahasznosító tartály|Szelektív hulladékgyűjtő konténer"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "Elemek|Elem, akkumulátor"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "Régi ruhák|Régi ruhák újrahasznosítása|Ruha"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "Üveg palackok"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "Papír hulladék|Papír"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "Műanyag hulladék|Műanyag"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "Műanyag palackok"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "Fémhulladék"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "Elektromos hulladék"
+    },
+    "amenity-school": {
+        "defaultMessage": "3Iskola"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "Menedék"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "Bivak Kunyhó"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "Menedék"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "Stripclub|Sztriptízbár"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "2Telefon"
+    },
+    "@category_toilet": {
+        "defaultMessage": "WC"
+    },
+    "amenity-toilets|toilets-yes|@category_toilet": {
+        "defaultMessage": "WC|Mosdó"
+    },
+    "amenity-university": {
+        "defaultMessage": "4Egyetem"
+    },
+    "place-continent": {
+        "defaultMessage": "Kontinens"
+    },
+    "place-country": {
+        "defaultMessage": "Ország"
+    },
+    "place-city": {
+        "defaultMessage": "Város"
+    },
+    "place-town": {
+        "defaultMessage": "Kisváros"
+    },
+    "place-city-capital": {
+        "defaultMessage": "Főváros"
+    },
+    "place-county": {
+        "defaultMessage": "Megye|3grófság"
+    },
+    "place-state": {
+        "defaultMessage": "Szövetségi állam|Tartomány|Régió"
+    },
+    "place-region": {
+        "defaultMessage": "Régió|Tartomány"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "Sziget"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "Kerület|Városrész"
+    },
+    "place-hamlet": {
+        "defaultMessage": "Falucska"
+    },
+    "place-village": {
+        "defaultMessage": "Falu"
+    },
+    "place-locality": {
+        "defaultMessage": "Dűlő|Lakatlan hely"
+    },
+    "place-farm": {
+        "defaultMessage": "Tanya"
+    },
+    "highway-raceway": {
+        "defaultMessage": "Versenypálya"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "Ösvény"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "Utca"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "4Kijárat|4csatlakozás"
+    },
+    "@mountain": {
+        "defaultMessage": "Csúcs|hegy|U+1F5FB|U+1F304"
+    },
+    "natural-strait": {
+        "defaultMessage": "Szoros"
+    },
+    "landuse-forest": {
+        "defaultMessage": "Erdő"
+    },
+    "leisure-park": {
+        "defaultMessage": "Park"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "Akvárium"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "3Turistaszálló|Ifjúsági szálló|szállás"
+    },
+    "tourism-hotel|@category_hotel": {
+        "defaultMessage": "Szálloda|hotel|motel|szállás"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "Vendégház|panzió"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "3Motel|szállás"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "5Hegyi menedékház|5hegyvidéki kunyhó|kunyhó|menedékház|alpesi kunyhó"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "3Fodrász|U+2702|U+1F488|hajvágás|hajnyírás|hajfestés|borbély"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "3Repülőtér|3repülő|U+2708"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "4Stadion|4sport|U+26BD|U+26BE|U+1F3BE|U+1F3C0|U+1F3C8|U+1F4AA|U+1F3C9|aréna|olimpiai stadion"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "Játszótér"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "4Sportközpont|sport"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "Golfpálya|U+26F3"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "Minigolf"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "Szabadulószoba"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "4Sportpálya|sport|U+26BD|U+26BE|U+1F3BE|U+1F3C0|U+1F3C8|U+1F3C9|U+1F3C3"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "4Úszómedence|Uszoda|sport|U+1F3CA"
+    },
+    "sport-american_football": {
+        "defaultMessage": "Amerikai foci"
+    },
+    "sport-archery": {
+        "defaultMessage": "Íjászat"
+    },
+    "sport-athletics": {
+        "defaultMessage": "Atlétika"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "Ausztrál futball"
+    },
+    "sport-baseball": {
+        "defaultMessage": "Baseball"
+    },
+    "sport-basketball": {
+        "defaultMessage": "Kosárlabda"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "Strandröplabda|Röplabda"
+    },
+    "sport-chess": {
+        "defaultMessage": "Sakk"
+    },
+    "sport-cricket": {
+        "defaultMessage": "Krikett"
+    },
+    "sport-curling": {
+        "defaultMessage": "Curling"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "Lovas sportok|Lovaglás"
+    },
+    "sport-golf": {
+        "defaultMessage": "Golf"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "Gimnasztika|Torna"
+    },
+    "sport-handball": {
+        "defaultMessage": "Kézilabda"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "Búvárkodás"
+    },
+    "sport-shooting": {
+        "defaultMessage": "Lőtér"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "Gördeszkázás"
+    },
+    "sport-skiing": {
+        "defaultMessage": "Síelés"
+    },
+    "sport-soccer": {
+        "defaultMessage": "Futball|Labdarúgás"
+    },
+    "sport-swimming": {
+        "defaultMessage": "Uszoda"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "Asztalitenisz"
+    },
+    "sport-tennis": {
+        "defaultMessage": "Tenisz"
+    },
+    "sport-padel": {
+        "defaultMessage": "Padel"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "Röplabda"
+    },
+    "building": {
+        "defaultMessage": "Épület|U+1F3E0|U+1F3E1|U+1F3E2|Ház"
+    },
+    "building-address": {
+        "defaultMessage": "Cím"
+    },
+    "@category_police": {
+        "defaultMessage": "4Rendőrség|Rendőr"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "4Nagykövetség|Külképviselet"
+    },
+    "natural-bay": {
+        "defaultMessage": "Öböl"
+    },
+    "@category_water": {
+        "defaultMessage": "3Víz|Vízforrás|Ivóvíz"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "4Ivóvíz|U+1F6B0"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "Melegvizű forrás|Termálvíz"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "Forrás"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "Kút"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "Vízvételi pont"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "Vízcsap"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "Vízgyűjtő"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "Tavacska"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "Tó"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "5Víztározó"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "Folyó"
+    },
+    "waterway-canal": {
+        "defaultMessage": "Csatorna|Kanális"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "3Autószerelő|Autószerviz|Gépkocsiszerviz|Autójavító|4javítóműhely|kocsi|U+1F527"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "4Kemping|sátrazóhely|U+26FA"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "4Lakókocsihely|kemping|U+1F69A|U+26FA|U+1F69B"
+    },
+    "office": {
+        "defaultMessage": "Iroda|Hivatal|cég|vállalat|U+1F454|U+1F4BC|U+1F3E2"
+    },
+    "office-company": {
+        "defaultMessage": "Vállalati iroda"
+    },
+    "office-government": {
+        "defaultMessage": "Kormányzati iroda|Állami iroda"
+    },
+    "office-lawyer": {
+        "defaultMessage": "Ügyvéd|Ügyvédi iroda"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "Mobiltelefon-társaság|Távközlési cég"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "Méhész"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "Kovácsműhely"
+    },
+    "craft-brewery": {
+        "defaultMessage": "Sörfőzde|sörwkézműves sör|sörfőzde"
+    },
+    "craft-caterer": {
+        "defaultMessage": "Rendezvényszervező|Rendezvény|Szervező"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "Ács|Asztalos"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "Cukrászda|Cukrászműhely"
+    },
+    "craft-electrician": {
+        "defaultMessage": "Villanyszerelő"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "Elektronikai javítás"
+    },
+    "craft-gardener": {
+        "defaultMessage": "Kertész"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "Malom"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "Kézművesség"
+    },
+    "craft-hvac": {
+        "defaultMessage": "Hűtés|fűtés|légkondicionálás"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "Lakatos"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "4kulcsmásolás|másolás|kulcs"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "Lakatos"
+    },
+    "craft-painter": {
+        "defaultMessage": "Festő"
+    },
+    "craft-photographer": {
+        "defaultMessage": "Fényképész|fényképész stúdió"
+    },
+    "craft-plumber": {
+        "defaultMessage": "Vízvezeték-szerelő"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "Fűrészmalom"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "Cipész"
+    },
+    "craft-winery": {
+        "defaultMessage": "Pincészet|Borászat"
+    },
+    "craft-tailor": {
+        "defaultMessage": "Szabó"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "Tér"
+    },
+    "place-sea": {
+        "defaultMessage": "Tenger|U+1F30A"
+    },
+    "place-ocean": {
+        "defaultMessage": "Óceán|U+1F30A"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "3Internet|U+1F4F6"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "Strand|Homokos part|U+1F459|Part"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "Világítótorony"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "Kommunikációs torony"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "Olajkút"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "öko|bio|egészséges|biológiai|környezeti|természetes|organikus"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "Fénymásoló|Nyomda|Fénymásoló|másoló"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "4Fotósüzlet|Fényképüzlet|Fénykép üzlet|keretek|Fotóüzlet|Keret|Képkeret|Fotó"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "Fényképezőgép bolt|Kamera"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "Utazási iroda|utazás|túra|utak|utazásközvetítő|utazásszervező"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "Túrafelszerelés|mászás|kempingezés|üzlet"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "Ruhatisztító|vegytisztító|patyolat|tisztító"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "Gumiszaküzlet|Gumi szaküzlet|Autógumi-szaküzlet"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "4Autómosó"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "Állatorvos"
+    },
+    "@charging_station": {
+        "defaultMessage": "Töltőállomás|töltés"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "Kerékpártöltés"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "Bölcsőde|Gyermekgondozás|Gyermekfelügyelet"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "Kerékpártároló"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "Szemétkosár|Szemetes"
+    },
+    "emergency-phone": {
+        "defaultMessage": "Segélyhívó telefon|Segélyhívó"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "Edzőterem|Konditerem|Fitneszterem|U+1F4AA"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "3Szauna"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "Gumiszerviz|Gumijavítás"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "4Drogéria"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "Házikedvenc-üzlet|Kisállat"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "Állatkert"
+    },
+    "attraction-animal": {
+        "defaultMessage": "Állattartás|Kifutó|Karám"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "3Tourinform iroda|Idegenforgalmi iroda"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "3Látogatóközpont"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "4Közösségi ház"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "Sűrített levegő|Kompresszor"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "4Bíróság"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "4Cigarettaautomata"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "Italautomata"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "4Parkolóautomata"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "Jegykiadó|tömegközlekedés|Jegy|Bérlet"
+    },
+    "shop-outpost": {
+        "defaultMessage": "4Felvevő pont|Csomag|Automata|Csomagautomata"
+    },
+    "building-garage": {
+        "defaultMessage": "Garázs"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "Pihenőzóna|Pihenőhely"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "Torony"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "Fogadóiroda"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "Halüzlet|Halkereskedés|Hal"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "Jótékonysági Bolt"
+    },
+    "shop-ticket": {
+        "defaultMessage": "Jegyiroda|Jegypénztár|Szállásfoglalás"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "4Borkereskedés"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "4Autóalkatrész"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "5Nyaraló|Nyaralóház"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "Tájékoztató tábla"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "Turistatérkép|Turisztikai térkép"
+    },
+    "aerialway-station": {
+        "defaultMessage": "Felvonóállomás|Felvonó"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "Helikopterleszálló"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "4Határátkelő"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "Strand|Élményfürdő|3Aquapark"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "Víztorony"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "Szélmalom"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "Barlang"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "Tűzhányó|4Vulkán"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "Ingatlaniroda|Ügynök"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "Zsilipkapu"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "Nyilvános könyvespolc|könyvcsere"
+    },
+    "sport-climbing": {
+        "defaultMessage": "Hegymászóközpont|Hegymászás"
+    },
+    "sport-yoga": {
+        "defaultMessage": "Jóga"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "5Apartmanok|Apartman"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "Strand|Üdülőhely"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "Sörkert"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "4Autósiskola"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "Zeneiskola"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "Nyelviskola"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "5Fagylaltárus|Fagylalt|Fagyi"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "3Internetkávézó"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "4Motorkerékpár-parkoló"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "Mozgássérült parkolóhely"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "Idősek otthona"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "Fizetőterminál"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "Közfürdő"
+    },
+    "amenity-shower": {
+        "defaultMessage": "Zuhany|tusoló"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "Vészhelyzeti gyülekezőhely"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "4Defibrillátor"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "4Tűzcsap"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "Vízimentő|Életmentő|Mentőszolgálat"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "Hegyi mentőszolgálat|Mentőszolgálat"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "3Fitneszpark"
+    },
+    "office-insurance": {
+        "defaultMessage": "4Biztosító"
+    },
+    "office-ngo": {
+        "defaultMessage": "Civil szervezet irodája|iroda|civil"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "4Erotikus bolt"
+    },
+    "shop-massage": {
+        "defaultMessage": "4Masszázsszalon|Masszázs"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "4Motorkerékpár-üzlet|Motorkerékpár-szaküzlet"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "Motorkerékpár javítás"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "Újságárus"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "Zálogház"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "Írószerbolt|Papírbolt|Papír írószer"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "4Tetováló szalon|Tetoválószalon|Tetoválás"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "Vegyesbolt"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "4Videotéka|Videokölcsönzés|Kölcsönzés|DVD"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "4Videojáték szaküzlet|U+1F47E|U+1F579|U+1F3AE"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "Menedékház"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "Nemzeti park"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "Természetvédelmi terület|Természetvédelem"
+    },
+    "natural-cape": {
+        "defaultMessage": "Fok|Hegytető"
+    },
+    "natural-geyser": {
+        "defaultMessage": "3Gejzír"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "Gleccser"
+    },
+    "highway-ford": {
+        "defaultMessage": "Gázló"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "Síelés|Sífutás"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "Rendezvényhelyszín|Rendezvénytér|Rendezvény"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Régiségek|Régiségkereskedés"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "Művészeti Bolt|Műkereskedés"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "Gyermekbolt|Bababolt"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "Táskák bolt"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "Sajtbolt"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "Tejtermékek"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "Elektronikai üzlet|Villamossági szaküzlet"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "Horgászbolt"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "Belső dekorációk"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "Sorsjegyek|Lottózó"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "Orvosi eszközök"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "Táplálékkiegészítők"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "Festékek"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "Illatszerek"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "Varrás kellékek|Rövidáru"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "Tárhely bérlés"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "Dohány"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "Kellékekkel kereskedik|Szakáruház"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "Órák"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "Nagykereskedelmi üzlet|Nagykereskedés"
+    },
+    "power-plant": {
+        "defaultMessage": "Erőmű"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "Aukció"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Gyűjtő|Gyűjthető tárgyak boltja"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "Kerekesszék|Teljesen akadálymentes"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "Szociális létesítmény"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "Sportcsarnok"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "Művészeti központ"
+    },
+    "amenity-prison": {
+        "defaultMessage": "börtön"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "Kiállítási Központ"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "Fürdőszobai bútorok"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "Ágyak boltja"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "Butik"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "Függönyök|Függönyszaküzlet"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "Gázbolt"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "Kisállatápolás"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "HiFi Audio"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "Konferenciaközpont"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "Gyógynövénybolt"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "Háztartási készülékek boltja"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "Mezőgazdasági bolt"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "Divatkiegészítők"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "Szőnyegek"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "Tészta"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "Poggyászmegőrző"
+    },
+    "leisure-dance|@category_entertainment": {
+        "defaultMessage": "tánc|tánciskola"
+    },
+    "amenity-love_hotel": {
+        "defaultMessage": "4szeretőszálló|szexhotel"
+    },
+    "shop-grocery|@category_food|@shop": {
+        "defaultMessage": "Élelmiszerbolt|zöldséges"
+    },
+    "shop-health_food|@category_food|@shop": {
+        "defaultMessage": "Bio|bioélelmiszer"
+    },
+    "shop-cannabis|@shop": {
+        "defaultMessage": "Kanabisz|Marihuana"
+    },
+    "shop-caravan|@category_rv|@shop": {
+        "defaultMessage": "Lakóautó kereskedés|lakóautó|lakókocsi"
+    },
+    "leisure-dog_park": {
+        "defaultMessage": "3kutyapark"
+    },
+    "leisure-firepit": {
+        "defaultMessage": "5tűzrakóhely|tűz"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "Hackerspace"
+    },
+    "sport-bowls": {
+        "defaultMessage": "Teke|Bowling|gyepteke"
+    },
+    "amenity-police|@category_police": {
+        "defaultMessage": "U+1F693|U+1F46E|U+1F694|U+1F482|U+1F6A8|rendőrség"
+    },
+    "@waterbody": {
+        "defaultMessage": "Víztest|vízfelület"
+    },
+    "man_made-mast": {
+        "defaultMessage": "Árboc|oszlop"
+    },
+    "amenity-vending_machine-coffee": {
+        "defaultMessage": "Kávéadagoló|Kávé"
+    },
+    "amenity-vending_machine-newspapers": {
+        "defaultMessage": "4Újságos|Újságok|újság"
+    },
+    "amenity-vending_machine-sweets": {
+        "defaultMessage": "4édesség adagoló|Édességek|4Cukorkák|Nyalókák"
+    },
+    "amenity-vending_machine-excrement_bags": {
+        "defaultMessage": "kutyaürülék-zacskó|zacskó|tasak|ürülék"
+    },
+    "amenity-parcel_locker|@category_post": {
+        "defaultMessage": "4Csomagszekrény"
+    },
+    "amenity-vending_machine-fuel|@category_fuel": {
+        "defaultMessage": "Üzemanyag-adagoló|Benzinkút"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Bolhapiac"
+    },
+    "tourism-theme_park|@category_tourism|@category_children": {
+        "defaultMessage": "Vidámpark"
+    },
+    "shop-fabric|@shop": {
+        "defaultMessage": "Szövet|vászon|szőttes"
+    },
+    "highway-elevator": {
+        "defaultMessage": "Lift"
+    },
+    "@fastfood": {
+        "defaultMessage": "Gyorsétterem"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "Bagel"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "Reggeli"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "Hamburger"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "Torta"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "Kávé"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "Curry"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "Étkező"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "Fánk"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "Hal és sültkrumpli"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "Olajban sütött ételek"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "Grill"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "Hotdog"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "Jégkrém"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "Kebab"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "Tészta"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "Palacsinta|Francia palacsinta"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "Tészta"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "Pizza"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "Rámen"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "Szendvics"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "Kolbász"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "Tenger gyümölcsei|Hal"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "Soba"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "Steak ház"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "Szusi"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "Tapas"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "Tea"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "Vegetáriánus konyha"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "Vegán konyha"
+    }
+}

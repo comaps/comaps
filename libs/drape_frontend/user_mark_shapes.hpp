@@ -1,17 +1,37 @@
 #pragma once
 
+#include "drape_frontend/color_constants.hpp"
+#include "drape_frontend/render_state_extension.hpp"
+#include "drape_frontend/shape_view_params.hpp"
 #include "drape_frontend/tile_key.hpp"
 #include "drape_frontend/user_marks_provider.hpp"
 
-#include "drape/batcher.hpp"
+#include "drape/color.hpp"
+#include "drape/drape_global.hpp"
+#include "drape/pointers.hpp"
+#include "drape/render_bucket.hpp"
+#include "drape/render_state.hpp"
 #include "drape/texture_manager.hpp"
 
+#include "indexer/feature_decl.hpp"
+
+#include "kml/type_utils.hpp"
+
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 #include "geometry/spline.hpp"
 
 #include <limits>
 #include <memory>
 
 #include "3party/ankerl/unordered_dense.h"
+
+namespace dp
+{
+class Batcher;
+class GraphicsContext;
+class TextureManager;
+}  // namespace dp
 
 namespace df
 {

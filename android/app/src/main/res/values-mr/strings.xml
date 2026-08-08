@@ -173,8 +173,6 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">लांबी</string>
     <string name="share_my_location">माझे स्थान सामायिक करा</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">सर्वसामान्य सेटिंग</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">माहिती</string>
     <string name="prefs_group_route">मार्गनिर्देशन</string>
@@ -230,7 +228,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">होकायंत्र कॅलिब्रेट करण्यासाठी आणि नकाशावर बाणाची दिशा निश्चित करण्यासाठी फोनला आकृती-आठ मोशनमध्ये हलवा.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">इंटरफेस पाहण्यासाठी पुन्हा नकाशावर दीर्घ टॅप करा</string>
+    <string name="enable_long_tap_fullscreen_description">इंटरफेस पाहण्यासाठी पुन्हा नकाशावर दीर्घ टॅप करा</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">सर्व अद्ययावत</string>
     <!-- Cancel all button text -->
@@ -561,7 +559,7 @@
         <item quantity="other">%d ट्रॅक</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">गोपनीयता</string>
+    <string name="prefs_group_privacy">गोपनीयता</string>
     <string name="privacy_policy">गोपनीयता धोरण</string>
     <string name="terms_of_use">वापरण्याच्या अटी</string>
     <string name="button_layer_traffic">ट्रॅफिक</string>
@@ -589,7 +587,7 @@
     <string name="power_managment_setting_auto">स्वयंचलित</string>
     <string name="power_managment_setting_manual_max">कमाल वीज बचत</string>
     <string name="enable_logging_warning_message">निदान करण्याकरिता हा पर्याय लॉगिंग चालू करतो. ह्याने ऍपच्या समस्यांचे निवारण करणे आम्हाला उपयुक्त ठरू शकते. तुमच्या समस्येबद्दल तपशीलवार नोंदी रेकॉर्ड करण्यासाठी आणि आम्हाला पाठवण्यासाठी हा पर्याय तात्पुरता चालू करा.</string>
-    <string name="driving_options_title">मार्गशोधी पर्याय</string>
+    <string name="routing_options_title">मार्गशोधी पर्याय</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">टोल रस्ते टाळा</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

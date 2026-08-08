@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly, nullable) NSString *email;
 @property(nonatomic, readonly, nullable) NSURL *emailUrl;
 @property(nonatomic, readonly, nullable) NSString *cuisine;
+@property(nonatomic, readonly, nullable) NSString *organic;
 @property(nonatomic, readonly, nullable) NSString *ppOperator;
 @property(nonatomic, readonly, nullable) NSString *branch;
 @property(nonatomic, readonly, nullable) NSString *address;
@@ -43,6 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly, nullable) NSString *outdoorSeating;
 @property(nonatomic, readonly, nullable) NSString *network;
 @property(nonatomic, readonly, nullable) NSString *population;
+@property(nonatomic, readonly, nullable) NSString *capacityDisabled;
+@property(nonatomic, readonly, nullable) NSString *capacityCharging;
 
 - (NSDate * _Nullable)getMostRecentCheckDate;
 

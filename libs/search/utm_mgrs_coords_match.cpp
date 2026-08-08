@@ -7,7 +7,6 @@
 #include <string>
 
 #include "base/math.hpp"
-#include "base/string_utils.hpp"
 
 namespace search
 {

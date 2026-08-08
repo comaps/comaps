@@ -1,7 +1,5 @@
 #pragma once
 
-#include "search/idf_map.hpp"
-
 #include "base/assert.hpp"
 #include "base/string_utils.hpp"
 

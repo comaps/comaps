@@ -185,7 +185,7 @@
     <string name="downloading_is_active">Map download is in progress now</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Check out my current location in CoMaps! %1$s or %2$s Don\'t have offline maps? Download here: https://www.comaps.app/download/</string>
-  <!-- Share a position using EMail, %1$@ is https://comaps.at link WITH NAME and %2$@ is the geo url containing only coordinates.  -->
+    <!-- Share a position using EMail, %1$@ is https://comaps.at link WITH NAME and %2$@ is the geo url containing only coordinates.  -->
     <string name="bookmark_share_email_subject">Follow this link %1$s or paste these coordinates %2$s into your maps app to see this location.</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Hey, check out my current location on the CoMaps map!</string>
@@ -201,19 +201,33 @@
     <string name="done">Done</string>
     <!-- Data version in «About» screen, %@ is replaced by a local, human readable date. -->
     <string name="data_version">OpenStreetMap data: %s</string>
+    <!-- Summary of the "About CoMaps" settings row -->
+    <string name="pref_about_summary">Report issues, get help, donate\nVersion: v%1$s</string>
     <!-- Title for tracks category in Favorites manager -->
     <string name="tracks_title">Tracks</string>
     <!-- Length of track in cell that describes route -->
     <string name="length">Length</string>
     <string name="share_my_location">Share My Location</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">General settings</string>
-    <!-- Settings information group in settings screen -->
+    <string name="prefs_group_map_appearance">Map appearance</string>
+    <string name="prefs_group_map_appearance_summary">Map language, labels size, 2D/3D buildings</string>
+    <string name="prefs_group_interface">Interface</string>
+    <string name="prefs_group_interface_summary">Night mode, buttons, language</string>
+    <string name="prefs_group_data_management">Data management</string>
+    <string name="prefs_group_data_management_summary">Map storage, backup favorites</string>
     <string name="prefs_group_information">Information</string>
     <string name="prefs_group_route">Navigation</string>
-    <string name="prefs_group_traffic">Traffic information</string>
+    <string name="prefs_group_route_summary">Units, voice instructions, routing options</string>
+    <string name="prefs_group_traffic">Traffic</string>
+    <string name="prefs_group_traffic_summary">Live traffic information</string>
     <string name="pref_zoom_title">Zoom buttons</string>
     <string name="pref_zoom_summary">Display on the map</string>
+    <!-- Settings advanced group in settings screen -->
+    <string name="prefs_group_advanced">Advanced</string>
+    <string name="prefs_group_advanced_summary">Enable logging</string>
+    <string name="download_resources_custom_url_title">Custom Map Server</string>
+    <string name="download_resources_custom_url_message">Override the default map download server used for map downloads. Leave empty to use CoMaps default server.</string>
+    <string name="download_resources_custom_url_summary_none">Not set</string>
+    <string name="download_resources_custom_url_error_scheme">Please enter a URL starting with http:// or https://</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Night Mode</string>
     <!-- Generic «Off» string -->
@@ -242,6 +256,10 @@
     <string name="pref_tts_playing_test_voice">Check the volume or system Text-To-Speech settings if you don\'t hear the voice now</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
     <string name="pref_tts_unavailable">Not Available</string>
+    <!-- Bottom nav when planning route: button that enables TTS -->
+    <string name="tts_toggle_enable">Enable voice instructions</string>
+    <!-- Bottom nav when planning route: button that disables TTS -->
+    <string name="tts_toggle_disable">Disable voice instructions</string>
     <string name="pref_map_auto_zoom">Auto zoom</string>
     <string name="placepage_distance">Distance</string>
     <string name="search_show_on_map">View on map</string>
@@ -274,7 +292,20 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Move the phone in a figure-eight motion to calibrate the compass and fix the arrow direction on the map.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Long-tap on the map again to see the interface</string>
+    <string name="enable_long_tap_fullscreen_description">Long-tap on the map again to see the interface</string>
+    <string name="enable_long_tap_fullscreen">Long tap to hide user interface</string>
+    <!-- Toast text when long tap is disabled in settings -->
+    <string name="long_tap_disabled_toast">To hide the interface enable long tap in the settings</string>
+    <!-- Button title to check for new map updates -->
+    <string name="downloader_check_updates_button">Check for updates</string>
+    <!-- Pressed button title after check for new map updates had been requested-->
+    <string name="downloader_check_updates_checking">Checking for updates...</string>
+    <string name="downloader_check_updates_updated">Map updates available!</string>
+    <!-- Notification for when check map updates had been requested and there are no new map updates available -->
+    <string name="downloader_check_updates_no_updates">No updates available</string>
+    <string name="downloader_check_updates_eol">No more map updates for this app version. Please update the app!</string>
+    <!-- Notification for when check map updates had been requested and there had been some error -->
+    <string name="downloader_check_updates_error">Error checking for updates</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Update All</string>
     <!-- Cancel all button text -->
@@ -441,6 +472,7 @@
       <item quantity="one">%d min</item>
       <item quantity="other">%d mins</item>
     </plurals>
+    <string name="oh_unknown">Opening hours unknown</string>
     <!-- Used in the opening_hours fragment for the last checked date, eg. "Confirmed two weeks ago" -->
     <string name="hours_confirmed_time_ago">Confirmed %s</string>
     <!-- Used on the place page for the last checked date, eg. "Existence confirmed two weeks ago" -->
@@ -619,6 +651,7 @@
     <!-- User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". -->
     <string name="routing_add_finish_point">Use search or tap on the map to add a destination point</string>
     <string name="planning_route_manage_route">Manage Route</string>
+    <string name="planning_route_preview">Preview</string>
     <string name="button_plan">Plan</string>
     <string name="placepage_remove_stop">Remove Stop</string>
     <string name="placepage_add_stop">Add Stop</string>
@@ -659,9 +692,11 @@
         <item quantity="other">%d tracks</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Privacy</string>
+    <string name="prefs_group_privacy">Privacy</string>
+    <string name="prefs_group_privacy_summary">Search history</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="power_management">Power management</string>
+    <string name="prefs_group_power_summary">Screen timeout, mobile data</string>
     <string name="terms_of_use">Terms of use</string>
     <string name="button_layer_traffic">Traffic</string>
     <string name="subway">Subway</string>
@@ -688,7 +723,7 @@
     <string name="power_managment_setting_auto">When battery is low</string>
     <string name="power_managment_setting_manual_max">Always</string>
     <string name="enable_logging_warning_message">Enable this option temporarily to record and manually send detailed diagnostic logs about your issue to us using \"Report a bug\" in the Help dialog. Logs may include location info.</string>
-    <string name="driving_options_title">Routing options</string>
+    <string name="routing_options_title">Routing options</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Avoid tolls</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -700,7 +735,7 @@
     <string name="avoid_paved">Avoid paved roads</string>
     <string name="unable_to_calc_alert_title">Unable to calculate route</string>
     <string name="unable_to_calc_alert_subtitle">A route could not be found. This may be caused by your routing options or incomplete OpenStreetMap data. Please change your routing options and retry.</string>
-    <string name="define_to_avoid_btn">Define roads to avoid</string>
+    <string name="define_to_avoid_btn">Choose routing options</string>
     <string name="change_driving_options_btn">Routing options enabled</string>
     <string name="toll_road">Toll road</string>
     <string name="unpaved_road">Unpaved road</string>
@@ -725,6 +760,8 @@
     <string name="sort">Sort…</string>
     <!-- Android, title, max 20-22 symbols -->
     <string name="sort_bookmarks">Sort Favorites</string>
+    <!-- Android, title for sorting categories -->
+    <string name="sort_categories">Sort Favorite Lists</string>
     <!-- Android -->
     <string name="by_default">By default</string>
     <string name="setting_value_system_default">System default</string>
@@ -736,12 +773,16 @@
     <string name="by_date">By date</string>
     <!-- Android -->
     <string name="by_name">By name</string>
+    <!-- Android -->
+    <string name="by_recently_used">By recently used</string>
+    <string name="by_custom">By custom order</string>
     <string name="week_ago_sorttype">A week ago</string>
     <string name="month_ago_sorttype">A month ago</string>
     <string name="moremonth_ago_sorttype">More than a month ago</string>
     <string name="moreyear_ago_sorttype">More than a year ago</string>
     <string name="near_me_sorttype">Near me</string>
     <string name="others_sorttype">Others</string>
+    <string name="editor_add_select_category_all_subtitle">All Categories</string>
 
     <!-- SECTION: Bookmark types used for sorting -->
     <string name="food_places">Food</string>
@@ -759,6 +800,7 @@
     <string name="fuel_places">Gas Stations</string>
     <string name="medicine">Medicine</string>
     <string name="search_in_the_list">Search in the list</string>
+    <string name="search_in_all_lists">Search in all lists</string>
     <string name="religious_places">Religious places</string>
     <string name="select_list">Select list</string>
     <string name="transit_not_found">Subway navigation in this region is not available yet</string>
@@ -988,13 +1030,6 @@
     <string name="offline_explanation_title">Offline Maps</string>
     <string name="offline_explanation_text">A map needs to be downloaded to view and navigate the area.\nDownload maps for areas you want to travel.</string>
     <string name="list_description_empty">Edit the list to add a description</string>
-    <!-- Settings: Advanced group -->
-    <string name="advanced">Advanced</string>
-    <!-- Custom Download URL -->
-    <string name="download_resources_custom_url_title">Custom Map Server</string>
-    <string name="download_resources_custom_url_message">Override the default map download server used for map downloads. Leave empty to use CoMaps default server.</string>
-    <string name="download_resources_custom_url_summary_none">Not set</string>
-    <string name="download_resources_custom_url_error_scheme">Please enter a URL starting with http:// or https://</string>
     <!-- string name different as needs to match iOS -->
     <string name="pref_alt_map_lang_handling">Alternative Map Languages</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">Don\'t use alternatives</string>
@@ -1016,4 +1051,24 @@
     <string name="route_recalculating">Recalculating the route…</string>
     <string name="pref_openexternallinks_title">Automatically open third-party links</string>
     <string name="pref_openexternallinks_summary">Open third-party links in CoMaps by default</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_aa_support_summary_yes">The app has been installed from Google Play, you can use it in your car.</string>
+    <string name="pref_aa_support_summary_no">The app has not been installed from Google Play, you can\'t use it in your car. Press the setting to get more details on our FAQ.</string>
+    <string name="pref_enable_auto_reroute_title">Automatic rerouting</string>
+    <string name="pref_enable_auto_reroute_description">When enabled, a new route will automatically be created when you leave the planned route.</string>
+    <string name="recalculate_route">Recalculate</string>
+    <!-- Should be similar to TTS strings for being off the route eg. data/sound-strings/en.json/localize.json -->
+    <string name="off_route">You are off the route</string>
+
+    <!-- Editor section title that shows recently used categories (types of objects) when adding a place on the map -->
+    <string name="editor_add_select_category_recent_subtitle">Recently Used</string>
+    <string name="capacity_disabled">Disabled parking spaces: %s</string>
+    <string name="capacity_disabled_yes">Has dedicated disabled space</string>
+    <string name="capacity_disabled_no">No dedicated disabled spaces</string>
+    <string name="capacity_charging">Spaces with chargers: %s</string>
+    <string name="capacity_charging_yes">Has spaces with chargers</string>
+    <string name="capacity_charging_no">No spaces with chargers</string>
+    <!-- Permission descriptions -->
+    <string name="permission_read_navigation_label">Read CoMaps navigation data</string>
+    <string name="permission_read_navigation_description">read live navigation information such as upcoming turns or the name of the road you are on</string>
 </resources>

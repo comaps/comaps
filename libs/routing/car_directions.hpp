@@ -2,8 +2,7 @@
 
 #include "routing/directions_engine.hpp"
 
-#include "routing/route.hpp"
-#include "routing_common/num_mwm_id.hpp"
+#include "routing/turns.hpp"
 
 #include <memory>
 #include <vector>

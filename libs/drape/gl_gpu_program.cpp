@@ -2,6 +2,7 @@
 #include "drape/gl_functions.hpp"
 #include "drape/render_state.hpp"
 
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 
 #include <set>

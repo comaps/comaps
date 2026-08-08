@@ -1,0 +1,1430 @@
+{
+    "@category_eat": {
+        "defaultMessage": "Missä syödä|Ruoka"
+    },
+    "@category_food": {
+        "defaultMessage": "Elintarvikkeet|Ruoka"
+    },
+    "@category_transport": {
+        "defaultMessage": "Liikenne"
+    },
+    "@category_fuel": {
+        "defaultMessage": "3Huoltoasema"
+    },
+    "@category_parking": {
+        "defaultMessage": "4Parkkipaikka"
+    },
+    "@category_shopping": {
+        "defaultMessage": "Ostokset"
+    },
+    "@category_hotel": {
+        "defaultMessage": "Hotelli|Hotellit"
+    },
+    "@category_tourism": {
+        "defaultMessage": "4Nähtävyydet"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "Viihde"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "Yöelämä"
+    },
+    "@category_children": {
+        "defaultMessage": "Vapaa-aikaa lasten kanssa"
+    },
+    "@category_atm": {
+        "defaultMessage": "Pankkiautomaatti"
+    },
+    "@category_rv": {
+        "defaultMessage": "Karavaanaritilat"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "2Raha"
+    },
+    "@category_bank": {
+        "defaultMessage": "3Pankki"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "Käytetyt tavarat"
+    },
+    "@category_recycling": {
+        "defaultMessage": "Jätteiden kierrätys|Jätteiden hyötykäyttö|Kierrätyskelpoinen jäte|Jätelajittelu|Jätteiden lajittelu|Hyötykäyttö"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "4Rahanvaihto"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "2Baari|pubi"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "2Kahvila"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "3Pikaruokala"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "3Ravintola"
+    },
+    "@shop": {
+        "defaultMessage": "Kauppa"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "3Leipomo|Leivonnainen"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "4Kosmetiikka|kauneudenhoito"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "Lähikauppa"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "Herkkukauppa"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "Taimitarha"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "Kuulolaitteet"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "Elektroniikkakauppa"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "4Kukkakauppa|4Floristi"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "Lihakauppias"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "Huonekalukauppa"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "Keittiökauppa"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "Alkoholikauppa|4alkoholi"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "Kirjakauppa"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "Kenkäkauppa"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "4Elektroniikka"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "Rautakauppa|Työkalukauppa"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "Kotitaloustavarat"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "Korukauppa"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "4Optikko"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "Lahjatavaraliike"
+    },
+    "shop-beauty": {
+        "defaultMessage": "Kauneushoitola"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "Vihanneskauppias"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "Urheilukauppa"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "3Supermarketti"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "Ostoskeskus"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "Tavaratalo"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "Juomat"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "Tietokonekauppa"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "Makeiskauppa|Kondiittori"
+    },
+    "shop-laundry": {
+        "defaultMessage": "4Pesula"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "Lelukauppa"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "3Kauppatori"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "Rahansiirto"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "Vaatekauppa"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "Autokauppa"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "3Polkupyöräliike"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "3Kioski"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "3Bussipysäkki"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "4Raitiovaunupysäkki"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "3Linja-autoasema|3Bussiasema"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "Rautatieasema"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "Köysirata"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "3Metro"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "3Lautta|terminaali|kuljetus"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "3Taksi"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "Kaupungintalo"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "3Nähtävyys"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "Taideteos"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "3Näköalapaikka|3Näköalatasanne"
+    },
+    "tourism-information": {
+        "defaultMessage": "3Turisti-informaatio"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "3Piknikpaikat|Grilli"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "4Uskonnollinen kohde|3temppeli"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "4Kirkko|uskonnollinen kohde"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "4Moskeija|uskonnollinen kohde"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "Temppeli|uskonnollinen kohde"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "Temppeli|uskonnollinen kohde"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "Pyhäkkö|uskonnollinen kohde"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "4Synagoga|uskonnollinen kohde"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "Temppeli|uskonnollinen kohde"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "3Museo"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "3Vesiputous"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "3Arkeologinen kohde"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "Taistelukenttä"
+    },
+    "historic-stone": {
+        "defaultMessage": "Historiallinen kivi"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "Rajamerkki"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "Linna|Castra|Linnoitus|Linnavuori|Kreml|Kartano|Palatsi"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "Kaupungin portti"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "Kaupungin muuri"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "Fort|Linnake"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "Sappeja|Hirsipuu"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "3Muistomerkki"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "Muistoristi"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "Muistomerkki|Muistolaatta"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "Muistomerkki|Veistos"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "Muistomerkki|Patsas"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "Kompastuskivet"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "Sotamuistomerkki"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "4Monumentti"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "Häpeäpaalu"
+    },
+    "historic-cannon": {
+        "defaultMessage": "Tykki"
+    },
+    "historic-anchor": {
+        "defaultMessage": "Historiallinen ankkuri"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "Rauniot"
+    },
+    "historic-mine": {
+        "defaultMessage": "Historiallinen kaivos"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "Nähtävyydet|Alus"
+    },
+    "historic-wreck": {
+        "defaultMessage": "Haaksirikko"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "Historiallinen veturi"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "Historiallinen tankki"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "Historiallinen lentokone"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "Nähtävyydet|Hautakammio"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "Tienvarren risti"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "Tienvarren pyhäkkö"
+    },
+    "leisure-dog_park": {
+        "defaultMessage": "Koirapuisto"
+    },
+    "leisure-garden": {
+        "defaultMessage": "Puutarha"
+    },
+    "amenity-bench": {
+        "defaultMessage": "Penkki"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "Polkupyöränvuokraus"
+    },
+    "amenity-bicycle_repair_station": {
+        "defaultMessage": "Polkupyörän korjaus"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "Autojen yhteiskäyttö"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "4Autovuokraamo"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "Moottoripyörän vuokraus"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "Elokuvateatteri"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "Keilarata"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "3Teatteri"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "Yökerho"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "Bordelli"
+    },
+    "@gambling": {
+        "defaultMessage": "Uhkapelit"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "Kasino"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "Aikuisten pelikeskus"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "Arcade"
+    },
+    "amenity-college": {
+        "defaultMessage": "4College|Korkeakoulu"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "Paloasema"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "Suihkulähde"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "Hautausmaa"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "Hautaustoimisto"
+    },
+    "@category_hospital": {
+        "defaultMessage": "5Sairaala"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "4Klinikka|sairaala"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "Lääkärin vastaanotto|Klinikka|sairaala"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "Hammaslääkäri"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "Lääketieteellinen laboratorio"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "Fysioterapeutti"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "Vaihtoehtoinen lääketiede"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "Audiologia|Audiologi"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "Verenluovutuskeskus|Verenluovutus"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "Optometria|Optometristi"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "Jalkaterapia|Jalkaterapeutti"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "Psykoterapia|Psykoterapeutti"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "Logopedia|Puheterapeutti|Logopedit"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "Metsästyspaikka"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "Päiväkoti"
+    },
+    "amenity-library": {
+        "defaultMessage": "Kirjasto"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "3Apteekki"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "3Farmasia"
+    },
+    "@category_post": {
+        "defaultMessage": "3Posti"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "Postilaatikko"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "Ajoneuvon tarkastus"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "Roska"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "Kierrätyskeskus"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "Kierrätysjäteastia"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "Paristot"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "Vanhat vaatteet|Jätä tarpeettomat tavarat tähän|Vaatteet"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "Lasipullot"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "Paperi- ja kartonkijäte|Paperi"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "Muovijäte|Muovi"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "Muovipullot"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "Metalliromu"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "Kodinkonejäte"
+    },
+    "amenity-school": {
+        "defaultMessage": "Koulu"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "Turvapaikka|Katos"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "Kota|Bivouac-mökki"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "Laavu|Turvapaikka"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "Stripclub|Strippiklubi"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "Puhelin"
+    },
+    "@category_toilet": {
+        "defaultMessage": "WC"
+    },
+    "amenity-university": {
+        "defaultMessage": "5Yliopisto"
+    },
+    "place-continent": {
+        "defaultMessage": "Maanosa"
+    },
+    "place-country": {
+        "defaultMessage": "Maa"
+    },
+    "place-city": {
+        "defaultMessage": "Kaupunki"
+    },
+    "place-town": {
+        "defaultMessage": "Kaupunki"
+    },
+    "place-city-capital": {
+        "defaultMessage": "Pääkaupunki"
+    },
+    "place-county": {
+        "defaultMessage": "Lääni"
+    },
+    "place-state": {
+        "defaultMessage": "Lääni"
+    },
+    "place-region": {
+        "defaultMessage": "Alue"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "Saari"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "Esikaupunki|Naapurusto"
+    },
+    "place-hamlet": {
+        "defaultMessage": "Pieni kylä"
+    },
+    "place-village": {
+        "defaultMessage": "Kylä"
+    },
+    "place-locality": {
+        "defaultMessage": "Paikkakunta"
+    },
+    "place-farm": {
+        "defaultMessage": "Maatila"
+    },
+    "highway-raceway": {
+        "defaultMessage": "Kilparata"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "Polku"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "Katu"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "Poistumistie|liittymä"
+    },
+    "@mountain": {
+        "defaultMessage": "Huippu|vuori"
+    },
+    "natural-strait": {
+        "defaultMessage": "Salmi"
+    },
+    "landuse-forest": {
+        "defaultMessage": "Metsä"
+    },
+    "leisure-park": {
+        "defaultMessage": "Puisto"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "Akvaario"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "4Hostelli"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "Majatalo"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "Motelli"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "Vuorimajoitus|hotelli"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "Kampaamo"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "6Lentokenttä"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "4Stadion"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "Leikkikenttä"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "Urheilukeskus"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "Golf-rata"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "Minigolf"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "Pakohuone"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "Urheilukenttä|nimikkopaikka"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "Uima-allas"
+    },
+    "sport-american_football": {
+        "defaultMessage": "Amerikkalainen jalkapallo"
+    },
+    "sport-archery": {
+        "defaultMessage": "Jousiammunta"
+    },
+    "sport-athletics": {
+        "defaultMessage": "Yleisurheilu"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "Australialainen jalkapallo"
+    },
+    "sport-baseball": {
+        "defaultMessage": "Baseball"
+    },
+    "sport-basketball": {
+        "defaultMessage": "Koripallo"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "Rantalentopallo"
+    },
+    "sport-bowls": {
+        "defaultMessage": "Nurmikeilailu"
+    },
+    "sport-chess": {
+        "defaultMessage": "Shakki"
+    },
+    "sport-cricket": {
+        "defaultMessage": "Kriketti"
+    },
+    "sport-curling": {
+        "defaultMessage": "Curling"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "Ratsastus|Hevosurheilu"
+    },
+    "sport-golf": {
+        "defaultMessage": "Golf"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "Voimistelu"
+    },
+    "sport-handball": {
+        "defaultMessage": "Käsipallo"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "Sukellus"
+    },
+    "sport-shooting": {
+        "defaultMessage": "Ampumarata"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "Rullalautailu"
+    },
+    "sport-skiing": {
+        "defaultMessage": "Hiihto"
+    },
+    "sport-soccer": {
+        "defaultMessage": "Jalkapallo"
+    },
+    "sport-swimming": {
+        "defaultMessage": "Uimahalli"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "Pöytätennis"
+    },
+    "sport-tennis": {
+        "defaultMessage": "Tennis"
+    },
+    "sport-padel": {
+        "defaultMessage": "Padel"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "Lentopallo"
+    },
+    "building": {
+        "defaultMessage": "Rakennus"
+    },
+    "building-address": {
+        "defaultMessage": "Osoite"
+    },
+    "@category_police": {
+        "defaultMessage": "4Poliisi"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "6Suurlähetystö"
+    },
+    "natural-bay": {
+        "defaultMessage": "Lahti"
+    },
+    "@category_water": {
+        "defaultMessage": "3Vesi"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "Juomavesi"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "Kuuma lähde"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "Lähde"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "Kaivo"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "Vesipiste"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "Vesihana"
+    },
+    "@waterbody": {
+        "defaultMessage": "Vesimuodostuma"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "Vesisäiliö"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "Lampi"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "Järvi"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "Säiliö"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "Joki"
+    },
+    "waterway-canal": {
+        "defaultMessage": "Kanaali"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "4Autokorjaamo"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "5Retkeily"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "Asuntovaunupaikka|Retkeily"
+    },
+    "office": {
+        "defaultMessage": "Toimisto"
+    },
+    "office-company": {
+        "defaultMessage": "Yhtiön toimisto"
+    },
+    "office-government": {
+        "defaultMessage": "Viranomaistoimisto|Viranomaisen toimisto"
+    },
+    "office-lawyer": {
+        "defaultMessage": "Lakitoimisto"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "Matkapuhelinoperaattori"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "Mehiläishoitaja"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "Seppä"
+    },
+    "craft-brewery": {
+        "defaultMessage": "Panimo"
+    },
+    "craft-caterer": {
+        "defaultMessage": "Pitopalvelu"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "Puuseppä"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "Kondiittori"
+    },
+    "craft-electrician": {
+        "defaultMessage": "5Sähkömies"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "Elektroniikan korjaus"
+    },
+    "craft-gardener": {
+        "defaultMessage": "Puutarhuri"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "Mill"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "Käsityö"
+    },
+    "craft-hvac": {
+        "defaultMessage": "Ilmastointilaite|LVI"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "5Metallimies"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "Avaimen leikkaaminen"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "Lukkoseppä"
+    },
+    "craft-painter": {
+        "defaultMessage": "Maalari"
+    },
+    "craft-photographer": {
+        "defaultMessage": "Valokuvaaja"
+    },
+    "craft-plumber": {
+        "defaultMessage": "Putkimies"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "Saha"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "Suutari"
+    },
+    "craft-winery": {
+        "defaultMessage": "Viinitila"
+    },
+    "craft-tailor": {
+        "defaultMessage": "Räätäli"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "Aukio|Tori"
+    },
+    "place-sea": {
+        "defaultMessage": "Meri"
+    },
+    "place-ocean": {
+        "defaultMessage": "Valtameri"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "3Internet"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "Ranta"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "Majakka"
+    },
+    "man_made-flagpole": {
+        "defaultMessage": "Lipputanko"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "Viestintätorni"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "5Öljylähde"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "eko|bio|terveellinen|biologinen|ekologinen|luonnollinen|orgaaninen|Luomu"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "5Painotalo|5Tulostaja"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "Valokuvakauppa|kehykset"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "Kamerakauppa"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "Matkatoimisto"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "Ulkoiluvarusteet|vaellus|kiipeily|retkeily"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "Kuivapesula|pesula"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "Rengasliike"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "4Autopesula"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "Eläinlääkäri"
+    },
+    "@charging_station": {
+        "defaultMessage": "Latausasema|lataus"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "Polkupyörän lataus"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "Päivähoito|Lastenhoito"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "Polkupyöräpysäköinti"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "Roska-astia"
+    },
+    "emergency-phone": {
+        "defaultMessage": "Hätäpuhelin"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "Kuntosali"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "3Sauna"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "Rengashuolto"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "Kosmetiikkamyymälä"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "Eläinkauppa"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "5Eläintarha"
+    },
+    "attraction-animal": {
+        "defaultMessage": "Eläinsuoja"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "3Turistitoimisto"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Vierailijakeskus"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "Monitoimitalo"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "Paineilma"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "Oikeustalo"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "Savukeautomaatti"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "Juoma-automaatti"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "Pysäköintimaksuautomaatti"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "Julkisen liikenteen lippuautomaatti"
+    },
+    "shop-outpost": {
+        "defaultMessage": "Noutopiste"
+    },
+    "building-garage": {
+        "defaultMessage": "Autotalli"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "Levähdyspaikka|Palvelualue"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "Tehtaan piippu"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "Torni"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "Kustantaja"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "Kalakauppias"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "Hyväntekeväisyysmyymälä"
+    },
+    "shop-ticket": {
+        "defaultMessage": "Lippumyymälä"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "Alkoholimyymälä"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "Auton osat"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "Lomamökki"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "Opastaulu|Informaatio"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "Opaskartta|Turistikartta"
+    },
+    "aerialway-station": {
+        "defaultMessage": "Köysirata-asema"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "Helikopterialusta|Helikopterikenttä"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "Rajavalvonta"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "5Vesipuisto"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "Vesitorni"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "Tuulimylly"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "Luola"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "5Tulivuori"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "Kiinteistönvälittäjä"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "Kanavasulku"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "Kirjahylly|Kirjakauppa"
+    },
+    "sport-climbing": {
+        "defaultMessage": "Kiipeilykeskus"
+    },
+    "sport-yoga": {
+        "defaultMessage": "Joogastudio"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "Loma-asunnot"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "Lomakohteet"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "5Biergarten|Olutpuutarha"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "4Autokoulu"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "Musiikkikoulu"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "Kielikoulu"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "5Jäätelökioski"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "3Internetkahvila"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "5Moottoripyörien pysäköinti"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "Vammaispysäköinti"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "Hoitokoti"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "Maksupääte"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "Julkinen kylpylä"
+    },
+    "amenity-shower": {
+        "defaultMessage": "Suihku"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "Hätäkokouspiste"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "4Defibrillaattori"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "5Paloposti"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "Hätäpelastaja|Hengenpelastaja"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "5Hätävuoristopelastus"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "Kuntokeskus"
+    },
+    "office-insurance": {
+        "defaultMessage": "Vakuutuslaitos"
+    },
+    "office-ngo": {
+        "defaultMessage": "Valtioista riippumattoman järjestön toimisto"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "4Erotiikkaliike"
+    },
+    "shop-massage": {
+        "defaultMessage": "Hierontahuone"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "4Moottoripyöräliike"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "Moottoripyörän korjaus"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "Lehtikioski"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "Panttilainaamo"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "Kirjoitustarvikekauppa"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "4Tatuointiliike"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "Halpakauppa"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "4Videokauppa"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "4Videopelikauppa"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "Autiotupa"
+    },
+    "tourism-gallery|@category_tourism": {
+        "defaultMessage": "Taidegalleria"
+    },
+    "tourism-theme_park|@category_tourism|@category_children": {
+        "defaultMessage": "Huvipuisto"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "Kansallispuisto"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "Luonnonsuojelualue"
+    },
+    "natural-cape": {
+        "defaultMessage": "Niemeke"
+    },
+    "natural-geyser": {
+        "defaultMessage": "3Geysir"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "Jäätikkö"
+    },
+    "highway-ford": {
+        "defaultMessage": "Kahluupaikka"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "Hiihto|Hiihtolatu"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "Tapahtumakeskus|Tapahtumapaikka"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Antiikkia"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "Taidekauppa"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "Lasten kauppa"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "Laukkukauppa"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "Juustokauppa"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "Maitotuotteet"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "Sähköliike"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "Kalastuskauppa"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "Sisustuskoristeet"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "Lottoliput"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "Lääketieteellisiä tarvikkeita"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "Ravintolisät"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "Maalit"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "Hajuvedet"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "Ompelutarvikkeet"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "Varastoinnin vuokraus"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "Tupakka"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "Kauppa tarvikkeita"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "Kellot"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "Tukkukauppa"
+    },
+    "power-plant": {
+        "defaultMessage": "Voimalaitos"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "Huutokauppa"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Kerääjä|Keräilyesineet"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "Pyörätuoli|Varustettu vammaisille"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "Sosiaalinen väline"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "Urheiluhalli"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "Taidekeskus"
+    },
+    "amenity-prison": {
+        "defaultMessage": "vankila"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "Näyttelykeskus"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "Kylpyhuoneen kalusteet"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "Sänkykauppa"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "Boutique"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "Verhot"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "Kaasukauppa"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "Hacklab"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "Lemmikkieläinten hoito"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "HiFi Audio"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "Konferenssikeskus"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "Yrttikauppa"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "Kodinkoneet kauppa"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "Maatalouskauppa"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "Muoti tarvikkeet"
+    },
+    "amenity-waste_transfer_station": {
+        "defaultMessage": "Jätteiden vastaanottoasema"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "Matot"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "Pasta"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "Matkatavaralokero"
+    },
+    "@fastfood": {
+        "defaultMessage": "Pikaruokala"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "Bagel"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "Aamiainen"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "Hampurilainen"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "Kakku"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "Kahvi"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "Curry"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "Lounaskahvila"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "Donitsi"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "Fish & chips"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "Uppopaistettu"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "Grilli"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "Hotdog"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "Jäätelö"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "Kebab"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "Nuudeli"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "Lettu|Kreppi"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "Pasta"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "Pitsa"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "Ramen"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "Voileipä"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "Makkara"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "Meren elävät|Kala"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "Sobanuudeli"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "Pihviravintola"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "Sushi"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "Tapas"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "Tee"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "Kasvis keittiö"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "Vegaani keittiö"
+    }
+}

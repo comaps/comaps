@@ -1,13 +1,19 @@
 #include "search/utils.hpp"
 
 #include "search/categories_cache.hpp"
+#include "search/cbv.hpp"
 #include "search/features_filter.hpp"
 #include "search/geometry_cache.hpp"
 #include "search/mwm_context.hpp"
+#include "search/token_slice.hpp"
 
 #include "indexer/data_source.hpp"
+#include "indexer/mwm_set.hpp"
+#include "indexer/scales.hpp"
 
 #include "base/cancellable.hpp"
+#include "base/checked_cast.hpp"
+#include "base/stl_helpers.hpp"
 
 #include <utility>
 

@@ -12,7 +12,7 @@
 "type.aeroway.aerodrome" = "空港";
 "type.aeroway.aerodrome.international" = "空港";
 "type.aeroway.apron" = "エプロン";
-"type.aeroway.gate" = "搭乗口";
+"type.aeroway.gate" = "ゲート";
 "type.aeroway.helipad" = "ヘリポート";
 "type.aeroway.runway" = "滑走路";
 "type.aeroway.taxiway" = "誘導路";
@@ -24,10 +24,10 @@
 "type.amenity.bar" = "バー";
 "type.amenity.bbq" = "バーベキューグリル";
 "type.amenity.bench" = "ベンチ";
-"type.amenity.bench.backless" = "Without Backrest";
+"type.amenity.bench.backless" = "バックレスト無し";
 "type.amenity.bicycle_parking" = "駐輪場";
 "type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
-"type.amenity.boat_rental" = "Boat Rental";
+"type.amenity.boat_rental" = "ボートレンタル";
 "type.amenity.bicycle_rental" = "レンタサイクル";
 "type.amenity.bicycle_repair_station" = "自転車修理ステーション";
 "type.amenity.biergarten" = "ビアガーデン";
@@ -40,9 +40,9 @@
 "type.amenity.motorcycle_rental" = "レンタルバイク";
 "type.amenity.car_sharing" = "カーシェアリング";
 "type.amenity.car_wash" = "洗車場";
-"type.man_made.telescope" = "Telescope";
-"type.man_made.telescope.optical" = "Telescope (Optical)";
-"type.man_made.telescope.radio" = "Telescope (Radio)";
+"type.man_made.telescope" = "望遠鏡";
+"type.man_made.telescope.optical" = "望遠鏡（可視光）";
+"type.man_made.telescope.radio" = "望遠鏡（電波）";
 "type.man_made.telescope.gamma" = "Telescope (Gamma)";
 "type.man_made.observatory" = "Observatory";
 "type.amenity.casino" = "カジノ";
@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "トンネル";
 "type.highway.bus_stop" = "バス停";
 "type.highway.construction" = "工事中の道路";
+"type.highway.construction.motorway" = "工事中の道路";
+"type.highway.construction.motorway_link" = "工事中の道路";
+"type.highway.construction.trunk" = "工事中の道路";
+"type.highway.construction.trunk_link" = "工事中の道路";
+"type.highway.construction.primary" = "工事中の道路";
+"type.highway.construction.primary_link" = "工事中の道路";
+"type.highway.construction.secondary" = "工事中の道路";
+"type.highway.construction.secondary_link" = "工事中の道路";
+"type.highway.construction.tertiary" = "工事中の道路";
+"type.highway.construction.tertiary_link" = "工事中の道路";
+"type.highway.construction.residential" = "工事中の道路";
+"type.highway.construction.unclassified" = "工事中の道路";
+"type.highway.construction.service" = "工事中の道路";
+"type.highway.construction.living_street" = "工事中の道路";
+"type.highway.construction.road" = "工事中の道路";
+"type.highway.construction.track" = "工事中の道路";
 "type.highway.cycleway" = "自転車道";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "自転車道(橋)";
@@ -1515,3 +1531,9 @@
 "type.leisure.sports_centre.sport.boules" = "Sports Centre";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Sports Centre";
+"type.organic.no" = "No organic options";
+"type.amenity.stage" = "Stage";
+"type.amenity.animal_boarding" = "Animal Boarding";
+"type.amenity.toilets.customers" = "Customer Access";
+"type.amenity.toilets.private" = "Private Access";
+"type.amenity.planetarium" = "Planetarium";

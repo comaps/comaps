@@ -1,0 +1,1262 @@
+{
+    "@category_eat": {
+        "defaultMessage": "जेवायचे ठिकाण|जेवण|अन्न|भोजन"
+    },
+    "@category_food": {
+        "defaultMessage": "किराणा|मंडई|ग्रोसरी"
+    },
+    "@category_transport": {
+        "defaultMessage": "वाहतूक|ट्रान्सपोर्ट"
+    },
+    "@category_fuel": {
+        "defaultMessage": "पेट्रोल|इंधन|डिझेल"
+    },
+    "@category_parking": {
+        "defaultMessage": "वाहनतळ|पार्किंग"
+    },
+    "@category_shopping": {
+        "defaultMessage": "खरेदी|शॉपिंग"
+    },
+    "@category_hotel": {
+        "defaultMessage": "मुक्कामगृह|लॉज|निवासगृह|हॉटेल"
+    },
+    "@category_tourism": {
+        "defaultMessage": "पर्यटन|टूर|टूरिज्म"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "मनोरंजन|मजा"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "नाईटलाईफ|रात्रीजीवन"
+    },
+    "@category_children": {
+        "defaultMessage": "कौटुंबिक सुट्टी"
+    },
+    "@category_atm": {
+        "defaultMessage": "ATM|एटीएम"
+    },
+    "@category_rv": {
+        "defaultMessage": "कँपिंग वाहन सोयी"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "पैसे|कॅश|नगद|रोकड|रोख"
+    },
+    "@category_bank": {
+        "defaultMessage": "बँक|Bank"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "वापरलेले"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "पैसे|कॅश|नगद|रोकड|रोख"
+    },
+    "@category_recycling": {
+        "defaultMessage": "भंगारवाला|पुनर्वापर|रिसायकल|कचरा व्यवस्थापन|पुनश्चक्रण"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "दारू|बार|पब|क्लब|वाईन|डिस्को"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "कॉफी|चहा|कॅफे|अमृततुल्य|स्नॅक|रसवंतीगृह|उसाचा रस"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "फास्टफूड|चायनीज|पार्सल|कॅफे|पिझ्झा|बर्गर"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "रेस्टोरंट|हॉटेल|उपहारगृह|भोजनालय|खानावळ"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "पेट्रोल|इंधन|डिझेल|पेट्रोल पंप|पंप"
+    },
+    "@shop": {
+        "defaultMessage": "दुकान|शॉप|स्टोर"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "बेकरी|पाव"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "कॉस्मेटिक|शृंगार|मेकअप|सौन्दर्य|ब्युटी"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "किराणा|किरकोळ सामान|किराना|भाजी|बाजार|मार्केट|मंडई|सुपरमार्केट"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "श्रवणयंत्र"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "मोबाईल|मोबाईलचे दुकान|स्मार्टफोन|इलेट्रॉनिक"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "फुलवला|पुष्पविक्रेता|फुलवाला"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "खाटीक|कसाई|चिकन|मटण"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "सुतार|फर्निचर"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "दारू|वाईन|विस्की|देशी दारू|ताडी|फेणी"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "ग्रंथ विक्रेता|पुस्तक विक्रेता|पुस्तकाचे दुकान"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "बुटाचे दुकान|बूट विक्रेता|शूज विक्रेता|पादत्राणे|चप्पल|पायताण|चपलाचे दूकान"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "इलेक्ट्रॉनिक|उपकरणे|गॅजेट|विद्युत उपकरणे"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "हार्डवेर दुकान"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "घरगुती वस्तू"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "दागिने|शृंगार|माळ|अंगठी|बांगडी"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "चष्माविक्रेता|चष्मेविक्रेता"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "भेटवस्तू|गिफ्ट"
+    },
+    "shop-beauty": {
+        "defaultMessage": "शृंगार|मेकअप|सौन्दर्य|ब्युटी|सौंदर्य प्रसाधनगृह"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "भाजीवाला|मंडई|भाजीपाला|ग्रोसरी"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "क्रीडा|स्पोर्ट्स|क्रीडा सामग्री|क्रीडा साहित्य|स्पोर्ट्स दुकान"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "सुपरमार्केट|बाजार"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "मॉल"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "विभागीय दुकान|डिपार्टमेंटल स्टोरे"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "पेय|शीतपेय|ड्रिंक्स|रस"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "संगणक दुकान|कंप्यूटर दुकान"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "मिठाईवाले|मिठाईचे दुकान|मिठाई विक्रेता|स्वीट शॉप|मिठाई"
+    },
+    "shop-laundry": {
+        "defaultMessage": "धुलाईघर|धोबी|धोबीघाट"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "खेळण्यांचे दुकान|खेळणीघर"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "बाजारपेठ|मार्केट|बाजार"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "पैसे हस्तांतरण"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "कपड्याचे दुकान"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "कार विक्रेता|कार डीलर"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "सायकलचे दुकान"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "टपरी|कियोस्क"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "बस स्टॉप|बस थांबा"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "बस स्थानक"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "रेल्वे स्थानक|रेल्वे स्टेशन"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "फ्युनिक्युलर"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "भुयारी मार्ग|मेट्रो मार्ग"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "तर|तरी|नाव|बोट|फेरी"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "टॅक्सी"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "नगर भवन"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "प्रेक्षणीय स्थळ|पर्यटनीय स्थळ|आकर्षण"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "कलाकृती"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "दृष्टिस्थळ|दृष्टिस्थान"
+    },
+    "tourism-information": {
+        "defaultMessage": "पर्यटक माहिती|पर्यटन माहिती"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "साहिलीचे ठिकाण|पिकनिक साइट|बार्बेक्यू ग्रिल"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "देवस्थान|तीर्थक्षेत्र"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "चर्च"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "मशीद"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "मंदिर"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "मंदिर"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "देवस्थान"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "सिनेगॉग"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "मंदिर"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "संग्रहालय"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "धबधबा"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "पुरातत्व स्थळ"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "रणांगण"
+    },
+    "historic-stone": {
+        "defaultMessage": "ऐतिहासिक दगड"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "सीमेचा दगड"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "गढी|रोमन किल्ला|तटबंदी असलेले चर्च|किल्ला|हिलफोर्ट|क्रेमलिन|मनोर घर|राजवाडा|किल्ला"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "शहराचा दरवाजा"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "शहराची भिंत"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "दुर्ग"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "फाशी"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "स्मारक"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "मेमोरियल क्रॉस"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "फलक"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "शिल्प"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "पुतळा"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "अडथळा"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "युद्ध स्मारक"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "स्मारक"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "पिलोरी"
+    },
+    "historic-cannon": {
+        "defaultMessage": "तोफ"
+    },
+    "historic-anchor": {
+        "defaultMessage": "ऐतिहासिक अँकर"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "अवशेष"
+    },
+    "historic-mine": {
+        "defaultMessage": "ऐतिहासिक खाण"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "जहाज"
+    },
+    "historic-wreck": {
+        "defaultMessage": "जहाजाचा नाश"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "ऐतिहासिक लोकोमोटिव्ह"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "ऐतिहासिक टाकी"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "ऐतिहासिक विमान"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "थडगे"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "ख्रिश्चन क्रॉस"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "देवस्थान"
+    },
+    "leisure-garden": {
+        "defaultMessage": "बाग"
+    },
+    "amenity-bench": {
+        "defaultMessage": "बाक"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "भाड्याची सायकल"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "कार पूल|कार शेअर"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "भाड्याने गाडी"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "मटरसयकल भडयन"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "चित्रपट|सिनेमा"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "गोलंदाजी गल्ली"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "नाट्यगृह|रंगमंच"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "नाईट क्लब"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "वेश्यालय"
+    },
+    "@gambling": {
+        "defaultMessage": "जुगार"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "जुगारीचा अड्डा|कॅसिनो"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "प्रौढ गेमिंग केंद्र"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "आर्केड"
+    },
+    "amenity-college": {
+        "defaultMessage": "महाविद्यालय|कॉलेज"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "अग्निशमन केंद्र|फायर ब्रिगेड"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "कारंजे"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "स्मशानभूमी"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "अंत्यसंस्कार संचालक"
+    },
+    "@category_hospital": {
+        "defaultMessage": "रुग्णालय|हॉस्पिटल"
+    },
+    "amenity-hospital|@category_hospital": {
+        "defaultMessage": "रुग्णालय|हॉस्पिटल"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "चिकित्सालय|क्लिनिक|दवाखाना"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "वैद्य|डॉक्टर|चिकित्सक"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "दंतवैद्य|डेंटिस्ट"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "वैद्यकीय प्रयोगशाळा"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "फिजिओथेरपिस्ट"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "पर्यायी औषध"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "ऑडिओलॉजी|ऑडिओलॉजिस्ट"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "रक्तदान"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "ऑप्टोमेट्री|ऑप्टोमेट्रिस्ट"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "पोडियाट्री|पोडियाट्रिस्ट"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "मानसोपचार|मानसोपचारतज्ज्ञ"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "स्पीच थेरपी|स्पीच थेरपिस्ट"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "बालवाडी"
+    },
+    "amenity-library": {
+        "defaultMessage": "ग्रंथालय|पुस्तकालय|लायब्ररी"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "औषधालय|फार्मसी|केमिस्ट"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "औषधांचे दुकान"
+    },
+    "@category_post": {
+        "defaultMessage": "टपाल|पोस्ट"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "टपालपेटी|पोस्ट बॉक्स"
+    },
+    "amenity-post_office|post_office-post_partner|@category_post": {
+        "defaultMessage": "टपालघर|पोस्ट ऑफिस"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "वाहन तपासणी"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "कचरापेटी"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "भंगारवाला|पुनर्वापर केंद्र|रिसायकल सेंटर|भंगार केंद्र"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "रीसायकलिंग कंटेनर"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "बॅटर भंगारवाला|घरगुती बॅटरी"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "कपडे भंगारवाला|कपडे"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "काचेच्या बाटल्यांचे पुनर्वापर"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "कागदाचा भंगारवाला|कागद"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "प्लास्टिकचा भंगारवाला|प्लास्टिक"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "प्लास्टिकच्या बाटल्यांचे पुनर्वापर"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "भंगार धातूचे पुनर्वापर|स्क्रॅप मेटलचे पुनर्वापर"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "इलेक्ट्रॉनिक्स भंगारवाला"
+    },
+    "recycling-cardboard|@category_recycling": {
+        "defaultMessage": "पुठ्ठा भंगारवाला|पुठ्ठा"
+    },
+    "recycling-cans|@category_recycling": {
+        "defaultMessage": "कॅन भंगारवाला|कॅन"
+    },
+    "recycling-shoes|@category_recycling": {
+        "defaultMessage": "शूज भंगारवाला|पादत्राणे"
+    },
+    "recycling-green_waste|@category_recycling": {
+        "defaultMessage": "हिरव्या कचऱ्याचे पुनर्वापर"
+    },
+    "amenity-school": {
+        "defaultMessage": "शाळा"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "निवारा"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "बिव्होक झोपडी"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "निवारा"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "स्ट्रिपक्लब"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "फोन"
+    },
+    "@category_toilet": {
+        "defaultMessage": "शौचालय"
+    },
+    "amenity-university": {
+        "defaultMessage": "विद्यापीठ"
+    },
+    "place-continent": {
+        "defaultMessage": "खंड"
+    },
+    "place-country": {
+        "defaultMessage": "देश"
+    },
+    "place-city": {
+        "defaultMessage": "शहर"
+    },
+    "place-town": {
+        "defaultMessage": "शहर|नगर"
+    },
+    "place-city-capital": {
+        "defaultMessage": "राजधानी"
+    },
+    "place-county": {
+        "defaultMessage": "परगणा"
+    },
+    "place-state": {
+        "defaultMessage": "राज्य"
+    },
+    "place-region": {
+        "defaultMessage": "प्रदेश"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "बेट"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "उपनगर|शेजारी"
+    },
+    "place-hamlet": {
+        "defaultMessage": "पाडा"
+    },
+    "place-village": {
+        "defaultMessage": "गाव"
+    },
+    "place-locality": {
+        "defaultMessage": "परिसर"
+    },
+    "place-farm": {
+        "defaultMessage": "शेत"
+    },
+    "highway-raceway": {
+        "defaultMessage": "शर्यतीचा मार्ग"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "मार्ग"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "रस्ता"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "बाहेर पडा"
+    },
+    "highway-elevator": {
+        "defaultMessage": "उद्वाहक|एलिव्हेटर|लिफ्ट"
+    },
+    "@mountain": {
+        "defaultMessage": "शिखर"
+    },
+    "natural-saddle|mountain_pass": {
+        "defaultMessage": "खोगीर|माउंटन सॅडल"
+    },
+    "natural-strait": {
+        "defaultMessage": "सामुद्रधुनी"
+    },
+    "landuse-forest": {
+        "defaultMessage": "वन"
+    },
+    "leisure-park": {
+        "defaultMessage": "उद्यान|पार्क"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "मत्स्यालय"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "छात्रालय|वसतिगृहात|हॉस्टेल"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "अतिथीगृह"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "न्हावी|केशभूषाकार|हेअर कट"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "विमानतळ"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "स्टेडियम"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "खेळाचे मैदान"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "क्रीडा केंद्र"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "गोल्फचे मैदान"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "मिनीगोल्फ"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "एस्केप रूम"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "हॅकरस्पेस"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "क्रीडांगण"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "जलतरण तलाव"
+    },
+    "sport-american_football": {
+        "defaultMessage": "अमेरिकन फुटबॉल"
+    },
+    "sport-archery": {
+        "defaultMessage": "धनुर्विद्या"
+    },
+    "sport-athletics": {
+        "defaultMessage": "शरीरिक कसरती|ऍथलेटिक्स|मैदानी खेळ"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "रग्बी|ऑस्ट्रेलियन फुटबॉल"
+    },
+    "sport-baseball": {
+        "defaultMessage": "बेसबॉल"
+    },
+    "sport-basketball": {
+        "defaultMessage": "बास्केटबॉल"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "बीच व्हॉलीबॉल"
+    },
+    "sport-bowls": {
+        "defaultMessage": "लॉन बोलिंग"
+    },
+    "sport-chess": {
+        "defaultMessage": "बुद्धिबळ"
+    },
+    "sport-cricket": {
+        "defaultMessage": "क्रिकेट"
+    },
+    "sport-curling": {
+        "defaultMessage": "कर्लिंग"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "घोडेस्वार खेळ"
+    },
+    "sport-golf": {
+        "defaultMessage": "गोल्फ"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "जिम्नॅस्टिक्स"
+    },
+    "sport-handball": {
+        "defaultMessage": "हँडबॉल"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "स्कूबा डायव्हिंग"
+    },
+    "sport-shooting": {
+        "defaultMessage": "चांदमारी|बंदूक पल्ला|शूटिंग रेंज"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "स्केट बोर्डिंग"
+    },
+    "sport-skiing": {
+        "defaultMessage": "स्कीइंग"
+    },
+    "sport-soccer": {
+        "defaultMessage": "सॉकर"
+    },
+    "sport-swimming": {
+        "defaultMessage": "जलतरण केंद्र"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "टेबल टेनिस"
+    },
+    "sport-tennis": {
+        "defaultMessage": "टेनिस"
+    },
+    "sport-padel": {
+        "defaultMessage": "पडेल"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "व्हॉलीबॉल"
+    },
+    "building": {
+        "defaultMessage": "इमारत|बिल्डिंग|वाडा"
+    },
+    "building-address": {
+        "defaultMessage": "पत्ता"
+    },
+    "@category_police": {
+        "defaultMessage": "पोलीस"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "दूतावास"
+    },
+    "natural-bay": {
+        "defaultMessage": "खाडी"
+    },
+    "@category_water": {
+        "defaultMessage": "पाणी"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "पिण्याचे पाणी"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "गरम पाण्याचा झरा"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "वसंत ऋतू|झरे"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "पाण्याची विहीर"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "पाण्याचा नळ"
+    },
+    "@waterbody": {
+        "defaultMessage": "पाणवठा"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "कुंड|द्रोणी|खोरे|बेसिन"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "तलाव"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "सरोवर|लेक"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "जलाशय"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "नदी|सरिता"
+    },
+    "waterway-canal": {
+        "defaultMessage": "कालवा|कॅनल"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "कार दुरुस्तीचे दुकान|गॅरेज|गराज"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "शिबीर|कॅम्पिंग"
+    },
+    "office": {
+        "defaultMessage": "कार्यालय|ऑफिस"
+    },
+    "office-company": {
+        "defaultMessage": "कंपनी कार्यालय|कंपनी ऑफिस"
+    },
+    "office-government": {
+        "defaultMessage": "सरकारी कार्यालय"
+    },
+    "office-lawyer": {
+        "defaultMessage": "वकील"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "दूरसंचार कंपनी"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "मधमाश्या पाळणारा"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "लोहार"
+    },
+    "craft-brewery": {
+        "defaultMessage": "दारूभट्टी|आसवानी"
+    },
+    "craft-caterer": {
+        "defaultMessage": "केटरर"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "सुतार|कार्पेंटर"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "हलवाई"
+    },
+    "craft-electrician": {
+        "defaultMessage": "इलेक्ट्रिशियन|विद्युत कामगार"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "इलेक्ट्रॉनिक्स दुरुस्ती"
+    },
+    "craft-gardener": {
+        "defaultMessage": "माळी"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "गिरणी"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "हस्तकला"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "मेटल वर्कर"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "की कटिंग"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "लॉकस्मिथ"
+    },
+    "craft-painter": {
+        "defaultMessage": "चित्रकार"
+    },
+    "craft-photographer": {
+        "defaultMessage": "छायाचित्रकार|फोटोग्राफर"
+    },
+    "craft-plumber": {
+        "defaultMessage": "नळकामगार"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "सुमेल"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "चांभार"
+    },
+    "craft-winery": {
+        "defaultMessage": "वाइनरी"
+    },
+    "craft-tailor": {
+        "defaultMessage": "शिंपी|टेलर"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "चौरस"
+    },
+    "place-sea": {
+        "defaultMessage": "समुद्र"
+    },
+    "place-ocean": {
+        "defaultMessage": "महासागर"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "इंटरनेट|आंतरजाल"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "समुद्रकिनारा|बीच"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "दीपगृह"
+    },
+    "man_made-survey_point": {
+        "defaultMessage": "सर्वेक्षण बिंदू|सर्व्हे पॉइंट"
+    },
+    "man_made-flagpole": {
+        "defaultMessage": "ध्वजस्तंभ"
+    },
+    "man_made-mast": {
+        "defaultMessage": "डोलकाठी"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "कम्युनिकेशन टॉवर"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "तेल विहीर"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "सेंद्रिय"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "कॉपी शॉप|झेरॉक्स"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "फोटो शॉप|फोटो स्टुडिओ"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "कॅमेरा शॉप"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "ट्रॅव्हल एजन्सी"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "बाह्य उपकरणे|कॅम्पिंग साहित्य|ट्रेकिंग साहित्य|भटकंतीचे साहित्य"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "धुलाईघर|ड्रायक्लीन"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "टायरचे दुकान|टायर शॉप"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "कार धुणे|कार वॉश"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "पशुवैद्यकीय डॉक्टर|प्राण्यांचा डॉक्टर"
+    },
+    "@charging_station": {
+        "defaultMessage": "चार्जिंग स्टेशन|प्रभाराक केंद्र"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "सायकल चार्जिंग"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "पाळणाघर|अंगणवाडी|बालवाडी"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "सायकल पार्किंग"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "कचरा पेटी"
+    },
+    "emergency-phone": {
+        "defaultMessage": "आणीबाणी फोन|संकटकालीन फोन"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "व्यायामशाळा|जिम"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "सौना"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "टायर दुरुस्ती"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "औषधालय|केमिस्ट दुकान"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "पाळीव प्राण्यांचे दुकान"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "प्राणीसंग्रहालय"
+    },
+    "attraction-animal": {
+        "defaultMessage": "प्राणी संलग्न"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "पर्यटन कार्यालय"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "अभ्यागत केंद्र"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "समुदाय केंद्र"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "संकुचित हवा"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "न्यायालय|कोर्ट"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "सिगारेट विक्रीयंत्र"
+    },
+    "amenity-vending_machine-coffee": {
+        "defaultMessage": "कॉफी विक्रीयंत्र"
+    },
+    "amenity-vending_machine-condoms": {
+        "defaultMessage": "कंडोम विक्रीयंत्र"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "पेय विक्रीयंत्र"
+    },
+    "amenity-vending_machine-food|@category_food": {
+        "defaultMessage": "अन्न विक्रीयंत्र"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "पार्किंग तिकिटे"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "तिकीट यंत्र"
+    },
+    "amenity-vending_machine-newspapers": {
+        "defaultMessage": "वर्तमानपत्र विक्रीयंत्र"
+    },
+    "amenity-vending_machine-sweets": {
+        "defaultMessage": "मिठाई विक्रीयंत्र"
+    },
+    "amenity-vending_machine-excrement_bags": {
+        "defaultMessage": "मलमूत्र पिशव्या विक्रीयंत्र"
+    },
+    "amenity-parcel_locker|@category_post": {
+        "defaultMessage": "पार्सल लॉकर"
+    },
+    "shop-outpost": {
+        "defaultMessage": "पिकअप पॉइंट"
+    },
+    "amenity-vending_machine-fuel|@category_fuel": {
+        "defaultMessage": "इंधन विक्रीयंत्र"
+    },
+    "building-garage": {
+        "defaultMessage": "गॅरेज|गराज"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "महामार्ग विश्रांती क्षेत्र|सेवा क्षेत्र"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "कारखाना चिमणी"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "मनोरा|टॉवर"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "सीफूड शॉप|मासळी उपहारगृह"
+    },
+    "shop-ticket": {
+        "defaultMessage": "तिकीट दुकान|तिकीटघर"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "वाईन शॉप|वाईन विक्रेता"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "कारचे भाग|गाडीचे स्पेर पार्ट"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "हॉलिडे कॉटेज"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "माहिती फलक|सूचना फलक"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "पर्यटक नकाशा|पर्यटन नकाशा"
+    },
+    "aerialway-station": {
+        "defaultMessage": "हवाईमार्ग स्थानक|हवाई स्थानक"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "हेलिपॅड"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "सीमा नियंत्रण"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "जल क्रीडा स्थळ"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "पाण्याचा टॉवर|पाण्याची टाकी"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "पवनचक्की"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "गुहा"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "ज्वालामुखी"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "जल द्वार"
+    },
+    "sport-climbing": {
+        "defaultMessage": "क्लाइंबिंग सेंटर|चढण केंद्र"
+    },
+    "sport-yoga": {
+        "defaultMessage": "योग स्टुडिओ|योगासन केंद्र"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "सदनिका|फ्लॅट|अपार्टमेंट"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "रिसॉर्ट"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "चालकशाळा|ड्रायव्हिंग स्कूल"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "आईसक्रीम"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "इंटरनेट कॅफे"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "दुचाकी पार्किंग"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "नर्सिंग होम"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "पेमेंट टर्मिनल"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "सार्वजनिक स्नान"
+    },
+    "amenity-shower": {
+        "defaultMessage": "अंघोळ|शॉवर"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "आपत्कालीन विधानसभा पॉइंट"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "कंपनरोधकयंत्र|कंपनरोधक"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "अग्निशामक नाळ|फायर हायड्रंट"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "आपत्कालीन जीवरक्षक|जीवरक्षक"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "आपत्कालीन पर्वतीय बचाव"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "व्यायामशाळा|फिटनेस स्टेशन"
+    },
+    "office-insurance": {
+        "defaultMessage": "विमा कार्यालय|इन्शुरन्स ऑफिस"
+    },
+    "office-ngo": {
+        "defaultMessage": "अशासकीय संस्था|NGO"
+    },
+    "shop-massage": {
+        "defaultMessage": "मालिशवाला|मसाज सलून|मालिश गृह"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "दुचाकी विक्रेता|मोटरसायकलचे दुकान"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "मोटरसायकल दुरुस्ती"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "वृत्तपत्र विक्रेता|वृत्तपत्र विक्री"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "लेखनसामग्री विक्रेता|स्टेशनरी दुकान"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "टॅटू पार्लर|गोंदणाचे(टॅटू) दुकान"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "विविध वास्तूचे दुकान|व्हरायटी स्टोअर"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "व्हिडिओ दुकान"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "व्हिडिओ गेमचे दुकान"
+    },
+    "tourism-gallery|@category_tourism": {
+        "defaultMessage": "वीथि"
+    },
+    "tourism-theme_park|@category_tourism|@category_children": {
+        "defaultMessage": "थीम पार्क"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "राष्ट्रीय उद्यान"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "संरक्षित निसर्ग"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "हिमनदी"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "स्कीइंग|स्की रन"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "कार्यक्रमाचे ठिकाण"
+    },
+    "leisure-track": {
+        "defaultMessage": "ट्रॅक"
+    },
+    "power-plant": {
+        "defaultMessage": "वीज प्रकल्प"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "लिलाव"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "कलेक्टर|संग्रहणीय वस्तू"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "व्हीलचेअर|चाकखुर्चीसाठी प्रवेश"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "सामाजिक सुविधा"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "क्रीडा हॉल"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "कला केंद्र"
+    },
+    "amenity-prison": {
+        "defaultMessage": "तुरुंग"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "प्रदर्शन केंद्र"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "स्नानगृह सामान"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "पलंगाचे दुकान"
+    },
+    "amenity-food_court": {
+        "defaultMessage": "जेवायचे ठिकाण"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "पडदे"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "गॅसचे दुकान"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "पाळीव प्राणी ग्रूमिंग"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "हायफाय ऑडिओ"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "परिषद केंद्र"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "औषधी वनस्पतींचे दुकान"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "उपकरणांचे दुकान"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "शेतीचे दुकान"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "फॅशन अॅक्सेसरीज"
+    },
+    "amenity-waste_transfer_station": {
+        "defaultMessage": "कचरा हस्तांतरण केंद्र"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "कार्पेट्स"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "पास्ता"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "सामान लॉकर"
+    }
+}

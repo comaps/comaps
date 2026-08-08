@@ -28,6 +28,7 @@ class Connection final
 {
 public:
   Connection(std::unique_ptr<platform::Socket> socket, std::string const & host, uint16_t port, bool isHistorical);
+  ~Connection();
   bool Reconnect();
   void Shutdown();
   bool Send(boost::circular_buffer<DataPoint> const & points);

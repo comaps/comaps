@@ -2,6 +2,7 @@
 
 #include "coding/file_reader.hpp"
 #include "coding/file_writer.hpp"
+#include "coding/reader.hpp"
 
 #include "base/assert.hpp"
 #include "base/macros.hpp"

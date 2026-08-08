@@ -8,7 +8,6 @@
 #include "coding/file_writer.hpp"
 #include "coding/files_container.hpp"
 #include "coding/memory_region.hpp"
-#include "coding/reader.hpp"
 #include "coding/simple_dense_coding.hpp"
 #include "coding/succinct_mapper.hpp"
 #include "coding/writer.hpp"

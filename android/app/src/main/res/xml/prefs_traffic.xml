@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <SwitchPreferenceCompat
+    android:key="@string/pref_traffic_http_enabled"
+    android:title="@string/traffic_http_enabled"
+    app:singleLineTitle="false"
+    android:summary="@string/traffic_http_enabled_description"
+    android:defaultValue="true"
+    android:widgetLayout="@layout/preference_switch"
+    android:order="1"/>
+  <EditTextPreference
+    android:key="@string/pref_traffic_http_url"
+    android:title="@string/traffic_http_url"
+    app:singleLineTitle="false"
+    android:order="2"/>
+  <MultiSelectListPreference
+    android:key="@string/pref_traffic_apps"
+    android:title="@string/traffic_apps"
+    app:singleLineTitle="false"
+    android:order="3"/>
+  <SwitchPreferenceCompat
+    android:key="@string/pref_traffic_legacy_enabled"
+    android:title="@string/traffic_legacy_enabled"
+    app:singleLineTitle="false"
+    android:summary="@string/traffic_legacy_enabled_description"
+    android:defaultValue="true"
+    android:widgetLayout="@layout/preference_switch"
+    android:order="4"/>
+
+</androidx.preference.PreferenceScreen>

@@ -88,6 +88,10 @@ UpdateDialog::UpdateDialog(QWidget * parent, Framework & framework)
 {
   setWindowModality(Qt::WindowModal);
 
+  m_pCheckUpdatesLabel = new QLabel();
+  m_pCheckUpdatesButton = new QPushButton(QObject::tr("Check for updates"), this);
+  connect(m_pCheckUpdatesButton, &QAbstractButton::clicked, this, &UpdateDialog::OnCheckUpdatesClick);
+
   QPushButton * closeButton = new QPushButton(QObject::tr("Close"), this);
   closeButton->setDefault(true);
   connect(closeButton, &QAbstractButton::clicked, this, &UpdateDialog::OnCloseClick);
@@ -109,6 +113,8 @@ UpdateDialog::UpdateDialog(QWidget * parent, Framework & framework)
 
   QHBoxLayout * horizontalLayout = new QHBoxLayout();
   horizontalLayout->addStretch();
+  horizontalLayout->addWidget(m_pCheckUpdatesLabel);
+  horizontalLayout->addWidget(m_pCheckUpdatesButton);
   horizontalLayout->addWidget(closeButton);
 
   QLabel * localeLabel = new QLabel(tr("locale:"));
@@ -252,8 +258,46 @@ void UpdateDialog::OnItemClick(QTreeWidgetItem * item, int column)
   }
 }
 
+void UpdateDialog::done(int r)
+{
+  GetStorage().SetCheckUpdatesListener(nullptr);
+  QDialog::done(r);
+}
+
+void UpdateDialog::OnCheckUpdatesClick()
+{
+  auto const callback = [this](storage::CheckUpdatesStatus const & status)
+  {
+    QString txt;
+    switch (status)
+    {
+    case storage::CheckUpdatesStatus::Updated:
+      txt = tr("Map updates available!");
+      RefillTree();
+      break;
+    case storage::CheckUpdatesStatus::NoUpdate: txt = tr("No updates available"); break;
+    case storage::CheckUpdatesStatus::EOL:
+      txt = tr("No more map updates for this app version. Please update the app!");
+      break;
+    case storage::CheckUpdatesStatus::Error:
+    default: txt = tr("Error checking for updates"); break;
+    }
+    m_pCheckUpdatesLabel->setText(txt);
+
+    m_pCheckUpdatesButton->setText(tr("Check for updates"));
+    m_pCheckUpdatesButton->setEnabled(true);
+  };
+  GetStorage().SetCheckUpdatesListener(callback);
+
+  m_pCheckUpdatesButton->setEnabled(false);
+  m_pCheckUpdatesButton->setText(tr("Checking for updates..."));
+  m_pCheckUpdatesLabel->setText("");
+  GetStorage().RunCountriesCheckAsyncSaveOnly();
+}
+
 void UpdateDialog::OnCloseClick()
 {
+  GetStorage().SetCheckUpdatesListener(nullptr);
   done(0);
 }
 

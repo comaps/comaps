@@ -1,5 +1,4 @@
 #include "drape/index_storage.hpp"
-#include "drape/gl_functions.hpp"
 
 #include <utility>
 

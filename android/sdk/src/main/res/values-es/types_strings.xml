@@ -130,7 +130,7 @@
     <string name="type.amenity.pub">Taberna</string>
     <string name="type.amenity.public_bookcase">Intercambio de libros</string>
     <!-- SECTION: Types: Recycling -->
-    <string name="type.amenity.recycling.centre">Centro de Reciclaje</string>
+    <string name="type.amenity.recycling.centre">Centro de reciclaje</string>
     <string name="type.amenity.recycling.container">Contenedor de reciclaje</string>
     <string name="type.recycling.batteries">Baterías</string>
     <string name="type.recycling.clothes">Ropa</string>
@@ -385,7 +385,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Túnel</string>
     <string name="type.highway.bus_stop">Parada de bus</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Vía en construcción</string>
+    <string name="type.highway.construction.motorway">Vía en construcción</string>
+    <string name="type.highway.construction.motorway_link">Vía en construcción</string>
+    <string name="type.highway.construction.trunk">Vía en construcción</string>
+    <string name="type.highway.construction.trunk_link">Vía en construcción</string>
+    <string name="type.highway.construction.primary">Vía en construcción</string>
+    <string name="type.highway.construction.primary_link">Vía en construcción</string>
+    <string name="type.highway.construction.secondary">Vía en construcción</string>
+    <string name="type.highway.construction.secondary_link">Vía en construcción</string>
+    <string name="type.highway.construction.tertiary">Vía en construcción</string>
+    <string name="type.highway.construction.tertiary_link">Vía en construcción</string>
+    <string name="type.highway.construction.residential">Vía en construcción</string>
+    <string name="type.highway.construction.unclassified">Vía en construcción</string>
+    <string name="type.highway.construction.service">Vía en construcción</string>
+    <string name="type.highway.construction.living_street">Vía en construcción</string>
+    <string name="type.highway.construction.road">Vía en construcción</string>
+    <string name="type.highway.construction.track">Vía en construcción</string>
     <string name="type.highway.cycleway">Ciclovía</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Puente</string>
@@ -749,7 +766,7 @@
     <string name="type.office.ngo">Organización no gubernamental</string>
     <string name="type.office.telecommunication">Operadora de telefonía</string>
     <string name="type.organic.only">Solo orgánico</string>
-    <string name="type.organic.yes">Opciones orgánicas</string>
+    <string name="type.organic.yes">Opciones orgánicas o ecológicas</string>
     <string name="type.place.city">Ciudad</string>
     <string name="type.place.city.capital">Capital</string>
     <string name="type.place.city.capital.10">Ciudad</string>
@@ -791,7 +808,7 @@
     <string name="type.power.generator.wind">Aerogenerador</string>
     <string name="type.power.generator.gas">Planta termoeléctrica a gas</string>
     <string name="type.power.generator.hydro">Planta hidroeléctrica</string>
-    <string name="type.power.line">Línea eléctrica</string>
+    <string name="type.power.line">Línea de alta tensión</string>
     <string name="type.power.line.underground">Línea eléctrica subterránea</string>
     <string name="type.power.minor_line">Línea eléctrica menor</string>
     <string name="type.power.plant">Planta eléctrica</string>
@@ -811,7 +828,7 @@
     <string name="type.railway.crossing">Paso a nivel</string>
     <string name="type.railway.disused">Vía férrea en desuso</string>
     <string name="type.railway.funicular">Funicular</string>
-    <string name="type.railway.halt">Punto de parada</string>
+    <string name="type.railway.halt">Estación de tren</string>
     <string name="type.railway.level_crossing">Cruce a nivel</string>
     <string name="type.railway.light_rail">Tren ligero</string>
     <string name="type.railway.monorail">Monorriel</string>
@@ -1261,7 +1278,7 @@
     <string name="type.attraction.maze">Laberinto</string>
     <string name="type.attraction.roller_coaster">Montaña rusa</string>
     <string name="type.attraction.water_slide">Tobogán acuático</string>
-    <string name="type.tourism.attraction.specified">Atracción turística</string>
+    <string name="type.tourism.attraction.specified">Atracción</string>
     <string name="type.tourism.camp_site">Paraje de acampada</string>
     <string name="type.tourism.caravan_site">Zona de autocaravanas</string>
     <!-- A rentable countryside vacation house. -->
@@ -1510,7 +1527,7 @@
     <string name="type.emergency.access_point.address">Dirección de Punto de Emergencia</string>
     <string name="type.waterway.fuel">Gasolinera marina</string>
     <string name="type.amenity.community_centre.youth_centre">Centro juvenil</string>
-    <string name="type.shop.water">Empresas especializadas en la venta de sistemas de tratamiento de agua</string>
+    <string name="type.shop.water">Tienda de agua</string>
     <string name="type.attraction">Atracción</string>
     <string name="type.leisure.sports_centre.sport.boules">Polideportivo</string>
     <string name="type.leisure.sports_centre.sport.four_square">Polideportivo</string>
@@ -1519,4 +1536,9 @@
     <string name="type.leisure.sports_centre.sport.pickleball">Centro deportivo</string>
     <string name="type.sport.pickleball">Pickleball</string>
     <string name="type.organic.no">Sin opciones orgánicas</string>
+    <string name="type.amenity.stage">Escenario</string>
+    <string name="type.amenity.animal_boarding">Alojamiento para animales</string>
+    <string name="type.amenity.toilets.customers">Acceso para clientes</string>
+    <string name="type.amenity.toilets.private">Acceso privado</string>
+    <string name="type.amenity.planetarium">Planetario</string>
 </resources>

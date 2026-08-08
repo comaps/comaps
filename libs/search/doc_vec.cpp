@@ -1,5 +1,7 @@
 #include "search/doc_vec.hpp"
 
+#include "search/idf_map.hpp"
+
 #include <limits>
 
 namespace search

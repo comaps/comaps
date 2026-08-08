@@ -66,7 +66,7 @@ def convert_to_localized_types_cpp(input_file, output_file):
 
 def main():
     input_file = Path('iphone/Maps/LocalizedStrings/en.lproj/LocalizableTypes.strings')
-    output_file = Path('libs/indexer/localized_types_map.cpp')
+    output_file = Path('libs/platform/localized_types_map.cpp')
     convert_to_localized_types_cpp(str(input_file), str(output_file))
     
 

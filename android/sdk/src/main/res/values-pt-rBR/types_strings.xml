@@ -333,7 +333,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Túnel</string>
     <string name="type.highway.bus_stop">Ponto de ônibus</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Via em construção</string>
+    <string name="type.highway.construction.motorway">Via em construção</string>
+    <string name="type.highway.construction.motorway_link">Via em construção</string>
+    <string name="type.highway.construction.trunk">Via em construção</string>
+    <string name="type.highway.construction.trunk_link">Via em construção</string>
+    <string name="type.highway.construction.primary">Via em construção</string>
+    <string name="type.highway.construction.primary_link">Via em construção</string>
+    <string name="type.highway.construction.secondary">Via em construção</string>
+    <string name="type.highway.construction.secondary_link">Via em construção</string>
+    <string name="type.highway.construction.tertiary">Via em construção</string>
+    <string name="type.highway.construction.tertiary_link">Via em construção</string>
+    <string name="type.highway.construction.residential">Via em construção</string>
+    <string name="type.highway.construction.unclassified">Via em construção</string>
+    <string name="type.highway.construction.service">Via em construção</string>
+    <string name="type.highway.construction.living_street">Via em construção</string>
+    <string name="type.highway.construction.road">Via em construção</string>
+    <string name="type.highway.construction.track">Via em construção</string>
     <string name="type.highway.cycleway">Ciclovia</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Ponte para ciclistas</string>
@@ -608,10 +625,10 @@
     <string name="type.office.estate_agent">Corretor imobiliário</string>
     <string name="type.office.government">Gabinete governamental</string>
     <string name="type.office.insurance">Seguradora</string>
-    <string name="type.office.lawyer">Escritório de advogado</string>
+    <string name="type.office.lawyer">Escritório de advocacia</string>
     <string name="type.office.ngo">Escritório de ONG</string>
     <string name="type.office.telecommunication">Operadora de telecomunicações</string>
-    <string name="type.organic.only">Só orgânico</string>
+    <string name="type.organic.only">Somente orgânico</string>
     <string name="type.organic.yes">Opções orgânicas</string>
     <string name="type.place.farm">Fazenda</string>
     <string name="type.place.hamlet">Lugarejo</string>
@@ -648,7 +665,7 @@
     <string name="type.railway.disused">Ferrovia em desuso</string>
     <string name="type.railway.funicular.bridge">Funicular</string>
     <string name="type.railway.funicular.tunnel">Funicular</string>
-    <string name="type.railway.halt">Ponto de parada</string>
+    <string name="type.railway.halt">Parada de trem</string>
     <string name="type.railway.level_crossing">Passagem em nível</string>
     <string name="type.railway.light_rail">Metrô de superfície</string>
     <string name="type.railway.light_rail.bridge">Metrô de superfície</string>
@@ -1025,7 +1042,7 @@
     <string name="type.sport">Esporte</string>
     <string name="type.sport.american_football">Futebol americano</string>
     <string name="type.sport.archery">Tiro com arco</string>
-    <string name="type.sport.athletics">Atlético</string>
+    <string name="type.sport.athletics">Atletismo</string>
     <string name="type.sport.australian_football">Futebol australiano</string>
     <string name="type.sport.baseball">Beisebol</string>
     <string name="type.sport.basketball">Basquetebol</string>
@@ -1148,7 +1165,7 @@
     <string name="type.amenity.parking_space.underground">Lugar de estacionamento</string>
     <string name="type.amenity.parking_space.disabled">Estacionamento para deficientes</string>
     <string name="type.amenity.place_of_worship.christian.mormon">Igreja de Jesus Cristo dos Santos dos Últimos Dias</string>
-    <string name="type.amenity.shelter.basic_hut">Cabana Básica</string>
+    <string name="type.amenity.shelter.basic_hut">Cabana básica</string>
     <string name="type.amenity.public_bath">Banho público</string>
     <string name="type.amenity.vehicle_inspection">Inspeção veicular</string>
     <string name="type.natural.water.moat">Fosso</string>
@@ -1189,7 +1206,7 @@
     <string name="type.historic.castle.manor">Solar</string>
     <string name="type.historic.castle.palace">Palácio</string>
     <string name="type.historic.castle.shiro">Castelo japonês</string>
-    <string name="type.historic.city_gate">Portões da Cidade</string>
+    <string name="type.historic.city_gate">Portões da cidade</string>
     <string name="type.historic.fort">Forte</string>
     <string name="type.amenity.stripclub">Clube de strip</string>
     <string name="type.amenity.love_hotel">Motel</string>
@@ -1254,8 +1271,8 @@
     <string name="type.natural.peak">Pico</string>
     <string name="type.natural.rock">Pedra</string>
     <string name="type.natural.scrub">Esfregar</string>
-    <string name="type.natural.spring">Fonte Natural</string>
-    <string name="type.natural.spring.drinking_water_no">Fonte Natural</string>
+    <string name="type.natural.spring">Nascente</string>
+    <string name="type.natural.spring.drinking_water_no">Nascente</string>
     <string name="type.natural.strait">Estreito</string>
     <string name="type.natural.tree_row">Fileira de árvores</string>
     <string name="type.natural.vineyard">Vinhedo</string>
@@ -1372,7 +1389,7 @@
     <string name="type.natural.wetland.mangrove">Manguezal</string>
     <string name="type.natural.wetland.tidalflat">Planície de maré</string>
     <string name="type.natural.wetland.saltmarsh">Sapal</string>
-    <string name="type.leisure.escape_game">Sala de Fuga</string>
+    <string name="type.leisure.escape_game">Escape room</string>
     <string name="type.amenity.luggage_locker">Armário guarda-volumes</string>
     <string name="type.amenity.bicycle_parking.covered">Bicicletário coberto</string>
     <string name="type.post_office.post_partner">Parceiro postal</string>
@@ -1427,10 +1444,10 @@
     <string name="type.man_made.telescope.gamma">Telescópio (gama)</string>
     <string name="type.man_made.observatory">Observatório</string>
     <string name="type.amenity.mobile_money_agent">Agente mobile money</string>
-    <string name="type.amenity.car_pooling">Carona</string>
+    <string name="type.amenity.car_pooling">Carona solidária</string>
     <string name="type.amenity.payment_centre">Centro de pagamentos</string>
     <string name="type.leisure.indoor_play">Centro de recreação interno</string>
-    <string name="type.shop.telecommunication">Loja de Telecomunicação</string>
+    <string name="type.shop.telecommunication">Loja de telecomunicações</string>
     <string name="type.social_facility.soup_kitchen">Restaurante popular</string>
     <string name="type.social_facility.food_bank">Banco de alimentos</string>
     <string name="type.amenity.food_sharing">Alimentos compartilhados</string>
@@ -1507,4 +1524,9 @@
     <string name="type.organic.no">Sem opções orgânicas</string>
     <string name="type.leisure.sports_centre.sport.pickleball">Centro de esportes</string>
     <string name="type.sport.pickleball">Pickleball</string>
+    <string name="type.amenity.animal_boarding">Hotel de animais</string>
+    <string name="type.amenity.stage">Palco</string>
+    <string name="type.amenity.planetarium">Planetário</string>
+    <string name="type.amenity.toilets.customers">Acesso para clientes</string>
+    <string name="type.amenity.toilets.private">Acesso privado</string>
 </resources>

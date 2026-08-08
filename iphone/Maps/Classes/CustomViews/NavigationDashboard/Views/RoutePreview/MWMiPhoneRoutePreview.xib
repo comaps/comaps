@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,7 +27,7 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXA-Og-q2I">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                             <state key="normal" title="DEFINE ROADS TO AVOID" image="ic_options_warning"/>
                             <connections>
                                 <action selector="onDrivingOptions:" destination="aNH-vh-DPz" eventType="touchUpInside" id="jR1-dk-nNj"/>
@@ -240,7 +240,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzm-Yo-BvL">
-                            <rect key="frame" x="19" y="8" width="119" height="32"/>
+                            <rect key="frame" x="-77" y="8" width="119" height="32"/>
                             <state key="normal" title="ManageRoute" image="ic_24px_manager"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="medium14:MWMBlack"/>
@@ -270,7 +270,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoe-y0-brm" userLabel="Save Route As Track Button Compact">
-                            <rect key="frame" x="150" y="12" width="58" height="24"/>
+                            <rect key="frame" x="54" y="12" width="58" height="24"/>
                             <state key="normal" title="Save">
                                 <imageReference key="image" image="ic24PxImport" symbolScale="small"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
@@ -282,11 +282,24 @@
                                 <action selector="saveRouteAsTrack:" destination="-1" eventType="touchUpInside" id="6eG-56-Dxp"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDv-cm-pct" userLabel="Directions Preview Button Compact">
+                            <rect key="frame" x="124" y="13" width="84" height="22"/>
+                            <state key="normal" title="Preview">
+                                <imageReference key="image" image="binoculars.fill" catalog="system" symbolScale="small"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="medium14:MWMBlack"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="showDirectionsPreview" destination="-1" eventType="touchUpInside" id="pDv-ac-001"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="CQB-xn-DSM" secondAttribute="trailing" constant="20" id="5rE-ss-qWE"/>
-                        <constraint firstItem="CQB-xn-DSM" firstAttribute="leading" secondItem="hoe-y0-brm" secondAttribute="trailing" constant="20" id="6Lz-mp-yW2"/>
+                        <constraint firstItem="CQB-xn-DSM" firstAttribute="leading" secondItem="pDv-cm-pct" secondAttribute="trailing" constant="20" id="6Lz-mp-yW2"/>
                         <constraint firstItem="sjQ-Sc-mtN" firstAttribute="centerY" secondItem="Tai-sE-6DC" secondAttribute="centerY" id="Aer-5j-lt1"/>
                         <constraint firstAttribute="trailing" secondItem="CQB-xn-DSM" secondAttribute="trailing" constant="12" id="Any-Qx-9mT"/>
                         <constraint firstItem="Zzm-Yo-BvL" firstAttribute="bottom" secondItem="CQB-xn-DSM" secondAttribute="bottom" id="V0p-f2-5K1"/>
@@ -298,6 +311,8 @@
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="dZS-mi-2sg"/>
                         <constraint firstItem="sjQ-Sc-mtN" firstAttribute="leading" secondItem="Tai-sE-6DC" secondAttribute="leading" constant="16" id="gdz-UZ-QkO"/>
                         <constraint firstItem="CQB-xn-DSM" firstAttribute="centerY" secondItem="Zzm-Yo-BvL" secondAttribute="centerY" id="oMX-9t-8XI"/>
+                        <constraint firstItem="pDv-cm-pct" firstAttribute="centerY" secondItem="Zzm-Yo-BvL" secondAttribute="centerY" id="pDv-cy-001"/>
+                        <constraint firstItem="pDv-cm-pct" firstAttribute="leading" secondItem="hoe-y0-brm" secondAttribute="trailing" constant="12" id="pDv-lc-001"/>
                         <constraint firstAttribute="bottom" secondItem="sjQ-Sc-mtN" secondAttribute="bottom" constant="10" id="pnl-MH-dtY"/>
                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="96" id="tqy-f7-E4I"/>
                         <constraint firstItem="hoe-y0-brm" firstAttribute="centerY" secondItem="Zzm-Yo-BvL" secondAttribute="centerY" id="via-QU-3KT"/>
@@ -361,16 +376,31 @@
                                 <action selector="saveRouteAsTrack:" destination="-1" eventType="touchUpInside" id="xQ9-QD-abF"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TU-KZ-cqu">
+                            <rect key="frame" x="229" y="13" width="74" height="18"/>
+                            <state key="normal" title="Preview">
+                                <imageReference key="image" image="binoculars.fill" catalog="system" symbolScale="small"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="medium14:MWMBlack"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="showDirectionsPreview" destination="-1" eventType="touchUpInside" id="v9Q-Pa-jed"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="K37-2W-GE8" firstAttribute="centerY" secondItem="fzb-1W-zFB" secondAttribute="centerY" id="2ok-5H-yIR"/>
                         <constraint firstItem="aCu-AO-AFN" firstAttribute="centerY" secondItem="K37-2W-GE8" secondAttribute="centerY" id="6hJ-pH-kXM"/>
+                        <constraint firstItem="9TU-KZ-cqu" firstAttribute="centerY" secondItem="K37-2W-GE8" secondAttribute="centerY" id="6yh-iW-y2V"/>
                         <constraint firstAttribute="trailing" secondItem="Yia-YS-2aZ" secondAttribute="trailing" constant="-100" id="Bzr-Sg-XK6"/>
                         <constraint firstAttribute="height" constant="44" id="P98-xe-1Mu"/>
                         <constraint firstItem="Yia-YS-2aZ" firstAttribute="leading" secondItem="fzb-1W-zFB" secondAttribute="leading" constant="-100" id="PVG-Ef-KEF"/>
                         <constraint firstItem="K37-2W-GE8" firstAttribute="leading" secondItem="fzb-1W-zFB" secondAttribute="leading" constant="20" id="UJ8-Kj-MhJ"/>
                         <constraint firstAttribute="bottom" secondItem="Yia-YS-2aZ" secondAttribute="bottom" constant="-100" id="YkC-k1-TjV"/>
+                        <constraint firstItem="9TU-KZ-cqu" firstAttribute="leading" secondItem="aCu-AO-AFN" secondAttribute="trailing" constant="16" id="dc4-Lh-gnb"/>
                         <constraint firstItem="Yia-YS-2aZ" firstAttribute="top" secondItem="fzb-1W-zFB" secondAttribute="top" id="ejL-T8-2eh"/>
                         <constraint firstItem="aCu-AO-AFN" firstAttribute="leading" secondItem="K37-2W-GE8" secondAttribute="trailing" constant="16" id="iHG-Mn-z3w"/>
                     </constraints>
@@ -406,6 +436,8 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="directionsPreviewButtonCompact" destination="pDv-cm-pct" id="pDv-oc-001"/>
+                <outlet property="directionsPreviewButtonRegular" destination="9TU-KZ-cqu" id="pDv-oc-002"/>
                 <outlet property="errorBox" destination="fD2-1N-x27" id="IV5-eS-JLl"/>
                 <outlet property="errorBoxBottom" destination="x7F-TL-lJx" id="W6w-05-Dll"/>
                 <outlet property="errorLabel" destination="vGz-fB-9Oi" id="Ojx-cU-Jpc"/>
@@ -496,6 +528,7 @@
         </view>
     </objects>
     <resources>
+        <image name="binoculars.fill" catalog="system" width="128" height="90"/>
         <image name="ic24PxImport" width="24" height="24"/>
         <image name="ic_24px_manager" width="24" height="24"/>
         <image name="ic_nav_bar_back" width="14" height="22"/>

@@ -9,7 +9,10 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckedTextView;
+
+import com.google.android.material.radiobutton.MaterialRadioButton;
+import com.google.android.material.textview.MaterialTextView;
+
 import app.organicmaps.R;
 import app.organicmaps.sdk.settings.StorageItem;
 import app.organicmaps.sdk.settings.StoragePathManager;
@@ -54,9 +57,9 @@ class StoragePathAdapter extends BaseAdapter
 
     StorageItem item = mPathManager.mStorages.get(position);
     final boolean isCurrent = position == mPathManager.mCurrentStorageIndex;
-    CheckedTextView checkedView = (CheckedTextView) convertView;
-    checkedView.setChecked(isCurrent);
-    checkedView.setEnabled(!item.mIsReadonly && (isStorageBigEnough(position) || isCurrent));
+    MaterialRadioButton storageRadioButton = convertView.findViewById(R.id.storage_selected);
+    storageRadioButton.setChecked(isCurrent);
+    storageRadioButton.setEnabled(!item.mIsReadonly && (isStorageBigEnough(position) || isCurrent));
 
     final String size =
         mActivity.getString(R.string.maps_storage_free_size, Formatter.formatShortFileSize(mActivity, item.mFreeSize),
@@ -75,7 +78,8 @@ class StoragePathAdapter extends BaseAdapter
     sb.setSpan(new AbsoluteSizeSpan(Utils.dimen(mActivity, R.dimen.text_size_body_4)), sb.length() - path.length(),
                sb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-    checkedView.setText(sb);
+    MaterialTextView textView = convertView.findViewById(R.id.storage_text);
+    textView.setText(sb);
 
     return convertView;
   }

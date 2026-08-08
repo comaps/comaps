@@ -24,36 +24,56 @@ bool PairDistEquals(PairDist const & lhs, PairDist const & rhs)
   return lhs.first == rhs.first && strcmp(lhs.second, rhs.second) == 0;
 }
 
-UNIT_TEST(GetDistanceTextIdMetersTest)
+UNIT_TEST(GetDistanceUntilTextIdMetersTest)
 {
-  TEST_EQUAL(GetDistanceTextId({500, 0, false, CarDirection::TurnRight, Units::Metric}), "in_500_meters", ());
+  TEST_EQUAL(GetDistanceUntilTextId(500, Units::Metric, false), "in_500_meters", ());
 
-  //  Notification const notification2(500, 0, true, CarDirection::TurnRight, Units::Metric);
-  //  TEST_EQUAL(GetDistanceTextId(notification2), "then", ());
-
-  TEST_EQUAL(GetDistanceTextId({200, 0, false, CarDirection::TurnRight, Units::Metric}), "in_200_meters", ());
-  TEST_EQUAL(GetDistanceTextId({2000, 0, false, CarDirection::TurnRight, Units::Metric}), "in_2_kilometers", ());
+  TEST_EQUAL(GetDistanceUntilTextId(200, Units::Metric, false), "in_200_meters", ());
+  TEST_EQUAL(GetDistanceUntilTextId(2000, Units::Metric, false), "in_2_kilometers", ());
 
   /// @see DistToTextId.
-  TEST_EQUAL(GetDistanceTextId({130, 0, false, CarDirection::TurnRight, Units::Metric}), "in_100_meters", ());
-  TEST_EQUAL(GetDistanceTextId({135, 0, false, CarDirection::TurnRight, Units::Metric}), "in_200_meters", ());
+  TEST_EQUAL(GetDistanceUntilTextId(130, Units::Metric, false), "in_100_meters", ());
+  TEST_EQUAL(GetDistanceUntilTextId(135, Units::Metric, false), "in_200_meters", ());
+
+  TEST_EQUAL(GetDistanceUntilTextId(5000, Units::Metric, true), "in_over_3_kilometers", ());
 }
 
-UNIT_TEST(GetDistanceTextIdFeetTest)
+UNIT_TEST(GetDistanceUntilTextIdFeetTest)
 {
-  TEST_EQUAL(GetDistanceTextId({500, 0, false, CarDirection::TurnRight, Units::Imperial}), "in_500_feet", ());
+  TEST_EQUAL(GetDistanceUntilTextId(500, Units::Imperial, false), "in_500_feet", ());
 
-  //  Notification const notification2(500, 0, true, CarDirection::TurnRight, Units::Imperial);
-  //  TEST_EQUAL(GetDistanceTextId(notification2), "then", ());
+  TEST_EQUAL(GetDistanceUntilTextId(800, Units::Imperial, false), "in_800_feet", ());
+  TEST_EQUAL(GetDistanceUntilTextId(5000, Units::Imperial, false), "in_5000_feet", ());
 
-  TEST_EQUAL(GetDistanceTextId({800, 0, false, CarDirection::TurnRight, Units::Imperial}), "in_800_feet", ());
-  TEST_EQUAL(GetDistanceTextId({5000, 0, false, CarDirection::TurnRight, Units::Imperial}), "in_5000_feet", ());
+  TEST_EQUAL(GetDistanceUntilTextId(20000, Units::Imperial, true), "in_over_2_miles", ());
+}
+
+UNIT_TEST(GetDistanceFromTextIdMetersTest)
+{
+  TEST_EQUAL(GetDistanceFromTextId(500, Units::Metric, false), "from_500_meters", ());
+
+  TEST_EQUAL(GetDistanceFromTextId(200, Units::Metric, false), "from_200_meters", ());
+  TEST_EQUAL(GetDistanceFromTextId(2000, Units::Metric, false), "from_2_kilometers", ());
+
+  /// @see DistToTextId.
+  TEST_EQUAL(GetDistanceFromTextId(130, Units::Metric, false), "from_100_meters", ());
+  TEST_EQUAL(GetDistanceFromTextId(135, Units::Metric, false), "from_200_meters", ());
+
+  TEST_EQUAL(GetDistanceFromTextId(5000, Units::Metric, true), "from_over_3_kilometers", ());
+}
+
+UNIT_TEST(GetDistanceFromTextIdFeetTest)
+{
+  TEST_EQUAL(GetDistanceFromTextId(500, Units::Imperial, false), "from_500_feet", ());
+
+  TEST_EQUAL(GetDistanceFromTextId(800, Units::Imperial, false), "from_800_feet", ());
+  TEST_EQUAL(GetDistanceFromTextId(5000, Units::Imperial, false), "from_5000_feet", ());
+
+  TEST_EQUAL(GetDistanceFromTextId(20000, Units::Imperial, true), "from_over_2_miles", ());
 }
 
 UNIT_TEST(GetRoundaboutTextIdTest)
 {
-  // Notification(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance,
-  //    CarDirection turnDir, ::Settings::Units lengthUnits)
   Notification const notification1(500, 0, false, CarDirection::LeaveRoundAbout, Units::Imperial);
   TEST_EQUAL(GetRoundaboutTextId(notification1), "leave_the_roundabout", ());
   Notification const notification2(0, 3, true, CarDirection::LeaveRoundAbout, Units::Imperial);
@@ -66,8 +86,6 @@ UNIT_TEST(GetRoundaboutTextIdTest)
 
 UNIT_TEST(GetYouArriveTextIdTest)
 {
-  // Notification(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance,
-  //    CarDirection turnDir, ::Settings::Units lengthUnits)
   Notification const notification1(500, 0, false, CarDirection::ReachedYourDestination, Units::Imperial);
   TEST_EQUAL(GetYouArriveTextId(notification1), "destination", ());
   Notification const notification2(0, 0, false, CarDirection::ReachedYourDestination, Units::Metric);
@@ -78,8 +96,6 @@ UNIT_TEST(GetYouArriveTextIdTest)
 
 UNIT_TEST(GetDirectionTextIdTest)
 {
-  // Notification(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance,
-  //    CarDirection turnDir, ::Settings::Units lengthUnits)
   Notification const notification1(500, 0, false, CarDirection::TurnRight, Units::Imperial);
   TEST_EQUAL(GetDirectionTextId(notification1), "make_a_right_turn", ());
   Notification const notification2(1000, 0, false, CarDirection::GoStraight, Units::Metric);
@@ -115,8 +131,6 @@ UNIT_TEST(GetTtsTextTest)
       })";
 
   GetTtsText getTtsText;
-  // Notification(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance,
-  //    CarDirection turnDir, Settings::Units lengthUnits)
   Notification const notification1(500, 0, false, CarDirection::TurnRight, Units::Metric);
   Notification const notification2(300, 0, false, CarDirection::TurnLeft, Units::Metric);
   Notification const notification3(0, 0, false, CarDirection::ReachedYourDestination, Units::Metric);
@@ -245,8 +259,6 @@ UNIT_TEST(GetTtsStreetTextTest)
       })";
 
   GetTtsText getTtsText;
-  // Notification(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance,
-  //    CarDirection turnDir, Settings::Units lengthUnits, routing::RouteSegment::RoadNameInfo nextStreetInfo)
 
   Notification const notification1(500, 0, false, CarDirection::TurnRight, measurement_utils::Units::Metric,
                                    routing::RouteSegment::RoadNameInfo("Main Street"));
@@ -397,47 +409,74 @@ UNIT_TEST(GetTtsStreetTextTest)
 
 UNIT_TEST(GetAllSoundedDistMetersTest)
 {
-  VecPairDist const & allSoundedDistMeters = GetAllSoundedDistMeters();
+  VecPairDist const & allSoundedDistUntilMeters = GetAllSoundedDistUntilMeters();
+  VecPairDist const & allSoundedDistFromMeters = GetAllSoundedDistFromMeters();
 
-  TEST(is_sorted(allSoundedDistMeters.cbegin(), allSoundedDistMeters.cend(),
+  TEST(is_sorted(allSoundedDistUntilMeters.cbegin(), allSoundedDistUntilMeters.cend(),
+                 [](PairDist const & p1, PairDist const & p2) { return p1.first < p2.first; }),
+       ());
+  TEST(is_sorted(allSoundedDistFromMeters.cbegin(), allSoundedDistFromMeters.cend(),
                  [](PairDist const & p1, PairDist const & p2) { return p1.first < p2.first; }),
        ());
 
-  TEST_EQUAL(allSoundedDistMeters.size(), 17, ());
+  TEST_EQUAL(allSoundedDistUntilMeters.size(), 17, ());
+  TEST_EQUAL(allSoundedDistFromMeters.size(), 17, ());
   PairDist const expected1 = {50, "in_50_meters"};
-  TEST(PairDistEquals(allSoundedDistMeters[0], expected1), (allSoundedDistMeters[0], expected1));
+  TEST(PairDistEquals(allSoundedDistUntilMeters[0], expected1), (allSoundedDistUntilMeters[0], expected1));
   PairDist const expected2 = {700, "in_700_meters"};
-  TEST(PairDistEquals(allSoundedDistMeters[8], expected2), (allSoundedDistMeters[8], expected2));
+  TEST(PairDistEquals(allSoundedDistUntilMeters[8], expected2), (allSoundedDistUntilMeters[8], expected2));
   PairDist const expected3 = {3000, "in_3_kilometers"};
-  TEST(PairDistEquals(allSoundedDistMeters[16], expected3), (allSoundedDistMeters[16], expected3));
+  TEST(PairDistEquals(allSoundedDistUntilMeters[16], expected3), (allSoundedDistUntilMeters[16], expected3));
+  PairDist const expected4 = {50, "from_50_meters"};
+  TEST(PairDistEquals(allSoundedDistFromMeters[0], expected4), (allSoundedDistFromMeters[0], expected4));
+  PairDist const expected5 = {700, "from_700_meters"};
+  TEST(PairDistEquals(allSoundedDistFromMeters[8], expected5), (allSoundedDistFromMeters[8], expected5));
+  PairDist const expected6 = {3000, "from_3_kilometers"};
+  TEST(PairDistEquals(allSoundedDistFromMeters[16], expected6), (allSoundedDistFromMeters[16], expected6));
 }
 
 UNIT_TEST(GetAllSoundedDistFeet)
 {
-  VecPairDist const & allSoundedDistFeet = GetAllSoundedDistFeet();
+  VecPairDist const & allSoundedDistUntilFeet = GetAllSoundedDistUntilFeet();
+  VecPairDist const & allSoundedDistFromFeet = GetAllSoundedDistFromFeet();
 
-  TEST(is_sorted(allSoundedDistFeet.cbegin(), allSoundedDistFeet.cend(),
+  TEST(is_sorted(allSoundedDistUntilFeet.cbegin(), allSoundedDistUntilFeet.cend(),
+                 [](PairDist const & p1, PairDist const & p2) { return p1.first < p2.first; }),
+       ());
+  TEST(is_sorted(allSoundedDistFromFeet.cbegin(), allSoundedDistFromFeet.cend(),
                  [](PairDist const & p1, PairDist const & p2) { return p1.first < p2.first; }),
        ());
 
-  TEST_EQUAL(allSoundedDistFeet.size(), 22, ());
+  TEST_EQUAL(allSoundedDistUntilFeet.size(), 22, ());
+  TEST_EQUAL(allSoundedDistFromFeet.size(), 22, ());
   PairDist const expected1 = {50, "in_50_feet"};
-  TEST(PairDistEquals(allSoundedDistFeet[0], expected1), (allSoundedDistFeet[0], expected1));
+  TEST(PairDistEquals(allSoundedDistUntilFeet[0], expected1), (allSoundedDistUntilFeet[0], expected1));
   PairDist const expected2 = {700, "in_700_feet"};
-  TEST(PairDistEquals(allSoundedDistFeet[7], expected2), (allSoundedDistFeet[7], expected2));
+  TEST(PairDistEquals(allSoundedDistUntilFeet[7], expected2), (allSoundedDistUntilFeet[7], expected2));
   PairDist const expected3 = {10560, "in_2_miles"};
-  TEST(PairDistEquals(allSoundedDistFeet[21], expected3), (allSoundedDistFeet[21], expected3));
+  TEST(PairDistEquals(allSoundedDistUntilFeet[21], expected3), (allSoundedDistUntilFeet[21], expected3));
+  PairDist const expected4 = {50, "from_50_feet"};
+  TEST(PairDistEquals(allSoundedDistFromFeet[0], expected4), (allSoundedDistFromFeet[0], expected4));
+  PairDist const expected5 = {700, "from_700_feet"};
+  TEST(PairDistEquals(allSoundedDistFromFeet[7], expected5), (allSoundedDistFromFeet[7], expected5));
+  PairDist const expected6 = {10560, "from_2_miles"};
+  TEST(PairDistEquals(allSoundedDistFromFeet[21], expected6), (allSoundedDistFromFeet[21], expected6));
 }
 
 UNIT_TEST(GetSoundedDistMeters)
 {
   vector<uint32_t> const & soundedDistMeters = GetSoundedDistMeters();
-  VecPairDist const & allSoundedDistMeters = GetAllSoundedDistMeters();
+  VecPairDist const & allSoundedDistUntilMeters = GetAllSoundedDistUntilMeters();
+  VecPairDist const & allSoundedDistFromMeters = GetAllSoundedDistFromMeters();
 
   TEST(is_sorted(soundedDistMeters.cbegin(), soundedDistMeters.cend()), ());
   // Checking that allSounded contains any element of inst.
-  TEST(find_first_of(soundedDistMeters.cbegin(), soundedDistMeters.cend(), allSoundedDistMeters.cbegin(),
-                     allSoundedDistMeters.cend(),
+  TEST(find_first_of(soundedDistMeters.cbegin(), soundedDistMeters.cend(), allSoundedDistUntilMeters.cbegin(),
+                     allSoundedDistUntilMeters.cend(),
+                     [](uint32_t p1, PairDist const & p2) { return p1 == p2.first; }) != soundedDistMeters.cend(),
+       ());
+  TEST(find_first_of(soundedDistMeters.cbegin(), soundedDistMeters.cend(), allSoundedDistFromMeters.cbegin(),
+                     allSoundedDistFromMeters.cend(),
                      [](uint32_t p1, PairDist const & p2) { return p1 == p2.first; }) != soundedDistMeters.cend(),
        ());
 
@@ -449,13 +488,18 @@ UNIT_TEST(GetSoundedDistMeters)
 
 UNIT_TEST(GetSoundedDistFeet)
 {
-  vector<uint32_t> soundedDistFeet = GetSoundedDistFeet();
-  VecPairDist const & allSoundedDistFeet = GetAllSoundedDistFeet();
+  vector<uint32_t> const & soundedDistFeet = GetSoundedDistFeet();
+  VecPairDist const & allSoundedDistUntilFeet = GetAllSoundedDistUntilFeet();
+  VecPairDist const & allSoundedDistFromFeet = GetAllSoundedDistFromFeet();
 
   TEST(is_sorted(soundedDistFeet.cbegin(), soundedDistFeet.cend()), ());
   // Checking that allSounded contains any element of inst.
-  TEST(find_first_of(soundedDistFeet.cbegin(), soundedDistFeet.cend(), allSoundedDistFeet.cbegin(),
-                     allSoundedDistFeet.cend(),
+  TEST(find_first_of(soundedDistFeet.cbegin(), soundedDistFeet.cend(), allSoundedDistUntilFeet.cbegin(),
+                     allSoundedDistUntilFeet.cend(),
+                     [](uint32_t p1, PairDist const & p2) { return p1 == p2.first; }) != soundedDistFeet.cend(),
+       ());
+  TEST(find_first_of(soundedDistFeet.cbegin(), soundedDistFeet.cend(), allSoundedDistFromFeet.cbegin(),
+                     allSoundedDistFromFeet.cend(),
                      [](uint32_t p1, PairDist const & p2) { return p1 == p2.first; }) != soundedDistFeet.cend(),
        ());
 

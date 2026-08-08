@@ -15,6 +15,8 @@
 @property(weak, nonatomic) IBOutlet UILabel *downloadSize;
 
 @property(strong, nonatomic) MWMMapNodeAttributes *nodeAttrs;
+@property(strong, nonatomic) UILabel *dateLabel;
+@property(weak, nonatomic) NSLayoutConstraint *downloadSizeCenterYConstraint;
 
 @end
 
@@ -22,6 +24,14 @@
 
 - (void)awakeFromNib {
   [super awakeFromNib];
+  for (NSLayoutConstraint *c in self.contentView.constraints) {
+    BOOL isFirst = (c.firstItem == self.downloadSize && c.firstAttribute == NSLayoutAttributeCenterY);
+    BOOL isSecond = (c.secondItem == self.downloadSize && c.secondAttribute == NSLayoutAttributeCenterY);
+    if (isFirst || isSecond) {
+      self.downloadSizeCenterYConstraint = c;
+      break;
+    }
+  }
   UILongPressGestureRecognizer *lpGR = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                                      action:@selector(onLongPress:)];
   [self addGestureRecognizer:lpGR];
@@ -30,6 +40,12 @@
 - (void)prepareForReuse {
   [super prepareForReuse];
   self.nodeAttrs = nil;
+  self.downloadSize.text = nil;
+  if (_dateLabel) {
+    _dateLabel.text = nil;
+    _dateLabel.hidden = YES;
+  }
+  self.downloadSizeCenterYConstraint.constant = 0;
 }
 
 - (void)onLongPress:(UILongPressGestureRecognizer *)sender {
@@ -87,6 +103,16 @@
 
   self.downloadSize.text = formattedSize(size);
   self.downloadSize.hidden = (size == 0);
+
+  BOOL showDate = nodeAttrs.mapVersionDate.length > 0 && !nodeAttrs.hasChildren && size > 0;
+  if (showDate) {
+    self.dateLabel.text = nodeAttrs.mapVersionDate;
+    self.dateLabel.hidden = NO;
+    self.downloadSizeCenterYConstraint.constant = -8;
+  } else {
+    if (_dateLabel) { _dateLabel.hidden = YES; }
+    self.downloadSizeCenterYConstraint.constant = 0;
+  }
 }
 
 - (void)configProgress:(MWMMapNodeAttributes *)nodeAttrs {
@@ -137,6 +163,22 @@
 }
 
 #pragma mark - Properties
+
+- (UILabel *)dateLabel {
+  if (!_dateLabel) {
+    _dateLabel = [[UILabel alloc] init];
+    _dateLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    _dateLabel.textAlignment = NSTextAlignmentRight;
+    _dateLabel.hidden = YES;
+    [_dateLabel setValue:@"regular12:blackTertiaryText" forKeyPath:@"styleName"];
+    [self.contentView addSubview:_dateLabel];
+    [NSLayoutConstraint activateConstraints:@[
+      [_dateLabel.topAnchor constraintEqualToAnchor:self.downloadSize.bottomAnchor constant:2],
+      [_dateLabel.trailingAnchor constraintEqualToAnchor:self.downloadSize.trailingAnchor],
+    ]];
+  }
+  return _dateLabel;
+}
 
 - (MWMCircularProgress *)progress {
   if (!_progress) {

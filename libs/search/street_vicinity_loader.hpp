@@ -1,6 +1,5 @@
 #pragma once
 
-#include "search/mwm_context.hpp"
 #include "search/stats_cache.hpp"
 
 #include "geometry/rect2d.hpp"
@@ -8,6 +7,8 @@
 #include "base/macros.hpp"
 
 #include <vector>
+
+class FeatureType;
 
 namespace search
 {

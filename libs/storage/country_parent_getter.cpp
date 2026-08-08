@@ -1,5 +1,7 @@
 #include "storage/country_parent_getter.hpp"
 
+#include "storage/storage.hpp"
+
 namespace storage
 {
 CountryParentGetter::CountryParentGetter(std::string const & countriesFile, std::string const & countriesDir)

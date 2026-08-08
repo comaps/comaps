@@ -1,22 +1,34 @@
 #include "drape_frontend/arrow3d.hpp"
 
 #include "drape_frontend/color_constants.hpp"
+#include "drape_frontend/drape_engine_params.hpp"
+#include "drape_frontend/render_state_extension.hpp"
 #include "drape_frontend/visual_params.hpp"
 
 #include "shaders/program_manager.hpp"
 
+#include "drape/color.hpp"
+#include "drape/drape_global.hpp"
 #include "drape/glsl_func.hpp"
+#include "drape/graphics_context.hpp"
 #include "drape/pointers.hpp"
 #include "drape/static_texture.hpp"
+#include "drape/texture.hpp"
 #include "drape/texture_manager.hpp"
 
 #include "indexer/map_style_reader.hpp"
+
+#include "shaders/program_params.hpp"
 
 #include "platform/platform.hpp"
 
 #include "coding/reader.hpp"
 
 #include "geometry/screenbase.hpp"
+
+#include "base/assert.hpp"
+#include "base/exception.hpp"
+#include "base/logging.hpp"
 
 #include <cstring>
 #include <string_view>

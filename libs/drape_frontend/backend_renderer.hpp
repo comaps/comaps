@@ -2,19 +2,19 @@
 
 #include "drape_frontend/arrow3d.hpp"
 #include "drape_frontend/base_renderer.hpp"
-#include "drape_frontend/batchers_pool.hpp"
-#include "drape_frontend/drape_api_builder.hpp"
 #include "drape_frontend/drape_engine_params.hpp"
 #include "drape_frontend/gui/layer_render.hpp"
+#include "drape_frontend/gui/skin.hpp"
 #include "drape_frontend/map_data_provider.hpp"
 #include "drape_frontend/overlay_batcher.hpp"
 #include "drape_frontend/requested_tiles.hpp"
-#include "drape_frontend/traffic_generator.hpp"
-#include "drape_frontend/transit_scheme_builder.hpp"
-#include "drape_frontend/user_mark_generator.hpp"
+#include "drape_frontend/user_mark_shapes.hpp"
 
 #include "drape/pointers.hpp"
-#include "drape/viewport.hpp"
+
+#include "geometry/point2d.hpp"
+
+#include "base/thread.hpp"
 
 #include <functional>
 #include <memory>
@@ -27,10 +27,21 @@ class TextureManager;
 
 namespace df
 {
+class DrapeApiBuilder;
 class Message;
 class ReadManager;
 class RouteBuilder;
 class MetalineManager;
+class ThreadsCommutator;
+class TrafficGenerator;
+class TransitSchemeBuilder;
+class UserMarkGenerator;
+
+template <typename TKey, typename TKeyComparator>
+class BatchersPool;
+
+struct TransitRenderData;
+struct TrafficRenderData;
 
 class BackendRenderer : public BaseRenderer
 {

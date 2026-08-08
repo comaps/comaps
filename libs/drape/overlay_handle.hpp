@@ -13,7 +13,6 @@
 
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
-#include "geometry/screenbase.hpp"
 
 #include "base/string_utils.hpp"
 
@@ -22,6 +21,11 @@
 #include <tuple>
 #include <utility>
 #include <vector>
+
+template <typename T>
+class ref_ptr;
+
+class ScreenBase;
 
 namespace dp
 {

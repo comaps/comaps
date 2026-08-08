@@ -2,10 +2,15 @@
 
 #include "routing/base/small_list.hpp"
 
-#include "indexer/feature_data.hpp"
+#include "indexer/feature_decl.hpp"
 
+#include "coding/point_coding.hpp"
+
+#include "geometry/point2d.hpp"
 #include "geometry/point_with_altitude.hpp"
 #include "geometry/rect2d.hpp"
+
+#include "base/buffer_vector.hpp"
 
 #include <functional>
 #include <initializer_list>
@@ -13,6 +18,11 @@
 #include <string>
 #include <utility>
 #include <vector>
+
+namespace feature
+{
+class TypesHolder;
+}  // namespace feature
 
 namespace routing
 {

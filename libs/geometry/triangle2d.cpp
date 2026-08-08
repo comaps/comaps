@@ -1,6 +1,7 @@
 #include "triangle2d.hpp"
 
 #include "geometry/parametrized_segment.hpp"
+#include "geometry/point2d.hpp"
 #include "geometry/robust_orientation.hpp"
 #include "geometry/segment2d.hpp"
 

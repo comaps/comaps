@@ -187,13 +187,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">長度</string>
     <string name="share_my_location">分享我的位置</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">一般設定</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">資訊</string>
     <string name="prefs_group_route">導航</string>
     <string name="pref_zoom_title">縮放按鈕</string>
     <string name="pref_zoom_summary">在螢幕上顯示</string>
+    <string name="prefs_group_advanced">進階</string>
+    <string name="download_resources_custom_url_title">自訂地圖伺服器</string>
+    <string name="download_resources_custom_url_message">覆寫下載地圖資料的預設地圖下載伺服器。留空則表示使用 CoMaps 預設伺服器。</string>
+    <string name="download_resources_custom_url_summary_none">還沒設定</string>
+    <string name="download_resources_custom_url_error_scheme">請輸入 http:// 或是 https:// 開頭的網址</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">夜間模式</string>
     <!-- Generic «Off» string -->
@@ -254,7 +257,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">以 8 字形移動手機以校準指北針，並在地圖上固定箭頭方向。</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">再次長按地圖即可查看介面</string>
+    <string name="enable_long_tap_fullscreen_description">再次長按地圖即可查看介面</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">更新全部</string>
     <!-- Cancel all button text -->
@@ -592,7 +595,7 @@
         <item quantity="other">%d 個軌跡</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">隱私</string>
+    <string name="prefs_group_privacy">隱私</string>
     <string name="privacy_policy">隱私政策</string>
     <string name="terms_of_use">使用條款</string>
     <string name="button_layer_traffic">路況</string>
@@ -620,7 +623,7 @@
     <string name="power_managment_setting_auto">當電量低時</string>
     <string name="power_managment_setting_manual_max">最大程度省電</string>
     <string name="enable_logging_warning_message">暫時啟用此選項，以便使用“報告問題”功能在幫助對話框中記錄並手動發送詳細的診斷日誌給我們。日誌可能包含位置資訊。</string>
-    <string name="driving_options_title">繞行設定</string>
+    <string name="routing_options_title">繞行設定</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">避開收費公路</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -908,11 +911,6 @@
     <string name="offline_explanation_title">離線地圖</string>
     <string name="offline_explanation_text">需要先下載地圖才能檢視與瀏覽該區域。\n請下載您想去的區域的地圖。</string>
     <string name="list_description_empty">編輯清單來增加描述</string>
-    <string name="advanced">進階</string>
-    <string name="download_resources_custom_url_title">自訂地圖伺服器</string>
-    <string name="download_resources_custom_url_message">覆寫下載地圖資料的預設地圖下載伺服器。留空則表示使用 CoMaps 預設伺服器。</string>
-    <string name="download_resources_custom_url_summary_none">還沒設定</string>
-    <string name="download_resources_custom_url_error_scheme">請輸入 http:// 或是 https:// 開頭的網址</string>
     <string name="building_route">建構導航…</string>
     <string name="route_not_started">還沒有開始導航</string>
     <string name="on_route">在路徑上</string>

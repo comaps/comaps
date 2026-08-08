@@ -2,15 +2,17 @@
 
 #include "drape_frontend/animation/show_hide_animation.hpp"
 #include "drape_frontend/animation/value_mapping.hpp"
-#include "drape_frontend/frame_values.hpp"
 #include "drape_frontend/render_node.hpp"
 
 #include "drape/graphics_context.hpp"
+#include "drape/pointers.hpp"
 
 #include "geometry/point2d.hpp"
-#include "geometry/screenbase.hpp"
+#include "geometry/rect2d.hpp"
 
 #include <vector>
+
+class ScreenBase;
 
 namespace dp
 {
@@ -24,6 +26,8 @@ class ProgramManager;
 
 namespace df
 {
+struct FrameValues;
+
 class SelectionShape
 {
 public:

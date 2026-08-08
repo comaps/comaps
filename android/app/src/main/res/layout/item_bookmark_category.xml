@@ -25,7 +25,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin_base"
-    android:layout_toStartOf="@id/more"
+    android:layout_toStartOf="@id/drag_handle"
     android:layout_toEndOf="@id/checkbox"
     android:ellipsize="middle"
     android:maxLines="2"
@@ -39,7 +39,7 @@
     android:layout_below="@id/name"
     android:layout_alignStart="@id/name"
     android:paddingBottom="@dimen/margin_half_plus"
-    android:layout_toStartOf="@id/more"
+    android:layout_toStartOf="@id/drag_handle"
     android:orientation="horizontal">
     <com.google.android.material.textview.MaterialTextView
       android:id="@+id/size"
@@ -51,6 +51,20 @@
       android:textAppearance="@style/MwmTextAppearance.Body3"
       tools:text="42000000" />
   </LinearLayout>
+  <com.google.android.material.imageview.ShapeableImageView
+    android:id="@+id/drag_handle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toStartOf="@id/more"
+    android:layout_centerVertical="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignBottom="@id/bottom_line_container"
+    android:background="?selectableItemBackgroundBorderless"
+    android:importantForAccessibility="no"
+    android:paddingHorizontal="@dimen/margin_half"
+    android:visibility="gone"
+    app:srcCompat="@drawable/ic_drag_handle"
+    app:tint="?secondary" />
   <com.google.android.material.imageview.ShapeableImageView
     android:id="@+id/more"
     android:layout_width="wrap_content"

@@ -1,6 +1,6 @@
 #include "transit/transit_version.hpp"
 
-#include "base/logging.hpp"
+#include "coding/reader.hpp"
 
 #include <cstdint>
 #include <exception>

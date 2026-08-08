@@ -69,6 +69,7 @@ class GenTool:
         "regions_features": str,
         "regions_index": str,
         "regions_key_value": str,
+        "reviews_path": str,
         "srtm_path": str,
         "transit_path": str,
         "transit_path_experimental": str,

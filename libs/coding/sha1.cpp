@@ -4,7 +4,6 @@
 #include "coding/internal/file_data.hpp"
 #include "coding/reader.hpp"
 
-#include "base/assert.hpp"
 #include "base/logging.hpp"
 
 #include <boost/uuid/detail/sha1.hpp>

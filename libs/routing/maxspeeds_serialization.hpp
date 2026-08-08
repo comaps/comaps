@@ -2,13 +2,17 @@
 
 #include "routing/maxspeeds.hpp"
 
+#include "routing_common/maxspeed_conversion.hpp"
 #include "routing_common/vehicle_model.hpp"
 
+#include "coding/memory_region.hpp"
 #include "coding/reader.hpp"
+#include "coding/simple_dense_coding.hpp"
 #include "coding/succinct_mapper.hpp"
 #include "coding/varint.hpp"
 #include "coding/write_to_sink.hpp"
-#include "coding/writer.hpp"
+
+#include "platform/measurement_utils.hpp"
 
 #include "base/assert.hpp"
 #include "base/logging.hpp"
@@ -18,6 +22,8 @@
 #include <cstdint>
 #include <memory>
 #include <vector>
+
+#include "3party/succinct/elias_fano.hpp"
 
 namespace routing
 {

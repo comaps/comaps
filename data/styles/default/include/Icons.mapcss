@@ -571,6 +571,7 @@ node|z14-[tourism=attraction],
 node|z14-[tourism=theme_park],
 node|z14-[tourism=viewpoint],
 node|z15-[tourism=zoo][zoo=petting_zoo],
+node|z15-[amenity=planetarium],
 node|z15-[amenity=community_centre],
 node|z15-[historic=memorial],
 node|z15-[historic=mine],
@@ -727,6 +728,11 @@ node|z15[tourism=gallery]
 node|z16-[tourism=gallery],
 node|z17-[amenity=arts_centre],
 {icon-image: gallery-m.svg;text-offset: 1;icon-min-distance: 12;}
+
+node|z14[amenity=planetarium],
+{icon-image: planet-s.svg;}
+node|z15-[amenity=planetarium],
+{icon-image: planet-m.svg;}
 
 node|z14[amenity=theatre],
 {icon-image: theatre-s.svg;text-offset: 1;icon-min-distance: 8;}
@@ -904,8 +910,6 @@ node|z17-[leisure=outdoor_seating],
 node|z18-[leisure=outdoor_seating],
 {icon-image: outdoor_seating-m.svg;}
 
-node|z17-[leisure=bandstand],
-{icon-image: bandstand-m.svg;}
 node|z17-[amenity=shelter],
 node|z16-[amenity=shelter][shelter_type=lean_to],
 {icon-image: shelter-m.svg;}
@@ -1020,6 +1024,8 @@ node|z17-[amenity=social_facility],
 node|z17-[social_facility=food_bank],
 node|z17-[social_facility=soup_kitchen],
 node|z17-[amenity=animal_shelter],
+node|z17-[amenity=animal_boarding],
+node|z17-[amenity=stage],
 node|z17-[amenity=kindergarten],
 node|z17-[amenity=childcare],
 node|z16-[amenity=school],
@@ -1220,6 +1226,18 @@ node|z18-[amenity=veterinary],
 node|z17-[amenity=animal_shelter],
 {icon-image: animal_shelter-m.svg;}
 node|z18-[amenity=animal_shelter],
+{font-size: 11;}
+
+node|z17-[amenity=stage],
+node|z17-[leisure=bandstand],
+{icon-image: bandstand-m.svg;}
+node|z18-[amenity=stage],
+node|z18-[leisure=bandstand],
+{font-size: 11;}
+
+node|z17-[amenity=animal_boarding],
+{icon-image: animal_shelter-m.svg;}
+node|z18-[amenity=animal_boarding],
 {font-size: 11;}
 
 node|z16-[amenity=pharmacy],
@@ -1830,10 +1848,17 @@ node|z16-[amenity=fire_station],
 {icon-image: fire_station-m.svg;}
 node|z18-[amenity=fire_station],
 {font-size: 11;}
-node|z18-[amenity=toilets],
-{icon-image: toilets-m.svg;font-size: 11;}
 node|z18-[amenity=atm],
 {icon-image: atm-m.svg;font-size: 11;}
+
+node|z18-[amenity=toilets],
+{icon-image: toilets-m.svg; font-size: 11;}
+/* Reset on z18 to display from z19- only */
+node|z18[amenity=toilets][access=customers],
+node|z18[amenity=toilets][access=private],
+{icon-image: none; text: none;}
+node|z19-[amenity=toilets][access=private],
+{icon-image: toilets_private-m.svg;}
 
 node|z18-[amenity=bench],
 {icon-image: bench.svg;}

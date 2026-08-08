@@ -2,6 +2,7 @@ package app.organicmaps.widget.placepage;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
@@ -76,5 +77,19 @@ public class BookmarkColorDialogFragment extends DialogFragment
     });
 
     return gView;
+  }
+
+  @Override
+  public void onConfigurationChanged(@NonNull Configuration newConfig)
+  {
+    super.onConfigurationChanged(newConfig);
+    View v = getView();
+    if (v instanceof GridView) {
+      int numColumns = getResources().getInteger(R.integer.color_grid_columns);
+      if (((GridView) v).getNumColumns() != numColumns)
+      {
+        ((GridView) v).setNumColumns(numColumns);
+      }
+    }
   }
 }

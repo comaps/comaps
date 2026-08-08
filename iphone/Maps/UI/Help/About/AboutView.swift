@@ -88,7 +88,7 @@ struct AboutView: View {
                     .tint(.alternativeAccent)
                     
                     Button {
-                        openUrl(URL(string: String(localized: "translated_om_site_url") + "news/")!)
+                        openUrl(URL(string: "https://www.comaps.app/news/")!)
                     } label: {
                         Label("news", systemImage: "newspaper")
                     }

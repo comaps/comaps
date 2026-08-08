@@ -2,7 +2,6 @@
 #include "ruler_helper.hpp"
 
 #include "drape_frontend/color_constants.hpp"
-#include "drape_frontend/visual_params.hpp"
 
 #include "base/assert.hpp"
 

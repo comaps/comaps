@@ -1,20 +1,30 @@
 #pragma once
 
-#include "drape_frontend/frame_values.hpp"
-#include "drape_frontend/tile_utils.hpp"
 #include "drape_frontend/traffic_generator.hpp"
 
 #include "shaders/program_manager.hpp"
 
 #include "drape/pointers.hpp"
 
-#include "geometry/screenbase.hpp"
-#include "geometry/spline.hpp"
+#include "indexer/mwm_set.hpp"
+
+#include "base/buffer_vector.hpp"
 
 #include <vector>
 
+class ScreenBase;
+
+namespace dp
+{
+class GraphicsContext;
+}  // namespace dp
+
 namespace df
 {
+struct CoverageResult;
+struct FrameValues;
+struct TileKey;
+
 class TrafficRenderer final
 {
 public:

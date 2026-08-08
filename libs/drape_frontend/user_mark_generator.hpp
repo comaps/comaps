@@ -2,14 +2,25 @@
 
 #include "drape_frontend/tile_key.hpp"
 #include "drape_frontend/user_mark_shapes.hpp"
+#include "drape_frontend/user_marks_provider.hpp"
 
 #include "drape/pointers.hpp"
+
+#include "kml/type_utils.hpp"
 
 #include <functional>
 #include <map>
 #include <set>
 #include <string>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
+
+namespace dp
+{
+class GraphicsContext;
+class TextureManager;
+}  // namespace dp
 
 namespace df
 {

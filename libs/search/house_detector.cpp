@@ -1,16 +1,22 @@
 #include "house_detector.hpp"
 
+#include "indexer/feature.hpp"
+#include "indexer/ftypes_matcher.hpp"
 #include "indexer/search_string_utils.hpp"
 
-#include "platform/platform.hpp"
-
-#include "coding/string_utf8_multilang.hpp"
-
 #include "geometry/angles.hpp"
+#include "geometry/mercator.hpp"
 
+#include "i18n/localisation.hpp"
+
+#include "base/buffer_vector.hpp"
 #include "base/limited_priority_queue.hpp"
 #include "base/logging.hpp"
+#include "base/macros.hpp"
+#include "base/math.hpp"
+#include "base/stl_helpers.hpp"
 #include "base/stl_iterator.hpp"
+#include "base/string_utils.hpp"
 
 #include <algorithm>
 #include <cmath>

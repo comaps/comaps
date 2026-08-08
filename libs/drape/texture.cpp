@@ -1,5 +1,7 @@
 #include "drape/texture.hpp"
 
+#include "base/assert.hpp"
+
 #include <glm/gtc/round.hpp>  // glm::isPowerOfTwo
 
 namespace dp

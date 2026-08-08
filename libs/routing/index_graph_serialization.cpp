@@ -1,5 +1,9 @@
 #include "routing/index_graph_serialization.hpp"
 
+#include "routing/road_index.hpp"
+
+#include "coding/writer.hpp"
+
 namespace routing
 {
 // static

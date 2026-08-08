@@ -1,0 +1,32 @@
+Bezplatná mapová aplikácia s otvoreným zdrojovým kódom, ktorú vedie komunita, založená na údajoch OpenStreetMap a vyznačujúca sa dôrazom na transparentnosť, ochranu súkromia a neziskový charakter. CoMaps je odnožou projektu Organic Maps, ktorý je sám o sebe odnožou projektu Maps.ME.
+
+Viac informácií o dôvodoch vzniku projektu a jeho smerovaní nájdete na stránkach <b><i>codeberg.org/comaps</i></b>.
+Pripojte sa k tamojšej komunite a pomôžte vytvoriť najlepšiu mapovú aplikáciu
+• Používajte aplikáciu a šírte o nej informácie
+• Poskytujte spätnú väzbu a hlásite problémy
+• Aktualizujte mapové údaje v aplikácii alebo na webovej stránke OpenStreetMap
+
+‣ <b>Zamerané na offline režim</b>: Plánujte a navigujte svoju cestu do zahraničia bez potreby mobilného pripojenia, vyhľadávajte orientačné body počas túry v odľahlých oblastiach atď. Všetky funkcie aplikácie sú navrhnuté tak, aby fungovali offline.
+‣ <b>Rešpektovanie súkromia</b>: Aplikácia je navrhnutá s ohľadom na súkromie – neidentifikuje ľudí, nesleduje ich a nezhromažďuje osobné údaje. Bez reklám.
+‣ <b>Jednoduchá a prepracovaná</b>: základné, ľahko použiteľné funkcie, ktoré jednoducho fungujú
+‣ <b>Šetrí batériu a miesto</b>: Nevyčerpáva batériu tak ako iné navigačné aplikácie. Kompaktné mapy šetria cenné miesto v telefóne.
+‣ <b>Bezplatná a vytvorená komunitou</b>: Ľudia ako vy pomohli vytvoriť túto aplikáciu tým, že pridávali miesta do OpenStreetMap, testovali a poskytovali spätnú väzbu k funkciám a prispievali svojimi vývojárskymi zručnosťami a finančne.
+‣ <b>Otvorené a transparentné rozhodovanie a financie, nezisková organizácia a úplne otvorený zdrojový kód.</b>
+
+<b>Hlavné funkcie</b>:
+• Stiahnuteľné podrobné mapy s miestami, ktoré nie sú dostupné v Google Maps
+• Režim Outdoor s vyznačenými turistickými trasami, kempingmi, vodnými zdrojmi, vrcholmi, vrstevnicami atď.
+• Turistické chodníky a cyklotrasy
+• Zaujímavé miesta, ako sú reštaurácie, čerpacie stanice, hotely, obchody, pamiatky a mnoho ďalších
+• Vyhľadávanie podľa názvu, adresy alebo kategórie zaujímavých miest
+• Navigácia s hlasovými pokynmi pre peších, cyklistov alebo vodičov
+• Pridajte si obľúbené miesta do záložiek jediným ťuknutím
+• Články z Wikipédie dostupné offline
+• Vrstva s trasami metra a navigáciou
+• Nahrávanie trasy
+• Export a import záložiek a trás vo formátoch KML, KMZ, GPX
+• Tmavý režim na používanie v noci
+• Vylepšujte mapové údaje pre všetkých pomocou základného vstavaného editora
+
+<b>Sloboda je tu</b>
+Objavte svoju cestu, navigujte po svete s dôrazom na súkromie a komunitu!

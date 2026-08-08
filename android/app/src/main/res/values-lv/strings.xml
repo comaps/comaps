@@ -185,13 +185,14 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Garums</string>
     <string name="share_my_location">Kopīgot manu atrašanās vietu</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Vispārējie iestatījumi</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Informācija par lietotni</string>
     <string name="prefs_group_route">Navigācija</string>
     <string name="pref_zoom_title">Tālummaiņas pogas</string>
     <string name="pref_zoom_summary">Rādīt kartē</string>
+    <string name="prefs_group_advanced">Iestatījumi: izvērsta kopa</string>
+    <string name="download_resources_custom_url_summary_none">Nav iestatīts</string>
+    <string name="download_resources_custom_url_error_scheme">Lūgums ievadīt URL, kas sākas ar http:// vai https://</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Tumšais motīvs</string>
     <!-- Generic «Off» string -->
@@ -220,7 +221,7 @@
     <string name="pref_tts_playing_test_voice">Jāpārbauda skaļums vai sistēmas teksta pārveidošanas runā iestatījumi, ja tagad nav dzirdama balss</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
     <string name="pref_tts_unavailable">Nav pieejama</string>
-    <string name="pref_map_auto_zoom">Automātisks mērogs</string>
+    <string name="pref_map_auto_zoom">Automātiska tālummaiņa</string>
     <string name="placepage_distance">Attālums</string>
     <string name="search_show_on_map">Rādīt kartē</string>
     <!-- Menu button -->
@@ -250,7 +251,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Pārvietojot tālruni astoņniekā, lai kalibrētu kompasu un labotu bultas virzienu kartē.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Vēlreiz piespiediet un paturiet uz kartes, lai redzētu saskarni</string>
+    <string name="enable_long_tap_fullscreen_description">Vēlreiz piespiediet un paturiet uz kartes, lai redzētu saskarni</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Atjaunināt visus</string>
     <!-- Cancel all button text -->
@@ -586,8 +587,8 @@
         <item quantity="other">%d pēdojumi</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Privātums</string>
-    <string name="privacy_policy">Privātuma politika</string>
+    <string name="prefs_group_privacy">Datu aizsardzība</string>
+    <string name="privacy_policy">Datu aizsardzības politika</string>
     <string name="terms_of_use">Izmantošanas nosacījumi</string>
     <string name="button_layer_traffic">Satiksme</string>
     <string name="subway">Metro</string>
@@ -614,7 +615,7 @@
     <string name="power_managment_setting_auto">Kad ir zems uzlādes līmenis</string>
     <string name="power_managment_setting_manual_max">Vienmēr</string>
     <string name="enable_logging_warning_message">Uz laiku ieslēdziet šo opciju, lai reģistrētu un manuāli nosūtītu sīkākus žurnālus problēmu diagnostikai, izmantojot „Ziņot par kļūdu“ funkciju palīdzības lodziņā. Žurnāli var saturēt informāciju par atrašanās vietu.</string>
-    <string name="driving_options_title">Maršruta opcijas</string>
+    <string name="routing_options_title">Maršruta iespējas</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Izvairīties no maksas ceļiem</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -843,9 +844,6 @@
     <string name="navigation_start_tts_disabled_message">Balss norādes atspējotas: nav pieejams teksta pārveidošanas runā dzinējs</string>
     <string name="prefs_speed_cameras_information">Brīdinājumi par ātruma noteikšanas kamerā ir atspējoti valstīs, kurās šādus brīdinājumus aizliedz vietējais likums.</string>
     <string name="navigation_start_tts_message">"Uzsāk navigāciju, balss norāžu valoda: "</string>
-    <string name="download_resources_custom_url_summary_none">Nav iestatīts</string>
-    <string name="download_resources_custom_url_error_scheme">Lūgums ievadīt URL, kas sākas ar http:// vai https://</string>
-    <string name="advanced">Iestatījumi: izvērsta kopa</string>
     <plurals name="minutes_short">
         <item quantity="zero">%d min.</item>
         <item quantity="one">%d min.</item>
@@ -897,4 +895,24 @@
     <string name="pref_alt_map_lang_handling">Kartes papildu valodas</string>
     <string name="pref_alt_map_lang_handling_system_order">Izmantot sistēmas secībā</string>
     <string name="share_track">Kopīgot pēdojumu</string>
+    <string name="downloader_check_updates_no_updates">Atjauninājumi nav pieejami</string>
+    <string name="downloader_check_updates_checking">Pārbauda, vai ir pieejami atjauninājumi...</string>
+    <string name="downloader_check_updates_button">Pārbaudīt, vai ir pieejami atjauninājumi</string>
+    <string name="tts_toggle_enable">Iespējot balss norādes</string>
+    <string name="tts_toggle_disable">Atspējot balss norādes</string>
+    <string name="downloader_check_updates_eol">Šai lietotnes versijai vairs nav karšu atjauninājumu. Lūgums atjaunināt lietotni.</string>
+    <string name="downloader_check_updates_updated">Pieejami karšu atjauninājumi.</string>
+    <string name="oh_unknown">Darba laiks nav zināms</string>
+    <string name="editor_add_select_category_all_subtitle">Visas kategorijas</string>
+    <string name="setting_value_system_default">Sistēmas noklusējums</string>
+    <string name="editor_add_select_category_recent_subtitle">Nesen izmantotās</string>
+    <string name="charge_socket_type1_combo">1. veida apvienojums</string>
+    <string name="backup_interval_every_week">Ik nedēļu</string>
+    <string name="pref_alt_map_lang_handling_local_only">Priekšroku dot un izmantot tikai tur, kur dzimtā</string>
+    <string name="capacity_disabled">Invalīdu stāvvietas: %s</string>
+    <string name="capacity_disabled_yes">Ir atsevišķa invalīdu stāvvieta</string>
+    <string name="capacity_disabled_no">Nav atsevišķu invalīdu vietu</string>
+    <string name="capacity_charging">Vietas ar lādētājiem: %s</string>
+    <string name="capacity_charging_yes">Ir vietas ar lādētājiem</string>
+    <string name="capacity_charging_no">Nav vietu ar lādētājiem</string>
 </resources>

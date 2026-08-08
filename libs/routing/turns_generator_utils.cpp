@@ -4,6 +4,12 @@
 #include "platform/measurement_utils.hpp"
 
 #include "geometry/mercator.hpp"
+#include "geometry/point_with_altitude.hpp"
+
+#include "base/assert.hpp"
+#include "base/logging.hpp"
+#include "base/math.hpp"
+#include "base/stl_helpers.hpp"
 
 namespace routing
 {

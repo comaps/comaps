@@ -1,9 +1,8 @@
 #pragma once
 
-#include "indexer/search_string_utils.hpp"
-
 #include "base/base.hpp"
 #include "base/buffer_vector.hpp"
+#include "base/string_utils.hpp"
 
 #include <cstdint>
 #include <queue>

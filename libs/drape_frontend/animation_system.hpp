@@ -3,9 +3,12 @@
 #include "drape_frontend/animation/animation.hpp"
 
 #include "drape/drape_diagnostics.hpp"
+#include "drape/pointers.hpp"
 
+#include "geometry/point2d.hpp"
 #include "geometry/screenbase.hpp"
 
+#include "base/assert.hpp"
 #include "base/macros.hpp"
 
 #include <cstring>

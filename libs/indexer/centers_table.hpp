@@ -3,8 +3,12 @@
 #include "coding/geometry_coding.hpp"
 #include "coding/map_uint32_to_val.hpp"
 #include "coding/point_coding.hpp"
+#include "coding/write_to_sink.hpp"
 
 #include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
+
+#include "base/assert.hpp"
 
 #include <cstdint>
 #include <memory>

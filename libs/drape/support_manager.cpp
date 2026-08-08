@@ -1,4 +1,6 @@
 #include "drape/support_manager.hpp"
+#include "drape/drape_global.hpp"
+#include "drape/gl_constants.hpp"
 #include "drape/gl_functions.hpp"
 #include "drape/vulkan/vulkan_base_context.hpp"
 

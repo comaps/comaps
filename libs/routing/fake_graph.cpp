@@ -3,6 +3,8 @@
 #include "routing/fake_feature_ids.hpp"
 #include "routing/latlon_with_altitude.hpp"
 
+#include "geometry/latlon.hpp"
+
 #include "base/assert.hpp"
 #include "base/stl_helpers.hpp"
 

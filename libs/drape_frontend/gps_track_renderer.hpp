@@ -1,23 +1,32 @@
 #pragma once
 
-#include "drape_frontend/circles_pack_shape.hpp"
-#include "drape_frontend/frame_values.hpp"
 #include "drape_frontend/gps_track_point.hpp"
 
 #include "shaders/program_manager.hpp"
 
-#include "drape/graphics_context.hpp"
+#include "drape/color.hpp"
 #include "drape/pointers.hpp"
 
-#include "geometry/screenbase.hpp"
+#include "geometry/point2d.hpp"
 #include "geometry/spline.hpp"
 
 #include <functional>
 #include <map>
 #include <vector>
 
+class ScreenBase;
+
+namespace dp
+{
+class GraphicsContext;
+}  // namespace dp
+
 namespace df
 {
+class CirclesPackHandle;
+struct CirclesPackRenderData;
+struct FrameValues;
+
 class GpsTrackRenderer final
 {
 public:

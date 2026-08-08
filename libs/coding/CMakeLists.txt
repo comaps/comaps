@@ -66,15 +66,11 @@ set(SRC
   streams.hpp
   streams_common.hpp
   streams_sink.hpp
-  string_utf8_multilang.cpp
-  string_utf8_multilang.hpp
   succinct_mapper.hpp
   tesselator_decl.hpp
   text_storage.hpp
   traffic.cpp
   traffic.hpp
-  transliteration.cpp
-  transliteration.hpp
   url.cpp
   url.hpp
   value_opt_string.hpp
@@ -94,14 +90,20 @@ set(SRC
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  base
-  expat::expat
-  cppjansson
-  succinct
-  ICU::uc
-  ICU::i18n # For transliteration.
-  minizip
-  ZLIB::ZLIB
+  PUBLIC
+    base
+    cppjansson
+    geometry
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    expat::expat
+    succinct
+    ICU::uc
+    ICU::i18n # For transliteration.
+    minizip
+    ZLIB::ZLIB
 )
 
 omim_add_test_subdirectory(coding_tests)

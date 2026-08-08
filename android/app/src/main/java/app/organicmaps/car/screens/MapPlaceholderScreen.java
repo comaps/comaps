@@ -3,6 +3,7 @@ package app.organicmaps.car.screens;
 import androidx.annotation.NonNull;
 import androidx.car.app.CarContext;
 import androidx.car.app.model.Action;
+import androidx.car.app.model.CarColor;
 import androidx.car.app.model.CarIcon;
 import androidx.car.app.model.Header;
 import androidx.car.app.model.MessageTemplate;
@@ -32,7 +33,9 @@ public class MapPlaceholderScreen extends BaseScreen
     headerBuilder.setTitle(getCarContext().getString(R.string.app_name));
     builder.setHeader(headerBuilder.build());
     builder.setIcon(
-        new CarIcon.Builder(IconCompat.createWithResource(getCarContext(), R.drawable.ic_phone_android)).build());
+        new CarIcon.Builder(IconCompat.createWithResource(getCarContext(), R.drawable.ic_phone_android))
+                .setTint(CarColor.createCustom(android.graphics.Color.WHITE, android.graphics.Color.WHITE))
+                .build());
     builder.addAction(
         new Action.Builder()
             .setTitle(getCarContext().getString(R.string.car_continue_in_the_car))

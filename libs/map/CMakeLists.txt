@@ -87,15 +87,32 @@ endif()
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  routing
-  indexer
-  search
-  descriptions
-  transit
-  kml
-  ge0
-  drape_frontend
-  agg
+  PUBLIC
+    base
+    coding
+    drape
+    drape_frontend
+    editor
+    geometry
+    i18n
+    indexer
+    kml
+    platform
+    routing
+    routing_common
+    search
+    storage
+    traffic
+    transit
+  PRIVATE
+    cppjansson
+    descriptions
+    ge0
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    agg
 )
 
 omim_add_test_subdirectory(map_integration_tests)

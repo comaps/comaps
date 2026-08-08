@@ -1,7 +1,7 @@
 "type.addr_interpolation" = "Adresse/Bloc";
 "type.addr_interpolation.even" = "Adresse/Bloc";
 "type.addr_interpolation.odd" = "Adresse/Bloc";
-"type.aerialway" = "Transport par câble aérien";
+"type.aerialway" = "Transport par câble";
 "type.aerialway.cable_car" = "Téléphérique";
 "type.aerialway.chair_lift" = "Télésiège";
 "type.aerialway.drag_lift" = "Téléski";
@@ -12,7 +12,7 @@
 "type.aeroway.aerodrome" = "Aéroport";
 "type.aeroway.aerodrome.international" = "Aéroport International";
 "type.aeroway.apron" = "Aire de stationnement pour aéronefs";
-"type.aeroway.gate" = "Porte d’embarquement";
+"type.aeroway.gate" = "Porte";
 "type.aeroway.helipad" = "Héliport";
 "type.aeroway.runway" = "Piste d'atterrissage";
 "type.aeroway.taxiway" = "Voie de circulation";
@@ -101,7 +101,7 @@
 "type.amenity.lounger" = "Chaise longue";
 "type.amenity.luggage_locker" = "Casier à bagages";
 "type.amenity.marketplace" = "Marché";
-"type.amenity.mobile_money_agent" = "Agent d'argent liquide";
+"type.amenity.mobile_money_agent" = "Agent Mobile Money";
 "type.amenity.motorcycle_parking" = "Parking moto";
 "type.amenity.nightclub" = "Discothèque";
 "type.amenity.nursing_home" = "Maison de retraite";
@@ -153,7 +153,7 @@
 "type.amenity.public_bookcase" = "Microbibliothèque";
 "type.amenity.recycling.centre" = "Centre de recyclage";
 "type.amenity.recycling.container" = "Conteneur de recyclage";
-"type.recycling.batteries" = "Batteries";
+"type.recycling.batteries" = "Piles";
 "type.recycling.clothes" = "Vêtements usagés";
 "type.recycling.glass_bottles" = "Verre";
 "type.recycling.paper" = "Papier usagé";
@@ -410,8 +410,8 @@
 "type.spherical_buoy.special_purpose" = "Bouée sphérique, marque spéciale";
 "type.lateral.port" = "Bâbord";
 "type.lateral.starboard" = "Tribord";
-"type.cardinal.east" = "Est :";
-"type.cardinal.north" = "Nord :";
+"type.cardinal.east" = "Est";
+"type.cardinal.north" = "Nord";
 "type.cardinal.south" = "Sud";
 "type.cardinal.west" = "Ouest";
 /* A mountain rescue base for search and rescue activities. */
@@ -424,7 +424,7 @@
 "type.entrance.garage" = "Entrée du garage";
 "type.entrance.service" = "Entrée de service";
 "type.entrance.entry" = "Entrée (uniquement)";
-"type.entrance.exit" = "Sortie";
+"type.entrance.exit" = "Sortie (uniquement)";
 "type.entrance.emergency" = "Issue de secours";
 "type.fee.yes" = "€";
 "type.fee.no" = "Gratuit";
@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "Arrêt de bus";
 "type.highway.construction" = "Route en construction";
+"type.highway.construction.motorway" = "Route en construction";
+"type.highway.construction.motorway_link" = "Route en construction";
+"type.highway.construction.trunk" = "Route en construction";
+"type.highway.construction.trunk_link" = "Route en construction";
+"type.highway.construction.primary" = "Route en construction";
+"type.highway.construction.primary_link" = "Route en construction";
+"type.highway.construction.secondary" = "Route en construction";
+"type.highway.construction.secondary_link" = "Route en construction";
+"type.highway.construction.tertiary" = "Route en construction";
+"type.highway.construction.tertiary_link" = "Route en construction";
+"type.highway.construction.residential" = "Route en construction";
+"type.highway.construction.unclassified" = "Route en construction";
+"type.highway.construction.service" = "Route en construction";
+"type.highway.construction.living_street" = "Route en construction";
+"type.highway.construction.road" = "Route en construction";
+"type.highway.construction.track" = "Route en construction";
 "type.highway.cycleway" = "Piste cyclable";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Pont";
@@ -694,6 +710,7 @@
 "type.landuse.plant_nursery" = "Pépinière";
 "type.leisure" = "Loisir";
 "type.leisure.bandstand" = "Kiosque à musique";
+"type.amenity.stage" = "Scène";
 "type.leisure.common" = "Terrain public";
 "type.leisure.dog_park" = "Parc canin";
 "type.leisure.escape_game" = "Escape room";
@@ -765,7 +782,7 @@
 "type.man_made" = "Établissement de bains";
 "type.man_made.breakwater" = "Brise-lames";
 "type.man_made.cairn" = "Cairn";
-"type.man_made.chimney" = "Cheminée d’usine";
+"type.man_made.chimney" = "Cheminée";
 "type.man_made.cutline" = "Layon";
 "type.man_made.survey_point" = "Borne géodésique";
 "type.man_made.flagpole" = "Mât de drapeau";
@@ -864,8 +881,8 @@
 "type.office.lawyer" = "Cabinet d’avocat";
 "type.office.ngo" = "Bureau d’ONG";
 "type.office.telecommunication" = "Opérateur mobile";
-"type.organic.only" = "Biologique";
-"type.organic.yes" = "Biologique";
+"type.organic.only" = "Uniquement bio";
+"type.organic.yes" = "Produits bio";
 "type.place.city" = "Ville";
 "type.place.city.capital" = "Capitale";
 "type.place.city.capital.10" = "Ville";
@@ -935,7 +952,7 @@
 "type.railway.funicular" = "Funiculaire";
 "type.railway.funicular.bridge" = "Funiculaire";
 "type.railway.funicular.tunnel" = "Funiculaire";
-"type.railway.halt" = "Gare ferroviaire";
+"type.railway.halt" = "Arrêt de train";
 "type.railway.level_crossing" = "Passage à niveau";
 "type.railway.light_rail" = "Métro";
 "type.railway.light_rail.bridge" = "Pont de métro";
@@ -1104,8 +1121,8 @@
 "type.railway.station.subway.yerevan" = "Station de métro";
 "type.railway.station.subway.yokohama" = "Station de métro";
 "type.railway.subway" = "Ligne de métro";
-"type.railway.subway.bridge" = "Voie de métro";
-"type.railway.subway.tunnel" = "Voie de métro";
+"type.railway.subway.bridge" = "Pont de la ligne de métro";
+"type.railway.subway.tunnel" = "Tunnel de la ligne de métro";
 "type.railway.subway_entrance" = "Entrée du métro";
 "type.railway.subway_entrance.adana" = "Entrée du métro";
 "type.railway.subway_entrance.algiers" = "Entrée du métro";
@@ -1419,7 +1436,7 @@
 "type.tourism.hotel" = "Hôtel";
 "type.tourism.information" = "Informations touristiques";
 "type.tourism.information.board" = "Panneau d’informations";
-"type.tourism.information.guidepost" = "Poteaux indicateurs";
+"type.tourism.information.guidepost" = "Poteau indicateur";
 "type.tourism.information.map" = "Carte touristique";
 "type.tourism.information.tactile_map" = "Carte tactile";
 "type.tourism.information.office" = "Office de tourisme";
@@ -1515,3 +1532,8 @@
 "type.leisure.sports_centre.sport.boules" = "Centre Sportif";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Centre Sportif";
+"type.organic.no" = "Pas d'options bio";
+"type.amenity.animal_boarding" = "Pension pour animaux";
+"type.amenity.toilets.customers" = "Accès client";
+"type.amenity.toilets.private" = "Accès privé";
+"type.amenity.planetarium" = "Planétarium";

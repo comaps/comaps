@@ -1,0 +1,323 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Držte sa vpravo."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Odbočte doprava."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Ostro doprava."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "Na kruhovom objazde."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Opustite kruhový objazd."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Držte sa vľavo."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Odbočte doľava."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Ostro doľava."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Otočte sa o stoosemdesiat stupňov."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "Choďte rovno."
+    },
+    "exit": {
+        "defaultMessage": "Použite výjazd."
+    },
+    "onto": {
+        "defaultMessage": "na"
+    },
+    "take_exit_number": {
+        "defaultMessage": "Výjazd na"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Prepočítanie trasy"
+    },
+    "destination": {
+        "defaultMessage": "Dorazíte do cieľa."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "Dorazili ste do cieľa."
+    },
+    "in_50_meters": {
+        "defaultMessage": "Po päťdesiatich metroch"
+    },
+    "in_100_meters": {
+        "defaultMessage": "Po sto metroch"
+    },
+    "in_200_meters": {
+        "defaultMessage": "Po dvesto metroch"
+    },
+    "in_250_meters": {
+        "defaultMessage": "Po dvestopäťdesiatich metroch"
+    },
+    "in_300_meters": {
+        "defaultMessage": "Po tristo metroch"
+    },
+    "in_400_meters": {
+        "defaultMessage": "Po štyristo metroch"
+    },
+    "in_500_meters": {
+        "defaultMessage": "Po päťsto metroch"
+    },
+    "in_600_meters": {
+        "defaultMessage": "Po šesťsto metroch"
+    },
+    "in_700_meters": {
+        "defaultMessage": "Po sedemsto metroch"
+    },
+    "in_750_meters": {
+        "defaultMessage": "Po sedemstopäťdesiatich metroch"
+    },
+    "in_800_meters": {
+        "defaultMessage": "Po osemsto metroch"
+    },
+    "in_900_meters": {
+        "defaultMessage": "Po deväťsto metroch"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "Po jednom kilometri"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "Po jeden a pol kilometri"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "Po dvoch kilometroch"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "Po dva a pol kilometri"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "Po troch kilometroch"
+    },
+    "then": {
+        "defaultMessage": "Potom"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Použite prvý výjazd."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Použite druhý výjazd."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Použite tretí výjazd."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Použite štvrtý výjazd."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Použite piaty výjazd."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Použite šiesty výjazd."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Použite siedmy výjazd."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Použite ôsmy výjazd."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Použite deviaty výjazd."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Použite desiaty výjazd."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Použite jedenásty výjazd."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "Po päťdesiatich stopách"
+    },
+    "in_100_feet": {
+        "defaultMessage": "Po sto stopách"
+    },
+    "in_200_feet": {
+        "defaultMessage": "Po dvesto stopách"
+    },
+    "in_300_feet": {
+        "defaultMessage": "Po tristo stopách"
+    },
+    "in_400_feet": {
+        "defaultMessage": "Po štyristo stopách"
+    },
+    "in_500_feet": {
+        "defaultMessage": "Po päťsto stopách"
+    },
+    "in_600_feet": {
+        "defaultMessage": "Po šesťsto stopách"
+    },
+    "in_700_feet": {
+        "defaultMessage": "Po sedemsto stopách"
+    },
+    "in_800_feet": {
+        "defaultMessage": "Po osemsto stopách"
+    },
+    "in_900_feet": {
+        "defaultMessage": "Po deväťsto stopách"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "Po tisíc stopách"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "Po tisícpäťsto stopách"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "Po dvetisíc stopách"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "Po dvetisícpäťsto stopách"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "Po tritisíc stopách"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "Po tritisícpäťsto stopách"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "Po štyritisíc stopách"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "Po štyritisícpäťsto stopách"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "Po päťtisíc stopách"
+    },
+    "in_1_mile": {
+        "defaultMessage": "Po jednej míli"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "Po jeden a pol míli"
+    },
+    "in_2_miles": {
+        "defaultMessage": "Po dvoch míľach"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Blížite sa k rýchlostnému radaru!"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "Na konci cesty,"
+    }
+}

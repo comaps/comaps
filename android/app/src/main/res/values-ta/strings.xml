@@ -79,7 +79,7 @@
     <string name="donate">நன்கொடை</string>
     <string name="copyright">பதிப்புரிமை</string>
     <string name="report_a_bug">பிழையைப் புகாரளி</string>
-    <string name="long_tap_toast">இடைமுகத்தைப் பார்க்க மீண்டும் வரைபடத்தில் நீண்ட நேரம் தட்டவும்</string>
+    <string name="enable_long_tap_fullscreen_description">இடைமுகத்தைப் பார்க்க மீண்டும் வரைபடத்தில் நீண்ட நேரம் தட்டவும்</string>
     <string name="downloader_update_all_button">அனைத்தையும் புதுப்பிக்கவும்</string>
     <string name="downloader_downloaded_subtitle">பதிவிறக்கப்பட்டது</string>
     <string name="downloader_queued">வரிசையில் நிற்கிறது</string>
@@ -270,7 +270,7 @@
     <string name="power_managment_setting_auto">பேட்டரி குறைவாக இருக்கும்போது</string>
     <string name="power_managment_setting_manual_max">எப்போதும்</string>
     <string name="enable_logging_warning_message">உதவி உரையாடலில் \"பிழையைப் புகாரளி\" என்பதைப் பயன்படுத்தி, உங்கள் சிக்கலைப் பற்றிய விரிவான கண்டறியும் பதிவுகளைப் பதிவுசெய்து கைமுறையாக எங்களுக்கு அனுப்ப இந்த விருப்பத்தை தற்காலிகமாக இயக்கவும். பதிவுகளில் இருப்பிடத் செய்தி இருக்கலாம்.</string>
-    <string name="driving_options_title">ரூட்டிங் விருப்பங்கள்</string>
+    <string name="routing_options_title">பாதை விருப்பங்கள்</string>
     <string name="avoid_tolls">சுங்கச்சாவடிகளைத் தவிர்க்கவும்</string>
     <string name="avoid_unpaved">செப்பனிடப்படாத சாலைகளைத் தவிர்க்கவும்</string>
     <string name="avoid_paved">நடைபாதை சாலைகளைத் தவிர்க்கவும்</string>
@@ -399,9 +399,13 @@
     <string name="share">பகிர்</string>
     <string name="copied_to_clipboard">இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது: %s</string>
     <string name="data_version">OpenStreetMap தரவு: %s</string>
-    <string name="prefs_group_general">பொது அமைப்புகள்</string>
     <string name="prefs_group_information">தகவல்</string>
     <string name="pref_zoom_summary">வரைபடத்தில் காட்டவும்</string>
+    <string name="prefs_group_advanced">மேம்பட்ட</string>
+    <string name="download_resources_custom_url_title">தனிப்பயன் வரைபட சேவையகம்</string>
+    <string name="download_resources_custom_url_message">வரைபடப் பதிவிறக்கங்களுக்குப் பயன்படுத்தப்படும் இயல்புநிலை வரைபடப் பதிவிறக்க சேவையகத்தை மேலெழுதவும். CoMaps இயல்புநிலை சேவையகத்தைப் பயன்படுத்த, காலியாக விடவும்.</string>
+    <string name="download_resources_custom_url_summary_none">அமைக்கப்படவில்லை</string>
+    <string name="download_resources_custom_url_error_scheme">http:// அல்லது https:// உடன் தொடங்கும் முகவரி ஐ உள்ளிடவும்</string>
     <string name="pref_map_style_title">இரவு முறை</string>
     <string name="pref_tts_enable_title">குரல் வழிமுறைகள்</string>
     <string name="pref_tts_playing_test_voice">இப்போது குரல் கேட்கவில்லை என்றால், ஒலியளவு அல்லது சிச்டம் டெக்ச்ட்-டு-ச்பீச் அமைப்புகளைச் சரிபார்க்கவும்</string>
@@ -497,7 +501,7 @@
     <string name="traffic_update_app">CoMaps ஐப் புதுப்பிக்கவும்</string>
     <string name="feedback_general">பொதுவான கருத்து</string>
     <string name="prefs_languages_information">குரல் வழிமுறைகளுக்கு எழுத்து-உரை அமைப்பைப் பயன்படுத்துகிறோம். பல ஆண்ட்ராய்டு சாதனங்கள் கூகிள் எழுத்து-உரையைப் பயன்படுத்துகின்றன, நீங்கள் அதைக் கூகிள் இயக்கு கடையிலிருந்து பதிவிறக்கம் செய்யலாம் அல்லது புதுப்பிக்கலாம் (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">சில மொழிகளுக்கு, ஆப் ச்டோரில் (Google Play, விண்மீன் மண்டலம்/விண்மீன் கூட்டம்/விண்மீன் திரள் Store, பயன்பாடு Gallery, FDroid) ச்பீச் சின்தசைசர் அல்லது கூடுதல் மொழி பேக்கை நிறுவ வேண்டும். \nஉங்கள் சாதனத்தின் அமைப்புகளைத் திறக்கவும் → மொழி மற்றும் உள்ளீடு → பேச்சு → உரையிலிருந்து பேச்சு வெளியீடு. \nபேச்சு தொகுப்புக்கான அமைப்புகளை இங்கே நீங்கள் நிர்வகிக்கலாம் (உதாரணமாக, இணைப்பில்லாத பயன்பாட்டிற்கான மொழிப் பேக்கைப் பதிவிறக்கவும்) மற்றும் மற்றொரு உரை-க்கு-பேச்சு இயந்திரத்தைத் தேர்ந்தெடுக்கவும்.</string>
+    <string name="prefs_languages_information_off">சில மொழிகளுக்கு, ஆப் ச்டோரில் (Google Play, Galaxy Store, App Gallery, F-Droid) பேச்சு சின்தசைசர் அல்லது கூடுதல் மொழி பேக்கை நிறுவ வேண்டும். \nஉங்கள் சாதனத்தின் அமைப்புகளைத் திறக்கவும் → மொழி மற்றும் உள்ளீடு → பேச்சு → உரையிலிருந்து பேச்சு வெளியீடு. \nபேச்சு தொகுப்புக்கான அமைப்புகளை இங்கே நீங்கள் நிர்வகிக்கலாம் (உதாரணமாக, இணைப்பில்லாத பயன்பாட்டிற்கான மொழிப் பேக்கைப் பதிவிறக்கவும்) மற்றும் மற்றொரு உரை-க்கு-பேச்சு இயந்திரத்தைத் தேர்ந்தெடுக்கவும்.</string>
     <string name="prefs_languages_information_off_link">மேலும் தகவலுக்கு, இந்த வழிகாட்டியைப் பார்க்கவும்</string>
     <string name="learn_more">மேலும் அறிக</string>
     <string name="dialog_error_storage_title">சேமிப்பக அணுகல் சிக்கல்</string>
@@ -520,7 +524,7 @@
         <item quantity="one">%d டிராக்</item>
         <item quantity="other">%d டிராக்குகள்</item>
     </plurals>
-    <string name="privacy">தனியுரிமை</string>
+    <string name="prefs_group_privacy">தனியுரிமை</string>
     <string name="button_layer_traffic">போக்குவரத்து</string>
     <string name="subway">சுரங்கப்பாதை</string>
     <string name="bookmarks_empty_list_title">இந்தப் பட்டியல் காலியாக உள்ளது</string>
@@ -642,11 +646,6 @@
     <string name="pref_maplanguage_local">உள்ளக மொழி</string>
     <string name="navigation_start_tts_message">"வழிசெலுத்தலைத் தொடங்குதல், குரல் அறிவுறுத்தல் மொழி: "</string>
     <string name="navigation_start_tts_disabled_message">குரல் வழிமுறைகள் முடக்கப்பட்டுள்ளன: TTS இன்சின் கிடைக்கவில்லை</string>
-    <string name="advanced">மேம்பட்ட</string>
-    <string name="download_resources_custom_url_title">தனிப்பயன் வரைபட சேவையகம்</string>
-    <string name="download_resources_custom_url_message">வரைபடப் பதிவிறக்கங்களுக்குப் பயன்படுத்தப்படும் இயல்புநிலை வரைபடப் பதிவிறக்க சேவையகத்தை மேலெழுதவும். CoMaps இயல்புநிலை சேவையகத்தைப் பயன்படுத்த, காலியாக விடவும்.</string>
-    <string name="download_resources_custom_url_summary_none">அமைக்கப்படவில்லை</string>
-    <string name="download_resources_custom_url_error_scheme">http:// அல்லது https:// உடன் தொடங்கும் முகவரி ஐ உள்ளிடவும்</string>
     <string name="pref_alt_map_lang_handling">மாற்று வரைபட மொழிகள்</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">மாற்று வழிகளைப் பயன்படுத்த வேண்டாம்</string>
     <string name="pref_alt_map_lang_handling_system_order">கணினி வரிசையில் பயன்படுத்து</string>

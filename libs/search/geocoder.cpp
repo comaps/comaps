@@ -1,21 +1,27 @@
 #include "search/geocoder.hpp"
 
 #include "search/cbv.hpp"
-#include "search/dummy_rank_table.hpp"
+#include "search/cities_boundaries_table.hpp"
 #include "search/features_filter.hpp"
+#include "search/features_layer.hpp"
 #include "search/features_layer_matcher.hpp"
+#include "search/geocoder_context.hpp"
 #include "search/house_numbers_matcher.hpp"
-#include "search/house_to_street_table.hpp"
+#include "search/intersection_result.hpp"
 #include "search/locality_scorer.hpp"
 #include "search/pre_ranker.hpp"
+#include "search/pre_ranking_info.hpp"
+#include "search/ranking_utils.hpp"
 #include "search/retrieval.hpp"
 #include "search/token_slice.hpp"
 #include "search/tracer.hpp"
 #include "search/utils.hpp"
 
-#include "storage/country_info_getter.hpp"
-
 #include "indexer/data_source.hpp"
+#include "indexer/dummy_rank_table.hpp"
+#include "indexer/feature.hpp"
+#include "indexer/feature_algo.hpp"
+#include "indexer/feature_data.hpp"
 #include "indexer/feature_decl.hpp"
 #include "indexer/ftypes_matcher.hpp"
 #include "indexer/postcodes_matcher.hpp"
@@ -24,10 +30,15 @@
 #include "indexer/utils.hpp"
 
 #include "storage/country_info_getter.hpp"
+#include "storage/storage_defines.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "coding/files_container.hpp"
+#include "coding/point_coding.hpp"
 
 #include "geometry/mercator.hpp"
+#include "geometry/parametrized_segment.hpp"
+
+#include "i18n/localisation.hpp"
 
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"
@@ -36,6 +47,7 @@
 #include "base/macros.hpp"
 #include "base/scope_guard.hpp"
 #include "base/stl_helpers.hpp"
+#include "base/string_utils.hpp"
 
 #include <algorithm>
 

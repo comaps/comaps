@@ -9,6 +9,8 @@
 #include "routing/geometry.hpp"
 #include "routing/restriction_loader.hpp"
 
+#include "traffic/traffic_cache.hpp"
+
 #include "geometry/point2d.hpp"
 
 #include <memory>

@@ -2,6 +2,10 @@
 
 #include "indexer/features_vector.hpp"
 
+#include "coding/file_writer.hpp"
+#include "coding/files_container.hpp"
+#include "coding/reader.hpp"
+
 #include "base/logging.hpp"
 
 #include "defines.hpp"

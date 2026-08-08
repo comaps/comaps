@@ -1,6 +1,10 @@
 #include "shaders/gl_program_params.hpp"
 
+#include "drape/gl_constants.hpp"
 #include "drape/gl_gpu_program.hpp"
+#include "drape/glsl_types.hpp"
+#include "drape/gpu_program.hpp"
+#include "drape/pointers.hpp"
 #include "drape/uniform_value.hpp"
 
 #include "base/assert.hpp"

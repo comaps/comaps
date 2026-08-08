@@ -2,11 +2,7 @@
 
 #include "routing/road_graph.hpp"
 
-#include "routing_common/vehicle_model.hpp"
-
-#include "indexer/feature_altitude.hpp"
 #include "indexer/feature_decl.hpp"
-#include "indexer/mwm_set.hpp"
 
 #include "geometry/point2d.hpp"
 #include "geometry/point_with_altitude.hpp"

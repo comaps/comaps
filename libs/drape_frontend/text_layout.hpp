@@ -1,18 +1,19 @@
 #pragma once
 
-#include "drape_frontend/shape_view_params.hpp"
-
-#include "drape/font_constants.hpp"
+#include "drape/drape_global.hpp"
 #include "drape/glsl_types.hpp"
+#include "drape/glyph.hpp"
+#include "drape/glyph_manager.hpp"
 #include "drape/pointers.hpp"
 #include "drape/texture_manager.hpp"
 #include "drape/utils/vertex_decl.hpp"
 
-#include "geometry/screenbase.hpp"
+#include "geometry/point2d.hpp"
 #include "geometry/spline.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/buffer_vector.hpp"
-#include "base/string_utils.hpp"
 
 #include <string>
 #include <vector>

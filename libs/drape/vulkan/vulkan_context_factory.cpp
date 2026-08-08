@@ -1,12 +1,18 @@
 #include "drape/vulkan/vulkan_context_factory.hpp"
 
+#include "drape/drape_global.hpp"
 #include "drape/support_manager.hpp"
+#include "drape/vulkan/vulkan_base_context.hpp"
+#include "drape/vulkan/vulkan_layers.hpp"
+#include "drape/vulkan/vulkan_object_manager.hpp"
 #include "drape/vulkan/vulkan_pipeline.hpp"
 #include "drape/vulkan/vulkan_utils.hpp"
 
 #include "base/assert.hpp"
 #include "base/logging.hpp"
 #include "base/macros.hpp"
+
+#include "std/target_os.hpp"
 
 #include <vector>
 

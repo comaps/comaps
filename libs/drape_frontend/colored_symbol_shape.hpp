@@ -3,7 +3,7 @@
 #include "drape_frontend/map_shape.hpp"
 #include "drape_frontend/shape_view_params.hpp"
 
-#include "drape/constants.hpp"
+#include "geometry/point2d.hpp"
 
 namespace df
 {

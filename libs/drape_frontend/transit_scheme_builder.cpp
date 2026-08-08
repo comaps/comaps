@@ -9,18 +9,29 @@
 #include "drape_frontend/shape_view_params.hpp"
 #include "drape_frontend/text_layout.hpp"
 #include "drape_frontend/text_shape.hpp"
+#include "drape_frontend/tile_key.hpp"
 #include "drape_frontend/visual_params.hpp"
 
 #include "shaders/programs.hpp"
 
+#include "drape/attribute_provider.hpp"
 #include "drape/batcher.hpp"
+#include "drape/binding_info.hpp"
+#include "drape/color.hpp"
+#include "drape/drape_global.hpp"
 #include "drape/glsl_types.hpp"
-#include "drape/render_bucket.hpp"
+#include "drape/overlay_handle.hpp"
 
+#include "transit/experimental/transit_types_experimental.hpp"
 #include "transit/transit_entities.hpp"
+#include "transit/transit_version.hpp"
+
+#include "geometry/rect2d.hpp"
+
+#include "i18n/localisation.hpp"
 
 #include "base/assert.hpp"
-#include "base/string_utils.hpp"
+#include "base/logging.hpp"
 
 #include <algorithm>
 

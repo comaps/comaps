@@ -30,6 +30,8 @@ set(SRC
   postcodes_matcher_tests.cpp
   rank_table_test.cpp
   read_features_tests.cpp
+  reviews_display_tests.cpp
+  reviews_serdes_tests.cpp
   road_shields_parser_tests.cpp
   scale_index_reading_tests.cpp
   search_string_utils_test.cpp
@@ -48,7 +50,15 @@ set(SRC
 omim_add_test(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  generator_tests_support
-  platform_tests_support
-  indexer
+  PUBLIC
+    geometry
+    indexer
+    platform
+  PRIVATE
+    base
+    coding
+    generator_tests_support
+    i18n
+    platform_tests_support
+    search
 )

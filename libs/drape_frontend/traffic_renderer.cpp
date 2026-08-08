@@ -1,18 +1,26 @@
 #include "drape_frontend/traffic_renderer.hpp"
+
 #include "drape_frontend/color_constants.hpp"
+#include "drape_frontend/frame_values.hpp"
+#include "drape_frontend/tile_utils.hpp"
 #include "drape_frontend/visual_params.hpp"
 
+#include "shaders/program_params.hpp"
 #include "shaders/programs.hpp"
 
-#include "drape/glsl_func.hpp"
+#include "drape/glsl_types.hpp"
+#include "drape/gpu_program.hpp"
+#include "drape/render_bucket.hpp"
+#include "drape/render_state.hpp"
 #include "drape/support_manager.hpp"
 #include "drape/vertex_array_buffer.hpp"
 
-#include "indexer/map_style_reader.hpp"
 #include "indexer/scales.hpp"
 
-#include "base/logging.hpp"
+#include "base/assert.hpp"
 #include "base/math.hpp"
+#include "base/matrix.hpp"
+#include "base/stl_helpers.hpp"
 
 #include <algorithm>
 #include <array>

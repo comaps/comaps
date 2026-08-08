@@ -1,13 +1,19 @@
 #include "search/street_vicinity_loader.hpp"
 
+#include "search/mwm_context.hpp"
+
 #include "indexer/cell_id.hpp"
+#include "indexer/data_header.hpp"
+#include "indexer/feature.hpp"
 #include "indexer/feature_covering.hpp"
 #include "indexer/feature_decl.hpp"
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/mwm_set.hpp"
 
 #include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"
 
+#include "base/assert.hpp"
 #include "base/math.hpp"
 
 namespace search

@@ -1,5 +1,7 @@
 #include "search/search_tests_support/test_search_engine.hpp"
 
+#include "search/search_params.hpp"
+
 #include "indexer/categories_holder.hpp"
 
 #include "storage/storage.hpp"

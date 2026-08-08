@@ -16,6 +16,7 @@ import app.organicmaps.sdk.bookmarks.data.MapObject;
 import app.organicmaps.sdk.routing.JunctionInfo;
 import app.organicmaps.sdk.routing.RouteMarkData;
 import app.organicmaps.sdk.routing.RouteMarkType;
+import app.organicmaps.sdk.routing.RouteStepInfo;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.routing.RoutingListener;
 import app.organicmaps.sdk.routing.RoutingLoadPointsListener;
@@ -62,7 +63,8 @@ public class Framework
   public static String getHttpGe0Url(double lat, double lon, double zoomLevel, String name)
   {
     return nativeGetGe0Url(lat, lon, zoomLevel, name)
-        .replaceFirst(Constants.Url.SHORT_SHARE_PREFIX, Constants.Url.HTTP_SHARE_PREFIX);
+        .replaceFirst(Constants.Url.SHORT_SHARE_PREFIX, Constants.Url.HTTP_SHARE_PREFIX)
+        .replaceFirst(Constants.Url.SHORT_SHARE_PREFIX_OLD, Constants.Url.HTTP_SHARE_PREFIX);
   }
 
   /**
@@ -255,7 +257,12 @@ public class Framework
   @NonNull
   public static native RouteMarkData[] nativeGetRoutePoints();
 
+  public static native double[] nativeGetIntermediateStopsProgress();
+
   public static native void nativeMoveRoutePoint(int currentIndex, int targetIndex);
+
+  @Nullable
+  public static native RouteStepInfo[] nativeGetRouteSteps(String language);
 
   @NonNull
   public static native TransitRouteInfo nativeGetTransitRouteInfo();
@@ -351,6 +358,10 @@ public class Framework
 
   public static native void nativeMemoryWarning();
   public static native void nativeSaveRoute();
+
+  public static native void nativeSetAutoReroute(boolean autoReroute);
+  public static native boolean nativeAutoReroute();
+
   public static native void nativeSetCustomMapDownloadUrl(String url);
 
   public static void applyCustomMapDownloadUrl(@NonNull Context context, @Nullable String url)

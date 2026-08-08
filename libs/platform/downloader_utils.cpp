@@ -1,11 +1,11 @@
 #include "platform/downloader_utils.hpp"
 
 #include "platform/country_defines.hpp"
-#include "platform/country_file.hpp"
 #include "platform/local_country_file_utils.hpp"
 
 #include "coding/url.hpp"
 
+#include "base/assert.hpp"
 #include "base/string_utils.hpp"
 
 #include "std/target_os.hpp"

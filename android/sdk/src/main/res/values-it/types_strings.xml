@@ -15,7 +15,7 @@
     <string name="type.aeroway.aerodrome">Aeroporto</string>
     <string name="type.aeroway.aerodrome.international">Aeroporto internazionale</string>
     <string name="type.aeroway.apron">Area di stazionamento per aeromobili</string>
-    <string name="type.aeroway.gate">Cancello aeroportuale</string>
+    <string name="type.aeroway.gate">Gate</string>
     <string name="type.aeroway.helipad">Piattaforma per elicotteri</string>
     <string name="type.aeroway.runway">Pista di decollo/atterraggio</string>
     <string name="type.aeroway.taxiway">Pista di rullaggio</string>
@@ -356,7 +356,7 @@
     <string name="type.entrance">Ingresso</string>
     <!-- This is for main/primary entrances, for secondary entrances see type.entrance -->
     <string name="type.entrance.main">Entrata principale</string>
-    <string name="type.entrance.exit">Uscita</string>
+    <string name="type.entrance.exit">Solo uscita</string>
     <string name="type.fee.no">Gratuito</string>
     <string name="type.healthcare.laboratory">Laboratorio Medico</string>
     <string name="type.healthcare.physiotherapist">Fisioterapista</string>
@@ -382,7 +382,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Galleria</string>
     <string name="type.highway.bus_stop">Fermata dell\'autobus</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Strada in costruzione</string>
+    <string name="type.highway.construction.motorway">Strada in costruzione</string>
+    <string name="type.highway.construction.motorway_link">Strada in costruzione</string>
+    <string name="type.highway.construction.trunk">Strada in costruzione</string>
+    <string name="type.highway.construction.trunk_link">Strada in costruzione</string>
+    <string name="type.highway.construction.primary">Strada in costruzione</string>
+    <string name="type.highway.construction.primary_link">Strada in costruzione</string>
+    <string name="type.highway.construction.secondary">Strada in costruzione</string>
+    <string name="type.highway.construction.secondary_link">Strada in costruzione</string>
+    <string name="type.highway.construction.tertiary">Strada in costruzione</string>
+    <string name="type.highway.construction.tertiary_link">Strada in costruzione</string>
+    <string name="type.highway.construction.residential">Strada in costruzione</string>
+    <string name="type.highway.construction.unclassified">Strada in costruzione</string>
+    <string name="type.highway.construction.service">Strada in costruzione</string>
+    <string name="type.highway.construction.living_street">Strada in costruzione</string>
+    <string name="type.highway.construction.road">Strada in costruzione</string>
+    <string name="type.highway.construction.track">Strada in costruzione</string>
     <string name="type.highway.cycleway">Pista ciclabile</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Ponte</string>
@@ -1224,11 +1241,11 @@
     <string name="type.tourism.artwork.painting">Dipinto</string>
     <string name="type.tourism.artwork.sculpture">Scultura</string>
     <string name="type.tourism.artwork.statue">Statua</string>
-    <string name="type.tourism.attraction">Attrattiva</string>
+    <string name="type.tourism.attraction">Attrazione turistica</string>
     <string name="type.attraction.amusement_ride">Giostra di divertimento</string>
     <string name="type.attraction.animal">Recinto per animali</string>
     <string name="type.attraction.carousel">Carosello</string>
-    <string name="type.attraction.historic">Attrazione storica</string>
+    <string name="type.attraction.historic">Attrazione Storica</string>
     <string name="type.attraction.maze">Labirinto</string>
     <string name="type.attraction.roller_coaster">Montagne russe</string>
     <string name="type.attraction.water_slide">Scivolo d\'acqua</string>
@@ -1450,4 +1467,27 @@
     <string name="type.amenity.community_centre.youth_centre">Centro della Gioventù</string>
     <string name="type.leisure.sports_centre.sport.boules">Centro sportivo</string>
     <string name="type.leisure.sports_centre.sport.four_square">Centro sportivo</string>
+    <string name="type.man_made.telescope.optical">Telescopio (Ottico)</string>
+    <string name="type.man_made.telescope.gamma">Telescopio (Raggi gamma)</string>
+    <string name="type.amenity.charging_station.motorcycle">Motociclette</string>
+    <string name="type.amenity.charging_station.small">Capienza limitata</string>
+    <string name="type.amenity.flight_school">Scuola di volo</string>
+    <string name="type.amenity.payment_centre">Centro pagamenti</string>
+    <string name="type.emergency.access_point">Punto di soccorso d\'emergenza</string>
+    <string name="type.emergency.access_point.address">Indirizzo di soccorso d\'emergenza</string>
+    <string name="type.entrance.house">Entrata di casa</string>
+    <string name="type.entrance.garage">Entrata del garage</string>
+    <string name="type.entrance.service">Entrata di servizio</string>
+    <string name="type.entrance.entry">Solo entrata</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Centro sportivo</string>
+    <string name="type.leisure.sports_centre.sport.swimming">Centro acquatico</string>
+    <string name="type.organic.no">Nessun opzione organica</string>
+    <string name="type.railway.miniature">Ferrovia in miniatura</string>
+    <string name="type.railway.miniature.bridge">Ponte ferrovia in miniatura</string>
+    <string name="type.attraction">Attrazione</string>
+    <string name="type.lateral.port">Porta</string>
+    <string name="type.amenity.planetarium">Planetario</string>
+    <string name="type.amenity.toilets.customers">Ingresso per i clienti</string>
+    <string name="type.amenity.animal_boarding">Pensione per animali</string>
+    <string name="type.leisure.bandstand">Chiosco della musica</string>
 </resources>

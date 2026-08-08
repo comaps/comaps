@@ -54,7 +54,7 @@
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Ulubione";
 /* Default bookmark list name */
-"core_my_places" = "Moje miejsca";
+"core_my_places" = "Moje ulubione";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Adres";
 /* Settings button in system menu */
@@ -631,7 +631,7 @@
 "title_error_downloading_bookmarks" = "Wystąpił błąd";
 "popular_place" = "Popularne";
 "export_file" = "Eksportuj KMZ";
-"export_file_gpx" = "Eksport GPX";
+"export_file_gpx" = "Eksportuj GPX";
 "delete_list" = "Usuń listę";
 "hide_from_map" = "Ukryj na mapie";
 "tags_loading_error_subtitle" = "Wystąpił błąd podczas pobierania tagów, spróbuj ponownie";
@@ -681,8 +681,6 @@
 "yes_available" = "Tak";
 /* E.g. "WiFi:No" */
 "no_available" = "Nie";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Pojemność: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Sieć: %@";
 "trip_finished" = "Jesteś na miejscu!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Dodaj miejsce";
 "contribute_to_osm_update_map" = "Zaktualizuj mapę, aby współtworzyć";
 "contribute_to_osm_update_map_description" = "Musisz zaktualizować mapę %@ do najnowszej wersji, zanim będziesz mógł współtworzyć OpenStreetMap";
+"downloader_check_updates_button" = "Sprawdź aktualizacje";
+"downloader_check_updates_checking" = "Sprawdzanie dostępności aktualizacji…";
+"downloader_check_updates_updated" = "Aktualizacje map są dostępne!";
+"downloader_check_updates_no_updates" = "Brak dostępnych aktualizacji";
+"downloader_check_updates_eol" = "Nowe aktualizacje map nie są już dostępne dla tej wersji aplikacji. Zaktualizuj aplikację!";
+"downloader_check_updates_error" = "Sprawdzanie dostępności aktualizacji nie powiodło się";
+"editor_add_select_category_recent_subtitle" = "Ostatnio używane";
+"oh_unknown" = "Nieznane godziny otwarcia";
+"carplay_highway_exit" = "Exit %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "No dedicated disabled spaces";
+"capacity_charging_yes" = "Has spaces with chargers";
+"capacity_charging_no" = "No spaces with chargers";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

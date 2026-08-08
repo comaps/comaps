@@ -1,37 +1,59 @@
 #include "routing_manager.hpp"
 
+#include "drape_frontend/my_position_controller.hpp"
+#include "map/bookmark_manager.hpp"
 #include "map/chart_generator.hpp"
 #include "map/routing_mark.hpp"
+#include "map/transit/transit_reader.hpp"
+#include "map/user_mark.hpp"
 
 #include "routing/absent_regions_finder.hpp"
 #include "routing/checkpoint_predictor.hpp"
+#include "routing/checkpoints.hpp"
+#include "routing/following_info.hpp"
 #include "routing/index_router.hpp"
 #include "routing/route.hpp"
 #include "routing/routing_callbacks.hpp"
-#include "routing/routing_helpers.hpp"
+#include "routing/routing_settings.hpp"
 #include "routing/ruler_router.hpp"
+#include "routing/segment.hpp"
 #include "routing/speed_camera.hpp"
+#include "routing/vehicle_mask.hpp"
 
 #include "storage/country_info_getter.hpp"
 #include "storage/routing_helpers.hpp"
 
 #include "drape_frontend/drape_engine.hpp"
+#include "drape_frontend/route_renderer.hpp"
+#include "drape_frontend/route_shape.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
 
+#include "indexer/data_source.hpp"
+#include "indexer/feature_algo.hpp"
+#include "indexer/feature_meta.hpp"
 #include "indexer/map_style_reader.hpp"
 
 #include "platform/country_file.hpp"
+#include "platform/distance.hpp"
+#include "platform/location.hpp"
+#include "platform/measurement_utils.hpp"
 #include "platform/platform.hpp"
-#include "platform/socket.hpp"
+#include "platform/settings.hpp"
 
 #include "geometry/mercator.hpp"  // kPointEqualityEps
+#include "geometry/polyline2d.hpp"
 #include "geometry/simplification.hpp"
 
-#include "coding/file_reader.hpp"
 #include "coding/file_writer.hpp"
+#include "coding/point_coding.hpp"
+#include "coding/reader.hpp"
 
+#include "base/exception.hpp"
+#include "base/logging.hpp"
+#include "base/math.hpp"
 #include "base/scope_guard.hpp"
+#include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
 #include <ios>
@@ -205,13 +227,13 @@ VehicleType GetVehicleType(RouterType routerType)
   UNREACHABLE();
 }
 
-RoadWarningMarkType GetRoadType(RoutingOptions::Road road)
+RoadWarningMarkType GetRoadType(RoutingOptions::Option road)
 {
-  if (road == RoutingOptions::Road::Toll)
+  if (road == RoutingOptions::Option::Toll)
     return RoadWarningMarkType::Toll;
-  if (road == RoutingOptions::Road::Ferry)
+  if (road == RoutingOptions::Option::Ferry)
     return RoadWarningMarkType::Ferry;
-  if (road == RoutingOptions::Road::Dirty)
+  if (road == RoutingOptions::Option::Dirty)
     return RoadWarningMarkType::Dirty;
 
   CHECK(false, ("Invalid road type to avoid:", road));
@@ -387,6 +409,8 @@ RoutingManager::RoutingManager(Callbacks && callbacks, Delegate & delegate)
   });
 }
 
+RoutingManager::~RoutingManager() = default;
+
 void RoutingManager::SetBookmarkManager(BookmarkManager * bmManager)
 {
   m_bmManager = bmManager;
@@ -498,7 +522,7 @@ void RoutingManager::SetRouterImpl(RouterType type)
 
   VehicleType const vehicleType = GetVehicleType(type);
 
-  m_loadAltitudes = vehicleType != VehicleType::Car;
+  m_loadAltitudes = (vehicleType != VehicleType::Car) && (vehicleType != VehicleType::Decoder);
 
   auto const countryFileGetter = [this](m2::PointD const & p) -> string
   {
@@ -545,6 +569,7 @@ void RoutingManager::RemoveRoute(bool deactivateFollowing)
       auto es = m_bmManager->GetEditSession();
       es.ClearGroup(UserMark::Type::TRANSIT);
       es.ClearGroup(UserMark::Type::SPEED_CAM);
+      es.ClearGroup(UserMark::Type::TRAFFIC_LIGHT);
       es.ClearGroup(UserMark::Type::ROAD_WARNING);
     }
     if (deactivateFollowing)
@@ -577,24 +602,110 @@ void RoutingManager::RemoveRoute(bool deactivateFollowing)
   }
 }
 
+void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segments, m2::PointD const & startPt,
+                                               uint32_t featureType,
+                                               vector<std::pair<m2::PointD, FeatureID>> & outFeatures)
+{
+  ASSERT(!segments.empty(), ());
+  ASSERT_NOT_EQUAL(featureType, Classificator::INVALID_TYPE, ());
+
+  double constexpr kSearchRadiusM = 0.3;  // radius (in meters)
+  double const kSearchRadiusMercator = mercator::MetersToMercator(kSearchRadiusM);
+  double const kChunkSizeMercator = mercator::MetersToMercator(2000.0);
+
+  auto & dataSource = m_callbacks.m_dataSourceGetter();
+
+  auto processChunk = [&](m2::RectD const & r)
+  {
+    m2::RectD queryRect = r;
+    queryRect.Inflate(kSearchRadiusMercator, kSearchRadiusMercator);
+
+    dataSource.ForEachInRect([&](FeatureType & ft)
+    {
+      if (ft.GetGeomType() != feature::GeomType::Point)
+        return;
+
+      feature::TypesHolder types(ft);
+      // Does this feature match the type we passed in?
+      if (!types.Has(featureType))
+        return;
+
+      m2::PointD const pt = feature::GetCenter(ft);
+
+      // Find the closest route segment and record whether the route
+      // travels in the forward direction along the underlying road way.
+      double minSqDist = numeric_limits<double>::max();
+      bool closestSegIsForward = true;
+      m2::PointD prev = startPt;
+      for (auto const & s : segments)
+      {
+        m2::PointD const curr = s.GetJunction().GetPoint();
+        m2::ParametrizedSegment<m2::PointD> seg(prev, curr);
+        double const d = seg.SquaredDistanceToPoint(pt);
+        if (d < minSqDist)
+        {
+          minSqDist = d;
+          closestSegIsForward = s.GetSegment().IsForward();
+        }
+        if (minSqDist < kSearchRadiusMercator * kSearchRadiusMercator)
+          break;
+
+        prev = curr;
+      }
+
+      if (minSqDist >= kSearchRadiusMercator * kSearchRadiusMercator)
+        return;
+
+      // If the signal has a direction hwtag, only include it when it
+      // faces the direction the route is travelling on that road.
+      static uint32_t const kForwardType = classif().GetTypeByPath({"hwtag", "traffic_signals_forward"});
+      static uint32_t const kBackwardType = classif().GetTypeByPath({"hwtag", "traffic_signals_backward"});
+      if (types.Has(kForwardType) && !closestSegIsForward)
+        return;
+      if (types.Has(kBackwardType) && closestSegIsForward)
+        return;
+
+      outFeatures.emplace_back(pt, ft.GetID());
+    }, queryRect, scales::GetUpperScale());
+  };
+
+  m2::RectD currentRect;
+  currentRect.Add(startPt);
+
+  for (auto const & s : segments)
+  {
+    currentRect.Add(s.GetJunction().GetPoint());
+    if (currentRect.SizeX() > kChunkSizeMercator || currentRect.SizeY() > kChunkSizeMercator)
+    {
+      processChunk(currentRect);
+      currentRect = m2::RectD();
+      currentRect.Add(s.GetJunction().GetPoint());
+    }
+  }
+  if (currentRect.IsValid())
+    processChunk(currentRect);
+
+  base::SortUnique(outFeatures);
+}
+
 void RoutingManager::CollectRoadWarnings(vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,
                                          double baseDistance, GetMwmIdFn const & getMwmIdFn,
                                          RoadWarningsCollection & roadWarnings)
 {
-  auto const isWarnedType = [](RoutingOptions::Road roadType)
+  auto const isWarnedType = [](RoutingOptions::Option roadType)
   {
-    return (roadType == RoutingOptions::Road::Toll || roadType == RoutingOptions::Road::Ferry ||
-            roadType == RoutingOptions::Road::Dirty);
+    return (roadType == RoutingOptions::Option::Toll || roadType == RoutingOptions::Option::Ferry ||
+            roadType == RoutingOptions::Option::Dirty);
   };
 
   bool const isCarRouter = (m_currentRouterType == RouterType::Vehicle);
 
   double currentDistance = baseDistance;
   double startDistance = baseDistance;
-  RoutingOptions::Road lastType = RoutingOptions::Road::Usual;
+  RoutingOptions::Option lastType = RoutingOptions::Option::Usual;
   for (size_t i = 0; i < segments.size(); ++i)
   {
-    auto const currentType = ChooseMainRoutingOptionRoad(segments[i].GetRoadTypes(), isCarRouter);
+    auto const currentType = ChooseMainRoutingOption(segments[i].GetRoadTypes(), isCarRouter);
     if (currentType != lastType)
     {
       if (isWarnedType(lastType))
@@ -644,6 +755,28 @@ void RoutingManager::CreateRoadWarningMarks(RoadWarningsCollection && roadWarnin
   });
 }
 
+void RoutingManager::CollectTrafficLights(vector<RouteSegment> const & segments, m2::PointD const & startPt,
+                                          vector<std::pair<m2::PointD, FeatureID>> & trafficLights)
+{
+  static uint32_t const type = classif().GetTypeByPath({"highway", "traffic_signals"});
+  CollectFeaturesAlongRoute(segments, startPt, type, trafficLights);
+}
+
+void RoutingManager::CreateTrafficLightMarks(vector<std::pair<m2::PointD, FeatureID>> && trafficLights)
+{
+  ASSERT(!trafficLights.empty(), ());
+
+  GetPlatform().RunTask(Platform::Thread::Gui, [this, trafficLights = std::move(trafficLights)]()
+  {
+    auto es = m_bmManager->GetEditSession();
+    for (auto const & item : trafficLights)
+    {
+      auto mark = es.CreateUserMark<TrafficLightMark>(item.first);
+      mark->SetFeatureId(item.second);
+    }
+  });
+}
+
 bool RoutingManager::InsertRoute(Route const & route)
 {
   if (!m_drapeEngine)
@@ -658,6 +791,7 @@ bool RoutingManager::InsertRoute(Route const & route)
   { return m_callbacks.m_dataSourceGetter().GetMwmIdByCountryFile(numMwmIds->GetFile(numMwmId)); };
 
   RoadWarningsCollection roadWarnings;
+  vector<std::pair<m2::PointD, FeatureID>> trafficLights;
 
   bool const isTransitRoute = (m_currentRouterType == RouterType::Transit);
   shared_ptr<TransitRouteDisplay> transitRouteDisplay;
@@ -720,6 +854,8 @@ bool RoutingManager::InsertRoute(Route const & route)
     }
 
     CollectRoadWarnings(segments, startPt, subroute->m_baseDistance, getMwmId, roadWarnings);
+    if (m_currentRouterType == RouterType::Vehicle)
+      CollectTrafficLights(segments, startPt, trafficLights);
 
     auto const subrouteId =
         m_drapeEngine.SafeCallWithResult(&df::DrapeEngine::AddSubroute, df::SubrouteConstPtr(subroute.release()));
@@ -745,7 +881,29 @@ bool RoutingManager::InsertRoute(Route const & route)
   if (hasWarnings && m_currentRouterType == RouterType::Vehicle)
     CreateRoadWarningMarks(std::move(roadWarnings));
 
+  if (!trafficLights.empty() && m_currentRouterType == RouterType::Vehicle)
+    CreateTrafficLightMarks(std::move(trafficLights));
+
   return hasWarnings;
+}
+
+void RoutingManager::GetRouteFollowingInfo(routing::FollowingInfo & info) const
+{
+  m_routingSession.GetRouteFollowingInfo(info);
+  if (!info.IsValid())
+    return;
+
+  // Driving side is route-level: read from the region of the route's start point. This is correct
+  // for any route that does not cross a left/right-driving border.
+  // Per-maneuver L/R (routes crossing such a border) would need the driving side stamped on
+  // each RouteSegment.
+  auto const countryId = m_callbacks.m_countryInfoGetter().GetRegionCountryId(m_routingSession.GetStartPoint());
+  if (countryId.empty())
+    return;
+
+  auto const mwmId = m_callbacks.m_dataSourceGetter().GetMwmIdByCountryFile(platform::CountryFile(countryId));
+  if (mwmId.IsAlive())
+    info.m_isLeftHandTraffic = mwmId.GetInfo()->GetRegionData().Get(feature::RegionData::RD_DRIVING) == "l";
 }
 
 void RoutingManager::FollowRoute()
@@ -1166,9 +1324,9 @@ void RoutingManager::SetDrapeEngine(ref_ptr<df::DrapeEngine> engine, bool is3dAl
   if (m_gpsInfoCache != nullptr)
   {
     auto routeMatchingInfo = GetRouteMatchingInfo(*m_gpsInfoCache);
-    m_drapeEngine.SafeCall(&df::DrapeEngine::SetGpsInfo, *m_gpsInfoCache, m_routingSession.IsNavigable(),
-                           m_routingSession.GetDistanceToNextTurn(), m_routingSession.GetCurrentSpeedLimit(),
-                           routeMatchingInfo);
+    df::NavigationContext navigationContext(m_routingSession.IsNavigable(), m_routingSession.GetDistanceToNextTurn(),
+                                            m_routingSession.GetCurrentSpeedLimit(), GetRoutePolyline());
+    m_drapeEngine.SafeCall(&df::DrapeEngine::SetGpsInfo, *m_gpsInfoCache, navigationContext, routeMatchingInfo);
     m_gpsInfoCache.reset();
   }
 
@@ -1512,9 +1670,9 @@ void RoutingManager::OnExtrapolatedLocationUpdate(location::GpsInfo const & info
     m_gpsInfoCache = make_unique<location::GpsInfo>(gpsInfo);
 
   auto routeMatchingInfo = GetRouteMatchingInfo(gpsInfo);
-  m_drapeEngine.SafeCall(&df::DrapeEngine::SetGpsInfo, gpsInfo, m_routingSession.IsNavigable(),
-                         m_routingSession.GetDistanceToNextTurn(), m_routingSession.GetCurrentSpeedLimit(),
-                         routeMatchingInfo);
+  df::NavigationContext navigationContext(m_routingSession.IsNavigable(), m_routingSession.GetDistanceToNextTurn(),
+                                          m_routingSession.GetCurrentSpeedLimit(), GetRoutePolyline());
+  m_drapeEngine.SafeCall(&df::DrapeEngine::SetGpsInfo, gpsInfo, navigationContext, routeMatchingInfo);
 }
 
 void RoutingManager::DeleteSavedRoutePoints()
@@ -1589,4 +1747,9 @@ void RoutingManager::SetSubroutesVisibility(bool visible)
 bool RoutingManager::IsSpeedCamLimitExceeded() const
 {
   return m_routingSession.IsSpeedCamLimitExceeded();
+}
+
+std::vector<routing::RouteStepInfo> RoutingManager::GetRouteTurnsForDisplay(std::string const & locale) const
+{
+  return m_routingSession.GetRouteTurnsForDisplay(locale);
 }

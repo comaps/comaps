@@ -2,6 +2,16 @@
 
 #include "map/user_mark.hpp"
 
+#include "kml/type_utils.hpp"
+
+#include "drape_frontend/render_state_extension.hpp"
+#include "drape_frontend/shape_view_params.hpp"
+
+#include "drape/drape_global.hpp"
+#include "drape/pointers.hpp"
+
+#include "geometry/point2d.hpp"
+
 class TrackInfoMark : public UserMark
 {
 public:

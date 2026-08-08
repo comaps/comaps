@@ -1,12 +1,16 @@
 #include "coding/mmap_reader.hpp"
 
-#include "base/scope_guard.hpp"
+#include "base/assert.hpp"
+#include "base/exception.hpp"
+#include "base/logging.hpp"
 
 #include "std/target_os.hpp"
 
 #include <cstring>
 
 #ifdef OMIM_OS_WINDOWS
+#include "base/scope_guard.hpp"
+
 #include "std/windows.hpp"
 #else
 #include <fcntl.h>

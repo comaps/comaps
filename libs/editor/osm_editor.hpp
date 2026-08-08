@@ -1,6 +1,5 @@
 #pragma once
 
-#include "editor/changeset_wrapper.hpp"
 #include "editor/config_loader.hpp"
 #include "editor/editor_config.hpp"
 #include "editor/editor_notes.hpp"
@@ -11,9 +10,11 @@
 #include "indexer/edit_journal.hpp"
 #include "indexer/editable_map_object.hpp"
 #include "indexer/feature.hpp"
+#include "indexer/feature_decl.hpp"
 #include "indexer/feature_source.hpp"
 #include "indexer/mwm_set.hpp"
 
+#include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
 #include "base/atomic_shared_ptr.hpp"
@@ -42,6 +43,8 @@ class XMLFeature;
 
 namespace osm
 {
+class ChangesetWrapper;
+
 // NOTE: this class is thead-safe for read operations,
 // but write operations should be called on main thread only.
 class Editor final : public MwmSet::Observer

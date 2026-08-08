@@ -1,13 +1,16 @@
 #include "drape/mesh_object.hpp"
 
+#include "drape/drape_global.hpp"
 #include "drape/gl_constants.hpp"
 #include "drape/gl_functions.hpp"
 #include "drape/gl_gpu_program.hpp"
 #include "drape/glsl_func.hpp"
 #include "drape/glsl_types.hpp"
-#include "drape/texture_manager.hpp"
+#include "drape/gpu_program.hpp"
+#include "drape/graphics_context.hpp"
 
 #include "base/assert.hpp"
+#include "base/macros.hpp"
 
 namespace
 {

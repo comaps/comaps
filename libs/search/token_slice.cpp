@@ -1,5 +1,7 @@
 #include "search/token_slice.hpp"
 
+#include "search/token_range.hpp"
+
 #include <sstream>
 
 namespace search

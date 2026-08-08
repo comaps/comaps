@@ -179,13 +179,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Ilgis</string>
     <string name="share_my_location">Bendrinti mano vietą</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Bendrieji nustatymai</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Informacija</string>
     <string name="prefs_group_route">Navigacija</string>
     <string name="pref_zoom_title">Mastelio mygtukai</string>
     <string name="pref_zoom_summary">Rodyti žemėlapyje</string>
+    <string name="prefs_group_advanced">Kita</string>
+    <string name="download_resources_custom_url_title">Pasirinktinis žemėlapių serveris</string>
+    <string name="download_resources_custom_url_message">Žemėlapiams parsisiųsti galite nurodyti kitą, nei numatytasis, serverį. Palikite lauką tuščią, jei norite naudoti numatytąjį „CoMaps“ serverį.</string>
+    <string name="download_resources_custom_url_summary_none">Nenurodytas</string>
+    <string name="download_resources_custom_url_error_scheme">Įveskite URL adresą, prasidedantį „http://“ arba „https://“</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Nakties veiksena</string>
     <!-- Generic «Off» string -->
@@ -236,7 +239,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Sukalibruokite telefono kompasą ir pagerinkite navigaciją, judindami telefoną aštuoniukės judesiu.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Bakstelėkite ir palaikykite žemėlapį vėl, kad pamatytumėte sąsają</string>
+    <string name="enable_long_tap_fullscreen_description">Bakstelėkite ir palaikykite žemėlapį vėl, kad pamatytumėte sąsają</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Naujinti viską</string>
     <!-- Cancel all button text -->
@@ -563,7 +566,7 @@
     <string name="profile">„OpenStreetMap“ profilis</string>
     <string name="restore">Atkurti</string>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Privatumas</string>
+    <string name="prefs_group_privacy">Privatumas</string>
     <string name="privacy_policy">Privatumo politika</string>
     <string name="terms_of_use">Naudojimo sąlygos</string>
     <string name="button_layer_traffic">Eismas</string>
@@ -591,7 +594,7 @@
     <string name="power_managment_setting_auto">Esant žemai įkrovai</string>
     <string name="power_managment_setting_manual_max">Visada</string>
     <string name="enable_logging_warning_message">Įjunkite šią parinktį, jei norite kurį laiką rašyti derinimo žurnalą. Pasinaudodami mygtuku „Pranešti apie klaidą“, esančiu žinyno dialogo lange, galėsite pranešti apie problemą, pridėdami sukauptą žurnalą. Žurnaluose gali būti vietos duomenų.</string>
-    <string name="driving_options_title">Maršruto apskaičiavimo parinktys</string>
+    <string name="routing_options_title">Maršruto apskaičiavimo parinktys</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_unpaved">Vengti negrįstų kelių</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -887,14 +890,10 @@
     <string name="prefs_speed_cameras_information">Įspėjimai apie greičio matuoklius negalimi šalyse, kuriose tai draudžiama įstatymu.</string>
     <string name="navigation_start_tts_message">"Pradedama navigacija, balso instrukcijų kalba: "</string>
     <string name="navigation_start_tts_disabled_message">Balso instrukcijos išjungtos: šnekos sintezės sistema neprieinama</string>
-    <string name="advanced">Kita</string>
-    <string name="download_resources_custom_url_title">Pasirinktinis žemėlapių serveris</string>
-    <string name="download_resources_custom_url_message">Žemėlapiams parsisiųsti galite nurodyti kitą, nei numatytasis, serverį. Palikite lauką tuščią, jei norite naudoti numatytąjį „CoMaps“ serverį.</string>
-    <string name="download_resources_custom_url_summary_none">Nenurodytas</string>
-    <string name="download_resources_custom_url_error_scheme">Įveskite URL adresą, prasidedantį „http://“ arba „https://“</string>
     <string name="pref_maplanguage_local">Vietos kalba</string>
     <string name="location_privacy_info">Programos vietovės duomenis gauna iš jūsų įrenginio operacinės sistemos vietovės tarnybos, kuri šiuos duomenis gali taip pat bendrinti su „Google“ ir/ar jūsų įrenginio gamintoju. Jei norite to išvengti, naudokitės privatumą saugančia „Android“ operacinės sistemos atmaina.</string>
     <string name="location_privacy">Vietovės duomenų privatumas</string>
     <string name="pref_speedlimit_title">Rodyti greičio ribojimus</string>
     <string name="rooms">%s kamb.</string>
+    <string name="change_app_locale">Programėlės sąsajos kalba</string>
 </resources>

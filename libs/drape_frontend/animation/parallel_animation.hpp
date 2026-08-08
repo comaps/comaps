@@ -4,6 +4,8 @@
 
 #include "drape/pointers.hpp"
 
+#include "base/assert.hpp"
+
 #include <list>
 #include <string>
 

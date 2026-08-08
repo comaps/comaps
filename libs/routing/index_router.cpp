@@ -1,25 +1,33 @@
 #include "routing/index_router.hpp"
 
 #include "routing/base/astar_progress.hpp"
-
 #include "routing/car_directions.hpp"
+#include "routing/checkpoints.hpp"
+#include "routing/cross_mwm_graph.hpp"
+#include "routing/directions_engine.hpp"
+#include "routing/edge_estimator.hpp"
+#include "routing/fake_edges_container.hpp"
 #include "routing/fake_ending.hpp"
-#include "routing/index_graph.hpp"
+#include "routing/fake_feature_ids.hpp"
+#include "routing/fake_vertex.hpp"
 #include "routing/index_graph_loader.hpp"
 #include "routing/index_graph_starter.hpp"
 #include "routing/index_graph_starter_joints.hpp"
 #include "routing/index_road_graph.hpp"
+#include "routing/joint_segment.hpp"
 #include "routing/junction_visitor.hpp"
+#include "routing/latlon_with_altitude.hpp"
 #include "routing/leaps_graph.hpp"
-#include "routing/leaps_postprocessor.hpp"
 #include "routing/mwm_hierarchy_handler.hpp"
 #include "routing/pedestrian_directions.hpp"
 #include "routing/route.hpp"
+#include "routing/router_delegate.hpp"
 #include "routing/routing_helpers.hpp"
 #include "routing/routing_options.hpp"
 #include "routing/single_vehicle_world_graph.hpp"
 #include "routing/speed_camera_prohibition.hpp"
 #include "routing/traffic_stash.hpp"
+#include "routing/transit_graph_loader.hpp"
 #include "routing/transit_world_graph.hpp"
 #include "routing/vehicle_mask.hpp"
 
@@ -27,23 +35,31 @@
 
 #include "routing_common/bicycle_model.hpp"
 #include "routing_common/car_model.hpp"
+#include "routing_common/decoder_model.hpp"
+#include "routing_common/num_mwm_id.hpp"
 #include "routing_common/pedestrian_model.hpp"
 
-#include "indexer/data_source.hpp"
-
+#include "platform/country_file.hpp"
+#include "platform/local_country_file.hpp"
 #include "platform/settings.hpp"
 
 #include "geometry/distance_on_sphere.hpp"
 #include "geometry/mercator.hpp"
 #include "geometry/parametrized_segment.hpp"
+#include "geometry/point_with_altitude.hpp"
 #include "geometry/polyline2d.hpp"
+#include "geometry/rect2d.hpp"
 #include "geometry/segment2d.hpp"
 
 #include "base/assert.hpp"
+#include "base/buffer_vector.hpp"
+#include "base/cancellable.hpp"
 #include "base/exception.hpp"
 #include "base/logging.hpp"
+#include "base/math.hpp"
 #include "base/scope_guard.hpp"
 #include "base/stl_helpers.hpp"
+#include "base/timer.hpp"
 
 #include "defines.hpp"
 
@@ -104,6 +120,7 @@ shared_ptr<VehicleModelFactoryInterface> CreateVehicleModelFactory(
   case VehicleType::Transit: return make_shared<PedestrianModelFactory>(countryParentNameGetterFn);
   case VehicleType::Bicycle: return make_shared<BicycleModelFactory>(countryParentNameGetterFn);
   case VehicleType::Car: return make_shared<CarModelFactory>(countryParentNameGetterFn);
+  case VehicleType::Decoder: return make_shared<DecoderModelFactory>(countryParentNameGetterFn);
   case VehicleType::Count: CHECK(false, ("Can't create VehicleModelFactoryInterface for", vehicleType)); return nullptr;
   }
   UNREACHABLE();
@@ -117,7 +134,14 @@ unique_ptr<DirectionsEngine> CreateDirectionsEngine(VehicleType vehicleType, sha
   case VehicleType::Pedestrian:
   case VehicleType::Transit: return make_unique<PedestrianDirectionsEngine>(dataSource, numMwmIds);
   case VehicleType::Bicycle:
-  case VehicleType::Car: return make_unique<CarDirectionsEngine>(dataSource, numMwmIds);
+  case VehicleType::Car:
+  case VehicleType::Decoder:
+    /*
+     * For `VehicleType::Decoder` the directions engine serves no useful purpose.
+     * We could return `nullptr` here, but we would have to go through every usage of
+     * `m_directionsEngine` and ensure it can handle a null pointer.
+     */
+    return make_unique<CarDirectionsEngine>(dataSource, numMwmIds);
   case VehicleType::Count: CHECK(false, ("Can't create DirectionsEngine for", vehicleType)); return nullptr;
   }
   UNREACHABLE();
@@ -292,6 +316,8 @@ IndexRouter::IndexRouter(VehicleType vehicleType, bool loadAltitudes,
   CHECK(m_estimator, ());
   CHECK(m_directionsEngine, ());
 }
+
+IndexRouter::~IndexRouter() = default;
 
 unique_ptr<WorldGraph> IndexRouter::MakeSingleMwmWorldGraph()
 {
@@ -580,7 +606,7 @@ RouterResultCode IndexRouter::DoCalculateRoute(Checkpoints const & checkpoints, 
     FakeEnding startFakeEnding = m_guides.GetFakeEnding(i);
     FakeEnding finishFakeEnding = m_guides.GetFakeEnding(i + 1);
 
-    bool isStartSegmentStrictForward = (m_vehicleType == VehicleType::Car);
+    bool isStartSegmentStrictForward = ((m_vehicleType == VehicleType::Car) || (m_vehicleType == VehicleType::Decoder));
     if (startFakeEnding.m_projections.empty() || finishFakeEnding.m_projections.empty())
     {
       bool const isFirstSubroute = (i == checkpoints.GetPassedIdx());
@@ -1093,7 +1119,7 @@ RouterResultCode IndexRouter::AdjustRoute(Checkpoints const & checkpoints, m2::P
 
 RoutingOptions IndexRouter::GetRoutingOptions()
 {
-  return RoutingOptions::LoadCarOptionsFromSettings();
+  return RoutingOptions::LoadOptionsFromSettings(m_vehicleType);
 }
 
 unique_ptr<WorldGraph> IndexRouter::MakeWorldGraph()
@@ -1102,7 +1128,7 @@ unique_ptr<WorldGraph> IndexRouter::MakeWorldGraph()
   RoutingOptions const routingOptions = GetRoutingOptions();
   /// @DebugNote
   // Add avoid roads here for debug purpose.
-  // routingOptions.Add(RoutingOptions::Road::Motorway);
+  // routingOptions.Add(RoutingOptions::Option::Motorway);
   LOG(LINFO, ("Avoid next roads:", routingOptions));
 
   auto crossMwmGraph = make_unique<CrossMwmGraph>(
@@ -1835,6 +1861,7 @@ void IndexRouter::SetupAlgorithmMode(IndexGraphStarter & starter, bool guidesAct
   case VehicleType::Bicycle: starter.GetGraph().SetMode(WorldGraphMode::Joints); break;
   case VehicleType::Transit: starter.GetGraph().SetMode(WorldGraphMode::NoLeaps); break;
   case VehicleType::Car:
+  case VehicleType::Decoder:
     starter.GetGraph().SetMode(AreMwmsNear(starter) ? WorldGraphMode::Joints : WorldGraphMode::LeapsOnly);
     break;
   case VehicleType::Count: CHECK(false, ("Unknown vehicle type:", m_vehicleType)); break;

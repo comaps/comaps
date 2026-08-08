@@ -2,12 +2,15 @@
 
 #include "routing_common/num_mwm_id.hpp"
 
-#include "storage/country_info_getter.hpp"
-#include "storage/storage.hpp"
-
 #include "geometry/tree4d.hpp"
 
 #include <memory>
+
+namespace storage
+{
+class CountryInfoGetter;
+class Storage;
+}  // namespace storage
 
 namespace routing
 {

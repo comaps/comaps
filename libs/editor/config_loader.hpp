@@ -1,8 +1,6 @@
 #pragma once
 
 #include "base/atomic_shared_ptr.hpp"
-#include "base/exception.hpp"
-#include "base/logging.hpp"
 
 #include <condition_variable>
 #include <memory>

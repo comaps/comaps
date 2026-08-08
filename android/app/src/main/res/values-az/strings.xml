@@ -187,8 +187,6 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Uzunluq</string>
     <string name="share_my_location">Məkanımı Paylaşın</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Ümumi Parametrlər</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Məlumat</string>
     <string name="prefs_group_route">Naviqasiya</string>
@@ -250,7 +248,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Kompası kalibrləmək və xəritədə oxun istiqamətini düzəltmək üçün telefonu səkkiz rəqəmlə hərəkət etdirin.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">İnterfeysi görmək üçün yenidən xəritəyə uzun müddət toxunun</string>
+    <string name="enable_long_tap_fullscreen_description">İnterfeysi görmək üçün yenidən xəritəyə uzun müddət toxunun</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Hamısını yeniləyin</string>
     <!-- Cancel all button text -->
@@ -587,7 +585,7 @@
         <item quantity="other">%d istiqamətlər</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Məxfilik</string>
+    <string name="prefs_group_privacy">Məxfilik</string>
     <string name="privacy_policy">Gizlilik Siyasəti</string>
     <string name="terms_of_use">İstifadə qaydaları</string>
     <string name="button_layer_traffic">Nəqliyyat</string>
@@ -615,7 +613,7 @@
     <string name="power_managment_setting_auto">Avtomatik</string>
     <string name="power_managment_setting_manual_max">Maksimum enerji qənaəti</string>
     <string name="enable_logging_warning_message">Yardım dialoq qutusunda “Problemi bildir” istifadə etməklə probleminizlə bağlı ətraflı diaqnostik jurnalları qeyd etmək və bizə göndərmək üçün bu seçimi müvəqqəti aktivləşdirin. Qeydlərə məkan məlumatı daxil ola bilər.</string>
-    <string name="driving_options_title">Marşrutlaşdırma seçimləri</string>
+    <string name="routing_options_title">Marşrutlaşdırma seçimləri</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Rüsumlardan çəkinin</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

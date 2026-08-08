@@ -1,6 +1,7 @@
 #include "search/cities_boundaries_table.hpp"
 
 #include "search/categories_cache.hpp"
+#include "search/cbv.hpp"
 #include "search/localities_source.hpp"
 #include "search/mwm_context.hpp"
 
@@ -8,12 +9,15 @@
 #include "indexer/mwm_set.hpp"
 #include "indexer/utils.hpp"
 
+#include "coding/files_container.hpp"
 #include "coding/reader.hpp"
 
 #include "base/assert.hpp"
 #include "base/cancellable.hpp"
 #include "base/checked_cast.hpp"
 #include "base/logging.hpp"
+
+#include "defines.hpp"
 
 #include <algorithm>
 #include <sstream>

@@ -1,5 +1,14 @@
 #include "routing/traffic_stash.hpp"
 
+#include "routing/segment.hpp"
+
+#include "traffic/traffic_cache.hpp"
+
+#include "indexer/mwm_set.hpp"
+
+#include "platform/local_country_file.hpp"
+
+#include "base/assert.hpp"
 #include "base/checked_cast.hpp"
 
 #include <map>

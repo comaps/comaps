@@ -459,7 +459,7 @@
 "editor_focus_map_on_location" = "Arrossegueu el mapa per col·locar la creu a la ubicació del lloc o de l'empresa.";
 "editor_add_select_category" = "Trieu una categoria";
 "editor_add_select_category_popular_subtitle" = "Popular";
-"editor_add_select_category_all_subtitle" = "Totes les categories";
+"editor_add_select_category_all_subtitle" = "Totes les Categories";
 "editor_edit_place_title" = "Edició";
 "editor_add_place_title" = "Addició";
 "editor_edit_place_name_hint" = "Nom del lloc";
@@ -681,8 +681,6 @@
 "yes_available" = "Sí";
 /* E.g. "WiFi:No" */
 "no_available" = "No";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Capacitat: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Xarxa: %@";
 "trip_finished" = "Heu arribat!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Add Place";
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"downloader_check_updates_button" = "Comprova actualitzacions";
+"downloader_check_updates_checking" = "Comprovant actualitzacions...";
+"downloader_check_updates_updated" = "Hi ha actualitzacions dels mapes!";
+"downloader_check_updates_no_updates" = "Cap actualització disponible";
+"downloader_check_updates_eol" = "No hi ha més actualitzacions per a mapes en aquesta versió. Per favor, actualitza l'app!";
+"downloader_check_updates_error" = "No s'han pogut comprovar les actualitzacions";
+"editor_add_select_category_recent_subtitle" = "Usades Recentment";
+"oh_unknown" = "Opening hours unknown";
+"carplay_highway_exit" = "Exit %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "No dedicated disabled spaces";
+"capacity_charging_yes" = "Has spaces with chargers";
+"capacity_charging_no" = "No spaces with chargers";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

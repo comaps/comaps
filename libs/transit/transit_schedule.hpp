@@ -1,7 +1,5 @@
 #pragma once
 
-#include "base/macros.hpp"
-#include "base/newtype.hpp"
 #include "base/visitor.hpp"
 
 #include <array>

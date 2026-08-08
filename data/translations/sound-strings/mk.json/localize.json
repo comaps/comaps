@@ -1,0 +1,209 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Свртете малку надесно."
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Свртете надесно."
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Свртете нагло надесно."
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "Влезете во кружниот тек."
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Излезете од кружниот тек."
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Свртете малку налево."
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Свртете налево."
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Свртете нагло налево."
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Направете полукружнo свртување."
+    },
+    "go_straight": {
+        "defaultMessage": "Продолжете право."
+    },
+    "exit": {
+        "defaultMessage": "Излезете."
+    },
+    "onto": {
+        "defaultMessage": "во"
+    },
+    "take_exit_number": {
+        "defaultMessage": "Излезете на излезот"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Пресметување на рутата"
+    },
+    "destination": {
+        "defaultMessage": "Пристигнувате на одредиштето."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "Пристигнавте."
+    },
+    "in_50_meters": {
+        "defaultMessage": "За педесет метри"
+    },
+    "in_100_meters": {
+        "defaultMessage": "За сто метри"
+    },
+    "in_200_meters": {
+        "defaultMessage": "За двесте метри"
+    },
+    "in_250_meters": {
+        "defaultMessage": "За двесте и педесет метри"
+    },
+    "in_300_meters": {
+        "defaultMessage": "За триста метри"
+    },
+    "in_400_meters": {
+        "defaultMessage": "За четиристотини метри"
+    },
+    "in_500_meters": {
+        "defaultMessage": "За петстотини метри"
+    },
+    "in_600_meters": {
+        "defaultMessage": "За шестотини метри"
+    },
+    "in_700_meters": {
+        "defaultMessage": "За седумстотини метри"
+    },
+    "in_750_meters": {
+        "defaultMessage": "За седумстотини и педесет метри"
+    },
+    "in_800_meters": {
+        "defaultMessage": "За осумстотини метри"
+    },
+    "in_900_meters": {
+        "defaultMessage": "За деветстотини метри"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "За еден километар"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "За еден и пол километар"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "За два километри"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "За два и пол километри"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "За три километри"
+    },
+    "then": {
+        "defaultMessage": "Потоа"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Излезете на првиот излез."
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Излезете на вториот излез."
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Излезете на третиот излез."
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Излезете на четвртиот излез."
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Излезете на петтиот излез."
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Излезете на шестиот излез."
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Излезете на седмиот излез."
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Излезете на осмиот излез."
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Излезете на деветтиот излез."
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Излезете на десеттиот излез."
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Излезете на единаесеттиот излез."
+    },
+    "in_50_feet": {
+        "defaultMessage": "За педесет стапки"
+    },
+    "in_100_feet": {
+        "defaultMessage": "За сто стапки"
+    },
+    "in_200_feet": {
+        "defaultMessage": "За двесте стапки"
+    },
+    "in_300_feet": {
+        "defaultMessage": "За триста стапки"
+    },
+    "in_400_feet": {
+        "defaultMessage": "За четиристотини стапки"
+    },
+    "in_500_feet": {
+        "defaultMessage": "За петстотини стапки"
+    },
+    "in_600_feet": {
+        "defaultMessage": "За шестотини стапки"
+    },
+    "in_700_feet": {
+        "defaultMessage": "За седумстотини стапки"
+    },
+    "in_800_feet": {
+        "defaultMessage": "За осумстотини стапки"
+    },
+    "in_900_feet": {
+        "defaultMessage": "За деветстотини стапки"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "За илјада стапки"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "За илјада и петстотини стапки"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "За две илјади стапки"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "За две илјади и петстотини стапки"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "За три илјади стапки"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "За три илјади и петстотини стапки"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "За четири илјади стапки"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "За четири илјади и петстотини стапки"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "За пет илјади стапки"
+    },
+    "in_1_mile": {
+        "defaultMessage": "За една милја"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "За една и пол милја"
+    },
+    "in_2_miles": {
+        "defaultMessage": "За две милји"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Внимание, камера за брзина"
+    }
+}

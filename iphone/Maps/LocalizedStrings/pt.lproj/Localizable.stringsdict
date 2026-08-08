@@ -72,10 +72,12 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
-			<key>other</key>
-			<string>%lld residents</string>
 			<key>one</key>
-			<string>%lld resident</string>
+			<string>%lld residentes</string>
+			<key>many</key>
+			<string>%lld de residentes</string>
+			<key>other</key>
+			<string>%lld residentes</string>
 		</dict>
 	</dict>
 	<key>rooms</key>
@@ -88,10 +90,66 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
-			<key>other</key>
-			<string>%lld rooms</string>
 			<key>one</key>
-			<string>%lld room</string>
+			<string>%lld quarto</string>
+			<key>many</key>
+			<string>%lld de quartos</string>
+			<key>other</key>
+			<string>%lld quartos</string>
+		</dict>
+	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld lugar de estacionamento para pessoas com deficiência</string>
+			<key>many</key>
+			<string>%lld de lugares de estacionamento para pessoas com deficiência</string>
+			<key>other</key>
+			<string>%lld lugares de estacionamento para pessoas com deficiência</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld lugar de estacionamento com carregador</string>
+			<key>many</key>
+			<string>%lld de lugares de estacionamento com carregadores</string>
+			<key>other</key>
+			<string>%lld lugares de estacionamento com carregadores</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld lugar de estacionamento</string>
+			<key>many</key>
+			<string>%lld de lugares de estacionamento</string>
+			<key>other</key>
+			<string>%lld lugares de estacionamento</string>
 		</dict>
 	</dict>
 </dict>

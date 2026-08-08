@@ -2,14 +2,14 @@
 
 #include "map/user_mark.hpp"
 
+#include "drape_frontend/color_constants.hpp"
 #include "drape_frontend/drape_engine_safe_ptr.hpp"
+
+#include "drape/pointers.hpp"
 
 #include "indexer/feature_decl.hpp"
 
 #include "geometry/point2d.hpp"
-#include "geometry/screenbase.hpp"
-
-#include "base/control_flow.hpp"
 
 #include <functional>
 #include <map>
@@ -20,6 +20,12 @@
 #include <vector>
 
 class BookmarkManager;
+class ScreenBase;
+
+namespace df
+{
+class DrapeEngine;
+}  // namespace df
 
 class SearchMarkPoint : public UserMark
 {

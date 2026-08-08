@@ -2,6 +2,10 @@
 
 #include "editor/osm_editor.hpp"
 
+#include "indexer/editable_map_object.hpp"
+#include "indexer/feature.hpp"
+#include "indexer/feature_decl.hpp"
+
 FeatureStatus EditableFeatureSource::GetFeatureStatus(uint32_t index) const
 {
   osm::Editor & editor = osm::Editor::Instance();

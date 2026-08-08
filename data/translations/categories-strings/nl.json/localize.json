@@ -1,0 +1,1868 @@
+{
+    "@category_eat": {
+        "defaultMessage": "3Eetgelegenheden|Eten"
+    },
+    "@category_food": {
+        "defaultMessage": "Boodschappen|Kruidenier|Eten"
+    },
+    "@category_transport": {
+        "defaultMessage": "5Transport"
+    },
+    "@category_fuel": {
+        "defaultMessage": "4Benzine|4Diesel|5Brandstof|4Tankstation"
+    },
+    "@category_parking": {
+        "defaultMessage": "4Parkeerplaats"
+    },
+    "@category_shopping": {
+        "defaultMessage": "4Winkelen|winkels"
+    },
+    "@category_hotel": {
+        "defaultMessage": "3Hotel|hotels|4Accomodatie|5overnachten"
+    },
+    "@category_tourism": {
+        "defaultMessage": "5Bezienswaardigheden|4Toerisme"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "4Amusement|4Uitgaan"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "4Nachtleven"
+    },
+    "@category_children": {
+        "defaultMessage": "4Gezinsvakantie|kinderen|baby's|gezin|familie|gezinsvriendelijk"
+    },
+    "@category_atm": {
+        "defaultMessage": "3Geldautomaat|4Pinautomaat"
+    },
+    "@category_rv": {
+        "defaultMessage": "4Caravanfaciliteiten|4Caravan|4Camperfaciliteiten|4Camper"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "geld|cash|5minibank|6mini-bank|6mini bank"
+    },
+    "@category_bank": {
+        "defaultMessage": "3Bank"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "4Tweedehands|tweedehands|tweede-kans|tweede kans|4Gebruikte artikelen"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "geld"
+    },
+    "@category_recycling": {
+        "defaultMessage": "Recycling|Afvalgebruik|Recyclebaar materiaal|Gescheiden afvalinzameling|Afval sorteren|Hergebruik"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "3Wisselkantoor|3geld wisselen|wisselen|geld"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "2Bar|2pub|kroeg|bier|drinken"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "3Café|koffie|thee|cafeteria"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "4Fastfood|4Snackbar|4afhalen|4afhaaleten|afhaalvoedsel"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "4Restaurant"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "4Tankstation|4brandstof"
+    },
+    "@shop": {
+        "defaultMessage": "Winkel"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "3Bakkerij|Bakker|Gebak|Taart|3Taarten|5Banketbakker|5Banketbakkerij|3Patisserie"
+    },
+    "shop-cannabis|@shop": {
+        "defaultMessage": "Coffeeshop|wiet"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "4Cosmetica|5Schoonheidsmiddelen|4makeup|make-up"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "4Buurtwinkel|4Gemakswinkel|kruidenier|supermarktje"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "Delicatessenwinkel"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "Tuincentrum"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "4Hoortoestellen|6Gehoortoestellen"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "4Mobiele-telefoonwinkel|elektronicawinkel"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "Bloemist|bloemenwinkel"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "4Slager|beenhouwer|vlees"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "4Meubelzaak|4Meubelwinkel"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "4Keuken|keukenattributen"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "Slijterij|drankhandel"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "Boeken|Boekenwinkel|boekwinkel|boekhandel"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "Schoenenwinkel|schoenwinkel"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "4Elektronicawinkel"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "6Gereedschap|4Klussen|Bouwmarkt|DHZ|3doe het zelf|doe-het-zelf|5IJzerwaren"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "4Huishouden"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "4Juwelier|sieraden|juwelen"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "4Opticien|4brillen|5zonnebrillen"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "5Geschenken|4souvenir|souvenirs|geschenk|6cadeaus|5Souvenir shop"
+    },
+    "shop-beauty": {
+        "defaultMessage": "5Schoonheidssalon|schoonheidsspecialiste|schoonheidssalon|4haarkleuring|permanent"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "Groentenwinkel|groenteboer"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "4Sportartikelen|4Sportwinkel"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "3Supermarkt"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "6Winkelcentrum|Gallerij|winkelgalerij|winkels"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "5Warenhuis"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "Drank|slijterij"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "4Computerzaak|computer|computers"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "Banketbakker|snoepwinkel|snoep|snoepjes|zoetigheden"
+    },
+    "shop-laundry": {
+        "defaultMessage": "4Wasserette"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "Speelgoed|Speelgoedwinkel|kinderen"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "3Markt"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "4Overschrijving|4Geld overmaken"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "4Kleding|kleding|mode|kledingstukken"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "4Autohandelaar|Autodealer|autos"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "5Fietsenwinkel|fiets|fietsen"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "3Kiosk"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "3Bushalte|bus|halte"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "3Tramhalte|tram|halte"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "Busstation|2bus|station"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "4Station|4spoorwegen|spoor|3trein|halte"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "4Funicular|Kabelspoorweg"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "4Metrosation|5ondergrondse|metro"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "3Veerpont|veerboot|veer|pont|overzetboot"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "3Taxi|Taxistandplaats"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "3Gemeentehuis|4Stadhuis"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "3Attractie|3toerisme"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "3Kunstwerk"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "4Uitzicht|panorama|Uitkijkpunt"
+    },
+    "tourism-information": {
+        "defaultMessage": "4Toeristische informatie|3VVV|4informatie"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "4Picknickplaats|picknickweide|picknicktafel|4barbecue"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "5Gebedshuis|5gebedsplaats|3tempel"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "Kerk|5gebedshuis|3tempel|4cathedraal|4basiliek|6christendom"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "4Moskee|3tempel|5gebedsplaats|gebedshuis|3islam"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "3Tempel|5gebedshuis|4boeddhistische tempel|4boeddhisme|"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "3Tempel|5gebedshuis|4hindoetempel|4hindoeïsme"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "6Heiligdom|5gebedshuis|3tempel|4shinto tempel|4shinto"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "4Synagoge|5gebedshuis|3tempel|3jodendom"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "3Tempel|5gebedshuis|3taoïstische tempel|3taoïsme"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "2Museum|attractie"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "2Watervallen|waterval"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "4Archeologische vindplaats|opgravingen|attractie"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "Slagveld"
+    },
+    "historic-stone": {
+        "defaultMessage": "5Historische steen"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "5Grenssteen"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "4Kasteel|burcht|attractie|Castra|Weerkerk|Vesting|Heuvelfort|Kremlin|Manoir|Paleis"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "5Stadspoort"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "5Stadsmuur"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "Fort"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "Galg"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "Gedenkteken|monument|attractie"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "Herdenkingskruis"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "Gedenkplaat"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "5Sculptuur"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "5Standbeeld"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "Struikelsteen|Struikelsteentje"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "Oorlogsmonument"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "4Monument|attractie"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "Schandpaal"
+    },
+    "historic-cannon": {
+        "defaultMessage": "Kanon"
+    },
+    "historic-anchor": {
+        "defaultMessage": "4Historisch anker"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "3Historische ruïne|3ruïne"
+    },
+    "historic-mine": {
+        "defaultMessage": "4Historische mijn"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "Schip|boot"
+    },
+    "historic-wreck": {
+        "defaultMessage": "Schipbreuk"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "4Historische locomotief"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "4Historische tank"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "4Historisch vliegtuig"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "Tombe|graf|gedenkteken"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "Wegkruis"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "Kruisbeeld"
+    },
+    "leisure-dog_park": {
+        "defaultMessage": "4Hondenpark|Hondengebied"
+    },
+    "leisure-garden": {
+        "defaultMessage": "2Tuin"
+    },
+    "amenity-bench": {
+        "defaultMessage": "Zitbank|bankje"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "5Fietsverhuur|fietsen|fiets|3Verhuur|fietsenhuur"
+    },
+    "amenity-bicycle_repair_station": {
+        "defaultMessage": "5Fietsenreparatie|fiets|4reparatie van fietsen"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "5Autodelen|autodelen|auto|delen|4Deelauto"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "4Autoverhuur|4huurauto|auto delen|auto|huur"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "5Motorverhuur|motor|verhuur|5scooter|4Verhuur van motorfietsen|motorfietsen"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "3Cinema|4Filmtheater|4bioscoop|film"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "4Bowlingbaan"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "3Theater|schouwburg"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "3Discotheek|3disco|dansen|nachtclub"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "Bordeel"
+    },
+    "@gambling": {
+        "defaultMessage": "Gokken"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "Casino|goktent"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "Gamingcentrum voor volwassenen"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "Arcade"
+    },
+    "amenity-college": {
+        "defaultMessage": "Middelbaar beroepsonderwijs|ROC|Mbo"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "Brandweer"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "4Fontein"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "Begraafplaats|kerkhof"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "4Uitvaartondernemer|4Begrafenisondernemer"
+    },
+    "@category_hospital": {
+        "defaultMessage": "4Ziekenhuis|4hospitaal"
+    },
+    "amenity-hospital|@category_hospital": {
+        "defaultMessage": "kliniek|hospitaal|3dokter|3eerste hulp"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "4Kliniek|ziekenhuis|hospitaal"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "Huisartsenpost|Kliniek|huisarts|ziekenhuis|dokter"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "Tandarts"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "Medisch laboratorium"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "Fysiotherapeut"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "Alternatieve geneeskunde"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "Audiologie|Audioloog"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "Bloeddonatiecentrum|Bloeddonatie"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "Optometrie|Optometrist"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "Podologie|Podotherapeut"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "Psychotherapie|Psychotherapeut"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "Logopedie|Logopedist|Spraaktherapie"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "4Jagershut|4Jachtpost"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "Kleuterschool"
+    },
+    "amenity-library": {
+        "defaultMessage": "3Bibliotheek|4leenbibliotheek|3boek|boeken"
+    },
+    "amenity-parking|amenity-parking_entrance|@category_parking": {
+        "defaultMessage": "4Parkeren|parkeerplaats|parking"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "3Apotheek"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "Apotheek|drogist"
+    },
+    "@category_post": {
+        "defaultMessage": "3Post"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "3Brievenbus|post"
+    },
+    "amenity-post_office|post_office-post_partner|@category_post": {
+        "defaultMessage": "3Postkantoor"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "Voertuiginspectie"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "4Afvalcontainer|afval|prullenbak|vuilnis"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "Milieustraat|recycling centrum|milieupark|gemeentewerf"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "4Recyclingcontainer"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "Batterijen"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "3Oude kleding|3Oude kleding recyclen|4Kledingbak|4Textielcontainer"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "4Recycling van glasflessen|4Glasrecycling|Glasafval|Glascontainer|Glasbak"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "4Recycling van papier|4Papierrecycling|Papierafval|Papiercontainer|Papierbak"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "4Recycling van plastic|5Plasticrecycling|Plastic afval|Plasticcontainer|Plasticbak"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "4Recycling van plastic flessen|5Plastic flessen recycling|Plasticcontainer|Plasticbak"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "4Recycling van metaal|4Metaalrecycling|Metaal container|Metaalbak"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "Elektronisch afval"
+    },
+    "amenity-school": {
+        "defaultMessage": "3School|basisschool|middelbare school"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "4Schuilplaats|4Beschutting"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "Hut|3Bivakhut"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "5Schuilplaats tegen de wind|Schuilplaats|5toevluchtsoord|5beschutting"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "5Stripclub"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "2Telefoon|publieke telefoon"
+    },
+    "@category_toilet": {
+        "defaultMessage": "3Toilet|toiletten|4Sanitair|WC"
+    },
+    "amenity-toilets|toilets-yes|@category_toilet": {
+        "defaultMessage": "wc|4Toilet|pot|4sanitair"
+    },
+    "amenity-university": {
+        "defaultMessage": "4Universiteit|4Hogeschool|2Hbo"
+    },
+    "place-continent": {
+        "defaultMessage": "Continent"
+    },
+    "place-country": {
+        "defaultMessage": "Land|staat"
+    },
+    "place-city": {
+        "defaultMessage": "Stad"
+    },
+    "place-town": {
+        "defaultMessage": "Stad"
+    },
+    "place-city-capital": {
+        "defaultMessage": "Hoofdstad|stad"
+    },
+    "place-county": {
+        "defaultMessage": "Provincie|graafschap"
+    },
+    "place-state": {
+        "defaultMessage": "Deelstaat|regio|provincie"
+    },
+    "place-region": {
+        "defaultMessage": "Regio"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "Eiland|eilandje"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "Buitenwijken|voorstad|wijk|Buurt"
+    },
+    "place-hamlet": {
+        "defaultMessage": "4Gehucht|dorp|5buurtschap|5nederzetting"
+    },
+    "place-village": {
+        "defaultMessage": "Dorp|gehucht|5nederzetting"
+    },
+    "place-locality": {
+        "defaultMessage": "Plaats|streek|localiteit"
+    },
+    "place-farm": {
+        "defaultMessage": "Boerderij"
+    },
+    "highway-raceway": {
+        "defaultMessage": "Renbaan|racebaan"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "Pad|voetweg|trappen"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "Straat|Weg|Laan"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "3Afrit|3afslag|3uitgang|3kruising"
+    },
+    "@mountain": {
+        "defaultMessage": "Top|berg|bergtop|heuvel|heuveltop"
+    },
+    "natural-strait": {
+        "defaultMessage": "Zeestraat"
+    },
+    "landuse-forest": {
+        "defaultMessage": "Bos|woud"
+    },
+    "leisure-park": {
+        "defaultMessage": "Park"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "Aquarium"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "3Hostel|jeugdherberg|motel|Herberg"
+    },
+    "tourism-hotel|@category_hotel": {
+        "defaultMessage": "motel"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "Gasthuis|B&B|bed and breakfast|4Pension"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "3Motel|hostel"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "3Berghut|alpenhut|hotel"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "3Kapper|kapsalon|4haarsalon|kapperszaak|4barbier|6schoonheidssalon|kleuring|5permanent"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "5Vliegveld|5Luchthaven|5vliegtuig"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "4Stadion|stadium|4sport|sportstadion|4Olympisch stadion|sportcomplex|sportarena"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "Speeltuin|speelplaats"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "4Sportcentrum|sportcomplex|sport|sporten"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "4Golfbaan|golf"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "Minigolf"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "Escaperoom"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "4Sportveld|veld|sport"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "4Zwembad|sport"
+    },
+    "sport-american_football": {
+        "defaultMessage": "Amerikaans voetbal"
+    },
+    "sport-archery": {
+        "defaultMessage": "Boogschieten"
+    },
+    "sport-athletics": {
+        "defaultMessage": "Atletiek"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "Australian football"
+    },
+    "sport-baseball": {
+        "defaultMessage": "Basketbal|Honkbal"
+    },
+    "sport-basketball": {
+        "defaultMessage": "Basketbal"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "Beachvolleybal"
+    },
+    "sport-bowls": {
+        "defaultMessage": "Bowls"
+    },
+    "sport-chess": {
+        "defaultMessage": "Schaken"
+    },
+    "sport-cricket": {
+        "defaultMessage": "Cricket"
+    },
+    "sport-curling": {
+        "defaultMessage": "Curling"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "Paardensport|ruitersport|Paardesport"
+    },
+    "sport-golf": {
+        "defaultMessage": "Golf"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "Gymnastiek"
+    },
+    "sport-handball": {
+        "defaultMessage": "Handbal"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "Duiken"
+    },
+    "sport-shooting": {
+        "defaultMessage": "6Schietbaan"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "Skateboarden"
+    },
+    "sport-skiing": {
+        "defaultMessage": "Skiën"
+    },
+    "sport-soccer": {
+        "defaultMessage": "Voetbal"
+    },
+    "sport-swimming": {
+        "defaultMessage": "Zwembad"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "Tafeltennis"
+    },
+    "sport-tennis": {
+        "defaultMessage": "Tennis"
+    },
+    "sport-padel": {
+        "defaultMessage": "Padel"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "Volleybal"
+    },
+    "building": {
+        "defaultMessage": "Gebouw"
+    },
+    "building-address": {
+        "defaultMessage": "Adres"
+    },
+    "@category_police": {
+        "defaultMessage": "4Politie"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "4Ambassade|5Consulaat"
+    },
+    "natural-bay": {
+        "defaultMessage": "Baai"
+    },
+    "@category_water": {
+        "defaultMessage": "3Water"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "4Drinkwater"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "Hete bron|Warmwaterbron"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "Bron"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "Waterbron"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "5Watertappunt|5Camper-waterpunt|water voor camper|water voor caravan"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "5Waterkraan"
+    },
+    "@waterbody": {
+        "defaultMessage": "Waterlichaam"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "Waterbassin"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "Plas"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "Meer"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "5Reservoir"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "Rivier|beek|stroom|waterloop"
+    },
+    "waterway-canal": {
+        "defaultMessage": "Kanaal|waterloop|gracht"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "3Autoreparatie|9onderhoudsstation|auto|4garage|4reparateur|4Reparatie van auto's"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "4Camping|4kamperen|kampeerterrein|kampeerveld"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "4Camperplaats|4Caravanplaats|camping|woonwagenkamp"
+    },
+    "office": {
+        "defaultMessage": "Kantoor|ambt|bedrijf|bedrijfspand|bedrijfskantoor"
+    },
+    "office-company": {
+        "defaultMessage": "Bedrijfskantoor|bedrijfspand"
+    },
+    "office-government": {
+        "defaultMessage": "8Overheidskantoor|overheidsgebouw|regeringskantoor"
+    },
+    "office-lawyer": {
+        "defaultMessage": "4Advocatenkantoor|advocaat|raadsheer"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "6Telecombedrijf|Telecommunicatiekantoor"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "Imker"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "Smid"
+    },
+    "craft-brewery": {
+        "defaultMessage": "Brouwerij|bier|ambachtelijk bier|brouwhuis"
+    },
+    "craft-caterer": {
+        "defaultMessage": "4Cateraar|4Traiteur"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "4Timmerman|houtbewerker"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "Snoepmakerij"
+    },
+    "craft-electrician": {
+        "defaultMessage": "4Elektricien"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "Elektronica-reparatie"
+    },
+    "craft-gardener": {
+        "defaultMessage": "Tuinarchitect"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "Molen"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "Handwerk"
+    },
+    "craft-hvac": {
+        "defaultMessage": "3HVAC|AC|4airco|verwarming|air conditioner|4ventilatie|4klimaat|klimaatbeheer"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "5Metaalarbeider"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "4Sleutels|sleutelbar"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "Slotenmaker"
+    },
+    "craft-painter": {
+        "defaultMessage": "Schilder"
+    },
+    "craft-photographer": {
+        "defaultMessage": "4Fotograaf|fotografiestudio"
+    },
+    "craft-plumber": {
+        "defaultMessage": "4Loodgieter"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "Zagerij"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "Schoenmaker|schoenmakerij"
+    },
+    "craft-winery": {
+        "defaultMessage": "4Wijnhandel|Wijn"
+    },
+    "craft-tailor": {
+        "defaultMessage": "4Kleermaker|kledingreparatie"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "Plein"
+    },
+    "place-sea": {
+        "defaultMessage": "Zee"
+    },
+    "place-ocean": {
+        "defaultMessage": "Oceaan"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi|WLAN|draadloos netwerk"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "3Internet"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "Strand"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "5Vuurtoren"
+    },
+    "man_made-flagpole": {
+        "defaultMessage": "4Vlaggenmast"
+    },
+    "man_made-mast": {
+        "defaultMessage": "Mast"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "Communicatietoren|Telefoniemast|mast"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "4Oliebron|Olieput|Boorput|Boring"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "4Organisch|bio|biologisch|eco|ecologisch|gezond"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "4Kopieerwinkel|Kopieerwinkel|4afdrukken|4kopiëren"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "4Foto|lijsten"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "3Camera|camera's|4fotografie"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "Reisbureau|reisagentschap|reizen"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "4Outdooruitrusting|buitenwinkel|buitensportwinkel|kampeerwinkel|klimmen|kamperen|kampeer|buiten|wandel|klim"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "Stomerij|chemisch reinigen|droogkuis|wassen|stomen"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "4Banden|band|bandenverkoop"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "3Car wash|autowasstraat|wasstraat"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "4Dierenarts|3Veterinair|3veearts"
+    },
+    "@charging_station": {
+        "defaultMessage": "4Laadstation|opladen|lader"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "Fiets-laadstation|Fiets opladen"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "Crèche|kinderopvang|kinderzorg"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "Fietsenstalling"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "7Vuilnisbak|5afvalbak|4prullenbak|4prullenmand|mand"
+    },
+    "emergency-phone": {
+        "defaultMessage": "Praatpaal|4noodtelefoon"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "3Fitnesscentrum|5sportschool|gym|fitness|5workout|fitness club|5health club|fitness studio|workout studio|sport|sporten"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "3Sauna"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "Bandenreparatie"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "4Drogisterij"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "Dierenwinkel"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "Dierentuin|zoo"
+    },
+    "attraction-animal": {
+        "defaultMessage": "Dierenverblijf"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "4Toeristische informatie|3VVV|5Boswachterskantoor|Informatie|4Toeristeninformatiepunt"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "5Bezoekerscentrum|5Boswachterij|Informatie"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "4Wijkcentrum|6gemeenschapscentrum"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "4Perslucht|lucht"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "Rechtbank|gerechtsgebouw"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "4Sigarettenautomaat|Verkoopautomaat"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "4Drankenautomaat|4Frisdrank|Verkoopautomaat"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "4Parkeerautomaat|Betaalautomaat parkeergarage"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "6Kaartjesautomaat voor openbaar vervoer|2OV-kaartjes|7Vervoersbewijzen|Kaartjes|5Betaalautomaat|3Buskaartjes|5Treinkaartjes|Verkoopautomaat"
+    },
+    "shop-outpost": {
+        "defaultMessage": "Afhaalpunt"
+    },
+    "building-garage": {
+        "defaultMessage": "Garage"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "Snelweg rustplaats|5Parkeerplaats|4Servicegebied"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "Toren"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "4Wedkantoor"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "Visboer|vismarkt|vis|zeedier|zeevrucht|schelpdier"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "4Tweedehandswinkel|5Kringloopwinkel4|Vlooienmarkt"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "4Liefdadigheid|liefdadigheidswinkel"
+    },
+    "shop-ticket": {
+        "defaultMessage": "5Kaartverkoop|Kaartjesverkoop|kaartjes"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "4Wijn|4Wijnhandel"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "Auto-onderdelen"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "5Vakantiehuis|4Chalet"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "Informatiebord"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "4Toeristische kaart|toeristenkaart|kaart|4Informatie"
+    },
+    "aerialway-station": {
+        "defaultMessage": "5Gondelbaanstation|5Kabelbaanstation|gondel|kabelbaan"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "4Heliplatform|helikopterplatform"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "Grenscontrole"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "5Waterpretpark"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "Watertoren"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "4Windmolen"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "Grot"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "4Vulkaan"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "Makelaar"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "Waterkering"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "4Boekenkast|Boekuitwisseling|5Buurtbibliotheek|boeken|boekenkast|4Mini-bieb"
+    },
+    "sport-climbing": {
+        "defaultMessage": "4Klimhal|klimmen"
+    },
+    "sport-yoga": {
+        "defaultMessage": "Yogastudio"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "5Appartementen|5Appartement|5Vakantieappartement"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "Resort|Complex"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "5Biergarten|Biertuin"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "3Rijschool"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "4Muziekschool"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "4Taalschool"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "4IJskraam|IJswinkel|IJs|3IJssalon"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "5Internetcafé|5Cybercafé"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "4Motorparkeerplaats"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "6Mindervalidenparkeerplaats|parkeerplaats voor mindervaliden|4Gehandicaptenparkeerplaats"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "4Bejaardentehuis|4Verpleeghuis"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "5Betaalautomaat"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "6Openbaar bad|Bad"
+    },
+    "amenity-shower": {
+        "defaultMessage": "Douche"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "5Noodverzamelplaats"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "4Defibrillator|AED"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "4Brandkraan"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "Noodstrandwacht|Strandwacht"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "4Nood-bergredding|4Bergredding|Redding|SAR"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "3Fitnesscentrum|straatworkout|fitness|4workout|3Fitnessstation|Fitnessbank|buitenfitness|5Calisthenicspark|4trimparcours"
+    },
+    "office-insurance": {
+        "defaultMessage": "Verzekeringskantoor"
+    },
+    "office-ngo": {
+        "defaultMessage": "3NGO-kantoor"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "4Erotiekwinkel"
+    },
+    "shop-massage": {
+        "defaultMessage": "4Massagesalon|Massagetherapie|Wellness-Center|Spa|Massage"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "4Motorzaak"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "Motorfietsreparatie"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "Krantenkiosk|krant"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "Pandjeshuis"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "Kantoorboekhandel"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "4Tatoeagezaak|Tattoosalon|4Tatoeagestudio|Tattoo Shop|tatoeage"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "4Voordeelwinkel|4Bazaar"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "4Video|3DVD|4videoshop|videoverhuur"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "4Gamewinkel|4Videospellen|4videogames|videospellen|3gaming|games|videogame|game"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "Wildernishut"
+    },
+    "tourism-gallery|@category_tourism": {
+        "defaultMessage": "3Galerie|3Galerij|museum"
+    },
+    "tourism-theme_park|@category_tourism|@category_children": {
+        "defaultMessage": "5Attractiepark|4Pretpart"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "5Nationaal park"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "4Natuurgebied|5reservaat"
+    },
+    "natural-cape": {
+        "defaultMessage": "Kaap"
+    },
+    "natural-geyser": {
+        "defaultMessage": "3Geiser"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "Gletsjer"
+    },
+    "highway-ford": {
+        "defaultMessage": "Voorde"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "Skiën|Skipiste"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "Evenementenlocatie"
+    },
+    "shop-chocolate|@category_food|@shop": {
+        "defaultMessage": "5Chocolaterie"
+    },
+    "shop-coffee|@category_food|@shop": {
+        "defaultMessage": "4Koffiewinkel|koffie"
+    },
+    "shop-fabric|@shop": {
+        "defaultMessage": "Stoffenwinkel"
+    },
+    "shop-music|@shop": {
+        "defaultMessage": "Platen|LP|4vinyl|Muziek|Platenzaak"
+    },
+    "shop-musical_instrument|@shop": {
+        "defaultMessage": "7Muziekinstrumenten|6instrumenten|gitaar|gitaren"
+    },
+    "shop-tea|@shop": {
+        "defaultMessage": "Theewinkel"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "5Antiek"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "Kunstwinkel"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "4Babyspullen|4Babywinkel"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "Tassenwinkel"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "Kaaswinkel"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "Zuivelproducten"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "Elektrische benodigdhedenwinkel"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "Viswinkel"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "6Interieurdecoratie|interieurontwerp"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "Loten"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "7Medische benodigdheden"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "9Voedingssupplementen"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "Verfwinkel"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "5Parfumerie|parfum"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "4Naaibenodigdheden|5Fournituren"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "5Opslagverhuur|opslagruimte|4Verhuur van opslagruimte"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "Tabakswinkel"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "5Technische groothandel"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "Horloges"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "Groothandel"
+    },
+    "leisure-track": {
+        "defaultMessage": "Parcours"
+    },
+    "power-plant": {
+        "defaultMessage": "Energiecentrale"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "Veiling"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Verzamelaar|Verzamelobjecten"
+    },
+    "man_made-cairn": {
+        "defaultMessage": "5Steenmannetje"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "4Rolstoel|toegankelijk|5Toegankelijk voor gehandicapten"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "5Sociale voorziening|sociaal|6groepshuis|6ondersteund wonen|6ontwenningshuis|sociale werkplaats|huis voor daklozen"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "Sporthal"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "5Kunstcentrum|5Cultureel centrum"
+    },
+    "amenity-prison": {
+        "defaultMessage": "5gevangenis|5penitentiaire inrichting|5detentiecentrum"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "5Expositiecentrum"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "8Badkamerinrichting"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "3Beddenwinkel|4Matras"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "4Boetiek"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "5Gordijnenzaak"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "3Gaswinkel|4propaan|3butaan|kookgas|LNG|CNG|gasflessen"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "5Huisdierverzorging|trimmer|4hondentrimmer"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "4HiFi-audio"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "5Conferentiecentrum|5Congrescentrum"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "4Kruidkundige|Kruidenwinkel|kruiden"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "4Witgoedwinkel|4Winkel voor huishoudelijke apparaten|4apparaten|Keukenapparaten|Keukengalerij"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "3Agrarische artikelen|4Voerwinkel|Voer en zaden|4Boerderijbenodigdheden"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "4Modeaccessoires"
+    },
+    "amenity-waste_transfer_station": {
+        "defaultMessage": "Afvaloverslagstation"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "4Tapijten"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "Pasta"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "5Bagagekluis|Bagage|Kluis|4Kluisjes|opslag|5Muntenkluisjes"
+    },
+    "recycling-green_waste|@category_recycling": {
+        "defaultMessage": "4GTFE-recycling|5Organisch afvalrecycling|5Groenafvalrecycling|Groenafval|Tuinafval"
+    },
+    "leisure-dance|@category_entertainment": {
+        "defaultMessage": "4Dansen|Dansschool"
+    },
+    "leisure-firepit": {
+        "defaultMessage": "5Vuurplaats"
+    },
+    "amenity-love_hotel": {
+        "defaultMessage": "4Liefdeshotel|3Sekshotel"
+    },
+    "recycling-cardboard|@category_recycling": {
+        "defaultMessage": "4Kartonrecycling|Kartonafval|karton"
+    },
+    "recycling-cans|@category_recycling": {
+        "defaultMessage": "4Blikrecycling|4Aluminium blikjesrecycling|Blikjes"
+    },
+    "recycling-shoes|@category_recycling": {
+        "defaultMessage": "4Recycling van schoenen|Schoenenrecycling|Schoendonatie|schoenen"
+    },
+    "highway-elevator": {
+        "defaultMessage": "Lift|Elevator"
+    },
+    "natural-saddle|mountain_pass": {
+        "defaultMessage": "4Doorgang|Pas"
+    },
+    "amenity-animal_shelter": {
+        "defaultMessage": "6Dierenopvang|6Dierenasiel"
+    },
+    "amenity-vending_machine-condoms": {
+        "defaultMessage": "4Condoomautomaat|Condooms|Verkoopautomaat"
+    },
+    "amenity-vending_machine-food|@category_food": {
+        "defaultMessage": "5Snoepautomaat|Snoep|5Snacks|Verkoopautomaat"
+    },
+    "amenity-vending_machine-newspapers": {
+        "defaultMessage": "4Krantenmachine|Kranten"
+    },
+    "amenity-vending_machine-sweets": {
+        "defaultMessage": "4Snoepmachine|Snoep|Verkoopautomaat"
+    },
+    "amenity-vending_machine-excrement_bags": {
+        "defaultMessage": "5Uitwerpselenzakjes|4Poepzakjes|3Hondenpoepzakjes|Dierenafval"
+    },
+    "amenity-vending_machine-fuel|@category_fuel": {
+        "defaultMessage": "Brandstofpomp"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "Schoorsteen"
+    },
+    "man_made-crane": {
+        "defaultMessage": "Kraan"
+    },
+    "leisure-marina": {
+        "defaultMessage": "5Jachthaven"
+    },
+    "amenity-vending_machine-coffee": {
+        "defaultMessage": "4Koffieautomaat|Koffie|Verkoopautomaat"
+    },
+    "attraction-amusement_ride|attraction-carousel|attraction-roller_coaster|attraction-maze|attraction-historic|attraction-big_wheel|attraction-bumper_car|@category_children": {
+        "defaultMessage": "4Attractie|4Doolhof|4Amusement"
+    },
+    "shop-money_lender": {
+        "defaultMessage": "5Geldlener|Geldschieter"
+    },
+    "shop-lighting|@shop": {
+        "defaultMessage": "4Verlichting|Verlichtingsarmaturen|4Lampen"
+    },
+    "amenity-food_court": {
+        "defaultMessage": "Foodcourt"
+    },
+    "office-security": {
+        "defaultMessage": "4Beveiligingskantoor"
+    },
+    "building-guardhouse": {
+        "defaultMessage": "4Wachtpost"
+    },
+    "amenity-studio": {
+        "defaultMessage": "5Mediastudio|studio"
+    },
+    "shop-grocery|@category_food|@shop": {
+        "defaultMessage": "5Kruidenier|5Kruidenierswinkel"
+    },
+    "shop-health_food|@category_food|@shop": {
+        "defaultMessage": "6Gezondheidsvoeding|6Gezonde voeding|6healthfood|3organisch|3ecologisch"
+    },
+    "shop-beauty-nails": {
+        "defaultMessage": "5Nagelsalon|nagelverzorging|vingernagels|teennagels|nagels"
+    },
+    "amenity-mobile_money_agent": {
+        "defaultMessage": "6Mobiel geldkantoor|mobiel geld"
+    },
+    "shop-caravan|@category_rv|@shop": {
+        "defaultMessage": "6Camperdealer|campers|5Caravandealer|caravans"
+    },
+    "amenity-boat_rental": {
+        "defaultMessage": "4Bootverhuur|boot|3verhuur"
+    },
+    "healthcare-sample_collection": {
+        "defaultMessage": "4Monsterinzamelpunt|monsters|inzamelpunt"
+    },
+    "recycling-cartons|@category_recycling": {
+        "defaultMessage": "4Kartonrecycling|karton"
+    },
+    "amenity-sanitary_dump_station|@category_rv": {
+        "defaultMessage": "4Camper-dumpstation|5Afvalwater-dumpsation|4dumpstation|afvalwaterstation|5toiletafvoer|Camperafval"
+    },
+    "natural-peak|@mountain": {
+        "defaultMessage": "Piek|top"
+    },
+    "leisure-sports_centre-sport-swimming": {
+        "defaultMessage": "4Zwemcentrum"
+    },
+    "sport-9pin": {
+        "defaultMessage": "4Bowlen|Bowling"
+    },
+    "sport-10pin": {
+        "defaultMessage": "4Bowling|bowlen"
+    },
+    "amenity-police|@category_police": {
+        "defaultMessage": "5Politiebureau|Politie"
+    },
+    "man_made-survey_point": {
+        "defaultMessage": "4Meetpunt|meetmarkering|3referentiepunt|4geodetisch merkteken|geodetisch punt|4triangulatiepunt|meetpunt|meetpilaar|4meetstation|metingsbaken|4driehoeksmeetkunde"
+    },
+    "man_made-telescope|man_made-telescope-optical|man_made-telescope-radio|man_made-telescope-gamma": {
+        "defaultMessage": "6Telescoop"
+    },
+    "man_made-observatory": {
+        "defaultMessage": "4Observatorium"
+    },
+    "amenity-parcel_locker|@category_post": {
+        "defaultMessage": "4Pakketautomaat|4Pakketpunt"
+    },
+    "leisure-fitness_centre-sport-yoga": {
+        "defaultMessage": "4Yogastudio"
+    },
+    "amenity-sailing_school": {
+        "defaultMessage": "4Zeilschool|4Vaarschool"
+    },
+    "amenity-flight_school": {
+        "defaultMessage": "5Vliegschool"
+    },
+    "amenity-prep_school": {
+        "defaultMessage": "6Bijlesinstituut|bijles|4examentraining"
+    },
+    "amenity-car_pooling|@category_parking": {
+        "defaultMessage": "5Carpooling"
+    },
+    "amenity-payment_centre": {
+        "defaultMessage": "5Betaalkantoor"
+    },
+    "emergency-access_point": {
+        "defaultMessage": "4Evacuatiepunt|5Verzamelpunt"
+    },
+    "emergency-life_ring": {
+        "defaultMessage": "5Reddingsboei|5drijflichaam"
+    },
+    "amenity-hydrant": {
+        "defaultMessage": "Watertappunt|waterkraan"
+    },
+    "shop-beauty-day_spa": {
+        "defaultMessage": "4Dagspa|spa|4wellness"
+    },
+    "leisure-indoor_play": {
+        "defaultMessage": "Binnenspeeltuin|5speelparadijs"
+    },
+    "shop-telecommunication|@shop": {
+        "defaultMessage": "6Telecommunicatiezaak|Telecommunicatie|telecom"
+    },
+    "leisure-bandstand": {
+        "defaultMessage": "3Podium"
+    },
+    "social_facility-soup_kitchen": {
+        "defaultMessage": "4Gaarkeuken|Voedsel"
+    },
+    "social_facility-food_bank": {
+        "defaultMessage": "4Voedselbank|voedsel|voeding|doneren|voorraadkast|koelkast"
+    },
+    "amenity-food_sharing": {
+        "defaultMessage": "4Voedsel delen|Voedsel|doneren"
+    },
+    "amenity-give_box": {
+        "defaultMessage": "4Giftenkist|doneren|5Weggeefkast"
+    },
+    "shop-craft|@shop": {
+        "defaultMessage": "3Ambacht|5Kunstmaterialen"
+    },
+    "shop-farm|@category_food|@shop": {
+        "defaultMessage": "Boerderijvoedsel"
+    },
+    "man_made-cross": {
+        "defaultMessage": "Kruis"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "Hackerspace"
+    },
+    "tourism-artwork-sculpture": {
+        "defaultMessage": "Sculptuur|Beeldhouwwerk|Kunstwerk"
+    },
+    "tourism-artwork-statue": {
+        "defaultMessage": "Standbeeld|Kunstwerk"
+    },
+    "tourism-artwork-painting": {
+        "defaultMessage": "Schilderij|Kunstwerk"
+    },
+    "amenity-charging_station-motorcycle|@charging_station": {
+        "defaultMessage": "Motorfiets-laadstation|Motorfiets opladen"
+    },
+    "amenity-charging_station-motorcar|@charging_station": {
+        "defaultMessage": "Auto-laadstation|Oplaadstation|Autolader"
+    },
+    "amenity-vending_machine": {
+        "defaultMessage": "Verkoopautomaat|automaat"
+    },
+    "tourism-information-tactile_map": {
+        "defaultMessage": "Tactiele kaart|kaart|4Informatie"
+    },
+    "tourism-information-guidepost": {
+        "defaultMessage": "Wegwijzer"
+    },
+    "emergency-disaster_help_point": {
+        "defaultMessage": "4Noodhulppost"
+    },
+    "power-generator-wind": {
+        "defaultMessage": "Windgenerator"
+    },
+    "waterway-fuel": {
+        "defaultMessage": "Brandstofsteiger|brandstof"
+    },
+    "amenity-community_centre-youth_centre": {
+        "defaultMessage": "4Jongerencentrum"
+    },
+    "barrier-toll_booth": {
+        "defaultMessage": "Tolstation"
+    },
+    "@fastfood": {
+        "defaultMessage": "Fastfood"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "Bagels"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "Ontbijt"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "Hamburgers"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "Taart"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "Koffie"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "Curry"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "Diner"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "5Donuts"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "Fish and chips"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "Frituur"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "Grill"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "Hotdogs"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "IJs"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "Kebab"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "Noedels"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "Pannenkoek"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "Pasta"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "Pizza's"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "Ramennoedels"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "Broodjes"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "Worst"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "Vis en zeevruchten|Vis"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "Soba"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "Steakhouse"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "Sushi"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "Tapas"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "Thee"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "Vegetarisch"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "Veganistisch"
+    },
+    "shop-water|@category_water|@category_food|@shop": {
+        "defaultMessage": "4Drinkwater|Flessenwater"
+    },
+    "cuisine-bubble_tea": {
+        "defaultMessage": "Bubble tea|boba tea"
+    },
+    "@cuisine_all_asian": {
+        "defaultMessage": "5Aziatisch voedsel|5Aziatische keuken"
+    },
+    "cuisine-vietnamese|@cuisine_all_asian": {
+        "defaultMessage": "7Vietnamees voedsel|7Vietnamese keuken"
+    },
+    "cuisine-turkish": {
+        "defaultMessage": "5Turks voedsel|5Turkse keuken"
+    },
+    "cuisine-thai|@cuisine_all_asian": {
+        "defaultMessage": "5Thais voedsel|5Thaise keuken"
+    },
+    "cuisine-spanish": {
+        "defaultMessage": "5Spaans voedsel|5Spaanse keuken"
+    },
+    "cuisine-russian": {
+        "defaultMessage": "7Russisch voedsel|7Russische keuken"
+    },
+    "cuisine-portuguese": {
+        "defaultMessage": "9Portugees voedsel|9Portugese keuken"
+    },
+    "cuisine-polish": {
+        "defaultMessage": "5Pools voedsel|5Poolse keuken"
+    },
+    "cuisine-peruvian": {
+        "defaultMessage": "4Peruaans voedsel|4Peruaanse keuken"
+    },
+    "cuisine-persian": {
+        "defaultMessage": "7Perzisch voedsel|7Perzische keuken"
+    },
+    "cuisine-oriental": {
+        "defaultMessage": "8Oriëntaals voedsel|8Oriëntaalse keuken"
+    },
+    "cuisine-moroccan": {
+        "defaultMessage": "5Marokkaans voedsel|5Marokkaanse keuken"
+    },
+    "cuisine-mexican": {
+        "defaultMessage": "5Mexicaans voedsel|5Mexicaanse keuken"
+    },
+    "cuisine-mediterranean": {
+        "defaultMessage": "8Mediterraans voedsel|8Mediterraanse keuken"
+    },
+    "cuisine-malaysian|@cuisine_all_asian": {
+        "defaultMessage": "8Maleisisch voedsel|8Maleisische keuken"
+    },
+    "cuisine-malagasy": {
+        "defaultMessage": "6Malagaans voedsel|6Malagaanse keuken"
+    },
+    "cuisine-lebanese": {
+        "defaultMessage": "5Libanees voedsel|5Libanese keuken"
+    },
+    "cuisine-lao|@cuisine_all_asian": {
+        "defaultMessage": "3Laotiaans voedsel|3Laotiaanse keuken"
+    },
+    "cuisine-korean|@cuisine_all_asian": {
+        "defaultMessage": "5Koreaans voedsel|5Koreaanse keuken"
+    },
+    "cuisine-japanese|@cuisine_all_asian": {
+        "defaultMessage": "6Japans voedsel|6Japanse keuken"
+    },
+    "cuisine-italian": {
+        "defaultMessage": "6Italiaans voedsel|6Italiaanse keuken"
+    },
+    "cuisine-irish": {
+        "defaultMessage": "4Iers voedsel|4Ierse keuken"
+    },
+    "cuisine-indonesian|@cuisine_all_asian": {
+        "defaultMessage": "9Indonesisch voedsel|9Indonesische keuken"
+    },
+    "cuisine-indian": {
+        "defaultMessage": "5Indiaas voedsel|5Indiase keuken"
+    },
+    "cuisine-hungarian": {
+        "defaultMessage": "8Hongaars voedsel|8Hongaarse keuken"
+    },
+    "cuisine-greek": {
+        "defaultMessage": "6Grieks voedsel|6Griekse keuken"
+    },
+    "cuisine-german": {
+        "defaultMessage": "5Duits voedsel|5Duitse keuken"
+    },
+    "cuisine-georgian": {
+        "defaultMessage": "9Georgisch voedsel|9Georgische keuken"
+    },
+    "cuisine-french": {
+        "defaultMessage": "5Frans voedsel|5Franse keuken"
+    },
+    "cuisine-filipino": {
+        "defaultMessage": "9Filipijns voedsel|9Filipijnse keuken"
+    },
+    "cuisine-ethiopian": {
+        "defaultMessage": "11Ethiopisch voedsel|11Ethiopische keuken"
+    },
+    "cuisine-croatian": {
+        "defaultMessage": "9Kroatisch voedsel|9Kroatische keuken"
+    },
+    "cuisine-chinese|@cuisine_all_asian": {
+        "defaultMessage": "7Chinees voedsel|7Chinese keuken"
+    },
+    "cuisine-caribbean": {
+        "defaultMessage": "9Caribisch voedsel|9Caribische keuken"
+    },
+    "cuisine-brazilian": {
+        "defaultMessage": "11Braziliaans voedsel|11Braziliaanse keuken"
+    },
+    "cuisine-bavarian": {
+        "defaultMessage": "6Beiers voedsel|6Beierse keuken"
+    },
+    "cuisine-balkan": {
+        "defaultMessage": "6Balkanees voedsel|6Balkanese keuken"
+    },
+    "cuisine-austrian": {
+        "defaultMessage": "11Oostenrijks voedsel11|Oostenrijkse keuken"
+    },
+    "cuisine-argentinian": {
+        "defaultMessage": "10Argentijns voedsel|10Argentijnse keuken"
+    },
+    "cuisine-arab": {
+        "defaultMessage": "8Arabisch voordeel|8Arabische keuken"
+    },
+    "cuisine-american": {
+        "defaultMessage": "10Amerikaans voedsel|10Amerikaanse keuken"
+    },
+    "cuisine-african": {
+        "defaultMessage": "9Afrikaans voedsel|9Afrikaanse keuken"
+    },
+    "cuisine-vegetarian|@cuisine_all_vegetarian": {
+        "defaultMessage": "11Vegetarisch voedsel|11Vegetarische keuken"
+    },
+    "cuisine-asian|@cuisine_all_asian": {
+        "defaultMessage": "9Aziatisch voedsel|9Aziatische keuken"
+    },
+    "sport-boules": {
+        "defaultMessage": "Boules|Petanque|jeu de boules"
+    },
+    "sport-four_square": {
+        "defaultMessage": "Four Square"
+    },
+    "amenity-stage": {
+        "defaultMessage": "Podium"
+    },
+    "amenity-animal_boarding": {
+        "defaultMessage": "4Dierenpension"
+    },
+    "amenity-planetarium|@category_tourism": {
+        "defaultMessage": "5Planetarium|5astronomie"
+    }
+}

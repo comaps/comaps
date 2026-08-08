@@ -1,5 +1,10 @@
 #include "drape/overlay_handle.hpp"
 
+#include "drape/pointers.hpp"
+
+#include "geometry/screenbase.hpp"
+
+#include "base/assert.hpp"
 #include "base/internal/message.hpp"
 #include "base/macros.hpp"
 

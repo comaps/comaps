@@ -2,15 +2,22 @@
 
 #include "shaders/program_params.hpp"
 
+#include "drape/gpu_program.hpp"
+#include "drape/pointers.hpp"
 #include "drape/vulkan/vulkan_base_context.hpp"
-#include "drape/vulkan/vulkan_gpu_program.hpp"
 #include "drape/vulkan/vulkan_object_manager.hpp"
 #include "drape/vulkan/vulkan_utils.hpp"
 
+#include "base/assert.hpp"
 #include "base/thread_checker.hpp"
 
 #include <cstdint>
 #include <vector>
+
+namespace dp
+{
+class GraphicsContext;
+}  // namespace dp
 
 namespace gpu
 {

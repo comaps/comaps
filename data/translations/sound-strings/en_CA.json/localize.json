@@ -1,0 +1,35 @@
+{
+    "take_the_8_exit": {
+        "defaultMessage": "Take the eighth exit."
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Take the eleventh exit."
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Take the fifth exit."
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Take the first exit."
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Take the fourth exit."
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Take the ninth exit."
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Take the second exit."
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Take the seventh exit."
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Take the sixth exit."
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Take the tenth exit."
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Take the third exit."
+    }
+}

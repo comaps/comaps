@@ -2,6 +2,7 @@
 
 #include "coding/bit_streams.hpp"
 
+#include "base/assert.hpp"
 #include "base/checked_cast.hpp"
 #include "base/stl_helpers.hpp"
 

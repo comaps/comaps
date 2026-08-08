@@ -2,7 +2,11 @@
 
 #include "drape/vulkan/vulkan_utils.hpp"
 
+#include "base/assert.hpp"
+#include "base/logging.hpp"
 #include "base/macros.hpp"
+
+#include "std/target_os.hpp"
 
 #include <algorithm>
 #include <cstring>

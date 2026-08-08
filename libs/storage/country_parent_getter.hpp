@@ -1,12 +1,12 @@
 #pragma once
 
-#include "storage/storage.hpp"
-
 #include <memory>
 #include <string>
 
 namespace storage
 {
+class Storage;
+
 class CountryParentGetter
 {
 public:

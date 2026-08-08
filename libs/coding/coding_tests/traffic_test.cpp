@@ -1,6 +1,8 @@
 #include "testing/testing.hpp"
 
+#include "coding/reader.hpp"
 #include "coding/traffic.hpp"
+#include "coding/writer.hpp"
 
 #include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"

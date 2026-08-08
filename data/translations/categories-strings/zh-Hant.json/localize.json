@@ -1,0 +1,1448 @@
+{
+    "@category_eat": {
+        "defaultMessage": "在哪裡吃|飲食"
+    },
+    "@category_food": {
+        "defaultMessage": "食物|飲食|購物"
+    },
+    "@category_transport": {
+        "defaultMessage": "交通"
+    },
+    "@category_fuel": {
+        "defaultMessage": "加油站"
+    },
+    "@category_parking": {
+        "defaultMessage": "停車場"
+    },
+    "@category_shopping": {
+        "defaultMessage": "購物"
+    },
+    "@category_hotel": {
+        "defaultMessage": "旅館|旅馆|飯店|酒店|宾馆"
+    },
+    "@category_tourism": {
+        "defaultMessage": "旅遊景點"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "娛樂"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "夜生活"
+    },
+    "@category_children": {
+        "defaultMessage": "親子休閒"
+    },
+    "@category_atm": {
+        "defaultMessage": "1自動提款機"
+    },
+    "@category_rv": {
+        "defaultMessage": "露營車設施"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "1atm|理財|錢|金錢|自動櫃員機"
+    },
+    "@category_bank": {
+        "defaultMessage": "1銀行"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "二手商店"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "錢"
+    },
+    "@category_recycling": {
+        "defaultMessage": "回收|廢物利用|可回收物|垃圾分類收集|垃圾分類|再利用"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "1匯率|理財|外幣|兌換|貨幣|換錢"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "1酒吧|酒館|飲酒|PUB|吧台|飲食|啤酒吧"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "2咖啡廳|咖啡|3cafe|餐廳"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "1速食店|速食"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "1餐廳|餐館|食堂"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "2加氣站|汽油|加油|天然氣"
+    },
+    "@shop": {
+        "defaultMessage": "1購物|店鋪|商店|雜貨店|便利商店"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "1麵包店|2蛋糕店|烘焙|麵包|蛋糕|購物|糕點"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "化妆品|美妝店|購物"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "便利商店|便利超商|購物|便利店"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "熟食店"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "園藝店|購物"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "助聽器"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "手機專賣店|購物"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "花店|1購物|店鋪|商店|雜貨店|便利商店"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "肉商|1購物|店鋪|商店|雜貨店|便利商店"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "家具店|1購物|店鋪|商店|雜貨店|便利商店"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "廚房用品店"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "烈酒|1購物|店鋪|商店|雜貨店|便利商店"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "書店|1購物|店鋪|商店|雜貨店|便利商店"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "鞋店|1購物|店鋪|商店|雜貨店|便利商店"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "電子產品|電器店|1購物|店鋪|商店|雜貨店|便利商店"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "五金行|硬件店|購物|店鋪|商店|雜貨店|便利商店|五金店"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "家庭用品"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "珠寶店|1購物|店鋪|商店|雜貨店|便利商店"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "眼鏡店|1購物|店鋪|商店|雜貨店|便利商店"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "禮品店|1購物|店鋪|商店|雜貨店|便利商店"
+    },
+    "shop-beauty": {
+        "defaultMessage": "美容院|美容產品店"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "蔬果零售店|1購物|店鋪|商店|雜貨店|便利商店"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "運動商品店|1購物|店鋪|商店|雜貨店|便利商店"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "1超級市場|市場|購物"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "商场|購物"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "百貨公司|購物"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "飲料|飲料店|購物"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "電腦商店|電腦專賣店|購物|電腦店"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "糕餅店|糕餅行|購物|糖果師"
+    },
+    "shop-laundry": {
+        "defaultMessage": "洗衣店"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "玩具商店|購物|玩具店"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "1市場|市集|購物"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "匯款"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "1買衣服|衣服|購物"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "1買車|購車|購物|車店"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "1自行車店|腳踏車|單車|商店|購物"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "1小舖|小店|購物|商店|小攤|攤子|攤販|售貨亭"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "1巴士站|巴士|運輸|交通|客運站|公車|公車站"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "1電車站|電車|運輸|交通|鐵路|大眾運輸"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "1巴士|巴士站|交通|運輸"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "1鐵道|鐵路|火車|火車站|高鐵站|運輸|小站"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "纜車"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "1地鐵|捷運|2地下鐵|運輸"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "1渡船|運輸"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "1計程車|交通"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "1市政廳|1市鎮大廳|1旅遊景點"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "1景點|3旅遊景點|旅遊|3觀光景點|觀光|名勝"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "1藝術品|3旅遊景點"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "1觀景點|景觀|景點"
+    },
+    "tourism-information": {
+        "defaultMessage": "2觀光諮詢|旅遊中心|旅遊問題|資訊|旅遊資訊"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "1野餐|旅遊|烤肉架"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "1寺廟|1禱告|寺|禪寺|旅遊景點"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "教堂|寺廟|禱告|寺|禪寺|旅遊景點"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "清真寺|寺廟|禱告|寺|禪寺|旅遊景點"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "寺廟|佛|寺廟|禱告|寺|禪寺|旅遊景點"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "寺廟|寺廟|禱告|寺|禪寺|旅遊景點"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "聖殿|寺廟|禱告|寺|禪寺|旅遊景點"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "猶太教堂|寺廟|禱告|寺|禪寺|旅遊景點"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "寺廟|禱告|寺|禪寺|旅遊景點"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "1博物館|旅遊|觀光|景點|遊覽|歷史|旅遊景點"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "1瀑布|旅遊景點"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "1考古遺址|考古|遺址|古蹟|歷史|旅遊景點"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "古戰場"
+    },
+    "historic-stone": {
+        "defaultMessage": "歷史之石"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "界碑"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "城堡|堡|古蹟|歷史|古羅馬兵營|堅固的教堂|要塞|丘堡|克里姆林|莊園大屋|宮殿|法式城堡"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "城門"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "城牆"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "歷史要塞"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "絞架"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "紀念館|1紀念碑|紀念館|旅遊景點"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "紀念十字架"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "紀念牌匾"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "雕塑"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "塑像"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "絆腳石"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "戰爭紀念建築"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "1紀念碑|紀念塔|紀念館|旅遊景點"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "刑柱"
+    },
+    "historic-cannon": {
+        "defaultMessage": "大砲"
+    },
+    "historic-anchor": {
+        "defaultMessage": "歷史錨"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "1廢墟|古蹟|遺址|旅遊景點"
+    },
+    "historic-mine": {
+        "defaultMessage": "歷史礦山"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "歷史船"
+    },
+    "historic-wreck": {
+        "defaultMessage": "沉船"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "歷史悠久的機車"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "歷史悠久的坦克"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "歷史悠久的飛機"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "陵墓"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "路旁十字架"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "路旁神龕"
+    },
+    "leisure-garden": {
+        "defaultMessage": "1花園|旅遊景點"
+    },
+    "amenity-bench": {
+        "defaultMessage": "1長板凳|板凳|長椅|長椅子|條凳"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "1自行車出租|腳踏車|單車|租金|租錢"
+    },
+    "amenity-bicycle_repair_station": {
+        "defaultMessage": "1自行車修理"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "汽車共用"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "1租車|出租|租金|租錢"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "摩托車租賃"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "1電影院|電影"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "保齡球館"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "1劇場|戲院|劇院"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "1夜店|2俱樂部|酒|喝酒|跳舞|舞|2夜生活"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "妓院"
+    },
+    "@gambling": {
+        "defaultMessage": "賭博"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "賭場"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "成人遊戲中心"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "拱廊"
+    },
+    "amenity-college": {
+        "defaultMessage": "1大學|學院|專科院校|院校"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "1消防局|滅火隊|消防隊|消防車|救難|緊急"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "1噴泉|2噴水池|噴水"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "1墓地"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "葬儀社"
+    },
+    "@category_hospital": {
+        "defaultMessage": "1醫院"
+    },
+    "amenity-hospital|@category_hospital": {
+        "defaultMessage": "醫生|診所|醫療|診療"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "診所|醫院"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "醫師診間|診所|醫院|醫生"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "牙醫"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "醫學實驗室"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "物理治療師"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "替代藥物|另類醫療"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "聽力學|聽力學家|聽力師"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "捐血中心|獻血"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "驗光|驗光師"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "足病學|足病醫生"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "心理治療|心理治療師"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "言語治療|語言治療師"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "1狩獵場|打獵|狩獵|獵人|獵"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "幼兒園|1幼稚園"
+    },
+    "amenity-library": {
+        "defaultMessage": "1圖書館"
+    },
+    "amenity-parking|amenity-parking_entrance|@category_parking": {
+        "defaultMessage": "1停車場|停車|泊車"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "1藥局"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "藥局"
+    },
+    "@category_post": {
+        "defaultMessage": "1郵局"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "1郵筒|郵件"
+    },
+    "amenity-post_office|post_office-post_partner|@category_post": {
+        "defaultMessage": "郵筒"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "車輛檢驗"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "垃圾|回收|回收場"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "回收中心|回收站"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "回收箱"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "電池"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "舊衣物|回收舊衣物|衣服"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "玻璃瓶"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "廢紙|紙張"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "廢塑料|塑膠"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "塑料瓶"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "廢金屬"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "電子垃圾"
+    },
+    "amenity-school": {
+        "defaultMessage": "1學校"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "1隱藏處|涼亭"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "露營小屋"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "1隱藏處"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "脫衣舞俱樂部"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "1電話|2電話亭|2公共電話|3公用電話"
+    },
+    "@category_toilet": {
+        "defaultMessage": "1廁所"
+    },
+    "amenity-toilets|toilets-yes|@category_toilet": {
+        "defaultMessage": "2洗手間|wc"
+    },
+    "amenity-university": {
+        "defaultMessage": "1大學|學院"
+    },
+    "place-continent": {
+        "defaultMessage": "1大陸|洲"
+    },
+    "place-country": {
+        "defaultMessage": "國|國家"
+    },
+    "place-city": {
+        "defaultMessage": "1城鎮|城市|市|鎮市"
+    },
+    "place-town": {
+        "defaultMessage": "鎮|城鎮|鄉|鄉鎮"
+    },
+    "place-city-capital": {
+        "defaultMessage": "1首都|城市|市|首府"
+    },
+    "place-county": {
+        "defaultMessage": "縣"
+    },
+    "place-state": {
+        "defaultMessage": "省|州"
+    },
+    "place-region": {
+        "defaultMessage": "1地區"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "島|小島|島嶼"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "1郊區|近郊|鄰裡"
+    },
+    "place-hamlet": {
+        "defaultMessage": "村|1村莊|鄉下"
+    },
+    "place-village": {
+        "defaultMessage": "1村莊|村|鄉下"
+    },
+    "place-locality": {
+        "defaultMessage": "1當地|地方"
+    },
+    "place-farm": {
+        "defaultMessage": "1農場|農田"
+    },
+    "highway-raceway": {
+        "defaultMessage": "1跑道|賽道|2賽車道|賽車|2賽車場"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "1人行步道|步道"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "路|街"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "1交流道|出口處|高速公路|公路"
+    },
+    "@mountain": {
+        "defaultMessage": "1山峰|1山脈|山|峰"
+    },
+    "natural-strait": {
+        "defaultMessage": "海峽"
+    },
+    "landuse-forest": {
+        "defaultMessage": "1樹林|森林|樹木"
+    },
+    "leisure-park": {
+        "defaultMessage": "1公園"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "水族館"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "1旅舍|青年旅舍|青年旅館|住宿|飯店|3汽車旅館|3motel"
+    },
+    "tourism-hotel|@category_hotel": {
+        "defaultMessage": "1飯店|1汽車旅館|住宿|賓館|招待所"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "1賓館|飯店|旅舍|住宿|招待所"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "1汽車旅館|3motel|飯店|住宿|"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "1山上住宿|飯店|住宿|旅舍|2高山住宿"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "1理髮師|美髮師|髮型設計師"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "1機場|2航空站|3航空公司|2飛機場"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "1體育中心|2運動場|2體育館|體育|運動"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "1遊樂場"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "1體育中心|2體育館|體育|運動|健身"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "3高爾夫球場|2高爾夫球|高爾夫|體育|運動"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "密室逃脫"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "駭客空間"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "2運動場|體育館|球場|2足球場|體育|運動|健身"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "2游泳池|游泳|玩水"
+    },
+    "sport-american_football": {
+        "defaultMessage": "美式足球"
+    },
+    "sport-archery": {
+        "defaultMessage": "射箭"
+    },
+    "sport-athletics": {
+        "defaultMessage": "競技"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "澳式足球"
+    },
+    "sport-baseball": {
+        "defaultMessage": "棒球"
+    },
+    "sport-basketball": {
+        "defaultMessage": "籃球"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "沙灘排球"
+    },
+    "sport-bowls": {
+        "defaultMessage": "草地滾球"
+    },
+    "sport-chess": {
+        "defaultMessage": "國際象棋"
+    },
+    "sport-cricket": {
+        "defaultMessage": "板球"
+    },
+    "sport-curling": {
+        "defaultMessage": "冰壺"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "馬術運動"
+    },
+    "sport-golf": {
+        "defaultMessage": "高爾夫球"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "體操"
+    },
+    "sport-handball": {
+        "defaultMessage": "手球"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "水肺潛水"
+    },
+    "sport-shooting": {
+        "defaultMessage": "射擊域"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "滑板活動"
+    },
+    "sport-skiing": {
+        "defaultMessage": "滑雪"
+    },
+    "sport-soccer": {
+        "defaultMessage": "足球"
+    },
+    "sport-swimming": {
+        "defaultMessage": "遊泳中心"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "乒乓球"
+    },
+    "sport-tennis": {
+        "defaultMessage": "網球"
+    },
+    "sport-padel": {
+        "defaultMessage": "帕德爾|板式網球"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "排球"
+    },
+    "building": {
+        "defaultMessage": "1建築物|建築"
+    },
+    "building-address": {
+        "defaultMessage": "地址"
+    },
+    "@category_police": {
+        "defaultMessage": "警察局"
+    },
+    "amenity-police|@category_police": {
+        "defaultMessage": "警察|警員"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "1大使館|使館"
+    },
+    "natural-bay": {
+        "defaultMessage": "1海灣|灣|灣區"
+    },
+    "@category_water": {
+        "defaultMessage": "水"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "1飲用水|飲水機|可喝的水|2飲水設施|喝水|口渴"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "溫泉"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "1泉水|泉|玩水"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "水井"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "飲水站"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "水龍頭"
+    },
+    "@waterbody": {
+        "defaultMessage": "水體"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "水庫|盆地"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "潭|池塘"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "湖泊|湖"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "水庫"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "1河流|河"
+    },
+    "waterway-canal": {
+        "defaultMessage": "1運河"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "1汽車維修|維修|汽車|修理"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "露營|營地|營區|2露營區"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "1營區|營地"
+    },
+    "office": {
+        "defaultMessage": "辦公室|1辦事處"
+    },
+    "office-company": {
+        "defaultMessage": "公司辦公室"
+    },
+    "office-government": {
+        "defaultMessage": "政府辦公室|政府機關"
+    },
+    "office-lawyer": {
+        "defaultMessage": "律師事務所"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "行動電話業者|電信業者"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "蜂農|養蜂"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "鐵匠"
+    },
+    "craft-brewery": {
+        "defaultMessage": "釀酒廠|釀酒師"
+    },
+    "craft-caterer": {
+        "defaultMessage": "餐飲服務商"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "木工|木匠"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "糖果商|糖果師"
+    },
+    "craft-electrician": {
+        "defaultMessage": "電工"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "電子產品維修"
+    },
+    "craft-gardener": {
+        "defaultMessage": "園藝師|園丁"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "磨"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "手工藝|手工匠"
+    },
+    "craft-hvac": {
+        "defaultMessage": "空調設備|暖氣空調"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "鐵工"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "鍵切割"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "鎖匠"
+    },
+    "craft-painter": {
+        "defaultMessage": "油漆工"
+    },
+    "craft-photographer": {
+        "defaultMessage": "攝影師|攝影棚"
+    },
+    "craft-plumber": {
+        "defaultMessage": "水管工人|水管工"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "鋸木廠|鋸木"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "修鞋工|修鞋匠"
+    },
+    "craft-winery": {
+        "defaultMessage": "酒莊|酒廠"
+    },
+    "craft-tailor": {
+        "defaultMessage": "裁縫師|裁縫"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "廣場"
+    },
+    "place-sea": {
+        "defaultMessage": "海"
+    },
+    "place-ocean": {
+        "defaultMessage": "海洋"
+    },
+    "@category_wifi": {
+        "defaultMessage": "無線網路"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "3互聯網|WiFi|3Internet"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "海灘|沙灘"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "燈塔"
+    },
+    "man_made-flagpole": {
+        "defaultMessage": "旗桿"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "通訊塔"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "石油井"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "生態|生物|健康|生物|生態|天然|有機"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "復印店|打印機"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "照片店|畫框|商店"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "相機店"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "旅行社|遊覽"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "室外設備|遠足|攀巖|野營|商店"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "乾洗|清潔"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "輪胎店|商店"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "洗車"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "獸醫"
+    },
+    "@charging_station": {
+        "defaultMessage": "充電站|充電"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "自行車充電"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "保育|幼兒園|兒童看護|托兒所"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "腳踏車停放區"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "垃圾箱"
+    },
+    "emergency-phone": {
+        "defaultMessage": "緊急電話"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "健身中心|健身房"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "桑拿"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "輪胎修補"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "藥妝店"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "寵物店"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "動物園"
+    },
+    "attraction-animal": {
+        "defaultMessage": "動物圍欄"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "旅遊辦事處"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "遊客中心"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "社區活動中心"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "壓縮的空氣"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "法院"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "香菸自動販賣機"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "飲料自動販賣機"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "違規停車罰單繳費機"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "公共交通售票機"
+    },
+    "shop-outpost": {
+        "defaultMessage": "接送的地點"
+    },
+    "building-garage": {
+        "defaultMessage": "車庫"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "休息區|服務區"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "工廠煙囪"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "塔"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "賭博業者|博彩公司"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "魚販"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "二手店"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "慈善商店"
+    },
+    "shop-ticket": {
+        "defaultMessage": "售票處"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "販酒處"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "汽車零件"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "度假小屋"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "資訊中心|標示"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "旅遊地圖"
+    },
+    "aerialway-station": {
+        "defaultMessage": "纜車站"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "直升機停機坪|停機坪"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "邊境管制"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "水上樂園"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "水塔"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "風車"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "洞穴"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "火山"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "地產代理"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "閘門"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "書架|書本交換"
+    },
+    "sport-climbing": {
+        "defaultMessage": "攀登中心"
+    },
+    "sport-yoga": {
+        "defaultMessage": "瑜伽工作室"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "公寓"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "度假酒店"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "啤酒花園"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "駕訓班"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "音樂學校"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "語言學校"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "冰淇淋攤"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "網路咖啡店"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "機車停車格"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "殘疾人停車位"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "養老院"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "付款終端"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "公共浴場"
+    },
+    "amenity-shower": {
+        "defaultMessage": "淋浴間|淋浴設施"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "緊急集合點"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "心臟電擊器|除顫器"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "消防栓"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "緊急救生員|救生員"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "緊急山地救援"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "健身房"
+    },
+    "office-insurance": {
+        "defaultMessage": "保險公司"
+    },
+    "office-ngo": {
+        "defaultMessage": "非政府組織辦公室"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "情趣用品店"
+    },
+    "shop-massage": {
+        "defaultMessage": "按摩館"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "機車行"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "摩托車維修"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "報攤"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "當舖"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "文具用品店"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "刺青店"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "雜貨店"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "視頻商城"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "電子遊戲商城"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "山屋"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "國家公園"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "自然保護區"
+    },
+    "natural-cape": {
+        "defaultMessage": "海角"
+    },
+    "natural-geyser": {
+        "defaultMessage": "間歇泉"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "冰川"
+    },
+    "highway-ford": {
+        "defaultMessage": "淺灘"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "滑雪|滑雪道"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "活動場所"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "古董"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "藝術商店"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "兒童商店"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "箱包店"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "奶酪店c"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "乳製品"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "電器商城"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "釣魚店"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "室內裝飾"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "彩票"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "醫療用品"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "營養補充劑"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "油漆"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "香水"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "縫紉用品"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "存儲租賃"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "煙草"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "貿易用品"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "手錶"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "批髮店"
+    },
+    "power-plant": {
+        "defaultMessage": "發電廠"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "拍賣"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "集電極|收藏品"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "輪椅"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "社會設施"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "體育館"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "藝術中心"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "展覽中心"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "衛浴擺設"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "床鋪"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "精品店"
+    },
+    "amenity-food_court": {
+        "defaultMessage": "美食廣場"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "窗簾"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "煤氣庫"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "寵物美容"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "高保真音響"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "會議中心"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "香草店"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "家電店"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "農產品店"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "時尚配飾"
+    },
+    "amenity-waste_transfer_station": {
+        "defaultMessage": "垃圾轉運站"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "地毯"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "義大利麵"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "行李寄存櫃"
+    },
+    "@fastfood": {
+        "defaultMessage": "速食店"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "貝果"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "早餐"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "漢堡"
+    },
+    "cuisine-bubble_tea": {
+        "defaultMessage": "珍珠奶茶"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "蛋糕"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "咖啡"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "咖哩"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "美式餐廳"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "甜甜圈"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "炸魚薯條"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "油炸"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "烤"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "熱狗"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "冰淇淋"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "烤肉"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "麵食"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "煎餅|可麗餅"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "義大利麵"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "披薩"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "拉麵"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "三明治"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "火腿"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "海鮮|魚"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "蕎麥面"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "牛排館"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "壽司"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "塔帕斯"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "茶"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "素食"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "全素料理"
+    }
+}

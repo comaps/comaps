@@ -2,6 +2,7 @@
 
 #include "categories_holder.hpp"
 
+#include "base/macros.hpp"
 #include "base/mem_trie.hpp"
 
 #include <string>

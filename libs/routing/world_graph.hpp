@@ -1,17 +1,12 @@
 #pragma once
 
-#include "routing/base/astar_vertex_data.hpp"
-
 #include "routing/edge_estimator.hpp"
 #include "routing/index_graph.hpp"
 #include "routing/joint_segment.hpp"
-#include "routing/latlon_with_altitude.hpp"
 #include "routing/route.hpp"
 #include "routing/routing_options.hpp"
 #include "routing/segment.hpp"
 #include "routing/transit_info.hpp"
-
-#include "routing_common/num_mwm_id.hpp"
 
 #include <functional>
 #include <memory>
@@ -21,6 +16,8 @@
 namespace routing
 {
 class CrossMwmGraph;
+class SpeedInUnits;
+class RouteWeight;
 
 enum class WorldGraphMode
 {

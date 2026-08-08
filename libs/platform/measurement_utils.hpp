@@ -1,9 +1,13 @@
 #pragma once
 
 #include "geometry/point2d.hpp"
-#include "platform/locale.hpp"
 
 #include <string>
+
+namespace platform
+{
+struct Locale;
+}  // namespace platform
 
 namespace measurement_utils
 {

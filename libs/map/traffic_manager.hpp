@@ -3,7 +3,6 @@
 #include "traffic/traffic_info.hpp"
 
 #include "drape_frontend/drape_engine_safe_ptr.hpp"
-#include "drape_frontend/traffic_generator.hpp"
 
 #include "drape/pointers.hpp"
 
@@ -19,7 +18,7 @@
 #include "traffxml/traff_storage.hpp"
 
 #include "geometry/point2d.hpp"
-#include "geometry/polyline2d.hpp"
+#include "geometry/rect2d.hpp"
 #include "geometry/screenbase.hpp"
 
 #include "base/thread.hpp"
@@ -36,6 +35,11 @@
 #include <string>
 #include <utility>
 #include <vector>
+
+namespace df
+{
+class DrapeEngine;
+}  // namespace df
 
 class TrafficManager final : public traffxml::TraffSourceManager
 {

@@ -3,12 +3,6 @@
 #include "tracking/archival_manager.hpp"
 #include "tracking/archive.hpp"
 
-#include "traffic/speed_groups.hpp"
-
-#include "routing/router.hpp"
-
-#include "platform/location.hpp"
-
 #include "base/thread.hpp"
 
 #include <array>

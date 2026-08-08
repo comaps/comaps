@@ -2,6 +2,8 @@
 
 #include "indexer/data_source.hpp"
 
+#include "coding/files_container.hpp"
+
 #include "defines.hpp"
 
 namespace isolines

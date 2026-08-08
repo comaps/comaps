@@ -5,6 +5,8 @@
 #include "coding/varint.hpp"
 #include "coding/write_to_sink.hpp"
 
+#include "base/exception.hpp"
+
 #include <cstring>
 #include <sstream>
 

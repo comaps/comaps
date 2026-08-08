@@ -10,6 +10,7 @@
 
 #include "search/types_skipper.hpp"
 
+#include "indexer/categories_holder.hpp"
 #include "indexer/classificator.hpp"
 #include "indexer/feature_meta.hpp"
 #include "indexer/feature_visibility.hpp"

@@ -1,11 +1,11 @@
 #pragma once
 #include "kml/type_utils.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-#include "coding/writer.hpp"
-
 #include "geometry/point2d.hpp"
-#include "geometry/point_with_altitude.hpp"
+
+#include "i18n/localisation.hpp"
+
+class Writer;
 
 namespace kml
 {

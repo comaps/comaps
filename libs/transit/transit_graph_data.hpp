@@ -6,7 +6,6 @@
 #include "geometry/region2d.hpp"
 
 #include "coding/reader.hpp"
-#include "coding/writer.hpp"
 
 #include "base/exception.hpp"
 #include "base/geo_object_id.hpp"

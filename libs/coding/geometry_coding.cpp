@@ -5,6 +5,8 @@
 #include "geometry/mercator.hpp"
 
 #include "base/assert.hpp"
+#include "base/bits.hpp"
+#include "base/math.hpp"
 
 #include <complex>
 #include <stack>

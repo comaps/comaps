@@ -1,7 +1,5 @@
 #include "routing/segmented_route.hpp"
 
-#include "routing/index_graph_starter.hpp"
-
 #include "geometry/mercator.hpp"
 
 #include "base/assert.hpp"

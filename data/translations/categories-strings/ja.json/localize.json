@@ -1,0 +1,1472 @@
+{
+    "@category_eat": {
+        "defaultMessage": "食事場所|飲食|飲食店"
+    },
+    "@category_food": {
+        "defaultMessage": "食料雑貨|飲食"
+    },
+    "@category_transport": {
+        "defaultMessage": "交通機関"
+    },
+    "@category_fuel": {
+        "defaultMessage": "1ガソリンスタンド"
+    },
+    "@category_parking": {
+        "defaultMessage": "駐車場"
+    },
+    "@category_shopping": {
+        "defaultMessage": "ショッピング"
+    },
+    "@category_hotel": {
+        "defaultMessage": "ホテル|宿|宿泊|旅館"
+    },
+    "@category_tourism": {
+        "defaultMessage": "観光"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "エンターテイメント"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "ナイトライフ"
+    },
+    "@category_children": {
+        "defaultMessage": "家族の休日"
+    },
+    "@category_atm": {
+        "defaultMessage": "1ATM"
+    },
+    "@category_rv": {
+        "defaultMessage": "RV用"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "atm|お金|マネー|金|引き出し|預金|振り込み"
+    },
+    "@category_bank": {
+        "defaultMessage": "1銀行"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "中古品"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "バンク|お金|マネー|金|引き出し|預金|振り込み"
+    },
+    "@category_recycling": {
+        "defaultMessage": "リサイクル|廃物利用|リサイクル可能なもの|ゴミの分別回収|ゴミの分別|再利用"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "1為替|マネー|お金|通貨|金|両替"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "1居酒屋|バー|パブ|ビール|飲み屋|呑み屋|酒"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "1カフェ|喫茶|コーヒー|珈琲|お茶|茶|紅茶"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "1ファストフード|テイクアウト|持ち帰り"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "1レストラン|2ファミレス"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "ガスステーション|ガス|燃料|軽油|給油"
+    },
+    "@shop": {
+        "defaultMessage": "お買い物|ショップ|商店|雑貨|買い物"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "1パン屋|ベーカリー|パン|軽食|持ち帰り|ペストリー"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "化粧品|ホームケア"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "コンビニエンスストア|コンビニ|スーパー|スーパーマーケット|コンビニエンス"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "デリ"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "保育園|託児所"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "補聴器"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "携帯ショップ"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "フローリスト/花屋|お買い物|ショップ|商店|雑貨"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "肉屋|お買い物|ショップ|商店|雑貨"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "家具店|お買い物|ショップ|商店|雑貨"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "キッチンストア"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "酒屋|お買い物|ショップ|商店|雑貨"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "本屋|お買い物|ショップ|商店|雑貨"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "靴屋|お買い物|ショップ|商店|雑貨"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "電気店|お買い物|ショップ|商店|雑貨"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "工具店|お買い物|ショップ|商店|雑貨|ホームセンター"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "家庭用品"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "宝石店|お買い物|ショップ|商店|雑貨"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "眼鏡店|お買い物|ショップ|商店|雑貨"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "ギフトショップ|お買い物|ショップ|商店|雑貨"
+    },
+    "shop-beauty": {
+        "defaultMessage": "ビューティーサロン|美粧院|美容品店"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "八百屋|お買い物|ショップ|商店|雑貨"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "スポーツ用品店|お買い物|ショップ|商店|雑貨"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "1スーパーマーケット|ショップ|お買い物|商店|スーパー"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "モール"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "デパート|百貨店"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "ドリンク|飲料"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "コンピュータショップ"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "菓子類|菓子屋|菓子職人"
+    },
+    "shop-laundry": {
+        "defaultMessage": "ランドリー|洗濯屋、クリーニング屋"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "おもちゃ屋|玩具店"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "1市場|お買い物|食料品"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "送金"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "1洋服|洋服屋さん|ショッピング|衣類|服"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "カーディーラー|車|車販売|ディーラー"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "自転車屋|レンタサイクル|自転車"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "1キオスク|売店"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "1バス停|停留所|トランスポート|バス|乗合|交通|ばす"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "1トラム|トラム停留所|市電|トランスポート|交通|路面電車"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "1バスステーション|バス|駅|乗合|トランスポート|バス停|高速バス|乗車|停留所|ばす"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "1鉄道駅|鉄道|電車|交通|駅|鉄|電"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "フニクラ"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "1地下鉄|地下鉄駅|電車|鉄道|交通|交通|鉄|電"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "1フェリー"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "1タクシー"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "1役場|1公会堂|1町役場"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "1アトラクション|観光スポット|観光|名所|観光名所"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "1イラスト|1芸術作品|芸術"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "1観光スポット|見どころ|名所|観光名所"
+    },
+    "tourism-information": {
+        "defaultMessage": "1インフォメーション|観光情報|情報|案内"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "1ピクニック|ピクニックサイト|ハイキング|バーベキューグリル"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "1礼拝|1寺院|1神社|仏閣|神殿|お寺"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "教会|寺院|神社|仏閣|神殿|お寺"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "モスク|寺院|神社|仏閣|神殿|お寺"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "寺|寺院|神社|仏閣|神殿|お寺"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "寺|寺院|神社|仏閣|神殿|お寺"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "神社|寺院|神社|仏閣|神殿|お寺"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "ユダヤ教会|シナゴーグ|寺院|神社|仏閣|神殿|お寺"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "寺|寺院|神社|仏閣|神殿|お寺"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "1博物館|美術館"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "滝"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "1考古遺跡|発掘|発掘現場|考古学|遺跡"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "古戦場"
+    },
+    "historic-stone": {
+        "defaultMessage": "歴史的な石"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "境界標"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "城|お城|砦|城砦|カストラ|要塞化された教会|要塞|ヒルフォート|クレムリ|マナー・ハウス|宮殿"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "城門"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "城壁"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "歴史的な要塞"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "絞首台"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "追悼|1記念碑|追悼碑"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "メモリアルクロス"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "銘板"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "彫刻"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "塑像"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "ストルパーシュタイン"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "戦争記念施設"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "1記念碑"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "さらし台"
+    },
+    "historic-cannon": {
+        "defaultMessage": "大砲"
+    },
+    "historic-anchor": {
+        "defaultMessage": "歴史的なアンカー"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "1古跡|古蹟|廃墟|城址|城跡"
+    },
+    "historic-mine": {
+        "defaultMessage": "歴史ある鉱山"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "退役船"
+    },
+    "historic-wreck": {
+        "defaultMessage": "難破船"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "歴史的な機関車"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "歴史的な戦車"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "歴史的な航空機"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "墓"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "歴史的な十字架"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "歴史的な祠"
+    },
+    "leisure-dog_park": {
+        "defaultMessage": "ドッグラン"
+    },
+    "leisure-garden": {
+        "defaultMessage": "1庭園|庭|園"
+    },
+    "amenity-bench": {
+        "defaultMessage": "ベンチ|縁台|椅子"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "レンタサイクル|自転車|自転車レンタル|貸し自転車|貸自転車|1レンタル"
+    },
+    "amenity-bicycle_repair_station": {
+        "defaultMessage": "自転車修理"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "カーシェアリング"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "1カーシェアリング|車|レンタカー|レンタル"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "レンタルバイク"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "1映画館|シネマ|映画"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "ボーリング場"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "1劇場|シアター"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "1ナイトクラブ|クラブ|ダンス"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "売春宿"
+    },
+    "@gambling": {
+        "defaultMessage": "ギャンブル"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "カジノ"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "アダルト ゲーム センター"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "アーケード"
+    },
+    "amenity-college": {
+        "defaultMessage": "1大学|カレッジ"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "1消防署"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "1噴水|泉"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "1墓地|墓場|お墓|墓苑|霊場"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "葬儀屋"
+    },
+    "@category_hospital": {
+        "defaultMessage": "病院"
+    },
+    "amenity-hospital|@category_hospital": {
+        "defaultMessage": "クリニック|医師|医者|ドクター|救急|診療"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "クリニック|病院、診療所"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "医者のオフィス|クリニック|医院"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "歯科医|歯医者"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "医療研究所"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "理学療法士"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "代替医療"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "オーディオロジー|オーディオロジスト"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "献血"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "オプトメトリー|オプトメトリスト"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "足病学|足病医"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "心理療法|サイコセラピスト"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "ロゴペディックス|スピーチセラピスト"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "1狩猟スタンド"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "1幼稚園|保育園|託児|託児所"
+    },
+    "amenity-library": {
+        "defaultMessage": "1図書館"
+    },
+    "amenity-parking|amenity-parking_entrance|@category_parking": {
+        "defaultMessage": "パーキング|コインパーキング"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "1薬局"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "ドラッグストア|薬剤師|調剤|薬屋"
+    },
+    "@category_post": {
+        "defaultMessage": "1郵便局"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "1郵便ポスト|ポスト|郵便局"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "車検"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "ゴミ|ごみ|リサイクル|再利用|ダストボックス"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "リサクルセンター"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "リサイクルボックス"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "バッテリー"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "古着|古着のリサイクル"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "ガラス瓶"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "紙くず"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "プラスチックごみ"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "ペットボトル"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "スクラップ金属"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "電子廃棄物"
+    },
+    "amenity-school": {
+        "defaultMessage": "1学校"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "1避難所|シェルター"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "ビバーク小屋"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "1避難所|シェルター"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "ストリップクラブ|ストリップ劇場"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "1公衆電話|電話|緑電話|電話ボックス"
+    },
+    "@category_toilet": {
+        "defaultMessage": "1トイレ"
+    },
+    "amenity-toilets|toilets-yes|@category_toilet": {
+        "defaultMessage": "お手洗い|便所|厠"
+    },
+    "amenity-university": {
+        "defaultMessage": "1大学"
+    },
+    "place-continent": {
+        "defaultMessage": "1大陸"
+    },
+    "place-country": {
+        "defaultMessage": "国|国家"
+    },
+    "place-city": {
+        "defaultMessage": "市|町"
+    },
+    "place-town": {
+        "defaultMessage": "町|村"
+    },
+    "place-city-capital": {
+        "defaultMessage": "1首都|市|都市"
+    },
+    "place-county": {
+        "defaultMessage": "郡"
+    },
+    "place-state": {
+        "defaultMessage": "州"
+    },
+    "place-region": {
+        "defaultMessage": "1地方|地域"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "島|小島|島嶼|群島"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "1区|地区|近隣"
+    },
+    "place-hamlet": {
+        "defaultMessage": "村"
+    },
+    "place-village": {
+        "defaultMessage": "村"
+    },
+    "place-locality": {
+        "defaultMessage": "1地域|僻地"
+    },
+    "place-farm": {
+        "defaultMessage": "1農場"
+    },
+    "highway-raceway": {
+        "defaultMessage": "1レース場|レース"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "1歩道|小道|小路|小径|階段|獣道|遊歩道|パス"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "ストリート|通り|道路|辻|筋"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "1ジャンクション|料金所|高速道路|インターチェンジ"
+    },
+    "@mountain": {
+        "defaultMessage": "1山頂|山|頂|頂上|峰"
+    },
+    "natural-strait": {
+        "defaultMessage": "海峡"
+    },
+    "landuse-forest": {
+        "defaultMessage": "1森林|森|林|人工林|自然林"
+    },
+    "leisure-park": {
+        "defaultMessage": "1公園"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "水族館"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "1ホステル|宿泊|宿|民宿"
+    },
+    "tourism-hotel|@category_hotel": {
+        "defaultMessage": "ホテル"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "1ゲストハウス|ホステル|民宿"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "1モーテル"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "1山小屋|高山小屋|ヒュッテ|山の宿泊施設"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "1美容師|床屋|髪|パーマ|散髪|理髪|美容院/理容店"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "1空港"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "1スタジアム|競技場|運動場"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "1児童公園|公園|遊び場"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "1スポーツセンター|スポーツ|体育館|総合体育館"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "1ゴルフコース|ゴルフ場|ゴルフクラブ|ゴルフ"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "ミニゴルフ"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "脱出ゲーム"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "ハッカースペース"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "1運動場|スポーツ|トラック|球場"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "1プール|スイミング|スイミングプール|水泳場|水泳"
+    },
+    "sport-american_football": {
+        "defaultMessage": "アメリカンフットボール"
+    },
+    "sport-archery": {
+        "defaultMessage": "アーチェリー"
+    },
+    "sport-athletics": {
+        "defaultMessage": "陸上競技|運動競技"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "オーストラリアンフットボール"
+    },
+    "sport-baseball": {
+        "defaultMessage": "野球"
+    },
+    "sport-basketball": {
+        "defaultMessage": "バスケットボール"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "ビーチバレー"
+    },
+    "sport-bowls": {
+        "defaultMessage": "ローンボウルズ"
+    },
+    "sport-chess": {
+        "defaultMessage": "チェス"
+    },
+    "sport-cricket": {
+        "defaultMessage": "クリケット"
+    },
+    "sport-curling": {
+        "defaultMessage": "カーリング"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "馬術"
+    },
+    "sport-golf": {
+        "defaultMessage": "ゴルフ"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "体操"
+    },
+    "sport-handball": {
+        "defaultMessage": "ハンドボール"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "スキューバダイビング"
+    },
+    "sport-shooting": {
+        "defaultMessage": "射撃場"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "スケートボード"
+    },
+    "sport-skiing": {
+        "defaultMessage": "スキー"
+    },
+    "sport-soccer": {
+        "defaultMessage": "サッカー"
+    },
+    "sport-swimming": {
+        "defaultMessage": "スイミングセンター"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "卓球"
+    },
+    "sport-tennis": {
+        "defaultMessage": "テニス"
+    },
+    "sport-padel": {
+        "defaultMessage": "パデル"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "バレーボール"
+    },
+    "building": {
+        "defaultMessage": "1建物|ビル"
+    },
+    "building-address": {
+        "defaultMessage": "住所"
+    },
+    "@category_police": {
+        "defaultMessage": "警察"
+    },
+    "amenity-police|@category_police": {
+        "defaultMessage": "1屯所|ポリス|交番|お巡りさん|おまわりさん|通報"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "1大使館"
+    },
+    "natural-bay": {
+        "defaultMessage": "1港湾|港|湾|みなと|船着場"
+    },
+    "@category_water": {
+        "defaultMessage": "水"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "1水飲み場|飲料水|飲水"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "温泉"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "泉|湧水|湧き水"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "井戸"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "給水所"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "給水栓"
+    },
+    "@waterbody": {
+        "defaultMessage": "水地"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "水地|貯水所"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "池"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "湖|池"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "貯水池"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "河川|川|河|流域|河川流域"
+    },
+    "waterway-canal": {
+        "defaultMessage": "1運河"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "1自動車修理|車|自動車|カー|リペア|修理|カーリペア"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "1キャンプ場|キャンプ|キャンピング|バーベキュー|テント場"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "1キャラバンサイト"
+    },
+    "office": {
+        "defaultMessage": "オフィス|1事務所"
+    },
+    "office-company": {
+        "defaultMessage": "会社事務所"
+    },
+    "office-government": {
+        "defaultMessage": "官庁"
+    },
+    "office-lawyer": {
+        "defaultMessage": "弁護士事務所"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "携帯電話事業者|キャリア"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "養蜂家"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "鍛冶屋"
+    },
+    "craft-brewery": {
+        "defaultMessage": "醸造所"
+    },
+    "craft-caterer": {
+        "defaultMessage": "ケータリング"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "大工"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "菓子職人"
+    },
+    "craft-electrician": {
+        "defaultMessage": "電気技師"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "電子機器修理"
+    },
+    "craft-gardener": {
+        "defaultMessage": "造園家"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "ミル"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "手芸"
+    },
+    "craft-hvac": {
+        "defaultMessage": "冷暖房空調"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "金属工"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "キーカット"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "錠前屋"
+    },
+    "craft-painter": {
+        "defaultMessage": "塗装工"
+    },
+    "craft-photographer": {
+        "defaultMessage": "写真家|写真撮影スタジオ"
+    },
+    "craft-plumber": {
+        "defaultMessage": "配管工"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "製材所"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "靴修理"
+    },
+    "craft-winery": {
+        "defaultMessage": "ワイナリー"
+    },
+    "craft-tailor": {
+        "defaultMessage": "仕立て屋"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "広場"
+    },
+    "place-sea": {
+        "defaultMessage": "海"
+    },
+    "place-ocean": {
+        "defaultMessage": "海"
+    },
+    "@category_wifi": {
+        "defaultMessage": "無線LAN"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "3インターネット|WiFi|3Internet"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "ビーチ|砂浜"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "灯台"
+    },
+    "man_made-survey_point": {
+        "defaultMessage": "測量標"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "通信塔"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "油井"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "エコ|バイオ|ヘルシー|バイオロジー|エンバイロメンタル|ナチュラル|オーガニック|有機"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "コピーショップ|印刷会社"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "写真屋|フレーム|店"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "カメラショップ"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "旅行会社|ツアー"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "アウトドア用品|トレッキング|クライミング|店"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "クリーニング屋|クリーニング"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "タイヤ専門店|ショップ"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "洗車"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "獣医"
+    },
+    "@charging_station": {
+        "defaultMessage": "充電ステーション|充電"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "自転車充電"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "託児所|保育園"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "駐輪場"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "くずかご"
+    },
+    "emergency-phone": {
+        "defaultMessage": "緊急電話"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "フィットネスセンター、ジム"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "サウナ"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "タイヤ修理"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "化学薬品店"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "ペットショップ"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "動物園"
+    },
+    "attraction-animal": {
+        "defaultMessage": "アニマル・エンクロージャー"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "観光案内所"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "ビジターセンター"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "コミュニティセンター"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "圧縮空気"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "裁判所"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "たばこ自動販売機"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "飲料自動販売機"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "駐車券支払機"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "公共交通機関の券売機"
+    },
+    "shop-outpost": {
+        "defaultMessage": "集荷場"
+    },
+    "building-garage": {
+        "defaultMessage": "車庫"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "休憩所|サービスエリア"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "工場煙突"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "タワー"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "ブックメーカー"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "魚屋"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "古物商"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "チャリティーショップ"
+    },
+    "shop-ticket": {
+        "defaultMessage": "チケット売り場"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "ワイン|酒屋|ワインショップ"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "車両部品"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "ホリデー・コテージ"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "案内板|情報板"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "観光マップ"
+    },
+    "aerialway-station": {
+        "defaultMessage": "ケーブルカー駅"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "ヘリポート"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "国境管理"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "ウォーターパーク"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "給水塔"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "風車"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "洞窟"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "火山"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "不動産業者"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "水門"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "書棚|図書交換"
+    },
+    "sport-climbing": {
+        "defaultMessage": "クライミングセンター"
+    },
+    "sport-yoga": {
+        "defaultMessage": "ヨガスタジオ"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "アパート"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "リゾート"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "ビアガーデン"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "自動車教習所"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "音楽学校"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "語学学校"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "アイスクリーム屋"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "インターネットカフェ"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "バイク駐輪場"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "身障者用駐車スペース"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "養護施設"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "決済端末"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "公衆浴場"
+    },
+    "amenity-shower": {
+        "defaultMessage": "シャワー"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "緊急集合場所"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "除細動器"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "消火栓"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "緊急救助員|ライフガード"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "緊急山岳救助"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "フィットネスステーション"
+    },
+    "office-insurance": {
+        "defaultMessage": "保険会社"
+    },
+    "office-ngo": {
+        "defaultMessage": "3NGO 事務局"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "アダルトショップ"
+    },
+    "shop-massage": {
+        "defaultMessage": "マッサージパーラー|マッサージ店"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "バイクショップ"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "オートバイの修理"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "新聞販売店"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "質屋"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "文房具店"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "タトゥーパーラー|タトゥースタジオ"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "雑貨店"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "ビデオショップ"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "ゲームショップ"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "無人小屋"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "国立公園"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "自然保護区"
+    },
+    "natural-cape": {
+        "defaultMessage": "岬"
+    },
+    "natural-geyser": {
+        "defaultMessage": "間欠泉"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "氷河"
+    },
+    "highway-ford": {
+        "defaultMessage": "浅瀬"
+    },
+    "leisure-marina": {
+        "defaultMessage": "マリーナ"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "スキー|スキー滑走"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "イベント会場"
+    },
+    "shop-chocolate|@category_food|@shop": {
+        "defaultMessage": "チョコレート屋"
+    },
+    "shop-coffee|@category_food|@shop": {
+        "defaultMessage": "コーヒー屋"
+    },
+    "shop-music|@shop": {
+        "defaultMessage": "CDショップ"
+    },
+    "shop-musical_instrument|@shop": {
+        "defaultMessage": "楽器店"
+    },
+    "shop-tea|@shop": {
+        "defaultMessage": "茶販売店"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "骨董品"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "アートショップ"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "キッズストア"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "バッグストア"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "チーズ店"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "乳製品"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "電気店"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "フィッシングストア"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "室内装飾"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "宝くじ"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "医療用品"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "栄養補助食品"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "塗料"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "香水"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "ミシン用品"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "ストレージレンタル"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "タバコ"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "貿易用品"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "時計"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "問屋"
+    },
+    "leisure-track": {
+        "defaultMessage": "トラック"
+    },
+    "power-plant": {
+        "defaultMessage": "発電所"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "オークション"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "コレクター|コレクタブル"
+    },
+    "man_made-cairn": {
+        "defaultMessage": "ケルン"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "車椅子"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "社会施設"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "スポーツホール"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "芸術センター"
+    },
+    "amenity-prison": {
+        "defaultMessage": "刑務所"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "エキシビションセンター"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "バスルームの備品"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "ベッドショップ"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "ブティック"
+    },
+    "amenity-food_court": {
+        "defaultMessage": "フードコート"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "カーテン"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "ガス屋"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "ペットグルーミング"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "ハイファイオーディオ"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "カンファレンスセンター"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "ハーブ店"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "家電店"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "農産物直売所"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "ファッションアクセサリー"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "カーペット"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "パスタ"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "荷物ロッカー"
+    },
+    "@fastfood": {
+        "defaultMessage": "ファストフード"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "ベーグル"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "朝食"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "ハンバーガー"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "ケーキ"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "コーヒー"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "カレー"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "ダイナー"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "ドーナッツ"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "フィッシュ・アンド・チップス"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "揚げ物"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "グリル"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "ホットドッグ"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "アイスクリーム"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "カバブ"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "麺類"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "ホットケーキ|クレープ"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "パスタ"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "ピザ"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "ラーメン"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "サンドイッチ"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "ソーセージ"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "シーフード|魚料理"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "そば"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "ステーキハウス"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "寿司"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "タパス"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "紅茶"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "ベジタリアン料理"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "ビーガン料理"
+    }
+}

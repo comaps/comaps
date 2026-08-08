@@ -1,4 +1,4 @@
-A community led free & open source maps app based on OpenStreetMap data and reinforced with commitment to transparency, privacy and being not-for-profit.
+A community-led free & open source maps app based on OpenStreetMap data and reinforced with commitment to transparency, privacy and being not-for-profit.
 
 Join the community and help make the best maps app
 • Use the app and spread the word about it
@@ -8,8 +8,8 @@ Join the community and help make the best maps app
 <i>Your feedback and 5-star reviews are the best support for us!</i>
 
 ‣ <b>Simple and Polished</b>: essential easy to use features that just work.
-‣ <b>Offline focused</b>: Plan and navigate your trip abroad without the need for cellular service, search waypoints while on a distant hike, etc. All app functions are designed to work offline.
-‣ <b>Respecting Privacy</b>: The app is designed with privacy in mind - it does not identify people, does not track, and does not collect personal information. Ad free.
+‣ <b>Offline-focused</b>: Plan and navigate your trip abroad without the need for cellular service, search waypoints while on a distant hike, etc. All app functions are designed to work offline.
+‣ <b>Respecting Privacy</b>: The app is designed with privacy in mind - does not identify people, does not track, and does not collect personal information. Ads-free.
 ‣ <b>Saves Your Battery and Space</b>: Doesn’t drain your battery like other navigation apps. Compact maps save precious space on your phone.
 ‣ <b>Free and Built by the Community</b>: People like you helped build the app by adding places to OpenStreetMap, testing and giving feedback on features and contributing their development skills and money.
 ‣ <b>Open and Transparent Decision-making and Financials, Not-for-profit and Fully Open Source.</b>
@@ -18,10 +18,10 @@ Join the community and help make the best maps app
 • Downloadable detailed maps with places which are not available with Google Maps
 • Outdoor mode with highlighted hiking trails, campsites, water sources, peaks, contour lines, etc
 • Walking paths and cycleways
-• Points of interest like restaurants, gas stations, hotels, shops, sightseeings and many more
+• Points of interest like restaurants, gas stations, hotels, shops, sightseeing and many more
 • Search by name or an address or by point of interest category
-• Navigation with voice announcements for walking, biking, or driving
-• Bookmark your favorite places with a single tap
+• Navigation with voice announcements for walking, cycling, or driving
+• Bookmark your favourite places with a single tap
 • Offline Wikipedia articles
 • Subway transit layer and directions
 • Track recording

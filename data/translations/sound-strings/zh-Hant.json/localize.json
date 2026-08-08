@@ -1,0 +1,320 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "向右前方行駛。"
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "右轉。"
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "向右急轉。"
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "駛入環狀交叉路口。"
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "駛出環狀交叉路口。"
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "向左前方行駛。"
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "左轉。"
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "向左急轉。"
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "掉頭。"
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "繼續直行。"
+    },
+    "exit": {
+        "defaultMessage": "駛出當前路段。"
+    },
+    "onto": {
+        "defaultMessage": "駛入到"
+    },
+    "take_exit_number": {
+        "defaultMessage": "出口 上"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "重新計算路"
+    },
+    "destination": {
+        "defaultMessage": "即將到達目的地。"
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "你已到達目的地。"
+    },
+    "in_50_meters": {
+        "defaultMessage": "在五十公尺後"
+    },
+    "in_100_meters": {
+        "defaultMessage": "在一百公尺後"
+    },
+    "in_200_meters": {
+        "defaultMessage": "在兩百公尺後"
+    },
+    "in_250_meters": {
+        "defaultMessage": "在兩百五十公尺後"
+    },
+    "in_300_meters": {
+        "defaultMessage": "在三百公尺後"
+    },
+    "in_400_meters": {
+        "defaultMessage": "在四百公尺後"
+    },
+    "in_500_meters": {
+        "defaultMessage": "在五百公尺後"
+    },
+    "in_600_meters": {
+        "defaultMessage": "在六百公尺後"
+    },
+    "in_700_meters": {
+        "defaultMessage": "在七百公尺後"
+    },
+    "in_750_meters": {
+        "defaultMessage": "在七百五十公尺後"
+    },
+    "in_800_meters": {
+        "defaultMessage": "在八百公尺後"
+    },
+    "in_900_meters": {
+        "defaultMessage": "在九百公尺後"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "在一公里後"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "在一點五公里後"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "在兩公里后"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "在兩點五公里后"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "在三公里後"
+    },
+    "then": {
+        "defaultMessage": "然後"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "請在第一個出口離開。"
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "請在第二個出口離開。"
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "請在第三個出口離開。"
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "請在第四個出口離開。"
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "請在第五個出口離開。"
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "請在第六個出口離開。"
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "請在第七個出口離開。"
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "請在第八個出口離開。"
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "請在第九個出口離開。"
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "請在第十個出口離開。"
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "請在第十一個出口離開。"
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "在五十英尺後"
+    },
+    "in_100_feet": {
+        "defaultMessage": "在一百英尺後"
+    },
+    "in_200_feet": {
+        "defaultMessage": "在兩百英尺後"
+    },
+    "in_300_feet": {
+        "defaultMessage": "在三百英尺後"
+    },
+    "in_400_feet": {
+        "defaultMessage": "在四百英尺後"
+    },
+    "in_500_feet": {
+        "defaultMessage": "在五百英尺後"
+    },
+    "in_600_feet": {
+        "defaultMessage": "在六百英尺後"
+    },
+    "in_700_feet": {
+        "defaultMessage": "在七百英尺後"
+    },
+    "in_800_feet": {
+        "defaultMessage": "在八百英尺後"
+    },
+    "in_900_feet": {
+        "defaultMessage": "在九百英尺後"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "在一千英尺後"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "在一千五百英尺後"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "在兩千英尺後"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "在兩千五百英尺後"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "在三千英尺後"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "在三千五百英尺後"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "在四千英尺後"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "在四千五百英尺後"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "在五千英尺後"
+    },
+    "in_1_mile": {
+        "defaultMessage": "在一英里後"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "在一點五英里後"
+    },
+    "in_2_miles": {
+        "defaultMessage": "在兩英里後"
+    },
+    "unknown_camera": {
+        "defaultMessage": "前方有攝影機"
+    }
+}

@@ -1,12 +1,9 @@
 #include "indexer/feature_to_osm.hpp"
 
-#include "indexer/data_source.hpp"
 #include "indexer/mwm_set.hpp"
 #include "indexer/utils.hpp"
 
 #include "coding/reader.hpp"
-
-#include "base/macros.hpp"
 
 #include "defines.hpp"
 

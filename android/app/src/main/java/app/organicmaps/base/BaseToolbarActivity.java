@@ -13,11 +13,12 @@ import app.organicmaps.R;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
 import com.google.android.material.appbar.MaterialToolbar;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public abstract class BaseToolbarActivity extends BaseMwmFragmentActivity
 {
-  @Nullable
-  private String mLastTitle;
+  private final Deque<String> mTitleStack = new ArrayDeque<>();
 
   @CallSuper
   @Override
@@ -91,7 +92,7 @@ public abstract class BaseToolbarActivity extends BaseMwmFragmentActivity
       MaterialToolbar toolbar = getToolbar();
       if (toolbar != null && toolbar.getTitle() != null)
       {
-        mLastTitle = toolbar.getTitle().toString();
+        mTitleStack.push(toolbar.getTitle().toString());
         toolbar.setTitle(title);
       }
     }
@@ -102,8 +103,8 @@ public abstract class BaseToolbarActivity extends BaseMwmFragmentActivity
   @Override
   public void onBackPressed()
   {
-    if (mLastTitle != null)
-      getToolbar().setTitle(mLastTitle);
+    if (!mTitleStack.isEmpty())
+      getToolbar().setTitle(mTitleStack.pop());
 
     super.onBackPressed();
   }

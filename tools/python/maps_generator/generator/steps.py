@@ -47,11 +47,11 @@ def multithread_run_if_one_country(func):
 
 
 def convert_planet(
-    tool: AnyStr,
-    in_planet: AnyStr,
-    out_planet: AnyStr,
-    output=subprocess.DEVNULL,
-    error=subprocess.DEVNULL,
+        tool: AnyStr,
+        in_planet: AnyStr,
+        out_planet: AnyStr,
+        output=subprocess.DEVNULL,
+        error=subprocess.DEVNULL,
 ):
     osmconvert(tool, in_planet, out_planet, output=output, error=error)
     write_md5sum(out_planet, md5_ext(out_planet))
@@ -213,11 +213,11 @@ def step_cities_ids_world(env: Env, country: AnyStr, **kwargs):
 
 
 def filter_roads(
-    name_executable,
-    in_file,
-    out_file,
-    output=subprocess.DEVNULL,
-    error=subprocess.DEVNULL,
+        name_executable,
+        in_file,
+        out_file,
+        output=subprocess.DEVNULL,
+        error=subprocess.DEVNULL,
 ):
     osmfilter(
         name_executable,
@@ -231,13 +231,13 @@ def filter_roads(
 
 
 def make_world_road_graph(
-    name_executable,
-    path_roads_file,
-    path_resources,
-    path_res_file,
-    logger,
-    output=subprocess.DEVNULL,
-    error=subprocess.DEVNULL,
+        name_executable,
+        path_roads_file,
+        path_resources,
+        path_res_file,
+        logger,
+        output=subprocess.DEVNULL,
+        error=subprocess.DEVNULL,
 ):
     world_roads_builder_tool_cmd = [
         name_executable,
@@ -318,10 +318,13 @@ def step_popularity(env: Env, country: AnyStr, **kwargs):
         err=env.get_subprocess_out(country),
         data_path=env.paths.mwm_path,
         user_resource_path=env.paths.user_resource_path,
+        wikipedia_pages=env.paths.descriptions_path,
+        idToWikidata=env.paths.id_to_wikidata_path,
         generate_popular_places=True,
         output=country,
         **kwargs,
     )
+
 
 def step_popularity_world(env: Env, country: AnyStr, **kwargs):
     run_gen_tool_with_recovery_country(
@@ -367,6 +370,19 @@ def step_isolines_info(env: Env, country: AnyStr, **kwargs):
         user_resource_path=env.paths.user_resource_path,
         generate_isolines_info=True,
         isolines_path=PathProvider.isolines_path(),
+        output=country,
+        **kwargs,
+    )
+
+
+def step_reviews(env: Env, country: AnyStr, **kwargs):
+    run_gen_tool_with_recovery_country(
+        env,
+        env.gen_tool,
+        out=env.get_subprocess_out(country),
+        err=env.get_subprocess_out(country),
+        data_path=env.paths.mwm_path,
+        reviews_path=env.paths.reviews_path,
         output=country,
         **kwargs,
     )

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/driving_options_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:background="?appBackground"
-  android:orientation="vertical"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent">
-  <include layout="@layout/toolbar_default"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
   <LinearLayout
-    android:layout_marginTop="@dimen/margin_half_double_plus"
     android:orientation="horizontal"
     android:minHeight="@dimen/height_block_base"
     android:layout_width="match_parent"
@@ -20,10 +22,10 @@
       android:layout_height="24dp"
       android:layout_marginEnd="@dimen/margin_base_plus"
       android:layout_marginTop="@dimen/margin_half_plus"
-      app:srcCompat="@drawable/ic_avoid_tolls_disabled"
+      app:srcCompat="@drawable/ic_avoid_ferry_disabled"
       app:tint="?iconTint" />
     <com.google.android.material.textview.MaterialTextView
-      android:text="@string/avoid_tolls"
+      android:text="@string/avoid_ferry"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:layout_width="0dp"
       android:layout_weight="1"
@@ -31,7 +33,7 @@
       android:layout_gravity="center_vertical"
       android:textColor="?android:attr/textColorPrimary"/>
     <com.google.android.material.materialswitch.MaterialSwitch
-      android:id="@+id/avoid_tolls_btn"
+      android:id="@+id/avoid_ferries_vehicle_btn"
       android:layout_width="wrap_content"
       android:layout_height="match_parent"
       android:padding="@dimen/margin_half_double_plus"/>
@@ -59,7 +61,7 @@
       android:layout_gravity="center_vertical"
       android:textColor="?android:attr/textColorPrimary"/>
     <com.google.android.material.materialswitch.MaterialSwitch
-      android:id="@+id/avoid_dirty_roads_btn"
+      android:id="@+id/avoid_dirty_roads_vehicle_btn"
       android:layout_width="wrap_content"
       android:layout_height="match_parent"
       android:padding="@dimen/margin_half_double_plus"/>
@@ -87,35 +89,7 @@
       android:layout_gravity="center_vertical"
       android:textColor="?android:attr/textColorPrimary"/>
     <com.google.android.material.materialswitch.MaterialSwitch
-      android:id="@+id/avoid_paved_roads_btn"
-      android:layout_width="wrap_content"
-      android:layout_height="match_parent"
-      android:padding="@dimen/margin_half_double_plus"/>
-  </LinearLayout>
-  <LinearLayout
-    android:orientation="horizontal"
-    android:minHeight="@dimen/height_block_base"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingEnd="@dimen/margin_half"
-    android:paddingStart="@dimen/margin_base">
-    <com.google.android.material.imageview.ShapeableImageView
-      android:layout_width="24dp"
-      android:layout_height="24dp"
-      android:layout_marginEnd="@dimen/margin_base_plus"
-      android:layout_marginTop="@dimen/margin_half_plus"
-      app:srcCompat="@drawable/ic_avoid_ferry_disabled"
-      app:tint="?iconTint" />
-    <com.google.android.material.textview.MaterialTextView
-      android:text="@string/avoid_ferry"
-      android:textAppearance="?android:attr/textAppearanceMedium"
-      android:layout_width="0dp"
-      android:layout_weight="1"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center_vertical"
-      android:textColor="?android:attr/textColorPrimary"/>
-    <com.google.android.material.materialswitch.MaterialSwitch
-      android:id="@+id/avoid_ferries_btn"
+      android:id="@+id/avoid_paved_roads_vehicle_btn"
       android:layout_width="wrap_content"
       android:layout_height="match_parent"
       android:padding="@dimen/margin_half_double_plus"/>
@@ -143,7 +117,7 @@
       android:layout_height="wrap_content"
       android:textColor="?android:attr/textColorPrimary"/>
     <com.google.android.material.materialswitch.MaterialSwitch
-      android:id="@+id/avoid_motorways_btn"
+      android:id="@+id/avoid_motorways_vehicle_btn"
       android:layout_width="wrap_content"
       android:padding="@dimen/margin_half_double_plus"
       android:layout_height="match_parent"/>
@@ -160,20 +134,21 @@
       android:layout_height="24dp"
       android:layout_marginEnd="@dimen/margin_base_plus"
       android:layout_marginTop="@dimen/margin_half_plus"
-      app:srcCompat="@drawable/ic_avoid_steps_disabled"
+      app:srcCompat="@drawable/ic_avoid_tolls_disabled"
       app:tint="?iconTint" />
     <com.google.android.material.textview.MaterialTextView
-      android:text="@string/avoid_steps"
+      android:text="@string/avoid_tolls"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:layout_width="0dp"
       android:layout_weight="1"
-      android:layout_gravity="center_vertical"
       android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
       android:textColor="?android:attr/textColorPrimary"/>
     <com.google.android.material.materialswitch.MaterialSwitch
-      android:id="@+id/avoid_steps_btn"
+      android:id="@+id/avoid_tolls_vehicle_btn"
       android:layout_width="wrap_content"
-      android:padding="@dimen/margin_half_double_plus"
-      android:layout_height="match_parent"/>
+      android:layout_height="match_parent"
+      android:padding="@dimen/margin_half_double_plus"/>
   </LinearLayout>
 </LinearLayout>
+</androidx.core.widget.NestedScrollView>

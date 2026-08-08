@@ -5,6 +5,8 @@
 #include "base/assert.hpp"
 #include "base/logging.hpp"
 
+#include "std/target_os.hpp"
+
 #include <vulkan_wrapper.h>
 
 #include <string>

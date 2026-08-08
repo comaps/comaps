@@ -2,6 +2,7 @@ package app.organicmaps.sdk.routing;
 
 import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
+import app.organicmaps.sdk.routing.roadshield.RoadShieldInfo;
 import app.organicmaps.sdk.util.Distance;
 
 // Called from JNI.
@@ -19,7 +20,8 @@ public final class RoutingInfo
     RouteNeedsRebuild(4),
     RouteFinished(5),
     RouteNoFollowing(6),
-    RouteRebuilding(7);
+    RouteRebuilding(7),
+    OffRoute(8);
 
     final int mState;
 
@@ -39,6 +41,7 @@ public final class RoutingInfo
         case 5 -> RouteFinished;
         case 6 -> RouteNoFollowing;
         case 7 -> RouteRebuilding;
+        case 8 -> OffRoute;
         default -> NoValidRoute;
       };
     }
@@ -47,7 +50,7 @@ public final class RoutingInfo
     {
       return switch (state)
       {
-        case RouteNotStarted, OnRoute, RouteFinished -> true;
+        case RouteNotStarted, OnRoute, RouteFinished, OffRoute -> true;
         default -> false;
       };
     }
@@ -63,8 +66,12 @@ public final class RoutingInfo
   public final String currentStreet;
   // The next street name.
   public final String nextStreet;
+  @Nullable
+  public final RoadShieldInfo nextStreetRoadShields;
   // The next to the next street name.
   public final String nextNextStreet;
+  @Nullable
+  public final RoadShieldInfo nextNextStreetRoadShields;
   public final double completionPercent;
   // For vehicle routing.
   public final CarDirection carDirection;
@@ -91,19 +98,33 @@ public final class RoutingInfo
   // Time & distance information to the next intermediate stop.
   public final Distance distToNextStop;
   public final int timeToNextStop;
+  // Structured (shield-resolved) components of the next turn's road.
+  // All may be empty.
+  public final String nextName;
+  public final String nextRef;
+  public final String nextJunctionRef;
+  public final String nextDestinationRef;
+  public final String nextDestination;
+  public final boolean nextIsLink;
+  public final boolean isLeftHandTraffic;
 
   private RoutingInfo(Distance distToTarget, Distance distToTurn, String currentStreet, String nextStreet,
-                      String nextNextStreet, double completionPercent, int vehicleTurnOrdinal,
+                      @Nullable RoadShieldInfo nextStreetRoadShields, String nextNextStreet,
+                      @Nullable RoadShieldInfo nextNextStreetRoadShields, double completionPercent, int vehicleTurnOrdinal,
                       int vehicleNextTurnOrdinal, int pedestrianTurnOrdinal, int exitNum, int totalTime,
                       @Nullable LaneInfo[] lanes, double speedLimitMps, boolean speedLimitExceeded,
                       boolean shouldPlayWarningSignal, int routingSessionState,
-                      int indexOfNextStop, Distance distToNextStop, int timeToNextStop)
+                      int indexOfNextStop, Distance distToNextStop, int timeToNextStop,
+                      String nextName, String nextRef, String nextJunctionRef, String nextDestinationRef,
+                      String nextDestination, boolean nextIsLink, boolean isLeftHandTraffic)
   {
     this.distToTarget = distToTarget;
     this.distToTurn = distToTurn;
     this.currentStreet = currentStreet;
     this.nextStreet = nextStreet;
+    this.nextStreetRoadShields = nextStreetRoadShields;
     this.nextNextStreet = nextNextStreet;
+    this.nextNextStreetRoadShields = nextNextStreetRoadShields;
     this.totalTimeInSeconds = totalTime;
     this.completionPercent = completionPercent;
     this.carDirection = CarDirection.values()[vehicleTurnOrdinal];
@@ -118,6 +139,13 @@ public final class RoutingInfo
     this.indexOfNextStop = indexOfNextStop;
     this.distToNextStop = distToNextStop;
     this.timeToNextStop = timeToNextStop;
+    this.nextName = nextName;
+    this.nextRef = nextRef;
+    this.nextJunctionRef = nextJunctionRef;
+    this.nextDestinationRef = nextDestinationRef;
+    this.nextDestination = nextDestination;
+    this.nextIsLink = nextIsLink;
+    this.isLeftHandTraffic = isLeftHandTraffic;
   }
 
   public boolean isSpeedCamLimitExceeded()

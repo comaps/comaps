@@ -50,6 +50,13 @@
   <uses-permission android:name="androidx.car.app.NAVIGATION_TEMPLATES"/>
   <uses-permission android:name="androidx.car.app.ACCESS_SURFACE"/>
 
+  <permission
+      android:name="${applicationId}.permission.READ_NAVIGATION_DATA"
+      android:icon="@drawable/ic_logo_monochrome"
+      android:label="@string/permission_read_navigation_label"
+      android:description="@string/permission_read_navigation_description"
+      android:protectionLevel="dangerous" />
+
   <queries>
     <intent>
       <action android:name="android.intent.action.TTS_SERVICE"/>
@@ -61,6 +68,10 @@
       <action android:name="android.intent.action.VIEW" />
       <category android:name="android.intent.category.BROWSABLE" />
       <data android:scheme="https" />
+    </intent>
+    <intent>
+      <action android:name="android.intent.action.PICK" />
+      <data android:mimeType="vnd.android.cursor.dir/postal-address_v2" />
     </intent>
     <intent>
       <action android:name="org.traffxml.traff.GET_CAPABILITIES"/>
@@ -114,6 +125,7 @@
         <data android:scheme="geo"/>
         <data android:scheme="ge0"/>
         <data android:scheme="cm"/>
+        <data android:scheme="comaps"/>
       </intent-filter>
 
       <intent-filter>
@@ -473,8 +485,8 @@
     <activity
       android:name="app.organicmaps.widget.placepage.WikiArticleActivity"/>
     <activity
-      android:name="app.organicmaps.settings.DrivingOptionsActivity"
-      android:label="@string/driving_options_title"/>
+      android:name="app.organicmaps.settings.RoutingOptionsActivity"
+      android:label="@string/routing_options_title"/>
     <activity
         android:name="app.organicmaps.MapPlaceholderActivity"/>
     <activity
@@ -534,6 +546,13 @@
         android:name="android.support.FILE_PROVIDER_PATHS"
         android:resource="@xml/file_paths">
       </meta-data>
+    </provider>
+
+    <provider
+        android:name=".provider.NavigationContentProvider"
+        android:authorities="${applicationId}.provider.navigation"
+        android:exported="true"
+        android:readPermission="${applicationId}.permission.READ_NAVIGATION_DATA">
     </provider>
 
     <!-- Disable Google's checks for visited sites and loaded URLs in bookmarks description. -->

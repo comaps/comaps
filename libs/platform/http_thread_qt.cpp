@@ -2,8 +2,6 @@
 
 #include "platform/http_thread_callback.hpp"
 
-#include "platform/platform.hpp"
-
 #include "base/logging.hpp"
 
 #include <QNetworkAccessManager>

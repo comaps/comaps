@@ -2,6 +2,8 @@
 
 #include "search/search_tests_support/helpers.hpp"
 
+#include "indexer/ftypes_matcher.hpp"
+
 #include "geometry/distance_on_sphere.hpp"
 
 namespace real_mwm_tests

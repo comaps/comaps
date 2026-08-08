@@ -151,7 +151,7 @@
     <!-- Weather shelter (including sun shelters and natural rock shelters). -->
     <string name="type.amenity.shelter">Varjualune</string>
     <!-- A weather shelter by the public transport stop. -->
-    <string name="type.amenity.shelter.public_transport">Varjualune</string>
+    <string name="type.amenity.shelter.public_transport">Ühistranspordi varjualune</string>
     <!-- Compared to wilderness_hut its smaller and simpler, without a fireplace. -->
     <string name="type.amenity.shelter.basic_hut">Onn</string>
     <string name="type.amenity.public_bath">Avalik looduslik spaa</string>
@@ -382,7 +382,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunnel</string>
     <string name="type.highway.bus_stop">Bussipeatus</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.motorway">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.motorway_link">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.trunk">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.trunk_link">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.primary">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.primary_link">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.secondary">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.secondary_link">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.tertiary">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.tertiary_link">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.residential">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.unclassified">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.service">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.living_street">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.road">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.track">Ehitusjärgus tee</string>
     <string name="type.highway.cycleway">Jalgrattatee</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Jalgrattasild</string>
@@ -809,7 +826,7 @@
     <string name="type.railway.funicular">Köisraudtee</string>
     <string name="type.railway.funicular.bridge">Köisraudtee sild</string>
     <string name="type.railway.funicular.tunnel">Köisraudtee tunnel</string>
-    <string name="type.railway.halt">Rongipeatus (nõudepeatus / teivasjaam)</string>
+    <string name="type.railway.halt">Rongipeatus</string>
     <string name="type.railway.level_crossing">Raudteeületuskoht</string>
     <string name="type.railway.light_rail">Kergraudtee</string>
     <string name="type.railway.light_rail.bridge">Kergraudtee sild</string>
@@ -1388,7 +1405,7 @@
     <string name="type.amenity.bicycle_parking.covered">Kaetud jalgrattaparkla</string>
     <string name="type.post_office.post_partner">Postiteenused partneri juures</string>
     <string name="type.amenity.ranger_station">Pargivahi maja</string>
-    <string name="type.amenity.animal_shelter">Loomade varjupaik</string>
+    <string name="type.amenity.animal_shelter">Loomade varjualune</string>
     <string name="type.barrier.wicket_gate">Jalgvärav</string>
     <string name="type.building.guardhouse">Valvuriputka</string>
     <string name="type.power.portal">Õhuliini värava-tüüpi mast</string>
@@ -1518,4 +1535,9 @@
     <string name="type.sport.pickleball">Pickleball</string>
     <string name="type.leisure.sports_centre.sport.pickleball">Pickleballi keskus</string>
     <string name="type.organic.no">Valikus pole mahetooteid</string>
+    <string name="type.amenity.stage">Lava</string>
+    <string name="type.amenity.animal_boarding">Loomahotell</string>
+    <string name="type.amenity.planetarium">Planetaarium</string>
+    <string name="type.amenity.toilets.customers">Ligipääs klientidele</string>
+    <string name="type.amenity.toilets.private">Privaatne ligipääs</string>
 </resources>

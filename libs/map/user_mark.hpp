@@ -1,6 +1,14 @@
 #pragma once
 
+#include "drape_frontend/color_constants.hpp"
+#include "drape_frontend/render_state_extension.hpp"
+#include "drape_frontend/shape_view_params.hpp"
 #include "drape_frontend/user_marks_provider.hpp"
+
+#include "drape/drape_global.hpp"
+#include "drape/pointers.hpp"
+
+#include "kml/type_utils.hpp"
 
 #include "indexer/feature_decl.hpp"
 
@@ -34,6 +42,7 @@ public:
     RoadWarningFirstDirty,
     RoadWarningFirstToll,
     RoadWarningFirstFerry,
+    TrafficLight,
   };
 
   /**
@@ -92,6 +101,7 @@ public:
      * `ColoredMarkPoint`
      */
     COLORED,
+    TRAFFIC_LIGHT,
     USER_MARK_TYPES_COUNT,
     USER_MARK_TYPES_COUNT_MAX = 1000,
   };

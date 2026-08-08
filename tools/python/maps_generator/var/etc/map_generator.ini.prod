@@ -93,6 +93,9 @@ ADDRESSES_PATH: /home/planet/tiger/
 UK_POSTCODES_URL: /home/planet/postcodes/gb-postcode-data/gb_postcodes.csv
 US_POSTCODES_URL: /home/planet/postcodes/us-postcodes/uszips.csv
 
+# Path to the reviews file
+REVIEWS_PATH: /home/planet/reviews/reviews.json
+
 
 [Stages]
 # Set to 1 to update the entire OSM planet file (as taken from "planet.openstreetmap.org")

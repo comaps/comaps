@@ -5,15 +5,22 @@ import static app.organicmaps.bookmarks.Holders.HeaderViewHolder;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
+
 import app.organicmaps.R;
 import app.organicmaps.adapter.OnItemClickListener;
 import app.organicmaps.sdk.bookmarks.data.BookmarkCategory;
 import app.organicmaps.sdk.bookmarks.data.BookmarkManager;
+import app.organicmaps.util.UiUtils;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookmarkCategoriesAdapter extends BaseBookmarkCategoryAdapter<RecyclerView.ViewHolder>
@@ -26,18 +33,42 @@ public class BookmarkCategoriesAdapter extends BaseBookmarkCategoryAdapter<Recyc
   private final static int TYPE_ACTION_EXPORT_ALL_AS_KMZ = 4;
   @Nullable
   private OnItemLongClickListener<BookmarkCategory> mLongClickListener;
+  private long mDraggedCategoryId = -1;
   @Nullable
   private OnItemClickListener<BookmarkCategory> mClickListener;
   @Nullable
   private OnItemMoreClickListener<BookmarkCategory> mMoreClickListener;
   @Nullable
   private CategoryListCallback mCategoryListCallback;
+  @Nullable
+  private ItemTouchHelper mItemTouchHelper;
   @NonNull
   private final MassOperationAction mMassOperationAction = new MassOperationAction();
 
+  @Override
+  public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView)
+  {
+    super.onAttachedToRecyclerView(recyclerView);
+    mItemTouchHelper = new ItemTouchHelper(new BookmarkCategoryItemTouchHelperCallback(this));
+    mItemTouchHelper.attachToRecyclerView(recyclerView);
+  }
+
+  @Override
+  public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView)
+  {
+    super.onDetachedFromRecyclerView(recyclerView);
+    mItemTouchHelper = null;
+  }
+
   BookmarkCategoriesAdapter(@NonNull Context context, @NonNull List<BookmarkCategory> categories)
   {
-    super(context.getApplicationContext(), categories);
+    super(context.getApplicationContext(), new ArrayList<>(categories));
+  }
+
+  @Override
+  public void setItems(@NonNull List<BookmarkCategory> items)
+  {
+    super.setItems(new ArrayList<>(items));
   }
 
   public void setOnClickListener(@Nullable OnItemClickListener<BookmarkCategory> listener)
@@ -134,6 +165,15 @@ public class BookmarkCategoriesAdapter extends BaseBookmarkCategoryAdapter<Recyc
       categoryHolder.setVisibilityListener(visibilityListener);
       CategoryItemMoreClickListener moreClickListener = new CategoryItemMoreClickListener(categoryHolder);
       categoryHolder.setMoreButtonClickListener(moreClickListener);
+
+      boolean manualSort = BookmarkManager.INSTANCE.getCategorySortType()
+          == BookmarkManager.SORT_CATEGORIES_MANUAL;
+      UiUtils.showIf(manualSort, categoryHolder.mDragHandle);
+      categoryHolder.mDragHandle.setOnTouchListener((v, event) -> {
+        if (event.getAction() == MotionEvent.ACTION_DOWN && mItemTouchHelper != null)
+          mItemTouchHelper.startDrag(holder);
+        return false;
+      });
     }
     case TYPE_ACTION_ADD ->
     {
@@ -202,6 +242,44 @@ public class BookmarkCategoriesAdapter extends BaseBookmarkCategoryAdapter<Recyc
     if (count == 0)
       return 0;
     return 1 /* header */ + count + 1 /* add button */ + 1 /* import button */ + 1 /* export button */;
+  }
+
+  void onItemMove(int fromAdapterPosition, int toAdapterPosition)
+  {
+    if (getItemViewType(fromAdapterPosition) != TYPE_CATEGORY_ITEM ||
+        getItemViewType(toAdapterPosition) != TYPE_CATEGORY_ITEM)
+      return;
+
+    final int fromCat = toCategoryPosition(fromAdapterPosition);
+    final int toCat = toCategoryPosition(toAdapterPosition);
+    final List<BookmarkCategory> categories = getBookmarkCategories();
+
+    if (fromCat < 0 || fromCat >= categories.size() || toCat < 0 || toCat >= categories.size())
+      return;
+
+    if (mDraggedCategoryId == -1)
+      mDraggedCategoryId = categories.get(fromCat).getId();
+
+    final BookmarkCategory moved = categories.remove(fromCat);
+    categories.add(toCat, moved);
+    notifyItemMoved(fromAdapterPosition, toAdapterPosition);
+  }
+
+  void onDragEnd()
+  {
+    if (mDraggedCategoryId == -1)
+      return;
+
+    List<BookmarkCategory> categories = getBookmarkCategories();
+    for (int i = 0; i < categories.size(); i++)
+    {
+      if (categories.get(i).getId() == mDraggedCategoryId)
+      {
+        BookmarkManager.INSTANCE.moveCategoryToPosition(mDraggedCategoryId, i);
+        break;
+      }
+    }
+    mDraggedCategoryId = -1;
   }
 
   private class LongClickListener implements View.OnLongClickListener
@@ -295,6 +373,57 @@ public class BookmarkCategoriesAdapter extends BaseBookmarkCategoryAdapter<Recyc
       BookmarkManager.INSTANCE.toggleCategoryVisibility(category);
       notifyItemChanged(mHolder.getBindingAdapterPosition());
       notifyItemChanged(HEADER_POSITION);
+    }
+  }
+
+  static class BookmarkCategoryItemTouchHelperCallback extends ItemTouchHelper.Callback
+  {
+    private final BookmarkCategoriesAdapter mAdapter;
+
+    BookmarkCategoryItemTouchHelperCallback(BookmarkCategoriesAdapter adapter)
+    {
+      mAdapter = adapter;
+    }
+
+    @Override
+    public int getMovementFlags(@NonNull RecyclerView recyclerView,
+                                @NonNull RecyclerView.ViewHolder viewHolder)
+    {
+      if (viewHolder.getItemViewType() != TYPE_CATEGORY_ITEM)
+        return makeMovementFlags(0, 0);
+      return makeMovementFlags(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0);
+    }
+
+    @Override
+    public boolean isLongPressDragEnabled()
+    {
+      return false;
+    }
+
+    @Override
+    public boolean isItemViewSwipeEnabled()
+    {
+      return false;
+    }
+
+    @Override
+    public boolean onMove(@NonNull RecyclerView recyclerView,
+                          @NonNull RecyclerView.ViewHolder viewHolder,
+                          @NonNull RecyclerView.ViewHolder target)
+    {
+      mAdapter.onItemMove(viewHolder.getBindingAdapterPosition(),
+                          target.getBindingAdapterPosition());
+      return true;
+    }
+
+    @Override
+    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {}
+
+    @Override
+    public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder)
+    {
+      super.clearView(recyclerView, viewHolder);
+      mAdapter.onDragEnd();
     }
   }
 }

@@ -5,6 +5,7 @@
 
 #include "geometry/point2d.hpp"
 
+#include "base/assert.hpp"
 #include "base/newtype.hpp"
 #include "base/visitor.hpp"
 

@@ -4,6 +4,7 @@
 #include "coding/file_writer.hpp"
 #include "coding/reader_streambuf.hpp"
 
+#include "base/assert.hpp"
 #include "base/exception.hpp"
 #include "base/logging.hpp"
 #include "base/stl_helpers.hpp"

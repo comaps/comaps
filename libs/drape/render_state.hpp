@@ -4,6 +4,7 @@
 #include "drape/graphics_context.hpp"
 #include "drape/pointers.hpp"
 #include "drape/texture.hpp"
+#include "drape/texture_types.hpp"
 
 #include "base/assert.hpp"
 

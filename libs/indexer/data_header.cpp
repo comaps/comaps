@@ -7,7 +7,11 @@
 #include "coding/file_writer.hpp"
 #include "coding/files_container.hpp"
 #include "coding/point_coding.hpp"
+#include "coding/reader.hpp"
 #include "coding/varint.hpp"
+
+#include "base/assert.hpp"
+#include "base/exception.hpp"
 
 #include "defines.hpp"
 

@@ -2,14 +2,16 @@
 
 #include "search/common.hpp"
 #include "search/geometry_utils.hpp"
+#include "search/ranking_info.hpp"
 
 #include "indexer/classificator.hpp"
 #include "indexer/feature_utils.hpp"
+#include "indexer/ftypes_matcher.hpp"
 #include "indexer/ftypes_subtypes.hpp"
 
-#include "platform/localization.hpp"
-
 #include "geometry/mercator.hpp"
+
+#include "i18n/localisation_translation.hpp"
 
 #include "base/string_utils.hpp"
 

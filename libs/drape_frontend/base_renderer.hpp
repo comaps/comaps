@@ -2,9 +2,8 @@
 
 #include "drape_frontend/message_acceptor.hpp"
 #include "drape_frontend/threads_commutator.hpp"
-#include "drape_frontend/tile_utils.hpp"
 
-#include "drape/graphics_context_factory.hpp"
+#include "drape/pointers.hpp"
 #include "drape/texture_manager.hpp"
 
 #include "base/thread.hpp"
@@ -15,8 +14,16 @@
 #include <memory>
 #include <mutex>
 
+namespace dp
+{
+class GraphicsContext;
+class GraphicsContextFactory;
+}  // namespace dp
+
 namespace df
 {
+class Message;
+
 using OnGraphicsContextInitialized = std::function<void()>;
 
 class BaseRenderer : public MessageAcceptor

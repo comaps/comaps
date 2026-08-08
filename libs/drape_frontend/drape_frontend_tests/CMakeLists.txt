@@ -10,4 +10,13 @@ set(SRC
 
 omim_add_test(${PROJECT_NAME} ${SRC})
 
-target_link_libraries(${PROJECT_NAME} drape_frontend)
+target_link_libraries(${PROJECT_NAME}
+  PRIVATE
+    base
+    drape
+    drape_frontend
+    geometry
+    indexer
+    routing
+    shaders
+)

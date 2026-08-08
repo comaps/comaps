@@ -12,7 +12,7 @@
 "type.aeroway.aerodrome" = "Letališče";
 "type.aeroway.aerodrome.international" = "Mednarodno letališče";
 "type.aeroway.apron" = "Vzletna ploščad";
-"type.aeroway.gate" = "Vhod";
+"type.aeroway.gate" = "Vrata";
 "type.aeroway.helipad" = "helikoptersko pristajališče";
 "type.aeroway.runway" = "Vzletna steza";
 "type.aeroway.taxiway" = "Dovoz do vzletno-pristajalne steze";
@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Predor";
 "type.highway.bus_stop" = "Avtobusno postajališče";
 "type.highway.construction" = "Cesta v gradnji";
+"type.highway.construction.motorway" = "Cesta v gradnji";
+"type.highway.construction.motorway_link" = "Cesta v gradnji";
+"type.highway.construction.trunk" = "Cesta v gradnji";
+"type.highway.construction.trunk_link" = "Cesta v gradnji";
+"type.highway.construction.primary" = "Cesta v gradnji";
+"type.highway.construction.primary_link" = "Cesta v gradnji";
+"type.highway.construction.secondary" = "Cesta v gradnji";
+"type.highway.construction.secondary_link" = "Cesta v gradnji";
+"type.highway.construction.tertiary" = "Cesta v gradnji";
+"type.highway.construction.tertiary_link" = "Cesta v gradnji";
+"type.highway.construction.residential" = "Cesta v gradnji";
+"type.highway.construction.unclassified" = "Cesta v gradnji";
+"type.highway.construction.service" = "Cesta v gradnji";
+"type.highway.construction.living_street" = "Cesta v gradnji";
+"type.highway.construction.road" = "Cesta v gradnji";
+"type.highway.construction.track" = "Cesta v gradnji";
 "type.highway.cycleway" = "Kolesarska steza";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Most";
@@ -864,8 +880,8 @@
 "type.office.lawyer" = "Odvetniška pisarna";
 "type.office.ngo" = "Nevladna organizacija";
 "type.office.telecommunication" = "Telekomunikacijsko podjetje";
-"type.organic.only" = "Organsko";
-"type.organic.yes" = "Organsko";
+"type.organic.only" = "Samo organsko";
+"type.organic.yes" = "Organske možnosti";
 "type.place.city" = "Mesto";
 "type.place.city.capital" = "Glavno mesto";
 "type.place.city.capital.10" = "Mesto";
@@ -896,7 +912,7 @@
 "type.place.sea" = "Morje";
 "type.place.square" = "Trg";
 "type.place.state" = "Zvezna država";
-"type.place.state.USA" = "Zvezna država ZDA";
+"type.place.state.USA" = "Zvezna država";
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Predmestje";
 "type.place.town" = "Manjše mesto";
@@ -1515,3 +1531,9 @@
 "type.leisure.sports_centre.sport.boules" = "Športno središče";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Športno središče";
+"type.organic.no" = "Ni organskih m";
+"type.amenity.stage" = "Oder";
+"type.amenity.animal_boarding" = "Vkrcanje živali";
+"type.amenity.toilets.customers" = "Customer Access";
+"type.amenity.toilets.private" = "Private Access";
+"type.amenity.planetarium" = "Planetarium";

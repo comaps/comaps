@@ -20,12 +20,14 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
 
   @IBOutlet private weak var ttsButton: UIButton! {
     didSet {
-      ttsButton.setImage(#imageLiteral(resourceName: "ic_voice_off"), for: .normal)
-      ttsButton.setImage(#imageLiteral(resourceName: "ic_voice_on"), for: .selected)
-      ttsButton.setImage(#imageLiteral(resourceName: "ic_voice_on"), for: [.selected, .highlighted])
+      ttsButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
+      ttsButton.setImage(UIImage(systemName: "speaker.wave.2"), for: .selected)
+      ttsButton.setImage(UIImage(systemName: "speaker.wave.2"), for: [.selected, .highlighted])
       onTTSStatusUpdated()
     }
   }
+    
+  @IBOutlet private weak var trackRecordingButton: UIButton!
 
   private lazy var dimBackground: DimBackground = {
     DimBackground(mainView: self, tapAction: { [weak self] in
@@ -94,6 +96,10 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
       self.removeFromSuperview()
     })
   }
+    
+  deinit {
+    TrackRecordingManager.shared.removeObserver(self)
+  }
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -102,6 +108,10 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
 
     MWMTextToSpeech.add(self)
     MapOverlayManager.add(self)
+
+    TrackRecordingManager.shared.addObserver(self) { [weak self] state, _, _ in
+      self?.trackRecordingButton.isHidden = (state == .active)
+    }
   }
 
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -205,6 +215,25 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
     isExtended = !isExtended
     refreshDiminishTimer()
   }
+  
+  @IBAction
+    private func trackRecordingAction() {
+      let manager = TrackRecordingManager.shared
+        
+      if manager.recordingState != .active {
+        manager.start { [weak self] result in
+          switch result {
+          case .success:
+            MapViewController.shared()?.controlsManager.setTrackRecordingButtonState(.visible)
+              
+            self?.diminish()
+              
+          case .failure:
+            self?.refreshDiminishTimer()
+          }
+        }
+      }
+    }
 
   private func morphExtendButton() {
     guard let imageView = extendButton.imageView else { return }

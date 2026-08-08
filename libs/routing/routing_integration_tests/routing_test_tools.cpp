@@ -1,5 +1,6 @@
 #include "routing/routing_integration_tests/routing_test_tools.hpp"
 
+#include "routing/checkpoints.hpp"
 #include "routing/routing_tests/index_graph_tools.hpp"
 
 #include "testing/testing.hpp"
@@ -13,11 +14,11 @@
 
 #include "storage/country_parent_getter.hpp"
 #include "storage/routing_helpers.hpp"
+#include "storage/storage.hpp"
 
 #include "indexer/data_source.hpp"
 
-#include "platform/platform_tests_support/helpers.hpp"
-
+#include "platform/helpers.hpp"
 #include "platform/local_country_file.hpp"
 #include "platform/local_country_file_utils.hpp"
 #include "platform/platform.hpp"
@@ -42,7 +43,7 @@ double constexpr kErrorSeconds = 1.0;
 shared_ptr<FeaturesFetcher> CreateFeaturesFetcher(vector<LocalCountryFile> const & localFiles)
 {
   size_t const maxOpenFileNumber = 4096;
-  platform::tests_support::ChangeMaxNumberOfOpenFiles(maxOpenFileNumber);
+  platform::ChangeMaxNumberOfOpenFiles(maxOpenFileNumber);
   shared_ptr<FeaturesFetcher> featuresFetcher(new FeaturesFetcher);
   featuresFetcher->InitClassificator();
 

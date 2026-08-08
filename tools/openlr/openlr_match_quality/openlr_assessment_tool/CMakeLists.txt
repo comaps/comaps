@@ -24,9 +24,23 @@ omim_add_executable(${PROJECT_NAME} ${SRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES AUTOUIC ON AUTOMOC ON)
 
 target_link_libraries(${PROJECT_NAME}
-  openlr
-  qt_common
-  map
-  gflags::gflags
-  traffxml
+  PUBLIC
+    base
+    geometry
+    indexer
+    openlr
+    qt_common
+    traffxml
+  PRIVATE
+    drape_frontend
+    map
+    platform
+    routing
+    routing_common
+    storage
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PRIVATE
+    gflags::gflags
 )

@@ -1,5 +1,4 @@
 #include "drape/viewport.hpp"
-#include "drape/gl_functions.hpp"
 
 namespace dp
 {

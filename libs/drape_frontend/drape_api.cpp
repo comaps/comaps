@@ -1,6 +1,8 @@
 #include "drape_frontend/drape_api.hpp"
 #include "drape_frontend/drape_engine.hpp"
+#include "drape_frontend/message.hpp"
 #include "drape_frontend/message_subclasses.hpp"
+#include "drape_frontend/threads_commutator.hpp"
 
 namespace df
 {

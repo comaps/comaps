@@ -13,13 +13,23 @@
 
 #include "drape/attribute_provider.hpp"
 #include "drape/batcher.hpp"
+#include "drape/binding_info.hpp"
+#include "drape/font_constants.hpp"
+#include "drape/glsl_types.hpp"
+#include "drape/glyph_manager.hpp"
+#include "drape/overlay_handle.hpp"
+#include "drape/texture_types.hpp"
 #include "drape/utils/vertex_decl.hpp"
 
 #include "indexer/feature_decl.hpp"
 #include "indexer/scales.hpp"
 
 #include "geometry/clipping.hpp"
-#include "geometry/mercator.hpp"
+
+#include "base/assert.hpp"
+#include "base/buffer_vector.hpp"
+#include "base/math.hpp"
+#include "base/string_utils.hpp"
 
 #include <array>
 #include <cmath>
@@ -135,7 +145,8 @@ void GenerateColoredSymbolShapes(ref_ptr<dp::GraphicsContext> context, ref_ptr<d
     auto const & titleDecl = renderInfo.m_titleDecl->operator[](0);
     auto const textMetrics = textures->ShapeSingleTextLine(dp::kBaseFontSizePixels, titleDecl.m_primaryText, nullptr,
                                                            titleDecl.m_primaryTextLanguageIndex);
-    auto const fontScale = static_cast<float>(VisualParams::Instance().GetFontScale());
+    auto const & vparams = VisualParams::Instance();
+    auto const fontScale = static_cast<float>(vparams.GetFontScale() * vparams.GetVisualScale());
     float const textRatio = titleDecl.m_primaryTextFont.m_size * fontScale / dp::kBaseFontSizePixels;
 
     sizeInc.x = textMetrics.m_lineWidthInPixels * textRatio;

@@ -3,6 +3,7 @@
 #include "tracking/archival_file.hpp"
 #include "tracking/archive.hpp"
 
+#include "platform/location.hpp"
 #include "platform/platform.hpp"
 
 #include "coding/file_reader.hpp"

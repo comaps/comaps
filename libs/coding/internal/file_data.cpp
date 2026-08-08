@@ -5,6 +5,7 @@
 #include "coding/reader.hpp"  // For Reader exceptions.
 #include "coding/writer.hpp"  // For Writer exceptions.
 
+#include "base/assert.hpp"
 #include "base/exception.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"

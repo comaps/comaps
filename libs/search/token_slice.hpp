@@ -1,7 +1,6 @@
 #pragma once
 
 #include "search/query_params.hpp"
-#include "search/token_range.hpp"
 
 #include "indexer/string_slice.hpp"
 
@@ -13,6 +12,8 @@
 
 namespace search
 {
+class TokenRange;
+
 class TokenSlice
 {
 public:

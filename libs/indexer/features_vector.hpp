@@ -1,9 +1,15 @@
 #pragma once
 
+#include "indexer/data_header.hpp"
 #include "indexer/feature.hpp"
+#include "indexer/feature_decl.hpp"
+#include "indexer/mwm_set.hpp"
 #include "indexer/shared_load_info.hpp"
 
+#include "coding/files_container.hpp"
 #include "coding/var_record_reader.hpp"
+
+#include "base/macros.hpp"
 
 #include <memory>
 #include <vector>

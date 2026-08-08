@@ -88,7 +88,6 @@
     <string name="data_version">ওপেনস্ট্রিটম্যাপ ডেটা: %s</string>
     <string name="tracks_title">ট্র্যাকগুলি</string>
     <string name="length">দৈর্ঘ্য</string>
-    <string name="prefs_group_general">সাধারণ সেটিংস</string>
     <string name="prefs_group_information">তথ্য</string>
     <string name="prefs_group_route">নেভিগেশন</string>
     <string name="pref_zoom_title">জুম করার বোতামগুলি</string>
@@ -143,7 +142,7 @@
     <string name="report_a_bug">বাগ রিপোর্ট করুন</string>
     <string name="compass_calibration_recommended">কম্পাসটি ক্যালিব্রেট করার জন্য ফোনটিকে ইংরেজিতে আট চিহ্নে গতিতে নাড়িয়ে তীরের দিক উন্নত করুন।</string>
     <string name="compass_calibration_required">কম্পাসটি ক্যালিব্রেট করার জন্য ফোনটিকে ইংরেজিতে আট চিহ্নে গতিতে নাড়িয়ে মানচিত্রে তীরের দিক উন্নত করুন।</string>
-    <string name="long_tap_toast">ইন্টারফেসটি দেখতে আবার মানচিত্রে দীর্ঘক্ষণ টিপুন</string>
+    <string name="enable_long_tap_fullscreen_description">ইন্টারফেসটি দেখতে আবার মানচিত্রে দীর্ঘক্ষণ টিপুন</string>
     <string name="downloader_update_all_button">সব আপডেট করুন</string>
     <string name="downloader_cancel_all">সব বাতিল করুন</string>
     <string name="downloader_downloaded_subtitle">ডাউনলোড করা</string>
@@ -325,7 +324,7 @@
     <string name="app_tip_06">আপনি আমাদের অ্যাপটি আপনার ভাষায় অনুবাদ করতে সাহায্য করতে পারেন।</string>
     <string name="offline_explanation_title">অফলাইন মানচিত্র</string>
     <string name="offline_explanation_text">এলাকাটি দেখতে এবং নেভিগেট করতে একটি মানচিত্র ডাউনলোড করতে হবে।\nআপনি যেসব এলাকায় ভ্রমণ করতে চান সেগুলোর মানচিত্র ডাউনলোড করুন।</string>
-    <string name="privacy">গোপনীয়তা</string>
+    <string name="prefs_group_privacy">গোপনীয়তা</string>
     <string name="privacy_policy">গোপনীয়তা নীতি</string>
     <string name="opens_day_at">%1$s %2$s খুলবে</string>
     <string name="closes_day_at">%1$s %2$s বন্ধ হবে</string>

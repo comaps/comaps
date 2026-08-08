@@ -1,5 +1,6 @@
 #pragma once
 
+#include "base/assert.hpp"
 #include "base/buffer_vector.hpp"
 
 #include <optional>

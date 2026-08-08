@@ -1,7 +1,10 @@
 #pragma once
 
-#include "indexer/data_header.hpp"
 #include "indexer/scale_index_builder.hpp"
+
+#include "coding/writer.hpp"
+
+#include "base/logging.hpp"
 
 #include <string>
 

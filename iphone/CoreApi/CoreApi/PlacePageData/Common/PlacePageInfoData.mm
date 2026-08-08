@@ -138,10 +138,26 @@ NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
               ? NSLocalizedString(@"no_available", nil) : NSLocalizedString(@"yes_available", nil);
           break;
         case MetadataID::FMD_LEVEL: _level = ToNSString(value); break;
-        case MetadataID::FMD_CAPACITY: _capacity = [NSString stringWithFormat:NSLocalizedString(@"capacity", nil), ToNSString(value)]; break;
+        case MetadataID::FMD_CAPACITY: _capacity = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"capacity", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string]; break;
         case MetadataID::FMD_ROOMS: _rooms = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"rooms", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string]; break;
         case MetadataID::FMD_CHARGE: _charge = ToNSString(value); break;
         case MetadataID::FMD_WHEELCHAIR: _wheelchair = ToNSString(localisation::TranslatedFeatureType(value)); break;
+        case MetadataID::FMD_CAPACITY_DISABLED:
+          if (value == "yes")
+            _capacityDisabled = NSLocalizedString(@"capacity_disabled_yes", nil);
+          else if (value == "no" || value == "0")
+            _capacityDisabled = NSLocalizedString(@"capacity_disabled_no", nil);
+          else
+            _capacityDisabled = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"capacity_disabled", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string];
+          break;
+        case MetadataID::FMD_CAPACITY_CHARGING:
+          if (value == "yes")
+            _capacityCharging = NSLocalizedString(@"capacity_charging_yes", nil);
+          else if (value == "no" || value == "0")
+            _capacityCharging = NSLocalizedString(@"capacity_charging_no", nil);
+          else
+            _capacityCharging = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"capacity_charging", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string];
+          break;
         case MetadataID::FMD_DRIVE_THROUGH:
           if (value == "yes")
             _driveThrough = NSLocalizedString(@"drive_through", nil);
@@ -161,6 +177,7 @@ NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
     });
 
     _atm = rawData.HasAtm() ? NSLocalizedStringFromTable(@"type.amenity.atm", @"LocalizableTypes", nil) : nil;
+    _organic = [ToNSString(rawData.GetOrganic()) length] != 0 ? ToNSString(rawData.GetOrganic()) : nil;
 
     _address = rawData.GetSecondarySubtitle().empty() ? nil : @(rawData.GetSecondarySubtitle().c_str());
     _coordFormats = @[@(rawData.GetFormattedCoordinate(place_page::CoordinatesFormat::LatLonDMS).c_str()),

@@ -1,8 +1,7 @@
 #include "coding/zip_reader.hpp"
 
-#include "coding/constants.hpp"
+#include "coding/file_writer.hpp"
 
-#include "base/logging.hpp"
 #include "base/scope_guard.hpp"
 
 #include <array>

@@ -1,7 +1,5 @@
 #pragma once
 
-#include "platform/measurement_utils.hpp"
-
 #include <string>
 
 namespace platform

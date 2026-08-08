@@ -3,12 +3,18 @@
 #include "map/bookmark_manager.hpp"
 
 #include "drape_frontend/drape_engine.hpp"
+#include "drape_frontend/render_state_extension.hpp"
+#include "drape_frontend/user_marks_provider.hpp"
 
-#include "indexer/ftypes_matcher.hpp"
+#include "indexer/classificator.hpp"
 #include "indexer/scales.hpp"
 
 #include "platform/platform.hpp"
 
+#include "geometry/screenbase.hpp"
+
+#include "base/assert.hpp"
+#include "base/control_flow.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <algorithm>

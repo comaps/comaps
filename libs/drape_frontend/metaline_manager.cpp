@@ -1,9 +1,10 @@
 #include "drape_frontend/metaline_manager.hpp"
 
-#include "drape_frontend/map_data_provider.hpp"
+#include "drape_frontend/message.hpp"
 #include "drape_frontend/message_subclasses.hpp"
 #include "drape_frontend/threads_commutator.hpp"
 
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 
 #include <functional>

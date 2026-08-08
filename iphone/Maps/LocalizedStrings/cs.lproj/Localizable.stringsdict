@@ -13,7 +13,7 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
 			<key>zero</key>
-			<string>%lld záložek</string>
+			<string>Nula záložek</string>
 			<key>one</key>
 			<string>%lld záložka</string>
 			<key>few</key>
@@ -72,38 +72,6 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
-			<key>other</key>
-			<string>%lld residents</string>
-			<key>one</key>
-			<string>%lld resident</string>
-		</dict>
-	</dict>
-	<key>rooms</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@nevertranslate@</string>
-		<key>nevertranslate</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>lld</string>
-			<key>other</key>
-			<string>%lld rooms</string>
-			<key>one</key>
-			<string>%lld room</string>
-		</dict>
-	</dict>
-	<key>population</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@nevertranslate@</string>
-		<key>nevertranslate</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>lld</string>
 			<key>zero</key>
 			<string>%lld obyvatel</string>
 			<key>one</key>
@@ -132,6 +100,66 @@
 			<string>%lld místnosti</string>
 			<key>other</key>
 			<string>%lld místností</string>
+		</dict>
+	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld vyhrazených míst pro invalidy</string>
+			<key>one</key>
+			<string>%lld vyhrazené místo pro invalidy</string>
+			<key>few</key>
+			<string>%lld vyhrazená místa pro invalidy</string>
+			<key>other</key>
+			<string>%lld vyhrazených míst pro invalidy</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld míst s nabíječkou</string>
+			<key>one</key>
+			<string>%lld místo s nabíječkou</string>
+			<key>few</key>
+			<string>%lld místa s nabíječkou</string>
+			<key>other</key>
+			<string>%lld míst s nabíječkou</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld míst</string>
+			<key>one</key>
+			<string>%lld místo</string>
+			<key>few</key>
+			<string>%lld místa</string>
+			<key>other</key>
+			<string>%lld míst</string>
 		</dict>
 	</dict>
 </dict>

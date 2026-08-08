@@ -4,7 +4,14 @@
 "cancel_download" = "Cancelar download";
 /* Button which deletes downloaded country */
 "delete" = "Apagar";
+/* Download/update Maps page */
 "download_maps" = "Baixar mapas";
+"downloader_check_updates_button" = "Buscar atualizações";
+"downloader_check_updates_checking" = "Buscando atualizações...";
+"downloader_check_updates_updated" = "Atualizações do mapa disponíveis!";
+"downloader_check_updates_no_updates" = "Nenhuma atualização disponível";
+"downloader_check_updates_eol" = "Não haverá mais atualizações de mapas para esta versão do aplicativo. Por favor, atualize o aplicativo!";
+"downloader_check_updates_error" = "Erro ao buscar atualizações";
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "Baixando…";
 /* Title of offline maps explanation */
@@ -125,11 +132,11 @@
 /* Share by email button text, also used in editor and About. */
 "email" = "Email";
 /* Text for message to copy something */
-"copy_to_clipboard" = "Copiar para área de transferência";
+"copy_to_clipboard" = "Copiar para a área de transferência";
 /* Text for message when used successfully copied something */
 "copied_to_clipboard" = "Copiado para a área de transferência: %@";
 /* place preview title */
-"info" = "Info";
+"info" = "Informação";
 /* Used for bookmark editing */
 "done" = "Feito";
 /* Prints version number in About dialog */
@@ -361,8 +368,8 @@
 "wikimedia_commons" = "Wikimedia Commons";
 "p2p_your_location" = "Localização atual";
 "p2p_start" = "Iniciar";
-"p2p_from_here" = "De";
-"p2p_to_here" = "Para";
+"p2p_from_here" = "Rota de";
+"p2p_to_here" = "Rota para";
 "p2p_only_from_current" = "Só é possível navegar a partir da sua localização atual.";
 "p2p_reroute_from_current" = "Deseja planejar uma rota a partir da sua localização atual?";
 "editor_time_add" = "Adicionar horário";
@@ -408,7 +415,7 @@
 "add_opening_hours" = "Adicionar horário de funcionamento";
 /* OpenStreetMap */
 "osm_mapdata" = "Dados de mapa do OpenStreetMap";
-"osm_mapdata_explanation %@" = "Dados de mapas criados pela comunidade até *%@*. Saiba mais sobre como editar e atualizar o mapa em [OpenStreetMap.org](https://openstreetmap.org).";
+"osm_mapdata_explanation %@" = "Dados de mapa criados pela comunidade até *%@*. Saiba mais sobre como editar e atualizar o mapa em [OpenStreetMap.org](https://openstreetmap.org).";
 "osm_more_about" = "Mais sobre o OpenStreetMap";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/Pt:Sobre_o_OpenStreetMap";
 /* OpenStreetMap Profile */
@@ -461,7 +468,7 @@
 "editor_add_select_category_popular_subtitle" = "Popular";
 "editor_add_select_category_all_subtitle" = "Todas as categorias";
 "editor_edit_place_title" = "Edição";
-"editor_add_place_title" = "Adicionando";
+"editor_add_place_title" = "Adicionar";
 "editor_edit_place_name_hint" = "Nome do local";
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
 "editor_default_language_hint" = "Como escrito na língua local";
@@ -659,7 +666,7 @@
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_steps" = "Evitar escadas";
 "avoid_ferry" = "Evitar balsas";
-"avoid_motorways" = "Evitar rodovias";
+"avoid_motorways" = "Evitar autoestradas";
 "unable_to_calc_alert_title" = "Incapaz de calcular rota";
 "unable_to_calc_alert_subtitle" = "Infelizmente, não conseguimos encontrar uma rota, provavelmente por causa das opções escolhidas ou dados do OpenStreetMap em falta. Por favor, altere as configurações e tente novamente.";
 "define_to_avoid_btn" = "Definir as estradas a serem evitadas";
@@ -681,8 +688,6 @@
 "yes_available" = "Sim";
 /* E.g. "WiFi:No" */
 "no_available" = "Não";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Capacidade: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Rede: %@";
 "trip_finished" = "Você chegou!";
@@ -870,3 +875,12 @@
 "contribute_to_osm_add_place" = "Adicionar um local";
 "contribute_to_osm_update_map" = "Atualize o mapa para contribuir";
 "contribute_to_osm_update_map_description" = "Você precisa atualizar o mapa %@ para a versão mais recente antes de poder contribuir para os dados do OpenStreetMap";
+"editor_add_select_category_recent_subtitle" = "Recentemente usadas";
+"oh_unknown" = "Horário de funcionamento desconhecido";
+"carplay_highway_exit" = "Saída %@";
+"capacity_disabled_yes" = "Possui espaços reservados para pessoas com deficiência";
+"capacity_disabled_no" = "Sem espaços dedicados para deficientes";
+"capacity_charging_yes" = "Possui espaços com carregadores";
+"capacity_charging_no" = "Sem espaços com carregadores";
+"planning_route_preview" = "Pré-visualizar";
+"planning_route_preview_sheet_title" = "Prévia da rota";

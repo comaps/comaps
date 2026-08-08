@@ -2,18 +2,22 @@
 
 #include "ge0/parser.hpp"
 
+#include "search/cancel_exception.hpp"
 #include "search/common.hpp"
+#include "search/filtering_params.hpp"
 #include "search/geometry_utils.hpp"
 #include "search/intermediate_result.hpp"
 #include "search/latlon_match.hpp"
 #include "search/mode.hpp"
 #include "search/postcode_points.hpp"
 #include "search/query_params.hpp"
-#include "search/ranking_utils.hpp"
+#include "search/result.hpp"
 #include "search/search_params.hpp"
+#include "search/token_slice.hpp"
 #include "search/utils.hpp"
 #include "search/utm_mgrs_coords_match.hpp"
 
+#include "storage/country_decl.hpp"
 #include "storage/country_info_getter.hpp"
 #include "storage/storage_defines.hpp"
 
@@ -22,12 +26,15 @@
 #include "indexer/data_source.hpp"
 #include "indexer/feature.hpp"
 #include "indexer/feature_algo.hpp"
-#include "indexer/feature_utils.hpp"
+#include "indexer/feature_decl.hpp"
 #include "indexer/ftypes_matcher.hpp"
 #include "indexer/mwm_set.hpp"
 #include "indexer/postcodes_matcher.hpp"
+#include "indexer/scales.hpp"
 #include "indexer/search_delimiters.hpp"
 #include "indexer/search_string_utils.hpp"
+
+#include "coding/files_container.hpp"
 
 #include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
@@ -38,9 +45,12 @@
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
+#include "defines.hpp"
+
 #include <algorithm>
 #include <sstream>
 
+#include "3party/open-location-code/codearea.h"
 #include "3party/open-location-code/openlocationcode.h"
 
 namespace search

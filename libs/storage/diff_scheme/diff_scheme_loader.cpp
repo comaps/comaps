@@ -3,6 +3,7 @@
 #include "platform/http_client.hpp"
 #include "platform/platform.hpp"
 
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 
 #include <memory>

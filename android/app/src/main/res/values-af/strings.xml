@@ -181,8 +181,6 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Lengte</string>
     <string name="share_my_location">Deel my ligging</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Algemene instellings</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Inligting</string>
     <string name="prefs_group_route">Navigasie</string>
@@ -236,7 +234,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Beweeg die selfoon in ’n agtvormige beweging om die kompas te kalibreer en die rigting van die pyl op die kaart vas te maak.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Langtik weer op die kaart om die koppelvlak te sien</string>
+    <string name="enable_long_tap_fullscreen_description">Langtik weer op die kaart om die koppelvlak te sien</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Werk alles by</string>
     <!-- Cancel all button text -->
@@ -556,7 +554,7 @@
     <string name="profile">OpenStreetMap-profiel</string>
     <string name="restore">Stel terug</string>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Privaatheid</string>
+    <string name="prefs_group_privacy">Privaatheid</string>
     <string name="privacy_policy">Privaatheidsbeleid</string>
     <string name="terms_of_use">Gebruiksvoorwaardes</string>
     <string name="button_layer_traffic">Verkeer</string>
@@ -584,7 +582,7 @@
     <string name="power_managment_setting_auto">Wanneer battery laag as</string>
     <string name="power_managment_setting_manual_max">Altyd</string>
     <string name="enable_logging_warning_message">Aktiveer hierdie opsie tydelik om ’n gedetailleerde diagnosestaat van u probleem op te neem en handmatig na ons te stuur d.m.v. die “Rapporteer ’n fout” in die Help-dialoog. Sulke state kan liggingsinligting bevat.</string>
-    <string name="driving_options_title">Ompadopsies</string>
+    <string name="routing_options_title">Ompadopsies</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_unpaved">Vermy grondpaaie</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

@@ -1,5 +1,7 @@
 #include "routing/road_access.hpp"
 
+#include "routing/route_weight.hpp"
+
 #include "base/assert.hpp"
 
 #include <algorithm>

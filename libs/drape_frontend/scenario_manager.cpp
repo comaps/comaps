@@ -1,6 +1,12 @@
 #include "drape_frontend/scenario_manager.hpp"
 
+#include "drape_frontend/frontend_renderer.hpp"
 #include "drape_frontend/user_event_stream.hpp"
+
+#include "drape/pointers.hpp"
+
+#include "base/assert.hpp"
+#include "base/logging.hpp"
 
 #include <memory>
 

@@ -1,11 +1,8 @@
 #pragma once
 
-#include "drape_frontend/animation/interpolators.hpp"
-
 #include "drape/pointers.hpp"
 
 #include "geometry/point2d.hpp"
-#include "geometry/screenbase.hpp"
 
 #include <functional>
 #include <map>
@@ -13,8 +10,11 @@
 #include <string>
 #include <utility>
 
+class ScreenBase;
+
 namespace df
 {
+class Interpolator;
 
 class Animation
 {

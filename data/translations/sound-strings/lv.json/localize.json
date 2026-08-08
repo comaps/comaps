@@ -1,0 +1,323 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Keep right."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Turn right."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Sharp right."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "Apļveida krustojumā."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Exit the roundabout."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Keep left."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Turn left."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Sharp left."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Make a u-turn."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "Go straight."
+    },
+    "exit": {
+        "defaultMessage": "Exit."
+    },
+    "onto": {
+        "defaultMessage": "onto"
+    },
+    "take_exit_number": {
+        "defaultMessage": "Take exit"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Recalculating the route"
+    },
+    "destination": {
+        "defaultMessage": "You’ll arrive."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "You have arrived."
+    },
+    "in_50_meters": {
+        "defaultMessage": "In fifty meters"
+    },
+    "in_100_meters": {
+        "defaultMessage": "In one hundred meters"
+    },
+    "in_200_meters": {
+        "defaultMessage": "In two hundred meters"
+    },
+    "in_250_meters": {
+        "defaultMessage": "In two hundred and fifty meters"
+    },
+    "in_300_meters": {
+        "defaultMessage": "In three hundred meters"
+    },
+    "in_400_meters": {
+        "defaultMessage": "In four hundred meters"
+    },
+    "in_500_meters": {
+        "defaultMessage": "In five hundred meters"
+    },
+    "in_600_meters": {
+        "defaultMessage": "In six hundred meters"
+    },
+    "in_700_meters": {
+        "defaultMessage": "In seven hundred meters"
+    },
+    "in_750_meters": {
+        "defaultMessage": "In seven hundred and fifty meters"
+    },
+    "in_800_meters": {
+        "defaultMessage": "In eight hundred meters"
+    },
+    "in_900_meters": {
+        "defaultMessage": "In nine hundred meters"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "In one kilometer"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "In one and a half kilometers"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "In two kilometers"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "In two and a half kilometers"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "In three kilometers"
+    },
+    "then": {
+        "defaultMessage": "Then"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Jāizvēlas pirmā izeja."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Jāizvēlas otrā izeja."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Jāizvēlas trešā izeja."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Jāizvēlas ceturtā izeja."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Jāizvēlas piektā izeja."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Jāizvēlas sestā izeja."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Jāizvēlas septītā izeja."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Jāizvēlas astotā izeja."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Jāizvēlas devītā izeja."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Jāizvēlas desmitā izeja."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Jāizvēlas vienpadsmitā izeja."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "In fifty feet"
+    },
+    "in_100_feet": {
+        "defaultMessage": "In one hundred feet"
+    },
+    "in_200_feet": {
+        "defaultMessage": "In two hundred feet"
+    },
+    "in_300_feet": {
+        "defaultMessage": "In three hundred feet"
+    },
+    "in_400_feet": {
+        "defaultMessage": "In four hundred feet"
+    },
+    "in_500_feet": {
+        "defaultMessage": "In five hundred feet"
+    },
+    "in_600_feet": {
+        "defaultMessage": "In six hundred feet"
+    },
+    "in_700_feet": {
+        "defaultMessage": "In seven hundred feet"
+    },
+    "in_800_feet": {
+        "defaultMessage": "In eight hundred feet"
+    },
+    "in_900_feet": {
+        "defaultMessage": "In nine hundred feet"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "In one thousand feet"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "In fifteen hundred feet"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "In two thousand feet"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "In twenty five hundred feet"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "In three thousand feet"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "In thirty five hundred feet"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "In four thousand feet"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "In forty five hundred feet"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "In five thousand feet"
+    },
+    "in_1_mile": {
+        "defaultMessage": "In one mile"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "In one and a half miles"
+    },
+    "in_2_miles": {
+        "defaultMessage": "In two miles"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Camera ahead"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "Ceļa beigās"
+    }
+}

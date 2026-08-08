@@ -1,9 +1,9 @@
 #pragma once
 
-#include "geometry/latlon.hpp"
-
 namespace ms
 {
+class LatLon;
+
 // Returns area of triangle on earth.
 double AreaOnEarth(LatLon const & ll1, LatLon const & ll2, LatLon const & ll3);
 

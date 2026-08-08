@@ -4,11 +4,11 @@
 #include "search/projection_on_street.hpp"
 
 #include "indexer/feature_decl.hpp"
-#include "indexer/ftypes_matcher.hpp"
 
 #include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 
-#include "base/macros.hpp"
+#include "base/assert.hpp"
 
 #include <map>
 #include <queue>

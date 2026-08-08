@@ -1,0 +1,1406 @@
+{
+    "@category_eat": {
+        "defaultMessage": "กินร้านไหนดี|อาหาร"
+    },
+    "@category_food": {
+        "defaultMessage": "ซื้อของกินของใช้|อาหาร"
+    },
+    "@category_transport": {
+        "defaultMessage": "การขนส่ง"
+    },
+    "@category_fuel": {
+        "defaultMessage": "ก๊าซ"
+    },
+    "@category_parking": {
+        "defaultMessage": "ที่จอดรถ"
+    },
+    "@category_shopping": {
+        "defaultMessage": "ช็อปปิง"
+    },
+    "@category_hotel": {
+        "defaultMessage": "โรงแรม"
+    },
+    "@category_tourism": {
+        "defaultMessage": "สถานที่ท่องเที่ยว"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "แหล่งบันเทิง"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "ไนท์ไลฟ์"
+    },
+    "@category_children": {
+        "defaultMessage": "วันหยุดสำหรับครอบครัว"
+    },
+    "@category_atm": {
+        "defaultMessage": "2เอทีเอ็ม"
+    },
+    "@category_rv": {
+        "defaultMessage": "สำหรับ RV"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "เงิน|atm"
+    },
+    "@category_bank": {
+        "defaultMessage": "3ธนาคาร"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "มือสอง"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "เงิน"
+    },
+    "@category_recycling": {
+        "defaultMessage": "การรีไซเคิล|การใช้ประโยชน์จากขยะ|รีไซเคิลได้|ที่รวบรวมขยะแยกประเภท|การแยกขยะ|รียูส"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "1แลกเปลี่ยนเงินตรา|หลักสูตร|เงิน"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "2บาร์|ผับ|เบียร์|เครื่องดื่ม"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "3คาเฟ่"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "1อาหารจานด่วน|นำกลับ"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "3ร้านอาหาร|ภัตตาคาร"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "3ปั๊มน้ำมัน|เชื้อเพลิง"
+    },
+    "@shop": {
+        "defaultMessage": "ร้านค้า"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "3เบเกอรี่|ขนมอบ"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "เครื่องสำอาง"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "ร้านสะดวกซื้อ"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "อาหารพิเศษ"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "สถานรับเลี้ยงเด็ก|เนอร์สเซอรี่"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "เครื่องช่วยฟัง"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "ร้านขายโทรศัพท์มือถือ|ร้านขายอุปกรณ์อิเล็กโทรนิก"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "ร้านดอกไม้"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "ร้านขายเนื้อ"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "ร้านเฟอร์นิเจอร์"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "ร้านครัว"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "ร้านขายเหล้า"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "ร้านหนังสือ"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "ร้านขายรองเท้า"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "ร้านขายอุปกรณ์อิเล็กทรอนิกส์"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "ร้านขายฮาร์ดแวร์|ร้านขายวัสดุอุปกรณ์|ร้านฮาร์ดแวร์"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "สินค้าใช้ในบ้าน|ร้านของใช้ในบ้าน"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "ร้านขายเครื่องประดับ"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "ร้านแว่น"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "ร้านของขวัญ"
+    },
+    "shop-beauty": {
+        "defaultMessage": "2ร้านเสริมสวย|2ร้านขายผลิตภัณฑ์ความงาม"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "ร้านขายผัด"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "สินค้ากีฬา"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "3ซูเปอร์มาร์เก็ต"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "เดอะมอลล์"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "ห้างสรรพสินค้า"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "เครื่องดื่ม"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "ร้านขายคอมพิวเตอร์"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "ร้านขายขนมหวาน|ร้านขายลูกกวาด|ลูกกวาด"
+    },
+    "shop-laundry": {
+        "defaultMessage": "ร้านซักรีด"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "ร้านขายของเล่น"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "2ตลาดสินค้า|ตลาด|ร้าน"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "การโอนเงิน"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "ร้านขายเสื้อผ้า|ร้าน"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "ร้านค้ารถยนต์"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "4จักรยาน|ร้าน"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "ร้าน"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "ป้ายรถเมล์|รถเมล์|ขนส่ง"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "ป้ายรถราง|ขนส่ง"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "สถานีขนส่ง|ขนส่ง|สถานี"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "3สถานีรถไฟ|รถไฟ|สถานี|ขนส่ง"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "รถกระเช้าไฟฟ้า"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "3รถไฟ|สถานีรถไฟใต้ดิน|ท่อ|เมโทร|ใต้ดิน"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "2เฟอร์รี่|สถานี"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "3แท็กซี่"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "3ศาลากลางจังหวัด|การท่องเที่ยว"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "3การท่องเที่ยว|แหล่งท่องเที่ยว|สถานที่ท่องเที่ยว"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "งานศิลปะ|3การท่องเที่ยว"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "3จุดชมวิว|การท่องเที่ยว"
+    },
+    "tourism-information": {
+        "defaultMessage": "4ข้อมูลการท่องเที่ยว|ข้อมูล"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "3เว็บไซต์ปิกนิก|เตาย่างบาร์บีคิว"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "2สถานที่ประกอบพิธีกรรม"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "โบสถ์|สถานที่ประกอบพิธีกรรม"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "มัสยิด|สถานที่ประกอบพิธีกรรม"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "วัด|สถานที่ประกอบพิธีกรรม"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "วัด|สถานที่ประกอบพิธีกรรม"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "ศาลเจ้า|สถานที่ประกอบพิธีกรรม"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "มัสยิดยิว|สถานที่ประกอบพิธีกรรม"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "วัด|สถานที่ประกอบพิธีกรรม"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "2พิพิธภัณฑ์|แหล่งท่องเที่ยว|การท่องเที่ยว"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "2น้ำตก"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "โบราณสถาน|แหล่งท่องเที่ยว|การท่องเที่ยว"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "สนามรบ"
+    },
+    "historic-stone": {
+        "defaultMessage": "หินประวัติศาสตร์"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "ขอบหิน"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "ปราสาท|การท่องเที่ยว|ป้อมโรมัน|โบสถ์เสริมความแข็งแกร่ง|ป้อม|ป้อมเนิน|เครมลิน|คฤหาสน์|วัง|ปราสาท"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "ประตูเมือง"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "กำแพงเมือง"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "ป้อม"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "ที่ระลึก"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "อนุสรณ์สถานข้าม"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "ที่ระลึก"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "ที่ระลึก"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "ที่ระลึก"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "อุปสรรค์"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "อนุสรณ์สถานสงคราม"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "3อนุสาวรีย์|การท่องเที่ยว"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "ประจาน"
+    },
+    "historic-cannon": {
+        "defaultMessage": "ปืนใหญ่"
+    },
+    "historic-anchor": {
+        "defaultMessage": "ผู้ประกาศข่าวประวัติศาสตร์"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "ซากปรักหักพัง|การท่องเที่ยว"
+    },
+    "historic-mine": {
+        "defaultMessage": "เหมืองประวัติศาสตร์"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "สถานที่ท่องเที่ยว"
+    },
+    "historic-wreck": {
+        "defaultMessage": "ซากเรืออัปปาง"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "หัวรถจักรประวัติศาสตร์"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "รถถังประวัติศาสตร์"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "เครื่องบินประวัติศาสตร์"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "สถานที่ท่องเที่ยว"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "ทางข้าม"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "ศาลเจ้าข้างทาง"
+    },
+    "leisure-garden": {
+        "defaultMessage": "2สวน"
+    },
+    "amenity-bench": {
+        "defaultMessage": "ม้านั่ง"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "4จักรยานให้เช่า|4จักรยาน|บริการรถเช่า"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "การใช้รถร่วมกัน"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "3รถยนต์|บริการรถเช่า"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "รถมอเตอรไซค"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "3โรงภาพยนตร์"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "ลานโบว์ลิ่ง"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "3โรงละคร"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "3ไนต์คลับ|การเต้นรำ"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "ซ่อง"
+    },
+    "@gambling": {
+        "defaultMessage": "การพนัน"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "คาสิโน"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "ศูนย์เกมสำหรับผู้ใหญ่"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "อาเขต"
+    },
+    "amenity-college": {
+        "defaultMessage": "วิทยาลัย"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "2สถานีดับเพลิง"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "น้ำพุ"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "สุสาน"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "สัปเหร่อ"
+    },
+    "@category_hospital": {
+        "defaultMessage": "3คลินิก"
+    },
+    "amenity-hospital|@category_hospital": {
+        "defaultMessage": "3โรงพยาบาล|แพทย์"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "คลินิก|โรงพยาบาล"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "ห้องแพทย์|โรงพยาบาล|คลินิก"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "ทันตแพทย์"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "ห้องปฏิบัติการทางการแพทย์"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "นักกายภาพบำบัด"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "การแพทย์ทางเลือก"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "โสตวิทยา|นักโสตสัมผัสวิทยา"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "การบริจาคเลือด"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "ทัศนมาตรศาสตร์|นักทัศนมาตร"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "แก้โรคเท้า|แพทย์โรคเท้า"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "จิตบำบัด|นักจิตบำบัด"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "การบำบัดด้วยการพูด|นักบำบัดการพูด"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "จุดล่าสัตว์"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "4โรงเรียนอนุบาล"
+    },
+    "amenity-library": {
+        "defaultMessage": "3ห้องสมุด"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "3ร้านขายยา"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "เภสัชกร"
+    },
+    "@category_post": {
+        "defaultMessage": "3ไปรษณีย์"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "3ตู้จดหมาย|ไปรษณีย์"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "การตรวจสอบยานพาหนะ"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "ขยะ|ถังขยะ"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "ศูนย์รีไซเคิล"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "บรรจุภัณฑ์รีไซเคิล"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "แบตเตอรี่"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "เสื้อผ้าเก่า|รีไซเคิลเสื้อผ้าเก่า"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "ขวดแก้ว"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "ขยะกระดาษ"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "ขยะพลาสติก"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "ขวดพลาสติก"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "โลหะมีคม"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "ขยะอิเล็กทรอนิกส์"
+    },
+    "amenity-school": {
+        "defaultMessage": "2โรงเรียน"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "ที่อยู่อาศัย"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "กระท่อมพักแรม"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "ที่อยู่อาศัย"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "สตริปคลับ"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "2โทรศัพท์"
+    },
+    "@category_toilet": {
+        "defaultMessage": "3ห้องน้ำ"
+    },
+    "amenity-university": {
+        "defaultMessage": "4มหาวิทยาลัย"
+    },
+    "place-continent": {
+        "defaultMessage": "ทวีป"
+    },
+    "place-country": {
+        "defaultMessage": "ประเทศ"
+    },
+    "place-city": {
+        "defaultMessage": "เมือง"
+    },
+    "place-town": {
+        "defaultMessage": "เมือง"
+    },
+    "place-city-capital": {
+        "defaultMessage": "เมือง|เมืองหลวง"
+    },
+    "place-county": {
+        "defaultMessage": "เขต"
+    },
+    "place-state": {
+        "defaultMessage": "รัฐ"
+    },
+    "place-region": {
+        "defaultMessage": "ภูมิภาค"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "เกาะ"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "1ชานเมือง|ละแวกบ้าน"
+    },
+    "place-hamlet": {
+        "defaultMessage": "หมู่บ้านเล็ก ๆ|หมู่บ้าน"
+    },
+    "place-village": {
+        "defaultMessage": "หมู่บ้าน|หมู่บ้านเล็ก ๆ"
+    },
+    "place-locality": {
+        "defaultMessage": "ท้องถิ่น"
+    },
+    "place-farm": {
+        "defaultMessage": "ฟาร์ม"
+    },
+    "highway-raceway": {
+        "defaultMessage": "1สนามแข่ง"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "เส้นทาง"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "ถนน"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "4ทางออก"
+    },
+    "@mountain": {
+        "defaultMessage": "จุดสูงสุด|ภูเขา"
+    },
+    "natural-strait": {
+        "defaultMessage": "ช่องแคบ"
+    },
+    "landuse-forest": {
+        "defaultMessage": "ป่า"
+    },
+    "leisure-park": {
+        "defaultMessage": "สวนสาธารณะ"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "พิพิธภัณฑ์สัตว์น้ำ"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "3หอพัก|โมเทล"
+    },
+    "tourism-hotel|@category_hotel": {
+        "defaultMessage": "โมเทล"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "3เกสท์เฮ้าส์|โรงแรม์|์โรงแรม"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "3โมเทล|หอพัก"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "2ที่พักบนภูเขาโรงแรม"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "3ช่างทำผม"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "3สนามบิน|เครื่องบิน"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "สนามกีฬา"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "สนามเด็กเล่น"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "กีฬา"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "สนามกอล์ฟ"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "มินิกอล์ฟ"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "ห้องเกมปริศนา"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "แฮกเกอร์สเปซ"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "พื้นสนามกีฬา|ขว้าง|กีฬา"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "4สระว่ายน้ำ"
+    },
+    "sport-american_football": {
+        "defaultMessage": "อเมริกันฟุตบอล"
+    },
+    "sport-archery": {
+        "defaultMessage": "ยิงธนู"
+    },
+    "sport-baseball": {
+        "defaultMessage": "เบสบอล"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "วอลเลย์บอลชายหาด"
+    },
+    "sport-chess": {
+        "defaultMessage": "หมากรุกสากล"
+    },
+    "sport-curling": {
+        "defaultMessage": "เคอร์ลิง"
+    },
+    "sport-golf": {
+        "defaultMessage": "กอล์ฟ"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "ยิมนาสติก"
+    },
+    "sport-handball": {
+        "defaultMessage": "แฮนด์บอล"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "ดำน้ำลึก"
+    },
+    "sport-shooting": {
+        "defaultMessage": "สนามยิงปืน"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "สเกตบอร์ด"
+    },
+    "sport-skiing": {
+        "defaultMessage": "เล่นสกี"
+    },
+    "sport-soccer": {
+        "defaultMessage": "ฟุตบอล"
+    },
+    "sport-swimming": {
+        "defaultMessage": "ศูนย์ว่ายน้ำ"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "เทเบิลเทนนิส"
+    },
+    "sport-tennis": {
+        "defaultMessage": "เทนนิส"
+    },
+    "sport-padel": {
+        "defaultMessage": "พาเดล"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "วอลเลย์บอล"
+    },
+    "building": {
+        "defaultMessage": "2อาคาร"
+    },
+    "building-address": {
+        "defaultMessage": "ที่อยู่"
+    },
+    "@category_police": {
+        "defaultMessage": "4ตำรวจ"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "4สถานทูต"
+    },
+    "natural-bay": {
+        "defaultMessage": "อ่าว"
+    },
+    "@category_water": {
+        "defaultMessage": "น้ำ"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "4น้ำดื่ม"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "น้ำพุร้อน"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "ฤดูใบไม้ผลิ"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "บ่อน้ำ"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "จุดเติมน้ำ"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "ก๊อกน้ำ"
+    },
+    "@waterbody": {
+        "defaultMessage": "แหล่งน้ำ"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "อ่างน้ำ"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "1บ่อ|น้ำ"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "ทะเลสาบ"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "อ่างเก็บน้ำ"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "แม่น้ำ"
+    },
+    "waterway-canal": {
+        "defaultMessage": "คลอง"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "3ร้านซ่อมรถยนต์|สถานีบริการ"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "4การตั้งแคมป์|สถานที่ตั้งแคมป์|ที่ตั้งแคม"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "4ขบวนนักเดินทาง"
+    },
+    "office": {
+        "defaultMessage": "สำนักงาน|บริษัท"
+    },
+    "office-company": {
+        "defaultMessage": "สำนักงานบริษัท"
+    },
+    "office-government": {
+        "defaultMessage": "หน่วยงานราชการ"
+    },
+    "office-lawyer": {
+        "defaultMessage": "สำนักงานทนายความ"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "ผู้ให้บริการโทรศัพท์มือถือ"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "คนเลี้ยงผึ้ง"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "ช่างตีเหล็ก"
+    },
+    "craft-brewery": {
+        "defaultMessage": "โรงเบียร์|โรงผลิตเบียร์"
+    },
+    "craft-caterer": {
+        "defaultMessage": "พนักงานจัดเลี้ยง"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "ช่างไม้"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "ลูกกวาด"
+    },
+    "craft-electrician": {
+        "defaultMessage": "ช่างไฟฟ้า"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "ซ่อมเครื่องใช้ไฟฟ้า"
+    },
+    "craft-gardener": {
+        "defaultMessage": "คนจัดสวน"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "มิลล์"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "หัตถกรรม"
+    },
+    "craft-hvac": {
+        "defaultMessage": "ระบบปรับอากาศ"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "ช่างเหล็ก"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "ตัดกุญแจ"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "ช่างกุญแจ"
+    },
+    "craft-painter": {
+        "defaultMessage": "ช่างทาสี"
+    },
+    "craft-photographer": {
+        "defaultMessage": "ช่างภาพ|สตูดิโอถ่ายภาพ"
+    },
+    "craft-plumber": {
+        "defaultMessage": "ช่างประปา"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "ซูเมล"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "ช่างซ่อมรองเท้า"
+    },
+    "craft-winery": {
+        "defaultMessage": "โรงกลั่นเหล้าองุ่น"
+    },
+    "craft-tailor": {
+        "defaultMessage": "ช่างตัดเสื้อ"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "สี่เหลี่ยม|ช่องว่าง"
+    },
+    "place-sea": {
+        "defaultMessage": "เห็น"
+    },
+    "place-ocean": {
+        "defaultMessage": "มหาสมุทร"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "3อินเทอร์เน็ต|3Internet"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "ชายหาด|หาดกรวด"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "ประภาคาร"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "หอสื่อสาร"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "บ่อน้ำมัน"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "เชิงนิเวศ|ชีวภาพ|สุขภาพ|ชีวภาพ|ระบบนิเวศ|ธรรมชาติ|อินทรีย์"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "ร้านถ่ายเอกสาร|เครื่องพิมพ์"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "ร้านถ่ายภาพ|กรอบ|ร้าน"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "ร้านกล้อง"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "สำนักงานการท่องเที่ยว|ทัวร์"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "อุปกรณ์กลางแจ้ง|เดินป่า|ปีนเขา|ตั้งแคมป์|ร้าน"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "ซักแห้ง|ทำความสะอาด"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "ร้านยาง"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "ล้างรถ"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "สัตวแพทย์"
+    },
+    "@charging_station": {
+        "defaultMessage": "สถานีชาร์จ|ชาร์จ"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "การชาร์จจักรยาน"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "สถานรับเลี้ยงเด็ก|ดูแลเด็ก"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "ที่จอดจักรยาน"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "ถังขยะ"
+    },
+    "emergency-phone": {
+        "defaultMessage": "โทรศัพท์ฉุกเฉิน"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "ฟิตเนสเซ็นเตอร์|ยิม"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "ซาวน่า|เซาน่า"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "ร้านปะยาง"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "ร้านเคมีภัณฑ์"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "เพ็ทชอป"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "สวนสัตว์"
+    },
+    "attraction-animal": {
+        "defaultMessage": "สิ่งที่แนบมากับสัตว์"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "ศูนย์บริการนักท่องเที่ยว"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "ศูนย์นักท่องเที่ยว"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "ศูนย์ชุมชน"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "อากาศอัด"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "ศาล"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "เครื่องขายบุหรี่"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "เครื่องขายเครื่องดื่มอัตโนมัติ"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "เครื่องชำระค่าที่จอดรถอัตโนมัติ"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "เครื่องขายของหรือตั๋วขนส่งมวลชนอัตโนมัติ"
+    },
+    "shop-outpost": {
+        "defaultMessage": "จุดรับของ"
+    },
+    "building-garage": {
+        "defaultMessage": "อาคารจอดรถ"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "บริเวณพักผ่อน"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "ปล่องควันโรงงาน"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "หอคอย"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "ร้านรับแทงพนัน"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "ร้านขายปลา"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "ร้านขายของมือสอง"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "ร้านการกุศล"
+    },
+    "shop-ticket": {
+        "defaultMessage": "จุดจำหน่ายตั๋ว"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "ร้านขายไวน์"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "อะไหล่รถยนต์"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "กระท่อมวันหยุด"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "บอร์ดประชาสัมพันธ์"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "แผนที่ท่องเที่ยว"
+    },
+    "aerialway-station": {
+        "defaultMessage": "สถานีกระเช้าลอยฟ้า"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "ที่จอดเฮลิคอปเตอร์"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "ด่านตรวจคนเข้าเมือง"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "สวนน้ำ"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "อ่างเก็บน้ำ"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "กังหันลม"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "ถ้ำ"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "ภูเขาไฟ"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "นายหน้าอสังหาริมทรัพย์"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "ประตูระบายน้ำ"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "ตู้หนังสือ สถานที่แลกเปลี่ยนหนังสือ"
+    },
+    "sport-climbing": {
+        "defaultMessage": "ศูนย์ปีนเขา"
+    },
+    "sport-yoga": {
+        "defaultMessage": "โยคะสตูดิโอ"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "อพาร์ตเมนต์"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "รีสอร์ต"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "ลานเบียร์"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "โรงเรียนสอนขับรถ"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "โรงเรียนดนตรี"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "โรงเรียนภาษา"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "แผงขายไอศกรีม"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "อินเทอร์เน็ตคาเฟ่"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "ที่จอดรถมอเตอร์ไซค์"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "ที่จอดรถสำหรับผู้พิการ"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "บ้านพักคนชรา"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "จุดชำระเงิน"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "ห้องอาบน้ำสาธารณะ"
+    },
+    "amenity-shower": {
+        "defaultMessage": "ฝักบัวอาบน้ำ"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "จุดรวมพลฉุกเฉิน"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "เครื่องกระตุ้นหัวใจ"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "หัวจ่ายน้ำดับเพลิง"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "ผู้ช่วยชีวิตฉุกเฉิน|ไลฟ์การ์ด"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "กู้ภัยภูเขาฉุกเฉิน"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "ศูนย์ฟิตเนส"
+    },
+    "office-insurance": {
+        "defaultMessage": "สำนักงานประกันภัย"
+    },
+    "office-ngo": {
+        "defaultMessage": "สำนักงานองค์กรพัฒนาเอกชน"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "ร้านเฉพาะผู้ใหญ่"
+    },
+    "shop-massage": {
+        "defaultMessage": "สถานอาบอบนวด"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "ร้านรถมอเตอร์ไซค์"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "ซ่อมรถจักรยานยนต์"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "แผงขายหนังสือพิมพ์"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "ผู้รับจำนำ"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "ร้านขายเครื่องเขียน"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "ร้านสัก"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "ร้านค้าปลีกอิสระ"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "ร้านขายดีวีดี"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "ร้านขายวิดีโอเกม"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "กระท่อมกลางป่า"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "อุทยานแห่งชาติ"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "เขตอนุรักษ์ธรรมชาติ"
+    },
+    "natural-cape": {
+        "defaultMessage": "พื้นที่ยื่นเข้าไปในน้ำ"
+    },
+    "natural-geyser": {
+        "defaultMessage": "นำ้พุร้อน"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "ธารน้ำแข็ง"
+    },
+    "highway-ford": {
+        "defaultMessage": "ที่ตื้นของทางน้ำ"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "เล่นสกี|วิ่งสกี"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "สถานที่จัดงาน"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "ของเก่า"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "ร้านศิลปะ"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "ร้านขายของสำหรับเด็ก"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "ร้านกระเป๋า"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "ร้านชีส"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "ผลิตภัณฑ์นม"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "ร้านขายเครื่องใช้ไฟฟ้า"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "ร้านตกปลา"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "ตกแต่งภายใน"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "สลากกินแบ่ง"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "เวชภัณฑ์"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "อาหารเสริม"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "สี"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "น้ำหอม"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "อุปกรณ์เย็บผ้า"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "ค่าเช่าห้องเก็บของ"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "ยาสูบ"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "อุปกรณ์การค้า"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "นาฬิกา"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "ร้านขายส่ง"
+    },
+    "power-plant": {
+        "defaultMessage": "โรงไฟฟ้า"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "ประมูล"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "นักสะสม|ของสะสม"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "วีลแชร์|พื้นใช้รถเข็นสำหรับผู้ป่วย/ผู้สูงอายุได้"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "สิ่งอำนวยความสะดวกทางสังคม"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "ห้องกีฬา"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "ศูนย์งานศิลปะ"
+    },
+    "amenity-prison": {
+        "defaultMessage": "คุก"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "ศูนย์นิทรรศการ"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "ตกแต่งห้องน้ำ"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "ร้านขายเตียง"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "บูติก"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "ผ้าม่าน"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "ร้านแก๊ส"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "กรูมมิ่งสัตว์เลี้ยง"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "เครื่องเสียงไฮไฟ"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "ศูนย์ประชุม"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "ร้านสมุนไพร"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "ร้านเครื่องใช้ไฟฟ้า"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "ร้านเกษตร"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "เครื่องประดับแฟชั่น"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "พรม"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "พาสต้า"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "ตู้เก็บกระเป๋า"
+    },
+    "@fastfood": {
+        "defaultMessage": "อาหารจานด่วน"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "เบเกิล"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "อาหารเช้า"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "เบอร์เกอร์"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "เค้ก"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "กาแฟ"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "กะหรี่"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "ร้านอาหาร"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "โดนัท"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "ปลาและมันฝรั่งทอด"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "ปลาเล็กปลาน้อย"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "ย่าง"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "ฮอทดอก"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "ไอศกรีม"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "เคบับ"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "บะหมี่"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "แพนเค้ก|เครป"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "พาสต้า"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "พิซซ่า"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "ราเม็ง"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "แซนด์วิช"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "ไส้กรอก"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "อาหารทะเล|ปลา"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "โซบะ"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "ร้านสเต๊ก"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "ซูชิ"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "ทาปาส"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "ชา"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "อาหารมังสวิรัติ"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "อาหารมังสวิรัติ"
+    }
+}

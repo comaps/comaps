@@ -1,16 +1,28 @@
 #include "drape/texture_manager.hpp"
 
+#include "drape/color.hpp"
+#include "drape/drape_global.hpp"
 #include "drape/font_constants.hpp"
 #include "drape/font_texture.hpp"
+#include "drape/gl_constants.hpp"
 #include "drape/gl_functions.hpp"
+#include "drape/graphics_context.hpp"
 #include "drape/static_texture.hpp"
 #include "drape/stipple_pen_resource.hpp"
 #include "drape/support_manager.hpp"
 #include "drape/symbols_texture.hpp"
 #include "drape/texture_of_colors.hpp"
+#include "drape/texture_types.hpp"
 #include "drape/tm_read_resources.hpp"
 
-#include "base/localisation.hpp"
+#include "coding/reader.hpp"
+#include "coding/reader_streambuf.hpp"
+
+#include "platform/platform.hpp"
+
+#include "i18n/localisation.hpp"
+
+#include "base/logging.hpp"
 #include "base/math.hpp"
 
 #include <algorithm>

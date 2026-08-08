@@ -1,5 +1,7 @@
 #include "transit/experimental/transit_types_experimental.hpp"
 
+#include "base/assert.hpp"
+
 #include <tuple>
 
 namespace transit

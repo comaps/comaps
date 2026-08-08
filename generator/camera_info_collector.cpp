@@ -1,5 +1,6 @@
 #include "generator/camera_info_collector.hpp"
 
+#include "routing/routing_helpers.hpp"
 #include "routing/speed_camera_ser_des.hpp"
 
 #include "platform/local_country_file.hpp"

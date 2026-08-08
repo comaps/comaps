@@ -3,12 +3,23 @@
 #include "drape_frontend/colored_symbol_shape.hpp"
 #include "drape_frontend/gui/gui_text.hpp"
 #include "drape_frontend/line_shape.hpp"
+#include "drape_frontend/map_shape.hpp"
 #include "drape_frontend/shape_view_params.hpp"
+#include "drape_frontend/tile_key.hpp"
 
+#include "drape/attribute_provider.hpp"
 #include "drape/batcher.hpp"
+#include "drape/drape_global.hpp"
+#include "drape/glsl_types.hpp"
 
 #include "indexer/feature_decl.hpp"
 
+#include "geometry/rect2d.hpp"
+#include "geometry/spline.hpp"
+
+#include "coding/point_coding.hpp"
+
+#include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
 namespace

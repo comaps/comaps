@@ -11,6 +11,7 @@
       <certificates src="@raw/gtsrootr3" />
       <certificates src="@raw/gtsrootr4" />
       <certificates src="system" />
+      <certificates src="user" />
     </trust-anchors>
   </base-config>
   <domain-config cleartextTrafficPermitted="true">

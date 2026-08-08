@@ -1,5 +1,8 @@
 #include "storage/downloader_queue_universal.hpp"
 
+#include "base/assert.hpp"
+#include "base/stl_helpers.hpp"
+
 #include <algorithm>
 
 namespace storage

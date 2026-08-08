@@ -1,13 +1,16 @@
 #include "drape/vertex_array_buffer.hpp"
 
 #include "drape/drape_global.hpp"
+#include "drape/gl_constants.hpp"
 #include "drape/gl_functions.hpp"
 #include "drape/gl_gpu_program.hpp"
+#include "drape/gpu_buffer.hpp"
+#include "drape/graphics_context.hpp"
+#include "drape/index_buffer.hpp"
 #include "drape/index_storage.hpp"
-#include "drape/support_manager.hpp"
 
 #include "base/assert.hpp"
-#include "base/logging.hpp"
+#include "base/macros.hpp"
 
 #include "std/target_os.hpp"
 

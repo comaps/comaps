@@ -9,6 +9,9 @@ set(SRC
 omim_add_test(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  indexer
-  routing_common
+  PRIVATE
+    base
+    indexer
+    platform
+    routing_common
 )

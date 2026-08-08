@@ -4,7 +4,9 @@
 #include "platform/settings.hpp"
 
 #include "coding/file_reader.hpp"
+#include "coding/reader.hpp"
 
+#include "base/exception.hpp"
 #include "base/logging.hpp"
 
 #include <memory>

@@ -1,6 +1,6 @@
 #include "map/api_mark_point.hpp"
 
-#include "base/logging.hpp"
+#include "drape_frontend/user_marks_provider.hpp"
 
 #include <map>
 

@@ -322,4 +322,19 @@ using namespace storage;
   return [[MWMMapUpdateInfo alloc] initWithUpdateInfo:updateInfo];
 }
 
+- (void)startCheckUpdates {
+  GetFramework().GetStorage().RunCountriesCheckAsyncSaveOnly();
+}
+
+- (void)setCheckUpdatesListener:(void (^ _Nullable)(MWMCheckUpdatesStatus status))listener {
+  if (!listener) {
+    GetFramework().GetStorage().SetCheckUpdatesListener(nullptr);
+    return;
+  }
+  
+  GetFramework().GetStorage().SetCheckUpdatesListener([listener](storage::CheckUpdatesStatus const & status) {
+    listener(static_cast<MWMCheckUpdatesStatus>(status));
+  });
+}
+
 @end

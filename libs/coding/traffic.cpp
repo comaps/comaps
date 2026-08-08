@@ -1,7 +1,5 @@
 #include "coding/traffic.hpp"
 
-#include "base/math.hpp"
-
 namespace coding
 {
 // static

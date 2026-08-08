@@ -2,8 +2,6 @@
 
 #include "platform/preferred_languages.hpp"
 
-#include "base/assert.hpp"
-
 #include <sstream>
 
 namespace dp

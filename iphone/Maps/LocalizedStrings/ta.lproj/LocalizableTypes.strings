@@ -61,7 +61,7 @@
 "type.amenity.clinic" = "கிளினிக்";
 "type.amenity.college" = "கல்லூரி";
 "type.amenity.community_centre" = "சமூக நடுவண்";
-"type.amenity.community_centre.youth_centre" = "Youth Centre";
+"type.amenity.community_centre.youth_centre" = "இளைஞர் மையம்";
 "type.amenity.compressed_air" = "அழுத்தப்பட்ட காற்று";
 "type.amenity.conference_centre" = "மாநாட்டு நடுவண்";
 "type.amenity.courthouse" = "நீதிமன்ற வளாகம்";
@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "சுரங்கப்பாதை";
 "type.highway.bus_stop" = "பேருந்து நிறுத்தம்";
 "type.highway.construction" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.motorway" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.motorway_link" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.trunk" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.trunk_link" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.primary" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.primary_link" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.secondary" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.secondary_link" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.tertiary" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.tertiary_link" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.residential" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.unclassified" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.service" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.living_street" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.road" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.track" = "சாலை கட்டுமானத்தில் உள்ளது";
 "type.highway.cycleway" = "சைக்கிள் பாதை";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "பாலம்";
@@ -1323,7 +1339,7 @@
 "type.shop.agrarian" = "விவசாயக் கடை";
 "type.shop.antiques" = "பழங்கால பொருட்கள் கடை";
 "type.shop.appliance" = "உபகரணங்கள் கடை";
-"type.shop.water" = "Water Shop";
+"type.shop.water" = "தண்ணீர் கடை";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "கலைப்படைப்பு கடை";
 "type.shop.baby_goods" = "குழந்தை பொருட்கள் கடை";
@@ -1397,8 +1413,8 @@
 "type.tourism.artwork.painting" = "ஓவியம்";
 "type.tourism.artwork.sculpture" = "சிற்பம்";
 "type.tourism.artwork.statue" = "சிலை";
-"type.tourism.attraction" = "ஈர்ப்பு";
-"type.attraction" = "Attraction";
+"type.tourism.attraction" = "சுற்றுலா ஈர்ப்பு";
+"type.attraction" = "ஈர்ப்பு";
 "type.attraction.amusement_ride" = "பொழுதுபோக்கு சவாரி";
 "type.attraction.animal" = "விலங்கு அடைப்பு";
 "type.attraction.bumper_car" = "பம்பர் கார்";
@@ -1448,7 +1464,7 @@
 "type.waterway.ditch.tunnel" = "கால்வாய்";
 "type.waterway.dock" = "நீர்வழி கப்பல்துறை";
 "type.waterway.drain" = "வாய்க்கால்";
-"type.waterway.fuel" = "Marina Fuel Dock";
+"type.waterway.fuel" = "மெரினா எரிபொருள் கப்பல்துறை";
 "type.natural.water.drain" = "வாய்க்கால்";
 "type.waterway.drain.tunnel" = "கால்வாய்";
 "type.waterway.lock_gate" = "பூட்டு கேட்";
@@ -1509,9 +1525,15 @@
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "விளையாட்டு அரங்கம்";
 "type.xmas.tree" = "கிறிச்துமச் மரம்";
-"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
-"type.sport.four_square" = "Four Square";
-"type.sport.boules" = "Boules";
-"type.leisure.sports_centre.sport.boules" = "Sports Centre";
-"type.sport.pickleball" = "Pickleball";
-"type.leisure.sports_centre.sport.pickleball" = "Sports Centre";
+"type.leisure.sports_centre.sport.four_square" = "விளையாட்டு நடுவண்";
+"type.sport.four_square" = "நான்கு சதுரம்";
+"type.sport.boules" = "பந்துகள்";
+"type.leisure.sports_centre.sport.boules" = "விளையாட்டு நடுவண்";
+"type.sport.pickleball" = "ஊறுகாய் பந்து";
+"type.leisure.sports_centre.sport.pickleball" = "விளையாட்டு நடுவண்";
+"type.organic.no" = "No organic options";
+"type.amenity.stage" = "Stage";
+"type.amenity.animal_boarding" = "Animal Boarding";
+"type.amenity.toilets.customers" = "Customer Access";
+"type.amenity.toilets.private" = "Private Access";
+"type.amenity.planetarium" = "Planetarium";

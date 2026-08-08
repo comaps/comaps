@@ -127,10 +127,10 @@ static void DownloadFileFinished(std::shared_ptr<jobject> obj, HttpRequest const
   {
     auto const & curFile = g_filesToDownload.back();
     size_t const sz = curFile.GetRemoteSize();
-    LOG(LDEBUG, ("finished downloading", curFile.GetName(), "size", sz, "bytes"));
+    LOG(LDEBUG, ("Initial: Finished downloading", curFile.GetName(), "size", sz, "bytes"));
 
     g_totalDownloadedBytes += sz;
-    LOG(LDEBUG, ("totalDownloadedBytes:", g_totalDownloadedBytes));
+    LOG(LDEBUG, ("Initial: totalDownloadedBytes:", g_totalDownloadedBytes));
 
     g_filesToDownload.pop_back();
   }
@@ -155,16 +155,18 @@ JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_DownloadResourcesLegacyActivity_
   if (g_filesToDownload.empty())
     return ERR_NO_MORE_FILES;
 
-  /// @todo One downloader instance with cached servers. All this routine will be refactored some time.
+  /// @todo One downloader instance with cached servers.
+  /// Refactor to properly use queueing and check updates via Storage::DownloadNode()
   auto & downloader = LegacyDownloader();
   storage::Storage const & storage = g_framework->GetStorage();
+
   downloader->SetDataVersion(storage.GetCurrentDataVersion());
 
   downloader->EnsureMetaConfigReady([&storage, ptr = jni::make_global_ref(listener), &downloader]()
   {
     auto const & curFile = g_filesToDownload.back();
     auto const fileName = curFile.GetFileName(MapFileType::Map);
-    LOG(LINFO, ("Downloading file", fileName));
+    LOG(LINFO, ("Initial: downloading file", fileName));
 
     g_currentRequest.reset(HttpRequest::GetFile(downloader->MakeUrlListLegacy(fileName),
                                                 storage.GetFilePath(curFile.GetName(), MapFileType::Map),
@@ -178,7 +180,7 @@ JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_DownloadResourcesLegacyActivity_
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_DownloadResourcesLegacyActivity_nativeCancelCurrentFile(JNIEnv * env,
                                                                                                         jclass clazz)
 {
-  LOG(LDEBUG, ("cancelCurrentFile, currentRequest=", g_currentRequest));
+  LOG(LDEBUG, ("Initial: cancelCurrentFile, currentRequest=", g_currentRequest));
   g_currentRequest.reset();
 }
 

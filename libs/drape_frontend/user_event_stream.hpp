@@ -1,5 +1,6 @@
 #pragma once
 
+#include "drape_frontend/animation/animation.hpp"
 #include "drape_frontend/kinetic_scroller.hpp"
 #include "drape_frontend/navigator.hpp"
 
@@ -21,6 +22,8 @@
 
 namespace df
 {
+class AnimationSystem;
+
 int constexpr kDoNotChangeZoom = -1;
 double constexpr kDoNotAutoZoom = -1.0;
 

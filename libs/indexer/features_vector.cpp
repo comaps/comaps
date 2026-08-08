@@ -1,8 +1,13 @@
 #include "features_vector.hpp"
 #include "dat_section_header.hpp"
 #include "features_offsets_table.hpp"
+#include "metadata_serdes.hpp"
+
+#include "coding/reader.hpp"
 
 #include "platform/constants.hpp"
+
+#include "defines.hpp"
 
 FeaturesVector::FeaturesVector(FilesContainerR const & cont, feature::DataHeader const & header,
                                feature::FeaturesOffsetsTable const * ftTable,

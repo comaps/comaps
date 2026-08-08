@@ -15,7 +15,7 @@
     <string name="type.aeroway.aerodrome">空港</string>
     <string name="type.aeroway.aerodrome.international">空港</string>
     <string name="type.aeroway.apron">エプロン</string>
-    <string name="type.aeroway.gate">搭乗口</string>
+    <string name="type.aeroway.gate">ゲート</string>
     <string name="type.aeroway.helipad">ヘリポート</string>
     <string name="type.aeroway.runway">滑走路</string>
     <string name="type.aeroway.taxiway">誘導路</string>
@@ -356,7 +356,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">トンネル</string>
     <string name="type.highway.bus_stop">バス停</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">工事中の道路</string>
+    <string name="type.highway.construction.motorway">工事中の道路</string>
+    <string name="type.highway.construction.motorway_link">工事中の道路</string>
+    <string name="type.highway.construction.trunk">工事中の道路</string>
+    <string name="type.highway.construction.trunk_link">工事中の道路</string>
+    <string name="type.highway.construction.primary">工事中の道路</string>
+    <string name="type.highway.construction.primary_link">工事中の道路</string>
+    <string name="type.highway.construction.secondary">工事中の道路</string>
+    <string name="type.highway.construction.secondary_link">工事中の道路</string>
+    <string name="type.highway.construction.tertiary">工事中の道路</string>
+    <string name="type.highway.construction.tertiary_link">工事中の道路</string>
+    <string name="type.highway.construction.residential">工事中の道路</string>
+    <string name="type.highway.construction.unclassified">工事中の道路</string>
+    <string name="type.highway.construction.service">工事中の道路</string>
+    <string name="type.highway.construction.living_street">工事中の道路</string>
+    <string name="type.highway.construction.road">工事中の道路</string>
+    <string name="type.highway.construction.track">工事中の道路</string>
     <string name="type.highway.cycleway">自転車道</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">自転車道(橋)</string>
@@ -1372,4 +1389,9 @@
     <string name="type.piste_type.downhill.freeride">フリーライド用のダウンヒルスキーコース</string>
     <string name="type.piste_type.downhill.intermediate.area">中級者向けのダウンヒルスキー場</string>
     <string name="type.railway.station.subway.qingdao">地下鉄駅</string>
+    <string name="type.amenity.bench.backless">バックレスト無し</string>
+    <string name="type.amenity.boat_rental">ボートレンタル</string>
+    <string name="type.man_made.telescope">望遠鏡</string>
+    <string name="type.man_made.telescope.optical">望遠鏡（可視光）</string>
+    <string name="type.man_made.telescope.radio">望遠鏡（電波）</string>
 </resources>

@@ -4,9 +4,12 @@
 
 #include "platform/measurement_utils.hpp"
 
+#include "geometry/angles.hpp"
 #include "geometry/mercator.hpp"
+#include "geometry/point2d.hpp"
 #include "geometry/screenbase.hpp"
 
+#include "base/assert.hpp"
 #include "base/macros.hpp"
 
 #include <algorithm>

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "coding/reader.hpp"
-#include "coding/writer.hpp"
+class Reader;
+class Writer;
 
 namespace rw_ops
 {

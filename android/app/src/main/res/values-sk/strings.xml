@@ -185,8 +185,6 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Dĺžka</string>
     <string name="share_my_location">Zdieľať moje umiestnenie</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Všeobecné nastavenia</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Informácie</string>
     <string name="prefs_group_route">Navigácia</string>
@@ -248,7 +246,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Pohybom telefónu v tvare osmičky kalibrujte kompas a zafixujte smer šípky na mape.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Opätovným dlhým ťuknutím na mapu zobrazíte rozhranie</string>
+    <string name="enable_long_tap_fullscreen_description">Opätovným dlhým ťuknutím na mapu zobrazíte rozhranie</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Aktualizovať všetko</string>
     <!-- Cancel all button text -->
@@ -587,7 +585,7 @@
         <item quantity="other">%d sledovania</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Súkromie</string>
+    <string name="prefs_group_privacy">Súkromie</string>
     <string name="privacy_policy">Zásady ochrany osobných údajov</string>
     <string name="terms_of_use">Podmienky používania</string>
     <string name="button_layer_traffic">Dopravné informácie</string>
@@ -615,7 +613,7 @@
     <string name="power_managment_setting_auto">Automaticky</string>
     <string name="power_managment_setting_manual_max">Maximálna úspora batérie</string>
     <string name="enable_logging_warning_message">Týmto zapnete záznamenávanie diagnostických informácií, ktoré môžete poslať našej technickej podpore v prípade problémov s aplikáciou. Záznam môže obsahovať údaje o vašej polohe.</string>
-    <string name="driving_options_title">Možnosti trasy</string>
+    <string name="routing_options_title">Možnosti trasy</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Vyhnúť sa spoplatneným cestám</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

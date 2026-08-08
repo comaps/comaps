@@ -187,13 +187,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Довжина</string>
     <string name="share_my_location">Поділитися моїм розташуванням</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Загальні налаштування</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Інформація</string>
     <string name="prefs_group_route">Навігація</string>
     <string name="pref_zoom_title">Кнопки трансфокації</string>
     <string name="pref_zoom_summary">Відображення на екрані</string>
+    <string name="prefs_group_advanced">Розширена</string>
+    <string name="download_resources_custom_url_title">Власний сервер мап</string>
+    <string name="download_resources_custom_url_message">Змінити типовий сервер для завантаження мап. Залиште порожнім, аби використовувати стандартний сервер CoMaps.</string>
+    <string name="download_resources_custom_url_summary_none">Не налаштовано</string>
+    <string name="download_resources_custom_url_error_scheme">Введіть URL-адресу, що починається з http:// або https://</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Нічний режим</string>
     <!-- Generic «Off» string -->
@@ -252,7 +255,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Рухайте телефон вісімкою, щоб відкалібрувати компас і зафіксувати напрямок стрілки на мапі.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Ще раз потримайте палець на мапі, щоб побачити інтерфейс</string>
+    <string name="enable_long_tap_fullscreen_description">Ще раз потримайте палець на мапі, щоб побачити інтерфейс</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Оновити всі</string>
     <!-- Cancel all button text -->
@@ -267,7 +270,7 @@
     <string name="downloader_download_all_button">Завантажити всі</string>
     <string name="downloader_downloading">Завантажується:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Щоб видалити мапу, зупиніть навiгацiю</string>
+    <string name="downloader_delete_map_while_routing_dialog">Щоб видалити мапу, спершу зупиніть навiгацiю</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Маршрут бути прокладений всередині мапи тільки одного регіону.</string>
     <!-- Context menu item for downloader. -->
@@ -457,10 +460,10 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d з %2$d</string>
     <string name="download_over_mobile_header">Завантажити за допомогою мобільної мережі?</string>
-    <string name="download_over_mobile_message">Це може бути задорого за деякими планами або за умовами роумінгу</string>
+    <string name="download_over_mobile_message">Це може бути дуже дорого на деяких тарифів мобільного зв’язку, особливо якщо ви перебуваєте в роумінгу.</string>
     <string name="error_enter_correct_house_number">Введіть правильний номер будинку</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">Редагуйте будівлі висотою максимум %d поверхів</string>
+    <string name="error_enter_correct_storey_number">Кількість поверхів не повинна перевищувати %d</string>
     <string name="editor_zip_code">Поштовий індекс</string>
     <string name="error_enter_correct_zip_code">Введіть коректний поштовий індекс</string>
     <!-- Title for OSM note section in the editor -->
@@ -476,7 +479,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Оператор: %s</string>
     <string name="editor_category_unsuitable_title">Не можете знайти відповідну категорію?</string>
-    <string name="editor_category_unsuitable_text">CoMaps дозволяють додавати до мапи лише прості типи об\'єктів, тобто без міст, доріг, озер та контурів будівель. Будь ласка, додайте такі категорії на сайті <a href="https://www.openstreetmap.org/">OpenStreetMap.org</a>. Ми також рекомендуємо ознайомитися із <a href="https://www.comaps.app/support/advanced-map-editing/">детальними інструкціями та іншими застосунками для редагування мапи</a>.</string>
+    <string name="editor_category_unsuitable_text">CoMaps дозволяє додавати лише прості категорії точок; він не підтримує додавання міст, доріг, озер, контурів будівель тощо. Додавайте такі категорії безпосередньо на <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Ознайомтеся з нашим <a href="https://www.comaps.app/support/advanced-map-editing/">посібником</a>, щоб отримати докладні покрокові інструкції.</string>
     <string name="downloader_no_downloaded_maps_title">Ви не маєте завантажених мап</string>
     <string name="downloader_no_downloaded_maps_message">Завантажте необхідні мапи для пошуку та навігацією без iнтернету</string>
     <string name="current_location_unknown_error_title">Розташування не знайдено</string>
@@ -509,7 +512,7 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Надіслати усім користувачам?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Переконайтеся, що ви не ввели особисті дані.</string>
+    <string name="editor_share_to_all_dialog_message_1">Переконайтеся, що ви не ввели жодних приватних або персональних даних.</string>
     <string name="editor_share_to_all_dialog_message_2">Редактори OpenStreetMap перевірять зміни та зв’яжуться з вами, якщо у них виникнуть запитання.</string>
     <string name="navigation_stop_button">Cтоп</string>
     <!-- Shown as toast when starting the recent track recording -->
@@ -535,8 +538,8 @@
     <string name="enable_logging">Увімкнути журналювання</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Загальний відгук</string>
-    <string name="prefs_languages_information">Для озвучування голосових інструкцій ми використовуємо систему TTS. Більшість Android-пристроїв підтримують систему Google TTS. Для завантаження або оновлення перейдіть до магазину Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Для деяких мов вам знадобиться встановити інший додаток для синтезу мовлення або додатковий мовний пакет з магазину додатків (Google Play, Galaxy Store, App Gallery, FDroid). \nВідкрийте налаштування пристрою → Мови та введення → Мовлення → Синтез мовлення. \nТут ви можете здійснювати управління налаштуваннями синтезу мовлення (наприклад, завантажити мовний пакет для використання офлайн) або вибрати інший програмний рушій для синтезу мовлення.</string>
+    <string name="prefs_languages_information">Ми використовуємо системний синтез мовлення (TTS) для голосових інструкцій. Багато пристроїв Android використовують Google TTS, ви можете завантажити або оновити його в Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">Для деяких мов вам потрібно буде встановити синтезатор мовлення або додатковий мовний пакет із магазину застосунків (Google Play, Galaxy Store, App Gallery, F-Droid).\nВідкрийте налаштування пристрою → Мова та введення → Мовлення → Синтез мовлення.\nТут ви можете керувати налаштуваннями синтезу мовлення (наприклад, завантажити мовний пакет для використання поза мережею) та вибрати інший механізм синтезу мовлення.</string>
     <string name="prefs_languages_information_off_link">Додаткову інформацію див. у цьому керівництві</string>
     <string name="transliteration_title">Транслітерувати латиницею</string>
     <string name="learn_more">Докладніше</string>
@@ -590,7 +593,7 @@
         <item quantity="other">%d маршрутів</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Приватність</string>
+    <string name="prefs_group_privacy">Приватність</string>
     <string name="privacy_policy">Політика конфіденційності</string>
     <string name="terms_of_use">Умови використання</string>
     <string name="button_layer_traffic">Затор</string>
@@ -618,7 +621,7 @@
     <string name="power_managment_setting_auto">Автоматично</string>
     <string name="power_managment_setting_manual_max">Максимальне енергозбереження</string>
     <string name="enable_logging_warning_message">Тимчасово ввімкніть цей параметр, щоб записати та вручну надіслати нам детальні діагностичні журнали щодо вашої проблеми за допомогою «Повідомити про помилку» у діалоговому вікні «Допомоги». Журнали можуть містити інформацію про розташування.</string>
-    <string name="driving_options_title">Налаштування об’їзду</string>
+    <string name="routing_options_title">Налаштування об’їзду</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Уникати платних доріг</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -768,7 +771,7 @@
     <string name="browser_not_available">Веб-браузер недоступний</string>
     <string name="volume">Гучність</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Експортувати всі місця та маршрути</string>
+    <string name="bookmarks_export">Експортувати все улюблене</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Системні налаштування синтезу мови</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -860,7 +863,7 @@
     <string name="place_page_app_too_old_description">Ваші поточні картографічні дані дуже застарілі, оновіть застосунок CoMaps.</string>
     <string name="place_page_update_too_old_map">Оновити регіон мапи</string>
     <string name="place_page_too_old_to_edit">Редагування OpenStreetMap вимкнено, оскільки дані мапи застаріли.</string>
-    <string name="osm_note_hint">Або, як варіант, залиште повідомлення спільноті OpenStreetMap, щоби хтось інший міг додати або виправити це місце.</string>
+    <string name="osm_note_hint">Або залиште примітку для спільноти OpenStreetMap, аби хтось інший міг додати або виправити це місце.</string>
     <string name="osm_note_toast">Примітку буде надіслано до OpenStreetMap</string>
     <string name="prefs_speed_cameras_information">Попередження про камери фіксації швидкості вимкнено в країнах, де сповіщення заборонені місцевим законодавством.</string>
     <string name="power_management">Керування живленням</string>
@@ -868,10 +871,10 @@
     <string name="avoid_paved">Уникати асфальтованих доріг</string>
     <string name="pref_maplanguage_local">Місцева мова</string>
     <string name="pref_left_button_title">Налаштування лівої кнопки</string>
-    <string name="pref_backup_title">Резервне копіювання улюблених</string>
+    <string name="pref_backup_title">Резервне копіювання улюбленого</string>
     <string name="pref_backup_summary">Автоматично створювати резервну копію в теку на вашому пристрої</string>
     <string name="pref_backup_now_summary">Негайно створити резервну копію</string>
-    <string name="pref_backup_now_summary_empty_lists">Немає місць та маршрутів для резервного копіювання</string>
+    <string name="pref_backup_now_summary_empty_lists">Немає улюбленого для резервного копіювання</string>
     <string name="pref_backup_now_summary_folder_unavailable">Тека резервних копій недоступна</string>
     <string name="pref_backup_status_summary_success">Остання успішна резервна копія</string>
     <string name="pref_backup_location_title">Розташування резервної копії</string>
@@ -908,15 +911,43 @@
     <string name="offline_explanation_title">Автономні мапи</string>
     <string name="offline_explanation_text">Щоби переглядати та орієнтуватися на місцевості, потрібно завантажити мапу.\nЗавантажуйте мапи для районів, куди плануєте поїхати.</string>
     <string name="list_description_empty">Відредагуйте список, щоби додати опис</string>
-    <string name="advanced">Розширена</string>
-    <string name="download_resources_custom_url_title">Власний сервер мап</string>
-    <string name="download_resources_custom_url_message">Змінити типовий сервер для завантаження мап. Залиште порожнім, аби використовувати стандартний сервер CoMaps.</string>
-    <string name="download_resources_custom_url_error_scheme">Введіть URL-адресу, що починається з http:// або https://</string>
     <string name="pref_backup_now_summary_failed">Помилка резервного копіювання</string>
     <string name="route_type">Тип маршруту</string>
     <string name="pedestrian">Пішохід</string>
     <string name="ruler">Лінійка</string>
-    <string name="download_resources_custom_url_summary_none">Не налаштовано</string>
     <string name="bookmark_share_email_subject">Перейдіть за цим посиланням %1$s або вставте ці координати %2$s у свій зачтосунок із мапами, аби переглянути це місце.</string>
     <string name="my_position_share_email">Перейдіть за цим посиланням %1$s або вставте ці координати %2$s у свій застосунок із мапами, аби побачити моє розташування.</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Не використовувати альтернативи</string>
+    <string name="mb_downloaded">%1$d МБ / %2$d МБ</string>
+    <string name="google_play_services">Служба визначення розташування Google Fused</string>
+    <string name="pref_use_google_play">Пропрієтарна служба, яка поєднує GPS, Wi-Fi, стільникові мережі тощо для точнішого визначення вашого розташування. Вона може під’єднюватися до серверів Google.</string>
+    <string name="destination">Ціль</string>
+    <string name="stop">Зупинка</string>
+    <string name="charge_socket_type1_combo">1 тип комбо</string>
+    <string name="pref_alt_map_lang_handling">Альтернативні мови мапи</string>
+    <string name="pref_alt_map_lang_handling_local_only">Надавати перевагу та використовувати лише там, де це притаманно носіям мови</string>
+    <string name="setting_value_system_default">Типові системні</string>
+    <string name="pref_alt_map_lang_handling_system_order">Використовувати в системному порядку</string>
+    <string name="location_privacy_info">Застосунки отримують дані про розташування від служби геолокації вашої ОС, яка може передавати ці дані Google та / або виробнику вашого пристрою. Використовуйте ОС Android з акцентом на приватність, щоб уникнути цього.</string>
+    <string name="location_privacy">Приватність розташування</string>
+    <string name="pref_speedlimit_title">Показувати обмеження швидкості</string>
+    <string name="rooms">%s кімнат</string>
+    <string name="invalid_route">Не той маршрут</string>
+    <string name="building_route">Побудова маршруту…</string>
+    <string name="route_not_started">Маршрут не розпочато</string>
+    <string name="on_route">На маршруті</string>
+    <string name="route_needs_rebuild">Маршрут потребує перебудови</string>
+    <string name="route_finished">Маршрут завершено</string>
+    <string name="not_following_route">Відхилення від маршруту</string>
+    <string name="route_recalculating">Перерахунок маршруту…</string>
+    <string name="pref_openexternallinks_title">Автоматично відкривати сторонні посилання</string>
+    <string name="pref_openexternallinks_summary">Типово відкривати сторонні посилання в CoMaps</string>
+    <string name="population">Населення: %s</string>
+    <string name="change_app_locale">Мова застосунку</string>
+    <string name="downloader_check_updates_button">Перевірити наявність оновлень</string>
+    <string name="downloader_check_updates_checking">Перевірка оновлень...</string>
+    <string name="downloader_check_updates_no_updates">Немає доступних оновлень</string>
+    <string name="downloader_check_updates_eol">Оновлень карт для цієї версії додатку більше немає. Будь ласка, оновіть додаток!</string>
+    <string name="downloader_check_updates_error">Помилка перевірки оновлень</string>
+    <string name="downloader_check_updates_updated">Доступні оновлення карти!</string>
 </resources>

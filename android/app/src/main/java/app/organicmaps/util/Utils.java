@@ -10,9 +10,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -49,6 +51,8 @@ import app.organicmaps.sdk.util.log.LogsManager;
 import com.google.android.material.snackbar.Snackbar;
 import java.lang.ref.WeakReference;
 import java.time.LocalTime;
+import java.util.Objects;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 @Keep
@@ -479,5 +483,53 @@ public class Utils
         || url.endsWith("comaps.app/donate/"))
       return context.getString(R.string.app_site_url) + "donate/";
     return url;
+  }
+
+  public static boolean isAndroidAutoSupported(Context context)
+  {
+    String appID = BuildConfig.APPLICATION_ID;
+    String googlePlayID = "com.android.vending";
+    String sourceInstaller = null;
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+    {
+      try
+      {
+        sourceInstaller = context.getPackageManager().getInstallSourceInfo(appID).getInstallingPackageName();
+      }
+      catch (PackageManager.NameNotFoundException e)
+      {
+        Logger.i(TAG, "Unable to get package name installer");
+      }
+    }
+    else
+    {
+      sourceInstaller = context.getPackageManager().getInstallerPackageName(appID);
+    }
+    return Objects.equals(sourceInstaller, googlePlayID);
+  }
+
+  /**
+   * Function to detect whether the current app layout is RTL (Right-To-Left).
+   */
+  public static boolean isRtlLayoutDirection()
+  {
+    return TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == View.LAYOUT_DIRECTION_RTL;
+  }
+
+  public static String getContactAddress(Context context, Uri contactUri)
+  {
+    String[] typeData = {ContactsContract.CommonDataKinds.StructuredPostal.FORMATTED_ADDRESS};
+    try (Cursor cursor = context.getContentResolver().query(contactUri, typeData, null, null, null))
+    {
+      if (cursor != null && cursor.moveToFirst()) {
+        return cursor.getString(0);
+      }
+    }
+    return null;
+  }
+
+  public static Intent openContactPicker()
+  {
+    return new Intent(Intent.ACTION_PICK).setType(ContactsContract.CommonDataKinds.StructuredPostal.CONTENT_TYPE);
   }
 }

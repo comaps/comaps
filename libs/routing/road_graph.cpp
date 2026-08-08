@@ -1,10 +1,14 @@
 #include "routing/road_graph.hpp"
 
+#include "indexer/feature_data.hpp"
+
+#include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 #include "geometry/segment2d.hpp"
 
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"
+#include "base/macros.hpp"
 
 #include <algorithm>
 #include <limits>

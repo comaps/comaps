@@ -2,11 +2,15 @@
 
 #include "drape/drape_global.hpp"
 #include "drape/gl_functions.hpp"
-#include "drape/utils/gpu_mem_tracker.hpp"
 
-#include "base/logging.hpp"
+#include "base/assert.hpp"
+#include "base/macros.hpp"
 
 #include "std/target_os.hpp"
+
+#ifdef TRACK_GPU_MEM
+#include "drape/utils/gpu_mem_tracker.hpp"
+#endif
 
 #if defined(OMIM_OS_IPHONE)
 #include "drape/hw_texture_ios.hpp"

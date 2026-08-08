@@ -1,12 +1,17 @@
 #include "kml/serdes.hpp"
+
 #include "kml/color_parser.hpp"
+#include "kml/serdes_common.hpp"
 
 #include "indexer/classificator.hpp"
 
 #include "coding/hex.hpp"
-#include "coding/string_utf8_multilang.hpp"
+#include "coding/writer.hpp"
 
 #include "geometry/mercator.hpp"
+#include "geometry/point_with_altitude.hpp"
+
+#include "i18n/localisation.hpp"
 
 #include "base/assert.hpp"
 #include "base/stl_helpers.hpp"

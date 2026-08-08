@@ -25,7 +25,7 @@ UNIT_TEST(CellsMerger_One)
 UNIT_TEST(CellsMerger_Two)
 {
   generator::cells_merger::CellsMerger merger({{{0.0, 0.0}, {1.0, 1.0}}, {{1.0, 0.0}, {2.0, 1.0}}});
-  std::vector<m2::RectD> expected{{{0.0, 0.0}, {1.0, 1.0}}, {{1.0, 0.0}, {2.0, 1.0}}};
+  std::vector<m2::RectD> expected{{{1.0, 0.0}, {2.0, 1.0}}, {{0.0, 0.0}, {1.0, 1.0}}};
   auto const result = merger.Merge();
   TEST_EQUAL(result, expected, ());
 }
@@ -47,7 +47,7 @@ UNIT_TEST(CellsMerger_Six)
                                                {{1.0, 1.0}, {2.0, 2.0}},
                                                {{2.0, 0.0}, {3.0, 1.0}},
                                                {{2.0, 1.0}, {3.0, 2.0}}});
-  std::vector<m2::RectD> expected{{{1.0, 0.0}, {3.0, 2.0}}, {{0.0, 0.0}, {1.0, 1.0}}, {{0.0, 1.0}, {1.0, 2.0}}};
+  std::vector<m2::RectD> expected{{{1.0, 0.0}, {3.0, 2.0}}, {{0.0, 1.0}, {1.0, 2.0}}, {{0.0, 0.0}, {1.0, 1.0}}};
   auto const result = merger.Merge();
   TEST_EQUAL(result, expected, ());
 }
@@ -63,10 +63,11 @@ UNIT_TEST(CellsMerger_Eight)
                                                {{3.0, 0.0}, {4.0, 1.0}},
                                                {{3.0, 1.0}, {4.0, 2.0}}});
   std::vector<m2::RectD> expected{{{1.0, 0.0}, {3.0, 2.0}},
-                                  {{0.0, 0.0}, {1.0, 1.0}},
-                                  {{0.0, 1.0}, {1.0, 2.0}},
+                                  {{3.0, 1.0}, {4.0, 2.0}},
                                   {{3.0, 0.0}, {4.0, 1.0}},
-                                  {{3.0, 1.0}, {4.0, 2.0}}};
+                                  {{0.0, 1.0}, {1.0, 2.0}},
+                                  {{0.0, 0.0}, {1.0, 1.0}},
+                                  };
   auto const result = merger.Merge();
   TEST_EQUAL(result, expected, ());
 }

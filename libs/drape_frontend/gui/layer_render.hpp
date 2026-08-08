@@ -1,25 +1,32 @@
 #pragma once
 
-#include "drape_frontend/gui/shape.hpp"
 #include "drape_frontend/gui/skin.hpp"
 
 #include "shaders/program_manager.hpp"
 
-#include "drape/texture_manager.hpp"
+#include "drape/pointers.hpp"
 
-#include "geometry/screenbase.hpp"
+#include "indexer/feature_decl.hpp"
+
+#include "geometry/rect2d.hpp"
 
 #include "base/macros.hpp"
 
 #include <map>
 
+class ScreenBase;
+
 namespace dp
 {
 class GraphicsContext;
+class TextureManager;
 }  // namespace dp
 
 namespace gui
 {
+class Handle;
+class ShapeRenderer;
+
 class LayerRenderer
 {
 public:

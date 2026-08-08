@@ -564,6 +564,7 @@ area|z15-[amenity=charging_station][motorcar?],
 area|z16-[amenity=charging_station],
 area|z15-[amenity=motorcycle_parking],
 area|z15-[amenity=bicycle_parking],
+area|z17-[amenity=stage],
 {fill-opacity: 1; fill-color: @general_area;}
 
 

@@ -14,9 +14,17 @@ set(SRC
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  search_tests_support  # TestSearchEngine in helpers.cpp
-  search
-  indexer
+  PUBLIC
+    base
+    cppjansson
+    geometry
+    search_tests_support  # TestSearchEngine in helpers.cpp
+  PRIVATE
+    coding
+    i18n
+    indexer
+    platform
+    search
 )
 
 if (NOT SKIP_QT_GUI)

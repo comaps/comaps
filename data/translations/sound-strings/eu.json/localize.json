@@ -1,0 +1,320 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Mantendu eskuinean."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Biratu eskuinera."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Eman bira itxia eskuinera."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "Sartu biribilgunera."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Irten biribilgunetik."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Mantendu ezkerrean."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Biratu ezkerrera."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Eman bira itxia ezkerrera."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Norabidea aldatu."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "Zuzen jarraitu."
+    },
+    "exit": {
+        "defaultMessage": "Irteera."
+    },
+    "onto": {
+        "defaultMessage": "NULL"
+    },
+    "take_exit_number": {
+        "defaultMessage": "Irten"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Ibilbidea berriro kalkulatzea"
+    },
+    "destination": {
+        "defaultMessage": "Helmugara iristen ari zara."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "Helmugara iritsi zara."
+    },
+    "in_50_meters": {
+        "defaultMessage": "Berrogeita hamar metrora"
+    },
+    "in_100_meters": {
+        "defaultMessage": "Ehun metrora"
+    },
+    "in_200_meters": {
+        "defaultMessage": "Berrehun metrora"
+    },
+    "in_250_meters": {
+        "defaultMessage": "Berrehun eta berrogeita hamar metrora"
+    },
+    "in_300_meters": {
+        "defaultMessage": "Hirurehun metrora"
+    },
+    "in_400_meters": {
+        "defaultMessage": "Laurehun metrora"
+    },
+    "in_500_meters": {
+        "defaultMessage": "Bostehun metrora"
+    },
+    "in_600_meters": {
+        "defaultMessage": "Seiehun metrora"
+    },
+    "in_700_meters": {
+        "defaultMessage": "Zazpiehun metrora"
+    },
+    "in_750_meters": {
+        "defaultMessage": "Zazpiehun eta berrogeita hamar metrora"
+    },
+    "in_800_meters": {
+        "defaultMessage": "Zortziehun metrora"
+    },
+    "in_900_meters": {
+        "defaultMessage": "Bederatziehun metrora"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "Kilometro batera"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "Kilometro eta erdira"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "Bi kilometrora"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "Bi kilometro eta erdira"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "Hiru kilometrora"
+    },
+    "then": {
+        "defaultMessage": "Gero"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Hartu lehen irteera."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Hartu bigarren irteera."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Hartu hirugarren irteera."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Hartu laugarren irteera."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Hartu bosgarren irteera"
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Hartu seigarren irteera."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Hartu zazpigarren irteera."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Hartu zortzigarren irteera."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Hartu bederatzigarren irteera."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Hartu hamargarren irteera."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Hartu hamaikagarren irteera."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "Berrogeita hamar oinetara"
+    },
+    "in_100_feet": {
+        "defaultMessage": "Ehun oinetara"
+    },
+    "in_200_feet": {
+        "defaultMessage": "Berrehun oinetara"
+    },
+    "in_300_feet": {
+        "defaultMessage": "Hirurehun oinetara"
+    },
+    "in_400_feet": {
+        "defaultMessage": "Laurehun oinetara"
+    },
+    "in_500_feet": {
+        "defaultMessage": "Bostehun oinetara"
+    },
+    "in_600_feet": {
+        "defaultMessage": "Seiehun oinetara"
+    },
+    "in_700_feet": {
+        "defaultMessage": "Zazpiehun oinetara"
+    },
+    "in_800_feet": {
+        "defaultMessage": "Zortziehun oinetara"
+    },
+    "in_900_feet": {
+        "defaultMessage": "Bederatziehun oinetara"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "Mila oinetara"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "Mila bostehun oinetara"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "Bi mila oinetara"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "Bi mila bostehun oinetara"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "Hiru mila oinetara"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "Hiru mila bostehun oinetara"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "Lau mila oinetara"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "Lau mila bostehun oinetara"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "Bost mila oinetara"
+    },
+    "in_1_mile": {
+        "defaultMessage": "Milia batera"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "Milia eta erdira"
+    },
+    "in_2_miles": {
+        "defaultMessage": "Bi milietara"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Kamera aurrean"
+    }
+}

@@ -3,7 +3,6 @@
 #include "indexer/search_delimiters.hpp"
 
 #include "search/common.hpp"
-#include "search/result.hpp"
 
 #include "base/string_utils.hpp"
 
@@ -13,6 +12,8 @@
 
 namespace search
 {
+class Result;
+
 template <typename LowTokensIter, typename F>
 void SearchStringTokensIntersectionRanges(std::string const & s, LowTokensIter itLowBeg, LowTokensIter itLowEnd, F && f)
 {

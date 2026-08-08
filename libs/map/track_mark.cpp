@@ -1,5 +1,7 @@
 #include "map/track_mark.hpp"
 
+#include "drape_frontend/user_marks_provider.hpp"
+
 #include "indexer/scales.hpp"
 
 namespace

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "drape_frontend/color_constants.hpp"
+#include "drape/color.hpp"
 
 #include <map>
 #include <string>

@@ -1,10 +1,10 @@
-• OpenStreetMap-gegevens per 21 april
-• Taalinstelling voor gebruikersinterface toegevoegd
-• Android Auto: snelheidslimiet weergeven tijdens navigatie
-• Android Auto: gebruik standaardachtergrondkleuren i.p.v. aangepast groen
-• Mogelijkheid om in het navigatiepaneel te wisselen tussen volgende stop en eindbestemming
-• Enkele bugs in de gesproken instructies opgelost
-• Diverse UI-verbeteringen
-• Waterlabels met meer contrast in lichte modus
+• Toon actieve route-instellingen en een knop om ze te wijzigen tijdens het maken van een route
+• Voorbeeld van stapsgewijze routebeschrijvingen toegevoegd
+• Aparte route-instellingen per transportmodus
+• Afslaginstructies voor o.a. rotondes en u-bochten verbeterd
+• Bestemming en tussenstops in navigatievoorgangsbalk
+• Verbeterde richting-instructies inclusief weglabels
+• Zoeken door alle favorietenlijsten
+• Instellingen opgedeeld in sub-pagina's
 
 Meer details op comaps.app/latest

@@ -1,0 +1,28 @@
+Aplikasi peta bebas & bersumber terbuka berbasis komunitas yang menggunakan data OpenStreetMap dan diperkuat dengan komitmen terhadap transparansi, privasi, dan nirlaba.
+
+‣ Sederhana dan Elegan: fitur-fitur penting yang mudah digunakan dan berfungsi dengan baik.
+‣ Berfokus pada Offline: Rencanakan dan navigasi perjalanan Anda ke luar negeri tanpa perlu layanan seluler, cari titik jalan saat mendaki di tempat terpencil, dll. Semua fungsi aplikasi dirancang untuk bekerja secara offline.
+‣ Menghormati Privasi: Aplikasi ini dirancang dengan mempertimbangkan privasi - tidak mengidentifikasi orang, tidak melacak, dan tidak mengumpulkan informasi pribadi. Bebas iklan.
+‣ Hemat Baterai dan Ruang: Tidak menguras baterai Anda seperti aplikasi navigasi lainnya. Peta yang ringkas menghemat ruang berharga di ponsel Anda.
+‣ Gratis dan Dibangun oleh Komunitas: Orang-orang seperti Anda membantu membangun aplikasi ini dengan menambahkan tempat ke OpenStreetMap, menguji dan memberikan masukan pada fitur-fitur serta berkontribusi dalam keahlian pengembangan dan dana.
+‣ Pengambilan Keputusan dan Keuangan yang Terbuka dan Transparan, Nirlaba dan Sepenuhnya Open Source.
+
+Fitur Utama:
+-  Peta terperinci yang dapat diunduh dengan tempat-tempat yang tidak tersedia di banyak peta komersial
+-  Mode luar ruang dengan jalur pendakian, area berkemah, sumber air, puncak, garis kontur, dll yang ditampilkan secara menonjol
+-  Jalur pejalan kaki dan jalur sepeda
+-  Tempat menarik seperti restoran, SPBU, hotel, toko, tempat wisata, dan masih banyak lagi
+-  Cari berdasarkan nama, alamat, atau kategori tempat menarik
+-  Navigasi dengan pengumuman suara untuk berjalan kaki, bersepeda, atau berkendara
+-  Tandai tempat favorit Anda dengan satu ketukan
+-  Sinkronisasi iCloud untuk penanda dan trek Anda
+-  Artikel Wikipedia offline
+-  Lapisan dan petunjuk arah transit bawah tanah
+-  Perekaman trek
+-  Ekspor dan impor penanda dan trek dalam format KML, KMZ, GPX
+-  Mode gelap untuk digunakan pada malam hari
+- Tingkatkan data peta untuk semua orang menggunakan editor bawaan yang sederhana
+-  Dukungan CarPlay
+
+Kebebasan Ada di Sini
+Temukan perjalanan Anda, navigasi dunia dengan privasi dan komunitas sebagai prioritas utama!

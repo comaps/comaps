@@ -428,7 +428,7 @@ UNIT_TEST(EnglandLondonStartNearMwmBorderTest)
                                    FromLatLon(51.606785, 0.264055), 416.8);
 }
 
-// Test that toll road is not crossed by a fake edge if RouingOptions are set to Road::Toll.
+// Test that toll road is not crossed by a fake edge if RouingOptions are set to Option::Toll.
 // Test on necessity calling RectCoversPolyline() after DataSource::ForEachInRect() while looking for fake edges.
 UNIT_TEST(RussiaMoscowNotCrossingTollRoadTest)
 {
@@ -439,7 +439,7 @@ UNIT_TEST(RussiaMoscowNotCrossingTollRoadTest)
 
   {
     // Avoid motorway toll road and build route through minor residential roads (short but slow).
-    RoutingOptionSetter optionsGuard(RoutingOptions::Toll);
+    RoutingOptionSetter optionsGuard(RoutingOptions::Toll, VehicleType::Car);
 
     // 1. End point is near the motorway toll road, but choose a minor track as end segment.
     CalculateRouteAndTestRouteLength(vehicleComponents, start, {0.0, 0.0}, finish[0], 8427.71);
@@ -614,19 +614,39 @@ UNIT_TEST(Russia_Moscow_KeepPrimary)
                                    FromLatLon(55.724623, 37.62588), 1921.88);
 }
 
-// https://github.com/organicmaps/organicmaps/issues/1727
-// https://github.com/organicmaps/organicmaps/issues/2020
-// https://github.com/organicmaps/organicmaps/issues/2057
-UNIT_TEST(DontUseLinksWhenRidingOnMotorway)
+UNIT_TEST(DontUseLinksWhenRidingOnMotorway1)
 {
+  // https://github.com/organicmaps/organicmaps/issues/1727
   CalculateRouteAndTestRouteLength(GetVehicleComponents(VehicleType::Car), FromLatLon(32.16881, 34.90656), {0., 0.},
                                    FromLatLon(32.1588823, 34.9330855), 2847.33);
+}
 
+UNIT_TEST(DontUseLinksWhenRidingOnMotorway2)
+{
+  // https://github.com/organicmaps/organicmaps/issues/2020
   CalculateRouteAndTestRouteLength(GetVehicleComponents(VehicleType::Car), FromLatLon(43.587808, 1.495385), {0., 0.},
                                    FromLatLon(43.600145, 1.490489), 1457.16);
+}
 
+UNIT_TEST(DontUseLinksWhenRidingOnMotorway3)
+{
+  // https://github.com/organicmaps/organicmaps/issues/2057
   CalculateRouteAndTestRouteLength(GetVehicleComponents(VehicleType::Car), FromLatLon(34.0175371, -84.3272339),
-                                   {0., 0.}, FromLatLon(34.0298011, -84.3182477), 1609.76);
+                                   {0., 0.}, FromLatLon(34.0298011, -84.3182477), 1609.9);
+}
+
+UNIT_TEST(DontUseLinksWhenRidingOnMotorway4)
+{
+  // https://codeberg.org/comaps/comaps/issues/3254
+  CalculateRouteAndTestRouteLength(GetVehicleComponents(VehicleType::Car), FromLatLon(34.9382176, -92.0102853),
+                                   {0., 0.}, FromLatLon(34.9391724, -92.0087555), 245.19);
+}
+
+UNIT_TEST(DontUseLinksWhenRidingOnMotorway5)
+{
+  // https://codeberg.org/comaps/comaps/issues/4088
+  CalculateRouteAndTestRouteLength(GetVehicleComponents(VehicleType::Car), FromLatLon(61.5028877, 23.8642667),
+                                   {0., 0.}, FromLatLon(61.5036863, 23.8574754), 375.81);
 }
 
 UNIT_TEST(Russia_UseDonMotorway)
@@ -691,7 +711,7 @@ UNIT_TEST(USA_Birmingham_AL_KeyWest_FL_NoMotorway)
   auto const finish = FromLatLon(24.5534713, -81.7932587);
   CalculateRouteAndTestRouteLength(GetVehicleComponents(VehicleType::Car), start, {0., 0.}, finish, 1'471'410);
 
-  RoutingOptionSetter optionsGuard(RoutingOptions::Motorway);
+  RoutingOptionSetter optionsGuard(RoutingOptions::Motorway, VehicleType::Car);
   CalculateRouteAndTestRouteLength(GetVehicleComponents(VehicleType::Car), start, {0., 0.}, finish, 1'495'860);
 }
 
@@ -791,7 +811,7 @@ UNIT_TEST(Russia_Yekaterinburg_NChelny)
   auto const finish = FromLatLon(55.7341111, 52.4156012);
 
   {
-    RoutingOptionSetter optionsGuard(RoutingOptions::Dirty | RoutingOptions::Ferry);
+    RoutingOptionSetter optionsGuard(RoutingOptions::Dirty | RoutingOptions::Ferry, VehicleType::Car);
     // forward
     CalculateRouteAndTestRouteLength(*components, start, {0., 0.}, finish, 767702);
     // backward

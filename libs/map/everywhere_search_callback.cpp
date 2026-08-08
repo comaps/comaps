@@ -1,5 +1,9 @@
 #include "map/everywhere_search_callback.hpp"
 
+#include "search/result.hpp"
+
+#include "base/assert.hpp"
+
 namespace search
 {
 EverywhereSearchCallback::EverywhereSearchCallback(Delegate & delegate, OnResults onResults)

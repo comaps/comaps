@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <ListPreference
+    android:entries="@array/mobile_data_options"
+    android:entryValues="@array/mobile_data_options_values"
+    android:key="@string/pref_use_mobile_data"
+    android:summary="@string/mobile_data_description"
+    android:title="@string/mobile_data"
+    app:icon="@drawable/ic_network_manage"
+    app:singleLineTitle="false" />
+  <ListPreference
+    android:entries="@array/power_management_scheme"
+    android:entryValues="@array/power_management_scheme_values"
+    android:key="@string/pref_power_management"
+    android:summary="@string/power_managment_description"
+    android:title="@string/power_managment_title"
+    app:icon="@drawable/ic_eco"
+    app:singleLineTitle="false" />
+  <SwitchPreferenceCompat
+    android:defaultValue="false"
+    android:key="@string/pref_keep_screen_on"
+    android:summary="@string/enable_keep_screen_on_description"
+    android:title="@string/enable_keep_screen_on"
+    android:widgetLayout="@layout/preference_switch"
+    app:singleLineTitle="false" />
+  <SwitchPreferenceCompat
+    android:defaultValue="true"
+    android:key="@string/pref_show_on_lock_screen"
+    android:summary="@string/enable_show_on_lock_screen_description"
+    android:title="@string/enable_show_on_lock_screen"
+    android:widgetLayout="@layout/preference_switch"
+    app:icon="@drawable/ic_mobile_lock_portrait"
+    app:singleLineTitle="false" />
+
+</androidx.preference.PreferenceScreen>

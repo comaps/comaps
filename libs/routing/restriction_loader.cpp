@@ -1,11 +1,20 @@
 #include "routing/restriction_loader.hpp"
 
+#include "routing/geometry.hpp"
+#include "routing/index_graph.hpp"
+#include "routing/joint.hpp"
 #include "routing/restrictions_serialization.hpp"
 #include "routing/road_index.hpp"
+#include "routing/road_point.hpp"
 
 #include "indexer/mwm_set.hpp"
 
-#include "base/stl_helpers.hpp"
+#include "coding/reader.hpp"
+
+#include "base/assert.hpp"
+#include "base/logging.hpp"
+
+#include "defines.hpp"
 
 #include <algorithm>
 #include <cstdint>

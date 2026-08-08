@@ -2,8 +2,6 @@
 
 #include "platform/location.hpp"
 
-#include "geometry/latlon.hpp"
-
 #include <cstddef>
 #include <vector>
 

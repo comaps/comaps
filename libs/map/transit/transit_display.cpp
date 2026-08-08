@@ -1,9 +1,30 @@
 #include "transit_display.hpp"
 
+#include "map/bookmark_manager.hpp"
+#include "map/routing_mark.hpp"
+#include "map/transit/transit_reader.hpp"
+#include "map/user_mark.hpp"
+
 #include "drape_frontend/route_renderer.hpp"
+#include "drape_frontend/shape_view_params.hpp"
+#include "drape_frontend/user_marks_provider.hpp"
 #include "drape_frontend/visual_params.hpp"
 
+#include "drape/color.hpp"
+#include "drape/drape_global.hpp"
+
+#include "transit/transit_types.hpp"
+#include "transit/transit_version.hpp"
+
+#include "routing/route.hpp"
 #include "routing/routing_session.hpp"
+#include "routing/segment.hpp"
+
+#include "geometry/point_with_altitude.hpp"
+
+#include "base/assert.hpp"
+#include "base/logging.hpp"
+#include "base/strings_bundle.hpp"
 
 #include <memory>
 

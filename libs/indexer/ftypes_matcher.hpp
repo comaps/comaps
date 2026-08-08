@@ -1,5 +1,6 @@
 #pragma once
 
+#include "indexer/classificator.hpp"
 #include "indexer/feature_data.hpp"
 #include "indexer/feature_utils.hpp"
 
@@ -524,6 +525,14 @@ class IsTaxiChecker : public BaseChecker
 
 public:
   DECLARE_CHECKER_INSTANCE(IsTaxiChecker);
+};
+
+class IsOrganicChecker : public BaseChecker
+{
+  IsOrganicChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsOrganicChecker);
 };
 
 class IsChristmasChecker : public BaseChecker

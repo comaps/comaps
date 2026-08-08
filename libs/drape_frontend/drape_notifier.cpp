@@ -1,4 +1,6 @@
 #include "drape_frontend/drape_notifier.hpp"
+
+#include "drape_frontend/message.hpp"
 #include "drape_frontend/message_subclasses.hpp"
 
 #include "drape/drape_routine.hpp"

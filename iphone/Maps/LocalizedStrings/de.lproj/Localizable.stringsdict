@@ -92,5 +92,19 @@
 			<string>%lld Zimmer</string>
 		</dict>
 	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld ausgewiesener Behindertenparkplatz</string>
+			<key>other</key>
+			<string>%lld ausgewiesene Behindertenparkplätze</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

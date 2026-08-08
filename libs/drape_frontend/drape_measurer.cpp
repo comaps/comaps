@@ -1,7 +1,5 @@
 #include "drape_frontend/drape_measurer.hpp"
 
-#include "platform/platform.hpp"
-
 #include "geometry/mercator.hpp"
 
 #include <iomanip>

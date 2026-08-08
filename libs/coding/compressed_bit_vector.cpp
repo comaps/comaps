@@ -1,8 +1,10 @@
 #include "coding/compressed_bit_vector.hpp"
 
 #include "coding/write_to_sink.hpp"
+#include "coding/writer.hpp"
 
 #include "base/assert.hpp"
+#include "base/bits.hpp"
 
 #include <algorithm>
 #include <bit>

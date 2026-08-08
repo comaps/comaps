@@ -1,6 +1,6 @@
 "type.addr_interpolation" = "地址/区块";
-"type.addr_interpolation.even" = "地址/区块（偶数）";
-"type.addr_interpolation.odd" = "地址/区块（奇数）";
+"type.addr_interpolation.even" = "地址/区块";
+"type.addr_interpolation.odd" = "地址/区块";
 "type.aerialway" = "架空索道";
 "type.aerialway.cable_car" = "缆车";
 "type.aerialway.chair_lift" = "吊椅式缆车";
@@ -129,7 +129,7 @@
 "type.amenity.parking_space.permissive" = "停车位";
 "type.amenity.parking_space.private" = "停车位";
 "type.amenity.parking_space.underground" = "停车位";
-"type.amenity.parking_space.disabled" = "残疾人停车位";
+"type.amenity.parking_space.disabled" = "无障碍停车位";
 "type.amenity.car_pooling" = "拼车";
 "type.amenity.payment_terminal" = "支付终端";
 "type.amenity.payment_centre" = "付款中心";
@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "隧道";
 "type.highway.bus_stop" = "公交站";
 "type.highway.construction" = "在建道路";
+"type.highway.construction.motorway" = "在建道路";
+"type.highway.construction.motorway_link" = "在建道路";
+"type.highway.construction.trunk" = "在建道路";
+"type.highway.construction.trunk_link" = "在建道路";
+"type.highway.construction.primary" = "在建道路";
+"type.highway.construction.primary_link" = "在建道路";
+"type.highway.construction.secondary" = "在建道路";
+"type.highway.construction.secondary_link" = "在建道路";
+"type.highway.construction.tertiary" = "在建道路";
+"type.highway.construction.tertiary_link" = "在建道路";
+"type.highway.construction.residential" = "在建道路";
+"type.highway.construction.unclassified" = "在建道路";
+"type.highway.construction.service" = "在建道路";
+"type.highway.construction.living_street" = "在建道路";
+"type.highway.construction.road" = "在建道路";
+"type.highway.construction.track" = "在建道路";
 "type.highway.cycleway" = "自行车道";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "桥";
@@ -1515,3 +1531,9 @@
 "type.leisure.sports_centre.sport.boules" = "Sports Centre";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Sports Centre";
+"type.organic.no" = "No organic options";
+"type.amenity.stage" = "Stage";
+"type.amenity.animal_boarding" = "Animal Boarding";
+"type.amenity.toilets.customers" = "Customer Access";
+"type.amenity.toilets.private" = "Private Access";
+"type.amenity.planetarium" = "Planetarium";

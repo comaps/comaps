@@ -523,6 +523,18 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_n
   frm()->GetBookmarkManager().PrepareForSearch(static_cast<kml::MarkGroupId>(catId));
 }
 
+JNIEXPORT void JNICALL
+Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativePrepareForSearchAll(JNIEnv *, jclass)
+{
+  frm()->GetBookmarkManager().PrepareForSearch(std::nullopt);
+}
+
+JNIEXPORT void JNICALL
+Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeReleaseSearch(JNIEnv *, jclass)
+{
+  frm()->GetBookmarkManager().ReleaseSearch();
+}
+
 JNIEXPORT jboolean JNICALL
 Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeAreAllCategoriesInvisible(JNIEnv *, jclass)
 {
@@ -593,6 +605,24 @@ Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeGetBookmarkCategor
   auto const & ids = bm.GetSortedBmGroupIdList();
 
   return MakeCategories(env, ids);
+}
+
+JNIEXPORT void JNICALL
+Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeMoveCategoryToPosition(JNIEnv *, jobject, jlong catId, jint targetPos)
+{
+  frm()->GetBookmarkManager().MoveCategoryToPosition(static_cast<kml::MarkGroupId>(catId), static_cast<size_t>(targetPos));
+}
+
+JNIEXPORT jint JNICALL
+Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeGetCategorySortType(JNIEnv *, jobject)
+{
+  return static_cast<jint>(frm()->GetBookmarkManager().GetCategorySortType());
+}
+
+JNIEXPORT void JNICALL
+Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeSetCategorySortType(JNIEnv *, jobject, jint sortType)
+{
+  frm()->GetBookmarkManager().SetCategorySortType(static_cast<BookmarkManager::CategorySortType>(sortType));
 }
 
 JNIEXPORT jint JNICALL

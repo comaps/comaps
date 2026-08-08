@@ -10,6 +10,7 @@
 #include "base/array_adapters.hpp"
 #include "base/assert.hpp"
 #include "base/buffer_vector.hpp"
+#include "base/checked_cast.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <algorithm>

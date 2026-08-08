@@ -1,9 +1,13 @@
 #include "shaders/gl_program_pool.hpp"
+#include "shaders/gl_program_info.hpp"
 #include "shaders/gl_shaders.hpp"
 #include "shaders/program_params.hpp"
+#include "shaders/programs.hpp"
 
 #include "drape/gl_functions.hpp"
 #include "drape/gl_gpu_program.hpp"
+
+#include "std/target_os.hpp"
 
 namespace gpu
 {

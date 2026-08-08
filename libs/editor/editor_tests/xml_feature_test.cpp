@@ -7,6 +7,8 @@
 
 #include "geometry/mercator.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/timer.hpp"
 
 #include <map>

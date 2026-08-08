@@ -73,3 +73,8 @@ jobs:
         working-directory: android
         run: |
           ./gradlew appDistributionUploadGoogleBeta
+
+      - name: Upload debug symbols
+        uses: actions/upload-artifact@v3
+        with:
+          name: android/app/build/intermediates/merged_native_libs

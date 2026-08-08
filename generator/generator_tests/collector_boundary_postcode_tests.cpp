@@ -13,6 +13,8 @@
 
 #include "geometry/point2d.hpp"
 
+#include "i18n/string_utf8_multilang.hpp"
+
 #include "base/scope_guard.hpp"
 
 #include <memory>

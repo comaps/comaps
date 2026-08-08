@@ -11,6 +11,7 @@ std::string DebugPrint(RoadAccessSerializer::Header const & header)
   case RoadAccessSerializer::Header::TheFirstVersionRoadAccess: return "TheFirstVersionRoadAccess";
   case RoadAccessSerializer::Header::WithoutAccessConditional: return "WithoutAccessConditional";
   case RoadAccessSerializer::Header::WithAccessConditional: return "WithAccessConditional";
+  case RoadAccessSerializer::Header::DecoderModelAccess: return "DecoderModelAccess";
   }
   UNREACHABLE();
 }

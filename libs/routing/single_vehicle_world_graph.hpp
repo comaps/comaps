@@ -2,16 +2,12 @@
 
 #include "routing/cross_mwm_graph.hpp"
 #include "routing/edge_estimator.hpp"
-#include "routing/geometry.hpp"
 #include "routing/index_graph.hpp"
 #include "routing/index_graph_loader.hpp"
-#include "routing/joint_segment.hpp"
 #include "routing/mwm_hierarchy_handler.hpp"
 #include "routing/route.hpp"
-#include "routing/segment.hpp"
+#include "routing/routing_options.hpp"
 #include "routing/world_graph.hpp"
-
-#include "routing_common/num_mwm_id.hpp"
 
 #include <map>
 #include <memory>

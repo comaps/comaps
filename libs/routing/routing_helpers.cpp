@@ -2,15 +2,26 @@
 
 #include "routing/directions_engine.hpp"
 #include "routing/fake_feature_ids.hpp"
+#include "routing/index_graph.hpp"
 #include "routing/index_graph_starter.hpp"
 #include "routing/route.hpp"
+#include "routing/route_weight.hpp"
 #include "routing/segment.hpp"
-#include "routing/traffic_stash.hpp"
 #include "routing/world_graph.hpp"
+#include "routing_common/num_mwm_id.hpp"
 
+#include "indexer/feature_decl.hpp"
+#include "indexer/mwm_set.hpp"
+
+#include "platform/local_country_file.hpp"
+
+#include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"
+#include "geometry/point_with_altitude.hpp"
 
-#include "base/stl_helpers.hpp"
+#include "base/assert.hpp"
+#include "base/cancellable.hpp"
+#include "base/logging.hpp"
 
 #include <algorithm>
 #include <utility>

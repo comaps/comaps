@@ -5,6 +5,7 @@
 #include "coding/file_reader.hpp"
 #include "coding/file_writer.hpp"
 #include "coding/internal/file_data.hpp"
+#include "coding/reader.hpp"
 #include "coding/serdes_json.hpp"
 
 #include "base/assert.hpp"

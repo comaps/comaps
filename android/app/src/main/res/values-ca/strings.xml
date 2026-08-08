@@ -185,13 +185,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Longitud</string>
     <string name="share_my_location">Comparteix la meva ubicació</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Configuració general</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Informació</string>
     <string name="prefs_group_route">Navegació</string>
     <string name="pref_zoom_title">Botons de zoom</string>
     <string name="pref_zoom_summary">Mostra\'ls al mapa</string>
+    <string name="prefs_group_advanced">Avançat</string>
+    <string name="download_resources_custom_url_title">Servidor de Mapes Personalitzat</string>
+    <string name="download_resources_custom_url_message">Sobreescriu el servidor de descàrrega de mapes per defecte. Deixa en blanc per a emprar el servidor per defecte de CoMaps.</string>
+    <string name="download_resources_custom_url_summary_none">No establert</string>
+    <string name="download_resources_custom_url_error_scheme">Per favor introdueix una URL que comence amb http:// o https://</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Mode nocturn</string>
     <!-- Generic «Off» string -->
@@ -250,7 +253,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Moveu el telèfon amb un moviment de vuit per calibrar la brúixola i fixar la direcció de la fletxa al mapa.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Toqueu llargament el mapa de nou per veure la interfície</string>
+    <string name="enable_long_tap_fullscreen_description">Toqueu llargament el mapa de nou per veure la interfície</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Actualitza-ho tot</string>
     <!-- Cancel all button text -->
@@ -589,7 +592,7 @@
         <item quantity="other">%d traces</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Privadesa</string>
+    <string name="prefs_group_privacy">Privadesa</string>
     <string name="privacy_policy">Política de privadesa</string>
     <string name="terms_of_use">Condicions del servei</string>
     <string name="button_layer_traffic">Trànsit</string>
@@ -617,7 +620,7 @@
     <string name="power_managment_setting_auto">Automàtic</string>
     <string name="power_managment_setting_manual_max">Sempre</string>
     <string name="enable_logging_warning_message">Activeu aquesta opció temporalment per a registrar i enviar manualment registres de diagnòstic detallats sobre el vostre problema utilitzant «Informeu d’un error» al diàleg Ajuda. Els registres poden incloure informació d’ubicació.</string>
-    <string name="driving_options_title">Opcions d’encaminament</string>
+    <string name="routing_options_title">Opcions d’encaminament</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Evita peatges</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -910,11 +913,6 @@
     <string name="prefs_speed_cameras_information">Les advertències de càmeres radar estan deshabilitades als països on estan prohibides per llei.</string>
     <string name="navigation_start_tts_message">"Iniciant Navegació, idioma d\'instruccions de veu: "</string>
     <string name="navigation_start_tts_disabled_message">Instruccions de veu desactivades: motor TTS no disponible</string>
-    <string name="advanced">Avançat</string>
-    <string name="download_resources_custom_url_title">Servidor de Mapes Personalitzat</string>
-    <string name="download_resources_custom_url_message">Sobreescriu el servidor de descàrrega de mapes per defecte. Deixa en blanc per a emprar el servidor per defecte de CoMaps.</string>
-    <string name="download_resources_custom_url_summary_none">No establert</string>
-    <string name="download_resources_custom_url_error_scheme">Per favor introdueix una URL que comence amb http:// o https://</string>
     <string name="pref_maplanguage_local">Idioma Local</string>
     <string name="location_privacy_info">Les aplicacions reben informació d\'ubicació del servei de localització del sistema, que pot compartir la teva ubicació amb Google i/o el proveïdor del teu dispositiu. Fes servir un SO Android respectuós amb la privacitat per evitar-ho.</string>
     <string name="location_privacy">Privacitat de Localització</string>
@@ -941,4 +939,25 @@
     <string name="charge_socket_type1_combo">Combo Tipus 1</string>
     <string name="destination">Destinació</string>
     <string name="route_recalculating">Recalculant ruta…</string>
+    <string name="setting_value_system_default">Per defecte al sistema</string>
+    <string name="change_app_locale">Idioma de l\'App</string>
+    <string name="downloader_check_updates_button">Comprova actualitzacions</string>
+    <string name="downloader_check_updates_checking">Comprovant actualitzacions...</string>
+    <string name="downloader_check_updates_updated">Hi ha actualitzacions dels mapes!</string>
+    <string name="downloader_check_updates_no_updates">Cap actualització disponible</string>
+    <string name="downloader_check_updates_eol">No hi ha més actualitzacions per a mapes en aquesta versió. Per favor, actualitza l\'app!</string>
+    <string name="downloader_check_updates_error">No s\'han pogut comprovar les actualitzacions</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_aa_support_summary_yes">Aquesta aplicació s\'ha instal·lat des de Google Play, la pots fer servir al teu cotxe.</string>
+    <string name="pref_aa_support_summary_no">Aquesta app no ha sigut instal·lada des de Google Play, no pots fer-la servir al cotxe. Prem la opció per a veure més detalls als nostres FAQ.</string>
+    <string name="tts_toggle_enable">Activa instruccions de veu</string>
+    <string name="tts_toggle_disable">Desactiva instruccions de veu</string>
+    <string name="oh_unknown">Hores d\'opertura desconegudes</string>
+    <string name="editor_add_select_category_all_subtitle">Totes les Categories</string>
+    <string name="editor_add_select_category_recent_subtitle">Usades Recentment</string>
+    <string name="enable_long_tap_fullscreen">Toca i manté per amagar la interfície</string>
+    <string name="long_tap_disabled_toast">Per amagar la interfície habilita el toc llarg a la configuració</string>
+    <string name="sort_categories">Ordena les llistes de favorits</string>
+    <string name="by_recently_used">Per usades recentment</string>
+    <string name="by_custom">Per ordre personalitzat</string>
 </resources>

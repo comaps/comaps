@@ -3,8 +3,6 @@
 #include "map/everywhere_search_params.hpp"
 #include "map/search_product_info.hpp"
 
-#include "search/result.hpp"
-
 #include <functional>
 #include <vector>
 

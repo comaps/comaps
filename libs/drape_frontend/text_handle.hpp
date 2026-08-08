@@ -1,11 +1,10 @@
 #pragma once
 
+#include "drape/drape_global.hpp"
 #include "drape/glyph.hpp"
 #include "drape/overlay_handle.hpp"
 #include "drape/pointers.hpp"
 #include "drape/utils/vertex_decl.hpp"
-
-#include "base/string_utils.hpp"
 
 namespace dp
 {

@@ -49,9 +49,14 @@
     <string name="location_settings">Axustes de localización</string>
     <string name="close">Pechar</string>
     <string name="category_food">Tendas de comestibles</string>
-    <string name="load_kmz_title">Cargando marcadores</string>
+    <string name="load_kmz_title">Cargando favoritos</string>
     <string name="email">Correo electrónico</string>
     <string name="pref_zoom_summary">Mostrar no mapa</string>
+    <string name="prefs_group_advanced">Avanzado</string>
+    <string name="download_resources_custom_url_title">Servidor persoal do mapa</string>
+    <string name="download_resources_custom_url_message">Sobrescribe o servidor predefinido para descargar mapas. Deixar baleiro para usar o servidor por defecto de CoMaps.</string>
+    <string name="download_resources_custom_url_summary_none">Sen establecer</string>
+    <string name="download_resources_custom_url_error_scheme">Escribe un URL que comece por http:// ou https://</string>
     <string name="downloader_update_all_button">Actualizar todos</string>
     <string name="editor_time_title">Horario de apertura</string>
     <string name="editor_zip_code">Código postal</string>
@@ -64,7 +69,7 @@
     <string name="big_font">Aumentar tamaño do texto no mapa</string>
     <string name="traffic_update_app">Por favor, actualice CoMaps</string>
     <string name="prefs_languages_information_off_link">Para obter máis información, consulte esta guía</string>
-    <string name="privacy">Privacidade</string>
+    <string name="prefs_group_privacy">Privacidade</string>
     <string name="privacy_policy">Normativa de privacidade</string>
     <string name="terms_of_use">Condiciones de uso</string>
     <string name="button_layer_traffic">Tráfico</string>
@@ -166,7 +171,7 @@
     <string name="pause">Pausar</string>
     <string name="download_country_failed">Non se puido descargar %s</string>
     <string name="add_new_set">Agregar un grupo novo</string>
-    <string name="bookmarks">Marcadores</string>
+    <string name="bookmarks">Lugares</string>
     <string name="name">Nome</string>
     <string name="address">Enderezo</string>
     <string name="maps_storage_summary">Seleccione o cartafol onde deben descargarse os mapas</string>
@@ -183,10 +188,10 @@
     <string name="category_children">Lecer en familia</string>
     <string name="category_rv">Instalacións para autocaravanas</string>
     <string name="description">Notas</string>
-    <string name="share_bookmarks_email_subject">Marcadores de CoMaps compartidos con vostede</string>
-    <string name="share_bookmarks_email_body">Ola! \n \nAdxunto os meus marcadores da aplicación CoMaps. Por favor, ábraos se ten instalado CoMaps. Ou, se non o ten, descargue a aplicación para o seu dispositivo iOS ou Android seguindo esta ligazón: https://www.comaps.app/download/ \n \nGozar viaxando con CoMaps!</string>
-    <string name="load_kmz_successful">Os marcadores cargáronse con éxito! Pode atopalos no mapa ou na pantalla de Xestión de marcadores.</string>
-    <string name="load_kmz_failed">Non se puideron cargar os marcadores. O arquivo podería ter danos ou defectos.</string>
+    <string name="share_bookmarks_email_subject">Lugares favoritos en CoMaps</string>
+    <string name="share_bookmarks_email_body">Ola! \n \nAdxunto os meus lugares favoritos. Por favor, ábreos en CoMaps. Se non tes esta app instalada podes descargala aquí: https://www.comaps.app/download/ \n \nDesfruta viaxando con CoMaps!</string>
+    <string name="load_kmz_successful">Os favoritos cargáronse con éxito! Podes atopalos no mapa ou na pantalla de xestión de favoritos.</string>
+    <string name="load_kmz_failed">Non se puideron cargar os favoritos. O arquivo podería ter danos ou defectos.</string>
     <string name="unknown_file_type">A aplicación non recoñece o tipo de arquivo: \n%1$s</string>
     <string name="failed_to_open_file">Non se puido abrir o arquivo %1$s \n \n%2$s</string>
     <string name="unknown_current_position">Aínda non se determinou a súa localización</string>
@@ -197,7 +202,6 @@
     <string name="copied_to_clipboard">Copiado ao portarretallos: %s</string>
     <string name="data_version">Datos de OpenStreetMap: %s</string>
     <string name="share_my_location">Compartir a miña localización</string>
-    <string name="prefs_group_general">Axustes xerais</string>
     <string name="pref_zoom_title">Botóns de zum</string>
     <string name="pref_map_style_title">Modo nocturno</string>
     <string name="pref_map_3d_title">Vista en perspectiva</string>
@@ -221,12 +225,12 @@
     <string name="report_a_bug">Informar dun fallo</string>
     <string name="compass_calibration_recommended">Mellore a dirección da frecha movendo o teléfono en forma de oito para calibrar o compás.</string>
     <string name="compass_calibration_required">Mova o teléfono en forma de oito para calibrar o compás e fixar a dirección da frecha no mapa.</string>
-    <string name="long_tap_toast">Volva pulsar prolongadamente sobre o mapa para ver a interface</string>
+    <string name="enable_long_tap_fullscreen_description">Volva pulsar prolongadamente sobre o mapa para ver a interface</string>
     <string name="downloader_cancel_all">Cancelar todo</string>
     <string name="downloader_near_me_subtitle">Preto de min</string>
     <string name="downloader_download_all_button">Descargar todos</string>
     <string name="downloader_downloading">Descargando:</string>
-    <string name="downloader_delete_map_while_routing_dialog">Para eliminar o mapa, deteña a navegación</string>
+    <string name="downloader_delete_map_while_routing_dialog">Para eliminar o mapa, primeiro detén a navegación</string>
     <string name="pref_use_google_play">Un servizo propietario que combina GPS, Wi-Fi, redes móbiles etc. para determinar a túa localización de xeito máis preciso. Podería conectarse aos servidores de Google.</string>
     <string name="routing_failed_cross_mwm_building">Só se poden crear rutas que estean totalmente contidas nun mapa dunha soa rexión.</string>
     <string name="downloader_download_map">Descargar mapa</string>
@@ -268,7 +272,7 @@
     <string name="search_without_internet_advertisement">Para empezar a buscar e crear rutas, descargue o mapa. Despois diso, xa non necesitará unha conexión a Internet.</string>
     <string name="search_select_map">Seleccionar mapa</string>
     <string name="search_not_found">Non se atopou ningún resultado</string>
-    <string name="search_not_found_query">Descargue a rexión na que está a buscar ou probe a engadir o nome dunha cidade/poboo próximo.</string>
+    <string name="search_not_found_query">Descargue a rexión na que está a buscar ou probe a engadir o nome dunha cidade/vila próxima.</string>
     <string name="search_history_title">Historial de procuras</string>
     <string name="search_history_text">Ver procuras recentes</string>
     <string name="clear_search">Baleirar historial de procuras</string>
@@ -315,7 +319,7 @@
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) é un proxecto comunitario para construír un mapa libre e aberto. É a principal fonte de datos cartográficos de CoMaps e funciona de forma similar a Wikipedia. Vostede pode engadir ou editar lugares e estes pasan a estar dispoñibles para millóns de usuarios de todo o mundo. \nÚnase á comunidade e axude a crear un mapa mellor para todos!</string>
     <string name="login_to_make_edits_visible">Cre unha conta OpenStreetMap ou inicie sesión para publicar as súas edicións de mapas en todo o mundo</string>
     <string name="download_over_mobile_header">Descargar con conexión de rede móbil?</string>
-    <string name="download_over_mobile_message">Podería ser moi caro con certos plans ou con itinerancia de datos</string>
+    <string name="download_over_mobile_message">Podería saír caro con algúns plans de datos móbiles, especialmente se estás baixo roaming.</string>
     <string name="error_enter_correct_house_number">Introducir o número de domicilio correcto</string>
     <string name="error_enter_correct_storey_number">O número de plantas non debe superar %d</string>
     <string name="error_enter_correct_zip_code">Introduza un código postal válido</string>
@@ -389,7 +393,7 @@
     <string name="power_managment_description">Tratarase de reducir o consumo de enerxía a expensas de certas funcións</string>
     <string name="power_managment_setting_auto">Cando queda pouca enerxía</string>
     <string name="enable_logging_warning_message">Active esta opción temporalmente para gravar e enviar de forma manual rexistros para diagnosticar defectos enviados mediante a opción «Informar dun fallo» no diálogo Axuda. Os rexistros poden incluír localizacións.</string>
-    <string name="driving_options_title">Opcións de encamiñamento</string>
+    <string name="routing_options_title">Opcións de encamiñamento</string>
     <string name="avoid_unpaved">Evitar camiños sen pavimentar</string>
     <string name="avoid_motorways">Evitar autoestradas</string>
     <string name="unable_to_calc_alert_title">Non se pode calcular a ruta</string>
@@ -512,7 +516,7 @@
     <string name="p2p_your_location">A súa localización</string>
     <string name="dialog_routing_check_gps">Verificar o sinal do GPS</string>
     <string name="editor_time_advanced">Modo avanzado</string>
-    <string name="bookmark_set_name">Nome do grupo de marcadores</string>
+    <string name="bookmark_set_name">Nome da lista</string>
     <string name="editor_hours_closed">Horas de peche</string>
     <string name="editor_correct_mistake">Corrixir erro</string>
     <string name="setting_emulate_bad_storage">Emular almacenamento danado</string>
@@ -532,7 +536,7 @@
     <string name="by_date">Por data</string>
     <string name="outdoor_seating">Asentos ao aire libre</string>
     <string name="start_track_recording">Gravar traxecto</string>
-    <string name="bookmarks_and_tracks">Marcadores e traxectos</string>
+    <string name="bookmarks_and_tracks">Favoritos</string>
     <string name="register_at_openstreetmap">Rexistrarse en OpenStreetMap</string>
     <string name="downloader_of">%1$d de %2$d</string>
     <string name="dialog_routing_disclaimer_recommendations">— As rutas suxeridas deben entenderse só como recomendacións;</string>
@@ -624,7 +628,7 @@
     <string name="closes_day_at">Fecha o %1$s ás %2$s</string>
     <plurals name="minutes_short">
         <item quantity="one">%d min</item>
-        <item quantity="other">%d min</item>
+        <item quantity="other">%d mins</item>
     </plurals>
     <string name="editor_mark_business_vacant_description">Usa isto se a empresa marchou e o espazo está baleiro e preparado para un novo proxecto.</string>
     <string name="editor_submit">Enviar</string>
@@ -641,12 +645,16 @@
     <string name="navigation_start_tts_message">"Comezando a Navegación, idioma das instruccións por voz: "</string>
     <string name="navigation_start_tts_disabled_message">Instruccións por voz desactivadas: non hai un motor TTS dispoñible</string>
     <string name="charge_socket_schuko">Doméstico na UE</string>
-    <string name="advanced">Avanzado</string>
-    <string name="download_resources_custom_url_title">Servidor persoal do mapa</string>
-    <string name="download_resources_custom_url_message">Sobrescribe o servidor predefinido para descargar mapas. Deixar baleiro para usar o servidor por defecto de CoMaps.</string>
-    <string name="download_resources_custom_url_summary_none">Sen establecer</string>
-    <string name="download_resources_custom_url_error_scheme">Escribe un URL que comece por http:// ou https://</string>
     <string name="bookmark_share_email_subject">Sigue esta ligazón %1$s ou pega estas coordenadas %2$s na túa aplicación de mapas para ver esta localización.</string>
     <string name="my_position_share_email">Sigue esta ligazón %1$s ou pega estas coordenadas %2$s na túa aplicación de mapas para ver a miña localización.</string>
     <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_aa_support_summary_yes">A app instalouse desde Google Play, podes usala no teu automóbil.</string>
+    <string name="pref_aa_support_summary_no">A app non se instalou desde Google Play, non podes usala no teu automóbil. Preme no axuste para ter máis información nas PMF.</string>
+    <string name="downloader_check_updates_button">Buscar actualizacións</string>
+    <string name="downloader_check_updates_checking">Comprobando as actualizacións…</string>
+    <string name="downloader_check_updates_updated">Hai actualizacións para os mapas!</string>
+    <string name="downloader_check_updates_no_updates">Non hai actualizacións</string>
+    <string name="downloader_check_updates_eol">Non vai haber novos mapas para esta versión da app. Actualiza a app!</string>
+    <string name="downloader_check_updates_error">Erro ao comprobar as actualizacións</string>
 </resources>

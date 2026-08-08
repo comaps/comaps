@@ -21,10 +21,18 @@ set(SRC
 omim_add_executable(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  generator
-  storage
-  indexer
-  platform
-  coding
-  gflags::gflags
+  PUBLIC
+    base
+    coding
+    generator
+    geometry
+    indexer
+    storage
+  PRIVATE
+    platform
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PRIVATE
+    gflags::gflags
 )

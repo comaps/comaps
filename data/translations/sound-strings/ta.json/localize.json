@@ -1,0 +1,323 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "லேசாக வலதுபுறம் திரும்புங்கள்."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "வலதுபுறமாக திரும்புங்கள்."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "கூர்மையாக வலதுபுறம் திரும்புங்கள்."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "ரவுண்டபௌட்டில்."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "ரவுண்டபௌட்டை வெளியேறுங்கள்."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "லேசாக இடதுபுறம் திரும்புங்கள்."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "இடதுபுறமாக திரும்புங்கள்."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "கூர்மையாக இடதுபுறம் திரும்புங்கள்."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "U-வழியில் திரும்புங்கள்."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "நேராக செல்லுங்கள்."
+    },
+    "exit": {
+        "defaultMessage": "வெளியேறுங்கள்."
+    },
+    "onto": {
+        "defaultMessage": "நோக்கி"
+    },
+    "take_exit_number": {
+        "defaultMessage": "வெளியேறும் வழி எடுங்கள்"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "வழி மறுபடி கணிக்கிறது"
+    },
+    "destination": {
+        "defaultMessage": "நீங்கள் வருவீர்கள்."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "நீங்கள் வந்துவிட்டீர்கள்.."
+    },
+    "in_50_meters": {
+        "defaultMessage": "ஐம்பது மீட்டரில்"
+    },
+    "in_100_meters": {
+        "defaultMessage": "நூறு மீட்டரில்"
+    },
+    "in_200_meters": {
+        "defaultMessage": "இருநூறு மீட்டரில்"
+    },
+    "in_250_meters": {
+        "defaultMessage": "இருநூற்று ஐம்பது மீட்டரில்"
+    },
+    "in_300_meters": {
+        "defaultMessage": "முன்னூறு மீட்டரில்"
+    },
+    "in_400_meters": {
+        "defaultMessage": "நானூறு மீட்டரில்"
+    },
+    "in_500_meters": {
+        "defaultMessage": "ஐநூறு மீட்டரில்"
+    },
+    "in_600_meters": {
+        "defaultMessage": "அறுநூறு மீட்டரில்"
+    },
+    "in_700_meters": {
+        "defaultMessage": "எழுநூறு மீட்டரில்"
+    },
+    "in_750_meters": {
+        "defaultMessage": "எழுநூறு ஐம்பது மீட்டரில்"
+    },
+    "in_800_meters": {
+        "defaultMessage": "எண்ணூறு மீட்டரில்"
+    },
+    "in_900_meters": {
+        "defaultMessage": "தொள்ளாயிரம் மீட்டரில்"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "ஒரு கிலோமீட்டரில்"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "ஒன்றரை கிலோமீட்டரில்"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "இரண்டு கிலோமீட்டரில்"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "இரண்டரை கிலோமீட்டரில்"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "மூன்று கிலோமீட்டரில்"
+    },
+    "then": {
+        "defaultMessage": "அடுத்தது"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %4$s %3$s %5$s %2$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "ஒன்றாம் வெளியேறும் வழி எடுங்கள்."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "இரண்டாம் வெளியேறும் வழி எடுங்கள்."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "மூன்றாம் வெளியேறும் வழி எடுங்கள்."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "நான்காவது வெளியேறும் வழி எடுங்கள்."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "ஐந்தாவது வெளியேறும் வழி எடுங்கள்."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "ஆறாவது வெளியேறும் வழி எடுங்கள்."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "ஏழாவது வெளியேறும் வழி எடுங்கள்."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "எட்டாவது வெளியேறும் வழி எடுங்கள்."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "ஒன்பதாவது வெளியேறும் வழி எடுங்கள்."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "பத்தாவது வெளியேறும் வழி எடுங்கள்."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "பதினொன்றாவது வெளியேறும் வழி எடுங்கள்."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "ஐம்பது அடியில்"
+    },
+    "in_100_feet": {
+        "defaultMessage": "நூறு அடியில்"
+    },
+    "in_200_feet": {
+        "defaultMessage": "இருநூறு அடியில்"
+    },
+    "in_300_feet": {
+        "defaultMessage": "முன்னூறு அடியில்"
+    },
+    "in_400_feet": {
+        "defaultMessage": "நானூறு அடியில்"
+    },
+    "in_500_feet": {
+        "defaultMessage": "ஐநூறு அடியில்"
+    },
+    "in_600_feet": {
+        "defaultMessage": "அறுநூறு அடியில்"
+    },
+    "in_700_feet": {
+        "defaultMessage": "எழுநூறு அடியில்"
+    },
+    "in_800_feet": {
+        "defaultMessage": "எண்ணூறு அடியில்"
+    },
+    "in_900_feet": {
+        "defaultMessage": "தொள்ளாயிரம் அடியில்"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "ஆயிரம் அடியில்"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "ஆயிரம் ஐநூறு அடியில்"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "இரண்டு ஆயிரம் அடியில்"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "இரண்டு ஆயிரம் ஐநூறு அடியில்"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "மூன்று ஆயிரம் அடியில்"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "மூன்று ஆயிரம் ஐநூறு அடியில்"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "நான்கு ஆயிரம் அடியில்"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "நான்கு ஆயிரம் ஐநூறு அடியில்"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "ஐந்து ஆயிரம் அடியில்"
+    },
+    "in_1_mile": {
+        "defaultMessage": "ஒன்று மைலில்"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "ஒன்றரை மைலில்"
+    },
+    "in_2_miles": {
+        "defaultMessage": "இரண்டு மைலில்"
+    },
+    "unknown_camera": {
+        "defaultMessage": "வேக கேமரா முன்னால் இருக்கிறது"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "சாலையின் இறுதியில்,"
+    }
+}

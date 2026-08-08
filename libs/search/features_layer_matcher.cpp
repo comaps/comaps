@@ -5,9 +5,12 @@
 
 #include "editor/osm_editor.hpp"
 
+#include "indexer/house_to_street_iface.hpp"
+#include "indexer/mwm_set.hpp"
 #include "indexer/scales.hpp"
 
 #include "base/assert.hpp"
+#include "base/stl_helpers.hpp"
 
 #include <string>
 

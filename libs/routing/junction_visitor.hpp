@@ -4,8 +4,6 @@
 
 #include "routing/router_delegate.hpp"
 
-#include "geometry/point2d.hpp"
-
 #include <cstdint>
 #include <memory>
 

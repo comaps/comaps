@@ -1,9 +1,7 @@
 #include "routing/leaps_postprocessor.hpp"
 
 #include "base/assert.hpp"
-#include "base/logging.hpp"
 #include "base/non_intersecting_intervals.hpp"
-#include "base/scope_guard.hpp"
 
 #include <algorithm>
 #include <iterator>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "geometry/screenbase.hpp"
+class ScreenBase;
 
 namespace df
 {

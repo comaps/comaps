@@ -13,7 +13,7 @@
 #include "indexer/mwm_set.hpp"
 #include "indexer/utils.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "i18n/localisation.hpp"
 
 #include "base/cancellable.hpp"
 #include "base/checked_cast.hpp"

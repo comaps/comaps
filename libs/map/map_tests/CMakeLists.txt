@@ -15,7 +15,6 @@ set(SRC
   mwm_url_tests.cpp
   power_manager_tests.cpp
   search_api_tests.cpp
-  transliteration_test.cpp
   elevation_info_tests.cpp
   track_statistics_tests.cpp
 )
@@ -23,7 +22,18 @@ set(SRC
 omim_add_test(${PROJECT_NAME} ${SRC} REQUIRE_QT REQUIRE_SERVER)
 
 target_link_libraries(${PROJECT_NAME}
-  search_tests_support
-  generator_tests_support
-  map
+  PRIVATE
+    base
+    coding
+    drape_frontend
+    generator_tests_support
+    geometry
+    i18n
+    indexer
+    kml
+    map
+    platform
+    search
+    search_tests_support
+    storage
 )

@@ -1,7 +1,13 @@
 #include "kml/serdes_common.hpp"
-#include <sstream>
-#include "base/string_utils.hpp"
+
+#include "coding/writer.hpp"
+
 #include "geometry/mercator.hpp"
+#include "geometry/point_with_altitude.hpp"
+
+#include "base/string_utils.hpp"
+
+#include <sstream>
 
 namespace kml
 {

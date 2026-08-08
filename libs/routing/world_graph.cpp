@@ -1,5 +1,9 @@
 #include "routing/world_graph.hpp"
 
+#include "routing/base/astar_vertex_data.hpp"
+
+#include "base/assert.hpp"
+
 namespace routing
 {
 void WorldGraph::GetEdgeList(Segment const & vertex, bool isOutgoing, bool useRoutingOptions, SegmentEdgeListT & edges)

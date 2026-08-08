@@ -2,8 +2,9 @@
 
 #include "descriptions/serdes.hpp"
 
-#include "indexer/feature_decl.hpp"
 #include "indexer/mwm_set.hpp"
+
+#include "i18n/localisation.hpp"
 
 #include <cstdint>
 #include <map>
@@ -13,6 +14,7 @@
 #include <vector>
 
 class DataSource;
+struct FeatureID;
 
 namespace descriptions
 {

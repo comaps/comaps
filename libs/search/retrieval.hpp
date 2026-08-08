@@ -1,19 +1,15 @@
 #pragma once
 
 #include "search/cbv.hpp"
-#include "search/feature_offset_match.hpp"
-#include "search/query_params.hpp"
+#include "search/search_index_values.hpp"
 
-#include "platform/mwm_traits.hpp"
+#include "indexer/trie.hpp"
 
 #include "coding/reader.hpp"
 
 #include "geometry/rect2d.hpp"
 
-#include "base/cancellable.hpp"
 #include "base/checked_cast.hpp"
-#include "base/dfa_helpers.hpp"
-#include "base/levenshtein_dfa.hpp"
 
 #include <cstdint>
 #include <functional>
@@ -22,10 +18,27 @@
 
 class MwmValue;
 
+namespace base
+{
+class Cancellable;
+}  // namespace base
+
+namespace strings
+{
+class LevenshteinDFA;
+class UniStringDFA;
+
+template <typename DFA>
+class PrefixDFAModifier;
+}  // namespace strings
+
 namespace search
 {
 class MwmContext;
 class TokenSlice;
+
+template <typename DFA>
+struct SearchTrieRequest;
 
 class Retrieval
 {

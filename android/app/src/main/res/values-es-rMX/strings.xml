@@ -120,7 +120,7 @@
     <string name="power_managment_setting_auto">Automático</string>
     <string name="power_managment_setting_manual_max">Máximo ahorro de energía</string>
     <string name="enable_logging_warning_message">Esta opción está habilitada para las acciones de registro con fines de diagnóstico. Esto ayuda a nuestro equipo a identificar problemas con la aplicación. Habilite la opción solo a petición del apoyo de CoMaps.</string>
-    <string name="driving_options_title">Ajustes de desvío</string>
+    <string name="routing_options_title">Ajustes de desvío</string>
     <string name="unable_to_calc_alert_title">No se puede construir una ruta</string>
     <string name="unable_to_calc_alert_subtitle">Desafortunadamente, no pudimos construir una ruta con las opciones seleccionadas. Cambie la configuración y vuelva a intentarlo</string>
     <string name="define_to_avoid_btn">Configurar rutas de desvío</string>

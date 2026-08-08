@@ -28,9 +28,23 @@ omim_add_library(${PROJECT_NAME} ${SRC} ${RESOURCES})
 set_target_properties(${PROJECT_NAME} PROPERTIES AUTOMOC ON)
 
 target_link_libraries(${PROJECT_NAME}
-  map
-  Qt6::Gui
-  Qt6::Widgets
-  Qt6::OpenGL
-  Qt6::OpenGLWidgets
+  PUBLIC
+    drape
+    drape_frontend
+    platform
+  PRIVATE
+    base
+    geometry
+    i18n
+    indexer
+    map
+    routing
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    Qt6::Gui
+    Qt6::Widgets
+    Qt6::OpenGL
+    Qt6::OpenGLWidgets
 )

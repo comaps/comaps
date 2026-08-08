@@ -2,14 +2,11 @@
 
 #include "routing/directions_engine_helpers.hpp"
 #include "routing/index_road_graph.hpp"
-#include "routing/route.hpp"
+#include "routing/loaded_path_segment.hpp"
+#include "routing/road_graph.hpp"
 #include "routing/vehicle_mask.hpp"
 
 #include "indexer/feature.hpp"
-
-#include "geometry/point_with_altitude.hpp"
-
-#include "base/cancellable.hpp"
 
 #include <memory>
 #include <vector>

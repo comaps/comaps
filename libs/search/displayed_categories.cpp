@@ -1,7 +1,5 @@
 #include "search/displayed_categories.hpp"
 
-#include "base/macros.hpp"
-
 #include <algorithm>
 
 namespace search

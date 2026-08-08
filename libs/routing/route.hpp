@@ -1,11 +1,13 @@
 #pragma once
 
 #include "routing/lanes/lane_info.hpp"
+#include "routing/route_step.hpp"
 #include "routing/routing_options.hpp"
 #include "routing/routing_settings.hpp"
 #include "routing/segment.hpp"
 #include "routing/transit_info.hpp"
 #include "routing/turns.hpp"
+#include "routing/vehicle_mask.hpp"
 
 #include "routing/base/followed_polyline.hpp"
 
@@ -15,8 +17,11 @@
 
 #include "platform/country_file.hpp"
 
+#include "geometry/point2d.hpp"
 #include "geometry/point_with_altitude.hpp"
 #include "geometry/polyline2d.hpp"
+
+#include "indexer/ftypes_matcher.hpp"
 
 #include "base/assert.hpp"
 #include "base/math.hpp"
@@ -93,6 +98,7 @@ public:
    */
   struct RoadNameInfo
   {
+    FeatureID m_mwmId;
     /**
      * @brief The name of the road, e.g. “Johnson Ave”.
      */
@@ -126,6 +132,7 @@ public:
      * @brief Whether the road is part of a roundabout.
      */
     bool m_onRoundabout = false;
+    ftypes::HighwayClass m_highwayClass = ftypes::HighwayClass::Undefined;
 
     RoadNameInfo() = default;
     RoadNameInfo(std::string name) : m_name(std::move(name)) {}
@@ -429,6 +436,7 @@ public:
   bool IsValid() const { return m_poly.IsValid(); }
 
   double GetTotalDistanceMeters() const;
+  double GetDistanceFromBeginToSegmentMeters(size_t segIdx) const;
   double GetCurrentDistanceFromBeginMeters() const;
   double GetCurrentDistanceToEndMeters() const;
   double GetCurrentDistanceToSegmentMeters(size_t segIdx) const;
@@ -533,6 +541,8 @@ public:
   std::vector<platform::CountryFile> const & GetMwmsPartlyProhibitedForSpeedCams() const;
 
   std::string DebugPrintTurns() const;
+
+  std::vector<RouteStepInfo> GetTurnsForDisplay(std::string const & locale) const;
 
 private:
   friend std::string DebugPrint(Route const & r);

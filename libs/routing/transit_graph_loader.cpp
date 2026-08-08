@@ -2,19 +2,22 @@
 
 #include "routing/data_source.hpp"
 #include "routing/fake_ending.hpp"
-#include "routing/routing_exceptions.hpp"
+#include "routing/transit_graph.hpp"
 
 #include "transit/experimental/transit_data.hpp"
 #include "transit/transit_graph_data.hpp"
-#include "transit/transit_serdes.hpp"
-#include "transit/transit_types.hpp"
 #include "transit/transit_version.hpp"
 
-#include "platform/country_file.hpp"
+#include "indexer/mwm_set.hpp"
 
 #include "coding/files_container.hpp"
+#include "coding/reader.hpp"
 
+#include "base/assert.hpp"
+#include "base/logging.hpp"
 #include "base/timer.hpp"
+
+#include "defines.hpp"
 
 #include <memory>
 #include <vector>

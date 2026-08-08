@@ -31,9 +31,14 @@ set(SRC
 omim_add_test(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  generator_tests_support
-  platform_tests_support
-  search_tests_support
-  search
-  kml
+  PRIVATE
+    base
+    coding
+    generator_tests_support
+    geometry
+    i18n
+    indexer
+    platform
+    platform_tests_support
+    search
 )

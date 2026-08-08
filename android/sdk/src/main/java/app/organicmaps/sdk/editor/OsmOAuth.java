@@ -1,13 +1,25 @@
 package app.organicmaps.sdk.editor;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.Size;
 import androidx.annotation.WorkerThread;
 import androidx.fragment.app.FragmentManager;
+import app.organicmaps.sdk.util.Constants;
 import app.organicmaps.sdk.util.NetworkPolicy;
+import app.organicmaps.sdk.util.StorageUtils;
+import app.organicmaps.sdk.util.log.Logger;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public final class OsmOAuth
 {
@@ -16,14 +28,19 @@ public final class OsmOAuth
   @SuppressWarnings("NotNullFieldNotInitialized")
   @NonNull
   private static SharedPreferences mPrefs;
+  private static Context mContext;
+  private static final String TAG = OsmOAuth.class.getSimpleName();
   private static final String PREF_OSM_USERNAME = "OsmUsername";
   private static final String PREF_OSM_CHANGESETS_COUNT = "OsmChangesetsCount";
   private static final String PREF_OSM_OAUTH2_TOKEN = "OsmOAuth2Token";
+  private static final String PREF_OSM_PROFILE_PICTURE_URL = "OsmProfilePictureUrl";
+  private static final String PROFILE_PICTURE_FILENAME = "osm_profile_picture.png";
 
   public static final String URL_PARAM_VERIFIER = "oauth_verifier";
 
-  public static void init(@NonNull SharedPreferences prefs)
+  public static void init(@NonNull Context context, @NonNull SharedPreferences prefs)
   {
+    mContext = context.getApplicationContext();
     mPrefs = prefs;
   }
 
@@ -42,10 +59,90 @@ public final class OsmOAuth
     return mPrefs.getString(PREF_OSM_USERNAME, "");
   }
 
+  @NonNull
+  private static File getProfilePictureCacheFile()
+  {
+    return new File(StorageUtils.getTempPath(mContext), PROFILE_PICTURE_FILENAME);
+  }
+
+  @WorkerThread
+  @Nullable
   public static Bitmap getProfilePicture()
   {
-    // TODO(HB): load and store image in cache here
-    return null;
+    final String token = getAuthToken();
+    final String pictureUrl = nativeGetOsmProfilePictureUrl(token);
+    if (TextUtils.isEmpty(pictureUrl))
+    {
+      clearCachedProfilePicture();
+      return null;
+    }
+
+    final String cachedUrl = mPrefs.getString(PREF_OSM_PROFILE_PICTURE_URL, "");
+    final File cacheFile = getProfilePictureCacheFile();
+
+    if (!pictureUrl.equals(cachedUrl) || !cacheFile.exists())
+    {
+      final Bitmap bitmap = fetchBitmapFromUrl(pictureUrl);
+      if (bitmap != null)
+      {
+        saveBitmapToCache(bitmap, cacheFile);
+        mPrefs.edit().putString(PREF_OSM_PROFILE_PICTURE_URL, pictureUrl).apply();
+        return bitmap;
+      }
+    }
+
+    return loadCachedProfilePicture();
+  }
+
+  private static void clearCachedProfilePicture()
+  {
+    getProfilePictureCacheFile().delete();
+    mPrefs.edit().remove(PREF_OSM_PROFILE_PICTURE_URL).apply();
+  }
+
+  @Nullable
+  private static Bitmap loadCachedProfilePicture()
+  {
+    final File cacheFile = getProfilePictureCacheFile();
+    if (!cacheFile.exists())
+      return null;
+    return BitmapFactory.decodeFile(cacheFile.getAbsolutePath());
+  }
+
+  @Nullable
+  private static Bitmap fetchBitmapFromUrl(@NonNull String url)
+  {
+    try
+    {
+      HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+      connection.setConnectTimeout(Constants.CONNECT_TIMEOUT_MS);
+      connection.setReadTimeout(Constants.READ_TIMEOUT_MS);
+      try (InputStream in = connection.getInputStream())
+      {
+        return BitmapFactory.decodeStream(in);
+      }
+      finally
+      {
+        connection.disconnect();
+      }
+    }
+    catch (IOException e)
+    {
+      Logger.e(TAG, "Failed to fetch profile picture", e);
+      return null;
+    }
+  }
+
+  private static void saveBitmapToCache(@NonNull Bitmap bitmap, @NonNull File file)
+  {
+    try (FileOutputStream out = new FileOutputStream(file))
+    {
+      bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+    }
+    catch (IOException e)
+    {
+      Logger.e(TAG, "Failed to cache profile picture", e);
+    }
   }
 
   public static void setAuthorization(String oauthToken, String username)
@@ -55,7 +152,12 @@ public final class OsmOAuth
 
   public static void clearAuthorization()
   {
-    mPrefs.edit().remove(PREF_OSM_USERNAME).remove(PREF_OSM_OAUTH2_TOKEN).apply();
+    mPrefs.edit()
+            .remove(PREF_OSM_USERNAME)
+            .remove(PREF_OSM_OAUTH2_TOKEN)
+            .remove(PREF_OSM_PROFILE_PICTURE_URL)
+            .apply();
+    getProfilePictureCacheFile().delete();
   }
 
   @NonNull

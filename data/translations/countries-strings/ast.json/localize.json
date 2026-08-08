@@ -1,0 +1,398 @@
+{
+    "Comoros": {
+        "defaultMessage": "Comores"
+    },
+    "Equatorial Guinea": {
+        "defaultMessage": "Guinea Ecuatorial"
+    },
+    "Chile": {
+        "defaultMessage": "Chile"
+    },
+    "Dominica": {
+        "defaultMessage": "Dominica"
+    },
+    "Australia": {
+        "defaultMessage": "Australia"
+    },
+    "Afghanistan": {
+        "defaultMessage": "Afganistán"
+    },
+    "Mexico": {
+        "defaultMessage": "Méxicu"
+    },
+    "Monaco": {
+        "defaultMessage": "Mónacu"
+    },
+    "Bangladesh": {
+        "defaultMessage": "Bangladex"
+    },
+    "Belarus": {
+        "defaultMessage": "Bielorrusia"
+    },
+    "Albania": {
+        "defaultMessage": "Albania"
+    },
+    "Togo": {
+        "defaultMessage": "Togu"
+    },
+    "Bahrain": {
+        "defaultMessage": "Baḥréin"
+    },
+    "Tokelau": {
+        "defaultMessage": "Tokeláu"
+    },
+    "Azerbaijan": {
+        "defaultMessage": "Azerbaixán"
+    },
+    "Egypt": {
+        "defaultMessage": "Exiptu"
+    },
+    "Mongolia": {
+        "defaultMessage": "Mongolia"
+    },
+    "Fiji": {
+        "defaultMessage": "Fixi"
+    },
+    "Azerbaijan Region": {
+        "defaultMessage": "Azerbaixán"
+    },
+    "Armenia": {
+        "defaultMessage": "Armenia"
+    },
+    "Angola": {
+        "defaultMessage": "Angola"
+    },
+    "Anguilla": {
+        "defaultMessage": "Anguila"
+    },
+    "Antarctica": {
+        "defaultMessage": "Antártida"
+    },
+    "Argentina": {
+        "defaultMessage": "Arxentina"
+    },
+    "Belgium": {
+        "defaultMessage": "Bélxica"
+    },
+    "Botswana": {
+        "defaultMessage": "Botsuana"
+    },
+    "Brazil": {
+        "defaultMessage": "Brasil"
+    },
+    "Brunei": {
+        "defaultMessage": "Brunéi"
+    },
+    "Bulgaria": {
+        "defaultMessage": "Bulgaria"
+    },
+    "Burkina Faso": {
+        "defaultMessage": "Burkina Fasu"
+    },
+    "Burundi": {
+        "defaultMessage": "Burundi"
+    },
+    "Cambodia": {
+        "defaultMessage": "Camboya"
+    },
+    "Cameroon": {
+        "defaultMessage": "Camerún"
+    },
+    "Canada": {
+        "defaultMessage": "Canadá"
+    },
+    "Chad": {
+        "defaultMessage": "Chad"
+    },
+    "Colombia": {
+        "defaultMessage": "Colombia"
+    },
+    "Costa Rica": {
+        "defaultMessage": "Costa Rica"
+    },
+    "Cote dIvoire": {
+        "defaultMessage": "Costa de Marfil"
+    },
+    "Cuba": {
+        "defaultMessage": "Cuba"
+    },
+    "Czech Republic": {
+        "defaultMessage": "Chequia"
+    },
+    "Ethiopia": {
+        "defaultMessage": "Etiopía"
+    },
+    "Mauritania": {
+        "defaultMessage": "Mauritania"
+    },
+    "Mauritius": {
+        "defaultMessage": "Mauriciu"
+    },
+    "Mexico_Mexico": {
+        "defaultMessage": "Ciudá de Méxicu"
+    },
+    "Moldova": {
+        "defaultMessage": "Moldavia"
+    },
+    "Morocco": {
+        "defaultMessage": "Marruecos"
+    },
+    "Norway": {
+        "defaultMessage": "Noruega"
+    },
+    "Spain_Principado de Asturias": {
+        "defaultMessage": "Asturies"
+    },
+    "Tonga": {
+        "defaultMessage": "Tonga"
+    },
+    "Trinidad and Tobago": {
+        "defaultMessage": "Trinidá y Tobagu"
+    },
+    "Tunisia": {
+        "defaultMessage": "Tunicia"
+    },
+    "Turkey": {
+        "defaultMessage": "Turquía"
+    },
+    "Barbados": {
+        "defaultMessage": "Barbados"
+    },
+    "Algeria": {
+        "defaultMessage": "Arxelia"
+    },
+    "Antigua and Barbuda": {
+        "defaultMessage": "Antigua y Barbuda"
+    },
+    "Bermuda": {
+        "defaultMessage": "Bermudes"
+    },
+    "Denmark": {
+        "defaultMessage": "Dinamarca"
+    },
+    "Djibouti": {
+        "defaultMessage": "Xibuti"
+    },
+    "The Gambia": {
+        "defaultMessage": "Gambia"
+    },
+    "Central African Republic": {
+        "defaultMessage": "República Centroafricana"
+    },
+    "Paraguay": {
+        "defaultMessage": "Paraguái"
+    },
+    "The Bahamas": {
+        "defaultMessage": "Les Bahames"
+    },
+    "Cayman Islands": {
+        "defaultMessage": "Islles Caimán"
+    },
+    "Austria": {
+        "defaultMessage": "Austria"
+    },
+    "Benin": {
+        "defaultMessage": "Benín"
+    },
+    "Cape Verde": {
+        "defaultMessage": "Cabu Verde"
+    },
+    "Congo-Kinshasa": {
+        "defaultMessage": "República Democrática d’El Congu"
+    },
+    "US_Hawaii": {
+        "defaultMessage": "Ḥawai"
+    },
+    "Montenegro": {
+        "defaultMessage": "Montenegru"
+    },
+    "Jamaica": {
+        "defaultMessage": "Xamaica"
+    },
+    "Japan": {
+        "defaultMessage": "Xapón"
+    },
+    "US_Puerto Rico": {
+        "defaultMessage": "Puertu Ricu"
+    },
+    "United Arab Emirates": {
+        "defaultMessage": "Emiratos Árabes Xuníos"
+    },
+    "United Kingdom": {
+        "defaultMessage": "Reinu Xuníu"
+    },
+    "Uruguay": {
+        "defaultMessage": "Uruguái"
+    },
+    "Yemen": {
+        "defaultMessage": "Yeme"
+    },
+    "Czech Republic Short": {
+        "defaultMessage": "Chequia"
+    },
+    "United States of America Short": {
+        "defaultMessage": "EE. XX."
+    },
+    "Russian Federation": {
+        "defaultMessage": "Rusia"
+    },
+    "Tuvalu": {
+        "defaultMessage": "Tuvalu"
+    },
+    "US_Delaware": {
+        "defaultMessage": "Delaware"
+    },
+    "US_Florida_Miami": {
+        "defaultMessage": "Miami"
+    },
+    "US_Pennsylvania_Reading": {
+        "defaultMessage": "Llectura"
+    },
+    "Nauru": {
+        "defaultMessage": "Nauru"
+    },
+    "Tokelau Description": {
+        "defaultMessage": "Tokeláu"
+    },
+    "Abkhazia": {
+        "defaultMessage": "Abkhazianu"
+    },
+    "Bolivia": {
+        "defaultMessage": "Boliviana"
+    },
+    "Croatia": {
+        "defaultMessage": "Croata"
+    },
+    "Estonia": {
+        "defaultMessage": "Estoniu"
+    },
+    "Indiana": {
+        "defaultMessage": "India"
+    },
+    "Indonesia": {
+        "defaultMessage": "Indonesiu"
+    },
+    "Latvia": {
+        "defaultMessage": "Letón"
+    },
+    "Romania": {
+        "defaultMessage": "Rumanu"
+    },
+    "Spain_Extremadura": {
+        "defaultMessage": "Estremeñu"
+    },
+    "Spain_Galicia_North Short": {
+        "defaultMessage": "Gallegu"
+    },
+    "Spain_Galicia_South Short": {
+        "defaultMessage": "Gallegu"
+    },
+    "Canada_Ontario_Bame": {
+        "defaultMessage": "Barrier"
+    },
+    "Germany": {
+        "defaultMessage": "Alemán"
+    },
+    "Germany_Free State of Bavaria": {
+        "defaultMessage": "Bávaru"
+    },
+    "Germany_Free State of Bavaria_Swabia": {
+        "defaultMessage": "Swabian"
+    },
+    "India_Chhattisgarh": {
+        "defaultMessage": "Chhattisgarhi"
+    },
+    "India_Gujarat": {
+        "defaultMessage": "Guyaratí"
+    },
+    "Italy_Sardinia": {
+        "defaultMessage": "Sardu"
+    },
+    "Slovenia": {
+        "defaultMessage": "Eslovenu"
+    },
+    "Somalia": {
+        "defaultMessage": "Somalín"
+    },
+    "Georgia": {
+        "defaultMessage": "Xeorxanu"
+    },
+    "Pakistan": {
+        "defaultMessage": "Paquistanina"
+    },
+    "France_Corsica": {
+        "defaultMessage": "Corsu"
+    },
+    "Georgia Region": {
+        "defaultMessage": "Xeorxanu"
+    },
+    "India_Manipur": {
+        "defaultMessage": "Manipuri"
+    },
+    "India_Punjab": {
+        "defaultMessage": "Punyabí"
+    },
+    "India_Rajasthan": {
+        "defaultMessage": "Rajasthani"
+    },
+    "Italy_Liguria": {
+        "defaultMessage": "Ligurian"
+    },
+    "Italy_Lombardy": {
+        "defaultMessage": "Lombard"
+    },
+    "Lithuania": {
+        "defaultMessage": "Lituanu"
+    },
+    "Malaysia": {
+        "defaultMessage": "Malasia"
+    },
+    "Serbia": {
+        "defaultMessage": "Serbiu"
+    },
+    "Spain_Galicia": {
+        "defaultMessage": "Gallegu"
+    },
+    "US_Georgia": {
+        "defaultMessage": "Xeorxanu"
+    },
+    "Luxembourg": {
+        "defaultMessage": "Luxemburgués"
+    },
+    "Austria_Lower Austria_West Description": {
+        "defaultMessage": "Mostviertel, Waldviertel"
+    },
+    "Argentina_Patagonia": {
+        "defaultMessage": "Patagonia"
+    },
+    "Belarus_Maglieu Region": {
+        "defaultMessage": "Provincia de Maguilov"
+    },
+    "Belarus_Hrodna Region": {
+        "defaultMessage": "Provincia de Grodno"
+    },
+    "Belarus_Minsk Region": {
+        "defaultMessage": "Provincia de Minsk"
+    },
+    "Belarus_Vitebsk Region": {
+        "defaultMessage": "Provincia de Vítebsk"
+    },
+    "Belarus_Homiel Region": {
+        "defaultMessage": "Provincia de Gómel"
+    },
+    "Belarus_Brest Region": {
+        "defaultMessage": "Provincia de Brest"
+    },
+    "North Korea": {
+        "defaultMessage": "Corea del Norte"
+    },
+    "Taiwan": {
+        "defaultMessage": "Taiwán"
+    },
+    "People's Republic of China": {
+        "defaultMessage": "China"
+    },
+    "Alabama": {
+        "defaultMessage": "Alabama"
+    }
+}

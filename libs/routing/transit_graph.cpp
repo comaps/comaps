@@ -1,9 +1,17 @@
 #include "routing/transit_graph.hpp"
 
 #include "routing/fake_feature_ids.hpp"
+#include "routing/fake_vertex.hpp"
 #include "routing/index_graph.hpp"
+#include "routing/latlon_with_altitude.hpp"
+
+#include "transit/experimental/transit_data.hpp"
+#include "transit/transit_graph_data.hpp"
 
 #include "geometry/mercator.hpp"
+#include "geometry/point_with_altitude.hpp"
+
+#include "base/assert.hpp"
 
 namespace routing
 {

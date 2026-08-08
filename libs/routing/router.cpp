@@ -1,5 +1,7 @@
 #include "routing/router.hpp"
 
+#include "base/assert.hpp"
+
 namespace routing
 {
 std::string ToString(RouterType type)

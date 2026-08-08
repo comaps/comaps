@@ -2,8 +2,8 @@
 
 #include "shaders/program_params.hpp"
 #include "shaders/program_pool.hpp"
+#include "shaders/programs.hpp"
 
-#include "drape/drape_global.hpp"
 #include "drape/gpu_program.hpp"
 #include "drape/graphics_context.hpp"
 #include "drape/pointers.hpp"

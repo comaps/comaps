@@ -1,8 +1,12 @@
 #include "map/gps_tracker.hpp"
-#include "map/framework.hpp"
+
+#include "map/gps_track_filter.hpp"
+#include "map/track_statistics.hpp"
 
 #include "platform/platform.hpp"
+#include "platform/settings.hpp"
 
+#include "base/assert.hpp"
 #include "base/file_name_utils.hpp"
 
 #include <string>

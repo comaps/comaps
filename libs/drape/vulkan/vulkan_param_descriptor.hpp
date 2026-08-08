@@ -1,7 +1,6 @@
 #pragma once
 
-#include "drape/graphics_context.hpp"
-#include "drape/vulkan/vulkan_gpu_program.hpp"
+#include "drape/pointers.hpp"
 #include "drape/vulkan/vulkan_utils.hpp"
 
 #include <array>
@@ -12,8 +11,12 @@
 
 namespace dp
 {
+class GraphicsContext;
+
 namespace vulkan
 {
+class VulkanGpuProgram;
+
 struct ParamDescriptor
 {
   enum class Type : uint8_t

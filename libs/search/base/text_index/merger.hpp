@@ -1,11 +1,11 @@
 #pragma once
 
-#include "search/base/text_index/reader.hpp"
-
 class FileWriter;
 
 namespace search_base
 {
+class TextIndexReader;
+
 // Merges two on-disk text indexes and writes them to a new one.
 class TextIndexMerger
 {

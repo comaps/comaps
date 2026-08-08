@@ -34,10 +34,23 @@ omim_add_executable(${PROJECT_NAME} ${SRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES AUTOMOC ON)
 
 target_link_libraries(${PROJECT_NAME}
-  search_quality
-  qt_common
-  map
-  gflags::gflags
+  PUBLIC
+    base
+    geometry
+    indexer
+    kml
+    map
+    search
+    search_quality
+  PRIVATE
+    i18n
+    platform
+    qt_common
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PRIVATE
+    gflags::gflags
 )
 
 # if (PLATFORM_MAC)

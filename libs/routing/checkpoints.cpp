@@ -1,5 +1,6 @@
 #include "routing/checkpoints.hpp"
 
+#include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 
 #include "base/assert.hpp"

@@ -2,9 +2,11 @@
 
 #include "indexer/search_string_utils.hpp"
 
+#include "kml/type_utils.hpp"
 #include "kml/types.hpp"
 
-#include "base/localisation_translation.hpp"
+#include "i18n/localisation.hpp"
+
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 

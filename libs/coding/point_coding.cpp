@@ -4,6 +4,7 @@
 
 #include "base/assert.hpp"
 #include "base/bits.hpp"
+#include "base/math.hpp"
 
 #include <algorithm>
 

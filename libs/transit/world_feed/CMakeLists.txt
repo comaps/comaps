@@ -16,10 +16,24 @@ set(SRC
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  generator       # routing::transit::DeserializeFromJson
-  transit
-  drape_frontend  # df::ToDrapeColor, df::LoadTransitColors
-  opening_hours
+  PUBLIC
+    drape
+    geometry
+    transit
+  PRIVATE
+    base
+    cppjansson
+    drape_frontend  # df::ToDrapeColor, df::LoadTransitColors
+    generator       # routing::transit::DeserializeFromJson
+    i18n
+    indexer
+    platform
+    routing
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    opening_hours
 )
 
 omim_add_tool_subdirectory(gtfs_converter)

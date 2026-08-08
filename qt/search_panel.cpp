@@ -6,6 +6,8 @@
 #include "map/bookmark_manager.hpp"
 #include "map/framework.hpp"
 
+#include "indexer/categories_holder.hpp"
+
 #include "base/assert.hpp"
 
 #include <QtCore/QTimer>

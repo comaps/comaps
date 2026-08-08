@@ -1,9 +1,16 @@
 #include "drape_frontend/read_manager.hpp"
+
+#include "drape_frontend/engine_context.hpp"
+#include "drape_frontend/message.hpp"
 #include "drape_frontend/message_subclasses.hpp"
-#include "drape_frontend/metaline_manager.hpp"
+#include "drape_frontend/threads_commutator.hpp"
+#include "drape_frontend/tile_key.hpp"
 #include "drape_frontend/visual_params.hpp"
 
-#include "base/buffer_vector.hpp"
+#include "i18n/localisation.hpp"
+
+#include "base/assert.hpp"
+#include "base/thread.hpp"
 
 #include <algorithm>
 #include <functional>

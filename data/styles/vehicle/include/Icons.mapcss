@@ -127,8 +127,6 @@ node|z17-[railway=halt]::int_name,
 
 /* 3.2 Road Icons */
 
-node|z15-[highway=traffic_signals],
-{icon-image: traffic_signals.svg}
 
 /* 3.3 Tram Station */
 
@@ -182,6 +180,7 @@ node|z15-[historic=castle],
 node|z15-[historic=monument],
 node|z15-[historic=city_gate],
 node|z15-[tourism=museum],
+node|z15-[amenity=planetarium],
 node|z15-[tourism=zoo],
 node|z15-[amenity=theatre],
 node|z15-[tourism=attraction],
@@ -252,6 +251,11 @@ node|z15[tourism=museum],
 {icon-image: museum-m.svg;icon-min-distance: 24;text: name;text-offset: 1;font-size: 10;text-color: @poi_label;}
 node|z16-[tourism=museum],
 {icon-image: museum-m.svg;text-offset: 1;icon-min-distance: 12;text: name;text-offset: 1;font-size: 10;text-color: @poi_label;}
+
+node|z15[amenity=planetarium],
+{icon-image: planet-m.svg; icon-min-distance: 24;}
+node|z16-[amenity=planetarium],
+{icon-image: planet-m.svg; icon-min-distance: 12;}
 
 node|z15[tourism=gallery]
 {icon-image: gallery-m.svg;icon-min-distance: 8;} /* <-- <-- не показывается, непонятно почему, позже разобраться */
@@ -701,6 +705,11 @@ node|z17-[amenity=toilets],
 {icon-image: toilets-m.svg; font-size: 13.75;}
 node|z18-[amenity=toilets],
 {font-size: 14.5;}
+/* Reset on z17 to display from z18- only */
+node|z17[amenity=toilets][access=customers],
+/* Don't show private toilets at all */
+node|z17-[amenity=toilets][access=private],
+{icon-image: none; text: none;}
 
 node|z18-[amenity=motorcycle_rental],
 {icon-image: motorcycle_rental-m.svg; font-size: 14.5;}

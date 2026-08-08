@@ -39,7 +39,6 @@
     <string name="description">Napomene</string>
     <string name="edit">Uredi</string>
     <string name="length">Duljina</string>
-    <string name="prefs_group_general">Opće postavke</string>
     <string name="prefs_group_information">Informacije</string>
     <string name="prefs_group_route">Navigacija</string>
     <string name="off">Isključeno</string>
@@ -96,7 +95,7 @@
     <string name="bookmark_lists_show_all">Prikaži sve</string>
     <string name="please_wait">Molim pričekajte…</string>
     <string name="bookmark_lists">Liste favorita</string>
-    <string name="privacy">Privatnost</string>
+    <string name="prefs_group_privacy">Privatnost</string>
     <string name="power_managment_setting_never">Nikada</string>
     <string name="editor_reset_edits_button">Odbacite promjene</string>
     <string name="details">Detalji</string>
@@ -243,7 +242,7 @@
     <string name="how_to_support_us">Volontiraj i poboljšaj CoMaps</string>
     <string name="compass_calibration_recommended">Poboljšajte preciznost pokazivača smjera gibanja kruženjem telefona u obliku osmice kako biste kalibrirali kompas.</string>
     <string name="compass_calibration_required">Pomičite telefon u obliku figure osmice kako biste kalibrirali kompas i popravili strelicu indikatora smjera na karti.</string>
-    <string name="long_tap_toast">Ponovno dugo dodirnite kartu da biste prikazali sučelje</string>
+    <string name="enable_long_tap_fullscreen_description">Ponovno dugo dodirnite kartu da biste prikazali sučelje</string>
     <string name="downloader_update_all_button">Ažuriraj sve</string>
     <string name="downloader_cancel_all">Otkaži sve</string>
     <string name="downloader_near_me_subtitle">U mojoj blizini</string>
@@ -269,6 +268,11 @@
     <string name="editor_time_delete">Izbriši Raspored</string>
     <string name="editor_time_allday">Cijeli dan (24 sata)</string>
     <string name="pref_zoom_summary">Prikaz na karti</string>
+    <string name="prefs_group_advanced">Napredno</string>
+    <string name="download_resources_custom_url_title">Prilagođeni poslužitelj karata</string>
+    <string name="download_resources_custom_url_message">Zamijenite zadani poslužitelj za preuzimanje karata. Ostavite prazno za korištenje CoMaps zadanog poslužitelja.</string>
+    <string name="download_resources_custom_url_summary_none">Nije postavljeno</string>
+    <string name="download_resources_custom_url_error_scheme">Molimo unesite URL koji počinje s http:// ili https://</string>
     <string name="deep_orange">Tamno narančasta</string>
     <string name="blue_gray">Plavo siva</string>
     <string name="dialog_routing_disclaimer_title">Prilikom praćenja rute, imajte na umu:</string>
@@ -433,7 +437,7 @@
     <string name="power_managment_description">Pokušajte smanjiti potrošnju energije na štetu nekih funkcionalnosti</string>
     <string name="power_managment_setting_auto">Kad je baterija pri kraju</string>
     <string name="enable_logging_warning_message">Privremeno omogućite ovu opciju kako biste snimili i ručno poslali detaljne dijagnostičke zapisnike o vašem problemu pomoću opcije \"Prijavi grešku\" u dijalogu Pomoć. Zapisnici mogu uključivati podatke o lokaciji.</string>
-    <string name="driving_options_title">Opcije rutiranja</string>
+    <string name="routing_options_title">Opcije rutiranja</string>
     <string name="avoid_tolls">Izbjegni cestarine</string>
     <string name="avoid_unpaved">Izbjegavaj neasfaltirane ceste</string>
     <string name="avoid_ferry">Izbjegavaj trajekte</string>
@@ -636,11 +640,6 @@
     <string name="offline_explanation_title">Izvanmrežne karte</string>
     <string name="offline_explanation_text">Za prikaz i navigaciju područjem potrebno je preuzeti kartu.\nPreuzmite karte za područja u koja želite putovati.</string>
     <string name="list_description_empty">Uredite popis kako biste dodali opis</string>
-    <string name="advanced">Napredno</string>
-    <string name="download_resources_custom_url_title">Prilagođeni poslužitelj karata</string>
-    <string name="download_resources_custom_url_message">Zamijenite zadani poslužitelj za preuzimanje karata. Ostavite prazno za korištenje CoMaps zadanog poslužitelja.</string>
-    <string name="download_resources_custom_url_summary_none">Nije postavljeno</string>
-    <string name="download_resources_custom_url_error_scheme">Molimo unesite URL koji počinje s http:// ili https://</string>
     <plurals name="minutes_short">
         <item quantity="one">%d minuta</item>
         <item quantity="few">%d minute</item>

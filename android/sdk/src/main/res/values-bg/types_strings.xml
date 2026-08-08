@@ -956,7 +956,24 @@
     <string name="type.cuisine.vietnamese">Виетнамска</string>
     <string name="type.highway.bridleway">Пътека за юздечки</string>
     <string name="type.highway.bridleway.permissive">Пътека за юздечки</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Път в процес на изграждане</string>
+    <string name="type.highway.construction.motorway">Път в процес на изграждане</string>
+    <string name="type.highway.construction.motorway_link">Път в процес на изграждане</string>
+    <string name="type.highway.construction.trunk">Път в процес на изграждане</string>
+    <string name="type.highway.construction.trunk_link">Път в процес на изграждане</string>
+    <string name="type.highway.construction.primary">Път в процес на изграждане</string>
+    <string name="type.highway.construction.primary_link">Път в процес на изграждане</string>
+    <string name="type.highway.construction.secondary">Път в процес на изграждане</string>
+    <string name="type.highway.construction.secondary_link">Път в процес на изграждане</string>
+    <string name="type.highway.construction.tertiary">Път в процес на изграждане</string>
+    <string name="type.highway.construction.tertiary_link">Път в процес на изграждане</string>
+    <string name="type.highway.construction.residential">Път в процес на изграждане</string>
+    <string name="type.highway.construction.unclassified">Път в процес на изграждане</string>
+    <string name="type.highway.construction.service">Път в процес на изграждане</string>
+    <string name="type.highway.construction.living_street">Път в процес на изграждане</string>
+    <string name="type.highway.construction.road">Път в процес на изграждане</string>
+    <string name="type.highway.construction.track">Път в процес на изграждане</string>
     <string name="type.highway.living_street">Жилищна улица</string>
     <string name="type.highway.track">Пътека</string>
     <string name="type.highway.track.area">Пътека</string>

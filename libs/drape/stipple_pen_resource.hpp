@@ -3,6 +3,7 @@
 #include "drape/dynamic_texture.hpp"
 #include "drape/pointers.hpp"
 #include "drape/texture.hpp"
+#include "drape/texture_types.hpp"
 
 #include "base/buffer_vector.hpp"
 
@@ -15,6 +16,9 @@
 
 namespace dp
 {
+class GraphicsContext;
+class HWTextureAllocator;
+
 uint32_t constexpr kMaxStipplePenLength = 512;  /// @todo Should be equal with kStippleTextureWidth?
 
 // Based on ./data/patterns.txt, the most of patterns have 2 entries (4 entries for triangles pattern).

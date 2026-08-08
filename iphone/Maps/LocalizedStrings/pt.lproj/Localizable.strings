@@ -107,7 +107,7 @@
 "category_water" = "Água";
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Para trailers";
-"share_bookmarks_email_body" = "Olá!\n\nSegue em anexo os meus favoritos da aplicação CoMaps. Por favor abra-os se tiver o CoMaps instalado. Caso não tenha, descarregue a aplicação para o seu dispositivo iOS ou Android com a hiperligação https://www.comaps.app/download/\n\nDivirta-se a viajar com o CoMaps!";
+"share_bookmarks_email_body" = "Olá!\n\nSegue em anexo os meus favoritos; por favor, abra-os com o CoMaps. Caso não tenha, descarregue a aplicação aqui: https://www.comaps.app/download/\n\nDivirta-se a viajar com o CoMaps!";
 /* message title of loading file */
 "load_kmz_title" = "A Carregar Favoritos";
 /* Kmz file successful loading */
@@ -459,7 +459,7 @@
 "editor_focus_map_on_location" = "Mova o mapa para colocar a cruz na localização da empresa ou do local.";
 "editor_add_select_category" = "Selecionar categoria";
 "editor_add_select_category_popular_subtitle" = "Popular";
-"editor_add_select_category_all_subtitle" = "Todas as categorias";
+"editor_add_select_category_all_subtitle" = "Todas as Categorias";
 "editor_edit_place_title" = "Edição";
 "editor_add_place_title" = "A adicionar";
 "editor_edit_place_name_hint" = "Nome do lugar";
@@ -681,8 +681,6 @@
 "yes_available" = "Sim";
 /* E.g. "WiFi:No" */
 "no_available" = "Não";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Capacidade: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Rede: %@";
 "trip_finished" = "Chegou ao destino!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Adicionar Local";
 "contribute_to_osm_update_map" = "Atualize o Mapa para Contribuir";
 "contribute_to_osm_update_map_description" = "Precisa de atualizar o mapa %@ para a última versão antes de contribuir para os dados do OpenStreetMap";
+"downloader_check_updates_button" = "Procurar atualizações";
+"downloader_check_updates_checking" = "Procurando atualizações...";
+"downloader_check_updates_updated" = "Atualizações do mapa disponíveis!";
+"downloader_check_updates_no_updates" = "Nenhuma atualização disponível";
+"downloader_check_updates_eol" = "Não existirão mais atualizações do mapa para esta versão. Por favor, atualize a aplicação!";
+"downloader_check_updates_error" = "Erro ao procurar atualizações";
+"editor_add_select_category_recent_subtitle" = "Recentemente usados";
+"oh_unknown" = "Horas de abertura desconhecidas";
+"carplay_highway_exit" = "Saída %@";
+"capacity_charging_no" = "Não tem estacionamento com carregadores";
+"capacity_disabled_yes" = "Tem lugares de estacionamento reservados para pessoas com deficiência";
+"capacity_disabled_no" = "Não tem lugares de estacionamento reservados para pessoas com deficiência";
+"capacity_charging_yes" = "Têm estacionamento com carregadores";
+"planning_route_preview" = "Pré-visualização";
+"planning_route_preview_sheet_title" = "Pré-visualização da Rota";

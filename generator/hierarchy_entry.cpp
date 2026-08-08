@@ -3,7 +3,7 @@
 #include "indexer/feature_utils.hpp"
 #include "indexer/ftypes_matcher.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/assert.hpp"
 #include "base/stl_helpers.hpp"

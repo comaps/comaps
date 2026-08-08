@@ -4,7 +4,6 @@
 #include "editor/xml_feature.hpp"
 
 #include "indexer/feature_decl.hpp"
-#include "indexer/feature_source.hpp"
 
 #include "base/exception.hpp"
 

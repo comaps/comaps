@@ -95,6 +95,8 @@ NEED_BUILD_WORLD_ROADS: false
 # UK_POSTCODES_URL:
 # US_POSTCODES_URL:
 
+# Path to the reviews file
+REVIEWS_PATH:
 
 [Stages]
 # Set to 1 to update the entire OSM planet file (as taken from "planet.openstreetmap.org")

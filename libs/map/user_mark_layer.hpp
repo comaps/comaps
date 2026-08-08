@@ -2,7 +2,9 @@
 
 #include "map/user_mark.hpp"
 
-#include <base/macros.hpp>
+#include "kml/type_utils.hpp"
+
+#include "base/macros.hpp"
 
 class UserMarkLayer
 {

@@ -5,10 +5,13 @@
 
 #include "indexer/mwm_set.hpp"
 
-#include "base/cancellable.hpp"
-
 #include <map>
 #include <vector>
+
+namespace base
+{
+class Cancellable;
+}  // namespace base
 
 namespace search
 {

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "search/mwm_context.hpp"
 #include "search/search_index_values.hpp"
 
 #include "indexer/centers_table.hpp"
@@ -10,16 +9,23 @@
 #include "coding/reader.hpp"
 #include "coding/write_to_sink.hpp"
 
-#include "base/string_utils.hpp"
-
 #include "geometry/point2d.hpp"
+
+#include "base/assert.hpp"
 
 #include <cstdint>
 #include <memory>
 #include <vector>
 
+namespace strings
+{
+class UniString;
+}  // namespace strings
+
 namespace search
 {
+class MwmContext;
+
 class PostcodePoints
 {
 public:

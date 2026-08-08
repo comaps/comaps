@@ -1,0 +1,1457 @@
+{
+    "@category_eat": {
+        "defaultMessage": "Kus süüa|Toit"
+    },
+    "@category_food": {
+        "defaultMessage": "Toidukaubad"
+    },
+    "@category_transport": {
+        "defaultMessage": "Transport"
+    },
+    "@category_fuel": {
+        "defaultMessage": "Tankla"
+    },
+    "@category_parking": {
+        "defaultMessage": "Parkla"
+    },
+    "@category_shopping": {
+        "defaultMessage": "Ostud"
+    },
+    "@category_hotel": {
+        "defaultMessage": "Hotell|Hotellid"
+    },
+    "@category_tourism": {
+        "defaultMessage": "Vaatamisväärsused"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "Meelelahutus"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "Ööelu"
+    },
+    "@category_children": {
+        "defaultMessage": "Perepuhkus"
+    },
+    "@category_atm": {
+        "defaultMessage": "Pangaautomaat"
+    },
+    "@category_rv": {
+        "defaultMessage": "Haagiselamud"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "Raha"
+    },
+    "@category_bank": {
+        "defaultMessage": "3Pank"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "Kasutatud"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "raha"
+    },
+    "@category_recycling": {
+        "defaultMessage": "Taaskasutus|Jäätmete kasutamine|Jäätmete äraandmine|Taaskasutatavad|Prügi eraldi korjamine|Prügi sorteerimne|Taaskasutus"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "4Valuutavahetus"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "2Baar|pubi"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "3Kohvik"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "4Kiirtoit|kaasaost|rämpstoit"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "3Restoran"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "3Tankla"
+    },
+    "@shop": {
+        "defaultMessage": "Pood"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "3Pagariäri|Pagari- ja kondiitriäri"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "4Kosmeetika"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "Lähipood|Lähikauplus"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "Maiustused"
+    },
+    "shop-farm|@category_food|@shop": {
+        "defaultMessage": "Talutoit"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "Aianduskeskus"
+    },
+    "shop-grocery|@category_food|@shop": {
+        "defaultMessage": "Toidukaubad|Toidukauplus"
+    },
+    "shop-health_food|@category_food|@shop": {
+        "defaultMessage": "Tervisetoit"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "Kuuldeaparaadid"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "4Mobiiltelefonid|Elektroonikapood"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "4Florist|lillepood"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "Lihapood|Lihunik"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "Mööblipood"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "Köögipood|Köögimööblikauplus"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "Alkoholipood|4alkohol"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "Raamatupood"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "Kingapood"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "4Elektroonika"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "Rauakaubad|Tööriistapood|Rauakauplus"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "Kodutarbed|Kodutarvete kauplus"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "Ehtepood"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "4Optometrist"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "Kingitusepood|4suveniiripood"
+    },
+    "shop-beauty": {
+        "defaultMessage": "Ilusalong|Ilupood"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "Juurviljapood"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "Spordipood"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "3Supermarket"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "Ostukeskus|Kaubanduskeskus"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "Kaubamaja"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "Joogid"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "Arvutipood"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "Kommipood|Kondiiter"
+    },
+    "shop-laundry": {
+        "defaultMessage": "Pesula|Pesumaja"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "Mänguasjapood"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "3Turg"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "Raha ülekanne"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "Rõivapood"
+    },
+    "shop-caravan|@category_rv|@shop": {
+        "defaultMessage": "Haagiselamute müük"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "Autopood"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "3Jalgrattapood"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "3Kiosk"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "Bussipeatus"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "Trammipeatus"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "Bussijaam"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "Rongijaam|Raudteejaam"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "Funicular|Köisraudtee"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "3Metroo"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "3Praam|terminal|transport"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "3Takso"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "3Raekoda"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "3Vaatamisväärsus|Turismiatraktsioon"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "Kunstiteos"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "3Vaateplatvorm|Vaatekoht"
+    },
+    "tourism-information": {
+        "defaultMessage": "3Turisti-info|Turismiinfo"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "3Pikniku koht|Väligrill"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "Religioosne koht|3Tempel"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "4Kirik|religioosne koht|tempel|katedraal|basiilika"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "Mošee|religioosne koht"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "Tempel|religioosne koht"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "Tempel|religioosne koht"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "Pühamu|religioosne koht"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "4Sünagoog|tempel|religioosne koht"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "Tempel|religioosne koht"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "2Muuseum"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "3Kosk"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "4Arheoloogiline koht"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "Lahinguväli"
+    },
+    "historic-stone": {
+        "defaultMessage": "Ajalooline kivi|Mälestuskivi"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "Piirikivi"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "Loss|Palee|Kindlus|Linnamägi|Kreml|Mõis"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "Linnavärav"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "Linnamüür"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "Kindlus"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "Võllas"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "4Mälestusmärk|monument"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "Mälestusrist"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "Mälestusmärk|Mälestustahvel"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "Skulptuur"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "Kuju|Ausammas"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "Komistuskivi|Natsismiohvrite mälestuskivi sillutises"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "Sõjamemoriaal"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "4Monument"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "Häbipost"
+    },
+    "historic-cannon": {
+        "defaultMessage": "Kahur"
+    },
+    "historic-anchor": {
+        "defaultMessage": "Ajalooline ankur"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "3Varemed"
+    },
+    "historic-mine": {
+        "defaultMessage": "Ajalooline kaevandus"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "Laev|paat"
+    },
+    "historic-wreck": {
+        "defaultMessage": "Laevahukk|Laevavrakk"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "Ajalooline vedur"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "Ajalooline tank"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "Ajalooline lennuk"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "Hauakamber|haud|memoriaal"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "Teeäärne rist"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "Teeäärne pühakoht"
+    },
+    "leisure-dog_park": {
+        "defaultMessage": "3Koerte ala|koerte park"
+    },
+    "leisure-garden": {
+        "defaultMessage": "3Aed"
+    },
+    "amenity-bench": {
+        "defaultMessage": "Pink"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "Jalgrataste laenutus"
+    },
+    "amenity-bicycle_repair_station": {
+        "defaultMessage": "Jalgrataste remondipunkt"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "Auto jagamine"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "4Autorent"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "Mootorratta rentimine"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "3Kino"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "Bowlingusaal"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "3Teater"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "3Ööklubi"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "Bordell"
+    },
+    "@gambling": {
+        "defaultMessage": "Hasartmängud"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "Kasiino"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "Täiskasvanute mängukeskus"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "Arkaad"
+    },
+    "amenity-college": {
+        "defaultMessage": "Kolledž"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "Tuletõrje jaam"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "Purskkaev"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "Surnuaed"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "Matusebüroo"
+    },
+    "@category_hospital": {
+        "defaultMessage": "4Haigla"
+    },
+    "amenity-hospital|@category_hospital": {
+        "defaultMessage": "Haigla|kliinik|3arst|meditsiinikeskus|terviseteenused|esmaabi"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "4Kliinik|haigla|3arst|diagnostika|terviseteenused"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "Arsti vastuvõtt|kliinik|haigla|Arst"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "4Hambaarst"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "Meditsiinilabor|labor"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "Alternatiivne meditsiin|Alternatiivmeditsiin"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "Audioloogia|Audioloog"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "Vereloovutuskeskus|Veredoonorlus"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "Optomeetria|Optometrist"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "Jalaravi|Jalaarst"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "Psühhoteraapia|Psühhoterapeut"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "Logopeedia|Logopeed"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "Jahipidamise koht"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "Lasteaed|päevahoid|eelkool"
+    },
+    "amenity-library": {
+        "defaultMessage": "3Raamatukogu"
+    },
+    "amenity-parking|amenity-parking_entrance|@category_parking": {
+        "defaultMessage": "3Parkla"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "3Apteek"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "3Apteek"
+    },
+    "@category_post": {
+        "defaultMessage": "3Post"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "3Postkast"
+    },
+    "amenity-post_office|post_office-post_partner|@category_post": {
+        "defaultMessage": "3Postkontor"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "Sõiduki ülevaatus"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "Prügikast"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "Taaskasutuskeskus|Jäätmejaam"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "Prügikonteiner"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "Patareid"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "Rõivaste taaskasutus|Rõivad"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "Taarapunkt"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "Vanapaber|Paber"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "Plastiku taaskasutus|Plastik"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "Plastpudelite taaskasutus"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "Vanametalli kokkuost"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "Elektroonika taaskasutus"
+    },
+    "recycling-cardboard|@category_recycling": {
+        "defaultMessage": "Lainepapi taaskasutus|Papp"
+    },
+    "recycling-cans|@category_recycling": {
+        "defaultMessage": "Purkide taaskasutus|Purgid"
+    },
+    "recycling-shoes|@category_recycling": {
+        "defaultMessage": "Jalanõude taaskasutus|Jalanõud"
+    },
+    "recycling-green_waste|@category_recycling": {
+        "defaultMessage": "Rohejäätmete taaskasutus"
+    },
+    "recycling-cartons|@category_recycling": {
+        "defaultMessage": "Tetrapakkide taaskasutus|Joogipakendid"
+    },
+    "amenity-sanitary_dump_station|@category_rv": {
+        "defaultMessage": "Haagiselamute jäätmepunkt"
+    },
+    "amenity-school": {
+        "defaultMessage": "3Kool"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "4Varjend|Varjualune"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "Bivouac-Küünla"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "4Varjend"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "Stripiklubi"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "2Telefon|Taksofon"
+    },
+    "@category_toilet": {
+        "defaultMessage": "WC"
+    },
+    "amenity-toilets|toilets-yes|@category_toilet": {
+        "defaultMessage": "WC|tualett"
+    },
+    "amenity-university": {
+        "defaultMessage": "4Ülikool"
+    },
+    "place-continent": {
+        "defaultMessage": "Kontinent"
+    },
+    "place-country": {
+        "defaultMessage": "Riik"
+    },
+    "place-city": {
+        "defaultMessage": "Linn"
+    },
+    "place-town": {
+        "defaultMessage": "Linn"
+    },
+    "place-city-capital": {
+        "defaultMessage": "Pealinn|linn"
+    },
+    "place-county": {
+        "defaultMessage": "Maakond"
+    },
+    "place-state": {
+        "defaultMessage": "Maakond|provints"
+    },
+    "place-region": {
+        "defaultMessage": "Piirkond"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "Saar|Laid"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "Eeslinn|Linnaosa"
+    },
+    "place-hamlet": {
+        "defaultMessage": "Külake"
+    },
+    "place-village": {
+        "defaultMessage": "Küla"
+    },
+    "place-locality": {
+        "defaultMessage": "Paikkond"
+    },
+    "place-farm": {
+        "defaultMessage": "Talu"
+    },
+    "highway-raceway": {
+        "defaultMessage": "Ringrada|Võistlusrada"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "Rada"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "Tänav"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "3Väljumine|3ristmik"
+    },
+    "@mountain": {
+        "defaultMessage": "Tipp|mägi"
+    },
+    "natural-saddle|mountain_pass": {
+        "defaultMessage": "Sadul"
+    },
+    "natural-strait": {
+        "defaultMessage": "Väin"
+    },
+    "landuse-forest": {
+        "defaultMessage": "Mets"
+    },
+    "leisure-park": {
+        "defaultMessage": "Park"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "Akvaarium"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "3Hostel|motell"
+    },
+    "tourism-hotel|@category_hotel": {
+        "defaultMessage": "motell"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "Külalistemaja"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "3Motell|hostel"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "Mägimajake|hotell|hostel|alpimaja"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "Juuksur"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "3Lennujaam"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "4Staadion"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "4Mänguplats|Mänguväljak"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "Spordikeskus"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "Golfiväljak"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "Minigolf"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "Põgenemistuba"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "Spordiväljak"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "4Ujumisbassein|sport"
+    },
+    "sport-american_football": {
+        "defaultMessage": "Ameerika jalgpall"
+    },
+    "sport-archery": {
+        "defaultMessage": "Vibulaskmine"
+    },
+    "sport-athletics": {
+        "defaultMessage": "Kergejõustik"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "Austraalia jalgpall"
+    },
+    "sport-baseball": {
+        "defaultMessage": "Pesapall"
+    },
+    "sport-basketball": {
+        "defaultMessage": "Korvpall"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "Rannavõrkpall"
+    },
+    "sport-bowls": {
+        "defaultMessage": "Murukeegel"
+    },
+    "sport-chess": {
+        "defaultMessage": "Male"
+    },
+    "sport-cricket": {
+        "defaultMessage": "Kriket"
+    },
+    "sport-curling": {
+        "defaultMessage": "Kurling|Jääkeegel"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "Ratsasport"
+    },
+    "sport-golf": {
+        "defaultMessage": "Golf"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "Sportvõimlemine|Võimlemine"
+    },
+    "sport-handball": {
+        "defaultMessage": "Käsipall"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "Sukeldumiskoht"
+    },
+    "sport-shooting": {
+        "defaultMessage": "Lasketiir"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "Rulasõit"
+    },
+    "sport-skiing": {
+        "defaultMessage": "Suusatamine"
+    },
+    "sport-soccer": {
+        "defaultMessage": "Jalgpall"
+    },
+    "sport-swimming": {
+        "defaultMessage": "Ujumine"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "Lauatennis"
+    },
+    "sport-tennis": {
+        "defaultMessage": "Tennis"
+    },
+    "sport-padel": {
+        "defaultMessage": "Padel"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "Võrkpall"
+    },
+    "building": {
+        "defaultMessage": "Hoone"
+    },
+    "building-address": {
+        "defaultMessage": "Aadress"
+    },
+    "@category_police": {
+        "defaultMessage": "4Politsei"
+    },
+    "amenity-police|@category_police": {
+        "defaultMessage": "Politsei"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "4Saatkond"
+    },
+    "natural-bay": {
+        "defaultMessage": "Laht"
+    },
+    "@category_water": {
+        "defaultMessage": "3Vesi"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "4Joogivesi"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "Kuumaveeallikas"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "Allikas"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "Kaev"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "Haagiselamu veepunkt"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "Veekraan"
+    },
+    "@waterbody": {
+        "defaultMessage": "Veekogu"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "Veehoidla"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "Tiik"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "Järv"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "Reservuaar"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "Jõgi|oja"
+    },
+    "waterway-canal": {
+        "defaultMessage": "Kanal"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "4Autoremont"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "5Kämping"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "Haagiselamute ala|matkamine"
+    },
+    "office": {
+        "defaultMessage": "Kontor"
+    },
+    "office-company": {
+        "defaultMessage": "Ettevõtte kontor"
+    },
+    "office-government": {
+        "defaultMessage": "Riigikantselei|Valitsusasutus"
+    },
+    "office-lawyer": {
+        "defaultMessage": "Advokaadibüroo|Advokaat"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "Mobiilside operaator|Sideettevõte"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "Mesinik"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "Sepp"
+    },
+    "craft-brewery": {
+        "defaultMessage": "Käsitöö pruulikoda|Väikepruulikoda"
+    },
+    "craft-caterer": {
+        "defaultMessage": "Catering|Toitlustaja"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "Puusepp"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "Kondiiter"
+    },
+    "craft-electrician": {
+        "defaultMessage": "4Elektrik"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "Elektroonika remont"
+    },
+    "craft-gardener": {
+        "defaultMessage": "Aednik"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "Mill"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "Käsitöö"
+    },
+    "craft-hvac": {
+        "defaultMessage": "Õhkkonditsioneer|Kliima- ja kütteseadmete meister"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "5Metallitööline"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "Võtme lõikamine"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "Lukksepp"
+    },
+    "craft-painter": {
+        "defaultMessage": "Maaler"
+    },
+    "craft-photographer": {
+        "defaultMessage": "4Fotograaf|fotograafia stuudio"
+    },
+    "craft-plumber": {
+        "defaultMessage": "Santehnik"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "Saeveski"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "5Kingsepp"
+    },
+    "craft-winery": {
+        "defaultMessage": "Veinikelder"
+    },
+    "craft-tailor": {
+        "defaultMessage": "Rätsep"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "Palee|Väljak"
+    },
+    "place-sea": {
+        "defaultMessage": "Meri"
+    },
+    "place-ocean": {
+        "defaultMessage": "Ookean"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "3Internet"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "Rand"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "Majakas"
+    },
+    "man_made-survey_point": {
+        "defaultMessage": "4Vaatluspunkt|geodeetiline punkt|4trigonomeetriline punkt|triangulatsioonipunkt|trigopunkt|4triangulaator"
+    },
+    "man_made-flagpole": {
+        "defaultMessage": "Lipumast"
+    },
+    "man_made-mast": {
+        "defaultMessage": "Mast"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "Sidetorn"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "Naftakaev"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "4orgaaniline|bio|bioloogiline|öko|ökoloogiline|tervislik|Mahetoode"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "4Koopiakeskus|trükikoda|Koopiateenused"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "4Fotopood|raamid"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "Kaamerapood"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "Reisibüroo"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "Välisvarustus|matkamine|Matkatarvete kauplus"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "Keemiline pesu|puhastus"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "Rehvipood|rehvid"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "Autopesu"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "Loomaarst|4veterinaar"
+    },
+    "@charging_station": {
+        "defaultMessage": "4Laadimispunkt|laadimine"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "Jalgratta laadimine"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "Lasteaed|4Lastehoid"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "4Jalgrattaparkla"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "Prügikast"
+    },
+    "emergency-phone": {
+        "defaultMessage": "4Hädaabi telefon"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "Jõusaal"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "3Saun"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "Rehviparandus"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "Apteeker"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "3Loomapood|Loomapood"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "Loomaaed"
+    },
+    "attraction-animal": {
+        "defaultMessage": "Loomade aedik"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Turismipunkt"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Külastuskeskus"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "Kogukonna keskus"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "Suruõhk"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "Kohtumaja"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "Sigaretiautomaat"
+    },
+    "amenity-vending_machine-coffee": {
+        "defaultMessage": "4Kohviautomaat|Kohvi"
+    },
+    "amenity-vending_machine-condoms": {
+        "defaultMessage": "4Kondoomiautomaat|Kondoomid|Kondomaat"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "Joogiautomaat"
+    },
+    "amenity-vending_machine-food|@category_food": {
+        "defaultMessage": "Toiduautomaat|Toit|Suupisted"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "Parkimispiletid|Parkimisautomaat"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "Piletiautomaat|Ühistranspordi piletid|Piletid"
+    },
+    "amenity-vending_machine-newspapers": {
+        "defaultMessage": "4Ajalehtede automaat|Ajalehed"
+    },
+    "amenity-vending_machine-sweets": {
+        "defaultMessage": "4Maiustuste automaat|Maiustused|4Kommid|Pulgakommid"
+    },
+    "amenity-vending_machine-excrement_bags": {
+        "defaultMessage": "4Koeraväljaheidete kottide automaat|Loomade väljaheited"
+    },
+    "amenity-parcel_locker|@category_post": {
+        "defaultMessage": "4Pakiautomaat"
+    },
+    "shop-outpost": {
+        "defaultMessage": "Vastuvõtupunkt|Veebikaubamaja teeninduslett"
+    },
+    "amenity-vending_machine-fuel|@category_fuel": {
+        "defaultMessage": "Tankimisautomaat"
+    },
+    "building-garage": {
+        "defaultMessage": "Garaaž"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "Kiirtee puhkepeatus|Maantee teenindusala"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "Tehase korsten"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "Torn"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "Kirjastaja|Kihlveokontor"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "Mereandide pood|4kalaturg|4mereannid|kala"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "4Kasutatud|Kirbuturg"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "Heategevuspood"
+    },
+    "shop-ticket": {
+        "defaultMessage": "Piletimüük|Piletikassa"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "Alkoholipood"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "Autovaruosad"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "Puhkemaja"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "Infotahvel"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "Turistide kaart|Infotahvel kaardiga"
+    },
+    "aerialway-station": {
+        "defaultMessage": "Köisraja jaam|Köistee jaam"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "Helikopteri plats|Helikopteriväljak"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "Piirikontroll"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "Veepark"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "Veetorn"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "Tuuleveski"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "Koobas"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "4Vulkaan"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "Kinnisvara vahendaja"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "Lüüsi värav"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "Raamatuvahetus|raamaturiiul"
+    },
+    "sport-climbing": {
+        "defaultMessage": "Ronimiskeskus"
+    },
+    "sport-yoga": {
+        "defaultMessage": "Jooga"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "5Korterid|Külaliskorter"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "Kuurort"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "5Õlleaed|Saksa-tüüpi väliõhu õllebaar"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "4Autokool"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "Muusikakool"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "Keeltekool"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "5Jäätis"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "5Internetikohvik"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "Mootorrattaparkla"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "Invaliidide parkimiskoht"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "Hooldekodu"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "Makseterminal"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "Avalik vann"
+    },
+    "amenity-shower": {
+        "defaultMessage": "Dušš"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "Erakorraline kogunemispunkt"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "4Defibrillaator"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "Tuletõrjehüdrant"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "Kiirabipäästja|Päästja"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "Hädaolukorra mäepääste"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "Välivõimla"
+    },
+    "office-insurance": {
+        "defaultMessage": "Kindlustusasutus|Kindlustusbüroo"
+    },
+    "office-ngo": {
+        "defaultMessage": "Valitsusest sõltumatu ühenduse kontor|Valitsusväline organisatsioon"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "3Erootikapood"
+    },
+    "shop-massage": {
+        "defaultMessage": "Massaažisalong"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "Motopood"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "Mootorrataste remont"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "Ajalehepunkt|4ajalehed|Ajalehekiosk"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "Pandimaja"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "Kirjatarvete pood"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "4Tätoveeringud|Tätoveerimissalong"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "Odavpood"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "Videopood"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "Videomängude pood"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "Loodusonn"
+    },
+    "tourism-gallery|@category_tourism": {
+        "defaultMessage": "3Galerii|muuseum"
+    },
+    "tourism-theme_park|@category_tourism|@category_children": {
+        "defaultMessage": "Teemapark|Lõbustuspark"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "Rahvuspark"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "Looduskaitseala"
+    },
+    "natural-cape": {
+        "defaultMessage": "Neem"
+    },
+    "natural-geyser": {
+        "defaultMessage": "3Geiser"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "Liustik"
+    },
+    "highway-ford": {
+        "defaultMessage": "Koolmekoht"
+    },
+    "leisure-marina": {
+        "defaultMessage": "Randumiskoht|Väikesadam"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "Suusatamine|Suusarada"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "Ürituste toimumiskoht"
+    },
+    "shop-chocolate|@category_food|@shop": {
+        "defaultMessage": "Šokolaadipood"
+    },
+    "shop-coffee|@category_food|@shop": {
+        "defaultMessage": "Kohvipood"
+    },
+    "shop-fabric|@shop": {
+        "defaultMessage": "Kangapood"
+    },
+    "shop-money_lender": {
+        "defaultMessage": "Rahalaenutus"
+    },
+    "shop-music|@shop": {
+        "defaultMessage": "Plaadipood"
+    },
+    "shop-musical_instrument|@shop": {
+        "defaultMessage": "Muusikariistad"
+    },
+    "shop-tea|@shop": {
+        "defaultMessage": "Teepood"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Antikvariaat"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "Kunstipood"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "Beebikaubad"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "Kotipood"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "Juustupood"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "Piimatooted"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "Elektritarvikute pood"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "Kalapüügi pood"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "Sisustuse kaunistused"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "Loteriipiletid|Lotokiosk"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "Meditsiinitarvikud"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "Toidulisandid"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "Värvid"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "Parfümeeria"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "Õmblustarvikud"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "Ladustuse rent"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "Tubakas"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "Kaubanduse tarvikud"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "Kellad"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "Hulgimüügi pood"
+    },
+    "leisure-track": {
+        "defaultMessage": "Jooksurada"
+    },
+    "power-plant": {
+        "defaultMessage": "Elektrijaam"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "Oksjon"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Koguja|Kollektsioneeritavad esemed"
+    },
+    "man_made-cairn": {
+        "defaultMessage": "Karjäär"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "Ratastool"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "Sotsiaalne rajatis"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "Spordisaal"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "Kunstikeskus"
+    },
+    "amenity-prison": {
+        "defaultMessage": "vangla"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "Näituste keskus"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "Vannitoa sisustus"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "Voodipood"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "Butiik"
+    },
+    "amenity-food_court": {
+        "defaultMessage": "Toiduväljak"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "Kardinad"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "Gaasipood|Balloongaasi kauplus"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "Lemmikloomade hooldamine"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "HiFi heli|Hifi kauplus"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "Konverentsikeskus"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "Maitsetaimede pood"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "Tehnikapood"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "Põllumajanduspood"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "Moodsad aksessuaarid"
+    },
+    "amenity-waste_transfer_station": {
+        "defaultMessage": "Jäätmete üleandmise jaam"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "Vaibad"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "Pasta"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "Pagasiruum"
+    }
+}

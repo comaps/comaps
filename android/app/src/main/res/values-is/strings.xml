@@ -12,7 +12,6 @@
     <string name="category_recycling">Endurvinnsla</string>
     <string name="category_water">Vatn</string>
     <string name="edit">Breyta</string>
-    <string name="prefs_group_general">Almennar stillingar</string>
     <string name="prefs_group_information">Upplýsingar</string>
     <string name="off">Slökkt</string>
     <string name="on">Kveikt</string>
@@ -68,7 +67,7 @@
         <item quantity="one">%d ferill</item>
         <item quantity="other">%d ferlar</item>
     </plurals>
-    <string name="privacy">Friðhelgi</string>
+    <string name="prefs_group_privacy">Friðhelgi</string>
     <string name="speedcams_alert_title">Hraðamyndavélar</string>
     <string name="power_managment_setting_never">Aldrei</string>
     <string name="power_managment_setting_manual_max">Alltaf</string>
@@ -357,7 +356,7 @@
     <string name="enable_logging">Virkja atvikaskráningu</string>
     <string name="feedback_general">Almennar umsagnir</string>
     <string name="bookmarks_empty_list_title">Þessi listi er tómur</string>
-    <string name="driving_options_title">Valkostir leiðagerðar</string>
+    <string name="routing_options_title">Valkostir leiðagerðar</string>
     <string name="change_driving_options_btn">Valkostir leiðagerðar virkir</string>
     <string name="aa_connected_title">Þú ert tengd(ur) við Android Auto</string>
     <string name="car_continue_on_the_phone">Halda áfram í símanum</string>
@@ -409,7 +408,7 @@
     <string name="download_resources">Áður en þú byrjar skaltu sækja heims-yfirlitskortið yfir á tækið þitt. \nÞað mun nota %s af tiltæku minni.</string>
     <string name="load_kmz_failed">Mistókst að hlaða inn bókamerkjum. Skráin gæti verið skemmd eða gölluð.</string>
     <string name="unknown_current_position">Ekki er enn búið að ákvarða staðsetninguna þína</string>
-    <string name="long_tap_toast">Ýttu á kortið og haltu til að sjá viðmótið</string>
+    <string name="enable_long_tap_fullscreen_description">Ýttu á kortið og haltu til að sjá viðmótið</string>
     <string name="search_history_text">Skoðaðu nýlegar leitir þínar.</string>
     <string name="editor_time_add_closed">Bæta við ekki-opnunartímum</string>
     <string name="editor_time_title">Opnunartímar</string>

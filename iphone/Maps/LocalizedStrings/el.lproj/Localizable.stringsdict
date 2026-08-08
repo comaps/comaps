@@ -12,10 +12,12 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
+			<key>zero</key>
+			<string>Μηδέν μέρη</string>
 			<key>one</key>
-			<string>%lld σελιδοδείκτης</string>
+			<string>%lld μέρος</string>
 			<key>other</key>
-			<string>%lld σελιδοδείκτες</string>
+			<string>%lld μέρη</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
@@ -44,6 +46,8 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
+			<key>zero</key>
+			<string>Μηδέν ίχνη</string>
 			<key>one</key>
 			<string>%lld ίχνος</string>
 			<key>other</key>
@@ -58,11 +62,15 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
+			<key>zero</key>
+			<string>μηδέν κάτοικοι</string>
 			<key>one</key>
 			<string>%lld κάτοικος</string>
 			<key>other</key>
 			<string>%lld κάτοικοι</string>
 		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
 	</dict>
 	<key>rooms</key>
 	<dict>
@@ -72,11 +80,63 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
+			<key>zero</key>
+			<string>μηδέν δωμάτια</string>
 			<key>one</key>
 			<string>%lld δωμάτιο</string>
 			<key>other</key>
 			<string>%lld δωμάτια</string>
 		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld θέση για ΑΜΕΑ</string>
+			<key>other</key>
+			<string>%lld θέσεις για ΑΜΕΑ</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld θέση με φορτιστή</string>
+			<key>other</key>
+			<string>%lld θέσεις με φορτιστές</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld θέση</string>
+			<key>other</key>
+			<string>%lld θέσεις</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
 	</dict>
 </dict>
 </plist>

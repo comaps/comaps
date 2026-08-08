@@ -64,6 +64,10 @@
 
     <include layout="@layout/place_page_wheelchair" />
 
+    <include layout="@layout/place_page_capacity_disabled" />
+
+    <include layout="@layout/place_page_capacity_charging" />
+
     <include layout="@layout/place_page_wifi"/>
 
     <include layout="@layout/place_page_atm" />

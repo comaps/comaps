@@ -1,12 +1,13 @@
 #pragma once
 
-#include "coding/reader.hpp"
-
 #include <fstream>
 #include <functional>
+#include <memory>
 #include <optional>
 #include <string>
 #include <vector>
+
+class Reader;
 
 namespace coding
 {

@@ -1,5 +1,9 @@
 #include "indexer/feature_source.hpp"
 
+#include "indexer/feature_decl.hpp"
+
+#include "base/assert.hpp"
+
 std::string ToString(FeatureStatus fs)
 {
   switch (fs)

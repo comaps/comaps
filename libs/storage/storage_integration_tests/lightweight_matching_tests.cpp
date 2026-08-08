@@ -3,6 +3,8 @@
 #include "storage/country_info_reader_light.hpp"
 #include "storage/storage_defines.hpp"
 
+#include "platform/platform.hpp"
+
 #include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"
 

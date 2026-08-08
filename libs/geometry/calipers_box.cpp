@@ -4,6 +4,7 @@
 #include "geometry/convex_hull.hpp"
 #include "geometry/line2d.hpp"
 #include "geometry/polygon.hpp"
+#include "geometry/robust_orientation.hpp"
 #include "geometry/segment2d.hpp"
 
 #include "base/assert.hpp"

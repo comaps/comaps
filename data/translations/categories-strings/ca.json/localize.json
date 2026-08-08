@@ -1,0 +1,440 @@
+{
+    "@category_eat": {
+        "defaultMessage": "On menjar|Menjar"
+    },
+    "@category_food": {
+        "defaultMessage": "Queviures|Provisions"
+    },
+    "@category_transport": {
+        "defaultMessage": "Transport"
+    },
+    "@category_fuel": {
+        "defaultMessage": "Benzinera"
+    },
+    "@category_parking": {
+        "defaultMessage": "Aparcament"
+    },
+    "@category_shopping": {
+        "defaultMessage": "Compres"
+    },
+    "@category_hotel": {
+        "defaultMessage": "Hotel|Hotels"
+    },
+    "@category_tourism": {
+        "defaultMessage": "Turisme"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "Entreteniment"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "Vida nocturna"
+    },
+    "@category_children": {
+        "defaultMessage": "Oci familiar"
+    },
+    "@category_atm": {
+        "defaultMessage": "3Caixer automàtic|Caixer"
+    },
+    "@category_rv": {
+        "defaultMessage": "Caravanes|Autocaravana"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "diners"
+    },
+    "@category_bank": {
+        "defaultMessage": "Banc"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "Segona mà"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "diners"
+    },
+    "@category_recycling": {
+        "defaultMessage": "Reciclatge|Reciclatge de residus|Eliminació de residus|Materials reciclables|Recollida selectiva d’escombraries|Classificació de residus|Reutilització"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "Canvi de divises|diners"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "Bar|Taverna"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "Cafè|Cafeteria"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "Menjar ràpid"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "Restaurant|Restaurants"
+    },
+    "@shop": {
+        "defaultMessage": "Botiga|Tenda"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "Fleca|Forn de pa"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "Cosmetics"
+    },
+    "shop-farm|@category_food|@shop": {
+        "defaultMessage": "Granja|Agrobotiga"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "Audiòfons"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "Ferreteria"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "Articles de la llar"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "Joieria|Joies"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "Mercat"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "Transferència de diners"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "Botiga de roba|Roba"
+    },
+    "shop-caravan|@category_rv|@shop": {
+        "defaultMessage": "Venda de caravanes|Venda de autocaravanes|Venda de motorhomes"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "Venda de cotxes|Concesionari|Concessionari de cotxes"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "Botiga de bicicletes|4bicicleta|bici"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "Quiosc|Papereria"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "Parada d'autobús|Parada"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "Parada de tramvia|Parada"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "Funicular"
+    },
+    "historic-stone": {
+        "defaultMessage": "Pedra històrica"
+    },
+    "historic-cannon": {
+        "defaultMessage": "Canó"
+    },
+    "historic-anchor": {
+        "defaultMessage": "Àncora històrica"
+    },
+    "historic-mine": {
+        "defaultMessage": "Mina històrica"
+    },
+    "historic-wreck": {
+        "defaultMessage": "Naufragi"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "Locomotora històrica"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "Tanc històric"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "Avions històrics"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "Lloguer de motos"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "Bolera"
+    },
+    "@gambling": {
+        "defaultMessage": "Jocs d'atzar"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "Centre de joc per a adults"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "Arcade"
+    },
+    "amenity-college": {
+        "defaultMessage": "Col·legi|Estudis postobligatoris"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "Farmàcia"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "Farmàcia"
+    },
+    "@category_post": {
+        "defaultMessage": "Oficina postal"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "Bústia de correus|Bústia"
+    },
+    "amenity-post_office|post_office-post_partner|@category_post": {
+        "defaultMessage": "Oficina de correus"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "Inspecció de vehicles|ITV"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "Refugi"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "Cabana Bivac"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "Rafal|Refugi"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "Club de striptease"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "Telèfon"
+    },
+    "@category_toilet": {
+        "defaultMessage": "Lavabos"
+    },
+    "amenity-toilets|toilets-yes|@category_toilet": {
+        "defaultMessage": "Lavabos|Vàter"
+    },
+    "leisure-park": {
+        "defaultMessage": "Parc"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "Aquari"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "Parc infantil"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "Minigolf"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "Escape room"
+    },
+    "sport-padel": {
+        "defaultMessage": "Pàdel|Padel"
+    },
+    "building-address": {
+        "defaultMessage": "Adreça"
+    },
+    "@category_police": {
+        "defaultMessage": "Policia"
+    },
+    "amenity-police|@category_police": {
+        "defaultMessage": "Policia"
+    },
+    "@category_water": {
+        "defaultMessage": "Aigua"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "3Aigua potable|Font d'aigua potable"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "Font termal|Font calenta|Deu termal"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "Manantial"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "Pou"
+    },
+    "office": {
+        "defaultMessage": "Oficina"
+    },
+    "craft-caterer": {
+        "defaultMessage": "Càtering"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "Fuster"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "Molí"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "Ferrer"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "Tall de claus"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "Serraller"
+    },
+    "craft-painter": {
+        "defaultMessage": "Pintor"
+    },
+    "craft-photographer": {
+        "defaultMessage": "Fotògraf"
+    },
+    "man_made-survey_point": {
+        "defaultMessage": "Punt geodèsic"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "Torre de comunicacions"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "Copisteria"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "Botiga de càmeres"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "Càrrega de bicicletes"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "Zoo|Zoològic"
+    },
+    "attraction-animal": {
+        "defaultMessage": "Recinte d'animals"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "Aire comprimit"
+    },
+    "amenity-vending_machine-sweets": {
+        "defaultMessage": "Màquina expenedora de dolços"
+    },
+    "amenity-parcel_locker|@category_post": {
+        "defaultMessage": "Taquiller de paquets"
+    },
+    "shop-outpost": {
+        "defaultMessage": "Punt de recollida"
+    },
+    "building-garage": {
+        "defaultMessage": "Garatge"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "Peces de cotxe|Recanvis"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "Casa rural de vacances"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "Parc aquàtic"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "Bany Públic"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "Punt de reunió d'emergència"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "Reparació de motos"
+    },
+    "tourism-theme_park|@category_tourism|@category_children": {
+        "defaultMessage": "Parc temàtic|Parc d'atraccions"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "Esquí|Pista d'esquí"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "Nens|Nadons"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "Suplements nutricionals"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "Pintures"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "Perfumería"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "Material de costura|Merceria"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "Tabac"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "Rellotger|Rellotgeria"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "Magatzem de roba al per major"
+    },
+    "leisure-track": {
+        "defaultMessage": "Pista esportiva|Sender"
+    },
+    "power-plant": {
+        "defaultMessage": "Central elèctrica"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "Subhasta"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Col·leccionista|Col·leccionables"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "Cadira de rodes"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "Equipament Social"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "Pavelló esportiu"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "Centre d’art"
+    },
+    "amenity-prison": {
+        "defaultMessage": "presó"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "Centre d’exposicions"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "Mobles de bany"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "Botiga de llits"
+    },
+    "amenity-food_court": {
+        "defaultMessage": "Zona de restaurants"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "Cortines"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "Botiga de gas"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "Perruca de mascotes"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "Àudio HiFi"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "Centre de conferències"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "Botiga d'herbes"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "Botiga d'electrodomèstics"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "Botiga agrícola"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "Complements de moda"
+    },
+    "amenity-waste_transfer_station": {
+        "defaultMessage": "Estació de transferència de residus"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "Catifes"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "Pasta"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "Armari d'equipatge"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "Casino"
+    }
+}

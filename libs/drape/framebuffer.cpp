@@ -1,10 +1,12 @@
 #include "drape/framebuffer.hpp"
+#include "drape/gl_constants.hpp"
 #include "drape/gl_functions.hpp"
+#include "drape/hw_texture.hpp"
 #include "drape/texture.hpp"
+#include "drape/texture_types.hpp"
 
 #include "base/assert.hpp"
 #include "base/logging.hpp"
-#include "base/string_utils.hpp"
 
 namespace dp
 {

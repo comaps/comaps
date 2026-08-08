@@ -1,5 +1,6 @@
 #pragma once
 
+#include "base/assert.hpp"
 #include "base/buffer_vector.hpp"
 #include "base/checked_cast.hpp"
 
@@ -101,6 +102,8 @@ void NormalizeDigits(UniString & us);
 /// returns number of start symbols in s that equivalent to lowStr
 /// For implementation @see base/lower_case.cpp
 size_t CountNormLowerSymbols(UniString const & s, UniString const & lowStr);
+
+size_t Utf8Length(std::string_view const & s);
 
 void AsciiToLower(std::string & s);
 void AsciiToUpper(std::string & s);
@@ -663,6 +666,9 @@ inline std::string to_string(uint64_t i)
 /// "Digits after comma".
 std::string to_string_dac(double d, int dac);
 //@}
+
+/// Format date as %Y-%m-%d
+std::string format_date(std::chrono::year_month_day const & ymd);
 
 // Get string with fixed width. Extra '0' are added at the begining to fit size.
 template <typename T, typename = std::enable_if_t<std::is_integral<T>::value>>

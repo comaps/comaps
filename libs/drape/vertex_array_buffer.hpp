@@ -4,7 +4,6 @@
 #include "drape/binding_info.hpp"
 #include "drape/data_buffer.hpp"
 #include "drape/gpu_program.hpp"
-#include "drape/index_buffer.hpp"
 #include "drape/index_buffer_mutator.hpp"
 #include "drape/pointers.hpp"
 
@@ -14,6 +13,9 @@
 
 namespace dp
 {
+class GraphicsContext;
+class IndexBuffer;
+
 struct IndicesRange
 {
   uint32_t m_idxStart;

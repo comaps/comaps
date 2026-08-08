@@ -17,6 +17,8 @@
 
 namespace routing
 {
+class RouteWeight;
+
 // Segment of the track in the guides graph.
 struct GuideSegmentData
 {

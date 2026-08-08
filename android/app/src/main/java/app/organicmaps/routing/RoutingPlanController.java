@@ -3,8 +3,11 @@ package app.organicmaps.routing;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.DrawableRes;
@@ -14,18 +17,20 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
+import app.organicmaps.settings.RoutingOptionsActivity;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.Router;
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.routing.RoutingOptions;
 import app.organicmaps.sdk.routing.TransitRouteInfo;
-import app.organicmaps.settings.DrivingOptionsActivity;
+import app.organicmaps.sdk.settings.RoadType;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
 import app.organicmaps.widget.RoutingToolbarButton;
 import app.organicmaps.widget.ToolbarController;
 import app.organicmaps.widget.WheelProgressView;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 
 public class RoutingPlanController extends ToolbarController
@@ -54,13 +59,10 @@ public class RoutingPlanController extends ToolbarController
   final int mAnimToggle;
 
   @NonNull
-  private final View mDrivingOptionsBtnContainer;
+  private final FrameLayout mRoutingOptionsBanner;
 
   @NonNull
-  private final View.OnLayoutChangeListener mDriverOptionsLayoutListener;
-
-  @NonNull
-  private final View mDrivingOptionsImage;
+  private final View.OnLayoutChangeListener mRoutingOptionsLayoutListener;
 
   private void setupRouterButton(@IdRes int buttonId, final @DrawableRes int iconRes,
                                  View.OnClickListener clickListener)
@@ -81,7 +83,7 @@ public class RoutingPlanController extends ToolbarController
     rb.setOnClickListener(clickListener);
   }
 
-  RoutingPlanController(View root, Activity activity, ActivityResultLauncher<Intent> startDrivingOptionsForResult,
+  RoutingPlanController(View root, Activity activity, ActivityResultLauncher<Intent> startRoutingOptionsForResult,
                         @NonNull RoutingPlanInplaceController.RoutingPlanListener routingPlanListener,
                         @NonNull RoutingBottomMenuListener listener)
   {
@@ -103,12 +105,11 @@ public class RoutingPlanController extends ToolbarController
 
     mRoutingBottomMenuController = RoutingBottomMenuController.newInstance(requireActivity(), mFrame, listener);
 
-    mDrivingOptionsBtnContainer = mFrame.findViewById(R.id.driving_options_btn_container);
-    View btn = mDrivingOptionsBtnContainer.findViewById(R.id.driving_options_btn);
-    mDrivingOptionsImage = mFrame.findViewById(R.id.driving_options_btn_img);
+    mRoutingOptionsBanner = mFrame.findViewById(R.id.routing_options_banner);
+    View btn = mFrame.findViewById(R.id.routing_options_btn);
+    btn.setOnClickListener(v -> RoutingOptionsActivity.start(requireActivity(), startRoutingOptionsForResult));
 
-    btn.setOnClickListener(v -> DrivingOptionsActivity.start(requireActivity(), startDrivingOptionsForResult));
-    mDriverOptionsLayoutListener = new SelfTerminatedDrivingOptionsLayoutListener();
+    mRoutingOptionsLayoutListener = new SelfTerminatedRoutingOptionsLayoutListener();
     mAnimToggle =
         MwmApplication.from(activity.getApplicationContext()).getResources().getInteger(R.integer.anim_default);
 
@@ -128,9 +129,9 @@ public class RoutingPlanController extends ToolbarController
   }
 
   @NonNull
-  private View getDrivingOptionsBtnContainer()
+  private View getRoutingOptionsBtnContainer()
   {
-    return mDrivingOptionsBtnContainer;
+    return mRoutingOptionsBanner;
   }
 
   private void setupRouterButtons()
@@ -284,7 +285,7 @@ public class RoutingPlanController extends ToolbarController
   void saveRoutingPanelState(@NonNull Bundle outState)
   {
     mRoutingBottomMenuController.saveRoutingPanelState(outState);
-    outState.putBoolean(BUNDLE_HAS_DRIVING_OPTIONS_VIEW, UiUtils.isVisible(mDrivingOptionsBtnContainer));
+    outState.putBoolean(BUNDLE_HAS_DRIVING_OPTIONS_VIEW, UiUtils.isVisible(mRoutingOptionsBanner));
   }
 
   void restoreRoutingPanelState(@NonNull Bundle state)
@@ -292,7 +293,7 @@ public class RoutingPlanController extends ToolbarController
     mRoutingBottomMenuController.restoreRoutingPanelState(state);
     boolean hasView = state.getBoolean(BUNDLE_HAS_DRIVING_OPTIONS_VIEW);
     if (hasView)
-      showDrivingOptionView();
+      showRoutingOptionsView();
   }
 
   public void showAddStartFrame()
@@ -305,19 +306,54 @@ public class RoutingPlanController extends ToolbarController
     mRoutingBottomMenuController.showAddFinishFrame();
   }
 
-  public void showDrivingOptionView()
+  private void addRoutingOptionButton(RoadType type, int titleId, LinearLayout container)
   {
-    mDrivingOptionsBtnContainer.addOnLayoutChangeListener(mDriverOptionsLayoutListener);
-    UiUtils.show(mDrivingOptionsBtnContainer);
-    boolean hasAnyOptions = RoutingOptions.hasAnyOptions() && !isRulerType();
-    UiUtils.showIf(hasAnyOptions, mDrivingOptionsImage);
-    MaterialTextView title = mDrivingOptionsBtnContainer.findViewById(R.id.driving_options_btn_title);
-    title.setText(hasAnyOptions ? R.string.change_driving_options_btn : R.string.define_to_avoid_btn);
+    Router rt = RoutingController.get().getLastRouterType();
+    if (!RoutingOptions.hasOption(type, rt))
+      return;
+
+    MaterialButton btn = (MaterialButton) LayoutInflater.from(container.getContext())
+                             .inflate(R.layout.routing_option_button, container, false);
+    btn.setText(titleId);
+    btn.setOnClickListener(v -> {
+      RoutingOptions.removeOption(type, rt);
+      //RoutingController.get().rebuildLastRoute();
+      container.removeView(v);
+      if (!RoutingOptions.hasAnyOptions(rt))
+        UiUtils.hide(mRoutingOptionsBanner);
+
+      container.post(() -> {
+          RoutingController.get().rebuildLastRoute();
+      });
+    });
+    container.addView(btn);
   }
 
-  public void hideDrivingOptionsView()
+  public void showRoutingOptionsView()
   {
-    UiUtils.hide(mDrivingOptionsBtnContainer);
+    mRoutingOptionsBanner.addOnLayoutChangeListener(mRoutingOptionsLayoutListener);
+    UiUtils.show(mRoutingOptionsBanner);
+    boolean hasAnyOptions = !isRulerType() && RoutingOptions.hasAnyOptions(RoutingController.get().getLastRouterType());
+    if (hasAnyOptions)
+    {
+      LinearLayout container = mRoutingOptionsBanner.findViewById(R.id.routing_options_buttons_container);
+      container.removeAllViews();
+      addRoutingOptionButton(RoadType.Ferry, R.string.avoid_ferry, container);
+      addRoutingOptionButton(RoadType.Motorway, R.string.avoid_motorways, container);
+      addRoutingOptionButton(RoadType.Paved, R.string.avoid_paved, container);
+      addRoutingOptionButton(RoadType.Dirty, R.string.avoid_unpaved, container);
+      addRoutingOptionButton(RoadType.Steps, R.string.avoid_steps, container);
+      addRoutingOptionButton(RoadType.Toll, R.string.avoid_tolls, container);
+    }
+    else
+    {
+      UiUtils.hide(mRoutingOptionsBanner);
+    }
+  }
+
+  public void hideRoutingOptionsView()
+  {
+    UiUtils.hide(mRoutingOptionsBanner);
     mRoutingPlanListener.onRoutingPlanStartAnimate(UiUtils.isVisible(getFrame()));
   }
 
@@ -327,20 +363,20 @@ public class RoutingPlanController extends ToolbarController
     if (frameHeight == 0)
       return 0;
 
-    View driverOptionsView = getDrivingOptionsBtnContainer();
+    View driverOptionsView = getRoutingOptionsBtnContainer();
     int extraOppositeOffset = UiUtils.isVisible(driverOptionsView) ? 0 : driverOptionsView.getHeight();
 
     return frameHeight - extraOppositeOffset;
   }
 
-  private class SelfTerminatedDrivingOptionsLayoutListener implements View.OnLayoutChangeListener
+  private class SelfTerminatedRoutingOptionsLayoutListener implements View.OnLayoutChangeListener
   {
     @Override
     public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight,
                                int oldBottom)
     {
       mRoutingPlanListener.onRoutingPlanStartAnimate(UiUtils.isVisible(getFrame()));
-      mDrivingOptionsBtnContainer.removeOnLayoutChangeListener(this);
+      mRoutingOptionsBanner.removeOnLayoutChangeListener(this);
     }
   }
 }

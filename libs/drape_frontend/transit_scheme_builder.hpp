@@ -1,12 +1,17 @@
 #pragma once
 
-#include "drape/batcher.hpp"
+#include "drape/pointers.hpp"
 #include "drape/render_bucket.hpp"
 #include "drape/render_state.hpp"
-#include "drape/texture_manager.hpp"
 
 #include "transit/transit_display_info.hpp"
-#include "transit/transit_version.hpp"
+#include "transit/transit_entities.hpp"
+#include "transit/transit_types.hpp"
+
+#include "indexer/feature_decl.hpp"
+#include "indexer/mwm_set.hpp"
+
+#include "geometry/point2d.hpp"
 
 #include <array>
 #include <functional>
@@ -14,6 +19,15 @@
 #include <set>
 #include <string>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
+
+namespace dp
+{
+class Batcher;
+class GraphicsContext;
+class TextureManager;
+}  // namespace dp
 
 namespace df
 {

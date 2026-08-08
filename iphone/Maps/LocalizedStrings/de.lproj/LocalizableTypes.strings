@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "Bushaltestelle";
 "type.highway.construction" = "Straße im Bau";
+"type.highway.construction.motorway" = "Straße im Bau";
+"type.highway.construction.motorway_link" = "Straße im Bau";
+"type.highway.construction.trunk" = "Straße im Bau";
+"type.highway.construction.trunk_link" = "Straße im Bau";
+"type.highway.construction.primary" = "Straße im Bau";
+"type.highway.construction.primary_link" = "Straße im Bau";
+"type.highway.construction.secondary" = "Straße im Bau";
+"type.highway.construction.secondary_link" = "Straße im Bau";
+"type.highway.construction.tertiary" = "Straße im Bau";
+"type.highway.construction.tertiary_link" = "Straße im Bau";
+"type.highway.construction.residential" = "Straße im Bau";
+"type.highway.construction.unclassified" = "Straße im Bau";
+"type.highway.construction.service" = "Straße im Bau";
+"type.highway.construction.living_street" = "Straße im Bau";
+"type.highway.construction.road" = "Straße im Bau";
+"type.highway.construction.track" = "Straße im Bau";
 "type.highway.cycleway" = "Radweg";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Brücke";
@@ -678,7 +694,7 @@
 "type.landuse.greenfield" = "Bauland";
 "type.landuse.greenhouse_horticulture" = "Gewächshaus-Fläche";
 "type.landuse.industrial" = "Industriegebiet";
-"type.landuse.landfill" = "Müllhalde";
+"type.landuse.landfill" = "Mülldeponie";
 "type.landuse.meadow" = "Wiese";
 "type.landuse.military" = "Militärgebiet";
 "type.landuse.orchard" = "Obstplantage";
@@ -864,8 +880,8 @@
 "type.office.lawyer" = "Anwaltskanzlei";
 "type.office.ngo" = "Nichtregierungsorganisation";
 "type.office.telecommunication" = "Mobilfunkbetreiber";
-"type.organic.only" = "Bio";
-"type.organic.yes" = "Bio";
+"type.organic.only" = "Nur Bio";
+"type.organic.yes" = "Bio-Produkte vorhanden";
 "type.place.city" = "Großstadt";
 "type.place.city.capital" = "Hauptstadt";
 "type.place.city.capital.10" = "Großstadt";
@@ -1515,3 +1531,9 @@
 "type.leisure.sports_centre.sport.boules" = "Sportzentrum";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Sportzentrum";
+"type.organic.no" = "Keine Bio-Produkte";
+"type.amenity.stage" = "Bühne";
+"type.amenity.animal_boarding" = "Tierpension";
+"type.amenity.toilets.customers" = "Kundenzugang";
+"type.amenity.toilets.private" = "Privatzugang";
+"type.amenity.planetarium" = "Planetarium";

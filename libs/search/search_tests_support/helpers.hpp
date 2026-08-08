@@ -1,5 +1,6 @@
 #pragma once
 
+#include "search/mode.hpp"
 #include "search/search_tests_support/test_results_matching.hpp"
 #include "search/search_tests_support/test_search_engine.hpp"
 #include "search/search_tests_support/test_search_request.hpp"
@@ -7,7 +8,10 @@
 
 #include "generator/generator_tests_support/test_feature.hpp"
 
+#include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
+
+#include "base/logging.hpp"
 
 #include <memory>
 #include <string>
@@ -15,6 +19,8 @@
 
 namespace search
 {
+struct SearchParams;
+
 namespace tests_support
 {
 

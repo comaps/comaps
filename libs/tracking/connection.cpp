@@ -2,7 +2,6 @@
 
 #include "tracking/protocol.hpp"
 
-#include "platform/platform.hpp"
 #include "platform/socket.hpp"
 
 namespace
@@ -23,6 +22,8 @@ Connection::Connection(std::unique_ptr<platform::Socket> socket, std::string con
 
   m_socket->SetTimeout(kSocketTimeoutMs);
 }
+
+Connection::~Connection() = default;
 
 // TODO: implement handshake
 bool Connection::Reconnect()

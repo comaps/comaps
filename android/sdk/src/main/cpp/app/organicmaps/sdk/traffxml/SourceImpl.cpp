@@ -1,11 +1,14 @@
 // TODO which of the two do we need? (jni_helper includes jni)
 //#include <jni>
 #include "app/organicmaps/sdk/core/jni_helper.hpp"
+#include "app/organicmaps/sdk/traffxml/AndroidTraffSource.hpp"
 
 #include "traffxml/traff_source.hpp"
 #include "traffxml/traff_model_xml.hpp"
 
 #include <optional>
+
+#include <pugixml.hpp>
 
 extern "C"
 {

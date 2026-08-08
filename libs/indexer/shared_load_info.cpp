@@ -3,6 +3,8 @@
 #include "indexer/feature_impl.hpp"
 #include "indexer/features_offsets_table.hpp"
 
+#include "coding/reader.hpp"
+
 #include "defines.hpp"
 
 namespace feature

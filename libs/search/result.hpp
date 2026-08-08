@@ -1,7 +1,6 @@
 #pragma once
 
 #include "search/bookmarks/results.hpp"
-#include "search/ranking_info.hpp"
 
 #include "indexer/feature_decl.hpp"
 
@@ -25,6 +24,8 @@
 
 namespace search
 {
+struct RankingInfo;
+
 // Search result. Search returns a list of them, ordered by score.
 //
 // TODO (@y, @m): split this class to small classes by type, replace

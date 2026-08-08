@@ -6,6 +6,7 @@
 
 #include "coding/file_writer.hpp"
 #include "coding/internal/file_data.hpp"
+#include "coding/reader.hpp"
 
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"

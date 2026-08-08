@@ -756,6 +756,12 @@ IsTaxiChecker::IsTaxiChecker()
   m_types.push_back(c.GetTypeByPath({"amenity", "taxi"}));
 }
 
+IsOrganicChecker::IsOrganicChecker() : BaseChecker(1 /* level */)
+{
+  Classificator const & c = classif();
+  m_types.push_back(c.GetTypeByPath({"organic"}));
+}
+
 IsChristmasChecker::IsChristmasChecker()
 {
   Classificator const & c = classif();

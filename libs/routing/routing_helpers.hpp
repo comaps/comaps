@@ -1,8 +1,6 @@
 #pragma once
 
 #include "routing/road_graph.hpp"
-#include "routing/route.hpp"
-#include "routing/route_weight.hpp"
 
 #include "routing_common/bicycle_model.hpp"
 #include "routing_common/car_model.hpp"
@@ -10,11 +8,10 @@
 
 #include "indexer/classificator.hpp"
 
-#include "geometry/point_with_altitude.hpp"
 #include "geometry/rect2d.hpp"
 #include "geometry/segment2d.hpp"
 
-#include "base/cancellable.hpp"
+#include "base/stl_helpers.hpp"
 
 #include <memory>
 #include <queue>
@@ -26,6 +23,11 @@ namespace routing
 class DirectionsEngine;
 class IndexGraphStarter;
 class IndexRoadGraph;
+class NumMwmIds;
+class Route;
+class RouteSegment;
+class RouteWeight;
+class Segment;
 class TrafficStash;
 class WorldGraph;
 

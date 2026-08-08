@@ -8,8 +8,14 @@ set(SRC
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  bsdiff
-  coding
+  PRIVATE
+    base
+    coding
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    bsdiff
 )
 
 omim_add_tool_subdirectory(mwm_diff_tool)

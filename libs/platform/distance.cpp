@@ -5,6 +5,7 @@
 #include "platform/measurement_utils.hpp"
 
 #include "base/assert.hpp"
+#include "base/math.hpp"
 
 #include <cmath>
 

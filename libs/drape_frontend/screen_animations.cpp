@@ -1,11 +1,19 @@
 #include "drape_frontend/screen_animations.hpp"
 
+#include "drape_frontend/animation/animation.hpp"
 #include "drape_frontend/animation/follow_animation.hpp"
+#include "drape_frontend/animation/interpolators.hpp"
 #include "drape_frontend/animation/linear_animation.hpp"
 #include "drape_frontend/animation/scale_animation.hpp"
 #include "drape_frontend/animation/sequence_animation.hpp"
 #include "drape_frontend/animation_constants.hpp"
 #include "drape_frontend/screen_operations.hpp"
+
+#include "geometry/angles.hpp"
+#include "geometry/rect2d.hpp"
+#include "geometry/screenbase.hpp"
+
+#include "base/assert.hpp"
 
 namespace df
 {

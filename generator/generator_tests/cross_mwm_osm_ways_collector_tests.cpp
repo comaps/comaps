@@ -45,7 +45,7 @@ public:
     classificator::Load();
     auto const targetDir = GetPlatform().WritableDir();
 
-    m_affiliation = std::make_shared<feature::CountriesFilesAffiliation>(targetDir, true /*haveBordersForWholeWorld*/);
+    m_affiliation = std::make_shared<feature::CountriesFilesAffiliation>(GetPlatform().ResourcesDir(), true /*haveBordersForWholeWorld*/);
 
     auto const intermediateDir = base::JoinPath(targetDir, kTmpDirName);
     if (!Platform::MkDirChecked(intermediateDir))

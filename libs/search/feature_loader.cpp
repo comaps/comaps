@@ -1,7 +1,5 @@
 #include "search/feature_loader.hpp"
 
-#include "editor/editable_data_source.hpp"
-
 #include "indexer/feature.hpp"
 #include "indexer/feature_decl.hpp"
 

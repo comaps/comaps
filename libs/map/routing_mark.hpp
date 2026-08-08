@@ -1,6 +1,17 @@
 #pragma once
 
 #include "map/bookmark_manager.hpp"
+#include "map/user_mark.hpp"
+
+#include "drape_frontend/render_state_extension.hpp"
+#include "drape_frontend/shape_view_params.hpp"
+
+#include "drape/drape_global.hpp"
+#include "drape/pointers.hpp"
+
+#include "indexer/feature_decl.hpp"
+
+#include "geometry/point2d.hpp"
 
 #include <functional>
 #include <string>
@@ -197,6 +208,29 @@ private:
   SymbolNameZoomInfo m_symbolNames;
   ColoredSymbolZoomInfo m_textBg;
   dp::TitleDecl m_titleDecl;
+};
+
+class TrafficLightMark : public UserMark
+{
+public:
+  explicit TrafficLightMark(m2::PointD const & ptOrg);
+
+  bool SymbolIsPOI() const override { return true; }
+  df::DepthLayer GetDepthLayer() const override { return df::DepthLayer::RoutingMarkLayer; }
+  uint16_t GetPriority() const override { return static_cast<uint16_t>(Priority::TrafficLight); }
+  df::SpecialDisplacement GetDisplacement() const override { return df::SpecialDisplacement::SpecialModeUserMark; }
+  
+  void SetFeatureId(FeatureID const & featureId);
+  FeatureID GetFeatureID() const override { return m_featureId; }
+  
+  drape_ptr<SymbolNameZoomInfo> GetSymbolNames() const override;
+
+  int GetMinZoom() const override;
+  dp::Anchor GetAnchor() const override;
+
+private:
+  SymbolNameZoomInfo m_symbolNames;
+  FeatureID m_featureId;
 };
 
 enum class RoadWarningMarkType : uint8_t

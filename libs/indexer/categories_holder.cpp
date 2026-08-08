@@ -2,9 +2,9 @@
 #include "indexer/classificator.hpp"
 #include "indexer/search_string_utils.hpp"
 
-#include "coding/reader.hpp"
 #include "coding/reader_streambuf.hpp"
 
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 
 namespace
@@ -172,6 +172,24 @@ bool CategoriesHolder::ValidKeyToken(strings::UniString const & s)
   return true;
 }
 
+/*
+ * BNF (additionally lines starting with `#` are ignored as comments):
+ * <category>           ::= <category_title> '\n' <category_item_list> '\n'
+ * <category_title>     ::= <osm_type_list> '|' <group_title_list>
+ * <group_translations> ::= <group_title> '\n' <category_item_list>
+ * <osm_type_list>      ::= <osm_type> ['|' <osm_type_list>]
+ * <group_title_list>   ::= <group_title> ['|' <group_title_list>]
+ * <group_title>        ::= '@' <group_name>
+ * <category_item_list> ::= <category_item> '\n' [category_item_list]
+ * <category_item>      ::= <lang> ':' <translation_list>
+ * <translation_list>   ::= <translation_item> ['|' <translation_list>]
+ * <translation_item>   ::= [prefix_length] <translation>
+ * <prefix_length>      ::= '1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'
+ * <osm_type>           ::= OpenStreetMap object type
+ * <group_name>         ::= any name of group
+ * <translation>        ::= translation into corresponding language
+ * <lang>               ::= 'en'|'cs'|'sk'|'de'|'es'|'fr'|'it'|'ja' etc.
+ */
 void CategoriesHolder::LoadFromStream(std::istream & s)
 {
   m_type2cat.clear();

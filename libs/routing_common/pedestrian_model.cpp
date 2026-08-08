@@ -2,6 +2,8 @@
 
 #include "indexer/classificator.hpp"
 
+#include "base/assert.hpp"
+
 namespace pedestrian_model
 {
 using namespace routing;

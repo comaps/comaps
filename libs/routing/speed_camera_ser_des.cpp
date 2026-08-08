@@ -1,5 +1,6 @@
 #include "routing/speed_camera_ser_des.hpp"
 
+#include "coding/file_writer.hpp"
 #include "coding/point_coding.hpp"
 #include "coding/varint.hpp"
 

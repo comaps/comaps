@@ -1,6 +1,8 @@
 #include "drape/batcher.hpp"
 #include "drape/batcher_helpers.hpp"
+#include "drape/binding_info.hpp"
 #include "drape/index_storage.hpp"
+#include "drape/overlay_handle.hpp"
 #include "drape/vertex_array_buffer.hpp"
 
 #include "base/assert.hpp"

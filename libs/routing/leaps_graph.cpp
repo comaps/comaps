@@ -1,7 +1,12 @@
 #include "routing/leaps_graph.hpp"
 
+#include "routing/base/astar_vertex_data.hpp"
 #include "routing/cross_mwm_graph.hpp"
+#include "routing/index_graph.hpp"
 #include "routing/index_graph_starter.hpp"
+#include "routing/world_graph.hpp"
+
+#include "routing_common/num_mwm_id.hpp"
 
 #include "base/assert.hpp"
 

@@ -1,0 +1,713 @@
+{
+    "@category_eat": {
+        "defaultMessage": "איפה לאכול|אוכל"
+    },
+    "@category_food": {
+        "defaultMessage": "מצרכים"
+    },
+    "@category_transport": {
+        "defaultMessage": "תחבורה"
+    },
+    "@category_fuel": {
+        "defaultMessage": "דלק"
+    },
+    "@category_parking": {
+        "defaultMessage": "חניה"
+    },
+    "@category_shopping": {
+        "defaultMessage": "קניות"
+    },
+    "@category_hotel": {
+        "defaultMessage": "מלון|בתי"
+    },
+    "@category_tourism": {
+        "defaultMessage": "נקודות עיניין"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "בידור"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "חיי לילה"
+    },
+    "@category_children": {
+        "defaultMessage": "שעשועים"
+    },
+    "@category_atm": {
+        "defaultMessage": "כספומט"
+    },
+    "@category_rv": {
+        "defaultMessage": "עבור קרוואנים"
+    },
+    "@category_bank": {
+        "defaultMessage": "בנק"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "יד שניה"
+    },
+    "@category_recycling": {
+        "defaultMessage": "מיחזור"
+    },
+    "@shop": {
+        "defaultMessage": "חנות"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "הקיטמסוק"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "מעדנייה"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "מכשירי שמיעה"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "םיחבטמ תונח"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "מוצרים לבית"
+    },
+    "shop-beauty": {
+        "defaultMessage": "יפוי ןוכמ"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "ןוינקה"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "העברת כספים"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "רַכֶּבֶל"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "אתר ארכיאולוגי"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "שדה קרב"
+    },
+    "historic-stone": {
+        "defaultMessage": "אבן היסטורית"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "אבן גבול"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "טירה|קסטרום|כנסייה מבוצרת|מִבצָר|מבצר גבעה|קרמלין|אחוזה|ארמון|שאטו"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "שער העיר"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "חומת העיר"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "מִבצָר"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "גרדום"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "אתר הנצחה"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "צלב זיכרון"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "לוחית זיכרון"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "פֶּסֶל"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "פסל"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "אבן נגף"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "אנדרטת מלחמה"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "מונומנט"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "עמוד הקלון"
+    },
+    "historic-cannon": {
+        "defaultMessage": "תוֹתָח"
+    },
+    "historic-anchor": {
+        "defaultMessage": "עוגן היסטורי"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "חורבות"
+    },
+    "historic-mine": {
+        "defaultMessage": "מכרה היסטורי"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "אונייה"
+    },
+    "historic-wreck": {
+        "defaultMessage": "ספינה טרופה"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "קטר היסטורי"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "טנק היסטורי"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "מטוס היסטורי"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "קֶבֶר"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "צלב בצד הדרך"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "מקדש בצד הדרך"
+    },
+    "leisure-dog_park": {
+        "defaultMessage": "גינת כלבים"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "השכרת אופנועים"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "גנילואב םלוא"
+    },
+    "@gambling": {
+        "defaultMessage": "הימורים"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "מרכז משחקים למבוגרים"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "מִקמֶרֶת"
+    },
+    "@category_hospital": {
+        "defaultMessage": "בית חולים"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "תיאופר הדבעמ"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "פיזיותרפיסט"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "רפואה אלטרנטיבית"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "אודיולוג|אודיולוגיה"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "מרכז תרומת דם"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "אופטומטריה|אופטומטריסט"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "פודיאטריה|פודיאטר"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "פסיכותרפיה|פסיכותרפיסט"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "ריפוי בדיבור|קלינאי תקשורת"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "בית מרקחת"
+    },
+    "@category_post": {
+        "defaultMessage": "דואר"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "לבדיקה טכנית"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "במכולה|הפשא"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "תוללוס"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "בקתת לינה|בקתה"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "מחסה ללינה|מחסה|מחסה פתוח"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "מועדון חשפנות"
+    },
+    "@category_toilet": {
+        "defaultMessage": "שירותים"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "אַקוַרִיוּם"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "חדר בריחה"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "משרד היי טק משותף"
+    },
+    "sport-american_football": {
+        "defaultMessage": "כדורגל אמריקאי"
+    },
+    "sport-archery": {
+        "defaultMessage": "קַשׁתוּת"
+    },
+    "sport-athletics": {
+        "defaultMessage": "אַתלֵטִיקָה"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "פוטבול אוסטרלי"
+    },
+    "sport-baseball": {
+        "defaultMessage": "בייסבול"
+    },
+    "sport-basketball": {
+        "defaultMessage": "כדורסל"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "כדורעף חופים"
+    },
+    "sport-bowls": {
+        "defaultMessage": "כדורת דשא"
+    },
+    "sport-chess": {
+        "defaultMessage": "שחמט"
+    },
+    "sport-cricket": {
+        "defaultMessage": "קריקט"
+    },
+    "sport-curling": {
+        "defaultMessage": "קרלינג"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "רכיבה"
+    },
+    "sport-golf": {
+        "defaultMessage": "גולף"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "התעמלות"
+    },
+    "sport-handball": {
+        "defaultMessage": "כדוריד"
+    },
+    "sport-shooting": {
+        "defaultMessage": "ירי ספורטיבי"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "סקייטבורדינג"
+    },
+    "sport-skiing": {
+        "defaultMessage": "סקי"
+    },
+    "sport-soccer": {
+        "defaultMessage": "כדורגל"
+    },
+    "sport-swimming": {
+        "defaultMessage": "שחייה"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "טניס שולחן"
+    },
+    "sport-tennis": {
+        "defaultMessage": "טֶנִיס"
+    },
+    "sport-padel": {
+        "defaultMessage": "פאדל"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "כדורעף"
+    },
+    "building-address": {
+        "defaultMessage": "כתובת"
+    },
+    "@category_police": {
+        "defaultMessage": "משטרה"
+    },
+    "@category_water": {
+        "defaultMessage": "מים"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "מעיין חם"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "מים לקרון"
+    },
+    "@waterbody": {
+        "defaultMessage": "גוף מים"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "אגן מים"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "מאגר"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "כוורן"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "נַפָּח"
+    },
+    "craft-brewery": {
+        "defaultMessage": "מבשלה"
+    },
+    "craft-caterer": {
+        "defaultMessage": "קייטרינג"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "נגר"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "קוֹנדִיטוֹר"
+    },
+    "craft-electrician": {
+        "defaultMessage": "חשמלאי"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "תיקון אלקטרוניקה"
+    },
+    "craft-gardener": {
+        "defaultMessage": "גנן"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "טחנה"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "אומנות"
+    },
+    "craft-hvac": {
+        "defaultMessage": "חימום, אוורור ומיזוג אוויר"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "עובד מתכת"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "חיתוך מפתח"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "פורץ מנעולים"
+    },
+    "craft-painter": {
+        "defaultMessage": "צייר"
+    },
+    "craft-photographer": {
+        "defaultMessage": "צלם"
+    },
+    "craft-plumber": {
+        "defaultMessage": "שרברב"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "מנסרה"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "סנדלר"
+    },
+    "craft-winery": {
+        "defaultMessage": "יקב"
+    },
+    "craft-tailor": {
+        "defaultMessage": "חייט"
+    },
+    "man_made-flagpole": {
+        "defaultMessage": "עמוד דגל"
+    },
+    "man_made-mast": {
+        "defaultMessage": "תורן"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "מגדל תקשורת"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "אקולוגי|ביו|בריא|ביולוגי|אקולוגי|טבעי|אורגני"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "חנות מצלמות"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "טעינת אופניים"
+    },
+    "emergency-phone": {
+        "defaultMessage": "טלפון חירום"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "גַן חַיוֹת"
+    },
+    "attraction-animal": {
+        "defaultMessage": "מתחם בעלי חיים"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "מרכז מבקרים"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "אוויר דחוס"
+    },
+    "shop-outpost": {
+        "defaultMessage": "נקודת איסוף"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "היינש די תונח"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "הקדצ תונח"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "תינוכמ יקלח"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "קוטג' נופש"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "הקיזומל רפס תיב"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "תופשל רפס תיב"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "םיכנל הינח"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "אמבטיה ציבורית"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "נקודת כינוס חירום"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "תיקון אופנועים"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "סקי|ריצת סקי"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "מקום אירועים"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "תוֹקיתִעַ"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "תויונמוא תונח"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "םידליל תונח"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "םיקית תונח"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "תוניבג תונח"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "בלח ירצומ"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "למשח תונח"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "גייד תונח"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "םינפ יטושיק"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "הלרגה יסיטרכ"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "יאופר דויצ"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "הנוזת יפסות"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "םיעבצ"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "תמַשְׂבָּ"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "הריפת דויצ"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "ןוסחא תרכשה"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "קבָּטַ"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "הקפסאב רחוס"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "םינועש"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "תיאנוטיס תונח"
+    },
+    "power-plant": {
+        "defaultMessage": "תחנת כוח"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "מכירה פומבית"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "אַסְפָן"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "כיסא גלגלים"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "מתקן חברתי"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "אולם ספורט"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "מרכז אומנויות"
+    },
+    "amenity-prison": {
+        "defaultMessage": "כלא|בית כלא|בית סוהר"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "מרכז תערוכה"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "ריהוט חדר רחצה"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "חנות מיטות"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "קיטוב"
+    },
+    "amenity-food_court": {
+        "defaultMessage": "מתחם מזון"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "וילונות"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "חנות גז"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "טיפוח חיות מחמד"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "אודיו HiFi"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "מרכז כנסים"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "חנות עשבי תיבול"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "חנות מוצרי חשמל"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "חנות חקלאית"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "אביזרי אופנה"
+    },
+    "amenity-waste_transfer_station": {
+        "defaultMessage": "תחנת מעבר פסולת"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "שטיחים"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "פַּסטָה"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "ארון המזוודות"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "בייגל"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "ארוחת בוקר"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "המבורגר"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "עוגה"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "הֶפָק"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "קארי"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "דיינר"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "דונאט"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "פיש אנד צ'יפס"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "פריטורה"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "גריל"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "נקניקיה"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "גלידה"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "קבב"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "אטריות"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "פנקייק|קרפ"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "פסטה"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "פיצה"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "ראמן"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "סנדוויץ'"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "נקניק"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "מאכלי ים|דגים"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "אטריות סובה"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "סטייקיה"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "סושי"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "טאפאס"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "תה"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "מטבח טבעוני"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "ממטבח צמחוני"
+    }
+}

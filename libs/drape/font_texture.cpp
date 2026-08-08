@@ -1,8 +1,7 @@
 #include "drape/font_texture.hpp"
 
-#include "drape/pointers.hpp"
-
 #include "base/logging.hpp"
+#include "base/shared_buffer_manager.hpp"
 
 #include <algorithm>
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "search/categories_cache.hpp"
+#include "search/cities_boundaries_table.hpp"
 #include "search/locality_finder.hpp"
 
 #include "geometry/point2d.hpp"

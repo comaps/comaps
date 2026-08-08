@@ -8,6 +8,13 @@
 
   <name>CoMaps</name>
   <summary>Free offline maps for everyone</summary>
+  <summary xml:lang="da">Gratis offlinekort for alle</summary>
+  <summary xml:lang="de">Kostenlose Offline-Karten für alle</summary>
+  <summary xml:lang="es">Mapas sin conexión gratuitos para todos</summary>
+  <summary xml:lang="fr">Cartes hors ligne gratuites pour tous</summary>
+  <summary xml:lang="nl">Gratis offline kaarten voor iedereen</summary>
+  <summary xml:lang="pt_BR">Mapas offline gratuitos para todos</summary>
+  <summary xml:lang="ru">Свободные карты для всех</summary>
   <developer id="app.comaps">
     <name>CoMaps Community</name>
   </developer>
@@ -24,9 +31,52 @@
     <p>
       CoMaps is a free Android, iOS &amp; Linux offline maps app for travellers, tourists, hikers, drivers and cyclists. It uses crowd-sourced OpenStreetMap data and is developed as a non-profit project by the community. Forever no ads, tracking or data collection!
     </p>
+	<p
+	  xml:lang="da">CoMaps er en fri offline kort-app til Android, iOS og Linux, som er rettet mod rejsende, turister, vandrere, bilister og cyklister. Appen er baseret på OpenStreetMap-data og udvikles af fællesskabet som et non-profitprojekt. Altid reklamefri, uden tracking og dataindsamling!
+	</p>
+	<p
+	  xml:lang="de">CoMaps ist eine kostenlose Offline-Karten-App für Android, iOS und Linux, die sich an Reisende, Touristen, Wanderer, Autofahrer und Radfahrer richtet. Sie basiert auf OpenStreetMap-Daten und wird als gemeinnütziges Projekt von einer Community entwickelt. Immer werbefrei, ohne Tracking oder Datenerfassung!
+	</p>
+	<p
+	  xml:lang="es">CoMaps es una aplicación gratuita de mapas sin conexión para Android, iOS y Linux dirigida a viajeros, turistas, excursionistas, conductores y ciclistas. Utiliza datos de OpenStreetMap recopilados de forma colaborativa y ha sido desarrollada como un proyecto sin ánimo de lucro por la comunidad. ¡Sin anuncios, seguimiento ni recopilación de datos, nunca!
+	</p>
+	<p
+	  xml:lang="fr">CoMaps est une application gratuite de cartes hors ligne pour Android, iOS et Linux, destinée aux voyageurs, touristes, randonneurs, conducteurs et cyclistes. Elle utilise les données collaboratives d'OpenStreetMap et est développée par la communauté comme un projet à but non lucratif. Pour toujours, pas de publicité, de suivi ou de collecte de données !
+	</p>
+	<p
+	  xml:lang="nl">CoMaps is een gratis offline kaartenapp voor Android, iOS en Linux, gericht op reizigers, toeristen, wandelaars, automobilisten en fietsers. De app is gebaseerd op OpenStreetMap-gegevens en wordt ontwikkeld als non-profitproject door de community. Voor altijd reclamevrij, zonder tracking en dataverzameling!
+	</p>
+	<p
+	  xml:lang="pt_BR">O CoMaps é um aplicativo gratuito de mapas offline para Android, iOS e Linux, ideal para viajantes, turistas, caminhantes, motoristas e ciclistas. Ele utiliza dados colaborativos do OpenStreetMap e é desenvolvido como um projeto sem fins lucrativos pela comunidade. Sem anúncios, rastreamento ou coleta de dados!
+	</p>
+	<p
+	  xml:lang="ru">CoMaps — это свободные Android, iOS и Linux офлайн карты для путешественников, туристов, хайкеров, водителей и велосипедистов. Приложение использует краудсорсные данные OpenStreetMap и разрабатывается сообществом как некоммерческий проект. Без рекламы, слежки или сбора данных — навсегда!
+	</p>
     <p>
       The Linux version of CoMaps does not yet have feature parity with the Android and iOS versions, and has not yet been optimised for mobile devices. We welcome contributions over on our Codeberg!
     </p>
+	<p
+	  xml:lang="da">Linux-versionen har ikke alle funktioner fra Android- og iOS-versionerne endnu og er heller ikke optimeret for mobile enheder. Vi modtager gerne bidrag på Codeberg!
+	</p>
+	<p
+	  xml:lang="de">Die Linux-Version von CoMaps bietet noch nicht alle Funktionen der Android- und iOS-Versionen und ist auch noch nicht für mobile Geräte optimiert. Wir freuen uns über Mithilfe über Codeberg
+	</p>
+	<p
+	  xml:lang="es">La versión para Linux de CoMaps aún no tiene las mismas funciones que las versiones para Android e iOS, y todavía no se ha optimizado para dispositivos móviles. ¡Agradecemos cualquier contribución en nuestro Codeberg!
+	</p>
+	<p
+	  xml:lang="fr">La version Linux de CoMaps n'a pas les mêmes fonctionnalités que la version Android et iOS et n'est pas encore optimisée pour les appareils mobiles. Nous acceptons toutes contributions sur Codeberg !
+	</p>
+	<p
+	  xml:lang="nl">De Linux versie van CoMaps heeft nog niet alle functies van de Android- en iOS-versies en is ook nog niet geoptimaliseerd voor mobiele apparaten. We verwelkomen bijdragen op Codeberg!
+	</p>
+	<p
+	  xml:lang="pt_BR">A versão para Linux do CoMaps ainda não possui paridade de recursos com as versões para Android e iOS e ainda não foi otimizada para dispositivos móveis. Aceitamos contribuições em nosso Codeberg!
+	</p>
+	<p
+	  xml:lang="ru">Linux-версия CoMaps ещё не достигла функционала версий Android и iOS, и не была оптимизирована для мобильных устройств. Мы будем рады помощи на нашем Codeberg!
+	</p>
+
   </description>
 
   <branding>
@@ -79,9 +129,41 @@
     </screenshot>
   </screenshots>
 
+
   <releases>
-    <release version="2026.04.07" date="2026-04-07">
+    <release version="2026.06.15" date="2026-06-15">
      <url type="details">https://comaps.app/latest/</url>
+     <description><ul>
+<li>Added display of Mangrove user reviews in POI details</li>
+<li>Display numbers of parking spaces with electric chargers and for disabled drivers</li>
+<li>More preference for nearby results in search</li>
+<li>Outdoor style: softened borders of minor (white) roads</li>
+<li>Added stages, animal boarding places and planetariums</li>
+<li>Added specific Brazil, Norway and grey Latvia road shields</li>
+<li>Reduce ferry landing penalty for cars routing</li>
+<li>Always check for updates before downloading maps</li>
+<li>OpenStreetMap data as of July 14 and further weekly updates</li>
+     </ul></description>
+    </release>
+    <release version="2026.06.05" date="2026-06-05">
+     <url type="details">https://codeberg.org/comaps/comaps/releases/tag/v2026.06.05-11</url>
+     <description><ul>
+<li>OpenStreetMap data as of June 3 and further weekly updates via "Check for updates" button in the download screen</li>
+<li>Subway layer additions: Kiev, Charleroi, Nantes light rail and Paris Transilien network</li>
+<li>Fixed opening of POI info links in a browser</li>
+     </ul></description>
+    </release>
+    <release version="2026.05.06" date="2026-05-06">
+     <url type="details">https://codeberg.org/comaps/comaps/releases/tag/v2026.05.06-11</url>
+     <description><ul>
+<li>OpenStreetMap data as of May 4</li>
+<li>"Check for updates" button in the download screen to get new maps without updating the app (weekly map updates are planned)</li>
+<li>Added Slovenia specific road shields</li>
+<li>Added Indonesian Wikipedia articles</li>
+     </ul></description>
+    </release>
+    <release version="2026.04.23" date="2026-04-23">
+     <url type="details">https://codeberg.org/comaps/comaps/releases/tag/v2026.04.23-19</url>
      <description><ul>
 <li>OpenStreetMap data as of April 21</li>
 <li>Show results for viewport search</li>

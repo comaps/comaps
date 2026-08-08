@@ -130,6 +130,7 @@
 "type.amenity.parking_space.private" = "Parking Space";
 "type.amenity.parking_space.underground" = "Parking Space";
 "type.amenity.parking_space.disabled" = "Disabled Parking Space";
+"type.amenity.planetarium" = "Planetarium";
 "type.amenity.car_pooling" = "Car Pooling";
 "type.amenity.payment_terminal" = "Payment Terminal";
 "type.amenity.payment_centre" = "Payment Centre";
@@ -184,6 +185,8 @@
 "type.amenity.telephone" = "Phone";
 "type.amenity.theatre" = "Theatre";
 "type.amenity.toilets" = "Toilet";
+"type.amenity.toilets.customers" = "Customer Access";
+"type.amenity.toilets.private" = "Private Access";
 "type.toilets.yes" = "Toilet";
 "type.amenity.townhall" = "Town Hall";
 "type.amenity.university" = "University";
@@ -203,6 +206,7 @@
 "type.amenity.vending_machine.fuel" = "Fuel Pump";
 "type.amenity.veterinary" = "Veterinary Doctor";
 "type.amenity.animal_shelter" = "Animal Shelter";
+"type.amenity.animal_boarding" = "Animal Boarding";
 "type.amenity.waste_basket" = "Trash Bin";
 "type.amenity.waste_disposal" = "Dumpster";
 "type.amenity.waste_transfer_station" = "Waste Transfer Station";
@@ -452,6 +456,22 @@
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "Bus Stop";
 "type.highway.construction" = "Road Under Construction";
+"type.highway.construction.motorway" = "Road Under Construction";
+"type.highway.construction.motorway_link" = "Road Under Construction";
+"type.highway.construction.trunk" = "Road Under Construction";
+"type.highway.construction.trunk_link" = "Road Under Construction";
+"type.highway.construction.primary" = "Road Under Construction";
+"type.highway.construction.primary_link" = "Road Under Construction";
+"type.highway.construction.secondary" = "Road Under Construction";
+"type.highway.construction.secondary_link" = "Road Under Construction";
+"type.highway.construction.tertiary" = "Road Under Construction";
+"type.highway.construction.tertiary_link" = "Road Under Construction";
+"type.highway.construction.residential" = "Road Under Construction";
+"type.highway.construction.unclassified" = "Road Under Construction";
+"type.highway.construction.service" = "Road Under Construction";
+"type.highway.construction.living_street" = "Road Under Construction";
+"type.highway.construction.road" = "Road Under Construction";
+"type.highway.construction.track" = "Road Under Construction";
 "type.highway.cycleway" = "Cycle Path";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Bridge";
@@ -867,8 +887,9 @@
 "type.office.lawyer" = "Lawyer";
 "type.office.ngo" = "Non-Governmental Organization";
 "type.office.telecommunication" = "Telecom Company";
-"type.organic.only" = "Organic";
-"type.organic.yes" = "Organic";
+"type.organic.only" = "Organic only";
+"type.organic.yes" = "Organic options";
+"type.organic.no" = "No organic options";
 "type.place.city" = "City";
 "type.place.city.capital" = "Capital";
 "type.place.city.capital.10" = "City";
@@ -938,7 +959,7 @@
 "type.railway.funicular" = "Funicular";
 "type.railway.funicular.bridge" = "Funicular Bridge";
 "type.railway.funicular.tunnel" = "Funicular Tunnel";
-"type.railway.halt" = "Rail Halt";
+"type.railway.halt" = "Rail Stop";
 "type.railway.level_crossing" = "Level Crossing";
 "type.railway.light_rail" = "Light Rail";
 "type.railway.light_rail.bridge" = "Light Rail Bridge";
@@ -1515,3 +1536,4 @@
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Sports hall";
 "type.xmas.tree" = "Christmas Tree";
+"type.amenity.stage" = "Stage";

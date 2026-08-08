@@ -1,7 +1,7 @@
 #pragma once
 
-#include "indexer/data_source.hpp"
 #include "indexer/feature_decl.hpp"
+#include "indexer/mwm_set.hpp"
 
 #include "coding/files_container.hpp"
 #include "coding/map_uint32_to_val.hpp"

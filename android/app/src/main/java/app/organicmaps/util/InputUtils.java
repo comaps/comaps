@@ -6,9 +6,11 @@ import android.speech.RecognizerIntent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+
 import androidx.annotation.NonNull;
+
 import app.organicmaps.sdk.util.Utils;
-import app.organicmaps.sdk.util.concurrency.UiThread;
+
 import java.util.ArrayList;
 
 public class InputUtils
@@ -49,30 +51,20 @@ public class InputUtils
     return recognizedStrings.isEmpty() ? null : recognizedStrings.get(0);
   }
 
-  private static void showKeyboardSync(final View input)
+  public static void showKeyboard(@NonNull final View view)
   {
-    if (input != null)
-      ((InputMethodManager) input.getContext().getSystemService(Context.INPUT_METHOD_SERVICE))
-          .showSoftInput(input, InputMethodManager.SHOW_IMPLICIT);
+    ((InputMethodManager) view
+        .getContext()
+        .getSystemService(Context.INPUT_METHOD_SERVICE))
+        .showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
   }
 
-  private static void showKeyboardDelayed(final View input, int delay)
+  public static void hideKeyboard(@NonNull final View view)
   {
-    if (input == null)
-      return;
-
-    UiThread.runLater(() -> showKeyboardSync(input), delay);
-  }
-
-  public static void showKeyboard(View input)
-  {
-    showKeyboardDelayed(input, 100);
-  }
-
-  public static void hideKeyboard(View view)
-  {
-    InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    ((InputMethodManager) view
+        .getContext()
+        .getSystemService(Context.INPUT_METHOD_SERVICE))
+        .hideSoftInputFromWindow(view.getWindowToken(), 0);
   }
 
   /*

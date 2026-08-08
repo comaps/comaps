@@ -3,7 +3,6 @@
 #include "jansson_handle.hpp"
 
 #include "base/exception.hpp"
-#include "base/string_utils.hpp"
 
 #include <cstdint>
 #include <memory>
@@ -376,6 +375,8 @@ inline base::JSONPtr ToJSON(std::string const & s)
 
 namespace strings
 {
+class UniString;
+
 void FromJSON(json_t const * root, UniString & result);
 base::JSONPtr ToJSON(UniString const & s);
 }  // namespace strings

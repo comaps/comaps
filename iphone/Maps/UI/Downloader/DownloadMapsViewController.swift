@@ -4,6 +4,8 @@ import UIKit
 class DownloadMapsViewController: MWMViewController {
   // MARK: - Types
 
+  private var checkUpdatesButton: UIButton?
+    
   private enum NodeAction {
     case showOnMap
     case download
@@ -31,7 +33,7 @@ class DownloadMapsViewController: MWMViewController {
   var dataSource: IDownloaderDataSource!
   @objc var mode: MWMMapDownloaderMode = .downloaded
   private var skipCountryEvent = false
-  private var hasAddMapSection: Bool { dataSource.isRoot && mode == .downloaded }
+  private var hasAddMapSection: Bool { false }
   private let allMapsViewBottomOffsetConstant: CGFloat = 64
 
   lazy var noSerchResultViewController: SearchNoResultsViewController = {
@@ -94,6 +96,53 @@ class DownloadMapsViewController: MWMViewController {
     navigationItem.hidesSearchBarWhenScrolling = false
     
     configButtons()
+      
+    if mode == .downloaded && dataSource.isRoot {
+      let refreshControl = UIRefreshControl()
+      refreshControl.addTarget(self, action: #selector(onCheckUpdates), for: .valueChanged)
+      tableView.refreshControl = refreshControl
+        
+      // Primary button (download maps)
+      var addConfig = UIButton.Configuration.filled()
+      addConfig.title = L("download_maps")
+      addConfig.buttonSize = .large
+      addConfig.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+          var outgoing = incoming
+          outgoing.font = UIFont.preferredFont(forTextStyle: .headline)
+          return outgoing
+          }
+      let addBtn = UIButton(configuration: addConfig)
+      addBtn.addTarget(self, action: #selector(onAddMaps), for: .touchUpInside)
+        
+      // Secondary button (update maps)
+      var updateConfig = UIButton.Configuration.gray()
+      updateConfig.title = L("downloader_check_updates_button")
+      updateConfig.buttonSize = .large
+      updateConfig.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+          var outgoing = incoming
+          outgoing.font = UIFont.preferredFont(forTextStyle: .headline)
+          return outgoing
+          }
+      let updateBtn = UIButton(configuration: updateConfig)
+      updateBtn.addTarget(self, action: #selector(onCheckUpdates), for: .touchUpInside)
+      checkUpdatesButton = updateBtn
+        
+      let stack = UIStackView(arrangedSubviews: [addBtn, updateBtn])
+      stack.axis = .vertical
+      stack.spacing = 16
+      stack.translatesAutoresizingMaskIntoConstraints = false
+        
+      let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 140))
+      footerView.addSubview(stack)
+        
+      NSLayoutConstraint.activate([
+        stack.leadingAnchor.constraint(equalTo: footerView.leadingAnchor, constant: 16),
+        stack.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: -16),
+        stack.centerYAnchor.constraint(equalTo: footerView.centerYAnchor)
+      ])
+        
+      tableView.tableFooterView = footerView
+    }
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -125,7 +174,7 @@ class DownloadMapsViewController: MWMViewController {
     actionSheet.popoverPresentationController?.sourceView = cell
     actionSheet.popoverPresentationController?.sourceRect = cell.bounds
 
-    let actions: [NodeAction]
+    var actions: [NodeAction]
     switch nodeAttrs.nodeStatus {
     case .undefined:
       actions = []
@@ -143,6 +192,12 @@ class DownloadMapsViewController: MWMViewController {
       actions = [.download, .delete]
     @unknown default:
       fatalError()
+    }
+
+    if nodeAttrs.countryId == "World" || nodeAttrs.countryId == "WorldCoasts" {
+      actions.removeAll { action in
+        action == .delete || action == .showOnMap
+      }
     }
 
     addActions(actions, for: nodeAttrs, to: actionSheet)
@@ -244,6 +299,52 @@ class DownloadMapsViewController: MWMViewController {
     vc.mode = .available
     navigationController?.pushViewController(vc, animated: true)
   }
+    
+  @objc private func onCheckUpdates() {
+    checkUpdatesButton?.configuration?.showsActivityIndicator = true
+    checkUpdatesButton?.configuration?.imagePadding = 8
+    checkUpdatesButton?.configuration?.title = L("downloader_check_updates_checking")
+    checkUpdatesButton?.isEnabled = false
+
+    Storage.shared().setCheckUpdatesListener { [weak self] status in
+      guard let self = self else { return }
+
+      self.checkUpdatesButton?.configuration?.showsActivityIndicator = false
+      self.checkUpdatesButton?.configuration?.title = L("downloader_check_updates_button")
+      self.checkUpdatesButton?.isEnabled = true
+
+      self.tableView.refreshControl?.endRefreshing()
+
+      switch status {
+      case .updated:
+        // Silent refresh (email app style)
+        self.dataSource.reload { self.reloadData() }
+
+      case .noUpdate:
+        // Do nothing (email app style)
+        break
+
+      case .error, .undefined:
+        // Temporarily flash an error on the button itself (no popup/toast)
+        self.checkUpdatesButton?.configuration?.title = L("downloader_check_updates_error")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+          self.checkUpdatesButton?.configuration?.title = L("downloader_check_updates_button")
+        }
+
+      case .EOL:
+        let alert = UIAlertController(title: nil, message: L("downloader_check_updates_eol"), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: L("ok"), style: .default))
+        self.present(alert, animated: true)
+
+      @unknown default:
+        break
+      }
+      
+      Storage.shared().setCheckUpdatesListener(nil)
+    }
+
+    Storage.shared().startCheckUpdates()
+  }
 }
 
 // MARK: - UITableViewDataSource
@@ -310,6 +411,10 @@ extension DownloadMapsViewController: UITableViewDataSource {
       return false
     }
     let nodeAttrs = dataSource.item(at: indexPath)
+    if nodeAttrs.countryId == "World" || nodeAttrs.countryId == "WorldCoasts" {
+      return false
+    }
+      
     switch nodeAttrs.nodeStatus {
     case .onDisk, .onDiskOutOfDate, .partly:
       return true

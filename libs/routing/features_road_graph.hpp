@@ -5,11 +5,10 @@
 #include "routing_common/vehicle_model.hpp"
 
 #include "indexer/altitude_loader.hpp"
-#include "indexer/feature_data.hpp"
 #include "indexer/mwm_set.hpp"
 
 #include "geometry/point2d.hpp"
-#include "geometry/point_with_altitude.hpp"
+#include "geometry/rect2d.hpp"
 
 #include "base/cache.hpp"
 

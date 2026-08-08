@@ -1,17 +1,21 @@
 #include "routing/index_graph.hpp"
 
+#include "routing/base/astar_vertex_data.hpp"
 #include "routing/restrictions_serialization.hpp"
+#include "routing/road_point.hpp"
 #include "routing/routing_options.hpp"
 #include "routing/world_graph.hpp"
 
-#include "platform/settings.hpp"
+#include "indexer/feature_meta.hpp"
+
+#include "geometry/distance_on_sphere.hpp"
+#include "geometry/point3d.hpp"
 
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"
-#include "base/exception.hpp"
+#include "base/logging.hpp"
+#include "base/math.hpp"
 #include "base/timer.hpp"
-
-#include "geometry/distance_on_sphere.hpp"
 
 #include <algorithm>
 #include <limits>
@@ -427,7 +431,7 @@ void IndexGraph::GetNeighboringEdge(astar::VertexData<Segment, RouteWeight> cons
 IndexGraph::PenaltyData IndexGraph::GetRoadPenaltyData(Segment const & segment) const
 {
   auto const & road = GetRoadGeometry(segment.GetFeatureId());
-  return {road.IsPassThroughAllowed(), road.GetRoutingOptions().Has(RoutingOptions::Road::Ferry)};
+  return {road.IsPassThroughAllowed(), road.GetRoutingOptions().Has(RoutingOptions::Option::Ferry)};
 }
 
 RouteWeight IndexGraph::GetPenalties(EdgeEstimator::Purpose purpose, Segment const & u, Segment const & v,

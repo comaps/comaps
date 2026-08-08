@@ -5,6 +5,7 @@ enum TextColorStyleSheet: String, CaseIterable {
   case linkBlue = "linkBlueText"
   case linkBlueHighlighted = "linkBlueHighlightedText"
   case white = "whiteText"
+  case blackTertiary = "blackTertiaryText"
   case blackHint = "blackHintText"
   case green = "greenText"
   case red = "redText"
@@ -21,6 +22,7 @@ extension TextColorStyleSheet: IStyleSheet {
       case .linkBlue: return colors.linkBlue
       case .linkBlueHighlighted: return colors.linkBlueHighlighted
       case .white: return colors.white
+      case .blackTertiary: return colors.blackTertiaryText
       case .blackHint: return colors.blackHintText
       case .green: return colors.ratingGreen
       case .red: return colors.red

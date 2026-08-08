@@ -1,23 +1,31 @@
 #include "map/place_page_info.hpp"
 
 #include "map/bookmark_helpers.hpp"
+#include "map/bookmark_manager.hpp"
+#include "map/track.hpp"
 
+#include "indexer/feature.hpp"
 #include "indexer/feature_utils.hpp"
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/mwm_set.hpp"
 #include "indexer/road_shields_parser.hpp"
 
 #include "platform/distance.hpp"
 #include "platform/duration.hpp"
 #include "platform/localization.hpp"
 #include "platform/measurement_utils.hpp"
-#include "platform/preferred_languages.hpp"
 #include "platform/settings.hpp"
 #include "platform/utm_mgrs_utils.hpp"
 
+#include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 
+#include "i18n/duration.hpp"
+#include "i18n/localisation.hpp"
+#include "i18n/localisation_translation.hpp"
+
 #include "base/assert.hpp"
-#include "base/localisation_translation.hpp"
+#include "base/string_utils.hpp"
 
 #include "3party/open-location-code/openlocationcode.h"
 
@@ -249,7 +257,7 @@ void Info::SetTitlesForTrack(Track const & track)
   auto const duration = track.GetDurationInSeconds();
   statistics.push_back(platform::Distance::CreateFormatted(length).ToString());
   if (duration > 0)
-    statistics.push_back(platform::Duration(duration).GetPlatformLocalizedString());
+    statistics.push_back(platform::GetPlatformLocalizedString(platform::Duration(duration)));
   m_uiTrackStatistics = strings::JoinStrings(statistics, feature::kFieldsSeparator);
 }
 

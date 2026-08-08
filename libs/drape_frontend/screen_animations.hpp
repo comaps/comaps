@@ -1,9 +1,13 @@
 #pragma once
 
-#include "drape_frontend/animation/animation.hpp"
-#include "drape_frontend/screen_operations.hpp"
+#include "drape/pointers.hpp"
+
+#include "geometry/any_rect2d.hpp"
+#include "geometry/point2d.hpp"
 
 #include <string>
+
+class ScreenBase;
 
 namespace df
 {

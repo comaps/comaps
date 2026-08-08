@@ -3,8 +3,16 @@
 #include "map/bookmark_helpers.hpp"
 #include "map/user_mark_id_storage.hpp"
 
+#include "drape_frontend/render_state_extension.hpp"
+
+#include "drape/color.hpp"
+
 #include "geometry/mercator.hpp"
+#include "geometry/parametrized_segment.hpp"
+#include "geometry/point_with_altitude.hpp"
 #include "geometry/rect_intersect.hpp"
+
+#include "base/assert.hpp"
 
 #include <utility>
 

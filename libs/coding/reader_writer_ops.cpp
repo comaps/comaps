@@ -1,5 +1,10 @@
 #include "coding/reader_writer_ops.hpp"
 
+#include "coding/reader.hpp"
+#include "coding/writer.hpp"
+
+#include "base/assert.hpp"
+
 #include <algorithm>
 #include <cstddef>
 #include <cstdint>

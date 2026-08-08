@@ -1,17 +1,18 @@
 #pragma once
 
+#include "routing/base/small_list.hpp"
 #include "routing/cross_border_graph.hpp"
 #include "routing/fake_ending.hpp"
-#include "routing/latlon_with_altitude.hpp"
 #include "routing/regions_decl.hpp"
 #include "routing/segment.hpp"
 
-#include "routing/base/small_list.hpp"
+#include "geometry/point2d.hpp"
 
 #include <optional>
 
 namespace routing
 {
+class RouteWeight;
 
 // Graph used in IndexGraphStarter for building routes through the most important roads which are
 // extracted from World.mwm. These roads are presented as pairs of points between regions.

@@ -2,6 +2,8 @@
 
 #include "geometry/latlon.hpp"
 
+#include "platform/location.hpp"
+
 namespace tracking
 {
 namespace helpers

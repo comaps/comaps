@@ -417,7 +417,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunnel</string>
     <string name="type.highway.bus_stop">Bushaltestelle</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Straße im Bau</string>
+    <string name="type.highway.construction.motorway">Straße im Bau</string>
+    <string name="type.highway.construction.motorway_link">Straße im Bau</string>
+    <string name="type.highway.construction.trunk">Straße im Bau</string>
+    <string name="type.highway.construction.trunk_link">Straße im Bau</string>
+    <string name="type.highway.construction.primary">Straße im Bau</string>
+    <string name="type.highway.construction.primary_link">Straße im Bau</string>
+    <string name="type.highway.construction.secondary">Straße im Bau</string>
+    <string name="type.highway.construction.secondary_link">Straße im Bau</string>
+    <string name="type.highway.construction.tertiary">Straße im Bau</string>
+    <string name="type.highway.construction.tertiary_link">Straße im Bau</string>
+    <string name="type.highway.construction.residential">Straße im Bau</string>
+    <string name="type.highway.construction.unclassified">Straße im Bau</string>
+    <string name="type.highway.construction.service">Straße im Bau</string>
+    <string name="type.highway.construction.living_street">Straße im Bau</string>
+    <string name="type.highway.construction.road">Straße im Bau</string>
+    <string name="type.highway.construction.track">Straße im Bau</string>
     <string name="type.highway.cycleway">Radweg</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Brücke</string>
@@ -640,7 +657,7 @@
     <string name="type.landuse.greenfield">Bauland</string>
     <string name="type.landuse.greenhouse_horticulture">Gewächshaus-Fläche</string>
     <string name="type.landuse.industrial">Industriegebiet</string>
-    <string name="type.landuse.landfill">Müllhalde</string>
+    <string name="type.landuse.landfill">Mülldeponie</string>
     <string name="type.landuse.meadow">Wiese</string>
     <string name="type.landuse.military">Militärgebiet</string>
     <string name="type.landuse.orchard">Obstplantage</string>
@@ -809,7 +826,7 @@
     <string name="type.office.ngo">Nichtregierungsorganisation</string>
     <string name="type.office.telecommunication">Mobilfunkbetreiber</string>
     <string name="type.organic.only">Nur Bio</string>
-    <string name="type.organic.yes">Bio-Produkte</string>
+    <string name="type.organic.yes">Bio-Produkte vorhanden</string>
     <string name="type.place.city">Großstadt</string>
     <string name="type.place.city.capital">Hauptstadt</string>
     <string name="type.place.city.capital.10">Großstadt</string>
@@ -1520,4 +1537,9 @@
     <string name="type.leisure.sports_centre.sport.pickleball">Sportzentrum</string>
     <string name="type.sport.pickleball">Pickleball</string>
     <string name="type.organic.no">Keine Bio-Produkte</string>
+    <string name="type.amenity.stage">Bühne</string>
+    <string name="type.amenity.animal_boarding">Tierpension</string>
+    <string name="type.amenity.planetarium">Planetarium</string>
+    <string name="type.amenity.toilets.customers">Kundenzugang</string>
+    <string name="type.amenity.toilets.private">Privatzugang</string>
 </resources>

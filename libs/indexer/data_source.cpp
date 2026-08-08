@@ -1,8 +1,20 @@
 #include "indexer/data_source.hpp"
+
 #include "indexer/scale_index.hpp"
 #include "indexer/unique_index.hpp"
 
+#include "indexer/cell_id.hpp"
+#include "indexer/data_header.hpp"
+#include "indexer/metadata_serdes.hpp"
+
+#include "coding/files_container.hpp"
+#include "coding/reader.hpp"
+
+#include "geometry/mercator.hpp"
+
 #include "platform/mwm_version.hpp"
+
+#include "defines.hpp"
 
 #include <algorithm>
 

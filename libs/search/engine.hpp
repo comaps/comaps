@@ -1,9 +1,7 @@
 #pragma once
 
-#include "search/search_params.hpp"
+#include "search/bookmarks/types.hpp"
 #include "search/suggest.hpp"
-
-#include "indexer/categories_holder.hpp"
 
 #include "base/macros.hpp"
 #include "base/thread.hpp"
@@ -16,6 +14,7 @@
 #include <string>
 #include <vector>
 
+class CategoriesHolder;
 class DataSource;
 
 namespace storage
@@ -27,6 +26,7 @@ namespace search
 {
 class EngineData;
 class Processor;
+struct SearchParams;
 
 // This class is used as a reference to a search processor in the
 // SearchEngine's queue.  It's only possible to cancel a search

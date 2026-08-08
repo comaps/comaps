@@ -1,8 +1,8 @@
 #pragma once
 
-#include "base/buffer_vector.hpp"
+#include "indexer/feature_data.hpp"
 
-#include "indexer/feature.hpp"
+#include "base/buffer_vector.hpp"
 
 namespace drule
 {

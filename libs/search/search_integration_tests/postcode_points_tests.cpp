@@ -1,6 +1,7 @@
 #include "testing/testing.hpp"
 
 #include "search/postcode_points.hpp"
+#include "search/ranking_info.hpp"
 #include "search/search_tests_support/helpers.hpp"
 
 #include "generator/generator_tests_support/test_mwm_builder.hpp"

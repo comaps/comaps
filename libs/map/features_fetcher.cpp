@@ -1,10 +1,13 @@
 #include "map/features_fetcher.hpp"
 
-#include "platform/platform.hpp"
+#include "platform/local_country_file.hpp"
 
 #include "indexer/classificator_loader.hpp"
 
+#include "geometry/mercator.hpp"
+
 #include "base/assert.hpp"
+#include "base/exception.hpp"
 #include "base/logging.hpp"
 
 using platform::CountryFile;

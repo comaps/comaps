@@ -1,27 +1,36 @@
 #pragma once
 
-#include "map/bookmark_manager.hpp"
 #include "map/extrapolation/extrapolator.hpp"
 #include "map/routing_mark.hpp"
 #include "map/transit/transit_display.hpp"
-#include "map/transit/transit_reader.hpp"
 
-#include "routing/following_info.hpp"
 #include "routing/route.hpp"
 #include "routing/router.hpp"
+#include "routing/router_delegate.hpp"
 #include "routing/routing_callbacks.hpp"
+#include "routing/routing_options.hpp"
 #include "routing/routing_session.hpp"
-#include "routing/speed_camera_manager.hpp"
+#include "routing/turns.hpp"
 
 #include "storage/storage_defines.hpp"
 
 #include "drape_frontend/drape_engine_safe_ptr.hpp"
 
+#include "drape/drape_global.hpp"
 #include "drape/pointers.hpp"
+
+#include "kml/type_utils.hpp"
+
+#include "indexer/feature_decl.hpp"
+#include "indexer/mwm_set.hpp"
 
 #include "geometry/point2d.hpp"
 #include "geometry/point_with_altitude.hpp"
+#include "geometry/rect2d.hpp"
 
+#include "platform/safe_callback.hpp"
+
+#include "base/assert.hpp"
 #include "base/thread_checker.hpp"
 
 #include <chrono>
@@ -32,6 +41,19 @@
 #include <string>
 #include <vector>
 
+class StringsBundle;
+
+namespace df
+{
+class DrapeEngine;
+}  // namespace df
+
+namespace location
+{
+class GpsInfo;
+class RouteMatchingInfo;
+}  // namespace location
+
 namespace storage
 {
 class CountryInfoGetter;
@@ -40,6 +62,7 @@ class CountryInfoGetter;
 namespace routing
 {
 class NumMwmIds;
+using NumMwmId = std::uint16_t;
 RouterType GetLastUsedRouter();
 }  // namespace routing
 
@@ -115,6 +138,7 @@ public:
   using RouteRecommendCallback = std::function<void(Recommendation)>;
 
   RoutingManager(Callbacks && callbacks, Delegate & delegate);
+  ~RoutingManager();
 
   void SetBookmarkManager(BookmarkManager * bmManager);
   void SetTransitManager(TransitReadManager * transitManager);
@@ -139,6 +163,10 @@ public:
   // users.
   bool DisableFollowMode();
   kml::TrackId SaveRoute();
+
+  void SetAutoReroute(bool autoReroute) { m_routingSession.SetAutoReroute(autoReroute); }
+
+  bool AutoReroute() { return m_routingSession.AutoReroute(); }
 
   void SetRouteBuildingListener(RouteBuildingCallback const & buildingCallback)
   {
@@ -166,7 +194,7 @@ public:
   }
   void FollowRoute();
   void CloseRouting(bool removeRoutePoints);
-  void GetRouteFollowingInfo(routing::FollowingInfo & info) const { m_routingSession.GetRouteFollowingInfo(info); }
+  void GetRouteFollowingInfo(routing::FollowingInfo & info) const;
 
   TransitRouteInfo GetTransitRouteInfo() const;
 
@@ -303,6 +331,13 @@ public:
 
   routing::RouterType GetCurrentRouterType() const { return m_currentRouterType; }
 
+  std::vector<routing::RouteStepInfo> GetRouteTurnsForDisplay(std::string const & locale) const;
+
+  std::vector<double> GetIntermediateStopsProgress() const
+  {
+    return m_routingSession.GetIntermediateStopsProgress();
+  }
+
 private:
   /// \returns true if the route has warnings.
   bool InsertRoute(routing::Route const & route);
@@ -317,12 +352,17 @@ private:
     FeatureID m_featureId;
     double m_distance = 0.0;
   };
-  using RoadWarningsCollection = std::map<routing::RoutingOptions::Road, std::vector<RoadInfo>>;
+  using RoadWarningsCollection = std::map<routing::RoutingOptions::Option, std::vector<RoadInfo>>;
 
   using GetMwmIdFn = std::function<MwmSet::MwmId(routing::NumMwmId numMwmId)>;
+  void CollectFeaturesAlongRoute(std::vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,
+                                 uint32_t featureType, std::vector<std::pair<m2::PointD, FeatureID>> & outFeatures);
   void CollectRoadWarnings(std::vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,
                            double baseDistance, GetMwmIdFn const & getMwmIdFn, RoadWarningsCollection & roadWarnings);
   void CreateRoadWarningMarks(RoadWarningsCollection && roadWarnings);
+  void CollectTrafficLights(std::vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,
+                            std::vector<std::pair<m2::PointD, FeatureID>> & trafficLights);
+  void CreateTrafficLightMarks(std::vector<std::pair<m2::PointD, FeatureID>> && trafficLights);
 
   /// \returns false if the location could not be matched to the route and should be matched to the
   /// road graph. Otherwise returns true.

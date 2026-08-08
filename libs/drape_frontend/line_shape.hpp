@@ -1,14 +1,21 @@
 #pragma once
 
 #include "drape_frontend/map_shape.hpp"
-#include "drape_frontend/render_state_extension.hpp"
 #include "drape_frontend/shape_view_params.hpp"
 
-#include "drape/binding_info.hpp"
+#include "drape/glsl_types.hpp"
+#include "drape/pointers.hpp"
 
+#include "geometry/point2d.hpp"
 #include "geometry/spline.hpp"
 
 #include <memory>
+
+namespace dp
+{
+class BindingInfo;
+class RenderState;
+}  // namespace dp
 
 namespace df
 {

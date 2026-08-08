@@ -1,0 +1,455 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Serrez à droite."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Tournez à droite."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "À droite toute."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "Au rond-point."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Sortez du rond-point."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Serrez à gauche."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Tournez à gauche."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "À gauche toute."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Faites demi-tour."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "Continuez tout droit."
+    },
+    "exit": {
+        "defaultMessage": "Sortez."
+    },
+    "onto": {
+        "defaultMessage": "sur"
+    },
+    "take_exit_number": {
+        "defaultMessage": "Sortez sur"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Recalcul de l’itinéraire"
+    },
+    "destination": {
+        "defaultMessage": "Vous arriverez."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "Vous êtes arrivé."
+    },
+    "in_50_meters": {
+        "defaultMessage": "Dans cinquante mètres"
+    },
+    "in_100_meters": {
+        "defaultMessage": "Dans cent mètres"
+    },
+    "in_200_meters": {
+        "defaultMessage": "Dans deux cents mètres"
+    },
+    "in_250_meters": {
+        "defaultMessage": "Dans deux cent cinquante mètres"
+    },
+    "in_300_meters": {
+        "defaultMessage": "Dans trois cents mètres"
+    },
+    "in_400_meters": {
+        "defaultMessage": "Dans quatre cents mètres"
+    },
+    "in_500_meters": {
+        "defaultMessage": "Dans cinq cents mètres"
+    },
+    "in_600_meters": {
+        "defaultMessage": "Dans six cents mètres"
+    },
+    "in_700_meters": {
+        "defaultMessage": "Dans sept cents mètres"
+    },
+    "in_750_meters": {
+        "defaultMessage": "Dans sept cent cinquante mètres"
+    },
+    "in_800_meters": {
+        "defaultMessage": "Dans huit cents mètres"
+    },
+    "in_900_meters": {
+        "defaultMessage": "Dans neuf cents mètres"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "Dans un kilomètre"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "Dans un kilomètre et demi"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "Dans deux kilomètres"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "Dans deux kilomètres et demi"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "Dans trois kilomètres"
+    },
+    "then": {
+        "defaultMessage": "Puis"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Prenez la première sortie."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Prenez la deuxième sortie."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Prenez la troisième sortie."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Prenez la quatrième sortie."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Prenez la cinquième sortie."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Prenez la sixième sortie."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Prenez la septième sortie."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Prenez la huitième sortie."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Prenez la neuvième sortie."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Prenez la dixième sortie."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Prenez la onzième sortie."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "Dans cinquante pieds"
+    },
+    "in_100_feet": {
+        "defaultMessage": "Dans cent pieds"
+    },
+    "in_200_feet": {
+        "defaultMessage": "Dans deux cents pieds"
+    },
+    "in_300_feet": {
+        "defaultMessage": "Dans trois cents pieds"
+    },
+    "in_400_feet": {
+        "defaultMessage": "Dans quatre cents pieds"
+    },
+    "in_500_feet": {
+        "defaultMessage": "Dans cinq cents pieds"
+    },
+    "in_600_feet": {
+        "defaultMessage": "Dans six cents pieds"
+    },
+    "in_700_feet": {
+        "defaultMessage": "Dans sept cents pieds"
+    },
+    "in_800_feet": {
+        "defaultMessage": "Dans huit cents pieds"
+    },
+    "in_900_feet": {
+        "defaultMessage": "Dans neuf cents pieds"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "Dans mille pieds"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "Dans mille cinq cents pieds"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "Dans deux mille pieds"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "Dans deux mille cinq cents pieds"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "Dans trois mille pieds"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "Dans trois mille cinq cents pieds"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "Dans quatre mille pieds"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "Dans quatre mille cinq cents pieds"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "Dans cinq mille pieds"
+    },
+    "in_1_mile": {
+        "defaultMessage": "Dans un mile"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "Dans un mile et demi"
+    },
+    "in_2_miles": {
+        "defaultMessage": "Dans deux miles"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Radar de vitesse plus loin"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "Au bout de la route,"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Vous êtes à %1$s de l'itinéraire"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Sur plus de trois kilomètres"
+    },
+    "from_50_meters": {
+        "defaultMessage": "cinquante mètres"
+    },
+    "from_100_meters": {
+        "defaultMessage": "cent mètres"
+    },
+    "from_200_meters": {
+        "defaultMessage": "deux cents mètres"
+    },
+    "from_250_meters": {
+        "defaultMessage": "deux cent cinquante mètres"
+    },
+    "from_300_meters": {
+        "defaultMessage": "trois cents mètres"
+    },
+    "from_400_meters": {
+        "defaultMessage": "quatre cents mètres"
+    },
+    "from_500_meters": {
+        "defaultMessage": "cinq cents mètres"
+    },
+    "from_600_meters": {
+        "defaultMessage": "six cents mètres"
+    },
+    "from_700_meters": {
+        "defaultMessage": "sept cents mètres"
+    },
+    "from_500_feet": {
+        "defaultMessage": "cinq cents pieds"
+    },
+    "from_600_feet": {
+        "defaultMessage": "six cents pieds"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "plus de deux miles"
+    },
+    "from_700_feet": {
+        "defaultMessage": "sept cents pieds"
+    },
+    "from_800_feet": {
+        "defaultMessage": "huit cents pieds"
+    },
+    "from_900_feet": {
+        "defaultMessage": "neuf cents pieds"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "mille pieds"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "mille cinq cents pieds"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "deux mille pieds"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "deux mille cinq cents pieds"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "trois mille pieds"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "trois mille cinq cents pieds"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "quatre mille pieds"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "quatre mille cinq cents pieds"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "cinq mille pieds"
+    },
+    "from_1_mile": {
+        "defaultMessage": "un mile"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "un mile et demi"
+    },
+    "from_2_miles": {
+        "defaultMessage": "deux miles"
+    },
+    "from_750_meters": {
+        "defaultMessage": "sept cent cinquante mètres"
+    },
+    "from_800_meters": {
+        "defaultMessage": "huit cents mètres"
+    },
+    "from_900_meters": {
+        "defaultMessage": "neuf cents mètres"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "un kilomètre"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "un kilomètre et demi"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "deux kilomètres"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "deux kilomètres et demi"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "trois kilomètres"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "plus de trois kilomètres"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "Sur plus de deux miles"
+    },
+    "from_50_feet": {
+        "defaultMessage": "cinquante pieds"
+    },
+    "from_100_feet": {
+        "defaultMessage": "cent pieds"
+    },
+    "from_200_feet": {
+        "defaultMessage": "deux cents pieds"
+    },
+    "from_300_feet": {
+        "defaultMessage": "trois cents pieds"
+    },
+    "from_400_feet": {
+        "defaultMessage": "quatre cents pieds"
+    }
+}

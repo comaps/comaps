@@ -1,4 +1,5 @@
 package app.organicmaps.settings;
+import androidx.annotation.Keep;
 
 import static app.organicmaps.backup.BackupUtils.formatReadableFolderPath;
 import static app.organicmaps.backup.BackupUtils.getMaxBackups;
@@ -24,6 +25,7 @@ import app.organicmaps.sdk.util.log.Logger;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.text.DateFormat;
 
+@Keep
 public class BackupSettingsFragment extends BaseXmlSettingsFragment
 {
   private ActivityResultLauncher<Intent> folderPickerLauncher;

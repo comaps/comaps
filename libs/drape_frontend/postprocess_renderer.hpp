@@ -1,21 +1,18 @@
 #pragma once
 
-#include "shaders/program_params.hpp"
-
 #include "drape/drape_global.hpp"
 #include "drape/framebuffer.hpp"
 #include "drape/pointers.hpp"
-#include "drape/render_state.hpp"
-#include "drape/viewport.hpp"
-
-#include "geometry/screenbase.hpp"
 
 #include <cstdint>
+
+class ScreenBase;
 
 namespace dp
 {
 class GraphicsContext;
 class Texture;
+class Viewport;
 }  // namespace dp
 
 namespace gpu

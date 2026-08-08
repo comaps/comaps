@@ -9,7 +9,7 @@
     <string name="delete">削除</string>
     <string name="download_maps">マップをダウンロード</string>
     <!-- Settings/Downloader - info for country when download fails -->
-    <string name="download_has_failed">ダウンロードが失敗しました。もう一度試すには画面をタップしてください。</string>
+    <string name="download_has_failed">ダウンロードが失敗しました。もう一度試すにはタップしてください。</string>
     <!-- Settings/Downloader - info for country which started downloading -->
     <string name="downloading">ダウンロード中…</string>
     <!-- Choose measurement on first launch alert - choose metric system button -->
@@ -40,7 +40,7 @@
     <!-- Text in About screen -->
     <string name="about_proposition_1">• 広告、追跡なし、データ収集なし</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_2">• バッテリーの消耗がなく、オフラインで動作する</string>
+    <string name="about_proposition_2">• プライバシー重視で広告なし</string>
     <!-- Text in About screen -->
     <string name="about_proposition_3">• オフライン、高速、簡潔</string>
     <!-- Text in About screen -->
@@ -68,11 +68,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">新しいセットを作成</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">ブックマークセット名称</string>
+    <string name="bookmark_set_name">リストの名前</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">ブックマーク</string>
+    <string name="bookmarks">お気に入り</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">ブックマークとトラック</string>
+    <string name="bookmarks_and_tracks">お気に入り</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">名称</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -187,8 +187,6 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">距離</string>
     <string name="share_my_location">現在地を共有する</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">一般</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">情報</string>
     <string name="prefs_group_route">ナビゲーション</string>
@@ -252,7 +250,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">携帯電話を8の字に動かしてコンパスを校正し、地図上の矢印の方向を固定します。</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">インターフェイスを見るには、もう一度地図をロングタップする</string>
+    <string name="enable_long_tap_fullscreen_description">インターフェイスを見るには、もう一度地図をロングタップする</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">全てをアップデート</string>
     <!-- Cancel all button text -->
@@ -588,7 +586,7 @@
         <item quantity="other">%d の追跡</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">プライバシー</string>
+    <string name="prefs_group_privacy">プライバシー</string>
     <string name="privacy_policy">プライバシーポリシー</string>
     <string name="terms_of_use">利用規約</string>
     <string name="button_layer_traffic">交通状況</string>
@@ -616,7 +614,7 @@
     <string name="power_managment_setting_auto">自動</string>
     <string name="power_managment_setting_manual_max">最大電力節約</string>
     <string name="enable_logging_warning_message">このオプションは診断目的でのデータ記録を有効にします。これはこのアプリケーションのトラブルシューティングを担当する当社のサポートスタッフの助けになります。このオプションはCoMapsにリクエストされた場合にのみ有効にしてください。</string>
-    <string name="driving_options_title">経路オプション</string>
+    <string name="routing_options_title">経路オプション</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">有料道路を避ける</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -830,4 +828,10 @@
     <string name="clear">クリア</string>
     <string name="panoramax">Panoramax 写真</string>
     <string name="pref_backup_title">ブックマークとバックアップのバックアップ</string>
+    <string name="downloader_check_updates_button">アップデートを確認</string>
+    <string name="downloader_check_updates_updated">アップデートが利用可能</string>
+    <string name="downloader_check_updates_no_updates">すでに最新版です</string>
+    <string name="downloader_check_updates_error">アップデート確認中のエラー</string>
+    <string name="downloader_check_updates_checking">アップデートを確認中…</string>
+    <string name="oh_unknown">営業時間不明</string>
 </resources>

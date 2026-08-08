@@ -2,19 +2,30 @@
 
 #include "map/bookmark.hpp"
 #include "map/bookmark_helpers.hpp"
-#include "map/elevation_info.hpp"
 #include "map/track.hpp"
+#include "map/user_mark.hpp"
 #include "map/user_mark_layer.hpp"
 
 #include "search/region_address_getter.hpp"
+#include "search/reverse_geocoder.hpp"
 
 #include "drape_frontend/drape_engine_safe_ptr.hpp"
+#include "drape_frontend/user_marks_provider.hpp"
+
+#include "drape/color.hpp"
+#include "drape/pointers.hpp"
+
+#include "kml/type_utils.hpp"
+#include "kml/types.hpp"
 
 #include "platform/safe_callback.hpp"
 
 #include "geometry/any_rect2d.hpp"
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 #include "geometry/screenbase.hpp"
 
+#include "base/assert.hpp"
 #include "base/macros.hpp"
 #include "base/strings_bundle.hpp"
 #include "base/thread_checker.hpp"
@@ -26,8 +37,14 @@
 #include <map>
 #include <memory>
 #include <mutex>
+#include <optional>
 #include <string>
 #include <vector>
+
+namespace df
+{
+class DrapeEngine;
+}  // namespace df
 
 namespace storage
 {
@@ -224,6 +241,26 @@ public:
     ByName
   };
 
+  enum class CategorySortType
+  {
+    ByLastModified,
+    ByName,
+    Manual
+  };
+
+  static CategorySortType NormalizeCategorySortType(CategorySortType sortType);
+
+  friend std::string DebugPrint(CategorySortType sortType)
+  {
+    switch (sortType)
+    {
+    case CategorySortType::ByLastModified: return "ByLastModified";
+    case CategorySortType::ByName: return "ByName";
+    case CategorySortType::Manual: return "Manual";
+    }
+    UNREACHABLE();
+  }
+
   struct SortedBlock
   {
     bool operator==(SortedBlock const & other) const;
@@ -258,7 +295,8 @@ public:
   void SetLastSortingType(kml::MarkGroupId groupId, SortingType sortingType);
   void ResetLastSortingType(kml::MarkGroupId groupId);
 
-  void PrepareForSearch(kml::MarkGroupId groupId);
+  void PrepareForSearch(std::optional<kml::MarkGroupId> groupId = std::nullopt);
+  void ReleaseSearch();
 
   bool IsVisible(kml::MarkGroupId groupId) const;
 
@@ -278,6 +316,9 @@ public:
 
   kml::GroupIdCollection const & GetUnsortedBmGroupsIdList() const { return m_unsortedBmGroupsIdList; }
   kml::GroupIdCollection GetSortedBmGroupIdList() const;
+  void MoveCategoryToPosition(kml::MarkGroupId categoryId, size_t targetPos);
+  CategorySortType GetCategorySortType() const;
+  void SetCategorySortType(CategorySortType sortType);
   size_t GetBmGroupsCount() const { return m_unsortedBmGroupsIdList.size(); }
   bool HasBmCategory(kml::MarkGroupId groupId) const;
   bool HasBookmark(kml::MarkId markId) const;
@@ -812,12 +853,16 @@ private:
   struct Metadata
   {
     DECLARE_VISITOR_AND_DEBUG_PRINT(Metadata, visitor(m_entriesProperties, "entriesProperties"),
-                                    visitor(m_commonProperties, "commonProperties"))
+                                    visitor(m_commonProperties, "commonProperties"),
+                                    visitor(m_categoryOrder, "categoryOrder"),
+                                    visitor(m_categorySortType, "categorySortType"))
 
     bool GetEntryProperty(std::string const & entryName, std::string const & propertyName, std::string & value) const;
 
     std::map<std::string, Properties> m_entriesProperties;
     Properties m_commonProperties;
+    std::vector<std::string> m_categoryOrder;
+    CategorySortType m_categorySortType = CategorySortType::ByLastModified;
   };
 
   Metadata m_metadata;

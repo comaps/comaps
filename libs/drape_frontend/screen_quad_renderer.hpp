@@ -1,8 +1,15 @@
 #pragma once
 
 #include "drape/mesh_object.hpp"
+#include "drape/pointers.hpp"
 
 #include "geometry/rect2d.hpp"
+
+namespace dp
+{
+class GraphicsContext;
+class Texture;
+}  // namespace dp
 
 namespace gpu
 {

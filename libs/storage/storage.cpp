@@ -1,6 +1,5 @@
 #include "storage/storage.hpp"
 
-#include "private.h"
 #include "storage/country_tree_helpers.hpp"
 #include "storage/diff_scheme/apply_diff.hpp"
 // #include "storage/diff_scheme/diff_scheme_loader.hpp"
@@ -18,6 +17,7 @@
 
 #include "coding/file_writer.hpp"
 #include "coding/internal/file_data.hpp"
+#include "coding/reader.hpp"
 #include "coding/sha1.hpp"
 
 #include "base/assert.hpp"
@@ -29,6 +29,7 @@
 #include "base/timer.hpp"
 
 #include "defines.hpp"
+#include "private.h"
 
 #include "cppjansson/cppjansson.hpp"
 
@@ -168,10 +169,8 @@ void Storage::ApplyCountriesInMemory(std::string const & buffer)
   ASSERT_GREATER(newVersion, m_currentVersion, ());
 
   m_currentVersion = newVersion;
-  m_countries = std::move(parsed->m_countries);
-
   m_downloader->SetDataVersion(m_currentVersion);
-  m_downloader->ResetMetaConfig();
+  m_countries = std::move(parsed->m_countries);
 
   RegisterAllLocalMaps(false /* enableDiffs */);
 
@@ -187,6 +186,7 @@ void Storage::ApplyCountriesInMemory(std::string const & buffer)
       NotifyStatusChangedForHierarchy(p.first);
 
   LOG(LDEBUG, ("COUNTRIES: applied in-memory, new version", m_currentVersion));
+  NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Updated);
 }
 
 void Storage::ApplyPendingCountriesIfAny()
@@ -199,6 +199,9 @@ void Storage::ApplyPendingCountriesIfAny()
 
   if (m_pendingCountriesVersion <= m_currentVersion)
   {
+    LOG(LWARNING,
+        ("COUNTRIES: pending", m_pendingCountriesVersion, "is not newer than current", m_currentVersion, "- skipping"));
+    NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
     m_hasPendingCountries = false;
     m_pendingCountriesVersion = 0;
     m_pendingCountriesBuffer.clear();
@@ -232,6 +235,11 @@ void Storage::PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int6
         m_pendingCountriesVersion = parsedVersion;
         m_hasPendingCountries = true;
       }
+      else
+      {
+        LOG(LWARNING, ("COUNTRIES: there is already a pending update to", m_pendingCountriesVersion, "- skipping"));
+        NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
+      }
       LOG(LINFO, ("COUNTRIES: initial resources download active; deferring apply. version=", parsedVersion));
       return;
     }
@@ -247,12 +255,17 @@ void Storage::PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int6
       m_pendingCountriesBuffer = *buffer;
       m_pendingCountriesVersion = parsedVersion;
       m_hasPendingCountries = true;
-      LOG(LDEBUG, ("COUNTRIES: queued apply for later. version=", m_pendingCountriesVersion));
+      LOG(LINFO, ("COUNTRIES: queued apply for later. version=", m_pendingCountriesVersion));
+    }
+    else
+    {
+      LOG(LWARNING, ("COUNTRIES: there is already a pending update to", m_pendingCountriesVersion, "- skipping"));
+      NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
     }
   });
 }
 
-int64_t Storage::ParseServerMapsAndGetLatestVersion(std::string const & buffer) const
+int64_t Storage::ParseServerMapsAndGetLatestVersion(std::string const & buffer, bool & isEOL) const
 {
   try
   {
@@ -272,10 +285,12 @@ int64_t Storage::ParseServerMapsAndGetLatestVersion(std::string const & buffer) 
       while (iter)
       {
         const char* key = json_object_iter_key(iter);
-        if (std::string(key) == MAP_SERIES)
+        if (key && std::string_view(key) == MAP_SERIES)
         {
           json_t* entry = json_object_iter_value(iter);
           json_t* latest = json_object_get(entry, "latest");
+          char const * status = json_string_value(json_object_get(entry, "status"));
+          isEOL = status && std::string_view(status) == "EOL";
           return json_integer_value(latest);
         }
         iter = json_object_iter_next(mapSeries, iter);
@@ -290,30 +305,64 @@ int64_t Storage::ParseServerMapsAndGetLatestVersion(std::string const & buffer) 
   }
 }
 
+void Storage::NotifyCheckUpdatesResult(storage::CheckUpdatesStatus const status)
+{
+  LOG(LINFO, ("COUNTRIES: check updates result:", storage::DebugPrint(status)));
+  m_isCheckUpdatesRunning = false;
+  if (status == storage::CheckUpdatesStatus::Updated)
+  {
+    PrepareDirToDownloadCountry(m_currentVersion, m_dataDir);
+    // Update expected file sizes and SHAs in existing download queue
+    m_downloader->GetQueue().ForEachCountry([this](QueuedCountry & country)
+    { country.SetCountryFile(GetCountryFile(country.GetCountryId())); });
+    // ... and in pending requests as well
+    m_downloader->GetPendingRequests().ForEachCountry([this](QueuedCountry & country)
+    { country.SetCountryFile(GetCountryFile(country.GetCountryId())); });
+  }
+  m_downloader->StartPendingMapDownloads();
+  if (m_onCheckUpdates != nullptr)
+    GetPlatform().RunTask(Platform::Thread::Gui, [this, status]() { m_onCheckUpdates(status); });
+}
+
 void Storage::RunCountriesCheckAsyncSaveOnly()
 {
+  if (m_isCheckUpdatesRunning)
+  {
+    LOG(LWARNING, ("COUNTRIES: check updates is running already - skipping"));
+    return;
+  }
+  m_isCheckUpdatesRunning = true;
+
   std::string const serverMapsUrl = "meta/" SERVER_MAPS_FILE;
   LOG(LINFO, ("COUNTRIES: check for map updates by fetching", serverMapsUrl));
 
+  // TODO: make sure following runs in background, e.g. GetPlatform().RunTask(Platform::Thread::Network, ...
   m_downloader->DownloadAsStringFromMeta(serverMapsUrl, [this, serverMapsUrl](std::string const & mapsBuffer)
   {
     if (mapsBuffer.empty())
     {
-      LOG(LWARNING, ("COUNTRIES:", serverMapsUrl, "empty response - skip update"));
+      LOG(LWARNING, ("COUNTRIES:", serverMapsUrl, "empty response or error - skip update"));
+      NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
       return false;
     }
 
     LOG(LDEBUG, ("COUNTRIES: parsing downloaded", serverMapsUrl));
-    int64_t const dataVersion = ParseServerMapsAndGetLatestVersion(mapsBuffer);
+    bool isEOL = false;
+    int64_t const dataVersion = ParseServerMapsAndGetLatestVersion(mapsBuffer, isEOL);
     if (dataVersion == 0)
     {
       LOG(LWARNING, ("COUNTRIES: latest map version info not found for map series", MAP_SERIES));
+      NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
       return false;
     }
-    LOG(LINFO, ("COUNTRIES:", dataVersion, "is latest map version for series", MAP_SERIES));
+    LOG(LINFO, ("COUNTRIES:", dataVersion, "is latest map version for series", MAP_SERIES, "isEOL:", isEOL));
     if (dataVersion <= m_currentVersion)
     {
       LOG(LDEBUG, ("COUNTRIES:", dataVersion, "is not newer than current", m_currentVersion, "- skipping"));
+      if (isEOL)
+        NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::EOL);
+      else
+        NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::NoUpdate);
       return false;
     }
 
@@ -331,7 +380,8 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
 
       if (buffer.empty())
       {
-        LOG(LWARNING, ("COUNTRIES: empty response - skip update"));
+        LOG(LWARNING, ("COUNTRIES:", COUNTRIES_FILE, "empty response or error - skip update"));
+        NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
         return false;
       }
 
@@ -348,6 +398,7 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
       {
         LOG(LWARNING, ("COUNTRIES: parsed map version", parsedVersion, "expected", dataVersion,
                        "parsed map series", mapSeries, "expected", MAP_SERIES, "- skip update"));
+        NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
         return false;
       }
 
@@ -361,13 +412,15 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
       {
         if (sigBuf.empty())
         {
-          LOG(LWARNING, ("COUNTRIES: empty signature response; rejecting countries.txt update."));
+          LOG(LWARNING, ("COUNTRIES: empty signature response or error - skip update"));
+          NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
           return false;
         }
 
         if (sigBuf.size() != 64)
         {
           LOG(LWARNING, ("COUNTRIES: invalid signature size"));
+          NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
           return false;
         }
 
@@ -375,6 +428,7 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
         if (!DecodeHex32(COUNTRIES_TXT_SIGNATURE_HEX, countriesTxtPublicKey))
         {
           LOG(LWARNING, ("COUNTRIES: invalid public signature hex"));
+          NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
           return false;
         }
         LOG(LDEBUG, ("COUNTRIES: verifying signature."));
@@ -383,6 +437,7 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
                                              reinterpret_cast<uint8_t const *>(sigBuf.data())))
         {
           LOG(LWARNING, ("COUNTRIES: signature verification failed."));
+          NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
           return false;
         }
 
@@ -808,6 +863,9 @@ void Storage::DownloadCountry(CountryId const & countryId, MapFileType type)
   // If it's not even possible to prepare directory for files before
   // downloading, then mark this country as failed and switch to next
   // country.
+  /// @todo(pastk): prep dir and get expected file sizes and shas immediately before downloading,
+  /// as they will change after Check Update
+  /// (a current workround is in NotifyCheckUpdatesResult())
   if (!PreparePlaceForCountryFiles(m_currentVersion, m_dataDir, countryFile))
   {
     OnMapDownloadFinished(countryId, DownloadStatus::Failed, type);
@@ -823,7 +881,18 @@ void Storage::DownloadCountry(CountryId const & countryId, MapFileType type)
   QueuedCountry queuedCountry(countryFile, countryId, type, m_currentVersion, m_dataDir, m_diffsDataSource);
   queuedCountry.Subscribe(*this);
 
+  // Check there are no downloading or pending countries
+  /// @todo(pastk): don't check for updates for e.g. 15 minutes since last check
+  bool const needCheck =
+      IsIdleForCountriesApply() && m_downloader->GetQueue().IsEmpty() && m_downloader->GetPendingRequests().IsEmpty();
   m_downloader->DownloadMapFile(std::move(queuedCountry));
+  if (!m_isCheckUpdatesRunning)
+  {
+    if (needCheck)
+      RunCountriesCheckAsyncSaveOnly();
+    else
+      m_downloader->StartPendingMapDownloads();
+  }
 }
 
 void Storage::DeleteCountry(CountryId const & countryId, MapFileType type)
@@ -898,6 +967,11 @@ void Storage::LoadCountriesFile(string const & pathToCountriesFile)
     if (m_currentVersion < 0)
       LOG(LERROR, ("Can't load countries file", pathToCountriesFile));
   }
+}
+
+void Storage::SetCheckUpdatesListener(CheckUpdatesFunction listener)
+{
+  m_onCheckUpdates = std::move(listener);
 }
 
 int Storage::Subscribe(ChangeCountryFunction change, ProgressFunction progress)
@@ -1075,7 +1149,7 @@ void Storage::RegisterDownloadedFiles(CountryId const & countryId, MapFileType t
   else
   {
     /// @todo If localFile already exists, we will remove it from disk below?
-    LOG(LERROR, ("Downloaded country file for already existing one", *localFile));
+    LOG(LWARNING, ("Downloaded country file for already existing one", *localFile));
   }
 
   if (!localFile)
@@ -1469,14 +1543,6 @@ void Storage::GetChildrenInGroups(CountryId const & parent, CountriesVec & downl
   parentNode->ForEachChild([&](CountryTree::Node const & childNode)
   {
     CountryId const & childValue = childNode.Value().Name();
-
-    // Do not show bundled World files in Downloader UI, they are always exist and up-to-date.
-    if (IsWorldCountryID(childValue))
-    {
-      auto const pFile = GetLatestLocalFile(childValue);
-      if (pFile && pFile->IsInBundle())
-        return;
-    }
 
     vector<pair<CountryId, NodeStatus>> disputedTerritoriesAndStatus;
     StatusAndError const childStatus =

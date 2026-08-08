@@ -1,13 +1,12 @@
 #include "indexer/drawing_rules.hpp"
+
 #include "indexer/classificator.hpp"
 #include "indexer/drules_include.hpp"
+#include "indexer/map_style.hpp"
 #include "indexer/map_style_reader.hpp"
 #include "indexer/scales.hpp"
 
-#include "defines.hpp"
-
-#include "platform/platform.hpp"
-
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 
 #include <functional>

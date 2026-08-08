@@ -3,12 +3,13 @@
 #include "map/framework.hpp"
 
 #include "indexer/classificator.hpp"
+#include "indexer/ftypes_matcher.hpp"
 
 #include "platform/local_country_file.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "geometry/mercator.hpp"
+
+#include "i18n/localisation.hpp"
 
 #include <algorithm>
 #include <cstdint>

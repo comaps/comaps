@@ -1,6 +1,6 @@
 #pragma once
 
-#include "drape_frontend/tile_info.hpp"
+#include "drape_frontend/tile_key.hpp"
 
 #include "base/thread.hpp"
 
@@ -8,6 +8,9 @@
 
 namespace df
 {
+class MapDataProvider;
+class TileInfo;
+
 class ReadMWMTask : public threads::IRoutine
 {
 public:

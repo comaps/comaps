@@ -1,15 +1,13 @@
 #pragma once
 
 #include "drape_frontend/circles_pack_shape.hpp"
-#include "drape_frontend/frame_values.hpp"
-#include "drape_frontend/route_builder.hpp"
+#include "drape_frontend/route_shape.hpp"
 
-#include "shaders/program_manager.hpp"
-
+#include "drape/color.hpp"
 #include "drape/drape_global.hpp"
 #include "drape/pointers.hpp"
 
-#include "geometry/screenbase.hpp"
+#include "geometry/point2d.hpp"
 
 #include <chrono>
 #include <functional>
@@ -18,8 +16,22 @@
 
 #include "3party/ankerl/unordered_dense.h"
 
+class ScreenBase;
+
+namespace dp
+{
+class GraphicsContext;
+}  // namespace dp
+
+namespace gpu
+{
+class ProgramManager;
+}  // namespace gpu
+
 namespace df
 {
+struct FrameValues;
+
 extern std::string const kRouteColor;
 extern std::string const kRouteOutlineColor;
 extern std::string const kRoutePedestrian;

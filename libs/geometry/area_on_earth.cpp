@@ -1,6 +1,7 @@
 #include "geometry/area_on_earth.hpp"
 
 #include "geometry/distance_on_sphere.hpp"
+#include "geometry/latlon.hpp"
 #include "geometry/point3d.hpp"
 
 #include "base/assert.hpp"

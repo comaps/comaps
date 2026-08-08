@@ -154,14 +154,19 @@ project.afterEvaluate {
   final taskName = gradle.startParameter.taskNames
 
   if (['assemble', 'bundle', 'compile', 'install', 'lint', 'publish', 'run'].any{taskName.any{task->task.startsWith(it)}}) {
+    def isWindows = DefaultNativePlatform.getCurrentOperatingSystem().isWindows()
+
     exec {
       workingDir '../..'
 
-      def isWindows = DefaultNativePlatform.getCurrentOperatingSystem().isWindows()
       def bash = isWindows ? 'C:/Program Files/Git/bin/bash.exe' : 'bash'
 
       if (!taskName.toString().contains('Google')) {
         environment 'SKIP_MAP_DOWNLOAD', '1'
+      }
+
+      if (isWindows) {
+        environment 'PYTHONUTF8', '1'
       }
 
       commandLine bash, './configure.sh'

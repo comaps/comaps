@@ -232,9 +232,9 @@
 /* Button in the About screen */
 "report_incorrect_map_bug" = "Повідомляйте або виправляйте невірні картографічні дані";
 /* Button in the About screen */
-"volunteer" = "Стати волонтером";
+"volunteer" = "Стати волонтером і покращити CoMaps";
 /* "Social media" section header in the About screen */
-"follow_us" = "Підписуйтесь та зв'язуйтесь з нами";
+"follow_us" = "Зв'яжіться з нами";
 /* Alert text */
 "email_error_body" = "Поштовий клієнт не налаштований. Налаштуйте його або скористайтеся іншими способами зв'язку. Наша адреса – %@";
 /* Alert title */
@@ -274,7 +274,7 @@
 /* Text for routing error dialog */
 "routing_requires_all_map" = "Для створення маршруту необхідно щоб всі мапи, починаючи від вашого розташування і до пункту призначення, були завантажені та оновлені.";
 /* bookmark button text */
-"bookmark" = "мітка";
+"bookmark" = "місце";
 "save" = "Зберегти";
 "create" = "створити";
 /* red color */
@@ -388,8 +388,8 @@
 "voice_explanation_before_version26" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Spoken Content*, *Voices*.";
 "unknown" = "Unknown";
 /* Place page confirmation messages and time ago formatting */
-"existence_confirmed_time_ago" = "Existence confirmed %@";
-"hours_confirmed_time_ago" = "Confirmed %@";
+"existence_confirmed_time_ago" = "Існування підтверджено %@";
+"hours_confirmed_time_ago" = "Підтверджено %@";
 /* Place Page opening hours text */
 "closed_now" = "Наразі зачинено";
 /* Place Page opening hours text */
@@ -526,9 +526,9 @@
 "book_button" = "Забронювати";
 "placepage_call_button" = "Подзвонити";
 "placepage_edit_bookmark_button" = "Редагувати збережені місця";
-"placepage_bookmark_name_hint" = "Назва мiтки";
+"placepage_bookmark_name_hint" = "Назва місця";
 "placepage_personal_notes_hint" = "Примітка (текст чи html)";
-"placepage_delete_bookmark_button" = "Видалити мiтку";
+"placepage_delete_bookmark_button" = "Видалити місце";
 "editor_edits_sent_message" = "Вашу замітку буде надіслано в OpenStreetMap";
 "editor_comment_hint" = "Коментар…";
 "editor_reset_edits_message" = "Скинути всі локальні виправлення?";
@@ -578,12 +578,12 @@
 "traffic_data_unavailable" = "Дані про трафік недоступні";
 "enable_logging" = "Увімкнути журналювання";
 "log_file_size" = "Розмір файлу журналу: %@";
-"pref_alt_map_lang_handling" = "Alternative Map Languages";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
-"pref_alt_map_lang_handling_system_order" = "Use in system order";
-"pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
+"pref_alt_map_lang_handling" = "Альтернативні мови мапи";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Не використовувати альтернативи";
+"pref_alt_map_lang_handling_system_order" = "Використовувати в системному порядку";
+"pref_alt_map_lang_handling_local_only" = "Надавати перевагу та використовувати лише там, де це притаманно носіям мови";
 "transliteration_title" = "Транслітерувати латиницею";
-"transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
+"transliteration_title_disabled_summary" = "Вимкнено, якщо для мапи завжди використовується місцева мова";
 /* Subway exits for public transport marks on the map */
 "core_exit" = "Вихід";
 /* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
@@ -681,8 +681,6 @@
 "yes_available" = "Так";
 /* E.g. "WiFi:No" */
 "no_available" = "Ні";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Місткість: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Мережа: %@";
 "trip_finished" = "Ви прибули!";
@@ -800,7 +798,7 @@
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "Активний відпочинок";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Експортувати всі мітки та маршрути";
+"bookmarks_export" = "Експортувати все улюблене";
 /* Text for the editing the Track's color button. */
 "change_color" = "Змінити колір";
 /* Main screen title "Map" displayed in the navigation back button's menu. */
@@ -811,15 +809,15 @@
 /* Message for the bug report alert. */
 "bugreport_alert_message" = "Бажаєте надіслати розробникам звіт про помилку?\nМи покладаємося на наших користувачів, оскільки CoMaps не збирає інформацію про помилки автоматично. Заздалегідь дякуємо за підтримку CoMaps!";
 /* Title for the iCloud synchronization setting */
-"icloud_sync" = "iCloud Syncronization (Beta)";
+"icloud_sync" = "Синхронізація з iCloud (Бета)";
 /* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "Увімкнути синхронізацію з iCloud";
 /* Message for the "Enable iCloud Synchronization" alert. */
-"enable_icloud_synchronization_message" = "Синхронізація з iCloud - це експериментальна функція, яка перебуває на стадії розробки. Переконайтеся, що ви зробили резервну копію всіх ваших мiток і треків.";
+"enable_icloud_synchronization_message" = "Синхронізація з iCloud — це експериментальна функція, яка перебуває на стадії розробки. Переконайтеся, що ви зробили резервну копію всього вашого улюбленого.";
 /* Title for the "iCloud Is Disabled" alert. */
 "icloud_disabled_title" = "iCloud вимкнено";
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Щоб скористатися цією функцією, увімкніть iCloud у налаштуваннях вашого пристрою.";
+"icloud_disabled_message" = "Увімкніть iCloud для CoMaps у налаштуваннях вашого облікового запису Apple, щоб скористатися цією функцією.";
 /* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
 "enable" = "Увімкнути";
 /* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
@@ -862,11 +860,26 @@
 "track_recording_toast_nothing_to_save" = "Маршрут порожній - нічого зберігати";
 "edit_track" = "Редагувати маршрут";
 /* Title of the general section in settings */
-"general" = "General";
+"general" = "Загальні";
 /* Title of the interface section in settings */
-"interface" = "Interface";
+"interface" = "Інтерфейс";
 /* OpenStreetMap contribution section on the PlacePage. */
-"contribute_to_osm" = "Contribute to OpenStreetMap";
-"contribute_to_osm_add_place" = "Add Place";
-"contribute_to_osm_update_map" = "Update the Map to Contribute";
-"contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"contribute_to_osm" = "Зробити внесок у OpenStreetMap";
+"contribute_to_osm_add_place" = "Додати місце";
+"contribute_to_osm_update_map" = "Оновіть мапу, щоб зробити свій внесок";
+"contribute_to_osm_update_map_description" = "Вам потрібно оновити мапу %@ до останньої версії, перш ніж ви зможете вносити зміни в дані OpenStreetMap";
+"downloader_check_updates_button" = "Check for updates";
+"downloader_check_updates_checking" = "Checking for updates...";
+"downloader_check_updates_updated" = "Map updates available!";
+"downloader_check_updates_no_updates" = "No updates available";
+"downloader_check_updates_eol" = "No more map updates for this app version. Please update the app!";
+"downloader_check_updates_error" = "Error checking for updates";
+"editor_add_select_category_recent_subtitle" = "Recently Used";
+"oh_unknown" = "Opening hours unknown";
+"carplay_highway_exit" = "Exit %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "No dedicated disabled spaces";
+"capacity_charging_yes" = "Has spaces with chargers";
+"capacity_charging_no" = "No spaces with chargers";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

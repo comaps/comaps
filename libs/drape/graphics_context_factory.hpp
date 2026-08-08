@@ -2,8 +2,6 @@
 
 #include "drape/graphics_context.hpp"
 
-#include "base/assert.hpp"
-
 #include <condition_variable>
 #include <functional>
 #include <mutex>

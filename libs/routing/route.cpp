@@ -1,13 +1,19 @@
 #include "routing/route.hpp"
+#include "platform/distance.hpp"
+#include "platform/measurement_utils.hpp"
+#include "routing/route_step.hpp"
 
-#include "traffic/speed_groups.hpp"
-
+#include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
+#include "geometry/rect2d.hpp"
 
 #include "platform/location.hpp"
 
 #include "geometry/angles.hpp"
 #include "geometry/point2d.hpp"
+#include "routing/turns.hpp"
+#include "routing/turns_sound_settings.hpp"
+#include "routing/turns_tts_text.hpp"
 
 #include <algorithm>
 
@@ -56,6 +62,14 @@ double Route::GetTotalDistanceMeters() const
   if (!IsValid())
     return 0.0;
   return m_poly.GetTotalDistanceMeters();
+}
+
+double Route::GetDistanceFromBeginToSegmentMeters(size_t segIdx) const
+{
+  if (!IsValid())
+    return 0.0;
+
+  return m_routeSegments[segIdx].GetDistFromBeginningMeters();
 }
 
 double Route::GetCurrentDistanceFromBeginMeters() const
@@ -260,6 +274,8 @@ void Route::GetClosestStreetNameAfterIdx(size_t segIdx, RouteSegment::RoadNameIn
     // Use basic info from |roadNameInfoNext| to update |roadNameInfo|.
     if (roadNameInfo.m_destination_ref.empty())
       roadNameInfo.m_destination_ref = roadNameInfoNext.m_ref;
+    if (roadNameInfo.m_destination.empty() && !roadNameInfoNext.m_destination.empty())
+      roadNameInfo.m_destination = roadNameInfoNext.m_destination;
     if (!roadNameInfoNext.m_name.empty())
       roadNameInfo.m_name = roadNameInfoNext.m_name;
   }
@@ -529,7 +545,7 @@ std::string Route::DebugPrintTurns() const
   {
     auto const & turn = m_routeSegments[i].GetTurn();
 
-    // Always print first elemenst as Start.
+    // Always print first element as Start.
     if (i == 0 || !turn.IsTurnNone())
     {
       res += DebugPrint(mercator::ToLatLon(m_routeSegments[i].GetJunction()));
@@ -546,6 +562,51 @@ std::string Route::DebugPrintTurns() const
   }
 
   return res;
+}
+
+std::vector<RouteStepInfo> Route::GetTurnsForDisplay(std::string const & locale) const
+{
+  std::vector<RouteStepInfo> steps;
+  if (!IsValid() || m_routeSegments.empty())
+    return steps;
+
+  turns::sound::GetTtsText getTtsText;
+  getTtsText.SetLocale(locale);
+
+  double totalDistance = 0.0;
+  for (size_t i = 0; i < m_routeSegments.size(); ++i)
+  {
+    auto const & segment = m_routeSegments[i];
+    auto const & turn = segment.GetTurn();
+    if (turn.IsTurnNone())
+      continue;
+    if (turn.m_turn == CarDirection::EnterRoundAbout)
+      continue;
+
+    double distance = segment.GetDistFromBeginningMeters() - totalDistance;
+
+    RouteSegment::RoadNameInfo rni;
+    GetClosestStreetNameAfterIdx(turn.m_index, rni);
+
+    RouteStepInfo step;
+    step.m_index = i;
+    step.m_turn = segment.GetTurn().m_turn;
+    step.m_pedestrianTurn = segment.GetTurn().m_pedestrianTurn;
+    step.m_exitNum = segment.GetTurn().m_exitNum;
+    step.m_distMeters = distance;
+    step.m_fromStreetName = segment.GetRoadNameInfo().m_name;
+    step.m_toStreetName = rni.m_name;
+    step.m_formattedDistance = platform::Distance::CreateFormatted(step.m_distMeters);
+
+    sound::Notification notification(0, step.m_exitNum, false, true, true, step.m_turn, step.m_pedestrianTurn,
+                                     measurement_utils::Units::Metric, step.m_toStreetName);
+    step.m_textualInstruction = getTtsText.GetTurnNotification(notification);
+
+    totalDistance += step.m_distMeters;
+    steps.push_back(std::move(step));
+  }
+
+  return steps;
 }
 
 bool IsNormalTurn(TurnItem const & turn)

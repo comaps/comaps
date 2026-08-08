@@ -1,13 +1,20 @@
 #include "drape_frontend/gui/gui_text.hpp"
 
 #include "drape_frontend/batcher_bucket.hpp"
+#include "drape_frontend/render_state_extension.hpp"
 #include "drape_frontend/visual_params.hpp"
 
 #include "shaders/programs.hpp"
 
 #include "base/stl_helpers.hpp"
 
+#include "drape/attribute_buffer_mutator.hpp"
+#include "drape/attribute_provider.hpp"
+#include "drape/binding_info.hpp"
 #include "drape/font_constants.hpp"
+#include "drape/gl_constants.hpp"
+
+#include "base/assert.hpp"
 
 #include <algorithm>
 #include <array>

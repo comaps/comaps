@@ -1,7 +1,11 @@
 #include "routing/async_router.hpp"
 
-#include "geometry/mercator.hpp"
+#include "routing/absent_regions_finder.hpp"
+#include "routing/route.hpp"
 
+#include "platform/platform.hpp"
+
+#include "base/exception.hpp"
 #include "base/logging.hpp"
 #include "base/macros.hpp"
 #include "base/timer.hpp"

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "coding/string_utf8_multilang.hpp"
+#include "i18n/localisation.hpp"
 
 #include <deque>
 #include <functional>

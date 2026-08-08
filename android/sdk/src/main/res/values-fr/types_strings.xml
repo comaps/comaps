@@ -4,7 +4,7 @@
     <string name="type.addr_interpolation">Adresse/Bloc</string>
     <string name="type.addr_interpolation.even">Adresse/Bloc</string>
     <string name="type.addr_interpolation.odd">Adresse/Bloc</string>
-    <string name="type.aerialway">Transport par câble aérien</string>
+    <string name="type.aerialway">Transport par câble</string>
     <string name="type.aerialway.cable_car">Téléphérique</string>
     <string name="type.aerialway.chair_lift">Télésiège</string>
     <string name="type.aerialway.drag_lift">Téléski</string>
@@ -15,7 +15,7 @@
     <string name="type.aeroway.aerodrome">Aéroport</string>
     <string name="type.aeroway.aerodrome.international">Aéroport International</string>
     <string name="type.aeroway.apron">Aire de stationnement pour aéronefs</string>
-    <string name="type.aeroway.gate">Porte d’embarquement</string>
+    <string name="type.aeroway.gate">Porte</string>
     <string name="type.aeroway.helipad">Héliport</string>
     <string name="type.aeroway.runway">Piste d\'atterrissage</string>
     <string name="type.aeroway.taxiway">Voie de circulation</string>
@@ -125,7 +125,7 @@
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Centre de recyclage</string>
     <string name="type.amenity.recycling.container">Conteneur de recyclage</string>
-    <string name="type.recycling.batteries">Batteries</string>
+    <string name="type.recycling.batteries">Piles</string>
     <string name="type.recycling.clothes">Vêtements usagés</string>
     <string name="type.recycling.glass_bottles">Verre</string>
     <string name="type.recycling.paper">Papier usagé</string>
@@ -345,7 +345,7 @@
     <string name="type.entrance">Entrée</string>
     <!-- This is for main/primary entrances, for secondary entrances see type.entrance -->
     <string name="type.entrance.main">Entrée principale</string>
-    <string name="type.entrance.exit">Sortie</string>
+    <string name="type.entrance.exit">Sortie (uniquement)</string>
     <string name="type.fee.no">Gratuit</string>
     <string name="type.healthcare.laboratory">Laboratoire médical</string>
     <string name="type.healthcare.physiotherapist">Physiothérapeute</string>
@@ -370,7 +370,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunnel</string>
     <string name="type.highway.bus_stop">Arrêt de bus</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Route en construction</string>
+    <string name="type.highway.construction.motorway">Route en construction</string>
+    <string name="type.highway.construction.motorway_link">Route en construction</string>
+    <string name="type.highway.construction.trunk">Route en construction</string>
+    <string name="type.highway.construction.trunk_link">Route en construction</string>
+    <string name="type.highway.construction.primary">Route en construction</string>
+    <string name="type.highway.construction.primary_link">Route en construction</string>
+    <string name="type.highway.construction.secondary">Route en construction</string>
+    <string name="type.highway.construction.secondary_link">Route en construction</string>
+    <string name="type.highway.construction.tertiary">Route en construction</string>
+    <string name="type.highway.construction.tertiary_link">Route en construction</string>
+    <string name="type.highway.construction.residential">Route en construction</string>
+    <string name="type.highway.construction.unclassified">Route en construction</string>
+    <string name="type.highway.construction.service">Route en construction</string>
+    <string name="type.highway.construction.living_street">Route en construction</string>
+    <string name="type.highway.construction.road">Route en construction</string>
+    <string name="type.highway.construction.track">Route en construction</string>
     <string name="type.highway.cycleway">Piste cyclable</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Pont</string>
@@ -633,7 +650,7 @@
     <string name="type.leisure.track.area">Piste de course</string>
     <string name="type.leisure.water_park">Centre aquatique</string>
     <string name="type.man_made.breakwater">Brise-lames</string>
-    <string name="type.man_made.chimney">Cheminée d’usine</string>
+    <string name="type.man_made.chimney">Cheminée</string>
     <string name="type.man_made.cutline">Layon</string>
     <string name="type.man_made.survey_point">Borne géodésique</string>
     <string name="type.man_made.flagpole">Mât de drapeau</string>
@@ -714,8 +731,8 @@
     <string name="type.office.lawyer">Cabinet d’avocat</string>
     <string name="type.office.ngo">Bureau d’ONG</string>
     <string name="type.office.telecommunication">Opérateur mobile</string>
-    <string name="type.organic.only">Produits biologiques uniquement</string>
-    <string name="type.organic.yes">Produits biologiques</string>
+    <string name="type.organic.only">Uniquement bio</string>
+    <string name="type.organic.yes">Produits bio</string>
     <string name="type.place.city">Ville</string>
     <string name="type.place.city.capital">Capitale</string>
     <string name="type.place.city.capital.10">Ville</string>
@@ -777,7 +794,7 @@
     <string name="type.railway.funicular">Funiculaire</string>
     <string name="type.railway.funicular.bridge">Funiculaire</string>
     <string name="type.railway.funicular.tunnel">Funiculaire</string>
-    <string name="type.railway.halt">Gare ferroviaire</string>
+    <string name="type.railway.halt">Arrêt de train</string>
     <string name="type.railway.level_crossing">Passage à niveau</string>
     <string name="type.railway.monorail">Monorail</string>
     <string name="type.railway.monorail.bridge">Monorail</string>
@@ -933,8 +950,8 @@
     <string name="type.railway.station.subway.yerevan">Station de métro</string>
     <string name="type.railway.station.subway.yokohama">Station de métro</string>
     <string name="type.railway.subway">Ligne de métro</string>
-    <string name="type.railway.subway.bridge">Voie de métro</string>
-    <string name="type.railway.subway.tunnel">Voie de métro</string>
+    <string name="type.railway.subway.bridge">Pont de la ligne de métro</string>
+    <string name="type.railway.subway.tunnel">Tunnel de la ligne de métro</string>
     <string name="type.railway.subway_entrance">Entrée du métro</string>
     <string name="type.railway.subway_entrance.adana">Entrée du métro</string>
     <string name="type.railway.subway_entrance.algiers">Entrée du métro</string>
@@ -1234,7 +1251,7 @@
     <string name="type.tourism.hotel">Hôtel</string>
     <string name="type.tourism.information">Informations touristiques</string>
     <string name="type.tourism.information.board">Panneau d’informations</string>
-    <string name="type.tourism.information.guidepost">Poteaux indicateurs</string>
+    <string name="type.tourism.information.guidepost">Poteau indicateur</string>
     <string name="type.tourism.information.map">Carte touristique</string>
     <string name="type.tourism.information.office">Office de tourisme</string>
     <string name="type.tourism.information.visitor_centre">Centre de visite</string>
@@ -1390,6 +1407,7 @@
     <string name="type.amenity.ranger_station">Poste de garde forestier</string>
     <string name="type.leisure.escape_game">Escape room</string>
     <string name="type.amenity.animal_shelter">Abri pour animaux</string>
+    <string name="type.amenity.stage">Scène</string>
     <string name="type.barrier.wicket_gate">Portillon</string>
     <string name="type.office.security">Bureau des agents de sécurité</string>
     <string name="type.building.guardhouse">Guérite de sécurité</string>
@@ -1434,7 +1452,7 @@
     <string name="type.amenity.lounger">Chaise longue</string>
     <string name="type.amenity.boat_rental">Location de bateaux</string>
     <string name="type.amenity.payment_centre">Centre de paiement</string>
-    <string name="type.amenity.mobile_money_agent">Agent d\'argent liquide</string>
+    <string name="type.amenity.mobile_money_agent">Agent Mobile Money</string>
     <string name="type.leisure.indoor_play">Complexe de jeux intérieurs</string>
     <string name="type.shop.telecommunication">Boutique télécom</string>
     <string name="type.man_made.telescope.optical">Télescope (optique)</string>
@@ -1482,8 +1500,8 @@
     <string name="type.spherical_buoy.special_purpose">Bouée sphérique, marque spéciale</string>
     <string name="type.lateral.port">Bâbord</string>
     <string name="type.lateral.starboard">Tribord</string>
-    <string name="type.cardinal.east">Est :</string>
-    <string name="type.cardinal.north">Nord :</string>
+    <string name="type.cardinal.east">Est</string>
+    <string name="type.cardinal.north">Nord</string>
     <string name="type.cardinal.south">Sud</string>
     <string name="type.cardinal.west">Ouest</string>
     <string name="type.entrance.house">Entrée de la maison</string>
@@ -1517,5 +1535,9 @@
     <string name="type.sport.four_square">Four Square</string>
     <string name="type.leisure.sports_centre.sport.pickleball">Centre Sportif</string>
     <string name="type.sport.pickleball">Pickleball</string>
-    <string name="type.organic.no">Pas de produits biologiques</string>
+    <string name="type.organic.no">Pas d\'options bio</string>
+    <string name="type.amenity.planetarium">Planétarium</string>
+    <string name="type.amenity.toilets.customers">Accès client</string>
+    <string name="type.amenity.toilets.private">Accès privé</string>
+    <string name="type.amenity.animal_boarding">Pension pour animaux</string>
 </resources>

@@ -1,7 +1,11 @@
 #include "drape/texture_of_colors.hpp"
 
+#include "drape/graphics_context.hpp"
+
+#include "base/assert.hpp"
+#include "base/buffer_vector.hpp"
+#include "base/math.hpp"
 #include "base/shared_buffer_manager.hpp"
-#include "base/stl_helpers.hpp"
 
 #include <cstring>
 

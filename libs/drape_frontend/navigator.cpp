@@ -1,17 +1,16 @@
 #include "drape_frontend/navigator.hpp"
+
 #include "drape_frontend/screen_operations.hpp"
 #include "drape_frontend/visual_params.hpp"
 
 #include "indexer/scales.hpp"
 
-#include "platform/settings.hpp"
-
 #include "geometry/angles.hpp"
-#include "geometry/distance_on_sphere.hpp"
 #include "geometry/point2d.hpp"
-#include "geometry/transformations.hpp"
 
-#include "base/logging.hpp"
+#include "base/assert.hpp"
+#include "base/math.hpp"
+#include "base/matrix.hpp"
 
 namespace df
 {

@@ -1,12 +1,13 @@
 #pragma once
 
 #include "base/assert.hpp"
-#include "base/localisation_translation.hpp"
 #include "base/string_utils.hpp"
 
 #include <algorithm>
 #include <string>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace search
 {

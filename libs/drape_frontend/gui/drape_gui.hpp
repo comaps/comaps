@@ -1,12 +1,11 @@
 #pragma once
 
-#include "drape_frontend/gui/compass.hpp"
 #include "drape_frontend/gui/scale_fps_helper.hpp"
-#include "drape_frontend/gui/skin.hpp"
+#include "drape_frontend/gui/shape.hpp"
 
-#include "storage/storage_defines.hpp"
+#include "drape/drape_global.hpp"
 
-#include "drape/pointers.hpp"
+#include "geometry/point2d.hpp"
 
 #include <functional>
 #include <memory>

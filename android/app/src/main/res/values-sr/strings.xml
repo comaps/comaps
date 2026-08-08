@@ -181,13 +181,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Дужина</string>
     <string name="share_my_location">Подели моју локацију</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Општа подешавања</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Информације</string>
     <string name="prefs_group_route">Навигација</string>
     <string name="pref_zoom_title">Дугме за зумирање</string>
     <string name="pref_zoom_summary">Прикажи на мапи</string>
+    <string name="prefs_group_advanced">Напредно</string>
+    <string name="download_resources_custom_url_title">Сопствени сервер мапа</string>
+    <string name="download_resources_custom_url_message">Замени подразумевани сервер за преузимање мапа који се користи за преузимања мапа. Оставите празно да бисте користили CoMaps сервер.</string>
+    <string name="download_resources_custom_url_summary_none">Није постављено</string>
+    <string name="download_resources_custom_url_error_scheme">Унесите пуну УРЛ адресу која почиње са https:// и која се завршава са /</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Ноћни режим</string>
     <!-- Generic «Off» string -->
@@ -244,7 +247,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Померајте телефон у путањи осмице како бисте калибрисали компас и поправили смер стрелице на мапи.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Додирните дуго мапу да бисте поново видели интерфејс</string>
+    <string name="enable_long_tap_fullscreen_description">Додирните дуго мапу да бисте поново видели интерфејс</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Ажурирај све</string>
     <!-- Cancel all button text -->
@@ -273,7 +276,7 @@
     <!-- Preference title -->
     <string name="google_play_services">Google Fused локацијски сервис</string>
     <!-- Preference text -->
-    <string name="pref_use_google_play">Услуга локације која комбинује GPS, Wi-Fi, мобилну мрежу и друге податке како би се локација открила што је прецизније. Такође се можете повезати са Google серверима.</string>
+    <string name="pref_use_google_play">Услуга локације која комбинује GPS, Wi-Fi, мобилну мрежу и друге податке како би се локација открила што је прецизније. Може комуницирати са Google серверима.</string>
     <!-- Preference title -->
     <!-- Preference description -->
     <!-- Text for routing error dialog -->
@@ -546,14 +549,14 @@
     <string name="dialog_error_storage_message">Екстерна меморија није доступна. SD картица је можда уклоњена, оштећена, или је фајл систем само за читање. Молим Вас, проверите Вашу SD картицу или нас контактирајте на support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Симулирај неисправну меморију</string>
     <string name="error_enter_correct_name">Молим Вас да унесете исправан назив</string>
-    <string name="bookmark_lists">Листе фаворита</string>
+    <string name="bookmark_lists">Листе маркера</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Сакриј све</string>
     <string name="bookmark_lists_show_all">Прикажи све</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d фаворит</item>
-        <item quantity="few">%d фаворита</item>
-        <item quantity="other">%d фаворита</item>
+        <item quantity="one">%d маркер</item>
+        <item quantity="few">%d маркера</item>
+        <item quantity="other">%d маркера</item>
     </plurals>
     <string name="bookmarks_create_new_group">Креирај нову листу</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
@@ -581,7 +584,7 @@
         <item quantity="other">%d путања</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Приватност</string>
+    <string name="prefs_group_privacy">Приватност</string>
     <string name="privacy_policy">Политика приватности</string>
     <string name="terms_of_use">Услови коришћења</string>
     <string name="button_layer_traffic">Саобраћај</string>
@@ -609,7 +612,7 @@
     <string name="power_managment_setting_auto">Када је батерија при крају</string>
     <string name="power_managment_setting_manual_max">Увек</string>
     <string name="enable_logging_warning_message">Привремено укључите ову опцију да бисте сачували детаљне дијагностичке логове уколико имате неки проблем. Логове можете да нам пошаљете коришћењем опције \"Пријавите проблем\" у прозору Помоћ. Напомена: Логови могу да садрже информације о вашој локацији.</string>
-    <string name="driving_options_title">Опције рутирања</string>
+    <string name="routing_options_title">Опције рутирања</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Избегавај путарине</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -619,7 +622,7 @@
     <string name="avoid_motorways">Избегавај аутопутеве</string>
     <string name="unable_to_calc_alert_title">Није могуће израчунати руту</string>
     <string name="unable_to_calc_alert_subtitle">Рута није пронађена. Узрок могу бити опције рутирања или непотпуни OpenStreetMap подаци. Молим Вас да промените ваше опције рутирања и покушате поново.</string>
-    <string name="define_to_avoid_btn">Изабери путеве за избегавање</string>
+    <string name="define_to_avoid_btn">Избор опција рутирања</string>
     <string name="change_driving_options_btn">Опције рутирања су укључене</string>
     <string name="toll_road">Путеви са путаринама</string>
     <string name="unpaved_road">Неасфалтирани путеви</string>
@@ -904,15 +907,10 @@
     <string name="navigation_start_tts_message">"Покретање навигације, језик гласовних инструкција: "</string>
     <string name="navigation_start_tts_disabled_message">Гласовне инструкције онемогућене: ТТС мотор није доступан</string>
     <string name="charge_socket_schuko">Шухо</string>
-    <string name="advanced">Напредно</string>
-    <string name="download_resources_custom_url_title">Сопствени сервер мапа</string>
-    <string name="download_resources_custom_url_message">Замени подразумевани сервер за преузимање мапа који се користи за преузимања мапа. Оставите празно да бисте користили CoMaps сервер.</string>
-    <string name="download_resources_custom_url_summary_none">Није постављено</string>
-    <string name="download_resources_custom_url_error_scheme">Унесите пуну УРЛ адресу која почиње са https:// и која се завршава са /</string>
     <string name="pref_maplanguage_local">Локални језик</string>
     <string name="location_privacy_info">Апликације добијају податке о локацији од услуге локације вашег ОС-а, која може да дели вашу локацију са Гугл-ом и/или продавцем вашег уређаја. Користите Андроид ОС који чува приватност да бисте ово избегли.</string>
     <string name="location_privacy">Локацијска приватност</string>
-    <string name="pref_speedlimit_title">Прикажи ограничења брзине</string>
+    <string name="pref_speedlimit_title">Приказ ограничења брзине</string>
     <string name="rooms">%s собе</string>
     <string name="invalid_route">Непостојећа рута</string>
     <string name="building_route">Израчунавање руте…</string>
@@ -925,7 +923,7 @@
     <string name="pref_alt_map_lang_handling">Алтернативни језици мапе</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">Не користите алтернативе</string>
     <string name="pref_alt_map_lang_handling_system_order">Користите системски редослед</string>
-    <string name="pref_alt_map_lang_handling_local_only">Преферирају и користе само тамо где матерњи</string>
+    <string name="pref_alt_map_lang_handling_local_only">Преферирај и користи само ако је локални језик</string>
     <string name="pref_openexternallinks_title">Аутоматски отворите линкове независних произвођача</string>
     <string name="pref_openexternallinks_summary">Отворите линкове независних произвођача у CoMaps-у по дефаулту</string>
     <string name="bookmark_share_email_subject">Кликните на овај линк %1$s или копирајте ове координате %2$s у вашу апликацију за мапе, да бисте видели локацију.</string>
@@ -935,6 +933,50 @@
     <string name="charge_socket_type1_combo">Тип 1 комбо</string>
     <string name="route_recalculating">Прерачунавање руте…</string>
     <string name="population">Становника: %s</string>
-    <string name="setting_value_system_default">Подразумеван системски</string>
+    <string name="setting_value_system_default">Подразумевано</string>
     <string name="change_app_locale">Тренутни језик апликације</string>
+    <string name="downloader_check_updates_button">Провери ажурирања</string>
+    <string name="downloader_check_updates_checking">Проверавам ажурирања...</string>
+    <string name="downloader_check_updates_updated">Доступна су ажурирања мапе!</string>
+    <string name="downloader_check_updates_no_updates">Нема доступних ажурирања</string>
+    <string name="downloader_check_updates_eol">За ову верзију апликације више нема ажурирања мапе. Молим Вас, ажурирајте апликацију!</string>
+    <string name="downloader_check_updates_error">Грешка при провери ажурирања</string>
+    <string name="tts_toggle_enable">Укључи гласовне инструкције</string>
+    <string name="tts_toggle_disable">Искључи гласовне инструкције</string>
+    <string name="oh_unknown">Непознато радно време</string>
+    <string name="editor_add_select_category_all_subtitle">Све категорије</string>
+    <string name="pref_aa_support_title">Андроид Ауто</string>
+    <string name="pref_aa_support_summary_yes">Апликација је инсталирана преко Google Play продавнице, можете је користити у аутомобилу.</string>
+    <string name="pref_aa_support_summary_no">Апликација није инсталирана преко Google Play продавнице, не можете је користити у аутомобилу. Додирните подешавања да бисте сазнали више детаља у нашим ЧПП.</string>
+    <string name="editor_add_select_category_recent_subtitle">Недавно коришћено</string>
+    <string name="sort_categories">Сортирање листи</string>
+    <string name="by_recently_used">По последњем коришћењу</string>
+    <string name="by_custom">По жељеном редоследу</string>
+    <string name="enable_long_tap_fullscreen">Дуги додир за сакривање интерфејса</string>
+    <string name="long_tap_disabled_toast">Да бисте сакрили интерфејс укључите дуги додир у подешавањима</string>
+    <string name="pref_about_summary">Пријава проблема, помоћ, донација\nВерзија: %1$s</string>
+    <string name="prefs_group_map_appearance_summary">Језик мапе, величина слова, 2Д/3Д зграде</string>
+    <string name="prefs_group_interface_summary">Ноћни режим, дугмад, језик</string>
+    <string name="prefs_group_data_management">Управљање подацима</string>
+    <string name="prefs_group_data_management_summary">Чување мапа, бекап маркера</string>
+    <string name="prefs_group_route_summary">Јединице мере, гласовне инструкције, опције рутирања</string>
+    <string name="prefs_group_power_summary">Гашење екрана, мобилни подаци</string>
+    <string name="search_in_all_lists">Претражи у свим листама</string>
+    <string name="pref_enable_auto_reroute_title">Аутоматско прерачунавање руте</string>
+    <string name="pref_enable_auto_reroute_description">Када је укључено, нова рута ће бити аутоматски прерачуната када напустите планирану руту.</string>
+    <string name="off_route">Напустили сте руту</string>
+    <string name="capacity_disabled_yes">Има одвојен простор за особе са инвалидитетом</string>
+    <string name="capacity_disabled_no">Нема одвојен простор за особе са инвалидитетом</string>
+    <string name="capacity_charging">Места са пуњачима: %s</string>
+    <string name="capacity_charging_yes">Има места са пуњачима</string>
+    <string name="capacity_charging_no">Нема места са пуњачима</string>
+    <string name="permission_read_navigation_label">Читање CoMaps података за навигацију</string>
+    <string name="permission_read_navigation_description">читање тренутних информација за навигацију ко што су наредна скретања или назив улице на којој се налазите</string>
+    <string name="prefs_group_interface">Интерфејс</string>
+    <string name="capacity_disabled">Места за паркинг за особе са инвалидитетом: %s</string>
+    <string name="prefs_group_map_appearance">Изглед мапе</string>
+    <string name="prefs_group_privacy_summary">Историја претраге</string>
+    <string name="prefs_group_advanced_summary">Снимање лог фајлова</string>
+    <string name="planning_route_preview">Преглед</string>
+    <string name="recalculate_route">Прерачунај</string>
 </resources>

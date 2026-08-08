@@ -3,7 +3,9 @@
 #include "routing/base/astar_algorithm.hpp"
 #include "routing/checkpoints.hpp"
 #include "routing/regions_decl.hpp"
-#include "routing/router_delegate.hpp"
+#include "routing/routing_callbacks.hpp"
+
+#include "geometry/point2d.hpp"
 
 #include "base/thread.hpp"
 
@@ -15,6 +17,7 @@
 namespace routing
 {
 class IndexGraphStarter;
+class RouterDelegate;
 
 // Encapsulates routing thread for generating all the mwms through which passes the route between
 // |checkpoints|.

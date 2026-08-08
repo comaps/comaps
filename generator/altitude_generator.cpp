@@ -11,6 +11,8 @@
 #include "coding/files_container.hpp"
 #include "coding/succinct_mapper.hpp"
 
+#include "geometry/mercator.hpp"
+
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"
 #include "base/logging.hpp"

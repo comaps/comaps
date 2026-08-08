@@ -1,5 +1,9 @@
 #include "routing/mwm_hierarchy_handler.hpp"
 
+#include "platform/country_file.hpp"
+
+#include "defines.hpp"
+
 #include "3party/ankerl/unordered_dense.h"
 
 namespace routing

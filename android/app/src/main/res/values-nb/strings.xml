@@ -187,13 +187,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Lengde</string>
     <string name="share_my_location">Del posisjonen min</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Generelle instillinger</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Informasjon</string>
     <string name="prefs_group_route">Navigasjon</string>
     <string name="pref_zoom_title">Zoom-knapper</string>
     <string name="pref_zoom_summary">Vis på skjermen</string>
+    <string name="prefs_group_advanced">Avansert</string>
+    <string name="download_resources_custom_url_title">Tilpasset kartserver</string>
+    <string name="download_resources_custom_url_message">Overstyr standardserveren som brukes til nedlasting av kart. La det stå tomt for å bruke CoMaps standardserver.</string>
+    <string name="download_resources_custom_url_summary_none">Ikke angitt</string>
+    <string name="download_resources_custom_url_error_scheme">Angi en nettadresse som starter med http:// eller https://</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Nattmodus</string>
     <!-- Generic «Off» string -->
@@ -209,7 +212,7 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D-bygninger er slått av i strømsparingsmodus</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Taleinstrukser</string>
+    <string name="pref_tts_enable_title">Taleveiledning</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
     <string name="pref_tts_street_names_title">Kunngjør gatenavn</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
@@ -252,7 +255,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Beveg telefonen i en åttetallsbevegelse for å kalibrere kompasset og fikse pilretningen på kartet.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Trykk lenge på kartet igjen for å se grensesnittet</string>
+    <string name="enable_long_tap_fullscreen_description">Trykk lenge på kartet igjen for å se brukerflaten</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Oppdater alle</string>
     <!-- Cancel all button text -->
@@ -587,7 +590,7 @@
         <item quantity="other">%d spor</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Personvern</string>
+    <string name="prefs_group_privacy">Personvern</string>
     <string name="privacy_policy">Personvernpraksis</string>
     <string name="terms_of_use">Bruksbetingelser</string>
     <string name="button_layer_traffic">Trafikk</string>
@@ -615,7 +618,7 @@
     <string name="power_managment_setting_auto">Ved lavt batterinivå</string>
     <string name="power_managment_setting_manual_max">Alltid</string>
     <string name="enable_logging_warning_message">Aktiver dette alternativet midlertidig for å registrere og manuelt sende detaljerte diagnostiske loggfiler om problemet ditt til oss ved bruk av \"Rapporter en feil\" i Hjelp-dialogen. Loggfiler kan inkludere posisjonsinfo.</string>
-    <string name="driving_options_title">Rutingalternativer</string>
+    <string name="routing_options_title">Rutingalternativer</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Unngå bompenger</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -896,11 +899,6 @@
     <string name="place_page_too_old_to_edit">OpenStreetMap-redigering er deaktivert fordi kartdataene er for gamle.</string>
     <string name="osm_note_hint">Alternativt, kan du legge til et notat i OpenStreetMap, slik at noen andre her kan legge til eller korrigere et sted.</string>
     <string name="osm_note_toast">Notatet vil bli sendt til OpenStreetMap</string>
-    <string name="advanced">Avansert</string>
-    <string name="download_resources_custom_url_summary_none">Ikke angitt</string>
-    <string name="download_resources_custom_url_error_scheme">Angi en nettadresse som starter med http:// eller https://</string>
-    <string name="download_resources_custom_url_message">Overstyr standardserveren som brukes til nedlasting av kart. La det stå tomt for å bruke CoMaps standardserver.</string>
-    <string name="download_resources_custom_url_title">Tilpasset kartserver</string>
     <string name="pref_maplanguage_local">Lokalt språk</string>
     <string name="location_privacy_info">Apper mottar posisjonsdata fra operativsystemets posisjonstjeneste, som kan dele posisjonen din med Google og/eller leverandøren av enheten din. Bruk et Android-operativsystem som ivaretar personvernet for å unngå dette.</string>
     <string name="location_privacy">Posisjonspersonvern</string>
@@ -931,4 +929,23 @@
     <string name="editor_mark_business_vacant_description">Bruk dette hvis forretningen er flyttet ut, og lokalet står tomt og klar for en ny leietaker.</string>
     <string name="change_app_locale">Språk i appen</string>
     <string name="setting_value_system_default">Systemstandard</string>
+    <string name="downloader_check_updates_no_updates">Ingen oppdateringer tilgjengelig</string>
+    <string name="downloader_check_updates_checking">Ser etter oppdateringer...</string>
+    <string name="downloader_check_updates_error">Feil under oppdateringssjekk</string>
+    <string name="downloader_check_updates_eol">Ingen flere kartoppdateringer for denne app-versjonen. Oppdater appen!</string>
+    <string name="downloader_check_updates_updated">Kartoppdateringer er tilgjengelige!</string>
+    <string name="downloader_check_updates_button">Se etter oppdateringer</string>
+    <string name="tts_toggle_enable">Slå på taleveiledning</string>
+    <string name="tts_toggle_disable">Slå av taleveiledning</string>
+    <string name="pref_aa_support_summary_no">Appen er ikke installert fra Google Play så du kan ikke bruke den i bilen. Trykk på innstillingen for å få mer informasjon i vår FAQ (Ofte stilte spørsmål).</string>
+    <string name="pref_aa_support_summary_yes">Appen er installert fra Google Play, og du kan bruke den i bilen din.</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="oh_unknown">Åpningstider ukjent</string>
+    <string name="editor_add_select_category_all_subtitle">Alle kategorier</string>
+    <string name="editor_add_select_category_recent_subtitle">Nylig brukt</string>
+    <string name="enable_long_tap_fullscreen">Trykk lenge for å skjule brukerflaten</string>
+    <string name="long_tap_disabled_toast">For å skjule brukerflaten aktiver lang-trykk i innstillingene</string>
+    <string name="sort_categories">Sorter favorittlister</string>
+    <string name="by_recently_used">Etter nylig brukt</string>
+    <string name="by_custom">Etter egendefinert rekkefølge</string>
 </resources>

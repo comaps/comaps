@@ -2,7 +2,9 @@
 #include "indexer/search_delimiters.hpp"
 #include "indexer/search_string_utils.hpp"
 #include "indexer/string_set.hpp"
+#include "indexer/string_slice.hpp"
 
+#include "base/assert.hpp"
 #include "base/macros.hpp"
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"

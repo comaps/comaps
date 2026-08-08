@@ -72,7 +72,7 @@
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
     <string name="bookmarks">Yer İmleri</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Yer İmleri ve Kayıtlı Rotalar</string>
+    <string name="bookmarks_and_tracks">Favoriler</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Adı</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -187,13 +187,13 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Uzunluk</string>
     <string name="share_my_location">Konumumu Paylaş</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Genel ayarlar</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Bilgi</string>
     <string name="prefs_group_route">Navigasyon</string>
     <string name="pref_zoom_title">Yakınlaştırma düğmeleri</string>
     <string name="pref_zoom_summary">Haritada göster</string>
+    <string name="download_resources_custom_url_title">Özel Harita Sunucusu</string>
+    <string name="download_resources_custom_url_message">Harita indirmek için kullanılan varsayılan sunucu yerine farklı sunucu kullanabilirsiniz. CoMaps varsayılan sunucusunu kullanmak için boş bırakın.</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Gece Modu</string>
     <!-- Generic «Off» string -->
@@ -250,7 +250,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Pusulayı kalibre etmek ve haritadaki ok yönünü düzeltmek için telefonu sekiz şeklinde hareket ettirin.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Seçenekleri görmek için haritaya tekrar basılı tutun</string>
+    <string name="enable_long_tap_fullscreen_description">Seçenekleri görmek için haritaya tekrar basılı tutun</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Tümünü Güncelle</string>
     <!-- Cancel all button text -->
@@ -265,7 +265,7 @@
     <string name="downloader_download_all_button">Tümünü İndir</string>
     <string name="downloader_downloading">İndiriliyor:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Haritayı silmek için lütfen navigasyonu kapatın</string>
+    <string name="downloader_delete_map_while_routing_dialog">Haritayı silmek için lütfen navigasyonu durdurun.</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Rotalar yalnızca tümüyle tek bir bölgenin haritası içinde oluşturulabilir.</string>
     <!-- Context menu item for downloader. -->
@@ -289,7 +289,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Lütfen konum hizmetlerini etkinleştirin</string>
     <string name="save">Kaydet</string>
-    <string name="create">oluştur</string>
+    <string name="create">Oluştur</string>
     <!-- red color -->
     <string name="red">Kırmızı</string>
     <!-- yellow color -->
@@ -512,8 +512,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Bunu tüm kullanıcılara göndermek ister misiniz?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Herhangi bir kişisel bilgi girmediğinizden emin olun</string>
-    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap editörleri değişikliklerinizi denetleyecek ve bir soruları olursa sizinle iletişime geçecektir</string>
+    <string name="editor_share_to_all_dialog_message_1">Gizli veya kişisel bir bilgi girmediğinizden emin olun.</string>
+    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap editörleri değişikliklerinizi kontrol edecek ve bir soruları olursa sizinle iletişime geçecektir.</string>
     <string name="navigation_stop_button">Dur</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">GPS iziniz kaydediliyor</string>
@@ -561,11 +561,11 @@
     <string name="bookmark_lists_show_all">Tümünü göster</string>
     <plurals name="bookmarks_places">
         <item quantity="one">%d yer imi</item>
-        <item quantity="other">%d yer imleri</item>
+        <item quantity="other">%d yer imi</item>
     </plurals>
     <string name="bookmarks_create_new_group">Yeni liste oluştur</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Yer İmlerini ve Rotaları İçe Aktar</string>
+    <string name="bookmarks_import">Yer İmlerini İçe Aktar</string>
     <string name="bookmarks_error_message_share_general">Bir uygulama hatasından dolayı paylaşılamıyor</string>
     <string name="bookmarks_error_title_share_empty">Paylaşma hatası</string>
     <string name="bookmarks_error_message_share_empty">Boş bir liste paylaşılamaz</string>
@@ -587,7 +587,7 @@
         <item quantity="other">%d rota</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Gizlilik</string>
+    <string name="prefs_group_privacy">Gizlilik</string>
     <string name="privacy_policy">Gizlilik politikası</string>
     <string name="terms_of_use">Kullanım koşulları</string>
     <string name="button_layer_traffic">Trafik</string>
@@ -615,7 +615,7 @@
     <string name="power_managment_setting_auto">Pil düşükken</string>
     <string name="power_managment_setting_manual_max">Her zaman</string>
     <string name="enable_logging_warning_message">Bu seçenek tanılama amacıyla günlüğe kaydetmeyi açar. Ekibimizin uygulamayla ilgili sorunları gidermesine yardımcı olabilir. Sorununuzla ilgili ayrıntılı günlükleri kaydetmek ve bize göndermek için bu seçeneği geçici olarak etkinleştirin.</string>
-    <string name="driving_options_title">Yönlendirme seçenekleri</string>
+    <string name="routing_options_title">Yönlendirme seçenekleri</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Ücretli yollardan kaçın</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -625,7 +625,7 @@
     <string name="avoid_motorways">Otobandan kaçın</string>
     <string name="unable_to_calc_alert_title">Rota hesaplanamıyor</string>
     <string name="unable_to_calc_alert_subtitle">Rota bulunamadı. Bunun nedeni, belirlediğiniz seçenekler ya da eksik OpenStreetMap verisi olabilir. Lütfen rota seçeneklerinizi değiştirin ve yeniden deneyin.</string>
-    <string name="define_to_avoid_btn">Kaçınılması gereken yolları tanımlayın</string>
+    <string name="define_to_avoid_btn">Rota oluşturma seçenekleri</string>
     <string name="change_driving_options_btn">Yönlendirme seçenekleri etkin</string>
     <string name="toll_road">Paralı yol</string>
     <string name="unpaved_road">Asfaltsız yol</string>
@@ -647,7 +647,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Sırala…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Yer imlerini sırala</string>
+    <string name="sort_bookmarks">Yer İmlerini Sırala</string>
     <!-- Android -->
     <string name="by_default">Varsayılana göre</string>
     <!-- Android -->
@@ -762,12 +762,12 @@
     <!-- Grant Permissions button. -->
     <string name="aa_grant_permissions">İzinleri Verin</string>
     <!-- Outdoors/hiking map style (activity) name in the Styles and Layers dialog -->
-    <string name="button_layer_outdoor">Yürüyüş</string>
+    <string name="button_layer_outdoor">Açık Hava</string>
     <!-- Text displayed when a webview or a browser are disabled, and external links can't be opened. -->
     <string name="browser_not_available">Web tarayıcısı yok</string>
     <string name="volume">Ses</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Tüm Yer İmlerini ve Kayıtları Dışa Aktar</string>
+    <string name="bookmarks_export">Tüm Yer İmlerini Dışa Aktar</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Konuşma sentezleme ile ilgili sistem ayarları</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -898,6 +898,40 @@
     <string name="pref_alt_map_lang_handling_ignore_alternatives">Alternatif dil kullanma</string>
     <string name="pref_alt_map_lang_handling_system_order">Sistem dili sırasına göre kullan</string>
     <string name="pref_alt_map_lang_handling_local_only">Sadece anadil olduğu yerlerde tercih et</string>
-    <string name="download_resources_custom_url_title">Özel Harita Sunucusu</string>
-    <string name="download_resources_custom_url_message">Harita indirmek için kullanılan varsayılan sunucu yerine farklı sunucu kullanabilirsiniz. CoMaps varsayılan sunucusunu kullanmak için boş bırakın.</string>
+    <string name="pref_about_summary">Sorun bildirin, yardım alın, bağış yapın\nSürüm: v%1$s</string>
+    <string name="prefs_group_interface_summary">Gece modu, butonlar, dil</string>
+    <string name="prefs_group_route_summary">Birimler, sesli yönlendirme, rota seçenekleri</string>
+    <string name="download_resources_custom_url_error_scheme">Lütfen http:// veya https:// ile başlayan bir URL giriniz</string>
+    <string name="enable_long_tap_fullscreen">Kullanıcı arayüzünü gizlemek için uzun basın</string>
+    <string name="long_tap_disabled_toast">Arayüzü gizlemek için ayarlarda uzun basışı etkinleştirin</string>
+    <string name="downloader_check_updates_button">Güncellemeleri denetle</string>
+    <string name="downloader_check_updates_eol">Uygulamanın bu sürümü için daha fazla güncelleme gelmeyecek. Lütfen uygulamayı güncelleyin!</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d dk</item>
+        <item quantity="other">%d dk</item>
+    </plurals>
+    <string name="oh_unknown">Çalışma saatleri bilinmiyor</string>
+    <string name="editor_business_vacant_button">İşletme kapanmış</string>
+    <string name="editor_mark_business_vacant_title">İşletmeyi kapanmış olarak işaretle</string>
+    <string name="editor_submit">Gönder</string>
+    <string name="prefs_group_power_summary">Ekran zaman aşımı, mobil veri</string>
+    <string name="population">Nüfus: %s</string>
+    <string name="pref_maplanguage_local">Yerel Dil</string>
+    <string name="stop">Durak</string>
+    <string name="navigation_start_tts_disabled_message">Sesli yönlendirme devre dışı: TTS motoru mevcut değil</string>
+    <string name="rooms">%s oda</string>
+    <string name="invalid_route">Geçersiz rota</string>
+    <string name="building_route">Rota oluşturuluyor…</string>
+    <string name="route_finished">Rota tamamlandı</string>
+    <string name="not_following_route">Rota takip edilmiyor</string>
+    <string name="route_recalculating">Rota yeniden hesaplanıyor…</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_enable_auto_reroute_title">Otomatik yeniden rota hesaplama</string>
+    <string name="pref_enable_auto_reroute_description">Etkinleştirildiğinde, rotadan çıkarsanız yeni bir rota otomatik olarak oluşturulur.</string>
+    <string name="recalculate_route">Yeniden hesapla</string>
+    <string name="capacity_disabled">Engelli park yeri: %s</string>
+    <string name="prefs_group_interface">Arayüz</string>
+    <string name="prefs_group_advanced">Gelişmiş</string>
+    <string name="prefs_group_privacy_summary">Arama geçmişi</string>
+    <string name="setting_value_system_default">Sistem varsayılanı</string>
 </resources>

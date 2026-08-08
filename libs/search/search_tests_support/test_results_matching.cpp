@@ -1,9 +1,14 @@
 #include "search/search_tests_support/test_results_matching.hpp"
 
+#include "search/result.hpp"
+
 #include "generator/generator_tests_support/test_feature.hpp"
 
 #include "indexer/data_source.hpp"
+#include "indexer/feature.hpp"
 #include "indexer/feature_decl.hpp"
+
+#include "base/logging.hpp"
 
 #include <algorithm>
 #include <sstream>

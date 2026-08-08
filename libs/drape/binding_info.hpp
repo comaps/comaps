@@ -1,7 +1,6 @@
 #pragma once
 
 #include "drape/gl_constants.hpp"
-#include "drape/glsl_func.hpp"
 #include "drape/glsl_types.hpp"
 
 #include <array>

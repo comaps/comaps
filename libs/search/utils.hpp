@@ -2,17 +2,18 @@
 
 #include "search/common.hpp"
 #include "search/feature_offset_match.hpp"
-#include "search/token_slice.hpp"
+#include "search/query_params.hpp"
 
-#include "indexer/classificator.hpp"
 #include "indexer/categories_holder.hpp"
 #include "indexer/feature_decl.hpp"
 #include "indexer/search_string_utils.hpp"
+#include "indexer/string_slice.hpp"
 #include "indexer/trie.hpp"
 
 #include "geometry/rect2d.hpp"
 
 #include "base/levenshtein_dfa.hpp"
+#include "base/mem_trie.hpp"
 #include "base/string_utils.hpp"
 
 #include <functional>

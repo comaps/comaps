@@ -1,19 +1,34 @@
 #pragma once
 
-#include "map/transit/transit_reader.hpp"
-
-#include "map/bookmark_manager.hpp"
-#include "map/routing_mark.hpp"
-
 #include "drape_frontend/color_constants.hpp"
 #include "drape_frontend/route_shape.hpp"
 
-#include "routing/route.hpp"
+#include "transit/transit_display_info.hpp"
+#include "transit/transit_entities.hpp"
+
+#include "routing/transit_info.hpp"
+
+#include "routing_common/num_mwm_id.hpp"
+
+#include "indexer/feature_decl.hpp"
+#include "indexer/mwm_set.hpp"
+
+#include "geometry/point2d.hpp"
 
 #include <functional>
 #include <map>
 #include <string>
 #include <vector>
+
+class BookmarkManager;
+class TransitMark;
+class TransitReadManager;
+class StringsBundle;
+
+namespace routing
+{
+class RouteSegment;
+}  // namespace routing
 
 enum class TransitType : uint32_t
 {

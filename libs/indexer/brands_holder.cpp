@@ -5,6 +5,7 @@
 #include "coding/reader.hpp"
 #include "coding/reader_streambuf.hpp"
 
+#include "base/assert.hpp"
 #include "base/string_utils.hpp"
 
 #include <sstream>

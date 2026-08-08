@@ -1,12 +1,9 @@
 #pragma once
 
-#include "drape_frontend/frontend_renderer.hpp"
-
 #include "drape/drape_diagnostics.hpp"
 
 #include "geometry/point2d.hpp"
 
-#include "base/stl_helpers.hpp"
 #include "base/thread.hpp"
 
 #include <chrono>
@@ -17,6 +14,7 @@
 
 namespace df
 {
+class FrontendRenderer;
 
 class ScenarioManager
 {

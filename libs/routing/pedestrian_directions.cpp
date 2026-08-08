@@ -1,8 +1,20 @@
 #include "routing/pedestrian_directions.hpp"
 
+#include "routing/loaded_path_segment.hpp"
+#include "routing/route.hpp"
+#include "routing/routing_result_graph.hpp"
+#include "routing/segment.hpp"
+#include "routing/turn_candidate.hpp"
 #include "routing/turns.hpp"
 #include "routing/turns_generator.hpp"
 #include "routing/turns_generator_utils.hpp"
+
+#include "geometry/mercator.hpp"
+#include "geometry/point2d.hpp"
+#include "geometry/point_with_altitude.hpp"
+
+#include "base/assert.hpp"
+#include "base/stl_helpers.hpp"
 
 #include <utility>
 

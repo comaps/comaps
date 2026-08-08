@@ -1,8 +1,13 @@
 #include "routing/routing_quality/api/api.hpp"
 
+#include "coding/file_reader.hpp"
+#include "coding/file_writer.hpp"
+#include "coding/reader.hpp"
 #include "coding/write_to_sink.hpp"
 
 #include "geometry/mercator.hpp"
+
+#include "base/assert.hpp"
 
 #include <string>
 

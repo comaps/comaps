@@ -1,0 +1,320 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "الزم اليمين."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "انعطف يميناً."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "إلى أقصى اليمين."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "ادخل الدوار."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "اخرج من الدوار."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "الزم اليسار."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "انعطف يساراً."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "إلى أقصى اليسار."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "إستدر للعودة."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "إستمر إلى الأمام."
+    },
+    "exit": {
+        "defaultMessage": "خروج."
+    },
+    "onto": {
+        "defaultMessage": "إلى"
+    },
+    "take_exit_number": {
+        "defaultMessage": "خروج إلى"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "إعادة حساب المسار"
+    },
+    "destination": {
+        "defaultMessage": "سوف تصل."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "لقد وصلت."
+    },
+    "in_50_meters": {
+        "defaultMessage": "بعد خمسين متراً"
+    },
+    "in_100_meters": {
+        "defaultMessage": "بعد مئة متر"
+    },
+    "in_200_meters": {
+        "defaultMessage": "بعد مئتين متر"
+    },
+    "in_250_meters": {
+        "defaultMessage": "بعد مئتين وخمسين متراً"
+    },
+    "in_300_meters": {
+        "defaultMessage": "بعد ثلاثمئة متر"
+    },
+    "in_400_meters": {
+        "defaultMessage": "بعد أربعمئة متر"
+    },
+    "in_500_meters": {
+        "defaultMessage": "بعد خمسمئة متر"
+    },
+    "in_600_meters": {
+        "defaultMessage": "بعد ستمئة متر"
+    },
+    "in_700_meters": {
+        "defaultMessage": "بعد سبعمئة متر"
+    },
+    "in_750_meters": {
+        "defaultMessage": "بعد سبعمئة وخمسين مترًا"
+    },
+    "in_800_meters": {
+        "defaultMessage": "بعد ثمانمئة متر"
+    },
+    "in_900_meters": {
+        "defaultMessage": "بعد تسعمئة متر"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "بعد كيلومتر واحد"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "بعد كيلومتر ونصف"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "بعد كيلومترين"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "بعد كيلومترين ونصف"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "بعد ثلاثة كيلومترات"
+    },
+    "then": {
+        "defaultMessage": "ثم"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "اسلك المخرج الأول."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "اسلك المخرج الثاني."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "اسلك المخرج الثالث."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "اسلك المخرج الرابع."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "اسلك المخرج الخامس."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "اسلك المخرج السادس."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "اسلك المخرج السابع."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "اسلك المخرج الثامن."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "اسلك المخرج التاسع."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "اسلك المخرج العاشر."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "اسلك المَخْرَج الحادي عشر."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "بعد خمسين قدمًا"
+    },
+    "in_100_feet": {
+        "defaultMessage": "بعد مئة قدم"
+    },
+    "in_200_feet": {
+        "defaultMessage": "بعد مئتين قدم"
+    },
+    "in_300_feet": {
+        "defaultMessage": "بعد ثلاثمئة قدم"
+    },
+    "in_400_feet": {
+        "defaultMessage": "بعد أربعمئة قدم"
+    },
+    "in_500_feet": {
+        "defaultMessage": "بعد خمسمئة قدم"
+    },
+    "in_600_feet": {
+        "defaultMessage": "بعد ستمئة قدم"
+    },
+    "in_700_feet": {
+        "defaultMessage": "بعد سبعمئة قدم"
+    },
+    "in_800_feet": {
+        "defaultMessage": "بعد ثمانمئة قدم"
+    },
+    "in_900_feet": {
+        "defaultMessage": "بعد تسعمئة قدم"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "بعد ألف قدم"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "بعد ألف وخمسمئة قدم"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "بعد ألفي قدم"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "بعد ألفين وخمسمئة قدم"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "بعد ثلاثة آلاف قدم"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "بعد ثلاثة آلاف وخمسمئة قدم"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "بعد أربعة آلاف قدم"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "بعد أربعة آلاف وخمسمئة قدم"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "بعد خمسة آلاف قدم"
+    },
+    "in_1_mile": {
+        "defaultMessage": "بعد ميل واحد"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "بعد ميل ونصف"
+    },
+    "in_2_miles": {
+        "defaultMessage": "بعد ميلين"
+    },
+    "unknown_camera": {
+        "defaultMessage": "الكاميرا أمامك"
+    }
+}

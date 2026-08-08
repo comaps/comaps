@@ -1,10 +1,6 @@
 #include "keyword_lang_matcher.hpp"
 
-#include "indexer/search_delimiters.hpp"
-#include "indexer/search_string_utils.hpp"
-
 #include "base/assert.hpp"
-#include "base/stl_helpers.hpp"
 
 #include <algorithm>
 #include <limits>

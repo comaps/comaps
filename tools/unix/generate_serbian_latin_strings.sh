@@ -5,6 +5,15 @@ echo "Converting Serbian Cyrillic resource files to Serbian Latin"
 REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 ANDROID="$REPO_ROOT/android"
 
+if [ "$(uname)" = "Darwin" ]; then
+  export PATH="$(brew --prefix icu4c)/bin:$PATH"
+fi
+
+if ! command -v uconv >/dev/null 2>&1; then
+  echo "Error: uconv not found. On macOS: brew install icu4c. On Linux, check your package manager for a package providing uconv (often part of ICU)." >&2
+  exit 1
+fi
+
 convert() {
   INPUT="$1"
   OUTPUT="$2"

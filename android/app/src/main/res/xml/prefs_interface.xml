@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <ListPreference
+    android:entries="@array/map_style"
+    android:key="@string/pref_map_style"
+    android:title="@string/pref_map_style_title"
+    app:icon="@drawable/ic_dark_mode"
+    app:singleLineTitle="false" />
+  <SwitchPreferenceCompat
+    android:key="@string/pref_show_zoom_buttons"
+    android:summary="@string/pref_zoom_summary"
+    android:title="@string/pref_zoom_title"
+    android:widgetLayout="@layout/preference_switch"
+    app:singleLineTitle="false" />
+  <ListPreference
+    android:key="@string/pref_left_button"
+    android:persistent="true"
+    android:title="@string/pref_left_button_title"
+    app:singleLineTitle="false" />
+  <Preference
+    android:key="@string/pref_app_locale"
+    android:persistent="false"
+    android:title="@string/change_app_locale"
+    app:icon="@drawable/ic_translate"
+    app:singleLineTitle="false" />
+  <SwitchPreferenceCompat
+    android:defaultValue="false"
+    android:key="@string/pref_long_tap_fullscreen"
+    android:summary="@string/enable_long_tap_fullscreen_description"
+    android:title="@string/enable_long_tap_fullscreen"
+    android:widgetLayout="@layout/preference_switch"
+    app:singleLineTitle="false" />
+
+</androidx.preference.PreferenceScreen>

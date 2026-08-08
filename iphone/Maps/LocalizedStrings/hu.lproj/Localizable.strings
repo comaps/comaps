@@ -46,11 +46,11 @@
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "Új lista hozzáadása";
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Könyvjelzőlista neve";
+"bookmark_set_name" = "Lista neve";
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Könyvjelzőlisták";
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Könyvjelzők";
+"bookmarks" = "Helyek";
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Kedvencek";
 /* Default bookmark list name */
@@ -109,9 +109,9 @@
 "category_rv" = "Lakókocsis létesítmények";
 "share_bookmarks_email_body" = "Üdvözlöm!\n\nMellékeltem a könyvjelzőimet; nyissa meg őket az CoMaps alkalmazásban. Ha még nem telepítette, akkor innen tudja letölteni: https://www.comaps.app/download/\n\nJó utat kívánok az CoMaps alkalmazással!";
 /* message title of loading file */
-"load_kmz_title" = "Könyvjelzők betöltése";
+"load_kmz_title" = "Kedvencek betöltése";
 /* Kmz file successful loading */
-"load_kmz_successful" = "A könyvjelzők sikeresen betöltődtek! Megtalálhatja őket a térképen vagy a Könyvjelzők kezelése képernyőn.";
+"load_kmz_successful" = "A kedvencek sikeresen betöltődtek! Megtalálhatja őket a térképen vagy a Kedvencek kezelése képernyőn.";
 /* Kml file loading failed */
 "load_kmz_failed" = "Nem sikerült betölteni a könyvjelzőket. A fájl sérült vagy hibás lehet.";
 /* resource for context menu */
@@ -147,7 +147,7 @@
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "A térkép nyelve";
 /* Settings «Map» category: «Map Language» local value */
-"pref_maplanguage_local" = "A helyi nyelv";
+"pref_maplanguage_local" = "Helyi nyelv";
 /* Settings «Map» category: «Map Appearance» title */
 "pref_mapappearance_title" = "A térkép megjelenése";
 /* Settings «Map» category: «Appearance» title */
@@ -222,7 +222,7 @@
 /* Text in menu */
 "help" = "Súgó";
 /* Button in the main Help dialog */
-"faq" = "GYIK";
+"faq" = "Gyakran ismételt kérdések";
 /* Button in the main menu */
 "donate" = "Adományozás";
 /* Button in the main Help dialog */
@@ -525,14 +525,14 @@
 "placepage_more_button" = "Tovább";
 "book_button" = "Foglalás";
 "placepage_call_button" = "Hívás";
-"placepage_edit_bookmark_button" = "Könyvjelző szerkesztése";
+"placepage_edit_bookmark_button" = "Mentett hely szerkesztése";
 "placepage_bookmark_name_hint" = "Könyvjelző neve";
 "placepage_personal_notes_hint" = "Személyes jegyzetek (szöveg vagy html)";
 "placepage_delete_bookmark_button" = "Könyvjelző törlése";
 "editor_edits_sent_message" = "Az Ön megjegyzése el lesz küldve az OpenStreetMapnek";
 "editor_comment_hint" = "Megjegyzés…";
 "editor_reset_edits_message" = "Elveti az összes módosítást?";
-"editor_reset_edits_button" = "Elvetés";
+"editor_reset_edits_button" = "Változtatások elvetése";
 "editor_remove_place_message" = "Törli a hozzáadott helyet?";
 "editor_remove_place_button" = "Törlés";
 "editor_place_doesnt_exist" = "A hely nem létezik";
@@ -545,10 +545,10 @@
 "refresh" = "Frissítés";
 "placepage_add_place_button" = "Hely hozzáadása az OpenStreetMap adatbázisához";
 /* Displayed when saving some edits to the map to warn against publishing personal data */
-"editor_share_to_all_dialog_title" = "Szeretné elküldeni az összes felhasználónak?";
+"editor_share_to_all_dialog_title" = "Elküldi az összes felhasználónak?";
 /* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "Győződjön meg arról, hogy nem ad meg semmilyen magánjellegű vagy személyes adatokat.";
-"editor_share_to_all_dialog_message_2" = "Az OpenStreetMap szerkesztői ellenőrzik a változásokat, és felveszik Önnel a kapcsolatot, ha bármilyen kérdésük van.";
+"editor_share_to_all_dialog_message_2" = "Az OpenStreetMap szerkesztői ellenőrzik a változásokat, és felveszik Önnel a kapcsolatot, ha bármilyen kérdésük adódik.";
 "navigation_stop_button" = "Megállítás";
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
 "recent_track_background_dialog_title" = "Megszakítod a legutóbb megtett utad rögzítését?";
@@ -578,10 +578,10 @@
 "traffic_data_unavailable" = "Nem állnak rendelkezésre forgalmi adatok";
 "enable_logging" = "Naplózás engedélyezése";
 "log_file_size" = "Naplófájl mérete: %@";
-"pref_alt_map_lang_handling" = "Alternative Map Languages";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
-"pref_alt_map_lang_handling_system_order" = "Use in system order";
-"pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
+"pref_alt_map_lang_handling" = "Alternatív térképnyelvek";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Ne használjon alternatívákat";
+"pref_alt_map_lang_handling_system_order" = "Rendszersorrend használata";
+"pref_alt_map_lang_handling_local_only" = "Helyi nyelv előnyben részítése";
 "transliteration_title" = "Átírás latin betűkre";
 "transliteration_title_disabled_summary" = "Letiltva, ha mindig a helyi nyelvet használja a térképen";
 /* Subway exits for public transport marks on the map */
@@ -606,7 +606,7 @@
 "bookmark_lists_show_all" = "Összes megjelenítése";
 "bookmarks_create_new_group" = "Új lista létrehozása";
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Könyvjelzők és nyomvonalak importálása";
+"bookmarks_import" = "Kedvencek importálása";
 "downloader_hide_screen" = "Kijelző elrejtése";
 "downloader_percent" = "%@ (%@ / %@)";
 "downloader_process" = "%@ letöltése…";
@@ -655,7 +655,7 @@
 "avoid_tolls" = "Díjköteles utak elkerülése";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_unpaved" = "Burkolatlan utak elkerülése";
-"avoid_paved" = "Avoid paved roads";
+"avoid_paved" = "Burkolt utak elkerülése";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_steps" = "Lépcsők elkerülése";
 "avoid_ferry" = "Kompátkelők elkerülése";
@@ -681,8 +681,6 @@
 "yes_available" = "Igen";
 /* E.g. "WiFi:No" */
 "no_available" = "Nem";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Kapacitás: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Hálózat: %@";
 "trip_finished" = "Megérkezett!";
@@ -800,7 +798,7 @@
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "Szabadtéri";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Összes könyvjelző és nyomvonal exportálása";
+"bookmarks_export" = "Összes kedvenc exportálása";
 /* Text for the editing the Track's color button. */
 "change_color" = "Szín módosítása";
 /* Main screen title "Map" displayed in the navigation back button's menu. */
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Add Place";
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"downloader_check_updates_button" = "Frissítések keresése";
+"downloader_check_updates_checking" = "Frissítések keresése…";
+"downloader_check_updates_updated" = "Térképfrissítések érhetők el!";
+"downloader_check_updates_no_updates" = "Nincsenek térképfrissítések";
+"downloader_check_updates_eol" = "Nem érhető el további térképfrissítés ehhez a verzióhoz. Frissítse az alkalmazást!";
+"downloader_check_updates_error" = "Hiba a frissítések keresése során";
+"editor_add_select_category_recent_subtitle" = "Legutóbb használt";
+"oh_unknown" = "A nyitvatartás ismeretlen";
+"carplay_highway_exit" = "Exit %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "Nincs kijelölt mozgássérült hely";
+"capacity_charging_yes" = "Van hely töltővel";
+"capacity_charging_no" = "Nincs hely töltővel";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

@@ -8,7 +8,6 @@
 
 #include "coding/file_writer.hpp"
 #include "coding/files_container.hpp"
-#include "coding/string_utf8_multilang.hpp"
 
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"

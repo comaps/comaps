@@ -5,6 +5,8 @@
 
 #include "platform/measurement_utils.hpp"
 
+#include "base/assert.hpp"
+
 #include <cstdint>
 #include <utility>
 #include <vector>
@@ -143,26 +145,52 @@ struct Notification
   /// if m_useThenInsteadOfDistance == true the m_distanceUnits is ignored.
   /// The word "Then" will be pronounced instead of the distance.
   bool m_useThenInsteadOfDistance;
+  /// if m_useAtEndOfRoadPrefix == true, "At the end of the road" replaces the distance
+  /// for T-junction turn announcements.
+  bool m_useAtEndOfRoadPrefix = false;
+  /// if m_useAtRoundaboutPrefix == true, "At the roundabout," precedes the "take the Nth exit"
+  /// instruction (advance notification) or the chained exit announcement.
+  bool m_useAtRoundaboutPrefix = false;
+  bool m_alwaysUseRoundaboutExitNumbers = false;
+  bool m_removeLastDot = false;
   CarDirection m_turnDir = CarDirection::None;
   PedestrianDirection m_turnDirPedestrian = PedestrianDirection::None;
   measurement_utils::Units m_lengthUnits;
   RouteSegment::RoadNameInfo m_nextStreetInfo;
 
-  Notification(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance, CarDirection turnDir,
-               measurement_utils::Units lengthUnits, RouteSegment::RoadNameInfo const & nextStreetInfo)
+  Notification(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance,
+               bool alwaysUseRoundaboutExitNumbers, bool removeLastDot, CarDirection turnDir,
+               PedestrianDirection pedestrianDirection, measurement_utils::Units lengthUnits,
+               RouteSegment::RoadNameInfo const & nextStreetInfo)
     : m_distanceUnits(distanceUnits)
     , m_exitNum(exitNum)
     , m_useThenInsteadOfDistance(useThenInsteadOfDistance)
+    , m_alwaysUseRoundaboutExitNumbers(alwaysUseRoundaboutExitNumbers)
+    , m_removeLastDot(removeLastDot)
+    , m_turnDir(turnDir)
+    , m_turnDirPedestrian(pedestrianDirection)
+    , m_lengthUnits(lengthUnits)
+    , m_nextStreetInfo(nextStreetInfo)
+  {}
+
+  Notification(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance, CarDirection turnDir,
+               measurement_utils::Units lengthUnits, RouteSegment::RoadNameInfo const & nextStreetInfo,
+               bool useAtRoundaboutPrefix = false)
+    : m_distanceUnits(distanceUnits)
+    , m_exitNum(exitNum)
+    , m_useThenInsteadOfDistance(useThenInsteadOfDistance)
+    , m_useAtRoundaboutPrefix(useAtRoundaboutPrefix)
     , m_turnDir(turnDir)
     , m_lengthUnits(lengthUnits)
     , m_nextStreetInfo(nextStreetInfo)
   {}
 
   Notification(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance, CarDirection turnDir,
-               measurement_utils::Units lengthUnits)
+               measurement_utils::Units lengthUnits, bool useAtRoundaboutPrefix = false)
     : m_distanceUnits(distanceUnits)
     , m_exitNum(exitNum)
     , m_useThenInsteadOfDistance(useThenInsteadOfDistance)
+    , m_useAtRoundaboutPrefix(useAtRoundaboutPrefix)
     , m_turnDir(turnDir)
     , m_lengthUnits(lengthUnits)
   {}
@@ -170,7 +198,11 @@ struct Notification
   bool operator==(Notification const & rhv) const
   {
     return m_distanceUnits == rhv.m_distanceUnits && m_exitNum == rhv.m_exitNum &&
-           m_useThenInsteadOfDistance == rhv.m_useThenInsteadOfDistance && m_turnDir == rhv.m_turnDir &&
+           m_useThenInsteadOfDistance == rhv.m_useThenInsteadOfDistance &&
+           m_useAtEndOfRoadPrefix == rhv.m_useAtEndOfRoadPrefix &&
+           m_useAtRoundaboutPrefix == rhv.m_useAtRoundaboutPrefix && m_turnDir == rhv.m_turnDir &&
+           m_alwaysUseRoundaboutExitNumbers == rhv.m_alwaysUseRoundaboutExitNumbers &&
+           m_removeLastDot == rhv.m_removeLastDot && m_turnDir == rhv.m_turnDir &&
            m_turnDirPedestrian == rhv.m_turnDirPedestrian && m_lengthUnits == rhv.m_lengthUnits &&
            m_nextStreetInfo == rhv.m_nextStreetInfo;
   }
@@ -185,10 +217,20 @@ using VecPairDist = std::vector<PairDist>;
 
 /// @return a reference to a vector of pairs of a distance in meters and a text id.
 /// All the distances are translated in supported languages and can be pronounced.
-VecPairDist const & GetAllSoundedDistMeters();
+/// The distances are grammatically correct for a distance travelling towards a place.
+VecPairDist const & GetAllSoundedDistUntilMeters();
 /// @return a reference to a vector of pairs of a distance in feet and a text id.
 /// All the distances are translated in supported languages and can be pronounced.
-VecPairDist const & GetAllSoundedDistFeet();
+/// The distances are grammatically correct for a distance travelling towards a place.
+VecPairDist const & GetAllSoundedDistUntilFeet();
+/// @return a reference to a vector of pairs of a distance in meters and a text id.
+/// All the distances are translated in supported languages and can be pronounced.
+/// The distances are grammatically correct for a distance travelling away from a place.
+VecPairDist const & GetAllSoundedDistFromMeters();
+/// @return a reference to a vector of pairs of a distance in feet and a text id.
+/// All the distances are translated in supported languages and can be pronounced.
+/// The distances are grammatically correct for a distance travelling away from a place.
+VecPairDist const & GetAllSoundedDistFromFeet();
 
 // @TODO(vbykoianko) Now GetSoundedDistMeters/Feet() functions returns a subset of
 // the result of GetAllSoundedDistMeters/Feet() functions. So GetAllSoundedDistMeters/Feet()

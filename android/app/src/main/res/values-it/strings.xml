@@ -183,13 +183,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Lunghezza</string>
     <string name="share_my_location">Condividi la mia posizione</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Opzioni generali</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Informazioni</string>
     <string name="prefs_group_route">Navigazione</string>
     <string name="pref_zoom_title">Pulsanti per lo zoom</string>
     <string name="pref_zoom_summary">Mostra sulla mappa</string>
+    <string name="prefs_group_advanced">Avanzate</string>
+    <string name="download_resources_custom_url_title">Server mappe personalizzato</string>
+    <string name="download_resources_custom_url_message">Sovrascrivi il server da cui scaricare le mappe. Lascia vuoto per usare i server default di CoMaps.</string>
+    <string name="download_resources_custom_url_summary_none">Non impostato</string>
+    <string name="download_resources_custom_url_error_scheme">Inserisci un URL che inizia con http:// o https://</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Modalità notturna</string>
     <!-- Generic «Off» string -->
@@ -246,7 +249,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Muovi il telefono con un movimento a otto per calibrare la bussola e fissare la direzione della freccia sulla mappa.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Tocca di nuovo a lungo sulla mappa per visualizzare l\'interfaccia</string>
+    <string name="enable_long_tap_fullscreen_description">Tocca di nuovo a lungo sulla mappa per visualizzare l\'interfaccia</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Aggiorna tutte</string>
     <!-- Cancel all button text -->
@@ -585,7 +588,7 @@
         <item quantity="other">%d tracce</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Privacy</string>
+    <string name="prefs_group_privacy">Privacy</string>
     <string name="privacy_policy">Polizza sulla privacy</string>
     <string name="terms_of_use">Termini di utilizzo</string>
     <string name="button_layer_traffic">Traffico</string>
@@ -613,7 +616,7 @@
     <string name="power_managment_setting_auto">Quando c\'è poca batteria</string>
     <string name="power_managment_setting_manual_max">Sempre</string>
     <string name="enable_logging_warning_message">Attiva questa opzione temporaneamente per registrare e inviarci manualmente dei log diagnostici riguardo al tuo problema usando \"Segnala un bug\" nella sezione Aiuto. I log potrebbero contenere informazioni sulla posizione.</string>
-    <string name="driving_options_title">Impostazioni del percorso</string>
+    <string name="routing_options_title">Impostazioni del percorso</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Evita le strade a pedaggio</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -896,11 +899,6 @@
     <string name="navigation_start_tts_disabled_message">Istruzioni vocali disabilitate: TTS non disponibile</string>
     <string name="prefs_speed_cameras_information">Gli avvisi di Autovelox sono disabilitati dove proibito dalla legge locale.</string>
     <string name="navigation_start_tts_message">"Inizio Navigazione, lingua per istruzioni vocali: "</string>
-    <string name="download_resources_custom_url_error_scheme">Inserisci un URL che inizia con http:// o https://</string>
-    <string name="download_resources_custom_url_summary_none">Non impostato</string>
-    <string name="download_resources_custom_url_message">Sovrascrivi il server da cui scaricare le mappe. Lascia vuoto per usare i server default di CoMaps.</string>
-    <string name="download_resources_custom_url_title">Server mappe personalizzato</string>
-    <string name="advanced">Avanzate</string>
     <string name="opens_at">Apre alle %s</string>
     <string name="closes_at">Chiude alle %s</string>
     <string name="pref_maplanguage_local">Lingua locale</string>

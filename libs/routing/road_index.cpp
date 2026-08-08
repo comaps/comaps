@@ -1,7 +1,5 @@
 #include "routing/road_index.hpp"
 
-#include "routing/routing_exceptions.hpp"
-
 namespace routing
 {
 void RoadIndex::Import(std::vector<Joint> const & joints)

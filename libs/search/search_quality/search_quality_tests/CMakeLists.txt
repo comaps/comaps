@@ -9,5 +9,10 @@ set(SRC
 omim_add_test(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  search_quality
+  PRIVATE
+    base
+    geometry
+    indexer
+    search_quality
+    search_tests_support
 )

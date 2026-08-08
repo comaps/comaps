@@ -1,11 +1,12 @@
 #pragma once
 
-#include "coding/reader.hpp"
-
 #include "base/assert.hpp"
+#include "base/logging.hpp"
 
 #include <string>
 #include <type_traits>
+
+class Reader;
 
 namespace transit
 {

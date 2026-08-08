@@ -120,7 +120,7 @@
     <string name="saved">Cadwyd</string>
     <string name="bookmark_lists">Rhestrau</string>
     <string name="restore">Adfer</string>
-    <string name="privacy">Preifatrwydd</string>
+    <string name="prefs_group_privacy">Preifatrwydd</string>
     <string name="button_layer_traffic">Traffig</string>
     <string name="category_desc_more">...mwy</string>
     <string name="power_managment_setting_manual_max">Bob amser</string>
@@ -169,7 +169,6 @@
     <string name="category_children">Gwyliau teulu</string>
     <string name="category_rv">Cyfleusterau Carafan</string>
     <string name="load_kmz_title">Wrthi\'n llwytho Ffefrynnau</string>
-    <string name="prefs_group_general">Gosodiadau cyffredinol</string>
     <string name="pref_zoom_title">Botymau chwyddo</string>
     <string name="pref_map_style_title">Modd Nos</string>
     <string name="pref_map_3d_buildings_title">Adeiladau 3D</string>

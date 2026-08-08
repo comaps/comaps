@@ -2,8 +2,9 @@
 
 #include "shaders/programs.hpp"
 
-#include "drape/pointers.hpp"
 #include "drape/render_state.hpp"
+
+#include "base/assert.hpp"
 
 #include <cstdint>
 

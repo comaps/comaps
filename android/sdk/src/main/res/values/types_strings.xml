@@ -133,6 +133,7 @@
     <string name="type.amenity.parking_space.private">Parking Space</string>
     <string name="type.amenity.parking_space.underground">Parking Space</string>
     <string name="type.amenity.parking_space.disabled">Disabled Parking Space</string>
+    <string name="type.amenity.planetarium">Planetarium</string>
     <string name="type.amenity.car_pooling">Car Pooling</string>
     <string name="type.amenity.payment_centre">Payment Centre</string>
     <string name="type.amenity.payment_terminal">Payment Terminal</string>
@@ -188,6 +189,8 @@
     <string name="type.amenity.telephone">Phone</string>
     <string name="type.amenity.theatre">Theatre</string>
     <string name="type.amenity.toilets">Toilet</string>
+    <string name="type.amenity.toilets.customers">Customer Access</string>
+    <string name="type.amenity.toilets.private">Private Access</string>
     <string name="type.toilets.yes">Toilet</string>
     <string name="type.amenity.townhall">Town Hall</string>
     <string name="type.amenity.university">University</string>
@@ -207,11 +210,13 @@
     <string name="type.amenity.vending_machine.fuel">Fuel Pump</string>
     <string name="type.amenity.veterinary">Veterinary Doctor</string>
     <string name="type.amenity.animal_shelter">Animal Shelter</string>
+    <string name="type.amenity.animal_boarding">Animal Boarding</string>
     <string name="type.amenity.waste_basket">Trash Bin</string>
     <string name="type.amenity.waste_disposal">Dumpster</string>
     <string name="type.amenity.waste_transfer_station">Waste Transfer Station</string>
     <string name="type.amenity.water_point">Water Tank Refill Point</string>
     <string name="type.amenity.water_point.drinking_water_no">Water Tank Refill Point</string>
+    <string name="type.amenity.stage">Stage</string>
     <string name="type.barrier">Barrier</string>
     <string name="type.barrier.yes">Barrier</string>
     <string name="type.barrier.block">Block</string>
@@ -456,7 +461,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunnel</string>
     <string name="type.highway.bus_stop">Bus Stop</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Road Under Construction</string>
+    <string name="type.highway.construction.motorway">Road Under Construction</string>
+    <string name="type.highway.construction.motorway_link">Road Under Construction</string>
+    <string name="type.highway.construction.trunk">Road Under Construction</string>
+    <string name="type.highway.construction.trunk_link">Road Under Construction</string>
+    <string name="type.highway.construction.primary">Road Under Construction</string>
+    <string name="type.highway.construction.primary_link">Road Under Construction</string>
+    <string name="type.highway.construction.secondary">Road Under Construction</string>
+    <string name="type.highway.construction.secondary_link">Road Under Construction</string>
+    <string name="type.highway.construction.tertiary">Road Under Construction</string>
+    <string name="type.highway.construction.tertiary_link">Road Under Construction</string>
+    <string name="type.highway.construction.residential">Road Under Construction</string>
+    <string name="type.highway.construction.unclassified">Road Under Construction</string>
+    <string name="type.highway.construction.service">Road Under Construction</string>
+    <string name="type.highway.construction.living_street">Road Under Construction</string>
+    <string name="type.highway.construction.road">Road Under Construction</string>
+    <string name="type.highway.construction.track">Road Under Construction</string>
     <string name="type.highway.cycleway">Cycle Path</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Bridge</string>
@@ -945,7 +967,7 @@
     <string name="type.railway.funicular">Funicular</string>
     <string name="type.railway.funicular.bridge">Funicular Bridge</string>
     <string name="type.railway.funicular.tunnel">Funicular Tunnel</string>
-    <string name="type.railway.halt">Rail Halt</string>
+    <string name="type.railway.halt">Rail Stop</string>
     <string name="type.railway.level_crossing">Level Crossing</string>
     <string name="type.railway.light_rail">Light Rail</string>
     <string name="type.railway.light_rail.bridge">Light Rail Bridge</string>

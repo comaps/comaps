@@ -2,16 +2,24 @@
 
 #include "editor/editable_data_source.hpp"
 
+#include "indexer/feature_covering.hpp"
 #include "indexer/mwm_set.hpp"
 
 #include "geometry/rect2d.hpp"
 
 #include "coding/reader.hpp"
 
+#include "platform/country_file.hpp"
+
 #include <functional>
 #include <string>
 #include <utility>
 #include <vector>
+
+namespace platform
+{
+class LocalCountryFile;
+}  // namespace platform
 
 class FeaturesFetcher : public MwmSet::Observer
 {

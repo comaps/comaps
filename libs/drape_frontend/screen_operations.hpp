@@ -1,6 +1,9 @@
 #pragma once
 
-#include "geometry/screenbase.hpp"
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
+
+class ScreenBase;
 
 namespace df
 {

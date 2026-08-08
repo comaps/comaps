@@ -6,11 +6,18 @@ public final class Constants
   public static final int MB = 1024 * 1024;
   public static final int GB = 1024 * 1024 * 1024;
 
-  static final int READ_TIMEOUT_MS = 10000;
+  public static final int READ_TIMEOUT_MS = 10000;
+  public static final int CONNECT_TIMEOUT_MS = 5000;
 
   public static class Url
   {
-    public static final String SHORT_SHARE_PREFIX = "cm://";
+    /**
+     * Deprecated July release 2026. Note: This usage of `cm://` only applies to creating/opening sharable URL links with this schema.
+     * `cm://` is used for OAuth redirection in other places.
+     */
+    @Deprecated
+    public static final String SHORT_SHARE_PREFIX_OLD = "cm://";
+    public static final String SHORT_SHARE_PREFIX = "comaps://";
     public static final String HTTP_SHARE_PREFIX = "https://comaps.at/";
 
     public static final String MAILTO_SCHEME = "mailto:";

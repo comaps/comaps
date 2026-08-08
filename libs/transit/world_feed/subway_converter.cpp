@@ -1,11 +1,19 @@
 #include "transit/world_feed/subway_converter.hpp"
 
+#include "transit/transit_schedule.hpp"
+
 #include "generator/transit_generator.hpp"
 
 #include "routing/fake_feature_ids.hpp"
 
+#include "indexer/feature_decl.hpp"
+
+#include "geometry/mercator.hpp"
+#include "geometry/point2d.hpp"
+
 #include "base/assert.hpp"
 #include "base/logging.hpp"
+#include "base/stl_helpers.hpp"
 
 #include <algorithm>
 #include <iterator>

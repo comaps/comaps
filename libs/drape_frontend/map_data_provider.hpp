@@ -1,9 +1,10 @@
 #pragma once
 
-#include "storage/storage_defines.hpp"
-
+#include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
+
 #include "indexer/feature.hpp"
+#include "indexer/feature_decl.hpp"
 
 #include <functional>
 #include <string>

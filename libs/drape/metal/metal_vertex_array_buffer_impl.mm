@@ -1,5 +1,6 @@
 #import <MetalKit/MetalKit.h>
 
+#include "drape/index_buffer.hpp"
 #include "drape/metal/metal_base_context.hpp"
 #include "drape/metal/metal_gpu_buffer_impl.hpp"
 #include "drape/pointers.hpp"

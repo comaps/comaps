@@ -1,5 +1,11 @@
 #include "indexer/drawing_rule_def.hpp"
 
+#include "indexer/feature.hpp"
+
+#include "geometry/rect2d.hpp"
+
+#include "base/assert.hpp"
+
 #include <algorithm>
 #include <iterator>
 

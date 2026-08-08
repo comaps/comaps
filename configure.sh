@@ -5,9 +5,12 @@
 
 echo "Configuring the repository for development..."
 
+export PYTHONUTF8=1
+
 SKIP_MAP_DOWNLOAD="${SKIP_MAP_DOWNLOAD:-}"
 SKIP_GENERATE_SYMBOLS="${SKIP_GENERATE_SYMBOLS:-}"
 SKIP_GENERATE_DRULES="${SKIP_GENERATE_DRULES:-}"
+SKIP_GENERATE_JSON_STRINGS="${SKIP_GENERATE_JSON_STRINGS:-}"
 SKIP_GENERATE_STRINGS="${SKIP_GENERATE_STRINGS:-}"
 SKIP_GENERATE_SERBIAN_LATIN_STRINGS="${SKIP_GENERATE_SERBIAN_LATIN_STRINGS:-}"
 
@@ -32,7 +35,7 @@ for f in ${SYMBOLS_FILES[*]}; do
   fi
 done
 
-if [ ! -f "libs/indexer/localized_types_map.cpp" ]; then
+if [ ! -f "libs/platform/localized_types_map.cpp" ]; then
   STRINGS_NOT_GENERATED=1
 fi
 
@@ -50,8 +53,9 @@ while true; do
     -m | --skip-map-download ) SKIP_MAP_DOWNLOAD=1; shift ;;
     -s | --skip-generate-symbols ) SKIP_GENERATE_SYMBOLS=1; shift ;;
     -d | --skip-generate-drules ) SKIP_GENERATE_DRULES=1; shift ;;
+    -O | --skip-generate-json-strings ) SKIP_GENERATE_JSON_STRINGS=1; shift ;;
     -S | --skip-generate-strings ) SKIP_GENERATE_STRINGS=1; shift ;;
-    -L | --skip-generate-strings ) SKIP_GENERATE_SERBIAN_LATIN_STRINGS=1; shift ;;
+    -L | --skip-generate-serbian-latin-strings ) SKIP_GENERATE_SERBIAN_LATIN_STRINGS=1; shift ;;
     * ) break ;;
   esac
 done
@@ -89,24 +93,38 @@ if [ ! -d 3party/boost/boost ]; then
   popd
 fi
 
+# Provision and activate a local Python virtual environment with protobuf
+source ./tools/unix/activate_venv.sh
+
 if [ -z "$SKIP_MAP_DOWNLOAD" ]; then
   pushd data
 
   MWM_VERSION=$(awk -F'[:,]' '/"v":/{ $2 = substr($2, 2); print $2 }' countries.txt)
+  # Maps are found under this location
+  # https://mapgen-fi-1.comaps.app/maps/<map_series>/<version>/World.mwm
+  MAP_SERIES=$(awk -F'"' '/"map_series":/{ print $4; exit }' countries.txt)
+  MAPS_BASE_URL="https://mapgen-fi-1.comaps.app/maps/$MAP_SERIES/$MWM_VERSION"
   MWM_PATH="world_mwm/$MWM_VERSION"
   WORLD_PATH="$MWM_PATH/World.mwm"
   WORLD_PATH2="$MWM_PATH/WorldCoasts.mwm"
 
   mkdir -p "$MWM_PATH"
 
+  # TODO: if needed World map file version exists already then we need to update a symlink to point to it anyway
   if [ ! -f "$WORLD_PATH" ]; then
     echo "Downloading world map..."
-    # Using a fi1 maps mirror/CDN
-    wget -N "https://cdn-fi-1.comaps.app/maps/$MWM_VERSION/World.mwm" -P "$MWM_PATH" &&
+    # mapgen-fi-1 is supposed to have all historic prod map versions as well as recent test maps
+    if ! wget -N "$MAPS_BASE_URL/World.mwm" -P "$MWM_PATH"; then
+      echo "ERROR: could not download World.mwm from $MAPS_BASE_URL" >&2
+      exit 1
+    fi
     rm -f World.mwm; ln -s "$WORLD_PATH" World.mwm
   fi
   if [ ! -f "$WORLD_PATH2" ]; then
-    wget -N "https://cdn-fi-1.comaps.app/maps/$MWM_VERSION/WorldCoasts.mwm" -P "$MWM_PATH" &&
+    if ! wget -N "$MAPS_BASE_URL/WorldCoasts.mwm" -P "$MWM_PATH"; then
+      echo "ERROR: could not download WorldCoasts.mwm from $MAPS_BASE_URL" >&2
+      exit 1
+    fi
     rm -f WorldCoasts.mwm; ln -s "$WORLD_PATH2" WorldCoasts.mwm
   fi
 
@@ -120,6 +138,14 @@ if [ -z "$SKIP_MAP_DOWNLOAD" ]; then
   popd
 else
   echo "Skipping world map download..."
+fi
+
+# This step must be before all the other strings steps, since they expect strings in data/
+if [ -z "$SKIP_GENERATE_JSON_STRINGS" ]; then
+  echo "Generating json strings..."
+  ./tools/unix/generate_json_strings.sh
+else
+  echo "Skipping generate json strings..."
 fi
 
 echo "Generating search categories / synonyms..."

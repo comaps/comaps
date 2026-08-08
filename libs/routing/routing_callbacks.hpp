@@ -88,6 +88,13 @@ enum class SessionState
    * the previous route.
    */
   RouteRebuilding,
+
+  /**
+   * We detected the user is off the route but they asked not to rebuild.
+   *
+   * Display a warning but user will keep following the same old route.
+   */
+  OffRoute,
 };
 
 /*
@@ -103,6 +110,9 @@ enum class SessionState
  * OnRoute -> RouteNoFollowing           // following mode was disabled. Router doesn't track position
  * OnRoute -> RouteFinished              // user reached the end of route
  * OnRoute -> RouteBuilding              // while moving along a route user makes a new route
+ * OnRoute -> OffRoute                   // user moves away from the route, no need stop tracking
+ * OffRoute -> OnRoute                   // user returned to the route
+ * OffRoute -> RouteNeedsRebuild         // user doesn't like the route any more
  */
 
 using CheckpointCallback = std::function<void(size_t passedCheckpointIdx)>;

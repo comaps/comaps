@@ -1,0 +1,1403 @@
+{
+    "@category_eat": {
+        "defaultMessage": "Tempat makan|Makanan"
+    },
+    "@category_food": {
+        "defaultMessage": "Toserba|Makanan|Toko"
+    },
+    "@category_transport": {
+        "defaultMessage": "5Transportasi"
+    },
+    "@category_fuel": {
+        "defaultMessage": "Bahan bakar"
+    },
+    "@category_parking": {
+        "defaultMessage": "4Parkir"
+    },
+    "@category_shopping": {
+        "defaultMessage": "Berbelanja"
+    },
+    "@category_hotel": {
+        "defaultMessage": "Hotel|Hotel"
+    },
+    "@category_tourism": {
+        "defaultMessage": "Pemandangan"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "Hiburan"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "Kehidupan Malam"
+    },
+    "@category_children": {
+        "defaultMessage": "Liburan keluarga"
+    },
+    "@category_atm": {
+        "defaultMessage": "2ATM"
+    },
+    "@category_rv": {
+        "defaultMessage": "Untuk RV"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "uang"
+    },
+    "@category_bank": {
+        "defaultMessage": "3Bank"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "Tangan kedua"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "uang"
+    },
+    "@category_recycling": {
+        "defaultMessage": "Mendaur ulang|Pemanfaatan limbah|Dapat didaur ulang|Pemisahan pengumpulan sampah|Pemilahan limbah|Penggunaan kembali"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "3Pertukaran valuta|pertukaran"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "2Bar|2pub|minuman"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "3Kafe"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "Cepat Saji"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "3Restoran"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "Pompa bensin"
+    },
+    "@shop": {
+        "defaultMessage": "Toko"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "Toko roti|Roti|Kue-kue"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "4Kosmetik"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "Mini market"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "Toko makanan jadi"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "Penitipan anak"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "Alat bantu dengar"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "Toko telepon"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "Tukang bunga|toko bunga"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "Tukang daging"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "Toko mebel"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "Toko Dapur"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "Toko alkohol|minuman keras"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "Toko buku"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "Toko sepatu"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "4Elektronik"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "Toko perangkat keras|bahan bangunan|Hardware Store"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "Barang-barang rumah tangga"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "Perhiasan"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "Toko kacamata"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "Toko hadiah"
+    },
+    "shop-beauty": {
+        "defaultMessage": "Salon kecantikan"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "Penjual sayuran"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "Barang olahraga"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "3Supermarket"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "Mall"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "Toko serba ada"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "Minuman"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "Toko komputer"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "Penganan|manisan"
+    },
+    "shop-laundry": {
+        "defaultMessage": "4Londri|binatu"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "Toko mainan"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "Transfer uang"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "Toko baju"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "Toko mobil"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "3Toko sepeda"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "3Halte bus"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "3Perhentian trem"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "3Stasiun bus"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "Rel kereta api"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "Kereta gantung"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "3Stasiun bawah tanah"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "3Terminal|feri"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "3Taksi"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "3Balai kota"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "3Atraksi|pemandangan"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "3Pariwisata"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "Titik pandang"
+    },
+    "tourism-information": {
+        "defaultMessage": "3Informasi turis"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "3Lokasi piknik|Panggangan barbekyu"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "4Tempat ibadah"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "Gereja|tempat ibadah"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "4Masjid|tempat ibadah"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "Kuil|tempat ibadah"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "Kuil|tempat ibadah"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "Kuil|tempat ibadah"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "4Sinagoge|tempat ibadah"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "Kuil|tempat ibadah"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "3Museum"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "2Air terjun"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "Situs arkeologi"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "Medan Perang"
+    },
+    "historic-stone": {
+        "defaultMessage": "Batu Bersejarah"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "Batu pembatas"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "4Kastel|Benteng Romawi|Gereja yang dibentengi|Benteng|Benteng bukit|Kremlin|Rumah bangsawan|Istana"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "Gerbang kota"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "Tembok Kota"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "Benteng"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "Tiang gantungan"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "3Tugu peringatan"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "Salib peringatan"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "Tugu peringatan"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "Tugu peringatan"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "Tugu peringatan"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "Stolperstein"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "Tugu peringatan perang"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "4Monumen"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "Pilar"
+    },
+    "historic-cannon": {
+        "defaultMessage": "Meriam"
+    },
+    "historic-anchor": {
+        "defaultMessage": "Jangkar Bersejarah"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "Reruntuhan"
+    },
+    "historic-mine": {
+        "defaultMessage": "Tambang Bersejarah"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "Pemandangan"
+    },
+    "historic-wreck": {
+        "defaultMessage": "Kecelakaan kapal"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "Lokomotif Bersejarah"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "Tangki Bersejarah"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "Pesawat Bersejarah"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "Pemandangan"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "Salib di pinggir jalan"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "Kuil di pinggir jalan"
+    },
+    "leisure-garden": {
+        "defaultMessage": "Situs arkeologi"
+    },
+    "amenity-bench": {
+        "defaultMessage": "Bangku panjang"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "Penyewaan Sepeda"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "Berbagi mobil"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "4Rental mobil"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "Penyewaan Sepeda Motor"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "Bioskop"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "Arena Bowling"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "3Teater"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "Kelab malam"
+    },
+    "@gambling": {
+        "defaultMessage": "Berjudi"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "Pusat Permainan Dewasa"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "Arkade"
+    },
+    "amenity-college": {
+        "defaultMessage": "Kampus"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "Kantor pemadam kebakaran"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "Air mancur"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "Pemakaman"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "Direktur Pemakaman"
+    },
+    "@category_hospital": {
+        "defaultMessage": "5Rumahsakit|Rumah sakit"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "4Klinik|rumah sakit"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "Praktik dokter|Klinik|rumah sakit"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "Dokter gigi"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "Laboratorium medis"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "Fisioterapis"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "Pengobatan alternatif"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "Audiologi|Audiologis"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "Donor darah"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "Optometri|Ahli kacamata"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "Podiatri|Ahli penyakit kaki"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "Psikoterapi|Psikoterapis"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "Logopedik|Terapis bicara"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "Lokasi berburu"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "Taman kanak-kanak"
+    },
+    "amenity-library": {
+        "defaultMessage": "Perpustakaan"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "3Apotek"
+    },
+    "@category_post": {
+        "defaultMessage": "Pos"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "Kotak pos"
+    },
+    "amenity-post_office|post_office-post_partner|@category_post": {
+        "defaultMessage": "Kantor pos"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "Pemeriksaan kendaraan"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "Sampah"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "TPA"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "Wadah daur ulang"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "Baterai"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "Pakaian lama|Mendaur ulang pakaian lama"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "Botol kaca"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "Limbah kertas"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "Limbah plastik"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "Botol-botol plastik"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "Besi tua"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "Limbah elektronik"
+    },
+    "amenity-school": {
+        "defaultMessage": "Sekolah"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "Tempat penampungan"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "Pondok Bivak"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "Tempat penampungan"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "Klub telanjang"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "3Telepon"
+    },
+    "@category_toilet": {
+        "defaultMessage": "3Toilet"
+    },
+    "amenity-university": {
+        "defaultMessage": "4Universitas"
+    },
+    "place-continent": {
+        "defaultMessage": "Benua"
+    },
+    "place-country": {
+        "defaultMessage": "Benua"
+    },
+    "place-city": {
+        "defaultMessage": "Kota"
+    },
+    "place-town": {
+        "defaultMessage": "Kota"
+    },
+    "place-city-capital": {
+        "defaultMessage": "Ibu kota"
+    },
+    "place-county": {
+        "defaultMessage": "Kabupaten"
+    },
+    "place-state": {
+        "defaultMessage": "Negara bagian"
+    },
+    "place-region": {
+        "defaultMessage": "Wilayah"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "Pulau"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "Pinggiran kota|Lingkungan"
+    },
+    "place-hamlet": {
+        "defaultMessage": "Dusun"
+    },
+    "place-village": {
+        "defaultMessage": "Desa"
+    },
+    "place-locality": {
+        "defaultMessage": "Wilayah"
+    },
+    "place-farm": {
+        "defaultMessage": "Ladang"
+    },
+    "highway-raceway": {
+        "defaultMessage": "Lintasan balap"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "Jalur"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "Jalan"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "Keluar"
+    },
+    "@mountain": {
+        "defaultMessage": "Puncak"
+    },
+    "natural-strait": {
+        "defaultMessage": "Selat"
+    },
+    "landuse-forest": {
+        "defaultMessage": "Hutan"
+    },
+    "leisure-park": {
+        "defaultMessage": "Taman"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "Akuarium"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "3Hostel"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "Wisma tamu"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "Motel"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "Penginapan di pegunungan|hotel"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "Penata rambut"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "Bandar udara"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "4Stadion"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "Taman bermain"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "Olahraga"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "Lapangan golf"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "Ruang petualangan"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "Lapangan olahraga|lapangan"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "Kolam renang"
+    },
+    "sport-american_football": {
+        "defaultMessage": "Sepak Bola Amerika"
+    },
+    "sport-archery": {
+        "defaultMessage": "Panahan"
+    },
+    "sport-athletics": {
+        "defaultMessage": "Atletik"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "Sepak bola Australia"
+    },
+    "sport-baseball": {
+        "defaultMessage": "Baseball"
+    },
+    "sport-basketball": {
+        "defaultMessage": "Bola basket"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "Voli pantai"
+    },
+    "sport-bowls": {
+        "defaultMessage": "Boling lapangan"
+    },
+    "sport-chess": {
+        "defaultMessage": "Catur"
+    },
+    "sport-cricket": {
+        "defaultMessage": "Kriket"
+    },
+    "sport-curling": {
+        "defaultMessage": "Curling"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "Berkuda"
+    },
+    "sport-golf": {
+        "defaultMessage": "Golf"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "Olahraga senam"
+    },
+    "sport-handball": {
+        "defaultMessage": "Bola tangan"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "Selam scuba"
+    },
+    "sport-shooting": {
+        "defaultMessage": "Lapangan tembak"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "Seluncur papan"
+    },
+    "sport-skiing": {
+        "defaultMessage": "Bermain ski"
+    },
+    "sport-soccer": {
+        "defaultMessage": "Sepak bola"
+    },
+    "sport-swimming": {
+        "defaultMessage": "Kolam Renang"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "Tenis meja"
+    },
+    "sport-tennis": {
+        "defaultMessage": "Tenis"
+    },
+    "sport-padel": {
+        "defaultMessage": "Padel"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "Bola voli"
+    },
+    "building": {
+        "defaultMessage": "Gedung"
+    },
+    "building-address": {
+        "defaultMessage": "Alamat"
+    },
+    "@category_police": {
+        "defaultMessage": "4Polisi"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "Kedutaan"
+    },
+    "natural-bay": {
+        "defaultMessage": "Teluk"
+    },
+    "@category_water": {
+        "defaultMessage": "3Air"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "Air minum"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "Sumber Air Panas"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "Mata air"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "Sumur air"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "Titik Air"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "Keran Air"
+    },
+    "@waterbody": {
+        "defaultMessage": "Perairan"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "Sebuah baskom air"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "Kolam"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "Danau"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "Waduk"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "Sungai"
+    },
+    "waterway-canal": {
+        "defaultMessage": "Kanal"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "Bengkel mobil"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "5Perkemahan"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "Lokasi perkemahan"
+    },
+    "office": {
+        "defaultMessage": "Kantor"
+    },
+    "office-company": {
+        "defaultMessage": "Kantor perusahaan"
+    },
+    "office-government": {
+        "defaultMessage": "Kantor pemerintah"
+    },
+    "office-lawyer": {
+        "defaultMessage": "Kantor pengacara"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "Operator seluler"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "Peternak lebah"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "Pandai Besi"
+    },
+    "craft-brewery": {
+        "defaultMessage": "Toko minuman"
+    },
+    "craft-caterer": {
+        "defaultMessage": "Katering"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "Tukang kayu"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "Penganan"
+    },
+    "craft-electrician": {
+        "defaultMessage": "Tukang listrik"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "Perbaikan Elektronik"
+    },
+    "craft-gardener": {
+        "defaultMessage": "Tukang kebun"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "Pabrik"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "Kriya"
+    },
+    "craft-hvac": {
+        "defaultMessage": "HVAC"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "Tukang besi"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "Pemotongan Kunci"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "Tukang kunci"
+    },
+    "craft-painter": {
+        "defaultMessage": "Tukang cat"
+    },
+    "craft-photographer": {
+        "defaultMessage": "Juru foto"
+    },
+    "craft-plumber": {
+        "defaultMessage": "Tukang pipa"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "Penggergajian kayu"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "Tukang sepatu"
+    },
+    "craft-winery": {
+        "defaultMessage": "Kilang Anggur"
+    },
+    "craft-tailor": {
+        "defaultMessage": "Tukang jahit"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "Alun-alun|Lapangan kota"
+    },
+    "place-sea": {
+        "defaultMessage": "Laut"
+    },
+    "place-ocean": {
+        "defaultMessage": "Samudra"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "3Internet"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "Pantai"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "Mercusuar"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "Menara Komunikasi"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "Sumur Minyak"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "eco|bio|sehat|biologis|ekologis|alami|organik"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "4Fotokopi|4Printer"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "Studio Foto|bingkai"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "Toko Kamera"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "Agen Perjalanan Wisata|tur"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "Peralatan Outdoor|lintas alam|mendaki|kemah"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "Cuci Kering|kering"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "Toko Ban"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "Cuci Mobil"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "Dokter Hewan"
+    },
+    "@charging_station": {
+        "defaultMessage": "Pusat Pengisian Daya|pengisian daya"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "Pengisian Daya Sepeda"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "Penitipan Anak|Perawatan Anak"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "Parkir Sepeda"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "Kotak sampah"
+    },
+    "emergency-phone": {
+        "defaultMessage": "3Telepon darurat"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "Pusat kebugaran|senam"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "3Sauna"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "Tambal ban"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "Toko Bahan Kimia"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "Toko hewan"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "Kebun binatang"
+    },
+    "attraction-animal": {
+        "defaultMessage": "Kandang Hewan"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Kantor wisata"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Pusat Pengunjung"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "Pusat komunitas"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "Udara terkompresi"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "Gedung pengadilan"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "Mesin rokok"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "Mesin penjual minuman"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "Mesin pembayaran tiket parkir"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "Mesin penjual otomatis tiket transportasi umum"
+    },
+    "shop-outpost": {
+        "defaultMessage": "Titik penjemputan"
+    },
+    "building-garage": {
+        "defaultMessage": "Garasi"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "Tempat istirahat"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "Cerobong asap pabrik"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "Menara"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "Bandar judi"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "Penjual Ikan"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Toko Barang bekas"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "Toko Amal"
+    },
+    "shop-ticket": {
+        "defaultMessage": "Tempat penjualan karcis"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "Toko anggur"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "Bagian mobil"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "Pondok Liburan"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "Papan informasi"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "Peta wisata"
+    },
+    "aerialway-station": {
+        "defaultMessage": "Stasiun kereta gantung"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "Landasan helikopter"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "Gerbang perbatasan"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "Taman air"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "Menara air"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "Kincir angin"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "Gua"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "Gunung berapi"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "Agen ril estat"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "Gerbang pengunci"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "Rak Buku|Bursa Buku"
+    },
+    "sport-climbing": {
+        "defaultMessage": "Pusat Peralatan Mendaki"
+    },
+    "sport-yoga": {
+        "defaultMessage": "Studio Yoga"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "5Apartemen"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "Sanggraloka"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "5Biergarten"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "Sekolah Mengemudi"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "Sekolah musik"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "Sekolah bahasa"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "Kios Es Krim"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "Kafe Internet"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "Tempat Parkir Sepeda Motor"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "Tempat parkir penyandang cacat"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "Panti Jompo"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "Terminal Pembayaran"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "Pemandian umum"
+    },
+    "amenity-shower": {
+        "defaultMessage": "Pancuran"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "Titik Berkumpul Darurat"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "4Defibrilator"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "Keran Kebakaran"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "Penjaga Pantai Darurat|Penjaga pantai"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "Penyelamatan Gunung Darurat"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "Stasiun Kebugaran"
+    },
+    "office-insurance": {
+        "defaultMessage": "Kantor Asuransi"
+    },
+    "office-ngo": {
+        "defaultMessage": "Kantor LSM"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "Toko Erotik"
+    },
+    "shop-massage": {
+        "defaultMessage": "Tempat Pijat"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "Toko Sepeda Motor"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "Bengkel Sepeda Motor"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "Kios Surat Kabar"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "Rumah Gadai"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "Toko Alat Tulis"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "Tempat Tato"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "Toko Kelontong"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "Toko video"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "Toko permainan video"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "Pondok Alam Liar"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "Taman Nasional"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "Cagar Alam"
+    },
+    "natural-cape": {
+        "defaultMessage": "Tanjung"
+    },
+    "natural-geyser": {
+        "defaultMessage": "3Geiser"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "Gletser"
+    },
+    "highway-ford": {
+        "defaultMessage": "Menyeberang"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "Ski|Lari ski"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "Tempat acara"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Barang antik"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "Toko Seni"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "Toko anak-anak"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "Toko Tas"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "Toko Keju"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "Produk susu"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "Toko elektronik"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "Toko Memancing"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "Dekorasi Interior"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "Tiket Lotere"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "Suplai medis"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "Suplemen Nutrisi"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "Cat"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "Wewangian"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "Perlengkapan Jahit"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "Sewa Penyimpanan"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "Tembakau"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "Perlengkapan Perdagangan"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "Jam tangan"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "Toko Grosir"
+    },
+    "power-plant": {
+        "defaultMessage": "Pembangkit listrik"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "Lelang"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Kolektor|Barang koleksi"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "Kursi roda"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "Fasilitas Sosial"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "Ruang olahraga"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "Pusat kesenian"
+    },
+    "amenity-prison": {
+        "defaultMessage": "penjara"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "Pusat pameran"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "Perabot Kamar Mandi"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "Toko tempat tidur"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "Butik"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "Tirai"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "Toko gas"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "Perawatan Hewan Peliharaan"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "Audio HI FI"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "Pusat konferensi"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "Toko jamu"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "Toko peralatan"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "Toko pertanian"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "Aksesoris Fashion"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "Karpet"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "Pasta"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "Loker Bagasi"
+    },
+    "@fastfood": {
+        "defaultMessage": "Cepat saji"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "Roti bagel"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "Sarapan"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "Burger"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "Kue"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "Kopi"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "Kari"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "Makan malam"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "Donat"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "Ikan dan kentang goreng"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "Gorengan"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "Panggangan"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "Hotdog"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "Es_krim"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "Kebab"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "Bakmi"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "Panekuk|Kue dadar"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "Pasta"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "Pizza"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "Ramen"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "Roti isi"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "Sosis"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "Hidangan laut|Ikan"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "Soba"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "Restoran steik"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "Sushi"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "Kudapan spanyol"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "Teh"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "Masakan vegetarian"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "Masakan vegan"
+    }
+}

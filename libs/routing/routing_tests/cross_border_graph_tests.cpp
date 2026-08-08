@@ -11,6 +11,7 @@
 
 #include "coding/file_reader.hpp"
 #include "coding/file_writer.hpp"
+#include "coding/files_container.hpp"
 
 #include "geometry/distance_on_sphere.hpp"
 #include "geometry/latlon.hpp"

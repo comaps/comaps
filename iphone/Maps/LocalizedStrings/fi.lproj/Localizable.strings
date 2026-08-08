@@ -46,11 +46,11 @@
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "Lisää uusi valikoima";
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Kirjanmerkkivalikoiman nimi";
+"bookmark_set_name" = "Listan nimi";
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Suosikkiluettelot";
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Kirjanmerkit";
+"bookmarks" = "Paikat";
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Suosikit";
 /* Default bookmark list name */
@@ -681,8 +681,6 @@
 "yes_available" = "Kyllä";
 /* E.g. "WiFi:No" */
 "no_available" = "Ei";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Kapasiteetti: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Verkko: %@";
 "trip_finished" = "Olet perillä!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Lisää paikka";
 "contribute_to_osm_update_map" = "Päivitä kartta täydentääksesi";
 "contribute_to_osm_update_map_description" = "Sinun täytyy päivittää %@ kartta uusimpaan versioon ennen kuin voit osallistua OpenStreetMap-tietojen parantamiseen";
+"downloader_check_updates_button" = "Check for updates";
+"downloader_check_updates_checking" = "Checking for updates...";
+"downloader_check_updates_updated" = "Map updates available!";
+"downloader_check_updates_no_updates" = "No updates available";
+"downloader_check_updates_eol" = "No more map updates for this app version. Please update the app!";
+"downloader_check_updates_error" = "Error checking for updates";
+"editor_add_select_category_recent_subtitle" = "Recently Used";
+"oh_unknown" = "Opening hours unknown";
+"carplay_highway_exit" = "Exit %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "No dedicated disabled spaces";
+"capacity_charging_yes" = "Has spaces with chargers";
+"capacity_charging_no" = "No spaces with chargers";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

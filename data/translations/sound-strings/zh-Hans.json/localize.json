@@ -1,0 +1,323 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "向右前方行驶。"
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "右转。"
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "向右急转。"
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "在环岛处。"
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "驶出环岛。"
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "向左前方行驶。"
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "左转。"
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "向左急转。"
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "掉头。"
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "继续直行。"
+    },
+    "exit": {
+        "defaultMessage": "驶出当前路段。"
+    },
+    "onto": {
+        "defaultMessage": "驶入到"
+    },
+    "take_exit_number": {
+        "defaultMessage": "驶出 上"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "正在重新计算路线"
+    },
+    "destination": {
+        "defaultMessage": "即将到达目的地。"
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "您已到达目的地。"
+    },
+    "in_50_meters": {
+        "defaultMessage": "在五十米后"
+    },
+    "in_100_meters": {
+        "defaultMessage": "在一百米后"
+    },
+    "in_200_meters": {
+        "defaultMessage": "在两百米后"
+    },
+    "in_250_meters": {
+        "defaultMessage": "在两百五十米后"
+    },
+    "in_300_meters": {
+        "defaultMessage": "在三百米后"
+    },
+    "in_400_meters": {
+        "defaultMessage": "在四百米后"
+    },
+    "in_500_meters": {
+        "defaultMessage": "在五百米后"
+    },
+    "in_600_meters": {
+        "defaultMessage": "在六百米后"
+    },
+    "in_700_meters": {
+        "defaultMessage": "在七百米后"
+    },
+    "in_750_meters": {
+        "defaultMessage": "在七百五十米后"
+    },
+    "in_800_meters": {
+        "defaultMessage": "在八百米后"
+    },
+    "in_900_meters": {
+        "defaultMessage": "在九百米后"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "在一公里后"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "在一点五公里后"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "在两公里后"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "在两点五公里后"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "在三公里后"
+    },
+    "then": {
+        "defaultMessage": "然后"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "从第一个出口驶出环岛。"
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "从第二个出口驶出环岛。"
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "从第三个出口驶出环岛。"
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "从第四个出口驶出环岛。"
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "从第五个出口驶出环岛。"
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "从第六个出口驶出环岛。"
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "从第七个出口驶出环岛。"
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "从第八个出口驶出环岛。"
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "从第九个出口驶出环岛。"
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "从第十个出口驶出环岛。"
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "从第十一个出口驶出环岛。"
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "在五十英尺后"
+    },
+    "in_100_feet": {
+        "defaultMessage": "在一百英尺后"
+    },
+    "in_200_feet": {
+        "defaultMessage": "在两百英尺后"
+    },
+    "in_300_feet": {
+        "defaultMessage": "在三百英尺后"
+    },
+    "in_400_feet": {
+        "defaultMessage": "在四百英尺后"
+    },
+    "in_500_feet": {
+        "defaultMessage": "在五百英尺后"
+    },
+    "in_600_feet": {
+        "defaultMessage": "在六百英尺后"
+    },
+    "in_700_feet": {
+        "defaultMessage": "在七百英尺后"
+    },
+    "in_800_feet": {
+        "defaultMessage": "在八百英尺后"
+    },
+    "in_900_feet": {
+        "defaultMessage": "在九百英尺后"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "在一千英尺后"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "在一千五百英尺后"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "在两千英尺后"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "在两千五百英尺后"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "在三千英尺后"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "在三千五百英尺后"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "在四千英尺后"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "在四千五百英尺后"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "在五千英尺后"
+    },
+    "in_1_mile": {
+        "defaultMessage": "在一英里后"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "在一点五英里后"
+    },
+    "in_2_miles": {
+        "defaultMessage": "在两英里后"
+    },
+    "unknown_camera": {
+        "defaultMessage": "前方有测速摄像头"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "在路的尽头，"
+    }
+}

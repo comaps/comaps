@@ -1,8 +1,15 @@
 #pragma once
 
+#include "indexer/feature.hpp"
 #include "indexer/feature_covering.hpp"
+#include "indexer/feature_decl.hpp"
 #include "indexer/feature_source.hpp"
 #include "indexer/mwm_set.hpp"
+
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
+
+#include "base/assert.hpp"
 
 #include <functional>
 #include <memory>

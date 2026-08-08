@@ -5,9 +5,7 @@
 #include "indexer/data_source.hpp"
 #include "indexer/feature.hpp"
 
-#include "base/localisation.hpp"
-
-#include "coding/string_utf8_multilang.hpp"
+#include "i18n/localisation.hpp"
 
 #include <iostream>
 

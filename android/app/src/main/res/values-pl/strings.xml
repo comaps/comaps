@@ -187,13 +187,16 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Długość</string>
     <string name="share_my_location">Udostępnij aktualne położenie</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">Ustawienia ogólne</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">Informacje</string>
     <string name="prefs_group_route">Nawigacja</string>
     <string name="pref_zoom_title">Przyciski przybliżania</string>
     <string name="pref_zoom_summary">Wyświetla na ekranie</string>
+    <string name="prefs_group_advanced">Zaawansowane</string>
+    <string name="download_resources_custom_url_title">Własny serwer map</string>
+    <string name="download_resources_custom_url_message">Zastąp domyślny serwer pobierania map. Zostaw puste, by użyć domyślnego serwera CoMaps.</string>
+    <string name="download_resources_custom_url_summary_none">Nieustawiony</string>
+    <string name="download_resources_custom_url_error_scheme">Proszę wprowadzić URL zaczynający się od http:// lub https://</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Tryb nocny</string>
     <!-- Generic «Off» string -->
@@ -252,7 +255,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Przesuń telefon ruchem w kształcie ósemki, aby skalibrować kompas i ustalić kierunek strzałki na mapie.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Ponownie dotknij długo mapy, aby wyświetlić interfejs</string>
+    <string name="enable_long_tap_fullscreen_description">Ponownie dotknij długo mapy, aby wyświetlić interfejs</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Aktualizuj wszystkie</string>
     <!-- Cancel all button text -->
@@ -594,7 +597,7 @@
         <item quantity="other">%d tras</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Prywatność</string>
+    <string name="prefs_group_privacy">Prywatność</string>
     <string name="privacy_policy">Polityka prywatności</string>
     <string name="terms_of_use">Warunki użytkowania</string>
     <string name="button_layer_traffic">Ruch drogowy</string>
@@ -604,7 +607,7 @@
     <string name="bookmarks_empty_list_message">Aby zapisać miejsce, stuknij miejsce na mapie, a następnie ikonę gwiazdki</string>
     <string name="category_desc_more">…więcej</string>
     <string name="export_file">Eksportuj KMZ</string>
-    <string name="export_file_gpx">Eksport GPX</string>
+    <string name="export_file_gpx">Eksportuj GPX</string>
     <string name="delete_list">Usuń listę</string>
     <string name="speedcams_alert_title">Fotoradary</string>
     <string name="place_description_title">Opis miejsca</string>
@@ -622,7 +625,7 @@
     <string name="power_managment_setting_auto">Automatycznie</string>
     <string name="power_managment_setting_manual_max">Maksymalna oszczędność energii</string>
     <string name="enable_logging_warning_message">Włącz tę opcję tymczasowo, aby zebrać szczegółowe dane diagnostyczne o twoim problemie. Dane zostaną użyte na potrzeby zgłaszania błędu przy użyciu opcji „Zgłoś błąd” w sekcji Pomoc. Logi mogą zawierać dane lokalizacyjne.</string>
-    <string name="driving_options_title">Ustawienia nawigacji</string>
+    <string name="routing_options_title">Ustawienia nawigacji</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Unikaj płatnych dróg</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -664,7 +667,7 @@
     <!-- Android -->
     <string name="by_date">Wg daty</string>
     <!-- Android -->
-    <string name="by_name">Według nazwy</string>
+    <string name="by_name">Wg nazwy</string>
     <string name="week_ago_sorttype">Tydzień temu</string>
     <string name="month_ago_sorttype">Miesiąc temu</string>
     <string name="moremonth_ago_sorttype">Ponad miesiąc temu</string>
@@ -847,7 +850,7 @@
     <string name="pref_backup_summary">Automatycznie twórz kopię zapasową do folderu na urządzeniu</string>
     <string name="pref_backup_now_summary">Utwórz kopię zapasową natychmiast</string>
     <string name="pref_backup_now_summary_ok">Kopia zapasowa została pomyślnie utworzona</string>
-    <string name="pref_backup_now_summary_empty_lists">Brak zapisanych miejsc i tras do wykonania kopii zapasowej</string>
+    <string name="pref_backup_now_summary_empty_lists">Brak ulubionych do wykonania kopii zapasowej</string>
     <string name="pref_backup_now_summary_folder_unavailable">Folder kopii zapasowej jest niedostępny</string>
     <string name="pref_backup_status_summary_success">Ostatnia pomyślna kopia zapasowa</string>
     <string name="pref_backup_location_title">Lokalizacja kopii zapasowej</string>
@@ -908,10 +911,6 @@
     <string name="prefs_speed_cameras_information">Ostrzeżenia o fotoradarach są wyłączone w krajach, gdzie takie alerty są zabronione prawnie.</string>
     <string name="navigation_start_tts_message">"Startowanie nawigacji, język komunikatów głosowych: "</string>
     <string name="navigation_start_tts_disabled_message">Komunikaty głosowe są wyłączone: silnik TTS jest niedostępny</string>
-    <string name="download_resources_custom_url_title">Własny serwer map</string>
-    <string name="download_resources_custom_url_message">Zastąp domyślny serwer pobierania map. Zostaw puste, by użyć domyślnego serwera CoMaps.</string>
-    <string name="download_resources_custom_url_summary_none">Nieustawiony</string>
-    <string name="download_resources_custom_url_error_scheme">Proszę wprowadzić URL zaczynający się od http:// lub https://</string>
     <string name="editor_business_vacant_button">Lokal jest pusty</string>
     <string name="editor_mark_business_vacant_title">Oznacz lokal jako pusty</string>
     <string name="place_page_map_too_old_title">Dane mapy nieaktualne</string>
@@ -919,7 +918,6 @@
     <string name="place_page_app_too_old_description">Twoje dane mapy są nieaktualne, proszę zaktualizować mapę oraz aplikację CoMaps.</string>
     <string name="place_page_update_too_old_map">Zaktualizuj region mapy</string>
     <string name="place_page_too_old_to_edit">Edytowanie OpenStreetMap jest wyłączone, ponieważ dane mapy są zbyt stare.</string>
-    <string name="advanced">Zaawansowane</string>
     <string name="pref_maplanguage_local">Język lokalny</string>
     <string name="pref_speedlimit_title">Pokazuj ograniczenia prędkości</string>
     <string name="location_privacy_info">Aplikacje otrzymują dane dotyczące lokalizacji z usługi lokalizacyjnej systemu operacyjnego, która może udostępniać Twoją lokalizację firmie Google i/lub producentowi urządzenia. Aby tego uniknąć, używaj systemu operacyjnego zapewniającego ochronę prywatności.</string>
@@ -945,4 +943,20 @@
     <string name="charge_socket_type1_combo">Typ 1 combo</string>
     <string name="route_recalculating">Ponowne obliczanie trasy…</string>
     <string name="bookmark_share_email_subject">Przejdź pod %1$s lub skopiuj te koordynaty %2$s do swojej aplikacji mapowej, aby zobaczyć tę lokalizację.</string>
+    <string name="my_position_share_email">Przejdź pod %1$s lub skopiuj te koordynaty %2$s do swojej aplikacji mapowej, aby zobaczyć moją lokalizację.</string>
+    <string name="change_app_locale">Język aplikacji</string>
+    <string name="downloader_check_updates_button">Sprawdź aktualizacje</string>
+    <string name="downloader_check_updates_checking">Sprawdzanie dostępności aktualizacji…</string>
+    <string name="downloader_check_updates_updated">Aktualizacje map są dostępne!</string>
+    <string name="downloader_check_updates_no_updates">Brak dostępnych aktualizacji</string>
+    <string name="downloader_check_updates_eol">Nowe aktualizacje map nie są już dostępne dla tej wersji aplikacji. Zaktualizuj aplikację!</string>
+    <string name="downloader_check_updates_error">Sprawdzanie dostępności aktualizacji nie powiodło się</string>
+    <string name="tts_toggle_enable">Włącz wskazówki głosowe</string>
+    <string name="tts_toggle_disable">Wyłącz wskazówki głosowe</string>
+    <string name="oh_unknown">Nieznane godziny otwarcia</string>
+    <string name="editor_add_select_category_all_subtitle">Wszystkie kategorie</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_aa_support_summary_yes">Aplikacja zainstalowana przez Google Play - możesz jej użyć w swoim samochodzie.</string>
+    <string name="pref_aa_support_summary_no">Aplikacja nie została zainstalowana przez Google Play - nie możesz jej użyć w swoim samochodzie. Kliknij w opcję, by znaleźć więcej szczegółów w FAQ.</string>
+    <string name="editor_add_select_category_recent_subtitle">Ostatnio używane</string>
 </resources>

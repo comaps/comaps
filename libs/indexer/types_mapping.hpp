@@ -1,5 +1,4 @@
 #pragma once
-#include "base/assert.hpp"
 
 #include <cstdint>
 #include <iostream>

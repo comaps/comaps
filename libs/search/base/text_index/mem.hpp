@@ -4,7 +4,6 @@
 #include "search/base/text_index/header.hpp"
 #include "search/base/text_index/postings.hpp"
 #include "search/base/text_index/text_index.hpp"
-#include "search/base/text_index/utils.hpp"
 
 #include "coding/reader.hpp"
 #include "coding/varint.hpp"

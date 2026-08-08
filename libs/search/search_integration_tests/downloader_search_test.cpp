@@ -91,7 +91,7 @@ public:
   void Remove(storage::CountryId const &) override {}
   void Clear() override {}
 
-  storage::QueueInterface const & GetQueue() const override { return m_queue; }
+  storage::QueueInterface & GetQueue() override { return m_queue; }
 
 private:
   void GetMetaConfig(MetaConfigCallback const &) override {}

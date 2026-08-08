@@ -12,8 +12,7 @@
 #include "indexer/classificator_loader.hpp"
 #include "indexer/data_source.hpp"
 
-#include "platform/platform_tests_support/helpers.hpp"
-
+#include "platform/helpers.hpp"
 #include "platform/local_country_file_utils.hpp"
 #include "platform/platform.hpp"
 
@@ -84,7 +83,7 @@ void DisplayStats(ostream & os, vector<Sample> const & samples, vector<Stats> co
 
 int main(int argc, char * argv[])
 {
-  platform::tests_support::ChangeMaxNumberOfOpenFiles(kMaxOpenFiles);
+  platform::ChangeMaxNumberOfOpenFiles(kMaxOpenFiles);
   CheckLocale();
 
   gflags::SetUsageMessage("Features collector tool.");

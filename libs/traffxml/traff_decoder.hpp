@@ -11,6 +11,8 @@
 #include "openlr/openlr_model.hpp"
 #endif
 
+#include "routing/edge_estimator.hpp"
+#include "routing/geometry.hpp"
 #include "routing/index_router.hpp"
 #include "routing/regions_decl.hpp"
 #include "routing/router.hpp"

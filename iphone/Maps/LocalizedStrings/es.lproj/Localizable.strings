@@ -408,7 +408,7 @@
 "add_opening_hours" = "Añadir horarios de apertura";
 /* OpenStreetMap */
 "osm_mapdata" = "Datos de mapas de OpenStreetMap";
-"osm_mapdata_explanation %@" = "Datos de mapas creados por la comunidad a partir de *%@*. Más información sobre cómo editar y actualizar el mapa en [OpenStreetMap.org](https://openstreetmap.org).";
+"osm_mapdata_explanation %@" = "Datos de mapas creados por la comunidad a fecha de *%@*. Más información sobre cómo editar y actualizar el mapa en [OpenStreetMap.org](https://openstreetmap.org).";
 "osm_more_about" = "Más acerca de OpenStreetMap";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/ES:Acerca_de_OpenStreetMap";
 /* OpenStreetMap Profile */
@@ -681,8 +681,6 @@
 "yes_available" = "Sí";
 /* E.g. "WiFi:No" */
 "no_available" = "No";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Capacidad: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Red: %@";
 "trip_finished" = "¡Has llegado!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Añadir lugar";
 "contribute_to_osm_update_map" = "Actualiza el mapa para colaborar";
 "contribute_to_osm_update_map_description" = "Debes actualizar el mapa %@ a la última versión antes de poder colaborar con OpenStreetMap";
+"downloader_check_updates_error" = "Error al buscar actualizaciones";
+"downloader_check_updates_button" = "Buscar actualizaciones";
+"downloader_check_updates_checking" = "Buscando actualizaciones…";
+"downloader_check_updates_updated" = "¡Hay actualizaciones de mapas disponibles!";
+"downloader_check_updates_no_updates" = "Sin actualizaciones";
+"downloader_check_updates_eol" = "No habrá más actualizaciones para esta versión de la aplicación. ¡Por favor, actualiza la aplicación!";
+"editor_add_select_category_recent_subtitle" = "Usado recientemente";
+"oh_unknown" = "Horario desconocido";
+"carplay_highway_exit" = "Salida %@";
+"capacity_disabled_yes" = "Cuenta con espacios reservados para personas con discapacidad";
+"capacity_disabled_no" = "No hay plazas reservadas para personas con discapacidad";
+"capacity_charging_yes" = "Dispone de plazas con cargadores";
+"capacity_charging_no" = "No hay plazas con cargadores";
+"planning_route_preview" = "Vista previa";
+"planning_route_preview_sheet_title" = "Vista previa de la ruta";

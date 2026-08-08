@@ -1,0 +1,27 @@
+name: Pull request template
+about: Template for pull requests
+body:
+  - type: markdown
+    attributes:
+      value: Please read the [Pull Request Guidelines](https://codeberg.org/comaps/comaps/src/branch/main/docs/PR_GUIDE.md) before submitting your pull request.
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: Include a description of your changes and any details or justifications that you think are important to review this PR. Also include any relevant screenshots and links to Codeberg issues. If you have used AI, also state how you have used it.
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: Submitter checklist
+      description: Review the following items. Contributions are bound by the [Code of Conduct](https://codeberg.org/comaps/Governance/src/branch/main/CODE_OF_CONDUCT.md) and [AI Agreement](https://codeberg.org/comaps/Governance/src/branch/main/AI_USAGE.md).
+      options:
+        - label: All code changes and commit messages conform to the appropriate [style guide](https://codeberg.org/comaps/comaps/src/branch/main/docs/CONTRIBUTING.md#code-contributions)
+          required: true
+        - label: I have signed off all my commits with the [Developers Certificate of Origin](https://codeberg.org/comaps/Governance/src/branch/main/DCO.md)
+          required: true
+        - label: All communication (commit messages, pull request messages, documentation, and code comments) is human written and not authored by AI
+          required: true
+        - label: I take full responsibility of all changes submitted in this pull request
+          required: true

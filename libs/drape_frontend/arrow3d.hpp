@@ -1,13 +1,13 @@
 #pragma once
 
-#include "drape_frontend/drape_engine_params.hpp"
-#include "drape_frontend/render_state_extension.hpp"
-
-#include "drape/color.hpp"
 #include "drape/glsl_types.hpp"
 #include "drape/mesh_object.hpp"
+#include "drape/pointers.hpp"
+#include "drape/render_state.hpp"
 
-#include "geometry/rect2d.hpp"
+#include "shaders/programs.hpp"
+
+#include "geometry/point2d.hpp"
 
 #include <optional>
 #include <string>
@@ -16,7 +16,9 @@
 namespace dp
 {
 class GpuProgram;
+class GraphicsContext;
 class TextureManager;
+struct Color;
 }  // namespace dp
 
 namespace gpu
@@ -28,6 +30,8 @@ class ScreenBase;
 
 namespace df
 {
+struct Arrow3dCustomDecl;
+
 class Arrow3d
 {
   using Base = dp::MeshObject;

@@ -3,8 +3,6 @@
 #include "coding/files_container.hpp"
 #include "coding/mmap_reader.hpp"
 
-#include "defines.hpp"
-
 #include <cstdint>
 #include <memory>
 #include <string>
@@ -16,7 +14,6 @@
 #endif
 
 #include "3party/succinct/elias_fano.hpp"
-#include "3party/succinct/mapper.hpp"
 
 #if defined(__clang__)
 #pragma clang diagnostic pop

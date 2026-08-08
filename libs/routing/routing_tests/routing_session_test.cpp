@@ -2,11 +2,14 @@
 
 #include "routing/routing_tests/tools.hpp"
 
+#include "routing/absent_regions_finder.hpp"
 #include "routing/route.hpp"
 #include "routing/router.hpp"
 #include "routing/routing_callbacks.hpp"
 #include "routing/routing_helpers.hpp"
 #include "routing/routing_session.hpp"
+
+#include "platform/location.hpp"
 
 #include "geometry/point2d.hpp"
 #include "geometry/point_with_altitude.hpp"

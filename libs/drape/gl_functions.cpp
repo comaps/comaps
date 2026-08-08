@@ -1,5 +1,4 @@
 #include "drape/gl_functions.hpp"
-#include "drape/gl_extensions_list.hpp"
 #include "drape/gl_includes.hpp"
 
 #include "base/assert.hpp"

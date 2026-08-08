@@ -2,10 +2,15 @@
 
 #include "tracking/archival_file.hpp"
 
+#include "coding/file_reader.hpp"
+#include "coding/reader.hpp"
+#include "coding/write_to_sink.hpp"
+
 #include "platform/http_payload.hpp"
 #include "platform/http_uploader_background.hpp"
 #include "platform/platform.hpp"
 
+#include "base/assert.hpp"
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
 

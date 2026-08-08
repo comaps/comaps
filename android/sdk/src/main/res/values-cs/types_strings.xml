@@ -137,8 +137,8 @@
     <string name="type.amenity.stripclub">Stripklub</string>
     <string name="type.amenity.telephone">Telefon</string>
     <string name="type.amenity.theatre">Divadlo</string>
-    <string name="type.amenity.toilets">Záchody</string>
-    <string name="type.toilets.yes">Záchody</string>
+    <string name="type.amenity.toilets">Toalety</string>
+    <string name="type.toilets.yes">Toalety</string>
     <string name="type.amenity.townhall">Radnice</string>
     <string name="type.amenity.university">Univerzita</string>
     <string name="type.amenity.vending_machine.cigarettes">Automat na cigarety</string>
@@ -327,7 +327,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunel</string>
     <string name="type.highway.bus_stop">Autobusová zastávka</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.motorway">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.motorway_link">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.trunk">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.trunk_link">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.primary">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.primary_link">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.secondary">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.secondary_link">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.tertiary">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.tertiary_link">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.residential">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.unclassified">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.service">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.living_street">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.road">Silnice v rekonstrukci</string>
+    <string name="type.highway.construction.track">Silnice v rekonstrukci</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
@@ -681,7 +698,7 @@
     <!-- A tower or pylon carrying high voltage electricity cables. -->
     <string name="type.power.tower">Věž elektrického vedení</string>
     <string name="type.railway.funicular">Pozemní lanová dráha</string>
-    <string name="type.railway.halt">Železniční stanice</string>
+    <string name="type.railway.halt">Železniční zastávka</string>
     <string name="type.railway.level_crossing">Přejezd</string>
     <string name="type.railway.monorail">Jednokolejná železnice</string>
     <string name="type.railway.rail">Železnice</string>
@@ -1133,7 +1150,7 @@
     <!-- Typically more basic, not staffed and free (compared to alpine_hut). -->
     <string name="type.tourism.wilderness_hut">Chata v divočině</string>
     <string name="type.tourism.zoo">zoologická zahrada</string>
-    <string name="type.tourism.zoo.petting">ZOO pro domácí mazlíčky</string>
+    <string name="type.tourism.zoo.petting">Zookoutek</string>
     <string name="type.waterway.canal">Kanál</string>
     <string name="type.waterway.canal.tunnel">Kanál</string>
     <string name="type.waterway.fish_pass">Žebřík pro ryby</string>
@@ -1515,4 +1532,9 @@
     <string name="type.leisure.sports_centre.sport.pickleball">Sportovní centrum</string>
     <string name="type.sport.pickleball">Pickleball</string>
     <string name="type.organic.no">Žádné přírodní volby</string>
+    <string name="type.amenity.stage">Scéna</string>
+    <string name="type.amenity.planetarium">Planetárium</string>
+    <string name="type.amenity.toilets.customers">Pouze pro zákazníky</string>
+    <string name="type.amenity.toilets.private">Soukromé</string>
+    <string name="type.amenity.animal_boarding">Hotel pro zvířata</string>
 </resources>

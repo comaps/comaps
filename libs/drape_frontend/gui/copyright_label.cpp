@@ -4,6 +4,15 @@
 
 #include "drape_frontend/animation/opacity_animation.hpp"
 #include "drape_frontend/batcher_bucket.hpp"
+#include "drape_frontend/gui/skin.hpp"
+
+#include "drape/attribute_provider.hpp"
+#include "drape/batcher.hpp"
+#include "drape/drape_global.hpp"
+#include "drape/glyph.hpp"
+#include "drape/overlay_handle.hpp"
+
+#include "base/assert.hpp"
 
 #include <functional>
 #include <utility>

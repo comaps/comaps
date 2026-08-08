@@ -4,13 +4,15 @@
 
 #include "coding/parse_xml.hpp"
 #include "coding/reader.hpp"
-#include "coding/writer.hpp"
 
 #include "geometry/point_with_altitude.hpp"
 
 #include "base/exception.hpp"
+#include "base/logging.hpp"
 
 #include <string>
+
+class Writer;
 
 namespace kml
 {

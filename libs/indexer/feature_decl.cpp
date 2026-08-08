@@ -1,5 +1,7 @@
 #include "indexer/feature_decl.hpp"
 
+#include "base/assert.hpp"
+
 #include "std/boost_container_hash.hpp"
 
 #include <sstream>

@@ -1,5 +1,10 @@
 #include "drape_frontend/base_renderer.hpp"
-#include "drape_frontend/message_subclasses.hpp"
+#include "drape_frontend/message.hpp"
+
+#include "drape/graphics_context.hpp"
+#include "drape/graphics_context_factory.hpp"
+
+#include "base/assert.hpp"
 
 #include <utility>
 

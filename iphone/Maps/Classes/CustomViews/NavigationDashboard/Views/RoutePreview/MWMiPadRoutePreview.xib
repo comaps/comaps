@@ -293,6 +293,19 @@
                                         <action selector="showRouteManager" destination="-1" eventType="touchUpInside" id="eOk-zR-QEb"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDv-ip-001" userLabel="Directions Preview Button Regular">
+                                    <rect key="frame" x="155" y="12" width="74" height="24"/>
+                                    <state key="normal" title="Preview">
+                                        <imageReference key="image" image="binoculars.fill" catalog="system" symbolScale="small"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="medium14:MWMBlack"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="showDirectionsPreview" destination="-1" eventType="touchUpInside" id="pDv-ip-003"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -302,6 +315,8 @@
                                 <constraint firstItem="NAs-km-8uw" firstAttribute="leading" secondItem="EY6-SY-ner" secondAttribute="leading" constant="20" id="dQV-wI-Rs3"/>
                                 <constraint firstItem="NAs-km-8uw" firstAttribute="centerY" secondItem="EY6-SY-ner" secondAttribute="centerY" id="f3q-59-sF0"/>
                                 <constraint firstItem="LyQ-pQ-XyG" firstAttribute="leading" secondItem="EY6-SY-ner" secondAttribute="leading" constant="16" id="fSG-dw-XFn"/>
+                                <constraint firstItem="pDv-ip-001" firstAttribute="centerY" secondItem="NAs-km-8uw" secondAttribute="centerY" id="pDv-ip-004"/>
+                                <constraint firstItem="pDv-ip-001" firstAttribute="leading" secondItem="NAs-km-8uw" secondAttribute="trailing" constant="16" id="pDv-ip-005"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -334,6 +349,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="RouteBasePreview"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="directionsPreviewButtonRegular" destination="pDv-ip-001" id="pDv-ip-006"/>
                         <outlet property="arriveLabel" destination="oec-Ee-6ha" id="FLF-8X-PAf"/>
                         <outlet property="errorBox" destination="QEP-6s-YTM" id="cV6-hZ-IMv"/>
                         <outlet property="errorBoxBottom" destination="c3U-eM-8ig" id="oyN-uq-qC5"/>

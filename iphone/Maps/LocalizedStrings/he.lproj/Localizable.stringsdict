@@ -58,5 +58,21 @@
 			<string>%lld מסלולים</string>
 		</dict>
 	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>חדר אחד</string>
+			<key>two</key>
+			<string>שני חדרים</string>
+			<key>other</key>
+			<string>%lld חדרים</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

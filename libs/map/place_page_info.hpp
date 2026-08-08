@@ -1,22 +1,27 @@
 #pragma once
 
 #include "map/routing_mark.hpp"
-
 #include "storage/storage_defines.hpp"
 
 #include "drape_frontend/frontend_renderer.hpp"
 #include "drape_frontend/selection_shape.hpp"
 
+#include "kml/type_utils.hpp"
 #include "kml/types.hpp"
 
 #include "indexer/feature_data.hpp"
+#include "indexer/feature_decl.hpp"
 #include "indexer/feature_source.hpp"
+#include "indexer/feature_utils.hpp"
 #include "indexer/map_object.hpp"
+#include "indexer/reviews_model.hpp"
 
 #include "geometry/point2d.hpp"
 
 #include <string>
 #include <vector>
+
+class Track;
 
 namespace place_page
 {
@@ -125,6 +130,7 @@ public:
   std::string const & GetSecondaryTitle() const { return m_uiSecondaryTitle; }
   /// Convenient wrapper for type, cuisines, elevation, stars, wifi etc.
   std::string const & GetSubtitle() const { return m_uiSubtitle; }
+  std::optional<reviews::FeatureReviews> const & GetReviews() const { return m_reviews; }
   std::string const & GetSecondarySubtitle() const
   {
     return !m_uiTrackStatistics.empty() ? m_uiTrackStatistics : m_uiAddress;
@@ -199,6 +205,8 @@ public:
   /// MapObject
   void SetFromFeatureType(FeatureType & ft);
 
+  void SetReviews(reviews::FeatureReviews && reviews) { m_reviews = std::move(reviews); }
+
   void SetWikiDescription(std::string && description) { m_wikiDescription = std::move(description); }
   void SetOSMDescription(std::string && description) { m_osmDescription = std::move(description); }
 
@@ -231,6 +239,9 @@ private:
   std::string m_osmDescription;
   /// Booking rating string
   std::string m_localizedRatingString;
+
+  /// Reviews
+  std::optional<reviews::FeatureReviews> m_reviews;
 
   /// CountryId
   storage::CountryId m_countryId = storage::kInvalidCountryId;

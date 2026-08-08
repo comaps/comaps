@@ -502,6 +502,7 @@ tourism-zoo-petting                                 # icon z15- (also has captio
 tourism-museum                                      # icon z15- (also has caption(optional) z15-)
 === 1300
 
+amenity-planetarium                                 # icon z15- (also has caption(optional) z15-)
 tourism-gallery                                     # icon z15- (also has caption(optional) z15-)
 === 1250
 
@@ -748,9 +749,7 @@ post_office-post_partner                            # icon z18- (also has captio
 shop-motorcycle                                     # icon z17-
 === 200
 
-highway-traffic_signals                             # icon z15-
-=== 175
-
+amenity-toilets-customers                           # icon z18- (also has caption(optional) z18-)
 building-address                                    # caption z18-
 landuse-landfill                                    # caption z15- (also has area z15-)
 landuse-quarry                                      # caption z15- (also has area z15-)
@@ -1049,6 +1048,7 @@ entrance-emergency                                  # icon z19- (also has captio
 # tourism-museum                                    # caption(optional) z15- (also has icon z15-)
 # === -8700
 
+# amenity-planetarium                               # caption(optional) z15- (also has icon z15-)
 # tourism-gallery                                   # caption(optional) z15- (also has icon z15-)
 # === -8750
 
@@ -1255,6 +1255,9 @@ entrance-emergency                                  # icon z19- (also has captio
 # amenity-toilets                                   # caption(optional) z17- (also has icon z17-)
 # post_office-post_partner                          # caption(optional) z18- (also has icon z18-)
 # === -9800
+
+# amenity-toilets-customers                         # caption(optional) z18- (also has icon z18-)
+# === -9850
 
 # leisure-park-no-access                            # caption(optional) z14- (also has icon z14-, area z10-)
 # leisure-park-private                              # caption(optional) z14- (also has icon z14-, area z10-)

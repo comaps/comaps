@@ -49,6 +49,8 @@ set(SRC
   drules_selector_parser.hpp
   drules_struct.pb.cc
   drules_struct.pb.h
+  dummy_rank_table.cpp
+  dummy_rank_table.hpp
   edit_journal.cpp
   edit_journal.hpp
   editable_map_object.cpp
@@ -72,9 +74,9 @@ set(SRC
   feature_impl.hpp
   feature_meta.cpp
   feature_meta.hpp
+  feature_processor.hpp
   feature_region_locator.cpp
   feature_region_locator.hpp
-  feature_processor.hpp
   feature_source.cpp
   feature_source.hpp
   feature_to_osm.cpp
@@ -99,7 +101,6 @@ set(SRC
   interval_index_builder.hpp
   isolines_info.cpp
   isolines_info.hpp
-  localized_types_map.cpp
   map_object.cpp
   map_object.hpp
   map_style.cpp
@@ -116,6 +117,11 @@ set(SRC
   postcodes_matcher.hpp  # it's in indexer EditableMapObject depends on postcodes_matcher
   rank_table.cpp
   rank_table.hpp
+  reviews_display.hpp
+  reviews_loader.cpp
+  reviews_loader.hpp
+  reviews_model.hpp
+  reviews_serdes.hpp
   route_relation.hpp
   road_shields_parser.cpp
   road_shields_parser.hpp
@@ -162,11 +168,20 @@ file(COPY ${OTHER_FILES} DESTINATION ${CMAKE_BINARY_DIR})
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  search  # search::DummyRankTable in CachingRankTableLoader
-  platform
-  geometry
-  protobuf
-  coding
+  PUBLIC
+    base
+    coding
+    drape
+    geometry
+    i18n
+    platform
+  PRIVATE
+    storage
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    protobuf
 )
 
 omim_add_test_subdirectory(indexer_tests)

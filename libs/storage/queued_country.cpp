@@ -48,7 +48,7 @@ CountryId const & QueuedCountry::GetCountryId() const
   return m_countryId;
 }
 
-std::string QueuedCountry::GetRelativeUrl() const
+std::string QueuedCountry::GetRelativeUrl(int64_t const dataVersion) const
 {
   auto const fileName = m_countryFile.GetFileName(m_fileType);
 
@@ -56,12 +56,12 @@ std::string QueuedCountry::GetRelativeUrl() const
   if (m_fileType == MapFileType::Diff)
     CHECK(m_diffsDataSource->VersionFor(m_countryId, diffVersion), ());
 
-  return downloader::GetFileDownloadUrl(fileName, m_currentDataVersion, diffVersion);
+  return downloader::GetFileDownloadUrl(fileName, dataVersion, diffVersion);
 }
 
-std::string QueuedCountry::GetFileDownloadPath() const
+std::string QueuedCountry::GetFileDownloadPath(int64_t const dataVersion) const
 {
-  return platform::GetFileDownloadPath(m_currentDataVersion, m_dataDir, m_countryFile, m_fileType);
+  return platform::GetFileDownloadPath(dataVersion, m_dataDir, m_countryFile, m_fileType);
 }
 
 uint64_t QueuedCountry::GetDownloadSize() const
@@ -74,6 +74,11 @@ uint64_t QueuedCountry::GetDownloadSize() const
   }
 
   return GetRemoteSize(*m_diffsDataSource, m_countryFile);
+}
+
+void QueuedCountry::SetCountryFile(platform::CountryFile const & countryFile)
+{
+  m_countryFile = countryFile;
 }
 
 void QueuedCountry::OnCountryInQueue() const

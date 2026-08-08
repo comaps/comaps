@@ -8,6 +8,7 @@
 #include "coding/writer.hpp"
 
 #include "base/checked_cast.hpp"
+#include "base/exception.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 

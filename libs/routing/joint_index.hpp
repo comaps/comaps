@@ -1,7 +1,6 @@
 #pragma once
 
 #include "routing/joint.hpp"
-#include "routing/road_index.hpp"
 #include "routing/road_point.hpp"
 
 #include "base/assert.hpp"
@@ -11,6 +10,8 @@
 
 namespace routing
 {
+class RoadIndex;
+
 // JointIndex contains mapping from Joint::Id to RoadPoints.
 //
 // It is vector<Joint> conceptually.

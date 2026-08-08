@@ -1,6 +1,17 @@
 #include "routing/ruler_router.hpp"
+
+#include "routing/checkpoints.hpp"
 #include "routing/route.hpp"
+#include "routing/routing_callbacks.hpp"
 #include "routing/routing_helpers.hpp"
+#include "routing/segment.hpp"
+#include "routing/turns.hpp"
+
+#include "routing_common/num_mwm_id.hpp"
+
+#include "geometry/point_with_altitude.hpp"
+
+#include "base/assert.hpp"
 
 namespace routing
 {

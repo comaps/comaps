@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/route_progress_bar_layout"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+
+  <view class="app.organicmaps.widget.RouteProgressBar$RouteProgressIndicator"
+    android:id="@+id/progress_indicator"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="7dp"
+    android:layout_marginEnd="7dp"
+    app:indicatorColor="?colorSecondary"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:trackColor="@color/bg_routing_progress"
+    app:trackThickness="@dimen/nav_progress"/>
+
+  <com.google.android.material.imageview.ShapeableImageView
+    android:id="@+id/next_intermediate_stop"
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:layout_marginStart="50dp"
+    android:layout_marginTop="2dp"
+    app:layout_constraintStart_toStartOf="@id/progress_indicator"
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@drawable/route_point_02"/>
+
+  <com.google.android.material.imageview.ShapeableImageView
+    android:id="@+id/final_destination"
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:layout_marginTop="2dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@drawable/route_point_finish"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

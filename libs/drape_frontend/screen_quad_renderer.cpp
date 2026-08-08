@@ -2,8 +2,14 @@
 #include "drape_frontend/render_state_extension.hpp"
 
 #include "shaders/program_manager.hpp"
+#include "shaders/program_params.hpp"
+#include "shaders/programs.hpp"
 
-#include "drape/data_buffer.hpp"
+#include "drape/drape_global.hpp"
+#include "drape/graphics_context.hpp"
+#include "drape/render_state.hpp"
+
+#include "base/macros.hpp"
 
 #include <vector>
 

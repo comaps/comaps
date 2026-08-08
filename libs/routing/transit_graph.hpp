@@ -1,16 +1,14 @@
 #pragma once
 
+#include "routing/base/small_list.hpp"
 #include "routing/edge_estimator.hpp"
 #include "routing/fake_ending.hpp"
 #include "routing/fake_graph.hpp"
-#include "routing/fake_vertex.hpp"
-#include "routing/latlon_with_altitude.hpp"
 #include "routing/route_weight.hpp"
 #include "routing/segment.hpp"
 
-#include "transit/experimental/transit_data.hpp"
 #include "transit/experimental/transit_types_experimental.hpp"
-#include "transit/transit_graph_data.hpp"
+#include "transit/transit_entities.hpp"
 #include "transit/transit_schedule.hpp"
 #include "transit/transit_types.hpp"
 #include "transit/transit_version.hpp"
@@ -23,9 +21,19 @@
 #include <set>
 #include <vector>
 
+namespace transit::experimental
+{
+class TransitData;
+}  // namespace transit::experimental
+
 namespace routing
 {
 class IndexGraph;
+
+namespace transit
+{
+class GraphData;
+}  // namespace transit
 
 class TransitGraph final
 {

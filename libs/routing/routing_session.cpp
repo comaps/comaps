@@ -1,5 +1,14 @@
 #include "routing/routing_session.hpp"
 
+#include "routing/base/followed_polyline.hpp"
+#include "routing/following_info.hpp"
+#include "routing/route.hpp"
+#include "routing/router_delegate.hpp"
+#include "routing/turns.hpp"
+#include "routing/vehicle_mask.hpp"
+
+#include "routing_common/maxspeed_conversion.hpp"
+
 #include "platform/distance.hpp"
 #include "platform/location.hpp"
 #include "platform/measurement_utils.hpp"
@@ -10,11 +19,16 @@
 
 #include "indexer/road_shields_parser.hpp"
 
+#include "base/assert.hpp"
+#include "base/logging.hpp"
+#include "base/math.hpp"
+
 #include <utility>
 
 namespace
 {
 int constexpr kOnRouteMissedCount = 10;
+int constexpr kAnnounceRouteMissedCount = 20;
 
 double constexpr kShowLanesMinDistInMeters = 500.0;
 
@@ -123,6 +137,7 @@ void RoutingSession::RemoveRoute()
 
   m_lastDistance = 0.0;
   m_moveAwayCounter = 0;
+  m_moveAwayCounterSinceLastAnnounce = 0;
   m_turnNotificationsMgr.Reset();
 
   m_route = std::make_shared<Route>(std::string{} /* router */, 0 /* route id */);
@@ -149,6 +164,7 @@ void RoutingSession::RebuildRouteOnTrafficUpdate()
     case SessionState::RouteRebuilding: startPoint = m_checkpoints.GetPointFrom(); break;
 
     case SessionState::OnRoute:
+    case SessionState::OffRoute:
     case SessionState::RouteNeedsRebuild: break;
     }
 
@@ -171,7 +187,7 @@ bool RoutingSession::IsNavigable() const
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());
   return (m_state == SessionState::RouteNotStarted || m_state == SessionState::OnRoute ||
-          m_state == SessionState::RouteFinished);
+          m_state == SessionState::RouteFinished || m_state == SessionState::OffRoute);
 }
 
 bool RoutingSession::IsBuilt() const
@@ -274,6 +290,7 @@ SessionState RoutingSession::OnLocationPositionChanged(GpsInfo const & info)
   if (m_route->MoveIterator(info))
   {
     m_moveAwayCounter = 0;
+    m_moveAwayCounterSinceLastAnnounce = 0;
     m_lastDistance = 0.0;
 
     PassCheckpoints();
@@ -312,20 +329,59 @@ SessionState RoutingSession::OnLocationPositionChanged(GpsInfo const & info)
       return m_state;
 
     if (!info.HasSpeed() || info.m_speed < m_routingSettings.m_minSpeedForRouteRebuildMpS)
+    {
       m_moveAwayCounter += 1;
+      m_moveAwayCounterSinceLastAnnounce += 1;
+    }
     else
+    {
       m_moveAwayCounter += 2;
+      m_moveAwayCounterSinceLastAnnounce += 2;
+    }
 
     m_lastDistance = dist;
 
     if (m_moveAwayCounter > kOnRouteMissedCount)
     {
-      m_passedDistanceOnRouteMeters += m_route->GetCurrentDistanceFromBeginMeters();
-      SetState(SessionState::RouteNeedsRebuild);
+      if (m_autoReroute)
+      {
+        m_passedDistanceOnRouteMeters += m_route->GetCurrentDistanceFromBeginMeters();
+        SetState(SessionState::RouteNeedsRebuild);
+      }
+      else
+        SetState(SessionState::OffRoute);
     }
   }
 
   return m_state;
+}
+
+void GetRoadShieldsInfo(RouteSegment::RoadNameInfo const & road, FollowingInfo::RoadShieldInfo & info)
+{
+  std::string const & mwmName = road.m_mwmId.GetMwmName();
+  if (road.HasExitInfo())
+  {
+    info.m_targetRoadShields =
+        ftypes::GetRoadShields(mwmName, road.m_destination_ref, ftypes::HighwayClass::Undefined);
+    info.m_junctionRoadShields =
+        ftypes::GetRoadShields(mwmName, road.m_junction_ref, ftypes::HighwayClass::Undefined);
+  }
+  else
+  {
+    info.m_targetRoadShields = ftypes::GetRoadShields(mwmName, road.m_ref, road.m_highwayClass);
+  }
+}
+
+std::string GetRoadShieldsText(ftypes::RoadShieldsSetT const & roadShields, bool const withBraces = true)
+{
+  std::string text;
+  for (size_t i = 0; i < roadShields.size(); ++i)
+  {
+    text += (withBraces ? "[" : "") + roadShields[i].m_name + (withBraces ? "]" : "");
+    if (i < roadShields.size() - 1)
+      text += " ";
+  }
+  return text;
 }
 
 // For next street returns "[ref] name" .
@@ -333,31 +389,34 @@ SessionState RoutingSession::OnLocationPositionChanged(GpsInfo const & info)
 // If no |target| - it will be replaced by |name| of next street.
 // If no |target:ref| - it will be replaced by |ref| of next road.
 // So if link has no info at all, "[ref] name" of next will be returned (as for next street).
-void GetFullRoadName(RouteSegment::RoadNameInfo & road, std::string & name)
+void GetFullRoadName(RouteSegment::RoadNameInfo const & road, FollowingInfo::RoadShieldInfo & roadShields,
+                     std::string & name)
 {
-  if (auto const & sh = ftypes::GetRoadShields(road.m_ref); !sh.empty())
-    road.m_ref = sh[0].m_name;
-  if (auto const & sh = ftypes::GetRoadShields(road.m_destination_ref); !sh.empty())
-    road.m_destination_ref = sh[0].m_name;
+  GetRoadShieldsInfo(road, roadShields);
 
   name.clear();
   if (road.HasExitInfo())
   {
-    if (!road.m_junction_ref.empty())
-      name = "[" + road.m_junction_ref + "]";
+    if (!roadShields.m_junctionRoadShields.empty())
+      name += GetRoadShieldsText(roadShields.m_junctionRoadShields, /* withBraces */ false);
 
-    if (!road.m_destination_ref.empty())
-      name += std::string(name.empty() ? "" : ": ") + "[" + road.m_destination_ref + "]";
+    if (!roadShields.m_targetRoadShields.empty())
+    {
+      std::string const & shieldsText = GetRoadShieldsText(roadShields.m_targetRoadShields);
+      if (!name.empty())
+        name += " : ";
+      name += shieldsText;
+    }
 
     if (!road.m_destination.empty())
       name += std::string(name.empty() ? "" : " ") + "> " + road.m_destination;
     else if (!road.m_name.empty())
-      name += (road.m_destination_ref.empty() ? std::string(name.empty() ? "" : " ") : ": ") + road.m_name;
+      name += (roadShields.m_targetRoadShields.empty() ? std::string(name.empty() ? "" : " ") : " : ") + road.m_name;
   }
   else
   {
-    if (!road.m_ref.empty())
-      name = "[" + road.m_ref + "]";
+    if (!roadShields.m_targetRoadShields.empty())
+      name = GetRoadShieldsText(roadShields.m_targetRoadShields);
     if (!road.m_name.empty())
       name += (name.empty() ? "" : " ") + road.m_name;
   }
@@ -400,7 +459,7 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
     // Nothing should be displayed on the screen about turns if these lines are executed.
     info = FollowingInfo();
     info.m_routingSessionState = m_state;
-    info.m_indexOfNextStop = -1; // Invalid next stop index.
+    info.m_indexOfNextStop = -1;  // Invalid next stop index.
     return;
   }
 
@@ -410,7 +469,7 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
     info.m_distToTarget = platform::Distance::CreateFormatted(m_route->GetTotalDistanceMeters());
     info.m_time = static_cast<int>(std::max(kMinimumETASec, m_route->GetCurrentTimeToEndSec()));
     info.m_routingSessionState = m_state;
-    info.m_indexOfNextStop = -1; // Invalid next stop index.
+    info.m_indexOfNextStop = -1;  // Invalid next stop index.
     return;
   }
 
@@ -432,13 +491,25 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
 
   info.m_exitNum = turn.m_exitNum;
   info.m_time = static_cast<int>(std::max(kMinimumETASec, m_route->GetCurrentTimeToEndSec()));
-  RouteSegment::RoadNameInfo currentRoadNameInfo, nextRoadNameInfo, nextNextRoadNameInfo;
+
+  RouteSegment::RoadNameInfo currentRoadNameInfo;
   m_route->GetCurrentStreetName(currentRoadNameInfo);
-  GetFullRoadName(currentRoadNameInfo, info.m_currentStreetName);
+  GetFullRoadName(currentRoadNameInfo, info.m_currentStreetShields, info.m_currentStreetName);
+  // Carry the structured components so platform UIs can build their own instruction variants
+  RouteSegment::RoadNameInfo nextRoadNameInfo;
   m_route->GetNextTurnStreetName(nextRoadNameInfo);
-  GetFullRoadName(nextRoadNameInfo, info.m_nextStreetName);
+  GetFullRoadName(nextRoadNameInfo, info.m_nextStreetShields, info.m_nextStreetName);
+  info.m_nextName = nextRoadNameInfo.m_name;
+  info.m_nextRef = ftypes::GetRoadShieldDisplayRef(nextRoadNameInfo.m_ref);
+  info.m_nextJunctionRef = nextRoadNameInfo.m_junction_ref;
+  info.m_nextDestinationRef = ftypes::GetRoadShieldDisplayRef(nextRoadNameInfo.m_destination_ref);
+  info.m_nextDestination = nextRoadNameInfo.m_destination;
+  info.m_nextIsLink = nextRoadNameInfo.m_isLink;
+  info.m_nextHighwayClass = nextRoadNameInfo.m_highwayClass;
+
+  RouteSegment::RoadNameInfo nextNextRoadNameInfo;
   m_route->GetNextNextTurnStreetName(nextNextRoadNameInfo);
-  GetFullRoadName(nextNextRoadNameInfo, info.m_nextNextStreetName);
+  GetFullRoadName(nextNextRoadNameInfo, info.m_nextNextStreetShields, info.m_nextNextStreetName);
 
   info.m_completionPercent = GetCompletionPercent();
 
@@ -473,18 +544,17 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
   }
 
   // Set the index of the next intermediate stop.
-  info.m_indexOfNextStop = (int) currentSubrouteIdx + 1;
+  info.m_indexOfNextStop = (int)currentSubrouteIdx + 1;
 
   // Get index of end segment of the subroute.
   size_t subrouteEndSegmentIdx = m_route->GetSubrouteAttrs(currentSubrouteIdx).GetEndSegmentIdx();
 
   // Get remaining distance to end of subroute.
-  info.m_distToNextStop = platform::Distance::CreateFormatted(
-    m_route->GetCurrentDistanceToSegmentMeters(subrouteEndSegmentIdx));
+  info.m_distToNextStop =
+      platform::Distance::CreateFormatted(m_route->GetCurrentDistanceToSegmentMeters(subrouteEndSegmentIdx));
 
   // Get remaining time to end of subroute.
-  info.m_timeToNextStop = std::max(kMinimumETASec,
-                                   m_route->GetCurrentTimeToSegmentSec(subrouteEndSegmentIdx));
+  info.m_timeToNextStop = std::max(kMinimumETASec, m_route->GetCurrentTimeToSegmentSec(subrouteEndSegmentIdx));
 }
 
 double RoutingSession::GetCompletionPercent() const
@@ -508,6 +578,29 @@ void RoutingSession::GetAllRegions(std::set<std::string> & countries)
   if (!m_router)
     return;
   m_router->GetAllRegions(countries);
+}
+
+std::vector<double> RoutingSession::GetIntermediateStopsProgress() const
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ());
+  ASSERT(m_route, ());
+
+  std::vector<double> progressArray;
+
+  if (m_route->IsValid())
+  {
+    double totalRouteDistance = m_passedDistanceOnRouteMeters + m_route->GetTotalDistanceMeters();
+
+    for (size_t i = 0; i < (m_route->GetSubrouteCount() - 1); i++)
+    {
+      size_t subrouteEndSegmentIdx = m_route->GetSubrouteAttrs(i).GetEndSegmentIdx();
+      double distanceToSubrouteEndSegment = m_passedDistanceOnRouteMeters +
+        m_route->GetDistanceFromBeginToSegmentMeters(subrouteEndSegmentIdx);
+      progressArray.push_back(distanceToSubrouteEndSegment * 100.0 / totalRouteDistance);
+    }
+  }
+
+  return progressArray;
 }
 
 void RoutingSession::PassCheckpoints()
@@ -537,6 +630,19 @@ void RoutingSession::GenerateNotifications(std::vector<std::string> & notificati
     return;
   }
 
+  // Route missed notifications
+  if (!m_autoReroute /* if we will not be rerouting (see case above) */
+      // if this is the first announcement, we can use a shorter threshold as the user wants to know right away
+      && ((m_moveAwayCounter == m_moveAwayCounterSinceLastAnnounce &&
+           m_moveAwayCounterSinceLastAnnounce > kOnRouteMissedCount)
+          // for second or higher announcement, we use a longer interval to avoid being repetitive
+          || (m_moveAwayCounterSinceLastAnnounce > kAnnounceRouteMissedCount)))
+  {
+    m_moveAwayCounterSinceLastAnnounce = 0;
+    notifications.emplace_back(m_turnNotificationsMgr.GenerateOffRouteText(m_lastDistance));
+    return;
+  }
+
   // Voice turn notifications.
   if (!m_routingSettings.m_soundDirection)
     return;
@@ -558,6 +664,32 @@ void RoutingSession::GenerateNotifications(std::vector<std::string> & notificati
   }
 
   m_speedCameraManager.GenerateNotifications(notifications);
+}
+
+void RoutingSession::SetAutoReroute(bool autoReroute)
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ());
+
+  if (autoReroute)
+  {
+    // If we are off the route, recalculate immediately.
+    AutoReroute();
+  }
+
+  m_autoReroute = autoReroute;
+}
+
+bool RoutingSession::AutoReroute()
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ());
+
+  if (m_state == SessionState::OffRoute)
+  {
+    SetState(SessionState::RouteNeedsRebuild);
+    return true;
+  }
+
+  return false;
 }
 
 void RoutingSession::AssignRoute(std::shared_ptr<Route> const & route, RouterResultCode e)
@@ -669,7 +801,7 @@ bool RoutingSession::DisableFollowMode()
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());
   LOG(LINFO, ("Routing disables a following mode. SessionState: ", m_state));
-  if (m_state == SessionState::RouteNotStarted || m_state == SessionState::OnRoute)
+  if (m_state == SessionState::RouteNotStarted || m_state == SessionState::OnRoute || m_state == SessionState::OffRoute)
   {
     SetState(SessionState::RouteNoFollowing);
     m_isFollowing = false;
@@ -685,6 +817,10 @@ bool RoutingSession::EnableFollowMode()
   if (m_state == SessionState::RouteNotStarted || m_state == SessionState::OnRoute)
   {
     SetState(SessionState::OnRoute);
+    m_isFollowing = true;
+  }
+  else if (m_state == SessionState::OffRoute)
+  {
     m_isFollowing = true;
   }
   return m_isFollowing;
@@ -913,6 +1049,11 @@ void RoutingSession::CopyTraffic(traffic::AllMwmTrafficInfo & trafficColoring) c
   TrafficCache::CopyTraffic(trafficColoring);
 }
 
+std::vector<routing::RouteStepInfo> RoutingSession::GetRouteTurnsForDisplay(std::string const & locale) const
+{
+  return m_route->GetTurnsForDisplay(locale);
+}
+
 void RoutingSession::SetLocaleWithJsonForTesting(std::string const & json, std::string const & locale)
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());
@@ -931,6 +1072,7 @@ std::string DebugPrint(SessionState state)
   case SessionState::RouteFinished: return "RouteFinished";
   case SessionState::RouteNoFollowing: return "RouteNoFollowing";
   case SessionState::RouteRebuilding: return "RouteRebuilding";
+  case SessionState::OffRoute: return "OffRoute";
   }
   UNREACHABLE();
 }

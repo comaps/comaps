@@ -1,6 +1,5 @@
 #pragma once
 
-#include "map/bookmark_helpers.hpp"
 #include "map/everywhere_search_callback.hpp"
 #include "map/search_product_info.hpp"
 #include "map/viewport_search_callback.hpp"
@@ -12,6 +11,8 @@
 #include "search/query_saver.hpp"
 #include "search/result.hpp"
 #include "search/search_params.hpp"
+
+#include "kml/type_utils.hpp"
 
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
@@ -25,6 +26,8 @@
 #include "3party/ankerl/unordered_dense.h"
 
 class DataSource;
+struct BookmarkGroupInfo;
+struct BookmarkInfo;
 
 namespace search
 {

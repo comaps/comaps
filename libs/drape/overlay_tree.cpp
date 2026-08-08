@@ -3,6 +3,14 @@
 #include "drape/constants.hpp"
 #include "drape/debug_renderer.hpp"
 
+#include "base/assert.hpp"
+
+#ifdef DEBUG_OVERLAYS_OUTPUT
+#include "base/logging.hpp"
+#else
+#include "base/macros.hpp"
+#endif
+
 #include <algorithm>
 
 namespace dp

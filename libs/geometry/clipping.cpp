@@ -3,6 +3,7 @@
 #include "geometry/rect_intersect.hpp"
 #include "geometry/triangle2d.hpp"
 
+#include "base/assert.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <algorithm>

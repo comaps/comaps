@@ -2,7 +2,6 @@
 #include "coding/hex.hpp"
 
 #include "base/assert.hpp"
-#include "base/string_utils.hpp"
 
 namespace url
 {

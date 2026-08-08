@@ -35,6 +35,7 @@ let alpha100: CGFloat = 1.0
   var black: UIColor { get }
   var blackPrimaryText: UIColor { get }
   var blackSecondaryText: UIColor { get }
+  var blackTertiaryText: UIColor { get }
   var blackHintText: UIColor { get }
   var blackDividers: UIColor { get }
   var solidDividers: UIColor { get }

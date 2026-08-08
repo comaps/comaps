@@ -47,7 +47,11 @@
     <string name="type.shop.telecommunication">Telcom Shop</string>
     <string name="type.shop.charity">Op Shop</string>
     <string name="type.shop.lottery">Lotto</string>
-    <string name="type.sport.australian_football">AFL</string>
+    <string name="type.sport.australian_football">Football</string>
     <string name="type.sport.table_tennis">Ping Pong</string>
     <string name="type.amenity.ice_cream">Ice Cream Shop</string>
+    <string name="type.amenity.biergarten">Beer Garden</string>
+    <string name="type.amenity.car_sharing">Car Share</string>
+    <string name="type.aeroway.gate">Gate</string>
+    <string name="type.amenity.mobile_money_agent">Mobile Money Agent</string>
 </resources>

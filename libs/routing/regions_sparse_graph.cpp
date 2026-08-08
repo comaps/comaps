@@ -1,16 +1,24 @@
 #include "routing/regions_sparse_graph.hpp"
 
+#include "routing/latlon_with_altitude.hpp"
+
+#include "routing_common/num_mwm_id.hpp"
+
+#include "indexer/mwm_set.hpp"
 #include "indexer/utils.hpp"
 
-#include "platform/country_file.hpp"
-#include "platform/platform.hpp"
+#include "coding/files_container.hpp"
+#include "coding/reader.hpp"
 
-#include "coding/file_reader.hpp"
+#include "platform/country_file.hpp"
 
 #include "geometry/distance_on_sphere.hpp"
 #include "geometry/mercator.hpp"
 
-#include "base/file_name_utils.hpp"
+#include "base/assert.hpp"
+#include "base/logging.hpp"
+
+#include "defines.hpp"
 
 namespace routing
 {

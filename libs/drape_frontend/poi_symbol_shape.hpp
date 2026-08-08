@@ -3,7 +3,10 @@
 #include "drape_frontend/map_shape.hpp"
 #include "drape_frontend/shape_view_params.hpp"
 
-#include "drape/constants.hpp"
+#include "drape/pointers.hpp"
+
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 
 namespace dp
 {

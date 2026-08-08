@@ -1,4 +1,12 @@
+Sign the admin agreement and get ssh/sftp credentials.
+
 Edit the rclone conf secret for Codeberg Actions, to deliver maps to i.e. /var/www/html/maps/251231 via a limited user.
+
+Prepopulate the CDN with the last X maps so it's ready to go.
+
+Get a DNS name set up.
+
+Make a PR for meta-php to add the CDN.
 
 apt update
 apt install nginx vim
@@ -11,36 +19,23 @@ hostname cdn-XX-1
 sudo snap install --classic certbot
 sudo certbot --nginx
 
-### remove IPs from logging on line ~36:
+### either totally disable access logging, or remove IPs and user agents from logging on line ~36:
 vim /etc/nginx/nginx.conf
 
 ```
         ##
         # Logging Settings
         ##
-        log_format comaps '0.0.0.0 - - [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"';
+        log_format comaps '0.0.0.0 - - [$time_local] "$request" $status $body_bytes_sent "$http_referer"';
         access_log /var/log/nginx/access.log comaps;
 ```
 
 if using Apache, try this:
 
 ```
-    LogFormat "0.0.0.0 %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" comaps
+    LogFormat "0.0.0.0 %l %u %t \"%r\" %>s %b \"%{Referer}i\"" comaps
     CustomLog ${APACHE_LOG_DIR}/access.log comaps
 ```
-
-### set up monitoring:
-apt install goaccess
-edit /etc/goaccess/goaccess.conf and uncomment:
-- time-format %H:%M:%S
-- date-format %d/%b/%Y
-- log-format COMBINED
-
-vim /etc/crontab
-
-`*/5 *   * * *   root    /usr/bin/goaccess /var/log/nginx/access.log -o /var/www/html/monitor.html`
-
-or Apache: `*/5 *   * * *   root    /usr/bin/goaccess /var/log/apache2/access.log -o /var/www/html/monitor.html`
 
 ### set up basic http pages/responses:
 cd /var/www/html/

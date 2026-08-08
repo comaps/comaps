@@ -8,17 +8,21 @@
 
 #include "coding/hex.hpp"
 #include "coding/reader.hpp"
-#include "coding/string_utf8_multilang.hpp"
 
+#include "base/assert.hpp"
+#include "base/buffer_vector.hpp"
+#include "base/exception.hpp"
 #include "base/internal/message.hpp"
 #include "base/logging.hpp"
 #include "base/macros.hpp"
+#include "base/shared_buffer_manager.hpp"
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
 #include <ft2build.h>
 #include <hb-ft.h>
 #include <unicode/unistr.h>
+#include <utf8/unchecked.h>
 
 #include FT_FREETYPE_H
 #include FT_MODULE_H

@@ -3,6 +3,7 @@
 #include "drape/glsl_func.hpp"
 
 #include "base/assert.hpp"
+#include "base/math.hpp"
 
 namespace df
 {

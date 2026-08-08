@@ -3,16 +3,22 @@
 #include "storage/country_decl.hpp"
 #include "storage/country_tree.hpp"
 
-#include "platform/local_country_file_utils.hpp"
-
 #include "coding/geometry_coding.hpp"
 #include "coding/read_write_utils.hpp"
+#include "coding/reader.hpp"
+#include "coding/varint.hpp"
 
 #include "geometry/mercator.hpp"
 #include "geometry/region2d.hpp"
 
+#include "platform/platform.hpp"
+
+#include "base/assert.hpp"
+#include "base/exception.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
+
+#include "defines.hpp"
 
 #include <functional>
 #include <limits>

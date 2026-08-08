@@ -2,7 +2,8 @@
 
 #include "drape/texture.hpp"
 
-#include "base/logging.hpp"
+#include "base/assert.hpp"
+#include "base/math.hpp"
 #include "base/shared_buffer_manager.hpp"
 
 #include <cmath>

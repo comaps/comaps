@@ -1,8 +1,6 @@
 #include "search/region_address_getter.hpp"
 
-#include "storage/country_info_getter.hpp"
-
-#include "platform/preferred_languages.hpp"
+#include "i18n/localisation.hpp"
 
 namespace search
 {

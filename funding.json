@@ -1,0 +1,78 @@
+{
+    "$schema": "https://fundingjson.org/schema/v1.1.0.json",
+    "version": "v1.1.0",
+    "entity": {
+        "type": "group",
+        "role": "owner",
+        "name": "CoMaps",
+        "email": "hello@comaps.app",
+        "description": "CoMaps is a community-led, not-for-profit project that builds a free, open source, privacy-respecting maps and navigation app based on OpenStreetMap data. It is a community fork of Organic Maps, created out of a desire for open, transparent, and community-driven governance. The project has no investors and is funded entirely by donations from people who use and value the app. Funds are held transparently through Open Collective via our fiscal host, Platform 6 Development Co-operative Limited.",
+        "webpageUrl": {
+            "url": "https://www.comaps.app/",
+            "wellKnown": "https://www.comaps.app/.well-known/funding-manifest-urls"
+        }
+    },
+    "projects": [{
+        "guid": "comaps",
+        "name": "CoMaps",
+        "description": "A free and open source, privacy-first maps and navigation app for Android, iOS, macOS, and Linux. CoMaps provides worldwide offline maps and turn-by-turn walking, cycling, and driving navigation built on OpenStreetMap data, with no tracking, no data collection, and no ads. It is a community-led fork of Organic Maps (originally based on MAPS.ME), operated for the public good rather than shareholder profit. Donations fund map data updates, infrastructure and server costs, and contributor time across software development, design, and community work.",
+        "webpageUrl": {
+            "url": "https://www.comaps.app/",
+            "wellKnown": "https://www.comaps.app/.well-known/funding-manifest-urls"
+        },
+        "repositoryUrl": {
+            "url": "https://codeberg.org/comaps/comaps",
+            "wellKnown": ""
+        },
+        "licenses": ["spdx:Apache-2.0"],
+        "tags": ["maps", "navigation", "openstreetmap", "offline-maps", "privacy", "android", "ios", "linux", "foss", "not-for-profit"]
+    }],
+    "funding": {
+        "channels": [
+            {
+                "guid": "opencollective",
+                "type": "payment-provider",
+                "address": "https://opencollective.com/comaps",
+                "description": "Donate via Open Collective by debit/credit card or PayPal, as a one-time or recurring contribution."
+            },
+            {
+                "guid": "liberapay",
+                "type": "payment-provider",
+                "address": "https://liberapay.com/CoMaps",
+                "description": "Recurring donations via Liberapay, paid by credit/debit card (Stripe) or PayPal."
+            }
+        ],
+        "plans": [
+            {
+                "guid": "opencollective-one-time",
+                "status": "active",
+                "name": "One-time donation",
+                "description": "Make a one-time contribution of any amount via Open Collective.",
+                "amount": 0,
+                "currency": "GBP",
+                "frequency": "one-time",
+                "channels": ["opencollective"]
+            },
+            {
+                "guid": "opencollective-monthly",
+                "status": "active",
+                "name": "Monthly supporter (Open Collective)",
+                "description": "Set up a recurring monthly contribution of any amount via Open Collective to help sustain ongoing development, infrastructure, and map updates.",
+                "amount": 0,
+                "currency": "GBP",
+                "frequency": "monthly",
+                "channels": ["opencollective"]
+            },
+            {
+                "guid": "liberapay-recurring",
+                "status": "active",
+                "name": "Recurring supporter (Liberapay)",
+                "description": "Set up a recurring donation of any amount via Liberapay (weekly, monthly, or yearly), paid by card or PayPal.",
+                "amount": 0,
+                "currency": "EUR",
+                "frequency": "monthly",
+                "channels": ["liberapay"]
+            }
+        ]
+    }
+}

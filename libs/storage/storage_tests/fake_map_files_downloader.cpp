@@ -57,7 +57,7 @@ void FakeMapFilesDownloader::Clear()
   ++m_timestamp;
 }
 
-QueueInterface const & FakeMapFilesDownloader::GetQueue() const
+QueueInterface & FakeMapFilesDownloader::GetQueue()
 {
   CHECK_THREAD_CHECKER(m_checker, ());
 
@@ -78,7 +78,7 @@ void FakeMapFilesDownloader::Download()
   ++m_timestamp;
   m_progress = {};
   m_progress.m_bytesTotal = queuedCountry.GetDownloadSize();
-  m_writer.reset(new FileWriter(queuedCountry.GetFileDownloadPath()));
+  m_writer.reset(new FileWriter(queuedCountry.GetFileDownloadPath(m_dataVersion)));
   m_taskRunner.PostTask(std::bind(&FakeMapFilesDownloader::DownloadNextChunk, this, m_timestamp));
 }
 

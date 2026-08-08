@@ -2,6 +2,7 @@
 
 #include "coding/compressed_bit_vector.hpp"
 
+#include "base/assert.hpp"
 #include "base/ref_counted.hpp"
 
 #include <cstdint>

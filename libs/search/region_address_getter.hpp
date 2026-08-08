@@ -4,6 +4,8 @@
 #include "search/region_info_getter.hpp"
 #include "search/reverse_geocoder.hpp"
 
+#include "geometry/point2d.hpp"
+
 namespace storage
 {
 class CountryInfoGetter;

@@ -1,5 +1,7 @@
 #include "indexer/utils.hpp"
 
+#include "indexer/data_source.hpp"
+
 namespace indexer
 {
 using namespace std;

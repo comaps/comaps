@@ -2,10 +2,7 @@
 
 #include "routing/routing_callbacks.hpp"
 
-#include "geometry/latlon.hpp"
-
 #include "base/cancellable.hpp"
-#include "base/timer.hpp"
 
 #include <mutex>
 

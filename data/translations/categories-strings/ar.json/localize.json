@@ -1,0 +1,1457 @@
+{
+    "@category_eat": {
+        "defaultMessage": "طعام|مكان لتناول الطعام|أكل|غذاء"
+    },
+    "@category_food": {
+        "defaultMessage": "طعام|بقالة|بقال|بقول"
+    },
+    "@category_transport": {
+        "defaultMessage": "مواصلات|مواصلات"
+    },
+    "@category_fuel": {
+        "defaultMessage": "1وقود|بنزين|سولار|ديزل|وقود الحافلات"
+    },
+    "@category_parking": {
+        "defaultMessage": "موقف سيارات|مرافق ركن السيارات"
+    },
+    "@category_shopping": {
+        "defaultMessage": "تسوق"
+    },
+    "@category_hotel": {
+        "defaultMessage": "فندق|الفنادق|بانسيون|أوتيل"
+    },
+    "@category_tourism": {
+        "defaultMessage": "سياحة"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "ترفيه وتسلية|تسلية"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "أنشطة ترفيه ليلية"
+    },
+    "@category_children": {
+        "defaultMessage": "عطلة عائلية"
+    },
+    "@category_atm": {
+        "defaultMessage": "ماكينة صرافة آلية|صراف|صراف آلي|صراف آلي"
+    },
+    "@category_rv": {
+        "defaultMessage": "منشآت للمنازل المتنقلة"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "ماكينة صراف آلي|الأموال|فلوس|صرافة آلية|نقود"
+    },
+    "@category_bank": {
+        "defaultMessage": "بنك"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "اليد الثانية"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "بنك|الأموال|فلوس|نقود|مال"
+    },
+    "@category_recycling": {
+        "defaultMessage": "إعادة تدوير|استغلال المخلفات|المواد القابلة لإعادة التدوير|جمع القمامة بشكل منفصل|فرز النفايات|إعادة الاستخدام"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "تحويل عملات|تغيير عملات|الصرف|الأموال|صرف عملات|صرف"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "بار|حانة|خمارة|بيرة|شراب"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "مقهى|قهوة|كافتيريا"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "وجبات سريعة|وجبة جاهزة"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "2مطعم"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "محطة وقود|بترول"
+    },
+    "@shop": {
+        "defaultMessage": "محل|دكان|متجر"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "مخبز|متجر"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "مستحضرات تجميل|تجميل"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "متجر صغير"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "أطعمة مبردة|محل جواهز"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "حضانة|روضة"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "المعينات السمعية"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "متجر هواتف محمولة|متجر هواتف خلوية|هاتف|محل موبايلات|موبايل|محمول|جوال"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "متجر زهور|متجر"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "جزار|جزارة|متجر لحوم|متجر|قصابة"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "معرض أثاث|أثاث|متجر مفروشات|عفش|مفروشات"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "متجر مطابخ"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "متجر مشروبات كحولية|خمور|خمر|متجر"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "مكتبة لبيع الكتب|متجر"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "متجر أحذية|متجر"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "متجر إلكترونيات|متجر"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "متجر عدد وأدوات|أدوات|عدة|متجر|محل معدات"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "بضائع منزلية|محل أدوات منزلية"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "مجوهرات"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "مركز بصريات|نظارات|متجر"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "متجر هدايا|متجر"
+    },
+    "shop-beauty": {
+        "defaultMessage": "صالون تجميل|كوافير|متجر"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "متجر خضروات وفواكه|خضار|فاكهة|متجر"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "أدوات رياضية|رياضة|متجر"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "سوبر ماركت|بقالة|متجر"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "مركز تسوق|مجمع تجاري|مول|متجر"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "متجر شامل|مركز تجاري"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "مشروبات|عصائر"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "متجر كمبيوتر"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "متجر حلويات|حلويات|حلوى|متجر|حلواني"
+    },
+    "shop-laundry": {
+        "defaultMessage": "مغسلة ملابس|غسيل ملابس|تنظيف"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "متجر ألعاب|متجر"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "سوق|السوق|متجر"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "تحويل المال"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "متجر ملابس|ملابس|متجر"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "متجر سيارات|متجر عربيات|وكالة بيع السيارات|معرض عربيات|معرض سيارات"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "متجر دراجات|متجر"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "كشك|متجر"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "موقف حافلة|باص|حافلة|مواصلات|محطة|محطة اتوبيس|اتوبيس"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "موقف ترام|مواصلات|مواصلات"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "محطة حافلات|موقف حافلة|باص|حافلة|مواصلات|محطة|محطة اتوبيس|اتوبيس"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "محطة سكك حديدية|محطة قطار|قطار|قطر|السكة الحديد|محطة|مواصلات|مواصلات"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "حبلي"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "محطة مترو|القطار الكهربائي النفقي|قطار الأنفاق|مترو|تحت الأرض"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "محطة عبّارات|مركب|محطة|مواصلات|مواصلات"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "سيارة أجرة|تاكسي|مواصلات|مواصلات"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "مبنى البلدية|مناظر|سياحة"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "أماكن جذابة|سياحة|مناظر|مكان جذاب"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "عمل فني|سياحة"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "أماكن مشاهدة سياحية|سياحة|مناظر|نقطة منظر"
+    },
+    "tourism-information": {
+        "defaultMessage": "معلومات سياحية|معلومات|سياحة|مناظر"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "مكان نزهة|سياحة|مناظر|شواية شواء"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "1مكان عبادة|معبد"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "كنيسة|مكان عبادة|معبد"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "مسجد|جامع|مكان عبادة|مسلم|معبد|مصلى"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "معبد بوذي|مكان عبادة|بوذا|معبد"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "معبد هندوسي|مكان عبادة|معبد"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "معبد شنتو|مكان عبادة|معبد"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "معبد يهودي|مكان عبادة|معبد"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "معبد طاوي|مكان عبادة|معبد"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "متحف|أماكن جذابة|سياحة|مناظر"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "شلال|مناظر|سياحة|شلّال"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "موقع أثري|أماكن جذابة|سياحة|مناظر"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "ساحة معركة تاريخية"
+    },
+    "historic-stone": {
+        "defaultMessage": "الحجر التاريخي"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "حجر لتحديد الحدود"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "قلعة|سياحة|أماكن جذابة|مناظر|كاسترا|الكنيسة المحصنة|حصون التلال|كرملين|قصر مالك العزبة|قصر|شاتو"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "بوابة مدينة"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "جدار المدينة"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "قلعة|حصن"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "مشنقة"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "نصب تذكاري|معالم|آثار|أماكن جذابة|سياحة"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "الصليب التذكاري|صليب تذكاري"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "لوحة تذكارية"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "منحوتة تذكارية"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "تمثال تذكاري|تمثال"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "حجر عثرة"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "نصب حرب"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "صرح|معالم|سياحة|مناظر|نصب تذكاري"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "مشهرة"
+    },
+    "historic-cannon": {
+        "defaultMessage": "مدفع"
+    },
+    "historic-anchor": {
+        "defaultMessage": "مرساة تاريخية"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "آثار|أماكن جذابة|مناظر|سياحة"
+    },
+    "historic-mine": {
+        "defaultMessage": "منجم تاريخي"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "سفينة تاريخية|سفينة"
+    },
+    "historic-wreck": {
+        "defaultMessage": "حطام سفينة"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "قاطرة تاريخية"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "الخزان التاريخي"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "الطائرات التاريخية"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "قبر"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "صليب مسيحي"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "ضريح"
+    },
+    "leisure-garden": {
+        "defaultMessage": "بستان|مناظر|سياحة|حديقة"
+    },
+    "amenity-bench": {
+        "defaultMessage": "مقعد طويل|مصطبة"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "تأجير دراجات"
+    },
+    "amenity-bicycle_repair_station": {
+        "defaultMessage": "تصليح الدراجات|اصلاح الدراجات|صيانة الدراجات|تصليح عجل|اصلاح عجل"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "مشاركة السيارة|تقاسم السيارة"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "تأجير سيارات|سيارة|تأجير سيارة|إيجار سيارة|تأجير عربيات|عربية|تأجير عربية|إيجار عربية"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "تأجير الدراجات النارية"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "سينما"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "ﺞﻨﻴﻟﻮﺑ ﺔﻟﺎﺻ"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "مسرح"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "نادي ليلي|رقص"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "دعارة"
+    },
+    "@gambling": {
+        "defaultMessage": "القمار"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "كازينو"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "مركز ألعاب الكبار"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "ممر"
+    },
+    "amenity-college": {
+        "defaultMessage": "كلية"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "محطة إطفاء|مطافي|حريق"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "نافورة"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "مقبرة"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "منظموا الجنازات"
+    },
+    "@category_hospital": {
+        "defaultMessage": "مستشفى"
+    },
+    "amenity-hospital|@category_hospital": {
+        "defaultMessage": "عيادة|طبيب|دكتور|مركز طبي|اسعافات اولية|مستشفى"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "عيادة|مستشفى|طبيب|دكتور"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "دكتور|طبيب|عيادة|مستشفى"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "طبيب أسنان"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "معمل تحاليل|معمل طبي|تحاليل|مركز تحاليل|مختبر تحاليل|مختبر طبي"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "اخصائي علاج طبيعي"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "الطب البديل"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "السمع|السمعيات"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "مركز التبرع بالدم"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "قياس البصر|طبيب العيون|تصحيح البصر"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "علاج الأرجل|طبيب الأرجل"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "العلاج النفسي|معالج نفسي"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "علاج النطق|معالج النطق"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "منصة صيد"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "حضانة أطفال|روضة أطفال"
+    },
+    "amenity-library": {
+        "defaultMessage": "مكتبة"
+    },
+    "amenity-parking|amenity-parking_entrance|@category_parking": {
+        "defaultMessage": "موقف سيارات"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "صيدلية|اجزخانة"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "متجر أدوية|صيدلية|اجزخانة"
+    },
+    "@category_post": {
+        "defaultMessage": "بريد"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "صندوق بريد|البريد"
+    },
+    "amenity-post_office|post_office-post_partner|@category_post": {
+        "defaultMessage": "مكتب بريد"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "فحص المركبة"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "قمامة|مهملات|سلة مهملات|صندوق قمامة"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "مركز إعادة تدوير"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "حاوية لإعادة التدوير"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "ﺕﺎﻳﺭﺎﻄﺑ|بطاريات"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "إعادة تدوير الملابس القديم|ملابس قديمة|ملابس"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "زجاجات زجاجية"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "نفايات ورقية"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "نفايات بلاستيكية"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "زجاجات بلاستيكية"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "نفايات معدنية"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "نفايات الكترونية"
+    },
+    "amenity-school": {
+        "defaultMessage": "مدرسة"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "ملجأ"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "كوخ إقامة مؤقتة"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "ملجأ"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "Stripclub|نادي تعري"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "هاتف|تليفون"
+    },
+    "@category_toilet": {
+        "defaultMessage": "مرحاض"
+    },
+    "amenity-toilets|toilets-yes|@category_toilet": {
+        "defaultMessage": "مرحاض|مرحاض"
+    },
+    "amenity-university": {
+        "defaultMessage": "جامعة"
+    },
+    "place-continent": {
+        "defaultMessage": "قارة"
+    },
+    "place-country": {
+        "defaultMessage": "دولة"
+    },
+    "place-city": {
+        "defaultMessage": "مدينة"
+    },
+    "place-town": {
+        "defaultMessage": "بلدة"
+    },
+    "place-city-capital": {
+        "defaultMessage": "عاصمة|مدينة"
+    },
+    "place-county": {
+        "defaultMessage": "مقاطعة"
+    },
+    "place-state": {
+        "defaultMessage": "محافظة"
+    },
+    "place-region": {
+        "defaultMessage": "منطقة"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "جزيرة"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "حي سكني|ضاحية|الحي"
+    },
+    "place-hamlet": {
+        "defaultMessage": "قرية صغيرة|قرية"
+    },
+    "place-village": {
+        "defaultMessage": "قرية|قرية صغيرة"
+    },
+    "place-locality": {
+        "defaultMessage": "منطقة مجاورة"
+    },
+    "place-farm": {
+        "defaultMessage": "مزرعة"
+    },
+    "highway-raceway": {
+        "defaultMessage": "مسار سباق"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "مسار"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "شارع|طريق|حارة|زقاق"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "مخرج|تقاطع"
+    },
+    "@mountain": {
+        "defaultMessage": "قمة|جبل"
+    },
+    "natural-strait": {
+        "defaultMessage": "مضيق"
+    },
+    "landuse-forest": {
+        "defaultMessage": "غابة"
+    },
+    "leisure-park": {
+        "defaultMessage": "حديقة|متنزه"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "حوض سمك"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "نزُل|فندق|فندق رخيص"
+    },
+    "tourism-hotel|@category_hotel": {
+        "defaultMessage": "فندق|فندق رخيص"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "دار الضيافة|فندق|نزُل"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "فندق رخيص|فندق|نزُل|موتيل"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "مساكن جبلية|فندق|الفندق"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "مصفف شعر|حلاق"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "مطار|طائرة"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "استاد|رياضة|ملعب"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "ملعب"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "رياضة"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "ملعب جولف"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "غرفة الهروب"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "هاكرزبيس"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "ملعب رياضي|رياضة|ملاعب رياضية"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "حوض سباحة|رياضة"
+    },
+    "sport-american_football": {
+        "defaultMessage": "كرة القدم الأمريكية"
+    },
+    "sport-archery": {
+        "defaultMessage": "الرماية|رماية"
+    },
+    "sport-athletics": {
+        "defaultMessage": "ألعاب القوى|العاب رياضية"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "كرة القدم الأسترالية"
+    },
+    "sport-baseball": {
+        "defaultMessage": "البيسبول|كرة القاعدة"
+    },
+    "sport-basketball": {
+        "defaultMessage": "كرة سلة|كرة السلة"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "كرة طائرة شاطئية"
+    },
+    "sport-bowls": {
+        "defaultMessage": "لعبة البولينج|بولنغ المخضرة"
+    },
+    "sport-chess": {
+        "defaultMessage": "شطرنج"
+    },
+    "sport-cricket": {
+        "defaultMessage": "كريكت"
+    },
+    "sport-curling": {
+        "defaultMessage": "كيرلنغ|كرلنغ"
+    },
+    "sport-equestrian": {
+        "defaultMessage": "فروسية"
+    },
+    "sport-golf": {
+        "defaultMessage": "الجولف|غولف"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "رياضة بدنية|جمباز"
+    },
+    "sport-handball": {
+        "defaultMessage": "كرة اليد"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "الغوص"
+    },
+    "sport-shooting": {
+        "defaultMessage": "ملعب رماية"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "تزلج على اللوح"
+    },
+    "sport-skiing": {
+        "defaultMessage": "التزحلق|تزحلف"
+    },
+    "sport-soccer": {
+        "defaultMessage": "كرة القدم"
+    },
+    "sport-swimming": {
+        "defaultMessage": "مركز سباحة"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "كرة الطاولة"
+    },
+    "sport-tennis": {
+        "defaultMessage": "تنس"
+    },
+    "sport-padel": {
+        "defaultMessage": "باديل|بادل"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "كرة الطائرة"
+    },
+    "building": {
+        "defaultMessage": "مبنى"
+    },
+    "building-address": {
+        "defaultMessage": "العنوان"
+    },
+    "@category_police": {
+        "defaultMessage": "شرطة|بوليس"
+    },
+    "amenity-police|@category_police": {
+        "defaultMessage": "الشرطة|البوليس"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "سفارة"
+    },
+    "natural-bay": {
+        "defaultMessage": "خليج"
+    },
+    "@category_water": {
+        "defaultMessage": "ماء|مية|ماية"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "مياه شرب|ماء شرب|ماية شرب|سبيل ماية|كولدير"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "ينبوع حار|ينابيع حارة"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "ينبوع|ينابيع"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "بئر ماء|بير ماية|آبار ماء|ابيار ماء|آبار ماية|ابيار ماية"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "نقطة مائية|الماء للقافلة"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "حنفية مياه|حنفية ماء|صنبور مياه|صنبور ماء"
+    },
+    "@waterbody": {
+        "defaultMessage": "مسطح مائي"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "حوض المياه"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "بركة|مياه"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "بحيرة|مياه"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "خزان|فنطاس"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "نهر"
+    },
+    "waterway-canal": {
+        "defaultMessage": "قناة"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "محل صيانة السيارات|محطة خدمات|ميكانيكي|صيانة سيارات|صيانة عربيات|تصليح سيارات|تصليح عربيات"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "تخييم|مكان التخييم|أرض التخييم"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "موقع البيت المتنقل"
+    },
+    "office": {
+        "defaultMessage": "مكتب|شركة"
+    },
+    "office-company": {
+        "defaultMessage": "مكتب شركة"
+    },
+    "office-government": {
+        "defaultMessage": "مكتب حكومي"
+    },
+    "office-lawyer": {
+        "defaultMessage": "مكتب محامي|مكتب محاماة"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "شركة اتصالات|شركة محمول"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "نحال"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "حداد"
+    },
+    "craft-brewery": {
+        "defaultMessage": "مصنع جعة"
+    },
+    "craft-caterer": {
+        "defaultMessage": "متعهد تقديم الطعام"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "نجار"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "حلواني"
+    },
+    "craft-electrician": {
+        "defaultMessage": "كهربائي"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "إصلاح الإلكترونيات|تصليح الإلكترونيات|صيانة الإلكترونيات"
+    },
+    "craft-gardener": {
+        "defaultMessage": "مهندس مناظر|بستاني"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "مطحنة"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "مشغولات يدوية"
+    },
+    "craft-hvac": {
+        "defaultMessage": "تكييف"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "عامل معادن"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "قطع المفاتيح"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "قفال"
+    },
+    "craft-painter": {
+        "defaultMessage": "رسام"
+    },
+    "craft-photographer": {
+        "defaultMessage": "مصور فوتوغرافي|استوديو تصوير"
+    },
+    "craft-plumber": {
+        "defaultMessage": "سمكري|سباك"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "منشرة"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "تصليح الاحذية|اصلاح الاحذية|تصليح جزم|اصلاح جزم"
+    },
+    "craft-winery": {
+        "defaultMessage": "مصنع الخمرة"
+    },
+    "craft-tailor": {
+        "defaultMessage": "خياط|ترزي"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "ساحة|ميدان"
+    },
+    "place-sea": {
+        "defaultMessage": "يكون|بحر"
+    },
+    "place-ocean": {
+        "defaultMessage": "المحيط|محيط"
+    },
+    "@category_wifi": {
+        "defaultMessage": "وايفاي|إنترنت لا سلكي"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "واي فاي|الإنترنت|WiFi|3Internet"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "شاطئ"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "منارة"
+    },
+    "man_made-flagpole": {
+        "defaultMessage": "سارية علم"
+    },
+    "man_made-mast": {
+        "defaultMessage": "عمود برج"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "برج الاتصالات"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "بئر النفط"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "بيولوجي|بيولوجي|صحي|بيولوجي|بيئي|طبيعي|عضوي"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "محل نسخ|طباعة"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "محل صور|إطارات|محل"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "متجر الكاميرا"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "وكيل سفريات|جولات"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "معدات خارجية|ترحال|تسلق|تخييم|محل"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "غسيل جاف|غسيل"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "محل إطارات|محل"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "مغسلة سيارات"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "طبيب بيطري|دكتور بيطري"
+    },
+    "@charging_station": {
+        "defaultMessage": "محطة شحن|شحن"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "شحن الدراجات الهوائية"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "حضانة|رعاية أطفال|حضّانة"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "أماكن وقوف للدراجات"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "صندوق قمامة"
+    },
+    "emergency-phone": {
+        "defaultMessage": "هاتف الطوارئ"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "مركز للياقة البدنية، نادي رياضي"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "ساونا"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "إصلاح إطارات|تصليح إطارات|إطارات|كاوتش|تصليح كاوتش|إصلاح كاوتش"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "متجر كيماويات"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "متجر للحيوانات الأليفة"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "حديقة حيوان"
+    },
+    "attraction-animal": {
+        "defaultMessage": "الضميمة الحيوانية"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "مكتب سياحة"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "مركز الزوار"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "مركز اجتماعي"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "هواء مضغوط"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "محكمة"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "ماكينة بيع سجائر"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "ماكينة بيع مشروبات"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "ماكينة دفع تذاكر الموقف"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "آلة بيع تذاكر النقل العام"
+    },
+    "shop-outpost": {
+        "defaultMessage": "نقطة الالتقاط"
+    },
+    "building-garage": {
+        "defaultMessage": "جراج|مرآب"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "استراحة|موقف الراحة"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "مدخنة مصنع"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "برج"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "ناشر|مراهنة"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "سماك|سمّاك"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "متجر بضائع مستعملة"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "متجر خيري"
+    },
+    "shop-ticket": {
+        "defaultMessage": "مكتب تذاكر"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "متجر مشروبات روحية"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "ﺓﺭﺎﻴﺴﻟﺍ ءﺍﺰﺟﺃ"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "عطلة المنزلية"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "لوحة معلومات"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "خريطة سياحية"
+    },
+    "aerialway-station": {
+        "defaultMessage": "محطة تلفريك"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "مهبط مروحيات"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "أمن الحدود"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "ملاهي مائية"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "برج مياه|خزان مياه|خزان ماء"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "طاحونة هواء"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "كهف"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "بركان"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "وكيل عقاري"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "بوابة هويس"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "مكتبة، تبادل كتب"
+    },
+    "sport-climbing": {
+        "defaultMessage": "مركز تسلق"
+    },
+    "sport-yoga": {
+        "defaultMessage": "نادي يوغا"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "شُقَق"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "منتج"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "متجر بيرة"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "مدرسة قيادة"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "ﻰﻘﻴﺳﻮﻣ ﺔﺳﺭﺪﻣ"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "ﺔﻐﻟ ﺔﺳﺭﺪﻣ"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "كشك أيس كريم"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "مقهى إنترنت"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "موقف دراجات نارية"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "موقف سيارات لذوي الإعاقة"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "دار تمريض"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "محطة دفع"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "حمام عام"
+    },
+    "amenity-shower": {
+        "defaultMessage": "مرحاض|حمام"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "نقطة التجمع في حالات الطوارئ"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "مزيل الرجفان"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "صنبور الإطفاء|حنفية المطافي"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "منقذ الطوارئ|منقذ"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "الإنقاذ الجبلي الطارئ"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "مركز لياقة"
+    },
+    "office-insurance": {
+        "defaultMessage": "مكتب تأمين"
+    },
+    "office-ngo": {
+        "defaultMessage": "مكتب مؤسسة خيرية|مكتب مؤسسة غير حكومية"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "متجر منتجات جنسية"
+    },
+    "shop-massage": {
+        "defaultMessage": "قاعة تدليك"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "متجر دراجات نارية"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "تصليح الدراجات النارية|اصلاح الدراجات النارية|تصليح موتوسيكل|اصلاح موتوسيكل"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "كشك الجرائد|كشك جرائد"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "سمسار تسليف|مُرتهِن"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "متجر قرطاسية"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "قاعة رسم الوشم|محل وشوم"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "متجر متنوع\\n"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "متجر فيديو"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "متجر ألعاب فيديو"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "كوخ برية"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "منتزه وطني"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "محمية"
+    },
+    "natural-cape": {
+        "defaultMessage": "رأس"
+    },
+    "natural-geyser": {
+        "defaultMessage": "نبع ماء حار|حَمَّة"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "كتلة جليدية"
+    },
+    "highway-ford": {
+        "defaultMessage": "مخاضة"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "التزلج|مسار التزلج"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "مكان الأحداث"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "التحف"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "متجر الفنون"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "متجر الأطفال"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "متجر الحقائب"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "متجر جبن"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "متجر الألبان"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "متجر البضع الكهربائية"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "متجر صيد"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "محل ديكورات داخلية"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "ﺐﻴﺼﻧﺎﻴﻟﺍ ﺮﻛﺍﺬﺗ|تذاكر يانصيب"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "ﺔﻴﺒﻄﻟﺍ ﺕﺍﺩﺍﺪﻣﻹﺍ"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "محل مكملات غذائية"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "ﺕﺎﻧﺎﻫﺪﻟﺍ"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "العطور"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "معدات الخياطة"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "ﻦﻳﺰﺨﺘﻟﺍ ﺕﺍﺪﺣﻭ ﺮﻴﺟﺄﺗ"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "تبغ"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "ﺔﻳﺭﺎﺠﺘﻟﺍ ﺕﺍﺪﻳﺭﻮﺘﻟﺍ|معدات التجارة"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "ساعات"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "متجر مواد بالجملة"
+    },
+    "power-plant": {
+        "defaultMessage": "محطة توليد الكهرباء"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "مزاد علني"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "جامع|مقتنيات"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "كرسي متحرك|دعم كامل للكراسي المتحركة"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "المرفق الاجتماعي"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "الصالة الرياضية"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "مركز فن"
+    },
+    "amenity-prison": {
+        "defaultMessage": "سجن"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "مركز المعرض"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "أثاث الحمام"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "متجر الأسِرّة"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "بوتيك"
+    },
+    "amenity-food_court": {
+        "defaultMessage": "مكان تناول الطعام"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "متجر ستائر"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "متجر غاز"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "العناية بالحيوانات الأليفة"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "متجر صوت هاي فاي"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "مركز المؤتمرات"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "متجر أعشاب"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "متجر أدوات منزلية"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "محل زراعي"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "اكسسوارات الموضة"
+    },
+    "amenity-waste_transfer_station": {
+        "defaultMessage": "محطة نقل النفايات"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "متجر سجادات"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "المعكرونة"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "خزانة الأمتعة"
+    },
+    "shop-grocery|@category_food|@shop": {
+        "defaultMessage": "بقال|بقالة"
+    },
+    "shop-health_food|@category_food|@shop": {
+        "defaultMessage": "طعام صحي|أكل صحي"
+    },
+    "@fastfood": {
+        "defaultMessage": "وجبا"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "كعك بولندي"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "فطور"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "برغر"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "كيك"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "ﺓﻮﻬﻗ"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "كاري"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "العشاء"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "الكعك المحلاة"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "سمك و رقائق البطاطس"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "وجبات سريعة"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "شواء"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "هوت دوغ"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "مُثَلّجات"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "كباب"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "الشعرية"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "بان كيك|كريب"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "مَعْكَرُونَة"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "بيتزا"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "حساء رامن"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "ساندوتش"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "سجق"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "مأكولات بحرية|سمك"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "سوبا"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "شرائح اللحم"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "سوشي"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "تاباس"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "شاي"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "مطبخ نباتي"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "مطبخ نباتي"
+    }
+}

@@ -2,15 +2,21 @@
 
 #include "drape/color.hpp"
 #include "drape/dynamic_texture.hpp"
+#include "drape/pointers.hpp"
 #include "drape/texture.hpp"
+#include "drape/texture_types.hpp"
 
-#include "base/buffer_vector.hpp"
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 
 #include <map>
 #include <mutex>
 
 namespace dp
 {
+class GraphicsContext;
+class HWTextureAllocator;
+
 class ColorKey : public Texture::Key
 {
 public:

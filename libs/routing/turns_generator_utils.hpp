@@ -1,6 +1,6 @@
 #pragma once
 
-#include "geometry/point_with_altitude.hpp"
+#include "geometry/point2d.hpp"
 #include "indexer/ftypes_matcher.hpp"
 #include "routing/loaded_path_segment.hpp"
 

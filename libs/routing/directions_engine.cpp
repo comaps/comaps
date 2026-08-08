@@ -3,14 +3,28 @@
 #include "routing/data_source.hpp"
 #include "routing/fake_feature_ids.hpp"
 #include "routing/lanes/lanes_parser.hpp"
+#include "routing/route.hpp"
 #include "routing/routing_helpers.hpp"
+#include "routing/routing_settings.hpp"
+#include "routing/segment.hpp"
+#include "routing/turn_candidate.hpp"
 #include "routing/turns.hpp"
 
+#include "indexer/feature_data.hpp"
+#include "indexer/feature_meta.hpp"
 #include "indexer/ftypes_matcher.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
+#include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"
+#include "geometry/point_with_altitude.hpp"
+
+#include "i18n/localisation.hpp"
+
+#include "base/assert.hpp"
+#include "base/cancellable.hpp"
+#include "base/checked_cast.hpp"
+#include "base/math.hpp"
+#include "base/stl_helpers.hpp"
 
 namespace routing
 {
@@ -84,8 +98,10 @@ void DirectionsEngine::LoadPathAttributes(FeatureID const & featureId, LoadedPat
   pathSegment.m_onRoundabout = m_roundAboutChecker(types);
   pathSegment.m_isOneWay = m_onewayChecker(types);
 
+  pathSegment.m_roadNameInfo.m_mwmId = ft->GetID();
   pathSegment.m_roadNameInfo.m_isLink = pathSegment.m_isLink;
   pathSegment.m_roadNameInfo.m_onRoundabout = pathSegment.m_onRoundabout;
+  pathSegment.m_roadNameInfo.m_highwayClass = pathSegment.m_highwayClass;
   pathSegment.m_roadNameInfo.m_junction_ref = ft->GetMetadata(feature::Metadata::FMD_JUNCTION_REF);
   pathSegment.m_roadNameInfo.m_destination_ref = ft->GetMetadata(feature::Metadata::FMD_DESTINATION_REF);
   pathSegment.m_roadNameInfo.m_destination = ft->GetMetadata(feature::Metadata::FMD_DESTINATION);

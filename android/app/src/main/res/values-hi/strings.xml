@@ -183,8 +183,6 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">लंबाई</string>
     <string name="share_my_location">मेरा स्थान साझा करें</string>
-    <!-- Settings general group in settings screen -->
-    <string name="prefs_group_general">सामान्य सेटिंग्स</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">जानकारी</string>
     <string name="prefs_group_route">मार्गदर्शन</string>
@@ -244,7 +242,7 @@
     <!-- Text in menu + Button in the main Help dialog -->
     <string name="report_a_bug">एक बग रिपोर्ट करो</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">इंटरफ़ेस देखने के लिए मानचित्र पर फिर से देर तक टैप करें</string>
+    <string name="enable_long_tap_fullscreen_description">इंटरफ़ेस देखने के लिए मानचित्र पर फिर से देर तक टैप करें</string>
     <!-- Cancel all button text -->
     <string name="downloader_cancel_all">सब रद्द करो</string>
     <!-- Downloaded maps list header -->
@@ -401,7 +399,7 @@
     <string name="phone_number">फ़ोन नंबर</string>
     <string name="profile">OpenStreetMap प्रोफ़ाइल</string>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">निजता</string>
+    <string name="prefs_group_privacy">निजता</string>
     <string name="privacy_policy">गोपनीयता नीति</string>
     <string name="terms_of_use">उपयोग की शर्तें</string>
     <string name="subway">भूमिगत मार्ग</string>
@@ -417,7 +415,7 @@
     <string name="power_managment_setting_auto">जब बैटरी कम हो</string>
     <string name="power_managment_setting_manual_max">हमेशा</string>
     <string name="enable_logging_warning_message">सहायता संवाद में \"बग की रिपोर्ट करें\" का उपयोग करके हमें अपनी समस्या के बारे में विस्तृत डायग्नोस्टिक लॉग रिकॉर्ड करने और मैन्युअल रूप से भेजने के लिए इस विकल्प को अस्थायी रूप से सक्षम करें। लॉग में स्थान की जानकारी शामिल हो सकती है.</string>
-    <string name="driving_options_title">रूटिंग विकल्प</string>
+    <string name="routing_options_title">रूटिंग विकल्प</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">पथकर को टालना</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

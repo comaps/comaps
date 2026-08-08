@@ -1,5 +1,7 @@
 #include "map_style_reader.hpp"
 
+#include "indexer/map_style.hpp"
+
 #include "platform/platform.hpp"
 
 #include "base/file_name_utils.hpp"

@@ -1,0 +1,95 @@
+{
+    "@fastfood": {
+        "defaultMessage": "Greitas maistas"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "Beigeliai"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "Pusryčiai"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "Mėsainiai|Burgeriai"
+    },
+    "cuisine-bubble_tea": {
+        "defaultMessage": "Burbulinė arbata|Boba"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "Pyragaičiai|Tortai|Konditerija"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "Kava"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "Karis"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "Užkandinė"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "Spurgos"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "Žuvis su bulvytėmis"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "Friterija|Gruzdinti patiekalai"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "Ant grotelių keptas maistas|Grotelės|Grilis"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "Dešrainiai"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "Ledai"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "Kebabai"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "Makaronai|nūdlai"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "Blynai|Blyneliai|Lietiniai"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "Itališki makaronai|Makaronai|Pasta"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "Picos|Pica|Picerija"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "Ramenai"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "Sumuštiniai"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "Dešrelės"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "Žuvies patiekalai|Žuvis|Jūros gėrybės"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "Soba makaronai|Grikių makaronai|Makaronai"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "Kepsnių restoranas|Kepsniai"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "Sušiai"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "Tapos"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "Arbata"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "Vegetariška virtuvė"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "Veganiška virtuvė"
+    }
+}

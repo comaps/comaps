@@ -1,8 +1,10 @@
 #include "search/string_utils.hpp"
 
+#include "indexer/search_delimiters.hpp"
 #include "indexer/search_string_utils.hpp"
 
 #include "base/stl_helpers.hpp"
+#include "base/string_utils.hpp"
 
 namespace search
 {

@@ -37,7 +37,7 @@ public:
   // MapFilesDownloader overrides:
   void Remove(CountryId const & id) override;
   void Clear() override;
-  QueueInterface const & GetQueue() const override;
+  QueueInterface & GetQueue() override;
 
 private:
   // MapFilesDownloader overrides:

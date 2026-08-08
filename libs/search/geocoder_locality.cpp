@@ -1,5 +1,7 @@
 #include "search/geocoder_locality.hpp"
 
+#include "base/assert.hpp"
+
 #include <sstream>
 
 namespace search

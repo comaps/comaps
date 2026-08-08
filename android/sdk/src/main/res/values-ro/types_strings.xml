@@ -29,7 +29,7 @@
     <string name="type.leisure.adult_gaming_centre">Centru de jocuri pentru adulți</string>
     <string name="type.leisure.amusement_arcade">Arcadă</string>
     <string name="type.amenity.charging_station">Stație încărcare</string>
-    <string name="type.amenity.charging_station.bicycle">Stație de încărcare pentru biciclete</string>
+    <string name="type.amenity.charging_station.bicycle">Bicicletă</string>
     <string name="type.amenity.charging_station.motorcar">Stație de încărcare autoturisme</string>
     <string name="type.amenity.childcare">Creșă</string>
     <string name="type.leisure.bowling_alley">Popicărie</string>
@@ -322,7 +322,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunel</string>
     <string name="type.highway.bus_stop">Stație de autobuz</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Drum în construcție</string>
+    <string name="type.highway.construction.motorway">Drum în construcție</string>
+    <string name="type.highway.construction.motorway_link">Drum în construcție</string>
+    <string name="type.highway.construction.trunk">Drum în construcție</string>
+    <string name="type.highway.construction.trunk_link">Drum în construcție</string>
+    <string name="type.highway.construction.primary">Drum în construcție</string>
+    <string name="type.highway.construction.primary_link">Drum în construcție</string>
+    <string name="type.highway.construction.secondary">Drum în construcție</string>
+    <string name="type.highway.construction.secondary_link">Drum în construcție</string>
+    <string name="type.highway.construction.tertiary">Drum în construcție</string>
+    <string name="type.highway.construction.tertiary_link">Drum în construcție</string>
+    <string name="type.highway.construction.residential">Drum în construcție</string>
+    <string name="type.highway.construction.unclassified">Drum în construcție</string>
+    <string name="type.highway.construction.service">Drum în construcție</string>
+    <string name="type.highway.construction.living_street">Drum în construcție</string>
+    <string name="type.highway.construction.road">Drum în construcție</string>
+    <string name="type.highway.construction.track">Drum în construcție</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Pod</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
@@ -1452,4 +1469,10 @@
     <string name="type.xmas.tree">Brad de Crăciun</string>
     <string name="type.amenity.hydrant">Hidrant Irigații</string>
     <string name="type.railway.turntable">Placă turnantă</string>
+    <string name="type.lateral.port">Port</string>
+    <string name="type.leisure.sports_centre.sport.boules">Centru Sportiv</string>
+    <string name="type.leisure.sports_centre.sport.field_hockey">Centru Sportiv</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Centru Sportiv</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Centru Sportiv</string>
+    <string name="type.attraction">Punct de atracție</string>
 </resources>

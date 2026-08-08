@@ -1,6 +1,7 @@
 #include "platform/platform.hpp"
 #include "private.h"
 
+#include "platform/gui_thread.hpp"
 #include "platform/socket.hpp"
 
 #include "coding/file_reader.hpp"
@@ -10,6 +11,8 @@
 #include "base/logging.hpp"
 #include "base/macros.hpp"
 #include "base/scope_guard.hpp"
+
+#include "defines.hpp"
 
 #include <algorithm>
 #include <functional>  // bind

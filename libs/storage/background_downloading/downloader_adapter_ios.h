@@ -13,7 +13,7 @@ public:
 
   void Clear() override;
 
-  QueueInterface const & GetQueue() const override;
+  QueueInterface & GetQueue() override;
 
 private:
   // MapFilesDownloaderWithServerList overrides:

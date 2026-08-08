@@ -1,6 +1,7 @@
 #pragma once
 #include "indexer/feature_altitude.hpp"
 
+#include "coding/files_container.hpp"
 #include "coding/memory_region.hpp"
 
 #include "geometry/point_with_altitude.hpp"

@@ -9,6 +9,7 @@
 #include "storage/country_info_getter.hpp"
 
 #include "platform/local_country_file_utils.hpp"
+#include "platform/platform.hpp"
 
 #include "base/assert.hpp"
 

@@ -2,6 +2,8 @@
 
 #include "platform/measurement_utils.hpp"
 
+#include "base/math.hpp"
+
 #include <algorithm>
 
 namespace routing
@@ -119,19 +121,19 @@ string DebugPrint(Notification const & notification)
   return out.str();
 }
 
-VecPairDist const & GetAllSoundedDistMeters()
+VecPairDist const & GetAllSoundedDistUntilMeters()
 {
   // The vector below has to be sorted. It is checked in unit test GetAllSoundedDistMetersTest
-  static VecPairDist const inst = {
-      {50, "in_50_meters"},      {100, "in_100_meters"},      {200, "in_200_meters"},   {250, "in_250_meters"},
-      {300, "in_300_meters"},    {400, "in_400_meters"},      {500, "in_500_meters"},   {600, "in_600_meters"},
-      {700, "in_700_meters"},    {750, "in_750_meters"},  // Hm :)
-      {800, "in_800_meters"},    {900, "in_900_meters"},      {1000, "in_1_kilometer"}, {1500, "in_1_5_kilometers"},
-      {2000, "in_2_kilometers"}, {2500, "in_2_5_kilometers"}, {3000, "in_3_kilometers"}};
+  static VecPairDist const inst = {{50, "in_50_meters"},        {100, "in_100_meters"},      {200, "in_200_meters"},
+                                   {250, "in_250_meters"},      {300, "in_300_meters"},      {400, "in_400_meters"},
+                                   {500, "in_500_meters"},      {600, "in_600_meters"},      {700, "in_700_meters"},
+                                   {750, "in_750_meters"},      {800, "in_800_meters"},      {900, "in_900_meters"},
+                                   {1000, "in_1_kilometer"},    {1500, "in_1_5_kilometers"}, {2000, "in_2_kilometers"},
+                                   {2500, "in_2_5_kilometers"}, {3000, "in_3_kilometers"}};
   return inst;
 }
 
-VecPairDist const & GetAllSoundedDistFeet()
+VecPairDist const & GetAllSoundedDistUntilFeet()
 {
   // The vector below has to be sorted. It is checked in unit test GetAllSoundedDistFeet
   static VecPairDist const inst = {
@@ -144,10 +146,36 @@ VecPairDist const & GetAllSoundedDistFeet()
   return inst;
 }
 
+VecPairDist const & GetAllSoundedDistFromMeters()
+{
+  // The vector below has to be sorted. It is checked in unit test GetAllSoundedDistMetersTest
+  static VecPairDist const inst = {
+      {50, "from_50_meters"},        {100, "from_100_meters"},      {200, "from_200_meters"},
+      {250, "from_250_meters"},      {300, "from_300_meters"},      {400, "from_400_meters"},
+      {500, "from_500_meters"},      {600, "from_600_meters"},      {700, "from_700_meters"},
+      {750, "from_750_meters"},      {800, "from_800_meters"},      {900, "from_900_meters"},
+      {1000, "from_1_kilometer"},    {1500, "from_1_5_kilometers"}, {2000, "from_2_kilometers"},
+      {2500, "from_2_5_kilometers"}, {3000, "from_3_kilometers"}};
+  return inst;
+}
+
+VecPairDist const & GetAllSoundedDistFromFeet()
+{
+  // The vector below has to be sorted. It is checked in unit test GetAllSoundedDistFeet
+  static VecPairDist const inst = {
+      {50, "from_50_feet"},     {100, "from_100_feet"},   {200, "from_200_feet"},   {300, "from_300_feet"},
+      {400, "from_400_feet"},   {500, "from_500_feet"},   {600, "from_600_feet"},   {700, "from_700_feet"},
+      {800, "from_800_feet"},   {900, "from_900_feet"},   {1000, "from_1000_feet"}, {1500, "from_1500_feet"},
+      {2000, "from_2000_feet"}, {2500, "from_2500_feet"}, {3000, "from_3000_feet"}, {3500, "from_3500_feet"},
+      {4000, "from_4000_feet"}, {4500, "from_4500_feet"}, {5000, "from_5000_feet"}, {5280, "from_1_mile"},
+      {7920, "from_1_5_miles"}, {10560, "from_2_miles"}};
+  return inst;
+}
+
 vector<uint32_t> const & GetSoundedDistMeters()
 {
   // The vector has to be sorted. Besides that any of its elements has to be contained in
-  // the vector which GetAllSoundedDistMeters() returns.
+  // the vector which GetAllSoundedDistUntilMeters() and GetAllSoundedDistFromMeters() returns.
   // It is checked in the unit test GetSoundedDistMeters.
   static vector<uint32_t> const inst = {200, 300, 400, 500, 600, 700, 800, 900, 1000, 1500, 2000};
   return inst;
@@ -156,7 +184,7 @@ vector<uint32_t> const & GetSoundedDistMeters()
 vector<uint32_t> const & GetSoundedDistFeet()
 {
   // The vector has to be sorted. Besides that any of its elements has to be contained in
-  // the vector which GetAllSoundedDistFeet() returns.
+  // the vector which GetAllSoundedDistUntilMeters() and GetAllSoundedDistFromMeters() returns.
   // It is checked in the unit test GetSoundedDistFeet.
   static vector<uint32_t> const inst = {500, 600, 700, 800, 900, 1000, 1500, 2000, 3000, 4000, 5000};
   return inst;

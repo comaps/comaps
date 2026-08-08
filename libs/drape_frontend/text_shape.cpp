@@ -1,16 +1,26 @@
 #include "drape_frontend/text_shape.hpp"
+
 #include "drape_frontend/render_state_extension.hpp"
 #include "drape_frontend/text_handle.hpp"
 #include "drape_frontend/text_layout.hpp"
+#include "drape_frontend/tile_key.hpp"
 #include "drape_frontend/visual_params.hpp"
 
 #include "shaders/programs.hpp"
 
 #include "drape/attribute_provider.hpp"
 #include "drape/batcher.hpp"
+#include "drape/color.hpp"
+#include "drape/glyph.hpp"
 #include "drape/overlay_handle.hpp"
+#include "drape/render_state.hpp"
 #include "drape/texture_manager.hpp"
 #include "drape/utils/vertex_decl.hpp"
+
+#include "geometry/rect2d.hpp"
+#include "geometry/screenbase.hpp"
+
+#include "base/assert.hpp"
 
 #include <algorithm>
 #include <utility>

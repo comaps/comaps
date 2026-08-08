@@ -2,18 +2,21 @@
 
 #include "drape_frontend/batchers_pool.hpp"
 #include "drape_frontend/color_constants.hpp"
-#include "drape_frontend/render_state_extension.hpp"
 #include "drape_frontend/tile_key.hpp"
 
-#include "drape/color.hpp"
+#include "drape/attribute_provider.hpp"
 #include "drape/glsl_types.hpp"
+#include "drape/pointers.hpp"
 #include "drape/render_bucket.hpp"
+#include "drape/render_state.hpp"
 #include "drape/texture_manager.hpp"
 
+#include "traffic/speed_groups.hpp"
 #include "traffic/traffic_info.hpp"
 
-#include "indexer/feature_decl.hpp"
+#include "indexer/mwm_set.hpp"
 
+#include "geometry/point2d.hpp"
 #include "geometry/polyline2d.hpp"
 
 #include <array>
@@ -25,6 +28,7 @@
 
 namespace dp
 {
+class Batcher;
 class GraphicsContext;
 }  // namespace dp
 

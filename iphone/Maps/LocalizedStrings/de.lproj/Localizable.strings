@@ -1,7 +1,7 @@
 /* Button text (should be short) */
 "cancel" = "Abbrechen";
 /* Button which interrupts country download */
-"cancel_download" = "Download abbrechen";
+"cancel_download" = "Herunterladen abbrechen";
 /* Button which deletes downloaded country */
 "delete" = "Löschen";
 "download_maps" = "Karten herunterladen";
@@ -165,7 +165,7 @@
 /* Generic «Auto» string */
 "auto" = "Auto";
 /* Settings «Map» category: «Perspective view» title */
-"pref_map_3d_title" = "Perspektivische Ansicht";
+"pref_map_3d_title" = "3D-Ansicht";
 /* Settings «Map» category: «3D buildings» title */
 "pref_map_3d_buildings_title" = "3D-Gebäude";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
@@ -681,8 +681,6 @@
 "yes_available" = "Ja";
 /* E.g. "WiFi:No" */
 "no_available" = "Nein";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Kapazität: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Netzwerk: %@";
 "trip_finished" = "Du bist am Ziel angekommen!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Ort hinzufügen";
 "contribute_to_osm_update_map" = "Karte updaten, um Beizutragen";
 "contribute_to_osm_update_map_description" = "Du musst die %@ Karte auf die letzte Version aktualisieren, bevor du etwas zu den OpenStreetMap-Daten beitragen kannst";
+"downloader_check_updates_button" = "Auf Updates überprüfen";
+"downloader_check_updates_checking" = "Suche nach Aktualisierungen …";
+"downloader_check_updates_updated" = "Karten-Aktualisierungen verfügbar!";
+"downloader_check_updates_no_updates" = "Keine Aktualisierungen verfügbar";
+"downloader_check_updates_eol" = "Kartenaktualisierungen wurden für diese App-Version eingestellt. Bitte aktualisiere die App!";
+"downloader_check_updates_error" = "Fehler beim Prüfen auf Aktualisierungen";
+"editor_add_select_category_recent_subtitle" = "Kürzlich verwendet";
+"oh_unknown" = "Unbekannte Öffnungszeiten";
+"carplay_highway_exit" = "Ausfahrt %@";
+"capacity_disabled_yes" = "Verfügt über ausgewiesene Behindertenparkplätze";
+"capacity_disabled_no" = "Keine ausgewiesenen Behindertenparkplätze";
+"capacity_charging_yes" = "Verfügt über Ladestellplätze";
+"capacity_charging_no" = "Keine Ladestellplätze";
+"planning_route_preview" = "Vorschau";
+"planning_route_preview_sheet_title" = "Routenvorschau";

@@ -3,6 +3,10 @@
 #include "geometry/latlon.hpp"
 #include "geometry/point2d.hpp"
 
+#include "base/assert.hpp"
+
+#include "std/target_os.hpp"
+
 #if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
 // #include "map/everywhere_search_params.hpp"
 #include "map/routing_mark.hpp"

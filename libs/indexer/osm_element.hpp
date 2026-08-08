@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 
+#include "3party/ankerl/unordered_dense.h"
+
 struct OsmElement
 {
   enum class EntityType

@@ -1,9 +1,15 @@
 #include "drape/gpu_buffer.hpp"
 #include "drape/drape_diagnostics.hpp"
+#include "drape/gl_constants.hpp"
+#include "drape/gl_extensions_list.hpp"
 #include "drape/gl_functions.hpp"
+
+#ifdef TRACK_GPU_MEM
 #include "drape/utils/gpu_mem_tracker.hpp"
+#endif
 
 #include "base/assert.hpp"
+#include "base/macros.hpp"
 
 #include <cstring>
 

@@ -1,6 +1,6 @@
 #include "routing/routing_settings.hpp"
 
-#include "routing/routing_helpers.hpp"
+#include "platform/measurement_utils.hpp"
 
 #include "base/assert.hpp"
 
@@ -75,6 +75,7 @@ RoutingSettings GetRoutingSettings(VehicleType vehicleType)
             3 /* m_notSoCloseMaxPointsCount */,
             25.0 /* m_notSoCloseMaxDistMeters */};
   case VehicleType::Car:
+  case VehicleType::Decoder:
     return {true /* useDirectionForRouteBuilding */,
             true /* m_matchRoute */,
             true /* m_soundDirection */,

@@ -8,6 +8,8 @@
 
 #include "geometry/point2d.hpp"
 
+#include "i18n/string_utf8_multilang.hpp"
+
 namespace generator
 {
 BoundaryPostcodesEnricher::BoundaryPostcodesEnricher(std::string const & boundaryPostcodesFilename)

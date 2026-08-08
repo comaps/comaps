@@ -4,12 +4,15 @@
 #include "routing/road_point.hpp"
 #include "routing/routing_options.hpp"
 
+#include "routing_common/maxspeed_conversion.hpp"
 #include "routing_common/vehicle_model.hpp"
 
 #include "indexer/mwm_set.hpp"
 
-#include "geometry/latlon.hpp"
+#include "geometry/point2d.hpp"
+#include "geometry/point_with_altitude.hpp"
 
+#include "base/assert.hpp"
 #include "base/fifo_cache.hpp"
 
 #include <memory>

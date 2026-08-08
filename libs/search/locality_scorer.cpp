@@ -1,15 +1,19 @@
 #include "search/locality_scorer.hpp"
 
-#include "search/cbv.hpp"
+#include "search/doc_vec.hpp"
 #include "search/geocoder_context.hpp"
 #include "search/idf_map.hpp"
-#include "search/ranking_utils.hpp"
+#include "search/query_params.hpp"
 #include "search/retrieval.hpp"
+#include "search/token_range.hpp"
 
+#include "indexer/feature_decl.hpp"
 #include "indexer/search_string_utils.hpp"
 
+#include "base/assert.hpp"
 #include "base/dfa_helpers.hpp"
 #include "base/levenshtein_dfa.hpp"
+#include "base/string_utils.hpp"
 
 #include "geometry/mercator.hpp"
 

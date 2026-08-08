@@ -1,23 +1,34 @@
 #include "map/framework.hpp"
+
 #include "map/benchmark_tools.hpp"
+#include "map/bookmark.hpp"
+#include "map/bookmark_helpers.hpp"
+#include "map/gps_track.hpp"
+#include "map/gps_track_filter.hpp"
 #include "map/gps_tracker.hpp"
 #include "map/place_page_info.hpp"
+#include "map/power_management/power_management_schemas.hpp"
 #include "map/track_mark.hpp"
 #include "map/user_mark.hpp"
 
 #include "ge0/url_generator.hpp"
 
+#include "platform/location.hpp"
 #include "routing/index_router.hpp"
 #include "routing/route.hpp"
 #include "routing/routing_helpers.hpp"
+#include "routing/router.hpp"
 #include "routing/speed_camera_prohibition.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
 
+#include "search/displayed_categories.hpp"
 #include "search/editor_delegate.hpp"
-#include "search/engine.hpp"
-#include "search/locality_finder.hpp"
+#include "search/result.hpp"
+#include "search/search_params.hpp"
 
+#include "storage/country.hpp"
+#include "storage/country_decl.hpp"
 #include "storage/country_info_getter.hpp"
 #include "storage/routing_helpers.hpp"
 #include "storage/storage.hpp"
@@ -26,8 +37,14 @@
 #include "traffxml/traff_source.hpp"
 
 #include "drape_frontend/color_constants.hpp"
+#include "drape_frontend/frontend_renderer.hpp"
 #include "drape_frontend/gps_track_point.hpp"
+#include "drape_frontend/map_data_provider.hpp"
+#include "drape_frontend/postprocess_renderer.hpp"
+#include "drape_frontend/selection_shape.hpp"
 #include "drape_frontend/visual_params.hpp"
+
+#include "drape/viewport.hpp"
 
 #include "editor/editable_data_source.hpp"
 
@@ -35,28 +52,33 @@
 
 #include "indexer/categories_holder.hpp"
 #include "indexer/classificator.hpp"
-#include "indexer/drawing_rules.hpp"
+#include "indexer/data_source.hpp"
+#include "indexer/edit_journal.hpp"
 #include "indexer/editable_map_object.hpp"
 #include "indexer/feature.hpp"
 #include "indexer/feature_algo.hpp"
+#include "indexer/feature_data.hpp"
+#include "indexer/feature_meta.hpp"
 #include "indexer/feature_source.hpp"
 #include "indexer/feature_utils.hpp"
 #include "indexer/feature_visibility.hpp"
+#include "indexer/ftypes_matcher.hpp"
 #include "indexer/map_style_reader.hpp"
 #include "indexer/scales.hpp"
 #include "indexer/transliteration_loader.hpp"
 
+#include "platform/country_defines.hpp"
+#include "platform/country_file.hpp"
+#include "platform/distance.hpp"
+#include "platform/local_country_file.hpp"
 #include "platform/local_country_file_utils.hpp"
 #include "platform/localization.hpp"
 #include "platform/measurement_utils.hpp"
-#include "platform/mwm_version.hpp"
 #include "platform/platform.hpp"
 #include "platform/preferred_languages.hpp"
 #include "platform/settings.hpp"
 
 #include "coding/point_coding.hpp"
-#include "coding/string_utf8_multilang.hpp"
-#include "coding/transliteration.hpp"
 #include "coding/url.hpp"
 
 #include "geometry/angles.hpp"
@@ -67,10 +89,20 @@
 #include "geometry/rect2d.hpp"
 #include "geometry/triangle2d.hpp"
 
+#include "i18n/localisation_translation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
+#include "i18n/transliteration.hpp"
+
+#include "base/assert.hpp"
+#include "base/buffer_vector.hpp"
+#include "base/exception.hpp"
 #include "base/logging.hpp"
 #include "base/math.hpp"
+#include "base/shared_buffer_manager.hpp"
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
+#include "base/thread.hpp"
+#include "base/thread_checker.hpp"
 
 #include "std/target_os.hpp"
 
@@ -307,6 +339,7 @@ Framework::Framework(FrameworkParams const & params, bool loadMaps)
                      kMaxTrafficCacheSizeBytes, m_routingManager.RoutingSession())
   , m_lastReportedCountry(kInvalidCountryId)
   , m_popularityLoader(m_featuresFetcher.GetDataSource(), POPULARITY_RANKS_FILE_TAG)
+  , m_reviewsLoader(std::make_unique<reviews::Loader>(m_featuresFetcher.GetDataSource()))
   , m_descriptionsLoader(std::make_unique<descriptions::Loader>(m_featuresFetcher.GetDataSource()))
 {
   // Editor should be initialized from the main thread to set its ThreadChecker.
@@ -641,6 +674,15 @@ void Framework::FillUserMarkInfo(UserMark const * mark, place_page::Info & outIn
     FillSpeedCameraMarkInfo(*static_cast<SpeedCameraMark const *>(mark), outInfo);
     break;
   }
+
+  case UserMark::Type::TRAFFIC_LIGHT:
+  {
+    auto const * tlMark = static_cast<TrafficLightMark const *>(mark);
+    if (tlMark->GetFeatureID().IsValid())
+      FillFeatureInfo(tlMark->GetFeatureID(), outInfo);
+    break;
+  }
+
   default: CHECK(false, ("Unexpected user mark type", mark->GetMarkType()));
   }
 
@@ -714,7 +756,13 @@ void Framework::FillPointInfo(place_page::Info & info, m2::PointD const & mercat
   auto const fid = GetFeatureAtPoint(mercator, std::move(matcher));
   if (fid.IsValid())
   {
-    m_featuresFetcher.GetDataSource().ReadFeature([&](FeatureType & ft) { FillInfoFromFeatureType(ft, info); }, fid);
+    m_featuresFetcher.GetDataSource().ReadFeature([&](FeatureType & ft) {
+      FillInfoFromFeatureType(ft, info);
+      // If all types are either deprecated or unsupported (new maps in older app),
+      // then act like its just a map point without features.
+      if (info.GetTypes().Empty())
+        FillNotMatchedPlaceInfo(info, mercator, customTitle);
+    }, fid);
     // This line overwrites mercator center from area feature which can be far away.
     info.SetMercator(mercator);
   }
@@ -743,6 +791,7 @@ void Framework::FillPostcodeInfo(string const & postcode, m2::PointD const & mer
 
 void Framework::FillInfoFromFeatureType(FeatureType & ft, place_page::Info & info) const
 {
+
   auto const featureStatus = osm::Editor::Instance().GetFeatureStatus(ft.GetID());
   ASSERT_NOT_EQUAL(featureStatus, FeatureStatus::Deleted, ("Deleted features cannot be selected from UI."));
   info.SetFeatureStatus(featureStatus);
@@ -750,8 +799,14 @@ void Framework::FillInfoFromFeatureType(FeatureType & ft, place_page::Info & inf
   if (ftypes::IsAddressObjectChecker::Instance()(ft))
     info.SetAddress(GetAddressAtPoint(feature::GetCenter(ft)).FormatAddress());
 
+  // SetFromFeatureType() expects an address to be set already
+  // TODO: move address setting inside of it?
   info.SetFromFeatureType(ft);
+  auto const & types = info.GetTypes();
+  if (types.Empty())
+    return;
 
+  FillReviews(ft, info);
   FillDescriptions(ft, info);
 
   auto const mwmInfo = ft.GetID().m_mwmId.GetInfo();
@@ -760,7 +815,6 @@ void Framework::FillInfoFromFeatureType(FeatureType & ft, place_page::Info & inf
   info.SetCanEditOrAdd(canEditOrAdd);
 
   // Fill countryId for place page info
-  auto const & types = info.GetTypes();
   bool const isState = ftypes::IsStateChecker::Instance()(types);
   if (isState || ftypes::IsCountryChecker::Instance()(types))
   {
@@ -2419,7 +2473,8 @@ bool Framework::LoadTransliteration()
 
 void Framework::SaveTransliteration(bool allowTranslit)
 {
-  settings::Set(localisation::kTransliterationSetting, allowTranslit ? Transliteration::Mode::Enabled : Transliteration::Mode::Disabled);
+  settings::Set(localisation::kTransliterationSetting,
+                allowTranslit ? Transliteration::Mode::Enabled : Transliteration::Mode::Disabled);
 }
 
 std::optional<localisation::LanguageCode> Framework::GetCustomMapLanguageCode()
@@ -2450,7 +2505,8 @@ localisation::AlternativeMapLanguageHandling Framework::GetAlternativeMapLanguag
   return localisation::UsedAlternativeMapLanguageHandling();
 }
 
-void Framework::SetAlternativeMapLanguageHandling(localisation::AlternativeMapLanguageHandling const alternativeMapLanguageHandling)
+void Framework::SetAlternativeMapLanguageHandling(
+    localisation::AlternativeMapLanguageHandling const alternativeMapLanguageHandling)
 {
   settings::Set(localisation::kAlternativeMapLanguageHandlingSetting, alternativeMapLanguageHandling);
   InvalidateRect(GetCurrentViewport());
@@ -2798,7 +2854,9 @@ bool Framework::ParseEditorDebugCommand(search::SearchParams const & params)
         return true;
       }
 
-      search::Result res(feature::GetCenter(*ft), ft->GetTranslatedName().m_primary.has_value() ? ft->GetTranslatedName().m_primary.value() : "");
+      search::Result res(feature::GetCenter(*ft), ft->GetTranslatedName().m_primary.has_value()
+                                                      ? ft->GetTranslatedName().m_primary.value()
+                                                      : "");
       res.SetAddress(std::move(edit.second));
       res.FromFeature(fid, feature::TypesHolder(*ft).GetBestType(), 0, {});
 
@@ -3301,6 +3359,7 @@ void Framework::ReadFeatures(function<void(FeatureType &)> const & reader, vecto
 void Framework::OnRouteFollow(routing::RouterType type)
 {
   bool const isPedestrianRoute = type == RouterType::Pedestrian;
+  bool const allowRouteRotation = type == RouterType::Vehicle && !m_isCarScreenMode;
   bool const enableAutoZoom = isPedestrianRoute ? false : LoadAutoZoom();
   int const scale = isPedestrianRoute ? scales::GetPedestrianNavigationScale() : scales::GetNavigationScale();
   int scale3d = isPedestrianRoute ? scales::GetPedestrianNavigation3dScale() : scales::GetNavigation3dScale();
@@ -3316,7 +3375,7 @@ void Framework::OnRouteFollow(routing::RouterType type)
   // TODO. We need to sync two enums VehicleType and RouterType to be able to pass
   // GetRoutingSettings(type).m_matchRoute to the FollowRoute() instead of |isPedestrianRoute|.
   // |isArrowGlued| parameter fully corresponds to |m_matchRoute| in RoutingSettings.
-  m_drapeEngine->FollowRoute(scale, scale3d, enableAutoZoom, !isPedestrianRoute /* isArrowGlued */);
+  m_drapeEngine->FollowRoute(scale, scale3d, enableAutoZoom, !isPedestrianRoute /* isArrowGlued */, allowRouteRotation);
   Refresh3dMode();
 }
 
@@ -3341,12 +3400,23 @@ void Framework::SetPlacePageLocation(place_page::Info & info)
   }
 }
 
+void Framework::FillReviews(FeatureType const & ft, place_page::Info & info) const
+{
+  if (!ft.GetID().m_mwmId.IsAlive())
+    return;
+
+  std::optional<reviews::FeatureReviews> reviews = m_reviewsLoader->GetReviews(ft.GetID());
+  if (reviews.has_value())
+    info.SetReviews(std::move(reviews.value()));
+}
+
 void Framework::FillDescriptions(FeatureType & ft, place_page::Info & info) const
 {
   if (!ft.GetID().m_mwmId.IsAlive())
     return;
 
-  std::string wikiDescription = m_descriptionsLoader->GetWikiDescription(ft.GetID(), localisation::PrioritizedMapLanguageIndexes(ft.GetLanguages()));
+  std::string wikiDescription = m_descriptionsLoader->GetWikiDescription(
+      ft.GetID(), localisation::PrioritizedMapLanguageIndexes(ft.GetLanguages()));
   if (!wikiDescription.empty())
   {
     info.SetWikiDescription(std::move(wikiDescription));
@@ -3358,7 +3428,10 @@ void Framework::FillDescriptions(FeatureType & ft, place_page::Info & info) cons
   if (osmDescription.empty())
     return;
 
-  std::optional<std::string> translatedOsmDescription = localisation::TranslatedFeatureName(StringUtf8Multilang::FromBuffer(std::string(osmDescription)), ft.GetLanguages()).m_primary;
+  std::optional<std::string> translatedOsmDescription =
+      localisation::TranslatedFeatureName(StringUtf8Multilang::FromBuffer(std::string(osmDescription)),
+                                          ft.GetLanguages())
+          .m_primary;
   if (translatedOsmDescription.has_value())
     info.SetOSMDescription(std::string(translatedOsmDescription.value()));
 }

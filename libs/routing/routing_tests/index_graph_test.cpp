@@ -16,6 +16,8 @@
 
 #include "routing_common/car_model.hpp"
 
+#include "traffic/traffic_cache.hpp"
+
 #include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"
 #include "geometry/point_with_altitude.hpp"

@@ -1,7 +1,9 @@
 #include "routing_common/bicycle_model.hpp"
 
 #include "indexer/classificator.hpp"
-#include "indexer/feature.hpp"
+#include "indexer/feature_data.hpp"
+
+#include "base/assert.hpp"
 
 namespace bicycle_model
 {

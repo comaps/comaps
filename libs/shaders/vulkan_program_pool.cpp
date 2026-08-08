@@ -9,14 +9,19 @@
 #include "coding/reader.hpp"
 #include "coding/serdes_json.hpp"
 
+#include "base/assert.hpp"
+#include "base/exception.hpp"
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
+#include "base/visitor.hpp"
 
 #include <algorithm>
 #include <cstdint>
 #include <map>
 #include <string>
 #include <vector>
+
+#include <vulkan_wrapper.h>
 
 namespace gpu
 {

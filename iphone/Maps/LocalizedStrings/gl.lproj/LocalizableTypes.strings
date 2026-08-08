@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Túnel";
 "type.highway.bus_stop" = "Parada de autobús";
 "type.highway.construction" = "Vía en construción";
+"type.highway.construction.motorway" = "Vía en construción";
+"type.highway.construction.motorway_link" = "Vía en construción";
+"type.highway.construction.trunk" = "Vía en construción";
+"type.highway.construction.trunk_link" = "Vía en construción";
+"type.highway.construction.primary" = "Vía en construción";
+"type.highway.construction.primary_link" = "Vía en construción";
+"type.highway.construction.secondary" = "Vía en construción";
+"type.highway.construction.secondary_link" = "Vía en construción";
+"type.highway.construction.tertiary" = "Vía en construción";
+"type.highway.construction.tertiary_link" = "Vía en construción";
+"type.highway.construction.residential" = "Vía en construción";
+"type.highway.construction.unclassified" = "Vía en construción";
+"type.highway.construction.service" = "Vía en construción";
+"type.highway.construction.living_street" = "Vía en construción";
+"type.highway.construction.road" = "Vía en construción";
+"type.highway.construction.track" = "Vía en construción";
 "type.highway.cycleway" = "Ciclovía";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Puente";
@@ -666,7 +682,7 @@
 "type.landuse.construction" = "Construción";
 "type.landuse.education" = "Instalacións educativas";
 "type.landuse.farmland" = "Terras agrícolas";
-"type.landuse.farmyard" = "Granja";
+"type.landuse.farmyard" = "Granxa";
 "type.landuse.field" = "Campo";
 "type.landuse.flowerbed" = "Cama de flores";
 "type.landuse.forest" = "Bosque";
@@ -881,7 +897,7 @@
 "type.place.continent" = "Continente";
 "type.place.country" = "País";
 "type.place.county" = "Condado";
-"type.place.farm" = "Granja";
+"type.place.farm" = "Granxa";
 "type.place.hamlet" = "Aldea";
 "type.place.island" = "Isla";
 "type.place.islet" = "Illote";
@@ -899,8 +915,8 @@
 "type.place.state.USA" = "Estado";
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Barrio";
-"type.place.town" = "Poboo";
-"type.place.village" = "Poboo";
+"type.place.town" = "Vila";
+"type.place.village" = "Vila";
 "type.power" = "Enerxía";
 "type.power.generator" = "Xerador";
 "type.power.generator.solar" = "Xerador solar";
@@ -1515,3 +1531,9 @@
 "type.leisure.sports_centre.sport.boules" = "Sports Centre";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Sports Centre";
+"type.organic.no" = "No organic options";
+"type.amenity.stage" = "Escenario";
+"type.amenity.animal_boarding" = "Animal Boarding";
+"type.amenity.toilets.customers" = "Customer Access";
+"type.amenity.toilets.private" = "Private Access";
+"type.amenity.planetarium" = "Planetarium";

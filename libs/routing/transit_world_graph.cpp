@@ -3,6 +3,16 @@
 #include "routing/index_graph.hpp"
 #include "routing/transit_graph.hpp"
 
+#include "routing/base/astar_vertex_data.hpp"
+#include "routing/geometry.hpp"
+#include "routing/latlon_with_altitude.hpp"
+#include "routing/segment.hpp"
+#include "routing/transit_info.hpp"
+
+#include "transit/transit_version.hpp"
+
+#include "base/assert.hpp"
+
 #include <memory>
 #include <utility>
 

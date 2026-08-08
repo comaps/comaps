@@ -2,14 +2,13 @@
 
 #include "drape_frontend/animation/opacity_animation.hpp"
 #include "drape_frontend/animation/value_mapping.hpp"
-#include "drape_frontend/frame_values.hpp"
-#include "drape_frontend/render_state_extension.hpp"
-#include "drape_frontend/tile_utils.hpp"
+#include "drape_frontend/tile_key.hpp"
 
 #include "shaders/program_params.hpp"
 
 #include "drape/pointers.hpp"
 #include "drape/render_bucket.hpp"
+#include "drape/render_state.hpp"
 
 #include <memory>
 #include <string>
@@ -18,16 +17,19 @@
 class ScreenBase;
 namespace dp
 {
+class GraphicsContext;
 class OverlayTree;
-}
+}  // namespace dp
+
 namespace gpu
 {
 class ProgramManager;
-}
+}  // namespace gpu
 
 namespace df
 {
 class DebugRectRenderer;
+struct FrameValues;
 
 /// @todo Actually, there is no need in this polymorphic interface.
 class BaseRenderGroup

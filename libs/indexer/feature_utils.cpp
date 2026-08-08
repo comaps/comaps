@@ -2,25 +2,21 @@
 
 #include "indexer/classificator.hpp"
 #include "indexer/feature_data.hpp"
+#include "indexer/feature_decl.hpp"
 #include "indexer/feature_visibility.hpp"
 #include "indexer/ftypes_matcher.hpp"
 #include "indexer/ftypes_subtypes.hpp"
 #include "indexer/scales.hpp"
 
 #include "platform/distance.hpp"
-#include "platform/localization.hpp"
-#include "platform/preferred_languages.hpp"
-#include "platform/settings.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-#include "coding/transliteration.hpp"
+#include "i18n/localisation_translation.hpp"
 
-#include "base/localisation_translation.hpp"
-#include "base/control_flow.hpp"
+#include "base/assert.hpp"
+#include "base/logging.hpp"
+#include "base/string_utils.hpp"
 
 #include <utility>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace feature
 {

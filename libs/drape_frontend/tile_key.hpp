@@ -2,12 +2,14 @@
 
 #include "drape_frontend/batcher_bucket.hpp"
 
+#include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
-#include "geometry/screenbase.hpp"
 
 #include "base/matrix.hpp"
 
 #include <string>
+
+class ScreenBase;
 
 namespace df
 {

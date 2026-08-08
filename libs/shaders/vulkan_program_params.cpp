@@ -3,8 +3,11 @@
 #include "shaders/vulkan_program_pool.hpp"
 
 #include "drape/vulkan/vulkan_base_context.hpp"
-#include "drape/vulkan/vulkan_gpu_program.hpp"
+#include "drape/vulkan/vulkan_memory_manager.hpp"
+#include "drape/vulkan/vulkan_param_descriptor.hpp"
 #include "drape/vulkan/vulkan_utils.hpp"
+
+#include <vulkan_wrapper.h>
 
 namespace gpu
 {

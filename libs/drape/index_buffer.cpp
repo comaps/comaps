@@ -1,5 +1,6 @@
 #include "drape/index_buffer.hpp"
 #include "drape/index_storage.hpp"
+#include "drape/pointers.hpp"
 
 #include "base/assert.hpp"
 

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "routing/road_point.hpp"
-#include "routing/route_weight.hpp"
 
 #include <optional>
 #include <string>
@@ -12,6 +11,8 @@
 
 namespace routing
 {
+class RouteWeight;
+
 // This class provides information about road access classes.
 // One instance of RoadAccess holds information about one
 // mwm and one router type (also known as VehicleType).

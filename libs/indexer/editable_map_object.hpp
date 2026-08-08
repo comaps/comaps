@@ -1,13 +1,12 @@
 #pragma once
 
 #include "indexer/edit_journal.hpp"
-#include "indexer/feature_data.hpp"
-#include "indexer/feature_decl.hpp"
 #include "indexer/feature_meta.hpp"
-#include "indexer/feature_utils.hpp"
 #include "indexer/map_object.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "geometry/point2d.hpp"
+
+#include "i18n/localisation.hpp"
 
 #include <functional>
 #include <string>

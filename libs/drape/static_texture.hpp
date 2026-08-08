@@ -1,11 +1,15 @@
 #pragma once
 
+#include "drape/pointers.hpp"
 #include "drape/texture.hpp"
 
 #include <string>
 
 namespace dp
 {
+class GraphicsContext;
+class HWTextureAllocator;
+
 class StaticTexture : public Texture
 {
   using Base = Texture;

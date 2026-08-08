@@ -380,6 +380,18 @@ node|z15-[man_made=observatory],
 
 node|z15-[amenity=toilets],
 {icon-image: toilets-m.svg; font-size: 11;}
+node|z15-[amenity=toilets][access=private],
+node|z15-[amenity=toilets][access=customers],
+{icon-image: toilets_private-m.svg; font-size: 11;}
+
+node|z18-[amenity=toilets],
+{icon-image: toilets-m.svg; font-size: 11;}
+/* Reset display from z17/z18 only */
+node|z15-16[amenity=toilets][access=customers],
+node|z15-17[amenity=toilets][access=private],
+{icon-image: none; text: none;}
+node|z18-[amenity=toilets][access=private],
+{icon-image: toilets_private-m.svg;}
 
 node|z11-12[man_made=lighthouse],
 {icon-image: lighthouse-s.svg; icon-min-distance: 10;}

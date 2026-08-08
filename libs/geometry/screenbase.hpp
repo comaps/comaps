@@ -1,9 +1,11 @@
 #pragma once
 
+#include "geometry/angles.hpp"
 #include "geometry/any_rect2d.hpp"
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
+#include "base/assert.hpp"
 #include "base/matrix.hpp"
 
 class ScreenBase

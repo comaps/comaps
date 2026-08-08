@@ -1,18 +1,20 @@
 #pragma once
 
 #include "routing/checkpoints.hpp"
-#include "routing/routing_callbacks.hpp"
 #include "routing/vehicle_mask.hpp"
 
-#include "coding/file_reader.hpp"
-#include "coding/file_writer.hpp"
-#include "coding/reader.hpp"
-
 #include "geometry/latlon.hpp"
+#include "geometry/point2d.hpp"
 
 #include <fstream>
 #include <string>
 #include <vector>
+
+class FileReader;
+class FileWriter;
+
+template <typename>
+class ReaderSource;
 
 namespace routing_quality
 {

@@ -1,8 +1,16 @@
 #pragma once
 
 #include "drape/dynamic_texture.hpp"
+#include "drape/glyph.hpp"
 #include "drape/glyph_manager.hpp"
 #include "drape/pointers.hpp"
+#include "drape/texture.hpp"
+#include "drape/texture_types.hpp"
+
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
+
+#include "base/assert.hpp"
 
 #include <map>
 #include <mutex>
@@ -11,6 +19,9 @@
 
 namespace dp
 {
+class GraphicsContext;
+class HWTextureAllocator;
+
 class GlyphPacker
 {
 public:

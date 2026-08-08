@@ -7,8 +7,6 @@
 
 #include "coding/internal/file_data.hpp"
 
-#include "base/file_name_utils.hpp"
-
 WritableDirChanger::WritableDirChanger(std::string const & testDir, SettingsDirPolicy settingsDirPolicy)
   : m_writableDirBeforeTest(GetPlatform().WritableDir())
   , m_testDirFullPath(m_writableDirBeforeTest + testDir)

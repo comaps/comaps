@@ -64,11 +64,21 @@ endif()
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  platform
-  coding
-  mwm_diff
-  cppjansson
-  monocypher
+  PUBLIC
+    base
+    coding
+    geometry
+    i18n
+    mwm_diff
+    platform
+    routing_common
+  PRIVATE
+    cppjansson
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    monocypher
 )
 
 omim_add_test_subdirectory(storage_tests)

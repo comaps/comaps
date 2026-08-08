@@ -1,6 +1,7 @@
 #pragma once
 
 #include "routing/joint.hpp"
+#include "routing/road_point.hpp"
 
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"

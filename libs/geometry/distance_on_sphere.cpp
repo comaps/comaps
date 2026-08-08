@@ -1,5 +1,7 @@
 #include "geometry/distance_on_sphere.hpp"
 
+#include "geometry/latlon.hpp"
+
 #include "base/math.hpp"
 
 #include <algorithm>

@@ -1,10 +1,14 @@
 #pragma once
 
-#include "drape_frontend/custom_features_context.hpp"
 #include "drape_frontend/engine_context.hpp"
 #include "drape_frontend/tile_key.hpp"
 
+#include "drape/pointers.hpp"
+
 #include "indexer/feature_decl.hpp"
+#include "indexer/mwm_set.hpp"
+
+#include "geometry/rect2d.hpp"
 
 #include "base/exception.hpp"
 #include "base/macros.hpp"

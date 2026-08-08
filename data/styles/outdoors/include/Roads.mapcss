@@ -490,7 +490,7 @@ line|z12[highway=residential]::border,
 line|z12[highway=road]::border,
 line|z12[highway=living_street]::border,
 line|z13[highway=service]::border,
-{casing-color: @minor_road_border; casing-opacity: 0.4;}
+{casing-color: @minor_road_border; casing-opacity: 0.25;}
 
 line|z12[highway=tertiary]::border,
 line|z12[highway=unclassified]::border,
@@ -498,7 +498,7 @@ line|z13[highway=residential]::border,
 line|z13[highway=road]::border,
 line|z13[highway=living_street]::border,
 line|z14[highway=service]::border,
-{casing-color: @minor_road_border; casing-opacity: 0.5;}
+{casing-color: @minor_road_border; casing-opacity: 0.3;}
 
 line|z13-[highway=tertiary]::border,
 line|z14-[highway=tertiary_link]::border,
@@ -507,7 +507,7 @@ line|z14-[highway=residential]::border,
 line|z14-[highway=road]::border,
 line|z14-[highway=living_street]::border,
 line|z15-[highway=service]::border,
-{casing-color: @minor_road_border; casing-opacity: 0.6;}
+{casing-color: @minor_road_border; casing-opacity: 0.4;}
 
 /* Strangely, borders on zooms earlier than z16 actually make footways tad less prominent.
    See https://codeberg.org/comaps/comaps/issues/4026 */
@@ -519,7 +519,7 @@ line|z16-[highway=steps]::border,
 line|z15-[highway=service][service=busway]::border,
 line|z15-[highway=service][service=parking_aisle]::border,
 line|z15-[highway=service][service=driveway]::border,
-{casing-color: @minor_road_border; casing-opacity: 0.3;}
+{casing-color: @minor_road_border; casing-opacity: 0.2;}
 
 
 line|z11[highway=tertiary],

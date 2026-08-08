@@ -1,0 +1,950 @@
+{
+    "UK_Wales": {
+        "defaultMessage": "Cymru"
+    },
+    "Abkhazia": {
+        "defaultMessage": "Abkhazia"
+    },
+    "Alabama": {
+        "defaultMessage": "Alabama"
+    },
+    "Albania": {
+        "defaultMessage": "Albania"
+    },
+    "Algeria": {
+        "defaultMessage": "Algeria"
+    },
+    "Afghanistan": {
+        "defaultMessage": "Affganistan"
+    },
+    "Algeria_Central": {
+        "defaultMessage": "Algeria — Canol"
+    },
+    "Algeria_Coast": {
+        "defaultMessage": "Algeria — Gogledd"
+    },
+    "Andorra": {
+        "defaultMessage": "Andorra"
+    },
+    "Angola": {
+        "defaultMessage": "Angola"
+    },
+    "Anguilla": {
+        "defaultMessage": "Anguilla"
+    },
+    "Antarctica": {
+        "defaultMessage": "Yr Antarctig"
+    },
+    "Antigua and Barbuda": {
+        "defaultMessage": "Antigua a Barbuda"
+    },
+    "Argentina": {
+        "defaultMessage": "Yr Ariannin"
+    },
+    "Argentina_Cuyo": {
+        "defaultMessage": "Cuyo"
+    },
+    "Argentina_Mesopotamia": {
+        "defaultMessage": "Mesopotamia"
+    },
+    "Argentina_Pampas": {
+        "defaultMessage": "Pampas"
+    },
+    "Argentina_Patagonia": {
+        "defaultMessage": "Patagonia"
+    },
+    "Arizona": {
+        "defaultMessage": "Arizona"
+    },
+    "Armenia": {
+        "defaultMessage": "Armenia"
+    },
+    "Australia": {
+        "defaultMessage": "Awstralia"
+    },
+    "Australia_Melbourne": {
+        "defaultMessage": "Melbourne"
+    },
+    "Australia_New South Wales": {
+        "defaultMessage": "De Cymru Newydd"
+    },
+    "Australia_Queensland": {
+        "defaultMessage": "Queensland"
+    },
+    "Australia_South Australia": {
+        "defaultMessage": "De Awstralia"
+    },
+    "Australia_Tasmania": {
+        "defaultMessage": "Tasmania"
+    },
+    "Australia_Victoria": {
+        "defaultMessage": "Victoria"
+    },
+    "Australia_Western Australia": {
+        "defaultMessage": "Gorllewin Awstralia"
+    },
+    "Austria": {
+        "defaultMessage": "Awstria"
+    },
+    "Austria_Burgenland": {
+        "defaultMessage": "Burgenland"
+    },
+    "Austria_Carinthia": {
+        "defaultMessage": "Carinthia"
+    },
+    "Austria_Salzburg": {
+        "defaultMessage": "Salzburg"
+    },
+    "Austria_Styria": {
+        "defaultMessage": "Styria"
+    },
+    "Austria_Tyrol": {
+        "defaultMessage": "Tyrol"
+    },
+    "Austria_Vorarlberg": {
+        "defaultMessage": "Vorarlberg"
+    },
+    "Bahrain": {
+        "defaultMessage": "Bahrain"
+    },
+    "Bangladesh": {
+        "defaultMessage": "Bangladesh"
+    },
+    "Barbados": {
+        "defaultMessage": "Barbados"
+    },
+    "Belgium": {
+        "defaultMessage": "Gwlad Belg"
+    },
+    "Belize": {
+        "defaultMessage": "Belize"
+    },
+    "Benin": {
+        "defaultMessage": "Benin"
+    },
+    "Bermuda": {
+        "defaultMessage": "Bermuda"
+    },
+    "Botswana": {
+        "defaultMessage": "Botswana"
+    },
+    "Brazil_Bahia": {
+        "defaultMessage": "Bahia"
+    },
+    "Brazil_Goias": {
+        "defaultMessage": "Goiás"
+    },
+    "Brazil_Paraiba": {
+        "defaultMessage": "Paraíba"
+    },
+    "Brazil_Parana": {
+        "defaultMessage": "Paraná"
+    },
+    "Brunei": {
+        "defaultMessage": "Brunei"
+    },
+    "Bulgaria": {
+        "defaultMessage": "Bwlgaria"
+    },
+    "Burundi": {
+        "defaultMessage": "Burundi"
+    },
+    "California": {
+        "defaultMessage": "California"
+    },
+    "Cambodia": {
+        "defaultMessage": "Cambodia"
+    },
+    "Canada": {
+        "defaultMessage": "Canada"
+    },
+    "Canada_Alberta": {
+        "defaultMessage": "Alberta"
+    },
+    "Canada_Alberta_Edmonton": {
+        "defaultMessage": "Edmonton"
+    },
+    "Canada_British Columbia_Southeast": {
+        "defaultMessage": "Kelowna"
+    },
+    "Canada_British Columbia_Vancouver": {
+        "defaultMessage": "Vancouver"
+    },
+    "Canada_Labrador": {
+        "defaultMessage": "Labrador"
+    },
+    "Canada_Manitoba": {
+        "defaultMessage": "Manitoba"
+    },
+    "Canada_Manitoba_South": {
+        "defaultMessage": "Brandon"
+    },
+    "Cuba": {
+        "defaultMessage": "Ciwba"
+    },
+    "Czech_Praha": {
+        "defaultMessage": "Prague"
+    },
+    "Denmark": {
+        "defaultMessage": "Denmarc"
+    },
+    "Egypt": {
+        "defaultMessage": "Yr Aifft"
+    },
+    "Fiji": {
+        "defaultMessage": "Fdiji"
+    },
+    "Finland": {
+        "defaultMessage": "Y Ffindir"
+    },
+    "France": {
+        "defaultMessage": "Ffrainc"
+    },
+    "France_Brittany": {
+        "defaultMessage": "Llydaw"
+    },
+    "Belarus": {
+        "defaultMessage": "Belarws"
+    },
+    "Belarus_Brest Region": {
+        "defaultMessage": "Rhanbarth Brest"
+    },
+    "Belarus_Homiel Region": {
+        "defaultMessage": "Rhanbarth Gomel"
+    },
+    "Belarus_Hrodna Region": {
+        "defaultMessage": "Rhanbarth Grodno"
+    },
+    "Belarus_Maglieu Region": {
+        "defaultMessage": "Rhanbarth Mogilev"
+    },
+    "Belarus_Minsk Region": {
+        "defaultMessage": "Rhanbarth Minsk"
+    },
+    "Belarus_Vitebsk Region": {
+        "defaultMessage": "Rhanbarth Vitebsk"
+    },
+    "Bolivia_North": {
+        "defaultMessage": "Bolivia – Gogledd"
+    },
+    "Bolivia_South": {
+        "defaultMessage": "Bolivia – De"
+    },
+    "Bosnia and Herzegovina": {
+        "defaultMessage": "Bosnia a Herzegovina"
+    },
+    "Bosnia and Herzegovina_Entity Federation of Bosnia and Herzegovina": {
+        "defaultMessage": "Ffederasiwn Bosnia a Herzegovina"
+    },
+    "Brazil": {
+        "defaultMessage": "Brasil"
+    },
+    "Brazil_Southeast Region_Rio de Janeiro": {
+        "defaultMessage": "Rio de Janeiro"
+    },
+    "Bhutan": {
+        "defaultMessage": "Bhutan"
+    },
+    "Switzerland_Espace Mittelland_East Short": {
+        "defaultMessage": "Espace Mittelland"
+    },
+    "Azerbaijan": {
+        "defaultMessage": "Azerbaijan"
+    },
+    "Azerbaijan Region": {
+        "defaultMessage": "Azerbaijan"
+    },
+    "Bolivia": {
+        "defaultMessage": "Bolivia"
+    },
+    "Brazil_Mato Grosso": {
+        "defaultMessage": "Mato Grosso"
+    },
+    "Brazil_Mato Grosso Do Sul": {
+        "defaultMessage": "Mato Grosso do Sul"
+    },
+    "Brazil_Rio Grande do Norte": {
+        "defaultMessage": "Rio Grande do Norte"
+    },
+    "Brazil_Santa Catarina": {
+        "defaultMessage": "Santa Catarina"
+    },
+    "Brazil_South Region": {
+        "defaultMessage": "De Brasil"
+    },
+    "Brazil_Southeast Region_Espirito Santo": {
+        "defaultMessage": "Espírito Santo"
+    },
+    "Brazil_Southeast Region_Minas Gerais_Contagem": {
+        "defaultMessage": "Minas Gerais — Contagem"
+    },
+    "Brazil_Southeast Region_Minas Gerais_North": {
+        "defaultMessage": "Minas Gerais — Gogledd"
+    },
+    "Brazil_Southeast Region_Sao Paulo_Campinas": {
+        "defaultMessage": "São Paulo — Campinas"
+    },
+    "Brazil_Southeast Region_Sao Paulo_City": {
+        "defaultMessage": "São Paulo — Santos"
+    },
+    "Brazil_Southeast Region_Sao Paulo_West": {
+        "defaultMessage": "São Paulo — Ribeirão Preto"
+    },
+    "British Indian Ocean Territory": {
+        "defaultMessage": "Tiriogaeth Brydeinig Cefnfor India"
+    },
+    "British Virgin Islands": {
+        "defaultMessage": "Ynysoedd Prydeinig y Wyryf"
+    },
+    "Burkina Faso": {
+        "defaultMessage": "Burkina Faso"
+    },
+    "Cameroon": {
+        "defaultMessage": "Cameroon"
+    },
+    "Cameroon_Central": {
+        "defaultMessage": "Cameroon — Canol"
+    },
+    "Cameroon_West": {
+        "defaultMessage": "Cameroon — Gorllewin"
+    },
+    "Canada_Alberta_North": {
+        "defaultMessage": "Alberta — Gogledd"
+    },
+    "Canada_Alberta_South": {
+        "defaultMessage": "Alberta — De"
+    },
+    "Canada_British Columbia": {
+        "defaultMessage": "Columbia Prydeinig"
+    },
+    "Canada_British Columbia_Central": {
+        "defaultMessage": "Columbia Prydeinig — Canol"
+    },
+    "Canada_British Columbia_Far_North": {
+        "defaultMessage": "Columbia Prydeinig — Dwyrain"
+    },
+    "Canada_British Columbia_Islands": {
+        "defaultMessage": "Ynys Vancouver"
+    },
+    "Canada_British Columbia_North": {
+        "defaultMessage": "Columbia Prydeinig — Gorllewin"
+    },
+    "Canada_British Columbia_Northeast": {
+        "defaultMessage": "Columbia Prydeinig — Gogledd"
+    },
+    "Canada_Labrador_North": {
+        "defaultMessage": "Labrador — Gogledd"
+    },
+    "Canada_Labrador_South": {
+        "defaultMessage": "Labrador — De"
+    },
+    "Canada_Labrador_West": {
+        "defaultMessage": "Labrador — Gorllewin"
+    },
+    "Canada_Manitoba_Northeast": {
+        "defaultMessage": "Manitoba — Gogledd"
+    },
+    "Canada_Manitoba_Northwest": {
+        "defaultMessage": "Manitoba — Gorllewin"
+    },
+    "Canada_Manitoba_Winnipeg": {
+        "defaultMessage": "Winnipeg"
+    },
+    "Canada_New Brunswick": {
+        "defaultMessage": "Brunswick Newydd"
+    },
+    "Canada_Newfoundland": {
+        "defaultMessage": "Newfoundland"
+    },
+    "Canada_Newfoundland_East": {
+        "defaultMessage": "Newfoundland — Dwyrain"
+    },
+    "Canada_Newfoundland_North": {
+        "defaultMessage": "Newfoundland — Gogledd"
+    },
+    "Canada_Newfoundland_South": {
+        "defaultMessage": "Newfoundland — De"
+    },
+    "Canada_Newfoundland_West": {
+        "defaultMessage": "Newfoundland — Gorllewin"
+    },
+    "Canada_Northwest Territories": {
+        "defaultMessage": "Northwest Territories"
+    },
+    "Canada_Northwest Territories_Yellowknife": {
+        "defaultMessage": "Yellowknife"
+    },
+    "Canada_Nova Scotia": {
+        "defaultMessage": "Nova Scotia"
+    },
+    "Canada_Nova Scotia_Halifax": {
+        "defaultMessage": "Halifax"
+    },
+    "Canada_Nova Scotia_Sydney": {
+        "defaultMessage": "Sydney"
+    },
+    "Canada_Nunavut": {
+        "defaultMessage": "Nunavut"
+    },
+    "Russia_Penza Oblast Description": {
+        "defaultMessage": "Penza, Kuznetsk, Zarecnyy"
+    },
+    "US_Puerto Rico": {
+        "defaultMessage": "Puerto Rico"
+    },
+    "US_South Carolina_Columbia": {
+        "defaultMessage": "Columbia"
+    },
+    "US_South Carolina_Florence": {
+        "defaultMessage": "Florence"
+    },
+    "US_South Dakota": {
+        "defaultMessage": "South Dakota"
+    },
+    "United Kingdom": {
+        "defaultMessage": "Y Deyrnas Unedig"
+    },
+    "United States of America": {
+        "defaultMessage": "Unol Daleithiau America"
+    },
+    "Canada_Quebek_Southeast_Rimouski": {
+        "defaultMessage": "Rimouski"
+    },
+    "Canada_Quebek_Southeast_Saguenay": {
+        "defaultMessage": "Saguenay"
+    },
+    "Canada_Quebek_West_Chibougamau": {
+        "defaultMessage": "Chibougamau"
+    },
+    "Canada_Quebek_West_Rouyn-Noranda": {
+        "defaultMessage": "Rouyn-Noranda"
+    },
+    "Canada_Saskatchewan": {
+        "defaultMessage": "Saskatchewan"
+    },
+    "Canada_Saskatchewan_North": {
+        "defaultMessage": "Saskatchewan — Gogledd"
+    },
+    "Canada_Saskatchewan_South": {
+        "defaultMessage": "Saskatchewan — De"
+    },
+    "Canada_Yukon": {
+        "defaultMessage": "Yukon"
+    },
+    "Canada_Yukon_North": {
+        "defaultMessage": "Yukon — Gogledd"
+    },
+    "Canada_Yukon_Whitehorse": {
+        "defaultMessage": "Whitehorse"
+    },
+    "Canada_Ontario": {
+        "defaultMessage": "Ontario"
+    },
+    "Canada_Ontario_Bame": {
+        "defaultMessage": "Barrie"
+    },
+    "Canada_Ontario_Kingston": {
+        "defaultMessage": "Kingston"
+    },
+    "Canada_Ontario_London": {
+        "defaultMessage": "London"
+    },
+    "Canada_Ontario_Northeastern_Central": {
+        "defaultMessage": "Timmins"
+    },
+    "Canada_Ontario_Northeastern_Wawa": {
+        "defaultMessage": "Wawa"
+    },
+    "Canada_Ontario_Toronto": {
+        "defaultMessage": "Toronto"
+    },
+    "Canada_Quebec": {
+        "defaultMessage": "Quebec"
+    },
+    "Canada_Quebek_Montreal": {
+        "defaultMessage": "Montreal"
+    },
+    "Canada_Quebek_North": {
+        "defaultMessage": "Sept-Îles"
+    },
+    "Chad": {
+        "defaultMessage": "Chad"
+    },
+    "Chile": {
+        "defaultMessage": "Chile"
+    },
+    "China_Anhui": {
+        "defaultMessage": "Anhui"
+    },
+    "China_Fujian": {
+        "defaultMessage": "Fujian"
+    },
+    "China_Gansu": {
+        "defaultMessage": "Gansu"
+    },
+    "China_Guangdong": {
+        "defaultMessage": "Guangdong"
+    },
+    "China_Guizhou": {
+        "defaultMessage": "Guizhou"
+    },
+    "China_Hebei": {
+        "defaultMessage": "Hebei"
+    },
+    "China_Heilongjiang": {
+        "defaultMessage": "Heilongjiang"
+    },
+    "China_Henan": {
+        "defaultMessage": "Henan"
+    },
+    "China_Hubei": {
+        "defaultMessage": "Hubei"
+    },
+    "China_Hunan": {
+        "defaultMessage": "Hunan"
+    },
+    "China_Jiangsu": {
+        "defaultMessage": "Jiangsu"
+    },
+    "China_Jiangxi": {
+        "defaultMessage": "Jiangxi"
+    },
+    "China_Jilin": {
+        "defaultMessage": "Jilin"
+    },
+    "China_Liaoning": {
+        "defaultMessage": "Liaoning"
+    },
+    "China_Qinghai": {
+        "defaultMessage": "Qinghai"
+    },
+    "China_Shaanxi": {
+        "defaultMessage": "Shaanxi"
+    },
+    "China_Shandong": {
+        "defaultMessage": "Shandong"
+    },
+    "China_Shanghai": {
+        "defaultMessage": "Shanghai"
+    },
+    "China_Shanxi": {
+        "defaultMessage": "Shanxi"
+    },
+    "China_Sichuan": {
+        "defaultMessage": "Sichuan"
+    },
+    "China_Yunnan": {
+        "defaultMessage": "Yunnan"
+    },
+    "China_Zhejiang": {
+        "defaultMessage": "Zhejiang"
+    },
+    "Colombia": {
+        "defaultMessage": "Colombia"
+    },
+    "Colorado": {
+        "defaultMessage": "Colorado"
+    },
+    "Comoros": {
+        "defaultMessage": "Comoros"
+    },
+    "Croatia": {
+        "defaultMessage": "Croatia"
+    },
+    "Cyprus": {
+        "defaultMessage": "Cyprus"
+    },
+    "Djibouti": {
+        "defaultMessage": "Djibouti"
+    },
+    "Dominica": {
+        "defaultMessage": "Dominica"
+    },
+    "Ecuador": {
+        "defaultMessage": "Ecuador"
+    },
+    "Eritrea": {
+        "defaultMessage": "Eritrea"
+    },
+    "Ethiopia": {
+        "defaultMessage": "Ethiopia"
+    },
+    "Florida": {
+        "defaultMessage": "Florida"
+    },
+    "France_Alsace_Bas-Rhin": {
+        "defaultMessage": "Bas-Rhin"
+    },
+    "France_Alsace_Haut-Rhin": {
+        "defaultMessage": "Haut-Rhin"
+    },
+    "France_Aquitaine_Dordogne": {
+        "defaultMessage": "Dordogne"
+    },
+    "France_Aquitaine_Gironde": {
+        "defaultMessage": "Gironde"
+    },
+    "France_Aquitaine_Landes": {
+        "defaultMessage": "Landes"
+    },
+    "France_Aquitaine_Lot-et-Garonne": {
+        "defaultMessage": "Lot-et-Garonne"
+    },
+    "France_Aquitaine_Pyrenees-Atlantiques": {
+        "defaultMessage": "Pyrénées-Atlantiques"
+    },
+    "France_Auvergne": {
+        "defaultMessage": "Auvergne"
+    },
+    "France_Auvergne_Allier": {
+        "defaultMessage": "Allier"
+    },
+    "France_Auvergne_Cantal": {
+        "defaultMessage": "Cantal"
+    },
+    "France_Auvergne_Haute-Loire": {
+        "defaultMessage": "Haute-Loire"
+    },
+    "France_Auvergne_Puy-de-Dome": {
+        "defaultMessage": "Puy-de-Dôme"
+    },
+    "France_Brittany_Finistere": {
+        "defaultMessage": "Finistère"
+    },
+    "France_Brittany_Ille-et-Vilaine": {
+        "defaultMessage": "Ille-et-Vilaine"
+    },
+    "France_Brittany_Morbihan": {
+        "defaultMessage": "Morbihan"
+    },
+    "France_Burgundy_Cote-dOr": {
+        "defaultMessage": "Côte-d'Or"
+    },
+    "France_Burgundy_Nievre": {
+        "defaultMessage": "Nièvre"
+    },
+    "France_Burgundy_Saone-et-Loire": {
+        "defaultMessage": "Saône-et-Loire"
+    },
+    "France_Burgundy_Yonne": {
+        "defaultMessage": "Yonne"
+    },
+    "France_Centre-Val de Loire_Cher": {
+        "defaultMessage": "Cher"
+    },
+    "France_Centre-Val de Loire_Eure-et-Loir": {
+        "defaultMessage": "Eure-et-Loir"
+    },
+    "France_Centre-Val de Loire_Indre": {
+        "defaultMessage": "Indre"
+    },
+    "France_Centre-Val de Loire_Indre-et-Loire": {
+        "defaultMessage": "Indre-et-Loire"
+    },
+    "France_Centre-Val de Loire_Loir-et-Cher": {
+        "defaultMessage": "Loir-et-Cher"
+    },
+    "France_Centre-Val de Loire_Loiret": {
+        "defaultMessage": "Loiret"
+    },
+    "France_Champagne-Ardenne": {
+        "defaultMessage": "Champagne-Ardenne"
+    },
+    "France_Corsica": {
+        "defaultMessage": "Corsica"
+    },
+    "France_Free County": {
+        "defaultMessage": "Franche-Comté"
+    },
+    "France_Ile-de-France": {
+        "defaultMessage": "Île-de-France"
+    },
+    "France_Ile-de-France_Essonne": {
+        "defaultMessage": "Essonne"
+    },
+    "France_Ile-de-France_Hauts-de-Seine": {
+        "defaultMessage": "Hauts-de-Seine"
+    },
+    "France_Ile-de-France_Paris": {
+        "defaultMessage": "Paris"
+    },
+    "France_Ile-de-France_Seine-Saint-Denis": {
+        "defaultMessage": "Seine-Saint-Denis"
+    },
+    "France_Ile-de-France_Seine-et-Marne": {
+        "defaultMessage": "Seine-et-Marne"
+    },
+    "France_Ile-de-France_Val-dOise": {
+        "defaultMessage": "Val-d'Oise"
+    },
+    "France_Ile-de-France_Val-de-Marne": {
+        "defaultMessage": "Val-de-Marne"
+    },
+    "France_Ile-de-France_Yvelines": {
+        "defaultMessage": "Yvelines"
+    },
+    "France_Languedoc-Roussillon_Aude": {
+        "defaultMessage": "Aude"
+    },
+    "France_Languedoc-Roussillon_Gard": {
+        "defaultMessage": "Gard"
+    },
+    "France_Languedoc-Roussillon_Herault": {
+        "defaultMessage": "Hérault"
+    },
+    "France_Languedoc-Roussillon_Lozere": {
+        "defaultMessage": "Lozère"
+    },
+    "France_Languedoc-Roussillon_Pyrenees-Orientales": {
+        "defaultMessage": "Pyrénées-Orientales"
+    },
+    "France_Limousin": {
+        "defaultMessage": "Limousin"
+    },
+    "France_Lorraine_Meurthe-et-Moselle": {
+        "defaultMessage": "Meurthe-et-Moselle"
+    },
+    "France_Lorraine_Meuse": {
+        "defaultMessage": "Meuse"
+    },
+    "France_Lorraine_Moselle": {
+        "defaultMessage": "Moselle"
+    },
+    "France_Lorraine_Vosges": {
+        "defaultMessage": "Vosges"
+    },
+    "France_Lower Normandy_Calvados": {
+        "defaultMessage": "Calvados"
+    },
+    "France_Lower Normandy_Manche": {
+        "defaultMessage": "Manche"
+    },
+    "France_Lower Normandy_Orne": {
+        "defaultMessage": "Orne"
+    },
+    "France_Midi-Pyrenees": {
+        "defaultMessage": "Midi-Pyrénées"
+    },
+    "France_Midi-Pyrenees_Ariege": {
+        "defaultMessage": "Ariège"
+    },
+    "France_Midi-Pyrenees_Aveyron": {
+        "defaultMessage": "Aveyron"
+    },
+    "France_Midi-Pyrenees_Gers": {
+        "defaultMessage": "Gers"
+    },
+    "France_Midi-Pyrenees_Haute-Garonne": {
+        "defaultMessage": "Haute-Garonne"
+    },
+    "France_Midi-Pyrenees_Hautes-Pyrenees": {
+        "defaultMessage": "Hautes-Pyrénées"
+    },
+    "France_Midi-Pyrenees_Lot": {
+        "defaultMessage": "Lot"
+    },
+    "France_Midi-Pyrenees_Tarn": {
+        "defaultMessage": "Tarn"
+    },
+    "France_Midi-Pyrenees_Tarn-et-Garonne": {
+        "defaultMessage": "Tarn-et-Garonne"
+    },
+    "France_Nord-Pas-de-Calais_Lille": {
+        "defaultMessage": "Lille"
+    },
+    "France_Nord-Pas-de-Calais_Nord": {
+        "defaultMessage": "Nord"
+    },
+    "France_Nord-Pas-de-Calais_Pas-de-Calais": {
+        "defaultMessage": "Pas-de-Calais"
+    },
+    "France_Pays de la Loire_Loire-Atlantique": {
+        "defaultMessage": "Loire-Atlantique"
+    },
+    "France_Pays de la Loire_Maine-et-Loire": {
+        "defaultMessage": "Maine-et-Loire"
+    },
+    "China_Chongqing": {
+        "defaultMessage": "Chongqing"
+    },
+    "France_Brittany_Cotes-dArmor": {
+        "defaultMessage": "Côtes-d'Armor"
+    },
+    "France_Pays de la Loire_Mayenne": {
+        "defaultMessage": "Mayenne"
+    },
+    "France_Pays de la Loire_Sarthe": {
+        "defaultMessage": "Sarthe"
+    },
+    "France_Pays de la Loire_Vendee": {
+        "defaultMessage": "Vendée"
+    },
+    "France_Picardy_Aisne": {
+        "defaultMessage": "Aisne"
+    },
+    "France_Picardy_Oise": {
+        "defaultMessage": "Oise"
+    },
+    "France_Picardy_Somme": {
+        "defaultMessage": "Somme"
+    },
+    "France_Poitou-Charentes": {
+        "defaultMessage": "Poitou-Charentes"
+    },
+    "France_Poitou-Charentes_Charente": {
+        "defaultMessage": "Charente"
+    },
+    "France_Poitou-Charentes_Charente-Maritime": {
+        "defaultMessage": "Charente-Maritime"
+    },
+    "France_Poitou-Charentes_Deux-Sevres": {
+        "defaultMessage": "Deux-Sèvres"
+    },
+    "France_Poitou-Charentes_Vienne": {
+        "defaultMessage": "Vienne"
+    },
+    "France_Provence-Alpes-Cote dAzur_Alpes-de-Haute-Provence": {
+        "defaultMessage": "Alpes-de-Haute-Provence"
+    },
+    "France_Provence-Alpes-Cote dAzur_Bouches-du-Rhone": {
+        "defaultMessage": "Bouches-du-Rhône"
+    },
+    "France_Provence-Alpes-Cote dAzur_Hautes-Alpes": {
+        "defaultMessage": "Hautes-Alpes"
+    },
+    "France_Provence-Alpes-Cote dAzur_Maritime Alps": {
+        "defaultMessage": "Alpes-Maritimes"
+    },
+    "France_Provence-Alpes-Cote dAzur_Var": {
+        "defaultMessage": "Var"
+    },
+    "France_Provence-Alpes-Cote dAzur_Vaucluse": {
+        "defaultMessage": "Vaucluse"
+    },
+    "France_Rhone-Alpes": {
+        "defaultMessage": "Rhône-Alpes"
+    },
+    "France_Rhone-Alpes_Ain": {
+        "defaultMessage": "Ain"
+    },
+    "France_Rhone-Alpes_Ardeche": {
+        "defaultMessage": "Ardèche"
+    },
+    "France_Rhone-Alpes_Drome": {
+        "defaultMessage": "Drôme"
+    },
+    "France_Rhone-Alpes_Haute-Savoie": {
+        "defaultMessage": "Haute-Savoie"
+    },
+    "France_Rhone-Alpes_Isere": {
+        "defaultMessage": "Isère"
+    },
+    "France_Rhone-Alpes_Loire": {
+        "defaultMessage": "Loire"
+    },
+    "France_Rhone-Alpes_Rhone": {
+        "defaultMessage": "Rhône"
+    },
+    "France_Rhone-Alpes_Savoie": {
+        "defaultMessage": "Savoie"
+    },
+    "Gabon": {
+        "defaultMessage": "Gabon"
+    },
+    "Georgia Region": {
+        "defaultMessage": "Georgia"
+    },
+    "Georgia": {
+        "defaultMessage": "Georgia"
+    },
+    "Germany": {
+        "defaultMessage": "Yr Almaen"
+    },
+    "Germany_Baden-Wurttemberg": {
+        "defaultMessage": "Baden-Württemberg"
+    },
+    "Germany_Baden-Wurttemberg_Regierungsbezirk Karlsruhe": {
+        "defaultMessage": "Karlsruhe"
+    },
+    "US_Rhode Island": {
+        "defaultMessage": "Rhode Island"
+    },
+    "Australia_Northern Territory": {
+        "defaultMessage": "Northern Territory"
+    },
+    "UK_England_South East_Brighton Description": {
+        "defaultMessage": "Brighton, Royal Tunbridge Wells, Maidstone"
+    },
+    "UK_England_South East_Oxford Description": {
+        "defaultMessage": "Southampton, Milton Keynes, Portsmouth"
+    },
+    "UK_England_South West England_Bristol Description": {
+        "defaultMessage": "Bryste, Caerfaddon, Bournemouth"
+    },
+    "UK_England_South West England_Cornwall Description": {
+        "defaultMessage": "Plymouth, Caerwysg, St Ives"
+    },
+    "UK_England_West Midlands Description": {
+        "defaultMessage": "Birmingham, Coventry, Wolverhampton"
+    },
+    "UK_England_Yorkshire and the Humber Description": {
+        "defaultMessage": "Sheffield, Wakefield, Bradford"
+    },
+    "UK_Northern Ireland Description": {
+        "defaultMessage": "Newry, Belffast, Derry"
+    },
+    "UK_Scotland_North Description": {
+        "defaultMessage": "Aberdeen, Dundee, Tobermory"
+    },
+    "UK_Scotland_South Description": {
+        "defaultMessage": "Glasgow, Caeredin, Millport"
+    },
+    "UK_Wales Description": {
+        "defaultMessage": "Caerdydd, Abertawe, Casnewydd"
+    },
+    "US_Alabama_Birmingham Description": {
+        "defaultMessage": "Warrior, Vestavia Hills, Scottsboro"
+    },
+    "US_Alabama_Montgomery Description": {
+        "defaultMessage": "Creola, Centreville, Valley"
+    },
+    "US_Alaska Description": {
+        "defaultMessage": "Scammon Bay, McGrath, Fort Wainright"
+    },
+    "US_Arizona_Flagstaff Description": {
+        "defaultMessage": "Cottonwood, Holbrook, Show Low"
+    },
+    "US_Arizona_Phoenix Description": {
+        "defaultMessage": "Phoenix, Mesa"
+    },
+    "US_Arizona_Tucson Description": {
+        "defaultMessage": "Tucson, South Tucson, Bisbee"
+    },
+    "US_Arkansas_North Description": {
+        "defaultMessage": "Ward, Cabot, Des Arc"
+    },
+    "US_Arkansas_South Description": {
+        "defaultMessage": "Stamps, Rockport"
+    },
+    "US_California_Bakersfield_Bakersfield Description": {
+        "defaultMessage": "Arroyo Grande, Pismo Beach, Maricopa"
+    },
+    "US_California_Bakersfield_Lancaster Description": {
+        "defaultMessage": "Hesperia, Big Bear Lake, Holtville"
+    },
+    "US_California_Chico Description": {
+        "defaultMessage": "Tehama, Cloverdale, Cloverdale"
+    },
+    "US_California_LA Description": {
+        "defaultMessage": "Los Angeles, Long Beach, Rosemead"
+    },
+    "US_California_LA North Description": {
+        "defaultMessage": "Santa Barbara, Ojai, Avalon"
+    },
+    "Estonia": {
+        "defaultMessage": "Estonia"
+    },
+    "Bosnia and Herzegovina_Republic of Srpska": {
+        "defaultMessage": "Republika Srpska"
+    }
+}

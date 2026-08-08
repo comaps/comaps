@@ -1,0 +1,1445 @@
+{
+    "@category_eat": {
+        "defaultMessage": "Kde se najíst|Jídlo"
+    },
+    "@category_food": {
+        "defaultMessage": "Potraviny|Jídlo"
+    },
+    "@category_transport": {
+        "defaultMessage": "Doprava"
+    },
+    "@category_fuel": {
+        "defaultMessage": "2Čerpací stanice|Benzinová pumpa|benzinka"
+    },
+    "@category_parking": {
+        "defaultMessage": "4Parkoviště"
+    },
+    "@category_shopping": {
+        "defaultMessage": "Nákupy"
+    },
+    "@category_hotel": {
+        "defaultMessage": "Hotel|Hotely"
+    },
+    "@category_tourism": {
+        "defaultMessage": "Pamětihodnost|Památky"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "Zábava"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "Noční život"
+    },
+    "@category_children": {
+        "defaultMessage": "Dovolená s dětmi"
+    },
+    "@category_atm": {
+        "defaultMessage": "3Bankomat"
+    },
+    "@category_rv": {
+        "defaultMessage": "Pro RV"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "spořitelna|peníze"
+    },
+    "@category_bank": {
+        "defaultMessage": "3Banka"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "Second-hand"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "peníze"
+    },
+    "@category_recycling": {
+        "defaultMessage": "Recyklace|Využití odpadu|Recyklovatelné|Oddělený sběr odpadků|Třídění odpadu|Opětovné použití"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "3Směnárna|peníze"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "2Bar|hospoda|pivo|pití|tekutiny"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "3Kavárna|hospoda"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "4Rychlé občerstvení|fast food|U+1F354|U+1F355|U+1F35F|U+1F363|U+1F366|U+1F367|U+1F368|U+1F369|U+1F370|U+1F372|U+1F374|fastfood|jídlo s sebou"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "3Restaurace|hospoda"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "2pumpa"
+    },
+    "@shop": {
+        "defaultMessage": "Obchod"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "3Pekárna|Pekařství|Pečivo"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "4Kosmetika"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "Smíšené zboží|koloniál"
+    },
+    "shop-deli|@category_food|@shop": {
+        "defaultMessage": "Lahůdky|Prodejna lahůdek"
+    },
+    "shop-garden_centre|@shop": {
+        "defaultMessage": "Školka|zahradní centrum"
+    },
+    "shop-hearing_aids|@shop": {
+        "defaultMessage": "Sluchadla"
+    },
+    "shop-mobile_phone|@shop": {
+        "defaultMessage": "Mobily|Obchod s mobilními telefony|obchod s elektronikou"
+    },
+    "shop-florist|@shop": {
+        "defaultMessage": "Květinářství"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "Řeznictví"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "Nábytek"
+    },
+    "shop-kitchen|@shop": {
+        "defaultMessage": "Prodejna kuchyní"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "Obchod s alkoholem"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "Knihkupectví"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "3Obuv"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "4Elektronika"
+    },
+    "shop-hardware|shop-doityourself|@shop": {
+        "defaultMessage": "Železářství|Domácí potřeby"
+    },
+    "shop-houseware|@shop": {
+        "defaultMessage": "Domácí potřeby"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "Klenotnictví"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "4Optika"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "Obchod s dárkovým zbožím"
+    },
+    "shop-beauty": {
+        "defaultMessage": "4Kosmetický salon"
+    },
+    "shop-greengrocer|@category_food|@shop": {
+        "defaultMessage": "Ovoce a zelenina"
+    },
+    "shop-sports|@category_shopping|@shop": {
+        "defaultMessage": "4Sportovní zboží"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "3Supermarket"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "Obchoďák"
+    },
+    "shop-department_store|@category_shopping|@shop": {
+        "defaultMessage": "Obchodní dům"
+    },
+    "shop-beverages|@category_food|@shop": {
+        "defaultMessage": "4Nápoje"
+    },
+    "shop-computer|@shop": {
+        "defaultMessage": "Obchod s počítači"
+    },
+    "shop-confectionery|craft-confectionery|@category_food|@shop": {
+        "defaultMessage": "Cukrárna|Cukrářské výrobky"
+    },
+    "shop-laundry": {
+        "defaultMessage": "4Prádelna|veřejná prádelna"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "Hračkářství"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "4Tržiště|samoobsluha|market"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "Převod peněz"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "Oblečení"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "Obchod s auty"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "3Cyklistický obchod|jízdní kolo|3kolo"
+    },
+    "shop-kiosk": {
+        "defaultMessage": "3Kiosk|Kiosek"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "4Autobusová zastávka|autobus|2bus|4zastávka|stanice"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "4Tramvajová zastávka|tramvaj|4zastávka|stanice"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "4Autobusové nádraží|4zastávka|bus"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "3Železniční stanice|vlakové nádraží|2vlak"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "Lanovka|Pozemní lanová dráha"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "3Metro|3podzemka"
+    },
+    "amenity-ferry_terminal|@category_transport": {
+        "defaultMessage": "3Trajekt"
+    },
+    "amenity-taxi|@category_transport": {
+        "defaultMessage": "3Taxi"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "3Radnice"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "3Atrakce|3pamětihodnost|3zajímavost"
+    },
+    "tourism-artwork": {
+        "defaultMessage": "3Umělecké dílo"
+    },
+    "tourism-viewpoint|@category_tourism": {
+        "defaultMessage": "3Vyhlídka|zajímavost"
+    },
+    "tourism-information": {
+        "defaultMessage": "4Infocentrum|4turistické informace|Íčko"
+    },
+    "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
+        "defaultMessage": "3Piknik|picnic|picnik|Grilování"
+    },
+    "amenity-place_of_worship": {
+        "defaultMessage": "4Posvátné místo|3chrám"
+    },
+    "amenity-place_of_worship-christian": {
+        "defaultMessage": "Chrám|kostel|posvátné místo|bazilika"
+    },
+    "amenity-place_of_worship-muslim": {
+        "defaultMessage": "Mešita|chrám|posvátné místo"
+    },
+    "amenity-place_of_worship-buddhist": {
+        "defaultMessage": "Chrám|posvátné místo"
+    },
+    "amenity-place_of_worship-hindu": {
+        "defaultMessage": "Chrám|posvátné místo"
+    },
+    "amenity-place_of_worship-shinto": {
+        "defaultMessage": "Posvátné místo|chrám"
+    },
+    "amenity-place_of_worship-jewish": {
+        "defaultMessage": "4Synagoga|chrám|posvátné místo"
+    },
+    "amenity-place_of_worship-taoist": {
+        "defaultMessage": "Chrám|posvátné místo"
+    },
+    "tourism-museum|@category_tourism": {
+        "defaultMessage": "2Muzeum|zajímavost"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "2Vodopád|zajímavost"
+    },
+    "historic-archaeological_site|@category_tourism": {
+        "defaultMessage": "Vykopávky|zajímavost"
+    },
+    "historic-battlefield": {
+        "defaultMessage": "Bojiště"
+    },
+    "historic-stone": {
+        "defaultMessage": "Historický kámen"
+    },
+    "historic-boundary_stone": {
+        "defaultMessage": "Hraniční kámen"
+    },
+    "historic-castle|@category_tourism": {
+        "defaultMessage": "3Zámek|zajímavost|Hrad|Castrum|Pevnost|Hradiště|Kreml|Panský dům|Palác"
+    },
+    "historic-city_gate|@category_tourism": {
+        "defaultMessage": "Městská brána"
+    },
+    "historic-citywalls|@category_tourism": {
+        "defaultMessage": "Městská zeď"
+    },
+    "historic-fort|@category_tourism": {
+        "defaultMessage": "Fort"
+    },
+    "historic-gallows|@category_tourism": {
+        "defaultMessage": "Šibenice"
+    },
+    "historic-memorial|@category_tourism": {
+        "defaultMessage": "4Pomník|památka|zajímavost"
+    },
+    "historic-memorial-cross": {
+        "defaultMessage": "Pamětní kříž"
+    },
+    "historic-memorial-plaque": {
+        "defaultMessage": "Pomník"
+    },
+    "historic-memorial-sculpture|@category_tourism": {
+        "defaultMessage": "Pomník"
+    },
+    "historic-memorial-statue|@category_tourism": {
+        "defaultMessage": "Pomník"
+    },
+    "historic-memorial-stolperstein": {
+        "defaultMessage": "Stolperstein|Kámen zmizelých"
+    },
+    "historic-memorial-war_memorial|@category_tourism": {
+        "defaultMessage": "Válečný památník"
+    },
+    "historic-monument|@category_tourism": {
+        "defaultMessage": "Zajímavost|pomník|památka"
+    },
+    "historic-pillory|@category_tourism": {
+        "defaultMessage": "Pranýř"
+    },
+    "historic-cannon": {
+        "defaultMessage": "Dělo"
+    },
+    "historic-anchor": {
+        "defaultMessage": "Historická kotva"
+    },
+    "historic-ruins|@category_tourism": {
+        "defaultMessage": "3Ruiny|zřícenina"
+    },
+    "historic-mine": {
+        "defaultMessage": "Historický důl"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "Pamětihodnost"
+    },
+    "historic-wreck": {
+        "defaultMessage": "Vrak"
+    },
+    "historic-locomotive|@category_tourism": {
+        "defaultMessage": "Historická lokomotiva"
+    },
+    "historic-tank|@category_tourism": {
+        "defaultMessage": "Historický tank"
+    },
+    "historic-aircraft|@category_tourism": {
+        "defaultMessage": "Historická letadla"
+    },
+    "historic-tomb|@category_tourism": {
+        "defaultMessage": "Pamětihodnost"
+    },
+    "historic-wayside_cross": {
+        "defaultMessage": "Přícestný kříž"
+    },
+    "historic-wayside_shrine": {
+        "defaultMessage": "Drobná sakrální památka"
+    },
+    "leisure-dog_park": {
+        "defaultMessage": "3Psí hřiště"
+    },
+    "leisure-garden": {
+        "defaultMessage": "2Zahrada|zajímavost"
+    },
+    "amenity-bench": {
+        "defaultMessage": "Lavička"
+    },
+    "amenity-bicycle_rental": {
+        "defaultMessage": "2Půjčovna kol|4jízdní kolo|3kolo|3pronájem|3nájemné"
+    },
+    "amenity-bicycle_repair_station": {
+        "defaultMessage": "Oprava jízdních kol|4jízdní kolo|3kolo|Oprava"
+    },
+    "amenity-car_sharing": {
+        "defaultMessage": "Sdílení aut"
+    },
+    "amenity-car_rental": {
+        "defaultMessage": "3Půjčovna aut|auto|pronájem|nájemné"
+    },
+    "amenity-motorcycle_rental": {
+        "defaultMessage": "Půjčovna motocyklů"
+    },
+    "amenity-cinema|@category_entertainment": {
+        "defaultMessage": "3Kino|Filmy|U+1F3A6|U+1F3AC"
+    },
+    "leisure-bowling_alley|@category_entertainment": {
+        "defaultMessage": "Bowlingová dráha"
+    },
+    "amenity-theatre|@category_entertainment": {
+        "defaultMessage": "3Divadlo"
+    },
+    "amenity-nightclub|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "4Noční klub|3disco|3klub"
+    },
+    "amenity-brothel": {
+        "defaultMessage": "Nevěstinec"
+    },
+    "@gambling": {
+        "defaultMessage": "Hazardní hry"
+    },
+    "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
+        "defaultMessage": "Casino|Kasino"
+    },
+    "leisure-adult_gaming_centre|@gambling": {
+        "defaultMessage": "Centrum her pro dospělé"
+    },
+    "leisure-amusement_arcade|@category_entertainment": {
+        "defaultMessage": "Pasáž"
+    },
+    "amenity-college": {
+        "defaultMessage": "Vysoká škola"
+    },
+    "amenity-fire_station": {
+        "defaultMessage": "Hasiči"
+    },
+    "amenity-fountain": {
+        "defaultMessage": "Kašna|4fontána"
+    },
+    "amenity-grave_yard|landuse-cemetery": {
+        "defaultMessage": "Hřbitov"
+    },
+    "shop-funeral_directors": {
+        "defaultMessage": "4Pohřební služba"
+    },
+    "@category_hospital": {
+        "defaultMessage": "4Nemocnice"
+    },
+    "amenity-hospital|@category_hospital": {
+        "defaultMessage": "klinika|pohotovost|zdravotnické centrum|3lékař|4doktor"
+    },
+    "amenity-clinic|@category_hospital": {
+        "defaultMessage": "4Klinika|nemocnice"
+    },
+    "amenity-doctors|@category_hospital": {
+        "defaultMessage": "Lékařská ordinace|Klinika|nemocnice"
+    },
+    "amenity-dentist": {
+        "defaultMessage": "Zubař"
+    },
+    "healthcare-laboratory": {
+        "defaultMessage": "Lékařská laboratoř"
+    },
+    "healthcare-physiotherapist": {
+        "defaultMessage": "Fyzioterapeut"
+    },
+    "healthcare-alternative": {
+        "defaultMessage": "Alternativní medicína"
+    },
+    "healthcare-audiologist": {
+        "defaultMessage": "Audiologie|Audiolog"
+    },
+    "healthcare-optometrist": {
+        "defaultMessage": "Optometrie|Optometrista"
+    },
+    "healthcare-podiatrist": {
+        "defaultMessage": "Podiatrie|Podiatr"
+    },
+    "healthcare-psychotherapist": {
+        "defaultMessage": "Psychoterapie|Psychoterapeut"
+    },
+    "healthcare-speech_therapist": {
+        "defaultMessage": "Logopedie|Logoped"
+    },
+    "amenity-hunting_stand": {
+        "defaultMessage": "Lovecké stanoviště|posed"
+    },
+    "amenity-kindergarten": {
+        "defaultMessage": "Školka|mateřská škola|dětská školka|mateřská školka"
+    },
+    "amenity-library": {
+        "defaultMessage": "3Knihovna"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "3Lékárna"
+    },
+    "@category_post": {
+        "defaultMessage": "3Pošta"
+    },
+    "amenity-post_box|@category_post": {
+        "defaultMessage": "3Poštovní schránka|3schránka"
+    },
+    "amenity-vehicle_inspection": {
+        "defaultMessage": "Kontrola vozidla"
+    },
+    "amenity-waste_disposal": {
+        "defaultMessage": "Odpadky|koš|popelnice|uložiště odpadu"
+    },
+    "amenity-recycling-centre|@category_recycling": {
+        "defaultMessage": "Recyklační středisko"
+    },
+    "amenity-recycling-container|@category_recycling": {
+        "defaultMessage": "Recyklační nádoba"
+    },
+    "recycling-batteries|@category_recycling": {
+        "defaultMessage": "Baterie"
+    },
+    "recycling-clothes|@category_recycling": {
+        "defaultMessage": "Staré oblečení|Recyklujte staré oblečení"
+    },
+    "recycling-glass_bottles|@category_recycling": {
+        "defaultMessage": "Skleněné lahve"
+    },
+    "recycling-paper|@category_recycling": {
+        "defaultMessage": "Papírový odpad"
+    },
+    "recycling-plastic|@category_recycling": {
+        "defaultMessage": "Plastový odpad"
+    },
+    "recycling-plastic_bottles|@category_recycling": {
+        "defaultMessage": "Plastové lahve"
+    },
+    "recycling-scrap_metal|@category_recycling": {
+        "defaultMessage": "Kovový šrot"
+    },
+    "recycling-small_appliances|@category_recycling": {
+        "defaultMessage": "Elektronický odpad"
+    },
+    "amenity-school": {
+        "defaultMessage": "3Škola"
+    },
+    "amenity-shelter": {
+        "defaultMessage": "Přístřešek|úkryt"
+    },
+    "amenity-shelter-basic_hut": {
+        "defaultMessage": "Bivakovací Chata"
+    },
+    "amenity-shelter-lean_to": {
+        "defaultMessage": "Přístřešek|úkryt"
+    },
+    "amenity-stripclub": {
+        "defaultMessage": "Stripcklub|Stripklub"
+    },
+    "amenity-telephone": {
+        "defaultMessage": "2Telefon|telefonní budka|telefonní automat"
+    },
+    "@category_toilet": {
+        "defaultMessage": "3Záchody"
+    },
+    "amenity-toilets|toilets-yes|@category_toilet": {
+        "defaultMessage": "wc|toalety"
+    },
+    "amenity-university": {
+        "defaultMessage": "4Univerzita|universita"
+    },
+    "place-continent": {
+        "defaultMessage": "Kontinent"
+    },
+    "place-country": {
+        "defaultMessage": "Země"
+    },
+    "place-city": {
+        "defaultMessage": "Velkoměsto"
+    },
+    "place-town": {
+        "defaultMessage": "Město"
+    },
+    "place-city-capital": {
+        "defaultMessage": "Hlavní město|metropole"
+    },
+    "place-county": {
+        "defaultMessage": "Země"
+    },
+    "place-state": {
+        "defaultMessage": "Země|provincie|kraj"
+    },
+    "place-region": {
+        "defaultMessage": "Region|oblast|zóna|sektor"
+    },
+    "place-island|place-islet": {
+        "defaultMessage": "Ostrov"
+    },
+    "place-suburb|place-quarter|place-neighbourhood|landuse-residential": {
+        "defaultMessage": "Předměstí|městská část|městská zóna|Sousedství"
+    },
+    "place-hamlet": {
+        "defaultMessage": "Vesnička"
+    },
+    "place-village": {
+        "defaultMessage": "Vesnice"
+    },
+    "place-locality": {
+        "defaultMessage": "Lokalita"
+    },
+    "place-farm": {
+        "defaultMessage": "Farma"
+    },
+    "highway-raceway": {
+        "defaultMessage": "Závodiště"
+    },
+    "highway-path|highway-footway|highway-steps|highway-cycleway": {
+        "defaultMessage": "Cesta"
+    },
+    "highway-pedestrian|highway-primary|highway-primary_link|highway-residential|highway-secondary|highway-secondary_link|highway-tertiary|highway-tertiary_link|highway-service|highway-road|highway-track|highway-trunk|highway-trunk_link|highway-living_street|highway-unclassified|highway-motorway_link|highway-motorway|highway-cycleway": {
+        "defaultMessage": "Ulice"
+    },
+    "highway-motorway_junction": {
+        "defaultMessage": "Dopravní uzel|3dálnice"
+    },
+    "@mountain": {
+        "defaultMessage": "Hora|pohoří"
+    },
+    "natural-strait": {
+        "defaultMessage": "Průliv"
+    },
+    "landuse-forest": {
+        "defaultMessage": "Les"
+    },
+    "leisure-park": {
+        "defaultMessage": "Park"
+    },
+    "tourism-aquarium|@category_tourism": {
+        "defaultMessage": "Akvárium"
+    },
+    "tourism-hostel|@category_hotel": {
+        "defaultMessage": "3Hostel|ubytovna|motel"
+    },
+    "tourism-hotel|@category_hotel": {
+        "defaultMessage": "ubytovna|motel"
+    },
+    "tourism-guest_house|@category_hotel": {
+        "defaultMessage": "Penzion|hostel|ubytovna"
+    },
+    "tourism-motel|@category_hotel": {
+        "defaultMessage": "3Motel|penzion|hostel|ubytovna"
+    },
+    "tourism-alpine_hut|@category_hotel": {
+        "defaultMessage": "4Ubytování v horách|Horská chata|horský hotel|hotel"
+    },
+    "shop-hairdresser": {
+        "defaultMessage": "4Kadeřnictví|4holičství"
+    },
+    "aeroway-aerodrome": {
+        "defaultMessage": "3Letiště"
+    },
+    "leisure-stadium": {
+        "defaultMessage": "4Stadion|4sport"
+    },
+    "leisure-playground|@category_children": {
+        "defaultMessage": "Hřiště"
+    },
+    "leisure-sports_centre": {
+        "defaultMessage": "4Sportovní centrum|sport"
+    },
+    "leisure-golf_course": {
+        "defaultMessage": "Golf"
+    },
+    "leisure-miniature_golf": {
+        "defaultMessage": "Minigolf"
+    },
+    "leisure-escape_game": {
+        "defaultMessage": "Úniková místnost"
+    },
+    "leisure-pitch": {
+        "defaultMessage": "4Sportovní hřiště|sport"
+    },
+    "leisure-swimming_pool": {
+        "defaultMessage": "4Koupaliště|3bazén|aquapark|4lázně"
+    },
+    "sport-american_football": {
+        "defaultMessage": "Americký fotbal"
+    },
+    "sport-archery": {
+        "defaultMessage": "Lukostřelba"
+    },
+    "sport-athletics": {
+        "defaultMessage": "Atletika"
+    },
+    "sport-australian_football": {
+        "defaultMessage": "Australský fotbal"
+    },
+    "sport-baseball": {
+        "defaultMessage": "Baseball"
+    },
+    "sport-beachvolleyball": {
+        "defaultMessage": "Plážový volejbal"
+    },
+    "sport-chess": {
+        "defaultMessage": "Šachy"
+    },
+    "sport-cricket": {
+        "defaultMessage": "Kriket"
+    },
+    "sport-curling": {
+        "defaultMessage": "Curling"
+    },
+    "sport-golf": {
+        "defaultMessage": "Golf"
+    },
+    "sport-gymnastics": {
+        "defaultMessage": "Gymnastika"
+    },
+    "sport-handball": {
+        "defaultMessage": "Házená"
+    },
+    "sport-scuba_diving": {
+        "defaultMessage": "Potápění"
+    },
+    "sport-shooting": {
+        "defaultMessage": "4Střelnice"
+    },
+    "sport-skateboard": {
+        "defaultMessage": "Skateboarding|skateboard"
+    },
+    "sport-skiing": {
+        "defaultMessage": "Lyžování"
+    },
+    "sport-soccer": {
+        "defaultMessage": "Fotbal"
+    },
+    "sport-swimming": {
+        "defaultMessage": "Plavecký bazén"
+    },
+    "sport-table_tennis": {
+        "defaultMessage": "Stolní tenis"
+    },
+    "sport-tennis": {
+        "defaultMessage": "Tenis"
+    },
+    "sport-padel": {
+        "defaultMessage": "Padel"
+    },
+    "sport-volleyball": {
+        "defaultMessage": "Volejbal"
+    },
+    "building": {
+        "defaultMessage": "Stavba"
+    },
+    "building-address": {
+        "defaultMessage": "Adresa"
+    },
+    "@category_police": {
+        "defaultMessage": "4Policie"
+    },
+    "amenity-police|@category_police": {
+        "defaultMessage": "4bezpečnost"
+    },
+    "office-diplomatic": {
+        "defaultMessage": "4Velvyslanectví|4ambasáda"
+    },
+    "natural-bay": {
+        "defaultMessage": "Záliv"
+    },
+    "@category_water": {
+        "defaultMessage": "3Voda"
+    },
+    "amenity-drinking_water|drinking_water-yes|@category_water": {
+        "defaultMessage": "4Pitná voda"
+    },
+    "natural-hot_spring|@category_water": {
+        "defaultMessage": "Termální pramen"
+    },
+    "natural-spring|@category_water": {
+        "defaultMessage": "Pramen"
+    },
+    "man_made-water_well|@category_water": {
+        "defaultMessage": "Studna"
+    },
+    "amenity-water_point|@category_water|@category_rv": {
+        "defaultMessage": "Vodní zdroj|voda pro karavanu"
+    },
+    "man_made-water_tap|@category_water": {
+        "defaultMessage": "Vodovodní kohoutek"
+    },
+    "@waterbody": {
+        "defaultMessage": "Vodní plocha"
+    },
+    "natural-water-basin|landuse-basin|@waterbody": {
+        "defaultMessage": "Vodní nádrž"
+    },
+    "natural-water-pond|@waterbody": {
+        "defaultMessage": "Rybník"
+    },
+    "natural-water-lake|@waterbody": {
+        "defaultMessage": "Jezero"
+    },
+    "natural-water-reservoir|landuse-reservoir|@waterbody": {
+        "defaultMessage": "Nádrž"
+    },
+    "waterway-river|waterway-stream|natural-water-river": {
+        "defaultMessage": "Řeka"
+    },
+    "waterway-canal": {
+        "defaultMessage": "Kanál"
+    },
+    "shop-car_repair": {
+        "defaultMessage": "3Auto opravna|auto|auta|Půjčení"
+    },
+    "tourism-camp_site|@category_hotel": {
+        "defaultMessage": "4Kempování|camping|kemp|camp"
+    },
+    "tourism-caravan_site|@category_rv||@category_hotel": {
+        "defaultMessage": "Kemp pro obytné přívěsy"
+    },
+    "office": {
+        "defaultMessage": "Kancelář"
+    },
+    "office-company": {
+        "defaultMessage": "Kancelář společnosti"
+    },
+    "office-government": {
+        "defaultMessage": "Úřad vlády"
+    },
+    "office-lawyer": {
+        "defaultMessage": "Právní kancelář"
+    },
+    "office-telecommunication": {
+        "defaultMessage": "Mobilní operátor"
+    },
+    "craft-beekeeper": {
+        "defaultMessage": "Včelař"
+    },
+    "craft-blacksmith": {
+        "defaultMessage": "Kovář"
+    },
+    "craft-brewery": {
+        "defaultMessage": "5Pivovar"
+    },
+    "craft-caterer": {
+        "defaultMessage": "Cateringová společnost"
+    },
+    "craft-carpenter": {
+        "defaultMessage": "Truhlář"
+    },
+    "craft-confectionery": {
+        "defaultMessage": "Cukrářské výrobky"
+    },
+    "craft-electrician": {
+        "defaultMessage": "4Elektrikář"
+    },
+    "craft-electronics_repair": {
+        "defaultMessage": "Opravy elektroniky"
+    },
+    "craft-gardener": {
+        "defaultMessage": "Zahradník"
+    },
+    "craft-grinding_mill": {
+        "defaultMessage": "Mlýn"
+    },
+    "craft-handicraft": {
+        "defaultMessage": "Ruční práce"
+    },
+    "craft-hvac": {
+        "defaultMessage": "HVAC"
+    },
+    "craft-metal_construction": {
+        "defaultMessage": "Kovodílna"
+    },
+    "craft-key_cutter": {
+        "defaultMessage": "Řezání klíčů"
+    },
+    "craft-locksmith": {
+        "defaultMessage": "Zámečník"
+    },
+    "craft-painter": {
+        "defaultMessage": "Malíř"
+    },
+    "craft-photographer": {
+        "defaultMessage": "4Fotograf|fotografické studio"
+    },
+    "craft-plumber": {
+        "defaultMessage": "Instalatér"
+    },
+    "craft-sawmill": {
+        "defaultMessage": "Pila"
+    },
+    "craft-shoemaker": {
+        "defaultMessage": "Opravna obuvi"
+    },
+    "craft-winery": {
+        "defaultMessage": "Vinařství"
+    },
+    "craft-tailor": {
+        "defaultMessage": "Krejčí"
+    },
+    "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
+        "defaultMessage": "Náměstí"
+    },
+    "place-sea": {
+        "defaultMessage": "Moře"
+    },
+    "place-ocean": {
+        "defaultMessage": "Oceán"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi|Wi-Fi"
+    },
+    "internet_access|internet_access-wlan|@category_wifi": {
+        "defaultMessage": "3Internet"
+    },
+    "natural-beach|natural-beach-sand|natural-beach-gravel|leisure-beach_resort": {
+        "defaultMessage": "Pláž"
+    },
+    "man_made-lighthouse": {
+        "defaultMessage": "Maják"
+    },
+    "man_made-communications_tower|man_made-tower-communication": {
+        "defaultMessage": "Komunikační věž"
+    },
+    "man_made-petroleum_well": {
+        "defaultMessage": "4Ropný vrt"
+    },
+    "organic-only|organic-yes": {
+        "defaultMessage": "ekologické|bio|zdravé|biologické|environmentální|přírodní|organické"
+    },
+    "shop-copyshop": {
+        "defaultMessage": "4Kopírovací obchod|4Tiskárny"
+    },
+    "shop-photo|@shop": {
+        "defaultMessage": "Fotografický obchod|rámy"
+    },
+    "shop-camera|@shop": {
+        "defaultMessage": "Obchod s fotoaparáty"
+    },
+    "shop-travel_agency": {
+        "defaultMessage": "Cestovní kancelář|cesty"
+    },
+    "shop-outdoor|@shop": {
+        "defaultMessage": "Venkovní vybavení|trekking|lezení|kempování"
+    },
+    "shop-dry_cleaning": {
+        "defaultMessage": "Chemické čištění|čistírna"
+    },
+    "shop-tyres|@shop": {
+        "defaultMessage": "Obchod s pneumatikami"
+    },
+    "amenity-car_wash": {
+        "defaultMessage": "4Myčka aut"
+    },
+    "amenity-veterinary": {
+        "defaultMessage": "4Veterinář"
+    },
+    "@charging_station": {
+        "defaultMessage": "Nabíjecí stanice|nabíjení"
+    },
+    "amenity-charging_station-bicycle|@charging_station": {
+        "defaultMessage": "Nabíjení jízdních kol"
+    },
+    "amenity-childcare": {
+        "defaultMessage": "4Jesle|Péče o děti"
+    },
+    "amenity-bicycle_parking": {
+        "defaultMessage": "Parkování kol"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "Odpadkový koš"
+    },
+    "emergency-phone": {
+        "defaultMessage": "Tísňového volání"
+    },
+    "leisure-fitness_centre": {
+        "defaultMessage": "3Fitness|tělocvična"
+    },
+    "leisure-sauna": {
+        "defaultMessage": "3Sauna"
+    },
+    "shop-car_repair-tyres|shop-car_repair": {
+        "defaultMessage": "4Pneuservis"
+    },
+    "shop-chemist|@shop": {
+        "defaultMessage": "4Drogerie"
+    },
+    "shop-pet|@shop": {
+        "defaultMessage": "4Zverimex"
+    },
+    "tourism-zoo|@category_tourism|@category_children": {
+        "defaultMessage": "3zoologická zahrada"
+    },
+    "attraction-animal": {
+        "defaultMessage": "Ohrada pro zvířata"
+    },
+    "tourism-information-office|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Informační centrum"
+    },
+    "tourism-information-visitor_centre|amenity-ranger_station|@category_tourism": {
+        "defaultMessage": "Návštěvnické centrum"
+    },
+    "amenity-community_centre": {
+        "defaultMessage": "4Kulturní centrum"
+    },
+    "amenity-compressed_air": {
+        "defaultMessage": "Stlačený vzduch"
+    },
+    "amenity-courthouse": {
+        "defaultMessage": "Soud"
+    },
+    "amenity-vending_machine-cigarettes": {
+        "defaultMessage": "Automat na cigarety"
+    },
+    "amenity-vending_machine-drinks": {
+        "defaultMessage": "Automat na nápoje"
+    },
+    "amenity-vending_machine-parking_tickets|@category_parking": {
+        "defaultMessage": "4Parkovací automat"
+    },
+    "amenity-vending_machine-public_transport_tickets|@category_transport": {
+        "defaultMessage": "Prodejní automat lístků na městskou dopravu"
+    },
+    "shop-outpost": {
+        "defaultMessage": "Místo vyzvednutí"
+    },
+    "building-garage": {
+        "defaultMessage": "Garáž"
+    },
+    "highway-rest_area|highway-services": {
+        "defaultMessage": "Odpočívadlo"
+    },
+    "man_made-chimney": {
+        "defaultMessage": "Tovární komín"
+    },
+    "man_made-tower|man_made-flare": {
+        "defaultMessage": "Věž"
+    },
+    "shop-bookmaker|@gambling": {
+        "defaultMessage": "Knihař"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "Prodej ryb"
+    },
+    "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Obchod z druhé ruky"
+    },
+    "shop-charity|@shop|@category_secondhand": {
+        "defaultMessage": "Charitativní obchod"
+    },
+    "shop-ticket": {
+        "defaultMessage": "Prodej vstupenek"
+    },
+    "shop-wine|@category_food|@shop": {
+        "defaultMessage": "Vinařství"
+    },
+    "shop-car_parts|@shop": {
+        "defaultMessage": "Autodíly"
+    },
+    "tourism-chalet|@category_hotel": {
+        "defaultMessage": "Rekreační chata"
+    },
+    "tourism-information-board": {
+        "defaultMessage": "Nástěnka"
+    },
+    "tourism-information-map": {
+        "defaultMessage": "Turistická mapa"
+    },
+    "aerialway-station": {
+        "defaultMessage": "Stanice lanové dráhy"
+    },
+    "aeroway-helipad": {
+        "defaultMessage": "Helipad"
+    },
+    "barrier-border_control": {
+        "defaultMessage": "4Pohraniční kontrola"
+    },
+    "leisure-water_park|@category_tourism|@category_children": {
+        "defaultMessage": "3Aquacentrum"
+    },
+    "man_made-water_tower": {
+        "defaultMessage": "Vodárna"
+    },
+    "man_made-windmill": {
+        "defaultMessage": "Větrný mlýn"
+    },
+    "natural-cave_entrance": {
+        "defaultMessage": "Jeskyně"
+    },
+    "natural-volcano|@mountain": {
+        "defaultMessage": "Sopka"
+    },
+    "office-estate_agent": {
+        "defaultMessage": "Realitní makléř"
+    },
+    "waterway-lock_gate": {
+        "defaultMessage": "Stavidlo"
+    },
+    "amenity-public_bookcase": {
+        "defaultMessage": "4Knihovna|Směnárna knih|Výměna knih"
+    },
+    "sport-climbing": {
+        "defaultMessage": "Horolezecké centrum"
+    },
+    "sport-yoga": {
+        "defaultMessage": "Studio jógy"
+    },
+    "tourism-apartment|@category_hotel": {
+        "defaultMessage": "Byty|Prázdninový apartmán"
+    },
+    "leisure-resort|@category_hotel": {
+        "defaultMessage": "Letovisko"
+    },
+    "amenity-biergarten|@category_eat|@category_nightlife": {
+        "defaultMessage": "Hospoda se zahrádkou"
+    },
+    "amenity-driving_school": {
+        "defaultMessage": "4Autoškola"
+    },
+    "amenity-music_school": {
+        "defaultMessage": "Hudební škola"
+    },
+    "amenity-language_school": {
+        "defaultMessage": "Jazyková škola"
+    },
+    "amenity-ice_cream": {
+        "defaultMessage": "Stánek se zmrzlinou"
+    },
+    "amenity-internet_cafe": {
+        "defaultMessage": "3Internetová kavárna"
+    },
+    "amenity-motorcycle_parking": {
+        "defaultMessage": "Parkování pro motocykly"
+    },
+    "amenity-parking_space-disabled|@category_parking": {
+        "defaultMessage": "Parkovací místo pro invalidy"
+    },
+    "amenity-nursing_home": {
+        "defaultMessage": "Dům s pečovatelskou službou"
+    },
+    "amenity-payment_terminal": {
+        "defaultMessage": "Platební terminál"
+    },
+    "amenity-public_bath": {
+        "defaultMessage": "Veřejné lázně"
+    },
+    "amenity-shower": {
+        "defaultMessage": "Sprcha"
+    },
+    "emergency-assembly_point": {
+        "defaultMessage": "Nouzové shromažďovací místo"
+    },
+    "emergency-defibrillator": {
+        "defaultMessage": "4Defibrilátor"
+    },
+    "emergency-fire_hydrant": {
+        "defaultMessage": "4Požární hydrant"
+    },
+    "emergency-lifeguard": {
+        "defaultMessage": "Záchranář pohotovosti|Plavčík"
+    },
+    "emergency-mountain_rescue": {
+        "defaultMessage": "4Horská záchranná služba"
+    },
+    "leisure-fitness_station": {
+        "defaultMessage": "Posilovna"
+    },
+    "office-insurance": {
+        "defaultMessage": "Pojišťovací kancelář"
+    },
+    "office-ngo": {
+        "defaultMessage": "Kancelář nevládní organizace"
+    },
+    "shop-erotic|@shop": {
+        "defaultMessage": "Obchod s erotickými pomůckami"
+    },
+    "shop-massage": {
+        "defaultMessage": "4Masážní salon"
+    },
+    "shop-motorcycle|@shop": {
+        "defaultMessage": "Prodejna motocyklů"
+    },
+    "shop-motorcycle_repair": {
+        "defaultMessage": "Opravy motocyklů"
+    },
+    "shop-newsagent": {
+        "defaultMessage": "Novinový stánek"
+    },
+    "shop-pawnbroker": {
+        "defaultMessage": "Zastavárna"
+    },
+    "shop-stationery|@shop": {
+        "defaultMessage": "Papírnictví"
+    },
+    "shop-tattoo": {
+        "defaultMessage": "4Tetovací salon"
+    },
+    "shop-variety_store|@category_shopping|@shop": {
+        "defaultMessage": "Smíšené zboží"
+    },
+    "shop-video|@shop": {
+        "defaultMessage": "4Videopůjčovna"
+    },
+    "shop-video_games|@shop": {
+        "defaultMessage": "Obchod s videohrami"
+    },
+    "tourism-wilderness_hut|@category_hotel": {
+        "defaultMessage": "Chata v divočině"
+    },
+    "boundary-national_park|@category_tourism": {
+        "defaultMessage": "Národní park"
+    },
+    "leisure-nature_reserve|@category_tourism": {
+        "defaultMessage": "Rezervace"
+    },
+    "natural-cape": {
+        "defaultMessage": "Mys"
+    },
+    "natural-geyser": {
+        "defaultMessage": "3Gejzír"
+    },
+    "natural-glacier|@category_tourism": {
+        "defaultMessage": "Ledovec"
+    },
+    "highway-ford": {
+        "defaultMessage": "Brod"
+    },
+    "piste:type-downhill|piste:type-nordic": {
+        "defaultMessage": "Lyžování|Lyžařská sjezdovka"
+    },
+    "amenity-events_venue": {
+        "defaultMessage": "Místo konání akcí"
+    },
+    "shop-antiques|@category_shopping|@shop|@category_secondhand": {
+        "defaultMessage": "Starožitnosti"
+    },
+    "shop-art|@category_shopping|@shop": {
+        "defaultMessage": "Obchod s uměním"
+    },
+    "shop-baby_goods|@category_children|@shop": {
+        "defaultMessage": "Dětský obchod"
+    },
+    "shop-bag|@category_shopping|@shop": {
+        "defaultMessage": "Obchod s taškami"
+    },
+    "shop-cheese|@category_food|@shop": {
+        "defaultMessage": "Prodejna sýrů"
+    },
+    "shop-dairy|@category_food|@shop": {
+        "defaultMessage": "Mléčné výrobky"
+    },
+    "shop-electrical|@shop": {
+        "defaultMessage": "Elektro obchod"
+    },
+    "shop-fishing|@shop": {
+        "defaultMessage": "Rybářský obchod"
+    },
+    "shop-interior_decoration|@shop": {
+        "defaultMessage": "Interiérové dekorace"
+    },
+    "shop-lottery|@gambling": {
+        "defaultMessage": "Loterijní lístky"
+    },
+    "shop-medical_supply|@shop": {
+        "defaultMessage": "Zdravotní zásoby"
+    },
+    "shop-nutrition_supplements|@shop": {
+        "defaultMessage": "Doplňky výživy"
+    },
+    "shop-paint|@shop": {
+        "defaultMessage": "Barvy"
+    },
+    "shop-perfumery|@category_shopping|@shop": {
+        "defaultMessage": "Parfumerie"
+    },
+    "shop-sewing|@shop": {
+        "defaultMessage": "Šicí potřeby"
+    },
+    "shop-storage_rental": {
+        "defaultMessage": "Pronájem skladu"
+    },
+    "shop-tobacco|@shop": {
+        "defaultMessage": "Tabák"
+    },
+    "shop-trade|@shop": {
+        "defaultMessage": "Obchod se zásobami"
+    },
+    "shop-watches|@category_shopping|@shop": {
+        "defaultMessage": "Hodinky"
+    },
+    "shop-wholesale|@shop": {
+        "defaultMessage": "Velkoobchodní prodejna"
+    },
+    "power-plant": {
+        "defaultMessage": "Elektrárna"
+    },
+    "shop-auction|@category_secondhand": {
+        "defaultMessage": "Aukce"
+    },
+    "shop-collector|@category_shopping|@category_secondhand": {
+        "defaultMessage": "Collector|Sběratelské předměty"
+    },
+    "wheelchair-yes": {
+        "defaultMessage": "Invalidní vozík|Plný přístup pro vozíčkáře"
+    },
+    "amenity-social_facility": {
+        "defaultMessage": "Sociální zařízení"
+    },
+    "leisure-sports_hall": {
+        "defaultMessage": "Sportovní hala"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "Umělecké centrum"
+    },
+    "amenity-prison": {
+        "defaultMessage": "vězení"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "Výstaviště"
+    },
+    "shop-bathroom_furnishing|@shop": {
+        "defaultMessage": "Vybavení koupelny"
+    },
+    "shop-bed|@shop": {
+        "defaultMessage": "Prodejna postelí"
+    },
+    "shop-boutique|@shop": {
+        "defaultMessage": "Butik"
+    },
+    "shop-curtain|@shop": {
+        "defaultMessage": "Závěsy"
+    },
+    "shop-gas|@shop": {
+        "defaultMessage": "Obchod s plynem"
+    },
+    "shop-pet_grooming": {
+        "defaultMessage": "Péče o domácí mazlíčky"
+    },
+    "shop-hifi|@shop": {
+        "defaultMessage": "HiFi audio"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "Konferenční centrum"
+    },
+    "shop-herbalist|@shop": {
+        "defaultMessage": "Obchod s bylinkami"
+    },
+    "shop-appliance|@shop": {
+        "defaultMessage": "Obchod se spotřebiči"
+    },
+    "shop-agrarian|@shop": {
+        "defaultMessage": "Zemědělský obchod"
+    },
+    "shop-fashion_accessories|@shop": {
+        "defaultMessage": "Módní doplňky"
+    },
+    "shop-carpet|@shop": {
+        "defaultMessage": "Koberce"
+    },
+    "shop-pasta|@shop": {
+        "defaultMessage": "Těstoviny"
+    },
+    "amenity-luggage_locker": {
+        "defaultMessage": "Skříňka na zavazadla"
+    },
+    "shop-cannabis|@shop": {
+        "defaultMessage": "Konopí"
+    },
+    "shop-grocery|@category_food|@shop": {
+        "defaultMessage": "Potraviny"
+    },
+    "shop-farm|@category_food|@shop": {
+        "defaultMessage": "Farmářské jídlo"
+    },
+    "shop-health_food|@category_food|@shop": {
+        "defaultMessage": "Zdravá výživa"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "Darování krve"
+    },
+    "healthcare-sample_collection": {
+        "defaultMessage": "Odběr vzorků"
+    },
+    "amenity-parking|amenity-parking_entrance|@category_parking": {
+        "defaultMessage": "U+1F697|U+1F17F|U+1F698|U+1F699"
+    },
+    "amenity-studio": {
+        "defaultMessage": "Mediální studio"
+    },
+    "@fastfood": {
+        "defaultMessage": "Rychlé občerstvení"
+    },
+    "cuisine-bagel": {
+        "defaultMessage": "Bagel"
+    },
+    "cuisine-breakfast": {
+        "defaultMessage": "Snídaně"
+    },
+    "cuisine-burger|@fastfood": {
+        "defaultMessage": "Burger"
+    },
+    "cuisine-cake": {
+        "defaultMessage": "Dort"
+    },
+    "cuisine-coffee_shop": {
+        "defaultMessage": "Káva"
+    },
+    "cuisine-curry": {
+        "defaultMessage": "Kari"
+    },
+    "cuisine-diner": {
+        "defaultMessage": "Večeře"
+    },
+    "cuisine-donut": {
+        "defaultMessage": "Kobliha"
+    },
+    "cuisine-fish_and_chips": {
+        "defaultMessage": "Ryba a hranolky"
+    },
+    "cuisine-friture|@fastfood": {
+        "defaultMessage": "Smažené pokrmy"
+    },
+    "cuisine-grill": {
+        "defaultMessage": "Gril"
+    },
+    "cuisine-hotdog|@fastfood": {
+        "defaultMessage": "Hot dog"
+    },
+    "cuisine-ice_cream": {
+        "defaultMessage": "Zmrzlina"
+    },
+    "cuisine-kebab|@fastfood": {
+        "defaultMessage": "Kebab"
+    },
+    "cuisine-noodles": {
+        "defaultMessage": "Nudle"
+    },
+    "cuisine-pancake|cuisine-crepe": {
+        "defaultMessage": "Palačinka|Crêpe"
+    },
+    "cuisine-pasta": {
+        "defaultMessage": "Těstoviny"
+    },
+    "cuisine-pizza|@fastfood": {
+        "defaultMessage": "Pizza"
+    },
+    "cuisine-ramen": {
+        "defaultMessage": "Ramen"
+    },
+    "cuisine-sandwich|@fastfood": {
+        "defaultMessage": "Sendvič"
+    },
+    "cuisine-sausage|@fastfood": {
+        "defaultMessage": "Klobása"
+    },
+    "cuisine-seafood|cuisine-fish": {
+        "defaultMessage": "Mořské plody|Ryba"
+    },
+    "cuisine-soba": {
+        "defaultMessage": "Soba"
+    },
+    "cuisine-steak_house": {
+        "defaultMessage": "Steaková restaurace"
+    },
+    "cuisine-sushi": {
+        "defaultMessage": "Suši"
+    },
+    "cuisine-tapas": {
+        "defaultMessage": "Tapas"
+    },
+    "cuisine-tea": {
+        "defaultMessage": "Čaj"
+    },
+    "@cuisine_all_vegetarian": {
+        "defaultMessage": "Vegetariánská kuchyně"
+    },
+    "cuisine-vegan|@cuisine_all_vegetarian": {
+        "defaultMessage": "Veganská kuchyně"
+    }
+}

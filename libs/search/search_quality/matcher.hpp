@@ -2,10 +2,6 @@
 
 #include "search/search_quality/sample.hpp"
 
-#include "search/result.hpp"
-
-#include "base/string_utils.hpp"
-
 #include <cstddef>
 #include <limits>
 #include <vector>
@@ -15,6 +11,7 @@ class FeatureType;
 namespace search
 {
 class FeatureLoader;
+class Result;
 
 class Matcher
 {

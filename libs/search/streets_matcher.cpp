@@ -1,10 +1,12 @@
 #include "search/streets_matcher.hpp"
 #include "search/features_filter.hpp"
+#include "search/geocoder_context.hpp"
 #include "search/house_numbers_matcher.hpp"
 #include "search/query_params.hpp"
 
 #include "indexer/search_string_utils.hpp"
 
+#include "base/assert.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <algorithm>

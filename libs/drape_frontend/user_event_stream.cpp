@@ -1,5 +1,7 @@
 #include "drape_frontend/user_event_stream.hpp"
+
 #include "drape_frontend/animation/follow_animation.hpp"
+#include "drape_frontend/animation/interpolators.hpp"
 #include "drape_frontend/animation/linear_animation.hpp"
 #include "drape_frontend/animation/parallel_animation.hpp"
 #include "drape_frontend/animation/scale_animation.hpp"
@@ -11,9 +13,11 @@
 #include "drape_frontend/screen_operations.hpp"
 #include "drape_frontend/visual_params.hpp"
 
-#include "platform/platform.hpp"
+#include "geometry/screenbase.hpp"
 
+#include "base/assert.hpp"
 #include "base/macros.hpp"
+#include "base/math.hpp"
 
 #include "std/target_os.hpp"
 

@@ -7,6 +7,7 @@
 #include "coding/files_container.hpp"
 #include "coding/map_uint32_to_val.hpp"
 #include "coding/reader.hpp"
+#include "coding/succinct_mapper.hpp"
 #include "coding/varint.hpp"
 #include "coding/writer.hpp"
 

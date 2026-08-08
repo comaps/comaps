@@ -19,16 +19,16 @@
 #include "indexer/map_object.hpp"
 #include "indexer/map_style_reader.hpp"
 
-#include "platform/platform_tests_support/helpers.hpp"
-
+#include "platform/helpers.hpp"
 #include "platform/local_country_file_utils.hpp"
 #include "platform/platform.hpp"
 
 #include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/file_name_utils.hpp"
-#include "base/localisation.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 
@@ -375,7 +375,7 @@ bool WillDelete(storage::CountryId const & /* countryId */,
 
 int main(int argc, char ** argv)
 {
-  platform::tests_support::ChangeMaxNumberOfOpenFiles(search::search_quality::kMaxOpenFiles);
+  platform::ChangeMaxNumberOfOpenFiles(search::search_quality::kMaxOpenFiles);
   if (argc <= 1)
   {
     LOG(LERROR, ("Usage:", argc == 1 ? argv[0] : "feature_list", "<mwm_path> [<data_path>] [<mwm_prefix>]"));

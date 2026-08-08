@@ -1,10 +1,30 @@
-<CheckedTextView
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/MwmWidget.TextView.Item"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="@dimen/height_item_oneline"
-    android:checkMark="?android:attr/listChoiceIndicatorSingle"
-    android:minLines="3"
-    tools:text="/storage/mnt/"/>
+    android:background="?clickableBackground"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/height_item_multiline"
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/margin_base"
+    android:paddingStart="@dimen/margin_half_plus">
+
+  <com.google.android.material.radiobutton.MaterialRadioButton
+      android:id="@+id/storage_selected"
+      android:layout_width="48dp"
+      android:layout_height="48dp"
+      android:layout_marginEnd="@dimen/margin_base"
+      android:clickable="false"
+      android:focusable="false"
+      app:buttonTint="@null" />
+
+  <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/storage_text"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:minLines="3"
+      android:textAppearance="@style/MwmTextAppearance.Body1" />
+
+</LinearLayout>

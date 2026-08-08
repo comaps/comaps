@@ -1,12 +1,13 @@
 #include "search/bookmarks/processor.hpp"
 
+#include "search/bookmarks/results.hpp"
 #include "search/emitter.hpp"
 
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"
 #include "base/dfa_helpers.hpp"
 #include "base/levenshtein_dfa.hpp"
-#include "base/stl_helpers.hpp"
+#include "base/logging.hpp"
 #include "base/string_utils.hpp"
 
 #include <algorithm>

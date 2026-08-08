@@ -7,6 +7,8 @@
 
 #include "kml/types.hpp"
 
+#include "platform/location.hpp"
+
 namespace track_statistics_tests
 {
 using namespace geometry;

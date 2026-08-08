@@ -2,7 +2,8 @@
 
 #include "geometry/point2d.hpp"
 
-#include "base/matrix.hpp"
+#include "base/assert.hpp"
+#include "base/math.hpp"
 
 #include <cmath>
 #include <string>
@@ -83,6 +84,9 @@ double AngleIn2PI(double ang);
 double GetShortestDistance(double rad1, double rad2);
 
 double GetMiddleAngle(double a1, double a2);
+
+// Clamp an angle in radians to an arc defined by center and halfWidth
+double ClampAngle(double a, double center, double halfWidth);
 
 /// @return If north is zero - azimuth between geographic north and [p1, p2] vector is returned.
 /// If north is not zero - it is treated as azimuth of some custom direction(eg magnetic north or

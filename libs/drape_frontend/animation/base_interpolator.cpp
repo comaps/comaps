@@ -2,7 +2,6 @@
 #include "drape_frontend/animation/interpolation_holder.hpp"
 
 #include "base/assert.hpp"
-#include "base/math.hpp"
 
 #include <algorithm>
 

@@ -8,8 +8,10 @@
 #include "storage/storage_defines.hpp"
 
 #include "indexer/feature_data.hpp"
+#include "indexer/feature_decl.hpp"
 
 #include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 
 #include <string>
 #include <vector>

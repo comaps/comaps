@@ -1,8 +1,20 @@
 #include "routing/turns_generator.hpp"
 
+#include "routing/loaded_path_segment.hpp"
+#include "routing/routing_result_graph.hpp"
+#include "routing/routing_settings.hpp"
+#include "routing/segment.hpp"
+#include "routing/turn_candidate.hpp"
+#include "routing/turns.hpp"
 #include "routing/turns_generator_utils.hpp"
 
 #include "indexer/ftypes_matcher.hpp"
+
+#include "geometry/mercator.hpp"
+
+#include "base/assert.hpp"
+#include "base/logging.hpp"
+#include "base/math.hpp"
 
 namespace routing
 {

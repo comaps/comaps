@@ -1,6 +1,10 @@
 #include "map/gps_track.hpp"
 
+#include "map/gps_track_storage.hpp"
+#include "map/track_statistics.hpp"
+
 #include "base/assert.hpp"
+#include "base/exception.hpp"
 #include "base/logging.hpp"
 
 #include <algorithm>

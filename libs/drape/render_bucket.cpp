@@ -1,10 +1,17 @@
 #include "drape/render_bucket.hpp"
 
 #include "drape/attribute_buffer_mutator.hpp"
+#include "drape/color.hpp"
 #include "drape/debug_renderer.hpp"
+#include "drape/index_buffer_mutator.hpp"
 #include "drape/overlay_handle.hpp"
 #include "drape/overlay_tree.hpp"
 #include "drape/vertex_array_buffer.hpp"
+
+#include "geometry/rect2d.hpp"
+#include "geometry/screenbase.hpp"
+
+#include "base/assert.hpp"
 
 namespace dp
 {

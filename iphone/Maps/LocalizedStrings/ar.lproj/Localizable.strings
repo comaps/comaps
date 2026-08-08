@@ -38,7 +38,7 @@
 /* Text in About screen */
 "about_proposition_2" = "مُركّز على الخصوصية وخالٍ من الإعلانات";
 /* Text in About screen */
-"about_proposition_3" = "Transparent and not for profit";
+"about_proposition_3" = "شفاف وغير ربحي";
 "close" = "أغلِق";
 "download" = "نزّل";
 /* REMOVE THIS STRING AFTER REFACTORING */
@@ -48,13 +48,13 @@
 /* Add Bookmark list dialog - hint when the list name is empty */
 "bookmark_set_name" = "اسم القائمة";
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "قائمة الإشارات المرجعية";
+"bookmark_sets" = "القوائم المفضلة";
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "الاماكن";
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "المفضلات";
 /* Default bookmark list name */
-"core_my_places" = "أماكني";
+"core_my_places" = "أماكني المفضلة";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "العنوان";
 /* Settings button in system menu */
@@ -106,7 +106,7 @@
 /* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
 "category_water" = "ماء";
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
-"category_rv" = "منشآت للمنازل المتنقلة";
+"category_rv" = "منشآت المركبات الترفيهية";
 "share_bookmarks_email_body" = "مرحباً! ْ\n\n تم إرفاق إشاراتي المرجعية من تطبيق CoMaps. الرجاء فتحهم إذا لديك تطبيق CoMaps مثبتاً. أو، إذا لم يكن مثبتاً، قم بتنزيل التطبيق لنظام iOS أو أندرويد من خلال الضغط على هذا الرابط: https://www.comaps.app/download/ \n\nاستمتع بالسفر مع CoMaps!";
 /* message title of loading file */
 "load_kmz_title" = "يحمل المفضلات";
@@ -145,11 +145,11 @@
 "pref_zoom_title" = "أزرار تقريب/تبعيد";
 "pref_left_button_type" = "Left Main Button";
 /* Settings «Map» category: «Map Language» title */
-"pref_maplanguage_title" = "Map Language";
+"pref_maplanguage_title" = "لغة الخريطة";
 /* Settings «Map» category: «Map Language» local value */
 "pref_maplanguage_local" = "اللغة المحلية";
 /* Settings «Map» category: «Map Appearance» title */
-"pref_mapappearance_title" = "Map Appearance";
+"pref_mapappearance_title" = "مظهر الخريطة";
 /* Settings «Map» category: «Appearance» title */
 "pref_appearance_title" = "المظهر";
 /* Settings "Appearance" category: "Light" title, should be consistent with the pref_appearance_title translation. */
@@ -232,9 +232,9 @@
 /* Button in the About screen */
 "report_incorrect_map_bug" = "الإبلاغ عن بيانات الخريطة غير الصحيحة أو إصلاحها";
 /* Button in the About screen */
-"volunteer" = "للتطوع";
+"volunteer" = "تطوع وساهم في تحسين CoMaps";
 /* "Social media" section header in the About screen */
-"follow_us" = "تابعنا وتواصل معنا";
+"follow_us" = "تواصل معنا";
 /* Alert text */
 "email_error_body" = "لم يتم تنصيب البريد الإلكتروني. يرجى تفعيله أو استخدام أي وسيلة أخرى للاتصال بنا على %@";
 /* Alert title */
@@ -274,7 +274,7 @@
 /* Text for routing error dialog */
 "routing_requires_all_map" = "لإنشاء مسار، نحتاج إلى تنزيل وتحديث جميع الخرائط من موقعك إلى وجهتك.";
 /* bookmark button text */
-"bookmark" = "إشارة مرجعية";
+"bookmark" = "المكان";
 "save" = "احفظ";
 "create" = "إنشاء";
 /* red color */
@@ -348,7 +348,7 @@
 /* Text for routing::RouterResultCode::FileTooOld dialog. */
 "dialog_routing_download_and_update_maps" = "لإنشاء مسار، يرجى تنزيل وتحديث جميع الخرائط على امتداد الطريق.";
 "categories" = "التصنيفات";
-"history" = "سجل البحث";
+"history" = "التأريخ";
 "search_not_found" = "المعذرة، لم أعثر على أية نتائج.";
 /* The message when user did not find anything in the search. */
 "search_not_found_query" = "نزّل المنطقة التي تبحث فيها أو حاول إضافة اسم بلدة/قرية قريبة.";
@@ -388,8 +388,8 @@
 "voice_explanation_before_version26" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Spoken Content*, *Voices*.";
 "unknown" = "Unknown";
 /* Place page confirmation messages and time ago formatting */
-"existence_confirmed_time_ago" = "Existence confirmed %@";
-"hours_confirmed_time_ago" = "Confirmed %@";
+"existence_confirmed_time_ago" = "تم تأكيد الوجود %@";
+"hours_confirmed_time_ago" = "تم التأكيد %@";
 /* Place Page opening hours text */
 "closed_now" = "مغلق الآن";
 /* Place Page opening hours text */
@@ -459,7 +459,7 @@
 "editor_focus_map_on_location" = "اسحب الخريطة لوضع الصليب في موقع المكان أو النشاط التجاري.";
 "editor_add_select_category" = "اختر الفئة";
 "editor_add_select_category_popular_subtitle" = "رائج";
-"editor_add_select_category_all_subtitle" = "جميع الفئات";
+"editor_add_select_category_all_subtitle" = "كل الفئات";
 "editor_edit_place_title" = "التعديل";
 "editor_add_place_title" = "الإضافة";
 "editor_edit_place_name_hint" = "اسم المكان";
@@ -483,7 +483,7 @@
 "editor_zip_code" = "الرمز البريدي";
 "error_enter_correct_zip_code" = "أدخل رمز بريدي صالح";
 /* Place Page title for long tap */
-"core_placepage_unknown_place" = "نقطة الخريطة";
+"core_placepage_unknown_place" = "نقطة على خريطة";
 /* Title for OSM note section in the editor */
 "editor_other_info" = "ملاحظة لمتطوعي OpenStreetMap (اختياري)";
 "editor_detailed_description_hint" = "تعليق مفصّل";
@@ -526,9 +526,9 @@
 "book_button" = "حجز";
 "placepage_call_button" = "اتصال";
 "placepage_edit_bookmark_button" = "عدِّل المكان المحفوظ";
-"placepage_bookmark_name_hint" = "اسم العلامة المرجعية";
+"placepage_bookmark_name_hint" = "اسم المكان";
 "placepage_personal_notes_hint" = "ملاحظات شخصية (نص أو html)";
-"placepage_delete_bookmark_button" = "حذف العلامة المرجعية";
+"placepage_delete_bookmark_button" = "حذف المكان";
 "editor_edits_sent_message" = "سيتم إرسال ملاحظتك إلى OpenStreetMap";
 "editor_comment_hint" = "تعليق…";
 "editor_reset_edits_message" = "أهمِل كل التغييرات المحلية؟";
@@ -681,8 +681,6 @@
 "yes_available" = "نعم";
 /* E.g. "WiFi:No" */
 "no_available" = "لا";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "السعة: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "الشبكة: %@";
 "trip_finished" = "لقد وصلت!";
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Add Place";
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"downloader_check_updates_button" = "التحقق من التحديثات";
+"downloader_check_updates_checking" = "جارٍ التحقق من التحديثات...";
+"downloader_check_updates_updated" = "تحديثات الخرائط متوفرة!";
+"downloader_check_updates_no_updates" = "لا توجد تحديثات متوفرة";
+"downloader_check_updates_eol" = "لا توجد تحديثات خرائط إضافية لهذا الإصدار من التطبيق. يُرجى تحديث التطبيق!";
+"downloader_check_updates_error" = "حدث خطأ أثناء التحقق من التحديثات";
+"editor_add_select_category_recent_subtitle" = "مستخدمة حديثًا";
+"oh_unknown" = "ساعات العمل غير معروفة";
+"carplay_highway_exit" = "Exit %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "لا مواقف مخصّصة لذوي الإعاقة";
+"capacity_charging_yes" = "يحتوي على أماكن مزودة بشواحن";
+"capacity_charging_no" = "لا أماكن مزودة بشواحن";
+"planning_route_preview" = "معاينة";
+"planning_route_preview_sheet_title" = "Route Preview";

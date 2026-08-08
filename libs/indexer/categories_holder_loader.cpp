@@ -1,5 +1,7 @@
 #include "categories_holder.hpp"
 
+#include "coding/reader.hpp"
+
 #include "platform/platform.hpp"
 
 #include "defines.hpp"

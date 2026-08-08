@@ -1,13 +1,11 @@
 #pragma once
 
-#include "routing/absent_regions_finder.hpp"
 #include "routing/checkpoints.hpp"
-#include "routing/route.hpp"
 #include "routing/router.hpp"
 #include "routing/router_delegate.hpp"
 #include "routing/routing_callbacks.hpp"
 
-#include "platform/platform.hpp"
+#include "geometry/point2d.hpp"
 
 #include "base/thread.hpp"
 
@@ -22,6 +20,7 @@
 
 namespace routing
 {
+class AbsentRegionsFinder;
 
 /**
  * @brief The AsyncRouter class is a wrapper class to run routing routines in a different thread.

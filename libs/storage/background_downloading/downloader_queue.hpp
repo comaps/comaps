@@ -30,6 +30,12 @@ public:
       fn(item.second.m_queuedCountry);
   }
 
+  void ForEachCountry(ForEachCountryMutable const & fn) override
+  {
+    for (auto & item : m_queue)
+      fn(item.second.m_queuedCountry);
+  }
+
   void ForEachTaskInfo(ForEachTaskInfoTypeFunction const & fn) const
   {
     for (auto const & item : m_queue)

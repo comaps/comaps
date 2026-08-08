@@ -3,6 +3,7 @@
 #include "indexer/feature.hpp"
 
 #include "geometry/covering_utils.hpp"
+#include "geometry/point2d.hpp"
 
 namespace
 {

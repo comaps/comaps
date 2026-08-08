@@ -2,7 +2,9 @@
 
 #include "base_interpolator.hpp"
 
-#include "base/math.hpp"
+#include "base/assert.hpp"
+
+#include <cmath>
 
 namespace df
 {

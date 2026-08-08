@@ -7,6 +7,7 @@
 #include "geometry/mercator.hpp"
 
 #include "coding/file_reader.hpp"
+#include "coding/writer.hpp"
 
 #include "platform/platform.hpp"
 

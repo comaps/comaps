@@ -2,8 +2,9 @@
 
 #include "routing/city_roads_serialization.hpp"
 
-#include "indexer/data_source.hpp"
+#include "coding/files_container.hpp"
 
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 
 #include <utility>

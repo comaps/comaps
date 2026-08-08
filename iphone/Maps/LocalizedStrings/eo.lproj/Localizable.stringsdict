@@ -24,9 +24,71 @@
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Neniuj dosieroj trovitas.</string>
+			<key>one</key>
+			<string>%lld dosiero trovitas. Vi povas vidi ĝin post konvertiĝo.</string>
+			<key>other</key>
+			<string>%lld dosieroj trovitas. Vi povas vidi ilin post konvertiĝo.</string>
+		</dict>
 	</dict>
 	<key>tracks</key>
 	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Neniuj trakoj</string>
+			<key>one</key>
+			<string>%lld trako</string>
+			<key>other</key>
+			<string>%lld trakoj</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Neniuj loĝantoj</string>
+			<key>one</key>
+			<string>%lld loĝanto</string>
+			<key>other</key>
+			<string>%lld loĝantoj</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Neniuj ĉambroj</string>
+			<key>one</key>
+			<string>%lld ĉambro</string>
+			<key>other</key>
+			<string>%lld ĉambroj</string>
+		</dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>%#@nevertranslate@</string>
 	</dict>

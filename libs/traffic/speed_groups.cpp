@@ -1,5 +1,6 @@
 #include "traffic/speed_groups.hpp"
 
+#include "base/assert.hpp"
 #include "base/math.hpp"
 
 namespace traffic

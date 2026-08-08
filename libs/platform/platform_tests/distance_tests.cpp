@@ -1,6 +1,7 @@
 #include "testing/testing.hpp"
 
 #include "platform/distance.hpp"
+#include "platform/locale.hpp"
 #include "platform/measurement_utils.hpp"
 #include "platform/settings.hpp"
 

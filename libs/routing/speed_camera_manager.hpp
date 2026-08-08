@@ -1,14 +1,10 @@
 #pragma once
 
-#include "routing/route.hpp"
 #include "routing/routing_callbacks.hpp"
-#include "routing/routing_helpers.hpp"
 #include "routing/speed_camera.hpp"
-#include "routing/turns_notification_manager.hpp"
 
-#include "platform/location.hpp"
+#include "geometry/point2d.hpp"
 
-#include "base/assert.hpp"
 #include "base/thread_checker.hpp"
 
 #include <cstdint>
@@ -18,8 +14,18 @@
 #include <utility>
 #include <vector>
 
+namespace location
+{
+class GpsInfo;
+}  // namespace location
+
 namespace routing
 {
+namespace turns::sound
+{
+class NotificationManager;
+}  // namespace turns::sound
+
 // Do not change the order, it is used by platforms.
 enum class SpeedCameraManagerMode
 {

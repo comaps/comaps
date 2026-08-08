@@ -52,9 +52,9 @@
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Zaznamki";
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Priljubljeni";
+"bookmarks_and_tracks" = "Zaznamki";
 /* Default bookmark list name */
-"core_my_places" = "Moji kraji";
+"core_my_places" = "Moji zaznamki";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Naslov";
 /* Settings button in system menu */
@@ -111,7 +111,7 @@
 /* message title of loading file */
 "load_kmz_title" = "Nalaganje zaznamkov";
 /* Kmz file successful loading */
-"load_kmz_successful" = "Zaznamki so uspešno naloženi! Najdete jih lahko na zemljevidu ali v upravitelju zaznamkov.";
+"load_kmz_successful" = "Zaznamki so uspešno naloženi! Najdete jih lahko na zemljevidu ali v upravitelju Zaznamkov.";
 /* Kml file loading failed */
 "load_kmz_failed" = "Zaznamkov ni bilo mogoče naložiti. Datoteka je morda okvarjena.";
 /* resource for context menu */
@@ -459,7 +459,7 @@
 "editor_focus_map_on_location" = "Povlecite zemljevid tako, da bo križec na položaju kraja ali podjetja.";
 "editor_add_select_category" = "Izberite kategorijo";
 "editor_add_select_category_popular_subtitle" = "Priljubljeno";
-"editor_add_select_category_all_subtitle" = "Vsi razredi";
+"editor_add_select_category_all_subtitle" = "Vse kategorije";
 "editor_edit_place_title" = "Urejanje";
 "editor_add_place_title" = "Dodajanje";
 "editor_edit_place_name_hint" = "Ime kraja";
@@ -547,7 +547,7 @@
 /* Displayed when saving some edits to the map to warn against publishing personal data */
 "editor_share_to_all_dialog_title" = "Ali to želite poslati vsem uporabnikom?";
 /* Dialog before publishing the modifications to the public map. */
-"editor_share_to_all_dialog_message_1" = "Poskrbite, da niste vnesli nobenih zasebnih ali osebnih podatkov";
+"editor_share_to_all_dialog_message_1" = "Poskrbite, da niste vnesli nobenih zasebnih ali osebnih podatkov.";
 "editor_share_to_all_dialog_message_2" = "Uredniki na OpenStreetMap bodo preverili spremembe in stopili v stik z vami, če kaj ne bo jasno.";
 "navigation_stop_button" = "Ustavi";
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
@@ -681,8 +681,6 @@
 "yes_available" = "Da";
 /* E.g. "WiFi:No" */
 "no_available" = "Ne";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Velikost: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Omrežje: %@";
 "trip_finished" = "Prispeli ste na cilj!";
@@ -869,4 +867,19 @@
 "contribute_to_osm" = "Prispevajte k OpenStreetMap";
 "contribute_to_osm_add_place" = "Dodaj kraj";
 "contribute_to_osm_update_map" = "Prispevaj in posodobi zemljevid";
-"contribute_to_osm_update_map_description" = "Preden lahko prispevate na OpenStreetMap, morate posodobiti zemljevid %@ na zadnjo različico.";
+"contribute_to_osm_update_map_description" = "Preden lahko prispevate na OpenStreetMap, morate posodobiti zemljevid %@ na zadnjo različico";
+"downloader_check_updates_button" = "Preveri posodobitve";
+"downloader_check_updates_checking" = "Preverjanje posodobitev...";
+"downloader_check_updates_updated" = "Posodobitve zemljevidov so na voljo!";
+"downloader_check_updates_no_updates" = "Posodobitev ni na voljo";
+"downloader_check_updates_eol" = "Za to verzijo aplikacije posodobitve zemljevidov niso več na voljo. Prosimo posodobite aplikacijo!";
+"downloader_check_updates_error" = "Napaka pri preverjanju posodobitev";
+"editor_add_select_category_recent_subtitle" = "Nedavno uporabljeno";
+"oh_unknown" = "Odpiralni časi neznani";
+"carplay_highway_exit" = "Izvoz %@";
+"capacity_disabled_yes" = "Ima mesta za invalide";
+"capacity_disabled_no" = "Nima mest za invalide";
+"capacity_charging_yes" = "Ima mesta za polnjenje";
+"capacity_charging_no" = "Nima mest za polnjenje";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

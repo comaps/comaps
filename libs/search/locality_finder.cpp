@@ -2,15 +2,21 @@
 
 #include "search/categories_cache.hpp"
 #include "search/cbv.hpp"
-#include "search/dummy_rank_table.hpp"
 #include "search/mwm_context.hpp"
 
 #include "indexer/data_source.hpp"
+#include "indexer/dummy_rank_table.hpp"
 #include "indexer/feature_visibility.hpp"
 #include "indexer/ftypes_matcher.hpp"
 
+#include "indexer/feature.hpp"
+#include "indexer/feature_data.hpp"
+
+#include "geometry/mercator.hpp"
+
 #include "base/assert.hpp"
-#include "base/stl_helpers.hpp"
+
+#include "defines.hpp"
 
 #include <vector>
 

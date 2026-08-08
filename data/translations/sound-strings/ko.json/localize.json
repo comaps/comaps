@@ -1,0 +1,320 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "오른쪽에 두기."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "우회전하십시오."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "급우회전."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "로터리 진입입니다."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "원형 교차로에서 나갑니다."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "왼쪽에 두기."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "좌회전하십시오."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "급좌회전."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "유턴입니다."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "직진입니다."
+    },
+    "exit": {
+        "defaultMessage": "출구."
+    },
+    "onto": {
+        "defaultMessage": "NULL"
+    },
+    "take_exit_number": {
+        "defaultMessage": "출구"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "경로 다시 계산하기"
+    },
+    "destination": {
+        "defaultMessage": "도착할 예정입니다."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "도착했습니다."
+    },
+    "in_50_meters": {
+        "defaultMessage": "오십 미터 앞"
+    },
+    "in_100_meters": {
+        "defaultMessage": "백 미터 앞"
+    },
+    "in_200_meters": {
+        "defaultMessage": "이백 미터 앞"
+    },
+    "in_250_meters": {
+        "defaultMessage": "이백오십 미터 앞"
+    },
+    "in_300_meters": {
+        "defaultMessage": "삼백 미터 앞"
+    },
+    "in_400_meters": {
+        "defaultMessage": "사백 미터 앞"
+    },
+    "in_500_meters": {
+        "defaultMessage": "오백 미터 앞"
+    },
+    "in_600_meters": {
+        "defaultMessage": "육백 미터 앞"
+    },
+    "in_700_meters": {
+        "defaultMessage": "칠백 미터 앞"
+    },
+    "in_750_meters": {
+        "defaultMessage": "칠백오십 미터 앞"
+    },
+    "in_800_meters": {
+        "defaultMessage": "팔백 미터 앞"
+    },
+    "in_900_meters": {
+        "defaultMessage": "구백 미터 앞"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "일 킬로미터 앞"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "일점오 킬로미터 앞"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "이 킬로미터 앞"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "이점오 킬로미터 앞"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "삼 킬로미터 앞"
+    },
+    "then": {
+        "defaultMessage": "그 다음"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "첫 번째 출구입니다."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "두 번째 출구입니다."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "세 번째 출구입니다."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "네 번째 출구입니다."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "다섯 번째 출구입니다."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "여섯 번째 출구입니다."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "일곱 번째 출구입니다."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "여덟 번째 출구입니다."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "아홉 번째 출구입니다."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "열 번째 출구입니다."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "열한 번째 출구입니다."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "오십 피트 앞"
+    },
+    "in_100_feet": {
+        "defaultMessage": "백 피트 앞"
+    },
+    "in_200_feet": {
+        "defaultMessage": "이백 피트 앞"
+    },
+    "in_300_feet": {
+        "defaultMessage": "삼백 피트 앞"
+    },
+    "in_400_feet": {
+        "defaultMessage": "사백 피트 앞"
+    },
+    "in_500_feet": {
+        "defaultMessage": "오백 피트 앞"
+    },
+    "in_600_feet": {
+        "defaultMessage": "육백 피트 앞"
+    },
+    "in_700_feet": {
+        "defaultMessage": "칠백 피트 앞"
+    },
+    "in_800_feet": {
+        "defaultMessage": "팔백 피트 앞"
+    },
+    "in_900_feet": {
+        "defaultMessage": "구백 피트 앞"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "천 피트 앞"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "천오백 피트 앞"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "이천 피트 앞"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "이천오백 피트 앞"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "삼천 피트 앞"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "삼천오백 피트 앞"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "사천 피트 앞"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "사천오백 피트 앞"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "오천 피트 앞"
+    },
+    "in_1_mile": {
+        "defaultMessage": "일 마일 앞"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "일점오 마일 앞"
+    },
+    "in_2_miles": {
+        "defaultMessage": "이 마일 앞"
+    },
+    "unknown_camera": {
+        "defaultMessage": "전방에 카메라"
+    }
+}

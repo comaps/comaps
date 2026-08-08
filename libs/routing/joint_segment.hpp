@@ -3,6 +3,8 @@
 #include "routing/route_weight.hpp"
 #include "routing/segment.hpp"
 
+#include "routing_common/num_mwm_id.hpp"
+
 #include "indexer/feature_decl.hpp"
 
 #include <limits>

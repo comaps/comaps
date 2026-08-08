@@ -2,6 +2,9 @@
 
 #include "drape_frontend/tile_key.hpp"
 
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
+
 #include <functional>
 #include <set>
 

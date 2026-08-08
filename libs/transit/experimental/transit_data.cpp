@@ -1,16 +1,28 @@
 #include "transit/experimental/transit_data.hpp"
 
 #include "transit/transit_entities.hpp"
+#include "transit/transit_schedule.hpp"
 #include "transit/transit_serdes.hpp"
 #include "transit/transit_version.hpp"
 
+#include "indexer/feature_decl.hpp"
+
+#include "coding/writer.hpp"
+
+#include "geometry/point2d.hpp"
+
 #include "base/assert.hpp"
+#include "base/checked_cast.hpp"
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
+
+#include "defines.hpp"
 
 #include <algorithm>
 #include <fstream>
 #include <tuple>
+
+#include "cppjansson/cppjansson.hpp"
 
 namespace transit
 {

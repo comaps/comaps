@@ -8,10 +8,11 @@
 #include "coding/file_reader.hpp"
 #include "coding/geometry_coding.hpp"
 #include "coding/read_write_utils.hpp"
+#include "coding/reader.hpp"
+#include "coding/varint.hpp"
 
 #include "geometry/region2d.hpp"
 
-#include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 

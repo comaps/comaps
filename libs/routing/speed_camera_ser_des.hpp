@@ -1,12 +1,9 @@
 #pragma once
 
+#include "routing/road_point.hpp"
 #include "routing/route.hpp"
-#include "routing/routing_session.hpp"
-#include "routing/segment.hpp"
 #include "routing/speed_camera.hpp"
 
-#include "coding/file_writer.hpp"
-#include "coding/files_container.hpp"
 #include "coding/point_coding.hpp"
 #include "coding/reader.hpp"
 #include "coding/varint.hpp"
@@ -15,6 +12,7 @@
 #include "geometry/point2d.hpp"
 
 #include "base/assert.hpp"
+#include "base/macros.hpp"
 
 #include <cstdint>
 #include <limits>

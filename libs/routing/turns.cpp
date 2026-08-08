@@ -1,10 +1,16 @@
 #include "routing/turns.hpp"
 
+#include "routing/segment.hpp"
+
+#include "routing_common/num_mwm_id.hpp"
+
 #include "geometry/angles.hpp"
 
 #include "platform/country_file.hpp"
 
+#include "base/assert.hpp"
 #include "base/internal/message.hpp"
+#include "base/math.hpp"
 
 #include <algorithm>
 #include <array>

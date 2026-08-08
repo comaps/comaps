@@ -8,7 +8,16 @@
 
 #include "geometry/point2d.hpp"
 
+#include "base/buffer_vector.hpp"
+
 #include <vector>
+
+namespace dp
+{
+class Batcher;
+class GraphicsContext;
+class Texture;
+}  // namespace dp
 
 namespace df
 {

@@ -5,15 +5,12 @@
 #include "coding/reader.hpp"
 #include "coding/succinct_mapper.hpp"
 
+#include "base/assert.hpp"
 #include "base/logging.hpp"
-#include "base/stl_helpers.hpp"
-#include "base/thread.hpp"
 
 #include "defines.hpp"
 
 #include <algorithm>
-
-#include "3party/succinct/mapper.hpp"
 
 namespace feature
 {

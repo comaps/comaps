@@ -420,7 +420,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
         btn.setText(getResources().getString(resTypeId));
       }
 
-      if (socket.equals(type))
+      if (socketType.equals(type))
       {
         btn.setChecked(true);
       }
@@ -480,7 +480,14 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     AutoCompleteTextView powerView = dialogView.findViewById(R.id.edit_socket_power);
     if (power > 0)
     {
-      powerView.setText(String.valueOf(power));
+      if (power == (long) power)
+      {
+        powerView.setText(String.valueOf((long) power));
+      }
+      else
+      {
+        powerView.setText(String.valueOf(power));
+      }
     }
 
     // Add a TextWatcher to validate on text change
@@ -1037,7 +1044,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
         getString(R.string.editor_place_doesnt_exist), "", getString(R.string.editor_place_doesnt_exist_description),
         getString(R.string.editor_report_problem_send_button), getString(R.string.cancel), this,
         getDeleteCommentValidator());
-    dialogFragment.setTextSaveListener(this::commitPlaceDoesntExists);
+    dialogFragment.setTextSaveListener(this::commitPlaceDoesntExist);
   }
 
   private void placeDisused()
@@ -1048,16 +1055,16 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
         .setPositiveButton(R.string.editor_submit,
                            (dlg, which) -> {
                              Editor.nativeMarkPlaceAsDisused();
-                             mParent.processEditedFeatures();
+                             mParent.ensureOsmAuthorized();
                            })
         .setNegativeButton(android.R.string.cancel, null)
         .show();
   }
 
-  private void commitPlaceDoesntExists(@NonNull String text)
+  private void commitPlaceDoesntExist(@NonNull String text)
   {
     Editor.nativePlaceDoesNotExist(text);
-    mParent.onBackPressed();
+    mParent.ensureOsmAuthorized();
   }
 
   @NonNull

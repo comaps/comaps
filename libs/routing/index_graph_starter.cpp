@@ -1,13 +1,20 @@
 #include "routing/index_graph_starter.hpp"
 
 #include "routing/fake_edges_container.hpp"
+#include "routing/fake_vertex.hpp"
+#include "routing/geometry.hpp"
+#include "routing/latlon_with_altitude.hpp"
 #include "routing/regions_sparse_graph.hpp"
+#include "routing/routing_options.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
 
 #include "coding/point_coding.hpp"
 
 #include "geometry/distance_on_sphere.hpp"
+#include "geometry/latlon.hpp"
+
+#include "base/assert.hpp"
 
 #include <algorithm>
 #include <map>

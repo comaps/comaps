@@ -1,16 +1,22 @@
 #include "storage/country_tree.hpp"
 
-#include "base/string_utils.hpp"
+#include "storage/country_decl.hpp"
+
+#include "platform/country_defines.hpp"
+#include "platform/country_file.hpp"
 #include "platform/platform.hpp"
 
 #include "coding/reader.hpp"
 
 #include "base/assert.hpp"
+#include "base/exception.hpp"
+#include "base/geo_object_id.hpp"
 #include "base/logging.hpp"
 #include "base/stl_helpers.hpp"
 
 #include "cppjansson/cppjansson.hpp"
 
+#include "defines.hpp"
 #include "private.h"
 
 #include <algorithm>

@@ -1,0 +1,29 @@
+{
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "Off licence|liquor"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "4Jewellery"
+    },
+    "shop-mall|@category_shopping|@shop": {
+        "defaultMessage": "entertainment centre|shopping arcade|retail|Shopping Centre"
+    },
+    "shop-car|@shop": {
+        "defaultMessage": "3Car Dealership|Car showroom"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "4Chemist|pharmacist|Pharmacy"
+    },
+    "amenity-waste_basket": {
+        "defaultMessage": "4Waste Bin|4litter bin|trash bin"
+    },
+    "amenity-arts_centre|@category_tourism": {
+        "defaultMessage": "Arts Centre"
+    },
+    "amenity-exhibition_centre": {
+        "defaultMessage": "Exhibition Centre"
+    },
+    "amenity-conference_centre": {
+        "defaultMessage": "Conference Centre"
+    }
+}

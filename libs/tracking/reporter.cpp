@@ -1,5 +1,7 @@
 #include "tracking/reporter.hpp"
 
+#include "geometry/latlon.hpp"
+
 #include "platform/location.hpp"
 #include "platform/platform.hpp"
 #include "platform/socket.hpp"

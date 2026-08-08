@@ -1,12 +1,14 @@
 #pragma once
 
-#include "geometry/mercator.hpp"
-#include "geometry/point2d.hpp"
 #include "indexer/edit_journal.hpp"
-#include "indexer/feature_decl.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "geometry/latlon.hpp"
+#include "geometry/point2d.hpp"
 
+#include "i18n/localisation.hpp"
+
+#include "base/assert.hpp"
+#include "base/exception.hpp"
 #include "base/string_utils.hpp"
 
 #include <cstdint>

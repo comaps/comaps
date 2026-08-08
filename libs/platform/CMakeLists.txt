@@ -18,9 +18,9 @@ set(SRC
   downloader_defines.hpp
   downloader_utils.cpp
   downloader_utils.hpp
-  get_text_by_id.cpp
-  get_text_by_id.hpp
   gui_thread.hpp
+  helpers.cpp
+  helpers.hpp
   http_client.cpp
   http_client.hpp
   http_payload.cpp
@@ -37,6 +37,7 @@ set(SRC
   locale.hpp
   localization.cpp
   localization.hpp
+  localized_types_map.cpp
   location.hpp
   measurement_utils.cpp
   measurement_utils.hpp
@@ -178,23 +179,30 @@ if (PLATFORM_LINUX OR PLATFORM_WIN)
 endif()
 
 if (NOT APPLE)
-  target_link_libraries(${PROJECT_NAME} monocypher)
+  target_link_libraries(${PROJECT_NAME} PUBLIC monocypher)
 endif()
 
 target_link_libraries(${PROJECT_NAME}
-  geometry  # mercator::YToLat
-  coding
-  indexer # feature::*
-  $<$<BOOL:${PLATFORM_DESKTOP}>:Qt6::Core>
-  $<$<BOOL:${PLATFORM_LINUX}>:Qt6::Network>
-  $<$<BOOL:${PLATFORM_WIN}>:Qt6::Network>
-  $<$<BOOL:${PLATFORM_WIN}>:shlwapi>  # PathIsDirectoryEmptyA
-  $<$<BOOL:${PLATFORM_MAC}>:
-    -framework\ Foundation
-    -framework\ SystemConfiguration
-    -framework\ CFNetwork
-    -framework\ Security  # SecPKCS12Import
-    >
+  PUBLIC
+    base
+    geometry  # mercator::YToLat
+  PRIVATE
+    coding
+    cppjansson
+)
+
+target_link_libraries(${PROJECT_NAME}
+  PUBLIC
+    $<$<BOOL:${PLATFORM_DESKTOP}>:Qt6::Core>
+    $<$<BOOL:${PLATFORM_LINUX}>:Qt6::Network>
+    $<$<BOOL:${PLATFORM_WIN}>:Qt6::Network>
+    $<$<BOOL:${PLATFORM_WIN}>:shlwapi>  # PathIsDirectoryEmptyA
+    $<$<BOOL:${PLATFORM_MAC}>:
+      -framework\ Foundation
+      -framework\ SystemConfiguration
+      -framework\ CFNetwork
+      -framework\ Security  # SecPKCS12Import
+      >
 )
 
 omim_add_test_subdirectory(platform_tests_support)

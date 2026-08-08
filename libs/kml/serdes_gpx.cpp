@@ -4,11 +4,15 @@
 
 #include "coding/hex.hpp"
 #include "coding/point_coding.hpp"
+#include "coding/writer.hpp"
 
+#include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
+#include "geometry/point2d.hpp"
 
 #include "base/assert.hpp"
 #include "base/string_utils.hpp"
+#include "base/timer.hpp"
 
 namespace kml
 {

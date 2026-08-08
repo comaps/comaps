@@ -1,15 +1,20 @@
 #include "drape_frontend/selection_shape.hpp"
+
+#include "drape_frontend/frame_values.hpp"
 #include "drape_frontend/map_shape.hpp"
 #include "drape_frontend/selection_shape_generator.hpp"
 #include "drape_frontend/shape_view_params.hpp"
+#include "drape_frontend/tile_key.hpp"
 #include "drape_frontend/tile_utils.hpp"
 #include "drape_frontend/visual_params.hpp"
 
-#include "shaders/program_manager.hpp"
+#include "drape/glsl_types.hpp"
 
-#include "drape/texture_manager.hpp"
+#include "shaders/program_params.hpp"
 
-#include "geometry/point3d.hpp"
+#include "geometry/screenbase.hpp"
+
+#include "base/matrix.hpp"
 
 #include <array>
 

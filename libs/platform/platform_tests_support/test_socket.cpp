@@ -1,7 +1,5 @@
 #include "test_socket.hpp"
 
-#include "base/assert.hpp"
-
 #include <algorithm>
 #include <chrono>
 

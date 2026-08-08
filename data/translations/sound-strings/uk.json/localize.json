@@ -1,0 +1,320 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Тримайтеся правіше."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Поверніть праворуч."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Різко вправо."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "В'їзд на кільцеву транспортну розв'язку."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "З'їзд з кільцевої транспортної розв'язки."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Тримайтеся лівіше."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Поверніть ліворуч."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Різкий поворот наліво."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Зробіть розворот."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "Їдьте прямо."
+    },
+    "exit": {
+        "defaultMessage": "З'їзд."
+    },
+    "onto": {
+        "defaultMessage": "на"
+    },
+    "take_exit_number": {
+        "defaultMessage": "З'їзд на"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Перерахунок маршруту"
+    },
+    "destination": {
+        "defaultMessage": "Ви прибудете."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "Ви прибули."
+    },
+    "in_50_meters": {
+        "defaultMessage": "Через п'ятдесят метрів"
+    },
+    "in_100_meters": {
+        "defaultMessage": "Через сто метрів"
+    },
+    "in_200_meters": {
+        "defaultMessage": "Через двісті метрів"
+    },
+    "in_250_meters": {
+        "defaultMessage": "Через двісті п'ятдесят метрів"
+    },
+    "in_300_meters": {
+        "defaultMessage": "Через триста метрів"
+    },
+    "in_400_meters": {
+        "defaultMessage": "Через чотириста метрів"
+    },
+    "in_500_meters": {
+        "defaultMessage": "Через п’ятсот метрів"
+    },
+    "in_600_meters": {
+        "defaultMessage": "Через шістсот метрів"
+    },
+    "in_700_meters": {
+        "defaultMessage": "Через сімсот метрів"
+    },
+    "in_750_meters": {
+        "defaultMessage": "Через сімсот п'ятьдесят метрів"
+    },
+    "in_800_meters": {
+        "defaultMessage": "Через вісімсот метрів"
+    },
+    "in_900_meters": {
+        "defaultMessage": "Через дев'ятсот метрів"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "Через один кілометр"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "Через півтора кілометри"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "Через два кілометри"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "Через два з половиною кілометра"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "Через три кілометри"
+    },
+    "then": {
+        "defaultMessage": "Потім"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Рухайтесь через перший з'їзд."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Рухайтесь через другий з'їзд."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "З’їдьте на третьому з’їзді."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "З’їдьте на четвертому з’їзді."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "З’їдьте на п’ятому з’їзді."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "З’їдьте на шостому з’їзді."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "З’їдьте на сьомому з’їзді."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "З’їдьте на восьмому з’їзді."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "З’їдьте на дев’ятому з’їзді."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "З’їдьте на десятому з’їзді."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "З’їдьте на одинадцятому з’їзді."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "Через п'ятдесят футів"
+    },
+    "in_100_feet": {
+        "defaultMessage": "Через сто футів"
+    },
+    "in_200_feet": {
+        "defaultMessage": "Через двісті футів"
+    },
+    "in_300_feet": {
+        "defaultMessage": "Через триста футів"
+    },
+    "in_400_feet": {
+        "defaultMessage": "Через чотириста футів"
+    },
+    "in_500_feet": {
+        "defaultMessage": "Через п'ятсот футів"
+    },
+    "in_600_feet": {
+        "defaultMessage": "Через шістсот футів"
+    },
+    "in_700_feet": {
+        "defaultMessage": "Через сімсот футів"
+    },
+    "in_800_feet": {
+        "defaultMessage": "Через вісімсот футів"
+    },
+    "in_900_feet": {
+        "defaultMessage": "Через дев'ятсот футів"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "Через тисячу футів"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "Через півтори тисячі футів"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "Через дві тисячі футів"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "Через дві з половиною тисячі футів"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "Через три тисячі футів"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "Через три з половиною тисячі футів"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "Через чотири тисячі футів"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "Через чотири з половиною тисячі футів"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "Через п'ять тисяч футів"
+    },
+    "in_1_mile": {
+        "defaultMessage": "Через одну милю"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "Через півтори милі"
+    },
+    "in_2_miles": {
+        "defaultMessage": "Через дві милі"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Попереду камера"
+    }
+}

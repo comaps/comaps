@@ -1,11 +1,12 @@
 #include "qt/place_page_dialog_user.hpp"
 #include "qt/place_page_dialog_common.hpp"
+#include "qt/star_rating_widget.hpp"
 
 #include "qt/qt_common/text_dialog.hpp"
 
+#include "indexer/reviews_display.hpp"
 #include "indexer/validate_and_format_contacts.hpp"
 #include "map/place_page_info.hpp"
-#include "platform/settings.hpp"
 
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
@@ -38,13 +39,6 @@ std::string getShortDescription(std::string const & description)
   return std::string(view);
 }
 
-std::string_view stripSchemeFromURI(std::string_view uri)
-{
-  for (std::string_view prefix : {"https://", "http://"})
-    if (uri.starts_with(prefix))
-      return uri.substr(prefix.size());
-  return uri;
-}
 }  // namespace
 
 class QHLine : public QFrame
@@ -79,6 +73,19 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, place_page::Info cons
       QLabel * subtitleLabel = new QLabel(QString::fromStdString(subTitle));
       subtitleLabel->setWordWrap(true);
       header->addWidget(subtitleLabel);
+    }
+
+    if (auto const & featureReviews = info.GetReviews(); featureReviews.has_value())
+    {
+      auto const & [averageRating, reviews] = featureReviews.value();
+      auto * reviewLine = new QHBoxLayout();
+      reviewLine->setSpacing(5);
+      header->addLayout(reviewLine);
+      auto const starRating = reviews::ToStarRating(averageRating);
+      reviewLine->addWidget(new QLabel(QString::fromStdString(std::format("{:.1f}", starRating))));
+      reviewLine->addWidget(new qt::StarRatingWidget(starRating));
+      reviewLine->addWidget(new QLabel(QString::fromStdString(std::format("({})", reviews.size()))));
+      reviewLine->addStretch(1);
     }
 
     if (auto const addressFormatted = address.FormatAddress(); !addressFormatted.empty())
@@ -206,7 +213,7 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, place_page::Info cons
 
     // Links fragment
     if (auto website = info.GetMetadata(feature::Metadata::EType::FMD_WEBSITE); !website.empty())
-      addEntry("Website", std::string(stripSchemeFromURI(website)), true);
+      addEntry("Website", std::string(website), true);
 
     if (auto email = info.GetMetadata(feature::Metadata::EType::FMD_EMAIL); !email.empty())
     {

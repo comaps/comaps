@@ -1,6 +1,9 @@
 #include "map/user_mark_id_storage.hpp"
 
+#include "kml/types.hpp"
+
 #include "platform/platform.hpp"
+#include "platform/secure_storage.hpp"
 
 #include "base/string_utils.hpp"
 

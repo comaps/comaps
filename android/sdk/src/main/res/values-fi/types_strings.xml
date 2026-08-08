@@ -42,7 +42,7 @@
     <string name="type.leisure.amusement_arcade">Arcade</string>
     <string name="type.amenity.charging_station">Latausasema</string>
     <string name="type.amenity.charging_station.bicycle">Polkupyörän latausasema</string>
-    <string name="type.amenity.charging_station.motorcar">Auton latausasema</string>
+    <string name="type.amenity.charging_station.motorcar">Auto</string>
     <string name="type.amenity.childcare">Päivähoito</string>
     <string name="type.amenity.cinema">Elokuvateatteri</string>
     <string name="type.leisure.bowling_alley">Keilarata</string>
@@ -375,7 +375,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunneli</string>
     <string name="type.highway.bus_stop">Bussipysäkki</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.motorway">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.motorway_link">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.trunk">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.trunk_link">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.primary">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.primary_link">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.secondary">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.secondary_link">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.tertiary">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.tertiary_link">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.residential">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.unclassified">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.service">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.living_street">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.road">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.track">Rakenteilla oleva tie</string>
     <string name="type.highway.cycleway">Pyörätie</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Silta</string>
@@ -1333,7 +1350,7 @@
     <string name="type.internet_access.wlan">Internet</string>
     <string name="type.man_made">Ihmisen Tekemä</string>
     <string name="type.fee.yes">$</string>
-    <string name="type.organic.yes">Luomu</string>
+    <string name="type.organic.yes">Luomu vaihtoehtoja</string>
     <string name="type.leisure.common">Julkinen paikka</string>
     <string name="type.leisure.track">Juoksurata</string>
     <string name="type.leisure.track.area">Juoksurata</string>
@@ -1392,7 +1409,7 @@
     <string name="type.office.security">Vartijoiden toimisto</string>
     <string name="type.building.guardhouse">Vartijankoppi</string>
     <string name="type.power.portal">Sähköportaali</string>
-    <string name="type.amenity.bench.backless">Selkänojaton penkki</string>
+    <string name="type.amenity.bench.backless">Selkänojaton</string>
     <string name="type.amenity.boat_rental">Venevuokraus</string>
     <string name="type.man_made.telescope">Teleskooppi</string>
     <string name="type.man_made.telescope.optical">Teleskooppi (optinen)</string>
@@ -1462,4 +1479,28 @@
     <string name="type.amenity.mobile_money_agent">Mobile Money Agent</string>
     <string name="type.shop.water">Vesimyymälä</string>
     <string name="type.amenity.give_box">Lahjoituslaatikko</string>
+    <string name="type.amenity.charging_station.motorcycle">Moottoripyörien latausasema</string>
+    <string name="type.amenity.planetarium">Planetaario</string>
+    <string name="type.amenity.payment_centre">Maksukeskus</string>
+    <string name="type.amenity.toilets.customers">Pääsy Asiakkaille</string>
+    <string name="type.amenity.toilets.private">Yksityinen Pääsy</string>
+    <string name="type.amenity.stage">Lava</string>
+    <string name="type.emergency.access_point">Hätäpelastuspiste</string>
+    <string name="type.emergency.access_point.address">Hätäpelastusosoite</string>
+    <string name="type.emergency.disaster_help_point">"Hätäapupiste  luonnonkatastrofeissa"</string>
+    <string name="type.emergency.life_ring">Pelastusrengas</string>
+    <string name="type.amenity.hydrant">Vesihyasintti</string>
+    <string name="type.beacon.cardinal.east">Kardinaalimajakka</string>
+    <string name="type.beacon.cardinal.north">Kardinaalimajakka</string>
+    <string name="type.beacon.cardinal.south">Kardinaalimajakka</string>
+    <string name="type.beacon.cardinal.west">Kardinaalimajakka</string>
+    <string name="type.lateral.port">Satama</string>
+    <string name="type.entrance.service">Palvelusisäänkaynti</string>
+    <string name="type.leisure.sports_centre.sport.boules">Urheilukeskus</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Urheilukeskus</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Urheilukeskus</string>
+    <string name="type.leisure.fitness_centre.sport.yoga">Joogastudio</string>
+    <string name="type.organic.no">Ei luomu vaihtoehtoja</string>
+    <string name="type.railway.disused.bridge">Käytöstä poistettu rautatiesilta</string>
+    <string name="type.attraction">Nähtävyys</string>
 </resources>

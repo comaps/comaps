@@ -1,10 +1,10 @@
 #include "drape/batcher_helpers.hpp"
 #include "drape/attribute_provider.hpp"
+#include "drape/binding_info.hpp"
 #include "drape/cpu_buffer.hpp"
 #include "drape/index_storage.hpp"
 
 #include "base/assert.hpp"
-#include "base/math.hpp"
 
 #include <algorithm>
 

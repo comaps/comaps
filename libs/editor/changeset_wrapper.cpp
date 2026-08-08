@@ -1,10 +1,15 @@
 #include "editor/changeset_wrapper.hpp"
-#include "editor/feature_matcher.hpp"
 
+#include "editor/feature_matcher.hpp"
+#include "editor/osm_auth.hpp"
+
+#include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
+#include "geometry/rect2d.hpp"
 
 #include "base/logging.hpp"
 #include "base/macros.hpp"
+#include "base/string_utils.hpp"
 
 #include <algorithm>
 #include <exception>

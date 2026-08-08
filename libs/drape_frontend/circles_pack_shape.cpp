@@ -3,12 +3,15 @@
 
 #include "shaders/programs.hpp"
 
+#include "drape/attribute_buffer_mutator.hpp"
 #include "drape/attribute_provider.hpp"
 #include "drape/batcher.hpp"
-#include "drape/glsl_func.hpp"
-#include "drape/glsl_types.hpp"
+#include "drape/binding_info.hpp"
+#include "drape/drape_global.hpp"
 #include "drape/graphics_context.hpp"
-#include "drape/texture_manager.hpp"
+
+#include "base/assert.hpp"
+#include "base/macros.hpp"
 
 #include <memory>
 

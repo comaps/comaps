@@ -3,10 +3,11 @@
 #include "shaders/vulkan_program_params.hpp"
 #include "shaders/vulkan_program_pool.hpp"
 
+#include "drape/gl_constants.hpp"
 #include "drape/gl_functions.hpp"
-#include "drape/support_manager.hpp"
 #include "drape/vulkan/vulkan_base_context.hpp"
 
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 
 #include "gl_program_params.hpp"

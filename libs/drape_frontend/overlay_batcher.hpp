@@ -1,16 +1,18 @@
 #pragma once
 
-#include "drape_frontend/render_state_extension.hpp"
 #include "drape_frontend/tile_key.hpp"
 
 #include "drape/batcher.hpp"
 #include "drape/pointers.hpp"
+#include "drape/render_bucket.hpp"
+#include "drape/render_state.hpp"
 
 #include <utility>
 #include <vector>
 
 namespace dp
 {
+class GraphicsContext;
 class TextureManager;
 class RenderBucket;
 }  // namespace dp

@@ -2,6 +2,7 @@
 #include "testing/testregister.hpp"
 
 #include "base/logging.hpp"
+#include "base/macros.hpp"
 #include "base/timer.hpp"
 #include "base/waiter.hpp"
 

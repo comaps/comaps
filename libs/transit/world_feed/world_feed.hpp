@@ -1,16 +1,10 @@
 #pragma once
 
-#include "generator/affiliation.hpp"
-
 #include "transit/transit_entities.hpp"
 #include "transit/transit_schedule.hpp"
-#include "transit/world_feed/color_picker.hpp"
 #include "transit/world_feed/feed_helpers.hpp"
 
-#include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"
-
-#include "defines.hpp"
 
 #include <cstdint>
 #include <fstream>
@@ -22,8 +16,15 @@
 #include "3party/ankerl/unordered_dense.h"
 #include "3party/just_gtfs/just_gtfs.h"
 
+namespace feature
+{
+class CountriesFilesAffiliation;
+}  // namespace feature
+
 namespace transit
 {
+class ColorPicker;
+
 static std::string const kDelimiter = "_";
 // Generates globally unique TransitIds mapped to the GTFS entities hashes.
 class IdGenerator

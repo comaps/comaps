@@ -3,7 +3,7 @@
 #include "drape/drape_global.hpp"
 #include "drape/glsl_types.hpp"
 
-#include "geometry/rect2d.hpp"
+#include "geometry/point2d.hpp"
 
 #include <vector>
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "kml/header_binary.hpp"
+#include "kml/type_utils.hpp"
 #include "kml/types.hpp"
 #include "kml/types_v3.hpp"
 #include "kml/types_v6.hpp"
@@ -10,7 +11,14 @@
 #include "kml/types_v9mm.hpp"
 #include "kml/visitors.hpp"
 
+#include "coding/reader.hpp"
 #include "coding/text_storage.hpp"
+#include "coding/varint.hpp"
+#include "coding/write_to_sink.hpp"
+
+#include "base/assert.hpp"
+#include "base/exception.hpp"
+#include "base/logging.hpp"
 
 #include <string>
 #include <vector>

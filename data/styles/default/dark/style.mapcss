@@ -76,6 +76,7 @@ colors
   RoadShieldBlueBackground-color: #294C88;
   RoadShieldRedBackground-color: #9F1A17;
   RoadShieldOrangeBackground-color: #B58E1B;
+  RoadShieldGreyBackground-color: #4D4F50;
   PoiHotelTextOutline-color: #000000;
   PoiHotelTextOutline-opacity: 0.6;
   PoiDeletedMask-color: #FFFFFF;

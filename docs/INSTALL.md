@@ -39,8 +39,7 @@ git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/
   <summary><span style="font-size: 1em; font-weight: bold;">Ubuntu/Debian</span></summary>
 
 ```bash
-sudo apt install build-essential cmake qt6-base-dev qt6-svg-dev qt6-positioning-dev libicu-dev libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev optipng python3-pip ninja-build
-
+sudo apt install build-essential cmake qt6-base-dev qt6-svg-dev qt6-positioning-dev libicu-dev libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev optipng python3-venv ninja-build jq
 ```
 </details>
 
@@ -48,7 +47,7 @@ sudo apt install build-essential cmake qt6-base-dev qt6-svg-dev qt6-positioning-
   <summary><span style="font-size: 1em; font-weight: bold;">Arch Linux</span></summary>
 
 ```bash
-sudo pacman -S base-devel cmake qt6-base qt6-svg qt6-positioning icu freetype2 harfbuzz harfbuzz-utils libxrandr libxinerama libxcursor libxi ninja python-pip optipng
+sudo pacman -S base-devel cmake qt6-base qt6-svg qt6-positioning icu freetype2 harfbuzz harfbuzz-utils libxrandr libxinerama libxcursor libxi ninja python-pip optipng jq
 ```
 
 </details>
@@ -57,16 +56,21 @@ sudo pacman -S base-devel cmake qt6-base qt6-svg qt6-positioning icu freetype2 h
   <summary><span style="font-size: 1em; font-weight: bold;">Fedora</span></summary>
 
 ```bash
-sudo dnf install @development-tools cmake qt6-qtbase qt6-qtsvg qt6-qtpositioning icu harfbuzz freetype libXrandr libXinerama libXcursor libXi optipng python3-pip ninja-build
+sudo dnf install @development-tools cmake qt6-qtbase qt6-qtsvg qt6-qtpositioning icu harfbuzz freetype libXrandr libXinerama libXcursor libXi optipng python3-pip ninja-build jq
 ```
 
 </details>
 
-```bash
-pip install "protobuf<3.21" --break-system-packages
-```
+The data generation tools require a specific Python `protobuf` version. You don't
+need to install it manually: `./configure.sh` (run below) creates a local `.venv`
+in the repository root and installs the correct version into it automatically.
 
-Note: If the system can't find `pip`, try `pip3` instead
+If you prefer to manage `protobuf` via your system Python (e.g. a distro
+`python3-protobuf` package), set `SKIP_PYTHON_VENV=1` before running `./configure.sh`
+and the venv step will be skipped.
+
+
+
 
 ### Configure running bash script
 
@@ -83,7 +87,9 @@ If you plan to publish the app privately in stores check [special options](#spec
 <details>
   <summary><span style="font-size: 1.5em; font-weight: bold;">Windows</span></summary>
   
-You need to have [Git for Windows](https://git-scm.com/download/win) installed and Git bash available in the PATH.
+It's probably best to have [Git for Windows](https://git-scm.com/download/win) installed and Git Bash available in the PATH.
+
+[optipng](http://optipng.sourceforge.net/) should be installed and available in the PATH (e.g. via [Chocolatey](https://chocolatey.org/): `choco install optipng`).
 
 It's necessary to enable symlink support:
 1. Activate _Windows Development Mode_ to enable symlinks globally:
@@ -101,11 +107,11 @@ Clone the repository
 git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/comaps.git
 ```
 
-For _Windows 10_:  You should be able to build the project by following either of these setup methods:
+For _Windows 10/11_:  You should be able to build the project by following either of these setup methods:
 
 **Setup 1: Using WSL**
 1. Install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) on your machine.
-2. Install g++ by running the following command in WSL: `sudo apt install g++`
+2. Install g++ and jq by running the following command in WSL: `sudo apt install g++ jq`
 
 **Setup 2: Using Visual Studio Developer Command Prompt**
 Install the [Visual Studio Developer Command Prompt](https://docs.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2022) (make sure to choose the latest MSVC x64/x86 build tool and Windows 10/11 SDK as individual components while installing Visual Studio).
@@ -128,9 +134,12 @@ xcode-select --install
 
 #### Homebrew packages
 ```bash
-brew install wget optipng cmake ninja qt
-pip3 install "protobuf<3.21"
+brew install wget optipng cmake ninja qt jq
 ```
+
+The required Python `protobuf` version is installed automatically into a local
+`.venv` by `./configure.sh` (run below). Set `SKIP_PYTHON_VENV=1` to manage it via
+your system Python instead.
 
 #### Clone the repository
 ```bash
@@ -141,7 +150,7 @@ cd comaps
 </details>
 
 <details>
-  <summary><span style="font-size: 1.5em; font-weight: bold;">Special cases options</span></summary> 
+  <summary><span style="font-size: 1.5em; font-weight: bold;" id="special-cases-options">Special cases options</span></summary> 
 
 If you're only doing a one-off build or your internet bandwidth or disk space is limited, add following options to the `git clone` command:
 
@@ -239,6 +248,8 @@ The Active ABI can be set to "arm64-v8a".
 To build and run the app in the emulator or on a hardware device use a "Run > Run (android)" menu item or press the Play / Debug button on the top right of the IDE.
 
 To build a redistributable APK use a "Build > Build Bundle(s) / APK(s) > Build APK(s)" menu item. Generated APKs are stored in `build/outputs/apk/`.
+
+If the build or run options do not appear in the top centre of Android Studio, force a Gradle Sync by clicking the icon in the top right (looks like an elephant and a down-left pointing arrow).
 
 See also https://developer.android.com/studio/run.
 

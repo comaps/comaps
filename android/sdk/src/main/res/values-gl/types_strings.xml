@@ -367,7 +367,24 @@
     <string name="type.highway.busway.bridge">Puente</string>
     <string name="type.highway.busway.tunnel">Túnel</string>
     <string name="type.highway.bus_stop">Parada de autobús</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Vía en construción</string>
+    <string name="type.highway.construction.motorway">Vía en construción</string>
+    <string name="type.highway.construction.motorway_link">Vía en construción</string>
+    <string name="type.highway.construction.trunk">Vía en construción</string>
+    <string name="type.highway.construction.trunk_link">Vía en construción</string>
+    <string name="type.highway.construction.primary">Vía en construción</string>
+    <string name="type.highway.construction.primary_link">Vía en construción</string>
+    <string name="type.highway.construction.secondary">Vía en construción</string>
+    <string name="type.highway.construction.secondary_link">Vía en construción</string>
+    <string name="type.highway.construction.tertiary">Vía en construción</string>
+    <string name="type.highway.construction.tertiary_link">Vía en construción</string>
+    <string name="type.highway.construction.residential">Vía en construción</string>
+    <string name="type.highway.construction.unclassified">Vía en construción</string>
+    <string name="type.highway.construction.service">Vía en construción</string>
+    <string name="type.highway.construction.living_street">Vía en construción</string>
+    <string name="type.highway.construction.road">Vía en construción</string>
+    <string name="type.highway.construction.track">Vía en construción</string>
     <string name="type.highway.cycleway">Ciclovía</string>
     <string name="type.highway.cycleway.bridge">Puente</string>
     <string name="type.highway.cycleway.permissive">Ciclovía</string>
@@ -531,7 +548,7 @@
     <string name="type.landuse.construction">Construción</string>
     <string name="type.landuse.education">Instalacións educativas</string>
     <string name="type.landuse.farmland">Terras agrícolas</string>
-    <string name="type.landuse.farmyard">Granja</string>
+    <string name="type.landuse.farmyard">Granxa</string>
     <string name="type.landuse.flowerbed">Cama de flores</string>
     <string name="type.landuse.forest">Bosque</string>
     <string name="type.landuse.forest.coniferous">Bosque de coníferas</string>
@@ -690,7 +707,7 @@
     <string name="type.place.continent">Continente</string>
     <string name="type.place.country">País</string>
     <string name="type.place.county">Condado</string>
-    <string name="type.place.farm">Granja</string>
+    <string name="type.place.farm">Granxa</string>
     <string name="type.place.hamlet">Aldea</string>
     <string name="type.place.island">Isla</string>
     <string name="type.place.islet">Illote</string>
@@ -705,8 +722,8 @@
     <string name="type.place.state">Estado</string>
     <string name="type.place.state.USA">Estado</string>
     <string name="type.place.suburb">Barrio</string>
-    <string name="type.place.town">Poboo</string>
-    <string name="type.place.village">Poboo</string>
+    <string name="type.place.town">Vila</string>
+    <string name="type.place.village">Vila</string>
     <string name="type.power">Enerxía</string>
     <string name="type.power.generator">Xerador</string>
     <string name="type.power.generator.solar">Xerador solar</string>
@@ -1309,4 +1326,5 @@
     <string name="type.emergency.access_point.address">Enderezo de rescate de emerxencia</string>
     <string name="type.emergency.disaster_help_point">Punto de axuda de emerxencia en desastres</string>
     <string name="type.emergency.life_ring">Salvavidas</string>
+    <string name="type.amenity.stage">Escenario</string>
 </resources>

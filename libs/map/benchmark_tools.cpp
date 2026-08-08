@@ -1,20 +1,36 @@
 #include "map/benchmark_tools.hpp"
 #include "map/framework.hpp"
 
-#include "drape_frontend/drape_measurer.hpp"
+#include "drape_frontend/drape_engine.hpp"
 #include "drape_frontend/scenario_manager.hpp"
 
-#include "storage/country_info_getter.hpp"
+#include "storage/storage_defines.hpp"
 
-#include "platform/downloader_defines.hpp"
-#include "platform/http_client.hpp"
 #include "platform/platform.hpp"
+
+#ifdef DRAPE_MEASURER_BENCHMARK
+#include "drape_frontend/drape_measurer.hpp"
+#endif
+
+#ifdef SCENARIO_ENABLE
+#include "storage/country_info_getter.hpp"
+#include "storage/storage.hpp"
 
 #include "coding/reader.hpp"
 
 #include "geometry/mercator.hpp"
+#include "geometry/point2d.hpp"
 
+#include "base/exception.hpp"
 #include "base/file_name_utils.hpp"
+#include "base/stl_helpers.hpp"
+
+#include "cppjansson/cppjansson.hpp"
+#endif
+
+#if defined(DRAPE_MEASURER_BENCHMARK) || defined(SCENARIO_ENABLE)
+#include "base/logging.hpp"
+#endif
 
 #include <algorithm>
 #include <atomic>
@@ -22,8 +38,6 @@
 #include <set>
 #include <string>
 #include <vector>
-
-#include "cppjansson/cppjansson.hpp"
 
 namespace
 {

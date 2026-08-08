@@ -3,9 +3,16 @@
 #include "indexer/classificator.hpp"
 #include "indexer/drules_include.hpp"
 #include "indexer/feature.hpp"
+#include "indexer/feature_data.hpp"
+#include "indexer/feature_decl.hpp"
+#include "indexer/feature_meta.hpp"
 #include "indexer/feature_visibility.hpp"
 #include "indexer/scales.hpp"
 
+#include "geometry/rect2d.hpp"
+
+#include "base/assert.hpp"
+#include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
 #include <algorithm>

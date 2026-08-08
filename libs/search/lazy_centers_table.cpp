@@ -1,8 +1,15 @@
 #include "search/lazy_centers_table.hpp"
 
+#include "indexer/data_header.hpp"
 #include "indexer/mwm_set.hpp"
 
+#include "coding/reader.hpp"
+
 #include "platform/mwm_traits.hpp"
+
+#include "base/assert.hpp"
+#include "base/exception.hpp"
+#include "base/logging.hpp"
 
 #include "defines.hpp"
 

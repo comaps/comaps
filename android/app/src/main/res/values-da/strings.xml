@@ -185,6 +185,11 @@
     <string name="prefs_group_route">Navigation</string>
     <string name="pref_zoom_title">Zoom-knapper</string>
     <string name="pref_zoom_summary">Vis på skærmen</string>
+    <string name="prefs_group_advanced">Avanceret</string>
+    <string name="download_resources_custom_url_title">Brugerdefineret kortserver</string>
+    <string name="download_resources_custom_url_message">Tilsidesæt den som standard anvendte server til download af kort. Lad feltet være tomt for at bruge CoMaps\' standardserver.</string>
+    <string name="download_resources_custom_url_summary_none">Ikke indstillet</string>
+    <string name="download_resources_custom_url_error_scheme">Indtast en URL, der starter med http:// eller https://</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Nattilstand</string>
     <!-- Generic «Off» string -->
@@ -200,7 +205,7 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D-bygninger er deaktiveret i strømbesparende tilstand</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Stemmeinstruktioner</string>
+    <string name="pref_tts_enable_title">Stemmevejledninger</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
     <string name="pref_tts_street_names_title">Annoncer gadenavne</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
@@ -241,7 +246,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Bevæg telefonen i en ottetalsbevægelse for at kalibrere kompasset og rette pilens retning på kortet.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Tryk længe på kortet igen for at se grænsefladen</string>
+    <string name="enable_long_tap_fullscreen_description">Tryk længe på kortet igen for at se grænsefladen</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Opdatér alle</string>
     <!-- Cancel all button text -->
@@ -423,7 +428,7 @@
     <string name="downloader_update_maps">Opdatér kort</string>
     <string name="downloader_mwm_migration_dialog">For at oprette en rute skal du opdatere alle kort og så planlægge ruten igen.</string>
     <string name="downloader_search_field_hint">Find kort</string>
-    <string name="common_check_internet_connection_dialog">Sørg for, din enhed er forbundet til internettet</string>
+    <string name="common_check_internet_connection_dialog">Sørg for, at din enhed er forbundet til internettet</string>
     <string name="downloader_no_space_title">Ikke nok plads</string>
     <string name="downloader_no_space_message">Slet unødvendig data</string>
     <string name="editor_login_error_dialog">Login-fejl</string>
@@ -465,7 +470,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operatør: %s</string>
     <string name="editor_category_unsuitable_title">Kan du ikke finde en passende kategori?</string>
-    <string name="editor_category_unsuitable_text">CoMaps giver kun mulighed for at tilføje simple punktkategorier, dvs. ingen byer, veje, søer, bygningsomrids osv. Tilføj sådanne kategorier direkte på <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Se vores <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> for detaljerede trin for trin-instruktioner.</string>
+    <string name="editor_category_unsuitable_text">CoMaps giver kun mulighed for at tilføje simple punktkategorier, dvs. ingen byer, veje, søer, bygningsomrids etc. Tilføj sådanne kategorier direkte på <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Se vores <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> for detaljerede trin for trin-instruktioner.</string>
     <string name="downloader_no_downloaded_maps_title">Du har ikke downloadet nogen kort</string>
     <string name="downloader_no_downloaded_maps_message">Download kort for at søge og navigere offline</string>
     <string name="current_location_unknown_error_title">Aktuel placering er ukendt</string>
@@ -565,7 +570,7 @@
         <item quantity="other">%d spor</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Privatliv</string>
+    <string name="prefs_group_privacy">Privatliv</string>
     <string name="privacy_policy">Privatlivspolitik</string>
     <string name="terms_of_use">Vilkår for bruger</string>
     <string name="button_layer_traffic">Trafik</string>
@@ -593,7 +598,7 @@
     <string name="power_managment_setting_auto">Når batteriniveauet er lavt</string>
     <string name="power_managment_setting_manual_max">Altid</string>
     <string name="enable_logging_warning_message">Aktivér denne mulighed midlertidigt for at registrere og manuelt sende detaljerede diagnostiske logfiler om dit problem til os ved hjælp af \"Rapportér en fejl\" i Hjælp-dialogen. Logfiler kan indeholde placeringsoplysninger.</string>
-    <string name="driving_options_title">Indstillinger for ruteberegning</string>
+    <string name="routing_options_title">Indstillinger for ruteberegning</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Undgå betalingsveje</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -603,7 +608,7 @@
     <string name="avoid_motorways">Undgå motorveje</string>
     <string name="unable_to_calc_alert_title">Kan ikke beregne rute</string>
     <string name="unable_to_calc_alert_subtitle">Der kunne ikke findes en rute. Dette kan skyldes dine ruteindstillinger eller ufuldstændige OpenStreetMap-data. Ændr dine ruteindstillinger, og prøv igen.</string>
-    <string name="define_to_avoid_btn">Definer veje du vil undgå</string>
+    <string name="define_to_avoid_btn">Vælg indstillinger for ruteberegning</string>
     <string name="change_driving_options_btn">Indstillinger for ruteberegning aktiveret</string>
     <string name="toll_road">Betalingsvej</string>
     <string name="unpaved_road">Ikke-asfalteret vej</string>
@@ -781,7 +786,7 @@
     <string name="delete_place_empty_comment_error">Angiv begrundelsen for at slette stedet</string>
     <string name="disk_error_title">Diskfejl</string>
     <string name="error_enter_correct_instagram_page">Indtast et gyldigt Instagram-brugernavn eller en webadresse</string>
-    <string name="translated_om_site_url">https://comaps.app/</string>
+    <string name="translated_om_site_url">https://comaps.app/da/</string>
     <string name="navigation_stop_button">Stop</string>
     <string name="error_enter_correct_vk_page">Indtast et gyldigt VK-brugernavn eller en webadresse</string>
     <string name="error_enter_correct_line_page">Indtast et gyldigt LINE ID eller en webadresse</string>
@@ -793,7 +798,6 @@
     <string name="move_maps_error">Fejl ved flytning af kortfiler</string>
     <string name="disk_error">Kan ikke oprette mapper og flytte filer på enhedens interne hukommelse eller sd-kort</string>
     <string name="wikimedia_commons">Wikimedia Commons</string>
-    <string name="prefs_group_general">Generelle indstillinger</string>
     <string name="read_in_wikipedia">Wikipedia</string>
     <string name="menu">Menu</string>
     <string name="change_map_locale">Sprog på kort</string>
@@ -891,12 +895,7 @@
     <string name="place_page_app_too_old_description">Dine nuværende kortdata er meget gamle. Opdater CoMaps-appen.</string>
     <string name="place_page_update_too_old_map">Opdater kortregion</string>
     <string name="place_page_too_old_to_edit">Redigering af OpenStreetMap er deaktiveret, fordi kortdataene er for gamle.</string>
-    <string name="navigation_start_tts_disabled_message">Stemmeinstruktioner deaktiveret: TTS-motor ikke tilgængelig</string>
-    <string name="advanced">Avanceret</string>
-    <string name="download_resources_custom_url_title">Brugerdefineret kortserver</string>
-    <string name="download_resources_custom_url_message">Tilsidesæt den som standard anvendte server til download af kort. Lad feltet være tomt for at bruge CoMaps\' standardserver.</string>
-    <string name="download_resources_custom_url_summary_none">Ikke indstillet</string>
-    <string name="download_resources_custom_url_error_scheme">Indtast en URL, der starter med http:// eller https://</string>
+    <string name="navigation_start_tts_disabled_message">Stemmevejledninger deaktiveret: TTS-motor ikke tilgængelig</string>
     <string name="pref_maplanguage_local">Lokalt sprog</string>
     <string name="location_privacy_info">Apps modtager placeringsdata fra din OS-placeringstjeneste, som muligvis deler din placering med Google og/eller din enhedsleverandør. Brug et Android-operativsystem, der beskytter dit privatliv, for at undgå dette.</string>
     <string name="location_privacy">Placeringsbeskyttelse</string>
@@ -925,4 +924,48 @@
     <string name="population">Indbyggertal: %s</string>
     <string name="setting_value_system_default">Systemets standard</string>
     <string name="change_app_locale">App-sprog</string>
+    <string name="downloader_check_updates_button">Søg efter opdateringer</string>
+    <string name="downloader_check_updates_checking">Søger efter opdateringer...</string>
+    <string name="downloader_check_updates_eol">Der kommer ikke flere kortopdateringer til denne version af appen. Opdater appen!</string>
+    <string name="downloader_check_updates_error">Fejl ved søgning efter opdateringer</string>
+    <string name="downloader_check_updates_no_updates">Ingen opdateringer tilgængelige</string>
+    <string name="downloader_check_updates_updated">Kortopdateringer tilgængelige!</string>
+    <string name="tts_toggle_enable">Aktivér stemmevejledninger</string>
+    <string name="tts_toggle_disable">Deaktivér stemmevejledninger</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_aa_support_summary_yes">Appen er installeret fra Google Play, du kan bruge den i din bil.</string>
+    <string name="pref_aa_support_summary_no">Appen er ikke installeret fra Google Play, du kan ikke bruge den i din bil. Tryk på indstillingen for flere oplysninger i vores FAQ.</string>
+    <string name="oh_unknown">Åbningstider ukendt</string>
+    <string name="editor_add_select_category_all_subtitle">Alle kategorier</string>
+    <string name="editor_add_select_category_recent_subtitle">Nyligt anvendt</string>
+    <string name="enable_long_tap_fullscreen">Langt tryk for at skjule brugergrænseflade</string>
+    <string name="long_tap_disabled_toast">For at skjule grænsefladen med langt tryk skal det aktiveres i indstillingerne</string>
+    <string name="sort_categories">Sortér favoritlister</string>
+    <string name="by_recently_used">Efter senest anvendte</string>
+    <string name="by_custom">Efter brugerdefineret rækkefølge</string>
+    <string name="prefs_group_map_appearance">Kortets udseende</string>
+    <string name="prefs_group_map_appearance_summary">Kortsprog, størrelse på etiketter, 2D/3D-bygninger</string>
+    <string name="prefs_group_route_summary">Enheder, stemmevejledninger, indstillinger for ruteberegning</string>
+    <string name="planning_route_preview">Forhåndsvisning</string>
+    <string name="prefs_group_privacy_summary">Søgehistorik</string>
+    <string name="prefs_group_power_summary">Skærmtimeout, mobildata</string>
+    <string name="search_in_all_lists">Søg i alle lister</string>
+    <string name="capacity_disabled">Handicap-parkeringspladser: %s</string>
+    <string name="capacity_disabled_yes">Har særlige pladser for handicappede</string>
+    <string name="capacity_disabled_no">Ingen særlige parkeringspladser for handicappede</string>
+    <string name="capacity_charging">Pladser med ladere: %s</string>
+    <string name="capacity_charging_yes">Har pladser med ladere</string>
+    <string name="capacity_charging_no">Ingen pladser med ladere</string>
+    <string name="permission_read_navigation_label">Læs CoMaps-navigationsdata</string>
+    <string name="permission_read_navigation_description">læs live-navigationsoplysninger, såsom kommende sving eller navnet på den vej, du kører på</string>
+    <string name="pref_about_summary">Indberet problemer, få hjælp, donér\nVersion: v%1$s</string>
+    <string name="prefs_group_interface">Brugerflade</string>
+    <string name="prefs_group_interface_summary">Nattilstand, knapper, sprog</string>
+    <string name="prefs_group_data_management">Datahåndtering</string>
+    <string name="prefs_group_data_management_summary">Kortlagring, sikkerhedskopiering af favoritter</string>
+    <string name="prefs_group_advanced_summary">Aktivér logning</string>
+    <string name="pref_enable_auto_reroute_title">Automatisk omdirigering</string>
+    <string name="pref_enable_auto_reroute_description">Når aktiveret, oprettes der automatisk en ny rute, når du forlader den planlagte rute.</string>
+    <string name="recalculate_route">Genberegn</string>
+    <string name="off_route">Du er kommet væk fra ruten</string>
 </resources>

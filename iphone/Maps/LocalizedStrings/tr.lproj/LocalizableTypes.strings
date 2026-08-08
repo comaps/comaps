@@ -12,7 +12,7 @@
 "type.aeroway.aerodrome" = "Havaalanı";
 "type.aeroway.aerodrome.international" = "Uluslararası Havalimanı";
 "type.aeroway.apron" = "Peron";
-"type.aeroway.gate" = "Geçit";
+"type.aeroway.gate" = "Kapı";
 "type.aeroway.helipad" = "Helikopter Pisti";
 "type.aeroway.runway" = "Pist";
 "type.aeroway.taxiway" = "Taksi Yolu";
@@ -421,11 +421,11 @@
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Ana Giriş";
 "type.entrance.house" = "House Entrance";
-"type.entrance.garage" = "Garage Entrance";
+"type.entrance.garage" = "Garaj Girişi";
 "type.entrance.service" = "Service Entrance";
 "type.entrance.entry" = "Entry (Only)";
 "type.entrance.exit" = "Çıkış";
-"type.entrance.emergency" = "Emergency Exit";
+"type.entrance.emergency" = "Acil Çıkış";
 "type.fee.yes" = "₺";
 "type.fee.no" = "Ücretsiz";
 "type.healthcare.laboratory" = "Tıbbi Laboratuvar";
@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tünel";
 "type.highway.bus_stop" = "Otobüs Durağı";
 "type.highway.construction" = "Yapım Aşamasında Yol";
+"type.highway.construction.motorway" = "Yapım Aşamasında Yol";
+"type.highway.construction.motorway_link" = "Yapım Aşamasında Yol";
+"type.highway.construction.trunk" = "Yapım Aşamasında Yol";
+"type.highway.construction.trunk_link" = "Yapım Aşamasında Yol";
+"type.highway.construction.primary" = "Yapım Aşamasında Yol";
+"type.highway.construction.primary_link" = "Yapım Aşamasında Yol";
+"type.highway.construction.secondary" = "Yapım Aşamasında Yol";
+"type.highway.construction.secondary_link" = "Yapım Aşamasında Yol";
+"type.highway.construction.tertiary" = "Yapım Aşamasında Yol";
+"type.highway.construction.tertiary_link" = "Yapım Aşamasında Yol";
+"type.highway.construction.residential" = "Yapım Aşamasında Yol";
+"type.highway.construction.unclassified" = "Yapım Aşamasında Yol";
+"type.highway.construction.service" = "Yapım Aşamasında Yol";
+"type.highway.construction.living_street" = "Yapım Aşamasında Yol";
+"type.highway.construction.road" = "Yapım Aşamasında Yol";
+"type.highway.construction.track" = "Yapım Aşamasında Yol";
 "type.highway.cycleway" = "Bisiklet Yolu";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Köprü";
@@ -709,7 +725,7 @@
 "type.leisure.indoor_play" = "Indoor Play Centre";
 "type.leisure.marina" = "Liman";
 "type.leisure.nature_reserve" = "Doğal Koruma Alanı";
-"type.leisure.outdoor_seating" = "Dış mekan oturma";
+"type.leisure.outdoor_seating" = "Açık Oturma Alanı";
 "type.leisure.firepit" = "Ateş çukuru";
 "type.leisure.park" = "Park";
 "type.leisure.park.no.access" = "Park";
@@ -931,7 +947,7 @@
 "type.railway.crossing" = "Demiryolu Geçişi";
 "type.railway.disused" = "Kullanılmayan demiryolu";
 "type.railway.disused.bridge" = "Disused Railway Bridge";
-"type.railway.disused.tunnel" = "Disused Railway Tunnel";
+"type.railway.disused.tunnel" = "Kullanılmayan Demir Yolu Tüneli";
 "type.railway.funicular" = "Füniküler";
 "type.railway.funicular.bridge" = "Füniküler";
 "type.railway.funicular.tunnel" = "Füniküler";
@@ -1364,7 +1380,7 @@
 "type.sport.beachvolleyball" = "Plaj voleybolu";
 "type.sport.bowls" = "Kuka Oynu";
 "type.sport.chess" = "Satranç";
-"type.sport.climbing" = "Tırmanma Merkezi";
+"type.sport.climbing" = "Tırmanma";
 "type.sport.cricket" = "Kriket";
 "type.sport.curling" = "Körling";
 "type.sport.diving" = "Yüksek Dalış Alanı";
@@ -1386,7 +1402,7 @@
 "type.sport.table_tennis" = "Masa tenisi";
 "type.sport.tennis" = "Tenis Kortu";
 "type.sport.volleyball" = "Voleybol";
-"type.sport.yoga" = "Yoga Stüdyosu";
+"type.sport.yoga" = "Yoga";
 "type.tourism" = "Turizm";
 "type.tourism.aquarium" = "Akvaryum";
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
@@ -1515,3 +1531,9 @@
 "type.leisure.sports_centre.sport.boules" = "Sports Centre";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Sports Centre";
+"type.organic.no" = "No organic options";
+"type.amenity.stage" = "Sahne";
+"type.amenity.animal_boarding" = "Animal Boarding";
+"type.amenity.toilets.customers" = "Customer Access";
+"type.amenity.toilets.private" = "Private Access";
+"type.amenity.planetarium" = "Planetaryum";

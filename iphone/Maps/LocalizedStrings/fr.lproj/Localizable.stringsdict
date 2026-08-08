@@ -102,5 +102,65 @@
 			<string>%lld salles</string>
 		</dict>
 	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld place réservée aux personnes handicapées</string>
+			<key>one</key>
+			<string>%lld place réservée aux personnes handicapées</string>
+			<key>many</key>
+			<string>%lld places réservées aux personnes handicapées</string>
+			<key>other</key>
+			<string>%lld places réservées aux personnes handicapées</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld emplacement avec chargeur</string>
+			<key>one</key>
+			<string>%lld emplacement avec chargeur</string>
+			<key>many</key>
+			<string>%lld emplacements avec chargeurs</string>
+			<key>other</key>
+			<string>%lld emplacements avec chargeurs</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld espace</string>
+			<key>one</key>
+			<string>%lld espace</string>
+			<key>many</key>
+			<string>%lld espaces</string>
+			<key>other</key>
+			<string>%lld espaces</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

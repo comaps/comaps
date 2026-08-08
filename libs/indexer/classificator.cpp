@@ -1,7 +1,10 @@
 #include "indexer/classificator.hpp"
+
+#include "indexer/map_style.hpp"
 #include "indexer/map_style_reader.hpp"
 #include "indexer/tree_structure.hpp"
 
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 

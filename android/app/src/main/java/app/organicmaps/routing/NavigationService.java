@@ -32,6 +32,7 @@ import androidx.core.content.ContextCompat;
 import app.organicmaps.MwmActivity;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
+import app.organicmaps.provider.NavigationContract;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.location.LocationHelper;
 import app.organicmaps.sdk.location.LocationListener;
@@ -323,5 +324,7 @@ public class NavigationService extends Service implements LocationListener
 
     // The notification object must be re-created for every update.
     NotificationManagerCompat.from(this).notify(NOTIFICATION_ID, notificationBuilder.build());
+    RoutingController.get().updateCachedRoutingInfo(routingInfo);
+    getContentResolver().notifyChange(NavigationContract.LIVE_NAVIGATION_DATA_URI, null);
   }
 }

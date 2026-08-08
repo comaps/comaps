@@ -2,6 +2,8 @@
 
 #include "search/approximate_string_match.hpp"
 
+#include "indexer/search_string_utils.hpp"
+
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 

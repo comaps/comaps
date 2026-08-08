@@ -262,7 +262,10 @@ public class EditorHostFragment
 
   private void showSearchControls(boolean showSearch)
   {
-    ((SearchToolbarController) getToolbarController()).showSearchControls(showSearch);
+    SearchToolbarController toolbarController = (SearchToolbarController) getToolbarController();
+    toolbarController.deactivate();
+    toolbarController.showSearchControls(showSearch);
+    toolbarController.clear();
     if (mToolbarInnerLayout != null && mSave != null)
     {
       // Make room for the toolbar title if the search controls are hidden.
@@ -346,12 +349,12 @@ public class EditorHostFragment
   private void saveMapObjectEdits()
   {
     if (Editor.nativeSaveEditedFeature())
-      processEditedFeatures();
+      ensureOsmAuthorized();
     else
-      processNoFeatures();
+      warnSaveNotPossible();
   }
 
-  private void processNoFeatures()
+  private void warnSaveNotPossible()
   {
     new MaterialAlertDialogBuilder(requireActivity())
         .setTitle(R.string.downloader_no_space_title)
@@ -359,7 +362,7 @@ public class EditorHostFragment
         .show();
   }
 
-  public void processEditedFeatures()
+  public void ensureOsmAuthorized()
   {
     if (OsmOAuth.isAuthorized())
     {

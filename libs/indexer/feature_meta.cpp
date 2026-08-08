@@ -1,7 +1,7 @@
 #include "indexer/feature_meta.hpp"
 #include "custom_keyvalue.hpp"
 
-#include "std/target_os.hpp"
+#include "i18n/localisation.hpp"
 
 namespace feature
 {
@@ -9,19 +9,9 @@ using namespace std;
 
 namespace
 {
-char constexpr const * kBaseWikiUrl =
-#ifdef OMIM_OS_MOBILE
-    ".m.wikipedia.org/wiki/";
-#else
-    ".wikipedia.org/wiki/";
-#endif
+char constexpr const * kBaseWikiUrl = ".wikipedia.org/wiki/";
 
-char constexpr const * kBaseCommonsUrl =
-#ifdef OMIM_OS_MOBILE
-    "https://commons.m.wikimedia.org/wiki/";
-#else
-    "https://commons.wikimedia.org/wiki/";
-#endif
+char constexpr const * kBaseCommonsUrl = "https://commons.wikimedia.org/wiki/";
 }  // namespace
 
 std::string_view MetadataBase::Get(uint8_t type) const
@@ -109,7 +99,7 @@ void Metadata::EncodeWikiURL(int startIndex, std::string & url)
 // static
 bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
 {
-  if (k == "opening_hours")
+  if (k == "opening_hours" || k == "xmas:opening_hours")
     outType = Metadata::FMD_OPEN_HOURS;
   else if (k == "check_date")
     outType = Metadata::FMD_CHECK_DATE;
@@ -123,7 +113,7 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
     outType = Metadata::FMD_STARS;
   else if (k.starts_with("operator"))
     outType = Metadata::FMD_OPERATOR;
-  else if (k == "url" || k == "website" || k == "contact:website")
+  else if (k == "url" || k == "website" || k == "contact:website" || k == "logainm:url" || k == "heritage:website" || k == "memorial:website" || k == "xmas:url")
     outType = Metadata::FMD_WEBSITE;
   else if (k == "facebook" || k == "contact:facebook")
     outType = Metadata::FMD_CONTACT_FACEBOOK;
@@ -160,11 +150,11 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
   // Process only _main_ tag here, needed for editor ser/des. Actual postcode parsing happens in GetNameAndType.
   else if (k == "addr:postcode")
     outType = Metadata::FMD_POSTCODE;
-  else if (k == "wikipedia")
+  else if (k == "wikipedia" || k == "subject:wikipedia")
     outType = Metadata::FMD_WIKIPEDIA;
   else if (k == "wikimedia_commons")
     outType = Metadata::FMD_WIKIMEDIA_COMMONS;
-  else if (k == "panoramax")
+  else if (k == "panoramax" || k == "panoramax:view")
     outType = Metadata::FMD_PANORAMAX;
   else if (k == "addr:flats")
     outType = Metadata::FMD_FLATS;
@@ -210,6 +200,10 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
     outType = Metadata::FMD_CHARGE;
   else if (k == "population")
     outType = Metadata::FMD_POPULATION;
+  else if (k == "capacity:disabled")
+    outType = Metadata::FMD_CAPACITY_DISABLED;
+  else if (k == "capacity:charging")
+    outType = Metadata::FMD_CAPACITY_CHARGING;
   else
     return false;
 
@@ -360,6 +354,8 @@ string ToString(Metadata::EType type)
   case Metadata::FMD_ROOMS: return "rooms";
   case Metadata::FMD_CHARGE: return "charge";
   case Metadata::FMD_POPULATION: return "population";
+  case Metadata::FMD_CAPACITY_DISABLED: return "capacity:disabled";
+  case Metadata::FMD_CAPACITY_CHARGING: return "capacity:charging";
   case Metadata::FMD_COUNT: CHECK(false, ("FMD_COUNT can not be used as a type."));
   };
 

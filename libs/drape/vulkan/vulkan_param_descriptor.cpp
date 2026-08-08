@@ -1,9 +1,9 @@
 #include "drape/vulkan/vulkan_param_descriptor.hpp"
+#include "drape/graphics_context.hpp"
 #include "drape/vulkan/vulkan_base_context.hpp"
 #include "drape/vulkan/vulkan_object_manager.hpp"
 
 #include "base/assert.hpp"
-#include "base/logging.hpp"
 
 namespace dp
 {

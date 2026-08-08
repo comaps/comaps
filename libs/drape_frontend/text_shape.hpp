@@ -3,12 +3,20 @@
 #include "drape_frontend/map_shape.hpp"
 #include "drape_frontend/shape_view_params.hpp"
 
-#include "drape/constants.hpp"
 #include "drape/glsl_types.hpp"
+#include "drape/pointers.hpp"
 
 #include "geometry/point2d.hpp"
 
 #include <vector>
+
+namespace dp
+{
+class Batcher;
+class GraphicsContext;
+class TextureManager;
+struct FontDecl;
+}  // namespace dp
 
 namespace df
 {

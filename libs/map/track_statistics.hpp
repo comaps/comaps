@@ -1,8 +1,13 @@
 #pragma once
 
-#include "platform/location.hpp"
+#include "geometry/point_with_altitude.hpp"
 
 #include "kml/types.hpp"
+
+namespace location
+{
+class GpsInfo;
+}  // namespace location
 
 struct TrackStatistics
 {

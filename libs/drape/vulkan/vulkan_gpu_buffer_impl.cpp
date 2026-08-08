@@ -1,8 +1,10 @@
 #include "drape/vulkan/vulkan_gpu_buffer_impl.hpp"
-#include "drape/vulkan/vulkan_staging_buffer.hpp"
-#include "drape/vulkan/vulkan_utils.hpp"
 
-#include "base/macros.hpp"
+#include "drape/data_buffer.hpp"
+#include "drape/vulkan/vulkan_memory_manager.hpp"
+#include "drape/vulkan/vulkan_staging_buffer.hpp"
+
+#include <vulkan_wrapper.h>
 
 #include <algorithm>
 #include <cstring>

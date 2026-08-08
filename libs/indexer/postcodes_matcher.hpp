@@ -1,12 +1,12 @@
 #pragma once
 
-#include "indexer/string_slice.hpp"
-
 #include <cstdint>
 #include <string>
 
 namespace search
 {
+class StringSliceBase;
+
 /// If isPrefix is true returns true if some postcode starts with s.
 /// If isPrefix is false returns true if s equals to some postcode.
 bool LooksLikePostcode(StringSliceBase const & slice, bool isPrefix);

@@ -1,15 +1,19 @@
 #pragma once
 
-#include "drape_frontend/engine_context.hpp"
+#include "drape_frontend/custom_features_context.hpp"
 #include "drape_frontend/read_mwm_task.hpp"
 #include "drape_frontend/tile_info.hpp"
 #include "drape_frontend/tile_utils.hpp"
+
+#include "indexer/feature_decl.hpp"
+#include "indexer/mwm_set.hpp"
 
 #include "geometry/screenbase.hpp"
 
 #include "drape/object_pool.hpp"
 #include "drape/pointers.hpp"
 
+#include "base/buffer_vector.hpp"
 #include "base/thread_pool.hpp"
 
 #include <memory>
@@ -26,6 +30,7 @@ namespace df
 {
 class MapDataProvider;
 class MetalineManager;
+class ThreadsCommutator;
 
 uint8_t constexpr kReadingThreadsCount = 2;
 

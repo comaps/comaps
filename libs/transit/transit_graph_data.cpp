@@ -2,6 +2,8 @@
 
 #include "transit/transit_serdes.hpp"
 
+#include "coding/writer.hpp"
+
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"
 #include "base/logging.hpp"

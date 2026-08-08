@@ -11,7 +11,7 @@
 #include "indexer/feature_utils.hpp"
 #include "indexer/validate_and_format_contacts.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/assert.hpp"
 #include "base/logging.hpp"
@@ -468,7 +468,18 @@ JNIEXPORT jobjectArray JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeSear
   return jni::ToJavaStringArray(env, categories.Search(jni::ToNativeString(env, query)));
 }
 
-JNIEXPORT jobjectArray JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeGetCuisines(JNIEnv * env, jclass clazz)
+JNIEXPORT jobjectArray Java_app_organicmaps_sdk_editor_Editor_nativeGetRecentCategories(JNIEnv * env, jclass)
+{
+  return jni::ToJavaStringArray(env, GetFeatureCategories().GetRecentCategories());
+}
+
+JNIEXPORT void Java_app_organicmaps_sdk_editor_Editor_nativeAddToRecentCategories(JNIEnv * env, jclass,
+                                                                                  jstring category)
+{
+  GetFeatureCategories().AddToRecentCategories(jni::ToNativeString(env, category));
+}
+
+JNIEXPORT jobjectArray Java_app_organicmaps_sdk_editor_Editor_nativeGetCuisines(JNIEnv * env, jclass clazz)
 {
   osm::AllCuisines const & cuisines = osm::Cuisines::Instance().AllSupportedCuisines();
   std::vector<std::string> keys;

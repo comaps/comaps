@@ -1,8 +1,9 @@
 #include "indexer/edit_journal.hpp"
 
+#include "indexer/classificator.hpp"
+
 #include "base/assert.hpp"
-#include "base/control_flow.hpp"
-#include "base/string_utils.hpp"
+#include "base/logging.hpp"
 
 #include <algorithm>
 #include <cmath>

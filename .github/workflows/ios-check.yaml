@@ -51,8 +51,7 @@ jobs:
     steps:
       - name: Install dependencies
         run: |
-          brew install qt \
-          optipng
+          brew install qt optipng
           pip3 install "protobuf<3.21" --break-system-packages
           xcodebuild -downloadComponent metalToolchain
           xcodebuild -downloadPlatform iOS

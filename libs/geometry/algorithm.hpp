@@ -3,6 +3,8 @@
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
+#include "base/assert.hpp"
+
 #include <array>
 #include <type_traits>
 #include <utility>

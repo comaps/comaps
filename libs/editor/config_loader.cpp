@@ -6,6 +6,9 @@
 #include "coding/internal/file_data.hpp"
 #include "coding/reader.hpp"
 
+#include "base/exception.hpp"
+#include "base/logging.hpp"
+
 #include <stdexcept>
 
 #include <pugixml.hpp>

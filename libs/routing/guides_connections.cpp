@@ -3,6 +3,9 @@
 #include "geometry/mercator.hpp"
 #include "geometry/parametrized_segment.hpp"
 
+#include "base/assert.hpp"
+#include "base/stl_helpers.hpp"
+
 namespace routing
 {
 namespace

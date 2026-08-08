@@ -10,6 +10,13 @@
 		272CA4462F126795005A3F5B /* ftypes_subtypes.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 272CA4442F126795005A3F5B /* ftypes_subtypes.hpp */; };
 		272CA4472F126795005A3F5B /* ftypes_subtypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 272CA4452F126795005A3F5B /* ftypes_subtypes.cpp */; };
 		272CA44D2F12723B005A3F5B /* subtypes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 272CA44C2F12723B005A3F5B /* subtypes.csv */; };
+		276A00562FCD8D4D00CE3020 /* reviews_serdes_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 276A00552FCD8D4D00CE3020 /* reviews_serdes_tests.cpp */; };
+		276A00572FCD8D4D00CE3020 /* reviews_display_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 276A00542FCD8D4D00CE3020 /* reviews_display_tests.cpp */; };
+		276A005D2FCD8D6C00CE3020 /* reviews_loader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 276A00592FCD8D6C00CE3020 /* reviews_loader.hpp */; };
+		276A005E2FCD8D6C00CE3020 /* reviews_model.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 276A005B2FCD8D6C00CE3020 /* reviews_model.hpp */; };
+		276A005F2FCD8D6C00CE3020 /* reviews_display.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 276A00582FCD8D6C00CE3020 /* reviews_display.hpp */; };
+		276A00602FCD8D6C00CE3020 /* reviews_serdes.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 276A005C2FCD8D6C00CE3020 /* reviews_serdes.hpp */; };
+		276A00612FCD8D6C00CE3020 /* reviews_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 276A005A2FCD8D6C00CE3020 /* reviews_loader.cpp */; };
 		27A5B4492F2F8BE200918687 /* feature_region_locator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 27A5B4472F2F8BE200918687 /* feature_region_locator.hpp */; };
 		27A5B44A2F2F8BE200918687 /* feature_region_locator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27A5B4482F2F8BE200918687 /* feature_region_locator.cpp */; };
 		27BCD5272E93E625002C50F0 /* feature_charge_sockets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27BCD5262E93E625002C50F0 /* feature_charge_sockets.cpp */; };
@@ -26,6 +33,8 @@
 		34664CF51D49FEC1003D7096 /* feature_altitude.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34664CF01D49FEC1003D7096 /* feature_altitude.hpp */; };
 		34664CF61D49FEC1003D7096 /* centers_table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34664CF11D49FEC1003D7096 /* centers_table.cpp */; };
 		34664CF71D49FEC1003D7096 /* centers_table.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34664CF21D49FEC1003D7096 /* centers_table.hpp */; };
+		347F33191C4540A8009758CC /* dummy_rank_table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 347F32FE1C4540A8009758CC /* dummy_rank_table.cpp */; };
+		347F331A1C4540A8009758CC /* dummy_rank_table.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 347F32FF1C4540A8009758CC /* dummy_rank_table.hpp */; };
 		347F337B1C454242009758CC /* rank_table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 347F33721C454242009758CC /* rank_table.cpp */; };
 		347F337C1C454242009758CC /* rank_table.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 347F33731C454242009758CC /* rank_table.hpp */; };
 		347F337D1C454242009758CC /* succinct_trie_builder.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 347F33741C454242009758CC /* succinct_trie_builder.hpp */; };
@@ -238,6 +247,13 @@
 		272CA4442F126795005A3F5B /* ftypes_subtypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ftypes_subtypes.hpp; sourceTree = "<group>"; };
 		272CA4452F126795005A3F5B /* ftypes_subtypes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ftypes_subtypes.cpp; sourceTree = "<group>"; };
 		272CA44C2F12723B005A3F5B /* subtypes.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = subtypes.csv; path = ../../data/subtypes.csv; sourceTree = "<group>"; };
+		276A00542FCD8D4D00CE3020 /* reviews_display_tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = reviews_display_tests.cpp; sourceTree = "<group>"; };
+		276A00552FCD8D4D00CE3020 /* reviews_serdes_tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = reviews_serdes_tests.cpp; sourceTree = "<group>"; };
+		276A00582FCD8D6C00CE3020 /* reviews_display.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = reviews_display.hpp; sourceTree = "<group>"; };
+		276A00592FCD8D6C00CE3020 /* reviews_loader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = reviews_loader.hpp; sourceTree = "<group>"; };
+		276A005A2FCD8D6C00CE3020 /* reviews_loader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = reviews_loader.cpp; sourceTree = "<group>"; };
+		276A005B2FCD8D6C00CE3020 /* reviews_model.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = reviews_model.hpp; sourceTree = "<group>"; };
+		276A005C2FCD8D6C00CE3020 /* reviews_serdes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = reviews_serdes.hpp; sourceTree = "<group>"; };
 		27A5B4472F2F8BE200918687 /* feature_region_locator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = feature_region_locator.hpp; sourceTree = "<group>"; };
 		27A5B4482F2F8BE200918687 /* feature_region_locator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = feature_region_locator.cpp; sourceTree = "<group>"; };
 		27BCD5252E93E625002C50F0 /* feature_charge_sockets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = feature_charge_sockets.hpp; sourceTree = "<group>"; };
@@ -254,6 +270,8 @@
 		34664CF01D49FEC1003D7096 /* feature_altitude.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = feature_altitude.hpp; sourceTree = "<group>"; };
 		34664CF11D49FEC1003D7096 /* centers_table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = centers_table.cpp; sourceTree = "<group>"; };
 		34664CF21D49FEC1003D7096 /* centers_table.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = centers_table.hpp; sourceTree = "<group>"; };
+		347F32FE1C4540A8009758CC /* dummy_rank_table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dummy_rank_table.cpp; sourceTree = "<group>"; };
+		347F32FF1C4540A8009758CC /* dummy_rank_table.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dummy_rank_table.hpp; sourceTree = "<group>"; };
 		347F33721C454242009758CC /* rank_table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rank_table.cpp; sourceTree = "<group>"; };
 		347F33731C454242009758CC /* rank_table.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rank_table.hpp; sourceTree = "<group>"; };
 		347F33741C454242009758CC /* succinct_trie_builder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = succinct_trie_builder.hpp; sourceTree = "<group>"; };
@@ -571,6 +589,8 @@
 				E906DE371CF44917004C4F5E /* postcodes_matcher_tests.cpp */,
 				56C74C2A1C749E8100B71B9F /* rank_table_test.cpp */,
 				4067554B242BB04800EB8F8B /* read_features_tests.cpp */,
+				276A00542FCD8D4D00CE3020 /* reviews_display_tests.cpp */,
+				276A00552FCD8D4D00CE3020 /* reviews_serdes_tests.cpp */,
 				39F376C1207D324E0058E8E0 /* scale_index_reading_tests.cpp */,
 				56C74C2B1C749E8100B71B9F /* search_string_utils_test.cpp */,
 				670C61071AB065B100C38A8C /* sort_and_merge_intervals_test.cpp */,
@@ -662,6 +682,8 @@
 				675340BB1A3F540F00A0A8C3 /* drules_struct.pb.cc */,
 				675340BC1A3F540F00A0A8C3 /* drules_struct.pb.h */,
 				675340BD1A3F540F00A0A8C3 /* drules_struct.proto */,
+				347F32FE1C4540A8009758CC /* dummy_rank_table.cpp */,
+				347F32FF1C4540A8009758CC /* dummy_rank_table.hpp */,
 				34583BC31C88552100F94664 /* editable_map_object.cpp */,
 				34583BC41C88552100F94664 /* editable_map_object.hpp */,
 				4099F6471FC71429002A7B05 /* fake_feature_ids.cpp */,
@@ -724,6 +746,11 @@
 				E906DE3A1CF44934004C4F5E /* postcodes_matcher.hpp */,
 				347F33721C454242009758CC /* rank_table.cpp */,
 				347F33731C454242009758CC /* rank_table.hpp */,
+				276A00582FCD8D6C00CE3020 /* reviews_display.hpp */,
+				276A005A2FCD8D6C00CE3020 /* reviews_loader.cpp */,
+				276A00592FCD8D6C00CE3020 /* reviews_loader.hpp */,
+				276A005B2FCD8D6C00CE3020 /* reviews_model.hpp */,
+				276A005C2FCD8D6C00CE3020 /* reviews_serdes.hpp */,
 				F61F83041E4B187500B37B7A /* road_shields_parser.cpp */,
 				F61F83051E4B187500B37B7A /* road_shields_parser.hpp */,
 				675340EB1A3F540F00A0A8C3 /* scale_index_builder.hpp */,
@@ -781,6 +808,10 @@
 				27BCD5282E93E625002C50F0 /* feature_charge_sockets.hpp in Headers */,
 				6753414E1A3F540F00A0A8C3 /* types_mapping.hpp in Headers */,
 				67BC92F31D21476500A4A378 /* string_set.hpp in Headers */,
+				276A005D2FCD8D6C00CE3020 /* reviews_loader.hpp in Headers */,
+				276A005E2FCD8D6C00CE3020 /* reviews_model.hpp in Headers */,
+				276A005F2FCD8D6C00CE3020 /* reviews_display.hpp in Headers */,
+				276A00602FCD8D6C00CE3020 /* reviews_serdes.hpp in Headers */,
 				675341151A3F540F00A0A8C3 /* feature_covering.hpp in Headers */,
 				34583BC81C88552100F94664 /* cuisines.hpp in Headers */,
 				674125151B4C02F100A3E828 /* map_style.hpp in Headers */,
@@ -802,6 +833,7 @@
 				40662D32236059BF006A124D /* tree_node.hpp in Headers */,
 				347F337D1C454242009758CC /* succinct_trie_builder.hpp in Headers */,
 				675341381A3F540F00A0A8C3 /* mwm_set.hpp in Headers */,
+				347F331A1C4540A8009758CC /* dummy_rank_table.hpp in Headers */,
 				456E1B181F90E5B7009C32E1 /* cities_boundaries_serdes.hpp in Headers */,
 				3D12E3D82111B4BE0015A9A9 /* caching_rank_table_loader.hpp in Headers */,
 				670EE56D1B60033A001E8064 /* unique_index.hpp in Headers */,
@@ -973,6 +1005,8 @@
 				FACB7C0F26B9177A00810C9C /* metadata_serdes_tests.cpp in Sources */,
 				670BAA961D0B06E1000302DA /* cell_id_test.cpp in Sources */,
 				670BAA971D0B06E1000302DA /* checker_test.cpp in Sources */,
+				276A00562FCD8D4D00CE3020 /* reviews_serdes_tests.cpp in Sources */,
+				276A00572FCD8D4D00CE3020 /* reviews_display_tests.cpp in Sources */,
 				670BAA8E1D0B06A1000302DA /* search_string_utils_test.cpp in Sources */,
 				3D489BC71D3D22150052AA38 /* features_vector_test.cpp in Sources */,
 				670BAAA41D0B06E1000302DA /* visibility_test.cpp in Sources */,
@@ -1026,6 +1060,7 @@
 				675341121A3F540F00A0A8C3 /* feature_algo.cpp in Sources */,
 				675341211A3F540F00A0A8C3 /* feature_utils.cpp in Sources */,
 				4099F6491FC7142A002A7B05 /* fake_feature_ids.cpp in Sources */,
+				347F33191C4540A8009758CC /* dummy_rank_table.cpp in Sources */,
 				FA7F9B85273F32680093EA08 /* validate_and_format_contacts.cpp in Sources */,
 				46CB685E2CBC17F2003E40AB /* edit_journal.cpp in Sources */,
 				675341231A3F540F00A0A8C3 /* feature_visibility.cpp in Sources */,
@@ -1037,6 +1072,7 @@
 				391C0C8322BD2551003DC252 /* feature_to_osm.cpp in Sources */,
 				675341401A3F540F00A0A8C3 /* scales.cpp in Sources */,
 				675341251A3F540F00A0A8C3 /* feature.cpp in Sources */,
+				276A00612FCD8D6C00CE3020 /* reviews_loader.cpp in Sources */,
 				27BCD5272E93E625002C50F0 /* feature_charge_sockets.cpp in Sources */,
 				675341091A3F540F00A0A8C3 /* data_header.cpp in Sources */,
 				F61F83061E4B187500B37B7A /* road_shields_parser.cpp in Sources */,

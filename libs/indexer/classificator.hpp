@@ -1,7 +1,6 @@
 #pragma once
 
 #include "indexer/drawing_rule_def.hpp"
-#include "indexer/feature_decl.hpp"
 #include "indexer/scales.hpp"
 #include "indexer/types_mapping.hpp"
 

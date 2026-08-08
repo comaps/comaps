@@ -1,7 +1,10 @@
 #pragma once
 
 #include "map/user_mark.hpp"
-#include "map/user_mark_layer.hpp"
+
+#include "drape_frontend/color_constants.hpp"
+
+#include "drape/pointers.hpp"
 
 #include "geometry/point2d.hpp"
 

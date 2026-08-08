@@ -1,9 +1,13 @@
 #include "routing/guides_graph.hpp"
 
 #include "routing/fake_feature_ids.hpp"
+#include "routing/route_weight.hpp"
 
 #include "geometry/distance_on_sphere.hpp"
 #include "geometry/mercator.hpp"
+#include "geometry/point_with_altitude.hpp"
+
+#include "base/assert.hpp"
 
 #include <algorithm>
 #include <limits>

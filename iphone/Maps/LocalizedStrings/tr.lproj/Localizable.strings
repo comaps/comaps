@@ -52,7 +52,7 @@
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Yer İmleri";
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Yer İmleri ve Kayıtlı Rotalar";
+"bookmarks_and_tracks" = "Favoriler";
 /* Default bookmark list name */
 "core_my_places" = "Yerlerim";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
@@ -147,7 +147,7 @@
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Harita Dili";
 /* Settings «Map» category: «Map Language» local value */
-"pref_maplanguage_local" = "Uygulama Dili";
+"pref_maplanguage_local" = "Yerel Dil";
 /* Settings «Map» category: «Map Appearance» title */
 "pref_mapappearance_title" = "Harita Teması";
 /* Settings «Map» category: «Appearance» title */
@@ -548,7 +548,7 @@
 "editor_share_to_all_dialog_title" = "Bunu tüm kullanıcılara göndermek ister misiniz?";
 /* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "Herhangi bir kişisel bilgi girmediğinizden emin olun.";
-"editor_share_to_all_dialog_message_2" = "OpenStreetMap editörleri değişikliklerinizi denetleyecek ve bir soruları olursa sizinle iletişime geçecek.";
+"editor_share_to_all_dialog_message_2" = "OpenStreetMap editörleri değişikliklerinizi kontrol edecek ve bir soruları olursa sizinle iletişime geçecektir.";
 "navigation_stop_button" = "Dur";
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
 "recent_track_background_dialog_title" = "En son seyahat edilen rotanızı kaydetmeyi devre dışı bırakmak istiyor musunuz?";
@@ -606,7 +606,7 @@
 "bookmark_lists_show_all" = "Tümünü göster";
 "bookmarks_create_new_group" = "Yeni liste oluştur";
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Yer İmlerini ve Rotaları İçe Aktar";
+"bookmarks_import" = "Yer İmlerini İçe Aktar";
 "downloader_hide_screen" = "Ekranı Gizle";
 "downloader_percent" = "%@ (%@ / %@)";
 "downloader_process" = "%@ indiriliyor…";
@@ -681,8 +681,6 @@
 "yes_available" = "Var";
 /* E.g. "WiFi:No" */
 "no_available" = "Yok";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Kapasite: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Ağ: %@";
 "trip_finished" = "Vardınız!";
@@ -798,9 +796,9 @@
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Arabada göster";
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Yürüyüş";
+"button_layer_outdoor" = "Açık Hava";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Tüm Yer İmlerini ve Kayıtları Dışa Aktar";
+"bookmarks_export" = "Tüm Yer İmlerini Dışa Aktar";
 /* Text for the editing the Track's color button. */
 "change_color" = "Renk değiştir";
 /* Main screen title "Map" displayed in the navigation back button's menu. */
@@ -870,3 +868,18 @@
 "contribute_to_osm_add_place" = "Add Place";
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"downloader_check_updates_button" = "Güncellemeleri denetle";
+"downloader_check_updates_checking" = "Checking for updates...";
+"downloader_check_updates_updated" = "Map updates available!";
+"downloader_check_updates_no_updates" = "No updates available";
+"downloader_check_updates_eol" = "Uygulamanın bu sürümü için daha fazla güncelleme gelmeyecek. Lütfen uygulamayı güncelleyin!";
+"downloader_check_updates_error" = "Error checking for updates";
+"editor_add_select_category_recent_subtitle" = "Recently Used";
+"oh_unknown" = "Çalışma saatleri bilinmiyor";
+"carplay_highway_exit" = "Exit %@";
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "No dedicated disabled spaces";
+"capacity_charging_yes" = "Has spaces with chargers";
+"capacity_charging_no" = "No spaces with chargers";
+"planning_route_preview" = "Preview";
+"planning_route_preview_sheet_title" = "Route Preview";

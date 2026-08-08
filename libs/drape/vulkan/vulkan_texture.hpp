@@ -3,7 +3,6 @@
 #include "drape/hw_texture.hpp"
 #include "drape/pointers.hpp"
 #include "drape/vulkan/vulkan_object_manager.hpp"
-#include "drape/vulkan/vulkan_staging_buffer.hpp"
 #include "drape/vulkan/vulkan_utils.hpp"
 
 #include <cstdint>
@@ -12,6 +11,8 @@ namespace dp
 {
 namespace vulkan
 {
+class VulkanStagingBuffer;
+
 class VulkanTextureAllocator : public HWTextureAllocator
 {
 public:
@@ -24,7 +25,7 @@ class VulkanTexture : public HWTexture
   using Base = HWTexture;
 
 public:
-  explicit VulkanTexture(ref_ptr<VulkanTextureAllocator>) {}
+  explicit VulkanTexture(ref_ptr<VulkanTextureAllocator>);
   ~VulkanTexture() override;
 
   void Create(ref_ptr<dp::GraphicsContext> context, Params const & params, ref_ptr<void> data) override;

@@ -3,11 +3,20 @@
 #include "drape_frontend/text_handle.hpp"
 #include "drape_frontend/text_layout.hpp"
 
+#include "drape/pointers.hpp"
+
+#include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 #include "geometry/spline.hpp"
 
 #include <algorithm>
 #include <memory>
 #include <vector>
+
+namespace dp
+{
+class TextureManager;
+}  // namespace dp
 
 namespace df
 {

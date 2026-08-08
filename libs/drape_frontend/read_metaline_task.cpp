@@ -1,13 +1,21 @@
 #include "drape_frontend/read_metaline_task.hpp"
 
 #include "drape_frontend/map_data_provider.hpp"
-#include "drape_frontend/metaline_manager.hpp"
 
+#include "indexer/feature.hpp"
 #include "indexer/feature_decl.hpp"
 
+#include "geometry/point2d.hpp"
+
+#include "platform/country_defines.hpp"
+
 #include "coding/files_container.hpp"
+#include "coding/point_coding.hpp"
+#include "coding/reader.hpp"
 #include "coding/reader_wrapper.hpp"
 #include "coding/varint.hpp"
+
+#include "base/assert.hpp"
 
 #include "defines.hpp"
 

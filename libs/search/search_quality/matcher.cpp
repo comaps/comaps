@@ -2,12 +2,15 @@
 
 #include "search/feature_loader.hpp"
 #include "search/house_numbers_matcher.hpp"
+#include "search/result.hpp"
 
 #include "indexer/feature.hpp"
 #include "indexer/feature_algo.hpp"
+#include "indexer/feature_decl.hpp"
 #include "indexer/road_shields_parser.hpp"
 #include "indexer/search_string_utils.hpp"
 
+#include "base/buffer_vector.hpp"
 #include "base/control_flow.hpp"
 #include "base/string_utils.hpp"
 

@@ -130,7 +130,7 @@
 "type.amenity.parking_space.private" = "Lugar de estacionamento";
 "type.amenity.parking_space.underground" = "Lugar de estacionamento";
 "type.amenity.parking_space.disabled" = "Estacionamento para deficientes";
-"type.amenity.car_pooling" = "Carona";
+"type.amenity.car_pooling" = "Carona solidária";
 "type.amenity.payment_terminal" = "Terminal de pagamento";
 "type.amenity.payment_centre" = "Centro de pagamentos";
 "type.amenity.pharmacy" = "Farmácia";
@@ -174,7 +174,7 @@
 /* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "Abrigo";
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
-"type.amenity.shelter.basic_hut" = "Cabana Básica";
+"type.amenity.shelter.basic_hut" = "Cabana básica";
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "Abrigo tipo alpendre";
 "type.amenity.public_bath" = "Banho público";
@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Túnel";
 "type.highway.bus_stop" = "Ponto de ônibus";
 "type.highway.construction" = "Via em construção";
+"type.highway.construction.motorway" = "Via em construção";
+"type.highway.construction.motorway_link" = "Via em construção";
+"type.highway.construction.trunk" = "Via em construção";
+"type.highway.construction.trunk_link" = "Via em construção";
+"type.highway.construction.primary" = "Via em construção";
+"type.highway.construction.primary_link" = "Via em construção";
+"type.highway.construction.secondary" = "Via em construção";
+"type.highway.construction.secondary_link" = "Via em construção";
+"type.highway.construction.tertiary" = "Via em construção";
+"type.highway.construction.tertiary_link" = "Via em construção";
+"type.highway.construction.residential" = "Via em construção";
+"type.highway.construction.unclassified" = "Via em construção";
+"type.highway.construction.service" = "Via em construção";
+"type.highway.construction.living_street" = "Via em construção";
+"type.highway.construction.road" = "Via em construção";
+"type.highway.construction.track" = "Via em construção";
 "type.highway.cycleway" = "Ciclovia";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Ponte para ciclistas";
@@ -622,7 +638,7 @@
 "type.historic.castle.palace" = "Palácio";
 "type.historic.castle.shiro" = "Castelo japonês";
 "type.historic.castle.stately" = "Castelo";
-"type.historic.city_gate" = "Portões da Cidade";
+"type.historic.city_gate" = "Portões da cidade";
 "type.historic.citywalls" = "Muro da cidade";
 "type.historic.fort" = "Forte";
 "type.historic.gallows" = "Galo";
@@ -696,7 +712,7 @@
 "type.leisure.bandstand" = "Coreto";
 "type.leisure.common" = "Terreno baldio";
 "type.leisure.dog_park" = "Parque para cachorros";
-"type.leisure.escape_game" = "Sala de Fuga";
+"type.leisure.escape_game" = "Escape room";
 "type.leisure.fitness_centre" = "Academia de ginástica";
 "type.leisure.fitness_station" = "Estação de fitness";
 "type.leisure.dance" = "Salão de dança";
@@ -837,8 +853,8 @@
 "type.natural.saddle" = "Sela de montanha";
 "type.natural.rock" = "Pedra";
 "type.natural.scrub" = "Esfregar";
-"type.natural.spring" = "Fonte Natural";
-"type.natural.spring.drinking_water_no" = "Fonte Natural";
+"type.natural.spring" = "Nascente";
+"type.natural.spring.drinking_water_no" = "Nascente";
 "type.natural.strait" = "Estreito";
 "type.natural.tree" = "Árvore";
 "type.natural.tree_row" = "Fileira de árvores";
@@ -861,11 +877,11 @@
 "type.office.estate_agent" = "Corretor imobiliário";
 "type.office.government" = "Gabinete governamental";
 "type.office.insurance" = "Seguradora";
-"type.office.lawyer" = "Escritório de advogado";
+"type.office.lawyer" = "Escritório de advocacia";
 "type.office.ngo" = "Escritório de ONG";
 "type.office.telecommunication" = "Operadora de telecomunicações";
-"type.organic.only" = "Orgânico";
-"type.organic.yes" = "Orgânico";
+"type.organic.only" = "Somente orgânico";
+"type.organic.yes" = "Opções orgânicas";
 "type.place.city" = "Cidade";
 "type.place.city.capital" = "Capital";
 "type.place.city.capital.10" = "Cidade";
@@ -935,7 +951,7 @@
 "type.railway.funicular" = "Trem funicular";
 "type.railway.funicular.bridge" = "Funicular";
 "type.railway.funicular.tunnel" = "Funicular";
-"type.railway.halt" = "Ponto de parada";
+"type.railway.halt" = "Parada de trem";
 "type.railway.level_crossing" = "Passagem em nível";
 "type.railway.light_rail" = "Metrô de superfície";
 "type.railway.light_rail.bridge" = "Metrô de superfície";
@@ -1311,7 +1327,7 @@
 "type.shop.supermarket" = "Supermercado";
 "type.shop.tattoo" = "Estúdio de tatuagens";
 "type.shop.tea" = "Loja de chás";
-"type.shop.telecommunication" = "Loja de Telecomunicação";
+"type.shop.telecommunication" = "Loja de telecomunicações";
 "type.shop.ticket" = "Bilheteria";
 "type.shop.toys" = "Loja de brinquedos";
 "type.shop.travel_agency" = "Agência de viagem";
@@ -1356,7 +1372,7 @@
 "type.sport.10pin" = "Boliche";
 "type.sport.american_football" = "Futebol americano";
 "type.sport.archery" = "Tiro com arco";
-"type.sport.athletics" = "Atlético";
+"type.sport.athletics" = "Atletismo";
 "type.sport.australian_football" = "Futebol australiano";
 "type.sport.badminton" = "Badmínton";
 "type.sport.baseball" = "Beisebol";
@@ -1515,3 +1531,9 @@
 "type.leisure.sports_centre.sport.boules" = "Centro esportivo";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Centro de esportes";
+"type.organic.no" = "Sem opções orgânicas";
+"type.amenity.stage" = "Palco";
+"type.amenity.animal_boarding" = "Hotel de animais";
+"type.amenity.toilets.customers" = "Acesso para clientes";
+"type.amenity.toilets.private" = "Acesso privado";
+"type.amenity.planetarium" = "Planetário";

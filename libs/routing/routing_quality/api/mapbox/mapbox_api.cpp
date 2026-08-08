@@ -1,11 +1,9 @@
 #include "routing/routing_quality/api/mapbox/mapbox_api.hpp"
 
-#include "routing/vehicle_mask.hpp"
+#include "routing/checkpoints.hpp"
 
-#include "coding/file_writer.hpp"
 #include "coding/serdes_json.hpp"
 #include "coding/url.hpp"
-#include "coding/writer.hpp"
 
 #include "platform/http_client.hpp"
 

@@ -163,3 +163,8 @@ jobs:
           #release-files: |
           #  ./android/app/build/outputs/apk/web/release/CoMaps-${{ needs.tag.outputs.code }}-web-release.apk
           #  ./android/app/build/outputs/apk/web/release/CoMaps-${{ needs.tag.outputs.code }}-web-release.apk.sha256sum
+
+      - name: Upload debug symbols
+        uses: actions/upload-artifact@v3
+        with:
+          name: android/app/build/intermediates/merged_native_libs

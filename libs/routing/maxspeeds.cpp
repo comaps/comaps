@@ -1,8 +1,6 @@
 #include "routing/maxspeeds.hpp"
 #include "routing/maxspeeds_serialization.hpp"
 
-#include "platform/measurement_utils.hpp"
-
 #include "coding/files_container.hpp"
 
 #include "base/assert.hpp"

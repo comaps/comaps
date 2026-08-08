@@ -9,4 +9,5 @@ public interface RoutingBottomMenuListener
   void onSearchRoutePoint(@NonNull RouteMarkType type);
   void onRoutingStart();
   void onManageRouteOpen();
+  void onDirectionsPreviewOpen();
 }

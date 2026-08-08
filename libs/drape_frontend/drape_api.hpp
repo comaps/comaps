@@ -15,6 +15,8 @@
 
 namespace df
 {
+class DrapeEngine;
+
 /**
  * @brief Geometry and style for a line rendered with Drape.
  */

@@ -15,13 +15,16 @@ on:
       - .forgejo/workflows/android-check.yaml  # Run check on self change
       - libs/**
       - '!**/*_tests/**'
-      - '!libs/platform/*apple*'
-      - '!libs/platform/*_ios*'
+      - '!libs/**/*apple*'
+      - '!libs/**/*_ios*'
+      - '!libs/platform/apple/**'
       - '!libs/platform/*_linux*'
       - '!libs/platform/*_mac*'
       - '!libs/platform/*qt*'
       - '!libs/platform/*_win*'
       - '!libs/pyhelpers/**'
+      - '!iphone/**'
+      - '!xcode/**'
       - private.h
     branches:
       - main

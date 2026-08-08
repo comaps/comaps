@@ -1,4 +1,5 @@
 package app.organicmaps.settings;
+import androidx.annotation.Keep;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -25,6 +26,7 @@ import com.google.android.material.textview.MaterialTextView;
 import java.io.File;
 import java.util.List;
 
+@Keep
 public class StoragePathFragment extends BaseSettingsFragment
 {
   private MaterialTextView mHeader;

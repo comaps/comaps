@@ -1,16 +1,24 @@
 #pragma once
 
 #include "drape/drape_diagnostics.hpp"
-#include "drape/utils/glyph_usage_tracker.hpp"
-#include "drape/utils/gpu_mem_tracker.hpp"
+#include "drape/drape_global.hpp"
 
+#include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
+#ifdef TRACK_GLYPH_USAGE
+#include "drape/utils/glyph_usage_tracker.hpp"
+#endif
+
+#ifdef TRACK_GPU_MEM
+#include "drape/utils/gpu_mem_tracker.hpp"
+#endif
+
+#ifdef TILES_STATISTIC
 #include "base/thread.hpp"
-#include "base/timer.hpp"
+#endif
 
 #include <chrono>
-#include <drape/drape_global.hpp>
 #include <map>
 #include <memory>
 #include <mutex>

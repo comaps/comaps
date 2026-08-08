@@ -1,9 +1,10 @@
 #pragma once
 
-#include "drape/drape_global.hpp"
-#include "drape/graphics_context.hpp"
+#include "drape/gl_constants.hpp"
 #include "drape/pointers.hpp"
 #include "drape/render_state.hpp"
+
+#include "base/assert.hpp"
 
 #include <cstdint>
 #include <functional>

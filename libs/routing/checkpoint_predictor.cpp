@@ -2,7 +2,7 @@
 
 #include "geometry/mercator.hpp"
 
-#include "base/stl_helpers.hpp"
+#include "base/assert.hpp"
 
 #include <limits>
 

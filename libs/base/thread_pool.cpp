@@ -1,5 +1,6 @@
 #include "base/thread_pool.hpp"
 
+#include "base/assert.hpp"
 #include "base/thread.hpp"
 #include "base/threaded_list.hpp"
 

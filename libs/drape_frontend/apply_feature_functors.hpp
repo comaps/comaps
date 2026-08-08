@@ -4,15 +4,18 @@
 #include "drape_frontend/stylist.hpp"
 #include "drape_frontend/tile_key.hpp"
 
+#include "drape/color.hpp"
 #include "drape/drape_diagnostics.hpp"
 #include "drape/pointers.hpp"
 
 #include "indexer/drawing_rule_def.hpp"
-#include "indexer/drawing_rules.hpp"
 #include "indexer/road_shields_parser.hpp"
 
 #include "geometry/point2d.hpp"
+#include "geometry/rect2d.hpp"
 #include "geometry/spline.hpp"
+
+#include "base/buffer_vector.hpp"
 
 #include <functional>
 #include <vector>

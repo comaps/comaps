@@ -92,5 +92,59 @@
 			<string>%lld kamers</string>
 		</dict>
 	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld plaatsen voor gehandicapten</string>
+			<key>one</key>
+			<string>%lld plaats voor een gehandicapte</string>
+			<key>other</key>
+			<string>%lld plaatsen voor gehandicapten</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld plaatsen met lader</string>
+			<key>one</key>
+			<string>%lld plaats met een lader</string>
+			<key>other</key>
+			<string>%lld plaatsen met lader</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld plaatsen</string>
+			<key>one</key>
+			<string>%lld plaats</string>
+			<key>other</key>
+			<string>%lld plaatsen</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

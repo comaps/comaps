@@ -1,0 +1,320 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Manteniu-vos a la dreta."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Gireu a la dreta."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Gireu fortament a la dreta."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "Entreu a la rotonda."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Sortiu de la rotonda."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Manteniu-vos a l'esquerra."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Gireu a l'esquerra."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Gireu fortament a l'esquerra."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Feu un canvi de sentit."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "Seguiu tot recte."
+    },
+    "exit": {
+        "defaultMessage": "Sortida."
+    },
+    "onto": {
+        "defaultMessage": "cap a"
+    },
+    "take_exit_number": {
+        "defaultMessage": "Agafeu la sortida"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Recalcular el recorregut"
+    },
+    "destination": {
+        "defaultMessage": "Arribareu a la destinació."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "Heu arribat."
+    },
+    "in_50_meters": {
+        "defaultMessage": "A cinquanta metres"
+    },
+    "in_100_meters": {
+        "defaultMessage": "A cent metres"
+    },
+    "in_200_meters": {
+        "defaultMessage": "A dos-cents metres"
+    },
+    "in_250_meters": {
+        "defaultMessage": "A dos-cents cinquanta metres"
+    },
+    "in_300_meters": {
+        "defaultMessage": "A tres-cents metres"
+    },
+    "in_400_meters": {
+        "defaultMessage": "A quatre-cents metres"
+    },
+    "in_500_meters": {
+        "defaultMessage": "A cinc-cents metres"
+    },
+    "in_600_meters": {
+        "defaultMessage": "A sis-cents metres"
+    },
+    "in_700_meters": {
+        "defaultMessage": "A set-cents metres"
+    },
+    "in_750_meters": {
+        "defaultMessage": "A set-cents cinquanta metres"
+    },
+    "in_800_meters": {
+        "defaultMessage": "A vuit-cents"
+    },
+    "in_900_meters": {
+        "defaultMessage": "A nou-cents metres"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "A un quilòmetre"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "A un quilòmetre i mig"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "A dos quilòmetres"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "A dos quilòmetres i mig"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "A tres quilòmetres"
+    },
+    "then": {
+        "defaultMessage": "Després"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Agafa la primera sortida."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Agafa la segona sortida."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Agafa la tercera sortida."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Agafa la quarta sortida."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Agafa la cinquena sortida."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Agafa la sisena sortida."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Agafa la setena sortida."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Agafa la vuitena sortida."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Agafa la novena sortida."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Agafa la desena sortida."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Agafa la onzena sortida."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "A cinquanta peus"
+    },
+    "in_100_feet": {
+        "defaultMessage": "A cent peus"
+    },
+    "in_200_feet": {
+        "defaultMessage": "A dos-cents peus"
+    },
+    "in_300_feet": {
+        "defaultMessage": "A tres-cents peus"
+    },
+    "in_400_feet": {
+        "defaultMessage": "A quatre-cents peus"
+    },
+    "in_500_feet": {
+        "defaultMessage": "A cinc-cents peus"
+    },
+    "in_600_feet": {
+        "defaultMessage": "A sis-cents peus"
+    },
+    "in_700_feet": {
+        "defaultMessage": "A set-cents peus"
+    },
+    "in_800_feet": {
+        "defaultMessage": "A vuit-cents peus"
+    },
+    "in_900_feet": {
+        "defaultMessage": "A nou-cents peus"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "A mil peus"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "A mil cinc-cents peus"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "A dos mil peus"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "A dos mil cinc-cents peus"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "A tres mil peus"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "A tres mil cinc-cents peus"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "A quatre mil peus"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "A quatre mil cinc-cents peus"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "A cinc mil peus"
+    },
+    "in_1_mile": {
+        "defaultMessage": "A un milla"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "A una milla i mitja"
+    },
+    "in_2_miles": {
+        "defaultMessage": "A dues milles"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Càmera al davant"
+    }
+}

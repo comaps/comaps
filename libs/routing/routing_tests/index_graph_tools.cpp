@@ -5,8 +5,10 @@
 #include "routing/base/routing_result.hpp"
 #include "routing/geometry.hpp"
 #include "routing/routing_helpers.hpp"
+#include "routing/transit_graph.hpp"
 #include "routing/transit_world_graph.hpp"
 
+#include "transit/transit_graph_data.hpp"
 #include "transit/transit_version.hpp"
 
 #include "base/assert.hpp"
@@ -122,6 +124,8 @@ void TestIndexGraphLoader::AddGraph(NumMwmId mwmId, unique_ptr<IndexGraph> graph
 }
 
 // TestTransitGraphLoader ----------------------------------------------------------------------------
+TestTransitGraphLoader::~TestTransitGraphLoader() = default;
+
 TransitGraph & TestTransitGraphLoader::GetTransitGraph(NumMwmId mwmId, IndexGraph &)
 {
   return GetGraph(m_graphs, mwmId);

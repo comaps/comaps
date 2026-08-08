@@ -1,10 +1,12 @@
 #include "mwm_version.hpp"
 
 #include "coding/files_container.hpp"
+#include "coding/reader.hpp"
 #include "coding/varint.hpp"
 #include "coding/writer.hpp"
 
 #include "base/gmtime.hpp"
+#include "base/macros.hpp"
 #include "base/string_utils.hpp"
 #include "base/timer.hpp"
 

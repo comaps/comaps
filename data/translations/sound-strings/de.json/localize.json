@@ -1,0 +1,455 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "Rechts halten."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "Rechts abbiegen."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "Scharf rechts."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "Am Kreisverkehr."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "Verlasse den Kreisverkehr."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "Links halten."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "Links abbiegen."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "Scharf links."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "Bitte wenden."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "Fahre geradeaus."
+    },
+    "exit": {
+        "defaultMessage": "Nimm die Ausfahrt."
+    },
+    "onto": {
+        "defaultMessage": "auf"
+    },
+    "take_exit_number": {
+        "defaultMessage": "Nimm die Ausfahrt"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_recalculating": {
+        "defaultMessage": "Neuberechnung der Route"
+    },
+    "destination": {
+        "defaultMessage": "Hast du das Ziel erreicht."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "Du hast dein Ziel erreicht."
+    },
+    "in_50_meters": {
+        "defaultMessage": "In fünfzig Metern"
+    },
+    "in_100_meters": {
+        "defaultMessage": "In einhundert Metern"
+    },
+    "in_200_meters": {
+        "defaultMessage": "In zweihundert Metern"
+    },
+    "in_250_meters": {
+        "defaultMessage": "In zweihundertfünfzig Metern"
+    },
+    "in_300_meters": {
+        "defaultMessage": "In dreihundert Metern"
+    },
+    "in_400_meters": {
+        "defaultMessage": "In vierhundert Metern"
+    },
+    "in_500_meters": {
+        "defaultMessage": "In fünfhundert Metern"
+    },
+    "in_600_meters": {
+        "defaultMessage": "In sechshundert Metern"
+    },
+    "in_700_meters": {
+        "defaultMessage": "In siebenhundert Metern"
+    },
+    "in_750_meters": {
+        "defaultMessage": "In siebenhundertfünfzig Metern"
+    },
+    "in_800_meters": {
+        "defaultMessage": "In achthundert Metern"
+    },
+    "in_900_meters": {
+        "defaultMessage": "In neunhundert Metern"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "In einem Kilometer"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "In eineinhalb Kilometern"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "In zwei Kilometern"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "In zweieinhalb Kilometern"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "In drei Kilometern"
+    },
+    "then": {
+        "defaultMessage": "Danach"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "Nimm die erste Ausfahrt."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "Nimm die zweite Ausfahrt."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "Nimm die dritte Ausfahrt."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "Nimm die vierte Ausfahrt."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "Nimm die fünfte Ausfahrt."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "Nimm die sechste Ausfahrt."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "Nimm die siebte Ausfahrt."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "Nimm die achte Ausfahrt."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "Nimm die neunte Ausfahrt."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "Nimm die zehnte Ausfahrt."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "Nimm die elfte Ausfahrt."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "In fünfzig Fuß"
+    },
+    "in_100_feet": {
+        "defaultMessage": "In einhundert Fuß"
+    },
+    "in_200_feet": {
+        "defaultMessage": "In zweihundert Fuß"
+    },
+    "in_300_feet": {
+        "defaultMessage": "In dreihundert Fuß"
+    },
+    "in_400_feet": {
+        "defaultMessage": "In vierhundert Fuß"
+    },
+    "in_500_feet": {
+        "defaultMessage": "In fünfhundert Fuß"
+    },
+    "in_600_feet": {
+        "defaultMessage": "In sechshundert Fuß"
+    },
+    "in_700_feet": {
+        "defaultMessage": "In siebenhundert Fuß"
+    },
+    "in_800_feet": {
+        "defaultMessage": "In achthundert Fuß"
+    },
+    "in_900_feet": {
+        "defaultMessage": "In neunhundert Fuß"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "In eintausend Fuß"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "In eintausendfünfhundert Fuß"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "In zweitausend Fuß"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "In zweitausendfünfhundert Fuß"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "In dreitausend Fuß"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "In dreitausendfünfhundert Fuß"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "In viertausend Fuß"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "In viertausendfünfhundert Fuß"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "In fünftausend Fuß"
+    },
+    "in_1_mile": {
+        "defaultMessage": "In einer Meile"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "In eineinhalb Meilen"
+    },
+    "in_2_miles": {
+        "defaultMessage": "In zwei Meilen"
+    },
+    "unknown_camera": {
+        "defaultMessage": "Blitzer naht"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "Am Ende der Straße,"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Du bist %1$s von der Route entfernt"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "In mehr als drei Kilometern"
+    },
+    "from_50_meters": {
+        "defaultMessage": "fünfzig Meter"
+    },
+    "from_100_meters": {
+        "defaultMessage": "einhundert Meter"
+    },
+    "from_200_meters": {
+        "defaultMessage": "zweihundert Meter"
+    },
+    "from_250_meters": {
+        "defaultMessage": "zweihundertfünfzig Meter"
+    },
+    "from_300_meters": {
+        "defaultMessage": "dreihundert Meter"
+    },
+    "from_400_meters": {
+        "defaultMessage": "vierhundert Meter"
+    },
+    "from_500_meters": {
+        "defaultMessage": "fünfhundert Meter"
+    },
+    "from_600_meters": {
+        "defaultMessage": "sechshundert Meter"
+    },
+    "from_700_meters": {
+        "defaultMessage": "siebenhundert Meter"
+    },
+    "from_750_meters": {
+        "defaultMessage": "siebenhundertfünfzig Meter"
+    },
+    "from_800_meters": {
+        "defaultMessage": "achthundert Meter"
+    },
+    "from_900_meters": {
+        "defaultMessage": "neunhundert Meter"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "ein Kilometer"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "eineinhalb Kilometer"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "zwei Kilometer"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "zweieinhalb Kilometer"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "drei Kilometer"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "mehr als drei Kilometer"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "In mehr als zwei Meilen"
+    },
+    "from_50_feet": {
+        "defaultMessage": "fünfzig Fuß"
+    },
+    "from_100_feet": {
+        "defaultMessage": "einhundert Fuß"
+    },
+    "from_200_feet": {
+        "defaultMessage": "zweihundert Fuß"
+    },
+    "from_300_feet": {
+        "defaultMessage": "dreihundert Fuß"
+    },
+    "from_400_feet": {
+        "defaultMessage": "vierhundert Fuß"
+    },
+    "from_500_feet": {
+        "defaultMessage": "fünfhundert Fuß"
+    },
+    "from_600_feet": {
+        "defaultMessage": "sechshundert Fuß"
+    },
+    "from_700_feet": {
+        "defaultMessage": "siebenhundert Fuß"
+    },
+    "from_800_feet": {
+        "defaultMessage": "achthundert Fuß"
+    },
+    "from_900_feet": {
+        "defaultMessage": "neunhundert Fuß"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "eintausend Fuß"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "eintausendfünfhundert Fuß"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "zweitausend Fuß"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "zweitausendfünfhundert Fuß"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "dreitausend Fuß"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "dreitausendfünfhundert Fuß"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "viertausend Fuß"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "viertausendfünfhundert Fuß"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "fünftausend Fuß"
+    },
+    "from_1_mile": {
+        "defaultMessage": "eine Meile"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "eineinhalb Meilen"
+    },
+    "from_2_miles": {
+        "defaultMessage": "zwei Meilen"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "mehr als zwei Meilen"
+    }
+}

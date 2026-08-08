@@ -262,6 +262,8 @@ public class Holders
     MaterialCheckBox mVisibilityMarker;
     @NonNull
     ShapeableImageView mMoreButton;
+    @NonNull
+    final ShapeableImageView mDragHandle;
 
     CategoryViewHolder(@NonNull View root)
     {
@@ -269,6 +271,7 @@ public class Holders
       mName = root.findViewById(R.id.name);
       mVisibilityMarker = root.findViewById(R.id.checkbox);
       mMoreButton = root.findViewById(R.id.more);
+      mDragHandle = root.findViewById(R.id.drag_handle);
     }
 
     void setVisibilityState(boolean visible)
@@ -332,6 +335,8 @@ public class Holders
     private final MaterialTextView mName;
     @NonNull
     private final MaterialTextView mDistance;
+    @NonNull
+    private final MaterialTextView mCategoryName;
 
     BookmarkViewHolder(@NonNull View itemView)
     {
@@ -339,13 +344,23 @@ public class Holders
       mIcon = itemView.findViewById(R.id.iv__bookmark_color);
       mName = itemView.findViewById(R.id.tv__bookmark_name);
       mDistance = itemView.findViewById(R.id.tv__bookmark_distance);
+      mCategoryName = itemView.findViewById(R.id.tv__bookmark_category);
     }
 
     @Override
     void bind(@NonNull SectionPosition position, @NonNull BookmarkListAdapter.SectionsDataSource sectionsDataSource)
     {
       final long bookmarkId = sectionsDataSource.getBookmarkId(position);
-      BookmarkInfo bookmark = new BookmarkInfo(sectionsDataSource.getCategory().getId(), bookmarkId);
+      BookmarkInfo bookmark = BookmarkManager.INSTANCE.getBookmarkInfo(bookmarkId);
+      if (bookmark == null)
+      {
+        mName.setText("");
+        mDistance.setText("");
+        mIcon.setImageDrawable(null);
+        UiUtils.hide(mDistance);
+        UiUtils.hide(mCategoryName);
+        return;
+      }
       mName.setText(bookmark.getName());
       final Location loc = MwmApplication.from(mIcon.getContext()).getLocationHelper().getSavedLocation();
 
@@ -365,6 +380,17 @@ public class Holders
           Graphics.drawCircleAndImage(bookmark.getIcon().argb(), R.dimen.track_circle_size,
                                       bookmark.getIcon().getResId(), R.dimen.bookmark_icon_size, mIcon.getContext());
       mIcon.setImageDrawable(circle);
+
+      if (sectionsDataSource.showCategoryName())
+      {
+        String name = BookmarkManager.INSTANCE.getCategoryById(bookmark.getCategoryId()).getName();
+        mCategoryName.setText(name);
+        UiUtils.show(mCategoryName);
+      }
+      else
+      {
+        UiUtils.hide(mCategoryName);
+      }
     }
   }
 

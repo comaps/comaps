@@ -151,7 +151,7 @@
 "type.amenity.prison" = "Prisión";
 "type.amenity.pub" = "Taberna";
 "type.amenity.public_bookcase" = "Intercambio de libros";
-"type.amenity.recycling.centre" = "Centro de Reciclaje";
+"type.amenity.recycling.centre" = "Centro de reciclaje";
 "type.amenity.recycling.container" = "Contenedor de reciclaje";
 "type.recycling.batteries" = "Baterías";
 "type.recycling.clothes" = "Ropa";
@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Túnel";
 "type.highway.bus_stop" = "Parada de bus";
 "type.highway.construction" = "Vía en construcción";
+"type.highway.construction.motorway" = "Vía en construcción";
+"type.highway.construction.motorway_link" = "Vía en construcción";
+"type.highway.construction.trunk" = "Vía en construcción";
+"type.highway.construction.trunk_link" = "Vía en construcción";
+"type.highway.construction.primary" = "Vía en construcción";
+"type.highway.construction.primary_link" = "Vía en construcción";
+"type.highway.construction.secondary" = "Vía en construcción";
+"type.highway.construction.secondary_link" = "Vía en construcción";
+"type.highway.construction.tertiary" = "Vía en construcción";
+"type.highway.construction.tertiary_link" = "Vía en construcción";
+"type.highway.construction.residential" = "Vía en construcción";
+"type.highway.construction.unclassified" = "Vía en construcción";
+"type.highway.construction.service" = "Vía en construcción";
+"type.highway.construction.living_street" = "Vía en construcción";
+"type.highway.construction.road" = "Vía en construcción";
+"type.highway.construction.track" = "Vía en construcción";
 "type.highway.cycleway" = "Ciclovía";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Puente";
@@ -864,8 +880,8 @@
 "type.office.lawyer" = "Despacho de abogados";
 "type.office.ngo" = "Organización no gubernamental";
 "type.office.telecommunication" = "Operadora de telefonía";
-"type.organic.only" = "Orgánico";
-"type.organic.yes" = "Orgánico";
+"type.organic.only" = "Solo orgánico";
+"type.organic.yes" = "Opciones orgánicas o ecológicas";
 "type.place.city" = "Ciudad";
 "type.place.city.capital" = "Capital";
 "type.place.city.capital.10" = "Ciudad";
@@ -907,7 +923,7 @@
 "type.power.generator.wind" = "Aerogenerador";
 "type.power.generator.gas" = "Planta termoeléctrica a gas";
 "type.power.generator.hydro" = "Planta hidroeléctrica";
-"type.power.line" = "Línea eléctrica";
+"type.power.line" = "Línea de alta tensión";
 "type.power.line.underground" = "Línea eléctrica subterránea";
 "type.power.minor_line" = "Línea eléctrica menor";
 "type.power.plant" = "Planta eléctrica";
@@ -935,7 +951,7 @@
 "type.railway.funicular" = "Funicular";
 "type.railway.funicular.bridge" = "Puente de funicular";
 "type.railway.funicular.tunnel" = "Túnel de funicular";
-"type.railway.halt" = "Punto de parada";
+"type.railway.halt" = "Estación de tren";
 "type.railway.level_crossing" = "Cruce a nivel";
 "type.railway.light_rail" = "Tren ligero";
 "type.railway.light_rail.bridge" = "Puente de tren ligero";
@@ -1323,7 +1339,7 @@
 "type.shop.agrarian" = "Tienda agrícola";
 "type.shop.antiques" = "Antigüedades";
 "type.shop.appliance" = "Tienda de electrodomésticos";
-"type.shop.water" = "Empresas especializadas en la venta de sistemas de tratamiento de agua";
+"type.shop.water" = "Tienda de agua";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Tienda de arte";
 "type.shop.baby_goods" = "Tienda de artículos para bebés";
@@ -1408,7 +1424,7 @@
 "type.attraction.maze" = "Laberinto";
 "type.attraction.roller_coaster" = "Montaña rusa";
 "type.attraction.water_slide" = "Tobogán acuático";
-"type.tourism.attraction.specified" = "Atracción turística";
+"type.tourism.attraction.specified" = "Atracción";
 "type.tourism.camp_site" = "Paraje de acampada";
 "type.tourism.caravan_site" = "Zona de autocaravanas";
 /* A rentable countryside vacation house. */
@@ -1515,3 +1531,9 @@
 "type.leisure.sports_centre.sport.boules" = "Polideportivo";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Centro deportivo";
+"type.organic.no" = "Sin opciones orgánicas";
+"type.amenity.stage" = "Escenario";
+"type.amenity.animal_boarding" = "Alojamiento para animales";
+"type.amenity.toilets.customers" = "Acceso para clientes";
+"type.amenity.toilets.private" = "Acceso privado";
+"type.amenity.planetarium" = "Planetario";

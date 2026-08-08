@@ -3,6 +3,7 @@
 #include "editor/editor_config.hpp"
 #include "editor/new_feature_categories.hpp"
 
+#include "indexer/categories_holder.hpp"
 #include "indexer/classificator_loader.hpp"
 
 #include <algorithm>

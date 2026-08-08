@@ -14,8 +14,10 @@ import androidx.annotation.RequiresPermission;
 import androidx.core.location.LocationListenerCompat;
 import androidx.core.location.LocationManagerCompat;
 import androidx.core.location.LocationRequestCompat;
+import app.organicmaps.sdk.util.LocationUtils;
 import app.organicmaps.sdk.util.log.Logger;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class AndroidNativeProvider extends BaseLocationProvider
@@ -86,17 +88,21 @@ public class AndroidNativeProvider extends BaseLocationProvider
             .setQuality(LocationRequestCompat.QUALITY_HIGH_ACCURACY)
             .build();
 
-    // API 31+ provides `fused` provider which aggregates `gps` and `network` and potentially other sensors as well.
-    // Unfortunately, certain LineageOS ROMs have broken `fused` provider that pretends to be enabled, but in
-    // reality it does absolutely nothing and doesn't return any location updates. For this reason, we try all
-    // (`fused`, `network`, `gps`) providers here, but prefer `fused` in LocationHelper.onLocationChanged().
-    //
-    // https://developer.android.com/reference/android/location/LocationManager#FUSED_PROVIDER
-    // https://issuetracker.google.com/issues/215186921#comment3
-    // https://github.com/organicmaps/organicmaps/issues/4158
-    //
-    mProviders.addAll(mLocationManager.getProviders(true));
-    mProviders.remove(LocationManager.PASSIVE_PROVIDER); // not really useful if other providers are enabled.
+    if (mLocationManager.isProviderEnabled(LocationUtils.FUSED_PROVIDER))
+    {
+      // The FUSED provider takes into account both GPS and NETWORK and potentially other sensors as well.
+      // https://issuetracker.google.com/issues/215186921#comment3
+      mProviders.add(LocationUtils.FUSED_PROVIDER);
+    }
+    else
+    {
+      if (mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+        mProviders.add(LocationManager.GPS_PROVIDER);
+
+      if (mLocationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER))
+        mProviders.add(LocationManager.NETWORK_PROVIDER);
+    }
+    
     if (mProviders.isEmpty())
     {
       // Call this callback in the next event loop to allow LocationHelper::start() to finish.

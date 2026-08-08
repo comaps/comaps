@@ -1,5 +1,7 @@
 #include "platform/gui_thread.hpp"
 
+#include "base/task_loop.hpp"
+
 #include <utility>
 
 #include <QtCore/QCoreApplication>

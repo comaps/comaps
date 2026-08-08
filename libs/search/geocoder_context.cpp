@@ -3,7 +3,6 @@
 #include "search/token_range.hpp"
 
 #include "base/assert.hpp"
-#include "base/stl_helpers.hpp"
 
 namespace search
 {

@@ -1,12 +1,11 @@
 #pragma once
 
-#include "routing/edge_estimator.hpp"
 #include "routing/index_graph.hpp"
 #include "routing/route.hpp"
+#include "routing/routing_options.hpp"
 #include "routing/speed_camera_ser_des.hpp"
 #include "routing/vehicle_mask.hpp"
 
-#include "routing_common/num_mwm_id.hpp"
 #include "routing_common/vehicle_model.hpp"
 
 #include <memory>

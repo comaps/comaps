@@ -1,6 +1,8 @@
 #include "platform/localization.hpp"
 
-#include "platform/settings.hpp"
+#include "platform/measurement_utils.hpp"
+
+#include "base/assert.hpp"
 
 #include <string>
 

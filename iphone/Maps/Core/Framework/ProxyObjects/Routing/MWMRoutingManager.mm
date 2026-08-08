@@ -5,10 +5,14 @@
 #import "MWMFrameworkObservers.h"
 #import "MWMCoreRouterType.h"
 #import "MWMRoutePoint+CPP.h"
+#import "MWMRoadShieldInfo+CPP.h"
 #import "MWMCoreUnits.h"
 #import "SwiftBridge.h"
 
 #include <CoreApi/Framework.h>
+
+#include "routing/following_info.hpp"
+#include "routing/lanes/lane_info.hpp"
 
 @interface MWMRoutingManager()<MWMFrameworkRouteBuilderObserver, MWMLocationObserver>
 @property(nonatomic, readonly) RoutingManager & rm;
@@ -94,17 +98,37 @@
     roundExitNumber = info.m_exitNum;
   }
 
+  NSMutableArray<MWMLaneInfo *> *lanes = [NSMutableArray arrayWithCapacity:info.m_lanes.size()];
+  for (auto const & lane : info.m_lanes) {
+    auto const activeWays = lane.laneWays.GetActiveLaneWays();
+    NSMutableArray<NSNumber *> *laneWays = [NSMutableArray arrayWithCapacity:activeWays.size()];
+    for (auto const way : activeWays)
+      [laneWays addObject:@(static_cast<uint8_t>(way))];
+    [lanes addObject:[[MWMLaneInfo alloc] initWithLaneWays:laneWays
+                                            recommendedWay:static_cast<uint8_t>(lane.recommendedWay)]];
+  }
+
   MWMRouteInfo *objCInfo = [[MWMRouteInfo alloc] initWithTimeToTarget:info.m_time
                                                      targetDistance: info.m_distToTarget.GetDistance()
                                                      targetUnitsIndex:static_cast<UInt8>(info.m_distToTarget.GetUnits())
                                                        distanceToTurn:info.m_distToTurn.GetDistance()
                                                        turnUnitsIndex:static_cast<UInt8>(info.m_distToTurn.GetUnits())
-                                                           streetName:@(info.m_nextStreetName.c_str())
                                                         turnImageName:[self turnImageName:info.m_turn isPrimary:YES]
                                                     nextTurnImageName:[self turnImageName:info.m_nextTurn isPrimary:NO]
                                                              speedMps:speedMps
                                                         speedLimitMps:info.m_speedLimitMps
-                                                      roundExitNumber:roundExitNumber];
+                                                      roundExitNumber:roundExitNumber
+                                                                lanes:lanes
+                                                             roadName:@(info.m_nextName.c_str())
+                                                              roadRef:@(info.m_nextRef.c_str())
+                                                          junctionRef:@(info.m_nextJunctionRef.c_str())
+                                                       destinationRef:@(info.m_nextDestinationRef.c_str())
+                                                              destination:@(info.m_nextDestination.c_str())
+                                                               isLink:info.m_nextIsLink
+                                                           roadShields:MWMBuildRoadShieldInfo(info.m_nextStreetShields)
+                                                      currentRoadName:@(info.m_currentStreetName.c_str())
+                                                    carDirectionIndex:static_cast<UInt8>(info.m_turn)
+                                                    isLeftHandTraffic:info.m_isLeftHandTraffic];
   return objCInfo;
 }
 

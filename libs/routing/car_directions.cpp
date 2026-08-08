@@ -1,11 +1,27 @@
 #include "routing/car_directions.hpp"
 
 #include "routing/lanes/lanes_recommendation.hpp"
+#include "routing/loaded_path_segment.hpp"
+#include "routing/route.hpp"
+#include "routing/routing_result_graph.hpp"
+#include "routing/routing_settings.hpp"
+#include "routing/segment.hpp"
+#include "routing/turn_candidate.hpp"
 #include "routing/turns.hpp"
 #include "routing/turns_generator.hpp"
 #include "routing/turns_generator_utils.hpp"
 
+#include "indexer/ftypes_matcher.hpp"
+
 #include "geometry/angles.hpp"
+#include "geometry/mercator.hpp"
+#include "geometry/point2d.hpp"
+#include "geometry/point_with_altitude.hpp"
+
+#include "base/assert.hpp"
+#include "base/logging.hpp"
+#include "base/math.hpp"
+#include "base/stl_helpers.hpp"
 
 namespace routing
 {
@@ -109,6 +125,13 @@ size_t CarDirectionsEngine::GetTurnDirection(IRoutingResult const & result, size
     return 0;
 
   size_t skipTurnSegments = CheckUTurnOnRoute(result, outgoingSegmentIndex, numMwmIds, vehicleSettings, turnItem);
+
+  // Defensive: clamp skipTurnSegments if it would overshoot the segment list (e.g. U-turn detected at end of route).
+  if (outgoingSegmentIndex + skipTurnSegments >= result.GetSegments().size())
+  {
+    LOG(LWARNING, ("skipTurnSegments overshoots route end; clamping.", outgoingSegmentIndex, skipTurnSegments));
+    skipTurnSegments = result.GetSegments().size() - outgoingSegmentIndex - 1;
+  }
 
   if (turnItem.m_turn == CarDirection::None)
     GetTurnDirectionBasic(result, outgoingSegmentIndex, numMwmIds, vehicleSettings, turnItem);
@@ -507,10 +530,75 @@ void GetTurnDirectionBasic(IRoutingResult const & result, size_t const outgoingS
                                            numMwmIds))
     return;
 
+  // If the route stays on the same named road (same name, ref, class, not link, not roundabout)
+  // and no candidate goes roughly straight, the apparent turn is just the road bending — drop it.
+  // If a straight-ahead candidate exists, keep the turn so we can tell the user which way the
+  // named road actually goes.
+  if (!turnInfo.m_ingoing->m_roadNameInfo.m_name.empty() &&
+      turnInfo.m_ingoing->m_roadNameInfo.m_name == turnInfo.m_outgoing->m_roadNameInfo.m_name &&
+      turnInfo.m_ingoing->m_roadNameInfo.m_ref == turnInfo.m_outgoing->m_roadNameInfo.m_ref &&
+      turnInfo.m_ingoing->m_highwayClass == turnInfo.m_outgoing->m_highwayClass &&
+      !turnInfo.m_ingoing->m_isLink && !turnInfo.m_outgoing->m_isLink &&
+      !turnInfo.m_ingoing->m_onRoundabout && !turnInfo.m_outgoing->m_onRoundabout)
+  {
+    double constexpr kSameRoadStraightAngle = 20.0;
+    bool hasStraightAheadOption = false;
+    for (auto const & candidate : nodes.candidates)
+    {
+      if (abs(candidate.m_angle) <= kSameRoadStraightAngle)
+      {
+        hasStraightAheadOption = true;
+        break;
+      }
+    }
+    if (!hasStraightAheadOption)
+      return;
+  }
+
   turn.m_turn = intermediateDirection;
+
+  // T-junction detection: if no candidate continues roughly straight, the road ends here.
+  // Restricted to clear left/right turns — slight turns and GoStraight are continuations,
+  // not end-of-road scenarios. Must run before any slight-turn → GoStraight promotion.
+  if (nodes.isCandidatesAngleValid && !IsGoStraightOrSlightTurn(intermediateDirection))
+  {
+    double constexpr kEndOfRoadStraightAngle = 35.0;
+    bool hasStraightCandidate = false;
+    for (auto const & candidate : turnCandidates)
+    {
+      if (abs(candidate.m_angle) <= kEndOfRoadStraightAngle)
+      {
+        hasStraightCandidate = true;
+        break;
+      }
+    }
+    turn.m_isEndOfRoad = !hasStraightCandidate;
+  }
 
   if (turnCandidates.size() >= 2 && nodes.isCandidatesAngleValid)
     CorrectRightmostAndLeftmost(turnCandidates, firstOutgoingSeg, turnAngle, turn);
+
+  // At crossroads where all alternative arms are clear left/right turns, a slight geometric
+  // deviation on the route is effectively "go straight". Promote TurnSlightLeft/Right to
+  // GoStraight in that case to avoid announcing a turn the driver wouldn't perceive.
+  if ((turn.m_turn == CarDirection::TurnSlightLeft || turn.m_turn == CarDirection::TurnSlightRight) &&
+      turnCandidates.size() >= 2 && nodes.isCandidatesAngleValid)
+  {
+    double constexpr kMinOtherAngleForStraightPromotion = 50.0;
+    bool allOthersClearTurns = true;
+    for (auto const & candidate : turnCandidates)
+    {
+      if (candidate.m_segment == firstOutgoingSeg)
+        continue;
+      if (abs(candidate.m_angle) < kMinOtherAngleForStraightPromotion)
+      {
+        allOthersClearTurns = false;
+        break;
+      }
+    }
+    if (allOthersClearTurns)
+      turn.m_turn = CarDirection::GoStraight;
+  }
 }
 
 size_t CheckUTurnOnRoute(IRoutingResult const & result, size_t const outgoingSegmentIndex, NumMwmIds const & numMwmIds,
@@ -519,6 +607,10 @@ size_t CheckUTurnOnRoute(IRoutingResult const & result, size_t const outgoingSeg
   size_t constexpr kUTurnLookAhead = 3;
   double constexpr kUTurnHeadingSensitivity = math::pi / 10.0;
   auto const & segments = result.GetSegments();
+
+  // Do not detect a U-turn one segment before the destination.
+  if (outgoingSegmentIndex + 1 >= segments.size())
+    return 0;
 
   // In this function we process the turn between the previous and the current
   // segments. So we need a shift to get the previous segment.
@@ -553,6 +645,30 @@ size_t CheckUTurnOnRoute(IRoutingResult const & result, size_t const outgoingSeg
         // Warning! We can not determine UTurn direction in single edge case. So we use UTurnLeft.
         // We decided to add driving rules (left-right sided driving) to mwm header.
         if (pointBeforeTurn == pointAfterTurn && turnPoint != pointBeforeTurn)
+        {
+          turn.m_turn = CarDirection::UTurnLeft;
+          return 1;
+        }
+
+        // Same-road wide U-turn (e.g. round a traffic island): the route stays on
+        // the same named/classed road but the overall heading reverses. Compare
+        // ingoing/outgoing legs (not just the immediate segment vectors) to catch this.
+        m2::PointD const junctionPoint = masterSegment.m_path.back().GetPoint();
+        m2::PointD const ingoingPoint =
+            GetPointForTurn(result, outgoingSegmentIndex, numMwmIds, vehicleSettings.m_maxIngoingPointsCount,
+                            vehicleSettings.m_minIngoingDistMeters, false /* forward */);
+        m2::PointD const outgoingPoint =
+            GetPointForTurn(result, outgoingSegmentIndex, numMwmIds, vehicleSettings.m_maxOutgoingPointsCount,
+                            vehicleSettings.m_minOutgoingDistMeters, true /* forward */);
+        double const anglePathChangeDeg =
+            math::RadToDeg(PiMinusTwoVectorsAngle(junctionPoint, ingoingPoint, outgoingPoint));
+        double constexpr kWideUTurnAngleDeg = 140.0;
+        if (anglePathChangeDeg >= kWideUTurnAngleDeg)
+        {
+          turn.m_turn = CarDirection::UTurnRight;
+          return 1;
+        }
+        if (anglePathChangeDeg <= -kWideUTurnAngleDeg)
         {
           turn.m_turn = CarDirection::UTurnLeft;
           return 1;

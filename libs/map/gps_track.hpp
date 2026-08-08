@@ -2,8 +2,10 @@
 
 #include "map/gps_track_collection.hpp"
 #include "map/gps_track_filter.hpp"
-#include "map/gps_track_storage.hpp"
 
+#include "platform/location.hpp"
+
+#include "base/macros.hpp"
 #include "base/thread.hpp"
 
 #include <condition_variable>
@@ -13,6 +15,10 @@
 #include <string>
 #include <utility>
 #include <vector>
+
+class GpsTrackStorage;
+struct ElevationInfo;
+struct TrackStatistics;
 
 class GpsTrack final
 {

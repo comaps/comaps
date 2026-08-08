@@ -1,5 +1,7 @@
 #include "platform/platform.hpp"
 
+#include "platform/gui_thread.hpp"
+
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
 

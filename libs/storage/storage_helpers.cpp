@@ -1,9 +1,13 @@
 #include "storage/storage_helpers.hpp"
 
 #include "storage/country_info_getter.hpp"
+#include "storage/diff_scheme/diffs_data_source.hpp"
 #include "storage/storage.hpp"
 
+#include "platform/country_file.hpp"
 #include "platform/platform.hpp"
+
+#include "base/assert.hpp"
 
 #include "std/target_os.hpp"
 
@@ -80,6 +84,7 @@ m2::RectD CalcLimitRect(CountryId const & countryId, Storage const & storage,
 MwmSize GetRemoteSize(diffs::DiffsDataSource const & diffsDataSource, platform::CountryFile const & file)
 {
   uint64_t size;
+  /// @todo(pastk) DiffsDataSource::SizeFor() expects countryId, not name?
   if (diffsDataSource.SizeFor(file.GetName(), size))
     return size;
   return file.GetRemoteSize();

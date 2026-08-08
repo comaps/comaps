@@ -4,7 +4,7 @@
 
 #include "platform/platform.hpp"
 
-#include "base/logging.hpp"
+#include "base/assert.hpp"
 #include "base/math.hpp"
 
 #include <chrono>

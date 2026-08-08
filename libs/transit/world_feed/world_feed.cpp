@@ -1,17 +1,22 @@
 #include "transit/world_feed/world_feed.hpp"
 
 #include "transit/transit_entities.hpp"
+#include "transit/world_feed/color_picker.hpp"
+
+#include "generator/affiliation.hpp"
+
+#include "geometry/mercator.hpp"
 
 #include "platform/measurement_utils.hpp"
 #include "platform/platform.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "i18n/localisation.hpp"
 
 #include "base/assert.hpp"
 #include "base/file_name_utils.hpp"
-#include "base/localisation.hpp"
 #include "base/logging.hpp"
 #include "base/stl_helpers.hpp"
+#include "base/string_utils.hpp"
 
 #include <algorithm>
 #include <cmath>

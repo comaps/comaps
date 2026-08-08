@@ -1,5 +1,7 @@
 #include "lanes_parser.hpp"
 
+#include "routing/lanes/lane_way.hpp"
+
 #include <algorithm>
 #include <ranges>
 

@@ -4,12 +4,18 @@
 
 #include "platform/platform.hpp"
 
+#include "coding/file_writer.hpp"
 #include "coding/files_container.hpp"
 #include "coding/internal/file_data.hpp"
 
 #include "base/assert.hpp"
+#include "base/exception.hpp"
 #include "base/logging.hpp"
 #include "base/scope_guard.hpp"
+
+#include "defines.hpp"
+
+#include "3party/succinct/mapper.hpp"
 
 namespace feature
 {

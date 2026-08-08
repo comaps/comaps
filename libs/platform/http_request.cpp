@@ -10,9 +10,10 @@
 
 #include "coding/file_writer.hpp"
 #include "coding/internal/file_data.hpp"
+#include "coding/writer.hpp"
 
+#include "base/assert.hpp"
 #include "base/logging.hpp"
-#include "base/string_utils.hpp"
 
 #include <list>
 #include <memory>

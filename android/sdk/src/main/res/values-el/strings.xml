@@ -21,7 +21,7 @@
     <!-- abbreviation for meters -->
     <string name="m">μ</string>
     <!-- abbreviation for kilometers -->
-    <string name="km">χμ</string>
+    <string name="km">χλμ</string>
     <!-- A unit of measure -->
     <string name="ft">πόδια</string>
     <!-- Subway exits for public transport marks on the map -->
@@ -33,7 +33,7 @@
     <string name="not_shared">Ιδιωτικό</string>
     <string name="access_rules_author_only">Online επεξεργασία</string>
     <string name="mb">MB</string>
-    <string name="mi">μι</string>
+    <string name="mi">μιλ</string>
     <string name="today">Σήμερα</string>
     <string name="yesterday">Χθες</string>
     <string name="days_ago">%s μέρες πριν</string>

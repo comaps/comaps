@@ -1,5 +1,6 @@
 #include "search/search_quality/sample.hpp"
 
+#include "search/mode.hpp"
 #include "search/search_params.hpp"
 #include "search/search_quality/helpers_json.hpp"
 
@@ -7,6 +8,9 @@
 #include "indexer/feature_algo.hpp"
 #include "indexer/feature_data.hpp"
 
+#include "i18n/localisation.hpp"
+
+#include "base/assert.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 

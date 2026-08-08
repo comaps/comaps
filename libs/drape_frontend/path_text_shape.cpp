@@ -1,23 +1,24 @@
 #include "drape_frontend/path_text_shape.hpp"
 
-#include <memory>
 #include "drape_frontend/path_text_handle.hpp"
 #include "drape_frontend/render_state_extension.hpp"
+#include "drape_frontend/text_layout.hpp"
+#include "drape_frontend/tile_key.hpp"
 
 #include "shaders/programs.hpp"
 
 #include "drape/attribute_provider.hpp"
 #include "drape/batcher.hpp"
+#include "drape/color.hpp"
 #include "drape/overlay_handle.hpp"
+#include "drape/render_state.hpp"
+#include "drape/texture_manager.hpp"
+#include "drape/utils/vertex_decl.hpp"
 
+#include "base/assert.hpp"
 #include "base/logging.hpp"
-#include "base/math.hpp"
-#include "base/matrix.hpp"
-#include "base/stl_helpers.hpp"
-#include "base/string_utils.hpp"
-#include "base/timer.hpp"
 
-#include "geometry/transformations.hpp"
+#include <memory>
 
 using m2::Spline;
 
