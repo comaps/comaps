@@ -107,6 +107,9 @@ public class RouteProgressBar extends ConstraintLayout
       // Do not call super onDraw(). Full progress bar drawing will be done here.
       // super.onDraw(canvas);
 
+      if (mOffset <= 0)
+        initDimensions();
+
       float progressXPos = calculateXPos(mProgress);
       float finalDestinationDotXPos = calculateXPos(100.0);
 
@@ -121,9 +124,6 @@ public class RouteProgressBar extends ConstraintLayout
 
       if (mIntermediateStops == null)
         return;
-
-      if (mOffset <= 0)
-        initDimensions();
 
       // Draw intermediate stops.
       for (double intermediateStopProgress : mIntermediateStops)
@@ -214,5 +214,15 @@ public class RouteProgressBar extends ConstraintLayout
       // Show next intermediate stop icon.
       UiUtils.show(mNextIntermediateStop);
     }
+  }
+
+  @Override
+  protected void onLayout(boolean changed, int left, int top, int right, int bottom)
+  {
+    super.onLayout(changed, left, top, right, bottom);
+
+    // Recalculate progress bar dimensions if layout changes.
+    if (changed)
+      mProgressIndicator.initDimensions();
   }
 }
