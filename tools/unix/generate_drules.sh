@@ -26,6 +26,15 @@ function BuildDrawingRules() {
   fi
 }
 
+# Not used at the moment
+function FormatPriorities() {
+  styleType=$1
+  echo "Format priorities for style $styleType"
+  # Run script to build style
+  python3 "$OMIM_PATH/tools/kothic/src/libkomwm.py" --format-priorities-only \
+    -p "$DATA_PATH/styles/$styleType/include/"
+}
+
 outputs=(classificator.txt types.txt visibility.txt colors.txt patterns.txt drules_proto.txt)
 # Store old versions for diffs
 for item in ${outputs[*]}
@@ -40,6 +49,24 @@ BuildDrawingRules default  light _default_light
 BuildDrawingRules default  dark _default_dark
 BuildDrawingRules outdoors  light _outdoors_light
 BuildDrawingRules outdoors  dark _outdoors_dark
+
+BuildDrawingRules walking  light _walking_light
+BuildDrawingRules walking_outdoor  light _walking_outdoor_light
+BuildDrawingRules walking  dark _walking_dark
+BuildDrawingRules walking_outdoor  dark _walking_outdoor_dark
+BuildDrawingRules cycling  light _cycling_light
+BuildDrawingRules cycling_outdoor  light _cycling_outdoor_light
+BuildDrawingRules cycling  dark _cycling_dark
+BuildDrawingRules cycling_outdoor  dark _cycling_outdoor_dark
+BuildDrawingRules driving  light _driving_light
+BuildDrawingRules driving_outdoor  light _driving_outdoor_light
+BuildDrawingRules driving  dark _driving_dark
+BuildDrawingRules driving_outdoor  dark _driving_outdoor_dark
+BuildDrawingRules public-transport  light _public-transport_light
+BuildDrawingRules public-transport_outdoor  light _public-transport_outdoor_light
+BuildDrawingRules public-transport  dark _public-transport_dark
+BuildDrawingRules public-transport_outdoor  dark _public-transport_outdoor_dark
+
 # Keep vehicle style last to produce same visibility.txt & classificator.txt
 BuildDrawingRules vehicle  light _vehicle_light
 BuildDrawingRules vehicle  dark _vehicle_dark
@@ -57,6 +84,14 @@ python3 "$OMIM_PATH/tools/python/transit/transit_colors_export.py" \
 echo "Merging styles..."
 python3 "$OMIM_PATH/tools/python/stylesheet/drules_merge.py" \
   "$DATA_PATH/drules_proto_default_light.bin" \
+  "$DATA_PATH/drules_proto_walking_light.bin" \
+  "$DATA_PATH/drules_proto_walking_outdoor_light.bin" \
+  "$DATA_PATH/drules_proto_cycling_light.bin" \
+  "$DATA_PATH/drules_proto_cycling_outdoor_light.bin" \
+  "$DATA_PATH/drules_proto_driving_light.bin" \
+  "$DATA_PATH/drules_proto_driving_outdoor_light.bin" \
+  "$DATA_PATH/drules_proto_public-transport_light.bin" \
+  "$DATA_PATH/drules_proto_public-transport_outdoor_light.bin" \
   "$DATA_PATH/drules_proto_vehicle_light.bin" \
   "$DATA_PATH/drules_proto_outdoors_light.bin" \
   "$DATA_PATH/drules_proto.bin" \
