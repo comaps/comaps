@@ -1,5 +1,7 @@
-/* Keep here changes of the base map style file only. */
-@import("../../default/light/colors.mapcss");
+/*
+ * Keep here changes of the base map style files only
+ * (see style.mapcss for exact processing order).
+ */
 
 @cycleway: #534DEB; /* slightly darker than in main */
 

@@ -1,6 +1,7 @@
-/* Keep here changes of the base map style file only. */
-@import("../../default/include/Basemap.mapcss");
-
+/*
+ * Keep here changes of the base default map style files only
+ * (see main.mapcss for exact processing order).
+ */
 
 /* 6.WATER */
 
