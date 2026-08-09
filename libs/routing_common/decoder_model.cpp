@@ -12,45 +12,6 @@ using namespace routing;
 // See road types here:
 //   https://wiki.openstreetmap.org/wiki/Key:highway
 
-/*
- * One meter per second. The TraffEstimator works on distance in meters, not travel time. For code
- * which works with speeds and assumes cost to be time-based, a speed of 1 m/s means such
- * calculations will effectively return distances in meters.
- */
-auto constexpr kOneMpSInKmpH = 3.6;
-
-/*
- * Penalty factor for using a fake segment to get to a nearby road.
- * Offroad penalty applies to direct distance whereas road penalty applies to roads, which can be up
- * to around 3 times the direct distance (theoretically unlimited). Therefore, a factor of 3–4 times
- * the penalty of a well-matched road may be needed to avoid competing with the correct route.
- * On the other hand, a very high offroad penalty would give preference to a poorly matched route
- * over a well-matched one if it is closer to the reference points.
- * Maximum penalty for roads is currently 64 (4 for ramps * 4 for road type * 4 for ref).
- * A well-matched road may still have a penalty of around 4 (twice the reduced attribute penalty, or
- * once the full attribute penalty).
- * A “wrong” road may also just have a penalty of 4 (e.g. road name mismatch, but road class and
- * ramp type match).
- * A value of 16 has worked well for the DE-B2R-SendlingSued-Passauerstrasse test case. (The
- * DE-A10-Werder-GrossKreutz or DE-A115-PotsdamDrewitz-Nuthetal test cases gave incorrect results
- * due to lack of fake segments, which was fixed through truncation and now works correctly even
- * with an offroad penalty of 128.)
- */
-auto constexpr kOffroadPenalty = 16;
-
-// |kSpeedOffroadKMpH| is a speed which is used for edges that don't lie on road features.
-// For example for pure fake edges. In car routing, off road speed for calculation ETA is not used.
-// The weight of such edges is considered as 0 seconds. It's especially actual when an airport is
-// a start or finish. On the other hand, while route calculation the fake edges are considered
-// as quite heavy. The idea behind that is to use the closest edge for the start and the finish
-// of the route except for some edge cases.
-/*
- * TODO move this constant to the header
- * `traff_decoder.cpp` uses `kOneMpSInKmpH / kOffroadPenalty` to initialize its `EdgeEstimator`,
- * and includes the header for its vehicle model.
- */
-SpeedKMpH constexpr kSpeedOffroadKMpH = kOneMpSInKmpH / kOffroadPenalty;
-
 HighwayBasedFactors const kDefaultFactors = {
     // {highway class : InOutCityFactor(in city, out city)}
 

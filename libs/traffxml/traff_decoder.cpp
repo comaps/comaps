@@ -57,42 +57,6 @@ auto constexpr kNumDecoderThreads = 1;
 auto constexpr kRouterTimeoutSec = 30;
 
 /*
- * One meter per second. The TraffEstimator works on distance in meters, not travel time. For code
- * which works with speeds and assumes cost to be time-based, a speed of 1 m/s means such
- * calculations will effectively return distances in meters.
- */
-auto constexpr kOneMpSInKmpH = 3.6;
-
-/*
- * Penalty factor for using a fake segment to get to a nearby road.
- * Offroad penalty applies to direct distance whereas road penalty applies to roads, which can be up
- * to around 3 times the direct distance (theoretically unlimited). Therefore, a factor of 3–4 times
- * the penalty of a well-matched road may be needed to avoid competing with the correct route.
- * On the other hand, a very high offroad penalty would give preference to a poorly matched route
- * over a well-matched one if it is closer to the reference points.
- * Maximum penalty for roads is currently 64 (4 for ramps * 4 for road type * 4 for ref).
- * A well-matched road may still have a penalty of around 4 (twice the reduced attribute penalty, or
- * once the full attribute penalty).
- * A “wrong” road may also just have a penalty of 4 (e.g. road name mismatch, but road class and
- * ramp type match).
- * A value of 16 has worked well for the DE-B2R-SendlingSued-Passauerstrasse test case. (The
- * DE-A10-Werder-GrossKreutz or DE-A115-PotsdamDrewitz-Nuthetal test cases gave incorrect results
- * due to lack of fake segments, which was fixed through truncation and now works correctly even
- * with an offroad penalty of 128.)
- */
-auto constexpr kOffroadPenalty = 16;
-
-/*
- * Penalty factor for non-matching attributes
- */
-auto constexpr kAttributePenalty = 4;
-
-/*
- * Penalty factor for partially matching attributes
- */
-auto constexpr kReducedAttributePenalty = 2;
-
-/*
  * Lower and upper boundary for radius around endpoint in which to search for junctions, depending
  * on the road class. Boundaries are in meters. If the lower boundary exceeds half the distance
  * between endpoints, the latter is used instead.
@@ -121,11 +85,6 @@ auto constexpr kTurnPenaltyMinAngle = 65.0;
  * Minimum angle in degrees at which the full turn penalty is applied
  */
 auto constexpr kTurnPenaltyFullAngle = 90.0;
-
-/*
- * Penalty applied to impassable ways
- */
-auto constexpr kImpassablePenalty = 1.0E4;
 
 /*
  * Invalid feature ID.
@@ -198,7 +157,7 @@ void TraffDecoder::ApplyTrafficImpact(traffxml::TrafficImpact & impact, traffxml
          */
         auto const length = mercator::DistanceOnEarth(points[idx], points[idx + 1]);
         if (speedKmPH != routing::kInvalidSpeed)
-          normalDurationS += length * kOneMpSInKmpH / speedKmPH;
+          normalDurationS += length * decoder_model::kOneMpSInKmpH / speedKmPH;
       }
     }
     auto const delayedDurationS = normalDurationS + impact.m_delayMins * 60;
@@ -596,12 +555,12 @@ double RoutingTraffDecoder::TraffEstimator::GetTurnPenalty(Purpose /* purpose */
    * from `kTurnPenaltyMaxDist`.
    *
    * Above `kTurnPenaltyFullAngle`, the full turn penalty applies, i.e. the distance-based value is
-   * multiplied with `kAttributePenalty`.
+   * multiplied with `decoder_model::kAttributePenalty`.
    *
    * Between `kTurnPenaltyMinAngle` and `kTurnPenaltyFullAngle`, the penalty proportionally
    * increases from 0 to the full value.
    */
-  double result = (kTurnPenaltyMaxDist - dist) * kAttributePenalty;
+  double result = (kTurnPenaltyMaxDist - dist) * decoder_model::kAttributePenalty;
   if (angle < kTurnPenaltyFullAngle)
     result *= (angle - kTurnPenaltyMinAngle) / (kTurnPenaltyFullAngle - kTurnPenaltyMinAngle);
   return result;
@@ -622,7 +581,7 @@ double RoutingTraffDecoder::TraffEstimator::CalcOffroad(ms::LatLon const & from,
    * nothing to infer from a particular reference point appearing in a particular argument.
    */
 
-  double defaultWeight = ms::DistanceOnEarth(from, to) * kOffroadPenalty;
+  double defaultWeight = ms::DistanceOnEarth(from, to) * decoder_model::kOffroadPenalty;
 
   /*
    * Retrieves offroad weight from the junctions map supplied, if found, or default.
@@ -677,8 +636,8 @@ double RoutingTraffDecoder::TraffEstimator::CalcOffroad(ms::LatLon const & from,
 }
 
 /*
- * Currently, the attribute penalty (kAttributePenalty or kReducedAttributePenalty) can be applied
- * up to 3 times:
+ * Currently, the attribute penalty (decoder_model::kAttributePenalty or decoder_model::kReducedAttributePenalty)
+ * can be applied up to 3 times:
  * - ramp attribute mismatch
  * - road class mismatch
  * - road ref mismatch
@@ -706,7 +665,7 @@ double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment c
   }
 
   if (!IsAccessIgnored() && road.GetHighwayType() && IsConstruction(road.GetHighwayType().value()))
-    result *= kImpassablePenalty;
+    result *= decoder_model::kImpassablePenalty;
 
   return result;
 }
@@ -731,9 +690,8 @@ RoutingTraffDecoder::DecoderRouter::DecoderRouter(CountryParentNameGetterFn cons
                          numMwmIds,
                          std::move(numMwmTree),
                          //std::nullopt /* std::optional<traffic::TrafficCache> const & trafficCache */,
-                         std::make_shared<TraffEstimator>(&dataSource, numMwmIds, kOneMpSInKmpH /* maxWeighSpeedKMpH */,
-                                                          routing::SpeedKMpH(kOneMpSInKmpH / kOffroadPenalty /* weight */,
-                                                                             routing::kNotUsed /* eta */) /* offroadSpeedKMpH */,
+                         std::make_shared<TraffEstimator>(&dataSource, numMwmIds, decoder_model::kOneMpSInKmpH /* maxWeighSpeedKMpH */,
+                                                          decoder_model::kSpeedOffroadKMpH /* offroadSpeedKMpH */,
                                                           decoder),
                          dataSource)
   //, m_directionsEngine(CreateDirectionsEngine(m_vehicleType, m_numMwmIds, m_dataSource)) // TODO we don’t need directions, can we disable that?
@@ -763,7 +721,7 @@ double RoutingTraffDecoder::GetHighwayTypePenalty(std::optional<routing::Highway
     //LOG(LINFO, ("highway type:", highwayType.value()));
     if (IsRamp(highwayType.value()) != (ramps != Ramps::None))
       // if one is a ramp and the other is not, treat it as a mismatch
-      result *= kAttributePenalty;
+      result *= decoder_model::kAttributePenalty;
     if (roadClass)
       // if the message specifies a road class, penalize mismatches
       result *= GetRoadClassPenalty(roadClass.value(), GetRoadClass(highwayType.value()));
@@ -771,17 +729,17 @@ double RoutingTraffDecoder::GetHighwayTypePenalty(std::optional<routing::Highway
   else // road has no highway class
   {
     // we can’t determine if it is a ramp, penalize for mismatch
-    result *= kAttributePenalty;
+    result *= decoder_model::kAttributePenalty;
     if (roadClass)
       // we can’t determine if the road matches the required road class, treat it as mismatch
-      result *= kAttributePenalty;
+      result *= decoder_model::kAttributePenalty;
   }
   return result;
 }
 
 double RoutingTraffDecoder::GetRoadRefPenalty(std::vector<std::string> & refs) const
 {
-  double result = kAttributePenalty;
+  double result = decoder_model::kAttributePenalty;
 
   for (auto & ref : refs)
   {
@@ -803,7 +761,7 @@ double RoutingTraffDecoder::GetRoadRefPenalty(std::string const & ref) const
     if (m_roadRef.empty())
       return 1;
     else if (!m_roadRef.empty())
-      return kAttributePenalty;
+      return decoder_model::kAttributePenalty;
   }
 
   // TODO does caching results per ref improve performance?
@@ -815,7 +773,7 @@ double RoutingTraffDecoder::GetRoadRefPenalty(std::string const & ref) const
   if (m_roadRef.empty() && r.empty())
     return 1;
   else if (m_roadRef.empty() || r.empty())
-    return kAttributePenalty;
+    return decoder_model::kAttributePenalty;
 
   // work on a copy of `m_decoder.m_roadRef`
   std::vector<std::string> l = m_roadRef;
@@ -849,11 +807,11 @@ double RoutingTraffDecoder::GetRoadRefPenalty(std::string const & ref) const
       }
 
   if (matches == 0)
-    return kAttributePenalty;
+    return decoder_model::kAttributePenalty;
   else if (matches == (l.size() + r.size()))
     return 1;
   else
-    return kReducedAttributePenalty;
+    return decoder_model::kReducedAttributePenalty;
 }
 
 void RoutingTraffDecoder::OnMapRegistered(platform::LocalCountryFile const & localFile)
@@ -1414,8 +1372,8 @@ traffxml::RoadClass GetRoadClass(routing::HighwayType highwayType)
  * @brief Returns the penalty factor for road class match/mismatch.
  *
  * If `lhs` and `rhs` are identical, the penalty factor is 1 (no penalty). If they are adjacent road
- * classes (e.g. trunk and primary), the penalty factor is `kReducedAttributePenalty`, in all other
- * cases it is `kAttributePenalty`.
+ * classes (e.g. trunk and primary), the penalty factor is `decoder_model::kReducedAttributePenalty`,
+ * in all other cases it is `decoder_model::kAttributePenalty`.
  *
  * @param lhs
  * @param rhs
@@ -1429,34 +1387,34 @@ double GetRoadClassPenalty(traffxml::RoadClass lhs, traffxml::RoadClass rhs)
   {
   case traffxml::RoadClass::Motorway:
     if (rhs == traffxml::RoadClass::Trunk)
-      return kReducedAttributePenalty;
+      return decoder_model::kReducedAttributePenalty;
     else
-      return kAttributePenalty;
+      return decoder_model::kAttributePenalty;
   case traffxml::RoadClass::Trunk:
     if (rhs == traffxml::RoadClass::Motorway || rhs == traffxml::RoadClass::Primary)
-      return kReducedAttributePenalty;
+      return decoder_model::kReducedAttributePenalty;
     else
-      return kAttributePenalty;
+      return decoder_model::kAttributePenalty;
   case traffxml::RoadClass::Primary:
     if (rhs == traffxml::RoadClass::Trunk || rhs == traffxml::RoadClass::Secondary)
-      return kReducedAttributePenalty;
+      return decoder_model::kReducedAttributePenalty;
     else
-      return kAttributePenalty;
+      return decoder_model::kAttributePenalty;
   case traffxml::RoadClass::Secondary:
     if (rhs == traffxml::RoadClass::Primary || rhs == traffxml::RoadClass::Tertiary)
-      return kReducedAttributePenalty;
+      return decoder_model::kReducedAttributePenalty;
     else
-      return kAttributePenalty;
+      return decoder_model::kAttributePenalty;
   case traffxml::RoadClass::Tertiary:
     if (rhs == traffxml::RoadClass::Secondary || rhs == traffxml::RoadClass::Other)
-      return kReducedAttributePenalty;
+      return decoder_model::kReducedAttributePenalty;
     else
-      return kAttributePenalty;
+      return decoder_model::kAttributePenalty;
   case traffxml::RoadClass::Other:
     if (rhs == traffxml::RoadClass::Tertiary)
-      return kReducedAttributePenalty;
+      return decoder_model::kReducedAttributePenalty;
     else
-      return kAttributePenalty;
+      return decoder_model::kAttributePenalty;
   default:
     UNREACHABLE();
   }
@@ -1598,7 +1556,7 @@ void TruncateStart(std::vector<routing::RouteSegment> & rsegments,
       if (!matched)
         newStartSaving = rsegments[i].GetTimeFromBeginningSec()
             - (mercator::DistanceOnEarth(checkpoints.GetStart(), rsegments[i].GetJunction().GetPoint())
-                * kOffroadPenalty);
+                * decoder_model::kOffroadPenalty);
     }
     if (newStartSaving > startSaving)
     {
@@ -1647,7 +1605,7 @@ void TruncateEnd(std::vector<routing::RouteSegment> & rsegments,
       if (!matched)
         newEndSaving = endWeight - rsegments[i].GetTimeFromBeginningSec()
             - (mercator::DistanceOnEarth(rsegments[i].GetJunction().GetPoint(), checkpoints.GetFinish())
-                * kOffroadPenalty);
+                * decoder_model::kOffroadPenalty);
     }
     if (newEndSaving > endSaving)
     {
