@@ -233,7 +233,7 @@ void VulkanMemoryManager::BeginDeallocationSession()
 void VulkanMemoryManager::Deallocate(AllocationPtr ptr)
 {
   CHECK(ptr, ());
-  CHECK(!ptr->m_memoryBlock->m_isBlocked, ());
+  CHECK((!ptr->m_memoryBlock->m_isBlocked) || m_isInDeallocationSession, ());
   auto const resourceIndex = static_cast<size_t>(ptr->m_resourceType);
   auto & m = m_memory[resourceIndex];
   auto const it = m.find(ptr->m_blockHash);
@@ -303,6 +303,7 @@ void VulkanMemoryManager::EndDeallocationSession()
 
         if (m_sizes[i] > kDesiredSizeInBytes[i])
         {
+          CHECK(!b->m_isBlocked, ());
           CHECK_LESS_OR_EQUAL(b->m_blockSize, m_sizes[i], ());
           m_sizes[i] -= b->m_blockSize;
           DecrementTotalAllocationsCount();
