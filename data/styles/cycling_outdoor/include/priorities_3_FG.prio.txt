@@ -1,0 +1,2 @@
+@import("../../cycling/include/priorities_3_FG.prio.txt")
+@import("../../outdoors/include/priorities_3_FG.prio.txt")

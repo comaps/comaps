@@ -1,0 +1,25 @@
+/*
+ * Keep here changes of the base default map style files only
+ * (see main.mapcss for exact processing order).
+ */
+
+node|z14[amenity=fuel],
+{icon-image: none; text: none;}
+
+node|z14-17[amenity=charging_station],
+{icon-image: none; text: none;}
+
+node|z17-[amenity=charging_station][motorcar?],
+node|z16[amenity=charging_station][motorcar?][capacity?],
+{text: name; text-color: @poi_label; text-offset: 1; font-size: 10;}
+
+node|z18-[amenity=charging_station],
+{font-size: 11;}
+
+/* show small motorcar stations later from z17- */
+node|z17-[amenity=charging_station][motorcar?],
+{icon-image: charging_station-small-m.svg;}
+
+/* override bigger ones to show from z16- */
+node|z16-[amenity=charging_station][motorcar?][capacity?],
+{icon-image: charging_station-m.svg;}

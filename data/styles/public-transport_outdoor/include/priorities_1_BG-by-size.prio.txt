@@ -1,0 +1,2 @@
+@import("../../public-transport/include/priorities_1_BG-by-size.prio.txt")
+@import("../../outdoors/include/priorities_1_BG-by-size.prio.txt")

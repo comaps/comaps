@@ -1,0 +1,24 @@
+/*
+ * Cycling style is based on the default style.
+ * So first it includes default style files and then
+ * optionally includes its own files containing overrides/additions.
+ */
+
+@import("../../default/include/Basemap.mapcss");
+@import("../include/Basemap.mapcss");
+
+@import("../../default/include/Basemap_label.mapcss");
+
+@import("../../default/include/Roads.mapcss");
+@import("../include/Roads.mapcss");
+
+@import("../../default/include/Roads_label.mapcss");
+
+@import("../../default/include/Icons.mapcss");
+/* TODO: temporary include walking changes with Fuel stations visibility reduction;
+   move this change to the default style once Modes are released on Android */
+@import("../../walking/include/Icons.mapcss");
+
+@import("../../default/include/Icons_Label_Colors.mapcss");
+
+@import("../../default/include/Subways.mapcss");
