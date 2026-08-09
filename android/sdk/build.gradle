@@ -76,6 +76,11 @@ android {
   buildTypes {
     debug {
       jniDebuggable true // Enable jni debug build
+      externalNativeBuild {
+        cmake {
+          arguments += "-DANDROID_STL=c++_shared"
+        }
+      }
     }
     release {
 //      minifyEnabled true
