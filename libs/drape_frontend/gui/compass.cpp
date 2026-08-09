@@ -110,7 +110,11 @@ drape_ptr<ShapeRenderer> Compass::Draw(ref_ptr<dp::GraphicsContext> context, ref
                                        TTapHandler const & tapHandler) const
 {
   dp::TextureManager::SymbolRegion region;
+#ifdef OMIM_OS_IPHONE
+  tex->GetSymbolRegion("compass-ios", region);
+#else
   tex->GetSymbolRegion("compass", region);
+#endif
   auto const halfSize = glsl::ToVec2(region.GetPixelSize() * 0.5f);
   auto const texRect = region.GetTexRect();
 
