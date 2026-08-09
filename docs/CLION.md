@@ -44,34 +44,20 @@ step-by-step debugging session using the resultant binary.
 
 ### Python
 
-CLion comes bundled with Python Community Edition plugin. To have the IDE run static analysis on files int
-`tools/python`, first set up a python virtual env - we will use [uv](https://docs.astral.sh/uv/) in these instructions,
-but you can also use plain
-`venv`:
+CLion comes bundled with Python Community Edition plugin. To have the IDE run static analysis on files in
+`tools/python`, install the dependencies of the modules of interest into the virtual env [set up by the
+`configure.sh` script](INSTALL.md), for example:
 
 ```shell
-cd tools/python
-uv venv
 source .venv/bin/activate
+pip install -r maps_generator/requirements_dev.txt
 ```
 
-Then, with the virtual env active, install the C++ build dependencies described in [INSTALL.md](INSTALL.md):
-
-```shell
-uv pip install "protobuf<3.21"
-```
-
-Install the dependencies for the modules of interest, for example;
-
-```shell
-uv pip install -r maps_generator/requirements_dev.txt
-```
-
-Finally, configure the python interpreter in the IDE:
+Then, configure the python interpreter in the IDE:
 
 * File → Settings → Build Execution Deployment → Python interpreter → Add Local Interpreter... → Select existing
     * Type: Python
-    * Python path: `.../comaps/tools/python/.venv/bin/python`
+    * Python path: `.../comaps/.venv/bin/python`
 * File → Reload CMake Project
 
 ## Troubleshooting

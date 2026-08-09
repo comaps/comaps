@@ -120,20 +120,19 @@ The review summaries are displayed in `PlacePageDialogUser` and `PlacePageDialog
     tools/unix/build_omim.sh -r generator_tool mwm_diff_tool
     ```
 3. configure the generator by following the instructions
-   in [tools/python/maps_generator/README.md](../tools/python/maps_generator/README.md), with the following changes:
-    1. create and activate a `venv` (for example, with `uv venv`) before running `pip install`
-    2. in the `map_generator.ini`, set:
+   in [tools/python/maps_generator/README.md](../tools/python/maps_generator/README.md), with the following change:
+   1. in the `map_generator.ini`, set:
         1. `PLANET_URL: https://download.geofabrik.de/europe/poland/mazowieckie-latest.osm.pbf` to use a region with
            reviewed features;
         2. `REVIEWS_PATH: ${Main:MAIN_OUT_PATH}/reviews/reviews.json`
 4. run the generator
     ```shell
-    pushd tools/python
     source .venv/bin/activate
+    pushd tools/python
     python3 -m maps_generator \
       --countries="Poland_Masovian Voivodeship" \
       --skip="Coastline,CitiesIdsWorld,RoutingWorld,Ugc,Popularity,PopularityWorld,Srtm,IsolinesInfo,Descriptions,Routing,RoutingTransit,MwmDiffs"
-   popd
+    popd
     ```
 5. build the desktop app
    ```shell
