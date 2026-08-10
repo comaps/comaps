@@ -157,6 +157,14 @@ public class MapButtonsController extends Fragment
 
     // Used to get the maximum height the buttons will evolve in
     mFrame.addOnLayoutChangeListener(new MapButtonsController.ContentViewLayoutChangeListener(mFrame));
+    // Re-snap the indoor level picker's height on rotation/resize (e.g. a config-change-handled
+    // orientation flip): unlike ContentViewLayoutChangeListener above, this one doesn't remove
+    // itself, since the available space above the zoom buttons can change repeatedly.
+    mFrame.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) ->
+    {
+      if (mHasIndoorLevels && (bottom - top != oldBottom - oldTop || right - left != oldRight - oldLeft))
+        resizeIndoorLevelsHeight(mIndoorLevelsContainer.getChildCount());
+    });
 
     mButtonsMap.put(MapButtons.zoom, zoomFrame);
     mButtonsMap.put(MapButtons.myPosition, myPosition);
@@ -375,21 +383,56 @@ public class MapButtonsController extends Fragment
 
     if (mHasIndoorLevels)
     {
-      final int buttonSize = getResources().getDimensionPixelSize(R.dimen.map_button_size);
-      final int gap = getResources().getDimensionPixelSize(R.dimen.margin_eighth_plus);
-      final int padding = mIndoorLevelsScroll.getPaddingTop() + mIndoorLevelsScroll.getPaddingBottom();
-      // Cap at 4 buttons high and center the active floor so there's visible cutoff at the edges
-      final int maxHeight = buttonSize * 4 + gap * 3 + padding;
-      final int contentHeight = levels.length * buttonSize + (levels.length - 1) * gap + padding;
-      final ViewGroup.LayoutParams lp = mIndoorLevelsScroll.getLayoutParams();
-      lp.height = Math.min(maxHeight, contentHeight);
-      mIndoorLevelsScroll.setLayoutParams(lp);
-
-      mIndoorLevelsScroll.post(() -> scrollToActiveLevel(scrollTarget, levels));
+      // Wait for a layout pass so the scroll view's and the zoom buttons' top positions (which
+      // resizeIndoorLevelsHeight() needs) are valid; on the very first call this also means the
+      // scroll view still has its XML-declared match-constraint height, giving us the actual
+      // on-screen space available above the zoom buttons to work with.
+      mIndoorLevelsScroll.post(() ->
+      {
+        resizeIndoorLevelsHeight(levels.length);
+        scrollToActiveLevel(scrollTarget, levels);
+      });
     }
 
     // Hide the level picker when the zoom buttons hide
     updateButtonsVisibility();
+  }
+
+  // Sizes the level-picker scroll view to a whole number of button-heights, capped by however much
+  // vertical space is actually available above the zoom buttons. Landscape phones can have as little
+  // as 2-3 button-heights of room there, versus 5-6+ in portrait; a fixed cap either wastes space in
+  // portrait or, worse, overflows past the zoom buttons/compass in landscape (the picker is
+  // top-anchored, so an explicit height taller than the real gap just draws over whatever is below
+  // it). Snapping to whole buttons (rather than the raw pixel gap) avoids showing a partial button.
+  private void resizeIndoorLevelsHeight(int levelCount)
+  {
+    if (mIndoorLevelsScroll == null)
+      return;
+
+    final int buttonSize = getResources().getDimensionPixelSize(R.dimen.map_button_size);
+    final int gap = getResources().getDimensionPixelSize(R.dimen.margin_eighth_plus);
+    final int padding = mIndoorLevelsScroll.getPaddingTop() + mIndoorLevelsScroll.getPaddingBottom();
+    final int contentHeight = levelCount * buttonSize + (levelCount - 1) * gap + padding;
+
+    int availableHeight = contentHeight;
+    final View zoomFrame = mButtonsMap == null ? null : mButtonsMap.get(MapButtons.zoom);
+    if (zoomFrame != null && zoomFrame.getHeight() > 0 && mIndoorLevelsScroll.getHeight() > 0)
+    {
+      // Both views are top-anchored (top_toTopOf="parent" / the indoor scroll's own top), so their
+      // top position is stable regardless of the height we set below - safe to call repeatedly.
+      final int marginBottom = getResources().getDimensionPixelSize(R.dimen.margin_half);
+      availableHeight = zoomFrame.getTop() - mIndoorLevelsScroll.getTop() - marginBottom;
+    }
+
+    // Snap down to a whole number of buttons, minimum 1 so a single floor is never hidden entirely.
+    final int perButton = buttonSize + gap;
+    final int buttonsThatFit = Math.max(1, (availableHeight - padding + gap) / perButton);
+    final int shownButtons = Math.min(levelCount, buttonsThatFit);
+    final int snappedHeight = shownButtons * buttonSize + (shownButtons - 1) * gap + padding;
+
+    final ViewGroup.LayoutParams lp = mIndoorLevelsScroll.getLayoutParams();
+    lp.height = Math.min(snappedHeight, contentHeight);
+    mIndoorLevelsScroll.setLayoutParams(lp);
   }
 
   private void scrollToActiveLevel(@NonNull String activeLevel, @NonNull String[] levels)

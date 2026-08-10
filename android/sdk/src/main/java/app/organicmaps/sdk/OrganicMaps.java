@@ -250,51 +250,56 @@ public final class OrganicMaps implements DefaultLifecycleObserver
    */
   private void extractBundledMaps(@NonNull String writablePath, @NonNull AssetManager assets)
   {
-    try {
-      long version = readCountriesVersion(assets);
-      if (version <= 0) {
-        Logger.w(TAG, "extractBundledMaps: could not read countries version");
-        return;
-      }
-      // Extract to the current version dir using real countries.txt IDs so Storage registers
-      // them in m_localFiles (not m_localFilesForFakeCountries) and the download prompt is
-      // suppressed. For real country IDs, the size-mismatch check only logs LWARNING, no crash.
-      String dirVersion = String.valueOf(version);
-      File versionDir = new File(writablePath, dirVersion);
-      if (!versionDir.exists() && !versionDir.mkdirs()) {
-        Logger.e(TAG, "extractBundledMaps: failed to create " + versionDir);
-        return;
-      }
+    long version = readCountriesVersion(assets);
+    if (version <= 0) {
+      Logger.w(TAG, "extractBundledMaps: could not read countries version");
+      return;
+    }
+    // Extract to the current version dir using real countries.txt IDs so Storage registers
+    // them in m_localFiles (not m_localFilesForFakeCountries) and the download prompt is
+    // suppressed. For real country IDs, the size-mismatch check only logs LWARNING, no crash.
+    String dirVersion = String.valueOf(version);
+    File versionDir = new File(writablePath, dirVersion);
+    if (!versionDir.exists() && !versionDir.mkdirs()) {
+      Logger.e(TAG, "extractBundledMaps: failed to create " + versionDir);
+      return;
+    }
 
-      // Maps asset filename → countries.txt country ID (= destination filename).
-      Map<String, String> bundledMaps = new LinkedHashMap<>();
-      bundledMaps.put("Berlin.mwm",        "Germany_Berlin.mwm");
-      bundledMaps.put("SanFrancisco.mwm",   "US_California_Santa_Clara_Palo Alto.mwm");
-      bundledMaps.put("SantaRosa.mwm",      "US_California_Chico.mwm");
-      bundledMaps.put("France_Ile-de-France_Seine-et-Marne.mwm", "France_Ile-de-France_Seine-et-Marne.mwm");
-      bundledMaps.put("Salem.mwm",          "US_Oregon_Portland.mwm");
+    // Maps asset filename → countries.txt country ID (= destination filename). The web flavor's
+    // assets are symlinked directly from data/260728/ under their real country-file names, so
+    // key == value for those; SanFrancisco/SantaRosa are placeholders for maps that haven't been
+    // regenerated with real names yet and currently have no matching asset.
+    Map<String, String> bundledMaps = new LinkedHashMap<>();
+    bundledMaps.put("Germany_Berlin.mwm", "Germany_Berlin.mwm");
+    bundledMaps.put("SanFrancisco.mwm",   "US_California_Santa_Clara_Palo Alto.mwm");
+    bundledMaps.put("SantaRosa.mwm",      "US_California_Chico.mwm");
+    bundledMaps.put("France_Ile-de-France_Seine-et-Marne.mwm", "France_Ile-de-France_Seine-et-Marne.mwm");
+    bundledMaps.put("US_Oregon_Portland.mwm", "US_Oregon_Portland.mwm");
 
-      // Remove stale copies (old fake names or old version dirs) from every version directory
-      // so Storage never encounters a fake country at m_currentVersion (which would crash).
-      File writableDir = new File(writablePath);
-      File[] siblings = writableDir.listFiles(File::isDirectory);
-      if (siblings != null) {
-        for (File sibling : siblings) {
-          for (Map.Entry<String, String> e : bundledMaps.entrySet()) {
-            for (String name : new String[]{e.getKey(), e.getValue()}) {
-              File stale = new File(sibling, name);
-              if (!stale.equals(new File(versionDir, e.getValue())) && stale.exists()) {
-                Logger.i(TAG, "extractBundledMaps: removing stale " + stale);
-                stale.delete();
-              }
+    // Remove stale copies (old fake names or old version dirs) from every version directory
+    // so Storage never encounters a fake country at m_currentVersion (which would crash).
+    File writableDir = new File(writablePath);
+    File[] siblings = writableDir.listFiles(File::isDirectory);
+    if (siblings != null) {
+      for (File sibling : siblings) {
+        for (Map.Entry<String, String> e : bundledMaps.entrySet()) {
+          for (String name : new String[]{e.getKey(), e.getValue()}) {
+            File stale = new File(sibling, name);
+            if (!stale.equals(new File(versionDir, e.getValue())) && stale.exists()) {
+              Logger.i(TAG, "extractBundledMaps: removing stale " + stale);
+              stale.delete();
             }
           }
         }
       }
+    }
 
-      for (Map.Entry<String, String> e : bundledMaps.entrySet()) {
-        File dest = new File(versionDir, e.getValue());
-        if (dest.exists()) continue;
+    // Each entry is extracted independently: an asset missing for one map (e.g. SanFrancisco.mwm,
+    // not currently bundled) must not abort extraction of the others.
+    for (Map.Entry<String, String> e : bundledMaps.entrySet()) {
+      File dest = new File(versionDir, e.getValue());
+      if (dest.exists()) continue;
+      try {
         Logger.i(TAG, "extractBundledMaps: extracting " + e.getKey() + " as " + e.getValue());
         try (InputStream in = assets.open(e.getKey());
              FileOutputStream out = new FileOutputStream(dest)) {
@@ -303,9 +308,10 @@ public final class OrganicMaps implements DefaultLifecycleObserver
           while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
         }
         Logger.i(TAG, "extractBundledMaps: done " + e.getValue() + " (" + dest.length() + " bytes)");
+      } catch (IOException ex) {
+        Logger.w(TAG, "extractBundledMaps: skipping " + e.getKey() + ": " + ex.getMessage());
+        dest.delete();
       }
-    } catch (IOException e) {
-      Logger.e(TAG, "extractBundledMaps: " + e.getMessage());
     }
   }
 
