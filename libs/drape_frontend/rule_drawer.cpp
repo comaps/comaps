@@ -444,11 +444,11 @@ void RuleDrawer::operator()(FeatureType & f)
   if (indoor::HasActiveLevel(m_context->GetIndoorLevel()))
   {
     auto const & polyRects = m_context->GetIndoorPolygonRects();
-    m2::PointD center;
+    m2::RectD featureRect;
     if (!polyRects.empty())
-      center = f.GetLimitRect(m_zoomLevel).Center();
+      featureRect = f.GetLimitRect(m_zoomLevel);
     if (ShouldSkipIndoorFeature(types, f.GetMetadata(feature::Metadata::FMD_LEVEL),
-                                m_context->GetIndoorLevel(), center, polyRects,
+                                m_context->GetIndoorLevel(), featureRect, polyRects,
                                 m_context->GetIndoorLevels()))
       return;
   }

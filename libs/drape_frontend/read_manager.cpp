@@ -337,9 +337,7 @@ void ReadManager::SetIsolinesEnabled(bool isolinesEnabled)
 void ReadManager::SetIndoorLevel(double level, std::vector<double> const & availableLevels,
                                   std::vector<m2::RectD> const & indoorPolygonRects)
 {
-  // NaN (kNoActiveLevel) never compares equal, so treat "both inactive" as unchanged explicitly.
-  bool const levelUnchanged = m_indoorLevel == level ||
-                              (!indoor::HasActiveLevel(m_indoorLevel) && !indoor::HasActiveLevel(level));
+  bool const levelUnchanged = m_indoorLevel == level;
   if (!levelUnchanged || m_indoorLevels != availableLevels || m_indoorPolygonRects != indoorPolygonRects)
   {
     m_modeChanged = true;

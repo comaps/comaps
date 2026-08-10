@@ -75,10 +75,15 @@ public:
   bool IsNearActiveIndoorContext(m2::PointD const & position) const;
 
 private:
+  // Coalescing entry point: during a continuous zoom/pan gesture, UpdateViewport may call this on
+  // every frame. Rather than queuing a background scan per call, only one scan is ever in flight;
+  // additional requests just replace the pending rect and are picked up when the current scan
+  // finishes (see RunScan).
   void ScheduleScan(m2::RectD const & rect);
+  void RunScan(m2::RectD const & rect);
   void ApplyScanResult(uint64_t generation, std::vector<double> && levels,
                        std::vector<m2::RectD> && polygonRects);
-  void SetActiveLevel(double level, bool notifyDrape);
+  void SetActiveLevel(double level);
   void NotifyListener();
   void NotifyModeChanged();
   // Prevent an already-active context from being deactivated based on panning and zooming (during route planning mode).
@@ -101,8 +106,15 @@ private:
 
   std::atomic<uint64_t> m_generation{0};
 
+  // Scan coalescing state. GUI thread only.
+  bool m_scanInFlight = false;
+  std::optional<m2::RectD> m_pendingScanRect;
+
   // Distinct levels present in the viewport, sorted ascending. GUI thread only.
   std::vector<double> m_levels;
+  // Indoor polygon bounding rects, pre-expanded by kIndoorProximityMeters (see .cpp). Used both
+  // locally by IsNearActiveIndoorContext and passed to drape for its own proximity filtering, so
+  // the (latitude-aware) expansion only needs to happen once per scan rather than per feature.
   std::vector<m2::RectD> m_indoorPolygonRects;
   double m_activeLevel = 0.0;
 };

@@ -1,5 +1,9 @@
 #include "indexer/indoor_level.hpp"
 
+#include "geometry/mercator.hpp"
+
+#include "platform/measurement_utils.hpp"
+
 #include "base/string_utils.hpp"
 
 #include <algorithm>
@@ -102,8 +106,52 @@ bool LevelsContain(std::string_view s, double level)
 std::string FormatLevel(double level)
 {
   if (LevelsEqual(level, std::round(level)))
-    return ToStringPrecision(level, 0);
+    return measurement_utils::ToStringPrecision(level, 0);
 
-  return ToStringPrecision(level, 2);
+  return measurement_utils::ToStringPrecision(level, 2);
+}
+
+std::vector<m2::RectD> ExpandRectsByMeters(std::vector<m2::RectD> const & rects, double meters)
+{
+  std::vector<m2::RectD> result;
+  result.reserve(rects.size());
+  for (auto const & r : rects)
+  {
+    // GetSmPoint applies the cos(latitude) correction at each corner's own latitude, so the
+    // expansion stays accurate near the poles instead of assuming an equator-flat degree offset.
+    m2::PointD const lo = mercator::GetSmPoint(r.LeftBottom(), -meters, -meters);
+    m2::PointD const hi = mercator::GetSmPoint(r.RightTop(), meters, meters);
+    result.emplace_back(lo.x, lo.y, hi.x, hi.y);
+  }
+  return result;
+}
+
+std::vector<m2::RectD> MergeOverlappingRects(std::vector<m2::RectD> const & rects)
+{
+  std::vector<m2::RectD> merged(rects.begin(), rects.end());
+
+  // A building mapped room-by-room can produce one rect per room; ShouldSkipIndoorFeature checks
+  // every leveled feature against every entry in this list on every re-tile, so collapsing
+  // touching/overlapping rects here (once, per background scan) keeps that list small instead of
+  // scaling with room count.
+  bool changed = true;
+  while (changed)
+  {
+    changed = false;
+    for (size_t i = 0; i < merged.size() && !changed; ++i)
+    {
+      for (size_t j = i + 1; j < merged.size(); ++j)
+      {
+        if (merged[i].IsIntersect(merged[j]))
+        {
+          merged[i].Add(merged[j]);
+          merged.erase(merged.begin() + j);
+          changed = true;
+          break;
+        }
+      }
+    }
+  }
+  return merged;
 }
 }  // namespace indoor

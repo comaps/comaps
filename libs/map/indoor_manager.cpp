@@ -25,6 +25,10 @@ int constexpr kMinIndoorZoom = 17;
 // a wide area. Skip any feature whose bounding rect exceeds this. The world's largest indoor spaces
 // (airport terminals, mega-malls) should be well under 0.1°.
 double constexpr kMaxIndoorRectDeg = 0.1;
+// Proximity margin for level-tagged POIs and ShouldHold's "still near the building" check. Same
+// value used by the drape-side POI filter (indoor_filter.hpp), which now receives already-expanded
+// rects instead of duplicating the expansion itself.
+double constexpr kIndoorProximityMeters = 5.0;
 // True if triangle |a,b,c| actually overlaps |rect| (not just their bounding boxes).
 // Catches a vertex inside the rect, the rect fully inside the triangle, or an edge crossing.
 bool TriangleIntersectsRect(m2::RectD const & rect, m2::PointD const & a, m2::PointD const & b,
@@ -115,6 +119,10 @@ void IndoorManager::UpdateViewport(ScreenBase const & screen)
   if (df::GetDrawTileScale(screen) < kMinIndoorZoom)
   {
     ++m_generation;
+    // Drop any rect queued by a ScheduleScan call from just before crossing this threshold, so an
+    // in-flight scan's completion doesn't chain into re-scanning a rect we've already zoomed away
+    // from (see RunScan).
+    m_pendingScanRect.reset();
     // While holding (during route planning/navigation), keep an active context so automatic panning/zooming
     // doesn't exit indoor mode. Otherwise fully deactivate indoor mode: drape stops level-filtering,
     // 3D buildings come back, and the level chooser hides.
@@ -164,19 +172,29 @@ void IndoorManager::SelectLevel(std::string const & level)
 
 bool IndoorManager::IsNearActiveIndoorContext(m2::PointD const & position) const
 {
-  // Same ~5 m margin as the POI proximity filter in drape_frontend/indoor_filter.hpp.
-  double constexpr kProximityDeg = 0.00005;
-  for (auto const & r : m_indoorPolygonRects)
-  {
-    m2::RectD const expanded(r.minX() - kProximityDeg, r.minY() - kProximityDeg, r.maxX() + kProximityDeg,
-                             r.maxY() + kProximityDeg);
-    if (expanded.IsPointInside(position))
-      return true;
-  }
-  return false;
+  // m_indoorPolygonRects is already expanded by kIndoorProximityMeters (see ApplyScanResult).
+  return std::any_of(m_indoorPolygonRects.begin(), m_indoorPolygonRects.end(),
+                     [&position](m2::RectD const & r) { return r.IsPointInside(position); });
 }
 
 void IndoorManager::ScheduleScan(m2::RectD const & rect)
+{
+  if (m_scanInFlight)
+  {
+    // A scan is already running in the background. During a continuous zoom/pan gesture,
+    // UpdateViewport can call this on every frame; queuing a scan per frame would pile up
+    // expensive triangulation work on the background thread well past the point where the
+    // viewport has moved on. Just remember the latest rect and let RunScan chain to it once
+    // the in-flight scan completes.
+    m_pendingScanRect = rect;
+    return;
+  }
+
+  m_scanInFlight = true;
+  RunScan(rect);
+}
+
+void IndoorManager::RunScan(m2::RectD const & rect)
 {
   uint64_t const generation = ++m_generation;
 
@@ -244,7 +262,23 @@ void IndoorManager::ScheduleScan(m2::RectD const & rect)
     std::sort(levels.begin(), levels.end());
 
     m_uiRunner([this, generation, levels = std::move(levels), polygonRects = std::move(polygonRects)]() mutable
-    { ApplyScanResult(generation, std::move(levels), std::move(polygonRects)); });
+    {
+      if (generation == m_generation)
+        ApplyScanResult(generation, std::move(levels), std::move(polygonRects));
+
+      // Chain to whatever rect was requested most recently while this scan was running, or
+      // release the in-flight slot so the next ScheduleScan call runs immediately.
+      if (m_pendingScanRect)
+      {
+        m2::RectD const nextRect = *m_pendingScanRect;
+        m_pendingScanRect.reset();
+        RunScan(nextRect);
+      }
+      else
+      {
+        m_scanInFlight = false;
+      }
+    });
   });
 }
 
@@ -288,7 +322,7 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
     return;
 
   m_levels = std::move(levels);
-  m_indoorPolygonRects = std::move(polygonRects);
+  m_indoorPolygonRects = indoor::MergeOverlappingRects(indoor::ExpandRectsByMeters(polygonRects, kIndoorProximityMeters));
   bool const isActive = !m_levels.empty();
 
   if (!isActive)

@@ -7,6 +7,7 @@
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
+#include <algorithm>
 #include <string_view>
 #include <vector>
 
@@ -17,8 +18,13 @@ namespace df
 // Indoor types hidden if inactive.
 // Leveled POIs skipped near mismatch.
 // Building shell always visible.
+//
+// |indoorPolygonRects| must already be expanded by the desired proximity margin (see
+// indoor::ExpandRectsByMeters); this function only tests rect overlap. |featureRect| should be
+// the feature's own bounding rect (not just its center) so that a large non-indoor feature whose
+// center is far from an indoor polygon, but whose edge nearly touches it, still counts as near.
 inline bool ShouldSkipIndoorFeature(feature::TypesHolder const & types, std::string_view levelMeta,
-                                    double activeLevel, m2::PointD const & featureCenter,
+                                    double activeLevel, m2::RectD const & featureRect,
                                     std::vector<m2::RectD> const & indoorPolygonRects,
                                     std::vector<double> const & availableLevels)
 {
@@ -34,21 +40,11 @@ inline bool ShouldSkipIndoorFeature(feature::TypesHolder const & types, std::str
 
   if (!isIndoor)
   {
-    // only filter if the feature center is within ~5 m of an indoor polygon.
-    double constexpr kProximityDeg = 0.00005;
+    // only filter if the feature's bounding rect overlaps an indoor polygon.
     if (!indoorPolygonRects.empty())
     {
-      bool nearIndoor = false;
-      for (auto const & r : indoorPolygonRects)
-      {
-        m2::RectD expanded(r.minX() - kProximityDeg, r.minY() - kProximityDeg,
-                           r.maxX() + kProximityDeg, r.maxY() + kProximityDeg);
-        if (expanded.IsPointInside(featureCenter))
-        {
-          nearIndoor = true;
-          break;
-        }
-      }
+      bool const nearIndoor = std::any_of(indoorPolygonRects.begin(), indoorPolygonRects.end(),
+        [&featureRect](m2::RectD const & r) { return r.IsIntersect(featureRect); });
       if (!nearIndoor)
         return false;
     }
