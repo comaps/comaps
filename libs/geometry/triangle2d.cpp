@@ -2,6 +2,7 @@
 
 #include "geometry/parametrized_segment.hpp"
 #include "geometry/point2d.hpp"
+#include "geometry/rect_intersect.hpp"
 #include "geometry/robust_orientation.hpp"
 #include "geometry/segment2d.hpp"
 
@@ -88,5 +89,24 @@ PointD ProjectPointToTriangles(PointD const & pt, std::vector<TriangleD> const &
   }
   ParametrizedSegment<PointD> segment(v[minT].m_points[minI], v[minT].m_points[(minI + 1) % 3]);
   return segment.ClosestPointTo(pt);
+}
+
+bool TriangleIntersectsRect(m2::RectD const & rect, PointD const & a, PointD const & b, PointD const & c)
+{
+  if (rect.IsPointInside(a) || rect.IsPointInside(b) || rect.IsPointInside(c))
+    return true;
+  if (IsPointInsideTriangle(rect.Center(), a, b, c))
+    return true;
+  // m2::Intersect clips the segment to the rect (mutating the endpoints) and reports overlap.
+  PointD e1 = a, e2 = b;
+  if (m2::Intersect(rect, e1, e2))
+    return true;
+  e1 = b, e2 = c;
+  if (m2::Intersect(rect, e1, e2))
+    return true;
+  e1 = c, e2 = a;
+  if (m2::Intersect(rect, e1, e2))
+    return true;
+  return false;
 }
 }  // namespace m2

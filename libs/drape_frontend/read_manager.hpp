@@ -58,8 +58,8 @@ public:
 
   void SetTrafficEnabled(bool trafficEnabled);
   void SetIsolinesEnabled(bool isolinesEnabled);
-  void SetIndoorLevel(double level, std::vector<double> const & availableLevels = {},
-                     std::vector<m2::RectD> const & indoorPolygonRects = {});
+  void SetIndoorLevel(double level, std::vector<double> const & availableLevels,
+                     std::vector<m2::RectD> const & indoorPolygonRects);
 
   void SetCustomFeatures(CustomFeatures && ids);
   std::vector<FeatureID> GetCustomFeaturesArray() const;

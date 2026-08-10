@@ -24,6 +24,23 @@ class DrapeEngine;
 
 // Tracks indoor (level=*) data in the current viewport and holds the active indoor level
 // which is used by drape to filter indoor features. Based on IsolinesManager.
+//
+// Threading: all public methods except the constructor are GUI-thread only (matching
+// IsolinesManager). ScheduleScan hands the actual feature scan off to a background
+// runner (Platform::Thread::File by default; see SetTaskRunners); that background lambda
+// in RunScan calls the |m_forEachFeature| callback (wired to FeaturesFetcher::ForEachFeature
+// -> DataSource::ForEachInRect in Framework) directly on the background thread. That's the
+// same cross-thread read pattern IsolinesManager and TransitReadManager already use, so it's
+// safe. The scan's results are always marshalled back to the GUI thread via |m_uiRunner|
+// before touching any GUI-thread-only state (ApplyScanResult). |m_generation| is the only
+// state both threads touch directly, hence std::atomic.
+//
+// The CanEnterFn/ShouldHoldFn predicates (set via SetCanEnterPredicate/SetShouldHoldPredicate)
+// are only ever invoked from ApplyScanResult and UpdateViewport, both GUI-thread only, even
+// though Framework's predicate implementations reach into RoutingManager and BookmarkManager
+// (GetCurrentPosition() -> BookmarkManager::MyPositionMark()). Despite looking like a
+// cross-manager reach-through, this is not a cross-thread call: all of it stays on the GUI
+// thread.
 class IndoorManager final
 {
 public:

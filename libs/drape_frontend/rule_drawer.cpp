@@ -274,7 +274,8 @@ void RuleDrawer::ProcessAreaAndPointStyle(FeatureType & f, Stylist const & s, TI
         IsBuildingHasPartsChecker::Instance()(types);  // possible to do this checks beforehand in stylist?
     bool const isPart = IsBuildingPartChecker::Instance()(types);
     // While indoors, an indoor building:part draws as an indoor element (its higher-priority indoor
-    // area drule) rather than a dimmed/extruded building, so don't treat it as a building here.
+    // area drule) rather than a dimmed/extruded building, so don't treat it as a building here. See
+    // the isIndoorElement comment in operator() for why (SOTM elevated-walkway example).
     bool const isIndoorElement =
         indoor::HasActiveLevel(m_context->GetIndoorLevel()) && IsIndoorChecker::Instance()(types);
 
@@ -430,10 +431,14 @@ void RuleDrawer::operator()(FeatureType & f)
     return;
 
   feature::TypesHolder const types(f);
-  // A building:part that is also an indoor element (e.g. an elevated glass corridor) should render as
-  // an indoor floor element while indoors, and as a building part otherwise. Indoor mode forces 3D
-  // buildings off, which would normally skip building parts below; keep the indoor ones so they draw
-  // as indoor elements (ProcessAreaAndPointStyle then skips the building dimming/extrusion for them).
+  // A building:part that is also an indoor element should render as an indoor floor element while
+  // indoors, and as an ordinary building part otherwise. Motivating case: a SOTM venue with an
+  // elevated walkway/corridor between two halls, mapped as building:part + indoor=corridor - outside
+  // indoor mode it's just a building part, but once you're on that floor it needs to draw (and be
+  // selectable) as its own indoor room, not as an anonymous chunk of building geometry. Indoor mode
+  // forces 3D buildings off, which would normally skip building parts below; keep the indoor ones so
+  // they draw as indoor elements (ProcessAreaAndPointStyle then skips the building dimming/extrusion
+  // for them).
   bool const isIndoorElement =
       indoor::HasActiveLevel(m_context->GetIndoorLevel()) && ftypes::IsIndoorChecker::Instance()(types);
   if ((!m_context->IsolinesEnabled() && ftypes::IsIsolineChecker::Instance()(types)) ||

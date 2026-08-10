@@ -1627,12 +1627,12 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   });
   m_indoorManager.SetCanEnterPredicate([this]()
   {
-    // Skip on car screens.
-    if (m_isCarScreenMode)
+    // Skip on car screens and car routing.
+    if (IsCarNavigationContext())
       return false;
-    // Car routing skips indoor mode.
+    // No speed check while routing on foot/bike.
     if (m_routingManager.IsRoutingActive())
-      return m_routingManager.GetCurrentRouterType() != routing::RouterType::Vehicle;
+      return true;
     // Speed check only while auto-following.
     auto const mode = GetMyPositionMode();
     bool const isAutoFollowing = mode == location::Follow || mode == location::FollowAndRotate;
@@ -1642,10 +1642,8 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   });
   m_indoorManager.SetShouldHoldPredicate([this]()
   {
-    // Hold near building while routing.
-    // Never hold for car mode.
-    if (m_isCarScreenMode || !m_routingManager.IsRoutingActive() ||
-        m_routingManager.GetCurrentRouterType() == routing::RouterType::Vehicle)
+    // Hold near building while routing. Never hold for car mode or outside routing.
+    if (IsCarNavigationContext() || !m_routingManager.IsRoutingActive())
       return false;
     auto const pos = GetCurrentPosition();
     return pos && m_indoorManager.IsNearActiveIndoorContext(*pos);
@@ -3509,6 +3507,12 @@ void Framework::OnPowerSchemeChanged(power_management::Scheme const actualScheme
 {
   if (actualScheme == power_management::Scheme::EconomyMaximum && GetTrafficManager().IsEnabled())
     GetTrafficManager().SetEnabled(false);
+}
+
+bool Framework::IsCarNavigationContext() const
+{
+  return m_isCarScreenMode ||
+        (m_routingManager.IsRoutingActive() && m_routingManager.GetCurrentRouterType() == routing::RouterType::Vehicle);
 }
 
 void Framework::SetCarScreenMode(bool enabled)

@@ -233,8 +233,7 @@ public:
 
   void EnableIsolines(bool enable);
 
-  void SetIndoorLevel(double level, std::vector<double> availableLevels = {},
-                     std::vector<m2::RectD> indoorPolygonRects = {});
+  void SetIndoorLevel(double level, std::vector<double> availableLevels, std::vector<m2::RectD> indoorPolygonRects);
 
   void SetFontScaleFactor(double scaleFactor);
 

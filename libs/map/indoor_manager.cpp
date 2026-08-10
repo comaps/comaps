@@ -12,7 +12,6 @@
 
 #include "platform/platform.hpp"
 
-#include "geometry/rect_intersect.hpp"
 #include "geometry/triangle2d.hpp"
 
 #include <algorithm>
@@ -29,27 +28,6 @@ double constexpr kMaxIndoorRectDeg = 0.1;
 // value used by the drape-side POI filter (indoor_filter.hpp), which now receives already-expanded
 // rects instead of duplicating the expansion itself.
 double constexpr kIndoorProximityMeters = 5.0;
-// True if triangle |a,b,c| actually overlaps |rect| (not just their bounding boxes).
-// Catches a vertex inside the rect, the rect fully inside the triangle, or an edge crossing.
-bool TriangleIntersectsRect(m2::RectD const & rect, m2::PointD const & a, m2::PointD const & b,
-                            m2::PointD const & c)
-{
-  if (rect.IsPointInside(a) || rect.IsPointInside(b) || rect.IsPointInside(c))
-    return true;
-  if (m2::IsPointInsideTriangle(rect.Center(), a, b, c))
-    return true;
-  // m2::Intersect clips the segment to the rect (mutating the endpoints) and reports overlap.
-  m2::PointD e1 = a, e2 = b;
-  if (m2::Intersect(rect, e1, e2))
-    return true;
-  e1 = b, e2 = c;
-  if (m2::Intersect(rect, e1, e2))
-    return true;
-  e1 = c, e2 = a;
-  if (m2::Intersect(rect, e1, e2))
-    return true;
-  return false;
-}
 // Find the level closest to ground (0). |levels| must be non-empty. A floor and its negative counterpart
 // (e.g. -1 and 1) are equidistant; ties resolve to the upper floor.
 double ClosestToGround(std::vector<double> const & levels)
@@ -239,7 +217,7 @@ void IndoorManager::RunScan(m2::RectD const & rect)
       ft.ForEachTriangle(
           [&rect, &geometryIntersects](m2::PointD const & a, m2::PointD const & b, m2::PointD const & c)
       {
-        if (!geometryIntersects && TriangleIntersectsRect(rect, a, b, c))
+        if (!geometryIntersects && m2::TriangleIntersectsRect(rect, a, b, c))
           geometryIntersects = true;
       }, scales::GetUpperScale());
       if (!geometryIntersects)

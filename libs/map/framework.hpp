@@ -801,6 +801,11 @@ public:
   bool m_isCarScreenMode = false;
 
 private:
+  // True while driving with car navigation active: a CarPlay/Android Auto screen, or turn-by-turn
+  // vehicle routing. Shared by the IndoorManager CanEnter/ShouldHold predicates, which both need to
+  // exclude car-navigation contexts from indoor mode.
+  bool IsCarNavigationContext() const;
+
   void Refresh3dMode();
   bool m_wasRoutingActive = false;
 

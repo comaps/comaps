@@ -1,7 +1,5 @@
 # Code Review: `zy-indoor-mapping` branch (full diff vs. main)
 
-
-
 ## 2. Proximity/geometry correctness and duplication (do these together — same root cause)
 
 Three separate places independently reimplement "expand a rect by ~5m and test if a point/rect is inside," and the degree-based expansion is wrong near the poles (`hackintosh5` gave a concrete Svalbard example: 1.14m in x vs 5.58m in y for the same degree offset):
@@ -76,7 +74,7 @@ Drop the `= {}` defaults; make callers pass explicit arguments. Check every call
 - For UX fixes (§7), manual verification on-device/emulator (screenshot comparison against `LMBishop`'s landscape screenshots for the picker-overlap fix).
 - Post PR replies for §6 once corresponding code/comments land, and for the iOS branch split (§0) once the new branch exists.
 
-
+----------------------------------------
 
 
 ## Context
@@ -99,90 +97,6 @@ parser and filter are pure/testable and have real unit tests (`indoor_level_test
 unusually thorough and explain *why*, not just *what*. The main problems are not in the
 feature design but in **debug/test scaffolding and a broad error-handling band-aid that
 must not ship**, plus a handful of correctness edge cases and production log noise.
-
----
-
-## High severity (must fix before merge)
-
-### H1 — LERROR→LWARNING downgrades degrade production observability (10 files)
-`libs/routing/{index_graph_loader,index_router,city_roads,maxspeeds}.cpp`,
-`libs/search/{house_to_street_table,lazy_centers_table}.cpp` (and related).
-The branch downgrades genuine error logs for **unrelated** subsystems — speed cameras,
-road access, road penalties, house-to-street, centers table — to work around a debug-build
-abort caused by *incomplete test MWMs*. This is a band-aid with a large blast radius: it
-silences real errors for every production user with a corrupt/partial map, not just the
-test scenario. Several sites (`index_graph_loader` `throw;`) make the level purely
-cosmetic anyway.
-**Recommendation (on record): revert all 10 downgrades.** Solve the debug-abort at
-the source — generate complete test MWMs (the branch already adds the `--make_cross_mwm`
-pass and gen scripts), and/or gate the abort behavior so a missing optional section in a
-test MWM doesn't abort a debug build. Do not couple production error severity to test-data
-completeness.
-
-### H2 — `mall_diag_test.cpp` is a scratch diagnostic bound to a non-repo MWM
-`libs/map/map_tests/mall_diag_test.cpp` (registered in `map_tests/CMakeLists.txt`).
-`UNIT_TEST(MallDiag_IndoorScan)` hardcodes `RegisterMap(... "MallOfAmerica")` and an
-emulator-observed viewport rect. `MallOfAmerica.mwm` is an untracked local file (it shows
-up in `git status` as untracked, not committed), so in CI this test has no data and will
-fail or silently no-op — a flaky/meaningless test. It's a diagnostic used during
-development, not an assertion of correct behavior.
-**Recommendation: delete the file and its CMakeLists entry.** If any of its checks are
-worth keeping, fold them into `indoor_manager_tests.cpp` using a synthetic/committed
-fixture, not a bundled binary MWM.
-
-### H3 — Verbose `LINFO` logging in hot paths
-`libs/map/indoor_manager.cpp` lines 107, 140, 146, 241, 262, 275 (plus JNI
-`IndoorManager.cpp`). `UpdateViewport` logs `LINFO` on **every viewport change**;
-`GetViewportLevels`/`GetActiveLevel` log on every UI query; `ScheduleScan`/`ApplyScanResult`
-log per scan. At `LINFO` these ship in release and spam the log during normal panning/zoom.
-**Recommendation: remove or demote to `LDEBUG`.** Keep at most the one-time
-"indoor mode triggered by…" line, and even that at `LDEBUG`.
-
----
-
-## Medium severity (should fix)
-
-### M1 — Unbounded level-range expansion in the parser
-`libs/indexer/indoor_level.cpp` `ParseLevels` → `ParseRange`: a token like `0-100000`
-expands to 100k+ `double`s in a `for (l=from; l<=to; l+=1.0)` loop. Input comes from
-untrusted OSM `level=*` tags. Memory/CPU spike (and float-accumulation drift on long
-loops) for a malformed tag.
-**Recommendation: cap the expanded count (e.g. reject ranges wider than ~100 floors) and
-prefer integer stepping.**
-
-### M2 — `GetFeatureAtPoint`: `line` still outranks `indoorArea`
-`libs/map/framework.cpp` return ladder: `poi > line > indoorArea > area`. In indoor mode,
-tapping a room that a footway/aisle line crosses (within ~3 m) selects the **line**, not
-the room.
-**Recommendation: decide deliberately.** If rooms should win indoors, rank `indoorArea`
-above `line` when `m_indoorManager.IsActive()`. Document whichever is chosen.
-
-### M3 — Indoor-mode area tap can now select non-building areas
-`libs/map/framework.cpp` `BuildPlacePageInfo`: in indoor mode it calls `GetFeatureAtPoint`
-(which falls back to *any* closest area) instead of `FindBuildingAtPoint` (buildings only).
-When no indoor feature is under the tap, it may now return a landuse/park polygon and, via
-`isBuildingSelected == false`, place the selection circle at that area's center rather than
-the tap point — a subtle behavior change vs. outdoor taps.
-**Recommendation: in indoor mode, only accept the `GetFeatureAtPoint` result if it is an
-indoor feature; otherwise fall through to `FindBuildingAtPoint`** (preserves prior building
-semantics).
-
-### M4 — `apply_feature_functors`: outline generalization widens a hot path
-`ApplyAreaFeature::NeedOutline` returns true for *any* area rule with a differing border
-color + width>0, routing it through `ProcessBuildingPolygon`, which is unclipped and uses
-`GetIndex` (O(n²) in vertices, `buffer_vector<…, kBuildingOutlineSize>` spilling to heap
-for large polys). Fine for small indoor rooms/dams today, but a future casing on a large
-landcover area would silently hit the quadratic/unclipped path.
-**Recommendation: acceptable now; add a brief comment noting the assumption ("intended for
-small polygons"), or guard with a vertex-count/size ceiling** so a future style change
-can't regress rendering perf.
-
-### M5 — `ApplyScanResult` drops fresh polygon rects when the level set is unchanged
-`libs/map/indoor_manager.cpp`: `if (levels == m_levels) return;` early-returns before
-`m_indoorPolygonRects` is updated. If the same level set persists but the building/polygons
-shifted, proximity rects go stale.
-**Recommendation: minor — refresh `m_indoorPolygonRects` even when `levels` is unchanged, or
-document that identical level sets imply the same building.**
 
 ---
 
