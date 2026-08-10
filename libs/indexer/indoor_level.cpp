@@ -4,8 +4,6 @@
 
 #include "geometry/mercator.hpp"
 
-#include "platform/measurement_utils.hpp"
-
 #include "base/string_utils.hpp"
 
 #include <algorithm>
@@ -113,9 +111,24 @@ bool LevelsContain(std::string_view s, double level)
 std::string FormatLevel(double level)
 {
   if (LevelsEqual(level, std::round(level)))
-    return measurement_utils::ToStringPrecision(level, 0);
+    return std::to_string(static_cast<int64_t>(std::llround(level)));
 
-  return measurement_utils::ToStringPrecision(level, 2);
+  // Format with the classic locale first: default float precision drops trailing zeros
+  // ("0.2" never "0.20"), and a guaranteed period gives a stable anchor to swap in the current
+  // locale's own decimal separator (e.g. "," for es/fr/ru), which is the intended display format.
+  std::ostringstream ss;
+  ss.imbue(std::locale::classic());
+  ss << level;
+  std::string result = ss.str();
+
+  char const sep = std::use_facet<std::numpunct<char>>(std::locale()).decimal_point();
+  if (sep != '.')
+  {
+    auto const pos = result.find('.');
+    if (pos != std::string::npos)
+      result[pos] = sep;
+  }
+  return result;
 }
 
 std::vector<m2::RectD> ExpandRectsByMeters(std::vector<m2::RectD> const & rects, double meters)
@@ -124,8 +137,6 @@ std::vector<m2::RectD> ExpandRectsByMeters(std::vector<m2::RectD> const & rects,
   result.reserve(rects.size());
   for (auto const & r : rects)
   {
-    // GetSmPoint applies the cos(latitude) correction at each corner's own latitude, so the
-    // expansion stays accurate near the poles instead of assuming an equator-flat degree offset.
     m2::PointD const lo = mercator::GetSmPoint(r.LeftBottom(), -meters, -meters);
     m2::PointD const hi = mercator::GetSmPoint(r.RightTop(), meters, meters);
     result.emplace_back(lo.x, lo.y, hi.x, hi.y);
@@ -137,10 +148,6 @@ std::vector<m2::RectD> MergeOverlappingRects(std::vector<m2::RectD> const & rect
 {
   std::vector<m2::RectD> merged(rects.begin(), rects.end());
 
-  // A building mapped room-by-room can produce one rect per room; ShouldSkipIndoorFeature checks
-  // every leveled feature against every entry in this list on every re-tile, so collapsing
-  // touching/overlapping rects here (once, per background scan) keeps that list small instead of
-  // scaling with room count.
   bool changed = true;
   while (changed)
   {

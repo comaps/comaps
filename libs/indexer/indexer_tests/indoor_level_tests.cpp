@@ -7,8 +7,9 @@
 
 #include "geometry/mercator.hpp"
 
-#include "platform/locale.hpp"
+#include "base/scope_guard.hpp"
 
+#include <locale>
 #include <vector>
 
 namespace indoor_level_tests
@@ -82,34 +83,40 @@ UNIT_TEST(IndoorLevel_FormatLevel)
 
 UNIT_TEST(IndoorLevel_FormatLevelLocale)
 {
-  double d1 = 0.25; // fractional test
-  double d2 = 1.00; // whole test
+  // FormatLevel intentionally renders with the current locale's own decimal separator (e.g. ","
+  // for es/fr/ru), not always a period. Actually mutate std::locale::global per iteration (rather
+  // than just constructing an unused platform::Locale, as this test previously did) so it
+  // exercises the real behavior instead of always checking whatever locale the process started
+  // with.
+  std::locale const originalGlobal = std::locale();
+  SCOPE_GUARD(restoreGlobalLocale, [&originalGlobal]() { std::locale::global(originalGlobal); });
 
   struct TestData
   {
     std::string localeName;
-    std::string d1String;
-    std::string d2String;
+    std::string d1String;  // FormatLevel(0.25)
+    std::string d2String;  // FormatLevel(1.0)
   };
 
-  TestData testData[] = {// Locale, Fractional, Whole
-                         {"en_US.UTF-8", "0.25", "1"},
-                         {"es_ES.UTF-8", "0,25", "1"},
-                         {"fr_FR.UTF-8", "0,25", "1"},
-                         {"ru_RU.UTF-8", "0,25", "1"}};
+  TestData const testData[] = {{"en_US.UTF-8", "0.25", "1"},
+                               {"es_ES.UTF-8", "0,25", "1"},
+                               {"fr_FR.UTF-8", "0,25", "1"},
+                               {"ru_RU.UTF-8", "0,25", "1"}};
 
-  for (TestData const & data : testData)
+  for (auto const & data : testData)
   {
-    Locale loc;
-
-    if (!GetLocale(data.localeName, loc))
+    try
+    {
+      std::locale::global(std::locale(data.localeName));
+    }
+    catch (std::runtime_error const &)
     {
       std::cout << "Locale '" << data.localeName << "' not found!! Skipping test..." << std::endl;
       continue;
     }
 
-    TEST_EQUAL(indoor::FormatLevel(d1), data.d1String, ());
-    TEST_EQUAL(indoor::FormatLevel(d2), data.d2String, ());
+    TEST_EQUAL(indoor::FormatLevel(0.25), data.d1String, (data.localeName));
+    TEST_EQUAL(indoor::FormatLevel(1.0), data.d2String, (data.localeName));
   }
 }
 
