@@ -6,9 +6,9 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
 }
 
-fun run(cmd: MutableList<String>): String = providers.exec { commandLine = cmd }.standardOutput.asText.get().trim()
+fun run(cmd: List<String>): String = providers.exec { commandLine = cmd }.standardOutput.asText.get().trim()
 
 val isWindows = DefaultNativePlatform.getCurrentOperatingSystem().isWindows
 val bash = if (isWindows) "C:\\Program Files\\Git\\bin\\bash.exe" else "bash"
-rootProject.ext["versionCode"] = Integer.parseInt(run(mutableListOf(bash, "../tools/unix/version.sh", "android_code")))
-rootProject.ext["versionName"] = run(mutableListOf(bash, "../tools/unix/version.sh", "android_name"))
+rootProject.ext["versionCode"] = Integer.parseInt(run(listOf(bash, "../tools/unix/version.sh", "android_code")))
+rootProject.ext["versionName"] = run(listOf(bash, "../tools/unix/version.sh", "android_name"))

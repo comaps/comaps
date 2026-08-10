@@ -142,10 +142,10 @@ project.afterEvaluate {
     val keywords = listOf("assemble", "bundle", "compile", "install", "lint", "publish", "run")
     val runSetup = taskNames.any { task ->
         keywords.any { keyword ->
-            task.startsWith(prefix = keyword)
+            task.startsWith(keyword)
         }
     }
-    if(runSetup) {
+    if (runSetup) {
         val isWindows = DefaultNativePlatform.getCurrentOperatingSystem().isWindows
         exec {
             workingDir = File("../..")
@@ -163,12 +163,6 @@ project.afterEvaluate {
                 "./configure.sh",
             )
         }
-    }
-}
-
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.addAll("-Xlint:unchecked", "-Xlint:deprecation")
     }
 }
 

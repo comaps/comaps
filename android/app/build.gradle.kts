@@ -408,12 +408,6 @@ huaweiPublish {
     }
 }
 
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.addAll("-Xlint:unchecked", "-Xlint:deprecation")
-    }
-}
-
 tasks.withType<JavaCompile>().configureEach {
     options.compilerArgs.addAll(listOf("-Xlint:unchecked", "-Xlint:deprecation"))
 }
