@@ -27,6 +27,7 @@ constexpr static dp::Color kColorTo(0xe42300ff);
 constexpr static dp::Color kColorDecoded(0x4070ffff);
 constexpr static std::string const kDecodedLineId = "decodedPath";
 
+#ifdef openlr_obsolete
 namespace
 {
 void RemovePointFromPull(m2::PointD const & toBeRemoved, std::vector<m2::PointD> & pool)
@@ -52,7 +53,6 @@ std::vector<m2::PointD> GetReachablePoints(m2::PointD const & srcPoint,
 }
 }  // namespace
 
-#ifdef openlr_obsolete
 namespace impl
 {
 // static
