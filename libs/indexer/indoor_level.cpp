@@ -1,5 +1,7 @@
 #include "indexer/indoor_level.hpp"
 
+#include "indexer/ftypes_matcher.hpp"
+
 #include "geometry/mercator.hpp"
 
 #include "platform/measurement_utils.hpp"
@@ -13,6 +15,11 @@
 
 namespace indoor
 {
+bool IsLevelSensitiveType(feature::TypesHolder const & types)
+{
+  return !ftypes::IsBuildingChecker::Instance()(types) && !ftypes::IsBuildingPartChecker::Instance()(types);
+}
+
 namespace
 {
 // Splits a token like "0-2" or "-2--1" into a from-to range.

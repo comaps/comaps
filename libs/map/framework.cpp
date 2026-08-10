@@ -34,6 +34,7 @@
 #include "drape_frontend/color_constants.hpp"
 #include "drape_frontend/frontend_renderer.hpp"
 #include "drape_frontend/gps_track_point.hpp"
+#include "drape_frontend/indoor_filter.hpp"
 #include "drape_frontend/map_data_provider.hpp"
 #include "drape_frontend/postprocess_renderer.hpp"
 #include "drape_frontend/selection_shape.hpp"
@@ -1949,6 +1950,11 @@ FeatureID Framework::GetFeatureAtPoint(m2::PointD const & mercator, FeatureMatch
   auto closestIndoorDistance = numeric_limits<double>::max();
   auto currentDistance = numeric_limits<double>::max();
 
+  bool const indoorActive = m_indoorManager.IsActive();
+  double const indoorActiveLevel = m_indoorManager.GetActiveLevelValue();
+  auto const & indoorPolygonRects = m_indoorManager.GetIndoorPolygonRects();
+  auto const & indoorLevels = m_indoorManager.GetLevelValues();
+
   indexer::ForEachFeatureAtPoint(m_featuresFetcher.GetDataSource(), [&](FeatureType & ft)
   {
     if (fullMatch.IsValid())
@@ -1958,6 +1964,22 @@ FeatureID Framework::GetFeatureAtPoint(m2::PointD const & mercator, FeatureMatch
     {
       fullMatch = ft.GetID();
       return;
+    }
+
+    feature::TypesHolder const types(ft);
+
+    // Exclude anything drape wouldn't actually draw at the tap point given the active indoor
+    // level (e.g. a footway or POI one floor down) — same rule the renderer uses, so only
+    // features actually visible at this floor are selectable. POIs, lines, and areas alike stay
+    // fully tappable on their own floor; this only removes wrong-floor false positives.
+    if (indoorActive)
+    {
+      m2::RectD featureRect;
+      if (!indoorPolygonRects.empty())
+        featureRect = ft.GetLimitRect(scales::GetUpperScale());
+      if (df::ShouldSkipIndoorFeature(types, ft.GetMetadata(feature::Metadata::FMD_LEVEL), indoorActiveLevel,
+                                     featureRect, indoorPolygonRects, indoorLevels))
+        return;
     }
 
     switch (ft.GetGeomType())
@@ -1986,13 +2008,12 @@ FeatureID Framework::GetFeatureAtPoint(m2::PointD const & mercator, FeatureMatch
     case feature::GeomType::Area:
     {
       // Skip/ignore coastlines.
-      feature::TypesHolder types(ft);
       if (ftypes::IsCoastlineChecker::Instance()(types))
         return;
 
       // In indoor mode, indoor area features (rooms, corridors, etc.) take precedence
       // over the building polygon so tapping shows the specific space, not just the building.
-      if (m_indoorManager.IsActive() && ftypes::IsIndoorChecker::Instance()(types))
+      if (indoorActive && ftypes::IsIndoorChecker::Instance()(types))
       {
         currentDistance = mercator::DistanceOnEarth(mercator, feature::GetCenter(ft));
         if (currentDistance < closestIndoorDistance)

@@ -191,7 +191,8 @@ void IndoorManager::RunScan(m2::RectD const & rect)
       // Public-transport platforms carrying an explicit level=* act as indoor elements too: at
       // multi-level stations a floor is often occupied by nothing but a platform, which should still
       // register as a selectable level. Surface platforms (no level tag) are left alone.
-      bool const isLeveledPlatform = !levelMeta.empty() && ftypes::IsPlatformChecker::Instance()(types);
+      bool const isLeveledPlatform =
+          !levelMeta.empty() && indoor::IsLevelSensitiveType(types) && ftypes::IsPlatformChecker::Instance()(types);
       if (!ftypes::IsIndoorChecker::Instance()(types) && !isLeveledPlatform)
         return;
 

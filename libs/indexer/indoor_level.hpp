@@ -1,5 +1,7 @@
 #pragma once
 
+#include "indexer/feature_data.hpp"
+
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
@@ -30,6 +32,14 @@ inline bool LevelsEqual(double lhs, double rhs)
 
 // True if |level| is a real, active indoor level rather than the kNoActiveLevel sentinel.
 inline bool HasActiveLevel(double level) { return level != kNoActiveLevel; }
+
+// True if |types| is a kind of feature whose level=* tag (if any) should be treated as
+// floor-specific — shown/hidden per the active level — rather than a building/building-part
+// shell, which stays visible at every floor regardless of any level tag it happens to carry.
+// Shared by df::ShouldSkipIndoorFeature (render-time visibility) and IndoorManager's scan-time
+// "does this count as indoor content" check, which both need the same building/building-part
+// exclusion before applying their own (different) leveled-feature criteria.
+bool IsLevelSensitiveType(feature::TypesHolder const & types);
 
 // Parses an OSM level=* value into a list of numeric levels.
 // Supported forms: "0", "-1", "1.5", "0;1;2", "0-2" (integer ranges), "-2--1" and "," as a separator fallback.

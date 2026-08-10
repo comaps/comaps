@@ -13,8 +13,7 @@ bool ShouldSkipIndoorFeature(feature::TypesHolder const & types, std::string_vie
   if (!indoor::HasActiveLevel(activeLevel))
     return isIndoor;
 
-  bool const isLeveled = !levelMeta.empty() && !ftypes::IsBuildingChecker::Instance()(types) &&
-                         !ftypes::IsBuildingPartChecker::Instance()(types);
+  bool const isLeveled = !levelMeta.empty() && indoor::IsLevelSensitiveType(types);
   if (!isIndoor && !isLeveled)
     return false;
 

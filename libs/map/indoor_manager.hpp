@@ -91,6 +91,12 @@ public:
   // actually near the building, not for an entire navigation session regardless of distance.
   bool IsNearActiveIndoorContext(m2::PointD const & position) const;
 
+  // Raw active level and viewport-floor data, for callers that need the same level-visibility
+  // test drape uses (df::ShouldSkipIndoorFeature) outside the render thread, e.g. tap selection.
+  double GetActiveLevelValue() const { return m_activeLevel; }
+  std::vector<double> const & GetLevelValues() const { return m_levels; }
+  std::vector<m2::RectD> const & GetIndoorPolygonRects() const { return m_indoorPolygonRects; }
+
 private:
   // Coalescing entry point: during a continuous zoom/pan gesture, UpdateViewport may call this on
   // every frame. Rather than queuing a background scan per call, only one scan is ever in flight;
