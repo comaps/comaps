@@ -317,8 +317,9 @@ QVariant GetDescription(TraffMessage const & message)
   }
   if (!result.empty())
     result += "\n";
-  result += message.m_id.substr(0, message.m_id.find(':'));
-  result += "\t" + DebugPrint(message.m_updateTime);
+  //result += message.m_id.substr(0, message.m_id.find(':'));
+  result += message.m_id;
+  result += "\n" + DebugPrint(message.m_updateTime);
   // add an extra line to get bigger rows (default is too small)
   result += "\n";
   return QString::fromStdString(result);
