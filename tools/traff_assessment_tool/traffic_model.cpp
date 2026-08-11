@@ -13,11 +13,27 @@
 #include "base/assert.hpp"
 #include "base/scope_guard.hpp"
 
+#include <string>
+#include <variant>
+#include <vector>
+
 #include <QItemSelection>
 #include <QMessageBox>
 
 namespace traffxml
 {
+
+using StringOrInt = std::variant<std::string, int32_t>;
+
+/**
+ * @brief States for the road ref parser
+ */
+enum class RoadRefParserState
+{
+  Whitespace,
+  Numeric,
+  Alpha
+};
 
 constexpr static dp::Color kColorFrom(0x309302ff);
 constexpr static dp::Color kColorAt(0x1a5ec1ff);
@@ -325,6 +341,205 @@ QVariant GetDescription(TraffMessage const & message)
   return QString::fromStdString(result);
 }
 
+/**
+ * @brief Trims leading and trailing whitespace from a string.
+ */
+std::string Trim(const std::string& s)
+{
+  std::string res = s;
+  auto is_space = [](unsigned char c) { return std::isspace(c); };
+
+  res.erase(res.begin(), std::find_if(res.begin(), res.end(),
+                                      [&](char c) { return !is_space(c); }));
+
+  res.erase(std::find_if(res.rbegin(), res.rend(),
+                         [&](char c) { return !is_space(c); }).base(),
+            res.end());
+
+  return res;
+}
+
+/**
+ * @brief Parses a string into numeric and non-numeric components.
+ */
+std::vector<StringOrInt> ParseRoadRef(std::string ref)
+{
+  std::vector<StringOrInt> res;
+  RoadRefParserState state = RoadRefParserState::Whitespace;
+  size_t i = 0;
+  while (i < ref.size())
+  {
+    auto c = ref[i];
+    if (c <= 0x20)
+    {
+      /* whitespace */
+      if (state == RoadRefParserState::Numeric)
+      {
+        int32_t value;
+        std::from_chars(ref.data(), ref.data() + i, value);
+        res.push_back(value);
+        ref = ref.substr(i, ref.size() - i);
+        i = 1;
+        state = RoadRefParserState::Whitespace;
+      }
+      else
+        i++;
+    }
+    else if ((c >= '0') && (c <= '9'))
+    {
+      /* numeric */
+      if (state == RoadRefParserState::Alpha)
+      {
+        res.push_back(Trim(ref.substr(0, i)));
+        ref = ref.substr(i, ref.size() - i);
+        i = 1;
+      }
+      else
+        i++;
+      state = RoadRefParserState::Numeric;
+    }
+    else
+    {
+      /* alpha */
+      if (state == RoadRefParserState::Numeric)
+      {
+        int32_t value;
+        std::from_chars(ref.data(), ref.data() + i, value);
+        res.push_back(value);
+        ref = ref.substr(i, ref.size() - i);
+        i = 1;
+      }
+      else
+        i++;
+      state = RoadRefParserState::Alpha;
+    }
+  }
+
+  if (ref.size() > 0)
+  {
+    if (state == RoadRefParserState::Numeric)
+    {
+      int32_t value;
+      std::from_chars(ref.data(), ref.data() + i, value);
+      res.push_back(value);
+    }
+    else if (state == RoadRefParserState::Alpha)
+      res.push_back(Trim(ref.substr(0, i)));
+  }
+  return res;
+}
+
+/**
+ * @brief Compare two road refs.
+ *
+ * Each string is broken down into numeric and non-numeric parts. Then both string are compared
+ * part by part. The following rules apply:
+ * <ul>
+ * <li>Whitespace bordering on a number is discarded</li>
+ * <li>Whitespace surrounded by string characters is treated as one string with the surrounding
+ * characters</li>
+ * <li>If one string has more parts than the other, the shorter string is padded with null
+ * parts.</li>
+ * <li>Null is less than non-null.</li>
+ * <li>Null equals null.</li>
+ * <li>A numeric part is less than a string part.</li>
+ * <li>Numeric parts are compared as integers.</li>
+ * <li>String parts are compared as strings.</li>
+ * </ul>
+ *
+ * @return a negative value if `a < b`, a positive value if `a > b`, 0 if `a == b`
+ */
+int CompareRoadRefs(const std::string& a, const std::string& b)
+{
+  if (a == b)
+    return 0;
+  std::vector<StringOrInt> av = ParseRoadRef(a);
+  std::vector<StringOrInt> bv = ParseRoadRef(b);
+  int res = 0;
+  size_t i;
+
+  for (i = 0; i < std::min(av.size(), bv.size()); i++)
+  {
+    if (std::holds_alternative<int32_t>(av[i]))
+    {
+      if (std::holds_alternative<int32_t>(bv[i]))
+        res = std::get<int32_t>(av[i]) - std::get<int32_t>(bv[i]);
+      else if (std::holds_alternative<std::string>(bv[i]))
+        return -1;
+    }
+    else if (std::holds_alternative<std::string>(av[i]))
+    {
+      if (std::holds_alternative<int32_t>(bv[i]))
+        return 1;
+      else if (std::holds_alternative<std::string>(bv[i]))
+        res = std::get<std::string>(av[i]).compare(std::get<std::string>(bv[i]));
+    }
+    if (res != 0)
+      return res;
+  }
+
+  if (i < av.size())
+    return 1;
+  if (i < bv.size())
+    return -1;
+  return 0;
+}
+
+/**
+ * @brief Determines the sort order between two messages.
+ *
+ * @return true if `a` is to be sorted before `b`, false otherwise
+ */
+bool IsLessThan(const TraffMessage& a, const TraffMessage& b)
+{
+  if (a.m_location && b.m_location)
+  {
+    // sort based on road class
+    if (a.m_location.value().m_roadClass && b.m_location.value().m_roadClass)
+    {
+      if (a.m_location.value().m_roadClass.value() < b.m_location.value().m_roadClass.value())
+        return true;
+      if (a.m_location.value().m_roadClass.value() > b.m_location.value().m_roadClass.value())
+        return false;
+    }
+    else if (a.m_location.value().m_roadClass)
+      return true;
+    else if (b.m_location.value().m_roadClass)
+      return false;
+
+    // sort based on road ref
+    if (a.m_location.value().m_roadRef && b.m_location.value().m_roadRef)
+    {
+      int res = CompareRoadRefs(a.m_location.value().m_roadRef.value(), b.m_location.value().m_roadRef.value());
+      if (res < 0)
+        return true;
+      if (res > 0)
+        return false;
+    }
+    else if (a.m_location.value().m_roadRef)
+      return true;
+    else if (b.m_location.value().m_roadRef)
+      return false;
+
+    // sort based on country
+    if (a.m_location.value().m_country && b.m_location.value().m_country)
+    {
+      if (a.m_location.value().m_country.value() < b.m_location.value().m_country.value())
+        return true;
+      if (a.m_location.value().m_country.value() > b.m_location.value().m_country.value())
+        return false;
+    }
+    else if (a.m_location.value().m_country)
+      return true;
+    else if (b.m_location.value().m_country)
+      return false;
+
+    // TODO road name, directionality and direction, junction numbers, kmps, coordinates
+  }
+  // if nothing else works, fall back to id
+  return a.m_id < b.m_id;
+}
+
 // TrafficModel -------------------------------------------------------------------------------------
 TrafficModel::TrafficModel(Framework & framework,
                            QObject * parent)
@@ -350,6 +565,12 @@ TrafficModel::TrafficModel(Framework & framework,
 
       for (auto & entry : messageCache)
         m_messages.push_back(std::move(entry.second));
+
+      std::sort(m_messages.begin(), m_messages.end(),
+                [](const TraffMessage& a, const TraffMessage& b) {
+        return IsLessThan(a, b);
+      });
+
 
       endResetModel();
 
