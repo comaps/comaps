@@ -275,21 +275,29 @@ adb shell pm grant app.organicmaps.debug android.permission.READ_LOGS
 <details>
   <summary><span style="font-size: 1.5em; font-weight: bold;">Android Auto</span></summary>
 
-Android Auto can be developed and tested without having a physical device by using [Desktop Head Unit (DHU)](https://developer.android.com/training/cars/testing/dhu). Go to Android Studio > Tools -> SDK Manager -> SDK Tools and enable "Android Auto Desktop Head Unit".
+Android Auto can be developed and tested without having a physical head unit by using [Desktop Head Unit (DHU)](https://developer.android.com/training/cars/testing/dhu). Go to Android Studio > Tools -> SDK Manager -> SDK Tools and enable "Android Auto Desktop Head Unit".
 
-[Android Auto App](https://play.google.com/store/apps/details?id=com.google.android.projection.gearhead) is required for Auto functionality. The app should be installed from Google Play before connecting a phone to the Desktop Head Unit or a real car. Android Auto doesn't work on phones without Google Play Services.
+The DHU will be located at the following path: 
+
+```
+$ANDROID_HOME/extras/google/auto/desktop-head-unit`
+```
+
+Where `$ANDROID_HOME` is the path of the Android SDK on your system.
+The default location is:
+  - Windows: `%USERPROFILE%\Android\Sdk`
+  - MacOS: `~/Library/Android/sdk`
+  - Linux `~/Android/Sdk`
+
+### With a physical phone
+
+The [Android Auto app](https://play.google.com/store/apps/details?id=com.google.android.projection.gearhead) is required for Auto functionality. The app should be installed from Google Play before connecting a phone to the Desktop Head Unit or a real car. Android Auto doesn't work on phones without Google Play Services.
 
 To run Android Auto, connect the phone using USB cable and run the Desktop Head Unit with the `--usb` flag:
 
 ```
-[Android SDK path]/extras/google/auto/desktop-head-unit --usb
+$ANDROID_HOME/extras/google/auto/desktop-head-unit --usb
 ```
-Where `[Android SDK path]` is the path of the Android SDK on your system.
-The default location is:
-  - Windows: %USERPROFILE%\Android\Sdk
-  - MacOS: ~/Library/Android/sdk
-  - Linux ~/Android/Sdk
-
 
 ```
 [REDACTED]
@@ -299,7 +307,92 @@ The default location is:
 [I]: Attached!
 ```
 
-CoMaps icon will appear in the application list in DHU.
+The CoMaps icon will appear in the application list in DHU.
+
+### With an emulated phone
+
+The emulated device will need a recent version of Android and **must be using a
+Google Play variant image**.
+
+The Android Auto app will need to be installed inside the emulated device. You
+can download it from [APKMirror](https://www.apkmirror.com/apk/google-inc/android-auto/).
+Make sure the version you download matches the architecture you are emulating, 
+and is the latest available version.
+
+<details>
+<summary>Sideloading from outside the emulator</summary>
+
+This section assumes you've downloaded the archive to your computer.
+
+Unpack the `.apkm`:
+
+```
+unzip com.google.android.projection.gearhead_17.2.662638-release-172662638_1arch_1dpi_24lang_e37912cf480ba711cd4bd3db5050e647_apkmirror.com.apkm
+```
+
+(This will unzip a lot of files into your current working directory. You may
+want to consider moving to an empty directory before unpacking.)
+
+Install all the necessary parts, for example:
+
+```
+adb install-multiple base.apk split_config.x86_64.apk split_config.en.apk split_config.xxhdpi.apk
+```
+
+Change the command to whatever architecture, languages, and DPI you need.
+</details>
+
+<details>
+
+<summary>Installing from inside the emulator</summary>
+
+This section assumes you've downloaded the archive inside the emulator and you
+have an shell open (`adb shell`).
+
+Unpack the `.apkm` and move all `.apk` files into `/data/local/tmp`:
+
+```
+cd /storage/emulated/0/Download
+unzip com.google.android.projection.gearhead_17.2.662638-release-172662638_1arch_1dpi_24lang_e37912cf480ba711cd4bd3db5050e647_apkmirror.com.apkm
+mv *.apk /data/local/tmp
+cd /data/local/tmp
+```
+
+Start an install session and install all the necessary parts, for example:
+
+```
+pm install-create
+pm install-write XX base base.apk
+pm install-write XX config.x86_64 split_config.x86_64.apk
+pm install-write XX config.en split_config.en.apk
+pm install-write XX config.xxhdpi split_config.xxhdpi.apk
+pm install-commit
+```
+
+Where `XX` is the session ID. Change the command to whatever architecture,
+languages, and DPI you need.
+</details>
+
+Next, access Android Auto by going to Settings > Connected devices > Connection 
+preferences > Android Auto. Scroll to the bottom and tap the version a bunch of
+times to enable Developer Mode. Once enabled, tap the three dots in the top
+right and tap "Start head unit server".
+
+Finally, forward port `5277` from the emulator and start the DHU:
+
+```
+adb forward tcp:5277 tcp:5277
+$ANDROID_HOME/extras/google/auto/desktop-head-unit
+```
+
+There will be a few screens which pop up to grant permissions and set up Android
+Auto for first use. 
+
+#### Troubleshooting
+
+*I see a certificate error when trying to connect the DHU.* This means your
+Android Auto version is out of date. Make sure you're on a later version of
+both Android and Android Auto.
 
 ### More options
 
