@@ -2,7 +2,7 @@
 
 CoMaps exposes debug commands to help you control the native components (engine, editor, navigation, ...). **These commands are not intended for regular users** and are only used for debug purposes. Please only use these commands if you are working on CoMaps.
 
-Each command is entered in the search input (Android and iOS) and are activated as soon as the full search keyword is entered. Unless specified, the effects triggered are discarded after a restart.
+Each command is entered in the search input (Android, iOS or desktop) and are activated as soon as the full search keyword is entered. Unless specified, the effects triggered are discarded after a restart.
 
 For more information, please see the source code at [`Framework::ParseSearchQueryCommand`](../libs/map/framework.cpp).
 
@@ -74,3 +74,9 @@ All the following commands require an app restart:
 ## Search
 
 - `?wiki`: Search results for all elements with Wikipedia links
+
+Unlike the other commands, this command is implemented in the search engine itself. It is not parsed in `Framework::ParseSearchQueryCommand`, causing it to be passed to the search engine as a regular serch term.
+
+## Others
+
+- `?check-updates`: Triggers a manual check for map updates.

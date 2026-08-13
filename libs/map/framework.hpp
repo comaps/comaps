@@ -360,6 +360,18 @@ public:
   void ClearViewportSearchResults() override;
   // PositionProvider, SearchApi::Delegate and TipsApi::Delegate override.
   std::optional<m2::PointD> GetCurrentPosition() const override;
+
+  /**
+   * @brief Parses a debug command passed to the search interface.
+   *
+   * This is called before passing search input to the actual search function. If a debug command
+   * is recognized, this function will trigger the appropriate action and return `true`. In this case
+   * the caller should not forward the input to the search engine. If no debug command is recognized,
+   * this function will return `false` and the caller should forward the input to the search engine.
+   *
+   * @param params
+   * @return true if search input is a recognized debug command, false if not
+   */
   bool ParseSearchQueryCommand(search::SearchParams const & params) override;
   m2::PointD GetMinDistanceBetweenResults() const override;
 

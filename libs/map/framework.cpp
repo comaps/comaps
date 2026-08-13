@@ -3323,6 +3323,12 @@ bool Framework::ParseSearchQueryCommand(search::SearchParams const & params)
     return true;
   }
 
+  /*
+   * `?wiki` is not parsed here as it is implemented in the search engine itself.
+   * Upon encountering `?wiki`, this function will return false, causing the caller to pass it to
+   * the search engine as a regular search term.
+   */
+
   return false;
 }
 
