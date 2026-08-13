@@ -80,3 +80,4 @@ Unlike the other commands, this command is implemented in the search engine itse
 ## Others
 
 - `?check-updates`: Triggers a manual check for map updates.
+- `?clear-traffic`: Clears all traffic messages from the cache. This has effects beyond the next restart; messages will not reappear until they are reloaded from the source.

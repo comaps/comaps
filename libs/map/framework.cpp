@@ -3323,6 +3323,11 @@ bool Framework::ParseSearchQueryCommand(search::SearchParams const & params)
     return true;
   }
 
+  if (params.m_query == "?clear-traffic")
+  {
+    GetTrafficManager().Clear();
+  }
+
   /*
    * `?wiki` is not parsed here as it is implemented in the search engine itself.
    * Upon encountering `?wiki`, this function will return false, causing the caller to pass it to
