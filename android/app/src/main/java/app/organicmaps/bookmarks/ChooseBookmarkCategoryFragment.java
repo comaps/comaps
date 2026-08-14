@@ -63,6 +63,14 @@ public class ChooseBookmarkCategoryFragment
   }
 
   @Override
+  public void onDestroyView()
+  {
+    super.onDestroyView();
+    mRecycler = null;
+    mAdapter = null;
+  }
+
+  @Override
   public void onAttach(Activity activity)
   {
     if (mListener == null)
@@ -73,8 +81,14 @@ public class ChooseBookmarkCategoryFragment
       else if (activity instanceof Listener)
         mListener = (Listener) activity;
     }
-
     super.onAttach(activity);
+  }
+
+  @Override
+  public void onDetach()
+  {
+    super.onDetach();
+    mListener = null;
   }
 
   private void createCategory(@NonNull String name)

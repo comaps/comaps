@@ -209,6 +209,13 @@ public class EditBookmarkFragment extends DialogFragment implements View.OnClick
       mListener = (EditBookmarkListener) getParentFragment();
   }
 
+  @Override
+  public void onDetach()
+  {
+    super.onDetach();
+    mListener = null;
+  }
+
   private void initToolbar(View view)
   {
     MaterialToolbar toolbar = view.findViewById(R.id.toolbar);
