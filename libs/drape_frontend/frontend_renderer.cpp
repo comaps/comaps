@@ -83,6 +83,10 @@ double constexpr kVSyncInterval = 0.06;
 // Metal/Vulkan rendering is fast, so we can decrease sync inverval.
 double constexpr kVSyncIntervalMetalVulkan = 0.03;
 
+// Stencil references used by the region overlay and the antialiasing (SMAA) pass.
+uint32_t constexpr kStencilRefMask = 1;
+uint32_t constexpr kStencilRefOverlay = 2;
+
 std::string const kTransitBackgroundColor = "TransitBackground";
 
 bool IsTextUserMarkState(dp::RenderState const & state)
@@ -185,7 +189,6 @@ FrontendRenderer::FrontendRenderer(Params && params)
   , m_enable3dBuildings(params.m_allow3dBuildings)
   , m_isIsometry(false)
   , m_blockTapEvents(params.m_blockTapEvents)
-  , m_showNonDownloaded(params.m_showNonDownloaded)
   , m_choosePositionMode(false)
   , m_screenshotMode(params.m_myPositionParams.m_hints.m_screenshotMode)
   , m_mapLangIndex(localisation::kDefaultNameIndex)
@@ -218,7 +221,7 @@ FrontendRenderer::FrontendRenderer(Params && params)
   ASSERT(m_tapEventInfoHandler, ());
   ASSERT(m_userPositionChangedHandler, ());
 
-  g_nonDownloadedMaskEnabled.store(m_showNonDownloaded);
+  g_nonDownloadedMaskEnabled.store(params.m_showNonDownloaded);
 
   m_gpsTrackRenderer = make_unique_dp<GpsTrackRenderer>([this](uint32_t pointsCount, uint8_t subID)
   {
@@ -884,6 +887,7 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
   case Message::Type::SetSimplifiedTrafficColors:
   case Message::Type::UpdateMetalines:
   case Message::Type::EnableIsolines:
+  case Message::Type::EnableNonDownloaded:
   {
     m_forceUpdateScene = true;
     break;
@@ -1441,16 +1445,16 @@ void FrontendRenderer::RenderScene(ScreenBase const & modelView, bool activeFram
 
     uint32_t clearBits = dp::ClearBits::ColorBit | dp::ClearBits::DepthBit;
     uint32_t storeBits = dp::ClearBits::ColorBit;
-    if (m_showNonDownloaded || m_apiVersion == dp::ApiVersion::OpenGLES3)
+    if (g_nonDownloadedMaskEnabled.load() || m_apiVersion == dp::ApiVersion::OpenGLES3)
       clearBits |= dp::ClearBits::StencilBit;
-    if (m_showNonDownloaded)
+    if (g_nonDownloadedMaskEnabled.load())
       storeBits |= dp::ClearBits::StencilBit;
 
     if (m_postprocessRenderer->IsEffectEnabled(PostprocessRenderer::Effect::Antialiasing))
     {
       clearBits |= dp::ClearBits::StencilBit;
       storeBits |= dp::ClearBits::StencilBit;
-      m_context->SetStencilReferenceValue(2 /* write this value to the stencil buffer */);
+      m_context->SetStencilReferenceValue(kStencilRefOverlay /* write this value to the stencil buffer */);
     }
 
     m_context->Clear(clearBits, storeBits);
@@ -1723,7 +1727,7 @@ void FrontendRenderer::RenderMwmBorderLayer(ScreenBase const & modelView)
     return;
 
   CHECK(m_context != nullptr, ());
-  if (m_showNonDownloaded)
+  if (g_nonDownloadedMaskEnabled.load())
   {
     DEBUG_LABEL(m_context, "Non-Downloaded Tint Layer");
 
@@ -1737,7 +1741,7 @@ void FrontendRenderer::RenderMwmBorderLayer(ScreenBase const & modelView)
     m_context->SetStencilFunction(dp::StencilFace::FrontAndBack, dp::TestFunction::Always);
     m_context->SetStencilActions(dp::StencilFace::FrontAndBack, dp::StencilAction::Keep, dp::StencilAction::Keep,
                                  dp::StencilAction::Replace);
-    m_context->SetStencilReferenceValue(1);
+    m_context->SetStencilReferenceValue(kStencilRefMask);
 
     for (drape_ptr<RenderGroup> & group : renderGroups)
       RenderSingleGroup(m_context, modelView, make_ref(group));
@@ -1756,7 +1760,7 @@ void FrontendRenderer::RenderMwmBorderLayer(ScreenBase const & modelView)
 
     // Restore the stencil reference expected by the antialiasing (SMAA) pass for overlays.
     if (m_postprocessRenderer->IsEffectEnabled(PostprocessRenderer::Effect::Antialiasing))
-      m_context->SetStencilReferenceValue(2);
+      m_context->SetStencilReferenceValue(kStencilRefOverlay);
     m_context->SetStencilTestEnabled(false);
     return;
   }
