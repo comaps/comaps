@@ -118,6 +118,39 @@ struct CarPlayLaneManeuverContent: Equatable {
   }
 }
 
+@available(iOS 18.0, *)
+enum CarPlayLaneMetadata {
+  static func lane(for laneInfo: LaneInfo) -> CPLane {
+    let angles = uniqueAngles(for: laneInfo.laneWays)
+    if let recommended = LaneWay(rawValue: laneInfo.recommendedWay), recommended != .none {
+      let highlightedAngle = recommended.angle
+      let remainingAngles = angles.filter { !haveEqualDegrees($0, highlightedAngle) }
+      return CPLane(angles: remainingAngles,
+                    highlightedAngle: highlightedAngle,
+                    isPreferred: true)
+    }
+
+    let safeAngles = angles.isEmpty ? [LaneWay.through.angle] : angles
+    return CPLane(angles: safeAngles)
+  }
+
+  private static func uniqueAngles(for rawWays: [UInt8]) -> [Measurement<UnitAngle>] {
+    var seenDegrees = Set<Double>()
+    return rawWays.compactMap { rawWay in
+      guard let way = LaneWay(rawValue: rawWay), way != .none else { return nil }
+      let angle = way.angle
+      let degrees = angle.converted(to: .degrees).value
+      guard seenDegrees.insert(degrees).inserted else { return nil }
+      return angle
+    }
+  }
+
+  private static func haveEqualDegrees(_ lhs: Measurement<UnitAngle>,
+                                       _ rhs: Measurement<UnitAngle>) -> Bool {
+    return lhs.converted(to: .degrees).value == rhs.converted(to: .degrees).value
+  }
+}
+
 struct CarPlayPrimaryManeuverIdentity: Equatable {
   let routeID: UInt64
   let turnIndex: UInt32
@@ -506,6 +539,14 @@ extension CarPlayRouter {
       }
     }
     routeSession.upcomingManeuvers = maneuvers
+    if #available(iOS 17.4, *) {
+      // Apple requires lane guidance to be added to the session before it becomes current.
+      // The add happens above, so publish the new current value (including nil) only now.
+      routeSession.currentLaneGuidance = activeLaneGuidance as? CPLaneGuidance
+      if #available(iOS 18.0, *) {
+        logLaneGuidanceTransition(from: previousContent, to: content)
+      }
+    }
     maneuverRefreshState.didDisplay(content)
     if !didRetainPrimary {
       publishedPrimaryIdentity = content.primaryIdentity
@@ -559,7 +600,6 @@ extension CarPlayRouter {
       case .initial: routeSession.maneuverState = .initial
       case .continue: routeSession.maneuverState = .continue
       }
-      routeSession.currentLaneGuidance = activeLaneGuidance as? CPLaneGuidance
       let roadName = routeInfo.currentRoadName.trimmingCharacters(in: .whitespacesAndNewlines)
       routeSession.currentRoadNameVariants = roadName.isEmpty ? [] : [roadName]
 
@@ -619,6 +659,21 @@ extension CarPlayRouter {
 
   private func roadDescription(_ routeInfo: RouteInfo) -> String {
     return "currentRoad=\(logValue(routeInfo.currentRoadName)) nextRoad=\(logValue(routeInfo.roadName)) roadRef=\(logValue(routeInfo.roadRef)) junction=\(logValue(routeInfo.junctionRef)) destinationRef=\(logValue(routeInfo.destinationRef)) destination=\(logValue(routeInfo.destination))"
+  }
+
+  private func logLaneGuidanceTransition(from previousContent: CarPlayManeuverContent?,
+                                         to content: CarPlayManeuverContent) {
+    let action: String
+    if content.lanes.isEmpty {
+      guard previousContent?.lanes.isEmpty == false else { return }
+      action = "cleared"
+    } else if previousContent?.lanes.isEmpty ?? true {
+      action = "created"
+    } else {
+      action = "replaced"
+    }
+    LOG(.info,
+        "[CarPlayGuidance] lane_guidance_\(action) snapshot=\(identityDescription(content.primaryIdentity)) lanes=\(previousContent?.lanes.count ?? 0)->\(content.lanes.count)")
   }
 
   private func createEstimates(_ routeInfo: RouteInfo) -> CPTravelEstimates? {
@@ -734,15 +789,7 @@ extension CarPlayRouter {
   @available(iOS 18.0, *)
   private func laneGuidance(for routeInfo: RouteInfo) -> CPLaneGuidance {
     let guidance = CPLaneGuidance()
-    guidance.lanes = routeInfo.lanes.map { lane in
-      let angles = lane.laneWays.compactMap { LaneWay(rawValue: $0)?.angle }
-      // CPLane requires at least one angle; fall back to "straight" for unmarked lanes.
-      let safeAngles = angles.isEmpty ? [Measurement(value: 0, unit: UnitAngle.degrees)] : angles
-      if let recommended = LaneWay(rawValue: lane.recommendedWay), recommended != .none {
-        return CPLane(angles: safeAngles, highlightedAngle: recommended.angle, isPreferred: true)
-      }
-      return CPLane(angles: safeAngles)
-    }
+    guidance.lanes = routeInfo.lanes.map { CarPlayLaneMetadata.lane(for: $0) }
     let variants = instructionVariants(for: routeInfo)
     guidance.instructionVariants = variants.isEmpty ? [""] : variants
     return guidance
