@@ -156,6 +156,29 @@ struct CarPlayPrimaryManeuverIdentity: Equatable {
   let turnIndex: UInt32
 }
 
+@available(iOS 17.4, *)
+enum CarPlayInstrumentClusterMetadata {
+  static func apply(to maneuver: CPManeuver, routeInfo: RouteInfo) {
+    maneuver.maneuverType = routeInfo.carDirection.cpManeuverType
+    maneuver.junctionType = routeInfo.carDirection.cpJunctionType
+    maneuver.trafficSide = routeInfo.isLeftHandTraffic ? .left : .right
+
+    let roadFollowingVariants = NavigationInstructionFormatter.carPlayRoadFollowingManeuverVariants(
+      roadName: routeInfo.roadName,
+      roadRef: routeInfo.roadRef,
+      destinationRef: routeInfo.destinationRef,
+      destination: routeInfo.destination,
+      isLink: routeInfo.isLink)
+    if !roadFollowingVariants.isEmpty {
+      maneuver.roadFollowingManeuverVariants = roadFollowingVariants
+    }
+    if let exitLabel = NavigationInstructionFormatter.carPlayHighwayExitLabel(
+      junctionRef: routeInfo.junctionRef) {
+      maneuver.highwayExitLabel = exitLabel
+    }
+  }
+}
+
 struct CarPlayManeuverContent: Equatable {
   let primaryIdentity: CarPlayPrimaryManeuverIdentity
   let carDirection: CarDirection
@@ -723,13 +746,7 @@ extension CarPlayRouter {
     }
     // Structured metadata for the instrument cluster / HUD on supported vehicles.
     if #available(iOS 17.4, *) {
-      primaryManeuver.maneuverType = routeInfo.carDirection.cpManeuverType
-      primaryManeuver.junctionType = routeInfo.carDirection.cpJunctionType
-      // Route-level driving side (from the route's start region)
-      primaryManeuver.trafficSide = routeInfo.isLeftHandTraffic ? .left : .right
-      if !routeInfo.junctionRef.isEmpty {
-        primaryManeuver.highwayExitLabel = routeInfo.junctionRef
-      }
+      CarPlayInstrumentClusterMetadata.apply(to: primaryManeuver, routeInfo: routeInfo)
     }
     return primaryManeuver
   }
