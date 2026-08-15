@@ -104,6 +104,7 @@ public:
     NotifyGraphicsReady,
     SetAccessibilityDataHandler,
     EnableIsolines,
+    EnableNonDownloaded,
     OnEnterBackground,
     Arrow3dRecache,
     VisualScaleChanged,
