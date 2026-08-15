@@ -211,6 +211,25 @@ final class NavigationInstructionFormatter: NSObject {
                           shields: nil).map(\.plainText)
   }
 
+  /// Instrument cluster instruction variants
+  static func carPlayRoadFollowingManeuverVariants(roadName: String,
+                                                   roadRef: String,
+                                                   destinationRef: String,
+                                                   destination: String) -> [String] {
+    return instructionCandidates(roadName: roadName,
+                                 roadRef: roadRef,
+                                 junctionRef: "",
+                                 destinationRef: destinationRef,
+                                 destination: destination,
+                                 shields: nil).map(\.plainText)
+  }
+
+  static func carPlayHighwayExitLabel(junctionRef: String) -> String? {
+    let ref = junctionRef.trimmingCharacters(in: .whitespacesAndNewlines)
+    guard !ref.isEmpty else { return nil }
+    return String(format: L("carplay_highway_exit"), ref)
+  }
+
   static func carPlayInstructionVariants(roadName: String,
                                          roadRef: String,
                                          junctionRef: String,
@@ -282,7 +301,7 @@ final class NavigationInstructionFormatter: NSObject {
                                                                   shields: targetShields,
                                                                   isJunction: false)]
     var candidates = [[InstructionPart]]()
-    let exitLabel = junctionRef.isEmpty ? "" : String(format: L("carplay_highway_exit"), junctionRef)
+    let exitLabel = carPlayHighwayExitLabel(junctionRef: junctionRef) ?? ""
     let exitParts: [InstructionPart] = exitLabel.isEmpty ? [] : [.roadRef(text: exitLabel,
                                                                          shields: junctionShields,
                                                                          isJunction: true)]
