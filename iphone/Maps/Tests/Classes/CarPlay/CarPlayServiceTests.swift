@@ -56,6 +56,35 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertFalse(state.isPresented)
   }
 
+  func testSearchResultOrderingMovesSelectedResultFirst() {
+    let results = [10, 20, 30, 40]
+
+    XCTAssertEqual(CarPlaySearchResultOrdering.selectedFirst(results, selectedIndex: 0),
+                   [10, 20, 30, 40])
+    XCTAssertEqual(CarPlaySearchResultOrdering.selectedFirst(results, selectedIndex: 2),
+                   [30, 10, 20, 40])
+    XCTAssertEqual(CarPlaySearchResultOrdering.selectedFirst(results, selectedIndex: 3),
+                   [40, 10, 20, 30])
+  }
+
+  func testSearchResultOrderingRejectsInvalidIndex() {
+    XCTAssertNil(CarPlaySearchResultOrdering.selectedFirst([10, 20], selectedIndex: -1))
+    XCTAssertNil(CarPlaySearchResultOrdering.selectedFirst([10, 20], selectedIndex: 2))
+    XCTAssertNil(CarPlaySearchResultOrdering.selectedFirst([Int](), selectedIndex: 0))
+  }
+
+  func testListItemHandlerCompletesUnknownSelectionExactlyOnce() {
+    let item = CPListItem(text: "Unknown", detailText: nil)
+    var completionCount = 0
+    ListTemplateBuilder.configureSelectionHandler(for: item)
+
+    item.handler?(item, {
+      completionCount += 1
+    })
+
+    XCTAssertEqual(completionCount, 1)
+  }
+
   func testCreateEstimates() {
     let routeInfo = RouteInfo(timeToTarget: 100,
                               targetDistance: 25.2,

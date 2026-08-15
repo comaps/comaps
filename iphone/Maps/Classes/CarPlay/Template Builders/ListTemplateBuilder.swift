@@ -66,6 +66,7 @@ final class ListTemplateBuilder {
       let item = CPListItem(text: text, detailText: nil, image: UIImage(named: "recent"))
       item.userInfo = ListItemInfo(type: CPConstants.ListItemType.history,
                                    metadata: nil)
+      configureSelectionHandler(for: item)
       return item
     })
     return [CPListSection(items: items)]
@@ -80,6 +81,7 @@ final class ListTemplateBuilder {
       let item = CPListItem(text: category.title, detailText: placesString)
       item.userInfo = ListItemInfo(type: CPConstants.ListItemType.bookmarkLists,
                                    metadata: CategoryInfo(category: category))
+      configureSelectionHandler(for: item)
       return item
     })
     return [CPListSection(items: items)]
@@ -93,6 +95,7 @@ final class ListTemplateBuilder {
       item.userInfo = ListItemInfo(type: CPConstants.ListItemType.bookmarks,
                                    metadata: BookmarkInfo(categoryId: categoryId,
                                                           bookmarkId: bookmark.bookmarkId))
+      configureSelectionHandler(for: item)
       return item
     })
     let maxItemCount = CPListTemplate.maximumItemCount - 1
@@ -106,16 +109,32 @@ final class ListTemplateBuilder {
   }
 
   private class func buildSearchResultsSections(_ results: [MWMCarPlaySearchResultObject]) -> [CPListSection] {
-    var items = [CPListItem]()
-    for object in results {
-      let item = CPListItem(text: object.title, detailText: object.address)
-      item.userInfo = ListItemInfo(type: CPConstants.ListItemType.searchResults,
-                                   metadata: SearchResultInfo(originalRow: object.originalRow))
-      items.append(item)
-    }
-    return [CPListSection(items: items)]
+    return [CPListSection(items: buildSearchResultItems(results, configureHandlers: true))]
   }
 
+  class func buildSearchResultItems(_ results: [MWMCarPlaySearchResultObject],
+                                    configureHandlers: Bool) -> [CPListItem] {
+    return results.enumerated().map({ index, object in
+      let item = CPListItem(text: object.title, detailText: object.address)
+      item.userInfo = ListItemInfo(type: CPConstants.ListItemType.searchResults,
+                                   metadata: SearchResultInfo(results: results, selectedIndex: index))
+      if configureHandlers {
+        configureSelectionHandler(for: item)
+      }
+      return item
+    })
+  }
+
+  class func configureSelectionHandler(for item: CPListItem) {
+    item.handler = { selectedItem, completionHandler in
+      guard let selectedItem = selectedItem as? CPListItem else {
+        completionHandler()
+        return
+      }
+      CarPlayService.shared.handleListItemSelection(selectedItem,
+                                                    completionHandler: completionHandler)
+    }
+  }
 
   // MARK: - CPBarButton builder
   private class func buildBarButton(type: BarButtonType, action: ((CPBarButton) -> Void)?) -> CPBarButton {
