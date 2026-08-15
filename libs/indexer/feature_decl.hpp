@@ -32,6 +32,8 @@ struct FeatureID
 
   bool IsValid() const { return m_mwmId.IsAlive(); }
 
+  bool IsSynthetic() const { return m_mwmId.IsNull(); }
+
   bool operator<(FeatureID const & r) const
   {
     if (m_mwmId != r.m_mwmId)
