@@ -971,7 +971,9 @@ final class CarPlayService: NSObject {
     let mapTemplate = MapTemplateBuilder.buildNavigationTemplate()
     mapTemplate.mapDelegate = self
     setRootTemplate(mapTemplate, reason: reason)
-    router?.startNavigationSession(forTrip: trip, template: mapTemplate)
+    router?.startNavigationSession(forTrip: trip,
+                                   template: mapTemplate,
+                                   initialRouteInfo: routeInfo)
     if let estimates = createEstimates(routeInfo: routeInfo) {
       mapTemplate.tripEstimateStyle = rootTemplateStyle
       mapTemplate.updateEstimates(estimates, for: trip)
@@ -1363,7 +1365,9 @@ extension CarPlayService: CPMapTemplateDelegate {
     if interfaceController.templates.count > 1 {
       interfaceController.popToRootTemplate(animated: false)
     }
-    router.startNavigationSession(forTrip: trip, template: rootMapTemplate)
+    router.startNavigationSession(forTrip: trip,
+                                  template: rootMapTemplate,
+                                  initialRouteInfo: info)
     router.startRoute()
     if let estimates = createEstimates(routeInfo: info) {
       rootMapTemplate.updateEstimates(estimates, for: trip)

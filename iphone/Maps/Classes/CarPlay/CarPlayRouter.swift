@@ -472,7 +472,9 @@ final class CarPlayRouter: NSObject {
 
 // MARK: - Navigation session management
 extension CarPlayRouter {
-  func startNavigationSession(forTrip trip: CPTrip, template: CPMapTemplate) {
+  func startNavigationSession(forTrip trip: CPTrip,
+                              template: CPMapTemplate,
+                              initialRouteInfo routeInfo: RouteInfo) {
     guard routeSession == nil else {
       let errorMessage = "Route session is already running."
       LOG(.error, "\(CarPlayLogging.carPlay) \(errorMessage)")
@@ -481,16 +483,16 @@ extension CarPlayRouter {
     }
     diagnosticNavigationOrigin = "\(CarPlayService.shared.diagnosticConnectionContext) template=\(CarPlayLogging.diagnosticIdentity(template))"
     LOG(.info, "\(CarPlayLogging.carPlay) navigationSession begin \(diagnosticNavigationContext)")
-    LOG(.info, "[CarPlayGuidance] session_started")
+    resetGuidanceState()
+    LOG(.info,
+        "[CarPlayGuidance] session_started initial=\(identityDescription(CarPlayManeuverContent(routeInfo: routeInfo).primaryIdentity)) direction=\(routeInfo.carDirection.diagnosticName) distanceM=\(formattedDistanceMeters(routeInfo))")
     routeSession = template.startNavigationSession(for: trip)
     LOG(.info, "\(CarPlayLogging.carPlay) navigationSession completed \(diagnosticNavigationContext)")
-    routeSession?.pauseTrip(for: .loading, description: nil)
-    resetGuidanceState()
-    if let routeInfo = RoutingManager.routingManager.routeInfo {
-      observeGuidance(routeInfo)
-      refreshUpcomingManeuvers(with: routeInfo)
-      updateDynamicNavigationState(with: routeInfo)
-    }
+    observeGuidance(routeInfo)
+    refreshUpcomingManeuvers(with: routeInfo)
+    updateDynamicNavigationState(with: routeInfo)
+    LOG(.info,
+        "[CarPlayGuidance] session_ready primary=\(identityDescription(publishedPrimaryIdentity)) direction=\(routeInfo.carDirection.diagnosticName) distanceM=\(formattedDistanceMeters(routeInfo)) maneuvers=\(routeSession?.upcomingManeuvers.count ?? 0)")
   }
 
   func cancelNavigationSession() {
