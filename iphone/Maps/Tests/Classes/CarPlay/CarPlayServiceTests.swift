@@ -99,6 +99,65 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertNil(CarPlaySearchResultOrdering.selectedFirst([Int](), selectedIndex: 0))
   }
 
+  func testListLimiterReservesLastRowForOverflowWarning() {
+    let items = Array(1 ... 21)
+
+    XCTAssertEqual(CarPlayListLimiter.limit(items,
+                                            to: 12,
+                                            withOverflowItem: -1),
+                   Array(1 ... 11) + [-1])
+  }
+
+  func testListLimiterHandlesRestrictionsWithUnchangedReportedMaximum() {
+    let items = Array(1 ... 21)
+    let reportedMaximum = 24
+
+    for isListLimited in [false, true, false] {
+      let effectiveMaximum = CarPlayListLimiter.effectiveMaximumItemCount(reportedMaximum,
+                                                                          isListLimited: isListLimited)
+      let result = CarPlayListLimiter.limit(items,
+                                            to: effectiveMaximum,
+                                            withOverflowItem: -1)
+
+      XCTAssertEqual(result, isListLimited ? Array(1 ... 11) + [-1] : items)
+    }
+  }
+
+  func testListLimiterRespectsReportedMaximumBelowRestrictionLimit() {
+    let effectiveMaximum = CarPlayListLimiter.effectiveMaximumItemCount(8, isListLimited: true)
+
+    XCTAssertEqual(effectiveMaximum, 8)
+    XCTAssertEqual(CarPlayListLimiter.limit(Array(1 ... 21),
+                                            to: effectiveMaximum,
+                                            withOverflowItem: -1),
+                   Array(1 ... 7) + [-1])
+  }
+
+  func testListLimiterReturnsNoItemsAtZeroCapacity() {
+    for isListLimited in [false, true] {
+      let effectiveMaximum = CarPlayListLimiter.effectiveMaximumItemCount(0,
+                                                                          isListLimited: isListLimited)
+
+      XCTAssertEqual(CarPlayListLimiter.limit([1],
+                                              to: effectiveMaximum,
+                                              withOverflowItem: -1),
+                     [])
+    }
+  }
+
+  func testListLimiterDoesNotTruncateItemsAtOrBelowLimit() {
+    let effectiveMaximum = CarPlayListLimiter.effectiveMaximumItemCount(24, isListLimited: true)
+
+    XCTAssertEqual(CarPlayListLimiter.limit(Array(1 ... 12),
+                                            to: effectiveMaximum,
+                                            withOverflowItem: -1),
+                   Array(1 ... 12))
+    XCTAssertEqual(CarPlayListLimiter.limit(Array(1 ... 11),
+                                            to: effectiveMaximum,
+                                            withOverflowItem: -1),
+                   Array(1 ... 11))
+  }
+
   func testListItemHandlerCompletesUnknownSelectionExactlyOnce() {
     let item = CPListItem(text: "Unknown", detailText: nil)
     var completionCount = 0
