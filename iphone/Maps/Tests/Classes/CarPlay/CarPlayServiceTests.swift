@@ -226,6 +226,9 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertEqual(state.decision(for: withRightLane), .retainPrimary(.supplementaryChanged))
     state.didDisplay(withLeftLane)
     XCTAssertEqual(state.decision(for: withUnrecommendedLeftLane), .retainPrimary(.supplementaryChanged))
+    state.didDisplay(withLeftLane)
+    XCTAssertEqual(state.decision(for: withoutLanes), .retainPrimary(.supplementaryChanged),
+                   "Removing lane guidance must refresh supplementary maneuver content")
   }
 
   func testManeuverRefreshStatePreservesCombinedRoundaboutPrimary() {
@@ -350,6 +353,54 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertEqual(imageSet.darkContentImage.scale, displayScale)
     XCTAssertGreaterThan(try averageVisibleLuminance(of: imageSet.lightContentImage), 0.9)
     XCTAssertLessThan(try averageVisibleLuminance(of: imageSet.darkContentImage), 0.1)
+  }
+
+  func testPreferredCarPlayLaneSeparatesHighlightedAngleFromRemainingAngles() throws {
+    guard #available(iOS 18.0, *) else { throw XCTSkip("Structured lanes require iOS 18") }
+    let metadata = CarPlayLaneMetadata.lane(
+      for: makeLane(ways: [.through, .right], recommended: .right))
+    let highlightedAngle = try XCTUnwrap(metadata.highlightedAngle)
+
+    XCTAssertEqual(degrees(highlightedAngle), 90)
+    XCTAssertEqual(metadata.angles.map(degrees), [0])
+    XCTAssertFalse(metadata.angles.contains { degrees($0) == degrees(highlightedAngle) })
+  }
+
+  func testPreferredCarPlayLaneRemovesEquivalentHighlightedAngles() throws {
+    guard #available(iOS 18.0, *) else { throw XCTSkip("Structured lanes require iOS 18") }
+    let metadata = CarPlayLaneMetadata.lane(
+      for: makeLane(ways: [.slightLeft, .mergeToLeft, .through], recommended: .mergeToLeft))
+    let highlightedAngle = try XCTUnwrap(metadata.highlightedAngle)
+
+    XCTAssertEqual(degrees(highlightedAngle), -45)
+    XCTAssertEqual(metadata.angles.map(degrees), [0])
+  }
+
+  func testUnrecommendedCarPlayLaneDeduplicatesAnglesPreservingOrder() throws {
+    guard #available(iOS 18.0, *) else { throw XCTSkip("Structured lanes require iOS 18") }
+    let metadata = CarPlayLaneMetadata.lane(
+      for: makeLane(ways: [.slightLeft, .mergeToLeft, .through], recommended: .none))
+
+    XCTAssertNil(metadata.highlightedAngle)
+    XCTAssertEqual(metadata.angles.map(degrees), [-45, 0])
+  }
+
+  func testDirectionlessCarPlayLaneFallsBackToStraightAhead() throws {
+    guard #available(iOS 18.0, *) else { throw XCTSkip("Structured lanes require iOS 18") }
+    let metadata = CarPlayLaneMetadata.lane(for: makeLane(ways: [], recommended: .none))
+
+    XCTAssertNil(metadata.highlightedAngle)
+    XCTAssertEqual(metadata.angles.map(degrees), [0])
+  }
+
+  func testSingleDirectionPreferredCarPlayLaneNeedsNoRemainingAngles() throws {
+    guard #available(iOS 18.0, *) else { throw XCTSkip("Structured lanes require iOS 18") }
+    let metadata = CarPlayLaneMetadata.lane(
+      for: makeLane(ways: [.right], recommended: .right))
+    let highlightedAngle = try XCTUnwrap(metadata.highlightedAngle)
+
+    XCTAssertEqual(degrees(highlightedAngle), 90)
+    XCTAssertTrue(metadata.angles.isEmpty)
   }
 
   func testInstructionVariants() {
@@ -615,6 +666,10 @@ final class CarPlayServiceTests: XCTestCase {
   private func makeLane(ways: [LaneWay], recommended: LaneWay) -> LaneInfo {
     return LaneInfo(laneWays: ways.map { NSNumber(value: $0.rawValue) },
                     recommendedWay: recommended.rawValue)
+  }
+
+  private func degrees(_ angle: Measurement<UnitAngle>) -> Double {
+    return angle.converted(to: .degrees).value
   }
 
   private func averageVisibleLuminance(of image: UIImage) throws -> CGFloat {
