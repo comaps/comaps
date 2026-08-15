@@ -130,6 +130,14 @@ git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/
 <details>
   <summary><span style="font-size: 1.5em; font-weight: bold;">macOS</span></summary>
 
+The recommended version for iOS development is macOS 15 and Xcode 26, as this is the only way to run with the CarPlay external display in the iOS Simulator
+
+With the release of macOS 27, the recommended way is hence to run the development in a VM as macOS 15 is unsupported by Apple. This requires approximately 100 GB disk space
+
+Note that the obligatory Scene migration required by iOS SDK 27 has not yet been merged to `main`, such that Xcode 27 can't compile the app unless you check out the `carplay-dashboard-support` branch. This means that you have to stay on Xcode 26 on macOS 26.
+
+Once we have set up an Apple Organization account it will be possible to use Xcode 27 if you get added as a "Developer" on the team
+
 Install required build dependencies and Xcode
 1. Install Xcode Command Line Tools
 2. Install [Xcode](https://apps.apple.com/app/xcode/id497799835?mt=12) from the App Store
