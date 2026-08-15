@@ -2803,12 +2803,14 @@ bool Framework::ParseDrapeDebugCommand(string const & query)
   {
     settings::Set(kShowDownloadedRegions, true);
     m_showDownloadedRegions = true;
+    InvalidateRect(GetCurrentViewport());
     return true;
   }
   if (query == "?no-show-downloaded")
   {
     settings::Set(kShowDownloadedRegions, false);
     m_showDownloadedRegions = false;
+    InvalidateRect(GetCurrentViewport());
     return true;
   }
 
