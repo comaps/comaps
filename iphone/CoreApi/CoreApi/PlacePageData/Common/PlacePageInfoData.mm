@@ -75,6 +75,10 @@ NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
 
 @implementation PlacePageInfoData (Core)
 
++ (NSString *)localizedMetadataCountForKey:(NSString *)localizationKey rawValue:(NSString *)rawValue {
+  return [NSString localizedStringWithFormat:NSLocalizedString(localizationKey, nil), rawValue.longLongValue];
+}
+
 - (instancetype)initWithRawData:(Info const &)rawData ohLocalization:(id<IOpeningHoursLocalization>)localization {
   self = [super init];
   if (self)
@@ -138,8 +142,8 @@ NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
               ? NSLocalizedString(@"no_available", nil) : NSLocalizedString(@"yes_available", nil);
           break;
         case MetadataID::FMD_LEVEL: _level = ToNSString(value); break;
-        case MetadataID::FMD_CAPACITY: _capacity = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"capacity", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string]; break;
-        case MetadataID::FMD_ROOMS: _rooms = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"rooms", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string]; break;
+        case MetadataID::FMD_CAPACITY: _capacity = [PlacePageInfoData localizedMetadataCountForKey:@"capacity" rawValue:ToNSString(value)]; break;
+        case MetadataID::FMD_ROOMS: _rooms = [PlacePageInfoData localizedMetadataCountForKey:@"rooms" rawValue:ToNSString(value)]; break;
         case MetadataID::FMD_CHARGE: _charge = ToNSString(value); break;
         case MetadataID::FMD_WHEELCHAIR: _wheelchair = ToNSString(localisation::TranslatedFeatureType(value)); break;
         case MetadataID::FMD_CAPACITY_DISABLED:
@@ -148,7 +152,7 @@ NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
           else if (value == "no" || value == "0")
             _capacityDisabled = NSLocalizedString(@"capacity_disabled_no", nil);
           else
-            _capacityDisabled = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"capacity_disabled", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string];
+            _capacityDisabled = [PlacePageInfoData localizedMetadataCountForKey:@"capacity_disabled" rawValue:ToNSString(value)];
           break;
         case MetadataID::FMD_CAPACITY_CHARGING:
           if (value == "yes")
@@ -156,7 +160,7 @@ NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
           else if (value == "no" || value == "0")
             _capacityCharging = NSLocalizedString(@"capacity_charging_no", nil);
           else
-            _capacityCharging = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"capacity_charging", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string];
+            _capacityCharging = [PlacePageInfoData localizedMetadataCountForKey:@"capacity_charging" rawValue:ToNSString(value)];
           break;
         case MetadataID::FMD_DRIVE_THROUGH:
           if (value == "yes")
@@ -169,7 +173,7 @@ NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
             _outdoorSeating = NSLocalizedString(@"outdoor_seating", nil);
           break;
         case MetadataID::FMD_NETWORK: _network = [NSString stringWithFormat:NSLocalizedString(@"network", nil), ToNSString(value)]; break;
-        case MetadataID::FMD_POPULATION: _population = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"population", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string]; break;
+        case MetadataID::FMD_POPULATION: _population = [PlacePageInfoData localizedMetadataCountForKey:@"population" rawValue:ToNSString(value)]; break;
 
         default:
           break;

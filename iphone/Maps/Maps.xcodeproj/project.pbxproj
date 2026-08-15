@@ -450,6 +450,7 @@
 		99F9A0E52462CA0E00AE21E0 /* DownloadAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9A0E42462CA0E00AE21E0 /* DownloadAllView.swift */; };
 		99F9A0E72462CA1700AE21E0 /* DownloadAllView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F9A0E62462CA1700AE21E0 /* DownloadAllView.xib */; };
 		A15DEE01A15DEE01A15DEE01 /* DeepLinkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15DEE02A15DEE02A15DEE02 /* DeepLinkHandlerTests.swift */; };
+		A16F1001A16F1001A16F1001 /* PlacePageInfoDataTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = A16F1002A16F1002A16F1002 /* PlacePageInfoDataTests.mm */; };
 		A630D1EA207CA95900976DEA /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = A630D1E8207CA95900976DEA /* Localizable.stringsdict */; };
 		AA1C7E3E269A2DD600BAADF2 /* EditTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C7E3D269A2DD600BAADF2 /* EditTrackViewController.swift */; };
 		AABC12340D0F684500AABB03 /* SceneDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = AABC12340D0F684500AABB02 /* SceneDelegate.mm */; };
@@ -1366,6 +1367,7 @@
 		99F9A0E42462CA0E00AE21E0 /* DownloadAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllView.swift; sourceTree = "<group>"; };
 		99F9A0E62462CA1700AE21E0 /* DownloadAllView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadAllView.xib; sourceTree = "<group>"; };
 		A15DEE02A15DEE02A15DEE02 /* DeepLinkHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandlerTests.swift; sourceTree = "<group>"; };
+		A16F1002A16F1002A16F1002 /* PlacePageInfoDataTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PlacePageInfoDataTests.mm; sourceTree = "<group>"; };
 		A630D1E9207CA95900976DEA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ar; path = ar.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		A630D1EB207CA96700976DEA /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = cs; path = cs.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		A630D1EC207CA96D00976DEA /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = da; path = da.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -2896,6 +2898,7 @@
 			isa = PBXGroup;
 			children = (
 				A15DEE03A15DEE03A15DEE03 /* DeepLink */,
+				A16F1003A16F1003A16F1003 /* PlacePage */,
 				ED9DDF982D6F6D8000645BC8 /* TrackRecorder */,
 				EDF838AB2C00B9C7007E4E67 /* iCloudTests */,
 				4B4153B72BF970A000EE4B02 /* TextToSpeech */,
@@ -3186,6 +3189,14 @@
 				A15DEE02A15DEE02A15DEE02 /* DeepLinkHandlerTests.swift */,
 			);
 			path = DeepLink;
+			sourceTree = "<group>";
+		};
+		A16F1003A16F1003A16F1003 /* PlacePage */ = {
+			isa = PBXGroup;
+			children = (
+				A16F1002A16F1002A16F1002 /* PlacePageInfoDataTests.mm */,
+			);
+			path = PlacePage;
 			sourceTree = "<group>";
 		};
 		CDB4D4DA222D24EE00104869 /* CarPlay */ = {
@@ -4925,6 +4936,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A15DEE01A15DEE01A15DEE01 /* DeepLinkHandlerTests.swift in Sources */,
+				A16F1001A16F1001A16F1001 /* PlacePageInfoDataTests.mm in Sources */,
 				EDF838C12C00B9D6007E4E67 /* iCloudDirectoryMonitorTests.swift in Sources */,
 				EDF838C02C00B9D0007E4E67 /* DefaultLocalDirectoryMonitorTests.swift in Sources */,
 				ED1ADA332BC6B1B40029209F /* CarPlayServiceTests.swift in Sources */,
