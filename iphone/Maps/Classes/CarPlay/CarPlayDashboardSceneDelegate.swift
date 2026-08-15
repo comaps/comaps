@@ -56,14 +56,14 @@ final class CarPlayDashboardSceneDelegate: UIResponder, CPTemplateApplicationDas
     dashboardController?.shortcutButtons = makeDashboardButtons()
   }
 
-  /// Show first two bookmarks on the dashboard, or the destination picker if none
+  /// Show first two bookmarks on the dashboard, or a placeholder if none
   private func makeDashboardButtons() -> [CPDashboardButton] {
     let manager = BookmarksManager.shared()
     guard let category = manager.sortedUserCategories().first(where: { $0.bookmarksCount > 0 }) else {
-      return [destinationPickerButton()]
+      return [searchPlaceholderButton()]
     }
     let bookmarks = manager.bookmarks(forCategory: category.categoryId).suffix(2).reversed()
-    guard !bookmarks.isEmpty else { return [destinationPickerButton()] }
+    guard !bookmarks.isEmpty else { return [searchPlaceholderButton()] }
     return bookmarks.map { bookmark in
       CPDashboardButton(
         titleVariants: [bookmark.prefferedName],
@@ -76,14 +76,13 @@ final class CarPlayDashboardSceneDelegate: UIResponder, CPTemplateApplicationDas
     }
   }
 
-  private func destinationPickerButton() -> CPDashboardButton {
+  /// TODO: Make the placeholder actually do something
+  private func searchPlaceholderButton() -> CPDashboardButton {
     CPDashboardButton(
       titleVariants: [L("search")],
       subtitleVariants: [],
       image: UIImage(systemName: "magnifyingglass") ?? UIImage(),
-      handler: { _ in
-        CarPlayService.shared.showDestinationPickerFromDashboard()
-      }
+      handler: { _ in }
     )
   }
 }

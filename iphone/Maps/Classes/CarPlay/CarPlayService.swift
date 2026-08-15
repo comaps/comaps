@@ -160,11 +160,7 @@ final class CarPlayService: NSObject {
   var isUserPanMap: Bool = false
   private var searchText = ""
 
-  private enum PendingDashboardAction {
-    case navigateBookmark(MWMCarPlayBookmarkObject)
-    case destinationPicker
-  }
-  private var pendingDashboardAction: PendingDashboardAction?
+  private var pendingDashboardBookmark: MWMCarPlayBookmarkObject?
   private var pendingDashboardNavigationTrip: CPTrip?
 
   @objc func setup(window: CPWindow, interfaceController: CPInterfaceController) {
@@ -201,13 +197,10 @@ final class CarPlayService: NSObject {
     }
     updateContentStyle(configuration.contentStyle)
     applyHostAppearanceIfActive()
-    if let action = pendingDashboardAction {
-      LOG(.info, "[CarPlayHost] setup() firing deferred dashboard action")
-      pendingDashboardAction = nil
-      switch action {
-      case .navigateBookmark(let bookmark): navigateToBookmarkFromDashboard(bookmark: bookmark)
-      case .destinationPicker: showDestinationPickerFromDashboard()
-      }
+    if let bookmark = pendingDashboardBookmark {
+      LOG(.info, "[CarPlayHost] setup() firing deferred Dashboard bookmark navigation")
+      pendingDashboardBookmark = nil
+      navigateToBookmarkFromDashboard(bookmark: bookmark)
     }
     logStateSnapshot("setup() end")
   }
@@ -265,7 +258,7 @@ final class CarPlayService: NSObject {
     stopObservingTTS()
     sessionConfiguration = nil
     interfaceController = nil
-    pendingDashboardAction = nil
+    pendingDashboardBookmark = nil
     pendingDashboardNavigationTrip = nil
     // Apply the visual-scale change (and its GPU context reset) before the theme switch,
     // so the context teardown doesn't race with an in-flight route recache from the style change.
@@ -800,7 +793,7 @@ final class CarPlayService: NSObject {
     guard let router = router, interfaceController != nil else {
       if !isPhoneModeRequested {
         LOG(.info, "[CarPlayHost] App scene not ready; deferring bookmark navigation to setup()")
-        pendingDashboardAction = .navigateBookmark(bookmark)
+        pendingDashboardBookmark = bookmark
       }
       return
     }
@@ -820,16 +813,6 @@ final class CarPlayService: NSObject {
     pendingDashboardNavigationTrip = trip
     LOG(.info, "[CarPlayHost] Building route to bookmark '\(bookmark.prefferedName)'")
     router.buildRoute(trip: trip)
-  }
-
-  func showDestinationPickerFromDashboard() {
-    guard interfaceController != nil else {
-      if !isPhoneModeRequested {
-        pendingDashboardAction = .destinationPicker
-      }
-      return
-    }
-    pushTemplate(ListTemplateBuilder.buildListTemplate(for: .history), animated: true)
   }
 
   func pushTemplate(_ templateToPush: CPTemplate, animated: Bool) {
