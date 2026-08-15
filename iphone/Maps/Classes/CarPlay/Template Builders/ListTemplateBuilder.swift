@@ -1,5 +1,22 @@
 import CarPlay
 
+struct BookmarkListTemplateContext {
+  let categoryId: MWMMarkGroupID
+}
+
+enum CarPlayListLimiter {
+  static func applyingMaximumItemCount<Item>(_ maximumItemCount: Int,
+                                              to items: [Item],
+                                              overflowItem: @autoclosure () -> Item) -> [Item] {
+    guard maximumItemCount > 0 else { return [] }
+    guard items.count > maximumItemCount else { return items }
+
+    var limitedItems = Array(items.prefix(maximumItemCount - 1))
+    limitedItems.append(overflowItem())
+    return limitedItems
+  }
+}
+
 final class ListTemplateBuilder {
   enum ListTemplateType {
     case history
@@ -43,8 +60,15 @@ final class ListTemplateBuilder {
 
     let sections = buildSectionsForType(type)
     let template = CPListTemplate(title: title, sections: sections)
+    if case .bookmarks(let category) = type {
+      template.userInfo = BookmarkListTemplateContext(categoryId: category.categoryId)
+    }
     template.trailingNavigationBarButtons = trailingNavigationBarButtons
     return template
+  }
+
+  class func refreshBookmarks(in template: CPListTemplate, categoryId: MWMMarkGroupID) {
+    template.updateSections(buildBookmarksSections(categoryId: categoryId))
   }
 
   private class func buildSectionsForType(_ type: ListTemplateType) -> [CPListSection] {
@@ -98,13 +122,16 @@ final class ListTemplateBuilder {
       configureSelectionHandler(for: item)
       return item
     })
-    let maxItemCount = CPListTemplate.maximumItemCount - 1
-    if items.count >= maxItemCount {
-      items = Array(items.prefix(maxItemCount))
-      let cropWarning = CPListItem(text: L("not_all_shown_bookmarks_carplay"), detailText: L("switch_to_phone_bookmarks_carplay"))
-      cropWarning.isEnabled = false
-      items.append(cropWarning)
-    }
+    let sourceItemCount = items.count
+    let maximumItemCount = CPListTemplate.maximumItemCount
+    let cropWarning = CPListItem(text: L("not_all_shown_bookmarks_carplay"),
+                                 detailText: L("switch_to_phone_bookmarks_carplay"))
+    cropWarning.isEnabled = false
+    items = CarPlayListLimiter.applyingMaximumItemCount(maximumItemCount,
+                                                        to: items,
+                                                        overflowItem: cropWarning)
+    LOG(.info,
+        "[CarPlayList] bookmarks category=\(categoryId) source=\(sourceItemCount) maximum=\(maximumItemCount) displayed=\(items.count) limited=\(CarPlayService.shared.isListLimited)")
     return [CPListSection(items: items)]
   }
 
