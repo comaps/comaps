@@ -143,6 +143,9 @@ final class CarPlayService: NSObject {
   var isKeyboardLimited: Bool {
     return sessionConfiguration?.limitedUserInterfaces.contains(.keyboard) ?? false
   }
+  var isListLimited: Bool {
+    return sessionConfiguration?.limitedUserInterfaces.contains(.lists) ?? false
+  }
   private var carplayVC: CarPlayMapViewController? {
     return window?.rootViewController as? CarPlayMapViewController
   }
@@ -1152,6 +1155,13 @@ extension CarPlayService: CPInterfaceControllerDelegate {
   func templateWillAppear(_ aTemplate: CPTemplate, animated: Bool) {
     logTemplateEvent("templateWillAppear", template: aTemplate, animated: animated)
     defer { logStateSnapshot("templateWillAppear completed callbackTemplate=\(CarPlayLogging.diagnosticTemplate(aTemplate))") }
+    if let listTemplate = aTemplate as? CPListTemplate,
+       let context = listTemplate.userInfo as? BookmarkListTemplateContext {
+      ListTemplateBuilder.refreshBookmarks(in: listTemplate,
+                                           categoryId: context.categoryId,
+                                           isListLimited: isListLimited)
+      return
+    }
     guard let info = aTemplate.userInfo as? MapInfo else {
         return
     }
@@ -1228,7 +1238,17 @@ extension CarPlayService: CPInterfaceControllerDelegate {
 extension CarPlayService: CPSessionConfigurationDelegate {
   func sessionConfiguration(_ sessionConfiguration: CPSessionConfiguration,
                             limitedUserInterfacesChanged limitedUserInterfaces: CPLimitableUserInterface) {
-
+    let keyboardLimited = limitedUserInterfaces.contains(.keyboard)
+    let listsLimited = limitedUserInterfaces.contains(.lists)
+    let reportedMaximum = CPListTemplate.maximumItemCount
+    let effectiveMaximum = CarPlayListLimiter.effectiveMaximumItemCount(reportedMaximum,
+                                                                        isListLimited: listsLimited)
+    LOG(.info, "[CarPlayList] restrictions changed keyboard=\(keyboardLimited) lists=\(listsLimited) reportedMaximum=\(reportedMaximum) effectiveMaximum=\(effectiveMaximum)")
+    guard let listTemplate = interfaceController?.topTemplate as? CPListTemplate,
+          let context = listTemplate.userInfo as? BookmarkListTemplateContext else { return }
+    ListTemplateBuilder.refreshBookmarks(in: listTemplate,
+                                         categoryId: context.categoryId,
+                                         isListLimited: listsLimited)
   }
   @available(iOS 13.0, *)
   func sessionConfiguration(_ sessionConfiguration: CPSessionConfiguration,
