@@ -112,6 +112,9 @@ final class CarPlayService: NSObject {
   var isKeyboardLimited: Bool {
     return sessionConfiguration?.limitedUserInterfaces.contains(.keyboard) ?? false
   }
+  var isListLimited: Bool {
+    return sessionConfiguration?.limitedUserInterfaces.contains(.lists) ?? false
+  }
   private var carplayVC: CarPlayMapViewController? {
     return window?.rootViewController as? CarPlayMapViewController
   }
@@ -1032,7 +1035,12 @@ extension CarPlayService: CPInterfaceControllerDelegate {
 extension CarPlayService: CPSessionConfigurationDelegate {
   func sessionConfiguration(_ sessionConfiguration: CPSessionConfiguration,
                             limitedUserInterfacesChanged limitedUserInterfaces: CPLimitableUserInterface) {
-
+    let keyboardLimited = limitedUserInterfaces.contains(.keyboard)
+    let listsLimited = limitedUserInterfaces.contains(.lists)
+    LOG(.info, "[CarPlayList] restrictions changed keyboard=\(keyboardLimited) lists=\(listsLimited) maximum=\(CPListTemplate.maximumItemCount)")
+    guard let listTemplate = interfaceController?.topTemplate as? CPListTemplate,
+          let context = listTemplate.userInfo as? BookmarkListTemplateContext else { return }
+    ListTemplateBuilder.refreshBookmarks(in: listTemplate, categoryId: context.categoryId)
   }
   @available(iOS 13.0, *)
   func sessionConfiguration(_ sessionConfiguration: CPSessionConfiguration,

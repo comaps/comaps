@@ -149,6 +149,26 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertNil(CarPlaySearchResultOrdering.selectedFirst([Int](), selectedIndex: 0))
   }
 
+  func testListLimiterReservesLastRowForOverflowWarning() {
+    let items = Array(1 ... 21)
+
+    XCTAssertEqual(CarPlayListLimiter.applyingMaximumItemCount(12,
+                                                               to: items,
+                                                               overflowItem: -1),
+                   Array(1 ... 11) + [-1])
+  }
+
+  func testListLimiterDoesNotTruncateItemsAtOrBelowLimit() {
+    XCTAssertEqual(CarPlayListLimiter.applyingMaximumItemCount(12,
+                                                               to: Array(1 ... 12),
+                                                               overflowItem: -1),
+                   Array(1 ... 12))
+    XCTAssertEqual(CarPlayListLimiter.applyingMaximumItemCount(12,
+                                                               to: Array(1 ... 11),
+                                                               overflowItem: -1),
+                   Array(1 ... 11))
+  }
+
   func testListItemHandlerCompletesUnknownSelectionExactlyOnce() {
     let item = CPListItem(text: "Unknown", detailText: nil)
     var completionCount = 0
