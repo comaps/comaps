@@ -1537,15 +1537,18 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   {
     m_featuresFetcher.ReadFeatures(fn, ids);
 
-    for (auto const & id : ids)
-      if (id.m_mwmId.IsNull())
-      {
-        FeatureType ft(id, borderType);
-        m_infoGetter->GetTriangles(id.m_index, ft);
-        fn(ft);
-      }
-      else
-        break;
+    ASSERT(base::IsSortedAndUnique(ids), ());
+    ASSERT(std::is_partitioned(ids.begin(), ids.end(),
+                               [](FeatureID const & id) { return id.IsSynthetic(); }), ());
+
+    auto const firstReal = std::partition_point(ids.begin(), ids.end(),
+                                                [](FeatureID const & id) { return id.IsSynthetic(); });
+    for (auto it = ids.begin(); it != firstReal; ++it)
+    {
+      FeatureType ft(*it, borderType);
+      m_infoGetter->GetTriangles(it->m_index, ft);
+      fn(ft);
+    }
   };
 
   auto myPositionModeChangedFn = [this](location::EMyPositionMode mode, bool routingActive)
