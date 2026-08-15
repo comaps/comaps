@@ -9,7 +9,6 @@ API_AVAILABLE(ios(12.0))
 @property(strong, nonatomic, nullable) void (^completionHandler)(NSArray<MWMCarPlaySearchResultObject *> *searchResults);
 @property(strong, nonatomic, nullable) NSString *lastQuery;
 @property(strong, nonatomic, nullable) NSString *inputLocale;
-@property(strong, nonatomic, readwrite) NSArray<MWMCarPlaySearchResultObject *> *lastResults;
 
 @end
 
@@ -19,7 +18,6 @@ API_AVAILABLE(ios(12.0))
   self = [super init];
   if (self) {
     [MWMSearch addObserver:self];
-    self.lastResults = @[];
   }
   return self;
 }
@@ -29,7 +27,6 @@ API_AVAILABLE(ios(12.0))
  completionHandler:(void (^)(NSArray<MWMCarPlaySearchResultObject *> *searchResults))completionHandler {
   self.lastQuery = text;
   self.inputLocale = inputLocale;
-  self.lastResults = @[];
   self.completionHandler = completionHandler;
   /// @todo Didn't find pure category request in CarPlay.
   [MWMSearch setSearchMode:SearchModeEverywhere];
@@ -57,7 +54,6 @@ API_AVAILABLE(ios(12.0))
     if (result != nil) { [results addObject:result]; }
   }
   
-  self.lastResults = results;
   completionHandler(results);
   self.completionHandler = nil;
 }

@@ -12,7 +12,6 @@
 #include "platform/localization.hpp"
 
 @interface MWMCarPlaySearchResultObject()
-@property(assign, nonatomic, readwrite) NSInteger originalRow;
 @property(strong, nonatomic, readwrite) NSString *title;
 @property(strong, nonatomic, readwrite) NSString *address;
 @property(assign, nonatomic, readwrite) CLLocationCoordinate2D coordinate;
@@ -24,7 +23,9 @@
 - (instancetype)initForRow:(NSInteger)row {
   self = [super init];
   if (self) {
-    self.originalRow = row;
+    if (row < 0 || (NSUInteger)row >= [MWMSearch resultsCount]) {
+      return nil;
+    }
     NSInteger containerIndex = [MWMSearch containerIndexWithRow:row];
     SearchItemType type = [MWMSearch resultTypeWithRow:row];
     if (type == SearchItemTypeRegular) {
