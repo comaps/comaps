@@ -228,6 +228,19 @@ final class CarPlayServiceTests: XCTestCase {
                    "Consecutive visually identical turns must still replace the primary")
   }
 
+  func testManeuverRefreshStatePublishesInitialSnapshotOnlyOnce() {
+    let initial = CarPlayManeuverContent(routeInfo: makeRouteInfo(distanceToTurn: 500))
+    let distanceUpdate = CarPlayManeuverContent(routeInfo: makeRouteInfo(distanceToTurn: 20))
+    var state = CarPlayManeuverRefreshState()
+
+    state.reset()
+    XCTAssertEqual(state.decision(for: initial), .replacePrimary(.initial))
+    state.didDisplay(initial)
+    XCTAssertEqual(state.decision(for: initial), .none)
+    XCTAssertEqual(state.decision(for: distanceUpdate), .none,
+                   "Distance updates must update estimates without republishing the initial maneuver")
+  }
+
   func testManeuverRefreshStateReplacesPrimaryForNewRouteWithSameTurnIndex() {
     let firstRoute = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 1, turnIndex: 4))
     let reroute = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 2, turnIndex: 4))

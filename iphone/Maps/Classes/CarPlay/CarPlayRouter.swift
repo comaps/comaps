@@ -469,22 +469,24 @@ final class CarPlayRouter: NSObject {
 
 // MARK: - Navigation session management
 extension CarPlayRouter {
-  func startNavigationSession(forTrip trip: CPTrip, template: CPMapTemplate) {
+  func startNavigationSession(forTrip trip: CPTrip,
+                              template: CPMapTemplate,
+                              initialRouteInfo routeInfo: RouteInfo) {
     guard routeSession == nil else {
       let errorMessage = "Route session is already running."
       LOG(.error, errorMessage)
       Toast.show(withText: errorMessage, alignment: .top)
       return
     }
-    LOG(.info, "[CarPlayGuidance] session_started")
-    routeSession = template.startNavigationSession(for: trip)
-    routeSession?.pauseTrip(for: .loading, description: nil)
     resetGuidanceState()
-    if let routeInfo = RoutingManager.routingManager.routeInfo {
-      observeGuidance(routeInfo)
-      refreshUpcomingManeuvers(with: routeInfo)
-      updateDynamicNavigationState(with: routeInfo)
-    }
+    LOG(.info,
+        "[CarPlayGuidance] session_started initial=\(identityDescription(CarPlayManeuverContent(routeInfo: routeInfo).primaryIdentity)) direction=\(routeInfo.carDirection.diagnosticName) distanceM=\(formattedDistanceMeters(routeInfo))")
+    routeSession = template.startNavigationSession(for: trip)
+    observeGuidance(routeInfo)
+    refreshUpcomingManeuvers(with: routeInfo)
+    updateDynamicNavigationState(with: routeInfo)
+    LOG(.info,
+        "[CarPlayGuidance] session_ready primary=\(identityDescription(publishedPrimaryIdentity)) direction=\(routeInfo.carDirection.diagnosticName) distanceM=\(formattedDistanceMeters(routeInfo)) maneuvers=\(routeSession?.upcomingManeuvers.count ?? 0)")
   }
 
   func cancelNavigationSession() {
