@@ -443,6 +443,82 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertTrue(empty.isEmpty)
   }
 
+  func testCarPlayRoadFollowingVariantsUseDestinationRefAndCompactDestinations() {
+    let variants = NavigationInstructionFormatter.carPlayRoadFollowingManeuverVariants(
+      roadName: "Bayshore Freeway",
+      roadRef: "US 101",
+      destinationRef: "US 101 South",
+      destination: "San Jose; San Francisco",
+      isLink: true)
+
+    XCTAssertEqual(variants, [
+      "US 101 South → San Jose / San Francisco",
+      "US 101 South → San Jose",
+      "US 101 South",
+    ])
+    XCTAssertFalse(variants.contains { $0.contains("Exit") })
+  }
+
+  func testCarPlayRoadFollowingVariantsUseDestinationsWithoutRef() {
+    let variants = NavigationInstructionFormatter.carPlayRoadFollowingManeuverVariants(
+      roadName: "Storoveien",
+      roadRef: "150;Ring 3",
+      destinationRef: "",
+      destination: "Grefsen;Sandaker",
+      isLink: true)
+
+    XCTAssertEqual(variants, ["Grefsen / Sandaker", "Grefsen"])
+  }
+
+  func testCarPlayRoadFollowingVariantsFallBackToRoadNameAndRef() {
+    let variants = NavigationInstructionFormatter.carPlayRoadFollowingManeuverVariants(
+      roadName: "Bayshore Freeway",
+      roadRef: "CA 85",
+      destinationRef: "",
+      destination: "",
+      isLink: false)
+
+    XCTAssertEqual(variants, ["CA 85 Bayshore Freeway", "Bayshore Freeway", "CA 85"])
+  }
+
+  func testCarPlayInstrumentClusterMetadataSetsDestinationsAndLocalizedExit() throws {
+    guard #available(iOS 17.4, *) else { throw XCTSkip("Navigation metadata requires iOS 17.4") }
+    let maneuver = CPManeuver()
+    let routeInfo = makeRouteInfo(roadName: "",
+                                  roadRef: "",
+                                  junctionRef: " 6A ",
+                                  destinationRef: "US 101 South",
+                                  destination: "San Jose; San Francisco",
+                                  isLink: true)
+
+    CarPlayInstrumentClusterMetadata.apply(to: maneuver, routeInfo: routeInfo)
+
+    let roadFollowingVariants = try XCTUnwrap(maneuver.roadFollowingManeuverVariants)
+    XCTAssertEqual(roadFollowingVariants, [
+      "US 101 South → San Jose / San Francisco",
+      "US 101 South → San Jose",
+      "US 101 South",
+    ])
+    XCTAssertEqual(maneuver.highwayExitLabel, "Exit 6A")
+    XCTAssertFalse(roadFollowingVariants.contains { $0.contains("Exit 6A") })
+  }
+
+  func testCarPlayInstrumentClusterMetadataLeavesEmptyRoadTextUnset() throws {
+    guard #available(iOS 17.4, *) else { throw XCTSkip("Navigation metadata requires iOS 17.4") }
+    let maneuver = CPManeuver()
+    let routeInfo = makeRouteInfo(roadName: "",
+                                  roadRef: "",
+                                  junctionRef: "",
+                                  destinationRef: "",
+                                  destination: "",
+                                  isLink: false)
+
+    CarPlayInstrumentClusterMetadata.apply(to: maneuver, routeInfo: routeInfo)
+
+    XCTAssertNil(maneuver.roadFollowingManeuverVariants)
+    XCTAssertTrue(maneuver.highwayExitLabel.isEmpty)
+  }
+
   func testCarPlayRoadShieldInstructionVariants() {
     let shields = RoadShieldInfo(
       targetRoadShields: [
@@ -637,7 +713,13 @@ final class CarPlayServiceTests: XCTestCase {
                              carDirection: CarDirection = .turnLeft,
                              distanceToTurn: Double = 100,
                              nextTurnImageName: String? = nil,
-                             lanes: [LaneInfo] = []) -> RouteInfo {
+                             lanes: [LaneInfo] = [],
+                             roadName: String = "Main Street",
+                             roadRef: String = "",
+                             junctionRef: String = "",
+                             destinationRef: String = "",
+                             destination: String = "",
+                             isLink: Bool = false) -> RouteInfo {
     return RouteInfo(routeID: routeID,
                      turnIndex: turnIndex,
                      timeToTarget: 100,
@@ -651,12 +733,12 @@ final class CarPlayServiceTests: XCTestCase {
                      speedLimitMps: 50,
                      roundExitNumber: 0,
                      lanes: lanes,
-                     roadName: "Main Street",
-                     roadRef: "",
-                     junctionRef: "",
-                     destinationRef: "",
-                     destination: "",
-                     isLink: false,
+                     roadName: roadName,
+                     roadRef: roadRef,
+                     junctionRef: junctionRef,
+                     destinationRef: destinationRef,
+                     destination: destination,
+                     isLink: isLink,
                      roadShields: nil,
                      currentRoadName: "Current Street",
                      carDirectionIndex: carDirection.rawValue,
