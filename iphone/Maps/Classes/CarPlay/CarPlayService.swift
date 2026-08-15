@@ -824,8 +824,6 @@ final class CarPlayService: NSObject {
   func pushTemplate(_ templateToPush: CPTemplate, animated: Bool) {
     if let interfaceController = interfaceController {
       switch templateToPush {
-      case let list as CPListTemplate:
-        list.delegate = self
       case let search as CPSearchTemplate:
         search.delegate = self
       case let map as CPMapTemplate:
@@ -1177,9 +1175,9 @@ extension CarPlayService: CPMapTemplateDelegate {
 }
 
 
-// MARK: - CPListTemplateDelegate implementation
-extension CarPlayService: CPListTemplateDelegate {
-  func listTemplate(_ listTemplate: CPListTemplate, didSelect item: CPListItem, completionHandler: @escaping () -> Void) {
+// MARK: - CPListItem selection handling
+extension CarPlayService {
+  func handleListItemSelection(_ item: CPListItem, completionHandler: @escaping () -> Void) {
     if let userInfo = item.userInfo as? ListItemInfo {
       switch userInfo.type {
       case CPConstants.ListItemType.history:
@@ -1189,7 +1187,10 @@ extension CarPlayService: CPListTemplateDelegate {
           return
         }
         searchService.searchText(item.text ?? "", forInputLocale: locale, completionHandler: { [weak self] results in
-          guard let self = self else { return }
+          guard let self = self else {
+            completionHandler()
+            return
+          }
           let template = ListTemplateBuilder.buildListTemplate(for: .searchResults(results: results))
           completionHandler()
           self.pushTemplate(template, animated: true)
@@ -1206,11 +1207,13 @@ extension CarPlayService: CPListTemplateDelegate {
         completionHandler()
       case CPConstants.ListItemType.searchResults where userInfo.metadata is SearchResultInfo:
         let metadata = userInfo.metadata as! SearchResultInfo
-        preparePreviewForSearchResults(selectedRow: metadata.originalRow)
+        preparePreviewForSearchResults(metadata)
         completionHandler()
       default:
         completionHandler()
       }
+    } else {
+      completionHandler()
     }
   }
 }
@@ -1225,13 +1228,7 @@ extension CarPlayService: CPSearchTemplateDelegate {
       return
     }
     searchService.searchText(self.searchText, forInputLocale: locale, completionHandler: { results in
-      var items = [CPListItem]()
-      for object in results {
-        let item = CPListItem(text: object.title, detailText: object.address)
-        item.userInfo = ListItemInfo(type: CPConstants.ListItemType.searchResults,
-                                     metadata: SearchResultInfo(originalRow: object.originalRow))
-        items.append(item)
-      }
+      let items = ListTemplateBuilder.buildSearchResultItems(results, configureHandlers: false)
       completionHandler(items)
     })
   }
@@ -1240,7 +1237,7 @@ extension CarPlayService: CPSearchTemplateDelegate {
     searchService?.saveLastQuery()
     if let info = item.userInfo as? ListItemInfo,
       let metadata = info.metadata as? SearchResultInfo {
-      preparePreviewForSearchResults(selectedRow: metadata.originalRow)
+      preparePreviewForSearchResults(metadata)
     }
     completionHandler()
   }
@@ -1359,13 +1356,11 @@ extension CarPlayService: MWMTextToSpeechObserver {
 
 // MARK: - Alerts and Trip Previews
 extension CarPlayService {
-  func preparePreviewForSearchResults(selectedRow row: Int) {
-    var results = searchService?.lastResults ?? []
-    if let currentItemIndex = results.firstIndex(where: { $0.originalRow == row }) {
-      let item = results.remove(at: currentItemIndex)
-      results.insert(item, at: 0)
-    } else {
-      results.insert(MWMCarPlaySearchResultObject(forRow: row), at: 0)
+  func preparePreviewForSearchResults(_ selection: SearchResultInfo) {
+    guard let results = selection.selectedFirstResults else {
+      LOG(.warning,
+          "[CarPlaySearch] Ignoring selection with invalid snapshot index=\(selection.selectedIndex) count=\(selection.results.count)")
+      return
     }
     if let router = router,
       let startPoint = MWMRoutePoint(lastLocationAndType: .start,
