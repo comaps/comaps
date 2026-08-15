@@ -28,6 +28,8 @@ set(SRC
   osm_auth.hpp
   osm_editor.cpp
   osm_editor.hpp
+  osm_feature_lookup.cpp
+  osm_feature_lookup.hpp
   server_api.cpp
   server_api.hpp
   ui2oh.cpp
