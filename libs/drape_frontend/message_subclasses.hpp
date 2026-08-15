@@ -1110,6 +1110,19 @@ private:
   bool m_isEnabled = false;
 };
 
+class EnableNonDownloadedMessage : public Message
+{
+public:
+  explicit EnableNonDownloadedMessage(bool isEnabled) : m_isEnabled(isEnabled) {}
+
+  Type GetType() const override { return Type::EnableNonDownloaded; }
+
+  bool IsEnabled() const { return m_isEnabled; }
+
+private:
+  bool m_isEnabled = false;
+};
+
 class EnableTransitSchemeMessage : public Message
 {
 public:

@@ -236,6 +236,8 @@ public:
 
   void EnableIsolines(bool enable);
 
+  void EnableNonDownloaded(bool enable);
+
   void SetFontScaleFactor(double scaleFactor);
 
   void RunScenario(ScenarioManager::ScenarioData && scenarioData, ScenarioManager::ScenarioCallback const & onStartFn,

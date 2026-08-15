@@ -103,6 +103,7 @@ public:
     NotifyRenderThread,
     NotifyGraphicsReady,
     EnableIsolines,
+    EnableNonDownloaded,
     OnEnterBackground,
     Arrow3dRecache,
     VisualScaleChanged,

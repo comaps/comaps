@@ -132,8 +132,7 @@ std::string_view constexpr kTrafficSimplifiedColorsKey = "TrafficSimplifiedColor
 std::string_view constexpr kLargeFontsSize = "LargeFontsSize";
 std::string_view constexpr kPreferredGraphicsAPI = "PreferredGraphicsAPI";
 std::string_view constexpr kShowDebugInfo = "DebugInfo";
-std::string_view constexpr kShowDownloadedRegions = "DownloadedRegions";
-std::string_view constexpr kShowNonDownloadedRegions = "NonDownloadedRegions";
+std::string_view constexpr kRegionOverlayMode = "RegionOverlayMode";
 std::string_view constexpr kScreenViewport = "ScreenClipRect";
 
 auto constexpr kLargeFontsScaleFactor = 1.6;
@@ -163,6 +162,26 @@ bool ParseSetGpsTrackMinAccuracyCommand(string const & query)
   return true;
 }
 }  // namespace
+
+std::string DebugPrint(RegionOverlayMode mode)
+{
+  switch (mode)
+  {
+  case RegionOverlayMode::Off: return "off";
+  case RegionOverlayMode::Downloaded: return "downloaded";
+  case RegionOverlayMode::NonDownloaded: return "non-downloaded";
+  }
+  UNREACHABLE();
+}
+
+RegionOverlayMode RegionOverlayModeFromString(std::string const & s)
+{
+  if (s == "downloaded")
+    return RegionOverlayMode::Downloaded;
+  if (s == "non-downloaded")
+    return RegionOverlayMode::NonDownloaded;
+  return RegionOverlayMode::Off;
+}
 
 pair<MwmSet::MwmId, MwmSet::RegResult> Framework::RegisterMap(LocalCountryFile const & file)
 {
@@ -416,8 +435,9 @@ Framework::Framework(FrameworkParams const & params, bool loadMaps)
   if (loadMaps)
     LoadMapsSync();
 
-  UNUSED_VALUE(settings::Get(kShowDownloadedRegions, m_showDownloadedRegions));
-  UNUSED_VALUE(settings::Get(kShowNonDownloadedRegions, m_showNonDownloaded));
+  std::string regionOverlayMode;
+  if (settings::Get(kRegionOverlayMode, regionOverlayMode))
+    m_regionOverlayMode = RegionOverlayModeFromString(regionOverlayMode);
 }
 
 Framework::~Framework()
@@ -1526,7 +1546,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   {
     m_featuresFetcher.ForEachFeatureID(r, fn, scale);
 
-    if ((m_showDownloadedRegions || m_showNonDownloaded) && scale <= 7)
+    if (m_regionOverlayMode != RegionOverlayMode::Off && scale <= 7)
     {
       auto names = m_featuresFetcher.GetDataSource().GetLoadedCountryNames(r);
       ASSERT(base::IsSortedAndUnique(names), ());
@@ -1598,8 +1618,8 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
                           std::move(updateCurrentCountryFn)),
       params.m_hints, params.m_visualScale, fontsScaleFactor, std::move(params.m_widgetsInitInfo),
       std::move(myPositionModeChangedFn), allow3dBuildings, trafficEnabled, isolinesEnabled,
-      params.m_isChoosePositionMode, params.m_isChoosePositionMode, m_showNonDownloaded,
-      GetSelectedFeatureTriangles(),
+      params.m_isChoosePositionMode, params.m_isChoosePositionMode,
+      m_regionOverlayMode == RegionOverlayMode::NonDownloaded, GetSelectedFeatureTriangles(),
       m_routingManager.IsRoutingActive() && m_routingManager.IsRoutingFollowing(), isAutozoomEnabled,
       simplifiedTrafficColors, std::nullopt /* arrow3dCustomDecl */, std::move(overlaysShowStatsFn),
       std::move(onGraphicsContextInitialized), std::move(params.m_renderInjectionHandler));
@@ -2802,30 +2822,28 @@ bool Framework::ParseDrapeDebugCommand(string const & query)
     m_drapeEngine->EnableDebugRectRendering(false /* shown */);
     return true;
   }
-  if (query == "?show-downloaded")
+  if (query == "?regions:downloaded")
   {
-    settings::Set(kShowDownloadedRegions, true);
-    m_showDownloadedRegions = true;
-    InvalidateRect(GetCurrentViewport());
+    m_regionOverlayMode = RegionOverlayMode::Downloaded;
+    settings::Set(kRegionOverlayMode, DebugPrint(m_regionOverlayMode));
+    if (m_drapeEngine)
+      m_drapeEngine->EnableNonDownloaded(false);
     return true;
   }
-  if (query == "?no-show-downloaded")
+  if (query == "?regions:non-downloaded")
   {
-    settings::Set(kShowDownloadedRegions, false);
-    m_showDownloadedRegions = false;
-    InvalidateRect(GetCurrentViewport());
+    m_regionOverlayMode = RegionOverlayMode::NonDownloaded;
+    settings::Set(kRegionOverlayMode, DebugPrint(m_regionOverlayMode));
+    if (m_drapeEngine)
+      m_drapeEngine->EnableNonDownloaded(true);
     return true;
   }
-  if (query == "?show-non-downloaded")
+  if (query == "?regions:off")
   {
-    settings::Set(kShowNonDownloadedRegions, true);
-    m_showNonDownloaded = true;
-    return true;
-  }
-  if (query == "?no-show-non-downloaded")
-  {
-    settings::Set(kShowNonDownloadedRegions, false);
-    m_showNonDownloaded = false;
+    m_regionOverlayMode = RegionOverlayMode::Off;
+    settings::Set(kRegionOverlayMode, DebugPrint(m_regionOverlayMode));
+    if (m_drapeEngine)
+      m_drapeEngine->EnableNonDownloaded(false);
     return true;
   }
 

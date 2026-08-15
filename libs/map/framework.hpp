@@ -109,6 +109,16 @@ namespace descriptions
 class Loader;
 }
 
+enum class RegionOverlayMode
+{
+  Off,
+  Downloaded,
+  NonDownloaded
+};
+
+std::string DebugPrint(RegionOverlayMode mode);
+RegionOverlayMode RegionOverlayModeFromString(std::string const & s);
+
 /// Uncomment line to make fixed position settings and
 /// build version for screenshots.
 // #define FIXED_LOCATION
@@ -782,8 +792,7 @@ public:
 private:
   settings::UsageStats m_usageStats;
 
-  bool m_showDownloadedRegions = false;
-  bool m_showNonDownloaded = true;
+  RegionOverlayMode m_regionOverlayMode = RegionOverlayMode::NonDownloaded;
 
 public:
   power_management::PowerManager & GetPowerManager() { return m_powerManager; }

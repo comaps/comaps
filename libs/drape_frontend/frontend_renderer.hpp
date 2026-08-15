@@ -357,7 +357,6 @@ private:
   bool m_isIsometry;
 
   bool m_blockTapEvents;
-  bool m_showNonDownloaded = false;
 
   bool m_choosePositionMode;
   bool m_screenshotMode;

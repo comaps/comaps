@@ -9,6 +9,7 @@
 #include "drape_frontend/message_subclasses.hpp"
 #include "drape_frontend/metaline_manager.hpp"
 #include "drape_frontend/my_position.hpp"
+#include "drape_frontend/non_downloaded_overlay.hpp"
 #include "drape_frontend/postprocess_renderer.hpp"
 #include "drape_frontend/read_manager.hpp"
 #include "drape_frontend/render_node.hpp"
@@ -558,6 +559,15 @@ void BackendRenderer::AcceptMessage(ref_ptr<Message> message)
     m_readManager->SetIsolinesEnabled(msg->IsEnabled());
     m_commutator->PostMessage(ThreadsCommutator::RenderThread, make_unique_dp<EnableIsolinesMessage>(msg->IsEnabled()),
                               MessagePriority::Normal);
+    break;
+  }
+
+  case Message::Type::EnableNonDownloaded:
+  {
+    ref_ptr<EnableNonDownloadedMessage> msg = message;
+    g_nonDownloadedMaskEnabled.store(msg->IsEnabled());
+    m_commutator->PostMessage(ThreadsCommutator::RenderThread,
+                              make_unique_dp<EnableNonDownloadedMessage>(msg->IsEnabled()), MessagePriority::Normal);
     break;
   }
 
