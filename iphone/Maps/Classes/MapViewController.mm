@@ -448,7 +448,7 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
   [super viewDidAppear:animated];
   // Cold start deep links should be handled when the map is initialized.
   // Otherwise PP container view is nil, or there is no animation/selection of the point.
-  if (DeepLinkHandler.shared.isLaunchedByDeeplink)
+  if (DeepLinkHandler.shared.hasPendingDeepLink)
     (void)[DeepLinkHandler.shared handleDeepLinkAndReset];
 }
 

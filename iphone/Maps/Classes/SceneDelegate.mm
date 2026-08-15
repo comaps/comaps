@@ -33,7 +33,7 @@
 
   // Handle cold-start user activities (universal links and Spotlight results).
   for (NSUserActivity * activity in connectionOptions.userActivities)
-    [self handleUserActivity:activity];
+    [self handleUserActivity:activity deferUniversalLinkHandling:YES];
 
   if (connectionOptions.shortcutItem)
     [MapsAppDelegate.theApp.mapViewController performAction:connectionOptions.shortcutItem.type];
@@ -54,7 +54,7 @@
 }
 
 - (void)scene:(UIScene *)scene continueUserActivity:(NSUserActivity *)userActivity {
-  [self handleUserActivity:userActivity];
+  [self handleUserActivity:userActivity deferUniversalLinkHandling:NO];
 }
 
 - (void)windowScene:(UIWindowScene *)windowScene
@@ -67,7 +67,8 @@
 #pragma mark - Private
 
 
-- (void)handleUserActivity:(NSUserActivity *)userActivity {
+- (void)handleUserActivity:(NSUserActivity *)userActivity
+    deferUniversalLinkHandling:(BOOL)deferUniversalLinkHandling {
   if ([userActivity.activityType isEqualToString:CSSearchableItemActionType]) {
     NSString * searchStringKey = userActivity.userInfo[CSSearchableItemActivityIdentifier];
     NSString * searchString = L(searchStringKey);
@@ -76,7 +77,10 @@
   } else if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb] &&
              userActivity.webpageURL != nil) {
     LOG(LINFO, ("scene continueUserActivity: %@", userActivity.webpageURL));
-    [DeepLinkHandler.shared applicationDidReceiveUniversalLink:userActivity.webpageURL];
+    if (deferUniversalLinkHandling)
+      [DeepLinkHandler.shared applicationDidFinishLaunchingWithUniversalLink:userActivity.webpageURL];
+    else
+      [DeepLinkHandler.shared applicationDidReceiveUniversalLink:userActivity.webpageURL];
   }
 }
 
