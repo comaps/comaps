@@ -242,6 +242,9 @@ final class CarPlayService: NSObject {
   }
 
   private func switchScreenToPhone() {
+    let shouldRestorePhoneNorthUp = router?.currentTrip == nil &&
+      !MWMRouter.isRoutingActive() &&
+      currentPositionMode == .followAndRotate
     router?.removeListener(self)
     router?.unsubscribeFromEvents()
     router?.setupInitialSpeedCameraMode()
@@ -263,6 +266,9 @@ final class CarPlayService: NSObject {
     // Apply the visual-scale change (and its GPU context reset) before the theme switch,
     // so the context teardown doesn't race with an in-flight route recache from the style change.
     updateMapHost()
+    if shouldRestorePhoneNorthUp {
+      FrameworkHelper.switchMyPositionMode()
+    }
     ThemeManager.invalidate()
   }
 
@@ -848,7 +854,7 @@ final class CarPlayService: NSObject {
       carplayVC.hideSpeedControl()
     }
     updateMapTemplateUIToBase()
-    restoreDefaultCarZoom()
+    recenterStandardCarCamera()
   }
 
   func updateCameraUI(isCameraOnRoute: Bool, speedLimitMps limit: Double?) {
@@ -1304,7 +1310,7 @@ extension CarPlayService: CarPlayRouterListener {
       carplayVC.hideSpeedControl()
     }
     updateMapTemplateUIToTripFinished(trip)
-    restoreDefaultCarZoom()
+    recenterStandardCarCamera()
   }
 }
 

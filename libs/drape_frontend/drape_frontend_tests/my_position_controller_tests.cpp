@@ -6,8 +6,6 @@
 
 #include "geometry/screenbase.hpp"
 
-#include "base/math.hpp"
-
 #include <utility>
 #include <vector>
 
@@ -149,20 +147,20 @@ void TestPostRoutingModeChange(ModeChanges const & changes, location::EMyPositio
 }
 }  // namespace
 
-UNIT_TEST(MyPositionController_DeactivateRoutingRestoresHeadingUp)
+UNIT_TEST(MyPositionController_DeactivateRoutingRestoresNorthUpFromHeadingPreference)
 {
   ControllerFixture fixture(location::FollowAndRotate, true /* withBearing */);
   fixture.PrepareForDeactivation(true /* withBearing */);
 
   fixture.m_controller.DeactivateRouting();
 
-  TEST_EQUAL(fixture.m_controller.GetCurrentMode(), location::FollowAndRotate, ());
+  TEST_EQUAL(fixture.m_controller.GetCurrentMode(), location::Follow, ());
   TEST(fixture.m_listener.m_hasFollowRequest, ());
   TEST_EQUAL(fixture.m_listener.m_userPos, fixture.m_controller.Position(), ());
-  TEST_ALMOST_EQUAL_ABS(fixture.m_listener.m_azimuth, math::DegToRad(kBearingDegrees), kEpsilon, ());
+  TEST_ALMOST_EQUAL_ABS(fixture.m_listener.m_azimuth, 0.0, kEpsilon, ());
   TEST_EQUAL(fixture.m_listener.m_pixelZero, kVisibleViewport.Center(), ());
   TEST_EQUAL(fixture.m_listener.m_zoomLevel, df::kDoNotChangeZoom, ());
-  TestPostRoutingModeChange(fixture.m_modeChanges, location::FollowAndRotate);
+  TestPostRoutingModeChange(fixture.m_modeChanges, location::Follow);
 
   // Deactivation must not overwrite the persisted routing preference.
   fixture.m_controller.ActivateRouting(kRoutingZoom, false /* enableAutoZoom */, true /* isArrowGlued */,
@@ -190,17 +188,17 @@ UNIT_TEST(MyPositionController_DeactivateRoutingRestoresNorthUp)
   TEST_EQUAL(fixture.m_controller.GetCurrentMode(), location::Follow, ());
 }
 
-UNIT_TEST(MyPositionController_DeactivateRoutingKeepsHeadingUpWithoutDirection)
+UNIT_TEST(MyPositionController_DeactivateRoutingRestoresNorthUpWithoutDirection)
 {
   ControllerFixture fixture(location::FollowAndRotate, false /* withBearing */);
   fixture.PrepareForDeactivation(false /* withBearing */);
 
   fixture.m_controller.DeactivateRouting();
 
-  TEST_EQUAL(fixture.m_controller.GetCurrentMode(), location::FollowAndRotate, ());
+  TEST_EQUAL(fixture.m_controller.GetCurrentMode(), location::Follow, ());
   TEST(!fixture.m_controller.IsArrowRotationAvailable(), ());
   TEST_ALMOST_EQUAL_ABS(fixture.m_listener.m_azimuth, 0.0, kEpsilon, ());
-  TestPostRoutingModeChange(fixture.m_modeChanges, location::FollowAndRotate);
+  TestPostRoutingModeChange(fixture.m_modeChanges, location::Follow);
 
   fixture.m_modeChanges.clear();
   location::CompassInfo compassInfo;
@@ -208,19 +206,19 @@ UNIT_TEST(MyPositionController_DeactivateRoutingKeepsHeadingUpWithoutDirection)
   fixture.m_controller.OnCompassUpdate(compassInfo, fixture.m_screen);
 
   TEST(fixture.m_controller.IsArrowRotationAvailable(), ());
-  TEST_EQUAL(fixture.m_controller.GetCurrentMode(), location::FollowAndRotate, ());
+  TEST_EQUAL(fixture.m_controller.GetCurrentMode(), location::Follow, ());
   TEST(fixture.m_modeChanges.empty(), ());
 }
 
-UNIT_TEST(MyPositionController_DeactivateRoutingNormalizesUnexpectedPreferenceToHeadingUp)
+UNIT_TEST(MyPositionController_DeactivateRoutingNormalizesUnexpectedPreferenceToNorthUp)
 {
   ControllerFixture fixture(location::PendingPosition, true /* withBearing */);
   fixture.PrepareForDeactivation(true /* withBearing */);
 
   fixture.m_controller.DeactivateRouting();
 
-  TEST_EQUAL(fixture.m_controller.GetCurrentMode(), location::FollowAndRotate, ());
-  TEST_ALMOST_EQUAL_ABS(fixture.m_listener.m_azimuth, math::DegToRad(kBearingDegrees), kEpsilon, ());
-  TestPostRoutingModeChange(fixture.m_modeChanges, location::FollowAndRotate);
+  TEST_EQUAL(fixture.m_controller.GetCurrentMode(), location::Follow, ());
+  TEST_ALMOST_EQUAL_ABS(fixture.m_listener.m_azimuth, 0.0, kEpsilon, ());
+  TestPostRoutingModeChange(fixture.m_modeChanges, location::Follow);
 }
 }  // namespace my_position_controller_tests

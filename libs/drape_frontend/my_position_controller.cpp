@@ -1032,21 +1032,11 @@ void MyPositionController::DeactivateRouting()
     m_isArrowGluedInRouting = false;
     m_preferRouteDirectionInRouting = false;
 
+    m_isArrowDirectionAssigned = m_isCompassAvailable && m_isArrowDirectionAssigned;
     m_isRouteDirectionAssigned = false;
 
-    // Only an explicit north-up preference uses Follow. Treat unexpected persisted values as the
-    // default heading-up mode, and switch away from the route direction before updating the camera.
-    if (m_preferredRoutingMode != location::Follow)
-    {
-      m_direction = m_isArrowDirectionAssigned ? m_arrowDirection : 0.0;
-      ChangeMode(location::FollowAndRotate);
-      ChangeModelView(m_position, m_direction, m_visiblePixelRect.Center(), kDoNotChangeZoom);
-    }
-    else
-    {
-      ChangeMode(location::Follow);
-      ChangeModelView(m_position, 0.0, m_visiblePixelRect.Center(), kDoNotChangeZoom);
-    }
+    ChangeMode(location::Follow);
+    ChangeModelView(m_position, 0.0, m_visiblePixelRect.Center(), kDoNotChangeZoom);
   }
 }
 
