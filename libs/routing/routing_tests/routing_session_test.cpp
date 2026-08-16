@@ -25,6 +25,11 @@
 #include <string>
 #include <vector>
 
+namespace routing
+{
+void GetRoadShieldsInfo(RouteSegment::RoadNameInfo const & road, FollowingInfo::RoadShieldInfo & info);
+}  // namespace routing
+
 namespace routing_session_test
 {
 using namespace routing;
@@ -45,6 +50,45 @@ vector<double> const kTestTimes = {5.0, 10.0, 15.0};
 auto const kRouteBuildingMaxDuration = seconds(30);
 
 void FillSubroutesInfo(Route & route, vector<turns::TurnItem> const & turns = kTestTurnsReachOnly);
+
+UNIT_TEST(RoadShieldsInfoUsesRoadRefOnlyWithoutDestinationInfo)
+{
+  RouteSegment::RoadNameInfo road("Storoveien", "150;Ring 3", "", "", "", true);
+  road.m_highwayClass = ftypes::HighwayClass::Trunk;
+
+  FollowingInfo::RoadShieldInfo info;
+  GetRoadShieldsInfo(road, info);
+
+  TEST_EQUAL(info.m_targetRoadShields.size(), 2, ());
+  TEST_EQUAL(info.m_targetRoadShields[0].m_name, "150", ());
+  TEST_EQUAL(info.m_targetRoadShields[1].m_name, "Ring 3", ());
+  TEST(info.m_junctionRoadShields.empty(), ());
+}
+
+UNIT_TEST(RoadShieldsInfoDoesNotInferDestinationRefFromRoadRef)
+{
+  RouteSegment::RoadNameInfo road("Storoveien", "150;Ring 3", "", "", "Grefsen;Sandaker", true);
+  road.m_highwayClass = ftypes::HighwayClass::Trunk;
+
+  FollowingInfo::RoadShieldInfo info;
+  GetRoadShieldsInfo(road, info);
+
+  TEST(info.m_targetRoadShields.empty(), ());
+  TEST(info.m_junctionRoadShields.empty(), ());
+}
+
+UNIT_TEST(RoadShieldsInfoResolvesExplicitDestinationAndJunctionRefs)
+{
+  RouteSegment::RoadNameInfo road("Storoveien", "150;Ring 3", "67", "E6", "Smestad", true);
+
+  FollowingInfo::RoadShieldInfo info;
+  GetRoadShieldsInfo(road, info);
+
+  TEST_EQUAL(info.m_targetRoadShields.size(), 1, ());
+  TEST_EQUAL(info.m_targetRoadShields[0].m_name, "E6", ());
+  TEST_EQUAL(info.m_junctionRoadShields.size(), 1, ());
+  TEST_EQUAL(info.m_junctionRoadShields[0].m_name, "67", ());
+}
 
 // Simple router. It returns route given to him on creation.
 class DummyRouter : public IRouter
