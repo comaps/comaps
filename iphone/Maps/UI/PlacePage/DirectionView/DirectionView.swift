@@ -23,7 +23,7 @@ class DirectionView: SolidTouchView {
       app.enableStandby()
       manager?.isDirectionViewHidden = true
     }
-    app.mapViewController.updateStatusBarStyle()
+    app.mapViewController?.updateStatusBarStyle()
   }
 
   override func layoutSubviews() {
