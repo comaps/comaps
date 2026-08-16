@@ -102,6 +102,7 @@ static KmlFileType convertFileTypeToCore(MWMKmlFileType fileType) {
 
 @property(nonatomic) NSHashTable<id<MWMBookmarksObserver>> * observers;
 @property(nonatomic) BOOL areBookmarksLoaded;
+@property(nonatomic) BOOL loadBookmarksCalled;
 @property(nonatomic) NSURL * shareCategoryURL;
 @property(nonatomic) NSInteger lastSearchId;
 @property(nonatomic) NSInteger lastSortId;
@@ -201,6 +202,10 @@ static KmlFileType convertFileTypeToCore(MWMKmlFileType fileType) {
 
 - (void)loadBookmarks
 {
+  // Guard against second call, to avoid CHECK-abort from dashboard view.
+  if (self.loadBookmarksCalled)
+    return;
+  self.loadBookmarksCalled = YES;
   self.bm.LoadBookmarks();
 }
 
