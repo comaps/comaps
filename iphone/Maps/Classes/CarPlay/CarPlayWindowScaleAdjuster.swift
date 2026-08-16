@@ -3,21 +3,18 @@ import UIKit
 
 enum CarPlayWindowScaleAdjuster {
 
-  static func updateAppearance(
-    fromWindow sourceWindow: UIWindow,
-    toWindow destinationWindow: UIWindow,
-    isCarplayActivated: Bool
-  ) {
+  private static var appliedScale: CGFloat?
 
-    let sourceContentScale = sourceWindow.screen.scale;
-    let destinationContentScale = destinationWindow.screen.scale;
-
-    if abs(sourceContentScale - destinationContentScale) > 0.1 {
-      if isCarplayActivated {
-        updateVisualScale(to: destinationContentScale)
-      } else {
-        updateVisualScaleToMain()
-      }
+  static func updateAppearance(toWindow destinationWindow: UIWindow?, isCarplayActivated: Bool) {
+    if isCarplayActivated {
+      guard let destinationContentScale = destinationWindow?.screen.scale,
+            appliedScale != destinationContentScale else { return }
+      appliedScale = destinationContentScale
+      updateVisualScale(to: destinationContentScale)
+    } else {
+      guard appliedScale != nil else { return }
+      appliedScale = nil
+      updateVisualScaleToMain()
     }
   }
 

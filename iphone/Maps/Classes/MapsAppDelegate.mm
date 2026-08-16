@@ -61,8 +61,7 @@ void InitLocalizedStrings() {
 }  // namespace
 
 
-@interface MapsAppDelegate () <MWMStorageObserver,
-                               CPApplicationDelegate>
+@interface MapsAppDelegate () <MWMStorageObserver>
 
 @property(nonatomic) NSInteger standbyCounter;
 @property(nonatomic) MWMBackgroundFetchScheduler *backgroundFetchScheduler;
@@ -138,6 +137,14 @@ void InitLocalizedStrings() {
 - (UISceneConfiguration *)application:(UIApplication *)application
   configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession
                                  options:(UISceneConnectionOptions *)options {
+  if ([connectingSceneSession.role isEqualToString:CPTemplateApplicationSceneSessionRoleApplication]) {
+    return [[UISceneConfiguration alloc] initWithName:@"CarPlay Configuration"
+                                          sessionRole:connectingSceneSession.role];
+  }
+  if ([connectingSceneSession.role isEqualToString:CPTemplateApplicationDashboardSceneSessionRoleApplication]) {
+    return [[UISceneConfiguration alloc] initWithName:@"CarPlay Dashboard Configuration"
+                                          sessionRole:connectingSceneSession.role];
+  }
   return [[UISceneConfiguration alloc] initWithName:@"Default Configuration"
                                         sessionRole:connectingSceneSession.role];
 }
@@ -393,17 +400,3 @@ void InitLocalizedStrings() {
 }
 
 @end
-
-#pragma mark - CPApplicationDelegate implementation
-
-- (void)application:(UIApplication *)application
-  didConnectCarInterfaceController:(CPInterfaceController *)interfaceController
-           toWindow:(CPWindow *)window API_AVAILABLE(ios(12.0)) {
-  [self.carplayService setupWithWindow:window interfaceController:interfaceController];
-}
-
-- (void)application:(UIApplication *)application
-  didDisconnectCarInterfaceController:(CPInterfaceController *)interfaceController
-                           fromWindow:(CPWindow *)window API_AVAILABLE(ios(12.0)) {
-  [self.carplayService destroy];
-}
