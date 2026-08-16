@@ -449,8 +449,11 @@
 		99F8B4C623B644A6009FF0B4 /* MapStyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8B4C523B644A6009FF0B4 /* MapStyleSheet.swift */; };
 		99F9A0E52462CA0E00AE21E0 /* DownloadAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9A0E42462CA0E00AE21E0 /* DownloadAllView.swift */; };
 		99F9A0E72462CA1700AE21E0 /* DownloadAllView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F9A0E62462CA1700AE21E0 /* DownloadAllView.xib */; };
+		A15DEE01A15DEE01A15DEE01 /* DeepLinkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15DEE02A15DEE02A15DEE02 /* DeepLinkHandlerTests.swift */; };
 		A630D1EA207CA95900976DEA /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = A630D1E8207CA95900976DEA /* Localizable.stringsdict */; };
 		AA1C7E3E269A2DD600BAADF2 /* EditTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C7E3D269A2DD600BAADF2 /* EditTrackViewController.swift */; };
+		AABC12340D0F684500AABB03 /* SceneDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = AABC12340D0F684500AABB02 /* SceneDelegate.mm */; };
+		AABC12340D0F684500AABB07 /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC12340D0F684500AABB06 /* CarPlaySceneDelegate.swift */; };
 		AC79C8922A65AB9500594C24 /* UIColor+hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79C8912A65AB9500594C24 /* UIColor+hexString.swift */; };
 		B33D21AF20DAF9F000BAD749 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D21AE20DAF9F000BAD749 /* Toast.swift */; };
 		B3E3B4FD20D463B700DA8C13 /* BMCCategoriesHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E3B4FC20D463B700DA8C13 /* BMCCategoriesHeader.xib */; };
@@ -1361,6 +1364,7 @@
 		99F8B4C523B644A6009FF0B4 /* MapStyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStyleSheet.swift; sourceTree = "<group>"; };
 		99F9A0E42462CA0E00AE21E0 /* DownloadAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllView.swift; sourceTree = "<group>"; };
 		99F9A0E62462CA1700AE21E0 /* DownloadAllView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadAllView.xib; sourceTree = "<group>"; };
+		A15DEE02A15DEE02A15DEE02 /* DeepLinkHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandlerTests.swift; sourceTree = "<group>"; };
 		A630D1E9207CA95900976DEA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ar; path = ar.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		A630D1EB207CA96700976DEA /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = cs; path = cs.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		A630D1EC207CA96D00976DEA /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = da; path = da.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -1391,6 +1395,9 @@
 		A630D205207CAA3A00976DEA /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
 		A630D206207CAA5800976DEA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
 		AA1C7E3D269A2DD600BAADF2 /* EditTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTrackViewController.swift; sourceTree = "<group>"; };
+		AABC12340D0F684500AABB01 /* SceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; tabWidth = 2; };
+		AABC12340D0F684500AABB02 /* SceneDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = SceneDelegate.mm; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		AABC12340D0F684500AABB06 /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		AC4209FF2D79BCEC00A64AA9 /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = af; path = af.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AC420A002D79BCED00A64AA9 /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = af; path = af.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC420A012D79BCED00A64AA9 /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = af; path = af.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -1907,6 +1914,8 @@
 				BB8123D52130427E00ADE512 /* MetalContextFactory.mm */,
 				1D3623240D0F684500981E51 /* MapsAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MapsAppDelegate.mm */,
+				AABC12340D0F684500AABB01 /* SceneDelegate.h */,
+				AABC12340D0F684500AABB02 /* SceneDelegate.mm */,
 				F613FA741AB330AF002394D4 /* MapViewController */,
 				F626D52C1C3E6CAA00C17D15 /* MWMTableViewCell.h */,
 				F626D52D1C3E6CAA00C17D15 /* MWMTableViewCell.m */,
@@ -2882,6 +2891,7 @@
 		4B4153B62BF9709100EE4B02 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A15DEE03A15DEE03A15DEE03 /* DeepLink */,
 				ED9DDF982D6F6D8000645BC8 /* TrackRecorder */,
 				EDF838AB2C00B9C7007E4E67 /* iCloudTests */,
 				4B4153B72BF970A000EE4B02 /* TextToSpeech */,
@@ -3166,6 +3176,14 @@
 			path = DownloadAllView;
 			sourceTree = "<group>";
 		};
+		A15DEE03A15DEE03A15DEE03 /* DeepLink */ = {
+			isa = PBXGroup;
+			children = (
+				A15DEE02A15DEE02A15DEE02 /* DeepLinkHandlerTests.swift */,
+			);
+			path = DeepLink;
+			sourceTree = "<group>";
+		};
 		CDB4D4DA222D24EE00104869 /* CarPlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -3189,6 +3207,7 @@
 				CDCA2747223FD24600167D87 /* MWMCarPlaySearchResultObject.mm */,
 				8C4FB9C62BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift */,
 				8CB13C3A2BF1276A004288F2 /* CarplayPlaceholderView.swift */,
+				AABC12340D0F684500AABB06 /* CarPlaySceneDelegate.swift */,
 			);
 			path = CarPlay;
 			sourceTree = "<group>";
@@ -4452,6 +4471,7 @@
 				99C964292428C0F700E41723 /* PlacePageHeaderPresenter.swift in Sources */,
 				F6E2FE101E097BA00083EBEC /* MWMOpeningHoursTableViewCell.mm in Sources */,
 				6741A9B01BF340DE002C974C /* MapsAppDelegate.mm in Sources */,
+				AABC12340D0F684500AABB03 /* SceneDelegate.mm in Sources */,
 				993DF12723F6BDB100AC231A /* Fonts.swift in Sources */,
 				34F742321E0834F400AC1FD6 /* UIViewController+Navigation.m in Sources */,
 				340475811E081B3300C92850 /* iosOGLContextFactory.mm in Sources */,
@@ -4602,6 +4622,7 @@
 				8C4FB9C72BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift in Sources */,
 				349D1CE41E3F836900A878FD /* UIViewController+Hierarchy.swift in Sources */,
 				8CB13C3B2BF1276A004288F2 /* CarplayPlaceholderView.swift in Sources */,
+				AABC12340D0F684500AABB07 /* CarPlaySceneDelegate.swift in Sources */,
 				CDB4D4E1222D70DF00104869 /* CarPlayMapViewController.swift in Sources */,
 				471AB98923AA8A3500F56D49 /* IDownloaderDataSource.swift in Sources */,
 				F692F3831EA0FAF5001E82EB /* MWMAutoupdateController.mm in Sources */,
@@ -4897,6 +4918,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15DEE01A15DEE01A15DEE01 /* DeepLinkHandlerTests.swift in Sources */,
 				EDF838C12C00B9D6007E4E67 /* iCloudDirectoryMonitorTests.swift in Sources */,
 				EDF838C02C00B9D0007E4E67 /* DefaultLocalDirectoryMonitorTests.swift in Sources */,
 				ED1ADA332BC6B1B40029209F /* CarPlayServiceTests.swift in Sources */,

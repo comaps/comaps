@@ -35,6 +35,8 @@ final class CarPlayService: NSObject {
 
   @objc func setup(window: CPWindow, interfaceController: CPInterfaceController) {
     LOG(.info, "Settting up service...")
+    // A CarPlay scene may connect before the phone scene has created the shared map stack.
+    MapsAppDelegate.theApp().ensureMapNavigationController()
     isCarplayActivated = true
     self.window = window
     self.interfaceController = interfaceController
@@ -58,11 +60,13 @@ final class CarPlayService: NSObject {
     updateContentStyle(configuration.contentStyle)
     FrameworkHelper.updatePositionArrowOffset(false, offset: 120)
 
-    CarPlayWindowScaleAdjuster.updateAppearance(
-      fromWindow: MapsAppDelegate.theApp().window,
-      toWindow: window,
-      isCarplayActivated: true
-    )
+    if let phoneWindow = MapsAppDelegate.theApp().window {
+      CarPlayWindowScaleAdjuster.updateAppearance(
+        fromWindow: phoneWindow,
+        toWindow: window,
+        isCarplayActivated: true
+      )
+    }
       
     FrameworkHelper.setCarScreenMode(true)
   }
@@ -128,10 +132,10 @@ final class CarPlayService: NSObject {
     ThemeManager.invalidate()
     FrameworkHelper.updatePositionArrowOffset(true, offset: 0)
 
-    if let window {
+    if let window, let phoneWindow = MapsAppDelegate.theApp().window {
       CarPlayWindowScaleAdjuster.updateAppearance(
         fromWindow: window,
-        toWindow: MapsAppDelegate.theApp().window,
+        toWindow: phoneWindow,
         isCarplayActivated: false
       )
     }
