@@ -278,7 +278,6 @@ MWMRoadShieldInfo * MWMBuildRoadShieldInfo(routing::FollowingInfo::RoadShieldInf
                                                                     junctionRef:self.nextJunctionRef ?: @""
                                                                  destinationRef:self.nextDestinationRef ?: @""
                                                                     destination:self.nextDestination ?: @""
-                                                                         isLink:self.nextIsLink
                                                               isLeftHandTraffic:self.isLeftHandTraffic
                                                                         shields:self.nextRoadShields
                                                                        textSize:textSize
@@ -363,8 +362,7 @@ MWMRoadShieldInfo * MWMBuildRoadShieldInfo(routing::FollowingInfo::RoadShieldInf
                                                                      roadRef:entity.nextRoadRef
                                                                  junctionRef:entity.nextJunctionRef
                                                               destinationRef:entity.nextDestinationRef
-                                                                 destination:entity.nextDestination
-                                                                      isLink:info.m_nextIsLink];
+                                                                 destination:entity.nextDestination];
       if (variants.firstObject.length != 0)
         entity.streetName = variants.firstObject;
     }

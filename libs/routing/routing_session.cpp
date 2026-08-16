@@ -499,6 +499,12 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
   RouteSegment::RoadNameInfo nextRoadNameInfo;
   m_route->GetNextTurnStreetName(nextRoadNameInfo);
   GetFullRoadName(nextRoadNameInfo, info.m_nextStreetShields, info.m_nextStreetName);
+  if (nextRoadNameInfo.m_isLink && !nextRoadNameInfo.HasExitTextInfo())
+  {
+    info.m_nextStreetShields.m_targetRoadShields =
+        ftypes::GetRoadShields(nextRoadNameInfo.m_mwmId.GetMwmName(), nextRoadNameInfo.m_ref,
+                               nextRoadNameInfo.m_highwayClass);
+  }
   info.m_nextName = nextRoadNameInfo.m_name;
   info.m_nextRef = ftypes::GetRoadShieldDisplayRef(nextRoadNameInfo.m_ref);
   info.m_nextJunctionRef = nextRoadNameInfo.m_junction_ref;
