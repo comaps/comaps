@@ -38,6 +38,7 @@
   if (connectionOptions.shortcutItem)
     [MapsAppDelegate.theApp.mapViewController performAction:connectionOptions.shortcutItem.type];
 
+  [[MWMCarPlayService shared] attachMapIfNeeded];
 }
 
 - (void)sceneDidDisconnect:(UIScene *)scene {

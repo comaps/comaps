@@ -205,6 +205,8 @@
 
 - (void)addControllerViewToWindow {
   UIWindow *window = UIApplication.sharedApplication.delegate.window;
+  if (!window)
+    return;
   UIView *view = self.alertController.view;
   [window addSubview:view];
   view.frame = window.bounds;

@@ -128,7 +128,7 @@ final class MapTemplateBuilder {
   
   class func setupRecenterButton(mapTemplate: CPMapTemplate) {
     let recenterButton = buildBarButton(type: .recenter) { _ in
-      FrameworkHelper.switchMyPositionMode()
+      CarPlayService.shared.switchMyPositionModeFromCarPlayControl()
     }
     mapTemplate.leadingNavigationBarButtons = [recenterButton]
   }
@@ -192,7 +192,7 @@ final class MapTemplateBuilder {
 
   private class func buildMyPositionModeButton() -> CPMapButton {
     let button = CPMapButton { _ in
-      FrameworkHelper.switchMyPositionMode()
+      CarPlayService.shared.switchMyPositionModeFromCarPlayControl()
     }
     button.image = image(forPositionMode: CarPlayService.shared.currentPositionMode)
     myPositionModeButton = button
