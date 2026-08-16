@@ -208,6 +208,8 @@ private:
   void PreRender3dLayer(ScreenBase const & modelView);
   void Render3dLayer(ScreenBase const & modelView);
   void RenderMwmBorderLayer(ScreenBase const & modelView);
+  void RenderBorderLayerGroups(ScreenBase const & modelView);
+  void RenderMwmBorderMask(ScreenBase const & modelView, uint32_t referenceValue);
   void RenderOverlayLayer(ScreenBase const & modelView);
   void RenderOverlayUnderBuildingLayer(ScreenBase const & modelView);
   void RenderUserMarksLayer(ScreenBase const & modelView, DepthLayer layerId);

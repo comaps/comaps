@@ -80,7 +80,8 @@ double constexpr kVSyncInterval = 0.06;
 // Metal/Vulkan rendering is fast, so we can decrease sync inverval.
 double constexpr kVSyncIntervalMetalVulkan = 0.03;
 
-// Stencil references used by the region overlay and the antialiasing (SMAA) pass.
+// Stencil references for region overlay
+uint32_t constexpr kStencilRefNone = 0;
 uint32_t constexpr kStencilRefMask = 1;
 uint32_t constexpr kStencilRefOverlay = 2;
 
@@ -1683,54 +1684,59 @@ void FrontendRenderer::RenderRouteLayer(ScreenBase const & modelView)
 void FrontendRenderer::RenderMwmBorderLayer(ScreenBase const & modelView)
 {
   TRACE_SECTION("[drape] RenderMwmBorderLayer");
-  auto & renderGroups = m_layers[static_cast<size_t>(DepthLayer::MwmBorderLayer)].m_renderGroups;
-  if (renderGroups.empty())
+  if (m_layers[static_cast<size_t>(DepthLayer::MwmBorderLayer)].m_renderGroups.empty())
     return;
 
-  CHECK(m_context != nullptr, ());
+  CHECK(m_context != nullptr, ("Graphics context not initalized"));
   if (g_nonDownloadedMaskEnabled.load())
   {
     DEBUG_LABEL(m_context, "Non-Downloaded Tint Layer");
 
-    // Reuse the stencil buffer to mark the downloaded regions, so the tint can be inverted below.
+    // Reuse stencil buffer to mark the downloaded regions, to invert tint below.
     m_context->Clear(dp::ClearBits::DepthBit, dp::kClearBitsStoreAll);
 
-    // Render the downloaded country polygons as an invisible stencil mask: stencil value 1
-    // marks the areas that are already downloaded. The geometry builder reads the persistent
-    // flag g_nonDownloadedMaskEnabled (set in the constructor) to render this fill invisibly.
-    m_context->SetStencilTestEnabled(true);
-    m_context->SetStencilFunction(dp::StencilFace::FrontAndBack, dp::TestFunction::Always);
-    m_context->SetStencilActions(dp::StencilFace::FrontAndBack, dp::StencilAction::Keep, dp::StencilAction::Keep,
-                                 dp::StencilAction::Replace);
-    m_context->SetStencilReferenceValue(kStencilRefMask);
+    // Render invisible stencil mask of value 1 on downloaded regions
+    RenderMwmBorderMask(modelView, kStencilRefMask);
 
-    for (drape_ptr<RenderGroup> & group : renderGroups)
-      RenderSingleGroup(m_context, modelView, make_ref(group));
-
-    // Draw a full-screen tint only where the stencil is NOT equal to 1 (i.e. the map is NOT downloaded).
+    // Draw full-screen tint where stencil is NOT equal to 1 (i.e. non-downloaded regions)
     dp::TextureManager::ColorRegion region;
     m_texMng->GetColorRegion(dp::Color(0x1A, 0x32, 0x5C, 80 /* ~31% opacity */), region);
     CHECK(region.GetTexture() != nullptr, ("Texture manager is not initialized"));
     m_screenQuadRenderer->SetTextureRect(m_context, region.GetTexRect());
-
     m_context->SetStencilFunction(dp::StencilFace::FrontAndBack, dp::TestFunction::NotEqual);
     m_context->SetStencilActions(dp::StencilFace::FrontAndBack, dp::StencilAction::Keep, dp::StencilAction::Keep,
                                  dp::StencilAction::Keep);
     m_screenQuadRenderer->RenderTexture(m_context, make_ref(m_gpuProgramManager), region.GetTexture(), 1.0f,
                                         false /* invertV */);
 
-    // Restore the stencil reference expected by the antialiasing (SMAA) pass for overlays.
+    // Reset stencil mask and reference to leave clear state for SMAA
+    RenderMwmBorderMask(modelView, kStencilRefNone);
     if (m_postprocessRenderer->IsEffectEnabled(PostprocessRenderer::Effect::Antialiasing))
       m_context->SetStencilReferenceValue(kStencilRefOverlay);
     m_context->SetStencilTestEnabled(false);
     return;
   }
 
-  DEBUG_LABEL(m_context, "Mmw Border Layer");
+  DEBUG_LABEL(m_context, "Downloaded Tint Layer");
   m_context->Clear(dp::ClearBits::DepthBit, dp::kClearBitsStoreAll);
+  RenderBorderLayerGroups(modelView);
+}
 
+void FrontendRenderer::RenderBorderLayerGroups(ScreenBase const & modelView)
+{
+  auto & renderGroups = m_layers[static_cast<size_t>(DepthLayer::MwmBorderLayer)].m_renderGroups;
   for (drape_ptr<RenderGroup> & group : renderGroups)
     RenderSingleGroup(m_context, modelView, make_ref(group));
+}
+
+void FrontendRenderer::RenderMwmBorderMask(ScreenBase const & modelView, uint32_t referenceValue)
+{
+  m_context->SetStencilTestEnabled(true);
+  m_context->SetStencilFunction(dp::StencilFace::FrontAndBack, dp::TestFunction::Always);
+  m_context->SetStencilActions(dp::StencilFace::FrontAndBack, dp::StencilAction::Keep, dp::StencilAction::Keep,
+                               dp::StencilAction::Replace);
+  m_context->SetStencilReferenceValue(referenceValue);
+  RenderBorderLayerGroups(modelView);
 }
 
 void FrontendRenderer::RenderUserMarksLayer(ScreenBase const & modelView, DepthLayer layerId)
