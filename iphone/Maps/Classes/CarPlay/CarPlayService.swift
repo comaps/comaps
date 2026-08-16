@@ -24,6 +24,49 @@ struct CarPlayPanningInterfaceState {
   }
 }
 
+struct CarPlayFollowPolicy {
+  enum Orientation: Equatable {
+    case headingUp
+    case northUp
+  }
+
+  enum ReconciliationAction: Equatable {
+    case none
+    case waitForPosition
+    case switchMode
+  }
+
+  private(set) var orientation: Orientation = .headingUp
+
+  mutating func recordExplicitModeSwitch(from mode: MWMMyPositionMode) {
+    switch mode {
+    case .followAndRotate:
+      orientation = .northUp
+    case .follow:
+      orientation = .headingUp
+    case .pendingPosition, .notFollowNoPosition, .notFollow:
+      break
+    }
+  }
+
+  func reconciliationAction(for mode: MWMMyPositionMode) -> ReconciliationAction {
+    switch mode {
+    case .pendingPosition:
+      return .waitForPosition
+    case .notFollowNoPosition, .notFollow:
+      return .switchMode
+    case .follow:
+      return orientation == .headingUp ? .switchMode : .none
+    case .followAndRotate:
+      return orientation == .northUp ? .switchMode : .none
+    }
+  }
+
+  mutating func reset() {
+    self = CarPlayFollowPolicy()
+  }
+}
+
 struct CarPlaySearchContextState {
   enum Owner {
     case phone
@@ -84,16 +127,18 @@ final class CarPlayService: NSObject {
 
   private var rootTemplateDidAppear = false
   private var panningInterfaceState = CarPlayPanningInterfaceState()
-  private var hasEngagedInitialCarFollow = false
-  private var isInitialCarHeadingModeDisabled = false
+  private var hasAppliedDefaultCarZoom = false
+  private var followPolicy = CarPlayFollowPolicy()
+  private var isFollowReconciliationScheduled = false
+  private var needsDefaultZoomRestoreOnViewportReady = false
   private func resetCarSessionDefaults() {
-    hasEngagedInitialCarFollow = false
-    isInitialCarHeadingModeDisabled = false
+    hasAppliedDefaultCarZoom = false
+    followPolicy.reset()
+    isFollowReconciliationScheduled = false
+    needsDefaultZoomRestoreOnViewportReady = false
     isCarMapViewportReady = false
     isWaitingForCarMapViewport = false
     carMapViewportReadinessAttempts = 0
-    needsBaseMapNorthUp = false
-    needsRecenterOnViewportReady = false
   }
   private weak var dashboardWindow: UIWindow?
   private var isDashboardActive = false
@@ -197,6 +242,9 @@ final class CarPlayService: NSObject {
   }
 
   private func switchScreenToPhone() {
+    let shouldRestorePhoneNorthUp = router?.currentTrip == nil &&
+      !MWMRouter.isRoutingActive() &&
+      currentPositionMode == .followAndRotate
     router?.removeListener(self)
     router?.unsubscribeFromEvents()
     router?.setupInitialSpeedCameraMode()
@@ -218,6 +266,9 @@ final class CarPlayService: NSObject {
     // Apply the visual-scale change (and its GPU context reset) before the theme switch,
     // so the context teardown doesn't race with an in-flight route recache from the style change.
     updateMapHost()
+    if shouldRestorePhoneNorthUp {
+      FrameworkHelper.switchMyPositionMode()
+    }
     ThemeManager.invalidate()
   }
 
@@ -349,7 +400,7 @@ final class CarPlayService: NSObject {
     logStateSnapshot("appSceneDidBecomeActive")
     reconcileMapHostIfOrphaned()
     resumeLocationForActiveCarSceneIfNeeded()
-    engageCarFollowIfNeeded(currentPositionMode, request: .sceneReactivation)
+    scheduleCarFollowReconciliation()
     guard isCarplayActivated, let controller = interfaceController else { return }
     if rootTemplateDidAppear {
       LOG(.info, "app scene active: root template already presented, nothing to reconcile")
@@ -478,7 +529,8 @@ final class CarPlayService: NSObject {
     if desired == .phone || desired == .none {
       resetCarSessionDefaults()
     }
-    engageCarFollowIfNeeded(currentPositionMode)
+    applyDefaultCarZoomIfNeeded()
+    scheduleCarFollowReconciliation()
     logStateSnapshot("after map host switch")
     refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "updateMapHost")
   }
@@ -571,52 +623,65 @@ final class CarPlayService: NSObject {
     MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
   }
 
+  /// Set default zoom to 15 on car screens
+  private static let kDefaultCarZoomLevel: Int32 = 15
   private var isCarMapViewportReady = false
   private var isWaitingForCarMapViewport = false
   private var carMapViewportReadinessAttempts = 0
-  private var needsBaseMapNorthUp = false
-  private var needsRecenterOnViewportReady = false
 
-  private enum CarFollowRequest {
-    case initialEngagement
-    case sceneReactivation
+  private func applyDefaultCarZoomIfNeeded() {
+    guard !hasAppliedDefaultCarZoom,
+          isCarMapViewportReady,
+          mapHost == .carplay || mapHost == .dashboard,
+          !MWMRouter.isRoutingActive(),
+          currentPositionMode == .follow || currentPositionMode == .followAndRotate
+    else { return }
+    hasAppliedDefaultCarZoom = true
+    FrameworkHelper.setZoomLevel(Self.kDefaultCarZoomLevel, animated: true)
+  }
 
-    var allowsReengagement: Bool {
-      switch self {
-      case .initialEngagement: return false
-      case .sceneReactivation: return true
-      }
+  private func scheduleCarFollowReconciliation() {
+    guard !isFollowReconciliationScheduled else { return }
+    isFollowReconciliationScheduled = true
+    DispatchQueue.main.async { [weak self] in
+      guard let self else { return }
+      self.isFollowReconciliationScheduled = false
+      self.reconcileCarFollow()
     }
   }
 
-  private func engageCarFollowIfNeeded(_ mode: MWMMyPositionMode,
-                                       request: CarFollowRequest = .initialEngagement) {
-    guard (!hasEngagedInitialCarFollow || request.allowsReengagement),
+  private func reconcileCarFollow() {
+    guard isCarMapViewportReady,
           mapHost == .carplay || mapHost == .dashboard,
-          !MWMRouter.isRoutingActive(),
           !panningInterfaceState.isPresented
     else { return }
+
+    // A built route also represents trip preview. Only reconcile while guidance is active,
+    // or while there is no routing state whose preview camera should remain untouched.
+    guard router?.currentTrip != nil || !MWMRouter.isRoutingActive() else { return }
+
+    switch followPolicy.reconciliationAction(for: currentPositionMode) {
+    case .switchMode:
+      FrameworkHelper.switchMyPositionMode()
+    case .none, .waitForPosition:
+      break
+    }
+  }
+
+  private func restoreDefaultCarZoom() {
+    guard mapHost == .carplay || mapHost == .dashboard else { return }
     guard isCarMapViewportReady else {
-      if request.allowsReengagement {
-        needsRecenterOnViewportReady = true
-      }
+      needsDefaultZoomRestoreOnViewportReady = true
       return
     }
-    switch mode {
-    case .notFollow:
-      FrameworkHelper.switchMyPositionMode()
-    case .follow:
-      hasEngagedInitialCarFollow = true
-      if !isInitialCarHeadingModeDisabled {
-        FrameworkHelper.switchMyPositionMode()
-      }
-    case .followAndRotate:
-      hasEngagedInitialCarFollow = true
-    case .pendingPosition, .notFollowNoPosition:
-      if mode == .notFollowNoPosition {
-        FrameworkHelper.switchMyPositionMode()
-      }
-    }
+    needsDefaultZoomRestoreOnViewportReady = false
+    hasAppliedDefaultCarZoom = true
+    FrameworkHelper.setZoomLevel(Self.kDefaultCarZoomLevel, animated: true)
+  }
+
+  private func recenterStandardCarCamera() {
+    restoreDefaultCarZoom()
+    scheduleCarFollowReconciliation()
   }
 
   func mapViewportDidBecomeReady(_ mapView: EAGLView) {
@@ -646,18 +711,25 @@ final class CarPlayService: NSObject {
     isWaitingForCarMapViewport = false
     carMapViewportReadinessAttempts = 0
     isCarMapViewportReady = true
-    if needsBaseMapNorthUp {
-      needsBaseMapNorthUp = false
-      FrameworkHelper.rotateMap(0.0, animated: false)
+    if needsDefaultZoomRestoreOnViewportReady {
+      restoreDefaultCarZoom()
+    } else {
+      applyDefaultCarZoomIfNeeded()
     }
-    let request: CarFollowRequest = needsRecenterOnViewportReady ? .sceneReactivation : .initialEngagement
-    needsRecenterOnViewportReady = false
-    engageCarFollowIfNeeded(currentPositionMode, request: request)
+    scheduleCarFollowReconciliation()
   }
 
   func switchMyPositionModeFromCarPlayControl() {
-    isInitialCarHeadingModeDisabled = true
+    if currentPositionMode == .notFollow || currentPositionMode == .notFollowNoPosition {
+      recenterStandardCarCamera()
+      return
+    }
+    followPolicy.recordExplicitModeSwitch(from: currentPositionMode)
     FrameworkHelper.switchMyPositionMode()
+  }
+
+  func recenterFromCarPlayControl() {
+    recenterStandardCarCamera()
   }
 
   // MARK: - Dashboard scene
@@ -687,7 +759,7 @@ final class CarPlayService: NSObject {
     reconcileMapHostIfOrphaned()
     updateMapHost()
     resumeLocationForActiveCarSceneIfNeeded()
-    engageCarFollowIfNeeded(currentPositionMode, request: .sceneReactivation)
+    scheduleCarFollowReconciliation()
   }
 
   @objc func dashboardDidResignActive() {
@@ -701,7 +773,6 @@ final class CarPlayService: NSObject {
     mapTemplate.mapDelegate = self
     mapTemplate.tripEstimateStyle = rootTemplateStyle
     setRootTemplate(mapTemplate)
-    needsBaseMapNorthUp = true
     if let mapView = MapViewController.shared()?.mapView {
       mapViewportDidBecomeReady(mapView)
     }
@@ -709,7 +780,6 @@ final class CarPlayService: NSObject {
 
   private func applyNavigationRootTemplate(trip: CPTrip, routeInfo: RouteInfo) {
     let mapTemplate = MapTemplateBuilder.buildNavigationTemplate()
-    needsBaseMapNorthUp = false
     mapTemplate.mapDelegate = self
     setRootTemplate(mapTemplate)
     router?.startNavigationSession(forTrip: trip, template: mapTemplate)
@@ -784,6 +854,7 @@ final class CarPlayService: NSObject {
       carplayVC.hideSpeedControl()
     }
     updateMapTemplateUIToBase()
+    recenterStandardCarCamera()
   }
 
   func updateCameraUI(isCameraOnRoute: Bool, speedLimitMps limit: Double?) {
@@ -826,7 +897,6 @@ final class CarPlayService: NSObject {
       MapTemplateBuilder.setupRecenterButton(mapTemplate: mapTemplate)
     }
     updateVisibleViewPortState(.default)
-    FrameworkHelper.rotateMap(0.0, animated: true)
   }
 
   func updateMapTemplateUIToTripFinished(_ trip: CPTrip) {
@@ -986,7 +1056,6 @@ extension CarPlayService: CPMapTemplateDelegate {
     guard mapTemplate === rootMapTemplate else { return }
     panningInterfaceState.didShow(mapTemplate)
     isUserPanMap = false
-    isInitialCarHeadingModeDisabled = true
     MapTemplateBuilder.configurePanUI(mapTemplate: mapTemplate)
     FrameworkHelper.stopLocationFollow()
   }
@@ -1000,7 +1069,7 @@ extension CarPlayService: CPMapTemplateDelegate {
     } else {
       MapTemplateBuilder.configureBaseUI(mapTemplate: mapTemplate)
     }
-    switchMyPositionModeFromCarPlayControl()
+    recenterStandardCarCamera()
   }
 
   @objc(mapTemplate:panEndedWithDirection:)
@@ -1241,6 +1310,7 @@ extension CarPlayService: CarPlayRouterListener {
       carplayVC.hideSpeedControl()
     }
     updateMapTemplateUIToTripFinished(trip)
+    recenterStandardCarCamera()
   }
 }
 
@@ -1248,7 +1318,8 @@ extension CarPlayService: CarPlayRouterListener {
 extension CarPlayService: LocationModeListener {
   func processMyPositionStateModeEvent(_ mode: MWMMyPositionMode) {
     currentPositionMode = mode
-    engageCarFollowIfNeeded(mode)
+    applyDefaultCarZoomIfNeeded()
+    scheduleCarFollowReconciliation()
 
     // make sure we have a rootMapTemplate
     guard let rootMapTemplate = rootMapTemplate else {
@@ -1436,9 +1507,9 @@ extension CarPlayService {
       self.interfaceController?.dismissTemplate(animated: true)
     })
     let noAction = CPAlertAction(title: L("cancel"), style: .cancel, handler: { [unowned self] _ in
-      FrameworkHelper.rotateMap(0.0, animated: false)
       self.router?.completeRouteAndRemovePoints()
       self.interfaceController?.dismissTemplate(animated: true)
+      self.recenterStandardCarCamera()
     })
     let title = isTypeCorrect ? L("dialog_routing_rebuild_from_current_location_carplay") : L("dialog_routing_rebuild_for_vehicle_carplay")
     let alert = CPAlertTemplate(titleVariants: [title], actions: [noAction, yesAction])

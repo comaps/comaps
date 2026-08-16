@@ -39,6 +39,7 @@ NS_SWIFT_NAME(FrameworkHelper)
 + (MWMMarkID)invalidBookmarkId;
 + (MWMMarkGroupID)invalidCategoryId;
 + (void)zoomMap:(MWMZoomMode)mode;
++ (void)setZoomLevel:(int)zoomLevel animated:(BOOL)isAnimated;
 + (void)moveMap:(UIOffset)offset;
 + (void)scrollMapToDistanceX:(double)x andY:(double)y;
 + (void)deactivateMapSelection;
