@@ -3,6 +3,7 @@
 
   private(set) var isLaunchedByDeeplink = false
   private(set) var isLaunchedByUniversalLink = false
+  private(set) var hasPendingDeepLink = false
   private(set) var url: URL?
 
   private override init() {
@@ -12,8 +13,19 @@
   func applicationDidFinishLaunching(_ options: [UIApplication.LaunchOptionsKey : Any]? = nil) {
     if let launchDeeplink = options?[UIApplication.LaunchOptionsKey.url] as? URL {
       isLaunchedByDeeplink = true
+      isLaunchedByUniversalLink = false
+      hasPendingDeepLink = true
       url = launchDeeplink
     }
+  }
+
+  func applicationDidFinishLaunching(withUniversalLink universalLink: URL) -> Bool {
+    guard let deepLink = deepLinkURL(from: universalLink) else { return false }
+    isLaunchedByDeeplink = false
+    isLaunchedByUniversalLink = true
+    hasPendingDeepLink = true
+    url = deepLink
+    return true
   }
 
   func applicationDidOpenUrl(_ url: URL) -> Bool {
@@ -32,17 +44,17 @@
   }
 
   func applicationDidReceiveUniversalLink(_ universalLink: URL) -> Bool {
-    // Convert http(s)://comaps.at/ENCODEDCOORDS/NAME to cm://ENCODEDCOORDS/NAME
-    self.url = URL(string: universalLink.absoluteString
-                    .replacingOccurrences(of: "http://comaps.at", with: "cm:/")
-                    .replacingOccurrences(of: "https://comaps.at", with: "cm:/"))
+    guard let deepLink = deepLinkURL(from: universalLink) else { return false }
+    isLaunchedByDeeplink = false
     isLaunchedByUniversalLink = true
-    return handleDeepLink(url: self.url!)
+    url = deepLink
+    return handleDeepLink(url: deepLink)
   }
 
   func reset() {
     isLaunchedByDeeplink = false
     isLaunchedByUniversalLink = false
+    hasPendingDeepLink = false
     url = nil
   }
 
@@ -80,6 +92,13 @@
     }
     reset()
     return true
+  }
+
+  private func deepLinkURL(from universalLink: URL) -> URL? {
+    // Convert http(s)://comaps.at/ENCODEDCOORDS/NAME to cm://ENCODEDCOORDS/NAME
+    URL(string: universalLink.absoluteString
+      .replacingOccurrences(of: "http://comaps.at", with: "cm:/")
+      .replacingOccurrences(of: "https://comaps.at", with: "cm:/"))
   }
 
   private func handleDeepLink(url: URL) -> Bool {
