@@ -203,13 +203,6 @@
     [self willRotateToInterfaceOrientation:toInterfaceOrientation];
 }
 
-- (void)addControllerViewToWindow {
-  UIWindow *window = UIApplication.sharedApplication.delegate.window;
-  UIView *view = self.alertController.view;
-  [window addSubview:view];
-  view.frame = window.bounds;
-}
-
 - (void)layoutSubviews {
   [super layoutSubviews];
   self.frame = self.superview.bounds;

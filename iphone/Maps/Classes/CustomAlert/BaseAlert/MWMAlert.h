@@ -46,6 +46,4 @@
 
 - (void)rotate:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
 
-- (void)addControllerViewToWindow;
-
 @end
