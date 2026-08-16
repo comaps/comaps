@@ -116,33 +116,41 @@ final class CarPlayServiceTests: XCTestCase {
   }
 
   func testInstructionVariants() {
-    // Motorway exit: the richest (first) variant joins the exit label, the destination ref and the
-    // destinations, and the array is ordered longest-first.
-    let exit = NavigationInstructionFormatter.instructionVariants(roadName: "",
-                                                                  roadRef: "",
-                                                                  junctionRef: "6A",
-                                                                  destinationRef: "US 101 South",
-                                                                  destination: "San Jose; San Francisco",
-                                                                  isLink: true)
-    XCTAssertEqual(exit.first, "Exit 6A: US 101 South → San Jose / San Francisco")
-    XCTAssertEqual(exit, exit.sorted { $0.count > $1.count })
+    func variants(junctionRef: String = "",
+                  destinationRef: String = "",
+                  destination: String = "") -> [String] {
+      NavigationInstructionFormatter.instructionVariants(roadName: "Storoveien",
+                                                         roadRef: "150",
+                                                         junctionRef: junctionRef,
+                                                         destinationRef: destinationRef,
+                                                         destination: destination)
+    }
 
-    // Plain road: ref and name are combined, no brackets.
-    let road = NavigationInstructionFormatter.instructionVariants(roadName: "Bayshore Freeway",
-                                                                  roadRef: "CA 85",
-                                                                  junctionRef: "",
-                                                                  destinationRef: "",
-                                                                  destination: "",
-                                                                  isLink: false)
-    XCTAssertEqual(road.first, "CA 85 Bayshore Freeway")
+    XCTAssertEqual(variants(), ["150 Storoveien", "Storoveien", "150"])
+    XCTAssertEqual(variants(junctionRef: "67"), ["Exit 67: 150 Storoveien", "Exit 67"])
+    XCTAssertEqual(variants(destinationRef: "E6"), ["E6"])
+    XCTAssertEqual(variants(destination: "Smestad"), ["Smestad"])
+    XCTAssertEqual(variants(junctionRef: "67", destinationRef: "E6"), ["Exit 67: E6", "Exit 67"])
+    XCTAssertEqual(variants(junctionRef: "67", destination: "Smestad"),
+                   ["Exit 67 → Smestad", "Exit 67"])
+    XCTAssertEqual(variants(destinationRef: "E6", destination: "Smestad"), ["E6 → Smestad", "E6"])
+    XCTAssertEqual(variants(junctionRef: "67", destinationRef: "E6", destination: "Smestad"),
+                   ["Exit 67: E6 → Smestad", "Exit 67: E6", "Exit 67"])
+
+    XCTAssertEqual(variants(junctionRef: "6A",
+                            destinationRef: "US 101 South",
+                            destination: "San Jose; San Francisco"),
+                   ["Exit 6A: US 101 South → San Jose / San Francisco",
+                    "Exit 6A: US 101 South → San Jose",
+                    "Exit 6A: US 101 South",
+                    "Exit 6A"])
 
     // No structured data at all yields no variants, so callers keep their fallback.
     let empty = NavigationInstructionFormatter.instructionVariants(roadName: "",
                                                                    roadRef: "",
                                                                    junctionRef: "",
                                                                    destinationRef: "",
-                                                                   destination: "",
-                                                                   isLink: false)
+                                                                   destination: "")
     XCTAssertTrue(empty.isEmpty)
   }
 
@@ -160,7 +168,6 @@ final class CarPlayServiceTests: XCTestCase {
       junctionRef: "",
       destinationRef: "",
       destination: "",
-      isLink: false,
       isLeftHandTraffic: false,
       shields: shields)
 
@@ -184,6 +191,147 @@ final class CarPlayServiceTests: XCTestCase {
     }
   }
 
+  func testRoadWithoutDestinationUsesShieldedRoadFallback() {
+    let shields = RoadShieldInfo(
+      targetRoadShields: [
+        RoadShield(type: .genericGreen, text: "150", additionalText: nil),
+        RoadShield(type: .genericWhite, text: "Ring 3", additionalText: nil),
+      ],
+      junctionRoadShields: [])
+
+    let variants = NavigationInstructionFormatter.carPlayInstructionVariants(
+      roadName: "Storoveien",
+      roadRef: "150;Ring 3",
+      junctionRef: "",
+      destinationRef: "",
+      destination: "",
+      isLeftHandTraffic: false,
+      shields: shields)
+
+    XCTAssertEqual(variants.text.first, "150;Ring 3 Storoveien")
+    XCTAssertEqual(attachments(in: variants.attributed.first!).count, 2)
+    XCTAssertTrue(variants.attributed.first!.string.contains("Storoveien"))
+
+    let phoneInstruction = NavigationInstructionFormatter.attributedInstruction(
+      nextStreet: "Storoveien",
+      roadName: "Storoveien",
+      roadRef: "150;Ring 3",
+      junctionRef: "",
+      destinationRef: "",
+      destination: "",
+      isLeftHandTraffic: false,
+      shields: shields,
+      textSize: 16,
+      textColor: nil)
+    XCTAssertEqual(attachments(in: phoneInstruction).count, 2)
+    XCTAssertTrue(phoneInstruction.string.contains("Storoveien"))
+  }
+
+  func testDestinationWithoutDestinationRefExcludesRoadFallback() {
+    let unexpectedRoadShields = RoadShieldInfo(
+      targetRoadShields: [
+        RoadShield(type: .genericGreen, text: "150", additionalText: nil),
+        RoadShield(type: .genericWhite, text: "Ring 3", additionalText: nil),
+      ],
+      junctionRoadShields: [])
+
+    let variants = NavigationInstructionFormatter.carPlayInstructionVariants(
+      roadName: "Storoveien",
+      roadRef: "150;Ring 3",
+      junctionRef: "",
+      destinationRef: "",
+      destination: "Grefsen;Sandaker",
+      isLeftHandTraffic: false,
+      shields: unexpectedRoadShields)
+
+    XCTAssertEqual(variants.text, ["Grefsen / Sandaker", "Grefsen"])
+    XCTAssertTrue(variants.attributed.isEmpty)
+    XCTAssertFalse(variants.text.contains { $0.contains("Ring 3") || $0.contains("Storoveien") })
+
+    let phoneInstruction = NavigationInstructionFormatter.attributedInstruction(
+      nextStreet: "Grefsen / Sandaker",
+      roadName: "Storoveien",
+      roadRef: "150;Ring 3",
+      junctionRef: "",
+      destinationRef: "",
+      destination: "Grefsen;Sandaker",
+      isLeftHandTraffic: false,
+      shields: unexpectedRoadShields,
+      textSize: 16,
+      textColor: nil)
+    XCTAssertEqual(phoneInstruction.string, "Grefsen / Sandaker")
+    XCTAssertTrue(attachments(in: phoneInstruction).isEmpty)
+  }
+
+  func testDestinationRefOnlyUsesShieldAndExcludesRoadFallback() {
+    let shields = RoadShieldInfo(
+      targetRoadShields: [RoadShield(type: .genericGreen, text: "E6", additionalText: nil)],
+      junctionRoadShields: [])
+
+    let variants = NavigationInstructionFormatter.carPlayInstructionVariants(
+      roadName: "Storoveien",
+      roadRef: "150",
+      junctionRef: "",
+      destinationRef: "E6",
+      destination: "",
+      isLeftHandTraffic: false,
+      shields: shields)
+
+    XCTAssertEqual(variants.text, ["E6"])
+    XCTAssertEqual(variants.attributed.count, 1)
+    XCTAssertEqual(attachments(in: variants.attributed[0]).count, 1)
+    XCTAssertFalse(variants.attributed[0].string.contains("Storoveien"))
+
+    let phoneInstruction = NavigationInstructionFormatter.attributedInstruction(
+      nextStreet: "E6",
+      roadName: "Storoveien",
+      roadRef: "150",
+      junctionRef: "",
+      destinationRef: "E6",
+      destination: "",
+      isLeftHandTraffic: false,
+      shields: shields,
+      textSize: 16,
+      textColor: nil)
+    XCTAssertEqual(attachments(in: phoneInstruction).count, 1)
+    XCTAssertFalse(phoneInstruction.string.contains("Storoveien"))
+  }
+
+  func testDestinationWithoutDestinationRefRetainsJunctionShield() {
+    let shields = RoadShieldInfo(
+      targetRoadShields: [RoadShield(type: .genericGreen, text: "150", additionalText: nil)],
+      junctionRoadShields: [RoadShield(type: .genericGreen, text: "67", additionalText: nil)])
+
+    let variants = NavigationInstructionFormatter.carPlayInstructionVariants(
+      roadName: "Storoveien",
+      roadRef: "150",
+      junctionRef: "67",
+      destinationRef: "",
+      destination: "Smestad",
+      isLeftHandTraffic: false,
+      shields: shields)
+
+    XCTAssertEqual(variants.text, ["Exit 67 → Smestad", "Exit 67"])
+    XCTAssertEqual(variants.attributed.map { attachments(in: $0).count }, [1, 1])
+    XCTAssertTrue(variants.attributed[0].string.contains("Smestad"))
+    XCTAssertFalse(variants.attributed.contains { $0.string.contains("Storoveien") })
+
+    let phoneInstruction = NavigationInstructionFormatter.attributedInstruction(
+      nextStreet: "Smestad",
+      roadName: "Storoveien",
+      roadRef: "150",
+      junctionRef: "67",
+      destinationRef: "",
+      destination: "Smestad",
+      isLeftHandTraffic: false,
+      shields: shields,
+      textSize: 16,
+      textColor: nil)
+    XCTAssertEqual(attachments(in: phoneInstruction).count, 1)
+    XCTAssertTrue(phoneInstruction.string.contains("Smestad"))
+    XCTAssertFalse(phoneInstruction.string.contains("Storoveien"))
+  }
+
   func testCarPlayExitShieldInstructionVariants() {
     let shields = RoadShieldInfo(
       targetRoadShields: [RoadShield(type: .usHighway, text: "101", additionalText: "South")],
@@ -195,7 +343,6 @@ final class CarPlayServiceTests: XCTestCase {
       junctionRef: "6A",
       destinationRef: "US 101 South",
       destination: "San Jose; San Francisco",
-      isLink: true,
       isLeftHandTraffic: false,
       shields: shields)
 
@@ -203,6 +350,27 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertEqual(attachments(in: variants.attributed.first!).count, 2)
     XCTAssertTrue(variants.attributed.first!.string.contains("South"))
     XCTAssertTrue(variants.attributed.first!.string.contains("San Jose / San Francisco"))
+    XCTAssertTrue(variants.text.allSatisfy { $0.contains("Exit 6A") })
+    XCTAssertTrue(variants.attributed.allSatisfy { !attachments(in: $0).isEmpty },
+                  "Every attributed variant for a numbered exit must retain its junction shield")
+    XCTAssertEqual(attachments(in: variants.attributed.last!).count, 1)
+    XCTAssertFalse(variants.attributed.last!.string.contains("San Jose"),
+                   "The shortest attributed fallback should be the junction shield alone")
+
+    let phoneInstruction = NavigationInstructionFormatter.attributedInstruction(
+      nextStreet: "US 101 South > San Jose / San Francisco",
+      roadName: "",
+      roadRef: "",
+      junctionRef: "6A",
+      destinationRef: "US 101 South",
+      destination: "San Jose; San Francisco",
+      isLeftHandTraffic: false,
+      shields: shields,
+      textSize: 16,
+      textColor: nil)
+    XCTAssertEqual(attachments(in: phoneInstruction).count, 2)
+    XCTAssertTrue(phoneInstruction.string.contains("South"))
+    XCTAssertTrue(phoneInstruction.string.contains("San Jose / San Francisco"))
   }
 
   func testCarPlayAttributedVariantsRequireShields() {
@@ -212,7 +380,6 @@ final class CarPlayServiceTests: XCTestCase {
       junctionRef: "",
       destinationRef: "",
       destination: "",
-      isLink: false,
       isLeftHandTraffic: false,
       shields: nil)
 
@@ -230,7 +397,6 @@ final class CarPlayServiceTests: XCTestCase {
       junctionRef: "",
       destinationRef: "",
       destination: "",
-      isLink: false,
       isLeftHandTraffic: false,
       shields: shields)
 
