@@ -458,6 +458,7 @@ public:
 
   void GetTurnsForTesting(std::vector<turns::TurnItem> & turns) const;
   bool IsRouteId(uint64_t routeId) const { return routeId == m_routeId; }
+  uint64_t GetRouteId() const { return m_routeId; }
 
   /// \returns Length of the route segment with |segIdx| in meters.
   double GetSegLenMeters(size_t segIdx) const;

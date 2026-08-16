@@ -9,6 +9,7 @@
 #include "routing/routing_callbacks.hpp"
 #include "routing/turns.hpp"
 
+#include <limits>
 #include <string>
 #include <vector>
 
@@ -26,7 +27,8 @@ public:
   };
 
   FollowingInfo()
-    : m_turn(turns::CarDirection::None)
+    : m_turnIndex(std::numeric_limits<uint32_t>::max())
+    , m_turn(turns::CarDirection::None)
     , m_nextTurn(turns::CarDirection::None)
     , m_exitNum(0)
     , m_time(0)
@@ -43,6 +45,9 @@ public:
   /// @name Formatted distance to the next turn.
   //@{
   platform::Distance m_distToTurn;
+  /// Route identity is unique within one application session. Turn identity is the point index on this route.
+  uint64_t m_routeId = 0;
+  uint32_t m_turnIndex;
   turns::CarDirection m_turn;
   /// Turn after m_turn. Returns NoTurn if there is no turns after.
   turns::CarDirection m_nextTurn;
