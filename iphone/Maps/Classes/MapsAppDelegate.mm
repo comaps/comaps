@@ -141,6 +141,10 @@ void InitLocalizedStrings() {
     return [[UISceneConfiguration alloc] initWithName:@"CarPlay Configuration"
                                           sessionRole:connectingSceneSession.role];
   }
+  if ([connectingSceneSession.role isEqualToString:CPTemplateApplicationDashboardSceneSessionRoleApplication]) {
+    return [[UISceneConfiguration alloc] initWithName:@"CarPlay Dashboard Configuration"
+                                          sessionRole:connectingSceneSession.role];
+  }
   return [[UISceneConfiguration alloc] initWithName:@"Default Configuration"
                                         sessionRole:connectingSceneSession.role];
 }

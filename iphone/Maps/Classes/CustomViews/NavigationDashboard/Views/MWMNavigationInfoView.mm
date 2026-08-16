@@ -358,7 +358,11 @@ BOOL defaultOrientation(CGSize const &size) {
 
 // Additional spacing for devices with a small top safe area (such as SE or when the device is in landscape mode).
 - (CGFloat)additionalStreetNameTopOffset {
-  return MapsAppDelegate.theApp.window.safeAreaInsets.top <= 20 ? 10 : 0;;
+  // CarPlay only session
+  UIWindow * window = MapsAppDelegate.theApp.window;
+  if (!window)
+    return 0;
+  return window.safeAreaInsets.top <= 20 ? 10 : 0;
 }
 
 - (void)refreshLayout {
