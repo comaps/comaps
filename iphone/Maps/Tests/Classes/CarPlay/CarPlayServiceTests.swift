@@ -83,7 +83,9 @@ final class CarPlayServiceTests: XCTestCase {
   }
 
   func testCreateEstimates() {
-    let routeInfo = RouteInfo(timeToTarget: 100,
+    let routeInfo = RouteInfo(routeID: 1,
+                              turnIndex: 1,
+                              timeToTarget: 100,
                               targetDistance: 25.2,
                               targetUnitsIndex: 1, // km
                               distanceToTurn: 0.5,
@@ -115,6 +117,83 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertEqual(estimates.timeRemaining, 100)
   }
 
+  func testManeuverRefreshStateUsesPrimaryIdentity() {
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo())
+    let nextIdenticalTurn = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2))
+    var state = CarPlayManeuverRefreshState()
+
+    XCTAssertEqual(state.decision(for: content), .replacePrimary(.initial))
+    state.didDisplay(content)
+    XCTAssertEqual(state.decision(for: content), .none)
+    XCTAssertEqual(state.decision(for: nextIdenticalTurn), .replacePrimary(.primaryAdvanced),
+                   "Consecutive visually identical turns must still replace the primary")
+  }
+
+  func testManeuverRefreshStateReplacesPrimaryForNewRouteWithSameTurnIndex() {
+    let firstRoute = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 1, turnIndex: 4))
+    let reroute = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 2, turnIndex: 4))
+    var state = CarPlayManeuverRefreshState()
+    state.didDisplay(firstRoute)
+
+    XCTAssertEqual(state.decision(for: reroute), .replacePrimary(.routeChanged))
+  }
+
+  func testManeuverRefreshStateRetainsPrimaryForSecondaryChange() {
+    let withoutSecondary = CarPlayManeuverContent(routeInfo: makeRouteInfo())
+    let withSecondary = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(nextTurnImageName: "ic_cp_simple_right_then"))
+    var state = CarPlayManeuverRefreshState()
+
+    state.didDisplay(withoutSecondary)
+
+    XCTAssertEqual(state.decision(for: withSecondary), .retainPrimary(.supplementaryChanged))
+    state.didDisplay(withSecondary)
+    XCTAssertEqual(state.decision(for: withSecondary), .none)
+  }
+
+  func testManeuverRefreshStateIgnoresDistanceOnlyChanges() {
+    let far = CarPlayManeuverContent(routeInfo: makeRouteInfo(distanceToTurn: 500))
+    let near = CarPlayManeuverContent(routeInfo: makeRouteInfo(distanceToTurn: 20))
+    var state = CarPlayManeuverRefreshState()
+    state.didDisplay(far)
+
+    XCTAssertEqual(state.decision(for: near), .none)
+  }
+
+  func testManeuverRefreshStateRetainsPrimaryForLaneGuidanceChanges() {
+    let withoutLanes = CarPlayManeuverContent(routeInfo: makeRouteInfo())
+    let leftLane = makeLane(ways: [.left], recommended: .left)
+    let rightLane = makeLane(ways: [.right], recommended: .right)
+    let withLeftLane = CarPlayManeuverContent(routeInfo: makeRouteInfo(lanes: [leftLane]))
+    let withRightLane = CarPlayManeuverContent(routeInfo: makeRouteInfo(lanes: [rightLane]))
+    let withUnrecommendedLeftLane = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(lanes: [makeLane(ways: [.left], recommended: .none)]))
+    var state = CarPlayManeuverRefreshState()
+
+    state.didDisplay(withoutLanes)
+    XCTAssertEqual(state.decision(for: withLeftLane), .retainPrimary(.supplementaryChanged))
+    state.didDisplay(withLeftLane)
+    XCTAssertEqual(state.decision(for: withRightLane), .retainPrimary(.supplementaryChanged))
+    state.didDisplay(withLeftLane)
+    XCTAssertEqual(state.decision(for: withUnrecommendedLeftLane), .retainPrimary(.supplementaryChanged))
+  }
+
+  func testManeuverRefreshStateResetForcesReplacement() {
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo())
+    var state = CarPlayManeuverRefreshState()
+    state.didDisplay(content)
+    state.reset()
+
+    XCTAssertEqual(state.decision(for: content), .replacePrimary(.initial))
+  }
+
+  func testManeuverRefreshStateCanForceRerouteReplacement() {
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo())
+    var state = CarPlayManeuverRefreshState()
+    state.didDisplay(content)
+
+    XCTAssertEqual(state.decision(for: content, forcing: .reroute), .replacePrimary(.reroute))
+  }
   func testLaneWayTurnImageNames() {
     XCTAssertEqual(LaneWay.through.turnImageName, "straight")
     XCTAssertEqual(LaneWay.none.turnImageName, "straight")
@@ -408,6 +487,42 @@ final class CarPlayServiceTests: XCTestCase {
       }
     }
     return result
+  }
+
+  private func makeRouteInfo(routeID: UInt64 = 1,
+                             turnIndex: UInt32 = 1,
+                             carDirection: CarDirection = .turnLeft,
+                             distanceToTurn: Double = 100,
+                             nextTurnImageName: String? = nil,
+                             lanes: [LaneInfo] = []) -> RouteInfo {
+    return RouteInfo(routeID: routeID,
+                     turnIndex: turnIndex,
+                     timeToTarget: 100,
+                     targetDistance: 1,
+                     targetUnitsIndex: 1,
+                     distanceToTurn: distanceToTurn,
+                     turnUnitsIndex: 0,
+                     turnImageName: "ic_cp_simple_left",
+                     nextTurnImageName: nextTurnImageName,
+                     speedMps: 10,
+                     speedLimitMps: 50,
+                     roundExitNumber: 0,
+                     lanes: lanes,
+                     roadName: "Main Street",
+                     roadRef: "",
+                     junctionRef: "",
+                     destinationRef: "",
+                     destination: "",
+                     isLink: false,
+                     roadShields: nil,
+                     currentRoadName: "Current Street",
+                     carDirectionIndex: carDirection.rawValue,
+                     isLeftHandTraffic: false)
+  }
+
+  private func makeLane(ways: [LaneWay], recommended: LaneWay) -> LaneInfo {
+    return LaneInfo(laneWays: ways.map { NSNumber(value: $0.rawValue) },
+                    recommendedWay: recommended.rawValue)
   }
 
   private func averageVisibleLuminance(of image: UIImage) throws -> CGFloat {

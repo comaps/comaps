@@ -109,7 +109,9 @@
                                             recommendedWay:static_cast<uint8_t>(lane.recommendedWay)]];
   }
 
-  MWMRouteInfo *objCInfo = [[MWMRouteInfo alloc] initWithTimeToTarget:info.m_time
+  MWMRouteInfo *objCInfo = [[MWMRouteInfo alloc] initWithRouteID:info.m_routeId
+                                                          turnIndex:info.m_turnIndex
+                                                       timeToTarget:info.m_time
                                                      targetDistance: info.m_distToTarget.GetDistance()
                                                      targetUnitsIndex:static_cast<UInt8>(info.m_distToTarget.GetUnits())
                                                        distanceToTurn:info.m_distToTurn.GetDistance()
@@ -224,16 +226,6 @@
   }
 }
 
-- (void)setOnNewTurnCallback:(MWMVoidBlock)callback {
-  self.rm.RoutingSession().SetOnNewTurnCallback([callback] {
-    callback();
-  });
-}
-
-- (void)resetOnNewTurnCallback {
-  self.rm.RoutingSession().SetOnNewTurnCallback(nullptr);
-}
-
 #pragma mark - MWMFrameworkRouteBuilderObserver implementation
 
 - (void)processRouteBuilderEvent:(routing::RouterResultCode)code
@@ -285,9 +277,10 @@
   for (auto const & text : notifications) {
     [routeNotifications addObject:@(text.c_str())];
   }
+  RouteInfo * routeInfo = self.routeInfo;
   NSArray<id<MWMRoutingManagerListener>> * objects = self.listeners.allObjects;
   for (id<MWMRoutingManagerListener> object in objects) {
-    [object didLocationUpdate:routeNotifications];
+    [object didLocationUpdate:routeNotifications routeInfo:routeInfo];
   }
 }
 
