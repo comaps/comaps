@@ -184,6 +184,7 @@ bool IsModeChangeViewport(location::EMyPositionMode mode)
 
 MyPositionController::MyPositionController(Params && params, ref_ptr<DrapeNotifier> notifier)
   : m_notifier(notifier)
+  , m_lastFollowMode(params.m_initMode == location::FollowAndRotate ? location::FollowAndRotate : location::Follow)
   , m_modeChangeCallback(std::move(params.m_myPositionModeCallback))
   , m_hints(params.m_hints)
   , m_isInRouting(params.m_isRoutingActive)
@@ -660,7 +661,10 @@ void MyPositionController::LoseLocation()
   if (m_mode == location::NotFollowNoPosition)
     return;
   else if (m_mode == location::Follow || m_mode == location::FollowAndRotate)
+  {
+    m_lastFollowMode = m_mode;
     ChangeMode(location::PendingPosition);
+  }
   else
     ChangeMode(location::NotFollowNoPosition);
 
@@ -801,6 +805,14 @@ bool MyPositionController::IsWaitingForLocation() const
 
 void MyPositionController::StopLocationFollow()
 {
+  // A pan while reacquiring location must also cancel the pending recenter.
+  // Keep the last known position visible (as obsolete) and location updates running.
+  // Before the first fix, m_desiredInitMode below controls acquisition instead.
+  if (m_mode == location::PendingPosition && m_isPositionAssigned)
+  {
+    m_positionIsObsolete = true;
+    ChangeMode(location::NotFollow);
+  }
   if (m_mode == location::Follow || m_mode == location::FollowAndRotate)
   {
     m_lastFollowMode = m_mode;
