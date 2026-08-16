@@ -107,17 +107,7 @@ class NetworkPolicy;
 namespace descriptions
 {
 class Loader;
-}
-
-enum class RegionOverlayMode
-{
-  Off,
-  Downloaded,
-  NonDownloaded
-};
-
-std::string DebugPrint(RegionOverlayMode mode);
-RegionOverlayMode RegionOverlayModeFromString(std::string const & s);
+}  // namespace descriptions
 
 /// Uncomment line to make fixed position settings and
 /// build version for screenshots.
@@ -170,6 +160,14 @@ class Framework
 
   } m_fixedPos;
 #endif
+
+public:
+  enum class RegionOverlayMode
+  {
+    Off,
+    Downloaded,
+    NonDownloaded
+  };
 
 private:
   // Must be first member in Framework and must be destroyed first in Framework destructor.
@@ -810,3 +808,6 @@ private:
   void Refresh3dMode();
   bool m_wasRoutingActive = false;
 };
+
+std::string DebugPrint(Framework::RegionOverlayMode mode);
+Framework::RegionOverlayMode RegionOverlayModeFromString(std::string const & s);
