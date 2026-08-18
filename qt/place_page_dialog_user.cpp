@@ -4,6 +4,7 @@
 
 #include "qt/qt_common/text_dialog.hpp"
 
+#include "editor/review.hpp"
 #include "indexer/reviews_display.hpp"
 #include "indexer/validate_and_format_contacts.hpp"
 #include "map/place_page_info.hpp"
@@ -15,6 +16,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 
+#include <optional>
 #include <sstream>
 #include <string>
 
@@ -75,16 +77,34 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, place_page::Info cons
       header->addWidget(subtitleLabel);
     }
 
-    if (auto const & featureReviews = info.GetReviews(); featureReviews.has_value())
+    auto const & featureReviews = info.GetReviews();
+    auto const & reviewApp = reviews::GetReviewEditorApp(info);
+    auto const & reviewUrl = reviewApp.has_value() ? reviews::GetReviewEditorUrl(info) : std::nullopt;
+    bool const hasReviews = featureReviews.has_value();
+    bool const hasReviewLink = reviewApp.has_value() && reviewUrl.has_value();
+    if (hasReviews || hasReviewLink)
     {
-      auto const & [averageRating, reviews] = featureReviews.value();
       auto * reviewLine = new QHBoxLayout();
       reviewLine->setSpacing(5);
       header->addLayout(reviewLine);
-      auto const starRating = reviews::ToStarRating(averageRating);
-      reviewLine->addWidget(new QLabel(QString::fromStdString(std::format("{:.1f}", starRating))));
-      reviewLine->addWidget(new qt::StarRatingWidget(starRating));
-      reviewLine->addWidget(new QLabel(QString::fromStdString(std::format("({})", reviews.size()))));
+      if (hasReviews)
+      {
+        auto const & [averageRating, reviews] = featureReviews.value();
+        auto const starRating = reviews::ToStarRating(averageRating);
+        reviewLine->addWidget(new QLabel(QString::fromStdString(std::format("{:.1f}", starRating))));
+        reviewLine->addWidget(new qt::StarRatingWidget(starRating));
+        reviewLine->addWidget(new QLabel(QString::fromStdString(std::format("({})", reviews.size()))));
+        auto const maybeReviewApp = reviews::GetReviewEditorApp(info);
+      }
+      if (hasReviewLink)
+      {
+        auto addReview = new QLabel(QString::fromStdString("<a href=\"" + reviewUrl.value() + "\">Add a Review via " +
+                                                           reviewApp.value() + "</a>"));
+        addReview->setOpenExternalLinks(true);
+        addReview->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        addReview->setWordWrap(false);
+        reviewLine->addWidget(addReview);
+      }
       reviewLine->addStretch(1);
     }
 

@@ -4,6 +4,7 @@
 
 #include "qt/qt_common/text_dialog.hpp"
 
+#include "editor/review.hpp"
 #include "indexer/reviews_display.hpp"
 #include "map/place_page_info.hpp"
 
@@ -14,6 +15,11 @@
 #include <QtWidgets/QVBoxLayout>
 
 #include <string>
+
+namespace
+{
+constexpr uint kMaxUrlDisplayChars = 80;
+}
 
 PlacePageDialogDeveloper::PlacePageDialogDeveloper(QWidget * parent, place_page::Info const & info,
                                                    search::ReverseGeocoder::Address const & address)
@@ -67,6 +73,21 @@ PlacePageDialogDeveloper::PlacePageDialogDeveloper(QWidget * parent, place_page:
     auto * label = new QLabel(QString::fromStdString(summary));
     reviewLine->addWidget(label);
     reviewLine->addStretch(1);
+  }
+
+  if (auto const & reviewApp = reviews::GetReviewEditorApp(info); reviewApp.has_value())
+    addEntry("Review App", reviewApp.value());
+  if (auto const & reviewUrl = reviews::GetReviewEditorUrl(info); reviewUrl.has_value())
+  {
+    grid->addWidget(new QLabel(QString::fromStdString("Review URL")), row, 0);
+    auto shortUrl = reviewUrl.value();
+    if (reviewUrl.value().length() > kMaxUrlDisplayChars)
+      shortUrl = shortUrl.substr(0, kMaxUrlDisplayChars) + "[...]";
+    auto const urlLabel =
+        new QLabel(QString::fromStdString("<a href=\"" + reviewUrl.value() + "\">" + shortUrl + "</a>"));
+    urlLabel->setOpenExternalLinks(true);
+    urlLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    grid->addWidget(urlLabel, row++, 1);
   }
 
   addEntry("Address", address.FormatAddress());
