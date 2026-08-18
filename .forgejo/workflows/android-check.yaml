@@ -69,8 +69,10 @@ jobs:
         flavor: [FdroidBeta, FdroidDebug]
         include:
           - flavor: FdroidBeta
+            type: Beta
             arch: arm64
           - flavor: FdroidDebug
+            type: Debug
             arch: arm32
     # Cancels previous jobs if the same branch or PR was updated again.
     concurrency:
@@ -98,7 +100,7 @@ jobs:
         env:
           CMAKE_C_COMPILER_LAUNCHER: ccache
           CMAKE_CXX_COMPILER_LAUNCHER: ccache
-        run: ./gradlew -P${{ matrix.arch }} assemble${{ matrix.flavor }}
+        run: ./gradlew -P${{ matrix.arch }} test${{ matrix.flavor }}UnitTest test${{ matrix.type }}UnitTest assemble${{ matrix.flavor }}
 
       - name: Upload apk
         uses: actions/upload-artifact@v3
