@@ -12,10 +12,12 @@ import androidx.core.os.ParcelCompat;
 
 import app.organicmaps.sdk.routing.RoutePointInfo;
 import app.organicmaps.sdk.search.Popularity;
+import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.sdk.widget.placepage.PlacePageData;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,6 +30,8 @@ import java.util.Objects;
 @Keep
 public class MapObject implements PlacePageData
 {
+  private static final String TAG = MapObject.class.getSimpleName();
+
   @Retention(RetentionPolicy.SOURCE)
   @IntDef({POI, API_POINT, BOOKMARK, MY_POSITION, SEARCH, TRACK})
   public @interface MapObjectType
@@ -360,7 +364,12 @@ public class MapObject implements PlacePageData
   @SuppressWarnings("unused")
   public void addReview(float starRating, int year, int month, int dayOfMonth, @NonNull String opinion, @NonNull String author)
   {
-    mReviews.add(new Review(starRating, LocalDate.of(year, month, dayOfMonth), opinion, author));
+    try
+    {
+      mReviews.add(new Review(starRating, LocalDate.of(year, month, dayOfMonth), opinion, author));
+    } catch (DateTimeException ex) {
+      Logger.w(TAG, "invalid review date", ex);
+    }
   }
 
   public boolean hasChargeSockets()
