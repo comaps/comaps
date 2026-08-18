@@ -3,7 +3,6 @@ package app.organicmaps.routing;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.RectF;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -58,42 +57,37 @@ public class ManageRouteAdapter extends RecyclerView.Adapter<ManageRouteAdapter.
   @Override
   public void onBindViewHolder(@NonNull ManageRouteViewHolder holder, int position)
   {
-    // Set route point icon.
     int iconId;
 
     switch (mRoutePoints.get(position).mPointType)
     {
-    case Start: // Starting point.
+    case Start:
       if (mRoutePoints.get(position).mIsMyPosition)
         iconId = R.drawable.ic_location_arrow_blue;
       else
         iconId = R.drawable.route_point_start;
       break;
 
-    case Intermediate: // Intermediate stop.
+    case Intermediate:
       TypedArray iconArray = mContext.getResources().obtainTypedArray(R.array.route_stop_icons);
       iconId = iconArray.getResourceId(mRoutePoints.get(position).mIntermediateIndex, R.drawable.route_point_20);
       iconArray.recycle();
       break;
 
-    case Finish: // Destination point.
+    case Finish:
       iconId = R.drawable.route_finish;
       break;
 
-    default: // Unknown route type.
+    default:
       iconId = R.drawable.warning_icon;
       break;
     }
 
-    // Set icon widget.
     holder.mImageViewIcon.setImageDrawable(AppCompatResources.getDrawable(mContext, iconId));
-
-    // Set title & subtitle.
     String title, subtitle;
 
     if (mRoutePoints.get(position).mIsMyPosition)
     {
-      // My position point.
       title = mContext.getString(app.organicmaps.sdk.R.string.core_my_position);
 
       if (mRoutePoints.get(position).mPointType != RouteMarkType.Start)
@@ -118,27 +112,15 @@ public class ManageRouteAdapter extends RecyclerView.Adapter<ManageRouteAdapter.
     UiUtils.showIf(mRoutePoints.size() > 2, holder.mViewDivider);
     UiUtils.showIf(mRoutePoints.size() > 2, holder.mImageViewDelete);
 
-    // Detection of touch events on holder view.
-    holder.mItemView.setOnTouchListener((v, event) -> {
-      if (event.getAction() == MotionEvent.ACTION_DOWN)
-      {
-        RectF deleteButtonRect = new RectF(holder.mImageViewDelete.getLeft(), holder.mImageViewDelete.getTop(),
-                                           holder.mImageViewDelete.getRight(), holder.mImageViewDelete.getBottom());
-
-        if (holder.mImageViewDelete.isShown() && deleteButtonRect.contains(event.getX(), event.getY()))
-        {
-          // User has clicked on the 'Delete' icon button.
-          mManageRouteListener.onRoutePointDeleted(holder);
-        }
-        else
-        {
-          // Call start drag listener on touch.
-          mManageRouteListener.startDrag(holder);
-        }
-      }
+    holder.mImageViewSwap.setOnTouchListener((v, event) ->
+    {
+      if (event.getActionMasked() == MotionEvent.ACTION_DOWN)
+        mManageRouteListener.startDrag(holder);
 
       return false;
     });
+
+    holder.mImageViewDelete.setOnClickListener(v -> mManageRouteListener.onRoutePointDeleted(holder));
   }
 
   @Override
@@ -179,17 +161,13 @@ public class ManageRouteAdapter extends RecyclerView.Adapter<ManageRouteAdapter.
   {
     String latLonString = StringUtils.formatUsingUsLocale("%.6f, %.6f", myLocation.getLat(), myLocation.getLon());
 
-    // Replace route point in first position with 'My Position".
+    // Replace route point in first position with "My Position".
     mRoutePoints.set(0, new RouteMarkData(latLonString, "", RouteMarkType.Start, 0, true, true, false,
                                           myLocation.getLat(), myLocation.getLon()));
 
-    // Update data.
     updateRoutePointsData();
-
-    // Update adapter.
     notifyItemChanged(0);
 
-    // Show 'My location' crosshair button.
     if (mManageRouteListener != null)
       mManageRouteListener.showMyLocationIcon(true);
   }

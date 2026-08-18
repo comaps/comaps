@@ -49,6 +49,7 @@ public class DirectionsPreviewBottomSheet
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState)
     {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
+        dialog.setCanceledOnTouchOutside(true);
 
         dialog.setOnShowListener(dialogInterface -> {
             FrameLayout bottomSheet =

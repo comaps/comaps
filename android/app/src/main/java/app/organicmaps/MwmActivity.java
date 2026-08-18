@@ -2238,7 +2238,6 @@ public class MwmActivity extends BaseMwmFragmentActivity
   {
     // Create and show 'Manage Route' Bottom Sheet panel.
     mManageRouteBottomSheet = new ManageRouteBottomSheet();
-    mManageRouteBottomSheet.setCancelable(false);
     mManageRouteBottomSheet.show(getSupportFragmentManager(), "ManageRouteBottomSheet");
   }
 

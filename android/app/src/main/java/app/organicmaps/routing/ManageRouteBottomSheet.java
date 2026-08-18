@@ -27,7 +27,6 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.divider.MaterialDividerItemDecoration;
 import java.util.ArrayList;
 
 public class ManageRouteBottomSheet
@@ -54,9 +53,6 @@ public class ManageRouteBottomSheet
     RecyclerView manageRouteList = v.findViewById(R.id.manage_route_list);
     LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
     manageRouteList.setLayoutManager(layoutManager);
-    RecyclerView.ItemDecoration decoration =
-        new MaterialDividerItemDecoration(getContext(), layoutManager.getOrientation());
-    manageRouteList.addItemDecoration(decoration);
 
     mManageRouteAdapter = new ManageRouteAdapter(getContext(), Framework.nativeGetRoutePoints(), this);
 
@@ -74,6 +70,7 @@ public class ManageRouteBottomSheet
   public Dialog onCreateDialog(@Nullable Bundle savedInstanceState)
   {
     Dialog dialog = super.onCreateDialog(savedInstanceState);
+    dialog.setCanceledOnTouchOutside(true);
 
     // Expand bottom sheet dialog.
     dialog.setOnShowListener(dialogInterface -> {
@@ -113,7 +110,7 @@ public class ManageRouteBottomSheet
     else if (buttonId == R.id.image_my_location)
     {
       // Get current location.
-      MapObject myLocation = MwmApplication.from(getContext()).getLocationHelper().getMyPosition();
+      MapObject myLocation = MwmApplication.from(requireContext()).getLocationHelper().getMyPosition();
 
       // Set 'My Location' as starting point of the route.
       if (myLocation != null)
@@ -159,7 +156,7 @@ public class ManageRouteBottomSheet
   public void showMyLocationIcon(boolean showMyLocationIcon)
   {
     // Get current location.
-    MapObject myLocation = MwmApplication.from(getContext()).getLocationHelper().getMyPosition();
+    MapObject myLocation = MwmApplication.from(requireContext()).getLocationHelper().getMyPosition();
 
     UiUtils.showIf(showMyLocationIcon && myLocation != null, mMyLocationImageView);
   }
@@ -184,7 +181,6 @@ public class ManageRouteBottomSheet
     @Override
     public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder)
     {
-      // Enable up & down dragging. No left-right swiping is enabled.
       return makeMovementFlags(UP | DOWN, 0);
     }
 

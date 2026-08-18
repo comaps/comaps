@@ -3,8 +3,16 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="60dp"
-  android:gravity="center_vertical">
+  android:layout_height="wrap_content"
+  android:minHeight="48dp"
+  android:gravity="center_vertical"
+  android:layout_marginVertical="@dimen/margin_eighth_plus"
+  android:layout_marginHorizontal="0dp"
+  android:paddingStart="12dp"
+  android:paddingEnd="0dp"
+  android:paddingVertical="@dimen/margin_eighth_plus"
+  android:background="@drawable/bg_pill_rect"
+  android:backgroundTint="@color/bg_panel">
 
   <com.google.android.material.imageview.ShapeableImageView
     android:id="@+id/type_icon"
@@ -20,13 +28,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="6dp"
-    android:layout_marginEnd="6dp"
     android:ellipsize="end"
     android:inputType="none"
-    android:maxLines="1"
+    android:maxLines="3"
     android:textAppearance="@style/MwmTextAppearance.Body1"
     android:textStyle="bold"
     android:textAlignment="viewStart"
+    android:includeFontPadding="false"
     app:layout_constraintStart_toEndOf="@id/type_icon"
     app:layout_constraintEnd_toStartOf="@id/reorder_icon"
     app:layout_constraintTop_toTopOf="parent"
@@ -39,12 +47,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="6dp"
-    android:layout_marginEnd="6dp"
     android:ellipsize="end"
     android:inputType="none"
-    android:maxLines="2"
+    android:maxLines="3"
     android:textAppearance="@style/MwmTextAppearance.Body1"
     android:textAlignment="viewStart"
+    android:includeFontPadding="false"
     app:layout_constraintStart_toEndOf="@id/type_icon"
     app:layout_constraintEnd_toStartOf="@id/reorder_icon"
     app:layout_constraintTop_toBottomOf="@id/title"
@@ -54,11 +62,11 @@
 
   <com.google.android.material.imageview.ShapeableImageView
       android:id="@+id/reorder_icon"
-      android:layout_width="24dp"
-      android:layout_height="match_parent"
-      android:layout_marginTop="@dimen/margin_half"
-      android:layout_marginBottom="@dimen/margin_half"
-      android:layout_marginEnd="@dimen/margin_half_plus"
+      android:layout_width="wrap_content"
+      android:layout_height="0dp"
+      android:layout_margin="0dp"
+      android:layout_marginVertical="@dimen/margin_half"
+      android:paddingHorizontal="12dp"
       app:layout_constraintEnd_toStartOf="@id/divider"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintBottom_toBottomOf="parent"
@@ -68,23 +76,23 @@
   <View
       android:id="@+id/divider"
       android:layout_width="1dp"
-      android:layout_height="match_parent"
-      android:layout_marginBottom="@dimen/margin_half"
-      android:layout_marginTop="@dimen/margin_half"
+      android:layout_marginVertical="@dimen/margin_half"
+      android:layout_height="0dp"
       app:layout_constraintEnd_toStartOf="@id/delete_icon"
-      android:layout_marginEnd="@dimen/margin_half_plus"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintBottom_toBottomOf="parent"
-      android:background="?dividerHorizontal"/>
+      android:background="?secondary"/>
 
   <com.google.android.material.imageview.ShapeableImageView
     android:id="@+id/delete_icon"
-    android:layout_width="24dp"
-    android:layout_height="match_parent"
-    style="@style/MwmWidget.Editor.MetadataIcon"
+    android:layout_width="wrap_content"
+    android:layout_height="0dp"
+    android:layout_margin="0dp"
+    android:layout_marginVertical="@dimen/margin_half"
+    android:paddingHorizontal="12dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:srcCompat="@drawable/ic_close"/>
-
+    app:srcCompat="@drawable/ic_close"
+    app:tint="?iconTint"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

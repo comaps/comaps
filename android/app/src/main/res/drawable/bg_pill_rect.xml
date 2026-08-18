@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:shape="rectangle">
+  <solid tools:color="@color/bg_window"/>
+  <corners android:radius="24dp"/>
+</shape>
+<!-- 24dp radius means rounded sides when height 48dp or smaller,
+ but rect with rounded edges if it's taller to handle taller elements. -->
