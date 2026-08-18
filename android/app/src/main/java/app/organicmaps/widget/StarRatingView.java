@@ -43,8 +43,8 @@ public final class StarRatingView extends View
     try (TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.StarRatingView))
     {
       mRating = validateRating(typedArray.getFloat(R.styleable.StarRatingView_rating, MIN_RATING + (float) (MAX_RATING - MIN_RATING) / 2));
-      mStarSize = (int) typedArray.getDimension(R.styleable.StarRatingView_size, R.dimen.text_size_body_0);
-      mStarDrawable = Objects.requireNonNull(ContextCompat.getDrawable(context, R.drawable.ic_star));
+      mStarSize = typedArray.getDimensionPixelSize(R.styleable.StarRatingView_size, R.dimen.text_size_body_0);
+      mStarDrawable = Objects.requireNonNull(ContextCompat.getDrawable(context, R.drawable.ic_star)).mutate();
       mFgColor = ContextCompat.getColor(context, R.color.fg_rating_star);
       mBgColor = ContextCompat.getColor(context, R.color.bg_rating_star);
     }
