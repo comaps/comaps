@@ -16,7 +16,7 @@ public final class ReviewTest
   @Test
   public void parcelableRoundTrip()
   {
-    Review original = new Review(3.7, LocalDate.of(2026, 7, 27), "test review body", "Test Author");
+    Review original = new Review(3.7f, LocalDate.of(2026, 7, 27), "test review body", "Test Author");
     Parcel parcel = Parcel.obtain();
     try
     {
