@@ -92,6 +92,11 @@ struct MapObjectArgs
   {
     return jni::ToJavaBoxedFloat(env, reviews::ToStarRating(r.averageRating));
   }).value_or(nullptr))
+    // We assume here that r.reviews contains all reviews of the feature. In the future, in case there are features with
+    // large number of reviews, we might want to only store in the MWM the most relevant (recent, helpful) ones, but
+    // still display the total number of reviews on which the aggregate rating is based. If so, the MWM storage schema
+    // will need to be changed to hold the total number of reviews. Downstream from here, in the app code, we should
+    // rely on the count variable, not on the number of elements in the review collection.
     , reviewCount(static_cast<jint>(
           info.GetReviews().transform([](reviews::FeatureReviews const & r) { return r.reviews.size(); }).value_or(0)))
     , jWikiDescription(env, jni::ToJavaString(env, info.GetWikiDescription()))
