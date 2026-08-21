@@ -38,7 +38,6 @@
     android:defaultValue="false"
     android:key="@string/pref_bookmarks_text_placement"
     android:title="@string/bookmarks_text_placement_title"
-    android:summary="@string/bookmarks_text_placement_description"
     android:widgetLayout="@layout/preference_switch"
     app:singleLineTitle="false" />
 

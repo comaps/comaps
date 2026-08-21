@@ -212,16 +212,8 @@ struct SettingsView: View {
                     }
                     .tint(.accent)
                     
-                    Toggle(isOn: $showBookmarkLabels) {
-                        VStack(alignment: .leading) {
-                            Text("bookmarks_text_placement_title")
-
-                            Text("bookmarks_text_placement_description")
-                                .font(.footnote)
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                    .tint(.accent)
+                    Toggle("bookmarks_text_placement_title", isOn: $showBookmarkLabels)
+                        .tint(.accent)
                 } header: {
                     HStack(spacing: 4) {
                         Image(systemName: "map")
