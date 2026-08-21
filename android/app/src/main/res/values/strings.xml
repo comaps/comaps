@@ -721,8 +721,7 @@
     <string name="power_managment_setting_never">Never</string>
     <string name="power_managment_setting_auto">When battery is low</string>
     <string name="power_managment_setting_manual_max">Always</string>
-    <string name="bookmarks_text_placement_title">Label favorites</string>
-    <string name="bookmarks_text_placement_description">Labels may affect performance</string>
+    <string name="bookmarks_text_placement_title">Show favorites\' names</string>
     <string name="enable_logging_warning_message">Enable this option temporarily to record and manually send detailed diagnostic logs about your issue to us using \"Report a bug\" in the Help dialog. Logs may include location info.</string>
     <string name="routing_options_title">Routing options</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
