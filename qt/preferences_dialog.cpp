@@ -181,7 +181,7 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     });
   }
 
-  QCheckBox * showBookmarkLabelsCheckBox = new QCheckBox("Show bookmark labels");
+  QCheckBox * showBookmarkLabelsCheckBox = new QCheckBox("Show names of favorites on map");
   {
     showBookmarkLabelsCheckBox->setChecked(Framework::GetShowBookmarkLabels());
 

@@ -20,6 +20,12 @@
     android:title="@string/change_map_locale"
     app:icon="@drawable/ic_translate"
     app:singleLineTitle="false" />
+  <SwitchPreferenceCompat
+    android:defaultValue="false"
+    android:key="@string/pref_bookmarks_text_placement"
+    android:title="@string/bookmarks_text_placement_title"
+    android:widgetLayout="@layout/preference_switch"
+    app:singleLineTitle="false" />
   <ListPreference
     android:defaultValue="2"
     android:entries="@array/pref_alt_map_lang_handling_options"
@@ -33,13 +39,6 @@
     android:title="@string/transliteration_title"
     android:widgetLayout="@layout/preference_switch"
     app:icon="@drawable/ic_translate_indic"
-    app:singleLineTitle="false" />
-  <SwitchPreferenceCompat
-    android:defaultValue="false"
-    android:key="@string/pref_bookmarks_text_placement"
-    android:title="@string/bookmarks_text_placement_title"
-    android:summary="@string/bookmarks_text_placement_description"
-    android:widgetLayout="@layout/preference_switch"
     app:singleLineTitle="false" />
 
 </androidx.preference.PreferenceScreen>

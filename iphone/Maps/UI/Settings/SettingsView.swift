@@ -190,6 +190,9 @@ struct SettingsView: View {
                         Text("pref_maplanguage_title")
                     }
                     
+                    Toggle("bookmarks_text_placement_title", isOn: $showBookmarkLabels)
+                        .tint(.accent)
+                    
                     Picker(selection: $alternativeMapLanguageHandling) {
                         ForEach(Settings.AlternativeMapLanguageHandling.allCases) { alternativeMapLanguageHandling in
                             Text(alternativeMapLanguageHandling.description)
@@ -209,17 +212,6 @@ struct SettingsView: View {
                     
                     Toggle(isOn: $shouldTransliterateToLatin) {
                         Text("transliteration_title")
-                    }
-                    .tint(.accent)
-                    
-                    Toggle(isOn: $showBookmarkLabels) {
-                        VStack(alignment: .leading) {
-                            Text("bookmarks_text_placement_title")
-
-                            Text("bookmarks_text_placement_description")
-                                .font(.footnote)
-                                .foregroundStyle(.secondary)
-                        }
                     }
                     .tint(.accent)
                 } header: {
