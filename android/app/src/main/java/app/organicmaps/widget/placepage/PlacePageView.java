@@ -522,24 +522,6 @@ public class PlacePageView extends Fragment
                        hasWikipediaEntry());
   }
 
-  private void setTextAndColorizeSubtitle()
-  {
-    String text = mMapObject.getSubtitle();
-    UiUtils.setTextAndHideIfEmpty(mTvSubtitle, text);
-    if (!TextUtils.isEmpty(text))
-    {
-      SpannableStringBuilder sb = new SpannableStringBuilder(text);
-      int start = text.indexOf("★");
-      int end = text.lastIndexOf("★") + 1;
-      if (start > -1)
-      {
-        sb.setSpan(new ForegroundColorSpan(ContextCompat.getColor(requireContext(), R.color.base_yellow)), start, end,
-                   Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-      }
-      mTvSubtitle.setText(sb);
-    }
-  }
-
   private void refreshPreview()
   {
     UiUtils.setTextAndHideIfEmpty(mTvTitle, mMapObject.getTitle());
@@ -559,7 +541,7 @@ public class PlacePageView extends Fragment
 
     if (mToolbar != null)
       mToolbar.setTitle(mMapObject.getTitle());
-    setTextAndColorizeSubtitle();
+    UiUtils.setTextAndHideIfEmpty(mTvSubtitle, mMapObject.getSubtitle());
     UiUtils.setTextAndHideIfEmpty(mTvAddress, mMapObject.getAddress());
 
     refreshCategoryPreview();
