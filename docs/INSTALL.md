@@ -524,7 +524,7 @@ Example of command line for running system tracing:
 </details>
 
 <details>
-  <summary><span style="font-size: 1.5em; font-weight: bold;">iOS app</span></summary>
+  <summary><span style="font-size: 1.5em; font-weight: bold;">iOS app (incl. CarPlay)</span></summary>
 
 ### Preparing
 
@@ -575,10 +575,7 @@ Select "CoMaps" product scheme.
 
 Compile and run the project ("Product" → "Run").
 
-</details>
-
-<details>
-  <summary><span style="font-size: 1.5em; font-weight: bold;">CarPlay</span></summary>
+### CarPlay ###
 
 To test CarPlay:
 - Xcode 16: Simply select "I/O" → "External Displays" → "CarPlay" in the Simulator
@@ -586,11 +583,11 @@ To test CarPlay:
 - Xcode 27: There is no longer an External Display option, the only option is the dedicated CarPlay Simulator part of "Additional Tools for Xcode" available at the [developer downloads](https://developer.apple.com/download/all/). However, that requires compiling and signing the app, which is only possible if you are part of the internal development team as your developer account need to be blessed with a CarPlay entitlement from Apple
 
 ### Spoofing GPS
-The Simulator supports setting a specific location or spoofing a GPX track. This is especially handy when testing CarPlay or navigation
+It is handy to be able to simulate a different location in your simulator instance, or on your device
 
 To select an Apple predetermined track or specific custom location, choose "Device" → "Location" in the active Simulator in Device Hub
 
-To simulate a custom GPX track use `python3 tools/python/ios_simulator_load_gpx.py <path to your gpx>` which is a wrapper for `xcrun simctl location`. Default values are 60 km/h and 0.1s update intervals, but can be customized
+To simulate a custom GPX track use `python3 tools/python/ios_simulator_load_gpx.py <path to your gpx>` which is a wrapper for `xcrun simctl location` for the simulator or `xcrun devicectl device simulate location` for physical devices. Default values are 60 km/h and 0.1s update intervals, but can be customized
 
 </details>
 
