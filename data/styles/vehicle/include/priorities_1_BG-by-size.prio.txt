@@ -43,7 +43,7 @@ amenity-fuel                                        # area z15- (also has icon z
 amenity-recycling-centre                            # area z15- (also has icon z16-, caption(optional) z16-)
 amenity-vehicle_inspection                          # area z17- (also has icon z17-)
 highway-rest_area                                   # area z13- (also has icon z14-, caption(optional) z14-)
-highway-services                                    # area z13- (also has icon z12-, caption(optional) z13-)
+highway-services                                    # area z13- (also has icon z12-, caption(mandatory) z13-)
 landuse-garages                                     # area z13- (also has caption z16-)
 leisure-stadium                                     # area z15-
 === 150

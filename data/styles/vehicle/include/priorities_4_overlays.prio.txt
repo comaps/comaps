@@ -16,6 +16,10 @@
 highway-speed_camera                                # icon z13-
 === 4400
 
+highway-services                                    # icon z12- (also has caption(mandatory) z13-, area z13-)
+# highway-services                                  # caption(mandatory) z13- (also has icon z12-, area z13-)
+=== 4370
+
 highway-motorway::shield                            # shield::shield z10- (also has pathtext z10-, line z6-, line(casing) z14-)
 highway-motorway-bridge::shield                     # shield::shield z10- (also has pathtext z10-, line z6-, line::bridgeblack z13-, line::bridgewhite z13-, line(casing) z14-)
 highway-motorway-tunnel::shield                     # shield::shield z10- (also has pathtext z10-, line z6-, line(casing) z12-)
@@ -62,7 +66,6 @@ highway-motorway_junction                           # caption z15-
 highway-primary_link                                # pathtext z11- (also has shield::shield z11-, line z11-, line(casing) z14-)
 highway-primary_link-bridge                         # pathtext z11- (also has shield::shield z11-, line z11-, line::bridgeblack z14-, line::bridgewhite z14-, line(casing) z14-)
 highway-primary_link-tunnel                         # pathtext z11- (also has shield::shield z11-, line z11-, line(casing) z14-)
-highway-services                                    # icon z12- (also has caption(optional) z13-, area z13-)
 === 4200
 
 highway-ford                                        # icon z14-
@@ -783,9 +786,6 @@ entrance-emergency                                  # icon z19- (also has captio
 # All automatic optional captions priorities are below 0.
 # They follow the order of their correspoding icons.
 #
-
-# highway-services                                  # caption(optional) z13- (also has icon z12-, area z13-)
-# === -5800
 
 # highway-rest_area                                 # caption(optional) z14- (also has icon z14-, area z13-)
 # === -5850

@@ -2438,15 +2438,17 @@ node|z18-[amenity=car_sharing],
 area|z18-[landuse=garages],
 {font-size: 11;}
 
-node|z14[amenity=fuel],
+node|z14-[amenity=fuel],
+area|z14-[highway=services],
 {icon-image: fuel-s.svg; text-offset: 1; icon-min-distance: 20;}
-node|z15[amenity=fuel],
-{icon-image: fuel-m.svg; icon-min-distance: 20;}
-node|z16[amenity=fuel],
-{icon-image: fuel-m.svg; icon-min-distance: 10;}
-node|z17-[amenity=fuel],
+node|z15-[amenity=fuel],
+area|z15-[highway=services],
 {icon-image: fuel-m.svg;}
+node|z16-[amenity=fuel],
+area|z16-[highway=services],
+{icon-min-distance: 10;}
 node|z18-[amenity=fuel],
+area|z18-[highway=services],
 {font-size: 11;}
 
 node|z15-[amenity=charging_station][motorcar?],
@@ -2479,17 +2481,10 @@ node|z16[amenity=charging_station],
 node|z18-[amenity=charging_station],
 {font-size: 11;}
 
-area|z14[highway=services],
-{icon-image: car-repair-s.svg; icon-min-distance: 20;}
-area|z15[highway=services],
-{icon-image: car-repair-m.svg; icon-min-distance: 10;}
-area|z15[highway=rest_area]
+area|z15[highway=rest_area],
 {icon-image: picnic-m.svg; icon-min-distance: 10;}
-area|z16-[highway=services],
-{icon-image: car-repair-m.svg;}
 area|z16-[highway=rest_area],
 {icon-image: picnic-m.svg;}
-area|z18-[highway=services],
 area|z18-[highway=rest_area],
 {font-size: 11;}
 
