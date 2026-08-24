@@ -30,6 +30,11 @@ std::string const kSuffixPublicTransportOutdoorDark = "_public-transport_outdoor
 std::string const kSuffixVehicleLight = "_vehicle_light";
 std::string const kSuffixVehicleDark = "_vehicle_dark";
 
+std::string const kSuffixDefaultDark = "_default_dark";
+std::string const kSuffixDefaultLight = "_default_light";
+std::string const kSuffixOutdoorsLight = "_outdoors_light";
+std::string const kSuffixOutdoorsDark = "_outdoors_dark";
+
 std::string const kStylesOverrideDir = "styles";
 
 #ifdef BUILD_DESIGNER
@@ -63,11 +68,16 @@ std::string GetStyleRulesSuffix(MapStyle mapStyle)
   case MapStyleVehicleDark: return kSuffixVehicleDark;
   case MapStyleMerged: return {};
 
+  case MapStyleDefaultDark: return kSuffixDefaultDark;
+  case MapStyleDefaultLight: return kSuffixDefaultLight;
+  case MapStyleOutdoorsLight: return kSuffixOutdoorsLight;
+  case MapStyleOutdoorsDark: return kSuffixOutdoorsDark;
+
   case MapStyleCount: break;
   }
   LOG(LWARNING, ("Unknown map style", mapStyle));
   return kSuffixWalkingLight;
-#endif  // BUILD_DESIGNER
+#endif  // #ifdef BUILD_DESIGNER #else
 }
 
 std::string GetStyleResourcesSuffix(MapStyle mapStyle)
@@ -79,6 +89,9 @@ std::string GetStyleResourcesSuffix(MapStyle mapStyle)
   // to avoid textures duplication and package size increasing.
   switch (mapStyle)
   {
+  case MapStyleDefaultLight:
+  case MapStyleOutdoorsLight:
+
   case MapStyleWalkingLight:
   case MapStyleWalkingOutdoorLight:
   case MapStyleCyclingLight:
@@ -88,6 +101,10 @@ std::string GetStyleResourcesSuffix(MapStyle mapStyle)
   case MapStylePublicTransportLight:
   case MapStylePublicTransportOutdoorLight:
   case MapStyleVehicleLight: return kSuffixLight;
+
+  case MapStyleDefaultDark:
+  case MapStyleOutdoorsDark:
+
   case MapStyleWalkingDark:
   case MapStyleWalkingOutdoorDark:
   case MapStyleCyclingDark:

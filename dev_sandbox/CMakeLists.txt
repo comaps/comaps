@@ -103,6 +103,10 @@ copy_resources(
   classificator.txt
   colors.txt
   countries.txt
+  drules_proto_default_light.bin
+  drules_proto_default_dark.bin
+  drules_proto_outdoors_light.bin
+  drules_proto_outdoors_dark.bin
   drules_proto_walking_light.bin
   drules_proto_walking_outdoor_light.bin
   drules_proto_walking_dark.bin
