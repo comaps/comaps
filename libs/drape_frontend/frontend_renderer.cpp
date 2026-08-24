@@ -876,6 +876,12 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
     break;
   }
 
+  case Message::Type::SetIndoor:
+  {
+    m_forceUpdateScene = true;
+    break;
+  }
+
   case Message::Type::EnableDebugRectRendering:
   {
     ref_ptr<EnableDebugRectRenderingMessage> msg = message;
