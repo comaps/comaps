@@ -3,6 +3,7 @@
 #include "map/api_mark_point.hpp"
 #include "map/bookmark_manager.hpp"
 #include "map/features_fetcher.hpp"
+#include "map/indoor_manager.hpp"
 #include "map/isolines_manager.hpp"
 #include "map/mwm_url.hpp"
 #include "map/place_page_info.hpp"
@@ -210,6 +211,7 @@ protected:
 
   TransitReadManager m_transitManager;
   IsolinesManager m_isolinesManager;
+  IndoorManager m_indoorManager;
 
   // Note. |m_routingManager| should be declared before |m_trafficManager|
   RoutingManager m_routingManager;
@@ -400,6 +402,10 @@ public:
   /// @name GPS location updates routine.
   void OnLocationError(location::TLocationError error);
   void OnLocationUpdate(location::GpsInfo const & info);
+
+  // Moving while the map follows you means passing buildings by, not going into one. Walking is exempt.
+  bool IsFollowingWhileMoving() const;
+  void UpdateIndoorSuspension();
   void OnCompassUpdate(location::CompassInfo const & info);
   void SwitchMyPositionNextMode();
   void StartPendingPositionMode();
@@ -741,6 +747,7 @@ public:
 
   IsolinesManager & GetIsolinesManager();
   IsolinesManager const & GetIsolinesManager() const;
+  IndoorManager & GetIndoorManager();
 
   bool LoadTrafficEnabled();
   void SaveTrafficEnabled(bool trafficEnabled);
@@ -802,4 +809,8 @@ public:
 private:
   void Refresh3dMode();
   bool m_wasRoutingActive = false;
+  // Last reported GPS speed in m/s, negative when unknown, with the fix time it came from.
+  double m_lastSpeedMps = -1.0;
+  double m_lastSpeedTimestamp = 0.0;
+  bool m_indoorSuspended = false;
 };
