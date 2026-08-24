@@ -263,7 +263,9 @@ void RuleDrawer::ProcessAreaAndPointStyle(FeatureType & f, Stylist const & s, TI
 {
   bool isBuilding = false;
   bool is3dBuilding = false;
+  bool buildings3d = false;
   bool isBuildingOutline = false;
+  bool const flattenedByIndoor = m_flattenedByIndoor;
   if (f.GetLayer() >= 0)
   {
     feature::TypesHolder const types(f);
@@ -278,7 +280,9 @@ void RuleDrawer::ProcessAreaAndPointStyle(FeatureType & f, Stylist const & s, TI
     isBuilding = (isPart || IsBuildingChecker::Instance()(types)) && !IsBridgeOrTunnelChecker::Instance()(types);
 
     isBuildingOutline = isBuilding && hasParts && !isPart;
-    is3dBuilding = isBuilding && !isBuildingOutline && m_context->Is3dBuildingsEnabled();
+    // Only the indoor complex and its immediate neighbors lose 3D; the rest of the city keeps it.
+    buildings3d = m_context->Is3dBuildingsEnabled() && !flattenedByIndoor;
+    is3dBuilding = isBuilding && !isBuildingOutline && buildings3d;
   }
 
   m2::PointD featureCenter;
@@ -312,12 +316,24 @@ void RuleDrawer::ProcessAreaAndPointStyle(FeatureType & f, Stylist const & s, TI
     applyPointStyle = m_globalRect.IsPointInside(featureCenter);
   }
 
-  bool const skipTriangles = isBuildingOutline && m_context->Is3dBuildingsEnabled();
-  if (!skipTriangles && isBuilding && f.GetTrgVerticesCount(m_zoomLevel) >= 10000)
+  bool const skipTriangles = isBuildingOutline && buildings3d;
+  // Both the building path and the outline algorithm assume relatively small polygons.
+  bool const tooManyVertices = f.GetTrgVerticesCount(m_zoomLevel) >= 10000;
+  if (!skipTriangles && isBuilding && tooManyVertices)
     isBuilding = false;
 
-  ApplyAreaFeature apply(m_context->GetTileKey(), insertShape, f, m_currentScaleGtoP, isBuilding,
+  // Buildings and indoor areas draw their casing here, and anything else keeps its tile clipping.
+  bool const generateOutline =
+      !tooManyVertices && ApplyAreaFeature::NeedOutline(s.m_areaRule) &&
+      (isBuilding || ftypes::IsIndoorChecker::Instance()(feature::TypesHolder(f)));
+  ApplyAreaFeature apply(m_context->GetTileKey(), insertShape, f, m_currentScaleGtoP, isBuilding, generateOutline,
                          areaMinHeight /* minPosZ */, areaHeight /* posZ */, s.GetCaptionDescription());
+  if (m_indoorFloor)
+    apply.DrawAsIndoorFloor();
+  else if (flattenedByIndoor || m_ignoreLayerForIndoor)
+    apply.IgnoreLayer();
+  if (m_sinkBelowIndoor)
+    apply.SinkBelowIndoor();
 
   if (!skipTriangles && (s.m_areaRule || s.m_hatchingRule))
   {
@@ -337,6 +353,10 @@ void RuleDrawer::ProcessAreaAndPointStyle(FeatureType & f, Stylist const & s, TI
 void RuleDrawer::ProcessLineStyle(FeatureType & f, Stylist const & s, TInsertShapeFn const & insertShape)
 {
   ApplyLineFeatureGeometry applyGeom(m_context->GetTileKey(), insertShape, f, m_currentScaleGtoP);
+  if (m_sinkBelowIndoor)
+    applyGeom.SinkBelowIndoor();
+  if (m_ignoreLayerForIndoor)
+    applyGeom.IgnoreLayer();
   f.ForEachPoint(applyGeom, m_zoomLevel);
 
   if (applyGeom.HasGeometry())
@@ -360,8 +380,13 @@ void RuleDrawer::ProcessLineStyle(FeatureType & f, Stylist const & s, TInsertSha
 
     if (!clippedSplines.empty())
     {
+      // Same sinking for the road's own casing and dashes.
       ApplyLineFeatureAdditional applyAdditional(m_context->GetTileKey(), insertShape, f, m_currentScaleGtoP,
                                                  s.GetCaptionDescription(), std::move(clippedSplines));
+      if (m_sinkBelowIndoor)
+        applyAdditional.SinkBelowIndoor();
+      if (m_ignoreLayerForIndoor)
+        applyAdditional.IgnoreLayer();
       applyAdditional.ProcessAdditionalLineRules(s.m_pathtextRule, s.m_shieldRule, m_context->GetTextureManager(),
                                                  s.m_roadShields, m_generatedRoadShields);
     }
@@ -415,15 +440,56 @@ void RuleDrawer::ProcessPointStyle(FeatureType & f, Stylist const & s, TInsertSh
                           m_context->GetTextureManager());
 }
 
+bool RuleDrawer::FlattenedByIndoor(FeatureType & f)
+{
+  auto const & indoor = m_context->GetIndoor();
+  if (!indoor.IsOn() || f.GetGeomType() != feature::GeomType::Area)
+    return false;
+  // Cheap reject first, so geometry is only loaded for the few features that can matter.
+  if (!indoor.m_complex->m_rect.IsIntersect(f.GetLimitRect(m_zoomLevel)))
+    return false;
+
+  std::vector<m2::TriangleD> triangles;
+  f.ForEachTriangle([&triangles](m2::PointD const & p1, m2::PointD const & p2, m2::PointD const & p3)
+  { triangles.emplace_back(p1, p2, p3); }, m_zoomLevel);
+  return indoor.Flattens(triangles);
+}
+
 void RuleDrawer::operator()(FeatureType & f)
 {
   if (CheckCancelled())
     return;
 
   feature::TypesHolder const types(f);
+
+  m_flattenedByIndoor = false;
+  m_indoorFloor = false;
+  m_sinkBelowIndoor = false;
+  m_ignoreLayerForIndoor = false;
+
+  auto const & activeIndoor = m_context->GetIndoor();
+  if (activeIndoor.IsOn())
+  {
+    // Built once, and only with a complex to compare against, because the view parses geometry.
+    auto const view = indoor::MakeFeatureView(f, types, m_zoomLevel, false /* withGeometry */);
+    if (activeIndoor.Hides(view))
+      return;
+
+    m_flattenedByIndoor = FlattenedByIndoor(f);
+    m_indoorFloor = activeIndoor.DrawsAsFloor(view);
+    m_sinkBelowIndoor = activeIndoor.Sinks(view);
+    m_ignoreLayerForIndoor = activeIndoor.IgnoresLayer(view);
+  }
+  else if (ftypes::IsIndoorChecker::Instance()(types))
+  {
+    // Indoor styles start at z17, so without this they draw as ordinary geometry.
+    return;
+  }
+
+  bool const buildings3d = m_context->Is3dBuildingsEnabled() && !m_flattenedByIndoor;
   if ((!m_context->IsolinesEnabled() && ftypes::IsIsolineChecker::Instance()(types)) ||
-      (!m_context->Is3dBuildingsEnabled() && ftypes::IsBuildingPartChecker::Instance()(types) &&
-       !ftypes::IsBuildingChecker::Instance()(types)))
+      (!buildings3d && ftypes::IsBuildingPartChecker::Instance()(types) &&
+       !ftypes::IsBuildingChecker::Instance()(types) && !ftypes::IsIndoorChecker::Instance()(types)))
     return;
 
   if (ftypes::IsCoastlineChecker::Instance()(types) && !CheckCoastlines(f))

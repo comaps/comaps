@@ -27,6 +27,8 @@
 #include "drape/pointers.hpp"
 #include "drape/render_bucket.hpp"
 
+#include "indexer/indoor.hpp"
+
 #include "platform/location.hpp"
 
 #include "geometry/rect2d.hpp"
@@ -1127,6 +1129,19 @@ public:
 
 private:
   bool const m_isSimplified;
+};
+
+class SetIndoorMessage : public Message
+{
+public:
+  explicit SetIndoorMessage(indoor::Active indoor) : m_indoor(std::move(indoor)) {}
+
+  Type GetType() const override { return Type::SetIndoor; }
+
+  indoor::Active const & GetIndoor() const { return m_indoor; }
+
+private:
+  indoor::Active m_indoor;
 };
 
 class EnableIsolinesMessage : public Message
