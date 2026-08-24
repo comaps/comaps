@@ -46,12 +46,14 @@ namespace decoder_model
    * once the full attribute penalty).
    * A “wrong” road may also just have a penalty of 4 (e.g. road name mismatch, but road class and
    * ramp type match).
-   * A value of 16 has worked well for the DE-B2R-SendlingSued-Passauerstrasse test case. (The
+   * A value of 16 has worked well for the DE-B2R-SendlingSued-Passauerstrasse test case, whereas for
+   * the DE-L172-Wilhelmstraße-closure test case, the correct route already reaches a penalty of 16
+   * (road class off by more than one, ref missing on the map), so this was increased to 24. (The
    * DE-A10-Werder-GrossKreutz or DE-A115-PotsdamDrewitz-Nuthetal test cases gave incorrect results
    * due to lack of fake segments, which was fixed through truncation and now works correctly even
    * with an offroad penalty of 128.)
    */
-  auto constexpr kOffroadPenalty = 16;
+  auto constexpr kOffroadPenalty = 24;
 
   /**
    * @brief Penalty applied to impassable ways.
