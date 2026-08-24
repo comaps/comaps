@@ -97,6 +97,8 @@ set(SRC
   house_to_street_iface.hpp
   index_builder.cpp
   index_builder.hpp
+  indoor.cpp
+  indoor.hpp
   interval_index.hpp
   interval_index_builder.hpp
   isolines_info.cpp
