@@ -667,7 +667,7 @@ indoor|area;[indoor=area];;name;int_name;534;
 indoor|wall;[indoor=wall];;;;535;
 indoor|door;[indoor=door];;ref;name;536;
 indoor|level;[indoor=level];;name;int_name;537;
-deprecated|deprecated;538;x
+highway|corridor;[highway=corridor];;name;int_name;538;
 railway|funicular|tunnel;[railway=funicular][tunnel?];;name;int_name;539;
 barrier|cycle_barrier;540;
 addr:interpolation;[addr:interpolation];;addr:housenumber;name;541;

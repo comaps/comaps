@@ -55,6 +55,8 @@ HighwayBasedSpeeds const kDefaultSpeeds = {
     // Set 10% higher weight (than default 5) for foot designated ways.
     {HighwayType::HighwayPedestrian, InOutCitySpeedKMpH(SpeedKMpH(5.5, 5.0))},
     {HighwayType::HighwayFootway, InOutCitySpeedKMpH(SpeedKMpH(5.5, 5.0))},
+    // An indoor path mapped as a line rather than an indoor=corridor area, so treated as a footway.
+    {HighwayType::HighwayCorridor, InOutCitySpeedKMpH(SpeedKMpH(5.5, 5.0))},
 
     /// @todo A car ferry has {10, 10}. Weight = 3 is 60% from reasonable 5 max speed.
     {HighwayType::RouteFerry, InOutCitySpeedKMpH(SpeedKMpH(3.0, 20.0))},
@@ -87,6 +89,7 @@ VehicleModel::LimitsInitList const kDefaultOptions = {
     {HighwayType::HighwaySteps, true},
     {HighwayType::HighwayPedestrian, true},
     {HighwayType::HighwayFootway, true},
+    {HighwayType::HighwayCorridor, true},
     {HighwayType::ManMadePier, true},
     {HighwayType::RouteFerry, true}};
 
