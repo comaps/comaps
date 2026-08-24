@@ -1,6 +1,7 @@
 #pragma once
 
 #include "point2d.hpp"
+#include "rect2d.hpp"
 
 #include <sstream>
 #include <vector>
@@ -59,5 +60,9 @@ bool IsPointStrictlyInsideTriangle(m2::PointD const & pt, m2::PointD const & p1,
 
 bool IsPointInsideTriangles(m2::PointD const & pt, std::vector<m2::TriangleD> const & v);
 //@}
+
+// True if the triangle actually overlaps the rect, not just their bounding boxes.
+bool TriangleIntersectsRect(m2::RectD const & rect, m2::PointD const & a, m2::PointD const & b,
+                            m2::PointD const & c);
 
 }  // namespace m2

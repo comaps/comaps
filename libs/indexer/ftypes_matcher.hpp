@@ -270,6 +270,14 @@ public:
   DECLARE_CHECKER_INSTANCE(IsBuildingPartChecker);
 };
 
+class IsIndoorChecker : public ftypes::BaseChecker
+{
+  IsIndoorChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsIndoorChecker);
+};
+
 class IsBuildingHasPartsChecker : public ftypes::BaseChecker
 {
   IsBuildingHasPartsChecker();
