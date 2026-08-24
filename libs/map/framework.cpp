@@ -2675,6 +2675,18 @@ void Framework::SwitchToMapMode(MapMode const mapMode, bool const shouldAlwaysRe
     else
       mapStyle = MapStylePublicTransportLight;
     break;
+  case MapMode::Default:
+    mapModeValue = "Default";
+    if (MapStyleIsDark(mapStyle))
+      if (MapStyleIsOutdoor(mapStyle))
+        mapStyle = MapStyleOutdoorsDark;
+      else
+        mapStyle = MapStyleDefaultDark;
+    else if (MapStyleIsOutdoor(mapStyle))
+      mapStyle = MapStyleOutdoorsLight;
+    else
+      mapStyle = MapStyleDefaultLight;
+    break;
   case MapMode::Walking:
   default:
     mapModeValue = "Walking";
@@ -2709,6 +2721,8 @@ MapMode Framework::CurrentMapMode()
     mapMode = MapMode::Driving;
   else if (mapModeValue == "PublicTransport")
     mapMode = MapMode::PublicTransport;
+  else if (mapModeValue == "Default")
+    mapMode = MapMode::Default;
 
   return mapMode;
 }

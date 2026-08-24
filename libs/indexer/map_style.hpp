@@ -23,6 +23,11 @@ enum MapStyle
   MapStyleVehicleLight = 16,
   MapStyleVehicleDark = 17,
   MapStyleMerged = 18,
+  /// @todo(pastk): following styles are temporary until Android is migrated to per-transport styles
+  MapStyleDefaultLight = 19,
+  MapStyleDefaultDark = 20,
+  MapStyleOutdoorsLight = 21,
+  MapStyleOutdoorsDark = 22,
   // Add new map style here
 
   // Specifies number of MapStyle enum values, must be last

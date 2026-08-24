@@ -134,6 +134,8 @@ enum MapMode : int8_t
   Cycling = 1,
   Driving = 2,
   PublicTransport = 3,
+
+  Default = 4,
 };
 
 class Framework
