@@ -213,6 +213,10 @@ void Framework::OnLocationUpdate(GpsInfo const & info)
   GpsInfo const & rInfo = info;
 #endif
 
+  m_lastSpeedMps = rInfo.HasSpeed() ? rInfo.m_speed : -1.0;
+  m_lastSpeedTimestamp = rInfo.m_timestamp;
+  UpdateIndoorSuspension();
+
   m_routingManager.OnLocationUpdate(rInfo);
 
   bool const isRoutingActive = m_routingManager.IsRoutingActive();
@@ -256,6 +260,39 @@ void Framework::SetMyPositionModeListener(TMyPositionModeChanged && fn)
   m_myPositionListener = std::move(fn);
 }
 
+bool Framework::IsFollowingWhileMoving() const
+{
+  auto const mode = GetMyPositionMode();
+  if (mode != location::Follow && mode != location::FollowAndRotate)
+    return false;
+
+  // On foot the picker is wanted whatever the pace, so a walking route is never held back.
+  if (m_routingManager.IsRoutingActive())
+  {
+    auto const router = m_routingManager.GetCurrentRouterType();
+    if (router == routing::RouterType::Pedestrian || router == routing::RouterType::Transit)
+      return false;
+  }
+
+  // A stale speed says nothing about now, e.g. after the fix is lost on the way indoors.
+  if (m_lastSpeedMps < 0.0 ||
+      base::Timer::LocalTime() - m_lastSpeedTimestamp > indoor::kSpeedStaleSeconds)
+    return false;
+
+  // Hysteresis, so suspend above the upper bound, resume below the lower one, and hold in between.
+  if (m_lastSpeedMps > indoor::kMaxFollowSpeedMps)
+    return true;
+  if (m_lastSpeedMps < indoor::kResumeFollowSpeedMps)
+    return false;
+  return m_indoorSuspended;
+}
+
+void Framework::UpdateIndoorSuspension()
+{
+  m_indoorSuspended = IsFollowingWhileMoving();
+  m_indoorManager.SetSuspended(m_indoorSuspended);
+}
+
 EMyPositionMode Framework::GetMyPositionMode() const
 {
   return m_drapeEngine ? m_drapeEngine->GetMyPositionMode() : PendingPosition;
@@ -283,6 +320,11 @@ IsolinesManager & Framework::GetIsolinesManager()
 IsolinesManager const & Framework::GetIsolinesManager() const
 {
   return m_isolinesManager;
+}
+
+IndoorManager & Framework::GetIndoorManager()
+{
+  return m_indoorManager;
 }
 
 void Framework::OnUserPositionChanged(m2::PointD const & position, bool hasPosition)
@@ -314,6 +356,8 @@ void Framework::OnViewportChanged(ScreenBase const & screen)
   m_trafficManager.UpdateViewport(m_currentModelView);
   m_transitManager.UpdateViewport(m_currentModelView);
   m_isolinesManager.UpdateViewport(m_currentModelView);
+  UpdateIndoorSuspension();
+  m_indoorManager.UpdateViewport(m_currentModelView);
 
   if (m_viewportChangedFn != nullptr)
     m_viewportChangedFn(screen);
@@ -326,6 +370,8 @@ Framework::Framework(FrameworkParams const & params, bool loadMaps)
                      [this](FeatureCallback const & fn, vector<FeatureID> const & features)
 { return m_featuresFetcher.ReadFeatures(fn, features); }, bind(&Framework::GetMwmsByRect, this, _1, false /* rough */))
   , m_isolinesManager(m_featuresFetcher.GetDataSource(), bind(&Framework::GetMwmsByRect, this, _1, false /* rough */))
+  , m_indoorManager([this](m2::RectD const & rect, std::function<void(FeatureType &)> const & fn, int scale)
+{ m_featuresFetcher.ForEachFeature(rect, fn, scale); })
   , m_routingManager(RoutingManager::Callbacks([this]() -> DataSource & { return m_featuresFetcher.GetDataSource(); },
                                                [this]() -> storage::CountryInfoGetter const &
 { return GetCountryInfoGetter(); }, [this](string const & id) -> string { return m_storage.GetParentIdFor(id); },
@@ -468,6 +514,7 @@ void Framework::OnCountryFileDownloaded(storage::CountryId const &, storage::Loc
   m_trafficManager.Invalidate();
   m_transitManager.Invalidate();
   m_isolinesManager.Invalidate();
+  m_indoorManager.Invalidate();
 
   InvalidateRect(rect);
   GetSearchAPI().ClearCaches();
@@ -1608,6 +1655,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   m_trafficManager.SetDrapeEngine(make_ref(m_drapeEngine));
   m_transitManager.SetDrapeEngine(make_ref(m_drapeEngine));
   m_isolinesManager.SetDrapeEngine(make_ref(m_drapeEngine));
+  m_indoorManager.SetDrapeEngine(make_ref(m_drapeEngine));
   m_searchMarks.SetDrapeEngine(make_ref(m_drapeEngine));
 
   InvalidateUserMarks();
@@ -1638,6 +1686,7 @@ void Framework::OnRecoverSurface(int width, int height, bool recreateContextDepe
   m_trafficManager.OnRecoverSurface();
   m_transitManager.Invalidate();
   m_isolinesManager.Invalidate();
+  m_indoorManager.Invalidate();
 }
 
 void Framework::OnDestroySurface()
@@ -1678,6 +1727,7 @@ void Framework::DestroyDrapeEngine()
     m_trafficManager.SetDrapeEngine(nullptr);
     m_transitManager.SetDrapeEngine(nullptr);
     m_isolinesManager.SetDrapeEngine(nullptr);
+    m_indoorManager.SetDrapeEngine(nullptr);
     m_searchMarks.SetDrapeEngine(nullptr);
     GetBookmarkManager().SetDrapeEngine(nullptr);
 
@@ -1912,6 +1962,8 @@ FeatureID Framework::GetFeatureAtPoint(m2::PointD const & mercator, FeatureMatch
   auto areaClosestDistanceToCenter = numeric_limits<double>::max();
   auto currentDistance = numeric_limits<double>::max();
 
+  auto const indoor = m_indoorManager.GetActive();
+
   indexer::ForEachFeatureAtPoint(m_featuresFetcher.GetDataSource(), [&](FeatureType & ft)
   {
     if (fullMatch.IsValid())
@@ -1922,6 +1974,12 @@ FeatureID Framework::GetFeatureAtPoint(m2::PointD const & mercator, FeatureMatch
       fullMatch = ft.GetID();
       return;
     }
+
+    // Don't select what the renderer isn't drawing on this floor.
+    if (indoor.IsOn() &&
+        indoor.Hides(indoor::MakeFeatureView(ft, feature::TypesHolder(ft), scales::GetUpperScale(),
+                                             false /* withGeometry */)))
+      return;
 
     switch (ft.GetGeomType())
     {
