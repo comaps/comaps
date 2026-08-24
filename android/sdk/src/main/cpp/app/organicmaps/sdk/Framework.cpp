@@ -1666,7 +1666,7 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetTransitScheme
   if (enabled)
     frm()->SwitchToMapMode(MapMode::PublicTransport);
   else
-    frm()->SwitchToMapMode(MapMode::Walking);
+    frm()->SwitchToMapMode(MapMode::Default);
 }
 
 JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeIsTransitSchemeEnabled(JNIEnv * env, jclass)

@@ -7,7 +7,8 @@ public enum MapMode
   Walking(0),
   Cycling(1),
   Driving(2),
-  PublicTransport(3);
+  PublicTransport(3),
+  Default(4);
 
   MapMode(int value)
   {
