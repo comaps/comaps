@@ -79,6 +79,7 @@ enum class HighwayType : uint16_t
   HighwayLadder = 478,
   HighwayBusway = 857,  // reserve type here, but this type is not used for any routing by default
   RouteShuttleTrain = 1054,
+  HighwayCorridor = 650,
 };
 
 using HighwayBasedFactors = ska::flat_hash_map<HighwayType, InOutCityFactor, boost::hash<HighwayType>>;

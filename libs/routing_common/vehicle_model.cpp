@@ -295,6 +295,7 @@ HighwayBasedFactors GetOneFactorsForBicycleAndPedestrianModel()
       {HighwayType::HighwaySteps, InOutCityFactor(1.0)},
       {HighwayType::HighwayPedestrian, InOutCityFactor(1.0)},
       {HighwayType::HighwayFootway, InOutCityFactor(1.0)},
+      {HighwayType::HighwayCorridor, InOutCityFactor(1.0)},
       {HighwayType::ManMadePier, InOutCityFactor(1.0)},
       {HighwayType::RouteFerry, InOutCityFactor(1.0)},
   };
@@ -384,6 +385,7 @@ string DebugPrint(HighwayType type)
   case HighwayType::HighwayTertiaryLink: return "highway-tertiary_link";
   case HighwayType::HighwayBusway: return "highway-busway";
   case HighwayType::RouteShuttleTrain: return "route-shuttle_train";
+  case HighwayType::HighwayCorridor: return "highway-corridor";
   }
 
   UNREACHABLE();
@@ -407,6 +409,7 @@ void FromString(std::string_view s, HighwayType & highwayType)
         HighwayType::HighwayPrimaryLink,   HighwayType::ManMadePier,       HighwayType::HighwayBridleway,
         HighwayType::HighwaySecondaryLink, HighwayType::RouteFerry,        HighwayType::HighwayTertiaryLink,
         HighwayType::HighwayBusway,        HighwayType::RouteShuttleTrain, HighwayType::HighwayConstruction,
+        HighwayType::HighwayCorridor,
         HighwayType::HighwayConstructionMotorway,     HighwayType::HighwayConstructionMotorwayLink,
         HighwayType::HighwayConstructionTrunk,        HighwayType::HighwayConstructionTrunkLink,
         HighwayType::HighwayConstructionPrimary,      HighwayType::HighwayConstructionPrimaryLink,

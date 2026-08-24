@@ -279,6 +279,7 @@ indoor-wall                                         # line z17-
 highway-bridleway                                   # line z14- (also has pathtext z15-)
 highway-bridleway-bridge                            # line z14- (also has line::bridgeblack z17-, line::bridgewhite z15-, pathtext z15-)
 highway-bridleway-tunnel                            # line z14- (also has line::tunnelBackground z17-, line::tunnelCasing z17-, pathtext z15-)
+highway-corridor                                    # line z17- (also has line::border z17-)
 highway-footway                                     # line z15- (also has line::border z15-, pathtext z15-)
 highway-footway-area                                # line z15- and area z14- (also has line::border z15-, pathtext z15-)
 highway-footway-crossing                            # line z16- (also has line::border z16-)
@@ -435,6 +436,7 @@ highway-unclassified::border                        # line::border z13- (also ha
 highway-unclassified-area::border                   # line::border z13- (also has line z11-, pathtext z13-)
 === 145
 
+highway-corridor::border                            # line::border z17- (also has line z17-)
 highway-footway::border                             # line::border z15- (also has line z15-, pathtext z15-)
 highway-footway-area::border                        # line::border z15- (also has line z15-, area z14-, pathtext z15-)
 highway-footway-bicycle::border                     # line::border z15- (also has line z15-, line::cycleline z15-, pathtext z15-)
