@@ -1103,7 +1103,9 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & messa
   {
     std::vector<routing::RouteSegment> rsegments(route->GetRouteSegments());
 
-    TruncateRoute(rsegments, checkpoints, backwards);
+    if (m_message.value().m_location.value().m_fuzziness
+        && (m_message.value().m_location.value().m_fuzziness.value() == traffxml::Fuzziness::LowRes))
+      TruncateRoute(rsegments, checkpoints, backwards);
 
     /*
      * `m_onRoundabout` is set only for the first segment after the junction. In order to identify
