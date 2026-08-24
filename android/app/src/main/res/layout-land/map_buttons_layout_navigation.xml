@@ -67,6 +67,16 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent">
     <include
+      layout="@layout/map_buttons_indoor_levels"
+      android:layout_width="wrap_content"
+      android:layout_height="0dp"
+      android:layout_marginTop="@dimen/margin_half"
+      android:layout_marginBottom="@dimen/margin_half"
+      app:layout_constraintBottom_toTopOf="@+id/zoom_buttons_container"
+      app:layout_constraintVertical_bias="1"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
+    <include
       layout="@layout/map_buttons_zoom"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"

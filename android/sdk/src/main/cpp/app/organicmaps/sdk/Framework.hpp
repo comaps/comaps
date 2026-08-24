@@ -191,6 +191,7 @@ public:
   void SetTrafficStateListener(TrafficManager::TrafficStateChangedFn const & fn);
   void SetTransitSchemeListener(TransitReadManager::TransitStateChangedFn const & fn);
   void SetIsolinesListener(IsolinesManager::IsolinesStateChangedFn const & fn);
+  void SetIndoorLevelsListener(IndoorManager::LevelsChangedFn const & fn);
 
   bool IsTrafficEnabled();
   void EnableTraffic();
