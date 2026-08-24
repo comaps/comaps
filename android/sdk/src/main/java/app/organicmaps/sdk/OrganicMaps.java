@@ -14,6 +14,7 @@ import app.organicmaps.sdk.editor.OsmOAuth;
 import app.organicmaps.sdk.location.LocationHelper;
 import app.organicmaps.sdk.location.LocationProviderFactory;
 import app.organicmaps.sdk.location.SensorHelper;
+import app.organicmaps.sdk.maplayer.indoor.IndoorManager;
 import app.organicmaps.sdk.maplayer.isolines.IsolinesManager;
 import app.organicmaps.sdk.maplayer.subway.SubwayManager;
 import app.organicmaps.sdk.maplayer.traffic.TrafficManager;
@@ -43,6 +44,8 @@ public final class OrganicMaps implements DefaultLifecycleObserver
   private final SharedPreferences mPreferences;
 
   @NonNull
+  private final IndoorManager mIndoorManager;
+  @NonNull
   private final IsolinesManager mIsolinesManager;
   @NonNull
   private final SubwayManager mSubwayManager;
@@ -71,6 +74,12 @@ public final class OrganicMaps implements DefaultLifecycleObserver
   public SubwayManager getSubwayManager()
   {
     return mSubwayManager;
+  }
+
+  @NonNull
+  public IndoorManager getIndoorManager()
+  {
+    return mIndoorManager;
   }
 
   @NonNull
@@ -106,6 +115,7 @@ public final class OrganicMaps implements DefaultLifecycleObserver
 
     mSensorHelper = new SensorHelper(mContext);
     mLocationHelper = new LocationHelper(mContext, mSensorHelper, locationProviderFactory);
+    mIndoorManager = new IndoorManager();
     mIsolinesManager = new IsolinesManager();
     mSubwayManager = new SubwayManager(mContext);
   }
@@ -194,6 +204,7 @@ public final class OrganicMaps implements DefaultLifecycleObserver
     TrafficManager.INSTANCE.initialize();
     mSubwayManager.initialize();
     mIsolinesManager.initialize();
+    mIndoorManager.initialize();
     ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
 
     Logger.i(TAG, "Framework initialized");

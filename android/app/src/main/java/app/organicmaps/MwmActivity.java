@@ -1145,6 +1145,14 @@ public class MwmActivity extends BaseMwmFragmentActivity
     RoutingController.get().rebuildLastRoute();
   }
 
+  private void onIndoorLevelsChanged(@NonNull double[] levels, double activeLevel)
+  {
+    MapButtonsController controller =
+        (MapButtonsController) getSupportFragmentManager().findFragmentById(R.id.map_buttons);
+    if (controller != null)
+      controller.updateIndoorLevels(levels, activeLevel);
+  }
+
   private void onIsolinesStateChanged(@NonNull IsolinesState type)
   {
     if (type == IsolinesState.NODATA)
@@ -1229,6 +1237,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     BookmarkManager.INSTANCE.addLoadingListener(this);
     RoutingController.get().attach(this);
     MwmApplication.from(getApplicationContext()).getIsolinesManager().attach(this::onIsolinesStateChanged);
+    MwmApplication.from(getApplicationContext()).getIndoorManager().setLevelsListener(this::onIndoorLevelsChanged);
     LocationState.nativeSetListener(this);
     MwmApplication.from(this).getLocationHelper().addListener(this);
     mSearchController.attach(this);
@@ -1248,6 +1257,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
       RoutingController.get().detach();
     }
     MwmApplication.from(getApplicationContext()).getIsolinesManager().detach();
+    MwmApplication.from(getApplicationContext()).getIndoorManager().removeLevelsListener();
     mSearchController.detach();
     Utils.keepScreenOn(false, getWindow());
 

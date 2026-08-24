@@ -13,12 +13,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.OptIn;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
@@ -31,6 +33,7 @@ import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.downloader.UpdateInfo;
 import app.organicmaps.sdk.location.TrackRecorder;
+import app.organicmaps.sdk.maplayer.indoor.IndoorManager;
 import app.organicmaps.sdk.maplayer.isolines.IsolinesManager;
 import app.organicmaps.sdk.maplayer.subway.SubwayManager;
 import app.organicmaps.sdk.maplayer.traffic.TrafficManager;
@@ -42,9 +45,13 @@ import app.organicmaps.util.WindowInsetUtils;
 import app.organicmaps.widget.menu.MyPositionButton;
 import app.organicmaps.widget.placepage.PlacePageViewModel;
 import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.badge.BadgeUtils;
 import com.google.android.material.badge.ExperimentalBadgeUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.shape.CornerFamily;
+import com.google.android.material.shape.RelativeCornerSize;
+import com.google.android.material.shape.ShapeAppearanceModel;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -60,6 +67,11 @@ public class MapButtonsController extends Fragment
   private LayersButton mToggleMapLayerButton;
   @Nullable
   FloatingActionButton mTrackRecordingStatusButton;
+  @Nullable
+  private NestedScrollView mIndoorLevelsScroll;
+  @Nullable
+  private LinearLayout mIndoorLevelsContainer;
+  private boolean mHasIndoorLevels = false;
 
   @Nullable
   private MyPositionButton mNavMyPosition;
@@ -129,6 +141,10 @@ public class MapButtonsController extends Fragment
       mToggleMapLayerButton.setVisibility(View.VISIBLE);
     }
     mMapButtonsViewModel.setTopButtonsMarginTop(-1);
+    mIndoorLevelsScroll = mFrame.findViewById(R.id.indoor_levels_scroll);
+    mIndoorLevelsContainer = mFrame.findViewById(R.id.indoor_levels_container);
+    if (mIndoorLevelsScroll != null && mIndoorLevelsScroll.getBackground() != null)
+      mIndoorLevelsScroll.getBackground().setAlpha(51); // 20% opacity
     mTrackRecordingStatusButton = mFrame.findViewById(R.id.track_recording_status);
     if (mTrackRecordingStatusButton != null)
       mTrackRecordingStatusButton.setOnClickListener(
@@ -141,15 +157,29 @@ public class MapButtonsController extends Fragment
 
     // Used to get the maximum height the buttons will evolve in
     mFrame.addOnLayoutChangeListener(new MapButtonsController.ContentViewLayoutChangeListener(mFrame));
+    // Re-snap the indoor level picker's height on rotation/resize.
+    mFrame.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) ->
+    {
+      if (mHasIndoorLevels && mIndoorLevelsContainer != null
+          && (bottom - top != oldBottom - oldTop || right - left != oldRight - oldLeft))
+        fitIndoorLevels(mIndoorLevelsContainer.getChildCount(), -1);
+    });
 
     mButtonsMap.put(MapButtons.zoom, zoomFrame);
     mButtonsMap.put(MapButtons.myPosition, myPosition);
+    if (mIndoorLevelsScroll != null)
+      mButtonsMap.put(MapButtons.indoorLevels, mIndoorLevelsScroll);
 
     if (mToggleMapLayerButton != null)
       mButtonsMap.put(MapButtons.toggleMapLayer, mToggleMapLayerButton);
     if (mTrackRecordingStatusButton != null)
       mButtonsMap.put(MapButtons.trackRecordingStatus, mTrackRecordingStatusButton);
     showButton(false, MapButtons.trackRecordingStatus);
+
+    // Rotating the phone rebuilds these buttons, so re-read the floors or the picker comes back empty.
+    if (mIndoorLevelsScroll != null)
+      updateIndoorLevels(IndoorManager.getViewportLevels(), IndoorManager.getActiveLevel());
+
     return mFrame;
   }
 
@@ -232,6 +262,7 @@ public class MapButtonsController extends Fragment
     switch (button)
     {
     case zoom: UiUtils.showIf(show && Config.showZoomButtons(), buttonView); break;
+    case indoorLevels: UiUtils.showIf(show && mHasIndoorLevels, buttonView); break;
     case toggleMapLayer:
       if (mToggleMapLayerButton != null)
         UiUtils.showIf(show && !isInNavigationMode(), mToggleMapLayerButton);
@@ -325,6 +356,151 @@ public class MapButtonsController extends Fragment
     updateMenuBadge(TrackRecorder.nativeIsTrackRecordingEnabled());
   }
 
+  public void updateIndoorLevels(@NonNull double[] levels, double activeLevel)
+  {
+    // Floors can arrive while the map screen is being torn down, so never touch a dead view.
+    if (!isAdded() || mIndoorLevelsScroll == null || mIndoorLevelsContainer == null)
+      return;
+
+    mIndoorLevelsContainer.removeAllViews();
+    mHasIndoorLevels = levels.length > 0;
+
+    for (int i = 0; i < levels.length; i++)
+    {
+      final double level = levels[i];
+      final MaterialButton button = createIndoorLevelButton(level, i, levels.length, level == activeLevel);
+      button.setOnClickListener(v -> IndoorManager.selectLevel(level));
+      mIndoorLevelsContainer.addView(button);
+    }
+
+    if (mHasIndoorLevels)
+    {
+      int activeIndex = 0;
+      for (int i = 0; i < levels.length; i++)
+        if (levels[i] == activeLevel)
+          activeIndex = i;
+      fitIndoorLevels(levels.length, activeIndex);
+    }
+
+    // Hide the level picker when the zoom buttons hide
+    updateButtonsVisibility();
+  }
+
+  // Resize once. A second resize lands inside the first one's layout and Android silently drops it.
+  private void fitIndoorLevels(int levelCount, int activeIndex)
+  {
+    if (mIndoorLevelsScroll == null)
+      return;
+
+    mIndoorLevelsScroll.post(() ->
+    {
+      if (!isAdded() || mIndoorLevelsScroll == null)
+        return;
+
+      final int viewportHeight = snapIndoorLevelsHeight(levelCount);
+      if (activeIndex < 0)
+        return;
+
+      mIndoorLevelsScroll.post(() ->
+      {
+        if (isAdded())
+          centerActiveLevel(activeIndex, levelCount, viewportHeight);
+      });
+    });
+  }
+
+  // Whole buttons only, so the picker never shows a sliver of the one that did not fit.
+  private int snapIndoorLevelsHeight(int levelCount)
+  {
+    if (mIndoorLevelsScroll == null)
+      return 0;
+
+    final int buttonSize = getResources().getDimensionPixelSize(R.dimen.map_button_size);
+    final int gap = getResources().getDimensionPixelSize(R.dimen.margin_eighth_plus);
+    final int padding = mIndoorLevelsScroll.getPaddingTop() + mIndoorLevelsScroll.getPaddingBottom();
+    final int contentHeight = levelCount * buttonSize + (levelCount - 1) * gap + padding;
+
+    int availableHeight = contentHeight;
+    final View zoomFrame = mButtonsMap == null ? null : mButtonsMap.get(MapButtons.zoom);
+    final ViewGroup.LayoutParams params = mIndoorLevelsScroll.getLayoutParams();
+    if (zoomFrame != null && zoomFrame.getTop() > 0)
+    {
+      // Zoom sits on my-position which sits on the parent bottom, so its top never moves as we resize.
+      int marginTop = 0;
+      int marginBottom = 0;
+      if (params instanceof ViewGroup.MarginLayoutParams)
+      {
+        marginTop = ((ViewGroup.MarginLayoutParams) params).topMargin;
+        marginBottom = ((ViewGroup.MarginLayoutParams) params).bottomMargin;
+      }
+      availableHeight = zoomFrame.getTop() - marginTop - marginBottom;
+    }
+
+    final int perButton = buttonSize + gap;
+    final int buttonsThatFit = Math.max(1, (availableHeight - padding + gap) / perButton);
+    final int shownButtons = Math.min(levelCount, buttonsThatFit);
+    final int snappedHeight = shownButtons * buttonSize + (shownButtons - 1) * gap + padding;
+
+    params.height = Math.min(snappedHeight, contentHeight);
+    mIndoorLevelsScroll.setLayoutParams(params);
+    return params.height;
+  }
+
+  // Centers the selected floor, computing the geometry because the views are a layout behind.
+  private void centerActiveLevel(int index, int levelCount, int viewportHeight)
+  {
+    if (mIndoorLevelsScroll == null || index < 0 || viewportHeight <= 0)
+      return;
+
+    final int buttonSize = getResources().getDimensionPixelSize(R.dimen.map_button_size);
+    final int gap = getResources().getDimensionPixelSize(R.dimen.margin_eighth_plus);
+    final int paddingTop = mIndoorLevelsScroll.getPaddingTop();
+    final int contentHeight =
+        levelCount * buttonSize + (levelCount - 1) * gap + paddingTop + mIndoorLevelsScroll.getPaddingBottom();
+
+    final int buttonTop = paddingTop + index * (buttonSize + gap);
+    final int target = buttonTop - (viewportHeight - buttonSize) / 2;
+    final int maxScroll = Math.max(0, contentHeight - viewportHeight);
+    mIndoorLevelsScroll.scrollTo(0, Math.min(Math.max(0, target), maxScroll));
+  }
+
+  @NonNull
+  private MaterialButton createIndoorLevelButton(double level, int index, int count, boolean active)
+  {
+    final Context context = requireContext();
+    final MaterialButton button = (MaterialButton) LayoutInflater.from(context)
+                                      .inflate(R.layout.map_button_indoor_level, mIndoorLevelsContainer, false);
+    button.setText(IndoorManager.formatLevel(level));
+
+    // Highlight the currently selected floor
+    if (active)
+    {
+      button.setBackgroundTintList(
+          ColorStateList.valueOf(ThemeUtils.getColor(context, com.google.android.material.R.attr.colorPrimary)));
+      button.setTextColor(ThemeUtils.getColor(context, com.google.android.material.R.attr.colorOnPrimary));
+    }
+
+    // Round the outer ends of the stack, leaving the middle buttons squarish.
+    final RelativeCornerSize round = new RelativeCornerSize(0.5f);
+    final RelativeCornerSize square = new RelativeCornerSize(0.12f);
+    final boolean isTop = index == 0;
+    final boolean isBottom = index == count - 1;
+    button.setShapeAppearanceModel(ShapeAppearanceModel.builder()
+                                       .setTopLeftCorner(CornerFamily.ROUNDED, isTop ? round : square)
+                                       .setTopRightCorner(CornerFamily.ROUNDED, isTop ? round : square)
+                                       .setBottomLeftCorner(CornerFamily.ROUNDED, isBottom ? round : square)
+                                       .setBottomRightCorner(CornerFamily.ROUNDED, isBottom ? round : square)
+                                       .build());
+
+    if (!isBottom)
+    {
+      final LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) button.getLayoutParams();
+      lp.bottomMargin = getResources().getDimensionPixelSize(R.dimen.margin_eighth_plus);
+    }
+
+    return button;
+  }
+
   public void updateLayerButton()
   {
     if (mToggleMapLayerButton == null)
@@ -390,12 +566,15 @@ public class MapButtonsController extends Fragment
       {
         int toleranceOffset = switch (entry.getKey())
         {
-          case zoomIn, zoomOut, zoom -> -140;
-          default ->
-            0;
-            // Allow offset tolerance for zoom buttons
+          // Allow offset tolerance for the zoom buttons and the indoor level picker stacked above them.
+          case zoomIn, zoomOut, zoom, indoorLevels -> -140;
+          default -> 0;
         };
-        showButton(getViewTopOffset(translation, button) >= toleranceOffset, entry.getKey());
+        // Avoid negative offset bugs by positioning the level container via its bottom instead of top
+        int offset = entry.getKey() == MapButtons.indoorLevels
+            ? (int) (translation + button.getBottom())
+            : getViewTopOffset(translation, button);
+        showButton(offset >= toleranceOffset, entry.getKey());
       }
     }
   }
@@ -430,6 +609,15 @@ public class MapButtonsController extends Fragment
   private int getViewTopOffset(float translation, View v)
   {
     return (int) (translation + v.getTop());
+  }
+
+  @Override
+  public void onDestroyView()
+  {
+    // The native listener outlives the view, so drop the references rather than leave them stale.
+    mIndoorLevelsScroll = null;
+    mIndoorLevelsContainer = null;
+    super.onDestroyView();
   }
 
   @Override
@@ -521,6 +709,7 @@ public class MapButtonsController extends Fragment
     zoomIn,
     zoomOut,
     zoom,
+    indoorLevels,
     search,
     bookmarks,
     menu,
