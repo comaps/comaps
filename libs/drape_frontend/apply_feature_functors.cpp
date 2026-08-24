@@ -512,9 +512,15 @@ void ApplyPointFeature::ExtractCaptionParams(CaptionDefProto const * primaryProt
   }
 }
 
+// Between indoor-level (164) and indoor-room (165), ordered by how much ground each covers.
+double constexpr kIndoorFloorDepth = 164.5;
+
 double BaseApplyFeature::PriorityToDepth(int priority, drule::TypeT ruleType, double areaDepth) const
 {
   double depth = priority;
+
+  if (ruleType == drule::area && m_indoorFloor)
+    return kIndoorFloorDepth;
 
   if (ruleType == drule::area || ruleType == drule::line)
   {
@@ -534,8 +540,12 @@ double BaseApplyFeature::PriorityToDepth(int priority, drule::TypeT ruleType, do
 
     // Shift the depth according to layer=* value.
     int8_t const layer = m_f.GetLayer();
-    if (layer != feature::LAYER_EMPTY)
+    if (layer != feature::LAYER_EMPTY && !m_ignoreLayer)
       depth += layer * drule::kLayerPriorityRange;
+
+    // A whole layer down, so surface detail keeps its own order but cannot reach the shown floor.
+    if (m_sinkBelowIndoor)
+      depth -= drule::kLayerPriorityRange;
   }
   else
   {
@@ -663,22 +673,30 @@ void ApplyPointFeature::ProcessPointRules(SymbolRuleProto const * symbolRule, Ca
 }
 
 ApplyAreaFeature::ApplyAreaFeature(TileKey const & tileKey, TInsertShapeFn const & insertShape, FeatureType & f,
-                                   double currentScaleGtoP, bool isBuilding, float minPosZ, float posZ,
-                                   CaptionDescription const & captions)
+                                   double currentScaleGtoP, bool isBuilding, bool generateOutline, float minPosZ,
+                                   float posZ, CaptionDescription const & captions)
   : TBase(tileKey, insertShape, f, captions)
   , m_minPosZ(minPosZ)
   , m_isBuilding(isBuilding)
+  , m_generateOutline(generateOutline)
   , m_currentScaleGtoP(currentScaleGtoP)
 {
   m_posZ = posZ;
 }
 
+bool ApplyAreaFeature::NeedOutline(AreaRuleProto const * areaRule)
+{
+  // Beware that outlining uses an algorithm which assumes relatively small polygons.
+  return areaRule != nullptr && areaRule->has_border() && areaRule->color() != areaRule->border().color() &&
+         areaRule->border().width() > 0.0;
+}
+
 void ApplyAreaFeature::operator()(m2::PointD const & p1, m2::PointD const & p2, m2::PointD const & p3)
 {
-  if (m_isBuilding)
+  if (m_isBuilding || m_generateOutline)
   {
     /// @todo I suppose that we don't intersect triangles with tile rect because of _simple_
-    /// 3D and outline algo. It makes sense only if buildings have _not many_ triangles.
+    /// 3D and outline algo. It makes sense only if buildings (and outlined areas) have _not many_ triangles.
     ProcessBuildingPolygon(p1, p2, p3);
     return;
   }
@@ -875,15 +893,13 @@ void ApplyAreaFeature::ProcessRule(AreaRuleProto const & areaRule, double areaDe
   params.m_baseGtoPScale = m_currentScaleGtoP;
 
   BuildingOutline outline;
-  if (m_isBuilding && !isHatching)
+  if (!isHatching)
   {
-    /// @todo Make borders work for non-building areas too.
-    outline.m_generateOutline =
-        areaRule.has_border() && areaRule.color() != areaRule.border().color() && areaRule.border().width() > 0.0;
+    outline.m_generateOutline = m_generateOutline;
     if (outline.m_generateOutline)
       params.m_outlineColor = ToDrapeColor(areaRule.border().color());
 
-    bool const calculateNormals = m_posZ > 0.0;
+    bool const calculateNormals = m_isBuilding && m_posZ > 0.0;
     if (calculateNormals || outline.m_generateOutline)
       CalculateBuildingOutline(calculateNormals, outline);
 

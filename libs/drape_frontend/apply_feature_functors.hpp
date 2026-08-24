@@ -44,9 +44,26 @@ public:
 
   virtual ~BaseApplyFeature() = default;
 
+  // Stops a mapper's layer=* from deciding what covers what, so a station roof cannot bury its rooms.
+  void IgnoreLayer() { m_ignoreLayer = true; }
+
+  // Lifts a platform out of the background so it reads as the floor you are standing on indoors.
+  void DrawAsIndoorFloor()
+  {
+    m_indoorFloor = true;
+    m_ignoreLayer = true;
+  }
+
+  // Sinks streets and pavements out of the way so they cannot be drawn across an underground floor.
+  void SinkBelowIndoor() { m_sinkBelowIndoor = true; }
+
 protected:
   void FillCommonParams(CommonOverlayViewParams & p) const;
   double PriorityToDepth(int priority, drule::TypeT ruleType, double areaDepth) const;
+
+  bool m_ignoreLayer = false;
+  bool m_indoorFloor = false;
+  bool m_sinkBelowIndoor = false;
 
   TInsertShapeFn m_insertShape;
   FeatureType & m_f;
@@ -83,12 +100,15 @@ class ApplyAreaFeature : public ApplyPointFeature
 
 public:
   ApplyAreaFeature(TileKey const & tileKey, TInsertShapeFn const & insertShape, FeatureType & f,
-                   double currentScaleGtoP, bool isBuilding, float minPosZ, float posZ,
+                   double currentScaleGtoP, bool isBuilding, bool generateOutline, float minPosZ, float posZ,
                    CaptionDescription const & captions);
 
   void operator()(m2::PointD const & p1, m2::PointD const & p2, m2::PointD const & p3);
   bool HasGeometry() const { return !m_triangles.empty(); }
   void ProcessAreaRules(AreaRuleProto const * areaRule, AreaRuleProto const * hatchingRule);
+
+  // Whether an area rule needs a drawn perimeter outline (border of a different color, non-zero width).
+  static bool NeedOutline(AreaRuleProto const * areaRule);
 
   struct Edge
   {
@@ -136,6 +156,7 @@ private:
 
   float const m_minPosZ;
   bool const m_isBuilding;
+  bool const m_generateOutline;
   double const m_currentScaleGtoP;
 };
 
