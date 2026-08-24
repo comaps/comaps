@@ -277,6 +277,7 @@
 # highway-pedestrian-bridge                         # line z13- (also has line::border z14-, line::bridgeblack z14-, line::bridgewhite z13-, pathtext z14-)
 # highway-pedestrian-square                         # line z13- and area z14- (also has line::border z14-, pathtext z14-)
 # highway-pedestrian-tunnel                         # line z13- (also has line::border z14-, line(casing) z16-, pathtext z14-)
+# indoor-wall                                       # line z17-
 # === 200
 
 # highway-pedestrian-tunnel                         # line(casing) z16- (also has line z13-, line::border z14-, pathtext z14-)
@@ -354,6 +355,16 @@
 # highway-steps-tunnel::tunnelCasing                # line::tunnelCasing z17- (also has line z12-, line::border z16-, line::tunnelBackground z17-, pathtext z13-)
 # highway-track-tunnel::tunnelCasing                # line::tunnelCasing z17- (also has line z11-, line::tunnelBackground z17-, pathtext z13-)
 # === 168
+
+# indoor-corridor                                   # area z18-
+# === 166
+
+# indoor-area                                       # area z17- (also has caption z18-)
+# indoor-room                                       # area z17- (also has caption z18-)
+# === 165
+
+# indoor-level                                      # area z17-
+# === 164
 
 # highway-motorway::border                          # line::border z10- (also has line z6-, pathtext z10-, shield::shield z10-)
 # highway-trunk::border                             # line::border z10- (also has line z6-, pathtext z10-, shield::shield z10-)
