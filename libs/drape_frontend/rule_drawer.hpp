@@ -58,6 +58,8 @@ private:
   bool CheckCoastlines(FeatureType & f);
 
   bool CheckCancelled();
+  // Whether the active indoor complex shares ground with the feature, so it must stay 2D.
+  bool FlattenedByIndoor(FeatureType & f);
 
   bool IsDiscardCustomFeature(FeatureID const & id) const;
   bool IsHiddenChristmasFeature(FeatureType & f) const;
@@ -82,5 +84,9 @@ private:
 
   uint8_t m_zoomLevel = 0;
   bool m_wasCancelled = false;
+  bool m_flattenedByIndoor = false;
+  bool m_indoorFloor = false;
+  bool m_sinkBelowIndoor = false;
+  bool m_ignoreLayerForIndoor = false;
 };
 }  // namespace df

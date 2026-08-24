@@ -18,6 +18,8 @@
 #include "drape/accessibility_presenter.hpp"
 #include "drape/drape_global.hpp"
 #include "drape/pointers.hpp"
+
+#include "indexer/indoor.hpp"
 #include "drape/viewport.hpp"
 
 #include "indexer/mwm_set.hpp"
@@ -238,6 +240,7 @@ public:
   void ClearAllTransitSchemeCache();
 
   void EnableIsolines(bool enable);
+  void SetIndoor(indoor::Active const & indoor);
 
   void SetFontScaleFactor(double scaleFactor);
 

@@ -104,6 +104,7 @@ public:
     NotifyGraphicsReady,
     SetAccessibilityDataHandler,
     EnableIsolines,
+    SetIndoor,
     OnEnterBackground,
     Arrow3dRecache,
     VisualScaleChanged,

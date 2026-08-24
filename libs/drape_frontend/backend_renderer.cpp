@@ -563,6 +563,17 @@ void BackendRenderer::AcceptMessage(ref_ptr<Message> message)
     break;
   }
 
+  case Message::Type::SetIndoor:
+  {
+    ref_ptr<SetIndoorMessage> msg = message;
+    m_readManager->SetIndoor(msg->GetIndoor());
+    // Only the render thread re-requests tiles, so pass the message on or nothing rebuilds.
+    m_commutator->PostMessage(ThreadsCommutator::RenderThread,
+                              make_unique_dp<SetIndoorMessage>(msg->GetIndoor()),
+                              MessagePriority::Normal);
+    break;
+  }
+
   case Message::Type::DrapeApiAddLines:
   {
     ref_ptr<DrapeApiAddLinesMessage> msg = message;
