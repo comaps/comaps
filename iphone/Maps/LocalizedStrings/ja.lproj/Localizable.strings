@@ -100,7 +100,7 @@
 /* Search category for police; any changes should be duplicated in categories.txt @category_police! */
 "category_police" = "警察";
 /* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
-"category_wifi" = "無線LAN";
+"category_wifi" = "WiFi";
 /* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
 "category_recycling" = "リサイクル";
 /* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */

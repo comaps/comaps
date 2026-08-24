@@ -1446,7 +1446,7 @@
     <string name="type.disusedbusiness">Neobsazený prostor</string>
     <string name="type.leisure.fitness_centre.sport.yoga">Studio jógy</string>
     <string name="type.amenity.boat_rental">Půjčovna lodí</string>
-    <string name="type.amenity.mobile_money_agent">Mobilní peněžní agent</string>
+    <string name="type.amenity.mobile_money_agent">Agent Mobile Money</string>
     <string name="type.amenity.payment_centre">Platební centrum</string>
     <string name="type.leisure.indoor_play">Vnitřní herní centrum</string>
     <string name="type.shop.telecommunication">Telekomunikační obchod</string>

@@ -316,5 +316,140 @@
     },
     "unknown_camera": {
         "defaultMessage": "Autovelox in prossimità"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Sei a %1$s dal percorso"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Tra più di tre chilometri"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "Tra più di due miglia"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "In fondo alla strada,"
+    },
+    "from_50_meters": {
+        "defaultMessage": "cinquanta metri"
+    },
+    "from_100_meters": {
+        "defaultMessage": "cento metri"
+    },
+    "from_200_meters": {
+        "defaultMessage": "duecento metri"
+    },
+    "from_250_meters": {
+        "defaultMessage": "duecentocinquanta metri"
+    },
+    "from_300_meters": {
+        "defaultMessage": "trecento metri"
+    },
+    "from_400_meters": {
+        "defaultMessage": "quattrocento metri"
+    },
+    "from_500_meters": {
+        "defaultMessage": "cinquecento metri"
+    },
+    "from_600_meters": {
+        "defaultMessage": "seicento metri"
+    },
+    "from_700_meters": {
+        "defaultMessage": "settecento metri"
+    },
+    "from_750_meters": {
+        "defaultMessage": "settecentocinquanta metri"
+    },
+    "from_800_meters": {
+        "defaultMessage": "ottocento metri"
+    },
+    "from_900_meters": {
+        "defaultMessage": "novecento metri"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "un chilometro"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "un chilometro e mezzo"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "due chilometri"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "due chilometri e mezzo"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "tre chilometri"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "più di tre chilometri"
+    },
+    "from_50_feet": {
+        "defaultMessage": "cinquanta piedi"
+    },
+    "from_100_feet": {
+        "defaultMessage": "cento piedi"
+    },
+    "from_200_feet": {
+        "defaultMessage": "duecento piedi"
+    },
+    "from_300_feet": {
+        "defaultMessage": "trecento piedi"
+    },
+    "from_400_feet": {
+        "defaultMessage": "quattrocento piedi"
+    },
+    "from_500_feet": {
+        "defaultMessage": "cinquecento piedi"
+    },
+    "from_600_feet": {
+        "defaultMessage": "seicento piedi"
+    },
+    "from_700_feet": {
+        "defaultMessage": "settecento piedi"
+    },
+    "from_800_feet": {
+        "defaultMessage": "ottocento piedi"
+    },
+    "from_900_feet": {
+        "defaultMessage": "novecento piedi"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "mille piedi"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "mille cinquecento piedi"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "duemila piedi"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "duemila cinquecento piedi"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "tremila piedi"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "tremila cinquecento piedi"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "quattromila piedi"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "quattromila cinquecento piedi"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "cinquemila piedi"
+    },
+    "from_1_mile": {
+        "defaultMessage": "un miglio"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "un miglio e mezzo"
+    },
+    "from_2_miles": {
+        "defaultMessage": "due miglia"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "più di due miglia"
     }
 }

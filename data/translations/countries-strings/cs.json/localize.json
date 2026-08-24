@@ -3198,7 +3198,7 @@
         "defaultMessage": "Baltimore"
     },
     "US_Maryland_and_DC": {
-        "defaultMessage": "Západ, Washington, D.C."
+        "defaultMessage": "Západ a Washington, D.C."
     },
     "US_Massachusetts_Boston": {
         "defaultMessage": "Boston"
@@ -3384,7 +3384,7 @@
         "defaultMessage": "Waco"
     },
     "US_Texas_West": {
-        "defaultMessage": "Odessa"
+        "defaultMessage": "El Paso"
     },
     "US_United States Minor Outlying Islands": {
         "defaultMessage": "Menší odlehlé ostrovy Spojených států amerických"
@@ -3423,7 +3423,7 @@
         "defaultMessage": "Milwaukee"
     },
     "US_Wisconsin_North": {
-        "defaultMessage": "Severní Wisconsin"
+        "defaultMessage": "Wisconsin – Sever"
     },
     "US_Wyoming": {
         "defaultMessage": "Wyoming"
@@ -6870,7 +6870,7 @@
         "defaultMessage": "Cardiff, Swansea, Newport"
     },
     "US_Alabama_Birmingham Description": {
-        "defaultMessage": "Warrior, Vestavia Hills, Scottsboro"
+        "defaultMessage": "Huntsville, Decatur, Florence"
     },
     "US_Alabama_Montgomery Description": {
         "defaultMessage": "Creola, Centreville, Valley"

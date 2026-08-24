@@ -64,7 +64,7 @@
 /* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
 "category_eat" = "Où manger";
 /* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
-"category_food" = "Épiceries";
+"category_food" = "Épicerie";
 /* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
 "category_transport" = "Transport";
 /* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
@@ -272,7 +272,7 @@
 /* Text for routing error dialog */
 "routing_download_maps_along" = "Téléchargez toutes les cartes le long de votre itinéraire";
 /* Text for routing error dialog */
-"routing_requires_all_map" = "La création d’un itinéraire nécessite que toutes les cartes de votre localisation vers votre destination soient téléchargées et actualisées.";
+"routing_requires_all_map" = "La création d’un itinéraire nécessite que toutes les cartes entre votre position et votre destination soient téléchargées et actualisées.";
 /* bookmark button text */
 "bookmark" = "lieu";
 "save" = "Enregistrer";
@@ -473,7 +473,7 @@
 "migration_no_space_message" = "Pour télécharger, vous avez besoin de plus d’espace. Veuillez supprimer des données non nécessaires.";
 "editor_sharing_title" = "J’ai amélioré les cartes de CoMaps";
 /* Downloaded 10 **of** 20 <- it is that "of" */
-"downloader_of" = "%1$d de %2$d";
+"downloader_of" = "%1$d sur %2$d";
 "download_over_mobile_header" = "Télécharger avec une connexion réseau cellulaire ?";
 "download_over_mobile_message" = "Cela pourrait coûter cher avec certains abonnements ou si vous êtes en déplacement.";
 "error_enter_correct_house_number" = "Saisir un numéro de bâtiment valide";
@@ -870,16 +870,16 @@
 "contribute_to_osm_update_map_description" = "Vous devez mettre à jour la carte %@ vers la dernière version avant de pouvoir contribuer aux données d'OpenStreetMap.";
 "downloader_check_updates_button" = "Vérifier les mises à jour";
 "downloader_check_updates_checking" = "Recherche de mises à jour...";
-"downloader_check_updates_updated" = "Mises à jour cartographiques disponibles !";
+"downloader_check_updates_updated" = "Mises à jour de cartes disponibles !";
 "downloader_check_updates_no_updates" = "Aucune mise à jour disponible";
-"downloader_check_updates_eol" = "Cette version de l'application ne bénéficie plus de mises à jour cartographiques. Veuillez mettre à jour l'application !";
+"downloader_check_updates_eol" = "Les cartes ne sont plus mises à jour pour votre version de l'appli. Veuillez mettre l'appli à jour !";
 "downloader_check_updates_error" = "Erreur lors de la recherche de mises à jour";
 "editor_add_select_category_recent_subtitle" = "Récemment utilisés";
 "oh_unknown" = "Horaires d'ouverture inconnus";
 "carplay_highway_exit" = "Sortie %@";
 "capacity_disabled_yes" = "Dispose de places de stationnement réservées aux personnes handicapées";
-"capacity_disabled_no" = "Ne possède pas de place de stationnement pour handicapé";
-"capacity_charging_yes" = "Possède des emplacements de stationnement avec chargeur";
-"capacity_charging_no" = "Ne possède pas d’emplacement de stationnement avec chargeur";
+"capacity_disabled_no" = "Ne possède pas de place de stationnement PMR";
+"capacity_charging_yes" = "Possède des places de stationnement avec chargeur";
+"capacity_charging_no" = "Ne possède pas de place de stationnement avec chargeur";
 "planning_route_preview" = "Aperçu";
 "planning_route_preview_sheet_title" = "Aperçu de l'itinéraire";

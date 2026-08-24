@@ -181,7 +181,7 @@
 /* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "Gesproken taal";
 /* Settings «Route» category: «Test Voice Directions» title */
-"pref_tts_test_voice_title" = "Gesproken aanwijzingen testen";
+"pref_tts_test_voice_title" = "Gesproken instructies testen";
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "Andere";
 "pref_map_auto_zoom" = "Automatisch zoomen";
@@ -493,7 +493,7 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Exploitant: %@";
 "editor_category_unsuitable_title" = "Geen passende categorie gevonden?";
-"editor_category_unsuitable_text" = "CoMaps kan alleen eenvoudige puntcategorieën toevoegen, dus geen steden, wegen, meren, contouren van gebouwen, enz. Voeg dergelijke categorieën direct toe aan <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Lees onze <a href=\"https://www.comaps.app/support/advanced-map-editing/\">handleiding</a> voor gedetailleerde stap voor stap instructies.";
+"editor_category_unsuitable_text" = "CoMaps kan alleen eenvoudige puntcategorieën toevoegen, dus geen steden, wegen, meren, contouren van gebouwen, enz. Voeg dergelijke categorieën direct toe aan <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Lees onze <a href=\"https://www.comaps.app/support/advanced-map-editing/\">handleiding</a> voor gedetailleerde stapsgewijze instructies.";
 "downloader_no_downloaded_maps_title" = "U hebt geen kaarten gedownload";
 "downloader_no_downloaded_maps_message" = "Download kaarten om offline te zoeken en navigeren.";
 "current_location_unknown_error_title" = "Huidige locatie is onbekend.";

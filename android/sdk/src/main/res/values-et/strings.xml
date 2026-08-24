@@ -44,4 +44,8 @@
     <string name="yesterday">Eile</string>
     <string name="week_ago">%s nädala eest</string>
     <string name="weeks_ago">%s nädalat tagasi</string>
+    <string name="accessibility_map_content_description_collapsed">Kaart. Libista ühe sõrmega üles või alla ja ava kaart, et seda puudutades uurida.</string>
+    <string name="accessibility_map_content_description_expanded">Kaart. Puuduta ja hoia sõrme ekraanil, et kaarti puudutades uurida. Kohad loetakse ette, kui su sõrm neile jõuab. Peatamiseks libista ühe sõrmega üles või alla ja sulge.</string>
+    <string name="accessibility_map_action_expand_label">kaardi uurimine puutega</string>
+    <string name="accessibility_map_action_collapse_label">lõpeta kaardi uurimine puutega</string>
 </resources>

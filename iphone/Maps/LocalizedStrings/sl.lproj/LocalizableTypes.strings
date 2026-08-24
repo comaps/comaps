@@ -1534,6 +1534,6 @@
 "type.organic.no" = "Ni organskih m";
 "type.amenity.stage" = "Oder";
 "type.amenity.animal_boarding" = "Vkrcanje živali";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
-"type.amenity.planetarium" = "Planetarium";
+"type.amenity.toilets.customers" = "Dostop za stranke";
+"type.amenity.toilets.private" = "Zasebni dostop";
+"type.amenity.planetarium" = "Planetarij";

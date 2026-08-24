@@ -870,12 +870,12 @@
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
 "downloader_check_updates_button" = "Caută actualizări";
 "downloader_check_updates_checking" = "Se verifică actualizările...";
-"downloader_check_updates_updated" = "Map updates available!";
+"downloader_check_updates_updated" = "Actualizări pentru hărți disponibile!";
 "downloader_check_updates_no_updates" = "Nu sunt disponibile actualizări";
-"downloader_check_updates_eol" = "No more map updates for this app version. Please update the app!";
-"downloader_check_updates_error" = "Error checking for updates";
+"downloader_check_updates_eol" = "Nu mai există actualizări de hărți pentru această versiune a aplicației. Te rugăm să actualizezi aplicația!";
+"downloader_check_updates_error" = "Eroare căutând actualizări";
 "editor_add_select_category_recent_subtitle" = "Recently Used";
-"oh_unknown" = "Opening hours unknown";
+"oh_unknown" = "Program necunoscut";
 "carplay_highway_exit" = "Exit %@";
 "capacity_disabled_yes" = "Has dedicated disabled spaces";
 "capacity_disabled_no" = "No dedicated disabled spaces";

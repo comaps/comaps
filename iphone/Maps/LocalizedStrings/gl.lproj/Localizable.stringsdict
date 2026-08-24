@@ -56,5 +56,95 @@
 			<string>Atopáronse %lld arquivos. Veraos despois da conversión.</string>
 		</dict>
 	</dict>
+	<key>population</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld residentes</string>
+			<key>one</key>
+			<string>%lld residente</string>
+			<key>other</key>
+			<string>%lld residentes</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld habitacións</string>
+			<key>one</key>
+			<string>%lld habitación</string>
+			<key>other</key>
+			<string>%lld habitacións</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld prazas para discapacitados</string>
+			<key>one</key>
+			<string>%lld praza para discapacitados</string>
+			<key>other</key>
+			<string>%lld prazas para discapacitados</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld prazas con cargadores</string>
+			<key>one</key>
+			<string>%lld praza con cargadores</string>
+			<key>other</key>
+			<string>%lld prazas con cargadores</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld prazas de aprcamento</string>
+			<key>one</key>
+			<string>%lld praza de aprcamento</string>
+			<key>other</key>
+			<string>%lld prazas de aprcamento</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+	</dict>
 </dict>
 </plist>

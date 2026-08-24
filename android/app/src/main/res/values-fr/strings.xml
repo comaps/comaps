@@ -103,7 +103,7 @@
     <!-- Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! -->
     <string name="category_eat">Où manger</string>
     <!-- Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! -->
-    <string name="category_food">Épiceries</string>
+    <string name="category_food">Épicerie</string>
     <!-- Search category for public transport; any changes should be duplicated in categories.txt @category_transport! -->
     <string name="category_transport">Transport</string>
     <!-- Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! -->
@@ -197,7 +197,7 @@
     <string name="pref_zoom_title">Boutons de zoom</string>
     <string name="pref_zoom_summary">Afficher sur la carte</string>
     <string name="prefs_group_advanced">Avancé</string>
-    <string name="download_resources_custom_url_title">Serveur de cartes personnalisé</string>
+    <string name="download_resources_custom_url_title">Serveur de cartes personnalisées</string>
     <string name="download_resources_custom_url_message">Serveur pour télécharger les cartes. Laissez vide pour utiliser le serveur par défaut CoMaps.</string>
     <string name="download_resources_custom_url_summary_none">Non défini</string>
     <string name="download_resources_custom_url_error_scheme">Veuillez saisir une URL complète commençant par http:// ou https://</string>
@@ -274,7 +274,7 @@
     <string name="downloader_download_all_button">Tout télécharger</string>
     <string name="downloader_downloading">Téléchargement en cours :</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Pour supprimer la carte, veuillez d\'abord arrêter la navigation</string>
+    <string name="downloader_delete_map_while_routing_dialog">Veuillez arrêter la navigation pour supprimer la carte</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Les itinéraires ne peuvent être créés que s’ils sont entièrement contenus dans la carte d’une seule région.</string>
     <!-- Context menu item for downloader. -->
@@ -294,7 +294,7 @@
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Téléchargez toutes les cartes le long de votre itinéraire</string>
     <!-- Text for routing error dialog -->
-    <string name="routing_requires_all_map">La création d’un itinéraire nécessite que toutes les cartes de votre localisation vers votre destination soient téléchargées et actualisées.</string>
+    <string name="routing_requires_all_map">La création d’un itinéraire nécessite que toutes les cartes entre votre position et votre destination soient téléchargées et actualisées.</string>
     <!-- Text for routing error dialog -->
     <string name="routing_not_enough_space">Pas assez d’espace</string>
     <!-- location service disabled -->
@@ -468,12 +468,12 @@
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) est un projet communautaire visant à créer une carte libre et ouverte. C’est la principale source de données cartographiques de CoMaps et son fonctionnement est similaire à celui de Wikipédia. Vous pouvez ajouter ou modifier des lieux et ils deviennent accessibles à des millions d’utilisateurs dans le monde entier. \nRejoignez la communauté et aidez-nous à créer une meilleure carte pour tout le monde !</string>
     <string name="login_to_make_edits_visible">Créez un compte OpenStreetMap ou connectez-vous pour publier vos modifications de carte et les diffuser au monde entier</string>
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
-    <string name="downloader_of">%1$d de %2$d</string>
+    <string name="downloader_of">%1$d sur %2$d</string>
     <string name="download_over_mobile_header">Télécharger avec une connexion réseau cellulaire ?</string>
     <string name="download_over_mobile_message">Cela peut s\'avérer très coûteux avec certains forfaits de données mobiles, surtout si vous êtes en itinérance.</string>
     <string name="error_enter_correct_house_number">Saisir un numéro de bâtiment valide</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">Le nombre d’étages ne doit pas être supérieur à %d</string>
+    <string name="error_enter_correct_storey_number">Le nombre d’étages ne doit pas dépasser %d</string>
     <string name="editor_zip_code">Code postal</string>
     <string name="error_enter_correct_zip_code">Saisissez un code postal valide</string>
     <!-- Title for OSM note section in the editor -->
@@ -489,7 +489,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Opérateur : %s</string>
     <string name="editor_category_unsuitable_title">Vous ne trouvez pas de catégorie appropriée ?</string>
-    <string name="editor_category_unsuitable_text">CoMaps ne permet d\'ajouter que des catégories de points simples ; il ne peut pas ajouter de villes, de routes, de lacs, de contours de bâtiments, etc. Veuillez ajouter ces catégories directement sur <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consultez notre <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> pour obtenir des instructions détaillées.</string>
+    <string name="editor_category_unsuitable_text">CoMaps ne permet d’ajouter que des catégories de points simples, c’est-à-dire pas de villes, de routes, de lacs, de contours de bâtiments, etc. Veuillez ajouter ces catégories directement sur <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consultez notre <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> pour obtenir des instructions détaillées.</string>
     <string name="downloader_no_downloaded_maps_title">Vous n’avez téléchargé aucune carte</string>
     <string name="downloader_no_downloaded_maps_message">Télécharger des cartes pour rechercher un lieu et utiliser la navigation hors ligne</string>
     <string name="current_location_unknown_error_title">L’emplacement actuel est inconnu</string>
@@ -606,7 +606,7 @@
     <string name="subway">Métro</string>
     <string name="layers_title">Styles et couches de cartes</string>
     <string name="bookmarks_empty_list_title">Cette liste est vide</string>
-    <string name="bookmarks_empty_list_message">Pour enregistrer un lieu, appuyez sur un lieu sur la carte, puis sur l\'icône en forme d\'étoile</string>
+    <string name="bookmarks_empty_list_message">Pour enregistrer un lieu, appuyez sur un lieu de la carte puis sur l’icône étoile</string>
     <string name="category_desc_more">…plus</string>
     <string name="export_file">Exporter en KMZ</string>
     <string name="export_file_gpx">Exporter en GPX</string>
@@ -809,7 +809,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Continuer l’enregistrement</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Enregistrer en tant que Favori ?</string>
+    <string name="track_recording_alert_title">Enregistrer dans les Favoris ?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">L’itinéraire est vide - il n’y a rien à enregistrer</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -918,7 +918,7 @@
     <string name="place_page_too_old_to_edit">Les modifications OpenStreetMap sont désactivées car les données de la carte sont trop anciennes.</string>
     <string name="place_page_app_too_old_description">Vos données cartographiques actuelles sont très anciennes, veuillez mettre à jour l\'application CoMaps.</string>
     <string name="prefs_speed_cameras_information">Les avertissements relatifs aux radars de vitesse sont désactivés dans les pays où les alertes sont interdites par la législation locale.</string>
-    <string name="navigation_start_tts_message">"Navigation de démarrage, langue des instructions vocales : "</string>
+    <string name="navigation_start_tts_message">"Démarrage de la navigation, langue des instructions vocales : "</string>
     <string name="navigation_start_tts_disabled_message">Instructions vocales désactivées : moteur de synthèse vocale non disponible</string>
     <string name="pref_maplanguage_local">Langue locale</string>
     <string name="pref_speedlimit_title">Afficher les limites de vitesse</string>
@@ -948,8 +948,8 @@
     <string name="downloader_check_updates_no_updates">Aucune mise à jour disponible</string>
     <string name="downloader_check_updates_button">Vérifier les mises à jour</string>
     <string name="downloader_check_updates_checking">Recherche de mises à jour...</string>
-    <string name="downloader_check_updates_updated">Mises à jour cartographiques disponibles !</string>
-    <string name="downloader_check_updates_eol">Cette version de l\'application ne bénéficie plus de mises à jour cartographiques. Veuillez mettre à jour l\'application !</string>
+    <string name="downloader_check_updates_updated">Mises à jour de cartes disponibles !</string>
+    <string name="downloader_check_updates_eol">Les cartes ne sont plus mises à jour pour votre version de l\'appli. Veuillez mettre l\'appli à jour !</string>
     <string name="downloader_check_updates_error">Erreur lors de la recherche de mises à jour</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">L\'application a été installée depuis Google Play, vous pouvez l\'utiliser dans votre voiture.</string>
@@ -964,12 +964,12 @@
     <string name="by_custom">Par ordre personnalisé</string>
     <string name="enable_long_tap_fullscreen">Appuyez longuement pour masquer l\'interface utilisateur</string>
     <string name="long_tap_disabled_toast">Pour masquer l\'interface, activez la fonction « Appuyer longuement » dans les paramètres</string>
-    <string name="capacity_disabled">Places de stationnement pour handicapé : %s</string>
-    <string name="capacity_disabled_yes">Possède des places de stationnement pour handicapé</string>
-    <string name="capacity_disabled_no">Ne possède pas de place de stationnement pour handicapé</string>
+    <string name="capacity_disabled">Places de stationnement PMR : %s</string>
+    <string name="capacity_disabled_yes">Possède des places de stationnement PMR</string>
+    <string name="capacity_disabled_no">Ne possède pas de place de stationnement PMR</string>
     <string name="capacity_charging">Emplacements avec chargeur : %s</string>
-    <string name="capacity_charging_yes">Possède des emplacements de stationnement avec chargeur</string>
-    <string name="capacity_charging_no">Ne possède pas d’emplacement de stationnement avec chargeur</string>
+    <string name="capacity_charging_yes">Possède des places de stationnement avec chargeur</string>
+    <string name="capacity_charging_no">Ne possède pas de place de stationnement avec chargeur</string>
     <string name="prefs_group_route_summary">Unités, instructions vocales, options d\'itinéraire</string>
     <string name="prefs_group_privacy_summary">Historique des recherches</string>
     <string name="prefs_group_power_summary">Délai d’extinction de l\'écran, données mobiles</string>
@@ -982,7 +982,7 @@
     <string name="prefs_group_data_management">Gestion des données</string>
     <string name="off_route">Vous êtes en dehors de l\'itinéraire</string>
     <string name="prefs_group_data_management_summary">Stockage des cartes, sauvegarde des favoris</string>
-    <string name="pref_enable_auto_reroute_title">Recalcule automatique</string>
+    <string name="pref_enable_auto_reroute_title">Recalcul automatique</string>
     <string name="pref_enable_auto_reroute_description">Si activé, recalcule un nouvel itinéraire lorsque vous vous éloignez de l\'itinéraire planifié.</string>
     <string name="permission_read_navigation_label">Énoncer les informations d\'itinéraire</string>
     <string name="permission_read_navigation_description">Énonce les informations d’itinéraire en temps réel comme la prochaine bifurcation ou le nom de la voie courante</string>

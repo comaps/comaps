@@ -229,7 +229,7 @@
     <!-- Text in About menu, opens CoMaps news website -->
     <string name="news">Notizie</string>
     <!-- Settings: Send feedback button and dialog title -->
-    <string name="feedback">Opinioni</string>
+    <string name="feedback">Segnala</string>
     <!-- Text in menu -->
     <string name="rate_the_app">Vota l\'app</string>
     <!-- Text in menu -->
@@ -459,10 +459,10 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d su %2$d</string>
     <string name="download_over_mobile_header">Vuoi scaricare utilizzando una connessione di rete cellulare?</string>
-    <string name="download_over_mobile_message">Questa operazione potrebbe essere piuttosto costosa con alcuni piani telefonici o se in roaming</string>
+    <string name="download_over_mobile_message">Questa operazione potrebbe essere piuttosto costosa con alcuni piani telefonici o se in roaming.</string>
     <string name="error_enter_correct_house_number">Inserisci un numero civico valido</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">Il numero di piani non deve superare %d</string>
+    <string name="error_enter_correct_storey_number">Il numero di piani non può superare %d</string>
     <string name="editor_zip_code">Codice postale</string>
     <string name="error_enter_correct_zip_code">Inserire un codice postale valido</string>
     <!-- Title for OSM note section in the editor -->
@@ -470,7 +470,7 @@
     <!-- Hint of the input field in the OSM note section of the editor -->
     <string name="editor_note_hint">Descrivi gli errori sulla mappa o le cose che non possono essere modificate con CoMaps</string>
     <!-- Information about OSM at the top of the editing page -->
-    <string name="editor_about_osm">Le tue modifiche vengono caricate nel database pubblico <a href="https://wiki.openstreetmap.org/wiki/IT:About">OpenStreetMap</a>. Per favore, non aggiungere informazioni personali o protette da copyright.</string>
+    <string name="editor_about_osm">Le tue modifiche vengono caricate nel database pubblico <a href="https://wiki.openstreetmap.org/wiki/IT:About_OpenStreetMap">OpenStreetMap</a>. Per favore, non aggiungere informazioni personali o protette da copyright.</string>
     <string name="editor_more_about_osm">Informazioni su OpenStreetMap</string>
     <string name="editor_osm_history">La tua cronologia delle modifiche</string>
     <string name="editor_osm_notes">Le tue note sulla mappa</string>
@@ -478,7 +478,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Gestore: %s</string>
     <string name="editor_category_unsuitable_title">Non riesci a trovare una categoria adatta?</string>
-    <string name="editor_category_unsuitable_text">CoMaps consente di aggiungere solo punti semplici, quindi escludendo città, strade, laghi, planimetria edifici ecc. È possibile aggiungere tali categorie direttamente su <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consulta la nostra <a href="https://www.comaps.app/support/advanced-map-editing/">guida</a> per istruzioni dettagliate.</string>
+    <string name="editor_category_unsuitable_text">CoMaps consente di aggiungere solo punti semplici, escludendo città, strade, laghi, planimetria edifici ecc. È possibile aggiungere tali categorie direttamente su <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consulta la nostra <a href="https://www.comaps.app/support/advanced-map-editing/">guida</a> per istruzioni dettagliate.</string>
     <string name="downloader_no_downloaded_maps_title">Non hai scaricato mappe</string>
     <string name="downloader_no_downloaded_maps_message">Scarica delle mappe per trovare luoghi e navigare offline</string>
     <string name="current_location_unknown_error_title">Posizione attuale sconosciuta</string>
@@ -537,7 +537,7 @@
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Feedback generale</string>
     <string name="prefs_languages_information">Usiamo il TTS di sistema per le istruzioni vocali. Molti dispositivi Android utilizzano Google TTS, lo puoi scaricare o aggiornare dal Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Per alcune lingue, sarà necessario installare un altro sintetizzatore vocale o un language pack aggiuntivo dall\'app store (Google Play, Galaxy Store, App Gallery, FDroid). \nApri le impostazioni del tuo dispositivo → Lingua e inserimento → Da testo a voce → Motore sintesi vocale. \nQui puoi gestire le impostazioni di sintesi vocale (ad esempio, scaricare una lingua per l\'utilizzo offline) e selezionare un altro motore di sintesi vocale.</string>
+    <string name="prefs_languages_information_off">Per alcune lingue, sarà necessario installare un altro sintetizzatore vocale o un language pack aggiuntivo dall\'app store (Google Play, Galaxy Store, App Gallery, F-Droid).\nApri le impostazioni del tuo dispositivo → Lingua e inserimento → Da testo a voce → Motore sintesi vocale.\nQui puoi gestire le impostazioni di sintesi vocale (ad esempio, scaricare una lingua per l\'utilizzo offline) e selezionare un altro motore di sintesi vocale.</string>
     <string name="prefs_languages_information_off_link">Per maggiori informazioni, consulta questa guida</string>
     <string name="transliteration_title">Traslittera in caratteri latini</string>
     <string name="learn_more">Scopri di più</string>
@@ -589,7 +589,7 @@
     </plurals>
     <!-- Settings privacy group in settings screen -->
     <string name="prefs_group_privacy">Privacy</string>
-    <string name="privacy_policy">Polizza sulla privacy</string>
+    <string name="privacy_policy">Politica sulla privacy</string>
     <string name="terms_of_use">Termini di utilizzo</string>
     <string name="button_layer_traffic">Traffico</string>
     <string name="subway">Metropolitana</string>
@@ -626,7 +626,7 @@
     <string name="avoid_motorways">Evita l\'autostrada</string>
     <string name="unable_to_calc_alert_title">Impossibile calcolare il percorso</string>
     <string name="unable_to_calc_alert_subtitle">Non è stato possibile trovare un percorso. Questo potrebbe essere per via delle opzioni che hai scelto o a causa di dati di OpenStreetMap incompleti. Prova a cambiare le impostazioni del percorso e riprova.</string>
-    <string name="define_to_avoid_btn">Scegli le strade da evitare</string>
+    <string name="define_to_avoid_btn">Scegli le opzioni per il percorso</string>
     <string name="change_driving_options_btn">Impostazioni di percorso abilitate</string>
     <string name="toll_road">Strada a pedaggio</string>
     <string name="unpaved_road">Strada non asfaltata</string>
@@ -764,7 +764,7 @@
     <string name="browser_not_available">Il browser web non è disponibile</string>
     <string name="volume">Volume</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Esporta tutti i luoghi preferiti e le tracce</string>
+    <string name="bookmarks_export">Esporta tutti i preferiti</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Impostazioni del sistema di sintesi vocale</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -796,7 +796,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Continua a registrare</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Salvare in Luoghi preferiti e tracce?</string>
+    <string name="track_recording_alert_title">Salvare tra i preferiti?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">La traccia è vuota - non c\'è nulla da salvare</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -832,11 +832,11 @@
     <string name="ruler">Righello</string>
     <string name="clear">Cancella</string>
     <string name="route_type">Tipo di itinerario</string>
-    <string name="bookmark_color">Colore dei luoghi preferiti</string>
+    <string name="bookmark_color">Colore dei preferiti</string>
     <string name="pref_backup_summary">Effettua automaticamente il backup su una cartella del tuo dispositivo</string>
     <string name="pref_backup_now_title">Fai ora il backup</string>
     <string name="pref_backup_now_summary_ok">Backup completato con successo</string>
-    <string name="pref_backup_now_summary_empty_lists">Nessun luogo preferito o traccia da inserire nel backup</string>
+    <string name="pref_backup_now_summary_empty_lists">Nessu preferito di cui fare il backup</string>
     <string name="pref_backup_now_summary_failed">Backup non riuscito</string>
     <string name="pref_backup_now_summary_folder_unavailable">La cartella di backup non è disponibile</string>
     <string name="pref_backup_location_title">Percorso backup</string>
@@ -848,7 +848,7 @@
     <string name="backup_interval_manual_only">Spento (solo manuale)</string>
     <string name="about_help">Informazioni e assistenza</string>
     <string name="dialog_report_error_with_logs">Inviaci un rapporto di errore:\n - “Abilita il logging” nelle impostazioni\n - riproduci il problema\n - nella schermata “Informazioni e assitenza” premi il pulsante “Segnala un bug” e invialo via e-mail o chat\n - disabilita il logging</string>
-    <string name="pref_backup_title">Backup luoghi preferiti e tracce</string>
+    <string name="pref_backup_title">Backup dei preferiti</string>
     <string name="pref_backup_now_summary_progress">Backup in corso…</string>
     <string name="pref_backup_now_summary">Crea immediatamente un backup</string>
     <string name="pref_backup_status_summary_success">Ultimo backup riuscito</string>
@@ -903,4 +903,83 @@
     <string name="closes_at">Chiude alle %s</string>
     <string name="pref_maplanguage_local">Lingua locale</string>
     <string name="rooms">%s stanze</string>
+    <string name="bookmark_share_email_subject">Segui questo link %1$s o incolla queste coordinate %2$s nella tua app di mappe per vedere questa posizione.</string>
+    <string name="my_position_share_email">Segui questo link %1$s o incolla queste coordinate %2$s nella tua app mappe per vedere la mia posizione.</string>
+    <string name="pref_about_summary">Segnala problemi, ottieni aiuto, dona\nVersione: v%1$s</string>
+    <string name="prefs_group_map_appearance">Aspetto della mappa</string>
+    <string name="prefs_group_map_appearance_summary">Lingua mappa, dimensione etichette, edifici 2D/3D</string>
+    <string name="prefs_group_interface">Interfaccia</string>
+    <string name="prefs_group_interface_summary">Modalità notte, pulsanti, lingua</string>
+    <string name="prefs_group_data_management">Gestione dati</string>
+    <string name="prefs_group_data_management_summary">Archiviazione mappe, backup preferiti</string>
+    <string name="prefs_group_route_summary">Unità, istruzioni vocali, opzioni percorso</string>
+    <string name="prefs_group_advanced_summary">Abilita registrazione</string>
+    <string name="tts_toggle_enable">Abilita istruzioni vocali</string>
+    <string name="tts_toggle_disable">Disabilita istruzioni vocali</string>
+    <string name="enable_long_tap_fullscreen">Tocca a lungo per nascondere l\\\'interfaccia utente</string>
+    <string name="long_tap_disabled_toast">Per nascondere l\\\'interfaccia abilita il tocco prolungato nelle impostazioni</string>
+    <string name="downloader_check_updates_button">Controlla aggiornamenti</string>
+    <string name="downloader_check_updates_checking">Cerco aggiornamenti…</string>
+    <string name="downloader_check_updates_updated">Aggiornamenti mappa disponibili!</string>
+    <string name="downloader_check_updates_no_updates">Nessun aggiornamento disponibile</string>
+    <string name="downloader_check_updates_eol">Nessun altro aggiornamento mappa per questa versione dell\'app. Aggiorna l\'app!</string>
+    <string name="downloader_check_updates_error">Errore durante il controllo degli aggiornamenti</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="opens_day_at">Apre %1$s alle %2$s</string>
+    <string name="closes_day_at">Chiude %1$s alle %2$s</string>
+    <string name="oh_unknown">Orari di apertura sconosciuti</string>
+    <string name="planning_route_preview">Anteprima</string>
+    <string name="prefs_group_privacy_summary">Cronologia ricerche</string>
+    <string name="prefs_group_power_summary">Timeout schermo, dati mobili</string>
+    <string name="population">Popolazione: %s</string>
+    <string name="sort_categories">Ordina liste preferiti</string>
+    <string name="setting_value_system_default">Predefinito di sistema</string>
+    <string name="by_recently_used">Per utilizzo recente</string>
+    <string name="by_custom">Per ordine personalizzato</string>
+    <string name="editor_add_select_category_all_subtitle">Tutte le categorie</string>
+    <string name="search_in_all_lists">Cerca in tutte le liste</string>
+    <string name="change_app_locale">Lingua dell\\\'app</string>
+    <string name="destination">Destinazione</string>
+    <string name="stop">Ferma</string>
+    <string name="charge_socket_type2_combo">Tipo 2 combo</string>
+    <string name="charge_socket_type1_combo">Tipo 1 combo</string>
+    <string name="list_description_empty">Modifica la lista per aggiungere una descrizione</string>
+    <string name="pref_alt_map_lang_handling">Lingue alternative della mappa</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Non usare alternative</string>
+    <string name="pref_alt_map_lang_handling_system_order">Segui l\\\'ordine di sistema</string>
+    <string name="pref_alt_map_lang_handling_local_only">Preferisci e usa solo dove nativa</string>
+    <string name="location_privacy_info">Le app ricevono i dati di posizione dal servizio di localizzazione del sistema operativo, che potrebbe condividere la tua posizione con Google e/o il produttore del dispositivo. Usa un sistema operativo Android che rispetti la privacy per evitarlo.</string>
+    <string name="location_privacy">Privacy della posizione</string>
+    <string name="pref_speedlimit_title">Mostra limiti di velocità</string>
+    <string name="invalid_route">Percorso non valido</string>
+    <string name="building_route">Calcolo percorso…</string>
+    <string name="route_not_started">Percorso non avviato</string>
+    <string name="on_route">In percorso</string>
+    <string name="route_needs_rebuild">Percorso da ricalcolare</string>
+    <string name="route_finished">Percorso completato</string>
+    <string name="not_following_route">Fuori percorso</string>
+    <string name="route_recalculating">Ricalcolo percorso in corso…</string>
+    <string name="pref_openexternallinks_title">Apri automaticamente i link di terze parti</string>
+    <string name="pref_openexternallinks_summary">Apri i link di terze parti in CoMaps per impostazione predefinita</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_aa_support_summary_yes">L\\\'app è stata installata da Google Play, puoi usarla in auto.</string>
+    <string name="pref_aa_support_summary_no">L\\\'app non è stata installata da Google Play, non puoi usarla in auto. Apri le impostazioni per ulteriori dettagli nelle nostre FAQ.</string>
+    <string name="pref_enable_auto_reroute_title">Ricalcolo automatico del percorso</string>
+    <string name="pref_enable_auto_reroute_description">Se attivato, ricalcola un nuovo percorso ogni volta che ti allontani da quello pianificato.</string>
+    <string name="recalculate_route">Ricalcola</string>
+    <string name="off_route">Sei fuori dal percorso</string>
+    <string name="editor_add_select_category_recent_subtitle">Usate di recente</string>
+    <string name="capacity_disabled">Posti auto per disabili: %s</string>
+    <string name="capacity_disabled_yes">Dispone di posto auto per disabili</string>
+    <string name="capacity_disabled_no">Nessun posto auto per disabili</string>
+    <string name="capacity_charging">Posti con colonnina di ricarica: %s</string>
+    <string name="capacity_charging_yes">Dispone di posti con colonnina di ricarica</string>
+    <string name="capacity_charging_no">Nessun posto con colonnina di ricarica</string>
+    <string name="permission_read_navigation_label">Leggi i dati di navigazione di CoMaps</string>
+    <string name="permission_read_navigation_description">leggi le informazioni di navigazione come le prossime svolte o il nome della strada dove ti trovi</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="many">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
 </resources>

@@ -528,7 +528,7 @@
     <!-- User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". -->
     <string name="routing_add_finish_point">Sử dụng tìm kiếm hoặc nhấn vào bản đồ để thêm điểm đến</string>
     <string name="planning_route_manage_route">Quản lý lộ trình</string>
-    <string name="button_plan">Kế hoạch</string>
+    <string name="button_plan">Tạo lộ trình</string>
     <string name="placepage_remove_stop">Xóa điểm dừng</string>
     <string name="placepage_add_stop">Thêm điểm dừng</string>
     <string name="dialog_error_storage_title">Vấn đề truy cập bộ nhớ</string>
@@ -599,7 +599,7 @@
     <string name="avoid_motorways">Tránh xa lộ</string>
     <string name="unable_to_calc_alert_title">Không thể tạo tuyến đường</string>
     <string name="unable_to_calc_alert_subtitle">Không thể tìm thấy tuyến đường. Điều này có thể là vì tùy chọn tuyến đường của bạn hoặc dữ liệu OpenStreetMap bị thiếu. Vui lòng thay đổi tùy chọn tuyến đường của bạn và thử lại.</string>
-    <string name="define_to_avoid_btn">Chỉ rõ đường cần tránh</string>
+    <string name="define_to_avoid_btn">Chọn cài đặt điều hướng</string>
     <string name="change_driving_options_btn">Đã bật các tùy chọn tuyến đường</string>
     <string name="toll_road">Đường trả phí</string>
     <string name="unpaved_road">Đường đất</string>
@@ -613,7 +613,7 @@
     <!-- E.g. "WiFi:No" -->
     <string name="no_available">Không</string>
     <!-- To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... -->
-    <string name="capacity">Công suất: %s</string>
+    <string name="capacity">Số lượng chỗ: %s</string>
     <!-- To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="network">Mạng: %s</string>
     <string name="trip_finished">Bạn đã tới nơi!</string>
@@ -936,4 +936,29 @@
     <string name="by_custom">Bởi thứ tự tùy chỉnh</string>
     <string name="editor_add_select_category_all_subtitle">Tất cả danh mục</string>
     <string name="editor_add_select_category_recent_subtitle">Đã dùng gần đây</string>
+    <string name="pref_about_summary">Báo cáo lỗi, tìm trợ giúp, ủng hộ\nPhiên bản: v%1$s</string>
+    <string name="prefs_group_map_appearance">Giao diện bản đồ</string>
+    <string name="prefs_group_map_appearance_summary">Ngôn ngữ bản đồ, kích thước nhãn, tòa nhà 2D/3D</string>
+    <string name="prefs_group_interface">Giao diện</string>
+    <string name="prefs_group_interface_summary">Chế độ tối, các nút, ngôn ngữ</string>
+    <string name="prefs_group_data_management">Quản lý dữ liệu</string>
+    <string name="prefs_group_data_management_summary">Bộ nhớ bản đồ, sao lưu ưa thích</string>
+    <string name="prefs_group_route_summary">Đơn vị đo, hướng dẫn bằng giọng nói, tùy chọn điều hướng</string>
+    <string name="prefs_group_advanced_summary">Bật nhật ký hoạt động</string>
+    <string name="planning_route_preview">Xem trước</string>
+    <string name="prefs_group_power_summary">Thời gian chờ màn hình, dữ liệu di động</string>
+    <string name="prefs_group_privacy_summary">Lịch sử tìm kiếm</string>
+    <string name="search_in_all_lists">Tìm trong tất cả danh sách</string>
+    <string name="pref_enable_auto_reroute_title">Tự động điều hướng lại</string>
+    <string name="pref_enable_auto_reroute_description">Khi được bật, một tuyến đường mới sẽ được tạo tự động khi bạn rời khỏi lộ trình hiện tại.</string>
+    <string name="recalculate_route">Tính lại</string>
+    <string name="off_route">Bạn đã rời khỏi lộ trình</string>
+    <string name="capacity_disabled">Số chỗ đỗ xe dành cho người khuyết tật: %s</string>
+    <string name="capacity_disabled_yes">Có chỗ đỗ xe cho người khuyết tật</string>
+    <string name="capacity_disabled_no">Không có chỗ đỗ xe cho người khuyết tật</string>
+    <string name="capacity_charging">Số chỗ đỗ có cây sạc: %s</string>
+    <string name="capacity_charging_yes">Có chỗ đỗ có cây sạc</string>
+    <string name="capacity_charging_no">Không có chỗ đỗ có cây sạc</string>
+    <string name="permission_read_navigation_label">Đọc dữ liệu điều hướng CoMaps</string>
+    <string name="permission_read_navigation_description">đọc thông tin điều hướng trực tiếp ví dụ như các lối rẽ tiếp theo hoặc tên đường bạn đang đi</string>
 </resources>

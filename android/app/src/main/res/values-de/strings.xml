@@ -417,7 +417,7 @@
     <string name="logout">Abmelden</string>
     <string name="edit_place">Eintrag bearbeiten</string>
     <string name="add_language">Eine Sprache hinzufügen</string>
-    <string name="street">Innerortsstraße</string>
+    <string name="street">Straße</string>
     <!-- Editable House Number text field (in address block). -->
     <string name="house_number">Hausnummer</string>
     <string name="details">Einzelheiten</string>

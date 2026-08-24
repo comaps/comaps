@@ -20,7 +20,7 @@
     <string name="type.aeroway.runway">Pista de pouso e decolagem</string>
     <string name="type.aeroway.taxiway">Pista de táxi</string>
     <string name="type.aeroway.terminal">Terminal</string>
-    <string name="type.amenity">Amenidades</string>
+    <string name="type.amenity">Serviço</string>
     <string name="type.amenity.atm">Caixa eletrônico</string>
     <string name="type.amenity.bank">Banco</string>
     <string name="type.amenity.bar">Drinqueria</string>
@@ -1270,7 +1270,7 @@
     <string name="type.natural.orchard">Pomar</string>
     <string name="type.natural.peak">Pico</string>
     <string name="type.natural.rock">Pedra</string>
-    <string name="type.natural.scrub">Esfregar</string>
+    <string name="type.natural.scrub">Matagal</string>
     <string name="type.natural.spring">Nascente</string>
     <string name="type.natural.spring.drinking_water_no">Nascente</string>
     <string name="type.natural.strait">Estreito</string>

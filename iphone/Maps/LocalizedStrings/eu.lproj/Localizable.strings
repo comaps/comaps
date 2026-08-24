@@ -10,7 +10,7 @@
 /* Title of offline maps explanation */
 "offline_explanation_title" = "Lineaz kanpoko mapak";
 /* Text of offline maps explanation */
-"offline_explanation_text" = "A map needs to be downloaded to view and navigate the area.\nDownload maps for areas you want to travel.";
+"offline_explanation_text" = "Mapa bat deskargatu behar da eremua ikusteko eta nabigatzeko.\nDeskargatu bidaiatu nahi dituzun eremuen mapak.";
 /* Choose measurement on first launch alert - choose metric system button */
 "kilometres" = "Kilometro";
 /* Leave Review dialog - Review button */
@@ -147,7 +147,7 @@
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Mapen hizkuntza";
 /* Settings «Map» category: «Map Language» local value */
-"pref_maplanguage_local" = "Hizkuntza lokala";
+"pref_maplanguage_local" = "Tokiko hizkuntza";
 /* Settings «Map» category: «Map Appearance» title */
 "pref_mapappearance_title" = "Mapen itxura";
 /* Settings «Map» category: «Appearance» title */
@@ -578,10 +578,10 @@
 "traffic_data_unavailable" = "Trafiko datuak ez daude eskuragarri";
 "enable_logging" = "Historia gaitu";
 "log_file_size" = "Erregistro fitxategiaren tamaina: %@";
-"pref_alt_map_lang_handling" = "Alternative Map Languages";
+"pref_alt_map_lang_handling" = "Maparen hizkuntza alternatiboak";
 "pref_alt_map_lang_handling_ignore_alternatives" = "Ez erabili alternatibarik";
-"pref_alt_map_lang_handling_system_order" = "Use in system order";
-"pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
+"pref_alt_map_lang_handling_system_order" = "Erabili sistemaren ordenan";
+"pref_alt_map_lang_handling_local_only" = "Hobetsi eta erabili bakarrik tokikoa denean";
 "transliteration_title" = "Latinezko transliterazioa";
 "transliteration_title_disabled_summary" = "Desgaituta maparako hizkuntza lokala beti erabiltzean";
 /* Subway exits for public transport marks on the map */
@@ -874,12 +874,12 @@
 "downloader_check_updates_no_updates" = "Ez dago eguneratzerik";
 "downloader_check_updates_eol" = "Ez dago mapa eguneratze gehiago aplikazio honen bertsiorako. Eguneratu aplikazioa!";
 "downloader_check_updates_error" = "Ezin izan dira eguneratzeak bilatu";
-"editor_add_select_category_recent_subtitle" = "Recently Used";
+"editor_add_select_category_recent_subtitle" = "Duela gutxikoak";
 "oh_unknown" = "Ordutegi ezezaguna";
 "carplay_highway_exit" = "Exit %@";
 "capacity_disabled_yes" = "Has dedicated disabled spaces";
-"capacity_disabled_no" = "No dedicated disabled spaces";
-"capacity_charging_yes" = "Has spaces with chargers";
-"capacity_charging_no" = "No spaces with chargers";
-"planning_route_preview" = "Preview";
+"capacity_disabled_no" = "Ez du ezinduentzako lekurik";
+"capacity_charging_yes" = "Kargagailua duten espazioak ditu";
+"capacity_charging_no" = "Ez dago lekurik kargagailuekin";
+"planning_route_preview" = "Aurrebista";
 "planning_route_preview_sheet_title" = "Route Preview";

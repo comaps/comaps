@@ -44,4 +44,8 @@
     <string name="months_ago">vor %s Monaten</string>
     <string name="year_ago">vor %s Jahr</string>
     <string name="years_ago">vor %s Jahren</string>
+    <string name="accessibility_map_content_description_collapsed">Karte. Wische hoch oder runter mit einem Finger und vergrößere dabei die Karte um sie durch Antippen zu entdecken.</string>
+    <string name="accessibility_map_content_description_expanded">Karte. Antippen und halten um durch Berührung zu entdecken. Orte werden vorgelesen wenn du sie mit deinem Finger erreichst. Beende es, wenn du hoch oder runter wischst mit einem Finger.</string>
+    <string name="accessibility_map_action_expand_label">Entdecke durch Berührung</string>
+    <string name="accessibility_map_action_collapse_label">Beende die Berührungserkundung</string>
 </resources>

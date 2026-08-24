@@ -220,7 +220,7 @@
     <!-- Settings «Route» category: «Tts language» title -->
     <string name="pref_tts_language_title">Gesproken taal</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Gesproken aanwijzingen testen</string>
+    <string name="pref_tts_test_voice_title">Gesproken instructies testen</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
     <string name="pref_tts_playing_test_voice">Controleer het volume of de tekst-naar-spraak instellingen van het systeem als u de stem nu niet hoort</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
@@ -480,7 +480,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Exploitant: %s</string>
     <string name="editor_category_unsuitable_title">Geen passende categorie gevonden?</string>
-    <string name="editor_category_unsuitable_text">CoMaps kan alleen eenvoudige puntcategorieën toevoegen, dus geen steden, wegen, meren, contouren van gebouwen, enz. Voeg dergelijke categorieën direct toe aan <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Lees onze <a href="https://www.comaps.app/support/advanced-map-editing/">handleiding</a> voor gedetailleerde stap voor stap instructies.</string>
+    <string name="editor_category_unsuitable_text">CoMaps kan alleen eenvoudige puntcategorieën toevoegen, dus geen steden, wegen, meren, contouren van gebouwen, enz. Voeg dergelijke categorieën direct toe aan <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Lees onze <a href="https://www.comaps.app/support/advanced-map-editing/">handleiding</a> voor gedetailleerde stapsgewijze instructies.</string>
     <string name="downloader_no_downloaded_maps_title">U hebt geen kaarten gedownload</string>
     <string name="downloader_no_downloaded_maps_message">Download kaarten om offline te zoeken en navigeren</string>
     <string name="current_location_unknown_error_title">Huidige locatie is onbekend</string>
@@ -528,7 +528,7 @@
     <string name="mobile_data_option_not_today">Gebruik vandaag niet</string>
     <string name="mobile_data">Mobiel internet</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Mobiel internet is vereist voor kaart update notificaties en uploaden van wijzigingen</string>
+    <string name="mobile_data_description">Mobiel internet is vereist voor meldingen over kaartupdates en uploaden van wijzigingen</string>
     <string name="mobile_data_option_never">Gebruik nooit</string>
     <string name="mobile_data_option_ask">Vraag altijd</string>
     <string name="traffic_update_maps_text">Om verkeersgegevens weer te geven, moeten de kaarten bijgewerkt worden</string>
@@ -768,7 +768,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Alle Favorieten exporteren</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Instellingen spraaksynthesesysteem</string>
+    <string name="pref_tts_open_system_settings">Systeeminstellingen spraaksynthese</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
     <string name="pref_tts_no_system_tts">Instellingen voor spraaksynthese zijn niet gevonden, weet u zeker dat uw apparaat dit ondersteunt?</string>
     <string name="drive_through">Drive-though</string>
@@ -968,7 +968,7 @@
     <string name="permission_read_navigation_label">CoMaps navigatiegegevens lezen</string>
     <string name="permission_read_navigation_description">lees live navigatie-informatie zoals aankomende bochten of de naam van de weg waarop u zich bevindt</string>
     <string name="prefs_group_map_appearance">Kaartuiterlijk</string>
-    <string name="prefs_group_map_appearance_summary">Kaart-taal, labelgrootte, 2D/3D-gebouwen</string>
+    <string name="prefs_group_map_appearance_summary">Kaarttaal, labelgrootte, 2D/3D-gebouwen</string>
     <string name="planning_route_preview">Voorbeeld</string>
     <string name="search_in_all_lists">Zoek in alle lijsten</string>
     <string name="prefs_group_interface">Vormgeving</string>
@@ -978,7 +978,7 @@
     <string name="pref_about_summary">Meld problemen, hulp, doneer\nVersie: v%1$s</string>
     <string name="prefs_group_interface_summary">Nachtmodus, knoppen, taal</string>
     <string name="prefs_group_data_management_summary">Kaartopslag, back-up maken van favorieten</string>
-    <string name="pref_enable_auto_reroute_title">Automatisch omleiden</string>
-    <string name="pref_enable_auto_reroute_description">Indien ingeschakeld, wordt er automatisch een nieuwe route aangemaakt wanneer u de geplande route verlaat.</string>
+    <string name="pref_enable_auto_reroute_title">Route automatisch herberekenen</string>
+    <string name="pref_enable_auto_reroute_description">Indien ingeschakeld, wordt er automatisch een nieuwe route berekend wanneer de geplande route verlaten wordt.</string>
     <string name="off_route">Je bent van de route afgeweken</string>
 </resources>

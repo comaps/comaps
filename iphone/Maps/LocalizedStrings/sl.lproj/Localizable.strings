@@ -881,5 +881,5 @@
 "capacity_disabled_no" = "Nima mest za invalide";
 "capacity_charging_yes" = "Ima mesta za polnjenje";
 "capacity_charging_no" = "Nima mest za polnjenje";
-"planning_route_preview" = "Preview";
-"planning_route_preview_sheet_title" = "Route Preview";
+"planning_route_preview" = "Predogled";
+"planning_route_preview_sheet_title" = "Predogled poti";

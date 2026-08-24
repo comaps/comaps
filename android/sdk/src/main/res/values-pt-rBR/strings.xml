@@ -44,4 +44,8 @@
     <string name="months_ago">Há %s meses</string>
     <string name="year_ago">Há %s ano</string>
     <string name="years_ago">Há %s anos</string>
+    <string name="accessibility_map_content_description_collapsed">Mapa. Deslize para cima ou para baixo com um dedo e expanda para explorar por toque.</string>
+    <string name="accessibility_map_content_description_expanded">Mapa. Toque e segure para explorar por toque. Os locais serão lidos quando o seu dedo se aproximar deles. Para parar, deslize para cima ou para baixo com um dedo e feche.</string>
+    <string name="accessibility_map_action_expand_label">explorar por toque</string>
+    <string name="accessibility_map_action_collapse_label">parar exploração por toque</string>
 </resources>

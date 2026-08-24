@@ -17,7 +17,7 @@
 "type.aeroway.runway" = "Pista de pouso e decolagem";
 "type.aeroway.taxiway" = "Pista de táxi";
 "type.aeroway.terminal" = "Terminal";
-"type.amenity" = "Amenidades";
+"type.amenity" = "Serviço";
 "type.amenity.arts_centre" = "Centro de artes";
 "type.amenity.atm" = "Caixa eletrônico";
 "type.amenity.bank" = "Banco";
@@ -852,7 +852,7 @@
 "type.natural.peak" = "Pico";
 "type.natural.saddle" = "Sela de montanha";
 "type.natural.rock" = "Pedra";
-"type.natural.scrub" = "Esfregar";
+"type.natural.scrub" = "Matagal";
 "type.natural.spring" = "Nascente";
 "type.natural.spring.drinking_water_no" = "Nascente";
 "type.natural.strait" = "Estreito";

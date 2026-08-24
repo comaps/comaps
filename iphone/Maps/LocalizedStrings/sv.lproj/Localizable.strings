@@ -32,7 +32,7 @@
 /* Message to display at the center of the screen when the country download has failed */
 "country_status_download_failed" = "Nedladdningen misslyckades";
 /* Text in About screen */
-"about_headline" = "Open project powered by the community";
+"about_headline" = "Ett öppet projekt drivet av communityn";
 /* Text in About screen */
 "about_proposition_1" = "Offline, snabb och enkel att använda";
 /* Text in About screen */

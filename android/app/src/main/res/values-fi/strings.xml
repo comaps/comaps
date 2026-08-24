@@ -148,13 +148,13 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Muistiinpanot</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">CoMaps Suosikkini</string>
+    <string name="share_bookmarks_email_subject">CoMaps-suosikkini</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Ladataan kirjanmerkkejä</string>
+    <string name="load_kmz_title">Ladataan suosikkeja</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Kirjanmerkkien lataaminen onnistui! Löydät ne joko kartalta tai kirjanmerkkien hallinnasta.</string>
+    <string name="load_kmz_successful">Suosikkien lataaminen onnistui! Löydät ne joko kartalta tai suosikkien hallinnasta.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Kirjanmerkkien lataus epäonnistui. Tiedosto saattaa olla vioittunut.</string>
+    <string name="load_kmz_failed">Suosikkien lataus epäonnistui. Tiedosto saattaa olla vioittunut.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Sovellus ei tunnista tiedostotyyppiä: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -516,7 +516,7 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Haluatko lähettää sen kaikille käyttäjille?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Varmista, ettet syöttänyt henkilökohtaisia tietojasi.</string>
+    <string name="editor_share_to_all_dialog_message_1">Varmista, ettet ole syöttänyt henkilökohtaisia tietojasi.</string>
     <string name="editor_share_to_all_dialog_message_2">OpenStreetMap-muokkaajat tarkistavat muutokset ja ottavat sinuun yhteyttä, jos heillä on kysyttävää.</string>
     <string name="navigation_stop_button">Lopeta</string>
     <!-- Shown as toast when starting the recent track recording -->
@@ -559,7 +559,7 @@
     <string name="dialog_error_storage_message">Ulkoinen tallennustila ei ole käytettävissä, SD-kortti on luultavasti poistettu tai vahingoittunut tai tiedostojärjestelmä on vain luku -tilassa. Tarkista SD-kortin toiminta tai ota yhteyttä osoitteeseen support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Jäljittele virheellistä tallennustilaa</string>
     <string name="error_enter_correct_name">Anna oikea nimi</string>
-    <string name="bookmark_lists">Luettelot</string>
+    <string name="bookmark_lists">Suosikkilistat</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Piilota kaikki</string>
     <string name="bookmark_lists_show_all">Näytä kaikki</string>
@@ -569,7 +569,7 @@
     </plurals>
     <string name="bookmarks_create_new_group">Luo uusi luettelo</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Kirjanmerkkien ja reittien tuominen</string>
+    <string name="bookmarks_import">Tuo suosikit</string>
     <string name="bookmarks_error_message_share_general">Ei voitu jakaa sovellusvirheen vuoksi</string>
     <string name="bookmarks_error_title_share_empty">Jakamisvirhe</string>
     <string name="bookmarks_error_message_share_empty">Tyhjää luetteloa ei voi jakaa</string>
@@ -629,7 +629,7 @@
     <string name="avoid_motorways">Vältä moottoritietä</string>
     <string name="unable_to_calc_alert_title">Reittiä ei voi luoda</string>
     <string name="unable_to_calc_alert_subtitle">Reittiä ei löytynyt. Tämä voi johtua reititysasetuksistasi tai puutteellisista OpenStreetMap-tiedoista. Muuta reititysvaihtoehtoja ja yritä uudelleen.</string>
-    <string name="define_to_avoid_btn">Määritä vältettävät tiet</string>
+    <string name="define_to_avoid_btn">Valitse reititysasetukset</string>
     <string name="change_driving_options_btn">Reititysvalinnat ovat päällä</string>
     <string name="toll_road">Maksullinen tie</string>
     <string name="unpaved_road">Päällystämätön tie</string>
@@ -651,7 +651,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Järjestä…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Järjestä kirjanmerkit</string>
+    <string name="sort_bookmarks">Järjestä suosikit</string>
     <!-- Android -->
     <string name="by_default">Oletuksena</string>
     <!-- Android -->
@@ -765,7 +765,7 @@
     <string name="browser_not_available">Verkkoselain ei ole käytettävissä</string>
     <string name="volume">Äänenvoimakkuus</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Vie kaikki kirjanmerkit ja kappaleet</string>
+    <string name="bookmarks_export">Vie kaikki suosikit</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Puhesynteesijärjestelmän asetukset</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -797,7 +797,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Jatka tallennusta</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Tallenna suosikkeihin?</string>
+    <string name="track_recording_alert_title">Tallennetaanko suosikkeihin?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Reitti on tyhjä - ei mitään tallennettavaa</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -808,7 +808,7 @@
     <!-- preference string for using auto theme only in navigation mode -->
     <string name="nav_auto">Automaattinen navigointi</string>
     <string name="level_value_generic">Kerros: %s</string>
-    <string name="share_bookmarks_email_body">Hei!\n\nLiitteenä kirjanmerkkini. Avaa ne CoMaps-sovelluksella. Jos sinulla ei ole vielä sovellusta, voit ladata sen osoitteesta: https://www.comaps.app/download/\n\nNauti matkustamisesta CoMapsin kanssa!</string>
+    <string name="share_bookmarks_email_body">Hei!\n\nLiitteenä suosikkini. Avaa ne CoMaps-sovelluksella. Jos sinulla ei ole vielä sovellusta, voit ladata sen osoitteesta: https://www.comaps.app/download/\n\nNauti matkustamisesta CoMapsin kanssa!</string>
     <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="translated_om_site_url">https://comaps.app/fi/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
@@ -838,7 +838,7 @@
     <string name="pref_backup_now_title">Varmuuskopioi nyt</string>
     <string name="pref_backup_now_summary">Luo varmuuskopio heti</string>
     <string name="pref_backup_now_summary_ok">Varmuuskopiointi onnistui</string>
-    <string name="pref_backup_now_summary_empty_lists">Kirjanmerkkejä ja reittejä ei varmuuskopioitu</string>
+    <string name="pref_backup_now_summary_empty_lists">Ei suosikkeja varmuuskopioitavaksi</string>
     <string name="pref_backup_now_summary_failed">Varmuuskopiointi epäonnistui</string>
     <string name="pref_backup_now_summary_folder_unavailable">Varmuuskopion kansio ei saatavilla</string>
     <string name="pref_backup_location_title">Varmuuskopion sijainti</string>
@@ -849,7 +849,7 @@
     <string name="backup_interval_every_week">Viikottain</string>
     <string name="dialog_report_error_missing_folder">Valittu varmuuskopio ei ole saatavilla tai kirjoituskelpoinen. Valitse eri sijainti.</string>
     <string name="pref_backup_now_summary_progress">Varmuuskopiointi käynnissä…</string>
-    <string name="pref_backup_title">Kirjanmerkkien ja reittien varmuuskopiointi</string>
+    <string name="pref_backup_title">Suosikkien varmuuskopiointi</string>
     <string name="pref_backup_status_summary_success">Viimeisin onnistunut varmuuskopio</string>
     <string name="backup_interval_manual_only">Pois (Varmuuskopioi manuaalisesti)</string>
     <string name="dialog_report_error_with_logs">Lähetä meille virheraportti:\n - kytke \"Ota loki käyttöön\" asetuksista\n - yritä toistaa ongelma\n - paina \"Tietoja ja ohje\" valikosta \"Ilmoita virhe\" painiketta ja lähetä virheraportti sähköpostin tai chatin kautta\n - kytke lokitallennus pois käytöstä</string>
@@ -857,7 +857,7 @@
     <string name="closed_now">Suljettu nyt</string>
     <string name="at">kello %s</string>
     <string name="osm_note_toast">Huomio lähetetään OpenStreetMap:iin</string>
-    <string name="osm_note_hint">Vaihtoehtoisesti voit jättää huomion OpenStreetMap yhteisölle, jotta joku muu voi lisätä tai korjata paikan tiedot.</string>
+    <string name="osm_note_hint">Vaihtoehtoisesti voit jättää huomion OpenStreetMap-yhteisölle, jotta joku muu voi lisätä tai korjata paikan tiedot.</string>
     <string name="delete_track_dialog_title">Poista %s?</string>
     <string name="share_track">Jaa Reitti</string>
     <string name="hours_confirmed_time_ago">Vahvistettu %s</string>
@@ -929,4 +929,41 @@
     <string name="pref_alt_map_lang_handling">Vaihtoehtoiset kartan kielet</string>
     <string name="invalid_route">Virheellinen reitti</string>
     <string name="route_recalculating">Lasketaan reittiä uudelleen…</string>
+    <string name="pref_about_summary">Ilmoita ongelmista, tuki, lahjoita\nVersio: v%1$s</string>
+    <string name="prefs_group_map_appearance">Kartan ulkoasu</string>
+    <string name="prefs_group_map_appearance_summary">Kartan kieli, nimikkeiden koko, 2D-/3D-rakennukset</string>
+    <string name="prefs_group_interface">Käyttöliittymä</string>
+    <string name="prefs_group_interface_summary">Yötila, painikkeet, kieli</string>
+    <string name="prefs_group_data_management">Datan hallinta</string>
+    <string name="prefs_group_data_management_summary">Kartan tallennustila, suosikkien varmuuskopiointi</string>
+    <string name="prefs_group_route_summary">Yksiköt, ääniohjeet, reititysvalinnat</string>
+    <string name="prefs_group_advanced_summary">Käytä lokitusta</string>
+    <string name="tts_toggle_enable">Käytä ääniohjeita</string>
+    <string name="tts_toggle_disable">Poista ääniohjeet käytöstä</string>
+    <string name="enable_long_tap_fullscreen">Pitkä napautus piilottaa käyttöliittymän</string>
+    <string name="downloader_check_updates_button">Tarkista päivitykset</string>
+    <string name="downloader_check_updates_checking">Tarkistetaan päivityksiä...</string>
+    <string name="downloader_check_updates_updated">Karttapäivityksiä saatavilla!</string>
+    <string name="downloader_check_updates_no_updates">Päivityksiä ei ole saatavilla</string>
+    <string name="downloader_check_updates_eol">Tälle sovellusversiolle ei ole enää luvassa karttapäivityksiä. Päivitä sovellus!</string>
+    <string name="downloader_check_updates_error">Päivityksiä tarkistaessa tapahtui virhe</string>
+    <string name="oh_unknown">Aukiolotunnit eivät ole tiedossa</string>
+    <string name="prefs_group_privacy_summary">Hakuhistoria</string>
+    <string name="prefs_group_power_summary">Näytön sammuttaminen, mobiilidata</string>
+    <string name="setting_value_system_default">Järjestelmän oletus</string>
+    <string name="change_app_locale">Sovelluksen kieli</string>
+    <string name="planning_route_preview">Esikatselu</string>
+    <string name="pref_aa_support_title">Android Auto</string>
+    <string name="pref_aa_support_summary_yes">Sovellus on asennettu Google Playn kautta, voit käyttää sovellusta autossa.</string>
+    <string name="pref_aa_support_summary_no">Sovellusta ei ole asennettu Google Playn kautta, et voi käyttää sovellusta autossa. Napauta asetusta saadaksesi lisätietoja usein kysytyistä kysymyksistä.</string>
+    <string name="pref_enable_auto_reroute_title">Automaattinen uudelleenreititys</string>
+    <string name="pref_enable_auto_reroute_description">Kun käytössä, uusi reitti luodaan automaattisesti, kun poistut suunnitellulta reitiltä.</string>
+    <string name="recalculate_route">Laske uudelleen</string>
+    <string name="off_route">Olet pois reitiltä</string>
+    <string name="editor_add_select_category_recent_subtitle">Äskettäin käytetty</string>
+    <string name="permission_read_navigation_label">Lue CoMaps-navigointidataa</string>
+    <string name="editor_mark_business_vacant_description">Käytä tätä, jos liike on muuttanut pois tiloista, tilat ovat tyhjinä ja valmiit vastaanottamaan uuden vuokralaisen.</string>
+    <string name="editor_add_select_category_all_subtitle">Kaikki luokat</string>
+    <string name="destination">Määränpää</string>
+    <string name="stop">Välipysähdys</string>
 </resources>

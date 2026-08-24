@@ -7654,5 +7654,11 @@
     },
     "Germany_Saxony": {
         "defaultMessage": "Saksonia"
+    },
+    "World": {
+        "defaultMessage": "Ogólna mapa świata"
+    },
+    "WorldCoasts": {
+        "defaultMessage": "Ogólna mapa świata (linie brzegowe)"
     }
 }

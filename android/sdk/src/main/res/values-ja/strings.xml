@@ -13,7 +13,7 @@
     <!-- Generic external storage type in Maps Storage settings -->
     <string name="maps_storage_external">外部ストレージ</string>
     <!-- Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! -->
-    <string name="category_wifi">無線LAN</string>
+    <string name="category_wifi">WiFi</string>
     <string name="postal_code">郵便番号</string>
     <!-- Place Page title for long tap -->
     <string name="core_placepage_unknown_place">マップポイント</string>
@@ -41,5 +41,9 @@
     <string name="week_ago">%s週間前</string>
     <string name="weeks_ago">%s週間前</string>
     <string name="months_ago">%sヶ月前</string>
-    <string name="month_ago">1ケ月前</string>
+    <string name="month_ago">%sヶ月前</string>
+    <string name="year_ago">%s年前</string>
+    <string name="years_ago">%s年前</string>
+    <string name="accessibility_map_action_expand_label">タッチで探索</string>
+    <string name="accessibility_map_action_collapse_label">タッチで探索を終了</string>
 </resources>

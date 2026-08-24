@@ -683,7 +683,7 @@
     <string name="setting_value_system_default">Privzeto sistemsko</string>
     <string name="change_app_locale">Jezik orodja</string>
     <string name="downloader_check_updates_no_updates">Posodobitev ni na voljo</string>
-    <string name="prefs_group_route_summary">Glasovno vodenje</string>
+    <string name="prefs_group_route_summary">Merske enote, glasovno vodenje, možnosti načrtovanja poti</string>
     <string name="tts_toggle_enable">Vklopi glasovno vodenje</string>
     <string name="tts_toggle_disable">Izklopi glasovno vodenje</string>
     <string name="enable_long_tap_fullscreen">Dolki pritisk za skritje uporabniškega vmesnika</string>
@@ -694,8 +694,8 @@
     <string name="downloader_check_updates_eol">Za to verzijo aplikacije posodobitve zemljevidov niso več na voljo. Prosimo posodobite aplikacijo!</string>
     <string name="downloader_check_updates_error">Napaka pri preverjanju posodobitev</string>
     <string name="oh_unknown">Odpiralni časi neznani</string>
-    <string name="prefs_group_privacy_summary">Storitve Google Play, zgodovina iskanja</string>
-    <string name="prefs_group_power_summary">Stil zemljevida, časovna omejitev zaslona</string>
+    <string name="prefs_group_privacy_summary">Zgodovina iskanja</string>
+    <string name="prefs_group_power_summary">Časovna omejitev zaslona, mobilni prenos podatkov</string>
     <string name="sort_categories">Razvrstite sezname zaznamkov</string>
     <string name="by_recently_used">Po zadnji uporabi</string>
     <string name="by_custom">Po lastnem vrstnem redu</string>
@@ -712,4 +712,18 @@
     <string name="capacity_charging_no">Nima mest za polnjenje</string>
     <string name="permission_read_navigation_label">Branje CoMaps navigacijskih podatkov</string>
     <string name="permission_read_navigation_description">branje trenutnih navigacijskih podatkov, kot so prihodnji zavoji ali ime trenutne ulice</string>
+    <string name="prefs_group_map_appearance">Izgled zemljevida</string>
+    <string name="prefs_group_map_appearance_summary">Jezik zemljevida, velikost napisov, 2D/3D stavbe</string>
+    <string name="prefs_group_interface">Vmesnik</string>
+    <string name="prefs_group_interface_summary">Nočni način, gumbi, jezik</string>
+    <string name="prefs_group_data_management">Upravljanje podatkov</string>
+    <string name="prefs_group_data_management_summary">Shramba zemljevidov, varnostno kopiranje priljubljenih</string>
+    <string name="prefs_group_advanced_summary">Omogoči beleženje</string>
+    <string name="planning_route_preview">Predogled</string>
+    <string name="search_in_all_lists">Išči po vseh seznamih</string>
+    <string name="pref_enable_auto_reroute_title">Samodejno preusmerjanje</string>
+    <string name="pref_enable_auto_reroute_description">Ko je omogočeno bo ob zapustitvi načrtovane potne povezave samodejno izračunana nova.</string>
+    <string name="pref_about_summary">Prijava napak, pomoč, donacije\nVerzija: v%1$s</string>
+    <string name="off_route">Zašli ste z načrtovane poti</string>
+    <string name="recalculate_route">Ponovno izračunaj</string>
 </resources>

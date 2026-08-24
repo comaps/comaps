@@ -197,4 +197,11 @@
     <string name="type.amenity.ranger_station">Kārtībnieka birojs</string>
     <string name="type.amenity.community_centre.youth_centre">Jauniešu centrs</string>
     <string name="type.amenity.fuel">Degvielas uzpildes stacija</string>
+    <string name="type.leisure.bowling_alley">Boulinga centrs</string>
+    <string name="type.amenity.toilets.customers">Klientu piekļuve</string>
+    <string name="type.amenity.toilets.private">Privātā piekļuve</string>
+    <string name="type.toilets.yes">Labierīcības</string>
+    <string name="type.amenity.townhall">Rātsnams</string>
+    <string name="type.amenity.university">Augstskola</string>
+    <string name="type.amenity.vending_machine">Tirdzniecības automāts</string>
 </resources>

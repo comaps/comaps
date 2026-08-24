@@ -1101,4 +1101,11 @@
     <string name="type.leisure.sports_centre.sport.curling">מרכז ספורט</string>
     <string name="type.leisure.sports_centre.sport.equestrian">מרכז ספורט</string>
     <string name="type.shop.lighting">חנות מוצרי תאורה</string>
+    <string name="type.aerialway">רכבלית</string>
+    <string name="type.amenity.bench.backless">ללא משענת גב</string>
+    <string name="type.amenity.bicycle_parking.covered">חניית אופניים מקורה</string>
+    <string name="type.amenity.love_hotel">מלון לפי שעה</string>
+    <string name="type.man_made.observatory">מצפה</string>
+    <string name="type.amenity.charging_station.motorcycle">תחנת טעינה לאופנוע</string>
+    <string name="type.amenity.planetarium">פלנטריום</string>
 </resources>

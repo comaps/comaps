@@ -591,7 +591,7 @@
 /* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
 "routing_add_finish_point" = "Sử dụng tìm kiếm hoặc nhấn vào bản đồ để thêm điểm đến";
 "planning_route_manage_route" = "Quản lý lộ trình";
-"button_plan" = "Kế hoạch";
+"button_plan" = "Tạo lộ trình";
 "placepage_remove_stop" = "Xóa điểm dừng";
 "planning_route_remove_title" = "Kéo vào đây để xóa";
 "placepage_add_stop" = "Thêm điểm dừng";
@@ -878,8 +878,8 @@
 "oh_unknown" = "Giờ mở cửa không được biết";
 "carplay_highway_exit" = "Exit %@";
 "capacity_disabled_yes" = "Has dedicated disabled spaces";
-"capacity_disabled_no" = "No dedicated disabled spaces";
-"capacity_charging_yes" = "Has spaces with chargers";
-"capacity_charging_no" = "No spaces with chargers";
-"planning_route_preview" = "Preview";
+"capacity_disabled_no" = "Không có chỗ đỗ xe cho người khuyết tật";
+"capacity_charging_yes" = "Có chỗ đỗ có cây sạc";
+"capacity_charging_no" = "Không có chỗ đỗ có cây sạc";
+"planning_route_preview" = "Xem trước";
 "planning_route_preview_sheet_title" = "Route Preview";

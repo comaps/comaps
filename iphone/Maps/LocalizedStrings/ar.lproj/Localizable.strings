@@ -115,7 +115,7 @@
 /* Kml file loading failed */
 "load_kmz_failed" = "فشل تحميل المفضلة. قد يكون الملف تالفًا أو معيبًا.";
 /* resource for context menu */
-"edit" = "عدِّل";
+"edit" = "حرِّر";
 /* Warning message when doing search around current position */
 "unknown_current_position" = "لم يُحدّد موقعك بعد";
 /* Subject for emailed bookmark */
@@ -323,7 +323,7 @@
 "dialog_routing_download_files" = "تنزيل الملفات المطلوبة";
 "dialog_routing_download_and_update_all" = "قم بتنزيل وتحديث كافة الخرائط ومعلومات التوجيه على طول الطريق المتوقع لحساب المسار.";
 "dialog_routing_unable_locate_route" = "تعذر إيجاد المسار";
-"dialog_routing_change_start_or_end" = "الرجاء تعديل نقطة بدء أو تعديل وجهتك.";
+"dialog_routing_change_start_or_end" = "يُرجى تعديل نقطة بدء أو تعديل وجهتك.";
 "dialog_routing_change_start" = "تعديل نقطة البدء";
 "dialog_routing_start_not_determined" = "لم يتم إنشاء المسار. تعذر تحديد موقع نقطة البدء.";
 "dialog_routing_select_closer_start" = "يُرجى تحديد نقطة بدء أكثر قربًا للطريق.";
@@ -334,7 +334,7 @@
 "dialog_routing_intermediate_not_determined" = "الرجاء ضبط النقطة الوسيطة الخاصة بك.";
 "dialog_routing_system_error" = "خطأ في النظام";
 "dialog_routing_application_error" = "تعذر إنشاء مسار نتيجة وجود خطأ في التطبيق.";
-"dialog_routing_try_again" = "الرجاء إعادة المحاولة";
+"dialog_routing_try_again" = "يُرجى إعادة المحاولة";
 "dialog_routing_download_and_build_cross_route" = "أترغب في تنزيل الخريطة وإنشاء مسار أفضل يمتد عبر أكثر من خريطة؟";
 "dialog_routing_download_cross_route" = "نزّل خرائط إضافية لإنشاء مسار أفضل يتجاوز حدود هذه الخارطة.";
 /* «Show» context menu */
@@ -393,8 +393,8 @@
 /* Place Page opening hours text */
 "closed_now" = "مغلق الآن";
 /* Place Page opening hours text */
-"daily" = "يومياً";
-"twentyfour_seven" = "٢٤/٧(ليلاً ونهاراً)";
+"daily" = "يوميًا";
+"twentyfour_seven" = "٢٤/٧";
 "day_off_today" = "مغلق اليوم";
 "day_off" = "مغلق";
 "today" = "اليوم";
@@ -430,7 +430,7 @@
 /* Information text: "Last upload 11.01.2016" */
 "last_upload" = "آخر تعديل";
 "thank_you" = "شكراً لك";
-"edit_place" = "عدِّل المكان";
+"edit_place" = "حرِّر المكان";
 "place_name" = "اسم المكان";
 "add_language" = "أضف لغة";
 /* Editable House Number text field (in address block). */
@@ -454,13 +454,13 @@
 "migration_download_error_dialog" = "خطأ بالتنزيل";
 "common_check_internet_connection_dialog" = "يرجى التحقق من الإعدادات والتأكد من اتصال جهازك بالإنترنت.";
 "downloader_no_space_title" = "لا تتوفر مساحة كافية";
-"downloader_no_space_message" = "الرجاء حذف البيانات غير الضرورية";
+"downloader_no_space_message" = "يُرجى حذف البيانات غير الضرورية";
 "editor_profile_changes" = "تغييرات مؤكدة";
 "editor_focus_map_on_location" = "اسحب الخريطة لوضع الصليب في موقع المكان أو النشاط التجاري.";
 "editor_add_select_category" = "اختر الفئة";
 "editor_add_select_category_popular_subtitle" = "رائج";
 "editor_add_select_category_all_subtitle" = "كل الفئات";
-"editor_edit_place_title" = "التعديل";
+"editor_edit_place_title" = "التحرير";
 "editor_add_place_title" = "الإضافة";
 "editor_edit_place_name_hint" = "اسم المكان";
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
@@ -525,7 +525,7 @@
 "placepage_more_button" = "المزيد";
 "book_button" = "حجز";
 "placepage_call_button" = "اتصال";
-"placepage_edit_bookmark_button" = "عدِّل المكان المحفوظ";
+"placepage_edit_bookmark_button" = "حرِّر المكان المحفوظ";
 "placepage_bookmark_name_hint" = "اسم المكان";
 "placepage_personal_notes_hint" = "ملاحظات شخصية (نص أو html)";
 "placepage_delete_bookmark_button" = "حذف المكان";
@@ -541,7 +541,7 @@
 /* Phone number error message */
 "error_enter_correct_phone" = "أدخل رقم هاتف صالح";
 "error_enter_correct_web" = "أدخل عنوان ويب صالح";
-"error_enter_correct_email" = "أدخل بريداً إلكترونياً صالحاً";
+"error_enter_correct_email" = "أدخل بريدًا إلكترونيًا صالحًا";
 "refresh" = "تحديث";
 "placepage_add_place_button" = "أضف مكانًا إلى OpenStreetMap";
 /* Displayed when saving some edits to the map to warn against publishing personal data */
@@ -569,7 +569,7 @@
 /* NOTE to translators: please synchronize your translation with the English one. */
 "mobile_data_description" = "إننا نحتاج بيانات الجوال لعرض معلومات تفصيلية عن الأماكن والإشارات المرجعية.";
 "mobile_data_option_never" = "عدم الاستخدام مطلقًا";
-"mobile_data_option_ask" = "السؤال دوماً";
+"mobile_data_option_ask" = "إسأل دائمًا";
 "traffic_update_maps_text" = "لعرض البيانات المرورية، يجب تحديث الخرائط.";
 "big_font" = "زيادة حجم الخط على الخريطة";
 /* "traffic" as in road congestion */
@@ -591,7 +591,7 @@
 /* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
 "routing_add_finish_point" = "استخدم البحث أو النقر على الخريطة لإضافة نقطة وجهة";
 "planning_route_manage_route" = "إدارة المسار";
-"button_plan" = "خطة";
+"button_plan" = "خطِّط";
 "placepage_remove_stop" = "أزِل نقطة توقف";
 "planning_route_remove_title" = "اسحب هنا للإزالة";
 "placepage_add_stop" = "أضف نقطة توقف";
@@ -599,7 +599,7 @@
 /* Title for button when a route was saved. */
 "saved" = "حُفظ";
 "core_entrance" = "المدخل";
-"error_enter_correct_name" = "الرجاء إدخال اسم صحيح";
+"error_enter_correct_name" = "يُرجى إدخال اسم صحيح";
 "bookmark_lists" = "قوائم";
 /* Do not display all bookmark lists on the map */
 "bookmark_lists_hide_all" = "أخفِ الكل";
@@ -643,7 +643,7 @@
 /* Speed camera settings menu option - Always warn (about speedcams) */
 "pref_tts_speedcams_always" = "حذرني دائما من";
 /* Speed camera settings menu option - Never warn (about speedcams) */
-"pref_tts_speedcams_never" = "لا تحذرني من أبداً";
+"pref_tts_speedcams_never" = "لا تحذّر أبدًا";
 "power_managment_title" = "وضع توفير الطاقة";
 "power_managment_description" = "عندما يتم اختيار الوضع التلقائي، يبدأ التطبيق بتعطيل الخصائص التي تستهلك البطارية بناءً على مستوى شحن البطارية الحالي";
 "power_managment_setting_never" = "أبدًا";
@@ -858,7 +858,7 @@
 "track_recording_alert_title" = "حفظ في الإشارات المرجعية والمسارات؟";
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "المسار فارغ - لا يوجد شيء للحفظ";
-"edit_track" = "عدِّل المسار";
+"edit_track" = "حرِّر المسار";
 /* Title of the general section in settings */
 "general" = "General";
 /* Title of the interface section in settings */

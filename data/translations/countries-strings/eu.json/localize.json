@@ -7648,5 +7648,17 @@
     },
     "Germany_Saxony": {
         "defaultMessage": "Saxonia"
+    },
+    "France_Auvergne-Rhone-Alpes": {
+        "defaultMessage": "Auvernia-Rhône-Alpeak"
+    },
+    "France_Grand_Est": {
+        "defaultMessage": "Ekialde Handia"
+    },
+    "World": {
+        "defaultMessage": "Munduaren ikuspegi orokorra"
+    },
+    "WorldCoasts": {
+        "defaultMessage": "Munduaren ikuspegia (kosta-lerroak)"
     }
 }

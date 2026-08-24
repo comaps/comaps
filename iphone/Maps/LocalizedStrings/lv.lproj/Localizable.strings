@@ -137,7 +137,7 @@
 "version %@ (%@)" = "%@ (%@) versija";
 "version: %@ (%@)\nmap data: %@" = "Versija: %@ (%@)\nKartes dati: %@";
 /* Title for tracks category in bookmarks manager */
-"tracks_title" = "Pēdojumi";
+"tracks_title" = "Ceļi";
 /* Length of track in cell that describes route */
 "length" = "Garums";
 "share_my_location" = "Kopīgot manu atrašanās vietu";
@@ -242,7 +242,7 @@
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Vēlreiz piespiediet un paturiet uz kartes, lai redzētu saskarni";
 /* Update all button text */
-"downloader_update_all_button" = "Atjaunināt visus";
+"downloader_update_all_button" = "Atjaunināt visas";
 /* Downloaded maps list header */
 "downloader_downloaded_subtitle" = "Lejupielādētās";
 /* Downloaded maps category */
@@ -873,7 +873,7 @@
 "downloader_check_updates_updated" = "Pieejami karšu atjauninājumi.";
 "downloader_check_updates_no_updates" = "Atjauninājumi nav pieejami";
 "downloader_check_updates_eol" = "Šai lietotnes versijai vairs nav karšu atjauninājumu. Lūgums atjaunināt lietotni.";
-"downloader_check_updates_error" = "Error checking for updates";
+"downloader_check_updates_error" = "Kļūda atjauninājumu pārbaudes laikā";
 "editor_add_select_category_recent_subtitle" = "Nesen izmantotās";
 "oh_unknown" = "Darba laiks nav zināms";
 "carplay_highway_exit" = "Izbraukt %@";
@@ -881,5 +881,5 @@
 "capacity_disabled_no" = "Nav atsevišķu invalīdu vietu";
 "capacity_charging_yes" = "Ir vietas ar lādētājiem";
 "capacity_charging_no" = "Nav vietu ar lādētājiem";
-"planning_route_preview" = "Preview";
+"planning_route_preview" = "Priekšskatījums";
 "planning_route_preview_sheet_title" = "Route Preview";

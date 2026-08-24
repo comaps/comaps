@@ -6,12 +6,12 @@
 "delete" = "Apagar";
 /* Download/update Maps page */
 "download_maps" = "Baixar mapas";
-"downloader_check_updates_button" = "Buscar atualizações";
-"downloader_check_updates_checking" = "Buscando atualizações...";
-"downloader_check_updates_updated" = "Atualizações do mapa disponíveis!";
+"downloader_check_updates_button" = "Buscar atualização";
+"downloader_check_updates_checking" = "Buscando atualização...";
+"downloader_check_updates_updated" = "Atualização do mapa disponível!";
 "downloader_check_updates_no_updates" = "Nenhuma atualização disponível";
-"downloader_check_updates_eol" = "Não haverá mais atualizações de mapas para esta versão do aplicativo. Por favor, atualize o aplicativo!";
-"downloader_check_updates_error" = "Erro ao buscar atualizações";
+"downloader_check_updates_eol" = "Não haverá mais atualização de mapas para esta versão do aplicativo. Por favor, atualize o aplicativo!";
+"downloader_check_updates_error" = "Erro ao buscar atualização";
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "Baixando…";
 /* Title of offline maps explanation */
@@ -71,7 +71,7 @@
 /* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
 "category_eat" = "Onde comer";
 /* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
-"category_food" = "Mercados";
+"category_food" = "Mercado";
 /* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
 "category_transport" = "Transporte";
 /* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */

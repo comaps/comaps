@@ -39,7 +39,7 @@
         "defaultMessage": "4Karavan tesisleri"
     },
     "amenity-atm|@category_atm": {
-        "defaultMessage": "3para"
+        "defaultMessage": "para|nakit"
     },
     "@category_bank": {
         "defaultMessage": "3Banka"

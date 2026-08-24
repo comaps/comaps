@@ -181,12 +181,12 @@
     <!-- Data version in «About» screen, %@ is replaced by a local, human readable date. -->
     <string name="data_version">„OpenStreetMap“ dati: %s</string>
     <!-- Title for tracks category in bookmarks manager -->
-    <string name="tracks_title">Pēdojumi</string>
+    <string name="tracks_title">Ceļi</string>
     <!-- Length of track in cell that describes route -->
     <string name="length">Garums</string>
     <string name="share_my_location">Kopīgot manu atrašanās vietu</string>
     <!-- Settings information group in settings screen -->
-    <string name="prefs_group_information">Informācija par lietotni</string>
+    <string name="prefs_group_information">Informācija</string>
     <string name="prefs_group_route">Navigācija</string>
     <string name="pref_zoom_title">Tālummaiņas pogas</string>
     <string name="pref_zoom_summary">Rādīt kartē</string>
@@ -253,9 +253,9 @@
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
     <string name="enable_long_tap_fullscreen_description">Vēlreiz piespiediet un paturiet uz kartes, lai redzētu saskarni</string>
     <!-- Update all button text -->
-    <string name="downloader_update_all_button">Atjaunināt visus</string>
+    <string name="downloader_update_all_button">Atjaunināt visas</string>
     <!-- Cancel all button text -->
-    <string name="downloader_cancel_all">Atcelt visus</string>
+    <string name="downloader_cancel_all">Atcelt visas</string>
     <!-- Downloaded maps list header -->
     <string name="downloader_downloaded_subtitle">Lejupielādētās</string>
     <!-- Country queued for download -->
@@ -850,7 +850,7 @@
         <item quantity="other">%d min.</item>
     </plurals>
     <string name="pref_maplanguage_local">Vietējā valoda</string>
-    <string name="opens_tomorrow_at">Atveras rīt %s</string>
+    <string name="opens_tomorrow_at">Atvērsies rīt %s</string>
     <string name="opens_day_at">Atvērsies %1$s %2$s</string>
     <string name="closes_at">Tiks slēgts %s</string>
     <string name="opens_at">Atvērsies %s</string>
@@ -916,4 +916,25 @@
     <string name="capacity_charging">Vietas ar lādētājiem: %s</string>
     <string name="capacity_charging_yes">Ir vietas ar lādētājiem</string>
     <string name="capacity_charging_no">Nav vietu ar lādētājiem</string>
+    <string name="prefs_group_interface">Saskarne</string>
+    <string name="prefs_group_advanced_summary">Iespējot žurnalēšanu</string>
+    <string name="recalculate_route">Pārrēķināt</string>
+    <string name="prefs_group_data_management">Datņu pārvaldība</string>
+    <string name="prefs_group_map_appearance">Karšu izskats</string>
+    <string name="downloader_check_updates_error">Kļūda atjauninājumu pārbaudes laikā</string>
+    <string name="long_tap_disabled_toast">Lai paslēptu saskarni, iestatījumos jāiespējo ilga piespiešana</string>
+    <string name="prefs_group_route_summary">Mērvienības, balss norādes, maršrutu iestatījumi</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="prefs_group_privacy_summary">Meklējumu vēsture</string>
+    <string name="population">Iedzīvotāju skaits: %s</string>
+    <string name="by_recently_used">Pēc nesen izmantotā</string>
+    <string name="planning_route_preview">Priekšskatījums</string>
+    <string name="pref_about_summary">Ziņot par nepilnībām, iegūt palīdzību, ziedot\nVersija: v%1$s</string>
+    <string name="prefs_group_map_appearance_summary">Kartes valoda, iezīmju lielums, 2D/3D ēkas</string>
+    <string name="change_app_locale">Lietotnes valoda</string>
+    <string name="pref_left_button_title">Kreisās pogas iestatījums</string>
+    <string name="by_custom">Pēc pielāgotas secības</string>
+    <string name="editor_level">Stāvs (0 ir stāvs zemes līmenī)</string>
+    <string name="download_resources_custom_url_title">Pielāgots karšu serveris</string>
+    <string name="prefs_group_data_management_summary">Karšu krātuve, izlases rezerves kopēšana</string>
 </resources>

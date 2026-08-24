@@ -32,7 +32,7 @@
 /* Message to display at the center of the screen when the country download has failed */
 "country_status_download_failed" = "Преузимање није успело";
 /* Text in About screen */
-"about_headline" = "Отворени пројекат који покреће заједница";
+"about_headline" = "Отворени пројекат који развија заједница";
 /* Text in About screen */
 "about_proposition_1" = "Офлајн, брзо и једноставно за коришћење";
 /* Text in About screen */

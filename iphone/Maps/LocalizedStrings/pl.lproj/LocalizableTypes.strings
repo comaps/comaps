@@ -151,7 +151,7 @@
 "type.amenity.prison" = "Więzienie";
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Wymiana książek";
-"type.amenity.recycling.centre" = "Centrum przetwórstwa odpadów";
+"type.amenity.recycling.centre" = "Centrum przetwarzania odpadów";
 "type.amenity.recycling.container" = "Pojemnik do recyklingu";
 "type.recycling.batteries" = "Baterie";
 "type.recycling.clothes" = "Stare ubrania";
@@ -176,7 +176,7 @@
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Chata Biwakowa";
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Schron turystyczny";
+"type.amenity.shelter.lean_to" = "Schronienie turystyczne";
 "type.amenity.public_bath" = "Łaźnia publiczna";
 "type.amenity.shower" = "Prysznic";
 "type.amenity.stripclub" = "Klub ze striptizem";
@@ -195,7 +195,7 @@
 "type.amenity.vending_machine.food" = "Automat z jedzeniem";
 "type.amenity.vending_machine.newspapers" = "Automat z gazetami";
 "type.amenity.vending_machine.parking_tickets" = "Parkometr";
-"type.amenity.vending_machine.public_transport_tickets" = "Automat biletowy";
+"type.amenity.vending_machine.public_transport_tickets" = "Automat biletowy transportu publicznego";
 "type.amenity.vending_machine.sweets" = "Automat ze słodyczami";
 "type.amenity.vending_machine.excrement_bags" = "Automat z torebkami na odchody";
 "type.amenity.parcel_locker" = "Paczkomat";
@@ -206,7 +206,7 @@
 "type.amenity.waste_basket" = "Kosz na śmieci";
 "type.amenity.waste_disposal" = "Wysypisko śmieci";
 "type.amenity.waste_transfer_station" = "Stacja przeładunku odpadów";
-"type.amenity.water_point" = "Ujęcie wody";
+"type.amenity.water_point" = "Punkt napełniania zbiorników z wodą";
 "type.amenity.water_point.drinking_water_no" = "Ujęcie wody";
 "type.barrier" = "Bariera";
 "type.barrier.yes" = "Bariera";
@@ -722,7 +722,7 @@
 "type.leisure.miniature_golf" = "Minigolf";
 "type.leisure.hackerspace" = "Hackerspace";
 "type.leisure.ice_rink" = "Lodowisko";
-"type.leisure.indoor_play" = "Sala zabaw dla dzieci";
+"type.leisure.indoor_play" = "Sala zabaw (wewnętrzna)";
 "type.leisure.marina" = "Przystań";
 "type.leisure.nature_reserve" = "Rezerwat przyrody";
 "type.leisure.outdoor_seating" = "Siedzenia zewnętrzne";
@@ -1263,7 +1263,7 @@
 "type.shop.chemist" = "Drogeria";
 "type.shop.chocolate" = "Sklep z czekoladą";
 "type.shop.clothes" = "Sklep z ubraniami";
-"type.shop.coffee" = "Sklep z kawą";
+"type.shop.coffee" = "Sprzedawca kawy";
 "type.shop.computer" = "Sklep komputerowy";
 "type.shop.confectionery" = "Sklep ze słodyczami";
 "type.shop.convenience" = "Sklep ogólnospożywczy";
@@ -1356,7 +1356,7 @@
 "type.shop.lottery" = "Kolektura";
 "type.shop.medical_supply" = "Produkty medyczne";
 "type.shop.nutrition_supplements" = "Suplementy diety";
-"type.shop.paint" = "Malatura";
+"type.shop.paint" = "Sklep z farbami";
 "type.shop.perfumery" = "Perfumeria";
 "type.shop.sewing" = "Przybory do szycia";
 "type.shop.storage_rental" = "Wynajem magazynu";
@@ -1525,15 +1525,15 @@
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Hala sportowa";
 "type.xmas.tree" = "Choinka";
-"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.leisure.sports_centre.sport.four_square" = "Centrum sportowe";
 "type.sport.four_square" = "Four Square";
-"type.sport.boules" = "Boules";
-"type.leisure.sports_centre.sport.boules" = "Sports Centre";
+"type.sport.boules" = "Gra w bule";
+"type.leisure.sports_centre.sport.boules" = "Centrum sportów";
 "type.sport.pickleball" = "Pickleball";
-"type.leisure.sports_centre.sport.pickleball" = "Sports Centre";
+"type.leisure.sports_centre.sport.pickleball" = "Centrum sportowe";
 "type.organic.no" = "Nie oferuje produktów ekologicznych";
-"type.amenity.stage" = "Stage";
-"type.amenity.animal_boarding" = "Animal Boarding";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
+"type.amenity.stage" = "Scena";
+"type.amenity.animal_boarding" = "Hotel dla zwierząt";
+"type.amenity.toilets.customers" = "Dostęp dla klientów";
+"type.amenity.toilets.private" = "Dostęp prywatny";
 "type.amenity.planetarium" = "Planetarium";

@@ -11,7 +11,7 @@
 "type.aeroway" = "Infraestructura aèria";
 "type.aeroway.aerodrome" = "Aeroport";
 "type.aeroway.aerodrome.international" = "Aeroport internacional";
-"type.aeroway.apron" = "Plataforma";
+"type.aeroway.apron" = "Plataforma d'aviació";
 "type.aeroway.gate" = "Porta d'embarcament";
 "type.aeroway.helipad" = "Heliport";
 "type.aeroway.runway" = "Pista d’enlairament";
@@ -21,7 +21,7 @@
 "type.amenity.arts_centre" = "Centre d’art";
 "type.amenity.atm" = "Caixer automàtic";
 "type.amenity.bank" = "Banc";
-"type.amenity.bar" = "Bar";
+"type.amenity.bar" = "Bar de copes";
 "type.amenity.bbq" = "Barbacoa";
 "type.amenity.bench" = "Seient";
 "type.amenity.bench.backless" = "Sense respatller";
@@ -149,7 +149,7 @@
 "type.amenity.post_office" = "Oficina de correus";
 "type.post_office.post_partner" = "Associat de correu";
 "type.amenity.prison" = "Presó";
-"type.amenity.pub" = "Taverna";
+"type.amenity.pub" = "Bar";
 "type.amenity.public_bookcase" = "Intercanvi de llibres";
 "type.amenity.recycling.centre" = "Centre de Reciclatge";
 "type.amenity.recycling.container" = "Contenidor de reciclatge";
@@ -782,14 +782,14 @@
 "type.man_made.breakwater" = "Trencaaigües";
 "type.man_made.cairn" = "Cairn";
 "type.man_made.chimney" = "Eiximenera";
-"type.man_made.cutline" = "Cutline";
-"type.man_made.survey_point" = "Survey Point";
+"type.man_made.cutline" = "Línia de tall forestal";
+"type.man_made.survey_point" = "Punt geodèsic";
 "type.man_made.flagpole" = "Asta";
 "type.man_made.lighthouse" = "Far";
 "type.man_made.mast" = "Màstil";
-"type.man_made.pier" = "Pier";
-"type.man_made.pipeline" = "Pipeline";
-"type.man_made.pipeline.overground" = "Overground Pipeline";
+"type.man_made.pier" = "Moll";
+"type.man_made.pipeline" = "Conducte";
+"type.man_made.pipeline.overground" = "Conducte de Superfície";
 "type.man_made.silo" = "Sitja";
 "type.man_made.storage_tank" = "Tanc d’emmagatzematge";
 "type.man_made.surveillance" = "Càmera de vigilància";
@@ -799,44 +799,44 @@
 /* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "Torre de comunicacions";
 /* A regular telecommunications mast. */
-"type.man_made.mast.communication" = "Communications Mast";
+"type.man_made.mast.communication" = "Màstil de telecomunicacions";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "Pou petrolífer o de gas";
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "Flama de gas";
-"type.man_made.crane" = "Crane";
+"type.man_made.crane" = "Grua";
 "type.man_made.wastewater_plant" = "Planta de tractament d'aigües residuals";
 "type.man_made.water_tap" = "Font d'aigua";
 "type.man_made.water_tap.drinking_water_no" = "Font d'aigua";
-"type.man_made.water_tower" = "Water Tower";
+"type.man_made.water_tower" = "Dipòsit d'aigua";
 "type.man_made.water_well" = "Pou d’aigua";
 "type.man_made.water_well.drinking_water_no" = "Pou d’aigua";
 "type.man_made.windmill" = "Molí de vent";
 "type.man_made.works" = "Fàbrica";
-"type.military" = "Military";
+"type.military" = "Militar";
 "type.military.bunker" = "Búnquer";
-"type.mountain_pass" = "Mountain Pass";
-"type.natural" = "Nature";
+"type.mountain_pass" = "Passatge de Muntanya";
+"type.natural" = "Natura";
 /* A rocky land cover. */
-"type.natural.bare_rock" = "Bare Rock";
+"type.natural.bare_rock" = "Roca pelada";
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "Còdol";
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
-"type.natural.scree" = "Scree";
+"type.natural.scree" = "Tartera";
 "type.natural.bay" = "Bay";
 "type.natural.beach" = "Platja";
-"type.natural.beach.sand" = "Sandy Beach";
-"type.natural.beach.gravel" = "Gravel Beach";
-"type.natural.cape" = "Cape";
-"type.natural.cave_entrance" = "Cave Entrance";
+"type.natural.beach.sand" = "Platja de sorra";
+"type.natural.beach.gravel" = "Platja de grava";
+"type.natural.cape" = "Cap";
+"type.natural.cave_entrance" = "Entrada de cova";
 "type.natural.cliff" = "Penya-segat";
 "type.natural.earth_bank" = "Talús de terra";
 "type.man_made.embankment" = "Terraplè";
 "type.natural.coastline" = "Costa";
 "type.natural.desert" = "Desert";
-"type.natural.sand" = "Sand";
+"type.natural.sand" = "Sorra";
 "type.natural.geyser" = "Guèiser";
-"type.natural.glacier" = "Glacier";
+"type.natural.glacier" = "Glacer";
 "type.natural.grassland" = "Herbassar";
 "type.natural.heath" = "Landa";
 "type.natural.hot_spring" = "Font termal";
@@ -844,17 +844,17 @@
 "type.natural.water.lock" = "Resclosa";
 "type.natural.water.pond" = "Estany";
 "type.natural.water.reservoir" = "Embassament";
-"type.natural.water.basin" = "Basin";
+"type.natural.water.basin" = "Conca";
 "type.natural.water.river" = "Riu";
 "type.natural.land" = "Terreny";
 "type.natural.meadow" = "Prat de dall";
 "type.natural.orchard" = "Verger";
-"type.natural.peak" = "Peak";
+"type.natural.peak" = "Cim";
 "type.natural.saddle" = "Mountain Saddle";
-"type.natural.rock" = "Rock";
+"type.natural.rock" = "Roca";
 "type.natural.scrub" = "Matollar";
-"type.natural.spring" = "Natural Spring";
-"type.natural.spring.drinking_water_no" = "Natural Spring";
+"type.natural.spring" = "Brollador natural";
+"type.natural.spring.drinking_water_no" = "Brollador natural";
 "type.natural.strait" = "Estret";
 "type.natural.tree" = "Arbre";
 "type.natural.tree_row" = "Fila d’arbres";
@@ -872,28 +872,28 @@
 "type.natural.wetland.mangrove" = "Mangrove";
 "type.natural.wetland.tidalflat" = "Tidal Flat";
 "type.noexit" = "Atzucac";
-"type.office" = "Office";
+"type.office" = "Oficina";
 "type.office.company" = "Company Office";
-"type.office.estate_agent" = "Estate Agent";
-"type.office.government" = "Government Office";
+"type.office.estate_agent" = "Agent immobiliari";
+"type.office.government" = "Oficina governamental";
 "type.office.insurance" = "Oficina d'assegurança";
-"type.office.lawyer" = "Lawyer";
+"type.office.lawyer" = "Oficina d'advocats";
 "type.office.ngo" = "Organització no-governamental";
-"type.office.telecommunication" = "Telecom Company";
-"type.organic.only" = "Organic";
-"type.organic.yes" = "Organic";
+"type.office.telecommunication" = "Operadora de telefonia";
+"type.organic.only" = "Només orgànic";
+"type.organic.yes" = "Opcions orgàniques o ecològiques";
 "type.place.city" = "Ciutat";
 "type.place.city.capital" = "Capital";
 "type.place.city.capital.10" = "Ciutat";
 "type.place.city.capital.11" = "Ciutat";
 "type.place.city.capital.2" = "Capital";
-"type.place.city.capital.3" = "City";
-"type.place.city.capital.4" = "City";
-"type.place.city.capital.5" = "City";
-"type.place.city.capital.6" = "City";
-"type.place.city.capital.7" = "City";
-"type.place.city.capital.8" = "City";
-"type.place.city.capital.9" = "City";
+"type.place.city.capital.3" = "Ciutat";
+"type.place.city.capital.4" = "Ciutat";
+"type.place.city.capital.5" = "Ciutat";
+"type.place.city.capital.6" = "Ciutat";
+"type.place.city.capital.7" = "Ciutat";
+"type.place.city.capital.8" = "Ciutat";
+"type.place.city.capital.9" = "Ciutat";
 "type.place.continent" = "Continent";
 "type.place.country" = "País";
 "type.place.county" = "Comtat";
@@ -915,7 +915,7 @@
 "type.place.state.USA" = "Estat";
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Urbanització";
-"type.place.town" = "Town";
+"type.place.town" = "Municipi";
 "type.place.village" = "Village";
 "type.power" = "Energia";
 "type.power.generator" = "Generador d’energia";
@@ -925,7 +925,7 @@
 "type.power.generator.hydro" = "Central hidroelèctrica";
 "type.power.line" = "Línia elèctrica";
 "type.power.line.underground" = "Underground Power Line";
-"type.power.minor_line" = "Minor Power Line";
+"type.power.minor_line" = "Línia elèctrica menor";
 "type.power.plant" = "Central elèctrica";
 "type.power.plant.coal" = "Central elèctrica de carbó";
 "type.power.plant.gas" = "Central elèctrica de turbina de gas";
@@ -934,7 +934,7 @@
 "type.power.plant.wind" = "Central eòlica";
 "type.power.substation" = "Subestació";
 /* A tower or pylon carrying high voltage electricity cables. */
-"type.power.tower" = "Power Tower";
+"type.power.tower" = "Torre elèctrica";
 /* A single pole supporting minor power lines. */
 "type.power.pole" = "Pal elèctric";
 /* A single pole supporting various public utilities, such as lighting or telephony. */
@@ -1085,7 +1085,7 @@
 "type.railway.station.subway.paris" = "Estació del metro";
 "type.railway.station.subway.philadelphia" = "Estació del metro";
 "type.railway.station.subway.pyongyang" = "Estació del metro";
-"type.railway.station.subway.qingdao" = "Subway Station";
+"type.railway.station.subway.qingdao" = "Estació del metro";
 "type.railway.station.subway.rennes" = "Estació del metro";
 "type.railway.station.subway.rio" = "Estació del metro";
 "type.railway.station.subway.roma" = "Estació del metro";
@@ -1240,7 +1240,7 @@
 "type.railway.tram.bridge" = "Pont tramviari";
 "type.railway.tram.tunnel" = "Túnel tramviari";
 "type.railway.tram_stop" = "Parada de tramvia";
-"type.route" = "Route";
+"type.route" = "Ruta";
 "type.route.ferry" = "Ferry";
 "type.shop" = "Botiga";
 "type.shop.alcohol" = "Botiga de licors";
@@ -1263,7 +1263,7 @@
 "type.shop.chemist" = "Chemist";
 "type.shop.chocolate" = "Xocolateria";
 "type.shop.clothes" = "Botiga de roba";
-"type.shop.coffee" = "Coffee Shop";
+"type.shop.coffee" = "Botiga de productes de café";
 "type.shop.computer" = "Computer Store";
 "type.shop.confectionery" = "Botiga de dolços";
 "type.shop.convenience" = "Botiga a l’abast";
@@ -1296,7 +1296,7 @@
 "type.shop.houseware" = "Botiga d'articles per a la llar";
 "type.shop.jewelry" = "Botiga de joies";
 "type.shop.kiosk" = "Quiosc";
-"type.shop.kitchen" = "Kitchen Store";
+"type.shop.kitchen" = "Botiga de cuina";
 "type.shop.laundry" = "Bugaderia";
 "type.shop.mall" = "Centre comercial";
 "type.shop.beauty.day_spa" = "Day Spa";
@@ -1328,7 +1328,7 @@
 "type.shop.tattoo" = "Estudi de tatuatges";
 "type.shop.tea" = "Tea Shop";
 "type.shop.telecommunication" = "Telecommunication Shop";
-"type.shop.ticket" = "Ticket Shop";
+"type.shop.ticket" = "Venda d'entrades";
 "type.shop.toys" = "Botiga de jocs";
 "type.shop.travel_agency" = "Agència de viatges";
 "type.shop.tyres" = "Tyre Shop";
@@ -1376,7 +1376,7 @@
 "type.sport.australian_football" = "Australian Football";
 "type.sport.badminton" = "Bàdminton";
 "type.sport.baseball" = "Beisbol";
-"type.sport.basketball" = "Basquetbol";
+"type.sport.basketball" = "Bàsquet";
 "type.sport.beachvolleyball" = "Voleibol de platja";
 "type.sport.bowls" = "Bowls";
 "type.sport.chess" = "Escacs";
@@ -1514,7 +1514,7 @@
 "type.self_service.no" = "Sense autoservei";
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "Servei social";
-"type.social_facility.soup_kitchen" = "Soup Kitchen";
+"type.social_facility.soup_kitchen" = "Menjador social";
 "type.social_facility.food_bank" = "Food Bank";
 "type.amenity.food_sharing" = "Food Sharing";
 "type.amenity.give_box" = "Give Box";
@@ -1531,9 +1531,9 @@
 "type.leisure.sports_centre.sport.boules" = "Sports Centre";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Centre esportiu";
-"type.organic.no" = "No organic options";
-"type.amenity.stage" = "Stage";
-"type.amenity.animal_boarding" = "Animal Boarding";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
-"type.amenity.planetarium" = "Planetarium";
+"type.organic.no" = "Sense opcions orgàniques";
+"type.amenity.stage" = "Escenari";
+"type.amenity.animal_boarding" = "Hospedatge d'Animals";
+"type.amenity.toilets.customers" = "Accés per a clients";
+"type.amenity.toilets.private" = "Accés privat";
+"type.amenity.planetarium" = "Planetari";

@@ -107,13 +107,13 @@
 "category_water" = "Vesi";
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Karavaanaritilat";
-"share_bookmarks_email_body" = "Hei!\nLiitteenä kirjanmerkkini. Avaa ne CoMaps-sovelluksella. Jos sinulla ei ole vielä sovellusta, voit ladata sen osoitteesta: https://www.comaps.app/download/\n\nNauti matkustamisesta CoMapsin kanssa!";
+"share_bookmarks_email_body" = "Hei!\nLiitteenä suosikkini. Avaa ne CoMaps-sovelluksella. Jos sinulla ei ole vielä sovellusta, voit ladata sen osoitteesta: https://www.comaps.app/download/\n\nNauti matkustamisesta CoMapsin kanssa!";
 /* message title of loading file */
-"load_kmz_title" = "Ladataan kirjanmerkkejä";
+"load_kmz_title" = "Ladataan suosikkeja";
 /* Kmz file successful loading */
-"load_kmz_successful" = "Kirjanmerkkien lataaminen onnistui! Löydät ne joko kartalta tai kirjanmerkkien hallinnasta.";
+"load_kmz_successful" = "Suosikkien lataaminen onnistui! Löydät ne joko kartalta tai suosikkien hallinnasta.";
 /* Kml file loading failed */
-"load_kmz_failed" = "Kirjanmerkkien lataus epäonnistui. Tiedosto saattaa olla vioittunut.";
+"load_kmz_failed" = "Suosikkien lataus epäonnistui. Tiedosto saattaa olla vioittunut.";
 /* resource for context menu */
 "edit" = "Muokkaa";
 /* Warning message when doing search around current position */
@@ -459,7 +459,7 @@
 "editor_focus_map_on_location" = "Aseta risti paikan tai yrityksen sijaintiin vetämällä karttaa.";
 "editor_add_select_category" = "Valitse kategoria";
 "editor_add_select_category_popular_subtitle" = "Suositut";
-"editor_add_select_category_all_subtitle" = "Kaikki kategoriat";
+"editor_add_select_category_all_subtitle" = "Kaikki luokat";
 "editor_edit_place_title" = "Muokkaus";
 "editor_add_place_title" = "Lisääminen";
 "editor_edit_place_name_hint" = "Paikan nimi";
@@ -526,7 +526,7 @@
 "book_button" = "Varaa";
 "placepage_call_button" = "Soita";
 "placepage_edit_bookmark_button" = "Muokkaa kirjanmerkkiä";
-"placepage_bookmark_name_hint" = "Kirjanmerkin nimi";
+"placepage_bookmark_name_hint" = "Paikan nimi";
 "placepage_personal_notes_hint" = "Henkilökohtaiset merkinnät (teksti tai html)";
 "placepage_delete_bookmark_button" = "Poista kirjanmerkki";
 "editor_edits_sent_message" = "Huomautus lähetetään OpenStreetMapille";
@@ -606,7 +606,7 @@
 "bookmark_lists_show_all" = "Näytä kaikki";
 "bookmarks_create_new_group" = "Luo uusi luettelo";
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Kirjanmerkkien ja reittien tuominen";
+"bookmarks_import" = "Tuo suosikit";
 "downloader_hide_screen" = "Piilota näyttö";
 "downloader_percent" = "%@ (%@ / %@)";
 "downloader_process" = "Ladataan %@…";
@@ -798,7 +798,7 @@
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "Vaellus";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Vie kaikki kirjanmerkit ja kappaleet";
+"bookmarks_export" = "Vie kaikki suosikit";
 /* Text for the editing the Track's color button. */
 "change_color" = "Vaihda väri";
 /* Main screen title "Map" displayed in the navigation back button's menu. */
@@ -809,7 +809,7 @@
 /* Message for the bug report alert. */
 "bugreport_alert_message" = "Haluatko lähettää vikailmoituksen kehittäjille?\nLuotamme käyttäjiin, sillä CoMaps ei kerää virhetietoja automaattisesti. Kiitos etukäteen CoMapsin tukemisesta!";
 /* Title for the iCloud synchronization setting */
-"icloud_sync" = "iCloud Synkronointi (Beta)";
+"icloud_sync" = "iCloud-synkronointi (beeta)";
 /* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "Ota iCloud-synkronointi käyttöön";
 /* Message for the "Enable iCloud Synchronization" alert. */
@@ -860,26 +860,26 @@
 "track_recording_toast_nothing_to_save" = "Reitti on tyhjä - ei mitään tallennettavaa";
 "edit_track" = "Muokkaa reittiä";
 /* Title of the general section in settings */
-"general" = "General";
+"general" = "Yleiset";
 /* Title of the interface section in settings */
-"interface" = "Interface";
+"interface" = "Käyttöliittymä";
 /* OpenStreetMap contribution section on the PlacePage. */
 "contribute_to_osm" = "Paranna OpenStreetMapia";
 "contribute_to_osm_add_place" = "Lisää paikka";
 "contribute_to_osm_update_map" = "Päivitä kartta täydentääksesi";
 "contribute_to_osm_update_map_description" = "Sinun täytyy päivittää %@ kartta uusimpaan versioon ennen kuin voit osallistua OpenStreetMap-tietojen parantamiseen";
-"downloader_check_updates_button" = "Check for updates";
-"downloader_check_updates_checking" = "Checking for updates...";
-"downloader_check_updates_updated" = "Map updates available!";
-"downloader_check_updates_no_updates" = "No updates available";
-"downloader_check_updates_eol" = "No more map updates for this app version. Please update the app!";
-"downloader_check_updates_error" = "Error checking for updates";
-"editor_add_select_category_recent_subtitle" = "Recently Used";
-"oh_unknown" = "Opening hours unknown";
-"carplay_highway_exit" = "Exit %@";
+"downloader_check_updates_button" = "Tarkista päivitykset";
+"downloader_check_updates_checking" = "Tarkistetaan päivityksiä...";
+"downloader_check_updates_updated" = "Karttapäivityksiä saatavilla!";
+"downloader_check_updates_no_updates" = "Päivityksiä ei ole saatavilla";
+"downloader_check_updates_eol" = "Tälle sovellusversiolle ei ole enää luvassa karttapäivityksiä. Päivitä sovellus!";
+"downloader_check_updates_error" = "Päivityksiä tarkistaessa tapahtui virhe";
+"editor_add_select_category_recent_subtitle" = "Äskettäin käytetty";
+"oh_unknown" = "Aukiolotunnit eivät ole tiedossa";
+"carplay_highway_exit" = "Poistu %@";
 "capacity_disabled_yes" = "Has dedicated disabled spaces";
 "capacity_disabled_no" = "No dedicated disabled spaces";
 "capacity_charging_yes" = "Has spaces with chargers";
 "capacity_charging_no" = "No spaces with chargers";
-"planning_route_preview" = "Preview";
-"planning_route_preview_sheet_title" = "Route Preview";
+"planning_route_preview" = "Esikatselu";
+"planning_route_preview_sheet_title" = "Reitin esikatselu";

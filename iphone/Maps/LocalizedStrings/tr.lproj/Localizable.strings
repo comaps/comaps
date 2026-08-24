@@ -46,15 +46,15 @@
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "Yeni Liste Ekle";
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Yer İmi Listesi Adı";
+"bookmark_set_name" = "Liste Adı";
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Yer İmi Listeleri";
+"bookmark_sets" = "Yer İmleri Listeleri";
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Yer İmleri";
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Favoriler";
 /* Default bookmark list name */
-"core_my_places" = "Yerlerim";
+"core_my_places" = "Yer İmlerim";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Adres";
 /* Settings button in system menu */
@@ -107,11 +107,11 @@
 "category_water" = "Su";
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Karavan tesisleri";
-"share_bookmarks_email_body" = "Merhaba! \n \nEktekiler yer imlerim, lütfen bunları CoMaps'te açın. Eğer uygulama kurulu değilse, şu bağlantıyla iOS ve Android aygıtınıza kurabilirsiniz: https://www.comaps.app/download/ \n \nCoMaps ile gezmenin tadını çıkarın!";
+"share_bookmarks_email_body" = "Merhaba! \n \nEktekiler yer imlerim, lütfen bunları CoMaps'te açın. Eğer uygulama kurulu değilse, buradan indirebilirsin: https://www.comaps.app/download/ \n \nCoMaps ile gezmenin tadını çıkarın!";
 /* message title of loading file */
 "load_kmz_title" = "Yer İmleri Yükleniyor";
 /* Kmz file successful loading */
-"load_kmz_successful" = "Yer İmleri başarılı bir şekilde yüklendi! Bunları Haritada ya da Yer İmleri Yöneticisi ekranında bulabilirsiniz.";
+"load_kmz_successful" = "Yer imleri başarılı bir şekilde yüklendi! Bunları Haritada ya da Yer İmleri Yöneticisi ekranında bulabilirsiniz.";
 /* Kml file loading failed */
 "load_kmz_failed" = "Yer İmlerini yükleme işlemi başarısız oldu. Dosya bozuk ya da hatalı olabilir.";
 /* resource for context menu */
@@ -459,7 +459,7 @@
 "editor_focus_map_on_location" = "Çarpı imini mekân veya işletmenin konumuna yerleştirmek için haritayı sürükleyin.";
 "editor_add_select_category" = "Kategori seç";
 "editor_add_select_category_popular_subtitle" = "Popüler";
-"editor_add_select_category_all_subtitle" = "Tüm kategoriler";
+"editor_add_select_category_all_subtitle" = "Tüm Kategoriler";
 "editor_edit_place_title" = "Düzenleme";
 "editor_add_place_title" = "Ekleme";
 "editor_edit_place_name_hint" = "Yerin adı";
@@ -525,10 +525,10 @@
 "placepage_more_button" = "Diğer";
 "book_button" = "Rezervasyon";
 "placepage_call_button" = "Ara";
-"placepage_edit_bookmark_button" = "Yer İmini Düzenle";
-"placepage_bookmark_name_hint" = "Yer İmi Adı";
+"placepage_edit_bookmark_button" = "Kaydedilmiş Yeri Düzenle";
+"placepage_bookmark_name_hint" = "Yer Adı";
 "placepage_personal_notes_hint" = "Kişisel notlar (metin veya html)";
-"placepage_delete_bookmark_button" = "Yer İmini Sil";
+"placepage_delete_bookmark_button" = "Yeri Sil";
 "editor_edits_sent_message" = "Notunuz OpenStreetMap'e gönderilecektir";
 "editor_comment_hint" = "Yorum…";
 "editor_reset_edits_message" = "Tüm yerel değişiklikler sıfırlansın mı?";
@@ -809,7 +809,7 @@
 /* Message for the bug report alert. */
 "bugreport_alert_message" = "Geliştiricilere bir hata raporu göndermek ister misiniz?\nCoMaps otomatik olarak herhangi bir hata bilgisi toplamadığı için bu konuda kullanıcılarımıza güveniyoruz. CoMaps'i desteklediğiniz için şimdiden teşekkür ederiz!";
 /* Title for the iCloud synchronization setting */
-"icloud_sync" = "iCloud Syncronization (Beta)";
+"icloud_sync" = "iCloud Senkronizasyonu (Beta)";
 /* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "iCloud Senkronizasyonunu Etkinleştir";
 /* Message for the "Enable iCloud Synchronization" alert. */
@@ -817,7 +817,7 @@
 /* Title for the "iCloud Is Disabled" alert. */
 "icloud_disabled_title" = "iCloud Devre Dışı";
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Bu özelliği kullanmak için lütfen aygıtınızın ayarlarında iCloud'u etkinleştirin.";
+"icloud_disabled_message" = "Bu özelliği kullanmak için lütfen Apple Hesap ayarlarından iCloud'u CoMaps için etkinleştirin.";
 /* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
 "enable" = "Etkinleştir";
 /* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
@@ -855,31 +855,31 @@
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "continue_recording" = "Kaydı devam ettir";
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "GPS izi kaydınız yer imleri ve kayıtlı rotalara kaydedilsin mi?";
+"track_recording_alert_title" = "Yer İmlerine Kayıt Edilsin mi?";
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Kaydınız boş - kaydedilecek bir şey yok";
 "edit_track" = "Kaydı Düzenle";
 /* Title of the general section in settings */
-"general" = "General";
+"general" = "Genel";
 /* Title of the interface section in settings */
-"interface" = "Interface";
+"interface" = "Ara yüz";
 /* OpenStreetMap contribution section on the PlacePage. */
-"contribute_to_osm" = "Contribute to OpenStreetMap";
-"contribute_to_osm_add_place" = "Add Place";
-"contribute_to_osm_update_map" = "Update the Map to Contribute";
-"contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"contribute_to_osm" = "OpenStreetMap'e Katkıda Bulun";
+"contribute_to_osm_add_place" = "Yer Ekle";
+"contribute_to_osm_update_map" = "Katkıda Bulunmak İçin Haritayı Güncelle";
+"contribute_to_osm_update_map_description" = "OpenStreetMap verisine katkıda bulunmadan önce %@ haritasını son versiyona güncellemen gerekiyor";
 "downloader_check_updates_button" = "Güncellemeleri denetle";
-"downloader_check_updates_checking" = "Checking for updates...";
-"downloader_check_updates_updated" = "Map updates available!";
-"downloader_check_updates_no_updates" = "No updates available";
+"downloader_check_updates_checking" = "Güncellemeler kontrol ediliyor...";
+"downloader_check_updates_updated" = "Harita güncellemeleri mevcut!";
+"downloader_check_updates_no_updates" = "Güncelleme yok";
 "downloader_check_updates_eol" = "Uygulamanın bu sürümü için daha fazla güncelleme gelmeyecek. Lütfen uygulamayı güncelleyin!";
-"downloader_check_updates_error" = "Error checking for updates";
-"editor_add_select_category_recent_subtitle" = "Recently Used";
+"downloader_check_updates_error" = "Güncelleme kontrol edilemedi";
+"editor_add_select_category_recent_subtitle" = "Yakın Zamanda Kullanıldı";
 "oh_unknown" = "Çalışma saatleri bilinmiyor";
-"carplay_highway_exit" = "Exit %@";
-"capacity_disabled_yes" = "Has dedicated disabled spaces";
-"capacity_disabled_no" = "No dedicated disabled spaces";
-"capacity_charging_yes" = "Has spaces with chargers";
-"capacity_charging_no" = "No spaces with chargers";
-"planning_route_preview" = "Preview";
-"planning_route_preview_sheet_title" = "Route Preview";
+"carplay_highway_exit" = "Çıkış %@";
+"capacity_disabled_yes" = "Özel ayrılmış engelli alanı var";
+"capacity_disabled_no" = "Özel ayrılmış engelli yeri yok";
+"capacity_charging_yes" = "Sarj cihaz alanları var";
+"capacity_charging_no" = "Şarj cihaz alanları yok";
+"planning_route_preview" = "Önizleme";
+"planning_route_preview_sheet_title" = "Rota Önizleme";

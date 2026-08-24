@@ -97,7 +97,7 @@
     <!-- Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! -->
     <string name="category_eat">Onde comer</string>
     <!-- Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! -->
-    <string name="category_food">Mercados</string>
+    <string name="category_food">Mercado</string>
     <!-- Search category for public transport; any changes should be duplicated in categories.txt @category_transport! -->
     <string name="category_transport">Transporte</string>
     <!-- Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! -->
@@ -915,12 +915,12 @@
     <string name="population">População: %s</string>
     <string name="setting_value_system_default">Padrão do sistema</string>
     <string name="change_app_locale">Idioma do app</string>
-    <string name="downloader_check_updates_button">Buscar atualizações</string>
-    <string name="downloader_check_updates_checking">Buscando atualizações...</string>
-    <string name="downloader_check_updates_updated">Atualizações do mapa disponíveis!</string>
+    <string name="downloader_check_updates_button">Buscar atualização</string>
+    <string name="downloader_check_updates_checking">Buscando atualização...</string>
+    <string name="downloader_check_updates_updated">Atualização do mapa disponível!</string>
     <string name="downloader_check_updates_no_updates">Nenhuma atualização disponível</string>
-    <string name="downloader_check_updates_eol">Não haverá mais atualizações de mapas para esta versão do aplicativo. Por favor, atualize o aplicativo!</string>
-    <string name="downloader_check_updates_error">Erro ao buscar atualizações</string>
+    <string name="downloader_check_updates_eol">Não haverá mais atualização de mapas para esta versão do aplicativo. Por favor, atualize o aplicativo!</string>
+    <string name="downloader_check_updates_error">Erro ao buscar atualização</string>
     <string name="oh_unknown">Horário de funcionamento desconhecido</string>
     <string name="tts_toggle_enable">Ativar orientação por voz</string>
     <string name="tts_toggle_disable">Desativar orientação por voz</string>

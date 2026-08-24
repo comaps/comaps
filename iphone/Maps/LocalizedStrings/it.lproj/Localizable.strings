@@ -54,7 +54,7 @@
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Luoghi preferiti";
 /* Default bookmark list name */
-"core_my_places" = "I miei luoghi";
+"core_my_places" = "I miei preferiti";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Indirizzo";
 /* Settings button in system menu */
@@ -384,8 +384,8 @@
 "autodownload" = "Scaricamento automatico";
 /* Voice */
 "voice" = "Voce";
-"voice_explanation" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Read & Speak*, *Voices*.";
-"voice_explanation_before_version26" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Spoken Content*, *Voices*.";
+"voice_explanation" = "È possibile scegliere una voce migliore nelle impostazioni di sistema in *Accessibilità*, *Leggi e parla*, *Voci*.";
+"voice_explanation_before_version26" = "È possibile scegliere una voce migliore nelle impostazioni di sistema in *Accessibilità*, *Contenuto letto a voce alta*, *Voci*.";
 "unknown" = "Sconosciuto";
 /* Place page confirmation messages and time ago formatting */
 "existence_confirmed_time_ago" = "Esistenza confermata %@";
@@ -493,7 +493,7 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Gestore: %@";
 "editor_category_unsuitable_title" = "Non riesci a trovare una categoria adatta?";
-"editor_category_unsuitable_text" = "CoMaps consente di aggiungere solo punti semplici, escludendo p.es. città, strade, laghi, planimetria edifici ecc. È possibile aggiungere tali categorie direttamente su <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Consulta la nostra <a href=\"https://www.comaps.app/support/advanced-map-editing/\">guida</a> per istruzioni dettagliate.";
+"editor_category_unsuitable_text" = "CoMaps consente di aggiungere solo punti semplici, escludendo città, strade, laghi, planimetria edifici ecc. È possibile aggiungere tali categorie direttamente su <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Consulta la nostra <a href=\"https://www.comaps.app/support/advanced-map-editing/\">guida</a> per istruzioni dettagliate.";
 "downloader_no_downloaded_maps_title" = "Non hai scaricato mappe";
 "downloader_no_downloaded_maps_message" = "Scarica mappe per trovare luoghi e navigare offline.";
 "current_location_unknown_error_title" = "Posizione attuale sconosciuta.";
@@ -578,10 +578,10 @@
 "traffic_data_unavailable" = "Dati sul traffico non disponibili";
 "enable_logging" = "Abilita il logging";
 "log_file_size" = "Dimensione del file di log: %@";
-"pref_alt_map_lang_handling" = "Alternative Map Languages";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
-"pref_alt_map_lang_handling_system_order" = "Use in system order";
-"pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
+"pref_alt_map_lang_handling" = "Lingue alternative della mappa";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Non usare alternative";
+"pref_alt_map_lang_handling_system_order" = "Segui l\\'ordine di sistema";
+"pref_alt_map_lang_handling_local_only" = "Preferisci e usa solo dove nativa";
 "transliteration_title" = "Traslittera in caratteri latini";
 "transliteration_title_disabled_summary" = "Disabilitato quando si usa la lingua locale sulla mappa";
 /* Subway exits for public transport marks on the map */
@@ -623,7 +623,7 @@
 "bookmarks_convert_error_title" = "Errore";
 "bookmarks_convert_error_message" = "Alcuni file non sono stati convertiti.";
 "restore" = "Ripristina";
-"privacy_policy" = "Polizza sulla privacy";
+"privacy_policy" = "Politica sulla privacy";
 "terms_of_use" = "Termini di utilizzo";
 "button_layer_subway" = "Metropolitana";
 "layers_title" = "Stili e livelli della mappa";
@@ -798,7 +798,7 @@
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "Escursioni";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Esporta tutti i luoghi preferiti e le tracce";
+"bookmarks_export" = "Esporta tutti i preferiti";
 /* Text for the editing the Track's color button. */
 "change_color" = "Cambia colore";
 /* Main screen title "Map" displayed in the navigation back button's menu. */
@@ -860,26 +860,26 @@
 "track_recording_toast_nothing_to_save" = "La traccia è vuota - non c'è nulla da salvare";
 "edit_track" = "Modifica traccia";
 /* Title of the general section in settings */
-"general" = "General";
+"general" = "Generale";
 /* Title of the interface section in settings */
-"interface" = "Interface";
+"interface" = "Interfaccia";
 /* OpenStreetMap contribution section on the PlacePage. */
-"contribute_to_osm" = "Contribute to OpenStreetMap";
-"contribute_to_osm_add_place" = "Add Place";
-"contribute_to_osm_update_map" = "Update the Map to Contribute";
-"contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
-"downloader_check_updates_button" = "Check for updates";
-"downloader_check_updates_checking" = "Checking for updates...";
-"downloader_check_updates_updated" = "Map updates available!";
-"downloader_check_updates_no_updates" = "No updates available";
-"downloader_check_updates_eol" = "No more map updates for this app version. Please update the app!";
-"downloader_check_updates_error" = "Error checking for updates";
-"editor_add_select_category_recent_subtitle" = "Recently Used";
-"oh_unknown" = "Opening hours unknown";
-"carplay_highway_exit" = "Exit %@";
-"capacity_disabled_yes" = "Has dedicated disabled spaces";
-"capacity_disabled_no" = "No dedicated disabled spaces";
-"capacity_charging_yes" = "Has spaces with chargers";
-"capacity_charging_no" = "No spaces with chargers";
-"planning_route_preview" = "Preview";
-"planning_route_preview_sheet_title" = "Route Preview";
+"contribute_to_osm" = "Contribuisci a OpenStreetMap";
+"contribute_to_osm_add_place" = "Aggiungi luogo";
+"contribute_to_osm_update_map" = "Aggiorna la mappa per contribuire";
+"contribute_to_osm_update_map_description" = "Devi aggiornare la mappa %@ all'ultima versione prima di poter contribuire ai dati di OpenStreetMap";
+"downloader_check_updates_button" = "Controlla aggiornamenti";
+"downloader_check_updates_checking" = "Cerco aggiornamenti…";
+"downloader_check_updates_updated" = "Aggiornamenti mappa disponibili!";
+"downloader_check_updates_no_updates" = "Nessun aggiornamento disponibile";
+"downloader_check_updates_eol" = "Nessun altro aggiornamento mappa per questa versione dell'app. Aggiorna l'app!";
+"downloader_check_updates_error" = "Errore durante il controllo degli aggiornamenti";
+"editor_add_select_category_recent_subtitle" = "Usate di recente";
+"oh_unknown" = "Orari di apertura sconosciuti";
+"carplay_highway_exit" = "Uscita %@";
+"capacity_disabled_yes" = "Dispone di posti dedicati per disabili";
+"capacity_disabled_no" = "Nessun posto auto per disabili";
+"capacity_charging_yes" = "Dispone di posti con colonnina di ricarica";
+"capacity_charging_no" = "Nessun posto con colonnina di ricarica";
+"planning_route_preview" = "Anteprima";
+"planning_route_preview_sheet_title" = "Anteprima percorso";

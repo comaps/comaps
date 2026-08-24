@@ -130,7 +130,7 @@
     <string name="type.amenity.pub">Pub</string>
     <string name="type.amenity.public_bookcase">Wymiana książek</string>
     <!-- SECTION: Types: Recycling -->
-    <string name="type.amenity.recycling.centre">Centrum przetwórstwa odpadów</string>
+    <string name="type.amenity.recycling.centre">Centrum przetwarzania odpadów</string>
     <string name="type.amenity.recycling.container">Pojemnik do recyklingu</string>
     <string name="type.recycling.batteries">Baterie</string>
     <string name="type.recycling.clothes">Stare ubrania</string>
@@ -172,7 +172,7 @@
     <string name="type.amenity.vending_machine.food">Automat z jedzeniem</string>
     <string name="type.amenity.vending_machine.newspapers">Automat z gazetami</string>
     <string name="type.amenity.vending_machine.parking_tickets">Parkometr</string>
-    <string name="type.amenity.vending_machine.public_transport_tickets">Automat biletowy</string>
+    <string name="type.amenity.vending_machine.public_transport_tickets">Automat biletowy transportu publicznego</string>
     <string name="type.amenity.vending_machine.sweets">Automat ze słodyczami</string>
     <string name="type.amenity.vending_machine.excrement_bags">Automat z torebkami na odchody</string>
     <string name="type.amenity.parcel_locker">Paczkomat</string>
@@ -181,7 +181,7 @@
     <string name="type.amenity.waste_basket">Kosz na śmieci</string>
     <string name="type.amenity.waste_disposal">Wysypisko śmieci</string>
     <string name="type.amenity.waste_transfer_station">Stacja przeładunku odpadów</string>
-    <string name="type.amenity.water_point">Ujęcie wody</string>
+    <string name="type.amenity.water_point">Punkt napełniania zbiorników z wodą</string>
     <string name="type.amenity.water_point.drinking_water_no">Ujęcie wody</string>
     <string name="type.barrier">Bariera</string>
     <string name="type.barrier.yes">Bariera</string>
@@ -1100,7 +1100,7 @@
     <string name="type.shop.chemist">Drogeria</string>
     <string name="type.shop.chocolate">Sklep z czekoladą</string>
     <string name="type.shop.clothes">Sklep z ubraniami</string>
-    <string name="type.shop.coffee">Sklep z kawą</string>
+    <string name="type.shop.coffee">Sprzedawca kawy</string>
     <string name="type.shop.computer">Sklep komputerowy</string>
     <string name="type.shop.confectionery">Sklep ze słodyczami</string>
     <string name="type.shop.convenience">Sklep ogólnospożywczy</string>
@@ -1190,7 +1190,7 @@
     <string name="type.shop.lottery">Kolektura</string>
     <string name="type.shop.medical_supply">Produkty medyczne</string>
     <string name="type.shop.nutrition_supplements">Suplementy diety</string>
-    <string name="type.shop.paint">Malatura</string>
+    <string name="type.shop.paint">Sklep z farbami</string>
     <string name="type.shop.perfumery">Perfumeria</string>
     <string name="type.shop.sewing">Przybory do szycia</string>
     <string name="type.shop.storage_rental">Wynajem magazynu</string>
@@ -1330,7 +1330,7 @@
     <string name="type.man_made.utility_pole">Słup użytkowy</string>
     <string name="type.amenity.vending_machine.fuel">Pompa paliwowa</string>
     <string name="type.leisure.common">Teren publiczny</string>
-    <string name="type.amenity.shelter.lean_to">Schron turystyczny</string>
+    <string name="type.amenity.shelter.lean_to">Schronienie turystyczne</string>
     <string name="type.leisure.beach_resort">Kurort przy plaży</string>
     <string name="type.man_made">Stworzone przez człowieka</string>
     <string name="type.man_made.storage_tank">Zbiornik</string>
@@ -1528,4 +1528,14 @@
     <string name="type.organic.no">Nie oferuje produktów ekologicznych</string>
     <string name="type.sport.four_square">Four Square</string>
     <string name="type.sport.pickleball">Pickleball</string>
+    <string name="type.amenity.planetarium">Planetarium</string>
+    <string name="type.amenity.toilets.customers">Dostęp dla klientów</string>
+    <string name="type.amenity.toilets.private">Dostęp prywatny</string>
+    <string name="type.leisure.indoor_play">Sala zabaw (wewnętrzna)</string>
+    <string name="type.leisure.sports_centre.sport.boules">Centrum sportów</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Centrum sportowe</string>
+    <string name="type.sport.boules">Gra w bule</string>
+    <string name="type.amenity.animal_boarding">Hotel dla zwierząt</string>
+    <string name="type.amenity.stage">Scena</string>
 </resources>

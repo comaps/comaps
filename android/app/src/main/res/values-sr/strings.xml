@@ -450,7 +450,7 @@
     <string name="editor_report_problem_other_title">Други проблем</string>
     <string name="message_invalid_feature_position">Објекат не може бити на овом месту</string>
     <!-- Text in About and OSM Login screens. First %@ is replaced by a local, human readable date. -->
-    <string name="osm_presentation">Подаци са OpenStreetMap-а које је креирала заједница до %s. Научите више о томе како да мењате и ажурирате мапу на OpenStreetMap.org</string>
+    <string name="osm_presentation">Подаци са OpenStreetMap-а које је креирала заједница до %s Научите више о томе како да мењате и ажурирате мапу на OpenStreetMap.org</string>
     <!-- OSM explanation on Android login screen -->
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) је пројекат заједнице који има за циљ прављење бесплатне, слободне и отворене мапе. OSM је главни извор података за мапе у CoMaps-у и функционише на сличан начин као Википедија. Можете додати или променити места и ваше промене постају видљиве милионима корисника широм света. \nПридружите се заједници и помозите да направимо бољу мапу која је доступна свима!</string>
     <string name="login_to_make_edits_visible">Пријавите се на openstreetmap.org да бисте објавили ваше промене остатку света</string>
@@ -853,7 +853,7 @@
     <string name="closed_now">Затворено сада</string>
     <string name="open_now">Сада је отворено</string>
     <string name="at">на %s</string>
-    <string name="about_headline">Отворени пројекат који покреће заједница</string>
+    <string name="about_headline">Отворени пројекат који развија заједница</string>
     <string name="delete_track_dialog_title">Обрисати %s?</string>
     <string name="share_track">Подели путању</string>
     <string name="existence_confirmed_time_ago">Проверено да постоји %s</string>

@@ -84,7 +84,7 @@
         "defaultMessage": "NULL"
     },
     "route_recalculating": {
-        "defaultMessage": "Recalcular el recorregut"
+        "defaultMessage": "Recalculant la ruta"
     },
     "destination": {
         "defaultMessage": "Arribareu a la destinació."
@@ -316,5 +316,32 @@
     },
     "unknown_camera": {
         "defaultMessage": "Càmera al davant"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "Al final de la carretera,"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Estàs a %1$s de la ruta"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "En més de tres quilòmetres"
+    },
+    "from_50_meters": {
+        "defaultMessage": "cinquanta metres"
+    },
+    "from_100_meters": {
+        "defaultMessage": "cent metres"
+    },
+    "from_200_meters": {
+        "defaultMessage": "dos-cents metres"
+    },
+    "from_250_meters": {
+        "defaultMessage": "dos-cents cinquanta metres"
+    },
+    "from_300_meters": {
+        "defaultMessage": "tres-cents metres"
+    },
+    "from_400_meters": {
+        "defaultMessage": "quatre-cents metres"
     }
 }

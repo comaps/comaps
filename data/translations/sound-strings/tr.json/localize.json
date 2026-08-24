@@ -352,5 +352,104 @@
     },
     "from_200_feet": {
         "defaultMessage": "iki yüz fit"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Üç kilometreden fazla bir mesafede"
+    },
+    "from_50_meters": {
+        "defaultMessage": "elli metre"
+    },
+    "from_100_meters": {
+        "defaultMessage": "yüz metre"
+    },
+    "from_200_meters": {
+        "defaultMessage": "iki yüz metre"
+    },
+    "from_250_meters": {
+        "defaultMessage": "iki yüz elli metre"
+    },
+    "from_300_meters": {
+        "defaultMessage": "üç yüz metre"
+    },
+    "from_400_meters": {
+        "defaultMessage": "dört yüz metre"
+    },
+    "from_500_meters": {
+        "defaultMessage": "beş yüz metre"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "üç kilometreden fazla"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "iki milden fazla mesafede"
+    },
+    "from_50_feet": {
+        "defaultMessage": "elli fit"
+    },
+    "from_100_feet": {
+        "defaultMessage": "yüz fit"
+    },
+    "from_300_feet": {
+        "defaultMessage": "üç yüz fit"
+    },
+    "from_400_feet": {
+        "defaultMessage": "dört yüz fit"
+    },
+    "from_500_feet": {
+        "defaultMessage": "beş yüz fit"
+    },
+    "from_600_feet": {
+        "defaultMessage": "altı yüz fit"
+    },
+    "from_700_feet": {
+        "defaultMessage": "yedi yüz fit"
+    },
+    "from_800_feet": {
+        "defaultMessage": "sekiz yüz fit"
+    },
+    "from_900_feet": {
+        "defaultMessage": "dokuz yüz fit"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "bin fit"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "bin beş yüz fit"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "iki bin fit"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "iki bin beş yüz fit"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "üç bin fit"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "üç bin beş yüz fit"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "dört bin fit"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "dört bin beş yüz fit"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "beş bin fit"
+    },
+    "from_1_mile": {
+        "defaultMessage": "bir mil"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "bir buçuk mil"
+    },
+    "from_2_miles": {
+        "defaultMessage": "iki mil"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "iki milden fazla"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Rota'dan %1$s"
     }
 }

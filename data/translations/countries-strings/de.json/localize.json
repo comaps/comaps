@@ -3207,7 +3207,7 @@
         "defaultMessage": "Baltimore"
     },
     "US_Maryland_and_DC": {
-        "defaultMessage": "Westen, Washington, D.C."
+        "defaultMessage": "Westen und Washington, D.C."
     },
     "US_Massachusetts_Boston": {
         "defaultMessage": "Boston"
@@ -3432,7 +3432,7 @@
         "defaultMessage": "Milwaukee"
     },
     "US_Wisconsin_North": {
-        "defaultMessage": "Nordwisconsin"
+        "defaultMessage": "Wisconsin – Nord"
     },
     "US_Wyoming": {
         "defaultMessage": "Wyoming"
@@ -4047,7 +4047,7 @@
         "defaultMessage": "St. John's, English Harbour, Freetown"
     },
     "Argentina_Buenos Aires_Buenos Aires Description": {
-        "defaultMessage": "Buenos Aires, José C. Paz, González Catán"
+        "defaultMessage": "Buenos Aires, González Catán, José C. Paz"
     },
     "Argentina_Buenos Aires_North Description": {
         "defaultMessage": "Dolores, Pinamar, Villa Gesell"
@@ -4056,22 +4056,22 @@
         "defaultMessage": "Bahía Blanca, Miramar, Tandil"
     },
     "Argentina_Cuyo Description": {
-        "defaultMessage": "San Juan, San Rafael, San Luis"
+        "defaultMessage": "San Juan, San Luis, San Rafael"
     },
     "Argentina_Mesopotamia Description": {
-        "defaultMessage": "Federación, Paraná, Alvear"
+        "defaultMessage": "Alvear, Federación, Paraná"
     },
     "Argentina_Northwest Description": {
         "defaultMessage": "San Miguel de Tucumán, San Fernando del Valle de Catamarca, San Salvador de Jujuy"
     },
     "Argentina_Pampas Description": {
-        "defaultMessage": "Córdoba, Santa Rosa, Río Cuarto"
+        "defaultMessage": "Córdoba, Río Cuarto, Santa Rosa"
     },
     "Argentina_Patagonia Description": {
-        "defaultMessage": "Cutral Co, Viedma, Comodoro Rivadavia"
+        "defaultMessage": "Comodoro Rivadavia, Cutral Co, Viedma"
     },
     "Argentina_Santa Fe Description": {
-        "defaultMessage": "Rosario, Santa Fe, Las Parejas"
+        "defaultMessage": "Las Parejas, Rosario, Santa Fe"
     },
     "Armenia Description": {
         "defaultMessage": "Jerewan, Aschtarak, Gjumri"
@@ -4095,7 +4095,7 @@
         "defaultMessage": "Adelaide, Gawler, Mount Gambier"
     },
     "Australia_Sydney Description": {
-        "defaultMessage": "Sydney, Canberra, Newcastle"
+        "defaultMessage": "Canberra, Newcastle, Sydney"
     },
     "Australia_Tasmania Description": {
         "defaultMessage": "Hobart, Launceston, Devonport"
@@ -4107,7 +4107,7 @@
         "defaultMessage": "Perth, Bunbury, Geraldton"
     },
     "Austria_Burgenland Description": {
-        "defaultMessage": "Oberpullendorf, Eisenstadt, Mattersburg"
+        "defaultMessage": "Eisenstadt, Mattersburg, Oberpullendorf"
     },
     "Austria_Carinthia Description": {
         "defaultMessage": "Klagenfurt, Villach, Wolfsberg"
@@ -4119,25 +4119,25 @@
         "defaultMessage": "Wien, Industrieviertel, Weinviertel"
     },
     "Austria_Salzburg Description": {
-        "defaultMessage": "Salzburg, Oberndorf bei Salzburg, Abtenau"
+        "defaultMessage": "Abtenau, Oberndorf bei Salzburg, Salzburg"
     },
     "Austria_Styria_Graz Description": {
-        "defaultMessage": "Graz, Feldbach, Voitsberg"
+        "defaultMessage": "Feldbach, Graz, Voitsberg"
     },
     "Austria_Styria_Leoben Description": {
-        "defaultMessage": "Eisenerz, Mariazell, Knittelfeld"
+        "defaultMessage": "Eisenerz, Knittelfeld, Mariazell"
     },
     "Austria_Tyrol Description": {
         "defaultMessage": "Innsbruck, Kufstein, Schwaz"
     },
     "Austria_Upper Austria_Linz Description": {
-        "defaultMessage": "Linz, Steyr, Ansfelden"
+        "defaultMessage": "Ansfelden, Linz, Steyr"
     },
     "Austria_Upper Austria_Wels Description": {
-        "defaultMessage": "Attnang-Puchheim, Wels, Schwanenstadt"
+        "defaultMessage": "Attnang-Puchheim, Schwanenstadt, Wels"
     },
     "Austria_Vorarlberg Description": {
-        "defaultMessage": "Dornbirn, Feldkirch, Bregenz"
+        "defaultMessage": "Bregenz, Dornbirn, Feldkirch"
     },
     "Azerbaijan Description": {
         "defaultMessage": "Baku, Sumgait, Gjandscha"
@@ -4299,7 +4299,7 @@
         "defaultMessage": "Franca, Ribeirão Preto, São José do Rio Preto"
     },
     "British Indian Ocean Territory Description": {
-        "defaultMessage": "Seabreeze Village, Camp Justice"
+        "defaultMessage": "Camp Justice, Seabreeze Village"
     },
     "British Virgin Islands Description": {
         "defaultMessage": "East End, Road Town, Spanish Town"
@@ -4377,7 +4377,7 @@
         "defaultMessage": "Brandon, Foxwarren, Shoal Lake"
     },
     "Canada_Manitoba_Winnipeg Description": {
-        "defaultMessage": "Winnipeg, Portage La Prairie, Killarney"
+        "defaultMessage": "Killarney, Portage La Prairie, Winnipeg"
     },
     "Canada_New Brunswick Description": {
         "defaultMessage": "Campbellton, Edmundston, Fredericton"
@@ -4449,7 +4449,7 @@
         "defaultMessage": "Peawanuck, Pikangikum, Sandy Lake"
     },
     "Canada_Ontario_Toronto Description": {
-        "defaultMessage": "Toronto, Guelph, Mississauga"
+        "defaultMessage": "Guelph, Mississauga, Toronto"
     },
     "Canada_Prince Edward Island Description": {
         "defaultMessage": "Borden, Charlottetown, Summerside"
@@ -4584,7 +4584,7 @@
         "defaultMessage": "Jinan, Tai'an, Zibo"
     },
     "China_Shanghai Description": {
-        "defaultMessage": "Shanghai, Jinshan, Putuo"
+        "defaultMessage": "Jinshan, Putuo, Shanghai"
     },
     "China_Shanxi Description": {
         "defaultMessage": "Changzhi, Huozhou, Taiyuan"
@@ -4623,7 +4623,7 @@
         "defaultMessage": "Goma, Bukavu, Uvira"
     },
     "Congo-Kinshasa_West Description": {
-        "defaultMessage": "Kinshasa, Mbuji-Mayi, Lubumbashi"
+        "defaultMessage": "Kinshasa, Lubumbashi, Mbuji-Mayi"
     },
     "Cook Islands Description": {
         "defaultMessage": "Avarua, Kimiangatau, Rarotonga Muri"
@@ -4704,7 +4704,7 @@
         "defaultMessage": "Aalborg, Hjørring, Nørresundby"
     },
     "Denmark_Region Zealand Description": {
-        "defaultMessage": "Roskilde, Næstved, Greve Strand"
+        "defaultMessage": "Greve Strand, Næstved, Roskilde"
     },
     "Denmark_Region of Southern Denmark Description": {
         "defaultMessage": "Odense, Esbjerg, Kolding"
@@ -4764,25 +4764,25 @@
         "defaultMessage": "Kajaani, Siilinjärvi, Iisalmi"
     },
     "Finland_Eastern Finland_South Description": {
-        "defaultMessage": "Kuopio, Joensuu, Mikkeli"
+        "defaultMessage": "Joensuu, Kuopio, Mikkeli"
     },
     "Finland_Northern Finland Description": {
-        "defaultMessage": "Oulu, Rovaniemi, Kokkola"
+        "defaultMessage": "Kokkola, Oulu, Rovaniemi"
     },
     "Finland_Southern Finland_Helsinki Description": {
-        "defaultMessage": "Helsinki, Espoo, Vantaa"
+        "defaultMessage": "Espoo, Helsinki, Vantaa"
     },
     "Finland_Southern Finland_Lappeenranta Description": {
-        "defaultMessage": "Kouvola, Lappeenranta, Kotka"
+        "defaultMessage": "Kotka, Kouvola, Lappeenranta"
     },
     "Finland_Southern Finland_West Description": {
-        "defaultMessage": "Turku, Hämeenlinna, Salo"
+        "defaultMessage": "Hämeenlinna, Salo, Turku"
     },
     "Finland_Western Finland_Jyvaskyla Description": {
         "defaultMessage": "Jyväskylä, Jämsä, Laukaa"
     },
     "Finland_Western Finland_Tampere Description": {
-        "defaultMessage": "Tampere, Pori, Vaasa"
+        "defaultMessage": "Pori, Tampere, Vaasa"
     },
     "France_Alsace_Bas-Rhin Description": {
         "defaultMessage": "Straßburg, Hagenau, Schiltigheim"
@@ -4791,25 +4791,25 @@
         "defaultMessage": "Mülhausen, Kolmar, Sankt Ludwig"
     },
     "France_Aquitaine_Dordogne Description": {
-        "defaultMessage": "Périgueux, Bergerac, Boulazac Isle Manoire"
+        "defaultMessage": "Bergerac, Boulazac Isle Manoire, Périgueux"
     },
     "France_Aquitaine_Gironde Description": {
         "defaultMessage": "Bordeaux, Mérignac, Pessac"
     },
     "France_Aquitaine_Landes Description": {
-        "defaultMessage": "Mont-de-Marsan, Dax, Saint-Paul-lès-Dax"
+        "defaultMessage": "Dax, Mont-de-Marsan, Saint-Paul-lès-Dax"
     },
     "France_Aquitaine_Lot-et-Garonne Description": {
-        "defaultMessage": "Agen, Villeneuve-sur-Lot, Marmande"
+        "defaultMessage": "Agen, Marmande, Villeneuve-sur-Lot"
     },
     "France_Aquitaine_Pyrenees-Atlantiques Description": {
-        "defaultMessage": "Pau, Bayonne, Anglet"
+        "defaultMessage": "Anglet, Bayonne, Pau"
     },
     "France_Auvergne_Allier Description": {
-        "defaultMessage": "Montluçon, Vichy, Moulins"
+        "defaultMessage": "Montluçon, Moulins, Vichy"
     },
     "France_Auvergne_Cantal Description": {
-        "defaultMessage": "Aurillac, Saint-Flour, Arpajon-sur-Cère"
+        "defaultMessage": "Arpajon-sur-Cère, Aurillac, Saint-Flour"
     },
     "France_Auvergne_Haute-Loire Description": {
         "defaultMessage": "Le Puy-en-Velay, Monistrol-sur-Loire, Yssingeaux"
@@ -4818,139 +4818,139 @@
         "defaultMessage": "Clermont-Ferrand, Cournon-d'Auvergne, Riom"
     },
     "France_Brittany_Cotes-dArmor Description": {
-        "defaultMessage": "Saint-Brieuc, Lannion, Lamballe-Armor"
+        "defaultMessage": "Lamballe-Armor, Lannion, Saint-Brieuc"
     },
     "France_Brittany_Finistere Description": {
-        "defaultMessage": "Brest, Quimper, Concarneau"
+        "defaultMessage": "Brest, Concarneau, Quimper"
     },
     "France_Brittany_Ille-et-Vilaine Description": {
-        "defaultMessage": "Rennes, Saint-Malo, Fougères"
+        "defaultMessage": "Fougères, Rennes, Saint-Malo"
     },
     "France_Brittany_Morbihan Description": {
-        "defaultMessage": "Lorient, Vannes, Lanester"
+        "defaultMessage": "Lanester, Lorient, Vannes"
     },
     "France_Burgundy_Cote-dOr Description": {
-        "defaultMessage": "Dijon, Beaune, Chenôve"
+        "defaultMessage": "Beaune, Chenôve, Dijon"
     },
     "France_Burgundy_Nievre Description": {
-        "defaultMessage": "Nevers, Cosne-Cours-sur-Loire, Varennes-Vauzelles"
+        "defaultMessage": "Cosne-Cours-sur-Loire, Nevers, Varennes-Vauzelles"
     },
     "France_Burgundy_Saone-et-Loire Description": {
-        "defaultMessage": "Chalon-sur-Saône, Mâcon, Le Creusot"
+        "defaultMessage": "Chalon-sur-Saône, Le Creusot, Mâcon"
     },
     "France_Burgundy_Yonne Description": {
-        "defaultMessage": "Auxerre, Sens, Joigny"
+        "defaultMessage": "Auxerre, Joigny, Sens"
     },
     "France_Centre-Val de Loire_Cher Description": {
-        "defaultMessage": "Bourges, Vierzon, Saint-Doulchard"
+        "defaultMessage": "Bourges, Saint-Doulchard, Vierzon"
     },
     "France_Centre-Val de Loire_Eure-et-Loir Description": {
         "defaultMessage": "Chartres, Dreux, Lucé"
     },
     "France_Centre-Val de Loire_Indre Description": {
-        "defaultMessage": "Châteauroux, Issoudun, Déols"
+        "defaultMessage": "Châteauroux, Déols, Issoudun"
     },
     "France_Centre-Val de Loire_Indre-et-Loire Description": {
-        "defaultMessage": "Tours, Joué-lès-Tours, Saint-Cyr-sur-Loire"
+        "defaultMessage": "Joué-lès-Tours, Saint-Cyr-sur-Loire, Tours"
     },
     "France_Centre-Val de Loire_Loir-et-Cher Description": {
         "defaultMessage": "Blois, Romorantin-Lanthenay, Vendôme"
     },
     "France_Centre-Val de Loire_Loiret Description": {
-        "defaultMessage": "Orléans, Olivet, Saint-Jean-de-Braye"
+        "defaultMessage": "Olivet, Orléans, Saint-Jean-de-Braye"
     },
     "France_Champagne-Ardenne Description": {
-        "defaultMessage": "Reims, Troyes, Charleville-Mézières"
+        "defaultMessage": "Charleville-Mézières, Reims, Troyes"
     },
     "France_Corsica Description": {
         "defaultMessage": "Ajaccio, Bastia, Porto-Vecchio"
     },
     "France_Free County_North Description": {
-        "defaultMessage": "Besançon, Belfort, Montbéliard"
+        "defaultMessage": "Belfort, Besançon, Montbéliard"
     },
     "France_Free County_South Description": {
-        "defaultMessage": "Pontarlier, Lons-le-Saunier, Saint-Claude"
+        "defaultMessage": "Lons-le-Saunier, Pontarlier, Saint-Claude"
     },
     "France_French Guiana Description": {
-        "defaultMessage": "Cayenne, Saint-Laurent-du-Maroni, Matoury"
+        "defaultMessage": "Cayenne, Matoury, Saint-Laurent-du-Maroni"
     },
     "France_Ile-de-France_Essonne Description": {
-        "defaultMessage": "Évry, Corbeil-Essonnes, Massy"
+        "defaultMessage": "Corbeil-Essonnes, Évry, Massy"
     },
     "France_Ile-de-France_Hauts-de-Seine Description": {
-        "defaultMessage": "Boulogne-Billancourt, Nanterre, Courbevoie"
+        "defaultMessage": "Boulogne-Billancourt, Courbevoie, Nanterre"
     },
     "France_Ile-de-France_Paris Description": {
-        "defaultMessage": "Paris, Campagne à Paris"
+        "defaultMessage": "Campagne à Paris, Paris"
     },
     "France_Ile-de-France_Seine-Saint-Denis Description": {
-        "defaultMessage": "Saint-Denis, Montreuil, Aubervilliers"
+        "defaultMessage": "Aubervilliers, Montreuil, Saint-Denis"
     },
     "France_Ile-de-France_Seine-et-Marne Description": {
-        "defaultMessage": "Meaux, Chelles, Melun"
+        "defaultMessage": "Chelles, Meaux, Melun"
     },
     "France_Ile-de-France_Val-dOise Description": {
         "defaultMessage": "Argenteuil, Cergy, Sarcelles"
     },
     "France_Ile-de-France_Val-de-Marne Description": {
-        "defaultMessage": "Vitry-sur-Seine, Créteil, Champigny-sur-Marne"
+        "defaultMessage": "Champigny-sur-Marne, Créteil, Vitry-sur-Seine"
     },
     "France_Ile-de-France_Yvelines Description": {
-        "defaultMessage": "Versailles, Sartrouville, Saint-Germain-en-Laye"
+        "defaultMessage": "Saint-Germain-en-Laye, Sartrouville, Versailles"
     },
     "France_Languedoc-Roussillon_Aude Description": {
-        "defaultMessage": "Narbonne, Carcassonne, Castelnaudary"
+        "defaultMessage": "Carcassonne, Castelnaudary, Narbonne"
     },
     "France_Languedoc-Roussillon_Gard Description": {
-        "defaultMessage": "Nîmes, Alès, Bagnols-sur-Cèze"
+        "defaultMessage": "Alès, Bagnols-sur-Cèze, Nîmes"
     },
     "France_Languedoc-Roussillon_Herault Description": {
-        "defaultMessage": "Montpellier, Béziers, Sète"
+        "defaultMessage": "Béziers, Montpellier, Sète"
     },
     "France_Languedoc-Roussillon_Lozere Description": {
-        "defaultMessage": "Mende, Marvejols, Saint-Chély-d'Apcher"
+        "defaultMessage": "Marvejols, Mende, Saint-Chély-d'Apcher"
     },
     "France_Languedoc-Roussillon_Pyrenees-Orientales Description": {
-        "defaultMessage": "Perpignan, Canet-en-Roussillon, Saint-Estève"
+        "defaultMessage": "Canet-en-Roussillon, Perpignan, Saint-Estève"
     },
     "France_Limousin Description": {
-        "defaultMessage": "Limoges, Brive-la-Gaillarde, Tulle"
+        "defaultMessage": "Brive-la-Gaillarde, Limoges, Tulle"
     },
     "France_Lorraine_Meurthe-et-Moselle Description": {
-        "defaultMessage": "Nancy, Vandœuvre-lès-Nancy, Lunéville"
+        "defaultMessage": "Lunéville, Nancy, Vandœuvre-lès-Nancy"
     },
     "France_Lorraine_Meuse Description": {
-        "defaultMessage": "Verdun, Bar-le-Duc, Commercy"
+        "defaultMessage": "Bar-le-Duc, Commercy, Verdun"
     },
     "France_Lorraine_Moselle Description": {
-        "defaultMessage": "Metz, Thionville, Montigny-lès-Metz"
+        "defaultMessage": "Metz, Montigny-lès-Metz, Thionville"
     },
     "France_Lorraine_Vosges Description": {
-        "defaultMessage": "Épinal, Saint-Dié-des-Vosges, Gérardmer"
+        "defaultMessage": "Épinal, Gérardmer, Saint-Dié-des-Vosges"
     },
     "France_Lower Normandy_Calvados Description": {
         "defaultMessage": "Caen, Hérouville-Saint-Clair, Lisieux"
     },
     "France_Lower Normandy_Manche Description": {
-        "defaultMessage": "Cherbourg-en-Cotentin, Saint-Lô, Granville"
+        "defaultMessage": "Cherbourg-en-Cotentin, Granville, Saint-Lô"
     },
     "France_Lower Normandy_Orne Description": {
-        "defaultMessage": "Alençon, Flers, Argentan"
+        "defaultMessage": "Alençon, Argentan, Flers"
     },
     "France_Midi-Pyrenees_Ariege Description": {
-        "defaultMessage": "Pamiers, Foix, Saint-Girons"
+        "defaultMessage": "Foix, Pamiers, Saint-Girons"
     },
     "France_Midi-Pyrenees_Aveyron Description": {
-        "defaultMessage": "Rodez, Millau, Villefranche-de-Rouergue"
+        "defaultMessage": "Millau, Rodez, Villefranche-de-Rouergue"
     },
     "France_Midi-Pyrenees_Gers Description": {
-        "defaultMessage": "Auch, L'Isle-Jourdain, Condom"
+        "defaultMessage": "Auch, Condom, L'Isle-Jourdain"
     },
     "France_Midi-Pyrenees_Haute-Garonne Description": {
-        "defaultMessage": "Toulouse, Colomiers, Tournefeuille"
+        "defaultMessage": "Colomiers, Toulouse, Tournefeuille"
     },
     "France_Midi-Pyrenees_Hautes-Pyrenees Description": {
-        "defaultMessage": "Tarbes, Lourdes, Aureilhan"
+        "defaultMessage": "Aureilhan, Lourdes, Tarbes"
     },
     "France_Midi-Pyrenees_Lot Description": {
         "defaultMessage": "Cahors, Figeac, Gourdon"
@@ -4959,73 +4959,73 @@
         "defaultMessage": "Albi, Castres, Gaillac"
     },
     "France_Midi-Pyrenees_Tarn-et-Garonne Description": {
-        "defaultMessage": "Montauban, Castelsarrasin, Moissac"
+        "defaultMessage": "Castelsarrasin, Moissac, Montauban"
     },
     "France_New Caledonia Description": {
-        "defaultMessage": "Poindimié, Nouméa, Ponérihouen"
+        "defaultMessage": "Nouméa, Poindimié, Ponérihouen"
     },
     "France_Nord-Pas-de-Calais_Lille Description": {
         "defaultMessage": "Lille, Roubaix, Tourcoing"
     },
     "France_Nord-Pas-de-Calais_Nord Description": {
-        "defaultMessage": "Valenciennes, Douai, Cambrai"
+        "defaultMessage": "Cambrai, Douai, Valenciennes"
     },
     "France_Nord-Pas-de-Calais_Pas-de-Calais Description": {
-        "defaultMessage": "Calais, Boulogne-sur-Mer, Arras"
+        "defaultMessage": "Arras, Boulogne-sur-Mer, Calais"
     },
     "France_Pays de la Loire_Loire-Atlantique_Nantes Description": {
-        "defaultMessage": "Nantes, Saint-Herblain, Rezé"
+        "defaultMessage": "Nantes, Rezé, Saint-Herblain"
     },
     "France_Pays de la Loire_Loire-Atlantique_Saint-Nazaire Description": {
-        "defaultMessage": "Saint-Nazaire, Guérande, La Baule-Escoublac"
+        "defaultMessage": "Guérande, La Baule-Escoublac, Saint-Nazaire"
     },
     "France_Pays de la Loire_Maine-et-Loire Description": {
         "defaultMessage": "Angers, Cholet, Saumur"
     },
     "France_Pays de la Loire_Mayenne Description": {
-        "defaultMessage": "Laval, Château-Gontier, Mayenne"
+        "defaultMessage": "Château-Gontier, Laval, Mayenne"
     },
     "France_Pays de la Loire_Sarthe Description": {
-        "defaultMessage": "Le Mans, La Flèche, Sablé-sur-Sarthe"
+        "defaultMessage": "La Flèche, Le Mans, Sablé-sur-Sarthe"
     },
     "France_Pays de la Loire_Vendee Description": {
-        "defaultMessage": "La Roche-sur-Yon, Les Sables-d'Olonne, Challans"
+        "defaultMessage": "Challans, La Roche-sur-Yon, Les Sables-d'Olonne"
     },
     "France_Picardy_Aisne Description": {
-        "defaultMessage": "Saint-Quentin, Soissons, Laon"
+        "defaultMessage": "Laon, Saint-Quentin, Soissons"
     },
     "France_Picardy_Oise Description": {
         "defaultMessage": "Beauvais, Compiègne, Creil"
     },
     "France_Picardy_Somme Description": {
-        "defaultMessage": "Amiens, Abbeville, Albert"
+        "defaultMessage": "Abbeville, Albert, Amiens"
     },
     "France_Poitou-Charentes_Charente Description": {
         "defaultMessage": "Angoulême, Cognac, Soyaux"
     },
     "France_Poitou-Charentes_Charente-Maritime Description": {
-        "defaultMessage": "La Rochelle, Saintes, Rochefort"
+        "defaultMessage": "La Rochelle, Rochefort, Saintes"
     },
     "France_Poitou-Charentes_Deux-Sevres Description": {
-        "defaultMessage": "Niort, Bressuire, Thouars"
+        "defaultMessage": "Bressuire, Niort, Thouars"
     },
     "France_Poitou-Charentes_Vienne Description": {
-        "defaultMessage": "Poitiers, Châtellerault, Buxerolles"
+        "defaultMessage": "Buxerolles, Châtellerault, Poitiers"
     },
     "France_Provence-Alpes-Cote dAzur_Alpes-de-Haute-Provence Description": {
-        "defaultMessage": "Manosque, Digne-les-Bains, Sisteron"
+        "defaultMessage": "Digne-les-Bains, Manosque, Sisteron"
     },
     "France_Provence-Alpes-Cote dAzur_Bouches-du-Rhone Description": {
-        "defaultMessage": "Marseille, Aix-en-Provence, Arles"
+        "defaultMessage": "Arles, Aix-en-Provence, Marseille"
     },
     "France_Provence-Alpes-Cote dAzur_Hautes-Alpes Description": {
-        "defaultMessage": "Gap, Briançon, Embrun"
+        "defaultMessage": "Briançon, Embrun, Gap"
     },
     "France_Provence-Alpes-Cote dAzur_Maritime Alps Description": {
         "defaultMessage": "Nizza, Antibes, Cannes"
     },
     "France_Provence-Alpes-Cote dAzur_Var Description": {
-        "defaultMessage": "Toulon, La Seyne-sur-Mer, Fréjus"
+        "defaultMessage": "Fréjus, La Seyne-sur-Mer, Toulon"
     },
     "France_Provence-Alpes-Cote dAzur_Vaucluse Description": {
         "defaultMessage": "Avignon, Carpentras, Orange"
@@ -5037,31 +5037,31 @@
         "defaultMessage": "Annonay, Aubenas, Guilherand-Granges"
     },
     "France_Rhone-Alpes_Drome Description": {
-        "defaultMessage": "Valence, Montélimar, Romans-sur-Isère"
+        "defaultMessage": "Montélimar, Romans-sur-Isère, Valence"
     },
     "France_Rhone-Alpes_Haute-Savoie Description": {
         "defaultMessage": "Annecy, Annemasse, Thonon-les-Bains"
     },
     "France_Rhone-Alpes_Isere Description": {
-        "defaultMessage": "Grenoble, Saint-Martin-d'Hères, Échirolles"
+        "defaultMessage": "Échirolles, Grenoble, Saint-Martin-d'Hères"
     },
     "France_Rhone-Alpes_Loire Description": {
-        "defaultMessage": "Saint-Étienne, Saint-Chamond, Roanne"
+        "defaultMessage": "Roanne, Saint-Chamond, Saint-Étienne"
     },
     "France_Rhone-Alpes_Rhone Description": {
         "defaultMessage": "Lyon, Vénissieux, Villeurbanne"
     },
     "France_Rhone-Alpes_Savoie Description": {
-        "defaultMessage": "Chambéry, Aix-les-Bains, Albertville"
+        "defaultMessage": "Albertville, Aix-les-Bains, Chambéry"
     },
     "France_Southern Islands Description": {
-        "defaultMessage": "Le Port, Saint-Denis, Coconi"
+        "defaultMessage": "Coconi, Le Port, Saint-Denis"
     },
     "France_Upper Normandy Description": {
-        "defaultMessage": "Le Havre, Rouen, Évreux"
+        "defaultMessage": "Évreux, Le Havre, Rouen"
     },
     "French Polynesia Description": {
-        "defaultMessage": "Vaitape, Vaitahu, Tiputa"
+        "defaultMessage": "Vaitahu, Vaitape, Tiputa"
     },
     "Gabon Description": {
         "defaultMessage": "Libreville, Port-Gentil, Sangala"
@@ -5073,22 +5073,22 @@
         "defaultMessage": "Freiburg im Breisgau, Villingen-Schwenningen, Konstanz"
     },
     "Germany_Baden-Wurttemberg_Regierungsbezirk Karlsruhe Description": {
-        "defaultMessage": "Mannheim, Karlsruhe, Heidelberg"
+        "defaultMessage": "Heidelberg, Karlsruhe, Mannheim"
     },
     "Germany_Baden-Wurttemberg_Regierungsbezirk Stuttgart_Heilbronn Description": {
-        "defaultMessage": "Heilbronn, Schwäbisch Hall, Crailsheim"
+        "defaultMessage": "Crailsheim, Heilbronn, Schwäbisch Hall"
     },
     "Germany_Baden-Wurttemberg_Regierungsbezirk Stuttgart_Stuttgart Description": {
-        "defaultMessage": "Stuttgart, Esslingen am Neckar, Ludwigsburg"
+        "defaultMessage": "Esslingen am Neckar, Ludwigsburg, Stuttgart"
     },
     "Germany_Baden-Wurttemberg_Regierungsbezirk Tubingen Description": {
-        "defaultMessage": "Ulm, Reutlingen, Tübingen"
+        "defaultMessage": "Reutlingen, Tübingen, Ulm"
     },
     "Germany_Berlin Description": {
-        "defaultMessage": "Berlin, Falkenberg, Siedlung Grüneck"
+        "defaultMessage": "Alle zwölf Berliner Bezirke"
     },
     "Germany_Brandenburg_North Description": {
-        "defaultMessage": "Potsdam, Brandenburg an der Havel, Oranienburg"
+        "defaultMessage": "Brandenburg an der Havel, Oranienburg, Potsdam"
     },
     "Germany_Brandenburg_South Description": {
         "defaultMessage": "Cottbus, Frankfurt (Oder), Königs Wusterhausen"
@@ -5097,7 +5097,7 @@
         "defaultMessage": "Landshut, Passau, Straubing"
     },
     "Germany_Free State of Bavaria_Lower Franconia Description": {
-        "defaultMessage": "Würzburg, Aschaffenburg, Schweinfurt"
+        "defaultMessage": "Aschaffenburg, Schweinfurt, Würzburg"
     },
     "Germany_Free State of Bavaria_Middle Franconia Description": {
         "defaultMessage": "Nürnberg, Fürth, Erlangen"
@@ -5109,25 +5109,25 @@
         "defaultMessage": "Rosenheim, Erding, Waldkraiburg"
     },
     "Germany_Free State of Bavaria_Upper Bavaria_Ingolstadt Description": {
-        "defaultMessage": "Ingolstadt, Freising, Neuburg an der Donau"
+        "defaultMessage": "Freising, Ingolstadt, Neuburg an der Donau"
     },
     "Germany_Free State of Bavaria_Upper Bavaria_Munchen Description": {
         "defaultMessage": "München, Dachau, Germering"
     },
     "Germany_Free State of Bavaria_Upper Bavaria_South Description": {
-        "defaultMessage": "Pfistern, Schongau, Hohenpeißenberg"
+        "defaultMessage": "Hohenpeißenberg, Pfistern, Schongau"
     },
     "Germany_Free State of Bavaria_Upper Franconia Description": {
-        "defaultMessage": "Bayreuth, Bamberg, Hof"
+        "defaultMessage": "Bamberg, Bayreuth, Hof"
     },
     "Germany_Free State of Bavaria_Upper Palatinate Description": {
-        "defaultMessage": "Regensburg, Amberg, Weiden in der Oberpfalz"
+        "defaultMessage": "Amberg, Regensburg, Weiden in der Oberpfalz"
     },
     "Germany_Hamburg_main Description": {
         "defaultMessage": "Wandsbek, Hamburg-Nord, Hamburg-Mitte"
     },
     "Germany_Hesse_Regierungsbezirk Darmstadt Description": {
-        "defaultMessage": "Frankfurt am Main, Wiesbaden, Darmstadt"
+        "defaultMessage": "Darmstadt, Frankfurt am Main, Wiesbaden"
     },
     "Germany_Hesse_Regierungsbezirk Giessen Description": {
         "defaultMessage": "Gießen, Marburg, Wetzlar"
@@ -5154,22 +5154,22 @@
         "defaultMessage": "Rostock, Schwerin, Wismar"
     },
     "Germany_North Rhine-Westphalia_Regierungsbezirk Arnsberg_Arnsberg Description": {
-        "defaultMessage": "Siegen, Arnsberg, Lüdenscheid"
+        "defaultMessage": "Arnsberg, Lüdenscheid, Siegen"
     },
     "Germany_North Rhine-Westphalia_Regierungsbezirk Arnsberg_Dortmund Description": {
-        "defaultMessage": "Dortmund, Bochum, Hagen"
+        "defaultMessage": "Bochum, Dortmund, Hagen"
     },
     "Germany_North Rhine-Westphalia_Regierungsbezirk Detmold Description": {
-        "defaultMessage": "Bielefeld, Paderborn, Gütersloh"
+        "defaultMessage": "Bielefeld, Gütersloh, Paderborn"
     },
     "Germany_North Rhine-Westphalia_Regierungsbezirk Dusseldorf_Dusseldorf Description": {
-        "defaultMessage": "Düsseldorf, Wuppertal, Mönchengladbach"
+        "defaultMessage": "Düsseldorf, Mönchengladbach, Wuppertal"
     },
     "Germany_North Rhine-Westphalia_Regierungsbezirk Dusseldorf_Mulheim Description": {
-        "defaultMessage": "Essen, Duisburg, Krefeld"
+        "defaultMessage": "Duisburg, Essen, Krefeld"
     },
     "Germany_North Rhine-Westphalia_Regierungsbezirk Dusseldorf_Wesel Description": {
-        "defaultMessage": "Wesel, Kleve, Geldern"
+        "defaultMessage": "Geldern, Kleve, Wesel"
     },
     "Germany_North Rhine-Westphalia_Regierungsbezirk Koln_Aachen Description": {
         "defaultMessage": "Aachen, Düren, Euskirchen"
@@ -5178,25 +5178,25 @@
         "defaultMessage": "Köln, Bonn, Leverkusen"
     },
     "Germany_North Rhine-Westphalia_Regierungsbezirk Munster_Munster Description": {
-        "defaultMessage": "Münster, Rheine, Ahlen"
+        "defaultMessage": "Ahlen, Münster, Rheine"
     },
     "Germany_North Rhine-Westphalia_Regierungsbezirk Munster_Recklinghausen Description": {
-        "defaultMessage": "Gelsenkirchen, Bottrop, Recklinghausen"
+        "defaultMessage": "Bottrop, Gelsenkirchen, Recklinghausen"
     },
     "Germany_Rhineland-Palatinate_Koblenz Description": {
-        "defaultMessage": "Koblenz, Trier, Neuwied"
+        "defaultMessage": "Koblenz, Neuwied, Trier"
     },
     "Germany_Rhineland-Palatinate_South Description": {
-        "defaultMessage": "Mainz, Ludwigshafen am Rhein, Kaiserslautern"
+        "defaultMessage": "Kaiserslautern, Ludwigshafen am Rhein, Mainz"
     },
     "Germany_Saarland Description": {
         "defaultMessage": "Saarbrücken, Neunkirchen, Homburg"
     },
     "Germany_Saxony-Anhalt_Halle Description": {
-        "defaultMessage": "Halle (Saale), Dessau-Roßlau, Zerbst/Anhalt"
+        "defaultMessage": "Dessau-Roßlau, Halle (Saale), Zerbst/Anhalt"
     },
     "Germany_Saxony-Anhalt_Magdeburg Description": {
-        "defaultMessage": "Magdeburg, Halberstadt, Aschersleben"
+        "defaultMessage": "Aschersleben, Halberstadt, Magdeburg"
     },
     "Germany_Saxony_Dresden Description": {
         "defaultMessage": "Dresden, Görlitz, Schirgiswalde-Kirschau"
@@ -6879,169 +6879,169 @@
         "defaultMessage": "Cardiff, Swansea, Newport"
     },
     "US_Alabama_Birmingham Description": {
-        "defaultMessage": "Warrior, Vestavia Hills, Scottsboro"
+        "defaultMessage": "Huntsville / Decatur / Florence"
     },
     "US_Alabama_Montgomery Description": {
-        "defaultMessage": "Creola, Centreville, Valley"
+        "defaultMessage": "Mobile / Tuscaloosa / Dothan"
     },
     "US_Alaska Description": {
-        "defaultMessage": "Scammon Bay, McGrath, Fort Wainright"
+        "defaultMessage": "Anchorage / Fairbanks / Juneau"
     },
     "US_Arizona_Flagstaff Description": {
-        "defaultMessage": "Cottonwood, Holbrook, Show Low"
+        "defaultMessage": "Lake Havasu City / Prescott / Bullhead City"
     },
     "US_Arizona_Phoenix Description": {
-        "defaultMessage": "Phoenix, Mesa"
+        "defaultMessage": "Surprise / Yuma / Buckeye"
     },
     "US_Arizona_Tucson Description": {
-        "defaultMessage": "Tucson, South Tucson, Bisbee"
+        "defaultMessage": "Sierra Vista / Marana / Nogales"
     },
     "US_Arkansas_North Description": {
-        "defaultMessage": "Ward, Cabot, Des Arc"
+        "defaultMessage": "Fort Smith / Fayetteville / Jonesboro"
     },
     "US_Arkansas_South Description": {
-        "defaultMessage": "Stamps, Rockport"
+        "defaultMessage": "Little Rock / Pine Bluff / Texarkana"
     },
     "US_California_Bakersfield_Bakersfield Description": {
-        "defaultMessage": "Arroyo Grande, Pismo Beach, Maricopa"
+        "defaultMessage": "Arroyo Grande / Pismo Beach / Maricopa"
     },
     "US_California_Bakersfield_Lancaster Description": {
-        "defaultMessage": "Hesperia, Big Bear Lake, Holtville"
+        "defaultMessage": "Victorville / El Centro / Joshua Tree"
     },
     "US_California_Chico Description": {
-        "defaultMessage": "Tehama, Cloverdale, Cloverdale"
+        "defaultMessage": "Oroville / Paradise / Susanville"
     },
     "US_California_LA Description": {
-        "defaultMessage": "Los Angeles"
+        "defaultMessage": "Long Beach / Santa Ana / Riverside"
     },
     "US_California_LA North Description": {
-        "defaultMessage": "Santa Barbara, Ojai, Avalon"
+        "defaultMessage": "Oxnard / Santa Clarita / Thousand Oaks"
     },
     "US_California_Redding Description": {
-        "defaultMessage": "Ferndale, Rio Dell, Arcata"
+        "defaultMessage": "Eureka, Red Bluff, Crescent City"
     },
     "US_California_Sacramento_Fresno Description": {
-        "defaultMessage": "Fresno, Selma, Bishop"
+        "defaultMessage": "Visalia, Porterville, Hanford"
     },
     "US_California_Sacramento_Sacramento Description": {
-        "defaultMessage": "Sacramento, West Sacramento, Placerville"
+        "defaultMessage": "Yuba City, Rocklin, Auburn"
     },
     "US_California_Sacramento_Stockton Description": {
-        "defaultMessage": "Ceres, Ione, Tracy"
+        "defaultMessage": "Modesto, Merced, Madera"
     },
     "US_California_San Diego Description": {
-        "defaultMessage": "San Diego, San Marcos, Banning"
+        "defaultMessage": "Oceanside, Murrieta, Indio"
     },
     "US_California_Santa_Clara_Palo Alto Description": {
-        "defaultMessage": "San Francisco"
+        "defaultMessage": "San José / Oakland / Santa Rosa"
     },
     "US_California_Santa_Clara_Santa Cruz Description": {
-        "defaultMessage": "Seaside, Gonzales, Gonzales"
+        "defaultMessage": "Salinas / Gilroy / Monterey"
     },
     "US_Colorado_Aspen Description": {
-        "defaultMessage": "Central City, Black Hawk, Woodland Park"
+        "defaultMessage": "Grand Junction / Glenwood Springs / Steamboat Springs"
     },
     "US_Colorado_Denver Description": {
-        "defaultMessage": "Denver, Colorado Springs, Commerce City"
+        "defaultMessage": "Colorado Springs / Fort Collins / Boulder"
     },
     "US_Colorado_South Description": {
-        "defaultMessage": "Salida, Walsenburg, Las Animas"
+        "defaultMessage": "Pueblo / Telluride / Trinidad"
     },
     "US_Connecticut Description": {
-        "defaultMessage": "East Haven, Groton, Thomaston"
+        "defaultMessage": "East Haven / Groton / Thomaston"
     },
     "US_Delaware Description": {
-        "defaultMessage": "City of Seaford, Rehoboth Beach, Milford"
+        "defaultMessage": "Wilmington / Dover / Milford"
     },
     "US_Florida_Gainesville Description": {
-        "defaultMessage": "Gainesville, Palm Bay, Melbourne"
+        "defaultMessage": "Ocala / Daytona Beach / Melbourne"
     },
     "US_Florida_Jacksonville Description": {
-        "defaultMessage": "Jacksonville, Panama City Beach, Lynn Haven"
+        "defaultMessage": "Tallahassee / Pensacola / Panama City"
     },
     "US_Florida_Miami Description": {
-        "defaultMessage": "Miami, Marco Island, Fort Lauderdale"
+        "defaultMessage": "Fort Lauderdale / West Palm Beach / Key West"
     },
     "US_Florida_Orlando Description": {
-        "defaultMessage": "Orlando, Deltona, Kissimmee"
+        "defaultMessage": "Kissimmee / Deltona / Winter Garden"
     },
     "US_Florida_Tampa Description": {
-        "defaultMessage": "Oldsmar, Tampa, Saint Petersburg"
+        "defaultMessage": "Port St. Lucie / Sarasota / Lakeland"
     },
     "US_Georgia_Atlanta Description": {
-        "defaultMessage": "Atlanta, Chamblee, Walnut Grove"
+        "defaultMessage": "Sandy Springs / Marietta / Roswell"
     },
     "US_Georgia_Macon Description": {
-        "defaultMessage": "Grovetown, Perry, Byron"
+        "defaultMessage": "Grovetown / Perry / Byron"
     },
     "US_Georgia_North Description": {
-        "defaultMessage": "Emerson, Jefferson, Cartersville"
+        "defaultMessage": "Rome / Dalton / Gainesville"
     },
     "US_Georgia_South Description": {
-        "defaultMessage": "De Soto, Santa Claus, Pearson"
+        "defaultMessage": "Savannah / Albany / Valdosta"
     },
     "US_Guam Description": {
-        "defaultMessage": "Dededo Flohmarkt, Tumon Golf Driving Range, San José"
+        "defaultMessage": "Dededo, Hagåtña, Tamuning"
     },
     "US_Hawaii Description": {
-        "defaultMessage": "Hilo, Kailua-Kona, Kahului"
+        "defaultMessage": "Hilo, Honolulu, Kahului"
     },
     "US_Idaho_North Description": {
-        "defaultMessage": "Huetter, Peck, Hayden"
+        "defaultMessage": "Coeur d'Alene, Lewiston, Sandpoint"
     },
     "US_Idaho_South Description": {
-        "defaultMessage": "Arco, Middleton, Greenleaf"
+        "defaultMessage": "Boise, Idaho Falls, Pocatello"
     },
     "US_Illinois_Chickago Description": {
-        "defaultMessage": "Chicago, Palos Hills, Park City"
+        "defaultMessage": "Arlington Heights, Downers Grove, Waukegan"
     },
     "US_Illinois_Elgin Description": {
-        "defaultMessage": "Geneva, Country Club Hills, Wheaton"
+        "defaultMessage": "Aurora, Chicago Heights, Joliet"
     },
     "US_Illinois_Rockford Description": {
-        "defaultMessage": "Princeton, Prophetstown, Moline"
+        "defaultMessage": "DeKalb, Freeport, Moline"
     },
     "US_Illinois_South Description": {
-        "defaultMessage": "Casey, Wamac, Mount Vernon"
+        "defaultMessage": "Belleville, East St. Louis, Marion"
     },
     "US_Illinois_Springfield Description": {
-        "defaultMessage": "Mount Pulaski, Lacon, Kewanee"
+        "defaultMessage": "Bloomington, Champaign, Peoria"
     },
     "US_Indiana_Evansville Description": {
-        "defaultMessage": "Rockport, New Albany, Princeton"
+        "defaultMessage": "Bloomington, Columbus, Jeffersonville"
     },
     "US_Indiana_Indianapolis Description": {
-        "defaultMessage": "Connersville, Greensburg, Indianapolis"
+        "defaultMessage": "Noblesville, Richmond, Terre Haute"
     },
     "US_Indiana_North Description": {
-        "defaultMessage": "Elwood, Kokomo, Whiting"
+        "defaultMessage": "Fort Wayne, Hammond, South Bend"
     },
     "US_Iowa_Des Moines Description": {
-        "defaultMessage": "Indianola, Slater, Martensdale"
+        "defaultMessage": "Burlington, Davenport, Iowa City"
     },
     "US_Iowa_Waterloo Description": {
-        "defaultMessage": "Dixon, Floyd, Elma"
+        "defaultMessage": "Ames, Cedar Rapids, Dubuque"
     },
     "US_Iowa_West Description": {
-        "defaultMessage": "Churdan, Orange City, Paton"
+        "defaultMessage": "Council Bluffs, Fort Dodge, Sioux City"
     },
     "US_Kansas_East Description": {
-        "defaultMessage": "Benedict, Coffeyville, Severance"
+        "defaultMessage": "Lawrence, Overland Park, Topeka"
     },
     "US_Kansas_West Description": {
-        "defaultMessage": "Burr Oak, Hunter, Randolph"
+        "defaultMessage": "Colby, Manhattan, Salina"
     },
     "US_Kansas_Wichita Description": {
-        "defaultMessage": "Whitewater, Cedar Point, Sublette"
+        "defaultMessage": "Dodge City, Garden City, Hutchinson"
     },
     "US_Kentucky_East Description": {
-        "defaultMessage": "Hyden, Stanton, Pineville"
+        "defaultMessage": "Covington, Frankfort, Lexington"
     },
     "US_Kentucky_Louisville Description": {
-        "defaultMessage": "Louisville, Fordsville, Meadowview Estates"
+        "defaultMessage": "La Grange, Radcliff, Shelbyville"
     },
     "US_Kentucky_West Description": {
-        "defaultMessage": "Marion, Corydon, Barlow"
+        "defaultMessage": "Bowling Green, Owensboro, Paducah"
     },
     "US_Louisiana_Central Description": {
         "defaultMessage": "Pineville, Marksville, Bunkie"
@@ -7050,295 +7050,295 @@
         "defaultMessage": "Bogalusa, Gonzales, Plaquemine"
     },
     "US_Maine Description": {
-        "defaultMessage": "Westbrook, Brewer, South Portland"
+        "defaultMessage": "Augusta, Bangor, Portland"
     },
     "US_Maryland_Baltimore Description": {
-        "defaultMessage": "Baltimore, Pocomoke City, Crisfield"
+        "defaultMessage": "Annapolis, Bel Air, Salisbury"
     },
     "US_Maryland_and_DC Description": {
-        "defaultMessage": "Washington D.C., Gaithersburg, Bowie"
+        "defaultMessage": "Frederick, Hagerstown, Washington, D.C."
     },
     "US_Massachusetts_Boston Description": {
-        "defaultMessage": "Cambridge"
+        "defaultMessage": "Gloucester, Lowell, Salem"
     },
     "US_Massachusetts_Central Description": {
-        "defaultMessage": "Fitchburg, Southbridge, Leominster"
+        "defaultMessage": "Fitchburg, Marlborough, Sturbridge"
     },
     "US_Massachusetts_Plymouth Description": {
-        "defaultMessage": "Brockton, New Bedford, Fall River"
+        "defaultMessage": "Brockton, Fall River, New Bedford"
     },
     "US_Massachusetts_Southeastern Description": {
-        "defaultMessage": "Barnstable, Falmouth, Yarmouth"
+        "defaultMessage": "Falmouth, Nantucket, Provincetown"
     },
     "US_Massachusetts_West Description": {
-        "defaultMessage": "Greenfield, Springfield"
+        "defaultMessage": "Greenfield, Northampton, Pittsfield"
     },
     "US_Michigan_Detroit Description": {
-        "defaultMessage": "Detroit, Hamtramck, Keego Harbor"
+        "defaultMessage": "Ann Arbor, Monroe, Pontiac"
     },
     "US_Michigan_Grand Rapids Description": {
-        "defaultMessage": "Manton, Whitehall, Muskegon"
+        "defaultMessage": "Battle Creek, Kalamazoo, Muskegon"
     },
     "US_Michigan_Lansing Description": {
-        "defaultMessage": "City of Burton, Lapeer, Tawas City"
+        "defaultMessage": "Flint, Midland, Saginaw"
     },
     "US_Michigan_North Description": {
-        "defaultMessage": "Caspian, Iron Mountain, Gaastra"
+        "defaultMessage": "Escanaba, Marquette, Sault Ste. Marie"
     },
     "US_Minnesota_Minneapolis Description": {
-        "defaultMessage": "Lindstrom, Forest Lake, Greenfield"
+        "defaultMessage": "Bloomington, Brooklyn Park, Saint Paul"
     },
     "US_Minnesota_North Description": {
-        "defaultMessage": "Erskine, Gully, Hackensack"
+        "defaultMessage": "Crookston, Duluth, Hibbing"
     },
     "US_Minnesota_Rochester Description": {
-        "defaultMessage": "Arco, New Auburn, Welcome"
+        "defaultMessage": "Mankato, Marshall, Owatonna"
     },
     "US_Minnesota_Saint Cloud Description": {
-        "defaultMessage": "Brooten, St. Rosa, Genola"
+        "defaultMessage": "Alexandria, Moorhead, Willmar"
     },
     "US_Mississippi_Gulfport Description": {
-        "defaultMessage": "D'Iberville, Ocean Springs, Lucedale"
+        "defaultMessage": "Biloxi, Hattiesburg, Pascagoula"
     },
     "US_Mississippi_North Description": {
-        "defaultMessage": "Rolling Fork, Leland, Collins"
+        "defaultMessage": "Jackson, Meridian, Southaven"
     },
     "US_Missouri_East Description": {
-        "defaultMessage": "Scott City, Ellington, Viburnum"
+        "defaultMessage": "Cape Girardeau, Farmington, Poplar Bluff"
     },
     "US_Missouri_Kansas Description": {
-        "defaultMessage": "Kansas City, Belton, Gallatin"
+        "defaultMessage": "Chillicothe, St. Joseph, Sedalia"
     },
     "US_Missouri_Springfield Description": {
-        "defaultMessage": "Conway, Osceola, Battlefield"
+        "defaultMessage": "Branson, Joplin, Lake of the Ozarks"
     },
     "US_Missouri_St Louis Description": {
-        "defaultMessage": "Queen City, La Grange, Fulton"
+        "defaultMessage": "Columbia, Hannibal, Jefferson City"
     },
     "US_Montana_East Description": {
-        "defaultMessage": "Harlem, Hobson, Colstrip"
+        "defaultMessage": "Billings, Bozeman, Miles City"
     },
     "US_Montana_West Description": {
-        "defaultMessage": "Cut Bank, Kalispell, Shelby"
+        "defaultMessage": "Great Falls, Helena, Missoula"
     },
     "US_Nebraska_East Description": {
-        "defaultMessage": "Omaha, Stanton, Pawnee City"
+        "defaultMessage": "Columbus, Lincoln, Omaha"
     },
     "US_Nebraska_West Description": {
-        "defaultMessage": "Bassett, Long Pine, Bloomfield"
+        "defaultMessage": "Grand Island, North Platte, Scottsbluff"
     },
     "US_Nevada Description": {
-        "defaultMessage": "Las Vegas, Winnemucca, Caliente"
+        "defaultMessage": "Carson City, Las Vegas, Reno"
     },
     "US_New Hampshire Description": {
-        "defaultMessage": "Somersworth, Laconia, Franklin"
+        "defaultMessage": "Concord, Manchester, Nashua"
     },
     "US_New Jersey_North Description": {
-        "defaultMessage": "Hackensack, Garfield, Lambertville"
+        "defaultMessage": "Jersey City, Newark, Paterson"
     },
     "US_New Jersey_South Description": {
-        "defaultMessage": "Absecon, Long Branch, Margate City"
+        "defaultMessage": "Atlantic City, Camden, Trenton"
     },
     "US_New Mexico_Albuquerque Description": {
-        "defaultMessage": "Albuquerque, Raton, Bloomfield"
+        "defaultMessage": "Farmington, Gallup, Santa Fe"
     },
     "US_New Mexico_Roswell Description": {
-        "defaultMessage": "Eunice, Socorro, Jal"
+        "defaultMessage": "Carlsbad, Clovis, Las Cruces"
     },
     "US_New York_East Description": {
-        "defaultMessage": "Brookhaven, New Rochelle, Mount Vernon"
+        "defaultMessage": "Long Island, White Plains, Yonkers"
     },
     "US_New York_New York Description": {
-        "defaultMessage": "Inwood, New York, New York City"
+        "defaultMessage": "Alle fünf Stadtbezirke von New York City"
     },
     "US_New York_North Description": {
-        "defaultMessage": "City of Cohoes, City of Schenectady, Beacon"
+        "defaultMessage": "Albany, Utica, Watertown"
     },
     "US_New York_West Description": {
-        "defaultMessage": "Oswego, Jamestown, North Tonawanda"
+        "defaultMessage": "Buffalo, Rochester, Syracuse"
     },
     "US_North Carolina_Asheville Description": {
-        "defaultMessage": "Morganton, Brevard, Marion"
+        "defaultMessage": "Hendersonville, Morganton, Waynesville"
     },
     "US_North Carolina_Charlotte Description": {
-        "defaultMessage": "Charlotte, Shelby, Statesville"
+        "defaultMessage": "Concord, Hickory, Monroe"
     },
     "US_North Carolina_Greensboro Description": {
-        "defaultMessage": "Thomasville, Hamlet, Albemarle"
+        "defaultMessage": "High Point, Salisbury, Winston-Salem"
     },
     "US_North Carolina_Raleigh Description": {
-        "defaultMessage": "Raleigh, Roxboro, Graham"
+        "defaultMessage": "Burlington, Chapel Hill, Durham"
     },
     "US_North Carolina_Wilmington Description": {
-        "defaultMessage": "Clinton, Boiling Spring Lakes, Laurinburg"
+        "defaultMessage": "Fayetteville, Jacksonville, Lumberton"
     },
     "US_North Carolina_Wilson Description": {
-        "defaultMessage": "New Bern, Havelock, Elizabeth City"
+        "defaultMessage": "Greenville, New Bern, Rocky Mount"
     },
     "US_North Dakota_Bismarck Description": {
-        "defaultMessage": "Zap, Reeder, Stanton"
+        "defaultMessage": "Dickinson, Mandan, Watford City"
     },
     "US_North Dakota_East Description": {
-        "defaultMessage": "Harwood, Cavalier, Lakota"
+        "defaultMessage": "Devils Lake, Grand Forks, Jamestown"
     },
     "US_North Dakota_Minot Description": {
-        "defaultMessage": "Makoti, Bowdon, Kramer"
+        "defaultMessage": "New Town, Rugby, Williston"
     },
     "US_Ohio_Cincinnati Description": {
-        "defaultMessage": "St. Bernard, Centerville, Madeira"
+        "defaultMessage": "Dayton, Hamilton, Springfield"
     },
     "US_Ohio_Cleveland Description": {
-        "defaultMessage": "Streetsboro, Willoughby Hills, Avon Lake"
+        "defaultMessage": "Akron, Canton, Youngstown"
     },
     "US_Ohio_Columbus Description": {
-        "defaultMessage": "Columbus, Pickerington, Reynoldsburg"
+        "defaultMessage": "Lancaster, Newark, Zanesville"
     },
     "US_Ohio_Toledo Description": {
-        "defaultMessage": "Bucyrus, Crestline, Maumee"
+        "defaultMessage": "Findlay, Marion, Sandusky"
     },
     "US_Oklahoma_East Description": {
-        "defaultMessage": "Ada, Coalgate, Konawa"
+        "defaultMessage": "Ada, Durant, McAlester"
     },
     "US_Oklahoma_Oklahoma Description": {
-        "defaultMessage": "Oklahoma City, Noble, Del City"
+        "defaultMessage": "Ardmore, Elk City, Lawton"
     },
     "US_Oklahoma_Tulsa Description": {
-        "defaultMessage": "Shidler, Prague, Beggs"
+        "defaultMessage": "Bartlesville, Muskogee, Stillwater"
     },
     "US_Oklahoma_West Description": {
-        "defaultMessage": "Cherokee, Thomas, Perry"
+        "defaultMessage": "Enid, Guymon, Woodward"
     },
     "US_Oregon_Eugene Description": {
-        "defaultMessage": "Albany, Medford, Coos Bay"
+        "defaultMessage": "Corvallis, Medford, Roseburg"
     },
     "US_Oregon_Portland Description": {
-        "defaultMessage": "Salem, Newport, Government Camp"
+        "defaultMessage": "Astoria, Newport, Salem"
     },
     "US_Oregon_West Description": {
-        "defaultMessage": "Bend, The Dalles, Klamath Falls"
+        "defaultMessage": "Bend, Klamath Falls, Pendleton"
     },
     "US_Pennsylvania_Central Description": {
-        "defaultMessage": "DuBois, St. Marys, Latrobe"
+        "defaultMessage": "Johnstown, State College, York"
     },
     "US_Pennsylvania_Pittsburgh Description": {
-        "defaultMessage": "New Kensington, Uniontown, Monongahela"
+        "defaultMessage": "Butler, Erie, New Castle"
     },
     "US_Pennsylvania_Reading Description": {
-        "defaultMessage": "Philadelphia, Coatesville, Reading"
+        "defaultMessage": "Lancaster, Philadelphia, Pottstown"
     },
     "US_Pennsylvania_Scranton Description": {
-        "defaultMessage": "Carbondale, Pittston, Williamsport"
+        "defaultMessage": "Allentown, Harrisburg, Wilkes-Barre"
     },
     "US_Puerto Rico Description": {
         "defaultMessage": "San Juan, Mayaguez, Ponce"
     },
     "US_Rhode Island Description": {
-        "defaultMessage": "Narragansett, Providence, Warwick"
+        "defaultMessage": "Newport, Providence, Warwick"
     },
     "US_South Carolina_Charleston Description": {
-        "defaultMessage": "Barnwell, Goose Creek, Folly Beach"
+        "defaultMessage": "Hilton Head Island, Orangeburg, Summerville"
     },
     "US_South Carolina_Columbia Description": {
-        "defaultMessage": "Belton, Travelers Rest, Walhalla"
+        "defaultMessage": "Anderson, Greenville, Spartanburg"
     },
     "US_South Carolina_Florence Description": {
-        "defaultMessage": "Tega Cay, Bishopville, Johnsonville"
+        "defaultMessage": "Myrtle Beach, Rock Hill, Sumter"
     },
     "US_South Dakota Description": {
-        "defaultMessage": "Irene, Centerville, Baltic"
+        "defaultMessage": "Pierre, Rapid City, Sioux Falls"
     },
     "US_Tennessee_East Description": {
-        "defaultMessage": "Pigeon Forge, Celina, Friendsville"
+        "defaultMessage": "Chattanooga, Knoxville, Murfreesboro"
     },
     "US_Tennessee_West Description": {
-        "defaultMessage": "Memphis, Nashville, Medina"
+        "defaultMessage": "Jackson, Memphis, Nashville"
     },
     "US_Texas_Amarillo Description": {
-        "defaultMessage": "Pampa, Jolly, Howardwick"
+        "defaultMessage": "Borger, Pampa, Wichita Falls"
     },
     "US_Texas_Austin Description": {
-        "defaultMessage": "Austin, Hutto, Belton"
+        "defaultMessage": "Killeen, New Braunfels, Temple"
     },
     "US_Texas_Dallas Description": {
-        "defaultMessage": "Dallas, Fort Worth, Rowlett"
+        "defaultMessage": "Fort Worth, Sherman, Weatherford"
     },
     "US_Texas_Houston Description": {
-        "defaultMessage": "Houston, Seabrook, Plum Grove"
+        "defaultMessage": "Beaumont, Galveston, Sugar Land"
     },
     "US_Texas_Lubbock Description": {
-        "defaultMessage": "Sudan, Ralls, Goree"
+        "defaultMessage": "Levelland, Plainview, Snyder"
     },
     "US_Texas_San Antonio Description": {
-        "defaultMessage": "San Antonio, Rockport, Mathis"
+        "defaultMessage": "Brownsville, Corpus Christi, Kingsville"
     },
     "US_Texas_Southwest Description": {
-        "defaultMessage": "Leakey, Camp Wood, Carrizo Springs"
+        "defaultMessage": "Del Rio, Eagle Pass, Uvalde"
     },
     "US_Texas_Tyler Description": {
-        "defaultMessage": "Troup, Cottonwood, Fate"
+        "defaultMessage": "Longview, Rockwall, Texarkana"
     },
     "US_Texas_Victoria Description": {
-        "defaultMessage": "Niederwald, Lockhart, Palacios"
+        "defaultMessage": "Cuero, Gonzales, Port Lavaca"
     },
     "US_Texas_Wako Description": {
-        "defaultMessage": "Calvert, Golinda, Bruceville-Eddy"
+        "defaultMessage": "College Station, Conroe, Huntsville"
     },
     "US_Texas_West Description": {
-        "defaultMessage": "El Paso, Westbrook, Stanton"
+        "defaultMessage": "Abilene, Midland, Odessa"
     },
     "US_United States Minor Outlying Islands Description": {
         "defaultMessage": "Lulu Town, Millersville"
     },
     "US_Utah_North Description": {
-        "defaultMessage": "Holladay, South Ogden, Murray"
+        "defaultMessage": "Ogden, Provo, Salt Lake City"
     },
     "US_Utah_South Description": {
-        "defaultMessage": "Parowan, Hildale, Enoch"
+        "defaultMessage": "Cedar City, Moab, St. George"
     },
     "US_Vermont Description": {
-        "defaultMessage": "Saint Albans, Barre, South Burlington"
+        "defaultMessage": "Burlington, Montpelier, Rutland"
     },
     "US_Virginia_Alexandria Description": {
-        "defaultMessage": "Fairfax, Fredericksburg, Falls Church"
+        "defaultMessage": "Fredericksburg, Leesburg, Manassas"
     },
     "US_Virginia_Lynchburg Description": {
-        "defaultMessage": "Lynchburg City, Bedford, Staunton"
+        "defaultMessage": "Charlottesville, Danville, Harrisonburg"
     },
     "US_Virginia_Norfolk Description": {
-        "defaultMessage": "Virginia Beach, Poquoson, Franklin"
+        "defaultMessage": "Chesapeake, Newport News, Virginia Beach"
     },
     "US_Virginia_Richmond Description": {
-        "defaultMessage": "Emporia, Colonial Heights, Richmond"
+        "defaultMessage": "Colonial Heights, Hopewell, Petersburg"
     },
     "US_Virginia_Roanoke Description": {
-        "defaultMessage": "Galax, Norton, Radford City"
+        "defaultMessage": "Blacksburg, Christiansburg, Radford"
     },
     "US_Washington_Coast Description": {
-        "defaultMessage": "Raymond, Camas, Port Townsend"
+        "defaultMessage": "Bellingham, Olympia, Vancouver"
     },
     "US_Washington_Seattle Description": {
-        "defaultMessage": "Seattle, Edmonds, Sultan"
+        "defaultMessage": "Bellevue, Everett, Federal Way"
     },
     "US_Washington_Yakima Description": {
-        "defaultMessage": "Pullman, Grand Coulee, White Salmon"
+        "defaultMessage": "Kennewick, Spokane, Walla Walla"
     },
     "US_West Virginia Description": {
-        "defaultMessage": "Stonewood, Bluefield, Mullens"
+        "defaultMessage": "Charleston, Huntington, Morgantown"
     },
     "US_Wisconsin_Eau Claire Description": {
-        "defaultMessage": "Durand, Fountain City, River Falls"
+        "defaultMessage": "Marshfield, Stevens Point, Wausau"
     },
     "US_Wisconsin_Madison Description": {
-        "defaultMessage": "Edgerton, Mineral Point, Brodhead"
+        "defaultMessage": "Beloit, Janesville, La Crosse"
     },
     "US_Wisconsin_Milwaukee Description": {
-        "defaultMessage": "Milwaukee, Lake Mills, Brillion"
+        "defaultMessage": "Appleton, Green Bay, Kenosha"
     },
     "US_Wisconsin_North Description": {
-        "defaultMessage": "Montreal, Tomahawk, Marinette"
+        "defaultMessage": "Marinette, Rhinelander, Superior"
     },
     "US_Wyoming Description": {
-        "defaultMessage": "Worland, Rawlins, Kemmerer"
+        "defaultMessage": "Casper, Cheyenne, Gillette"
     },
     "Uganda Description": {
         "defaultMessage": "Kampala"

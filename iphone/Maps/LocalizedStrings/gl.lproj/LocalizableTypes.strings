@@ -1,6 +1,6 @@
-"type.addr_interpolation" = "Dirección/Bloque";
-"type.addr_interpolation.even" = "Dirección/Bloque";
-"type.addr_interpolation.odd" = "Dirección/Bloque";
+"type.addr_interpolation" = "Enderezo/Bloque";
+"type.addr_interpolation.even" = "Enderezo/Bloque";
+"type.addr_interpolation.odd" = "Enderezo/Bloque";
 "type.aerialway" = "Transporte aéreo";
 "type.aerialway.cable_car" = "Teleférico";
 "type.aerialway.chair_lift" = "Telecadeira";
@@ -16,14 +16,14 @@
 "type.aeroway.helipad" = "Heliporto";
 "type.aeroway.runway" = "Pista de despegamento";
 "type.aeroway.taxiway" = "Pista de rodaxe";
-"type.aeroway.terminal" = "Terminal";
+"type.aeroway.terminal" = "Terminal aerea";
 "type.amenity" = "Infraestrutura";
 "type.amenity.arts_centre" = "Centro de arte";
 "type.amenity.atm" = "Caixeiro automático";
 "type.amenity.bank" = "Banco";
 "type.amenity.bar" = "Bar";
 "type.amenity.bbq" = "Grellada";
-"type.amenity.bench" = "Asinto";
+"type.amenity.bench" = "Asento";
 "type.amenity.bench.backless" = "Sen respaldo";
 "type.amenity.bicycle_parking" = "Aparcamento de bicicletas";
 "type.amenity.bicycle_parking.covered" = "Aparcadoiro de bicicletas cuberto";
@@ -47,7 +47,7 @@
 "type.man_made.observatory" = "Observatorio";
 "type.amenity.casino" = "Casino";
 "type.amenity.gambling" = "Xogos de apostas";
-"type.amenity.studio" = "Estudo";
+"type.amenity.studio" = "Estudio Multimedia";
 "type.leisure.adult_gaming_centre" = "Centro de xogos para adultos";
 "type.leisure.amusement_arcade" = "Arcade";
 "type.amenity.charging_station" = "Estación de carga";
@@ -101,7 +101,7 @@
 "type.amenity.lounger" = "Tumbona";
 "type.amenity.luggage_locker" = "Consigna de equipaxes";
 "type.amenity.marketplace" = "Mercado";
-"type.amenity.mobile_money_agent" = "Axente de diñeiro móbil";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.motorcycle_parking" = "Aparcamento de motocicletas";
 "type.amenity.nightclub" = "Discoteca";
 "type.amenity.nursing_home" = "Residencia de anciáns";
@@ -130,28 +130,28 @@
 "type.amenity.parking_space.private" = "Praza de aparcamento";
 "type.amenity.parking_space.underground" = "Praza de aparcamento";
 "type.amenity.parking_space.disabled" = "Praza de aparcamento para discapacitados";
-"type.amenity.car_pooling" = "Car Pooling";
+"type.amenity.car_pooling" = "Coche compartido";
 "type.amenity.payment_terminal" = "Terminal de pago";
 "type.amenity.payment_centre" = "Centro de pagamentos";
 "type.amenity.pharmacy" = "Farmacia";
 "type.amenity.place_of_worship" = "Lugar de culto";
 "type.amenity.place_of_worship.buddhist" = "Templo budista";
-"type.amenity.place_of_worship.christian" = "Iglesia";
-"type.amenity.place_of_worship.christian.mormon" = "Iglesia de Xesucristo dos Santos dos Últimos Días";
-"type.amenity.place_of_worship.christian.jehovahs_witness" = "Salón do Reino das Testemuñas de Jehová";
+"type.amenity.place_of_worship.christian" = "Igrexa";
+"type.amenity.place_of_worship.christian.mormon" = "Igrexa de Xesucristo dos Santos dos Últimos Días";
+"type.amenity.place_of_worship.christian.jehovahs_witness" = "Salón do Reino das Testemuñas de Xehová";
 "type.amenity.place_of_worship.hindu" = "Templo hinduista";
 "type.amenity.place_of_worship.jewish" = "Sinagoga";
-"type.amenity.place_of_worship.muslim" = "Mezquita";
-"type.amenity.place_of_worship.shinto" = "Santuario sintoísta";
+"type.amenity.place_of_worship.muslim" = "Mesquita";
+"type.amenity.place_of_worship.shinto" = "Santuario xintoísta";
 "type.amenity.place_of_worship.taoist" = "Templo taoísta";
 "type.amenity.police" = "Policía";
 "type.amenity.post_box" = "Caixa de correos de correos";
 "type.amenity.post_office" = "Oficina de correos";
 "type.post_office.post_partner" = "Axente postal";
 "type.amenity.prison" = "Prisión";
-"type.amenity.pub" = "Pub";
+"type.amenity.pub" = "Bar";
 "type.amenity.public_bookcase" = "Intercambio de libros";
-"type.amenity.recycling.centre" = "Centro de reciclaxe";
+"type.amenity.recycling.centre" = "Centro de Reciclaxe";
 "type.amenity.recycling.container" = "Contedora de reciclaxe";
 "type.recycling.batteries" = "Baterías";
 "type.recycling.clothes" = "Roupa";
@@ -176,15 +176,15 @@
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Cabana de vivac";
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Alpende";
+"type.amenity.shelter.lean_to" = "Alpendre";
 "type.amenity.public_bath" = "Baños públicos";
 "type.amenity.shower" = "Ducha";
 "type.amenity.stripclub" = "Club de estriptis";
 "type.amenity.taxi" = "Sitio de taxis";
 "type.amenity.telephone" = "Teléfono";
 "type.amenity.theatre" = "Teatro";
-"type.amenity.toilets" = "WC";
-"type.toilets.yes" = "WC";
+"type.amenity.toilets" = "Baño";
+"type.toilets.yes" = "Baño";
 "type.amenity.townhall" = "Concello";
 "type.amenity.university" = "Universidade";
 "type.amenity.vending_machine" = "Máquina expendedora";
@@ -195,7 +195,7 @@
 "type.amenity.vending_machine.food" = "Máquina expendedora de comida";
 "type.amenity.vending_machine.newspapers" = "Máquina expendedora de xornais";
 "type.amenity.vending_machine.parking_tickets" = "Parquímetro";
-"type.amenity.vending_machine.public_transport_tickets" = "Máquina expendedora de billetes de transporte público";
+"type.amenity.vending_machine.public_transport_tickets" = "Expendedora de billetes de transporte público";
 "type.amenity.vending_machine.sweets" = "Máquina expendedora de doces";
 "type.amenity.vending_machine.excrement_bags" = "Maquina expendedora de bolsas para excrementos";
 "type.amenity.parcel_locker" = "Despacho de billetes de paquetes";
@@ -229,7 +229,7 @@
 "type.barrier.retaining_wall" = "Muro de contención";
 "type.barrier.stile" = "Chanzo";
 "type.barrier.turnstile" = "Torniquete";
-"type.barrier.wicket_gate" = "Wicket gate";
+"type.barrier.wicket_gate" = "Portal";
 "type.barrier.swing_gate" = "Barreira batiente";
 "type.barrier.toll_booth" = "Cabina de peaxe";
 "type.barrier.wall" = "Muro";
@@ -252,7 +252,7 @@
 "type.boundary.protected_area.6" = "Área protexida";
 "type.building" = "Edificio";
 /* Duplicates [address] in strings.txt */
-"type.building.address" = "Dirección";
+"type.building.address" = "Enderezo";
 "type.building.has_parts" = "Edificio";
 "type.building_part" = "Edificio";
 "type.building.garage" = "Garaxe";
@@ -344,7 +344,7 @@
 "type.cuisine.moroccan" = "Marroquí";
 "type.cuisine.noodles" = "Fideos";
 "type.cuisine.oriental" = "Oriental";
-"type.cuisine.pancake" = "Tortitas";
+"type.cuisine.pancake" = "Chulas";
 "type.cuisine.pasta" = "Pastas";
 "type.cuisine.persian" = "Persa";
 "type.cuisine.peruvian" = "Peruana";
@@ -356,7 +356,7 @@
 "type.cuisine.russian" = "Rusa";
 "type.cuisine.sandwich" = "Sándwichs";
 "type.cuisine.sausage" = "Salchichas";
-"type.cuisine.savory_pancakes" = "Tortitas salgadas";
+"type.cuisine.savory_pancakes" = "Chulas salgadas";
 "type.cuisine.seafood" = "Mariscos";
 "type.cuisine.soba" = "Soba";
 "type.cuisine.spanish" = "Española";
@@ -377,55 +377,55 @@
 "type.emergency.life_ring" = "Salvavidas";
 "type.emergency.defibrillator" = "Desfibrilador";
 "type.emergency.fire_hydrant" = "Boca de incendio";
-"type.amenity.hydrant" = "Irrigation Hydrant";
+"type.amenity.hydrant" = "Boca de Rego";
 "type.emergency.phone" = "Teléfono de emerxencias";
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "Socorrista";
-"type.beacon.cardinal.east" = "Cardinal Beacon";
-"type.beacon.cardinal.north" = "Cardinal Beacon";
-"type.beacon.cardinal.south" = "Cardinal Beacon";
-"type.beacon.cardinal.west" = "Cardinal Beacon";
-"type.beacon.isolated_danger" = "Isolated Danger Beacon";
-"type.beacon.lateral.port" = "Lateral Beacon";
-"type.beacon.lateral.starboard" = "Lateral Beacon";
-"type.beacon.safe_water" = "Safe Water Beacon";
-"type.beacon.special_purpose" = "Special Purpose Beacon";
-"type.buoy.cardinal.east" = "Cardinal Buoy";
-"type.buoy.cardinal.north" = "Cardinal Buoy";
-"type.buoy.cardinal.south" = "Cardinal Buoy";
-"type.buoy.cardinal.west" = "Cardinal Buoy";
-"type.buoy.isolated_danger" = "Isolated Danger Buoy";
-"type.buoy.lateral.port" = "Lateral Buoy";
-"type.buoy.lateral.starboard" = "Lateral Buoy";
-"type.buoy.safe_water" = "Safe Water Buoy";
-"type.buoy.special_purpose" = "Special Purpose Buoy";
-"type.spherical_buoy.cardinal.east" = "Spherical Cardinal Buoy";
-"type.spherical_buoy.cardinal.north" = "Spherical Cardinal Buoy";
-"type.spherical_buoy.cardinal.south" = "Spherical Cardinal Buoy";
-"type.spherical_buoy.cardinal.west" = "Spherical Cardinal Buoy";
-"type.spherical_buoy.isolated_danger" = "Spherical Isolated Danger Buoy";
-"type.spherical_buoy.lateral.port" = "Spherical Lateral Buoy";
-"type.spherical_buoy.lateral.starboard" = "Spherical Lateral Buoy";
-"type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
-"type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
-"type.lateral.port" = "Port";
-"type.lateral.starboard" = "Starboard";
-"type.cardinal.east" = "East";
-"type.cardinal.north" = "North";
-"type.cardinal.south" = "South";
-"type.cardinal.west" = "West";
+"type.beacon.cardinal.east" = "Baliza Cardinal";
+"type.beacon.cardinal.north" = "Baliza Cardinal";
+"type.beacon.cardinal.south" = "Baliza Cardinal";
+"type.beacon.cardinal.west" = "Baliza Cardinal";
+"type.beacon.isolated_danger" = "Baliza de Perigo Illado";
+"type.beacon.lateral.port" = "Baliza Lateral";
+"type.beacon.lateral.starboard" = "Baliza Lateral";
+"type.beacon.safe_water" = "Baliza de Augas Seguras";
+"type.beacon.special_purpose" = "Baliza de Propósito Especial";
+"type.buoy.cardinal.east" = "Boia Cardinal";
+"type.buoy.cardinal.north" = "Boia Cardinal";
+"type.buoy.cardinal.south" = "Boia Cardinal";
+"type.buoy.cardinal.west" = "Boia Cardinal";
+"type.buoy.isolated_danger" = "Boia de Perigo Illado";
+"type.buoy.lateral.port" = "Boia Lateral";
+"type.buoy.lateral.starboard" = "Boia Lateral";
+"type.buoy.safe_water" = "Boia de Augas Seguras";
+"type.buoy.special_purpose" = "Boia de Propósito Especial";
+"type.spherical_buoy.cardinal.east" = "Boia Esférica Cardinal";
+"type.spherical_buoy.cardinal.north" = "Boia Esférica Cardinal";
+"type.spherical_buoy.cardinal.south" = "Boia Esférica Cardinal";
+"type.spherical_buoy.cardinal.west" = "Boia Esférica Cardinal";
+"type.spherical_buoy.isolated_danger" = "Boia Esférica de Perigo Illado";
+"type.spherical_buoy.lateral.port" = "Boia Esférica Lateral";
+"type.spherical_buoy.lateral.starboard" = "Boia Esférica Lateral";
+"type.spherical_buoy.safe_water" = "Boia Esférica de Augas Seguras";
+"type.spherical_buoy.special_purpose" = "Boia Esférica de Propósito Especial";
+"type.lateral.port" = "Porto";
+"type.lateral.starboard" = "Estribor";
+"type.cardinal.east" = "Leste";
+"type.cardinal.north" = "Norte";
+"type.cardinal.south" = "Sur";
+"type.cardinal.west" = "Oeste";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "Estación de rescate en montaña";
 /* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "Entrada";
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Entrada principal";
-"type.entrance.house" = "House Entrance";
-"type.entrance.garage" = "Garage Entrance";
-"type.entrance.service" = "Service Entrance";
-"type.entrance.entry" = "Entry (Only)";
-"type.entrance.exit" = "Saída";
-"type.entrance.emergency" = "Emergency Exit";
+"type.entrance.house" = "Entrada ao Fogar";
+"type.entrance.garage" = "Entrada ao Garaxe";
+"type.entrance.service" = "Entrada para o persoal de servizo";
+"type.entrance.entry" = "(Só) Entrada";
+"type.entrance.exit" = "(Só) Saída";
+"type.entrance.emergency" = "Saída de Emerxencia";
 "type.fee.yes" = "$";
 "type.fee.no" = "Gratis";
 "type.healthcare.laboratory" = "Laboratorio médico";
@@ -441,13 +441,13 @@
 "type.highway" = "Estrada";
 "type.highway.bridleway" = "Camiño de cabalos";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.bridleway.bridge" = "Puente";
+"type.highway.bridleway.bridge" = "Ponte";
 "type.highway.bridleway.permissive" = "Camiño de cabalos";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "Túnel";
 "type.highway.busway" = "Estrada exclusiva para autobuses";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.busway.bridge" = "Puente";
+"type.highway.busway.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.busway.tunnel" = "Túnel";
 "type.highway.bus_stop" = "Parada de autobús";
@@ -470,7 +470,7 @@
 "type.highway.construction.track" = "Vía en construción";
 "type.highway.cycleway" = "Ciclovía";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.cycleway.bridge" = "Puente";
+"type.highway.cycleway.bridge" = "Ponte";
 "type.highway.cycleway.permissive" = "Ciclovía";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "Túnel";
@@ -480,24 +480,24 @@
 "type.highway.footway.crossing" = "Paso de peóns";
 "type.highway.footway.area" = "Zona peonil";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.footway.bridge" = "Puente peonil";
+"type.highway.footway.bridge" = "Ponte peonil";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "Túnel peonil";
 "type.highway.ford" = "Vao";
-"type.highway.living_street" = "Cale de prioridade peonil";
+"type.highway.living_street" = "Rúa de prioridade peonil";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.living_street.bridge" = "Puente";
+"type.highway.living_street.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "Túnel";
 "type.highway.motorway" = "Autoestrada";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.motorway.bridge" = "Puente de autoestrada";
+"type.highway.motorway.bridge" = "Ponte de autoestrada";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "Túnel de autoestrada";
 "type.highway.motorway_junction" = "Saída";
 "type.highway.motorway_link" = "Ligazón de autoestrada";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.motorway_link.bridge" = "Puente";
+"type.highway.motorway_link.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "Túnel";
 "type.highway.path" = "Carreiro";
@@ -508,56 +508,56 @@
 "type.highway.path.bicycle" = "Camiño para bicicletas";
 "type.highway.footway.bicycle" = "Camiño para bicicletas";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.path.bridge" = "Puente";
+"type.highway.path.bridge" = "Ponte";
 "type.highway.path.horse" = "Carreiro de ferradura";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "Túnel";
-"type.highway.pedestrian" = "Cale peonil";
+"type.highway.pedestrian" = "Rúa peonil";
 "type.highway.pedestrian.area" = "Zona peonil";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.pedestrian.bridge" = "Puente peonil";
+"type.highway.pedestrian.bridge" = "Ponte peonil";
 "type.highway.pedestrian.square" = "Praza";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "Túnel peonil";
 "type.highway.primary" = "Estrada principal";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.primary.bridge" = "Puente";
+"type.highway.primary.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "Túnel de estrada principal";
 "type.highway.primary_link" = "Ligazón de estrada principal";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.primary_link.bridge" = "Puente";
+"type.highway.primary_link.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "Túnel";
 "type.highway.raceway" = "Circuito";
-"type.highway.residential" = "Cale residencial";
+"type.highway.residential" = "Rúa residencial";
 "type.highway.residential.area" = "Rúa residencial";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.residential.bridge" = "Puente";
+"type.highway.residential.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "Túnel de rúa residencial";
 "type.highway.rest_area" = "Área de descanso";
 "type.highway.road" = "Estrada";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.road.bridge" = "Puente";
+"type.highway.road.bridge" = "Ponte";
 /* A bridge structure outline. */
-"type.man_made.bridge" = "Puente";
+"type.man_made.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "Túnel";
 "type.highway.secondary" = "Estrada secundaria";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.secondary.bridge" = "Puente";
+"type.highway.secondary.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "Túnel de estrada secundaria";
 "type.highway.secondary_link" = "Ligazón de estrada secundaria";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.secondary_link.bridge" = "Puente";
+"type.highway.secondary_link.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "Túnel";
 "type.highway.service" = "Vía de servizo";
 "type.highway.service.area" = "Vía de servizo";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.service.bridge" = "Puente de estrada de servizo";
+"type.highway.service.bridge" = "Ponte de estrada de servizo";
 "type.highway.service.driveway" = "Vía de servizo";
 "type.highway.service.parking_aisle" = "Corredor de estacionamento";
 /* These translations are used for all type.highway.*.tunnel. */
@@ -567,23 +567,23 @@
 "type.highway.steps" = "Escaleiras";
 "type.highway.ladder" = "Escada";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.steps.bridge" = "Puente";
+"type.highway.steps.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "Túnel";
 "type.highway.tertiary" = "Estrada terciaria";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.tertiary.bridge" = "Puente";
+"type.highway.tertiary.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "Túnel";
 "type.highway.tertiary_link" = "Enlace de estrada terciaria";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.tertiary_link.bridge" = "Puente";
+"type.highway.tertiary_link.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "Túnel";
 "type.highway.track" = "Pista";
 "type.highway.track.area" = "Pista";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.track.bridge" = "Puente";
+"type.highway.track.bridge" = "Ponte";
 "type.highway.track.grade1" = "Pista";
 "type.highway.track.no.access" = "Pista";
 /* These translations are used for all type.highway.*.tunnel. */
@@ -591,26 +591,26 @@
 "type.highway.traffic_signals" = "Semáforos";
 "type.highway.trunk" = "Vía troncal";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.trunk.bridge" = "Puente";
+"type.highway.trunk.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "Túnel";
 "type.highway.trunk_link" = "Enlace de vía troncal";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.trunk_link.bridge" = "Puente";
+"type.highway.trunk_link.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "Túnel";
 "type.highway.unclassified" = "Estrada sen clasificar";
 "type.highway.unclassified.area" = "Estrada sen clasificar";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.unclassified.bridge" = "Puente";
+"type.highway.unclassified.bridge" = "Ponte";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "Túnel de estrada sen clasificar";
 "type.area_highway.cycleway" = "Ciclovía";
 "type.area_highway.footway" = "Senda";
-"type.area_highway.living_street" = "Cale de prioridade peonil";
+"type.area_highway.living_street" = "Rúa de prioridade peonil";
 "type.area_highway.motorway" = "Autoestrada";
 "type.area_highway.path" = "Carreiro";
-"type.area_highway.pedestrian" = "Cale peonil";
+"type.area_highway.pedestrian" = "Rúa peonil";
 "type.area_highway.primary" = "Estrada principal";
 "type.area_highway.residential" = "Rúa residencial";
 "type.area_highway.secondary" = "Estrada secundaria";
@@ -627,17 +627,17 @@
 "type.historic.battlefield" = "Campo de batalla";
 "type.historic.boundary_stone" = "Fito fronteirizo";
 "type.historic.cannon" = "Cañón";
-"type.historic.castle" = "Castillo";
+"type.historic.castle" = "Castelo";
 "type.historic.castle.castrum" = "Castrum";
-"type.historic.castle.defensive" = "Castillo defensivo";
-"type.historic.castle.fortified_church" = "Iglesia fortificada";
+"type.historic.castle.defensive" = "Castelo defensivo";
+"type.historic.castle.fortified_church" = "Igrexa fortificada";
 "type.historic.castle.fortress" = "Fortaleza";
 "type.historic.castle.hillfort" = "Castro";
 "type.historic.castle.kremlin" = "Kremlin";
 "type.historic.castle.manor" = "Casa solariega";
 "type.historic.castle.palace" = "Palacio";
-"type.historic.castle.shiro" = "Castillo xaponés";
-"type.historic.castle.stately" = "Castillo";
+"type.historic.castle.shiro" = "Castelo xaponés";
+"type.historic.castle.stately" = "Pazo";
 "type.historic.city_gate" = "Portón da cidade";
 "type.historic.citywalls" = "Muralla";
 "type.historic.fort" = "Forte";
@@ -709,7 +709,7 @@
 "type.landuse.vineyard" = "Viñedo";
 "type.landuse.plant_nursery" = "Viveiro";
 "type.leisure" = "Lecer";
-"type.leisure.bandstand" = "Bandstand";
+"type.leisure.bandstand" = "Coreto";
 "type.leisure.common" = "Zona pública";
 "type.leisure.dog_park" = "Parque para cans";
 "type.leisure.escape_game" = "Escape Room";
@@ -722,7 +722,7 @@
 "type.leisure.miniature_golf" = "Minigolf";
 "type.leisure.hackerspace" = "Espazo para hackers";
 "type.leisure.ice_rink" = "Pisa de patinaxe";
-"type.leisure.indoor_play" = "Indoor Play Centre";
+"type.leisure.indoor_play" = "Centro de Ocio Interior";
 "type.leisure.marina" = "Mariña";
 "type.leisure.nature_reserve" = "Reserva natural";
 "type.leisure.outdoor_seating" = "Asentos ao aire libre";
@@ -737,40 +737,40 @@
 "type.leisure.recreation_ground" = "Zona recreativa";
 "type.leisure.sauna" = "Sauna";
 "type.leisure.slipway" = "Rampla de barcos";
-"type.leisure.sports_centre" = "Complexo deportivo";
-"type.leisure.sports_centre.sport.multi" = "Sports Centre";
-"type.leisure.sports_centre.sport.american_football" = "Sports Centre";
-"type.leisure.sports_centre.sport.archery" = "Sports Centre";
-"type.leisure.sports_centre.sport.athletics" = "Sports Centre";
-"type.leisure.sports_centre.sport.australian_football" = "Sports Centre";
-"type.leisure.sports_centre.sport.badminton" = "Sports Centre";
-"type.leisure.sports_centre.sport.baseball" = "Sports Centre";
-"type.leisure.sports_centre.sport.basketball" = "Sports Centre";
-"type.leisure.sports_centre.sport.beachvolleyball" = "Sports Centre";
-"type.leisure.sports_centre.sport.bowls" = "Sports Centre";
-"type.leisure.sports_centre.sport.climbing" = "Sports Centre";
-"type.leisure.sports_centre.sport.cricket" = "Sports Centre";
-"type.leisure.sports_centre.sport.curling" = "Sports Centre";
-"type.leisure.sports_centre.sport.equestrian" = "Sports Centre";
-"type.leisure.sports_centre.sport.field_hockey" = "Sports Centre";
-"type.leisure.sports_centre.sport.futsal" = "Sports Centre";
-"type.leisure.sports_centre.sport.golf" = "Sports Centre";
-"type.leisure.sports_centre.sport.gymnastics" = "Sports Centre";
-"type.leisure.sports_centre.sport.handball" = "Sports Centre";
-"type.leisure.sports_centre.sport.ice_hockey" = "Sports Centre";
-"type.leisure.sports_centre.sport.padel" = "Sports Centre";
-"type.leisure.sports_centre.sport.pelota" = "Sports Centre";
-"type.leisure.sports_centre.sport.scuba_diving" = "Sports Centre";
-"type.leisure.sports_centre.sport.shooting" = "Sports Centre";
-"type.leisure.sports_centre.sport.skateboard" = "Sports Centre";
-"type.leisure.sports_centre.sport.skiing" = "Sports Centre";
-"type.leisure.sports_centre.sport.soccer" = "Sports Centre";
-"type.leisure.sports_centre.sport.swimming" = "Swimming Centre";
-"type.leisure.sports_centre.sport.table_tennis" = "Sports Centre";
-"type.leisure.sports_centre.sport.tennis" = "Sports Centre";
-"type.leisure.sports_centre.sport.volleyball" = "Sports Centre";
-"type.leisure.sports_centre.sport.yoga" = "Sports Centre";
-"type.leisure.fitness_centre.sport.yoga" = "Yoga Studio";
+"type.leisure.sports_centre" = "Polideportivo";
+"type.leisure.sports_centre.sport.multi" = "Polideportivo";
+"type.leisure.sports_centre.sport.american_football" = "Polideportivo";
+"type.leisure.sports_centre.sport.archery" = "Polideportivo";
+"type.leisure.sports_centre.sport.athletics" = "Polideportivo";
+"type.leisure.sports_centre.sport.australian_football" = "Polideportivo";
+"type.leisure.sports_centre.sport.badminton" = "Polideportivo";
+"type.leisure.sports_centre.sport.baseball" = "Polideportivo";
+"type.leisure.sports_centre.sport.basketball" = "Polideportivo";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Polideportivo";
+"type.leisure.sports_centre.sport.bowls" = "Polideportivo";
+"type.leisure.sports_centre.sport.climbing" = "Polideportivo";
+"type.leisure.sports_centre.sport.cricket" = "Polideportivo";
+"type.leisure.sports_centre.sport.curling" = "Polideportivo";
+"type.leisure.sports_centre.sport.equestrian" = "Polideportivo";
+"type.leisure.sports_centre.sport.field_hockey" = "Polideportivo";
+"type.leisure.sports_centre.sport.futsal" = "Polideportivo";
+"type.leisure.sports_centre.sport.golf" = "Polideportivo";
+"type.leisure.sports_centre.sport.gymnastics" = "Polideportivo";
+"type.leisure.sports_centre.sport.handball" = "Polideportivo";
+"type.leisure.sports_centre.sport.ice_hockey" = "Polideportivo";
+"type.leisure.sports_centre.sport.padel" = "Polideportivo";
+"type.leisure.sports_centre.sport.pelota" = "Polideportivo";
+"type.leisure.sports_centre.sport.scuba_diving" = "Polideportivo";
+"type.leisure.sports_centre.sport.shooting" = "Polideportivo";
+"type.leisure.sports_centre.sport.skateboard" = "Polideportivo";
+"type.leisure.sports_centre.sport.skiing" = "Polideportivo";
+"type.leisure.sports_centre.sport.soccer" = "Polideportivo";
+"type.leisure.sports_centre.sport.swimming" = "Centro de natación";
+"type.leisure.sports_centre.sport.table_tennis" = "Polideportivo";
+"type.leisure.sports_centre.sport.tennis" = "Polideportivo";
+"type.leisure.sports_centre.sport.volleyball" = "Polideportivo";
+"type.leisure.sports_centre.sport.yoga" = "Polideportivo";
+"type.leisure.fitness_centre.sport.yoga" = "Estudio de Ioga";
 "type.leisure.stadium" = "Estadio";
 "type.leisure.swimming_pool" = "Piscina";
 "type.leisure.swimming_pool.private" = "Piscina privada";
@@ -799,7 +799,7 @@
 /* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "Torre de comunicacións";
 /* A regular telecommunications mast. */
-"type.man_made.mast.communication" = "Communications Mast";
+"type.man_made.mast.communication" = "Torre de Telecomunicacións";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "Pozo de petróleo ou gas";
 /* A tower/mast constructed to burn off excess gas. */
@@ -834,7 +834,7 @@
 "type.man_made.embankment" = "Terraplén";
 "type.natural.coastline" = "Costa";
 "type.natural.desert" = "Deserto";
-"type.natural.sand" = "Sand";
+"type.natural.sand" = "Area";
 "type.natural.geyser" = "Géiser";
 "type.natural.glacier" = "Glaciar";
 "type.natural.grassland" = "Herbal";
@@ -856,21 +856,21 @@
 "type.natural.spring" = "Manancial";
 "type.natural.spring.drinking_water_no" = "Manancial";
 "type.natural.strait" = "Estreito";
-"type.natural.tree" = "Tree";
+"type.natural.tree" = "Árbore";
 "type.natural.tree_row" = "Fila de árbores";
 "type.natural.vineyard" = "Viña";
 "type.natural.volcano" = "Volcán";
 "type.natural.water" = "Corpo de auga";
 "type.natural.wetland" = "Terrea pantanoso";
 "type.natural.wetland.bog" = "Turbera";
-"type.natural.wetland.marsh" = "Ciénaga";
-"type.natural.wetland.saltmarsh" = "Salt Marsh";
-"type.natural.wetland.saltmarsh.tidal" = "Tidal Salt Marsh";
-"type.natural.wetland.fen" = "Fen";
-"type.natural.wetland.reedbed" = "Reed Bed";
-"type.natural.wetland.swamp" = "Swamp";
-"type.natural.wetland.mangrove" = "Mangrove";
-"type.natural.wetland.tidalflat" = "Tidal Flat";
+"type.natural.wetland.marsh" = "Pantano";
+"type.natural.wetland.saltmarsh" = "Marisma salina";
+"type.natural.wetland.saltmarsh.tidal" = "Marisma Salina de Marea";
+"type.natural.wetland.fen" = "Pantano";
+"type.natural.wetland.reedbed" = "Canaval";
+"type.natural.wetland.swamp" = "Marisma";
+"type.natural.wetland.mangrove" = "Manglar";
+"type.natural.wetland.tidalflat" = "Alagadizo";
 "type.noexit" = "Sen saída";
 "type.office" = "Oficina";
 "type.office.company" = "Oficina";
@@ -880,26 +880,26 @@
 "type.office.lawyer" = "Despacho de avogados";
 "type.office.ngo" = "Organización non gobernamental";
 "type.office.telecommunication" = "Operadora de telefonía";
-"type.organic.only" = "Orgánico";
-"type.organic.yes" = "Orgánico";
-"type.place.city" = "Ciudad";
+"type.organic.only" = "Só orgánico";
+"type.organic.yes" = "Opcións orgánicas";
+"type.place.city" = "Cidade";
 "type.place.city.capital" = "Capital";
-"type.place.city.capital.10" = "Ciudad";
-"type.place.city.capital.11" = "Ciudad";
+"type.place.city.capital.10" = "Cidade";
+"type.place.city.capital.11" = "Cidade";
 "type.place.city.capital.2" = "Capital";
-"type.place.city.capital.3" = "Ciudad";
-"type.place.city.capital.4" = "Ciudad";
-"type.place.city.capital.5" = "Ciudad";
-"type.place.city.capital.6" = "Ciudad";
-"type.place.city.capital.7" = "Ciudad";
-"type.place.city.capital.8" = "Ciudad";
-"type.place.city.capital.9" = "Ciudad";
+"type.place.city.capital.3" = "Cidade";
+"type.place.city.capital.4" = "Cidade";
+"type.place.city.capital.5" = "Cidade";
+"type.place.city.capital.6" = "Cidade";
+"type.place.city.capital.7" = "Cidade";
+"type.place.city.capital.8" = "Cidade";
+"type.place.city.capital.9" = "Cidade";
 "type.place.continent" = "Continente";
 "type.place.country" = "País";
 "type.place.county" = "Condado";
 "type.place.farm" = "Granxa";
 "type.place.hamlet" = "Aldea";
-"type.place.island" = "Isla";
+"type.place.island" = "Illa";
 "type.place.islet" = "Illote";
 "type.place.isolated_dwelling" = "Vivenda illada";
 "type.place.locality" = "Localidade";
@@ -946,34 +946,34 @@
 "type.railway.construction" = "Vía férrea en construción";
 "type.railway.crossing" = "Paso a nivel";
 "type.railway.disused" = "Vía férrea en desuso";
-"type.railway.disused.bridge" = "Disused Railway Bridge";
-"type.railway.disused.tunnel" = "Disused Railway Tunnel";
+"type.railway.disused.bridge" = "Ponte do Ferrocarril en Desuso";
+"type.railway.disused.tunnel" = "Túnel do ferrocarril en desuso";
 "type.railway.funicular" = "Funicular";
-"type.railway.funicular.bridge" = "Puente de funicular";
+"type.railway.funicular.bridge" = "Ponte de funicular";
 "type.railway.funicular.tunnel" = "Túnel de funicular";
-"type.railway.halt" = "Punto de parada";
+"type.railway.halt" = "Parada de tren";
 "type.railway.level_crossing" = "Cruzamento a nivel";
 "type.railway.light_rail" = "Tren lixeiro";
-"type.railway.light_rail.bridge" = "Puente de tren lixeiro";
+"type.railway.light_rail.bridge" = "Ponte de tren lixeiro";
 "type.railway.light_rail.tunnel" = "Túnel de tren lixeiro";
 "type.railway.monorail" = "Tren de monorraíl";
-"type.railway.monorail.bridge" = "Puente de monorraíl";
+"type.railway.monorail.bridge" = "Ponte de monorraíl";
 "type.railway.monorail.tunnel" = "Túnel de monorraíl";
-"type.railway.miniature" = "Miniature Railway";
-"type.railway.miniature.bridge" = "Miniature Railway Bridge";
-"type.railway.miniature.tunnel" = "Miniature Railway Tunnel";
+"type.railway.miniature" = "Ferrocarril en miniatura";
+"type.railway.miniature.bridge" = "Ponte do ferrocarril en miniatura";
+"type.railway.miniature.tunnel" = "Tunel do ferrocarril en miniatura";
 "type.railway.narrow_gauge" = "Vía férrea estreita";
-"type.railway.narrow_gauge.bridge" = "Puente de vía férrea estreita";
+"type.railway.narrow_gauge.bridge" = "Ponte de vía férrea estreita";
 "type.railway.narrow_gauge.tunnel" = "Túnel de vía férrea estreita";
 "type.railway.platform" = "Plataforma de vía férrea";
 "type.railway.preserved" = "Raíl conservado";
-"type.railway.preserved.bridge" = "Puente ferroviario conservado";
+"type.railway.preserved.bridge" = "Ponte ferroviario conservado";
 "type.railway.preserved.tunnel" = "Túnel ferroviario conservado";
 "type.railway.rail" = "Ferrocarril";
 "type.railway.rail.highspeed" = "Ferrocarril de alta velocidade";
 "type.railway.rail.tourism" = "Ferrocarril turístico";
 "type.railway.rail.main" = "Ferrocarril";
-"type.railway.turntable" = "Railway Turntable";
+"type.railway.turntable" = "Xirador Ferroviario";
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "Ramal ferroviario";
 /* Non-passenger utility tracks: industrial, military, test. */
@@ -981,14 +981,14 @@
 "type.railway.rail.spur" = "Espolón ferroviario";
 /* Short service tracks: siding, yard, crossover. */
 "type.railway.rail.service" = "Vía férrea de manobras";
-"type.railway.rail.bridge" = "Puente ferroviario";
-"type.railway.rail.highspeed.bridge" = "Puente ferroviario";
-"type.railway.rail.tourism.bridge" = "Puente ferroviario";
-"type.railway.rail.main.bridge" = "Puente ferroviario";
-"type.railway.rail.branch.bridge" = "Puente ferroviario";
-"type.railway.rail.utility.bridge" = "Puente ferroviario";
-"type.railway.rail.spur.bridge" = "Puente ferroviario";
-"type.railway.rail.service.bridge" = "Puente ferroviario";
+"type.railway.rail.bridge" = "Ponte ferroviario";
+"type.railway.rail.highspeed.bridge" = "Ponte ferroviario";
+"type.railway.rail.tourism.bridge" = "Ponte ferroviario";
+"type.railway.rail.main.bridge" = "Ponte ferroviario";
+"type.railway.rail.branch.bridge" = "Ponte ferroviario";
+"type.railway.rail.utility.bridge" = "Ponte ferroviario";
+"type.railway.rail.spur.bridge" = "Ponte ferroviario";
+"type.railway.rail.service.bridge" = "Ponte ferroviario";
 "type.railway.rail.tunnel" = "Túnel ferroviario";
 "type.railway.rail.highspeed.tunnel" = "Túnel ferroviario";
 "type.railway.rail.tourism.tunnel" = "Túnel ferroviario";
@@ -1120,7 +1120,7 @@
 "type.railway.station.subway.yerevan" = "Estación de metro";
 "type.railway.station.subway.yokohama" = "Estación de metro";
 "type.railway.subway" = "Liña de metro";
-"type.railway.subway.bridge" = "Puente de liña de metro";
+"type.railway.subway.bridge" = "Ponte de liña de metro";
 "type.railway.subway.tunnel" = "Túnel de liña de metro";
 "type.railway.subway_entrance" = "Entrada ao metro";
 "type.railway.subway_entrance.adana" = "Entrada ao metro";
@@ -1237,7 +1237,7 @@
 "type.railway.subway_entrance.yerevan" = "Entrada ao metro";
 "type.railway.subway_entrance.yokohama" = "Entrada ao metro";
 "type.railway.tram" = "Liña de tranvía";
-"type.railway.tram.bridge" = "Puente de tranvía";
+"type.railway.tram.bridge" = "Ponte de tranvía";
 "type.railway.tram.tunnel" = "Túnel de tranvía";
 "type.railway.tram_stop" = "Parada de tranvía";
 "type.route" = "Roteiro";
@@ -1247,7 +1247,7 @@
 "type.shop.bakery" = "Panadería";
 "type.shop.bathroom_furnishing" = "Equipamento de baño";
 "type.shop.beauty" = "Salón de beleza";
-"type.shop.beauty.nails" = "Nail Salon";
+"type.shop.beauty.nails" = "Salón de Manicura";
 "type.shop.beverages" = "Bebidas";
 "type.shop.bicycle" = "Tenda de bicicletas";
 "type.shop.bookmaker" = "Casa de apostas";
@@ -1271,7 +1271,7 @@
 "type.shop.cosmetics" = "Tenda de cosméticos";
 "type.shop.curtain" = "Cortinas";
 "type.shop.deli" = "Tenda de delicatessen";
-"type.shop.department_store" = "Grandes almacenes";
+"type.shop.department_store" = "Grandes almacéns";
 "type.shop.doityourself" = "Tenda de bricolaxe";
 "type.shop.dry_cleaning" = "Tinturería";
 "type.shop.electronics" = "Electrónica";
@@ -1299,9 +1299,9 @@
 "type.shop.kitchen" = "Tenda de cociña";
 "type.shop.laundry" = "Lavandería";
 "type.shop.mall" = "Centro comercial";
-"type.shop.beauty.day_spa" = "Day Spa";
+"type.shop.beauty.day_spa" = "Spa Diúrno";
 "type.shop.massage" = "Salón de masaxes";
-"type.shop.mobile_phone" = "Móbiles";
+"type.shop.mobile_phone" = "Tenda de Móbiles";
 "type.shop.money_lender" = "Prestamista";
 "type.shop.motorcycle" = "Tenda de motos";
 "type.shop.motorcycle_repair" = "Reparación de motos";
@@ -1327,7 +1327,7 @@
 "type.shop.supermarket" = "Supermercado";
 "type.shop.tattoo" = "Tatuaxes";
 "type.shop.tea" = "Tenda de té";
-"type.shop.telecommunication" = "Telecommunication Shop";
+"type.shop.telecommunication" = "Tenda de Teleoperador";
 "type.shop.ticket" = "Venda de entradas";
 "type.shop.toys" = "Tenda de xoguetes";
 "type.shop.travel_agency" = "Axencia de viaxes";
@@ -1339,7 +1339,7 @@
 "type.shop.agrarian" = "Tenda agrícola";
 "type.shop.antiques" = "Antigüidades";
 "type.shop.appliance" = "Tenda de electrodomésticos";
-"type.shop.water" = "Water Shop";
+"type.shop.water" = "Tenda de Auga";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Tenda de arte";
 "type.shop.baby_goods" = "Tenda de nenos";
@@ -1364,8 +1364,8 @@
 "type.shop.trade" = "Subministracións comerciais";
 "type.shop.watches" = "Reloxos";
 "type.shop.wholesale" = "Almacén por xunto";
-"type.shop.lighting" = "Lighting Shop";
-"type.disusedbusiness" = "Vacant Business";
+"type.shop.lighting" = "Tenda de Luces";
+"type.disusedbusiness" = "Negocio Vacante";
 "type.sport" = "Deporte";
 "type.sport.multi" = "Varios deportes";
 "type.sport.9pin" = "Birlos";
@@ -1380,7 +1380,7 @@
 "type.sport.beachvolleyball" = "Voleibol de praia";
 "type.sport.bowls" = "Birlos sobre herba";
 "type.sport.chess" = "Xadrez";
-"type.sport.climbing" = "Centro de escalada";
+"type.sport.climbing" = "Escalada";
 "type.sport.cricket" = "Críquet";
 "type.sport.curling" = "Curlin";
 "type.sport.diving" = "Trampolín";
@@ -1400,9 +1400,9 @@
 "type.sport.soccer" = "Fútbol";
 "type.sport.swimming" = "Natación";
 "type.sport.table_tennis" = "Tenis de mesa";
-"type.sport.tennis" = "Cancha de tenis";
+"type.sport.tennis" = "Tenis";
 "type.sport.volleyball" = "Voleibol";
-"type.sport.yoga" = "Centro de ioga";
+"type.sport.yoga" = "Ioga";
 "type.tourism" = "Turismo";
 "type.tourism.aquarium" = "Acuario";
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
@@ -1413,14 +1413,14 @@
 "type.tourism.artwork.painting" = "Pintura";
 "type.tourism.artwork.sculpture" = "Escultura";
 "type.tourism.artwork.statue" = "Estatua";
-"type.tourism.attraction" = "Atracción turística";
-"type.attraction" = "Attraction";
+"type.tourism.attraction" = "Atracción Turística";
+"type.attraction" = "Atracción";
 "type.attraction.amusement_ride" = "Atracción";
 "type.attraction.animal" = "Recinto de animais";
 "type.attraction.bumper_car" = "Coches de choque";
 "type.attraction.big_wheel" = "Nora";
 "type.attraction.carousel" = "Carrusel";
-"type.attraction.historic" = "Atracción histórica";
+"type.attraction.historic" = "Atracción Histórica";
 "type.attraction.maze" = "Labirinto";
 "type.attraction.roller_coaster" = "Montaña rusa";
 "type.attraction.water_slide" = "Tobogán acuático";
@@ -1437,10 +1437,10 @@
 "type.tourism.information.board" = "Taboleiro de información";
 "type.tourism.information.guidepost" = "Poste indicador";
 "type.tourism.information.map" = "Mapa turístico";
-"type.tourism.information.tactile_map" = "Tactile Map";
+"type.tourism.information.tactile_map" = "Mapa Táctil";
 "type.tourism.information.office" = "Oficina de turismo";
 "type.tourism.information.visitor_centre" = "Centro de visitantes";
-"type.amenity.ranger_station" = "Ranger Station";
+"type.amenity.ranger_station" = "Estación da Garda Forestal";
 "type.tourism.motel" = "Motel";
 "type.tourism.museum" = "Museo";
 "type.tourism.picnic_site" = "Zona de picnic";
@@ -1457,14 +1457,14 @@
 "type.waterway" = "Curso de auga";
 "type.waterway.canal" = "Canle";
 "type.waterway.canal.tunnel" = "Túnel de canle";
-"type.waterway.fish_pass" = "Escaleira de peces";
+"type.waterway.fish_pass" = "Escaleira de peixes";
 "type.waterway.dam" = "Presa";
 "type.barrier.ditch" = "Gabia";
 "type.natural.water.ditch" = "Resolve de drenaxe";
 "type.waterway.ditch.tunnel" = "Obra de drenaxe";
 "type.waterway.dock" = "Peirao";
 "type.waterway.drain" = "Desaugadoiro";
-"type.waterway.fuel" = "Marina Fuel Dock";
+"type.waterway.fuel" = "Dique Mariño de Combustíbel";
 "type.natural.water.drain" = "Desaugadoiro";
 "type.waterway.drain.tunnel" = "Obra de drenaxe";
 "type.waterway.lock_gate" = "Comporta";
@@ -1474,7 +1474,7 @@
 "type.waterway.stream.ephemeral" = "Arroyo efémero";
 "type.waterway.stream.intermittent" = "Arroyo intermitente";
 "type.waterway.stream.tunnel" = "Arroyo";
-"type.waterway.waterfall" = "Cascada";
+"type.waterway.waterfall" = "Fervenza";
 "type.waterway.weir" = "Aliviadoiro";
 "type.wheelchair" = "#Cadeira# de rodas";
 "type.wheelchair.limited" = "Parcialmente accesible en #cadeira# de rodas";
@@ -1514,26 +1514,26 @@
 "type.self_service.no" = "Sen autoservizo";
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "Servizo social";
-"type.social_facility.soup_kitchen" = "Soup Kitchen";
-"type.social_facility.food_bank" = "Food Bank";
-"type.amenity.food_sharing" = "Food Sharing";
-"type.amenity.give_box" = "Give Box";
+"type.social_facility.soup_kitchen" = "Comedor Social";
+"type.social_facility.food_bank" = "Banco de alimentos";
+"type.amenity.food_sharing" = "Doazón de Alimentos";
+"type.amenity.give_box" = "Caixa Libre";
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "Entrada a urxencias";
 /* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
 "type.amenity.dojo" = "Dojo";
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Pavillón deportivo";
-"type.xmas.tree" = "Christmas Tree";
-"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
-"type.sport.four_square" = "Four Square";
-"type.sport.boules" = "Boules";
-"type.leisure.sports_centre.sport.boules" = "Sports Centre";
+"type.xmas.tree" = "Árbore do Nadal";
+"type.leisure.sports_centre.sport.four_square" = "Polideportivo";
+"type.sport.four_square" = "Catro Cuadras";
+"type.sport.boules" = "Petanca";
+"type.leisure.sports_centre.sport.boules" = "Polideportivo";
 "type.sport.pickleball" = "Pickleball";
-"type.leisure.sports_centre.sport.pickleball" = "Sports Centre";
-"type.organic.no" = "No organic options";
+"type.leisure.sports_centre.sport.pickleball" = "Polideportivo";
+"type.organic.no" = "Sen opcións orgánicas";
 "type.amenity.stage" = "Escenario";
-"type.amenity.animal_boarding" = "Animal Boarding";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
+"type.amenity.animal_boarding" = "Albergue de Animais";
+"type.amenity.toilets.customers" = "Acceso para clientes";
+"type.amenity.toilets.private" = "Acceso Privado";
 "type.amenity.planetarium" = "Planetarium";

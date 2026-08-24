@@ -852,4 +852,14 @@
     <string name="editor_place_doesnt_exist_description">Beskriv hur platsen ser ut nu för att skicka en felanmälan till OpenStreetMap community</string>
     <string name="editor_mark_business_vacant_description">Använd denna om företaget har flyttat och lokalen är ledig.</string>
     <string name="error_enter_correct_instagram_page">Ange ett giltigt Instagram-användarnamn eller en webbadress</string>
+    <string name="about_headline">Ett öppet projekt drivet av communityn</string>
+    <string name="prefs_group_map_appearance">Kartans utseende</string>
+    <string name="prefs_group_map_appearance_summary">Kartspråk, teckenstorlek, 2D/3D byggnader</string>
+    <string name="prefs_group_interface">Gränssnitt</string>
+    <string name="prefs_group_interface_summary">Nattläge, knappar, språk</string>
+    <string name="prefs_group_data_management">Datahantering</string>
+    <string name="prefs_group_route_summary">Längdenheter, röstinstruktioner, ruttinställningar</string>
+    <string name="prefs_group_privacy_summary">Sökhistorik</string>
+    <string name="power_management">Energiinställningar</string>
+    <string name="pref_speedlimit_title">Visa hastighetsgränser</string>
 </resources>

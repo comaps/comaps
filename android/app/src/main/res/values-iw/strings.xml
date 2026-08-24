@@ -871,4 +871,13 @@
     <string name="pref_openexternallinks_title">פתיחה אוטומטית של קישורי צד־שלישי</string>
     <string name="pref_backup_status_summary_success">הגיבוי המוצלח האחרון</string>
     <string name="route_finished">המסלול הסתיים</string>
+    <string name="bookmark_share_email_subject">שלחתי לך מיקום, יש לפתוח את הקישור %1$s או לחפש את הקואורדינטות %2$s במפה כדי לראות אותו.</string>
+    <string name="my_position_share_email">שלחתי לך את המיקום שלי, יש לפתוח את הקישור %1$s או לחפש את הקואורדינטות %2$s במפה כדי לראות אותו.</string>
+    <string name="pref_about_summary">דיווח על בעיות, קבלת עזרה, תרומה\nגרסה: v%1$s</string>
+    <string name="prefs_group_map_appearance">עיצוב מפה</string>
+    <string name="prefs_group_map_appearance_summary">שפת מפה, גודל גופן, בניינים ב2/3 מימדים</string>
+    <string name="prefs_group_interface">ממשק</string>
+    <string name="prefs_group_interface_summary">מצב לילה, כפתורים, שפה</string>
+    <string name="prefs_group_data_management">ניהול נתונים</string>
+    <string name="prefs_group_route_summary">יחידות מרחק, הנחיות קוליות, אפשרויות מסלול</string>
 </resources>

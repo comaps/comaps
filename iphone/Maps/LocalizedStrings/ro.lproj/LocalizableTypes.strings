@@ -52,16 +52,16 @@
 "type.leisure.amusement_arcade" = "Arcadă";
 "type.amenity.charging_station" = "Stație încărcare";
 "type.amenity.charging_station.motorcar" = "Stație de încărcare autoturisme";
-"type.amenity.charging_station.motorcycle" = "Motorcycles";
+"type.amenity.charging_station.motorcycle" = "Motociclete";
 "type.amenity.charging_station.bicycle" = "Bicicletă";
-"type.amenity.charging_station.small" = "Limited Capacity";
+"type.amenity.charging_station.small" = "Capacitate Limitată";
 "type.amenity.childcare" = "Creșă";
 "type.amenity.cinema" = "Cinematograf";
 "type.leisure.bowling_alley" = "Popicărie";
 "type.amenity.clinic" = "Clinică";
 "type.amenity.college" = "Colegiu";
 "type.amenity.community_centre" = "Centru comunitar";
-"type.amenity.community_centre.youth_centre" = "Youth Centre";
+"type.amenity.community_centre.youth_centre" = "Centru de Tineret";
 "type.amenity.compressed_air" = "Aer comprimat";
 "type.amenity.conference_centre" = "Centru de conferinte";
 "type.amenity.courthouse" = "Judecătorie";
@@ -409,11 +409,11 @@
 "type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
 "type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
 "type.lateral.port" = "Port";
-"type.lateral.starboard" = "Starboard";
-"type.cardinal.east" = "East";
-"type.cardinal.north" = "North";
-"type.cardinal.south" = "South";
-"type.cardinal.west" = "West";
+"type.lateral.starboard" = "Tribord";
+"type.cardinal.east" = "Est";
+"type.cardinal.north" = "Nord";
+"type.cardinal.south" = "Sud";
+"type.cardinal.west" = "Vest";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "Stație de salvare montană";
 /* This is for secondary entrances, for main entrances see type.entrance.main */
@@ -423,7 +423,7 @@
 "type.entrance.house" = "Intrare casă";
 "type.entrance.garage" = "Intrare garaj";
 "type.entrance.service" = "Intrare de serviciu";
-"type.entrance.entry" = "Entry (Only)";
+"type.entrance.entry" = "(Doar) Intrare";
 "type.entrance.exit" = "Ieșire";
 "type.entrance.emergency" = "Ieșire de urgență";
 "type.fee.yes" = "Cu plată";
@@ -799,7 +799,7 @@
 /* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "Turnul de comunicații";
 /* A regular telecommunications mast. */
-"type.man_made.mast.communication" = "Communications Mast";
+"type.man_made.mast.communication" = "Turn de comunicații";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "Fântână de țiței sau gaz";
 /* A tower/mast constructed to burn off excess gas. */
@@ -946,8 +946,8 @@
 "type.railway.construction" = "Construcții Feroviare";
 "type.railway.crossing" = "Trecere la nivel cu calea ferată";
 "type.railway.disused" = "Cale ferată abandonată";
-"type.railway.disused.bridge" = "Disused Railway Bridge";
-"type.railway.disused.tunnel" = "Disused Railway Tunnel";
+"type.railway.disused.bridge" = "Pod de cale ferată abandonat";
+"type.railway.disused.tunnel" = "Tunel de cale ferată abandonat";
 "type.railway.funicular" = "Funicular";
 "type.railway.funicular.bridge" = "Pod Funicular";
 "type.railway.funicular.tunnel" = "Tunel Funicular";
@@ -959,9 +959,9 @@
 "type.railway.monorail" = "Cale ferată monoșină";
 "type.railway.monorail.bridge" = "Pod Cale ferată monoșină";
 "type.railway.monorail.tunnel" = "Tunel Cale ferată monoșină";
-"type.railway.miniature" = "Miniature Railway";
-"type.railway.miniature.bridge" = "Miniature Railway Bridge";
-"type.railway.miniature.tunnel" = "Miniature Railway Tunnel";
+"type.railway.miniature" = "Cale ferată pentru trenulețe";
+"type.railway.miniature.bridge" = "Pod de cale ferată pentru trenulețe";
+"type.railway.miniature.tunnel" = "Tunel de cale ferată pentru trenulețe";
 "type.railway.narrow_gauge" = "Cale ferată cu ecartament îngust";
 "type.railway.narrow_gauge.bridge" = "Pod feroviar cu ecartament îngust";
 "type.railway.narrow_gauge.tunnel" = "Tunel Cale ferată cu ecartament îngust";
@@ -1299,7 +1299,7 @@
 "type.shop.kitchen" = "Magazin de bucatarie";
 "type.shop.laundry" = "Spălătorie";
 "type.shop.mall" = "Mall";
-"type.shop.beauty.day_spa" = "Day Spa";
+"type.shop.beauty.day_spa" = "Spa de zi";
 "type.shop.massage" = "Salon de masaj";
 "type.shop.mobile_phone" = "Magazin de telefoane mobile";
 "type.shop.money_lender" = "Credite";
@@ -1339,7 +1339,7 @@
 "type.shop.agrarian" = "Magazin agricol";
 "type.shop.antiques" = "Antichități";
 "type.shop.appliance" = "Magazin de electrocasnice";
-"type.shop.water" = "Water Shop";
+"type.shop.water" = "Magazin de apă";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Magazin de arte";
 "type.shop.baby_goods" = "Magazin pentru copii";
@@ -1437,7 +1437,7 @@
 "type.tourism.information.board" = "Panou de informații";
 "type.tourism.information.guidepost" = "Postul de ghidare";
 "type.tourism.information.map" = "Hartă turistică";
-"type.tourism.information.tactile_map" = "Tactile Map";
+"type.tourism.information.tactile_map" = "Hartă tactilă";
 "type.tourism.information.office" = "Birou de informații turistice";
 "type.tourism.information.visitor_centre" = "Centrul pentru vizitatori";
 "type.amenity.ranger_station" = "Cabana Pădurarului";
@@ -1464,7 +1464,7 @@
 "type.waterway.ditch.tunnel" = "Canal de scurgere";
 "type.waterway.dock" = "Doc pe o cale navigabilă";
 "type.waterway.drain" = "Scurgere";
-"type.waterway.fuel" = "Marina Fuel Dock";
+"type.waterway.fuel" = "Dană de combustibil";
 "type.natural.water.drain" = "Scurgere";
 "type.waterway.drain.tunnel" = "Canal de scurgere";
 "type.waterway.lock_gate" = "Ecluză";
@@ -1517,7 +1517,7 @@
 "type.social_facility.soup_kitchen" = "Cantină socială";
 "type.social_facility.food_bank" = "Bancă de alimente";
 "type.amenity.food_sharing" = "Food Sharing";
-"type.amenity.give_box" = "Give Box";
+"type.amenity.give_box" = "Cutie pentru dăruit";
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "Intrarea secției de urgență";
 /* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
@@ -1531,9 +1531,9 @@
 "type.leisure.sports_centre.sport.boules" = "Centru Sportiv";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Centru Sportiv";
-"type.organic.no" = "No organic options";
-"type.amenity.stage" = "Stage";
-"type.amenity.animal_boarding" = "Animal Boarding";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
-"type.amenity.planetarium" = "Planetarium";
+"type.organic.no" = "Nicio opțiune organică";
+"type.amenity.stage" = "Scenă";
+"type.amenity.animal_boarding" = "Cazare animale";
+"type.amenity.toilets.customers" = "Acces pentru clienți";
+"type.amenity.toilets.private" = "Acces privat";
+"type.amenity.planetarium" = "Planetariu";

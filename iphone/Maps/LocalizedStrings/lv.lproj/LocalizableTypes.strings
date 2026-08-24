@@ -57,7 +57,7 @@
 "type.amenity.charging_station.small" = "Ierobežots vietu skaits";
 "type.amenity.childcare" = "Bērnudārzs";
 "type.amenity.cinema" = "Kinoteātris";
-"type.leisure.bowling_alley" = "Bowling Alley";
+"type.leisure.bowling_alley" = "Boulinga centrs";
 "type.amenity.clinic" = "Poliklīnika";
 "type.amenity.college" = "Koledža";
 "type.amenity.community_centre" = "Kultūras nams";
@@ -184,10 +184,10 @@
 "type.amenity.telephone" = "Phone";
 "type.amenity.theatre" = "Theatre";
 "type.amenity.toilets" = "Toilet";
-"type.toilets.yes" = "Toilet";
-"type.amenity.townhall" = "Town Hall";
-"type.amenity.university" = "University";
-"type.amenity.vending_machine" = "Vending Machine";
+"type.toilets.yes" = "Labierīcības";
+"type.amenity.townhall" = "Rātsnams";
+"type.amenity.university" = "Augstskola";
+"type.amenity.vending_machine" = "Tirdzniecības automāts";
 "type.amenity.vending_machine.cigarettes" = "Cigarette Dispenser";
 "type.amenity.vending_machine.coffee" = "Coffee Dispenser";
 "type.amenity.vending_machine.condoms" = "Condoms Dispenser";
@@ -1518,8 +1518,8 @@
 "type.organic.no" = "No organic options";
 "type.amenity.stage" = "Stage";
 "type.amenity.animal_boarding" = "Animal Boarding";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
+"type.amenity.toilets.customers" = "Klientu piekļuve";
+"type.amenity.toilets.private" = "Privātā piekļuve";
 "type.amenity.planetarium" = "Planetarium";
 "type.highway.construction.motorway" = "Road Under Construction";
 "type.highway.construction.motorway_link" = "Road Under Construction";

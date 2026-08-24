@@ -149,13 +149,13 @@
     <string name="description">Notatki</string>
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">Moje ulubione miejsca z CoMaps</string>
-    <string name="share_bookmarks_email_body">Cześć! \n \nZałączam moje ulubione miejsca - otworzysz je w aplikacji CoMaps. Jeżeli nie masz tej aplikacji, możesz ją pobrać tutaj: https://www.comaps.app/download/ \n \nMiłego podróżowania z CoMaps!</string>
+    <string name="share_bookmarks_email_body">Cześć! \n \nZałączam moje ulubione miejsca - otworzysz je w aplikacji CoMaps. Jeżeli nie masz tej aplikacji, możesz ją pobrać stąd: https://www.comaps.app/download/ \n \nMiłego podróżowania z CoMaps!</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Wczytywanie Ulubionych</string>
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">Wczytano ulubione miejsca! Można odnaleźć je na mapie lub na ekranie menedżera ulubionych.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Nieudane wczytywanie ulubionych miejsc. Plik może być uszkodzony lub posiadać defekty.</string>
+    <string name="load_kmz_failed">Nie udało się wczytać ulubionych miejsc. Plik może być uszkodzony lub posiadać defekty.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Typ pliku nie jest rozpoznawany przez aplikację: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -484,7 +484,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operator: %s</string>
     <string name="editor_category_unsuitable_title">Nie możesz znaleźć odpowiedniej kategorii?</string>
-    <string name="editor_category_unsuitable_text">CoMaps pozwala na dodawanie tylko prostych kategorii punktów, co oznacza brak miast, dróg, jezior, obrysów budynków itp. Dodaj takie kategorie bezpośrednio do <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Sprawdź nasz <a href="https://www.comaps.app/support/advanced-map-editing/">przewodnik</a>, aby uzyskać szczegółowe instrukcje krok po kroku.</string>
+    <string name="editor_category_unsuitable_text">CoMaps pozwala na dodawanie tylko prostych kategorii punktów, co oznacza niemożność dodawania miast, dróg, jezior, obrysów budynków itp. Dodaj takie kategorie bezpośrednio do <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Sprawdź nasz <a href="https://www.comaps.app/support/advanced-map-editing/">przewodnik</a>, aby uzyskać szczegółowe instrukcje krok po kroku.</string>
     <string name="downloader_no_downloaded_maps_title">Nie pobrano żadnych map</string>
     <string name="downloader_no_downloaded_maps_message">Pobierz mapy, aby wyszukiwać miejsca i nawigować bez połączenia z internetem</string>
     <string name="current_location_unknown_error_title">Bieżąca lokalizacja jest nieznana</string>
@@ -635,7 +635,7 @@
     <string name="avoid_motorways">Unikaj autostrad</string>
     <string name="unable_to_calc_alert_title">Nie udało się wyznaczyć trasy</string>
     <string name="unable_to_calc_alert_subtitle">Nie udało się znaleźć trasy. Może to być spowodowane ustawieniami nawigacji lub niekompletnymi danymi OpenStreetMap. Zmień opcje nawigacji i spróbuj ponownie.</string>
-    <string name="define_to_avoid_btn">Dostosuj omijane typy dróg</string>
+    <string name="define_to_avoid_btn">Wybierz opcje wyznaczania trasy</string>
     <string name="change_driving_options_btn">Niektóre typy dróg są omijane</string>
     <string name="toll_road">Droga płatna</string>
     <string name="unpaved_road">Droga gruntowa</string>
@@ -661,13 +661,13 @@
     <!-- Android -->
     <string name="by_default">Domyślnie</string>
     <!-- Android -->
-    <string name="by_type">Wg rodzaju</string>
+    <string name="by_type">Według rodzaju</string>
     <!-- Android -->
-    <string name="by_distance">Wg odległości</string>
+    <string name="by_distance">Według odległości</string>
     <!-- Android -->
-    <string name="by_date">Wg daty</string>
+    <string name="by_date">Według daty</string>
     <!-- Android -->
-    <string name="by_name">Wg nazwy</string>
+    <string name="by_name">Według nazwy</string>
     <string name="week_ago_sorttype">Tydzień temu</string>
     <string name="month_ago_sorttype">Miesiąc temu</string>
     <string name="moremonth_ago_sorttype">Ponad miesiąc temu</string>
@@ -960,4 +960,35 @@
     <string name="pref_aa_support_summary_yes">Aplikacja zainstalowana przez Google Play - możesz jej użyć w swoim samochodzie.</string>
     <string name="pref_aa_support_summary_no">Aplikacja nie została zainstalowana przez Google Play - nie możesz jej użyć w swoim samochodzie. Kliknij w opcję, by znaleźć więcej szczegółów w FAQ.</string>
     <string name="editor_add_select_category_recent_subtitle">Ostatnio używane</string>
+    <string name="sort_categories">Sortuj listę ulubionych miejsc</string>
+    <string name="setting_value_system_default">Domyślne systemowe</string>
+    <string name="by_recently_used">Według ostatnio użytych</string>
+    <string name="by_custom">Według własnej kolejności</string>
+    <string name="search_in_all_lists">Wyszukaj we wszystkich listach</string>
+    <string name="pref_enable_auto_reroute_title">Automatyczne ponowne wyznaczanie trasy</string>
+    <string name="pref_enable_auto_reroute_description">Po włączeniu tej opcji nowa trasa zostanie utworzona automatycznie po opuszczeniu zaplanowanej trasy.</string>
+    <string name="recalculate_route">Przelicz ponownie</string>
+    <string name="off_route">Jesteś poza trasą</string>
+    <string name="capacity_disabled">Ilość miejsc dla niepełnosprawnych: %s</string>
+    <string name="pref_about_summary">Zgłoś problemy, uzyskaj pomoc, wspomóż \nWersja: v%1$s</string>
+    <string name="prefs_group_map_appearance">Wygląd mapy</string>
+    <string name="prefs_group_map_appearance_summary">Język mapy, rozmiar etykiet, budynki 2W/3W</string>
+    <string name="prefs_group_interface">Interfejs</string>
+    <string name="prefs_group_interface_summary">Tryb nocny, przyciski, język</string>
+    <string name="prefs_group_data_management">Zarządzanie danymi</string>
+    <string name="prefs_group_data_management_summary">Miejsce przechowywania map, kopia zapasowa ulubionych</string>
+    <string name="prefs_group_route_summary">Jednostki, instrukcje głosowe, opcje wyznaczania tras</string>
+    <string name="prefs_group_advanced_summary">Włącz zapis dziennika</string>
+    <string name="enable_long_tap_fullscreen">Długie stuknięcie, aby ukryć interfejs użytkownika</string>
+    <string name="long_tap_disabled_toast">Aby uruchomić ukrywanie interfejsu, dokonaj długiego stuknięcia w ustawieniach</string>
+    <string name="planning_route_preview">Podgląd</string>
+    <string name="prefs_group_privacy_summary">Historia wyszukiwania</string>
+    <string name="prefs_group_power_summary">Czas wygaszania ekranu, dane mobilne</string>
+    <string name="capacity_disabled_yes">Ma dedykowane miejsce dla niepełnosprawnych</string>
+    <string name="capacity_disabled_no">Brak dedykowanych miejsc dla niepełnosprawnych</string>
+    <string name="capacity_charging">Stanowiska postojowe z ładowarką: %s</string>
+    <string name="capacity_charging_yes">Ma stanowiska postojowe z ładowarką</string>
+    <string name="capacity_charging_no">Brak stanowisk postojowych z ładowarką</string>
+    <string name="permission_read_navigation_label">Odczytuj dane nawigacyjne CoMaps</string>
+    <string name="permission_read_navigation_description">Odczytuj na żywo informacje nawigacyjne, takie jak nadchodzące zakręty lub nazwa drogi, na której się znajdujesz</string>
 </resources>
