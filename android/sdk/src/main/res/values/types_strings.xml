@@ -267,6 +267,13 @@
     <string name="type.building.garage">Garage</string>
     <string name="type.building.train_station">Station Building</string>
     <string name="type.building.warehouse">Warehouse</string>
+    <string name="type.indoor">Indoor</string>
+    <string name="type.indoor.area">Area</string>
+    <string name="type.indoor.corridor">Corridor</string>
+    <string name="type.indoor.door">Door</string>
+    <string name="type.indoor.level">Level</string>
+    <string name="type.indoor.room">Room</string>
+    <string name="type.indoor.wall">Wall</string>
     <string name="type.cemetery.grave">Grave</string>
     <string name="type.craft">Craft</string>
     <string name="type.craft.beekeeper">Beekeeper</string>
@@ -484,6 +491,7 @@
     <string name="type.highway.cycleway.bridge">Bridge</string>
     <string name="type.highway.cycleway.permissive">Cycle Path</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
+    <string name="type.highway.corridor">Corridor</string>
     <string name="type.highway.cycleway.tunnel">Tunnel</string>
     <string name="type.highway.elevator">Elevator</string>
     <string name="type.highway.footway">Foot Path</string>

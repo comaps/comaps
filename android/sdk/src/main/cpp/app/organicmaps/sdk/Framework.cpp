@@ -757,6 +757,11 @@ void Framework::SetIsolinesListener(IsolinesManager::IsolinesStateChangedFn cons
   m_onIsolinesStateChangedFn = function;
 }
 
+void Framework::SetIndoorLevelsListener(IndoorManager::LevelsChangedFn const & function)
+{
+  NativeFramework()->GetIndoorManager().SetLevelsListener(function);
+}
+
 bool Framework::IsTrafficEnabled()
 {
   return NativeFramework()->DrivingMapModeHasTraffic();

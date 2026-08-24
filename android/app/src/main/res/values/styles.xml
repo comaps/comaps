@@ -353,4 +353,21 @@
         <item name="cornerSizeTopLeft">50%</item>
         <item name="cornerSizeTopRight">50%</item>
     </style>
+
+  <!-- Vertically stacked map buttons (indoor level picker): rounded outer ends, squarish middle,
+       matching the +/- zoom buttons. -->
+  <style name="MwmWidget.M3.Button.IndoorLevel" parent="Widget.Material3.Button.UnelevatedButton">
+    <item name="android:minWidth">0dp</item>
+    <item name="android:minHeight">0dp</item>
+    <item name="android:insetTop">0dp</item>
+    <item name="android:insetBottom">0dp</item>
+    <item name="android:paddingLeft">0dp</item>
+    <item name="android:paddingRight">0dp</item>
+    <item name="android:paddingStart">0dp</item>
+    <item name="android:paddingEnd">0dp</item>
+    <item name="android:textColor">?iconTint</item>
+    <item name="backgroundTint">?menuBackground</item>
+    <item name="iconTint">?iconTint</item>
+    <item name="elevation">0dp</item>
+  </style>
 </resources>
