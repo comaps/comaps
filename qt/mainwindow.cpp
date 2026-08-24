@@ -39,6 +39,7 @@
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QPushButton>
@@ -300,6 +301,52 @@ void MainWindow::CreateNavigationBar()
 
     pToolBar->addWidget(m_layers->create());
     m_layers->setMainIcon(QIcon(":/navig64/layers.png"));
+
+    // Indoor level selector, hidden until a building with floors is under the viewport center.
+    m_levelSelector = new QListWidget(this);
+    m_levelSelector->setToolTip(tr("Indoor level"));
+    m_levelSelector->setSelectionMode(QAbstractItemView::SingleSelection);
+    m_levelSelector->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_levelSelector->setFixedWidth(48);
+    connect(m_levelSelector, &QListWidget::currentItemChanged, this,
+            [this](QListWidgetItem * current, QListWidgetItem *)
+    {
+      if (current != nullptr)
+        m_pDrawWidget->GetFramework().GetIndoorManager().SelectLevel(current->data(Qt::UserRole).toDouble());
+    });
+    m_levelSelectorAction = pToolBar->addWidget(m_levelSelector);
+    m_levelSelectorAction->setVisible(false);
+
+    auto & indoorManager = m_pDrawWidget->GetFramework().GetIndoorManager();
+    indoorManager.SetLevelsListener([this](std::vector<double> const & levels, double activeLevel)
+    {
+      // Repopulating would otherwise fire SelectLevel back at the framework.
+      QSignalBlocker const blocker(m_levelSelector);
+      m_levelSelector->clear();
+      for (double const level : levels)
+      {
+        // The label belongs to the display locale, and the level itself rides along as data.
+        auto * item = new QListWidgetItem(QLocale().toString(level), m_levelSelector);
+        item->setData(Qt::UserRole, level);
+      }
+
+      if (!levels.empty())
+      {
+        int const rowH = m_levelSelector->sizeHintForRow(0);
+        int const frame = 2 * m_levelSelector->frameWidth();
+        m_levelSelector->setFixedHeight(std::min(rowH * 4, rowH * static_cast<int>(levels.size())) + frame);
+      }
+
+      for (int i = 0; i < m_levelSelector->count(); ++i)
+      {
+        if (m_levelSelector->item(i)->data(Qt::UserRole).toDouble() == activeLevel)
+        {
+          m_levelSelector->setCurrentRow(i);
+          break;
+        }
+      }
+      m_levelSelectorAction->setVisible(!levels.empty());
+    });
 
     pToolBar->addSeparator();
 

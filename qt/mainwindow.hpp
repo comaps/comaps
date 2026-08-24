@@ -17,6 +17,7 @@
 
 class Framework;
 class QDockWidget;
+class QListWidget;
 class QLabel;
 class QPushButton;
 
@@ -36,6 +37,8 @@ class MainWindow
   , location::LocationObserver
 {
   DrawWidget * m_pDrawWidget = nullptr;
+  QListWidget * m_levelSelector = nullptr;
+  QAction * m_levelSelectorAction = nullptr;
   // TODO(mgsergio): Make indexing more informative.
   std::array<QDockWidget *, 1> m_Docks;
 
