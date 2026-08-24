@@ -24,6 +24,10 @@ set(SRC
   features_fetcher.cpp
   features_fetcher.hpp
   framework.cpp
+  indoor_manager.cpp
+  indoor_manager.hpp
+  indoor_scan.cpp
+  indoor_scan.hpp
   framework.hpp
   gps_track_collection.cpp
   gps_track_collection.hpp
