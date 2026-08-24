@@ -67,6 +67,7 @@ public:
     m_map[c.GetTypeByPath({"highway", "cycleway"})] = HighwayClass::Pedestrian;
     m_map[c.GetTypeByPath({"highway", "path"})] = HighwayClass::Pedestrian;
     m_map[c.GetTypeByPath({"highway", "construction"})] = HighwayClass::Pedestrian;
+    m_map[c.GetTypeByPath({"highway", "corridor"})] = HighwayClass::Pedestrian;
   }
 
   HighwayClass Get(uint32_t t) const
@@ -427,6 +428,11 @@ IsBuildingChecker::IsBuildingChecker() : BaseChecker(1 /* level */)
 IsBuildingPartChecker::IsBuildingPartChecker() : BaseChecker(1 /* level */)
 {
   m_types.push_back(classif().GetTypeByPath({"building:part"}));
+}
+
+IsIndoorChecker::IsIndoorChecker() : BaseChecker(1 /* level */)
+{
+  m_types.push_back(classif().GetTypeByPath({"indoor"}));
 }
 
 IsBuildingHasPartsChecker::IsBuildingHasPartsChecker() : BaseChecker(2 /* level */)
