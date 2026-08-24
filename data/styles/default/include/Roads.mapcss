@@ -1094,6 +1094,9 @@ line|z15[highway=footway][footway=sidewalk],
 line|z15[highway=footway][footway=crossing],
 {width: 0;}
 
+line|z17-[highway=corridor],
+{color: @footway;opacity: 0.9;width: 2.4;dashes: 6,1.8;}
+
 line|z17-[highway=footway][tunnel?]::tunnelBackground
 {casing-width-add: 0.5;}
 line|z17-[highway=footway][tunnel?]::tunnelCasing
@@ -1249,6 +1252,7 @@ line|z14-[highway=ford]::border,
 line|z15-[highway=footway]::border,
 line|z15-[highway=ladder]::border,
 line|z15-[highway=steps]::border,
+line|z17-[highway=corridor]::border,
 {color: @minor_road_border; opacity: 0.1;}
 
 line|z11-[highway=tertiary][bridge?]::border,
@@ -1336,6 +1340,9 @@ line|z18[highway=footway]::border,
 {width: 4.2; dashes: 8,2.3;}
 line|z19-[highway=footway]::border,
 {width: 5.2; dashes: 10,2.7;}
+
+line|z17-[highway=corridor]::border,
+{width: 3.4; dashes: 6,1.8;}
 
 line|z15[highway=footway][bicycle=designated]::border,
 {width: 2; dashes: 6,9;}

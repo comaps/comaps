@@ -81,6 +81,59 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SkipDummy)
   TEST_EQUAL(params.m_types[0], GetType({"highway", "primary"}), ());
 }
 
+UNIT_CLASS_TEST(TestWithClassificator, OsmType_Indoor)
+{
+  {
+    Tags const tags = {{"indoor", "room"}, {"level", "1"}, {"name", "Waiting Room"}};
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST(params.IsTypeExist(GetType({"indoor", "room"})), (params));
+  }
+
+  {
+    Tags const tags = {{"indoor", "corridor"}, {"level", "-2"}};
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST(params.IsTypeExist(GetType({"indoor", "corridor"})), (params));
+  }
+
+  {
+    Tags const tags = {{"indoor", "door"}};
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST(params.IsTypeExist(GetType({"indoor", "door"})), (params));
+  }
+
+  // room=* qualifies an indoor=room but does not make one, and alone it typed ~6k unrelated features.
+  {
+    Tags const tags = {{"room", "office"}, {"name", "Office"}};
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST(!params.IsTypeExist(GetType({"indoor", "room"})), (params));
+  }
+
+  // A building entrance carrying a level is not indoor mapping, so indoor=door stays required.
+  {
+    Tags const tags = {{"door", "yes"}, {"level", "0"}};
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST(!params.IsTypeExist(GetType({"indoor", "door"})), (params));
+  }
+
+  {
+    Tags const tags = {{"highway", "corridor"}, {"level", "1"}};
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST(params.IsTypeExist(GetType({"highway", "corridor"})), (params));
+  }
+}
+
 UNIT_CLASS_TEST(TestWithClassificator, OsmType_Oneway)
 {
   {
@@ -2770,7 +2823,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_ComplexTypesSmoke)
       // two types (+hwtag-private) {{"highway", "track", "no-access"}, {{"highway", "track"}, {"access", "no"}}},
       // two types (+office) {{"tourism", "information", "office"}, {{"tourism", "information"}, {"office",
       // "any_value"}}},
-      // two types (+sport-*) {{"leisure", "sports_centre"}, {{"leisure", "sports_centre"}, {"sport", "any_value"}}},
+      // two types (+sport-*) {{"leisure", "sports_center"}, {{"leisure", "sports_center"}, {"sport", "any_value"}}},
       //
       // Manually constructed type, not parsed from osm.
       // {{"building", "address"}, {{"addr:housenumber", "any_value"}, {"addr:street", "any_value"}}},
