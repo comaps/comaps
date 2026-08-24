@@ -188,6 +188,19 @@ protected:
    */
   virtual RoutingOptions GetRoutingOptions();
 
+  /**
+   * @brief Whether to constrain point projections to segment endpoints.
+   *
+   * If `false`, retrieving the closest point on a segment can return any point on the segment.
+   * If `true`, this indicates the closest point on a segment can only be one of its endpoints, not
+   * a point in between. This prevents partial segments in the route (segments will be added to the
+   * route completely, or not at all).
+   *
+   * The `IndexRouter` always returns `false`, subclasses can override this method and return
+   * `true` at their discretion.
+   */
+  virtual bool IsSnapToEndsActive() { return false; }
+
 private:
   RouterResultCode CalculateSubrouteJointsMode(IndexGraphStarter & starter, RouterDelegate const & delegate,
                                                std::shared_ptr<AStarProgress> const & progress,

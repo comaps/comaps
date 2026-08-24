@@ -1201,6 +1201,8 @@ void RoutingTraffDecoder::DecodeLocation(traffxml::TraffMessage & message, traff
   decoded.clear();
 
   m_message = message;
+  m_router->SetSnapToEnds(m_message.value().m_location.value().m_fuzziness
+                          && (m_message.value().m_location.value().m_fuzziness.value() == traffxml::Fuzziness::LowRes));
 
   if (m_message.value().m_location.value().m_roadRef)
     m_roadRef = ParseRef(m_message.value().m_location.value().m_roadRef.value());

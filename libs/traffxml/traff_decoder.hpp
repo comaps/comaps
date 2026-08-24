@@ -215,6 +215,8 @@ public:
                   std::shared_ptr<routing::NumMwmIds> numMwmIds,
                   std::unique_ptr<m4::Tree<routing::NumMwmId>> numMwmTree,
                   DataSource & dataSource, RoutingTraffDecoder & decoder);
+
+    void SetSnapToEnds(bool value) { m_snapToEnds = value; }
   protected:
     /**
      * @brief Whether the set of fake endings generated for the check points is restricted.
@@ -280,7 +282,32 @@ public:
      */
     routing::RoutingOptions GetRoutingOptions() override;
 
+    /**
+     * @brief Whether to constrain point projections to segment endpoints.
+     *
+     * If `false`, retrieving the closest point on a segment can return any point on the segment.
+     * If `true`, this indicates the closest point on a segment can only be one of its endpoints, not
+     * a point in between. This prevents partial segments in the route (segments will be added to the
+     * route completely, or not at all).
+     *
+     * The `DecoderRouter` may return `true` or `false`, depending on the location being decoded.
+     *
+     * Currently `true` is returned if the location has its fuzziness set to `LowRes`, `false` for
+     * any other fuzziness. This is because low-resolution locations typically do not start or end
+     * in the middle of a segment, and they are truncated to start and end at junctions, which does
+     * not work correctly if the first or last segment is incomplete.
+     *
+     * Other locations can start and end anywhere, including in the middle of a segment, and
+     * prohibiting partial segments can result in incorrectly decoded locations. Hence `false` is
+     * returned for such locations.
+     */
+    bool IsSnapToEndsActive() override { return m_snapToEnds; }
+
   private:
+    /**
+     * @brief Whether to constrain point projections to segment endpoints.
+     */
+    bool m_snapToEnds = false;
   };
 
   class TraffEstimator final : public routing::EdgeEstimator
@@ -540,7 +567,7 @@ private:
   std::mutex m_mutex;
 
   std::shared_ptr<routing::NumMwmIds> m_numMwmIds = std::make_shared<routing::NumMwmIds>();
-  std::unique_ptr<routing::IRouter> m_router;
+  std::unique_ptr<RoutingTraffDecoder::DecoderRouter> m_router;
   std::optional<traffxml::TraffMessage> m_message = std::nullopt;
 
   /**
