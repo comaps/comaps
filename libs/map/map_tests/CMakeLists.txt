@@ -8,6 +8,9 @@ set(SRC
   countries_names_tests.cpp
   extrapolator_tests.cpp
   feature_getters_tests.cpp
+  indoor_manager_tests.cpp
+  indoor_real_data_tests.cpp
+  indoor_scan_tests.cpp
   gps_track_collection_test.cpp
   gps_track_storage_test.cpp
   gps_track_test.cpp
