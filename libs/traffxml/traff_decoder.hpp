@@ -220,29 +220,6 @@ public:
     void SetSnapToEnds(bool value) { m_snapToEnds = value; }
   protected:
     /**
-     * @brief Whether the set of fake endings generated for the check points is restricted.
-     *
-     * The return value is used internally when snapping checkpoints to edges. If this function
-     * returns true, this instructs the `PointsOnEdgesSnapping` instance to consider only edges which
-     * are not fenced off, i.e. can be reached from the respective checkpoint without crossing any
-     * other edges. If it returns false, this restriction does not apply, and all nearby edges are
-     * considered.
-     *
-     * Restricting the set of fake endings in this manner decreases the options considered for routing
-     * and thus processing time, which is desirable for regular routing and has no side effects.
-     * For TraFF location matching, simplification has undesirable side effects: if reference points
-     * are located on one side of the road, the other carriageway may not be considered. This would
-     * lead to situations like these:
-     *
-     * --<--<-+<==<==<==<==<==<==<==<==<==<==<==<==<==<==<==<==<==<==<==<==<==<==<==<==<==<+-<--<--
-     * -->-->-+>==>==>==>==>==>==>-->-->-->-->-->-->-->-->-->-->-->==>==>==>==>==>==>==>==>+->-->--
-     *                          *<                               <*
-     *
-     * (-- carriageway, + junction, < > direction, *< end point, <* start point, == route)
-     *
-     * To avoid this, the `DecoderRouter` implementation always returns false.
-     */
-    /**
      * @brief Returns the mode in which the router is operating.
      *
      * The `DecoderRouter` always returns `Mode::Decoding`.
