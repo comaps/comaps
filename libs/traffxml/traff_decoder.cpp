@@ -4,6 +4,7 @@
 
 #include "geometry/distance_on_sphere.hpp"
 #include "geometry/mercator.hpp"
+#include "geometry/parametrized_segment.hpp"
 
 #include "indexer/feature.hpp"
 #include "indexer/road_shields_parser.hpp"
@@ -29,6 +30,7 @@
 
 #include "traffic/traffic_cache.hpp"
 
+#include <algorithm>
 #include <boost/algorithm/string.hpp>
 
 namespace traffxml
@@ -70,6 +72,12 @@ const std::unordered_map<std::optional<RoadClass>, std::array<double, 2>> kJunct
   { RoadClass::Other, { {0.0, 150.0} } },
   { std::nullopt, { {300.0, 500.0} } }
 };
+
+/*
+ * Threshold for a short location, or a short stretch on a segment.
+ * 20 meters is equivalent to BEARDIST in OpenLR.
+ */
+auto constexpr kShortLocationThreshold = 20.0;
 
 /*
  * Maximum distance in meters from location endpoint at which a turn penalty is applied
@@ -944,6 +952,140 @@ void RoutingTraffDecoder::AddDecodedSegment(traffxml::MultiMwmColoring & decoded
   decoded[mwmId][traffic::TrafficInfo::RoadSegmentId(fid, sid, direction)] = traffic::SpeedGroup::Unknown;
 }
 
+m2::PointD RoutingTraffDecoder::GetPointFromSegment(const routing::Segment & segment, bool last)
+{
+  auto const countryFile = m_numMwmIds->GetFile(segment.GetMwmId());
+  auto const mwmId = m_dataSource.GetMwmIdByCountryFile(countryFile);
+  FeaturesLoaderGuard g(m_dataSource, mwmId);
+  auto f = g.GetOriginalFeatureByIndex(segment.GetFeatureId());
+  f->ResetGeometry(); // TODO is that needed?
+  auto points = f->GetPoints(FeatureType::BEST_GEOMETRY);
+
+  if (last)
+    return points[segment.GetSegmentIdx()];
+  else
+    return points[segment.GetSegmentIdx() + 1];
+}
+
+
+void RoutingTraffDecoder::TruncateHiResRoute(std::vector<routing::RouteSegment> & rsegments,
+                                        routing::Checkpoints const & checkpoints, bool backwards)
+{
+  // erase leading and trailing fake segments
+  while(!rsegments.empty() && rsegments.front().GetSegment().GetMwmId() == routing::kFakeNumMwmId)
+    rsegments.erase(rsegments.begin());
+  while(!rsegments.empty() && rsegments.back().GetSegment().GetMwmId() == routing::kFakeNumMwmId)
+    rsegments.pop_back();
+
+  if (rsegments.size() < 2)
+    return;
+
+  /*
+   * rsegments does not reliably give us the start point of the first segment, or the end point of
+   * the last. If only part of these segments is used, then the junctions of the last fake segment
+   * and the last non-fake segment (start and end of route) are in the middle of the respective
+   * non-fake segments. We have to retrieve them from the map.
+   * TODO there may be a way to make this more efficient, but that requires messing with the router.
+   * Presumably these points get retrieved before, make sure the router stores them in the route at
+   * least when in decoder mode.
+   */
+  m2::PointD firstStart = GetPointFromSegment(rsegments[0].GetSegment(),
+                                              rsegments[0].GetSegment().IsForward());
+  m2::PointD lastEnd = GetPointFromSegment(rsegments[rsegments.size() - 1].GetSegment(),
+                                           !rsegments[rsegments.size() - 1].GetSegment().IsForward());
+
+  // analyze segments
+  m2::PointD start = checkpoints.GetStart();
+  m2::PointD finish = checkpoints.GetFinish();
+  bool truncateStart = false;
+  bool truncateEnd = false;
+
+  m2::PointD secondPoints[2] =
+      {
+          rsegments[0].GetJunction().GetPoint(),
+          rsegments[1].GetJunction().GetPoint()
+      };
+  m2::ParametrizedSegment<m2::PointD> second(secondPoints[0], secondPoints[1]);
+
+  m2::PointD startOnSecond = second.ClosestPointTo(start, false);
+
+  truncateStart = ((startOnSecond != secondPoints[0]) && (startOnSecond != secondPoints[1]));
+
+  if (!truncateStart)
+  {
+    m2::PointD firstPoints[2] =
+        {
+            firstStart,
+            rsegments[0].GetJunction().GetPoint()
+        };
+    m2::ParametrizedSegment<m2::PointD> first(firstPoints[0], firstPoints[1]);
+
+    m2::PointD startOnFirst = first.ClosestPointTo(start, false);
+
+    if (startOnFirst == firstPoints[1])
+      truncateStart = true;
+    else if (startOnFirst != firstPoints[0])
+    {
+      // half the distance between firstPoints, but no more than kShortLocationThreshold (20 m)
+      auto mindist = std::min(mercator::DistanceOnEarth(firstPoints[0], firstPoints[1]) / 2.0, kShortLocationThreshold);
+      truncateStart = (mercator::DistanceOnEarth(startOnFirst, firstPoints[1]) < mindist);
+    }
+  }
+
+  m2::PointD penultimatePoints[2] =
+      {
+          (rsegments.size() < 3) ? firstStart : rsegments[rsegments.size() - 3].GetJunction().GetPoint(),
+              rsegments[rsegments.size() - 2].GetJunction().GetPoint()
+      };
+  m2::ParametrizedSegment<m2::PointD> penultimate(penultimatePoints[0], penultimatePoints[1]);
+
+  m2::PointD finishOnPenultimate = penultimate.ClosestPointTo(finish, false);
+
+  truncateEnd = ((finishOnPenultimate != penultimatePoints[0]) && (finishOnPenultimate != penultimatePoints[1]));
+
+  if (!truncateEnd)
+  {
+    m2::PointD lastPoints[2] =
+        {
+            rsegments[rsegments.size() - 2].GetJunction().GetPoint(),
+            lastEnd
+        };
+    m2::ParametrizedSegment<m2::PointD> last(lastPoints[0], lastPoints[1]);
+
+    m2::PointD finishOnLast = last.ClosestPointTo(finish, false);
+
+    if (finishOnLast == lastPoints[0])
+      truncateEnd = true;
+    else if (finishOnLast != lastPoints[1])
+    {
+      // half the distance between firstPoints, but no more than kShortLocationThreshold (20 m)
+      auto mindist = std::min(mercator::DistanceOnEarth(lastPoints[0], lastPoints[1]) / 2.0, kShortLocationThreshold);
+      truncateEnd = (mercator::DistanceOnEarth(lastPoints[0], finishOnLast) < mindist);
+    }
+  }
+
+  if (truncateStart && truncateEnd && (rsegments.size() < 3))
+  {
+    /*
+     * TODO two segments and we need to truncate both start and end, which would leave us with nothing.
+     * Come up with an approach which segment to keep:
+     * - the one which represents a longer portion of the route (not the whole segment, just the
+     *   distance up to the reference point)
+     * - the one of which a larger share is part of the route
+     * - the one closest to the reference points
+     * - the one whose bearing best matches that of the reference points
+     * Possible synergies with decoding very short locations (less than one segment length)
+     */
+  }
+  else
+  {
+    if (truncateEnd)
+      rsegments.pop_back();
+    if (truncateStart)
+      rsegments.erase(rsegments.begin());
+  }
+}
+
 void RoutingTraffDecoder::TruncateRoute(std::vector<routing::RouteSegment> & rsegments,
                                         routing::Checkpoints const & checkpoints, bool backwards)
 {
@@ -1106,6 +1248,8 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & messa
     if (m_message.value().m_location.value().m_fuzziness
         && (m_message.value().m_location.value().m_fuzziness.value() == traffxml::Fuzziness::LowRes))
       TruncateRoute(rsegments, checkpoints, backwards);
+    else
+      TruncateHiResRoute(rsegments, checkpoints, backwards);
 
     /*
      * `m_onRoundabout` is set only for the first segment after the junction. In order to identify

@@ -16,6 +16,7 @@
 #include "routing/index_router.hpp"
 #include "routing/regions_decl.hpp"
 #include "routing/router.hpp"
+#include "routing/segment.hpp"
 #include "routing/vehicle_mask.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
@@ -498,7 +499,53 @@ protected:
   void DecodeLocation(traffxml::TraffMessage & message, traffxml::MultiMwmColoring & decoded) override;
 
   /**
-   * @brief Truncates the route so its endpoints best match the reference points.
+   * @brief Retrieves a point of a segment from the map.
+   *
+   * @param segment The segment
+   * @param last If true, retrieve the last point of the segment, else the first point
+   */
+  m2::PointD GetPointFromSegment(const routing::Segment & segment, bool last);
+
+
+  /**
+   * @brief Truncates the route for a non-fuzzy or medium-res location so its endpoints best match
+   * the reference points.
+   *
+   * This method is intended for routes whose fuzziness is `None` or anything other than `LowRes`.
+   *
+   * Leading and trailing fake segments are discarded.
+   *
+   * When building the graph, the router creates fake segments to the nearest roads. These are not
+   * necessarily the best for location decoding, which may result in “heads” or “tails” being added
+   * to the decoded location. This function attempts to detect and remove them.
+   *
+   * To do this, it examines the second and penultimate segment (after removing leading and trailing
+   * fake segments) to see if it passes its corresponding endpoint. A segment is said to pass a point
+   * if, as we move from its start to its end, distance from that point decreases until a certain
+   * point on the segment, then increases again. If one of these segments fulfills this condition,
+   * the “outer” neighbor of this segment is discarded.
+   *
+   * TODO threshold for point distance from segment (e.g. truncate only if endpoint is within X meters
+   * of passing segment)? Allows “spiraling in” on endpoints, which may happen with ears of cloverleaf
+   * junctions.
+   *
+   * Independently of this, the first and last segments are also discarded if the point on the segment
+   * that is closest to the reference point is less than 20 meters and less than half the length of the
+   * segment from its neighbor.
+   *
+   * At most one non-fake segment at each endpoint is discarded.
+   *
+   * @param rsegments The segments of the route
+   * @param checkpoints The reference points (at least two)
+   * @param backwards True when decoding the backward direction, false when decoding the forward direction.
+   */
+  void TruncateHiResRoute(std::vector<routing::RouteSegment> & rsegments,
+                     routing::Checkpoints const & checkpoints, bool backwards);
+
+  /**
+   * @brief Truncates the route for a low-res location so its endpoints best match the reference points.
+   *
+   * This method is intended for routes whose fuzziness is `LowRes`.
    *
    * Leading and trailing fake segments are discarded.
    *
