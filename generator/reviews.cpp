@@ -146,6 +146,21 @@ void ParseReviews(json_t * json, OsmIdToFeatureIdMap const & osmIdToFeatureId, F
     };
   }
 }
+
+void ParseAverageRatings(json_t * json, OsmElementRatingMap & ratings)
+{
+  if (json == nullptr || !json_is_object(json))
+    MYTHROW(ReviewsParseError, ("required JSON object, got", json->type));
+
+  for (void * it = json_object_iter(json); it; it = json_object_iter_next(json, it))
+  {
+    char const * osmIdStr = json_object_iter_key(it);
+    json_t const * featureReviewsJson = json_object_iter_value(it);
+    base::GeoObjectId const osmId = ParseGeoObjectId(osmIdStr);
+    Rating const averageRating = ParseAverageRating(json_object_get(featureReviewsJson, "average_rating"), osmIdStr);
+    ratings.emplace(osmId, averageRating);
+  }
+}
 }  // namespace internal
 
 void LoadReviews(std::string const & reviewsFile, std::string const & osmIdToFeatureIdFile,
@@ -171,5 +186,18 @@ void LoadReviews(std::string const & reviewsFile, std::string const & osmIdToFea
 
   LOG(LINFO, ("Found reviews for", featureIds.size(), "features"));
 }
+
+void LoadAverageRatings(std::string const & reviewsFile, OsmElementRatingMap & ratings)
+{
+  std::string jsonBuffer;
+  GetPlatform().GetReader(reviewsFile)->ReadAsString(jsonBuffer);
+
+  base::Json const root(jsonBuffer.c_str());
+  CHECK(root.get() != nullptr, ("Cannot parse the json file:", reviewsFile));
+  internal::ParseAverageRatings(root.get(), ratings);
+
+  LOG(LINFO, ("Found average ratings for", ratings.size(), "features"));
+}
+
 
 }  // namespace generator::reviews

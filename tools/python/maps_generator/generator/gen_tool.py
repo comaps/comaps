@@ -30,6 +30,7 @@ class GenTool:
         "generate_region_features": bool,
         "generate_regions": bool,
         "generate_regions_kv": bool,
+        "generate_reviews": bool,
         "generate_search_index": bool,
         "generate_traffic_keys": bool,
         "generate_world": bool,

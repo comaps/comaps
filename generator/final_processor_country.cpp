@@ -11,6 +11,7 @@
 #include "generator/node_mixer.hpp"
 #include "generator/osm2type.hpp"
 #include "generator/region_meta.hpp"
+#include "generator/reviews.hpp"
 
 #include "routing/speed_camera_prohibition.hpp"
 
@@ -73,6 +74,10 @@ void CountryFinalProcessor::Process()
   // DropProhibitedSpeedCameras();
   LOG(LINFO, ("Processing building parts..."));
   ProcessBuildingParts();
+
+  LOG(LINFO, ("Adding ratings..."));
+  if (!m_reviewsFilePath.empty())
+    ProcessRatings();
 
   // Finish();
 }
@@ -343,6 +348,43 @@ void CountryFinalProcessor::DropProhibitedSpeedCameras()
 
       writer.Write(fb);
     });
+  }, m_threadsCount);
+}
+
+void CountryFinalProcessor::ProcessRatings()
+{
+  reviews::OsmElementRatingMap osmRatings;
+  try
+  {
+    reviews::LoadAverageRatings(m_reviewsFilePath, osmRatings);
+  }
+  catch (RootException const & e)
+  {
+    LOG(LERROR, ("Error loading reviews from", m_reviewsFilePath, e.Msg()));
+    return;
+  }
+
+  ForEachMwmTmp(m_temporaryMwmPath, [&](auto const & name, auto const & path)
+  {
+    if (!IsCountry(name))
+      return;
+
+    FeatureBuilderWriter<> writer(path, true /* mangleName */);
+    uint featuresWithRatingsCount = 0;
+    ForEachFeatureRawFormat<serialization_policy::MaxAccuracy>(path, [&](FeatureBuilder && fb, uint64_t)
+    {
+      auto osmId = fb.GetMostGenericOsmId();
+      if (osmRatings.contains(osmId))
+      {
+        auto rating = osmRatings.at(osmId);
+        fb.GetMetadata().Set(Metadata::FMD_RATINGS, std::to_string(rating));
+        featuresWithRatingsCount += 1;
+      }
+
+      writer.Write(fb);
+    });
+
+    LOG(LINFO, ("Features with ratings in", name, ":", featuresWithRatingsCount));
   }, m_threadsCount);
 }
 

@@ -93,6 +93,7 @@ DEFINE_bool(generate_geometry, false, "3rd pass - split and simplify geometry an
 DEFINE_bool(generate_index, false, "4rd pass - generate index.");
 DEFINE_bool(generate_search_index, false, "5th pass - generate search index.");
 DEFINE_bool(generate_cities_boundaries, false, "Generate the cities boundaries section");
+DEFINE_bool(generate_reviews, false, "Generate the reviews section");
 DEFINE_string(cities_boundaries_data, "", "File with cities boundaries");
 
 DEFINE_bool(generate_cities_ids, false, "Generate the cities ids section");
@@ -246,6 +247,7 @@ MAIN_WITH_ERROR_HANDLING([](int argc, char ** argv)
   genInfo.m_complexHierarchyFilename = FLAGS_complex_hierarchy_data;
   genInfo.m_isolinesDir = FLAGS_isolines_path;
   genInfo.m_addressesDir = FLAGS_addresses_path;
+  genInfo.m_reviewsFile = FLAGS_reviews_path;
 
   // Use merged style.
   GetStyleReader().SetCurrentStyle(MapStyleMerged);
@@ -525,7 +527,7 @@ MAIN_WITH_ERROR_HANDLING([](int argc, char ** argv)
       }
     }
 
-    if (!FLAGS_reviews_path.empty())
+    if (FLAGS_generate_reviews && !FLAGS_reviews_path.empty())
     {
       BuildReviewsSection(FLAGS_reviews_path, dataFile);
     }

@@ -140,6 +140,7 @@ def step_features(env: Env, **kwargs):
         node_storage=env.node_storage,
         user_resource_path=env.paths.user_resource_path,
         cities_boundaries_data=env.paths.cities_boundaries_path,
+        reviews_path=env.paths.reviews_path,
         generate_features=True,
         threads_count=settings.THREADS_COUNT_FEATURES_STAGE,
         **kwargs,
@@ -384,6 +385,7 @@ def step_reviews(env: Env, country: AnyStr, **kwargs):
         data_path=env.paths.mwm_path,
         reviews_path=env.paths.reviews_path,
         output=country,
+        generate_reviews=True,
         **kwargs,
     )
 
