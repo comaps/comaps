@@ -541,10 +541,10 @@ protected:
    *
    * @param rsegments The segments of the route
    * @param checkpoints The reference points (at least two)
-   * @param backwards True when decoding the backward direction, false when decodign the forward direction.
+   * @param backwards True when decoding the backward direction, false when decoding the forward direction.
    */
-  void TruncateRoute(std::vector<routing::RouteSegment> & rsegments,
-                     routing::Checkpoints const & checkpoints, bool backwards);
+  void TruncateLowResRoute(std::vector<routing::RouteSegment> & rsegments,
+                           routing::Checkpoints const & checkpoints, bool backwards);
 
 private:
   static void LogCode(routing::RouterResultCode code, double const elapsedSec);
@@ -670,7 +670,7 @@ std::vector<std::string> ParseRef(std::string const & ref);
  * @param startWeight Weight of the fake segments up to the first real segment
  * @param junctions Junctions with the weight of their leap segment
  */
-void TruncateStart(std::vector<routing::RouteSegment> & rsegments,
+void TruncateLowResStart(std::vector<routing::RouteSegment> & rsegments,
                    routing::Checkpoints const & checkpoints,
                    size_t & start, double & startSaving, double const startWeight,
                    std::map<m2::PointD, double> const & junctions);
@@ -691,7 +691,7 @@ void TruncateStart(std::vector<routing::RouteSegment> & rsegments,
  * @param endWeight Total weight of the route, including trailing fake segments
  * @param junctions Junctions with the weight of their leap segment
  */
-void TruncateEnd(std::vector<routing::RouteSegment> & rsegments,
+void TruncateLowResEnd(std::vector<routing::RouteSegment> & rsegments,
                  routing::Checkpoints const & checkpoints,
                  size_t & end, double & endSaving, double const endWeight,
                  std::map<m2::PointD, double> const & junctions);

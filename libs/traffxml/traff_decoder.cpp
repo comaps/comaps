@@ -1086,8 +1086,8 @@ void RoutingTraffDecoder::TruncateHiResRoute(std::vector<routing::RouteSegment> 
   }
 }
 
-void RoutingTraffDecoder::TruncateRoute(std::vector<routing::RouteSegment> & rsegments,
-                                        routing::Checkpoints const & checkpoints, bool backwards)
+void RoutingTraffDecoder::TruncateLowResRoute(std::vector<routing::RouteSegment> & rsegments,
+                                              routing::Checkpoints const & checkpoints, bool backwards)
 {
   double startWeight = 0;
   double const endWeight = rsegments.back().GetTimeFromBeginningSec();
@@ -1114,10 +1114,10 @@ void RoutingTraffDecoder::TruncateRoute(std::vector<routing::RouteSegment> & rse
   // Cost saved by omitting the last `end` segments.
   double endSaving = 0;
 
-  TruncateStart(rsegments, checkpoints, start, startSaving, startWeight,
-                backwards ? m_endJunctions : m_startJunctions);
-  TruncateEnd(rsegments, checkpoints, end, endSaving, endWeight,
-              backwards ? m_startJunctions : m_endJunctions);
+  TruncateLowResStart(rsegments, checkpoints, start, startSaving, startWeight,
+                      backwards ? m_endJunctions : m_startJunctions);
+  TruncateLowResEnd(rsegments, checkpoints, end, endSaving, endWeight,
+                    backwards ? m_startJunctions : m_endJunctions);
 
   /*
    * If start <= end, we can truncate both ends at the same time.
@@ -1135,8 +1135,8 @@ void RoutingTraffDecoder::TruncateRoute(std::vector<routing::RouteSegment> & rse
     rsegments.erase(rsegments.begin(), rsegments.begin() + start);
     end = rsegments.size() - 1;
     endSaving = 0;
-    TruncateEnd(rsegments, checkpoints, end, endSaving, endWeight,
-                backwards ? m_startJunctions : m_endJunctions);
+    TruncateLowResEnd(rsegments, checkpoints, end, endSaving, endWeight,
+                      backwards ? m_startJunctions : m_endJunctions);
     rsegments.erase(rsegments.begin() + end + 1, rsegments.end());
   }
   else
@@ -1145,8 +1145,8 @@ void RoutingTraffDecoder::TruncateRoute(std::vector<routing::RouteSegment> & rse
     rsegments.erase(rsegments.begin() + end + 1, rsegments.end());
     start = 0;
     startSaving = 0;
-    TruncateStart(rsegments, checkpoints, start, startSaving, startWeight,
-                  backwards ? m_endJunctions : m_startJunctions);
+    TruncateLowResStart(rsegments, checkpoints, start, startSaving, startWeight,
+                        backwards ? m_endJunctions : m_startJunctions);
     rsegments.erase(rsegments.begin(), rsegments.begin() + start);
   }
 }
@@ -1247,7 +1247,7 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & messa
 
     if (m_message.value().m_location.value().m_fuzziness
         && (m_message.value().m_location.value().m_fuzziness.value() == traffxml::Fuzziness::LowRes))
-      TruncateRoute(rsegments, checkpoints, backwards);
+      TruncateLowResRoute(rsegments, checkpoints, backwards);
     else
       TruncateHiResRoute(rsegments, checkpoints, backwards);
 
@@ -1672,10 +1672,10 @@ std::vector<std::string> ParseRef(std::string const & ref)
   return res;
 }
 
-void TruncateStart(std::vector<routing::RouteSegment> & rsegments,
-                   routing::Checkpoints const & checkpoints,
-                   size_t & start, double & startSaving, double const startWeight,
-                   std::map<m2::PointD, double> const & junctions)
+void TruncateLowResStart(std::vector<routing::RouteSegment> & rsegments,
+                         routing::Checkpoints const & checkpoints,
+                         size_t & start, double & startSaving, double const startWeight,
+                         std::map<m2::PointD, double> const & junctions)
 {
   if (rsegments.empty())
     return;
@@ -1724,10 +1724,10 @@ void TruncateStart(std::vector<routing::RouteSegment> & rsegments,
       start = 1;
 }
 
-void TruncateEnd(std::vector<routing::RouteSegment> & rsegments,
-                 routing::Checkpoints const & checkpoints,
-                 size_t & end, double & endSaving, double const endWeight,
-                 std::map<m2::PointD, double> const & junctions)
+void TruncateLowResEnd(std::vector<routing::RouteSegment> & rsegments,
+                       routing::Checkpoints const & checkpoints,
+                       size_t & end, double & endSaving, double const endWeight,
+                       std::map<m2::PointD, double> const & junctions)
 {
   for (size_t i = 0; i < rsegments.size(); i++)
   {
