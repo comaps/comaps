@@ -2,12 +2,12 @@
 #include "cppjansson/cppjansson.hpp"
 #include "testing/testing.hpp"
 
-#include "generator/reviews_section_builder.hpp"
+#include "generator/reviews.hpp"
 
 namespace generator_tests
 {
 using namespace std::chrono;
-using namespace generator::reviews;
+using namespace generator::reviews::internal;
 using namespace ::reviews;
 using base::GeoObjectId;
 using base::Json;
