@@ -67,6 +67,7 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver {
 
       dimBackground.setVisible(isExtended, completion: nil)
       extendedView.isHidden = !isExtended
+      mapPositionButton.isHidden = isExtended
       superview!.animateConstraints(animations: {
         if (self.isExtended) {
           self.notExtendedConstraint.isActive = false
@@ -249,7 +250,6 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver {
   @IBAction
   private func extendAction() {
     isExtended = !isExtended
-    mapPositionButton.isHidden = isExtended
     refreshDiminishTimer()
   }
 
