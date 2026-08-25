@@ -969,7 +969,7 @@ m2::PointD RoutingTraffDecoder::GetPointFromSegment(const routing::Segment & seg
 
 
 void RoutingTraffDecoder::TruncateHiResRoute(std::vector<routing::RouteSegment> & rsegments,
-                                        routing::Checkpoints const & checkpoints, bool backwards)
+                                        routing::Checkpoints const & checkpoints)
 {
   // erase leading and trailing fake segments
   while(!rsegments.empty() && rsegments.front().GetSegment().GetMwmId() == routing::kFakeNumMwmId)
@@ -1249,7 +1249,7 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & messa
         && (m_message.value().m_location.value().m_fuzziness.value() == traffxml::Fuzziness::LowRes))
       TruncateLowResRoute(rsegments, checkpoints, backwards);
     else
-      TruncateHiResRoute(rsegments, checkpoints, backwards);
+      TruncateHiResRoute(rsegments, checkpoints);
 
     /*
      * `m_onRoundabout` is set only for the first segment after the junction. In order to identify

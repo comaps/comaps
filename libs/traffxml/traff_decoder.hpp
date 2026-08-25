@@ -517,7 +517,7 @@ protected:
    * @param backwards True when decoding the backward direction, false when decoding the forward direction.
    */
   void TruncateHiResRoute(std::vector<routing::RouteSegment> & rsegments,
-                     routing::Checkpoints const & checkpoints, bool backwards);
+                     routing::Checkpoints const & checkpoints);
 
   /**
    * @brief Truncates the route for a low-res location so its endpoints best match the reference points.
