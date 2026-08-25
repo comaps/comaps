@@ -206,7 +206,19 @@ public:
 
   Segment const & GetSegment() const { return m_segment; }
   Segment & GetSegment() { return m_segment; }
+
+  /**
+   * @brief Returns the point at the end of this segment.
+   *
+   * The end of the segment is the point that is furthest from the beginning of the route, i.e. the
+   * point shared between this segment and the following one (or the destination for the last segment.)
+   *
+   * This does not necessarily represent the last point of this segment (or the first point of the
+   * following segment) as stored in the map. If the route uses only part of the segment, this point
+   * can be located anywhere on the current segment, or anywhere on the next segment.
+   */
   geometry::PointWithAltitude const & GetJunction() const { return m_junction; }
+
   RoadNameInfo const & GetRoadNameInfo() const { return m_roadNameInfo; }
   turns::TurnItem const & GetTurn() const { return m_turn; }
   void ClearTurnLanes() { m_turn.m_lanes.clear(); }
