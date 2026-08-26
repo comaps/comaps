@@ -655,6 +655,7 @@ double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment c
   double result = road.GetDistance(segment.GetSegmentIdx());
 
   if (m_decoder.m_message && m_decoder.m_message.value().m_location.value().m_roadClass)
+    // TODO different penalties for closures?
     result *= GetHighwayTypePenalty(road.GetHighwayType(),
                                     m_decoder.m_message.value().m_location.value().m_roadClass,
                                     m_decoder.m_message.value().m_location.value().m_ramps);
@@ -670,8 +671,17 @@ double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment c
     result *= m_decoder.GetRoadRefPenalty(refs);
   }
 
-  if (!IsAccessIgnored() && road.GetHighwayType() && IsConstruction(road.GetHighwayType().value()))
-    result *= decoder_model::kImpassablePenalty;
+  if (IsAccessIgnored())
+  {
+    // TODO should we penalize roads even if access is prohibited?
+    if (road.GetHighwayType() && !IsConstruction(road.GetHighwayType().value()))
+      result *= decoder_model::kReducedAttributePenalty;
+  }
+  else
+  {
+    if (road.GetHighwayType() && IsConstruction(road.GetHighwayType().value()))
+      result *= decoder_model::kImpassablePenalty;
+  }
 
   return result;
 }
