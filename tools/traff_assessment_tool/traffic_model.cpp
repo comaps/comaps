@@ -128,6 +128,81 @@ void RoadPointCandidate::SetActivePoint(FeatureID const & fid)
 }  // namespace impl
 #endif
 
+std::string GetFuzziness(const Fuzziness & fuzziness)
+{
+  switch (fuzziness)
+  {
+    case traffxml::Fuzziness::LowRes:
+      return "LowRes";
+      break;
+    case traffxml::Fuzziness::MediumRes:
+      return "MediumRes";
+      break;
+    case traffxml::Fuzziness::EndUnknown:
+      return "EndUnknown";
+      break;
+    case traffxml::Fuzziness::StartUnknown:
+      return "StartUnknown";
+      break;
+    case traffxml::Fuzziness::ExtentUnknown:
+      return "ExtentUnknown";
+      break;
+    default:
+      return "(invalid)";
+      break;
+  }
+}
+
+std::string GetRoadClass(const RoadClass & roadClass)
+{
+  switch (roadClass)
+  {
+    case traffxml::RoadClass::Motorway:
+      return "Motorway";
+      break;
+    case traffxml::RoadClass::Trunk:
+      return "Trunk";
+      break;
+    case traffxml::RoadClass::Primary:
+      return "Primary";
+      break;
+    case traffxml::RoadClass::Secondary:
+      return "Secondary";
+      break;
+    case traffxml::RoadClass::Tertiary:
+      return "Tertiary";
+      break;
+    case traffxml::RoadClass::Other:
+      return "Other";
+      break;
+    default:
+      return "(invalid)";
+      break;
+  }
+}
+
+std::string GetRamps(const Ramps & ramps)
+{
+  switch (ramps)
+  {
+    case traffxml::Ramps::All:
+      return "All ramps";
+      break;
+    case traffxml::Ramps::Entry:
+      return "Entry ramps";
+      break;
+    case traffxml::Ramps::Exit:
+      return "Exit ramps";
+      break;
+    case traffxml::Ramps::None:
+      return "No ramps";
+      break;
+    default:
+      return "(invalid)";
+      break;
+  }
+}
+
 QVariant GetCountryAndRoadRef(TraffMessage const & message)
 {
   std::string result = "";
@@ -141,31 +216,23 @@ QVariant GetCountryAndRoadRef(TraffMessage const & message)
         result += '\n';
       result += message.m_location.value().m_roadRef.value();
     }
+    if (message.m_location.value().m_roadClass)
+    {
+      if (!result.empty())
+        result += '\n';
+      result += GetRoadClass(message.m_location.value().m_roadClass.value());
+    }
     if (message.m_location.value().m_fuzziness)
     {
       if (!result.empty())
         result += '\n';
-      switch (message.m_location.value().m_fuzziness.value())
-      {
-        case traffxml::Fuzziness::LowRes:
-          result += "LowRes";
-          break;
-        case traffxml::Fuzziness::MediumRes:
-          result += "MediumRes";
-          break;
-        case traffxml::Fuzziness::EndUnknown:
-          result += "EndUnknown";
-          break;
-        case traffxml::Fuzziness::StartUnknown:
-          result += "StartUnknown";
-          break;
-        case traffxml::Fuzziness::ExtentUnknown:
-          result += "ExtentUnknown";
-          break;
-        default:
-          result += "(invalid)";
-          break;
-      }
+      result += GetFuzziness(message.m_location.value().m_fuzziness.value());
+    }
+    if (message.m_location.value().m_ramps != traffxml::Ramps::None)
+    {
+      if (!result.empty())
+        result += '\n';
+      result += GetRamps(message.m_location.value().m_ramps);
     }
   }
   return QString::fromStdString(result);
