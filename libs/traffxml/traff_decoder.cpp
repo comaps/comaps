@@ -654,12 +654,10 @@ double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment c
 {
   double result = road.GetDistance(segment.GetSegmentIdx());
 
-  if (!m_decoder.m_message || !m_decoder.m_message.value().m_location.value().m_roadClass)
-    return result;
-
-  result *= GetHighwayTypePenalty(road.GetHighwayType(),
-                                  m_decoder.m_message.value().m_location.value().m_roadClass,
-                                  m_decoder.m_message.value().m_location.value().m_ramps);
+  if (m_decoder.m_message && m_decoder.m_message.value().m_location.value().m_roadClass)
+    result *= GetHighwayTypePenalty(road.GetHighwayType(),
+                                    m_decoder.m_message.value().m_location.value().m_roadClass,
+                                    m_decoder.m_message.value().m_location.value().m_ramps);
 
   if (!m_decoder.m_roadRef.empty())
   {
