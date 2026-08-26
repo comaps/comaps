@@ -671,15 +671,62 @@ double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment c
     result *= m_decoder.GetRoadRefPenalty(refs);
   }
 
+  bool isWrongWay = false;
+  bool isRoundabout = false;
+  if (!segment.IsForward())
+  {
+    auto const countryFile = m_decoder.m_numMwmIds->GetFile(segment.GetMwmId());
+    auto const mwmId = m_decoder.m_dataSource.GetMwmIdByCountryFile(countryFile);
+    FeaturesLoaderGuard g(m_decoder.m_dataSource, mwmId);
+    auto f = g.GetOriginalFeatureByIndex(segment.GetFeatureId());
+    isWrongWay = ftypes::IsOneWayChecker::Instance()(*f);
+    isRoundabout = ftypes::IsRoundAboutChecker::Instance()(*f);
+  }
+
+  // different penalty levels for wrong direction, but passable
+  auto kWrongWayPenaltyLow = decoder_model::kReducedAttributePenalty;
+  auto kWrongWayPenaltyHigh = decoder_model::kAttributePenalty;
+  if (m_decoder.m_message
+      && (m_decoder.m_message.value().m_location.value().m_directionality == Directionality::BothDirections))
+  {
+    /*
+     * If the message is bidirectional, temporary oneway restrictions are less likely.
+     * But some sources are sloppy with directionality, especially on oneway roads.
+     */
+    kWrongWayPenaltyLow *= decoder_model::kReducedAttributePenalty;
+    kWrongWayPenaltyHigh *= decoder_model::kReducedAttributePenalty;
+  }
+
   if (IsAccessIgnored())
   {
-    // TODO should we penalize roads even if access is prohibited?
-    if (road.GetHighwayType() && !IsConstruction(road.GetHighwayType().value()))
+    // TODO should we consider access restrictions in penalties?
+    if (isWrongWay)
+    {
+      if (road.GetHighwayType()
+          && (road.GetHighwayType().value() == routing::HighwayType::HighwayMotorway))
+        // oneway on motorway is almost always permanent
+        result *= decoder_model::kImpassablePenalty;
+      else if (road.GetHighwayType() && IsRamp(road.GetHighwayType().value()))
+        // most ramps are oneway, but not all
+        result *= kWrongWayPenaltyHigh;
+      else if (road.GetHighwayType() && IsConstruction(road.GetHighwayType().value()))
+        // oneway on construction types is usually the planned, post-completion state
+        result *= decoder_model::kImpassablePenalty;
+      else if (isRoundabout)
+        // oneway on roundabout is permanent
+        result *= decoder_model::kImpassablePenalty;
+      else
+        result *= kWrongWayPenaltyLow;
+    }
+    else if (road.GetHighwayType() && !IsConstruction(road.GetHighwayType().value()))
+      // prefer construction types when decoding closures, penalize all others lightly
       result *= decoder_model::kReducedAttributePenalty;
   }
   else
   {
-    if (road.GetHighwayType() && IsConstruction(road.GetHighwayType().value()))
+    if (isWrongWay)
+      result *= decoder_model::kImpassablePenalty;
+    else if (road.GetHighwayType() && IsConstruction(road.GetHighwayType().value()))
       result *= decoder_model::kImpassablePenalty;
   }
 

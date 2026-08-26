@@ -98,6 +98,7 @@ public:
 
   // VehicleModelInterface overrides:
   SpeedKMpH GetSpeed(FeatureTypes const & types, SpeedParams const & speedParams) const override;
+  bool IsOneWay(FeatureTypes const &) const override { return false; }
   SpeedKMpH const & GetOffroadSpeed() const override;
 
   /**
