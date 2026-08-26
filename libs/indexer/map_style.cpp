@@ -2,7 +2,11 @@
 
 #include "base/assert.hpp"
 
+#ifdef OMIM_OS_ANDROID
+MapStyle const kDefaultMapStyle = MapStyleDefaultLight;
+#else
 MapStyle const kDefaultMapStyle = MapStyleWalkingLight;
+#endif
 
 MapStyle MapStyleFromSettings(std::string const & str)
 {
