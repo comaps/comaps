@@ -697,7 +697,7 @@ double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment c
     kWrongWayPenaltyHigh *= decoder_model::kReducedAttributePenalty;
   }
 
-  if (IsAccessIgnored())
+  if (m_decoder.IsClosure())
   {
     // TODO should we consider access restrictions in penalties?
     if (isWrongWay)
@@ -735,8 +735,7 @@ double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment c
 
 bool RoutingTraffDecoder::TraffEstimator::IsAccessIgnored() const
 {
-  ASSERT(m_decoder.m_trafficImpact, ("Traffic impact for current message is not set"));
-  return (m_decoder.m_trafficImpact.value().m_speedGroup == traffic::SpeedGroup::TempBlock);
+  return m_decoder.IsClosure();
 }
 
 RoutingTraffDecoder::DecoderRouter::DecoderRouter(CountryParentNameGetterFn const & countryParentNameGetterFn,
@@ -875,6 +874,12 @@ double RoutingTraffDecoder::GetRoadRefPenalty(std::string const & ref) const
     return 1;
   else
     return decoder_model::kReducedAttributePenalty;
+}
+
+bool RoutingTraffDecoder::IsClosure() const
+{
+  ASSERT(m_trafficImpact, ("Traffic impact for current message is not set"));
+  return (m_trafficImpact.value().m_speedGroup == traffic::SpeedGroup::TempBlock);
 }
 
 void RoutingTraffDecoder::OnMapRegistered(platform::LocalCountryFile const & localFile)

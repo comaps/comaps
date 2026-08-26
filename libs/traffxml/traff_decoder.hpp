@@ -434,6 +434,16 @@ public:
    */
   double GetRoadRefPenalty(std::string const & ref) const;
 
+  /**
+   * @brief Whether the current event is a closure.
+   *
+   * The router behaves differently when decoding closure events. `TraffEstimator::IsAccessIgnored()`
+   * calls this method internally, resulting in access restrictions being ignored when decoding
+   * locations for closure events. Construction types are routable when decoding closure events,
+   * and oneway restrictions can be ignored under certain circumstances.
+   */
+  bool IsClosure() const;
+
 protected:
   /**
    * @brief Initializes the router.
