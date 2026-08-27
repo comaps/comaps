@@ -7,6 +7,9 @@ import android.view.View;
 import androidx.annotation.CallSuper;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 
 import app.organicmaps.R;
@@ -27,6 +30,7 @@ public final class ReviewListFragment extends BaseMwmRecyclerFragment<ReviewList
     super.onViewCreated(view, savedInstanceState);
     DividerItemDecoration divider = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);
     getRecyclerView().addItemDecoration(divider);
+    handleBottomNavBar(view);
   }
 
   @LayoutRes
@@ -59,4 +63,24 @@ public final class ReviewListFragment extends BaseMwmRecyclerFragment<ReviewList
       return new ReviewListAdapter(reviews, getResources().getConfiguration().locale);
     }
   }
+
+  private void handleBottomNavBar(View view)
+  {
+    View reviewSource = view.findViewById(R.id.review_source);
+    if (reviewSource != null)
+    {
+      int originalPaddingBottom = reviewSource.getPaddingBottom();
+      ViewCompat.setOnApplyWindowInsetsListener(reviewSource, (v, insets) -> {
+        Insets navBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+        v.setPadding(
+            v.getPaddingLeft(),
+            v.getPaddingTop(),
+            v.getPaddingRight(),
+            originalPaddingBottom + navBars.bottom
+        );
+        return insets;
+      });
+    }
+  }
+
 }
