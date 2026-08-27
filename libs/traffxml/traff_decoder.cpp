@@ -74,6 +74,32 @@ const std::unordered_map<std::optional<RoadClass>, std::array<double, 2>> kJunct
 };
 
 /*
+ * Threshold for route length to point distance ratio, default.
+ *
+ * If the threshold exceeds this value, the decoded location is considered invalid and discarded.
+ *
+ * 3.0 is a conservative threshold, aimed at achieving a zero FRR, at the cost of a poorer FAR.
+ *
+ * This threshold applies unless a more specific threshold applies.
+ *
+ * In non-representative tests, 1.3–1.6 would have achieved both zero FAR and zero FRR, but the
+ * data set is not representative.
+ */
+auto constexpr kRatioThresholdDefault = 3.0;
+
+/*
+ * Threshold for route length to point distance ratio, for ramps.
+ *
+ * If the threshold exceeds this value, the decoded location is considered invalid and discarded.
+ *
+ * This threshold applies when the location refers to a ramp.
+ *
+ * A ratio of ~5.0 may occur for ramps, values slightly above 6.0 have been spotted for locations
+ * which start on the main carriageway, slightly before the ramp.
+ */
+auto constexpr kRatioThresholdRamps = 6.0;
+
+/*
  * Threshold for a short location, or a short stretch on a segment.
  * 20 meters is equivalent to BEARDIST in OpenLR.
  */
@@ -1304,6 +1330,53 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & messa
   if (code == routing::RouterResultCode::NoError)
   {
     std::vector<routing::RouteSegment> rsegments(route->GetRouteSegments());
+
+    /*
+     * Discard overly long routes, they are probably incorrect.
+     * Closures are particularly prone, because they may also be reflected on the map, but in such a
+     * way that the router can no loger find the closed route (roads may get disconnected, deleted or
+     * their highway types changed to non-routable ones). In that case, the router would end up
+     * finding a detour and marking that as closed. To prevent that, we discard overly long routes.
+     * TODO should we limit this check to closures?
+     * If the message has `at`, in which case we are just using one segment, we’re keeping the
+     * decoded location for now. (Needs more testing with `at` to determine whether is is better to
+     * keep the location or to discard it.)
+     */
+    if (!message.m_location.value().m_at)
+    {
+      auto lengthDistanceRatio = route->GetTotalDistanceMeters()
+                      / checkpoints.GetSummaryLengthBetweenPointsMeters();
+      bool ramps = (message.m_location.value().m_ramps != traffxml::Ramps::None);
+      // not all locations indicate ramps correctly, examine decoded segments
+      if (!ramps)
+      {
+        size_t rampSegments = 0;
+        size_t nonRampSegments = 0;
+        for (routing::RouteSegment & rsegment : rsegments)
+          /*
+           * Going by length rather than segment count would be nicer, but we don’t have length
+           * information in an easily accessible form.
+           * m_link is not set for construction types, as they are evaluated using an `IsLinkChecker`,
+           * which is constrained to two levels (e.g. `highway-motorway_link`) while construction types
+           * are three-level (`highway-construction-motorway_link`). This may cause this code to fail
+           * to recognize construction-link types, apply the stricter threshold and discard some decoded
+           * locations. In practice, this is not an issue as these segments are impassable anyway.
+           */
+          if (rsegment.GetRoadNameInfo().m_isLink)
+            rampSegments++;
+          else
+            nonRampSegments++;
+        ramps = (rampSegments >= nonRampSegments);
+      }
+      auto threshold = ramps ? kRatioThresholdRamps : kRatioThresholdDefault;
+      if (lengthDistanceRatio > threshold)
+      {
+        LOG(LINFO, ("length/distance ratio", lengthDistanceRatio,
+            ramps ? "(with ramps)" : "(no ramps)",
+                "exceeds threshold", threshold, "– discarding", message.m_id));
+        return;
+      }
+    }
 
     if (m_message.value().m_location.value().m_fuzziness
         && (m_message.value().m_location.value().m_fuzziness.value() == traffxml::Fuzziness::LowRes))
