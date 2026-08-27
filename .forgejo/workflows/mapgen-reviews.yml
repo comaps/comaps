@@ -14,7 +14,7 @@ on:
 
 env:
   # software versions
-  MOC_VERSION: 0.6.0  # mangrove-osm-coder version, see https://codeberg.org/mmakowski/mangrove-osm-coder/tags
+  MOC_VERSION: 0.6.1  # mangrove-osm-coder version, see https://codeberg.org/mmakowski/mangrove-osm-coder/tags
   POSTGIS_VERSION: 18-3.6
   OSM2PGSQL_VERSION: 2.2.0
 
