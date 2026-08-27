@@ -143,7 +143,6 @@
 "share_my_location" = "分享我的位置";
 "prefs_group_route" = "导航";
 "pref_zoom_title" = "缩放按钮";
-"pref_left_button_type" = "左侧主按钮";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "地图语言";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "自动";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "透视图";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "3D 建筑";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D 建筑在省电模式下处于关闭状态";
 /* Settings «Route» category: «Tts enabled» title */
@@ -364,7 +361,7 @@
 "p2p_from_here" = "从这出发";
 "p2p_to_here" = "到这去";
 "p2p_only_from_current" = "导航只能从您目前的位置开始。";
-"p2p_reroute_from_current" = "您是否想要规划当前位置的路线？";
+"p2p_reroute_from_current" = "您要从当前位置规划路线吗？";
 "editor_time_add" = "添加计划";
 "editor_time_delete" = "删除计划";
 /* Text for allday switch. */
@@ -381,7 +378,7 @@
 "editor_done_dialog_1" = "您已经改变了世界地图。请别再藏着掖着了！告诉您的朋友们并一起来编辑地图。";
 "share_with_friends" = "与朋友分享";
 "editor_report_problem_send_button" = "发送";
-"autodownload" = "自动下载";
+"autodownload" = "自动下载地图";
 /* Voice */
 "voice" = "声音";
 "voice_explanation" = "可以在系统设置中的 *辅助功能*、*阅读与朗读*、*声音*下选择更好的声音。";
@@ -474,7 +471,7 @@
 "editor_sharing_title" = "我改进了 CoMaps 地图";
 /* Downloaded 10 **of** 20 <- it is that "of" */
 "downloader_of" = "%1$d / %2$d";
-"download_over_mobile_header" = "用手机网络连接下载吗？";
+"download_over_mobile_header" = "要通过移动网络连接下载吗？";
 "download_over_mobile_message" = "如果您使用移动数据或漫游来进行下载，将可能导致额外的费用。";
 "error_enter_correct_house_number" = "输入正确的门牌号码";
 "editor_storey_number" = "楼层数量 (最多 %d 层)";
@@ -492,7 +489,7 @@
 "editor_operator" = "运营方";
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "运营方：%@";
-"editor_category_unsuitable_title" = "找不到合适的类别？";
+"editor_category_unsuitable_title" = "找不到合适的类别吗？";
 "editor_category_unsuitable_text" = "CoMaps 只允许添加简单的点类别，即无法添加城镇、道路、湖泊、建筑轮廓等类别。请直接向 <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> 添加此类类别。请查看我们的<a href=\"https://www.comaps.app/support/advanced-map-editing/\">指南</a>，了解详细的步骤说明。";
 "downloader_no_downloaded_maps_title" = "您尚未下载任何地图";
 "downloader_no_downloaded_maps_message" = "下载地图来查找位置和离线浏览。";
@@ -531,9 +528,9 @@
 "placepage_delete_bookmark_button" = "删除地点";
 "editor_edits_sent_message" = "您的说明将发送至 OpenStreetMap";
 "editor_comment_hint" = "备注…";
-"editor_reset_edits_message" = "舍弃所有本地更改？";
+"editor_reset_edits_message" = "要舍弃所有本地更改吗？";
 "editor_reset_edits_button" = "舍弃更改";
-"editor_remove_place_message" = "删除已添加的地点？";
+"editor_remove_place_message" = "要删除已添加的地点吗？";
 "editor_remove_place_button" = "删除";
 "editor_place_doesnt_exist" = "该地点不存在";
 "editor_place_doesnt_exist_description" = "描述该地点的现状，以便向 OpenStreetMap 社区发送错误注记";
@@ -545,7 +542,7 @@
 "refresh" = "更新";
 "placepage_add_place_button" = "将地点添加到 OpenStreetMap";
 /* Displayed when saving some edits to the map to warn against publishing personal data */
-"editor_share_to_all_dialog_title" = "您想要发送给所有用户吗？";
+"editor_share_to_all_dialog_title" = "您要将其发送给所有用户吗？";
 /* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "请确保您没有输入任何私人或个人数据。";
 "editor_share_to_all_dialog_message_2" = "OpenStreetMap 编辑人员将检查更改，如有任何疑问，将与您联系。";
@@ -570,10 +567,10 @@
 "mobile_data_description" = "要显示地点的详细信息（例如照片、价格和评价），需要使用移动网络。";
 "mobile_data_option_never" = "从不使用";
 "mobile_data_option_ask" = "总是询问";
-"traffic_update_maps_text" = "诺要显示交通数据，必须更新地图。";
+"traffic_update_maps_text" = "要显示交通数据，必须更新地图。";
 "big_font" = "增大地图上的字体大小";
 /* "traffic" as in road congestion */
-"traffic_update_app_message" = "诺要显示交通数据，必须更新应用。";
+"traffic_update_app_message" = "要显示交通数据，必须更新应用。";
 /* "traffic" as in "road congestion" */
 "traffic_data_unavailable" = "交通数据不可用";
 "enable_logging" = "启用日志记录";
@@ -625,8 +622,6 @@
 "restore" = "恢复";
 "privacy_policy" = "隐私政策";
 "terms_of_use" = "使用条款";
-"button_layer_subway" = "地铁";
-"layers_title" = "地图样式和图层";
 "subway_data_unavailable" = "地铁地图不可用";
 "title_error_downloading_bookmarks" = "发生错误";
 "popular_place" = "受欢迎的";
@@ -672,7 +667,7 @@
 "follow_my_position" = "重新居中";
 "search_results" = "搜索结果";
 "then_turn" = "然后";
-"redirect_route_alert" = "您想重新规划路线吗？";
+"redirect_route_alert" = "您要重新规划路线吗？";
 /* A generic "Yes" button in dialogs */
 "yes" = "是";
 /* A generic "No" button in dialogs */
@@ -733,7 +728,6 @@
 "transit_not_found" = "本区域的地铁导航目前不可用";
 "dialog_pedestrian_route_is_long_header" = "未找到地铁路线图";
 "dialog_pedestrian_route_is_long_message" = "选择地铁站附近的起点和终点";
-"button_layer_isolines" = "等高线";
 "isolines_activation_error_dialog" = "如需使用等高线，请更新或下载所需区域的地图";
 "isolines_location_error_dialog" = "暂时无法获取该地区的等高线";
 "elevation_profile_diff_level" = "难度等级";
@@ -758,7 +752,7 @@
 /* Delete track button on track edit screen */
 "placepage_delete_track_button" = "删除轨迹";
 /* The track deletion confirmaion alert message. */
-"placepage_delete_track_confirmation_alert_message" = "您确定要删除这条音轨吗？";
+"placepage_delete_track_confirmation_alert_message" = "您确定要删除此轨迹吗？";
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "轨迹名称";
 /* move track or bookmark from the list button text */
@@ -795,8 +789,6 @@
 "car_continue_on_the_phone" = "在手机上继续";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "转到汽车屏幕";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "徒步旅行";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "导出所有收藏";
 /* Text for the editing the Track's color button. */
@@ -846,16 +838,12 @@
 "recover" = "恢复";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "全部恢复";
-/* Prompt to start recording a track. */
-"start_track_recording" = "录制轨迹";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "停止轨迹记录";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "停止而不保存";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "continue_recording" = "继续录制";
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "保存到收藏？";
+"track_recording_alert_title" = "要保存到收藏吗？";
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "轨迹为空 — 无内容可保存";
 "edit_track" = "编辑轨迹";
@@ -883,3 +871,27 @@
 "capacity_charging_no" = "无带充电桩的停车位";
 "planning_route_preview" = "预览";
 "planning_route_preview_sheet_title" = "路线预览";
+"discard" = "舍弃";
+"pref_custom_button_type" = "可自定义按钮";
+"osm" = "OpenStreetMap";
+"mode" = "模式";
+"mode_walking" = "步行";
+"mode_cycling" = "骑行";
+"mode_driving" = "驾车";
+"mode_public-transport" = "公共交通";
+"mode_option_traffic" = "显示路况";
+"mode_option_transitlines" = "显示公交线路";
+"mode_option_comingsoon" = "更多选项即将推出";
+"layers" = "图层";
+"layers_option_contour-lines" = "等高线";
+"layers_option_outdoor" = "户外";
+"layers_option_buildings-3d" = "3D 建筑";
+"layers_power-saving" = "由于您的省电模式设置，此图层当前已自动禁用";
+"postionmode_locate" = "查找当前位置";
+"postionmode_locating" = "正在查找当前位置…";
+"postionmode_following" = "地图已向北旋转，正在跟随当前位置";
+"postionmode_following-and-rotated" = "地图已向行进方向旋转，正在跟随当前位置";
+"zoom_in" = "放大";
+"zoom_out" = "缩小";
+"record_track" = "录制轨迹";
+"recording_track" = "正在录制轨迹";

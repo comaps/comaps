@@ -392,7 +392,7 @@
     <string name="editor_time_add_closed">Gesloten-tijden toevoegen</string>
     <string name="editor_time_title">Openingstijden</string>
     <string name="editor_time_advanced">Geavanceerde modus</string>
-    <string name="editor_time_simple">Simpele modus</string>
+    <string name="editor_time_simple">Eenvoudige modus</string>
     <string name="editor_hours_closed">Gesloten-tijden</string>
     <string name="editor_example_values">Voorbeeldwaarden</string>
     <string name="editor_correct_mistake">Corrigeer fout</string>
@@ -610,7 +610,7 @@
     <string name="pref_tts_speedcams_always">Waarschuw altijd</string>
     <!-- Speed camera settings menu option - Never warn (about speedcams) -->
     <string name="pref_tts_speedcams_never">Waarschuw nooit</string>
-    <string name="power_managment_title">Energiebesparingsmodus</string>
+    <string name="power_managment_title">Energiebesparende modus</string>
     <string name="power_managment_description">Probeer energieverbruik te verminderen ten koste van enkele functies</string>
     <string name="power_managment_setting_never">Nooit</string>
     <string name="power_managment_setting_auto">Wanneer batterij bijna leeg is</string>

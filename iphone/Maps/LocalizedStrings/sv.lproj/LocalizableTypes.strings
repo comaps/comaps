@@ -61,7 +61,7 @@
 "type.amenity.clinic" = "Klinik";
 "type.amenity.college" = "Högskola";
 "type.amenity.community_centre" = "Stadshus";
-"type.amenity.community_centre.youth_centre" = "Youth Centre";
+"type.amenity.community_centre.youth_centre" = "Ungdomscenter";
 "type.amenity.compressed_air" = "Tryckluft";
 "type.amenity.conference_centre" = "Konferens Center";
 "type.amenity.courthouse" = "Domstol";
@@ -409,11 +409,11 @@
 "type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
 "type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
 "type.lateral.port" = "Port";
-"type.lateral.starboard" = "Starboard";
-"type.cardinal.east" = "East";
-"type.cardinal.north" = "North";
-"type.cardinal.south" = "South";
-"type.cardinal.west" = "West";
+"type.lateral.starboard" = "Styrbord";
+"type.cardinal.east" = "Öst";
+"type.cardinal.north" = "Norr";
+"type.cardinal.south" = "Söder";
+"type.cardinal.west" = "Väst";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "Bergsräddningsstation";
 /* This is for secondary entrances, for main entrances see type.entrance.main */
@@ -425,7 +425,7 @@
 "type.entrance.service" = "Service Entrance";
 "type.entrance.entry" = "Entry (Only)";
 "type.entrance.exit" = "Utgång";
-"type.entrance.emergency" = "Emergency Exit";
+"type.entrance.emergency" = "Nödutgång";
 "type.fee.yes" = "€";
 "type.fee.no" = "Gratis";
 "type.healthcare.laboratory" = "Medicinskt laboratorium";

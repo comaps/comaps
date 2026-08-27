@@ -143,7 +143,6 @@
 "share_my_location" = "شارك موقعي";
 "prefs_group_route" = "الملاحة";
 "pref_zoom_title" = "أزرار تقريب/تبعيد";
-"pref_left_button_type" = "Left Main Button";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "لغة الخريطة";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "تلقائي";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "العرض المنظوري";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "مباني ثلاثية الأبعاد";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "تشغيل المباني ثلاثية الأبعاد مُعطّلة في وضع توفير الطاقة";
 /* Settings «Route» category: «Tts enabled» title */
@@ -625,8 +622,6 @@
 "restore" = "استعادة";
 "privacy_policy" = "سياسة الخصوصية";
 "terms_of_use" = "شروط الاستخدام";
-"button_layer_subway" = "مترو الانفاق";
-"layers_title" = "أنماط الخريطة وطبقاتها";
 "subway_data_unavailable" = "خريطة مترو الانفاق غير متوفرة";
 "title_error_downloading_bookmarks" = "حدث خطأ";
 "popular_place" = "رائج";
@@ -733,7 +728,6 @@
 "transit_not_found" = "التنقل باستخدام مترو الأنفاق في هذه المنطقة غير متاح حتى الآن";
 "dialog_pedestrian_route_is_long_header" = "لم يتم العثور على مترو الانفاق";
 "dialog_pedestrian_route_is_long_message" = "يُرجى اختيار نقطة بداية أو نهاية أقرب لمحطة مترو الأنفاق";
-"button_layer_isolines" = "تضاريس";
 "isolines_activation_error_dialog" = "يتطلب تفعيل الخطوط الكنتورية تنزيل بيانات الخريطة لهذه المنطقة";
 "isolines_location_error_dialog" = "الطبقة الطبوغرافية ليست متاحة بعد في هذه المنطقة";
 "elevation_profile_diff_level" = "مستوى الصعوبة";
@@ -795,8 +789,6 @@
 "car_continue_on_the_phone" = "تواصل على الهاتف";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "إلى شاشة السيارة";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "جولة على الأقدام";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "صدِّر كل المفضلات";
 /* Text for the editing the Track's color button. */
@@ -846,10 +838,6 @@
 "recover" = "استرداد";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "استرداد الكل";
-/* Prompt to start recording a track. */
-"start_track_recording" = "سجِّل مسار";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "أوقِف تسجيل المسار";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "التوقف بدون حفظ";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -883,3 +871,27 @@
 "capacity_charging_no" = "لا أماكن مزودة بشواحن";
 "planning_route_preview" = "معاينة";
 "planning_route_preview_sheet_title" = "Route Preview";
+"discard" = "Discard";
+"pref_custom_button_type" = "Customizable Button";
+"osm" = "OpenStreetMap";
+"mode" = "Mode";
+"mode_walking" = "Walking";
+"mode_cycling" = "Cycling";
+"mode_driving" = "Driving";
+"mode_public-transport" = "Public Transport";
+"mode_option_traffic" = "Show Traffic";
+"mode_option_transitlines" = "Show Transit Lines";
+"mode_option_comingsoon" = "Options coming soon";
+"layers" = "Layers";
+"layers_option_contour-lines" = "Contour Lines";
+"layers_option_outdoor" = "Outdoor";
+"layers_option_buildings-3d" = "3D Buildings";
+"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
+"postionmode_locate" = "Find own location";
+"postionmode_locating" = "Finding own location...";
+"postionmode_following" = "Following location with map roated towards North";
+"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
+"zoom_in" = "Zoom in";
+"zoom_out" = "Zoom out";
+"record_track" = "Record Track";
+"recording_track" = "Recording Track";

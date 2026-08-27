@@ -57,8 +57,8 @@
     <string name="download_resources">在您开始使用该应用之前，请先将世界概览地图下载到您的设备上。\n它将使用 %s 的存储空间。</string>
     <string name="download_resources_continue">前往地图</string>
     <string name="downloading_country_can_proceed">正在下载%1$s (%2$s)。您现在可以 \n继续查看地图。</string>
-    <string name="download_country_ask">下载%1$s的地图吗？ (%2$s)</string>
-    <string name="update_country_ask">更新%1$s的地图吗？ (%2$s)</string>
+    <string name="download_country_ask">要下载 %1$s 的地图吗？（%2$s）</string>
+    <string name="update_country_ask">要更新 %1$s 的地图吗？（%2$s）</string>
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
     <string name="pause">暂停</string>
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
@@ -90,7 +90,7 @@
     <!-- Free space out of total storage size in Maps Storage settings, e.g. "300 MB free of 2 GB" -->
     <string name="maps_storage_free_size">剩余 %1$s / 总计 %2$s</string>
     <!-- Question dialog for transferring maps from one storage to another -->
-    <string name="move_maps">移动地图？</string>
+    <string name="move_maps">要移动地图吗？</string>
     <!-- Error moving map files from one storage to another -->
     <string name="move_maps_error">移动地图文件时出错</string>
     <!-- Ask user to wait several minutes (some long process in modal dialog). -->
@@ -384,7 +384,7 @@
     <string name="p2p_from_here">从这出发</string>
     <string name="p2p_to_here">到这去</string>
     <string name="p2p_only_from_current">导航只能从您当前的位置开始</string>
-    <string name="p2p_reroute_from_current">您是否想要规划当前位置的路线？</string>
+    <string name="p2p_reroute_from_current">您要从当前位置规划路线吗？</string>
     <!-- Edit open hours/set time and minutes dialog -->
     <string name="next_button">下一页</string>
     <!-- Tab title in the Edit Opening Hours time picker -->
@@ -406,7 +406,7 @@
     <string name="editor_correct_mistake">纠正错误</string>
     <string name="editor_add_select_location">选择地点</string>
     <string name="editor_report_problem_send_button">发送</string>
-    <string name="autodownload">自动下载</string>
+    <string name="autodownload">自动下载地图</string>
     <!-- Place Page opening hours text -->
     <string name="daily">每天</string>
     <string name="twentyfour_seven">24/7</string>
@@ -470,7 +470,7 @@
     <string name="login_to_make_edits_visible">创建 OpenStreetMap 账号或登录，向全世界发布您编辑的地图</string>
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d / %2$d</string>
-    <string name="download_over_mobile_header">用手机网络连接下载吗？</string>
+    <string name="download_over_mobile_header">要通过移动网络连接下载吗？</string>
     <string name="download_over_mobile_message">对于部分移动数据套餐，这可能非常昂贵，尤其是在漫游时。</string>
     <string name="error_enter_correct_house_number">输入正确的门牌号码</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
@@ -489,7 +489,7 @@
     <string name="editor_operator">运营方</string>
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">运营方：%s</string>
-    <string name="editor_category_unsuitable_title">找不到合适的类别？</string>
+    <string name="editor_category_unsuitable_title">找不到合适的类别吗？</string>
     <string name="editor_category_unsuitable_text">CoMaps 只能添加简单的点类别，无法添加城镇、道路、湖泊、建筑轮廓等类别。请直接向 <a href="https://www.openstreetmap.org">OpenStreetMap.org</a> 添加此类类别。请查看我们的<a href="https://www.comaps.app/support/advanced-map-editing/">指南</a>，了解详细的步骤说明。</string>
     <string name="downloader_no_downloaded_maps_title">您尚未下载任何地图</string>
     <string name="downloader_no_downloaded_maps_message">下载地图以离线搜索和导航</string>
@@ -503,9 +503,9 @@
     <string name="placepage_more_button">更多</string>
     <string name="placepage_edit_bookmark_button">编辑已保存的地点</string>
     <string name="placepage_personal_notes_hint">个人注记（文字或 html）</string>
-    <string name="editor_reset_edits_message">舍弃所有本地更改？</string>
+    <string name="editor_reset_edits_message">要舍弃所有本地更改吗？</string>
     <string name="editor_reset_edits_button">舍弃更改</string>
-    <string name="editor_remove_place_message">删除已添加的地点？</string>
+    <string name="editor_remove_place_message">要删除已添加的地点吗？</string>
     <string name="editor_remove_place_button">删除</string>
     <string name="editor_place_doesnt_exist">该地点不存在</string>
     <!-- Error message for "Place doesn't exist" dialog when comment is empty -->
@@ -521,13 +521,13 @@
     <string name="error_enter_correct_line_page">请输入有效的 LINE ID 或网址</string>
     <string name="placepage_add_place_button">将地点添加到 OpenStreetMap</string>
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
-    <string name="editor_share_to_all_dialog_title">您想要发送给所有用户吗？</string>
+    <string name="editor_share_to_all_dialog_title">您要将其发送给所有用户吗？</string>
     <!-- Dialog before publishing the modifications to the public map. -->
     <string name="editor_share_to_all_dialog_message_1">请确保您没有输入任何私人或个人数据。</string>
     <string name="editor_share_to_all_dialog_message_2">OpenStreetMap 编辑人员将检查更改，如有任何疑问，将与您联系。</string>
     <string name="navigation_stop_button">停止</string>
     <!-- Shown as toast when starting the recent track recording -->
-    <string name="track_recording">记录轨迹</string>
+    <string name="track_recording">正在录制轨迹</string>
     <!-- For the first routing -->
     <string name="accept">接受</string>
     <!-- For the first routing -->
@@ -799,13 +799,13 @@
     <!-- Prompt to start recording a track. -->
     <string name="start_track_recording">录制轨迹</string>
     <!-- Prompt for stopping a track recording. -->
-    <string name="stop_track_recording">停止轨迹记录</string>
+    <string name="stop_track_recording">停止轨迹录制</string>
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="stop_without_saving">停止而不保存</string>
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">继续录制</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">保存到收藏？</string>
+    <string name="track_recording_alert_title">要保存到收藏吗？</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">轨迹为空 — 无内容可保存</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -814,7 +814,7 @@
     <string name="edit_track">编辑轨迹</string>
     <string name="uri_open_location_failed">未安装可以打开位置的应用</string>
     <!-- preference string for using auto theme only in navigation mode -->
-    <string name="nav_auto">导航中自动</string>
+    <string name="nav_auto">在导航中自动</string>
     <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="app_site_url">https://comaps.app/zh-Hans/</string>
@@ -862,7 +862,7 @@
     <string name="osm_note_hint">或者，也可以为 OpenStreetMap 社区留下注记，以便其他人可以在此添加或修复地点。</string>
     <string name="osm_note_toast">注记将发送至 OpenStreetMap</string>
     <string name="existence_confirmed_time_ago">已于%s确认地点存在</string>
-    <string name="delete_track_dialog_title">是否删除 %s？</string>
+    <string name="delete_track_dialog_title">要删除 %s 吗？</string>
     <string name="hours_confirmed_time_ago">已于%s确认</string>
     <string name="share_track">分享轨迹</string>
     <string name="pref_tts_no_system_tts_short">未找到文字转语音引擎，请检查应用设置</string>

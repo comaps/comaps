@@ -143,7 +143,6 @@
 "share_my_location" = "Comparteix la meva ubicació";
 "prefs_group_route" = "Navegació";
 "pref_zoom_title" = "Botons de zoom";
-"pref_left_button_type" = "Left Main Button";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Map Language";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "Automàtic";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Vista en perspectiva";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "Edificis en 3D";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "Els edificis en 3D es desactiven en mode d'estalvi d'energia";
 /* Settings «Route» category: «Tts enabled» title */
@@ -625,8 +622,6 @@
 "restore" = "Restaura";
 "privacy_policy" = "Política de privadesa";
 "terms_of_use" = "Condicions del servei";
-"button_layer_subway" = "Metro";
-"layers_title" = "Estils i capes del mapa";
 "subway_data_unavailable" = "El mapa del metro no està disponible";
 "title_error_downloading_bookmarks" = "S’ha produït un error";
 "popular_place" = "Popular";
@@ -733,7 +728,6 @@
 "transit_not_found" = "La navegació en metro en aquesta regió encara no és disponible";
 "dialog_pedestrian_route_is_long_header" = "No s’ha trobat cap ruta en metro";
 "dialog_pedestrian_route_is_long_message" = "Trieu un altre punt, inicial o final, més proper a una estació de metro";
-"button_layer_isolines" = "Corbes de nivell";
 "isolines_activation_error_dialog" = "Per a activar i usar la capa topogràfica, actualitzeu o baixeu el mapa de l’àrea";
 "isolines_location_error_dialog" = "La capa topogràfica encara no és disponible en aquesta àrea";
 "elevation_profile_diff_level" = "Nivell de dificultat";
@@ -795,8 +789,6 @@
 "car_continue_on_the_phone" = "Passa al telèfon";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "A la pantalla del cotxe";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Senderisme";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Exporta tots els preferits";
 /* Text for the editing the Track's color button. */
@@ -846,10 +838,6 @@
 "recover" = "Recuperar";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Recuperar-ho tot";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Enregistra el recorregut";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Atura l’enregistrament del recorregut";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Atura sense desar";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -883,3 +871,27 @@
 "capacity_charging_no" = "No hi ha places amb carregadors";
 "planning_route_preview" = "Vista prèvia";
 "planning_route_preview_sheet_title" = "Route Preview";
+"discard" = "Discard";
+"pref_custom_button_type" = "Customizable Button";
+"osm" = "OpenStreetMap";
+"mode" = "Mode";
+"mode_walking" = "Walking";
+"mode_cycling" = "Cycling";
+"mode_driving" = "Driving";
+"mode_public-transport" = "Public Transport";
+"mode_option_traffic" = "Show Traffic";
+"mode_option_transitlines" = "Show Transit Lines";
+"mode_option_comingsoon" = "Options coming soon";
+"layers" = "Layers";
+"layers_option_contour-lines" = "Contour Lines";
+"layers_option_outdoor" = "Outdoor";
+"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
+"zoom_in" = "Zoom in";
+"zoom_out" = "Zoom out";
+"layers_option_buildings-3d" = "3D Buildings";
+"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
+"postionmode_locate" = "Find own location";
+"postionmode_locating" = "Finding own location...";
+"postionmode_following" = "Following location with map roated towards North";
+"record_track" = "Record Track";
+"recording_track" = "Recording Track";

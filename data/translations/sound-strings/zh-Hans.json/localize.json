@@ -319,5 +319,137 @@
     },
     "at_the_end_of_the_road": {
         "defaultMessage": "在路的尽头，"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "您距离路线 %1$s"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "在超过三公里后"
+    },
+    "from_50_meters": {
+        "defaultMessage": "五十米"
+    },
+    "from_100_meters": {
+        "defaultMessage": "一百米"
+    },
+    "from_200_meters": {
+        "defaultMessage": "两百米"
+    },
+    "from_250_meters": {
+        "defaultMessage": "两百五十米"
+    },
+    "from_300_meters": {
+        "defaultMessage": "三百米"
+    },
+    "from_400_meters": {
+        "defaultMessage": "四百米"
+    },
+    "from_500_meters": {
+        "defaultMessage": "五百米"
+    },
+    "from_600_meters": {
+        "defaultMessage": "六百米"
+    },
+    "from_700_meters": {
+        "defaultMessage": "七百米"
+    },
+    "from_750_meters": {
+        "defaultMessage": "七百五十米"
+    },
+    "from_800_meters": {
+        "defaultMessage": "八百米"
+    },
+    "from_900_meters": {
+        "defaultMessage": "九百米"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "一公里"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "一点五公里"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "两公里"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "两点五公里"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "三公里"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "超过三公里"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "在超过两英里后"
+    },
+    "from_50_feet": {
+        "defaultMessage": "五十英尺"
+    },
+    "from_100_feet": {
+        "defaultMessage": "一百英尺"
+    },
+    "from_200_feet": {
+        "defaultMessage": "两百英尺"
+    },
+    "from_300_feet": {
+        "defaultMessage": "三百英尺"
+    },
+    "from_400_feet": {
+        "defaultMessage": "四百英尺"
+    },
+    "from_500_feet": {
+        "defaultMessage": "五百英尺"
+    },
+    "from_600_feet": {
+        "defaultMessage": "六百英尺"
+    },
+    "from_700_feet": {
+        "defaultMessage": "七百英尺"
+    },
+    "from_800_feet": {
+        "defaultMessage": "八百英尺"
+    },
+    "from_900_feet": {
+        "defaultMessage": "九百英尺"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "一千英尺"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "一千五百英尺"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "两千英尺"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "两千五百英尺"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "三千英尺"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "三千五百英尺"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "四千英尺"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "四千五百英尺"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "五千英尺"
+    },
+    "from_1_mile": {
+        "defaultMessage": "一英里"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "一点五英里"
+    },
+    "from_2_miles": {
+        "defaultMessage": "两英里"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "超过两英里"
     }
 }

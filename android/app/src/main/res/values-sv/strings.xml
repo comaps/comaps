@@ -862,4 +862,9 @@
     <string name="prefs_group_privacy_summary">Sökhistorik</string>
     <string name="power_management">Energiinställningar</string>
     <string name="pref_speedlimit_title">Visa hastighetsgränser</string>
+    <string name="charge_socket_type1">Typ 1</string>
+    <string name="unknown_power_output">okänt</string>
+    <string name="stop">Stopp</string>
+    <string name="pref_maplanguage_local">Lokalt språk</string>
+    <string name="search_in_all_lists">Sök i alla listor</string>
 </resources>

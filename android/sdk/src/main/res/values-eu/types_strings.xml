@@ -1497,4 +1497,5 @@
     <string name="type.piste_type.downhill">Mendiko eski</string>
     <string name="type.piste_type.nordic">Ipar eski ibilbidea</string>
     <string name="type.social_facility.food_bank">Elikagai bankua</string>
+    <string name="type.leisure.sports_centre.sport.swimming">Igerilekua</string>
 </resources>

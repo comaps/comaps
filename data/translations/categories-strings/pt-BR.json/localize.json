@@ -3,7 +3,7 @@
         "defaultMessage": "Onde comer|comer|comida|alimentação"
     },
     "@category_food": {
-        "defaultMessage": "Mercados|Alimentação"
+        "defaultMessage": "3Mercado|4Alimentação|Supermercado|Conveniência|Mantimentos|Comida|Mercearia|4Alimentos|Bodega|4Mercadinho"
     },
     "@category_transport": {
         "defaultMessage": "5Transporte"
@@ -21,7 +21,7 @@
         "defaultMessage": "Hotel|Hoteles"
     },
     "@category_tourism": {
-        "defaultMessage": "4Atrações turísticas|3Turismo|Mirantes"
+        "defaultMessage": "4Atrações|4Atrações turísticas|3Turismo|Mirantes|Lugares de interesse"
     },
     "@category_entertainment": {
         "defaultMessage": "Entretenimento"
@@ -207,7 +207,7 @@
         "defaultMessage": "3Prefeitura"
     },
     "tourism-attraction|@category_tourism": {
-        "defaultMessage": "3Atração turística"
+        "defaultMessage": "3Atração turística|U+1F3A0|U+1F3A1|U+1F3A2|U+1F3AA"
     },
     "tourism-artwork": {
         "defaultMessage": "3Obra de arte|3instalação artística"

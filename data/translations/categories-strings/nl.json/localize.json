@@ -273,7 +273,7 @@
         "defaultMessage": "5Grenssteen"
     },
     "historic-castle|@category_tourism": {
-        "defaultMessage": "4Kasteel|burcht|attractie|Castra|Weerkerk|Vesting|Heuvelfort|Kremlin|Manoir|Paleis"
+        "defaultMessage": "4Kasteel|burcht|Vesting|Heuvelfort|Kremlin|Landhuis|Paleis"
     },
     "historic-city_gate|@category_tourism": {
         "defaultMessage": "5Stadspoort"
@@ -288,7 +288,7 @@
         "defaultMessage": "Galg"
     },
     "historic-memorial|@category_tourism": {
-        "defaultMessage": "Gedenkteken|monument|attractie"
+        "defaultMessage": "Gedenkteken|monument|herdenking"
     },
     "historic-memorial-cross": {
         "defaultMessage": "Herdenkingskruis"
@@ -435,7 +435,7 @@
         "defaultMessage": "Medisch laboratorium"
     },
     "healthcare-physiotherapist": {
-        "defaultMessage": "Fysiotherapeut"
+        "defaultMessage": "5Fysiotherapeut"
     },
     "healthcare-alternative": {
         "defaultMessage": "Alternatieve geneeskunde"
@@ -876,7 +876,7 @@
         "defaultMessage": "Zagerij"
     },
     "craft-shoemaker": {
-        "defaultMessage": "Schoenmaker|schoenmakerij"
+        "defaultMessage": "6Schoenmaker|schoenmakerij"
     },
     "craft-winery": {
         "defaultMessage": "4Wijnhandel|Wijn"
@@ -924,10 +924,10 @@
         "defaultMessage": "4Kopieerwinkel|Kopieerwinkel|4afdrukken|4kopiëren"
     },
     "shop-photo|@shop": {
-        "defaultMessage": "4Foto|lijsten"
+        "defaultMessage": "4Fotowinkel|5Fotografiewinkel|Fotografie|Foto|lijsten"
     },
     "shop-camera|@shop": {
-        "defaultMessage": "3Camera|camera's|4fotografie"
+        "defaultMessage": "3Camerawinkel|3Camera|camera's|4fotografie"
     },
     "shop-travel_agency": {
         "defaultMessage": "Reisbureau|reisagentschap|reizen"
@@ -960,7 +960,7 @@
         "defaultMessage": "Fietsenstalling"
     },
     "amenity-waste_basket": {
-        "defaultMessage": "7Vuilnisbak|5afvalbak|4prullenbak|4prullenmand|mand"
+        "defaultMessage": "4Vuilnisbak|5afvalbak|4prullenbak|4prullenmand|mand"
     },
     "emergency-phone": {
         "defaultMessage": "Praatpaal|4noodtelefoon"
@@ -975,7 +975,7 @@
         "defaultMessage": "Bandenreparatie"
     },
     "shop-chemist|@shop": {
-        "defaultMessage": "4Drogisterij"
+        "defaultMessage": "4Drogisterij|Apotheek"
     },
     "shop-pet|@shop": {
         "defaultMessage": "Dierenwinkel"
@@ -1029,7 +1029,7 @@
         "defaultMessage": "4Wedkantoor"
     },
     "shop-seafood|@category_food|@shop": {
-        "defaultMessage": "Visboer|vismarkt|vis|zeedier|zeevrucht|schelpdier"
+        "defaultMessage": "Visboer|viswinkel|vismarkt|vis|zeedieren|zeevruchten|schelpdieren"
     },
     "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
         "defaultMessage": "4Tweedehandswinkel|5Kringloopwinkel4|Vlooienmarkt"
@@ -1233,7 +1233,7 @@
         "defaultMessage": "4Koffiewinkel|koffie"
     },
     "shop-fabric|@shop": {
-        "defaultMessage": "Stoffenwinkel"
+        "defaultMessage": "Stoffenwinkel|textiel"
     },
     "shop-music|@shop": {
         "defaultMessage": "Platen|LP|4vinyl|Muziek|Platenzaak"
@@ -1356,7 +1356,7 @@
         "defaultMessage": "5Huisdierverzorging|trimmer|4hondentrimmer"
     },
     "shop-hifi|@shop": {
-        "defaultMessage": "4HiFi-audio"
+        "defaultMessage": "4HiFi-audio|hi-fi"
     },
     "amenity-conference_centre": {
         "defaultMessage": "5Conferentiecentrum|5Congrescentrum"
@@ -1377,7 +1377,7 @@
         "defaultMessage": "Afvaloverslagstation"
     },
     "shop-carpet|@shop": {
-        "defaultMessage": "4Tapijten"
+        "defaultMessage": "4Tapijten|kleden"
     },
     "shop-pasta|@shop": {
         "defaultMessage": "Pasta"
@@ -1557,7 +1557,7 @@
         "defaultMessage": "6Telecommunicatiezaak|Telecommunicatie|telecom"
     },
     "leisure-bandstand": {
-        "defaultMessage": "3Podium"
+        "defaultMessage": "3Podium|muziekpaviljoen"
     },
     "social_facility-soup_kitchen": {
         "defaultMessage": "4Gaarkeuken|Voedsel"
@@ -1632,7 +1632,7 @@
         "defaultMessage": "Ontbijt"
     },
     "cuisine-burger|@fastfood": {
-        "defaultMessage": "Hamburgers"
+        "defaultMessage": "Hamburger"
     },
     "cuisine-cake": {
         "defaultMessage": "Taart"
@@ -1659,7 +1659,7 @@
         "defaultMessage": "Grill"
     },
     "cuisine-hotdog|@fastfood": {
-        "defaultMessage": "Hotdogs"
+        "defaultMessage": "Hotdog"
     },
     "cuisine-ice_cream": {
         "defaultMessage": "IJs"
@@ -1671,7 +1671,7 @@
         "defaultMessage": "Noedels"
     },
     "cuisine-pancake|cuisine-crepe": {
-        "defaultMessage": "Pannenkoek"
+        "defaultMessage": "Pannenkoek|pannenkoeken"
     },
     "cuisine-pasta": {
         "defaultMessage": "Pasta"
@@ -1689,13 +1689,13 @@
         "defaultMessage": "Worst"
     },
     "cuisine-seafood|cuisine-fish": {
-        "defaultMessage": "Vis en zeevruchten|Vis"
+        "defaultMessage": "Zeevruchten|Vis"
     },
     "cuisine-soba": {
         "defaultMessage": "Soba"
     },
     "cuisine-steak_house": {
-        "defaultMessage": "Steakhouse"
+        "defaultMessage": "Steakhouse|steaks"
     },
     "cuisine-sushi": {
         "defaultMessage": "Sushi"

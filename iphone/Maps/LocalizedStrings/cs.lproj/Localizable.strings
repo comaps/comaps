@@ -143,7 +143,6 @@
 "share_my_location" = "Sdílet mé umístění";
 "prefs_group_route" = "Navigace";
 "pref_zoom_title" = "Tlačítka přiblížení/oddálení";
-"pref_left_button_type" = "Levé hlavní tlačítko";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Jazyk mapy";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "Automaticky";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Zobrazení perspektivy";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "3D budovy";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D budovy jsou v úsporném režimu vypnuty";
 /* Settings «Route» category: «Tts enabled» title */
@@ -625,8 +622,6 @@
 "restore" = "Obnovit";
 "privacy_policy" = "Zásady ochrany osobních údajů";
 "terms_of_use" = "Podmínky užívání";
-"button_layer_subway" = "Metro";
-"layers_title" = "Styly a vrstvy mapy";
 "subway_data_unavailable" = "Mapa metra není dostupná";
 "title_error_downloading_bookmarks" = "Někde se stala chyba";
 "popular_place" = "Populární";
@@ -733,7 +728,6 @@
 "transit_not_found" = "Navigace metra v této oblasti zatím není k dispozici";
 "dialog_pedestrian_route_is_long_header" = "Trasa metra nebyla nalezena";
 "dialog_pedestrian_route_is_long_message" = "Zvolte prosím počáteční nebo koncový bod blíže k stanici metra";
-"button_layer_isolines" = "Terén";
 "isolines_activation_error_dialog" = "Chcete-li aktivovat a používat topografickou vrstvu, prosím aktualizujte nebo si stáhněte mapu oblasti";
 "isolines_location_error_dialog" = "Topografická vrstva není v této oblasti ještě dostupná";
 "elevation_profile_diff_level" = "Stupeň obtížnosti";
@@ -795,8 +789,6 @@
 "car_continue_on_the_phone" = "Pokračujte v telefonu";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Na obrazovku auta";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Pěší turistika";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Exportovat všechna oblíbená místa";
 /* Text for the editing the Track's color button. */
@@ -846,10 +838,6 @@
 "recover" = "Obnovit";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Obnovit vše";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Zaznamenat trasu";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Zastavit nahrávání trasy";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Zastavit bez uložení";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -883,3 +871,27 @@
 "capacity_charging_no" = "Žádná místa s nabíječkami";
 "planning_route_preview" = "Náhled";
 "planning_route_preview_sheet_title" = "Náhled trasy";
+"discard" = "Zahodit";
+"pref_custom_button_type" = "Přizpůsobitelné tlačítko";
+"osm" = "OpenStreetMap";
+"mode" = "Režim";
+"mode_walking" = "Chůze";
+"mode_cycling" = "Cyklistika";
+"mode_driving" = "Potápění se";
+"mode_public-transport" = "Veřejná doprava";
+"mode_option_traffic" = "Zobrazit provoz";
+"mode_option_transitlines" = "Zobrazit trasy veřejné dopravy";
+"mode_option_comingsoon" = "Možnosti již brzy";
+"layers" = "Vrstvy";
+"layers_option_contour-lines" = "Vrstevnice";
+"layers_option_outdoor" = "Pěší turistika";
+"layers_option_buildings-3d" = "3D budovy";
+"layers_power-saving" = "Tato vrstva je momentálně zakázána z důvodu vašeho nastavení režimu úspory energie";
+"postionmode_locate" = "Najít vlastní polohu";
+"postionmode_locating" = "Hledání vlastní polohy…";
+"postionmode_following" = "Následování polohy s mapou otočenou na sever";
+"postionmode_following-and-rotated" = "Následování polohy s mapou otočenou ve směru pohybu";
+"zoom_in" = "Přiblížit";
+"zoom_out" = "Oddálit";
+"record_track" = "Zaznamenat trasu";
+"recording_track" = "Záznam trasy";

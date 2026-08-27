@@ -1450,5 +1450,17 @@
     },
     "cuisine-vegan|@cuisine_all_vegetarian": {
         "defaultMessage": "Sukaldaritza beganoa"
+    },
+    "amenity-studio": {
+        "defaultMessage": "5Media studio|studio"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "Gasolindegia"
+    },
+    "man_made-telescope|man_made-telescope-optical|man_made-telescope-radio|man_made-telescope-gamma": {
+        "defaultMessage": "Teleskopioa"
+    },
+    "man_made-observatory": {
+        "defaultMessage": "Behatokia"
     }
 }

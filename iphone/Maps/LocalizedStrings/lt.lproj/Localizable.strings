@@ -143,7 +143,6 @@
 "share_my_location" = "Bendrinti mano vietą";
 "prefs_group_route" = "Navigacija";
 "pref_zoom_title" = "Mastelio mygtukai";
-"pref_left_button_type" = "Kairysis pagrindinis mygtukas";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Žemėlapio kalba";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "Automatinė";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Perspektyvos rodinys";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "Trimačiai pastatai";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "Trimačiai pastatai yra išjungti energijos taupymo veiksenoje";
 /* Settings «Route» category: «Tts enabled» title */
@@ -625,8 +622,6 @@
 "restore" = "Atkurti";
 "privacy_policy" = "Privatumo politika";
 "terms_of_use" = "Naudojimo sąlygos";
-"button_layer_subway" = "Metro";
-"layers_title" = "Žemėlapio stiliai ir sluoksniai";
 "subway_data_unavailable" = "Metro žemėlapis neprieinamas";
 "title_error_downloading_bookmarks" = "Įvyko klaida";
 "popular_place" = "Populiarūs";
@@ -733,7 +728,6 @@
 "transit_not_found" = "Metro navigacija šiame regione dar negalima";
 "dialog_pedestrian_route_is_long_header" = "Metro maršrutas nerastas";
 "dialog_pedestrian_route_is_long_message" = "Pasirinkite pradžios ar pabaigos tašką, esančius arčiau metro stotelės";
-"button_layer_isolines" = "Reljefas";
 "isolines_activation_error_dialog" = "Atsisiųskite vietovės žemėlapį, jei norite aktyvinti ir naudoti reljefo sluoksnį";
 "isolines_location_error_dialog" = "Reljefo sluoksnis šiai vietovei dar neprieinamas";
 "elevation_profile_diff_level" = "Sudėtingumo lygis";
@@ -795,8 +789,6 @@
 "car_continue_on_the_phone" = "Tęsti telefone";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Į automobilio ekraną";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Žygiai pėsčiomis";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Eksportuoti visas žymes";
 /* Text for the editing the Track's color button. */
@@ -846,10 +838,6 @@
 "recover" = "Atkurti";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Atkurti viską";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Įrašyti trasą";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Stabdyti trasos įrašymą";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Stabdyti neįrašant";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -883,3 +871,27 @@
 "capacity_charging_no" = "No spaces with chargers";
 "planning_route_preview" = "Preview";
 "planning_route_preview_sheet_title" = "Route Preview";
+"discard" = "Discard";
+"pref_custom_button_type" = "Customizable Button";
+"osm" = "OpenStreetMap";
+"mode" = "Mode";
+"mode_walking" = "Walking";
+"mode_cycling" = "Cycling";
+"mode_driving" = "Driving";
+"mode_public-transport" = "Public Transport";
+"mode_option_traffic" = "Show Traffic";
+"mode_option_transitlines" = "Show Transit Lines";
+"mode_option_comingsoon" = "Options coming soon";
+"layers" = "Layers";
+"layers_option_contour-lines" = "Contour Lines";
+"layers_option_outdoor" = "Outdoor";
+"layers_option_buildings-3d" = "3D Buildings";
+"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
+"postionmode_locate" = "Find own location";
+"postionmode_locating" = "Finding own location...";
+"postionmode_following" = "Following location with map roated towards North";
+"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
+"zoom_in" = "Zoom in";
+"zoom_out" = "Zoom out";
+"record_track" = "Record Track";
+"recording_track" = "Recording Track";

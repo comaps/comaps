@@ -30,7 +30,7 @@
 	<key>tracks</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>tracks</string>
+		<string>%#@nevertranslate@</string>
 		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>

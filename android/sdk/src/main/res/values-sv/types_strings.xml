@@ -1402,4 +1402,12 @@
     <string name="type.amenity.sailing_school">Seglarskola</string>
     <string name="type.amenity.flight_school">Flygskola</string>
     <string name="type.amenity.luggage_locker">Förvaringsboxar</string>
+    <string name="type.amenity.community_centre.youth_centre">Ungdomscenter</string>
+    <string name="type.amenity.planetarium">Planetarium</string>
+    <string name="type.lateral.starboard">Styrbord</string>
+    <string name="type.cardinal.east">Öst</string>
+    <string name="type.cardinal.north">Norr</string>
+    <string name="type.cardinal.south">Söder</string>
+    <string name="type.cardinal.west">Väst</string>
+    <string name="type.entrance.emergency">Nödutgång</string>
 </resources>

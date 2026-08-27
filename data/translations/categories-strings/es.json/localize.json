@@ -78,7 +78,7 @@
         "defaultMessage": "3Panadería|pan|panificadora|4pastelería|5repostería|4confitería|4bollería"
     },
     "shop-cannabis|@shop": {
-        "defaultMessage": "Cánnabis|marihuana|mariguana"
+        "defaultMessage": "Cánnabis|marihuana|mariguana|CBD"
     },
     "shop-cosmetics|@category_shopping|@shop": {
         "defaultMessage": "4Productos cosméticos|Cosméticos|Belleza|Maquillaje"
@@ -207,7 +207,7 @@
         "defaultMessage": "3Parada de tranvía|tranvía|parada|U+1F683"
     },
     "amenity-bus_station|@category_transport": {
-        "defaultMessage": "3Estación de autobuses|Estación de ómnibus|Estación de micros|Estación de colectivos|Autobús|bus|Terminal de buses|Terminal de autobusesAutobús|omnibus|omni|bondi|colectivo"
+        "defaultMessage": "3Estación de autobuses|Estación de ómnibus|Estación de micros|Estación de colectivos|Estación de guaguas|Terminal de guaguas|Autobús|bus|Terminal de buses|Terminal de autobuses|Autobús|omnibus|omni|bondi|colectivo|guagua|buses|autobuses"
     },
     "railway-station|railway-halt|building-train_station|@category_transport": {
         "defaultMessage": "3Estación de tren|estación de tren|4ferrocarril|vía férrea|4estación|U+1F684|U+1F685|U+1F689|U+1F682|U+1F686|U+1F688|U+1F68A|U+1F68B|Parada de tren"
@@ -285,10 +285,10 @@
         "defaultMessage": "4Castillo|Castrum|Iglesia fortificada|Fortaleza|Castro|Kremlin|Casa solariega|Palacio"
     },
     "historic-city_gate|@category_tourism": {
-        "defaultMessage": "Puerta de la ciudad|Arco de ciudad"
+        "defaultMessage": "4Puerta de la ciudad|Arco de ciudad|Puerta fortificada|Arco de triunfo|Arco|Torre-puerta"
     },
     "historic-citywalls|@category_tourism": {
-        "defaultMessage": "Muro de la ciudad|Muralla"
+        "defaultMessage": "4Muralla de la ciudad|Muralla urbana|Recinto amurallado|Barbacana"
     },
     "historic-fort|@category_tourism": {
         "defaultMessage": "Fuerte|Fortificación|Fortín|Fortaleza|Destacamento fortificado|Puesto avanzado"
@@ -309,10 +309,10 @@
         "defaultMessage": "Escultura"
     },
     "historic-memorial-statue|@category_tourism": {
-        "defaultMessage": "Estatua"
+        "defaultMessage": "3Estatua"
     },
     "historic-memorial-stolperstein": {
-        "defaultMessage": "Stolperstein"
+        "defaultMessage": "Piedra de la memoria|Adoquín conmemorativo|Stolpersteine"
     },
     "historic-memorial-war_memorial|@category_tourism": {
         "defaultMessage": "Monumento de guerra|Memorial de guerra|Monumento a los caídos"
@@ -327,7 +327,7 @@
         "defaultMessage": "Cañón"
     },
     "historic-anchor": {
-        "defaultMessage": "Ancla|Ancla histórica"
+        "defaultMessage": "4Ancla conmemorativa|Ancla histórica"
     },
     "historic-ruins|@category_tourism": {
         "defaultMessage": "4Ruinas históricas|3Ruinas|Vestigios históricos|Yacimiento arqueológico|Restos arqueológicos|Vestigios"
@@ -993,7 +993,7 @@
         "defaultMessage": "Clínica veterinaria|veterinaria|veterinario"
     },
     "amenity-animal_shelter": {
-        "defaultMessage": "Refugio de animales|rescate de animales|protectora de animales|Perrera municipal"
+        "defaultMessage": "Refugio de animales|rescate de animales|protectora de animales|Perrera municipal|albergue de animales"
     },
     "@charging_station": {
         "defaultMessage": "Estación de carga|punto de carga|punto de recarga|Cargador|recargar|cargar"
@@ -1836,7 +1836,7 @@
         "defaultMessage": "austríaca|austríaco|cocina austríaca|comida austríaca"
     },
     "cuisine-argentinian": {
-        "defaultMessage": "argentina|argentino|cocina argentina|comida argentina"
+        "defaultMessage": "argentina|argentino|cocina argentina|comida argentina|gastronomía argentina"
     },
     "cuisine-arab": {
         "defaultMessage": "árabe|cocina árabe|comida árabe"

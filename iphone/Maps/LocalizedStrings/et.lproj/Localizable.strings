@@ -143,7 +143,6 @@
 "share_my_location" = "Jaga minu asukohta";
 "prefs_group_route" = "Tee juhatamine";
 "pref_zoom_title" = "Suuminupud";
-"pref_left_button_type" = "Vasak põhinupp";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Kaardi keel";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "Automaatne";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Perspektiivi vaade";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "3D-vaated";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D-vaated lülitatakse energiasäästurežiimis välja";
 /* Settings «Route» category: «Tts enabled» title */
@@ -625,8 +622,6 @@
 "restore" = "Taasta";
 "privacy_policy" = "Privaatsuspoliitika";
 "terms_of_use" = "Kasutustingimused";
-"button_layer_subway" = "Metroo";
-"layers_title" = "Kaardi stiilid ja kihid";
 "subway_data_unavailable" = "Metrookaart ei ole saadaval";
 "title_error_downloading_bookmarks" = "Tekkis viga";
 "popular_place" = "Populaarne";
@@ -733,7 +728,6 @@
 "transit_not_found" = "Tee juhatamine metroos ei ole selles piirkonnas veel saadaval";
 "dialog_pedestrian_route_is_long_header" = "Metroo marsruuti ei leidu";
 "dialog_pedestrian_route_is_long_message" = "Palun vali metroojaamale lähemal asuv alg- või lõpp-punkt";
-"button_layer_isolines" = "Kontuurjooned";
 "isolines_activation_error_dialog" = "Topograafilise kihi aktiveerimiseks ja kasutamiseks laadi alla piirkonna kaart";
 "isolines_location_error_dialog" = "Topograafiline kiht ei ole selles piirkonnas veel saadaval";
 "elevation_profile_diff_level" = "Raskusaste";
@@ -795,8 +789,6 @@
 "car_continue_on_the_phone" = "Jätka telefonis";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Auto ekraanile";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Matkamine";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Ekspordi kõik lemmikud";
 /* Text for the editing the Track's color button. */
@@ -846,10 +838,6 @@
 "recover" = "Taasta";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Taasta kõik";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Salvesta rada";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Peata raja salvestamine";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Lõpeta ilma salvestamata";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -883,3 +871,27 @@
 "capacity_charging_no" = "Pole laadijatega parkimiskohti";
 "planning_route_preview" = "Eelvaade";
 "planning_route_preview_sheet_title" = "Teekonna eelvaade";
+"discard" = "Loobu";
+"pref_custom_button_type" = "Kohendatav nupp";
+"osm" = "OpenStreetMap";
+"mode" = "Kasutusviis";
+"mode_walking" = "Kõndimine";
+"mode_cycling" = "Jalgrattasõit";
+"mode_driving" = "Autosõit";
+"mode_public-transport" = "Ühistransport";
+"mode_option_traffic" = "Näita liikluse teavet";
+"mode_option_transitlines" = "Näita ühistranspordiliine";
+"mode_option_comingsoon" = "Valikud on saadaval tulevikus";
+"layers" = "Kaardikihid";
+"layers_option_contour-lines" = "Kontuurjooned";
+"layers_option_outdoor" = "Liikumine looduses";
+"layers_option_buildings-3d" = "Hoonete 3D-vaated";
+"layers_power-saving" = "See kaardikiht on hetkel automaatselt lülitatud välja, kuna sinu nutiseadmes on sisse lülitatud energiasäästurežiim";
+"postionmode_locate" = "Tuvasta enda asukoht";
+"postionmode_locating" = "Tuvastan sinu asukohta...";
+"postionmode_following" = "Järgin asukohta nii, et kaart on pööratud põhjasuunas";
+"postionmode_following-and-rotated" = "Järgin asukohta nii, et kaart on pööratud liikumise suunas";
+"zoom_in" = "Suumi sisse";
+"zoom_out" = "Suumi välja";
+"record_track" = "Salvesta rada";
+"recording_track" = "Rada on salvestamisel";

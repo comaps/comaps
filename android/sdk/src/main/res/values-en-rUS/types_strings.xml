@@ -157,4 +157,5 @@
     <string name="type.craft.painter">House Painter</string>
     <string name="type.entrance.entry">Entrance (Only)</string>
     <string name="type.aerialway.cable_car">Cable Car</string>
+    <string name="type.leisure.garden">Garden</string>
 </resources>

@@ -143,7 +143,6 @@
 "share_my_location" = "Saját tartózkodási hely megosztása";
 "prefs_group_route" = "Navigáció";
 "pref_zoom_title" = "Nagyítás/kicsinyítés gombok";
-"pref_left_button_type" = "Bal oldali főgomb";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "A térkép nyelve";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "Automatikus";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Perspektivikus nézet";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "3D-s épületek";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "A 3D-s épületek energiatakarékos módban ki vannak kapcsolva";
 /* Settings «Route» category: «Tts enabled» title */
@@ -625,8 +622,6 @@
 "restore" = "Visszaállítás";
 "privacy_policy" = "Adatvédelmi irányelvek";
 "terms_of_use" = "Felhasználási feltételek";
-"button_layer_subway" = "Metró";
-"layers_title" = "Térképstílusok és rétegek";
 "subway_data_unavailable" = "A metrótérkép nem érhető el";
 "title_error_downloading_bookmarks" = "Hiba történt";
 "popular_place" = "Népszerű";
@@ -733,7 +728,6 @@
 "transit_not_found" = "Metrónavigáció ebben a régióban még nem érhető el";
 "dialog_pedestrian_route_is_long_header" = "Nem található metróútvonal";
 "dialog_pedestrian_route_is_long_message" = "Válasszon egy, a metróállomáshoz közelebb eső kiindulópontot vagy célállomást";
-"button_layer_isolines" = "Szintvonalak";
 "isolines_activation_error_dialog" = "A szintvonalak aktiválásához a terület térképadatainak letöltése szükséges";
 "isolines_location_error_dialog" = "A szintvonalak még nem állnak rendelkezésre ezen a területen";
 "elevation_profile_diff_level" = "Nehézségi szint";
@@ -795,8 +789,6 @@
 "car_continue_on_the_phone" = "Folytatás az eszközön";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Az autó képernyőjére";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Szabadtéri";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Összes kedvenc exportálása";
 /* Text for the editing the Track's color button. */
@@ -846,10 +838,6 @@
 "recover" = "Visszaállítás";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Összes visszaállítása";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Nyomvonal rögzítése";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Nyomvonal rögzítésének megállítása";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Megállítás mentés nélkül";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -883,3 +871,27 @@
 "capacity_charging_no" = "Nincs hely töltővel";
 "planning_route_preview" = "Preview";
 "planning_route_preview_sheet_title" = "Route Preview";
+"discard" = "Discard";
+"pref_custom_button_type" = "Customizable Button";
+"osm" = "OpenStreetMap";
+"mode" = "Mode";
+"mode_walking" = "Walking";
+"mode_cycling" = "Cycling";
+"mode_driving" = "Driving";
+"mode_public-transport" = "Public Transport";
+"mode_option_traffic" = "Show Traffic";
+"mode_option_transitlines" = "Show Transit Lines";
+"mode_option_comingsoon" = "Options coming soon";
+"layers" = "Layers";
+"layers_option_contour-lines" = "Contour Lines";
+"layers_option_outdoor" = "Outdoor";
+"layers_option_buildings-3d" = "3D Buildings";
+"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
+"postionmode_locate" = "Find own location";
+"postionmode_locating" = "Finding own location...";
+"postionmode_following" = "Following location with map roated towards North";
+"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
+"zoom_in" = "Zoom in";
+"zoom_out" = "Zoom out";
+"record_track" = "Record Track";
+"recording_track" = "Recording Track";

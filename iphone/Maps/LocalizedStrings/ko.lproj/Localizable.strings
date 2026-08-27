@@ -143,7 +143,6 @@
 "share_my_location" = "내 위치 공유";
 "prefs_group_route" = "내비게이션";
 "pref_zoom_title" = "확대/축소 버튼";
-"pref_left_button_type" = "Left Main Button";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Map Language";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "자동";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "원근 보기";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "주변 건물 3D";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D 빌딩은 절전 모드에서 꺼집니다";
 /* Settings «Route» category: «Tts enabled» title */
@@ -625,8 +622,6 @@
 "restore" = "복원";
 "privacy_policy" = "개인정보 보호 방침";
 "terms_of_use" = "사용 약관";
-"button_layer_subway" = "지하철";
-"layers_title" = "맵 스타일 및 레이어";
 "subway_data_unavailable" = "지하철 지도가 가용하지 않습니다.";
 "title_error_downloading_bookmarks" = "오류가 발생했습니다.";
 "popular_place" = "Popular";
@@ -733,7 +728,6 @@
 "transit_not_found" = "이 지역의 지하철 노선 기능이 아직 없습니다";
 "dialog_pedestrian_route_is_long_header" = "지하철 루트가 발견되지 않았습니다";
 "dialog_pedestrian_route_is_long_message" = "지하철역에서 가까운 출발점 또는 종점을 선택하세요";
-"button_layer_isolines" = "지형";
 "isolines_activation_error_dialog" = "지형 레이어를 활성화하고 사용하려면 해당 지역의 지도를 업데이트하거나 다운로드하십시오";
 "isolines_location_error_dialog" = "이 지역의 지형 레이어는 아직 사용할 수 없습니다";
 "elevation_profile_diff_level" = "난이도";
@@ -795,8 +789,6 @@
 "car_continue_on_the_phone" = "전화기에서 계속";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "차량 화면으로 이동";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "하이킹";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "모든 북마크 및 트랙 내보내기";
 /* Text for the editing the Track's color button. */
@@ -846,10 +838,6 @@
 "recover" = "복구";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "모두 복구";
-/* Prompt to start recording a track. */
-"start_track_recording" = "트랙 기록";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "트랙 기록 중지";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "저장하지 않고 중지";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -883,3 +871,27 @@
 "capacity_charging_no" = "No spaces with chargers";
 "planning_route_preview" = "Preview";
 "planning_route_preview_sheet_title" = "Route Preview";
+"discard" = "Discard";
+"pref_custom_button_type" = "Customizable Button";
+"osm" = "OpenStreetMap";
+"mode" = "Mode";
+"mode_walking" = "Walking";
+"mode_cycling" = "Cycling";
+"mode_driving" = "Driving";
+"mode_public-transport" = "Public Transport";
+"mode_option_traffic" = "Show Traffic";
+"mode_option_transitlines" = "Show Transit Lines";
+"mode_option_comingsoon" = "Options coming soon";
+"layers" = "Layers";
+"layers_option_contour-lines" = "Contour Lines";
+"layers_option_outdoor" = "Outdoor";
+"layers_option_buildings-3d" = "3D Buildings";
+"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
+"postionmode_locate" = "Find own location";
+"postionmode_locating" = "Finding own location...";
+"postionmode_following" = "Following location with map roated towards North";
+"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
+"zoom_in" = "Zoom in";
+"zoom_out" = "Zoom out";
+"record_track" = "Record Track";
+"recording_track" = "Recording Track";

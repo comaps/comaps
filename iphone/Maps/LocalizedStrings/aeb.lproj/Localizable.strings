@@ -81,7 +81,6 @@
 "share_my_location" = "Share My Location";
 "prefs_group_route" = "Navigation";
 "pref_zoom_title" = "Zoom buttons";
-"pref_left_button_type" = "Left Main Button";
 "pref_maplanguage_title" = "Map Language";
 "pref_maplanguage_local" = "Local Language";
 "pref_mapappearance_title" = "Map Appearance";
@@ -93,7 +92,6 @@
 "on" = "On";
 "auto" = "Auto";
 "pref_map_3d_title" = "Perspective view";
-"pref_map_3d_buildings_title" = "3D buildings";
 "pref_map_3d_buildings_disabled_summary" = "3D buildings are disabled in power saving mode";
 "pref_tts_title" = "Voice Instructions";
 "pref_tts_enable_title" = "Enable Voice Instructions";
@@ -444,8 +442,6 @@
 "restore" = "Restore";
 "privacy_policy" = "Privacy policy";
 "terms_of_use" = "Terms of use";
-"button_layer_subway" = "Subway";
-"layers_title" = "Map Styles and Layers";
 "subway_data_unavailable" = "Subway map is unavailable";
 "title_error_downloading_bookmarks" = "An error occurred";
 "popular_place" = "Popular";
@@ -540,7 +536,6 @@
 "transit_not_found" = "Subway navigation in this region is not available yet";
 "dialog_pedestrian_route_is_long_header" = "No subway route found";
 "dialog_pedestrian_route_is_long_message" = "Please choose a start or end point closer to a subway station";
-"button_layer_isolines" = "Contour Lines";
 "isolines_activation_error_dialog" = "Activating contour lines requires downloading map data for this area";
 "isolines_location_error_dialog" = "Contour lines are not yet available in this area";
 "elevation_profile_diff_level" = "Difficulty level";
@@ -578,7 +573,6 @@
 "car_used_on_the_car_screen" = "You are now using CoMaps on the car screen";
 "car_continue_on_the_phone" = "Continue on the phone";
 "car_continue_in_the_car" = "To the car screen";
-"button_layer_outdoor" = "Outdoors";
 "bookmarks_export" = "Export all Favorites";
 "change_color" = "Change Color";
 "map" = "Map";
@@ -604,8 +598,6 @@
 "delete_all" = "Delete All";
 "recover" = "Recover";
 "recover_all" = "Recover All";
-"start_track_recording" = "Record Track";
-"stop_track_recording" = "Stop Track Recording";
 "stop_without_saving" = "Stop Without Saving";
 "continue_recording" = "Continue Recording";
 "track_recording_alert_title" = "Save into Favorites?";
@@ -621,3 +613,27 @@
 "capacity_disabled_no" = "No dedicated disabled spaces";
 "capacity_charging_yes" = "Has spaces with chargers";
 "capacity_charging_no" = "No spaces with chargers";
+"discard" = "Discard";
+"pref_custom_button_type" = "Customizable Button";
+"osm" = "OpenStreetMap";
+"mode" = "Mode";
+"mode_walking" = "Walking";
+"mode_cycling" = "Cycling";
+"mode_driving" = "Driving";
+"mode_public-transport" = "Public Transport";
+"mode_option_traffic" = "Show Traffic";
+"mode_option_transitlines" = "Show Transit Lines";
+"mode_option_comingsoon" = "Options coming soon";
+"layers" = "Layers";
+"layers_option_contour-lines" = "Contour Lines";
+"layers_option_outdoor" = "Outdoor";
+"layers_option_buildings-3d" = "3D Buildings";
+"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
+"postionmode_locate" = "Find own location";
+"postionmode_locating" = "Finding own location...";
+"postionmode_following" = "Following location with map roated towards North";
+"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
+"zoom_in" = "Zoom in";
+"zoom_out" = "Zoom out";
+"record_track" = "Record Track";
+"recording_track" = "Recording Track";

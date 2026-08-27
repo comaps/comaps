@@ -15,7 +15,7 @@
     <!-- Choose measurement on first launch alert - choose metric system button -->
     <string name="kilometres">Kilometer</string>
     <!-- Choose measurement on first launch alert - choose imperial system button -->
-    <string name="miles">Mil</string>
+    <string name="miles">Miles</string>
     <!-- Update maps later button text -->
     <string name="later">Senere</string>
     <!-- View and button titles for accessibility, please also edit it in iphone/plist.txt -->
@@ -840,7 +840,7 @@
     <string name="pref_backup_now_summary_progress">Sikkerhedskopiering i gang…</string>
     <string name="pref_backup_location_title">Placering af sikkerhedskopi</string>
     <string name="pref_left_button_disable">Deaktiver</string>
-    <string name="app_site_url">https://comaps.app/</string>
+    <string name="app_site_url">https://comaps.app/da/</string>
     <string name="closed_now">Lukket nu</string>
     <string name="open_now">Åben nu</string>
     <string name="at">kl. %s</string>

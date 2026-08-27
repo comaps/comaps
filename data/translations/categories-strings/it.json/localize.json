@@ -630,7 +630,7 @@
         "defaultMessage": "4Stadio|4sport"
     },
     "leisure-playground|@category_children": {
-        "defaultMessage": "Campo giochi"
+        "defaultMessage": "4Parco giochi"
     },
     "leisure-sports_centre": {
         "defaultMessage": "Centro sportivo|sport"
@@ -1474,5 +1474,11 @@
     },
     "cuisine-vegan|@cuisine_all_vegetarian": {
         "defaultMessage": "Cucina vegana"
+    },
+    "shop-water|@category_water|@category_food|@shop": {
+        "defaultMessage": "3Fontanelle|3Potabile|3Acqua potabile"
+    },
+    "amenity-food_sharing": {
+        "defaultMessage": "Frigo sociale|Cibo|donare|dono|condiviso"
     }
 }

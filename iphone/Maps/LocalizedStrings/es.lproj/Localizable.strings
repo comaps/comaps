@@ -143,7 +143,6 @@
 "share_my_location" = "Compartir mi ubicación";
 "prefs_group_route" = "Navegación";
 "pref_zoom_title" = "Botones de zoom";
-"pref_left_button_type" = "Botón Principal Izquierdo";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Idioma del mapa";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "Automático";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Vista en perspectiva";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "Edificaciones en 3D";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "Los edificios 3D se desactivan en el modo de ahorro de energía";
 /* Settings «Route» category: «Tts enabled» title */
@@ -625,8 +622,6 @@
 "restore" = "Restaurar";
 "privacy_policy" = "Política de privacidad";
 "terms_of_use" = "Condiciones de uso";
-"button_layer_subway" = "Metro";
-"layers_title" = "Estilos y capas del mapa";
 "subway_data_unavailable" = "El mapa del metro no está disponible";
 "title_error_downloading_bookmarks" = "Se ha producido un error";
 "popular_place" = "Popular";
@@ -733,7 +728,6 @@
 "transit_not_found" = "Navegación en Metro aún no disponible en esta región";
 "dialog_pedestrian_route_is_long_header" = "No se encontró ninguna ruta de metro";
 "dialog_pedestrian_route_is_long_message" = "Elije un punto de inicio o fin de ruta más cercano a una estación de metro";
-"button_layer_isolines" = "Curvas de nivel";
 "isolines_activation_error_dialog" = "Para usar las curvas de nivel, actualice o descargue el mapa del área deseada";
 "isolines_location_error_dialog" = "Las curvas de nivel aún no están disponible en esta región";
 "elevation_profile_diff_level" = "Nivel de dificultad";
@@ -795,8 +789,6 @@
 "car_continue_on_the_phone" = "Pasar al teléfono";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "A la pantalla del coche";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Senderismo";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Exportar todos los Favoritos";
 /* Text for the editing the Track's color button. */
@@ -846,10 +838,6 @@
 "recover" = "Recuperar";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Recuperar todo";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Grabar trayecto";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Detener grabación de trayecto";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Parar sin guardar";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -883,3 +871,27 @@
 "capacity_charging_no" = "No hay plazas con cargadores";
 "planning_route_preview" = "Vista previa";
 "planning_route_preview_sheet_title" = "Vista previa de la ruta";
+"discard" = "Descartar";
+"pref_custom_button_type" = "Botón personalizable";
+"osm" = "OpenStreetMap";
+"mode" = "Forma";
+"mode_walking" = "Andando";
+"mode_cycling" = "En bicicleta";
+"mode_driving" = "Conduciendo";
+"mode_public-transport" = "Transporte público";
+"mode_option_traffic" = "Mostrar tráfico";
+"mode_option_transitlines" = "Mostrar líneas de transporte público";
+"mode_option_comingsoon" = "Próximamente más opciones";
+"layers" = "Capas";
+"layers_option_contour-lines" = "Relieve (Curvas de nivel)";
+"layers_option_outdoor" = "Exterior";
+"layers_option_buildings-3d" = "Edificios en 3D";
+"layers_power-saving" = "Capa desactivada automáticamente por el ahorro de energía";
+"postionmode_locate" = "Buscar mi ubicación";
+"postionmode_locating" = "Localizando posición…";
+"postionmode_following" = "Modo seguimiento: Mapa orientado al Norte";
+"postionmode_following-and-rotated" = "Siguiendo la ubicación con el mapa orientado en la dirección de la marcha";
+"zoom_in" = "Acercar";
+"zoom_out" = "Alejar";
+"record_track" = "Grabar trayecto";
+"recording_track" = "Grabando trayecto";

@@ -143,7 +143,6 @@
 "share_my_location" = "Κοινοποίηση της τοποθεσίας μου";
 "prefs_group_route" = "Πλοήγηση";
 "pref_zoom_title" = "Πλήκτρα μεγέθυνσης";
-"pref_left_button_type" = "Αριστερό κύριο κουμπί";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Γλώσσα χάρτη";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "Αυτόματα";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Οπτική γωνία";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "3D κτίρια";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "Τα 3D κτίρια είναι απενεργοποιημένα σε λειτουργία εξοικονόμησης ενέργειας";
 /* Settings «Route» category: «Tts enabled» title */
@@ -625,8 +622,6 @@
 "restore" = "Επαναφορά";
 "privacy_policy" = "Πολιτική απορρήτου";
 "terms_of_use" = "Όροι χρήσης";
-"button_layer_subway" = "Μετρό";
-"layers_title" = "Στυλ χάρτη και επίπεδα";
 "subway_data_unavailable" = "Ο χάρτης μετρό δεν είναι διαθέσιμος";
 "title_error_downloading_bookmarks" = "Συνέβη κάποιο σφάλμα";
 "popular_place" = "Δημοφιλή";
@@ -733,7 +728,6 @@
 "transit_not_found" = "Η πλοήγηση με μετρό σ' αυτήν την περιοχή δεν είναι ακόμη διαθέσιμη";
 "dialog_pedestrian_route_is_long_header" = "Δεν βρέθηκε διαδρομή του μετρό";
 "dialog_pedestrian_route_is_long_message" = "Επιλέξτε το σημείο εκκίνησης ή τέλους διαδρομής πιο κοντά σε σταθμό του μετρό";
-"button_layer_isolines" = "Υψοομετρικές γραμμές";
 "isolines_activation_error_dialog" = "Η ενεργοποίηση των υψομετρικών γραμμών απαιτεί τη λήψη των δεδομένων χάρτη αυτής της περιοχής";
 "isolines_location_error_dialog" = "Οι υψομετρικές γραμμές δεν είναι ακόμη διαθέσιμες σε αυτήν την περιοχή";
 "elevation_profile_diff_level" = "Επίπεδο δυσκολίας";
@@ -795,8 +789,6 @@
 "car_continue_on_the_phone" = "Συνέχεια στο κινητό";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Στην οθόνη του αυτοκινήτου";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Εξωτερικοί Χώροι";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Εξαγωγή όλων των Αγαπημένων";
 /* Text for the editing the Track's color button. */
@@ -846,10 +838,6 @@
 "recover" = "Ανάκτηση";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Ανάκτηση όλων";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Εγγραφή ίχνους";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Διακοπή εγγραφής ίχνους";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Διακοπή Χωρίς Αποθήκευση";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -883,3 +871,27 @@
 "capacity_charging_no" = "Δεν έχει θέσεις με φορτιστές";
 "planning_route_preview" = "Προεπισκόπηση";
 "planning_route_preview_sheet_title" = "Προεπισκόπηση διαδρομής";
+"discard" = "Discard";
+"pref_custom_button_type" = "Customizable Button";
+"osm" = "OpenStreetMap";
+"mode" = "Mode";
+"mode_walking" = "Walking";
+"mode_cycling" = "Cycling";
+"mode_driving" = "Driving";
+"mode_public-transport" = "Public Transport";
+"mode_option_traffic" = "Show Traffic";
+"mode_option_transitlines" = "Show Transit Lines";
+"mode_option_comingsoon" = "Options coming soon";
+"layers" = "Layers";
+"layers_option_contour-lines" = "Contour Lines";
+"layers_option_outdoor" = "Outdoor";
+"layers_option_buildings-3d" = "3D Buildings";
+"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
+"postionmode_locate" = "Find own location";
+"postionmode_locating" = "Finding own location...";
+"postionmode_following" = "Following location with map roated towards North";
+"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
+"zoom_in" = "Zoom in";
+"zoom_out" = "Zoom out";
+"record_track" = "Record Track";
+"recording_track" = "Recording Track";
