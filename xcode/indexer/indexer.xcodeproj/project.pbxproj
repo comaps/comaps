@@ -162,6 +162,8 @@
 		675341291A3F540F00A0A8C3 /* ftypes_matcher.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 675340D61A3F540F00A0A8C3 /* ftypes_matcher.hpp */; };
 		6753412E1A3F540F00A0A8C3 /* index_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 675340DB1A3F540F00A0A8C3 /* index_builder.cpp */; };
 		6753412F1A3F540F00A0A8C3 /* index_builder.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 675340DC1A3F540F00A0A8C3 /* index_builder.hpp */; };
+		E1D00B012F1A000000000003 /* indoor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1D00B012F1A000000000001 /* indoor.cpp */; };
+		E1D00B012F1A000000000004 /* indoor.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E1D00B012F1A000000000002 /* indoor.hpp */; };
 		675341301A3F540F00A0A8C3 /* data_source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 675340DD1A3F540F00A0A8C3 /* data_source.cpp */; };
 		675341311A3F540F00A0A8C3 /* data_source.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 675340DE1A3F540F00A0A8C3 /* data_source.hpp */; };
 		675341321A3F540F00A0A8C3 /* interval_index_builder.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 675340DF1A3F540F00A0A8C3 /* interval_index_builder.hpp */; };
@@ -411,6 +413,8 @@
 		675340D61A3F540F00A0A8C3 /* ftypes_matcher.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ftypes_matcher.hpp; sourceTree = "<group>"; };
 		675340DB1A3F540F00A0A8C3 /* index_builder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = index_builder.cpp; sourceTree = "<group>"; };
 		675340DC1A3F540F00A0A8C3 /* index_builder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = index_builder.hpp; sourceTree = "<group>"; };
+		E1D00B012F1A000000000001 /* indoor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = indoor.cpp; sourceTree = "<group>"; };
+		E1D00B012F1A000000000002 /* indoor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = indoor.hpp; sourceTree = "<group>"; };
 		675340DD1A3F540F00A0A8C3 /* data_source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = data_source.cpp; sourceTree = "<group>"; };
 		675340DE1A3F540F00A0A8C3 /* data_source.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = data_source.hpp; sourceTree = "<group>"; };
 		675340DF1A3F540F00A0A8C3 /* interval_index_builder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = interval_index_builder.hpp; sourceTree = "<group>"; };
@@ -728,6 +732,8 @@
 				272CA4442F126795005A3F5B /* ftypes_subtypes.hpp */,
 				675340DB1A3F540F00A0A8C3 /* index_builder.cpp */,
 				675340DC1A3F540F00A0A8C3 /* index_builder.hpp */,
+				E1D00B012F1A000000000001 /* indoor.cpp */,
+				E1D00B012F1A000000000002 /* indoor.hpp */,
 				675340DF1A3F540F00A0A8C3 /* interval_index_builder.hpp */,
 				675340E11A3F540F00A0A8C3 /* interval_index.hpp */,
 				BBB7060D23E46E0000A7F29A /* isolines_info.cpp */,
@@ -858,6 +864,7 @@
 				670C615C1AB0691900C38A8C /* features_offsets_table.hpp in Headers */,
 				6758AED41BB4413000C26E27 /* drules_selector.hpp in Headers */,
 				6753412F1A3F540F00A0A8C3 /* index_builder.hpp in Headers */,
+				E1D00B012F1A000000000004 /* indoor.hpp in Headers */,
 				675B562420D25C9800A521D2 /* feature_source.hpp in Headers */,
 				4088CE2021AE993F00E2702A /* brands_holder.hpp in Headers */,
 				675341411A3F540F00A0A8C3 /* scales.hpp in Headers */,
@@ -1088,6 +1095,7 @@
 				34583BCB1C88552100F94664 /* map_object.cpp in Sources */,
 				675B562320D25C9800A521D2 /* feature_source.cpp in Sources */,
 				6753412E1A3F540F00A0A8C3 /* index_builder.cpp in Sources */,
+				E1D00B012F1A000000000003 /* indoor.cpp in Sources */,
 				675341011A3F540F00A0A8C3 /* classificator_loader.cpp in Sources */,
 				F6DF5F2D1CD0FC9D00A87154 /* categories_index.cpp in Sources */,
 				674125131B4C02F100A3E828 /* map_style_reader.cpp in Sources */,

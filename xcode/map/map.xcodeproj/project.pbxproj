@@ -59,6 +59,10 @@
 		6753464B1A4054E800A0A8C3 /* bookmark.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 675345DC1A4054E800A0A8C3 /* bookmark.hpp */; };
 		675346641A4054E800A0A8C3 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 675345F51A4054E800A0A8C3 /* framework.cpp */; };
 		675346651A4054E800A0A8C3 /* framework.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 675345F61A4054E800A0A8C3 /* framework.hpp */; };
+		E1D00A012F1A000000000003 /* indoor_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1D00A012F1A000000000001 /* indoor_manager.cpp */; };
+		E1D00A012F1A000000000004 /* indoor_manager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E1D00A012F1A000000000002 /* indoor_manager.hpp */; };
+		E1D00A012F1A000000000007 /* indoor_scan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1D00A012F1A000000000005 /* indoor_scan.cpp */; };
+		E1D00A012F1A000000000008 /* indoor_scan.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E1D00A012F1A000000000006 /* indoor_scan.hpp */; };
 		675346741A4054E800A0A8C3 /* mwm_url.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 675346051A4054E800A0A8C3 /* mwm_url.cpp */; };
 		675346751A4054E800A0A8C3 /* mwm_url.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 675346061A4054E800A0A8C3 /* mwm_url.hpp */; };
 		6753469B1A4054E800A0A8C3 /* track.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6753462C1A4054E800A0A8C3 /* track.cpp */; };
@@ -211,6 +215,10 @@
 		675345DC1A4054E800A0A8C3 /* bookmark.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bookmark.hpp; sourceTree = "<group>"; };
 		675345F51A4054E800A0A8C3 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
 		675345F61A4054E800A0A8C3 /* framework.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = framework.hpp; sourceTree = "<group>"; };
+		E1D00A012F1A000000000001 /* indoor_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = indoor_manager.cpp; sourceTree = "<group>"; };
+		E1D00A012F1A000000000002 /* indoor_manager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = indoor_manager.hpp; sourceTree = "<group>"; };
+		E1D00A012F1A000000000005 /* indoor_scan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = indoor_scan.cpp; sourceTree = "<group>"; };
+		E1D00A012F1A000000000006 /* indoor_scan.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = indoor_scan.hpp; sourceTree = "<group>"; };
 		675346051A4054E800A0A8C3 /* mwm_url.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mwm_url.cpp; sourceTree = "<group>"; };
 		675346061A4054E800A0A8C3 /* mwm_url.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mwm_url.hpp; sourceTree = "<group>"; };
 		6753462C1A4054E800A0A8C3 /* track.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = track.cpp; sourceTree = "<group>"; };
@@ -414,6 +422,10 @@
 				39E3C60123312BA800FB0C37 /* features_fetcher.hpp */,
 				675345F51A4054E800A0A8C3 /* framework.cpp */,
 				675345F61A4054E800A0A8C3 /* framework.hpp */,
+				E1D00A012F1A000000000001 /* indoor_manager.cpp */,
+				E1D00A012F1A000000000002 /* indoor_manager.hpp */,
+				E1D00A012F1A000000000005 /* indoor_scan.cpp */,
+				E1D00A012F1A000000000006 /* indoor_scan.hpp */,
 				F6B282FB1C1B03320081957A /* gps_track_collection.cpp */,
 				F6B282FC1C1B03320081957A /* gps_track_collection.hpp */,
 				F6B282FD1C1B03320081957A /* gps_track_filter.cpp */,
@@ -515,6 +527,8 @@
 				0831F23C200E53600034C365 /* bookmarks_search_params.hpp in Headers */,
 				6753469C1A4054E800A0A8C3 /* track.hpp in Headers */,
 				675346651A4054E800A0A8C3 /* framework.hpp in Headers */,
+				E1D00A012F1A000000000004 /* indoor_manager.hpp in Headers */,
+				E1D00A012F1A000000000008 /* indoor_scan.hpp in Headers */,
 				BBA014B120754997007402E4 /* user_mark_id_storage.hpp in Headers */,
 				674A2A381B2715FB001A525C /* osm_opening_hours.hpp in Headers */,
 				ED85D1CC2D5F4B5B00D8075D /* track_statistics.hpp in Headers */,
@@ -692,6 +706,8 @@
 				674C38621BFF3095000D603B /* user_mark.cpp in Sources */,
 				3DA5723320C195ED007BDE27 /* viewport_search_callback.cpp in Sources */,
 				675346641A4054E800A0A8C3 /* framework.cpp in Sources */,
+				E1D00A012F1A000000000003 /* indoor_manager.cpp in Sources */,
+				E1D00A012F1A000000000007 /* indoor_scan.cpp in Sources */,
 				3DBD7B92240D523400ED9FE8 /* elevation_info.cpp in Sources */,
 				BB1C0197241BF73C0067FD5C /* track_mark.cpp in Sources */,
 				3DEE1AE021EE03B400054A91 /* power_manager.cpp in Sources */,
