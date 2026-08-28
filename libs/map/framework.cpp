@@ -2730,8 +2730,11 @@ MapMode Framework::CurrentMapMode()
     mapMode = MapMode::Driving;
   else if (mapModeValue == "PublicTransport")
     mapMode = MapMode::PublicTransport;
+#ifdef OMIM_OS_ANDROID
+  // Default mode is only shipped on Android
   else if (mapModeValue == "Default")
     mapMode = MapMode::Default;
+#endif
 
   return mapMode;
 }

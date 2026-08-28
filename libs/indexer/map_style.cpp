@@ -48,6 +48,17 @@ MapStyle MapStyleFromSettings(std::string const & str)
   else if (str == "MapStyleVehicleDark")
     return MapStyleVehicleDark;
 
+#ifndef OMIM_OS_ANDROID
+  // These styles are only shipped on Android, in case we end up in an inconsistent state, fall back to walking
+  else if (str == "MapStyleDefaultLight")
+    return MapStyleWalkingLight;
+  else if (str == "MapStyleDefaultDark")
+    return MapStyleWalkingDark;
+  else if (str == "MapStyleOutdoorsLight")
+    return MapStyleWalkingOutdoorLight;
+  else if (str == "MapStyleOutdoorsDark")
+    return MapStyleWalkingOutdoorDark;
+#else
   else if (str == "MapStyleDefaultLight")
     return MapStyleDefaultLight;
   else if (str == "MapStyleDefaultDark")
@@ -56,6 +67,7 @@ MapStyle MapStyleFromSettings(std::string const & str)
     return MapStyleOutdoorsLight;
   else if (str == "MapStyleOutdoorsDark")
     return MapStyleOutdoorsDark;
+#endif
 
   return kDefaultMapStyle;
 }
