@@ -994,5 +994,5 @@
     <string name="place_reviews_title">Recenzje miejsca</string>
     <string name="place_reviews">Recenzje %1$s</string>
     <string name="rating_stars_description">liczba gwiazdek: %.1f</string>
-    <string name="reviews_by_mangrove">Recenzje z Mangrove</string>
+    <string name="reviews_by_mangrove">Recenzje z Mangrove.\nRecenzuj miejsca w <a href="https://mapcomplete.org">MapComplete</a>.</string>
 </resources>

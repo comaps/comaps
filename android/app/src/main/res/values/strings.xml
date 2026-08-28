@@ -1056,5 +1056,5 @@
     <string name="place_reviews_title">Place Reviews</string>
     <string name="place_reviews">%1$s Reviews</string>
     <string name="rating_stars_description">stars: %.1f</string>
-    <string name="reviews_by_mangrove">Reviews from Mangrove</string>
+    <string name="reviews_by_mangrove">Reviews from Mangrove.\nAdd reviews in <a href="https://mapcomplete.org">MapComplete</a>.</string>
 </resources>

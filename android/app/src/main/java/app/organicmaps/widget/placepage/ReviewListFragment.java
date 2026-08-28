@@ -2,6 +2,7 @@ package app.organicmaps.widget.placepage;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 
 import androidx.annotation.CallSuper;
@@ -11,6 +12,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
+
+import com.google.android.material.textview.MaterialTextView;
 
 import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmRecyclerFragment;
@@ -31,6 +34,7 @@ public final class ReviewListFragment extends BaseMwmRecyclerFragment<ReviewList
     DividerItemDecoration divider = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);
     getRecyclerView().addItemDecoration(divider);
     handleBottomNavBar(view);
+    view.<MaterialTextView>findViewById(R.id.review_source).setMovementMethod(LinkMovementMethod.getInstance());
   }
 
   @LayoutRes

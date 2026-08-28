@@ -21,7 +21,7 @@
       android:text="@string/reviews_by_mangrove"
       android:textAlignment="center"
       android:paddingBottom="@dimen/margin_base"
-      android:textAppearance="@style/MwmTextAppearance.Body3"
+      android:textAppearance="@style/MwmTextAppearance.Body1"
       app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
