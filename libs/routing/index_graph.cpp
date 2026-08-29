@@ -478,11 +478,14 @@ RouteWeight IndexGraph::GetPenalties(EdgeEstimator::Purpose purpose, Segment con
   auto const rp = u.GetRoadPoint(true /* front */);
   auto const [rpAccessType, rpConfidence] =
       prevWeight ? m_roadAccess.GetAccess(rp, *prevWeight) : m_roadAccess.GetAccessWithoutConditional(rp);
-  // Get penalty from new penalty system if MWM supports it
-  auto penalty = m_roadPenalty.GetPenalty(rp);
   uint16_t penaltyTime = 0;
-  if (penalty)
-    penaltyTime = penalty->m_timeSeconds;
+  // Get penalty from new penalty system if MWM supports it
+  if (m_estimator->GetMode() == EdgeEstimator::Mode::Navigation)
+  {
+    auto penalty = m_roadPenalty.GetPenalty(rp);
+    if (penalty)
+      penaltyTime = penalty->m_timeSeconds;
+  }
 
   if (!m_estimator->IsAccessIgnored())
     switch (rpConfidence)
