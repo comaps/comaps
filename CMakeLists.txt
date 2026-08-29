@@ -115,6 +115,16 @@ if (${CMAKE_BUILD_TYPE} STREQUAL "RelWithDebInfo")
   add_compile_options(-fno-omit-frame-pointer)
 endif()
 
+if (ANDROID)
+  # AGP points CMake at the NDK's own android.toolchain.cmake instead of
+  # letting CMake's built-in Android support run, so CMAKE_ANDROID_NDK_VERSION
+  # never gets populated. Compiler/Clang.cmake reads that empty variable as
+  # "NDK < 22" and defaults IPO link options to the gold linker, which NDK r28
+  # no longer ships (lld only). Override back to lld.
+  set(CMAKE_CXX_LINK_OPTIONS_IPO "-fuse-ld=lld")
+  set(CMAKE_C_LINK_OPTIONS_IPO "-fuse-ld=lld")
+endif()
+
 message(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
 
 if (NOT SKIP_TESTS)
