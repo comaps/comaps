@@ -81,4 +81,14 @@ private:
 
   std::shared_ptr<indoor::Complex const> m_complex;
   double m_activeLevel = 0.0;
+
+  // A scan superseded by a later one before it finishes still gets a chance to run (only the
+  // instant a new one *starts* is skipped, see RunScan), but its result is discarded once done:
+  // by the time it lands, m_generation has moved on and applying it would show a building the
+  // viewport already left. Read the discarded result geometrically instead of throwing it away:
+  // keep it here regardless of generation, and let the next scan's own Contains/Reaches check
+  // (in ScanForActiveComplex) decide whether it's still relevant. That's what lets a rapid zoom
+  // gesture, which supersedes scans faster than any one of them can finish, keep hitting the
+  // "same complex" fast path instead of redoing the expensive building search on every frame.
+  std::shared_ptr<indoor::Complex const> m_lastKnownComplex;
 };

@@ -2,6 +2,9 @@
 
 #include "geometry/mercator.hpp"
 
+#include "base/logging.hpp"
+#include "base/timer.hpp"
+
 #include <algorithm>
 #include <cmath>
 
@@ -40,6 +43,11 @@ struct Candidate
 // Buildings whose footprint indoor rooms cover. A building:part is never a candidate.
 std::vector<Candidate> FindIndoorBuildings(m2::PointD const & center, ForEachFn const & forEach)
 {
+  // The expensive part of a scan: in a dense city center this visits tens of thousands of
+  // features within kSearchMeters. ScanForActiveComplex only calls this when the viewport has
+  // actually left the last known complex (see its own comment), which is what keeps a
+  // continuous zoom or pan from paying this cost on every frame.
+  base::Timer timer;
   std::vector<Candidate> found;
   std::vector<m2::RectD> indoorAreas;
 
@@ -77,6 +85,9 @@ std::vector<Candidate> FindIndoorBuildings(m2::PointD const & center, ForEachFn 
     if (covered > 0.0 && covered >= kMinIndoorCoverage * candidate.m_area)
       result.push_back(std::move(candidate));
   }
+
+  LOG(LDEBUG, ("Found", found.size(), "building candidates and", indoorAreas.size(), "indoor sub-areas in",
+              timer.ElapsedSeconds() * 1000, "ms;", result.size(), "candidates passed the coverage check"));
   return result;
 }
 
@@ -197,13 +208,21 @@ std::optional<Complex> ScanForActiveComplex(m2::PointD const & center, ForEachFn
   AbsorbIndoorGeometry(*region, forEach);
 
   // A closet is not somewhere you walk around, and activating on one hides every room nearby.
-  if (SquareMeters(PolygonArea(region->m_triangles), center) < kMinComplexAreaM2)
+  double const areaM2 = SquareMeters(PolygonArea(region->m_triangles), center);
+  if (areaM2 < kMinComplexAreaM2)
+  {
+    LOG(LDEBUG, ("Rejected complex, area =", areaM2, "m2, need >=", kMinComplexAreaM2));
     return std::nullopt;
+  }
 
   region->m_levels = CollectLevels(*region, forEach);
   if (region->m_levels.size() < kMinLevels)
+  {
+    LOG(LDEBUG, ("Rejected complex, found levels", region->m_levels, ", need >=", kMinLevels));
     return std::nullopt;
+  }
 
+  LOG(LDEBUG, ("Activated complex, area =", areaM2, "m2, levels =", region->m_levels));
   return region;
 }
 }  // namespace indoor

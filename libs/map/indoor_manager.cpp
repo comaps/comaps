@@ -11,6 +11,9 @@
 
 #include "platform/platform.hpp"
 
+#include "base/logging.hpp"
+#include "base/timer.hpp"
+
 #include <algorithm>
 #include <cmath>
 
@@ -61,7 +64,8 @@ void IndoorManager::UpdateViewport(ScreenBase const & screen)
 {
   m_currentModelView = screen;
 
-  if (m_suspended || df::GetDrawTileScale(screen) < indoor::kMinZoom)
+  int const zoom = df::GetDrawTileScale(screen);
+  if (m_suspended || zoom < indoor::kMinZoom)
   {
     ++m_generation;
     m_pendingScanCenter.reset();
@@ -123,7 +127,8 @@ bool IndoorManager::SelectLevel(double level)
 
 void IndoorManager::ScheduleScan(m2::PointD const & center)
 {
-  // One scan at a time. During a gesture the newest center simply replaces the pending one.
+  // One scan at a time. During a gesture the newest center simply replaces the pending one;
+  // the scan already running isn't wasted even so, see m_lastKnownComplex.
   if (m_scanInFlight)
   {
     m_pendingScanCenter = center;
@@ -138,22 +143,31 @@ void IndoorManager::RunScan(m2::PointD const & center)
 {
   uint64_t const generation = ++m_generation;
 
-  // Snapshot for hysteresis, which the scan only reads.
-  auto const current = m_complex;
+  // Snapshot for hysteresis, which the scan only reads. m_lastKnownComplex (not m_complex) so a
+  // fast gesture that supersedes scans across several generations still gets the cheap path; see
+  // its declaration in the header for why.
+  auto const current = m_lastKnownComplex;
 
-  m_backgroundRunner([alive = m_alive, generation, center, current]()
+  auto scanStart = std::make_shared<base::Timer>();
+  m_backgroundRunner([alive = m_alive, generation, center, current, scanStart]()
   {
     auto * const self = *alive;
     if (self == nullptr)
       return;
 
+    // Distinct from "complex has no value": that also happens when we skip scanning below
+    // because a newer viewport request already arrived, which says nothing about this center.
+    bool const scanned = generation == self->m_generation;
+
+    size_t featuresVisited = 0;
     std::optional<indoor::Complex> complex;
-    if (generation == self->m_generation)
+    if (scanned)
     {
-      auto const source = [self](m2::RectD const & rect, indoor::FeatureFn const & fn)
+      auto const source = [self, &featuresVisited](m2::RectD const & rect, indoor::FeatureFn const & fn)
       {
-        self->m_forEachFeature(rect, [&fn](FeatureType & ft)
+        self->m_forEachFeature(rect, [&fn, &featuresVisited](FeatureType & ft)
         {
+          ++featuresVisited;
           feature::TypesHolder const types(ft);
           // We include withGeometry=true here so our triangle-based scanning works
           auto view = indoor::MakeFeatureView(ft, types, scales::GetUpperScale(), true /* withGeometry */);
@@ -164,14 +178,23 @@ void IndoorManager::RunScan(m2::PointD const & center)
       complex = indoor::ScanForActiveComplex(center, source, current.get());
     }
 
+    LOG(LDEBUG, ("Scan took", scanStart->ElapsedSeconds() * 1000, "ms, visited", featuresVisited, "features, found",
+                complex ? complex->m_triangles.size() : 0, "triangles"));
+
     // Always posted, so the in-flight slot is released even when the result is stale.
-    self->m_uiRunner([alive, generation, complex = std::move(complex)]() mutable
+    self->m_uiRunner([alive, generation, scanned, complex = std::move(complex)]() mutable
     {
       auto * const me = *alive;
       if (me == nullptr)
         return;
 
       me->m_scanInFlight = false;
+
+      // Record what we actually found regardless of generation, so the next scan can reuse it
+      // even though this one arrived too late to be shown. A skipped scan (scanned == false) has
+      // nothing new to say, so it leaves the previous hint alone rather than clearing it.
+      if (scanned)
+        me->m_lastKnownComplex = complex ? std::make_shared<indoor::Complex const>(*complex) : nullptr;
 
       if (generation == me->m_generation)
         me->ApplyScanResult(std::move(complex));
