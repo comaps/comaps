@@ -334,6 +334,15 @@ public:
     double GetFerryLandingPenalty(Purpose /* purpose */) const override;
 
     /**
+     * @brief Returns the mode in which the router is operating.
+     *
+     * The `TraffEstimator` always returns `Mode::Decoding`.
+     *
+     * The return value is used to control certain router behavior, such as which penalties to apply.
+     */
+    EdgeEstimator::Mode GetMode() override { return EdgeEstimator::Mode::Decoding; }
+
+    /**
      * @brief Whether access restrictions are ignored.
      *
      * A return value of false indicates that access restrictions should be observed, which is the

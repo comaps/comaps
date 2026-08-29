@@ -43,6 +43,24 @@ public:
   };
 
   /**
+   * @brief Indicates the mode in which the router is operating.
+   *
+   * The mode controls some aspects of router behavior, such as asking for additional maps or how
+   * checkpoints are matched to nearby segments.
+   */
+  enum Mode
+  {
+    /**
+     * Router mode for navigation, i.e. user-initiated route guidance.
+     */
+    Navigation,
+    /**
+     * Router mode for location decoding.
+     */
+    Decoding
+  };
+
+  /**
    * @brief Constructs a new `EdgeEstimator`.
    *
    * @param vehicleType The vehicle type.
@@ -147,6 +165,16 @@ public:
    * @return The penalty in seconds.
    */
   virtual double GetFerryLandingPenalty(Purpose purpose) const = 0;
+
+  /**
+   * @brief Returns the mode in which the router is operating.
+   *
+   * The default implementation always returns `Mode::Navigation`; subclasses may override this
+   * method and return different values.
+   *
+   * The return value is used to control certain router behavior, such as which penalties to apply.
+   */
+  virtual Mode GetMode() { return Mode::Navigation; }
 
   /**
    * @brief Whether access restrictions are ignored.
