@@ -441,7 +441,8 @@ RouteWeight IndexGraph::GetPenalties(EdgeEstimator::Purpose purpose, Segment con
   auto const & toPenaltyData = GetRoadPenaltyData(v);
   // Route crosses border of pass-through/non-pass-through area if |u| and |v| have different
   // pass through restrictions.
-  int8_t const passThroughPenalty = fromPenaltyData.m_passThroughAllowed == toPenaltyData.m_passThroughAllowed ? 0 : 1;
+  int8_t const passThroughPenalty = m_estimator->IsAccessIgnored() ? 0
+      : fromPenaltyData.m_passThroughAllowed == toPenaltyData.m_passThroughAllowed ? 0 : 1;
 
   int8_t accessPenalty = 0;
   int8_t accessConditionalPenalties = 0;
@@ -456,17 +457,20 @@ RouteWeight IndexGraph::GetPenalties(EdgeEstimator::Purpose purpose, Segment con
     auto const [toAccess, toConfidence] = prevWeight ? m_roadAccess.GetAccess(v.GetFeatureId(), *prevWeight)
                                                      : m_roadAccess.GetAccessWithoutConditional(v.GetFeatureId());
 
-    if (fromConfidence == RoadAccess::Confidence::Sure && toConfidence == RoadAccess::Confidence::Sure)
+    if (!m_estimator->IsAccessIgnored())
     {
-      bool const fromAccessAllowed = fromAccess == RoadAccess::Type::Yes;
-      bool const toAccessAllowed = toAccess == RoadAccess::Type::Yes;
-      // Route crosses border of access=yes/access={private, destination} area if |u| and |v| have
-      // different access restrictions.
-      accessPenalty = fromAccessAllowed == toAccessAllowed ? 0 : 1;
-    }
-    else if (toConfidence == RoadAccess::Confidence::Maybe)
-    {
-      accessConditionalPenalties = 1;
+      if (fromConfidence == RoadAccess::Confidence::Sure && toConfidence == RoadAccess::Confidence::Sure)
+      {
+        bool const fromAccessAllowed = fromAccess == RoadAccess::Type::Yes;
+        bool const toAccessAllowed = toAccess == RoadAccess::Type::Yes;
+        // Route crosses border of access=yes/access={private, destination} area if |u| and |v| have
+        // different access restrictions.
+        accessPenalty = fromAccessAllowed == toAccessAllowed ? 0 : 1;
+      }
+      else if (toConfidence == RoadAccess::Confidence::Maybe)
+      {
+        accessConditionalPenalties = 1;
+      }
     }
   }
 
@@ -480,20 +484,21 @@ RouteWeight IndexGraph::GetPenalties(EdgeEstimator::Purpose purpose, Segment con
   if (penalty)
     penaltyTime = penalty->m_timeSeconds;
 
-  switch (rpConfidence)
-  {
-  case RoadAccess::Confidence::Sure:
-  {
-    if (rpAccessType != RoadAccess::Type::Yes)
-      accessPenalty = 1;
-    break;
-  }
-  case RoadAccess::Confidence::Maybe:
-  {
-    accessConditionalPenalties = 1;
-    break;
-  }
-  }
+  if (!m_estimator->IsAccessIgnored())
+    switch (rpConfidence)
+    {
+      case RoadAccess::Confidence::Sure:
+      {
+        if (rpAccessType != RoadAccess::Type::Yes)
+          accessPenalty = 1;
+        break;
+      }
+      case RoadAccess::Confidence::Maybe:
+      {
+        accessConditionalPenalties = 1;
+        break;
+      }
+    }
 
   double weightPenalty = 0.0;
   if (IsUTurn(u, v))
