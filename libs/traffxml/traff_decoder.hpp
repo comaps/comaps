@@ -20,13 +20,24 @@
 #include "routing/vehicle_mask.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
+#include "routing_common/vehicle_model.hpp"
 
 #include "storage/country_info_getter.hpp"
 
+#include <cstdint>
+#include <map>
 #include <optional>
 
 namespace traffxml
 {
+/**
+ * @brief A qualified feature ID.
+ *
+ * The key uniquely identifies a feature in a given set of MWMs, each of which is identified by a
+ * `NumMwmId`. It consists of a `NumMwmId` and the feature ID in that MWM.
+ */
+using QualifiedFid = std::pair<routing::NumMwmId, uint32_t>;
+
 /**
  * @brief Abstract base class for all TraFF decoder implementations.
  *
@@ -370,6 +381,27 @@ public:
     size_t m_twoWaySegments = 0;
   };
 
+  /**
+   * @brief Information about a map feature for use by the decoder.
+   *
+   * Each `FeatureInfo` instance is associated with one particular feature in a particular MWM, and
+   * valid only in conjunction with a particular TraFF location. If the location is bidirectional,
+   * the data in this struct is valid for both directions.
+   *
+   * This structure is used to cache information on map features so we do not have to re-fetch them
+   * each time they are needed.
+   */
+  struct FeatureInfo
+  {
+    std::optional<routing::HighwayType> m_highwayType = std::nullopt;
+    double m_highwayTypePenalty = 1.0;
+    std::vector<std::string> m_roadShieldsNames;
+    double m_roadRefPenalty = 1.0;
+    bool m_isOneway = false;
+    bool m_isRoundabout = false;
+    // future versions may add road names and penalties
+  };
+
   RoutingTraffDecoder(DataSource & dataSource, CountryInfoGetterFn countryInfoGetter,
                       const CountryParentNameGetterFn & countryParentNameGetter,
                       std::map<std::string, traffxml::TraffMessage> & messageCache);
@@ -385,6 +417,18 @@ public:
    * This implementation does nothing, as `NumMwmIds` does not support removal.
    */
   virtual void OnMapDeregistered(platform::LocalCountryFile const & /* localFile */) override {}
+
+  /**
+   * @brief Retrieves the `FeatureInfo` structure for a segment.
+   *
+   * If the feature info is already in the cache, the cached instance will be returned. Otherwise,
+   * a new `FeatureInfo` will be created using data from `road` and from the MWM, which involves
+   * an MWM lookup.
+   *
+   * @param segment The segment for which to retrieve data.
+   * @param road Road attributes to populate the result with, if it is not already cached.
+   */
+  FeatureInfo & GetFeatureInfo(routing::Segment const & segment, routing::RoadGeometry const & road);
 
   /**
    * @brief Determines the penalty factor bases on how highway attributes match.
@@ -612,6 +656,14 @@ private:
   std::shared_ptr<routing::NumMwmIds> m_numMwmIds = std::make_shared<routing::NumMwmIds>();
   std::unique_ptr<RoutingTraffDecoder::DecoderRouter> m_router;
   std::optional<traffxml::TraffMessage> m_message = std::nullopt;
+
+  /**
+   * @brief Cached map feature information.
+   *
+   * This list holds cached information on map features, avoiding a costly map lookup each time
+   * a feature or segment is being evaluated.
+   */
+  std::map<QualifiedFid, FeatureInfo> m_featureInfoMap;
 
   /**
    * @brief Junction points near start of location, with their associated offroad weight.

@@ -680,34 +680,11 @@ double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment c
 {
   double result = road.GetDistance(segment.GetSegmentIdx());
 
-  if (m_decoder.m_message && m_decoder.m_message.value().m_location.value().m_roadClass)
-    // TODO different penalties for closures?
-    result *= GetHighwayTypePenalty(road.GetHighwayType(),
-                                    m_decoder.m_message.value().m_location.value().m_roadClass,
-                                    m_decoder.m_message.value().m_location.value().m_ramps);
+  auto fin = m_decoder.GetFeatureInfo(segment, road);
 
-  if (!m_decoder.m_roadRef.empty())
-  {
-    auto const countryFile = m_decoder.m_numMwmIds->GetFile(segment.GetMwmId());
-    auto const mwmId = m_decoder.m_dataSource.GetMwmIdByCountryFile(countryFile);
-    FeaturesLoaderGuard g(m_decoder.m_dataSource, mwmId);
-    auto f = g.GetOriginalFeatureByIndex(segment.GetFeatureId());
-    auto refs = ftypes::GetRoadShieldsNames(*f);
+  result *= fin.m_highwayTypePenalty * fin.m_roadRefPenalty;
 
-    result *= m_decoder.GetRoadRefPenalty(refs);
-  }
-
-  bool isWrongWay = false;
-  bool isRoundabout = false;
-  if (!segment.IsForward())
-  {
-    auto const countryFile = m_decoder.m_numMwmIds->GetFile(segment.GetMwmId());
-    auto const mwmId = m_decoder.m_dataSource.GetMwmIdByCountryFile(countryFile);
-    FeaturesLoaderGuard g(m_decoder.m_dataSource, mwmId);
-    auto f = g.GetOriginalFeatureByIndex(segment.GetFeatureId());
-    isWrongWay = ftypes::IsOneWayChecker::Instance()(*f);
-    isRoundabout = ftypes::IsRoundAboutChecker::Instance()(*f);
-  }
+  bool isWrongWay = fin.m_isOneway && !segment.IsForward();
 
   // different penalty levels for wrong direction, but passable
   auto kWrongWayPenaltyLow = decoder_model::kReducedAttributePenalty;
@@ -728,23 +705,23 @@ double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment c
     // TODO should we consider access restrictions in penalties?
     if (isWrongWay)
     {
-      if (road.GetHighwayType()
-          && (road.GetHighwayType().value() == routing::HighwayType::HighwayMotorway))
+      if (fin.m_highwayType
+          && (fin.m_highwayType.value() == routing::HighwayType::HighwayMotorway))
         // oneway on motorway is almost always permanent
         result *= decoder_model::kImpassablePenalty;
-      else if (road.GetHighwayType() && IsRamp(road.GetHighwayType().value()))
+      else if (fin.m_highwayType && IsRamp(fin.m_highwayType.value()))
         // most ramps are oneway, but not all
         result *= kWrongWayPenaltyHigh;
-      else if (road.GetHighwayType() && IsConstruction(road.GetHighwayType().value()))
+      else if (fin.m_highwayType && IsConstruction(fin.m_highwayType.value()))
         // oneway on construction types is usually the planned, post-completion state
         result *= decoder_model::kImpassablePenalty;
-      else if (isRoundabout)
+      else if (fin.m_isRoundabout)
         // oneway on roundabout is permanent
         result *= decoder_model::kImpassablePenalty;
       else
         result *= kWrongWayPenaltyLow;
     }
-    else if (road.GetHighwayType() && !IsConstruction(road.GetHighwayType().value()))
+    else if (fin.m_highwayType && !IsConstruction(fin.m_highwayType.value()))
       // prefer construction types when decoding closures, penalize all others lightly
       result *= decoder_model::kReducedAttributePenalty;
   }
@@ -752,7 +729,7 @@ double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment c
   {
     if (isWrongWay)
       result *= decoder_model::kImpassablePenalty;
-    else if (road.GetHighwayType() && IsConstruction(road.GetHighwayType().value()))
+    else if (fin.m_highwayType && IsConstruction(fin.m_highwayType.value()))
       result *= decoder_model::kImpassablePenalty;
   }
 
@@ -797,6 +774,41 @@ RoutingTraffDecoder::RoutingTraffDecoder(DataSource & dataSource, CountryInfoGet
 {
   m_dataSource.AddObserver(*this);
   InitRouter();
+}
+
+RoutingTraffDecoder::FeatureInfo & RoutingTraffDecoder::GetFeatureInfo(routing::Segment const & segment,
+                                                                       routing::RoadGeometry const & road)
+{
+  auto it = m_featureInfoMap.find({segment.GetMwmId(), segment.GetFeatureId()});
+  if (it != m_featureInfoMap.end())
+    return it->second;
+
+  FeatureInfo fin;
+  fin.m_highwayType = road.GetHighwayType();
+
+  if (m_message && m_message.value().m_location.value().m_roadClass)
+    // TODO different penalties for closures?
+    fin.m_highwayTypePenalty = GetHighwayTypePenalty(fin.m_highwayType,
+                                                     m_message.value().m_location.value().m_roadClass,
+                                                     m_message.value().m_location.value().m_ramps);
+
+  auto const countryFile = m_numMwmIds->GetFile(segment.GetMwmId());
+  auto const mwmId = m_dataSource.GetMwmIdByCountryFile(countryFile);
+  FeaturesLoaderGuard g(m_dataSource, mwmId);
+  auto f = g.GetOriginalFeatureByIndex(segment.GetFeatureId());
+
+  if (!m_roadRef.empty())
+  {
+    fin.m_roadShieldsNames = ftypes::GetRoadShieldsNames(*f);
+    fin.m_roadRefPenalty = GetRoadRefPenalty(fin.m_roadShieldsNames);
+  }
+
+  fin.m_isOneway = ftypes::IsOneWayChecker::Instance()(*f);
+  fin.m_isRoundabout = ftypes::IsRoundAboutChecker::Instance()(*f);
+
+  it = m_featureInfoMap.emplace(QualifiedFid{segment.GetMwmId(), segment.GetFeatureId()},
+                                std::move(fin)).first;
+  return it->second;
 }
 
 double RoutingTraffDecoder::GetHighwayTypePenalty(std::optional<routing::HighwayType> highwayType,
@@ -1478,6 +1490,7 @@ void RoutingTraffDecoder::DecodeLocation(traffxml::TraffMessage & message, traff
   decoded.clear();
 
   m_message = message;
+  m_featureInfoMap.clear();
   m_router->SetSnapToEnds(m_message.value().m_location.value().m_fuzziness
                           && (m_message.value().m_location.value().m_fuzziness.value() == traffxml::Fuzziness::LowRes));
 
