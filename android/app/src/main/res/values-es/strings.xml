@@ -988,4 +988,9 @@
     <string name="pref_enable_auto_reroute_description">Si se activa esta opción, se creará automáticamente una nueva ruta en cuanto te desvíes de la ruta planificada.</string>
     <string name="recalculate_route">Recalcular</string>
     <string name="off_route">Te has desviado de la ruta</string>
+    <string name="bookmarks_text_placement_title">Mostrar nombres de los favoritos en el mapa</string>
+    <string name="place_reviews_title">Reseñas de lugares</string>
+    <string name="place_reviews">%1$s Reseñas</string>
+    <string name="rating_stars_description">estrellas: %.1f</string>
+    <string name="reviews_by_mangrove">Reseñas de Mangrove. \nAñadir reseñas en <a href="https://mapcomplete.org">MapComplete</a>.</string>
 </resources>

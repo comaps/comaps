@@ -1130,7 +1130,7 @@
     <string name="type.shop.hearing_aids">Sklep z aparatami słuchowymi</string>
     <string name="type.shop.herbalist">Sklep z ziołami</string>
     <string name="type.shop.hifi">Sklep ze sprzętem hi-fi</string>
-    <string name="type.shop.houseware">Sklep AGD</string>
+    <string name="type.shop.houseware">Sklep z akcesoriami AGD</string>
     <string name="type.shop.jewelry">Jubiler</string>
     <string name="type.shop.kiosk">Kiosk</string>
     <string name="type.shop.kitchen">Sklep kuchenny</string>
@@ -1173,7 +1173,7 @@
     <string name="type.shop.wine">Sklep z winami</string>
     <string name="type.shop.agrarian">Sklep rolniczy</string>
     <string name="type.shop.antiques">Antyki</string>
-    <string name="type.shop.appliance">Sklep AGD</string>
+    <string name="type.shop.appliance">Sklep ze sprzętem AGD</string>
     <!-- maybe change to Art Gallery for en-US when supported -->
     <string name="type.shop.art">Sklep artystyczny</string>
     <string name="type.shop.baby_goods">Sklep z artykułami dziecięcymi</string>
@@ -1538,4 +1538,6 @@
     <string name="type.sport.boules">Gra w bule</string>
     <string name="type.amenity.animal_boarding">Hotel dla zwierząt</string>
     <string name="type.amenity.stage">Scena</string>
+    <string name="type.amenity.mobile_money_agent">Agencja płatności mobilnych</string>
+    <string name="type.emergency.access_point.address">Adres ratownictwa medycznego</string>
 </resources>

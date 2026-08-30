@@ -758,16 +758,16 @@
 "type.leisure.sports_centre.sport.gymnastics" = "Kiroldegia";
 "type.leisure.sports_centre.sport.handball" = "Kiroldegia";
 "type.leisure.sports_centre.sport.ice_hockey" = "Kiroldegia";
-"type.leisure.sports_centre.sport.padel" = "Sports Centre";
-"type.leisure.sports_centre.sport.pelota" = "Sports Centre";
-"type.leisure.sports_centre.sport.scuba_diving" = "Sports Centre";
-"type.leisure.sports_centre.sport.shooting" = "Sports Centre";
-"type.leisure.sports_centre.sport.skateboard" = "Sports Centre";
-"type.leisure.sports_centre.sport.skiing" = "Sports Centre";
-"type.leisure.sports_centre.sport.soccer" = "Sports Centre";
+"type.leisure.sports_centre.sport.padel" = "Kiroldegia";
+"type.leisure.sports_centre.sport.pelota" = "Kiroldegia";
+"type.leisure.sports_centre.sport.scuba_diving" = "Kiroldegia";
+"type.leisure.sports_centre.sport.shooting" = "Kiroldegia";
+"type.leisure.sports_centre.sport.skateboard" = "Kiroldegia";
+"type.leisure.sports_centre.sport.skiing" = "Kiroldegia";
+"type.leisure.sports_centre.sport.soccer" = "Kiroldegia";
 "type.leisure.sports_centre.sport.swimming" = "Igerilekua";
-"type.leisure.sports_centre.sport.table_tennis" = "Sports Centre";
-"type.leisure.sports_centre.sport.tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.table_tennis" = "Kiroldegia";
+"type.leisure.sports_centre.sport.tennis" = "Kiroldegia";
 "type.leisure.sports_centre.sport.volleyball" = "Sports Centre";
 "type.leisure.sports_centre.sport.yoga" = "Sports Centre";
 "type.leisure.fitness_centre.sport.yoga" = "Yoga zentroa";
@@ -795,9 +795,9 @@
 "type.man_made.surveillance" = "Zaintza Kamera";
 "type.man_made.tower" = "Dorrea";
 /* A huge telecommunications tower. Often a local monument or a landmark. */
-"type.man_made.communications_tower" = "Komunikazio Dorrea";
+"type.man_made.communications_tower" = "Komunikazio dorrea";
 /* A regular telecommunications tower. */
-"type.man_made.tower.communication" = "Komunikazio Dorrea";
+"type.man_made.tower.communication" = "Komunikazio dorrea";
 /* A regular telecommunications mast. */
 "type.man_made.mast.communication" = "Komunikazio masta";
 /* A deep hole drilled into the earth to extract oil or gas. */
@@ -1530,7 +1530,7 @@
 "type.sport.boules" = "Boloak";
 "type.leisure.sports_centre.sport.boules" = "Kiroldegia";
 "type.sport.pickleball" = "Pickleball";
-"type.leisure.sports_centre.sport.pickleball" = "Sports Centre";
+"type.leisure.sports_centre.sport.pickleball" = "Kiroldegia";
 "type.organic.no" = "No organic options";
 "type.amenity.stage" = "Eszenatokia";
 "type.amenity.animal_boarding" = "Animalien ostatua";

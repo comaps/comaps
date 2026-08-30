@@ -980,4 +980,9 @@
     <string name="permission_read_navigation_label">Číst navigační data aplikace CoMaps</string>
     <string name="permission_read_navigation_description">číst živé informcace o navigaci, jako jsou nadcházející odbočení nebo název silnice, na které se nacházíte</string>
     <string name="prefs_group_map_appearance">Vzhled mapy</string>
+    <string name="bookmarks_text_placement_title">Zobrazit názvy oblíbených na mapě</string>
+    <string name="place_reviews_title">Recenze míst</string>
+    <string name="place_reviews">Recenze %1$s</string>
+    <string name="rating_stars_description">hvězd: %.1f</string>
+    <string name="reviews_by_mangrove">Recenze ze služby Mangrove.\nSvou recenzi můžete přidat v <a href="https://mapcomplete.org">MapComplete</a>.</string>
 </resources>

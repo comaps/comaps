@@ -782,9 +782,9 @@
     <string name="pref_tts_no_system_tts">Nie znaleziono ustawień syntezy mowy, czy Twoje urządzenie na pewno je obsługuje?</string>
     <string name="drive_through">Przejazd</string>
     <string name="clear_the_search">Wyczyść wyszukiwanie</string>
-    <string name="zoom_in">Powiększ</string>
+    <string name="zoom_in">Przybliż</string>
     <!-- Accessibility text for the zoom-out button on the map -->
-    <string name="zoom_out">Pomniejsz</string>
+    <string name="zoom_out">Oddal</string>
     <!-- Restaurant or other food place's menu URL field in the Editor -->
     <string name="website_menu">Link do menu</string>
     <!-- Button in the Place Page which opens a restaurant or other food place's menu in a browser -->

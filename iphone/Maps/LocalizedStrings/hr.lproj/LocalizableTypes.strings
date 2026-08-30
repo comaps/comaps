@@ -381,32 +381,32 @@
 "type.emergency.phone" = "Telefon za hitne slučajeve";
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "Spasilac";
-"type.beacon.cardinal.east" = "Kardinalni svjetionik";
-"type.beacon.cardinal.north" = "Kardinalni svjetionik";
-"type.beacon.cardinal.south" = "Kardinalni svjetionik";
-"type.beacon.cardinal.west" = "Kardinalni svjetionik";
-"type.beacon.isolated_danger" = "Izolirani svjetionik za opasnost na moru";
-"type.beacon.lateral.port" = "Lateralni svjetionik";
-"type.beacon.lateral.starboard" = "Lateralni svjetionik";
-"type.beacon.safe_water" = "Safe Water Beacon";
-"type.beacon.special_purpose" = "Svjetionik za posebne namjene";
+"type.beacon.cardinal.east" = "Kardinalna oznaka";
+"type.beacon.cardinal.north" = "Kardinalna oznaka";
+"type.beacon.cardinal.south" = "Kardinalna oznaka";
+"type.beacon.cardinal.west" = "Kardinalna oznaka";
+"type.beacon.isolated_danger" = "Oznaka izolirane opasnosti";
+"type.beacon.lateral.port" = "Lateralna oznaka";
+"type.beacon.lateral.starboard" = "Lateralna oznaka";
+"type.beacon.safe_water" = "Oznaka sigurne vode";
+"type.beacon.special_purpose" = "Posebne oznake";
 "type.buoy.cardinal.east" = "Kardinalna plutača";
 "type.buoy.cardinal.north" = "Kardinalna plutača";
 "type.buoy.cardinal.south" = "Kardinalna plutača";
 "type.buoy.cardinal.west" = "Kardinalna plutača";
-"type.buoy.isolated_danger" = "Izolirana plutača za opasnost";
+"type.buoy.isolated_danger" = "Plutača za izoliranu opasnost";
 "type.buoy.lateral.port" = "Lateralna plutača";
 "type.buoy.lateral.starboard" = "Lateralna plutača";
-"type.buoy.safe_water" = "Safe Water Buoy";
+"type.buoy.safe_water" = "Plutača sigurne vode";
 "type.buoy.special_purpose" = "Plutača za posebne namjene";
 "type.spherical_buoy.cardinal.east" = "Sferna kardinalna plutača";
 "type.spherical_buoy.cardinal.north" = "Sferna kardinalna plutača";
 "type.spherical_buoy.cardinal.south" = "Sferna kardinalna plutača";
 "type.spherical_buoy.cardinal.west" = "Sferna kardinalna plutača";
-"type.spherical_buoy.isolated_danger" = "Sferna izolirana plutača za opasnost";
+"type.spherical_buoy.isolated_danger" = "Sferna plutača za usamljenu opasnost";
 "type.spherical_buoy.lateral.port" = "Sferna lateralna plutača";
 "type.spherical_buoy.lateral.starboard" = "Sferna lateralna plutača";
-"type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
+"type.spherical_buoy.safe_water" = "Sferna plutača za sigurne vode";
 "type.spherical_buoy.special_purpose" = "Sferna plutača za posebne namjene";
 "type.lateral.port" = "Luka";
 "type.lateral.starboard" = "Desna strana broda (nautički pojam)";
@@ -422,7 +422,7 @@
 "type.entrance.main" = "Glavni ulaz";
 "type.entrance.house" = "Ulaz u kuću";
 "type.entrance.garage" = "Ulaz u garažu";
-"type.entrance.service" = "Servisni ulaz";
+"type.entrance.service" = "Pristupni ulaz";
 "type.entrance.entry" = "Ulaz (samo)";
 "type.entrance.exit" = "Izlaz (samo)";
 "type.entrance.emergency" = "Izlaz za hitne slučajeve";
@@ -445,34 +445,34 @@
 "type.highway.bridleway.permissive" = "Staza za konje";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "Tunel";
-"type.highway.busway" = "Dedicated Bus Road";
+"type.highway.busway" = "Namjenska autobusna cesta";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.busway.bridge" = "Bridge";
+"type.highway.busway.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.busway.tunnel" = "Tunnel";
-"type.highway.bus_stop" = "Bus Stop";
-"type.highway.construction" = "Road Under Construction";
-"type.highway.cycleway" = "Cycle Path";
+"type.highway.busway.tunnel" = "Tunel";
+"type.highway.bus_stop" = "Autobusna stanica";
+"type.highway.construction" = "Cesta u izgradnji";
+"type.highway.cycleway" = "Biciklistička staza";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.cycleway.bridge" = "Bridge";
-"type.highway.cycleway.permissive" = "Cycle Path";
+"type.highway.cycleway.bridge" = "Most";
+"type.highway.cycleway.permissive" = "Biciklistička staza";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.cycleway.tunnel" = "Tunnel";
-"type.highway.elevator" = "Elevator";
-"type.highway.footway" = "Foot Path";
-"type.highway.footway.sidewalk" = "Sidewalk";
-"type.highway.footway.crossing" = "Pedestrian Crossing";
-"type.highway.footway.area" = "Pedestrian Area";
+"type.highway.cycleway.tunnel" = "Tunel";
+"type.highway.elevator" = "Lift";
+"type.highway.footway" = "Pješačka staza";
+"type.highway.footway.sidewalk" = "Nogostup";
+"type.highway.footway.crossing" = "Pješački prijelaz";
+"type.highway.footway.area" = "Pješačka zona";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.footway.bridge" = "Pedestrian Bridge";
+"type.highway.footway.bridge" = "Pješački most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.footway.tunnel" = "Pedestrian Tunnel";
-"type.highway.ford" = "Ford";
+"type.highway.footway.tunnel" = "Tunel za pješake";
+"type.highway.ford" = "Gaz";
 "type.highway.living_street" = "Living Street";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.living_street.bridge" = "Bridge";
+"type.highway.living_street.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.living_street.tunnel" = "Tunnel";
+"type.highway.living_street.tunnel" = "Tunel";
 "type.highway.motorway" = "Motorway";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "Motorway Bridge";
@@ -481,9 +481,9 @@
 "type.highway.motorway_junction" = "Road Exit";
 "type.highway.motorway_link" = "Motorway Ramp";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.motorway_link.bridge" = "Bridge";
+"type.highway.motorway_link.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.motorway_link.tunnel" = "Tunnel";
+"type.highway.motorway_link.tunnel" = "Tunel";
 "type.highway.path" = "Path";
 /* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
 "type.highway.path.difficult" = "Difficult or Indistinct Trail";
@@ -1521,19 +1521,19 @@
 "type.amenity.toilets.customers" = "Korisnički pristup";
 "type.amenity.toilets.private" = "Privatni pristup";
 "type.amenity.planetarium" = "Planetarij";
-"type.highway.construction.motorway" = "Road Under Construction";
-"type.highway.construction.motorway_link" = "Road Under Construction";
-"type.highway.construction.trunk" = "Road Under Construction";
-"type.highway.construction.trunk_link" = "Road Under Construction";
-"type.highway.construction.primary" = "Road Under Construction";
-"type.highway.construction.primary_link" = "Road Under Construction";
-"type.highway.construction.secondary" = "Road Under Construction";
-"type.highway.construction.secondary_link" = "Road Under Construction";
-"type.highway.construction.tertiary" = "Road Under Construction";
-"type.highway.construction.tertiary_link" = "Road Under Construction";
-"type.highway.construction.residential" = "Road Under Construction";
-"type.highway.construction.unclassified" = "Road Under Construction";
-"type.highway.construction.service" = "Road Under Construction";
-"type.highway.construction.living_street" = "Road Under Construction";
-"type.highway.construction.road" = "Road Under Construction";
-"type.highway.construction.track" = "Road Under Construction";
+"type.highway.construction.motorway" = "Cesta u izgradnji";
+"type.highway.construction.motorway_link" = "Cesta u izgradnji";
+"type.highway.construction.trunk" = "Cesta u izgradnji";
+"type.highway.construction.trunk_link" = "Cesta u izgradnji";
+"type.highway.construction.primary" = "Cesta u izgradnji";
+"type.highway.construction.primary_link" = "Cesta u izgradnji";
+"type.highway.construction.secondary" = "Cesta u izgradnji";
+"type.highway.construction.secondary_link" = "Cesta u izgradnji";
+"type.highway.construction.tertiary" = "Cesta u izgradnji";
+"type.highway.construction.tertiary_link" = "Cesta u izgradnji";
+"type.highway.construction.residential" = "Cesta u izgradnji";
+"type.highway.construction.unclassified" = "Cesta u izgradnji";
+"type.highway.construction.service" = "Cesta u izgradnji";
+"type.highway.construction.living_street" = "Cesta u izgradnji";
+"type.highway.construction.road" = "Cesta u izgradnji";
+"type.highway.construction.track" = "Cesta u izgradnji";

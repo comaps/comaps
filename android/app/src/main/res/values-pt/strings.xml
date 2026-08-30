@@ -748,7 +748,7 @@
     <string name="pref_tts_no_system_tts">Não foram encontradas definições de síntese de voz. Tens a certeza de que o teu dispositivo é compatível?</string>
     <string name="drive_through">Drive-through</string>
     <string name="clear_the_search">Limpar a pesquisa</string>
-    <string name="zoom_in">Ampliar</string>
+    <string name="zoom_in">Aumentar o zoom</string>
     <!-- Accessibility text for the zoom-out button on the map -->
     <string name="zoom_out">Diminuir o zoom</string>
     <!-- Restaurant or other food place's menu URL field in the Editor -->

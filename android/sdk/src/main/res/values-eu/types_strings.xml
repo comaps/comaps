@@ -633,9 +633,9 @@
     <string name="type.man_made.surveillance">Zaintza Kamera</string>
     <string name="type.man_made.tower">Dorrea</string>
     <!-- A huge telecommunications tower. Often a local monument or a landmark. -->
-    <string name="type.man_made.communications_tower">Komunikazio Dorrea</string>
+    <string name="type.man_made.communications_tower">Komunikazio dorrea</string>
     <!-- A regular telecommunications tower / mast. -->
-    <string name="type.man_made.tower.communication">Komunikazio Dorrea</string>
+    <string name="type.man_made.tower.communication">Komunikazio dorrea</string>
     <!-- A deep hole drilled into the earth to extract oil or gas. -->
     <string name="type.man_made.petroleum_well">Petrolio edo gas putzua</string>
     <!-- A tower/mast constructed to burn off excess gas. -->
@@ -1498,4 +1498,14 @@
     <string name="type.piste_type.nordic">Ipar eski ibilbidea</string>
     <string name="type.social_facility.food_bank">Elikagai bankua</string>
     <string name="type.leisure.sports_centre.sport.swimming">Igerilekua</string>
+    <string name="type.leisure.sports_centre.sport.padel">Kiroldegia</string>
+    <string name="type.leisure.sports_centre.sport.pelota">Kiroldegia</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Kiroldegia</string>
+    <string name="type.leisure.sports_centre.sport.scuba_diving">Kiroldegia</string>
+    <string name="type.leisure.sports_centre.sport.shooting">Kiroldegia</string>
+    <string name="type.leisure.sports_centre.sport.skateboard">Kiroldegia</string>
+    <string name="type.leisure.sports_centre.sport.skiing">Kiroldegia</string>
+    <string name="type.leisure.sports_centre.sport.soccer">Kiroldegia</string>
+    <string name="type.leisure.sports_centre.sport.table_tennis">Kiroldegia</string>
+    <string name="type.leisure.sports_centre.sport.tennis">Kiroldegia</string>
 </resources>

@@ -44,4 +44,8 @@
     <string name="months_ago">%s miesięcy temu</string>
     <string name="year_ago">%s rok temu</string>
     <string name="years_ago">%s lat temu</string>
+    <string name="accessibility_map_content_description_collapsed">Mapa. Przesuń palcem w górę lub w dół i rozszerz, aby przeglądać ją dotykiem.</string>
+    <string name="accessibility_map_content_description_expanded">Mapa. Dotknij i przytrzymaj, aby przeglądać dotykiem. Miejsca zostaną odczytane po dotarciu do nich palcem. Aby zatrzymać, przesuń palcem w górę lub w dół i zamknij.</string>
+    <string name="accessibility_map_action_expand_label">eksploruj dotykiem</string>
+    <string name="accessibility_map_action_collapse_label">koniec eksplorowania dotykiem</string>
 </resources>

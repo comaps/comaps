@@ -621,7 +621,7 @@
     <string name="power_managment_description">启用省电模式，部分功能可能受限</string>
     <string name="power_managment_setting_never">从不</string>
     <string name="power_managment_setting_auto">当电量低时</string>
-    <string name="power_managment_setting_manual_max">最大程度省电</string>
+    <string name="power_managment_setting_manual_max">始终</string>
     <string name="enable_logging_warning_message">临时启用此选项，以便使用“报告错误”功能在帮助对话框中记录并手动发送详细诊断日志给我们。日志可能包含位置信息。</string>
     <string name="routing_options_title">路线选项</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -983,4 +983,9 @@
     <string name="capacity_charging">带充电桩的停车位：%s</string>
     <string name="permission_read_navigation_label">读取 CoMaps 导航数据</string>
     <string name="permission_read_navigation_description">读取实时导航信息，例如即将到来的转弯或您当前所在道路的名称</string>
+    <string name="bookmarks_text_placement_title">在地图上显示收藏的名称</string>
+    <string name="place_reviews_title">地点评论</string>
+    <string name="place_reviews">%1$s 评论</string>
+    <string name="rating_stars_description">星级：%.1f</string>
+    <string name="reviews_by_mangrove">来自 Mangrove 的评价。\n在 <a href="https://mapcomplete.org">MapComplete</a> 中添加评价。</string>
 </resources>

@@ -981,4 +981,9 @@
     <string name="pref_enable_auto_reroute_title">Route automatisch herberekenen</string>
     <string name="pref_enable_auto_reroute_description">Indien ingeschakeld, wordt er automatisch een nieuwe route berekend wanneer de geplande route verlaten wordt.</string>
     <string name="off_route">Je bent van de route afgeweken</string>
+    <string name="bookmarks_text_placement_title">Namen van favorieten op kaart tonen</string>
+    <string name="place_reviews">%1$s Beoordelingen</string>
+    <string name="reviews_by_mangrove">Beoordelingen van Mangrove.\nBeoordelingen toevoegen in <a href="https://mapcomplete.org">MapComplete</a>.</string>
+    <string name="place_reviews_title">Beoordelingen</string>
+    <string name="rating_stars_description">sterren: %.1f</string>
 </resources>

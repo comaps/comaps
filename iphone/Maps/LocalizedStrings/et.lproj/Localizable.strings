@@ -895,3 +895,4 @@
 "zoom_out" = "Suumi välja";
 "record_track" = "Salvesta rada";
 "recording_track" = "Rada on salvestamisel";
+"bookmarks_text_placement_title" = "Show names of favorites on map";

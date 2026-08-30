@@ -893,3 +893,4 @@
 "zoom_out" = "Zoom out";
 "record_track" = "Record Track";
 "recording_track" = "Recording Track";
+"bookmarks_text_placement_title" = "Show names of favorites on map";

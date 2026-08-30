@@ -155,7 +155,7 @@
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">最愛載入成功！ 您可以在地圖或最愛管理畫面中找到它們。</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">最愛載入失敗，檔案可能已損壞或不完整。</string>
+    <string name="load_kmz_failed">我的最愛載入失敗，檔案可能已損壞或不完整。</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">應用程式無法識別該文件類型：\n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->

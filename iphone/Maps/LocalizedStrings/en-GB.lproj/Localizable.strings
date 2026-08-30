@@ -921,3 +921,4 @@
 "carplay_highway_exit" = "Exit %@";
 "planning_route_preview" = "Preview";
 "planning_route_preview_sheet_title" = "Route Preview";
+"bookmarks_text_placement_title" = "Show names of favorites on map";

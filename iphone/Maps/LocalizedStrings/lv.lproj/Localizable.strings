@@ -404,8 +404,8 @@
 "closed" = "Slēgts";
 "add_opening_hours" = "Pievienot darba laiku";
 /* OpenStreetMap */
-"osm_mapdata" = "Kartes dati no OpenStreetMap";
-"osm_mapdata_explanation %@" = "Kopienas veidoti karšu dati, *%@*. Uzziniet vairāk par to, kā piedalīties kartes rediģēšanā un uzlabošanā vietnē „[OpenStreetMap.org](https://openstreetmap.org)“.";
+"osm_mapdata" = "Karšu dati no OpenStreetMap";
+"osm_mapdata_explanation %@" = "Kopienas veidoti karšu dati, *%@*. Vairāk par to, kā piedalīties karšu labošana un atjaunināšana, var [OpenStreetMap.org](https://openstreetmap.org).";
 "osm_more_about" = "Vairāk par „OpenStreetMap“";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
 /* OpenStreetMap Profile */
@@ -839,9 +839,9 @@
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Atjaunot visu";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
-"stop_without_saving" = "Pārtraukt ierakstīšanu";
+"stop_without_saving" = "Pārtraukt bez saglabāšanas";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
-"continue_recording" = "Turpināt ierakstīt";
+"continue_recording" = "Turpināt ierakstīšanu";
 /* Title for the alert when saving a track recording. */
 "track_recording_alert_title" = "Pievienot izlasei?";
 /* Message for the toast when saving the track recording is finished but nothing to save. */
@@ -871,27 +871,28 @@
 "capacity_charging_no" = "Nav vietu ar lādētājiem";
 "planning_route_preview" = "Priekšskatījums";
 "planning_route_preview_sheet_title" = "Route Preview";
-"discard" = "Discard";
+"discard" = "Noraidīt";
 "pref_custom_button_type" = "Customizable Button";
 "osm" = "OpenStreetMap";
 "mode" = "Mode";
 "mode_walking" = "Walking";
 "mode_cycling" = "Cycling";
 "mode_driving" = "Driving";
-"mode_public-transport" = "Public Transport";
-"mode_option_traffic" = "Show Traffic";
+"mode_public-transport" = "Sabiedriskais transports";
+"mode_option_traffic" = "Rādīt satiksmi";
 "mode_option_transitlines" = "Show Transit Lines";
 "mode_option_comingsoon" = "Options coming soon";
-"layers" = "Layers";
-"layers_option_contour-lines" = "Contour Lines";
-"layers_option_outdoor" = "Outdoor";
-"layers_option_buildings-3d" = "3D Buildings";
-"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
+"layers" = "Slāņi";
+"layers_option_contour-lines" = "Reljefa līnijas";
+"layers_option_outdoor" = "Brīvdaba";
+"layers_option_buildings-3d" = "3D ēkas";
+"layers_power-saving" = "Šis slānis šobrīd ir automātiski atspējots jaudas saglabāšanas iestatījuma dēļ.";
 "postionmode_locate" = "Find own location";
 "postionmode_locating" = "Finding own location...";
 "postionmode_following" = "Following location with map roated towards North";
 "postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
-"zoom_in" = "Zoom in";
-"zoom_out" = "Zoom out";
-"record_track" = "Record Track";
-"recording_track" = "Recording Track";
+"zoom_in" = "Pietuvināt";
+"zoom_out" = "Attālināt";
+"record_track" = "Ierakstīt ceļu";
+"recording_track" = "Ieraksta ceļu";
+"bookmarks_text_placement_title" = "Show names of favorites on map";

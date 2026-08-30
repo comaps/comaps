@@ -204,4 +204,5 @@
     <string name="type.amenity.townhall">Rātsnams</string>
     <string name="type.amenity.university">Augstskola</string>
     <string name="type.amenity.vending_machine">Tirdzniecības automāts</string>
+    <string name="type.aeroway.gate">Vārti</string>
 </resources>

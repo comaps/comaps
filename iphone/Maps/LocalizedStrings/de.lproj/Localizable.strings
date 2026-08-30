@@ -916,3 +916,4 @@
 "capacity_charging_no" = "Keine Ladestellplätze";
 "planning_route_preview" = "Vorschau";
 "planning_route_preview_sheet_title" = "Routenvorschau";
+"bookmarks_text_placement_title" = "Show names of favorites on map";

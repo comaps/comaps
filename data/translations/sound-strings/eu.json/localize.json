@@ -316,5 +316,140 @@
     },
     "unknown_camera": {
         "defaultMessage": "Kamera aurrean"
+    },
+    "from_600_meters": {
+        "defaultMessage": "seiehun metro"
+    },
+    "from_500_meters": {
+        "defaultMessage": "bostehun metro"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Ibilbidetik %1$s-tara zaude"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Hiru kilometro baino gehiagotan"
+    },
+    "from_50_meters": {
+        "defaultMessage": "berrogeita hamar metro"
+    },
+    "from_100_meters": {
+        "defaultMessage": "ehun metro"
+    },
+    "from_200_meters": {
+        "defaultMessage": "berrehun metro"
+    },
+    "from_250_meters": {
+        "defaultMessage": "berrehun eta berrogeita hamar metro"
+    },
+    "from_300_meters": {
+        "defaultMessage": "hirurehun metro"
+    },
+    "from_400_meters": {
+        "defaultMessage": "laurehun metro"
+    },
+    "from_700_meters": {
+        "defaultMessage": "zazpiehun metro"
+    },
+    "from_750_meters": {
+        "defaultMessage": "zazpiehun eta berrogeita hamar metro"
+    },
+    "from_800_meters": {
+        "defaultMessage": "zortziehun metro"
+    },
+    "from_900_meters": {
+        "defaultMessage": "bederatziehun metro"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "kilometro bat"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "kilometro eta erdi"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "bi kilometro"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "bi kilometro eta erdi"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "hiru kilometro"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "hiru kilometro baino gehiago"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "Errepidearen bukaeran"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "bi milia baino gehiagotan"
+    },
+    "from_50_feet": {
+        "defaultMessage": "berrogeita hamar oin"
+    },
+    "from_100_feet": {
+        "defaultMessage": "ehun oin"
+    },
+    "from_200_feet": {
+        "defaultMessage": "berrehun oin"
+    },
+    "from_300_feet": {
+        "defaultMessage": "hirurehun oin"
+    },
+    "from_400_feet": {
+        "defaultMessage": "laurehun oin"
+    },
+    "from_500_feet": {
+        "defaultMessage": "bostehun oin"
+    },
+    "from_600_feet": {
+        "defaultMessage": "seiehun oin"
+    },
+    "from_700_feet": {
+        "defaultMessage": "zazpiehun oin"
+    },
+    "from_800_feet": {
+        "defaultMessage": "zortziehun oin"
+    },
+    "from_900_feet": {
+        "defaultMessage": "bederatziehun oin"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "mila oin"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "mila eta bostehun oin"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "bi mila oin"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "bi mila eta bostehun oin"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "hiru mila oin"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "hiru mila eta bostehun oin"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "lau mila oin"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "lau mila eta bostehun oin"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "bost mila oin"
+    },
+    "from_1_mile": {
+        "defaultMessage": "milia bat"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "milia eta erdi"
+    },
+    "from_2_miles": {
+        "defaultMessage": "bi milia"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "bi milia baino gehiago"
     }
 }

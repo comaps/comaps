@@ -12,7 +12,7 @@
 "type.aeroway.aerodrome" = "Lidosta";
 "type.aeroway.aerodrome.international" = "Starptautiskā lidosta";
 "type.aeroway.apron" = "Apron";
-"type.aeroway.gate" = "Gate";
+"type.aeroway.gate" = "Vārti";
 "type.aeroway.helipad" = "Helipad";
 "type.aeroway.runway" = "Runway";
 "type.aeroway.taxiway" = "Taxiway";

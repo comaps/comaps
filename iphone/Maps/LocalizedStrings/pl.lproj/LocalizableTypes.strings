@@ -101,7 +101,7 @@
 "type.amenity.lounger" = "Leżak";
 "type.amenity.luggage_locker" = "Skrytka do przechowywania bagażu";
 "type.amenity.marketplace" = "Targ";
-"type.amenity.mobile_money_agent" = "Mobile Money Agent";
+"type.amenity.mobile_money_agent" = "Agencja płatności mobilnych";
 "type.amenity.motorcycle_parking" = "Parking motocyklowy";
 "type.amenity.nightclub" = "Klub nocny";
 "type.amenity.nursing_home" = "Dom opieki";
@@ -371,7 +371,7 @@
 "type.cuisine.vietnamese" = "Kuchnia wietnamska";
 "type.emergency" = "Ratunkowe";
 "type.emergency.access_point" = "Punkt ratunkowy";
-"type.emergency.access_point.address" = "Emergency Rescue Address";
+"type.emergency.access_point.address" = "Adres ratownictwa medycznego";
 "type.emergency.assembly_point" = "Miejsce zbiórki do ewakuacji";
 "type.emergency.disaster_help_point" = "Punkt pomocy dla ofiar klęski żywiołowej";
 "type.emergency.life_ring" = "Koło ratunkowe";
@@ -1293,7 +1293,7 @@
 "type.shop.hearing_aids" = "Sklep z aparatami słuchowymi";
 "type.shop.herbalist" = "Sklep z ziołami";
 "type.shop.hifi" = "Sklep ze sprzętem hi-fi";
-"type.shop.houseware" = "Sklep AGD";
+"type.shop.houseware" = "Sklep z akcesoriami AGD";
 "type.shop.jewelry" = "Jubiler";
 "type.shop.kiosk" = "Kiosk";
 "type.shop.kitchen" = "Sklep kuchenny";
@@ -1338,7 +1338,7 @@
 "type.shop.wine" = "Sklep z winami";
 "type.shop.agrarian" = "Sklep rolniczy";
 "type.shop.antiques" = "Antyki";
-"type.shop.appliance" = "Sklep AGD";
+"type.shop.appliance" = "Sklep ze sprzętem AGD";
 "type.shop.water" = "Sklep z wodą pitną";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Sklep artystyczny";

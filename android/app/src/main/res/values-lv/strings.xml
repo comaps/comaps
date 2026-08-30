@@ -758,9 +758,9 @@
     <string name="pref_tts_no_system_tts">Runas atveidošanas iestatījumi netika atrasti. Vai ierīce tos atbalsta?</string>
     <string name="drive_through">Caurbrauktuve</string>
     <string name="clear_the_search">Notīrīt meklēšanu</string>
-    <string name="zoom_in">Tuvināt</string>
+    <string name="zoom_in">Pietuvināt</string>
     <!-- Accessibility text for the zoom-out button on the map -->
-    <string name="zoom_out">Tālināt</string>
+    <string name="zoom_out">Attālināt</string>
     <!-- Restaurant or other food place's menu URL field in the Editor -->
     <string name="website_menu">Saite uz ēdienkarti</string>
     <!-- Button in the Place Page which opens a restaurant or other food place's menu in a browser -->
@@ -781,11 +781,11 @@
     <string name="nav_auto">Automātisks navigācijas laikā</string>
     <string name="start_track_recording">Ierakstīt pēdojumu</string>
     <string name="stop_track_recording">Apstādināt pēdojuma ierakstīšanu</string>
-    <string name="stop_without_saving">Pārtraukt ierakstīšanu</string>
+    <string name="stop_without_saving">Pārtraukt bez saglabāšanas</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
-    <string name="continue_recording">Turpināt ierakstīt</string>
+    <string name="continue_recording">Turpināt ierakstīšanu</string>
     <string name="track_recording_alert_title">Pievienot izlasei?</string>
     <string name="editor_other_info">Piezīme OpenStreetMap brīvprātigajiem (nav obligāts)</string>
     <string name="track_recording_toast_nothing_to_save">Pēdojums ir tukšs – nav nekā saglabājama</string>

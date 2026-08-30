@@ -950,7 +950,7 @@
     <string name="downloader_check_updates_error">No s\'han pogut comprovar les actualitzacions</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">Aquesta aplicació s\'ha instal·lat des de Google Play, la pots fer servir al teu cotxe.</string>
-    <string name="pref_aa_support_summary_no">Aquesta app no ha sigut instal·lada des de Google Play, no pots fer-la servir al cotxe. Prem la opció per a veure més detalls als nostres FAQ.</string>
+    <string name="pref_aa_support_summary_no">Aquesta app no ha sigut instal·lada des de Google Play, no pots fer-la servir al cotxe. Prem l\'opció per a veure més detalls a les nostres Preguntes Freqüents.</string>
     <string name="tts_toggle_enable">Activa instruccions de veu</string>
     <string name="tts_toggle_disable">Desactiva instruccions de veu</string>
     <string name="oh_unknown">Hores d\'opertura desconegudes</string>

@@ -895,3 +895,4 @@
 "zoom_out" = "Alejar";
 "record_track" = "Grabar trayecto";
 "recording_track" = "Grabando trayecto";
+"bookmarks_text_placement_title" = "Mostrar nombres de los favoritos en el mapa";

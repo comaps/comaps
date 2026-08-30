@@ -1364,4 +1364,22 @@
     <string name="type.mountain_pass">Passatge de Muntanya</string>
     <string name="type.natural.scree">Tartera</string>
     <string name="type.natural.cape">Cap</string>
+    <string name="type.shop.craft">Botiga de materials per a manualitats</string>
+    <string name="type.shop.florist">Floristeria</string>
+    <string name="type.shop.erotic">Botiga eròtica</string>
+    <string name="type.shop.health_food">Botiga de menjar saludable</string>
+    <string name="type.shop.massage">Saló de massatges</string>
+    <string name="type.shop.musical_instrument">Botiga d\'instruments musicals</string>
+    <string name="type.shop.photo">Botiga d\'articles de fotografia</string>
+    <string name="type.shop.second_hand">Botiga de segona mà</string>
+    <string name="type.disusedbusiness">Comerç vacant</string>
+    <string name="type.shop.watches">Rellotgeria</string>
+    <string name="type.shop.perfumery">Perfumeria</string>
+    <string name="type.shop.medical_supply">Botiga de subministraments mèdics</string>
+    <string name="type.shop.cheese">Botiga de formatges</string>
+    <string name="type.sport.climbing">Escalada</string>
+    <string name="type.sport.skiing">Esquí</string>
+    <string name="type.tourism.information.tactile_map">Mapa tàctil</string>
+    <string name="type.social_facility.food_bank">Banc d\'aliments</string>
+    <string name="type.amenity.food_sharing">Aliments compartits</string>
 </resources>
