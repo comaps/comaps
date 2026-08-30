@@ -894,6 +894,10 @@ void TrafficManager::OnTrafficDataUpdate()
     auto const currentTime = steady_clock::now();
     auto const drapeAge = currentTime - m_lastDrapeUpdate;
     auto const storageAge = currentTime - m_lastStorageUpdate;
+    /*
+     * TODO introduce “update pending“ flags, similar to assessment tool, to prevent backlogs?
+     * Less critical here, as updates happen every 10 seconds to 1 minute, not after every message
+     */
     notifyDrape = (drapeAge >= kDrapeUpdateInterval);
     updateStorage = (storageAge >= kStorageUpdateInterval);
     if (!IsObserverInhibited())
