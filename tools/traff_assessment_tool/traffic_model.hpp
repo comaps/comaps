@@ -19,6 +19,7 @@
 
 #include <pugixml.hpp>
 
+#include <atomic>
 #include <memory>
 #include <string>
 #include <vector>
@@ -137,6 +138,8 @@ private:
    * Non-owning pointer to an element of m_messages.
    */
   TraffMessage * m_message = nullptr;
+
+  std::atomic_flag m_hasUiTask = ATOMIC_FLAG_INIT;
 
   std::unique_ptr<TrafficDrawerDelegateBase> m_drawerDelegate;
   std::unique_ptr<PointsControllerDelegateBase> m_pointsDelegate;

@@ -623,36 +623,37 @@ TrafficModel::TrafficModel(Framework & framework,
      * imminent. Such updates should always be processed. If final is false, we can optimize by
      * selectively skipping updates.
      */
-    GetPlatform().RunTask(Platform::Thread::Gui, [this, &framework, final]()
-    {
-      beginResetModel();
-      auto const messageCache = framework.GetTrafficManager().GetMessageCache();
-      m_messages.clear();
-      m_messages.reserve(messageCache.size());
+    if (final || !m_hasUiTask.test_and_set())
+      GetPlatform().RunTask(Platform::Thread::Gui, [this, &framework, final]()
+      {
+        m_hasUiTask.clear();
+        beginResetModel();
+        auto const messageCache = framework.GetTrafficManager().GetMessageCache();
+        m_messages.clear();
+        m_messages.reserve(messageCache.size());
 
-      for (auto & entry : messageCache)
-        m_messages.push_back(std::move(entry.second));
+        for (auto & entry : messageCache)
+          m_messages.push_back(std::move(entry.second));
 
-      std::sort(m_messages.begin(), m_messages.end(),
-                [](const TraffMessage& a, const TraffMessage& b) {
-        return IsLessThan(a, b);
+        std::sort(m_messages.begin(), m_messages.end(),
+                  [](const TraffMessage& a, const TraffMessage& b) {
+          return IsLessThan(a, b);
+        });
+
+        endResetModel();
+
+        // clear markers
+        auto editSession = m_framework.GetBookmarkManager().GetEditSession();
+        editSession.ClearGroup(UserMark::Type::COLORED);
+        editSession.SetIsVisible(UserMark::Type::COLORED, false);
+        m_drapeApi.Clear();
+
+        // restore status bar
+        if (final)
+          m_trafficPanel->SetStatus(false, m_messages.size());
+
+        LOG(LINFO, ("Messages:", m_messages.size()));
       });
-
-
-      endResetModel();
-
-      // clear markers
-      auto editSession = m_framework.GetBookmarkManager().GetEditSession();
-      editSession.ClearGroup(UserMark::Type::COLORED);
-      editSession.SetIsVisible(UserMark::Type::COLORED, false);
-      m_drapeApi.Clear();
-
-      // restore status bar
-      if (final)
-        m_trafficPanel->SetStatus(false, m_messages.size());
-
-      LOG(LINFO, ("Messages:", m_messages.size()));
-    });
   });
 }
 
