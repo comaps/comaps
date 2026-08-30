@@ -623,7 +623,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
     }
 
     mNavigationController =
-        new NavigationController(this, v -> onSettingsOptionSelected(), this::updateBottomWidgetsOffset);
+        new NavigationController(this, v -> onSettingsOptionSelected(), v -> onTrackRecordingOptionSelected(),
+                this::updateBottomWidgetsOffset);
     // TrafficManager.INSTANCE.attach(mNavigationController);
 
     initMainMenu();

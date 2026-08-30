@@ -4,6 +4,7 @@ import static androidx.core.content.ContextCompat.getString;
 
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.util.Pair;
 import android.view.MotionEvent;
@@ -13,17 +14,21 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.RoundedCornerCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 import app.organicmaps.R;
+import app.organicmaps.maplayer.MapButtonsViewModel;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.routing.RoutingInfo.RoutingSessionState;
 import app.organicmaps.sdk.sound.TtsPlayer;
 import app.organicmaps.sdk.util.DateUtils;
 import app.organicmaps.sdk.util.Distance;
+import app.organicmaps.util.ThemeUtils;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.widget.RouteProgressBar;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -43,6 +48,7 @@ public class NavMenu
   private final View mHeaderFrame;
 
   private final ShapeableImageView mTts;
+  private final ShapeableImageView mTrackRecording;
   private final View mEtaViewContainer;
   private final MaterialTextView mEtaValue;
   private final MaterialTextView mEtaAmPm;
@@ -147,6 +153,7 @@ public class NavMenu
     mRebuildingRouteProgressBar = bottomFrame.findViewById(R.id.rebuilding_route_progress_bar);
     mRebuildRouteButton = bottomFrame.findViewById(R.id.rebuild_route);
     mRebuildRouteButton.setOnClickListener(view -> Framework.nativeAutoReroute());
+    mTrackRecording = bottomFrame.findViewById(R.id.track_recording);
 
     // Bottom frame buttons.
     ShapeableImageView mSettings = bottomFrame.findViewById(R.id.settings);
@@ -155,6 +162,11 @@ public class NavMenu
     mTts.setOnClickListener(v -> onTtsClicked());
     MaterialButton stop = bottomFrame.findViewById(R.id.stop);
     stop.setOnClickListener(v -> onStopClicked());
+    mTrackRecording.setOnClickListener(v -> onTrackRecordingClicked());
+    new ViewModelProvider(mActivity)
+            .get(MapButtonsViewModel.class)
+            .getTrackRecorderState()
+            .observe(mActivity, this::refreshTrackRecording);
 
     // Check window insets to detect possible display conflicts due to window bottom round corners.
     ViewCompat.setOnApplyWindowInsetsListener(mHeaderFrame, (view, windowInsets) -> {
@@ -233,6 +245,19 @@ public class NavMenu
       Toast.makeText(mActivity, R.string.pref_tts_no_system_tts_short, Toast.LENGTH_SHORT).show();
     TtsPlayer.setEnabled(!TtsPlayer.isEnabled());
     refreshTts();
+  }
+
+  private void onTrackRecordingClicked()
+  {
+    mNavMenuListener.onTrackRecordingClicked();
+  }
+
+  private void refreshTrackRecording(boolean isRecording)
+  {
+    UiUtils.showIf(!isRecording, mTrackRecording);
+    int color = isRecording ? ContextCompat.getColor(mActivity, R.color.active_track_recording)
+            : ThemeUtils.getColor(mActivity, R.attr.iconTint);
+    mTrackRecording.setImageTintList(ColorStateList.valueOf(color));
   }
 
   private void toggleNavMenu()
@@ -537,5 +562,8 @@ public class NavMenu
     void onStopClicked();
 
     void onSettingsClicked();
+
+    void onTrackRecordingClicked();
   }
+
 }
