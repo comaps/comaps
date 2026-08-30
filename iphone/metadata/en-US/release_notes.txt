@@ -1,0 +1,13 @@
+• Modes UI and transport-specific map styles
+• Display favorite names on the map (opt out in settings)
+• Custom map font size setting
+• Support roadshields in Kyrgyzstan, Uzbekistan, Tajikistan, Kazakhstan and Georgia
+• Supply dark and light turn image variants for CarPlay
+• OSM editor: added more categories (prison, dojo, bowling_alley, lounger, shop=craft, golf_course, miniature_golf and attraction rides (roller_coaster, carousel...) and assembly points)
+• Fixed ability to search in any user-set map language (not just EN and local language)
+• Use unrestricted lanes for lane guidance in Go Straight instructions
+• Don't interpret fee=donation as paid
+• Enabled Macedonian language voice instructions
+• Fixed asking for location before protected data is available
+• Fixed route preview button disappearing
+• OpenStreetMap data as of August 30 and further weekly updates

@@ -1,10 +1,10 @@
-• Anzeige aktivierter Routenoptionen und Knopf zur Änderung beim Erstellen einer Route
-• Vorschau der Navigationsanweisungen
-• Separate Routenoptionen pro Verkehrsmittel
-• Verbesserte Abbiegehinweise in verschiedenen Fällen
-• Symbole für Ziel & Zwischenstopps in Navigationsfortschrittsleiste
-• Verbesserte Abbiegebeschreibungen, inkl. Routenschildern
-• Suche in allen Favoriten
-• Einstellungen in Unterseiten unterteilt
+• Anzeige von Favoriten-Namen auf der Karte (Ausschalten in Einstellungen)
+• Anzeige von Mangrove Nutzerbewertungen bei POIs
+• Einstellung zum Anpassen der Kartenschriftgröße
+• Karte vorlesen für TalkBack Nutzer
+• Option Tracks aufzunehmen während der Navigation
+• Anzeige "Öffnet morgen um ..." bei POIs
+• Fehler zur Suche in benutzerdefinierter Kartensprache behoben
+• Straßenschilder für Kirgisistan, Usbekistan, Tadschikistan, Kasachstan und Georgien
 
 Weitere Details unter comaps.app/latest

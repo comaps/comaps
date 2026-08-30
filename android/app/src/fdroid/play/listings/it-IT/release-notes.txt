@@ -1,9 +1,9 @@
-• Mostra opzioni di percorso attivate e pulsante per modificarle durante la creazione
-• Anteprima delle indicazioni di navigazione passo dopo passo
-• Opzioni di percorso per mezzo di trasporto
-• Istruzioni migliorate per rotatorie, inversioni a u e altri casi
-• Icone di destinazione e fermate sulla barra di avanzamento
-• Aggiunti simboli stradali ai segnali di direzione e migliori descrizioni delle manovre
-• Ricerca in tutte le liste dei preferiti
+• Visualizza i nomi dei preferiti sulla mappa (disattivabile)
+• Visualizza le recensioni degli utenti Mangrove nella pagina info dei POI
+• Dimensione del carattere della mappa personalizzata
+• Consenti agli utenti TalkBack di leggere la mappa
+• Possibilità di avviare la registrazione della traccia dopo l'inizio della navigazione
+• Mostra "Apre domani alle..." nelle info dei POI
+• Corretta la possibilità di cercare nella lingua impostata dall'utente
 
 Maggiori dettagli su comaps.app/latest

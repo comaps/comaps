@@ -1,0 +1,13 @@
+• UI delle modalità e stili di mappa specifici per il trasporto
+• Visualizzazione dei nomi preferiti sulla mappa (disattivabile nelle impostazioni)
+• Impostazione della dimensione del carattere personalizzata per la mappa
+• Supporto per i cartelli stradali in Kirghizistan, Uzbekistan, Tagikistan, Kazakistan e Georgia
+• Fornite varianti chiare e scure delle immagini di svolta per CarPlay
+• Editor OSM: aggiunte ulteriori categorie (prigione, dojo, bowling, lettino, shop=craft, campo da golf, minigolf, attrazioni (montagne russe, carosello...) e punti di raccolta)
+• Corretta la possibilità di cercare in qualsiasi lingua della mappa impostata dall'utente (non solo EN e lingua locale)
+• Uso delle corsie non soggette a restrizioni per la guida di corsia nelle istruzioni "Prosegui dritto"
+• Non interpretare fee=donation come a pagamento
+• Abilitate le istruzioni vocali in lingua macedone
+• Risolto il problema della richiesta della posizione prima che i dati protetti siano disponibili
+• Risolto il problema della scomparsa del pulsante di anteprima del percorso
+• Dati OpenStreetMap aggiornati al 30 agosto e ulteriori aggiornamenti settimanali

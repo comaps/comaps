@@ -1,0 +1,11 @@
+• Wyświetl nazwy ulubionych miejsc na mapie (można wyłączyć w ustawieniach)
+• Wyświetl recenzje z Mangrove w panelu POI
+• Ustaw wielkość czcionki mapy
+• Czytanie mapy z TalkBack
+• Uruchom rejestrację trasy w trakcie nawigacji
+• Pokazuje "Otwarcie jutro o ..." w panelu POI
+• Możliwość wyszukiwania w skonfigurowanym języku
+• Symbole dróg w Kirgistanie, Uzbekistanie, Tadżykistanie, Kazachstanie i Gruzji
+• W warstwie metra pokazuje przystanki autobusowe wcześniej
+
+Więcej na comaps.app/latest

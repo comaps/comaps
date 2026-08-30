@@ -1,10 +1,11 @@
-• Visning af aktiverede ruteindstillinger og en knap til at ændre dem, når der oprettes en rute
-• Forhåndsvisning af navigationsvejledning
-• Separate ruteindstillinger for hver transportform
-• Forbedrede svinginstruktioner for bl.a. rundkørsler og u-vendinger
-• Destination og mellemstop i navigationsfremskridsbjælken
-• Tilføjet vejskilte for næste sving samt forbedrede beskrivelser af sving
-• Søgning i alle favoritlister
-• Indstillinger opdelt i undersider
+• Vis favoritnavne på kortet (slå fra i indstillingerne)
+• Vis Mangrove-brugeranmeldelser i POI-info
+• Indstilling for tekststørrelse på kortet
+• Mulighed for kortlæsning med TalkBack
+• Mulighed for at starte optagelse af spor under navigation
+• Vis "Åbner i morgen kl. ..." i POI-info
+• Rettet mulighed for at søge på alle indstillede sprog
+• Vejskilte i Kirgisistan, Usbekistan, Tadsjikistan, Kasakhstan og Georgien
+• Vis busstoppesteder tidligere i metrolag
 
 Flere detaljer på comaps.app/latest

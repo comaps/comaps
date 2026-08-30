@@ -1,0 +1,13 @@
+• Estilos de mapa específicos para transporte e interfaz de modos
+• Visualización de nombres de favoritos en el mapa (desactivable en ajustes)
+• Ajuste personalizado del tamaño de fuente del mapa
+• Soporte para escudos de carreteras en Kirguistán, Uzbekistán, Tayikistán, Kazajistán y Georgia
+• Variantes claras y oscuras para las imágenes de giro en CarPlay
+• Editor de OSM: se añaden más categorías (prisión, dojo, bolera, tumbona, tienda de artesanía, campo de golf, minigolf, atracciones de feria (montaña rusa, carrusel...) y puntos de encuentro)
+• Corregida la búsqueda en cualquier idioma del mapa configurado por el usuario (no solo en inglés e idioma local)
+• Uso de carriles sin restricciones para el guiado de carriles en instrucciones de "Siga recto"
+• Ya no se interpreta fee=donation como de pago
+• Activadas las instrucciones de voz en macedonio
+• Corregida la solicitud de ubicación antes de que los datos protegidos estén disponibles
+• Corregida la desaparición del botón de vista previa de la ruta
+• Datos de OpenStreetMap al 30 de agosto y actualizaciones semanales posteriores

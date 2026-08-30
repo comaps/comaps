@@ -1,10 +1,11 @@
-• Toon actieve route-instellingen en een knop om ze te wijzigen tijdens het maken van een route
-• Voorbeeld van stapsgewijze routebeschrijvingen toegevoegd
-• Aparte route-instellingen per transportmodus
-• Afslaginstructies voor o.a. rotondes en u-bochten verbeterd
-• Bestemming en tussenstops in navigatievoorgangsbalk
-• Verbeterde richting-instructies inclusief weglabels
-• Zoeken door alle favorietenlijsten
-• Instellingen opgedeeld in sub-pagina's
+• Toon namen van favorieten op de kaart (uitschakelbaar)
+• Toon gebruikersreviews via Mangrove in POI-info
+• Instelling voor tekstgrootte op de kaart
+• Kaart lezen met TalkBack mogelijk gemaakt
+• Mogelijkheid om routeopname te starten tijdens navigatie
+• Toon ‘Opent morgen om ...’ in POI-info
+• Zoeken in elke ingestelde kaarttaal mogelijk gemaakt
+• Weglabels in Kirgizië, Oezbekistan, Tadzjikistan, Kazachstan en Georgië
+• Toon bushaltes eerder in metrolaag
 
 Meer details op comaps.app/latest

@@ -1,0 +1,13 @@
+• Interface de utilizador dos modos e estilos de mapa específicos para cada meio de transporte
+• Exibição dos nomes dos favoritos no mapa (opção de desativação nas definições)
+• Configuração personalizada do tamanho da fonte do mapa
+• Suporte a sinais de trânsito no Quirguistão, Uzbequistão, Tajiquistão, Cazaquistão e Geórgia
+• Disponibilização de variantes de imagens de viragem em tons escuros e claros para o CarPlay
+• Editor OSM: adicionadas mais categorias (prison, dojo, bowling_alley, lounger, shop=craft, golf_course, miniature_golf e atrações de parques de diversões (roller_coaster, carousel...) e pontos de encontro)
+• Corrigida a capacidade de pesquisar em qualquer idioma do mapa definido pelo utilizador (não apenas em inglês e no idioma local)
+• Utilização de faixas sem restrições para orientação de faixa nas instruções «Siga em frente»
+• Não interpretar fee=donation como pago
+• Ativadas as instruções de voz em macedónio
+• Corrigida a solicitação de localização antes de os dados protegidos estarem disponíveis
+• Corrigido o desaparecimento do botão de pré-visualização do percurso
+• Dados do OpenStreetMap à data de 30 de agosto e futuras atualizações semanais

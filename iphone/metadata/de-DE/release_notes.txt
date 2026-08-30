@@ -1,0 +1,13 @@
+• Verkehrsmittel UI und verkehrsmittelspezifische Kartenstile
+• Anzeige von Favoriten-Namen auf der Karte (Ausschalten in Einstellungen)
+• Einstellung zum Anpassen der Kartenschriftgröße
+• Straßenschilder für Kirgisistan, Usbekistan, Tadschikistan, Kasachstan und Georgien hinzugefügt
+• Dunkle und helle Bildvarianten zum Abbiegen für CarPlay hinzugefügt
+• OSM-Editor: Mehr Kategorien hinzugefügt (Gefängnis, Dojo, Bowlingbahn, Sonnenliege, Geschäft für Künstlerbedarf, Golfplatz, Minigolf und Fahrgeschäfte (Achterbahn, Karussell...) und Sammelpunkte)
+• Fehler zur Suche in benutzerdefinierter Kartensprache behoben (nicht nur EN und lokale Sprache)
+• Unbeschränkte Spuren für Spurführung bei Geradeaus fahren Anweisungen nutzen
+• Nicht fee=donation als kostenpflichtig werten
+• Sprachanweisungen für mazedonische Sprache hinzugefügt
+• Nach Standort fragen bevor geschützte Daten vorhanden sind behoben
+• Verschwinden vom Vorschau Knopf für eine Route behoben
+• OpenStreetMap-Daten vom 30. August und wöchentliche Updates
