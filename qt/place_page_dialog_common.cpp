@@ -1,6 +1,17 @@
 #include "qt/place_page_dialog_common.hpp"
 
+#include "editor/review.hpp"
+
+#include "map/place_page_info.hpp"
+
+#include <QtConcurrent/QtConcurrentRun>
+#include <QtCore/QFuture>
+#include <QtCore/QFutureWatcher>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
+
+#include <optional>
+#include <string>
 
 namespace place_page_dialog
 {
@@ -39,4 +50,22 @@ void addCommonButtons(QDialog * this_, QDialogButtonBox * dbb, bool shouldShowEd
     dbb->addButton(editButton, QDialogButtonBox::AcceptRole);
   }
 }
+
+template <typename F1, typename F2>
+void resolveReviewEditorUrl(QDialog * this_, place_page::Info const & info, QProgressBar * const spinner,
+                            F1 && onResolved, F2 && onEmpty)
+{
+  auto * const watcher = new QFutureWatcher<std::optional<std::string>>(this_);
+  this_->connect(watcher, &QFutureWatcher<std::optional<std::string>>::finished, this_, [=]()
+  {
+    spinner->hide();
+    if (auto const & reviewUrl = watcher->result(); reviewUrl.has_value())
+      onResolved(reviewUrl.value());
+    else
+      onEmpty();
+  });
+  QFuture<std::optional<std::string>> const reviewUrlFuture = QtConcurrent::run(reviews::GetReviewEditorUrl, info);
+  watcher->setFuture(reviewUrlFuture);
+}
+
 }  // namespace place_page_dialog

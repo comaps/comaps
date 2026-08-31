@@ -1,4 +1,5 @@
 #include "qt/place_page_dialog_user.hpp"
+
 #include "qt/place_page_dialog_common.hpp"
 #include "qt/star_rating_widget.hpp"
 
@@ -13,10 +14,10 @@
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 
-#include <optional>
 #include <sstream>
 #include <string>
 
@@ -53,6 +54,52 @@ public:
   }
 };
 
+void PlacePageDialogUser::AddReviewsFragment(place_page::Info const & info, QVBoxLayout * header)
+{
+  auto const & featureReviews = info.GetReviews();
+  auto const & reviewApp = reviews::GetReviewEditorApp(info);
+
+  if (featureReviews.has_value() || reviewApp.has_value())
+  {
+    auto * const reviewLine = new QHBoxLayout();
+    reviewLine->setSpacing(5);
+    header->addLayout(reviewLine);
+
+    if (featureReviews.has_value())
+    {
+      auto const & [averageRating, reviews] = featureReviews.value();
+      auto const starRating = reviews::ToStarRating(averageRating);
+      reviewLine->addWidget(new QLabel(QString::fromStdString(std::format("{:.1f}", starRating))));
+      reviewLine->addWidget(new qt::StarRatingWidget(starRating));
+      reviewLine->addWidget(new QLabel(QString::fromStdString(std::format("({})", reviews.size()))));
+      auto const maybeReviewApp = reviews::GetReviewEditorApp(info);
+    }
+    if (reviewApp.has_value())
+    {
+      auto * const spinner = new QProgressBar(this);
+      spinner->setRange(0, 0);
+      spinner->setTextVisible(false);
+
+      auto * const addReview = new QLabel(this);
+      addReview->setWordWrap(false);
+      addReview->setText("resolving review editor URL...");
+
+      reviewLine->addWidget(spinner);
+      reviewLine->addWidget(addReview);
+
+      place_page_dialog::resolveReviewEditorUrl(this, info, spinner,
+                                                [addReview, reviewApp](std::string const & reviewUrl)
+      {
+        addReview->setText(
+            QString::fromStdString("<a href=\"" + reviewUrl + "\">Add a Review via " + reviewApp.value() + "</a>"));
+        addReview->setOpenExternalLinks(true);
+        addReview->setTextInteractionFlags(Qt::TextBrowserInteraction);
+      }, [addReview]() { addReview->hide(); });
+    }
+    reviewLine->addStretch(1);
+  }
+}
+
 PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, place_page::Info const & info,
                                          search::ReverseGeocoder::Address const & address)
   : QDialog(parent)
@@ -77,36 +124,7 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, place_page::Info cons
       header->addWidget(subtitleLabel);
     }
 
-    auto const & featureReviews = info.GetReviews();
-    auto const & reviewApp = reviews::GetReviewEditorApp(info);
-    auto const & reviewUrl = reviewApp.has_value() ? reviews::GetReviewEditorUrl(info) : std::nullopt;
-    bool const hasReviews = featureReviews.has_value();
-    bool const hasReviewLink = reviewApp.has_value() && reviewUrl.has_value();
-    if (hasReviews || hasReviewLink)
-    {
-      auto * reviewLine = new QHBoxLayout();
-      reviewLine->setSpacing(5);
-      header->addLayout(reviewLine);
-      if (hasReviews)
-      {
-        auto const & [averageRating, reviews] = featureReviews.value();
-        auto const starRating = reviews::ToStarRating(averageRating);
-        reviewLine->addWidget(new QLabel(QString::fromStdString(std::format("{:.1f}", starRating))));
-        reviewLine->addWidget(new qt::StarRatingWidget(starRating));
-        reviewLine->addWidget(new QLabel(QString::fromStdString(std::format("({})", reviews.size()))));
-        auto const maybeReviewApp = reviews::GetReviewEditorApp(info);
-      }
-      if (hasReviewLink)
-      {
-        auto addReview = new QLabel(QString::fromStdString("<a href=\"" + reviewUrl.value() + "\">Add a Review via " +
-                                                           reviewApp.value() + "</a>"));
-        addReview->setOpenExternalLinks(true);
-        addReview->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        addReview->setWordWrap(false);
-        reviewLine->addWidget(addReview);
-      }
-      reviewLine->addStretch(1);
-    }
+    AddReviewsFragment(info, header);
 
     if (auto const addressFormatted = address.FormatAddress(); !addressFormatted.empty())
     {

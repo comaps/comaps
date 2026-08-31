@@ -1,4 +1,5 @@
 #include "qt/place_page_dialog_developer.hpp"
+
 #include "qt/place_page_dialog_common.hpp"
 #include "qt/star_rating_widget.hpp"
 
@@ -11,6 +12,7 @@
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 
@@ -76,18 +78,36 @@ PlacePageDialogDeveloper::PlacePageDialogDeveloper(QWidget * parent, place_page:
   }
 
   if (auto const & reviewApp = reviews::GetReviewEditorApp(info); reviewApp.has_value())
-    addEntry("Review App", reviewApp.value());
-  if (auto const & reviewUrl = reviews::GetReviewEditorUrl(info); reviewUrl.has_value())
   {
+    addEntry("Review App", reviewApp.value());
     grid->addWidget(new QLabel(QString::fromStdString("Review URL")), row, 0);
-    auto shortUrl = reviewUrl.value();
-    if (reviewUrl.value().length() > kMaxUrlDisplayChars)
-      shortUrl = shortUrl.substr(0, kMaxUrlDisplayChars) + "[...]";
-    auto const urlLabel =
-        new QLabel(QString::fromStdString("<a href=\"" + reviewUrl.value() + "\">" + shortUrl + "</a>"));
-    urlLabel->setOpenExternalLinks(true);
-    urlLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    grid->addWidget(urlLabel, row++, 1);
+
+    auto * const urlLabel = new QLabel(this);
+    urlLabel->setWordWrap(false);
+    urlLabel->hide();
+    grid->addWidget(urlLabel, row, 1);
+
+    auto * const spinner = new QProgressBar(this);
+    spinner->setRange(0, 0);
+    spinner->setTextVisible(false);
+    grid->addWidget(spinner, row, 1);
+
+    place_page_dialog::resolveReviewEditorUrl(this, info, spinner,
+                                              [urlLabel](std::string const & reviewUrl)
+    {
+      auto shortUrl = reviewUrl;
+      if (reviewUrl.length() > kMaxUrlDisplayChars)
+        shortUrl = shortUrl.substr(0, kMaxUrlDisplayChars) + "[...]";
+      urlLabel->setText(QString::fromStdString("<a href=\"" + reviewUrl + "\">" + shortUrl + "</a>"));
+      urlLabel->setOpenExternalLinks(true);
+      urlLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+      urlLabel->show();
+    }, [urlLabel]()
+    {
+      urlLabel->setText("<font color=\"red\">unable to resolve review editor URL</span>");
+      urlLabel->show();
+    });
+    row += 1;
   }
 
   addEntry("Address", address.FormatAddress());
