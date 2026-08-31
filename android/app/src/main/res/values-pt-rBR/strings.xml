@@ -695,7 +695,7 @@
     <string name="pref_tts_open_system_settings">Configurações do sistema de síntese de fala</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
     <string name="pref_tts_no_system_tts">As configurações do Speech Synthesis não foram encontradas. Você tem certeza de que seu dispositivo é compatível?</string>
-    <string name="zoom_in">Ampliar</string>
+    <string name="zoom_in">Aumentar zoom</string>
     <!-- Restaurant or other food place's menu URL field in the Editor -->
     <string name="website_menu">Link do cardápio</string>
     <!-- Button in the Place Page which opens a restaurant or other food place's menu in a browser -->
@@ -776,7 +776,7 @@
     <string name="by_name">Por nome</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="clear_the_search">Limpar a pesquisa</string>
-    <string name="zoom_out">Diminuir o zoom</string>
+    <string name="zoom_out">Diminuir zoom</string>
     <string name="volume">Volume</string>
     <string name="pref_left_button_title">Configuração do botão esquerdo</string>
     <string name="error_enter_correct_facebook_page">Insira um endereço da web, conta ou nome de página válidos do Facebook</string>
@@ -959,4 +959,8 @@
     <string name="pref_enable_auto_reroute_description">Quando ativado, uma nova rota será automaticamente calculada se sair da rota planejada.</string>
     <string name="recalculate_route">Recalcular</string>
     <string name="off_route">Você saiu da rota planejada</string>
+    <string name="bookmarks_text_placement_title">Mostrar nomes dos favoritos no mapa</string>
+    <string name="place_reviews_title">Avaliações de lugares</string>
+    <string name="rating_stars_description">estrelas: %.1f</string>
+    <string name="reviews_by_mangrove">Avaliações do Mangrove.\nAdicione avaliações no <a href="https://mapcomplete.org">MapComplete</a>.</string>
 </resources>

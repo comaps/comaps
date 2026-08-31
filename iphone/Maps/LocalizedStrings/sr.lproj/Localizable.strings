@@ -882,7 +882,7 @@
 "layers_option_contour-lines" = "Изохипсе";
 "layers_option_outdoor" = "На отвореном";
 "layers_option_buildings-3d" = "3Д зграде";
-"layers_power-saving" = "Овај слоје је тренутно аутоматски искључен због Вашег подешавања чувања батерије";
+"layers_power-saving" = "Овај слој је тренутно аутоматски искључен због Вашег подешавања чувања батерије";
 "postionmode_locate" = "Утврди моју локацију";
 "postionmode_locating" = "Утврђујем Вашу локацију...";
 "postionmode_following" = "Праћење локације са мапом окренутом према северу";

@@ -7,7 +7,7 @@
 "type.aerialway.drag_lift" = "Téléski";
 "type.aerialway.gondola" = "Télécabine";
 "type.aerialway.mixed_lift" = "Téléporté mixte";
-"type.aerialway.station" = "Remontées mécaniques";
+"type.aerialway.station" = "Station de Remontées mécaniques";
 "type.aeroway" = "Équipement aérien";
 "type.aeroway.aerodrome" = "Aéroport";
 "type.aeroway.aerodrome.international" = "Aéroport International";

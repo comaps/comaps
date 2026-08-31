@@ -969,4 +969,9 @@
     <string name="pref_enable_auto_reroute_description">Når aktiveret, oprettes der automatisk en ny rute, når du forlader den planlagte rute.</string>
     <string name="recalculate_route">Genberegn</string>
     <string name="off_route">Du er kommet væk fra ruten</string>
+    <string name="bookmarks_text_placement_title">Vis navnene af favoritterne på kortet</string>
+    <string name="place_reviews_title">Anmeldelser</string>
+    <string name="place_reviews">%1$s anmeldelser</string>
+    <string name="rating_stars_description">stjerner: %.1f</string>
+    <string name="reviews_by_mangrove">Anmeldelser fra Mangrove.\nTilføj anmeldelser i <a href="https://mapcomplete.org">MapComplete</a>.</string>
 </resources>

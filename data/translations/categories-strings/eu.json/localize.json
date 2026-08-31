@@ -1,6 +1,6 @@
 {
     "@category_eat": {
-        "defaultMessage": "Non jan|Jaten"
+        "defaultMessage": "Non jan|jan|Janaria"
     },
     "@category_food": {
         "defaultMessage": "Produktuak|Jan"
@@ -888,7 +888,7 @@
         "defaultMessage": "Itsasargia"
     },
     "man_made-communications_tower|man_made-tower-communication": {
-        "defaultMessage": "Komunikazio Dorrea"
+        "defaultMessage": "Komunikazio dorrea"
     },
     "man_made-petroleum_well": {
         "defaultMessage": "Petrolio putzua"

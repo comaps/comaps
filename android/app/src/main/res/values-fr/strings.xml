@@ -489,7 +489,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Opérateur : %s</string>
     <string name="editor_category_unsuitable_title">Vous ne trouvez pas de catégorie appropriée ?</string>
-    <string name="editor_category_unsuitable_text">CoMaps ne permet d’ajouter que des catégories de points simples, c’est-à-dire pas de villes, de routes, de lacs, de contours de bâtiments, etc. Veuillez ajouter ces catégories directement sur <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consultez notre <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> pour obtenir des instructions détaillées.</string>
+    <string name="editor_category_unsuitable_text">CoMaps ne permet d\'ajouter que des catégories de points simples ; il ne permet pas d\'ajouter des villes, des routes, des lacs, les contours de bâtiments, etc. Veuillez ajouter ces catégories directement sur <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consultez notre <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> pour obtenir des instructions détaillées étape par étape.</string>
     <string name="downloader_no_downloaded_maps_title">Vous n’avez téléchargé aucune carte</string>
     <string name="downloader_no_downloaded_maps_message">Télécharger des cartes pour rechercher un lieu et utiliser la navigation hors ligne</string>
     <string name="current_location_unknown_error_title">L’emplacement actuel est inconnu</string>
@@ -784,9 +784,9 @@
     <string name="pref_tts_no_system_tts">Les paramètres de la synthèse vocale n’ont pas été trouvés, confirmez-vous que votre appareil la prend en charge ?</string>
     <string name="drive_through">Au volant</string>
     <string name="clear_the_search">Effacer la recherche</string>
-    <string name="zoom_in">Zoom avant</string>
+    <string name="zoom_in">Zoomer</string>
     <!-- Accessibility text for the zoom-out button on the map -->
-    <string name="zoom_out">Zoom arrière</string>
+    <string name="zoom_out">Dézoomer</string>
     <!-- Restaurant or other food place's menu URL field in the Editor -->
     <string name="website_menu">Lien vers le menu</string>
     <!-- Button in the Place Page which opens a restaurant or other food place's menu in a browser -->
@@ -989,4 +989,9 @@
     <string name="prefs_group_interface">Interface</string>
     <string name="prefs_group_advanced_summary">Activer la journalisation</string>
     <string name="planning_route_preview">Aperçu</string>
+    <string name="bookmarks_text_placement_title">Afficher les noms des favoris sur la carte</string>
+    <string name="rating_stars_description">étoiles:%.1f</string>
+    <string name="place_reviews">%1$s avis</string>
+    <string name="place_reviews_title">Avis sur les lieux</string>
+    <string name="reviews_by_mangrove">Avis provenant de Mangrove.\nAjoutez vos avis sur <a href="https://mapcomplete.org">MapComplete</a>.</string>
 </resources>

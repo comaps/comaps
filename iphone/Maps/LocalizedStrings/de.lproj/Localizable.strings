@@ -166,7 +166,7 @@
 /* Generic «Auto» string */
 "auto" = "Auto";
 /* Settings «Map» category: «Perspective view» title */
-"pref_map_3d_title" = "Perspektivische Ansicht";
+"pref_map_3d_title" = "3D-Ansicht";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D-Gebäude werden im Energiesparmodus ausgeschaltet";
 /* Settings «Route» category: «Tts enabled» title */
@@ -624,7 +624,7 @@
 "restore" = "Wiederherstellen";
 "privacy_policy" = "Datenschutzerklärung";
 "terms_of_use" = "Nutzungsbedingungen";
-"subway_data_unavailable" = "Subway map is unavailable";
+"subway_data_unavailable" = "U-Bahn-Karte is nicht erreichbar";
 "title_error_downloading_bookmarks" = "Es ist ein Fehler aufgetreten";
 "popular_place" = "Beliebt";
 "export_file" = "KMZ exportieren";
@@ -814,7 +814,7 @@
 /* Usually invisible label for the outdoor layer */
 "layers_option_outdoor" = "Outdoor";
 /* Usually invisible label for the buildings 3D layer */
-"layers_option_buildings-3d" = "3D Gebäude";
+"layers_option_buildings-3d" = "3D-Gebäude";
 /* Alert explaining why the layer is disabled */
 "layers_power-saving" = "Diese Ebene ist momentan wegen deiner Stromsparmodus-Einstellung deaktiviert";
 /* Usually invisible label for the position mode button when the location hasn't been determined or isn't being followed */
@@ -822,13 +822,13 @@
 /* Usually invisible label for the position mode button when the location is still being determined */
 "postionmode_locating" = "Eigenen Standort finden...";
 /* Usually invisible label for the position mode button when the location is being followed and the map rotated towards North */
-"postionmode_following" = "Standort mit nach Norden gedrehter Karte folgen";
+"postionmode_following" = "Standort folgen mit nach Norden ausgerichteter Karte";
 /* Usually invisible label for the position mode button when the location is being followed and the map rotated towards the traveling direction */
-"postionmode_following-and-rotated" = "Standort mit in Reiserichtung gedrehter Karte folgen";
+"postionmode_following-and-rotated" = "Standort folgen mit in Reiserichtung ausgerichteter Karte";
 /* Usually invisible title for the zoom in button */
-"zoom_in" = "Reinzoomen";
+"zoom_in" = "Zoom hinein";
 /* Usually invisible title for the zoom out button */
-"zoom_out" = "Rauszoomen";
+"zoom_out" = "Zoom heraus";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Alle Favoriten exportieren";
 /* Text for the editing the Track's color button. */
@@ -915,4 +915,4 @@
 "capacity_charging_no" = "Keine Ladestellplätze";
 "planning_route_preview" = "Vorschau";
 "planning_route_preview_sheet_title" = "Routenvorschau";
-"bookmarks_text_placement_title" = "Show names of favorites on map";
+"bookmarks_text_placement_title" = "Favoritennamen auf Karte anzeigen";

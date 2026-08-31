@@ -842,7 +842,7 @@
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "continue_recording" = "Nadaljuj snemanje";
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Želite shraniti med zaznamke in sledi?";
+"track_recording_alert_title" = "Želite shraniti med priljubljene?";
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Sled je prazna – ničesar ni za shraniti";
 "edit_track" = "Uredi sled";
@@ -882,16 +882,16 @@
 "mode_option_transitlines" = "Show Transit Lines";
 "mode_option_comingsoon" = "Options coming soon";
 "layers" = "Layers";
-"layers_option_contour-lines" = "Contour Lines";
+"layers_option_contour-lines" = "Plastnice";
 "layers_option_outdoor" = "Outdoor";
-"layers_option_buildings-3d" = "3D Buildings";
+"layers_option_buildings-3d" = "Zgradbe v 3D";
 "layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
 "postionmode_locate" = "Find own location";
 "postionmode_locating" = "Finding own location...";
 "postionmode_following" = "Following location with map roated towards North";
 "postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
-"zoom_in" = "Zoom in";
-"zoom_out" = "Zoom out";
-"record_track" = "Record Track";
-"recording_track" = "Recording Track";
+"zoom_in" = "Približaj";
+"zoom_out" = "Oddalji";
+"record_track" = "Snemaj sled";
+"recording_track" = "Snemanje sledi";
 "bookmarks_text_placement_title" = "Show names of favorites on map";

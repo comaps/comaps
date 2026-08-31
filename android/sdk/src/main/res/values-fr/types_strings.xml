@@ -10,7 +10,7 @@
     <string name="type.aerialway.drag_lift">Téléski</string>
     <string name="type.aerialway.gondola">Télécabine</string>
     <string name="type.aerialway.mixed_lift">Téléporté mixte</string>
-    <string name="type.aerialway.station">Remontées mécaniques</string>
+    <string name="type.aerialway.station">Station de Remontées mécaniques</string>
     <string name="type.aeroway">Équipement aérien</string>
     <string name="type.aeroway.aerodrome">Aéroport</string>
     <string name="type.aeroway.aerodrome.international">Aéroport International</string>
