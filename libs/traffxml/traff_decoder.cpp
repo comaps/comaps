@@ -32,6 +32,7 @@
 
 #include <algorithm>
 #include <boost/algorithm/string.hpp>
+#include <vector>
 
 namespace traffxml
 {
@@ -1069,11 +1070,10 @@ m2::PointD RoutingTraffDecoder::GetPointFromSegment(const routing::Segment & seg
 void RoutingTraffDecoder::TruncateHiResRoute(std::vector<routing::RouteSegment> & rsegments,
                                         routing::Checkpoints const & checkpoints)
 {
-  // erase leading and trailing fake segments
-  while(!rsegments.empty() && rsegments.front().GetSegment().GetMwmId() == routing::kFakeNumMwmId)
-    rsegments.erase(rsegments.begin());
-  while(!rsegments.empty() && rsegments.back().GetSegment().GetMwmId() == routing::kFakeNumMwmId)
-    rsegments.pop_back();
+  // prune fake segments
+  std::erase_if(rsegments, [](routing::RouteSegment & rsegment) {
+    return rsegment.GetSegment().GetMwmId() == routing::kFakeNumMwmId;
+  });
 
   if (rsegments.size() < 2)
     return;
@@ -1190,14 +1190,15 @@ void RoutingTraffDecoder::TruncateLowResRoute(std::vector<routing::RouteSegment>
   double startWeight = 0;
   double const endWeight = rsegments.back().GetTimeFromBeginningSec();
 
-  // erase leading and trailing fake segments
+  // prune fake segments, but harvest information from leading fake segments
   while(!rsegments.empty() && rsegments.front().GetSegment().GetMwmId() == routing::kFakeNumMwmId)
   {
     startWeight = rsegments.front().GetTimeFromBeginningSec();
     rsegments.erase(rsegments.begin());
   }
-  while(!rsegments.empty() && rsegments.back().GetSegment().GetMwmId() == routing::kFakeNumMwmId)
-    rsegments.pop_back();
+  std::erase_if(rsegments, [](routing::RouteSegment & rsegment) {
+    return rsegment.GetSegment().GetMwmId() == routing::kFakeNumMwmId;
+  });
 
   if (rsegments.size() < 2)
     return;
