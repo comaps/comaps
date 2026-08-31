@@ -974,4 +974,5 @@
     <string name="place_reviews">%1$s anmeldelser</string>
     <string name="rating_stars_description">stjerner: %.1f</string>
     <string name="reviews_by_mangrove">Anmeldelser fra Mangrove.\nTilføj anmeldelser i <a href="https://mapcomplete.org">MapComplete</a>.</string>
+    <string name="pref_font_size">Tekststørrelse på kortetiketter</string>
 </resources>

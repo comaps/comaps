@@ -171,7 +171,7 @@
 /* Generic «Auto» string */
 "auto" = "Automático";
 /* Settings «Map» category: «Perspective view» title */
-"pref_map_3d_title" = "Visão em perspectiva";
+"pref_map_3d_title" = "Vista em perspectiva";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "Os edifícios 3D são desativados no modo de economia de energia";
 /* Settings «Route» category: «Tts enabled» title */
@@ -884,7 +884,7 @@
 "mode_option_comingsoon" = "Opções disponíveis em breve";
 "layers" = "Camadas";
 "layers_option_contour-lines" = "Linhas de contorno";
-"layers_option_outdoor" = "Outdoor";
+"layers_option_outdoor" = "Ar livre";
 "layers_option_buildings-3d" = "Edifícios em 3D";
 "layers_power-saving" = "Atualmente, essa camada está desativada automaticamente devido à sua configuração do modo de economia de energia";
 "postionmode_locate" = "Localizar sua posição";
@@ -896,5 +896,5 @@
 "record_track" = "Gravar trilha";
 "recording_track" = "Gravando trilha";
 "bookmarks_text_placement_title" = "Mostrar nomes dos favoritos no mapa";
-"pref_font_size" = "Font size for map labels";
-"font_size" = "Font size";
+"pref_font_size" = "Tamanho da fonte para rótulos do mapa";
+"font_size" = "Tamanho da fonte";

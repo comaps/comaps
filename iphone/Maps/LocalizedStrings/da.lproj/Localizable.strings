@@ -895,5 +895,5 @@
 "record_track" = "Optag spor";
 "recording_track" = "Optager spor";
 "bookmarks_text_placement_title" = "Vis navnene af favoritterne på kortet";
-"pref_font_size" = "Font size for map labels";
-"font_size" = "Font size";
+"pref_font_size" = "Tekststørrelse på kortetiketter";
+"font_size" = "Tekststørrelse";

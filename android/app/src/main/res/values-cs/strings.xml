@@ -985,4 +985,6 @@
     <string name="place_reviews">Recenze %1$s</string>
     <string name="rating_stars_description">hvězd: %.1f</string>
     <string name="reviews_by_mangrove">Recenze ze služby Mangrove.\nSvou recenzi můžete přidat v <a href="https://mapcomplete.org">MapComplete</a>.</string>
+    <string name="pref_font_size">Velikost Písma pro popisy na mapě</string>
+    <string name="decrease_font_size">Zmenšit popisy na mapě</string>
 </resources>

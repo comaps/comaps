@@ -895,5 +895,5 @@
 "record_track" = "Route opnemen";
 "recording_track" = "Route opnemen";
 "bookmarks_text_placement_title" = "Namen van favorieten op kaart tonen";
-"pref_font_size" = "Font size for map labels";
-"font_size" = "Font size";
+"pref_font_size" = "Lettergrootte voor kaartlabels";
+"font_size" = "Lettergrootte";

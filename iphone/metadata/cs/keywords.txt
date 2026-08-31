@@ -1,1 +1,1 @@
-comaps,mapy,open street maps,osm,cestování,turistika,kolo,auto,offline,soukromí,navigace,gps
+comaps,mapy,open street maps,osm,cestování,turistika,kolo,auto,offline,soukromí,navigace,gps,mapa

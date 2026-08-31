@@ -984,6 +984,8 @@
     <string name="bookmarks_text_placement_title">Namen van favorieten op kaart tonen</string>
     <string name="place_reviews">%1$s Beoordelingen</string>
     <string name="reviews_by_mangrove">Beoordelingen van Mangrove.\nBeoordelingen toevoegen in <a href="https://mapcomplete.org">MapComplete</a>.</string>
-    <string name="place_reviews_title">Reviews</string>
+    <string name="place_reviews_title">Beoordelingen</string>
     <string name="rating_stars_description">sterren: %.1f</string>
+    <string name="decrease_font_size">Verklein lettergrootte op de kaart</string>
+    <string name="pref_font_size">Lettergrootte voor kaartlabels</string>
 </resources>
