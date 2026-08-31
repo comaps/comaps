@@ -205,7 +205,6 @@ android {
       signingConfig = signingConfigs.debug
       resValue 'string', 'app_name', 'CoMaps Debug'
       packagingOptions.jniLibs.useLegacyPackaging true
-      android.packagingOptions.jniLibs.keepDebugSymbols += '**/liborganicmaps.so'
     }
 
     release {
@@ -248,7 +247,6 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
       matchingFallbacks = ['release'] // use dependencies of "release" build type
       resValue 'string', 'app_name', 'CoMaps Test'
-      android.packagingOptions.jniLibs.keepDebugSymbols += '**/liborganicmaps.so'
     }
   }
 
