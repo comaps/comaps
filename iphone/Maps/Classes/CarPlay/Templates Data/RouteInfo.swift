@@ -180,14 +180,12 @@ final class NavigationInstructionFormatter: NSObject {
                                         roadRef: String,
                                         junctionRef: String,
                                         destinationRef: String,
-                                        destination: String,
-                                        isLink: Bool) -> [String] {
+                                        destination: String) -> [String] {
     instructionCandidates(roadName: roadName,
                           roadRef: roadRef,
                           junctionRef: junctionRef,
                           destinationRef: destinationRef,
                           destination: destination,
-                          isLink: isLink,
                           shields: nil).map(\.plainText)
   }
 
@@ -196,7 +194,6 @@ final class NavigationInstructionFormatter: NSObject {
                                          junctionRef: String,
                                          destinationRef: String,
                                          destination: String,
-                                         isLink: Bool,
                                          isLeftHandTraffic: Bool,
                                          shields: RoadShieldInfo?) -> CarPlayVariants {
     let candidates = instructionCandidates(roadName: roadName,
@@ -204,7 +201,6 @@ final class NavigationInstructionFormatter: NSObject {
                                            junctionRef: junctionRef,
                                            destinationRef: destinationRef,
                                            destination: destination,
-                                           isLink: isLink,
                                            shields: shields)
     let text = candidates.map(\.plainText)
     var attributed = [NSAttributedString]()
@@ -245,7 +241,6 @@ final class NavigationInstructionFormatter: NSObject {
                                             junctionRef: String,
                                             destinationRef: String,
                                             destination: String,
-                                            isLink: Bool,
                                             shields: RoadShieldInfo?) -> [InstructionCandidate] {
     func clean(_ s: String) -> String { s.trimmingCharacters(in: .whitespacesAndNewlines) }
     func joined(_ groups: [[InstructionPart]], separator: String) -> [InstructionPart] {
@@ -385,7 +380,6 @@ final class NavigationInstructionFormatter: NSObject {
                                           junctionRef: String,
                                           destinationRef: String,
                                           destination: String,
-                                          isLink: Bool,
                                           isLeftHandTraffic: Bool,
                                           shields: RoadShieldInfo?,
                                           textSize: CGFloat,
@@ -427,16 +421,15 @@ final class NavigationInstructionFormatter: NSObject {
 
     let hasDestinationInfo = !destinationRef.isEmpty || !destination.isEmpty
 
-    // These follow roughly the same rules as GetFullRoadName in routing_session.cpp.
-    if hasDestinationInfo {
-      if !junctionRef.isEmpty {
-        if let shields, shields.hasJunctionRoadShields {
-          appendShields(shields.junctionRoadShields, isJunction: true)
-        } else {
-          appendText(junctionRef)
-        }
+    if !junctionRef.isEmpty {
+      if let shields, shields.hasJunctionRoadShields {
+        appendShields(shields.junctionRoadShields, isJunction: true)
+      } else {
+        appendText(junctionRef)
       }
+    }
 
+    if hasDestinationInfo {
       if !destinationRef.isEmpty {
         if result.length > 0 {
           appendText(": ")
@@ -456,13 +449,6 @@ final class NavigationInstructionFormatter: NSObject {
         appendText(parts.joined(separator: " / "))
       }
     } else {
-      if !junctionRef.isEmpty {
-        if let shields, shields.hasJunctionRoadShields {
-          appendShields(shields.junctionRoadShields, isJunction: true)
-        } else {
-          appendText(junctionRef)
-        }
-      }
       if !roadRef.isEmpty {
         if result.length > 0 {
           appendText(": ")

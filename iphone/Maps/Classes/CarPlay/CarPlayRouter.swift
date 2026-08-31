@@ -402,7 +402,6 @@ extension CarPlayRouter {
       junctionRef: routeInfo.junctionRef,
       destinationRef: routeInfo.destinationRef,
       destination: routeInfo.destination,
-      isLink: routeInfo.isLink,
       isLeftHandTraffic: routeInfo.isLeftHandTraffic,
       shields: routeInfo.roadShields)
     var variants = formattedVariants.text
@@ -482,8 +481,7 @@ extension CarPlayRouter {
                                                               roadRef: info.roadRef,
                                                               junctionRef: info.junctionRef,
                                                               destinationRef: info.destinationRef,
-                                                              destination: info.destination,
-                                                              isLink: info.isLink)
+                                                              destination: info.destination)
   }
 
   @available(iOS 18.0, *)

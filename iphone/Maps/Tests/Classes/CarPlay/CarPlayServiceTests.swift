@@ -122,8 +122,7 @@ final class CarPlayServiceTests: XCTestCase {
                                                                   roadRef: "",
                                                                   junctionRef: "6A",
                                                                   destinationRef: "US 101 South",
-                                                                  destination: "San Jose; San Francisco",
-                                                                  isLink: true)
+                                                                  destination: "San Jose; San Francisco")
     XCTAssertEqual(exit.first, "Exit 6A: US 101 South → San Jose / San Francisco")
     XCTAssertEqual(exit, exit.sorted { $0.count > $1.count })
     XCTAssertTrue(exit.allSatisfy { $0.contains("Exit 6A") })
@@ -132,8 +131,7 @@ final class CarPlayServiceTests: XCTestCase {
                                                                        roadRef: "",
                                                                        junctionRef: "67",
                                                                        destinationRef: "",
-                                                                       destination: "",
-                                                                       isLink: true)
+                                                                       destination: "")
     XCTAssertEqual(namedExit, ["Exit 67: Northwest Murray Boulevard", "Exit 67"])
 
     // Plain road: ref and name are combined, no brackets.
@@ -141,8 +139,7 @@ final class CarPlayServiceTests: XCTestCase {
                                                                   roadRef: "CA 85",
                                                                   junctionRef: "",
                                                                   destinationRef: "",
-                                                                  destination: "",
-                                                                  isLink: false)
+                                                                  destination: "")
     XCTAssertEqual(road.first, "CA 85 Bayshore Freeway")
 
     // No structured data at all yields no variants, so callers keep their fallback.
@@ -150,8 +147,7 @@ final class CarPlayServiceTests: XCTestCase {
                                                                    roadRef: "",
                                                                    junctionRef: "",
                                                                    destinationRef: "",
-                                                                   destination: "",
-                                                                   isLink: false)
+                                                                   destination: "")
     XCTAssertTrue(empty.isEmpty)
   }
 
@@ -169,7 +165,6 @@ final class CarPlayServiceTests: XCTestCase {
       junctionRef: "",
       destinationRef: "",
       destination: "",
-      isLink: false,
       isLeftHandTraffic: false,
       shields: shields)
 
@@ -193,7 +188,7 @@ final class CarPlayServiceTests: XCTestCase {
     }
   }
 
-  func testLinkWithoutDestinationUsesShieldedRoadFallback() {
+  func testRoadWithoutDestinationUsesShieldedRoadFallback() {
     let shields = RoadShieldInfo(
       targetRoadShields: [
         RoadShield(type: .genericGreen, text: "150", additionalText: nil),
@@ -207,7 +202,6 @@ final class CarPlayServiceTests: XCTestCase {
       junctionRef: "",
       destinationRef: "",
       destination: "",
-      isLink: true,
       isLeftHandTraffic: false,
       shields: shields)
 
@@ -222,7 +216,6 @@ final class CarPlayServiceTests: XCTestCase {
       junctionRef: "",
       destinationRef: "",
       destination: "",
-      isLink: true,
       isLeftHandTraffic: false,
       shields: shields,
       textSize: 16,
@@ -232,9 +225,7 @@ final class CarPlayServiceTests: XCTestCase {
   }
 
   func testDestinationWithoutDestinationRefExcludesRoadFallback() {
-    // Supplying target shields deliberately verifies that presentation precedence, not merely
-    // missing native shield data, prevents the ordinary road ref from leaking into the instruction.
-    let shields = RoadShieldInfo(
+    let unexpectedRoadShields = RoadShieldInfo(
       targetRoadShields: [
         RoadShield(type: .genericGreen, text: "150", additionalText: nil),
         RoadShield(type: .genericWhite, text: "Ring 3", additionalText: nil),
@@ -247,9 +238,8 @@ final class CarPlayServiceTests: XCTestCase {
       junctionRef: "",
       destinationRef: "",
       destination: "Grefsen;Sandaker",
-      isLink: true,
       isLeftHandTraffic: false,
-      shields: shields)
+      shields: unexpectedRoadShields)
 
     XCTAssertEqual(variants.text, ["Grefsen / Sandaker", "Grefsen"])
     XCTAssertTrue(variants.attributed.isEmpty)
@@ -262,9 +252,8 @@ final class CarPlayServiceTests: XCTestCase {
       junctionRef: "",
       destinationRef: "",
       destination: "Grefsen;Sandaker",
-      isLink: true,
       isLeftHandTraffic: false,
-      shields: shields,
+      shields: unexpectedRoadShields,
       textSize: 16,
       textColor: nil)
     XCTAssertEqual(phoneInstruction.string, "Grefsen / Sandaker")
@@ -282,7 +271,6 @@ final class CarPlayServiceTests: XCTestCase {
       junctionRef: "6A",
       destinationRef: "US 101 South",
       destination: "San Jose; San Francisco",
-      isLink: true,
       isLeftHandTraffic: false,
       shields: shields)
 
@@ -305,7 +293,6 @@ final class CarPlayServiceTests: XCTestCase {
       junctionRef: "",
       destinationRef: "",
       destination: "",
-      isLink: false,
       isLeftHandTraffic: false,
       shields: nil)
 
@@ -323,7 +310,6 @@ final class CarPlayServiceTests: XCTestCase {
       junctionRef: "",
       destinationRef: "",
       destination: "",
-      isLink: false,
       isLeftHandTraffic: false,
       shields: shields)
 

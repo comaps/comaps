@@ -3,6 +3,7 @@
 #include "routing/routing_tests/tools.hpp"
 
 #include "routing/absent_regions_finder.hpp"
+#include "routing/following_info.hpp"
 #include "routing/route.hpp"
 #include "routing/router.hpp"
 #include "routing/routing_callbacks.hpp"
@@ -23,11 +24,6 @@
 #include <string>
 #include <vector>
 
-namespace routing
-{
-void GetRoadShieldsInfo(RouteSegment::RoadNameInfo const & road, FollowingInfo::RoadShieldInfo & info);
-}  // namespace routing
-
 namespace routing_session_test
 {
 using namespace routing;
@@ -47,20 +43,36 @@ vector<turns::TurnItem> const kTestTurns = {turns::TurnItem(1, turns::CarDirecti
 vector<double> const kTestTimes = {5.0, 10.0, 15.0};
 auto const kRouteBuildingMaxDuration = seconds(30);
 
-void FillSubroutesInfo(Route & route, vector<turns::TurnItem> const & turns = kTestTurnsReachOnly);
+void FillSubroutesInfo(Route & route, vector<turns::TurnItem> const & turns = kTestTurnsReachOnly,
+                       vector<RouteSegment::RoadNameInfo> const & names = {});
+
+FollowingInfo GetFollowingInfoForNextRoad(RouteSegment::RoadNameInfo const & road)
+{
+  auto route = make_shared<Route>("dummy", kTestRoute.begin(), kTestRoute.end(), 0 /* route id */);
+  vector<RouteSegment::RoadNameInfo> names(kTestSegments.size());
+  names.back() = road;
+  FillSubroutesInfo(*route, kTestTurns, names);
+
+  RoutingSession session;
+  session.AssignRouteForTesting(std::move(route), RouterResultCode::NoError);
+
+  FollowingInfo info;
+  session.GetRouteFollowingInfo(info);
+  return info;
+}
 
 UNIT_TEST(RoadShieldsInfoUsesRoadRefOnlyWithoutDestinationInfo)
 {
   RouteSegment::RoadNameInfo road("Storoveien", "150;Ring 3", "", "", "", true);
   road.m_highwayClass = ftypes::HighwayClass::Trunk;
 
-  FollowingInfo::RoadShieldInfo info;
-  GetRoadShieldsInfo(road, info);
+  auto const info = GetFollowingInfoForNextRoad(road);
+  auto const & shields = info.m_nextStreetShields;
 
-  TEST_EQUAL(info.m_targetRoadShields.size(), 2, ());
-  TEST_EQUAL(info.m_targetRoadShields[0].m_name, "150", ());
-  TEST_EQUAL(info.m_targetRoadShields[1].m_name, "Ring 3", ());
-  TEST(info.m_junctionRoadShields.empty(), ());
+  TEST_EQUAL(shields.m_targetRoadShields.size(), 2, ());
+  TEST_EQUAL(shields.m_targetRoadShields[0].m_name, "150", ());
+  TEST_EQUAL(shields.m_targetRoadShields[1].m_name, "Ring 3", ());
+  TEST(shields.m_junctionRoadShields.empty(), ());
 }
 
 UNIT_TEST(RoadShieldsInfoDoesNotInferDestinationRefFromRoadRef)
@@ -68,24 +80,24 @@ UNIT_TEST(RoadShieldsInfoDoesNotInferDestinationRefFromRoadRef)
   RouteSegment::RoadNameInfo road("Storoveien", "150;Ring 3", "", "", "Grefsen;Sandaker", true);
   road.m_highwayClass = ftypes::HighwayClass::Trunk;
 
-  FollowingInfo::RoadShieldInfo info;
-  GetRoadShieldsInfo(road, info);
+  auto const info = GetFollowingInfoForNextRoad(road);
+  auto const & shields = info.m_nextStreetShields;
 
-  TEST(info.m_targetRoadShields.empty(), ());
-  TEST(info.m_junctionRoadShields.empty(), ());
+  TEST(shields.m_targetRoadShields.empty(), ());
+  TEST(shields.m_junctionRoadShields.empty(), ());
 }
 
 UNIT_TEST(RoadShieldsInfoResolvesExplicitDestinationAndJunctionRefs)
 {
   RouteSegment::RoadNameInfo road("Storoveien", "150;Ring 3", "67", "E6", "Smestad", true);
 
-  FollowingInfo::RoadShieldInfo info;
-  GetRoadShieldsInfo(road, info);
+  auto const info = GetFollowingInfoForNextRoad(road);
+  auto const & shields = info.m_nextStreetShields;
 
-  TEST_EQUAL(info.m_targetRoadShields.size(), 1, ());
-  TEST_EQUAL(info.m_targetRoadShields[0].m_name, "E6", ());
-  TEST_EQUAL(info.m_junctionRoadShields.size(), 1, ());
-  TEST_EQUAL(info.m_junctionRoadShields[0].m_name, "67", ());
+  TEST_EQUAL(shields.m_targetRoadShields.size(), 1, ());
+  TEST_EQUAL(shields.m_targetRoadShields[0].m_name, "E6", ());
+  TEST_EQUAL(shields.m_junctionRoadShields.size(), 1, ());
+  TEST_EQUAL(shields.m_junctionRoadShields[0].m_name, "67", ());
 }
 
 // Simple router. It returns route given to him on creation.
@@ -237,14 +249,15 @@ private:
   RoutingSession & m_session;
 };
 
-void FillSubroutesInfo(Route & route, vector<turns::TurnItem> const & turns /* = kTestTurnsReachOnly */)
+void FillSubroutesInfo(Route & route, vector<turns::TurnItem> const & turns /* = kTestTurnsReachOnly */,
+                       vector<RouteSegment::RoadNameInfo> const & names /* = {} */)
 {
   vector<geometry::PointWithAltitude> junctions;
   for (auto const & point : kTestRoute)
     junctions.emplace_back(point, geometry::kDefaultAltitudeMeters);
 
   vector<RouteSegment> segmentInfo;
-  RouteSegmentsFrom(kTestSegments, kTestRoute, turns, {}, segmentInfo);
+  RouteSegmentsFrom(kTestSegments, kTestRoute, turns, names, segmentInfo);
   FillSegmentInfo(kTestTimes, segmentInfo);
   route.SetRouteSegments(std::move(segmentInfo));
   route.SetSubroteAttrs(vector<Route::SubrouteAttrs>(
