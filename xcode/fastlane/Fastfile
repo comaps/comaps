@@ -1,104 +1,39 @@
+require 'json'
+require 'shellwords'
+
 opt_out_usage
 default_platform(:ios)
 
 platform :ios do
   private_lane :prepare do
     if is_ci
-      setup_ci # creates MATCH_KEYCHAIN_NAME on CI
       ensure_env_vars(
-        env_vars: ['APPSTORE_CERTIFICATE_PASSWORD']
+        env_vars: [
+          'APPSTORE_CERTIFICATE_PASSWORD',
+          'CI_KEYCHAIN_PATH',
+          'CI_KEYCHAIN_PASSWORD'
+        ]
       )
-      # Fixes random Fastlane failures by manually importing Apple certificates.
-      # See https://github.com/fastlane/fastlane/issues/20960#issuecomment-1621931850
-      import_certificate(
-        certificate_path: 'keys/Apple/AppleWWDRCAG2.cer',
-        keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
-        keychain_password: ENV['MATCH_KEYCHAIN_PASSWORD']
+
+      FastlaneCore::ProvisioningProfile.install(
+        File.expand_path('../keys/App_Distribution.mobileprovision', __dir__),
+        ENV['CI_KEYCHAIN_PATH']
       )
-      import_certificate(
-        certificate_path: 'keys/Apple/AppleWWDRCAG3.cer',
-        keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
-        keychain_password: ENV['MATCH_KEYCHAIN_PASSWORD']
+      FastlaneCore::ProvisioningProfile.install(
+        File.expand_path('../keys/WidgetExtension_Distribution.mobileprovision', __dir__),
+        ENV['CI_KEYCHAIN_PATH']
       )
-      import_certificate(
-        certificate_path: 'keys/Apple/AppleWWDRCAG4.cer',
-        keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
-        keychain_password: ENV['MATCH_KEYCHAIN_PASSWORD']
+      FastlaneCore::ProvisioningProfile.install(
+        File.expand_path('../keys/App_Development.mobileprovision', __dir__),
+        ENV['CI_KEYCHAIN_PATH']
       )
-      import_certificate(
-        certificate_path: 'keys/Apple/AppleWWDRCAG5.cer',
-        keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
-        keychain_password: ENV['MATCH_KEYCHAIN_PASSWORD']
-      )
-      import_certificate(
-        certificate_path: 'keys/Apple/AppleWWDRCAG6.cer',
-        keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
-        keychain_password: ENV['MATCH_KEYCHAIN_PASSWORD']
-      )
-      import_certificate(
-        certificate_path: 'keys/Apple/AppleWWDRCAG7.cer',
-        keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
-        keychain_password: ENV['MATCH_KEYCHAIN_PASSWORD']
-      )
-      import_certificate(
-        certificate_path: 'keys/Apple/AppleWWDRCAG8.cer',
-        keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
-        keychain_password: ENV['MATCH_KEYCHAIN_PASSWORD']
-      )
-      # CoMaps certificates.
-      import_certificate(
-        certificate_path: 'keys/CertificatesDev.p12',
-        certificate_password: ENV['APPSTORE_CERTIFICATE_PASSWORD'],
-        keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
-        keychain_password: ENV['MATCH_KEYCHAIN_PASSWORD']
-      )
-      import_certificate(
-        certificate_path: 'keys/CertificatesDistr.p12',
-        certificate_password: ENV['APPSTORE_CERTIFICATE_PASSWORD'],
-        keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
-        keychain_password: ENV['MATCH_KEYCHAIN_PASSWORD']
-      )
-      get_provisioning_profile(
-        api_key_path: 'keys/appstore.json',
-        app_identifier: 'app.comaps',
-        provisioning_name: 'App Development (Fastlane)',
-        ignore_profiles_with_different_name: true,
-        readonly: true,
-        development: true,
-        skip_install: false,
-        filename: 'keys/App_Development.mobileprovision'
-      )
-      get_provisioning_profile(
-        api_key_path: 'keys/appstore.json',
-        app_identifier: 'app.comaps',
-        provisioning_name: 'App Distribution (Fastlane)',
-        ignore_profiles_with_different_name: true,
-        adhoc: false,
-        readonly: true,
-        skip_install: false,
-        filename: 'keys/App_Distribution.mobileprovision'
-      )
-      get_provisioning_profile(
-        api_key_path: 'keys/appstore.json',
-        app_identifier: 'app.comaps.widgetextension',
-        provisioning_name: 'WidgetExtension Development (Fastlane)',
-        ignore_profiles_with_different_name: true,
-        readonly: true,
-        development: true,
-        skip_install: false,
-        filename: 'keys/WidgetExtension_Development.mobileprovision'
-      )
-      get_provisioning_profile(
-        api_key_path: 'keys/appstore.json',
-        app_identifier: 'app.comaps.widgetextension',
-        provisioning_name: 'WidgetExtension Distribution (Fastlane)',
-        ignore_profiles_with_different_name: true,
-        adhoc: false,
-        readonly: true,
-        skip_install: false,
-        filename: 'keys/WidgetExtension_Distribution.mobileprovision'
+      FastlaneCore::ProvisioningProfile.install(
+        File.expand_path('../keys/Wildcard_Development.mobileprovision', __dir__),
+        ENV['CI_KEYCHAIN_PATH']
       )
     end
+
+    generate_version
   end
 
   private_lane :generate_version do
@@ -111,27 +46,26 @@ platform :ios do
     lane_context[SharedValues::FL_CHANGELOG] = changelog
   end
 
-  lane :upload_testflight do
-    prepare
-    generate_version
-    generate_testflight_changelog
+  private_lane :build_ios_beta do
+    if is_ci
+      keychain_path = ENV.fetch('CI_KEYCHAIN_PATH')
+      keychain_xcargs = [
+        "CODE_SIGN_KEYCHAIN=#{keychain_path.shellescape}",
+        "OTHER_CODE_SIGN_FLAGS=#{("--keychain #{keychain_path}").shellescape}"
+      ].join(' ')
+    end
+
     update_code_signing_settings(
-      path: "../iphone/Maps/Maps.xcodeproj",
-      targets: ["CoMaps"],
-      build_configurations: "Release",
-      use_automatic_signing: false,
-      code_sign_identity: "Apple Distribution",
-      team_id: "534D2KJBUK",
-      profile_name: "App Distribution (Fastlane)",
+      path: '../iphone/Maps/Maps.xcodeproj',
+      targets: ['CoMaps'],
+      build_configurations: 'Release',
+      use_automatic_signing: true,
     )
     update_code_signing_settings(
-      path: "../iphone/Maps/Maps.xcodeproj",
-      targets: ["CoMapsWidgetExtension"],
-      build_configurations: "Release",
-      use_automatic_signing: false,
-      code_sign_identity: "Apple Distribution",
-      team_id: "534D2KJBUK",
-      profile_name: "WidgetExtension Distribution (Fastlane)",
+      path: '../iphone/Maps/Maps.xcodeproj',
+      targets: ['CoMapsWidgetExtension'],
+      build_configurations: 'Release',
+      use_automatic_signing: true,
     )
     build_ios_app(
       workspace: 'CoMaps.xcworkspace',
@@ -143,20 +77,107 @@ platform :ios do
       include_symbols: true,
       export_method: 'app-store',
       export_options: {
-        provisioningProfiles: {
-          'app.comaps' => 'App Distribution (Fastlane)',
-          'app.comaps.widgetextension' => 'WidgetExtension Distribution (Fastlane)',
-        }
+        signingStyle: 'automatic',
       },
       skip_profile_detection: false,
       output_directory: 'build',
-      xcargs: 'MARKETING_VERSION=' + lane_context[SharedValues::VERSION_NUMBER] + ' ' +
-              'CURRENT_PROJECT_VERSION=' + lane_context[SharedValues::BUILD_NUMBER] + ' '
+      xcargs: [
+        "MARKETING_VERSION=#{lane_context[SharedValues::VERSION_NUMBER]}",
+        "CURRENT_PROJECT_VERSION=#{lane_context[SharedValues::BUILD_NUMBER]}",
+        keychain_xcargs
+      ].compact.join(' '),
+      export_xcargs: keychain_xcargs
     )
+  end
+
+  # For now this lane is identical to beta
+  private_lane :build_ios_release do
+    if is_ci
+      keychain_path = ENV.fetch('CI_KEYCHAIN_PATH')
+      keychain_xcargs = [
+        "CODE_SIGN_KEYCHAIN=#{keychain_path.shellescape}",
+        "OTHER_CODE_SIGN_FLAGS=#{("--keychain #{keychain_path}").shellescape}"
+      ].join(' ')
+    end
+
+    update_code_signing_settings(
+      path: '../iphone/Maps/Maps.xcodeproj',
+      targets: ['CoMaps'],
+      build_configurations: 'Release',
+      use_automatic_signing: true,
+    )
+    update_code_signing_settings(
+      path: '../iphone/Maps/Maps.xcodeproj',
+      targets: ['CoMapsWidgetExtension'],
+      build_configurations: 'Release',
+      use_automatic_signing: true,
+    )
+    build_ios_app(
+      workspace: 'CoMaps.xcworkspace',
+      scheme: 'CoMaps',
+      configuration: 'Release',
+      destination: 'generic/platform=iOS',
+      silent: false,
+      clean: false,
+      include_symbols: true,
+      export_method: 'app-store',
+      export_options: {
+        signingStyle: 'automatic',
+      },
+      skip_profile_detection: false,
+      output_directory: 'build',
+      xcargs: [
+        "MARKETING_VERSION=#{lane_context[SharedValues::VERSION_NUMBER]}",
+        "CURRENT_PROJECT_VERSION=#{lane_context[SharedValues::BUILD_NUMBER]}",
+        keychain_xcargs
+      ].compact.join(' '),
+      export_xcargs: keychain_xcargs
+    )
+  end
+
+  private_lane :upload_testflight do
+    generate_testflight_changelog
+
+    api_key_path = File.expand_path('../keys/appstore.json', __dir__)
+
     upload_to_testflight(
+      api_key_path: api_key_path,
       beta_app_feedback_email: 'testflight@comaps.app',
       notify_external_testers: false,
       changelog: lane_context[SharedValues::FL_CHANGELOG]
     )
+  end
+
+  private_lane :upload_appstore do |options|
+    api_key_path = File.expand_path('../keys/appstore.json', __dir__)
+
+    params = {
+      api_key_path: api_key_path,
+      metadata_path: "../iphone/metadata",
+      app_identifier: "app.comaps",
+      app_version: lane_context[SharedValues::VERSION_NUMBER],
+      submit_for_review: options[:submit_for_review],
+      automatic_release: true,
+      phased_release: true,
+      skip_screenshots: true,
+      run_precheck_before_submit: false,
+      force: true
+    }
+    params[:build_number] = lane_context[SharedValues::BUILD_NUMBER] if options[:use_existing_build]
+    params[:skip_binary_upload] = true if options[:use_existing_build]
+
+    upload_to_app_store(**params)
+  end
+
+  lane :beta do |options|
+    prepare
+    build_ios_beta
+    upload_testflight if options[:publish]
+  end
+
+  lane :release do |options|
+    prepare
+    build_ios_release unless options[:skip_build]
+    upload_appstore(use_existing_build: options[:skip_build], submit_for_review: options[:submit_for_review])
   end
 end
