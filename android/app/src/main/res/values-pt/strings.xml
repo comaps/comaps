@@ -975,4 +975,9 @@
     <string name="pref_enable_auto_reroute_description">Quando ativo, uma nova rota será automaticamente criada se sair da rota planeada.</string>
     <string name="recalculate_route">Recalcular</string>
     <string name="off_route">Saiu da rota planeada</string>
+    <string name="bookmarks_text_placement_title">Mostrar nomes dos favoritos no mapa</string>
+    <string name="place_reviews_title">Avalições dos lugares</string>
+    <string name="place_reviews">%1$s Avaliações</string>
+    <string name="rating_stars_description">estelas: %.1f</string>
+    <string name="reviews_by_mangrove">Avaliações de Mangrove.\nAdicione avaliações de <a href="https://mapcomplete.org">MapComplete</a>.</string>
 </resources>

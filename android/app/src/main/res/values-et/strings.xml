@@ -977,4 +977,9 @@
     <string name="off_route">Sa enam ei asu kavandatud teekonnal</string>
     <string name="prefs_group_map_appearance">Kaardi välimus</string>
     <string name="recalculate_route">Arvuta uuesti</string>
+    <string name="bookmarks_text_placement_title">Näita kaardil lemmikute nimesid</string>
+    <string name="place_reviews_title">Kohtade arvustused</string>
+    <string name="place_reviews">%1$s arvustust</string>
+    <string name="rating_stars_description">tärne: %.1f</string>
+    <string name="reviews_by_mangrove">Arvustused on teenusest Mangrove.\nNeid saad lisada <a href="https://mapcomplete.org">MapComplete\'i</a> saidist.</string>
 </resources>

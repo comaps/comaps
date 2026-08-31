@@ -895,3 +895,5 @@
 "record_track" = "Enregistrer la trace";
 "recording_track" = "Trace en cours d'enregistrement";
 "bookmarks_text_placement_title" = "Afficher les noms des favoris sur la carte";
+"pref_font_size" = "Font size for map labels";
+"font_size" = "Font size";

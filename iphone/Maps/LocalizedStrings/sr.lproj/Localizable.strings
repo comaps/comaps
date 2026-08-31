@@ -895,3 +895,5 @@
 "pref_custom_button_type" = "Customizable Button";
 "osm" = "OpenStreetMap";
 "bookmarks_text_placement_title" = "Show names of favorites on map";
+"pref_font_size" = "Font size for map labels";
+"font_size" = "Font size";

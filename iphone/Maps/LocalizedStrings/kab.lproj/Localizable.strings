@@ -895,3 +895,5 @@
 "record_track" = "Record Track";
 "recording_track" = "Recording Track";
 "bookmarks_text_placement_title" = "Show names of favorites on map";
+"pref_font_size" = "Font size for map labels";
+"font_size" = "Font size";

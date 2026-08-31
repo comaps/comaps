@@ -895,3 +895,5 @@
 "record_track" = "录制轨迹";
 "recording_track" = "正在录制轨迹";
 "bookmarks_text_placement_title" = "在地图上显示收藏的名称";
+"pref_font_size" = "Font size for map labels";
+"font_size" = "Font size";

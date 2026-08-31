@@ -894,4 +894,6 @@
 "zoom_out" = "Diminuir o zoom";
 "record_track" = "Gravar Trajeto";
 "recording_track" = "Gravando o Trajeto";
-"bookmarks_text_placement_title" = "Show names of favorites on map";
+"bookmarks_text_placement_title" = "Mostrar nomes dos favoritos no mapa";
+"pref_font_size" = "Font size for map labels";
+"font_size" = "Font size";

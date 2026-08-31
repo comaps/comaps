@@ -916,3 +916,5 @@
 "planning_route_preview" = "Vorschau";
 "planning_route_preview_sheet_title" = "Routenvorschau";
 "bookmarks_text_placement_title" = "Favoritennamen auf Karte anzeigen";
+"pref_font_size" = "Font size for map labels";
+"font_size" = "Font size";
