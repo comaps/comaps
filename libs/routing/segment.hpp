@@ -53,6 +53,12 @@ public:
 
   /// @todo Logically, these functions should be equal, but keep existing logic,
   /// and investigate possible enhancements in future.
+  /// TODO (mvglasow) As far as I can tell, they test for two different things:
+  /// IsFakeCreated tests if the feature ID equals a single known fake ID; the MWM ID is ignored.
+  /// IsRealSegment tests if the MWM ID equals a single known fake ID or the feature ID matches one
+  /// of several possible fake feature IDs.
+  /// These are not guaranteed to correspond, and segments have been spotted for which both
+  /// functions return false.
   /// @{
   bool IsFakeCreated() const;
   bool IsRealSegment() const;
