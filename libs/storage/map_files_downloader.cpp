@@ -205,7 +205,7 @@ MetaConfig MapFilesDownloader::LoadMetaConfig()
 
   if (!metaServerUrl.empty())
   {
-    LOG(LINFO, ("Requesting metaserver", metaServerUrl));
+    LOG(LINFO, ("Requesting metaserver", metaServerUrl, "for data version", std::to_string(m_dataVersion)));
     platform::HttpClient request(metaServerUrl);
     request.SetRawHeader("X-OM-DataVersion", std::to_string(m_dataVersion));
     request.SetRawHeader("X-OM-AppVersion", pl.Version());
