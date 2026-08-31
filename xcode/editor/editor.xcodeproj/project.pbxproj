@@ -53,6 +53,11 @@
 		6715565520BF0F87002BA3B4 /* new_feature_categories.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 6715565320BF0F87002BA3B4 /* new_feature_categories.hpp */; };
 		675B562720D2706000A521D2 /* editable_feature_source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 675B562520D2706000A521D2 /* editable_feature_source.cpp */; };
 		675B562820D2706000A521D2 /* editable_feature_source.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 675B562620D2706000A521D2 /* editable_feature_source.hpp */; };
+		E1A000012F5A000100000001 /* osm_feature_lookup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1A000012F5A000100000101 /* osm_feature_lookup.cpp */; };
+		E1A000012F5A000100000002 /* osm_feature_lookup.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E1A000012F5A000100000102 /* osm_feature_lookup.hpp */; };
+		E1A000012F5A000100000003 /* review.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1A000012F5A000100000103 /* review.cpp */; };
+		E1A000012F5A000100000004 /* review.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E1A000012F5A000100000104 /* review.hpp */; };
+		E1A000012F5A000100000005 /* review_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1A000012F5A000100000105 /* review_test.cpp */; };
 		F60F02EE1C92CBF1003A0AF6 /* editor_notes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F60F02EC1C92CBF1003A0AF6 /* editor_notes.cpp */; };
 		F60F02EF1C92CBF1003A0AF6 /* editor_notes.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F60F02ED1C92CBF1003A0AF6 /* editor_notes.hpp */; };
 		FACB76B826B89DF700810C9C /* feature_matcher_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D052489200F630000F24998 /* feature_matcher_test.cpp */; };
@@ -134,6 +139,11 @@
 		671ED37220D3B65100D4317E /* editable_data_source.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = editable_data_source.hpp; sourceTree = "<group>"; };
 		675B562520D2706000A521D2 /* editable_feature_source.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = editable_feature_source.cpp; sourceTree = "<group>"; };
 		675B562620D2706000A521D2 /* editable_feature_source.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = editable_feature_source.hpp; sourceTree = "<group>"; };
+		E1A000012F5A000100000101 /* osm_feature_lookup.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = osm_feature_lookup.cpp; sourceTree = "<group>"; };
+		E1A000012F5A000100000102 /* osm_feature_lookup.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = osm_feature_lookup.hpp; sourceTree = "<group>"; };
+		E1A000012F5A000100000103 /* review.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = review.cpp; sourceTree = "<group>"; };
+		E1A000012F5A000100000104 /* review.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = review.hpp; sourceTree = "<group>"; };
+		E1A000012F5A000100000105 /* review_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = review_test.cpp; sourceTree = "<group>"; };
 		F60F02EC1C92CBF1003A0AF6 /* editor_notes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = editor_notes.cpp; sourceTree = "<group>"; };
 		F60F02ED1C92CBF1003A0AF6 /* editor_notes.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = editor_notes.hpp; sourceTree = "<group>"; };
 		FACB76BA26B89FFE00810C9C /* libbase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libbase.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -261,6 +271,10 @@
 				340C20DD1C3E4DFD00111D22 /* osm_auth.hpp */,
 				6715560320BEC331002BA3B4 /* osm_editor.cpp */,
 				6715560120BEC330002BA3B4 /* osm_editor.hpp */,
+				E1A000012F5A000100000101 /* osm_feature_lookup.cpp */,
+				E1A000012F5A000100000102 /* osm_feature_lookup.hpp */,
+				E1A000012F5A000100000103 /* review.cpp */,
+				E1A000012F5A000100000104 /* review.hpp */,
 				34FFB34A1C316A7600BFF6C3 /* server_api.cpp */,
 				34FFB34B1C316A7600BFF6C3 /* server_api.hpp */,
 				341138761C15AE42002E3B3E /* ui2oh.cpp */,
@@ -286,6 +300,7 @@
 				3496ABD41DC2034900C5DDBA /* opening_hours_ui_test.cpp */,
 				671555E620BDC5D3002BA3B4 /* osm_editor_test.cpp */,
 				671555E720BDC5D3002BA3B4 /* osm_editor_test.hpp */,
+				E1A000012F5A000100000105 /* review_test.cpp */,
 				3496AC011DC2047D00C5DDBA /* testingmain.cpp */,
 				3496ABD61DC2034900C5DDBA /* ui2oh_test.cpp */,
 				3496ABD81DC2034900C5DDBA /* xml_feature_test.cpp */,
@@ -345,6 +360,8 @@
 				34583BC01C8854C100F94664 /* yes_no_unknown.hpp in Headers */,
 				340C20DF1C3E4DFD00111D22 /* osm_auth.hpp in Headers */,
 				6715560520BEC332002BA3B4 /* osm_editor.hpp in Headers */,
+				E1A000012F5A000100000002 /* osm_feature_lookup.hpp in Headers */,
+				E1A000012F5A000100000004 /* review.hpp in Headers */,
 				3D3058751D707DBE004AC712 /* config_loader.hpp in Headers */,
 				34527C521C89B1770015050E /* editor_config.hpp in Headers */,
 				675B562820D2706000A521D2 /* editable_feature_source.hpp in Headers */,
@@ -481,6 +498,8 @@
 				341138781C15AE42002E3B3E /* opening_hours_ui.cpp in Sources */,
 				340C20DE1C3E4DFD00111D22 /* osm_auth.cpp in Sources */,
 				6715560720BEC332002BA3B4 /* osm_editor.cpp in Sources */,
+				E1A000012F5A000100000001 /* osm_feature_lookup.cpp in Sources */,
+				E1A000012F5A000100000003 /* review.cpp in Sources */,
 				3D052488200F62EE00F24998 /* feature_matcher.cpp in Sources */,
 				27FDBF1E2EEEFC5A0045621D /* feature_type_to_osm.cpp in Sources */,
 				3D489BEF1D4F67E10052AA38 /* editor_storage.cpp in Sources */,
@@ -508,6 +527,7 @@
 				6715560A20BEF0A4002BA3B4 /* new_feature_categories_test.cpp in Sources */,
 				3496ABE31DC2035800C5DDBA /* editor_notes_test.cpp in Sources */,
 				3496ABE41DC2035800C5DDBA /* opening_hours_ui_test.cpp in Sources */,
+				E1A000012F5A000100000005 /* review_test.cpp in Sources */,
 				3496AC031DC2048E00C5DDBA /* testingmain.cpp in Sources */,
 				3496ABE61DC2035800C5DDBA /* ui2oh_test.cpp in Sources */,
 				3496ABE81DC2035800C5DDBA /* xml_feature_test.cpp in Sources */,
