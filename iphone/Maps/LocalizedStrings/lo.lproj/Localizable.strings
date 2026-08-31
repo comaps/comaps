@@ -397,10 +397,6 @@
 "mobile_data_option_never" = "ບໍ່ໃຊ້ເລີຍ";
 "mobile_data_option_ask" = "ຖາມທຸກຄັ້ງ";
 "traffic_update_maps_text" = "ເພື່ອສະແດງຂໍ້ມູນການຈະລາຈອນ, ຕ້ອງອັບເດດແຜນທີ່ກ່ອນ.";
-<<<<<<< HEAD
-"big_font" = "ເພີ່ມຂະໜາດຕົວໜັງສືເທິງແຜນທີ່";
-=======
->>>>>>> b708f8db2 ([strings] Update from Codeberg Translate)
 "traffic_update_app_message" = "ເພື່ອສະແດງຂໍ້ມູນການຈະລາຈອນ, ຕ້ອງອັບເດດແອັບພລິເຄຊັນກ່ອນ.";
 "traffic_data_unavailable" = "ບໍ່ມີຂໍ້ມູນການຈະລາຈອນ";
 "enable_logging" = "ເປີດໃຊ້ການບັນທຶກ Log";
