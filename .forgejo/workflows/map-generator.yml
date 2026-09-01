@@ -8,12 +8,12 @@ on:
         default: true
         type: boolean
       run-copy-coasts:
-        description: 'Copy last used coastlines?'
+        description: 'Copy last generated coastlines for a fallback use?'
         required: false
         default: true
         type: boolean
       run-planet-o5m:
-        description: 'Update OSM Planet (copy O5M from PBF)?'
+        description: 'Skip OSM planet update? (O5M format for mapgen and reviews)'
         required: false
         default: true
         type: boolean
