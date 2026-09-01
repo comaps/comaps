@@ -404,10 +404,11 @@ public:
   using ShieldTypes = buffer_vector<Entry, 8>;
 
   HighwayClassRoadShieldParser(std::string const & baseRoadNumber, HighwayClass highwayClass, ShieldTypes && types,
-                               RoadShieldType defaultType = RoadShieldType::Default)
+                               bool ignoreIndex = false, RoadShieldType defaultType = RoadShieldType::Default)
     : RoadShieldParser(baseRoadNumber)
     , m_highwayClass(highwayClass)
     , m_types(std::move(types))
+    , m_ignoreIndex(ignoreIndex)
     , m_defaultType(defaultType)
   {}
 
@@ -416,7 +417,7 @@ public:
     if (rawText.size() > kMaxRoadShieldBytesSize)
       return RoadShield();
 
-    if (index == 1)
+    if (m_ignoreIndex || index == 1)
     {
       for (auto const & p : m_types)
       {
@@ -446,6 +447,7 @@ public:
 private:
   HighwayClass const m_highwayClass;
   ShieldTypes const m_types;
+  bool const m_ignoreIndex;
   RoadShieldType const m_defaultType;
 };
 
@@ -891,15 +893,19 @@ public:
   {}
 };
 
-class GermanyRoadShieldParser : public SimpleRoadShieldParser
+class GermanyRoadShieldParser : public HighwayClassRoadShieldParser
 {
 public:
-  explicit GermanyRoadShieldParser(std::string const & baseRoadNumber)
-    : SimpleRoadShieldParser(baseRoadNumber, {{"A ", RoadShieldType::Highway_Hexagon_Blue, false, true},
-                                              {"D ", RoadShieldType::Hidden},
-                                              {"B ", RoadShieldType::Generic_Orange_Bordered},
-                                              {"L", RoadShieldType::Generic_White_Bordered},
-                                              {"K", RoadShieldType::Generic_White_Bordered}})
+
+  explicit GermanyRoadShieldParser(std::string const & baseRoadNumber, HighwayClass const & highwayClass)
+    : HighwayClassRoadShieldParser(baseRoadNumber, highwayClass,
+                                   {{"A", HighwayClass::Motorway, RoadShieldType::Highway_Hexagon_Blue, false, true},
+                                   {"B", HighwayClass::Trunk, RoadShieldType::Generic_Orange_Bordered, false, false},
+                                   {"B", HighwayClass::Primary, RoadShieldType::Generic_Orange_Bordered, false, false},
+                                   {"", HighwayClass::Secondary, RoadShieldType::Generic_White_Bordered, false, false},
+                                   {"", HighwayClass::Tertiary, RoadShieldType::Generic_White_Bordered, false, false},
+                                   {"", HighwayClass::Primary, RoadShieldType::Generic_White_Bordered, false, false}},
+                                   true)
   {}
 };
 
@@ -1263,7 +1269,7 @@ RoadShieldsSetT GetRoadShields(std::string_view mwmName, std::string const & roa
   if (mwmName == "France")
     return FranceRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Germany")
-    return GermanyRoadShieldParser(roadNumber).GetRoadShields();
+    return GermanyRoadShieldParser(roadNumber, highwayClass).GetRoadShields();
   if (mwmName == "Spain")
     return SpainRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Ukraine")
