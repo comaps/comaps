@@ -12,15 +12,19 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Router_nativeSet(JNIEnv *, jclas
 {
   using Type = routing::RouterType;
   Type type;
+  int mapMode;
+
   switch (routerType)
   {
-  case 0: type = Type::Vehicle; break;
-  case 1: type = Type::Pedestrian; break;
-  case 2: type = Type::Bicycle; break;
-  case 3: type = Type::Transit; break;
-  case 4: type = Type::Ruler; break;
+  case 0: type = Type::Vehicle; mapMode = 2; break;
+  case 1: type = Type::Pedestrian; mapMode = 0; break;
+  case 2: type = Type::Bicycle; mapMode = 1; break;
+  case 3: type = Type::Transit; mapMode = 3; break;
+  case 4: type = Type::Ruler; mapMode = 4; break;
   default: ASSERT(false, (routerType)); return;
   }
+
+  frm()->SwitchToMapMode(static_cast<MapMode>(mapMode), true);
   frm()->GetRoutingManager().SetRouter(type);
 }
 
