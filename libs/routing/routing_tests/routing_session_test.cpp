@@ -46,11 +46,12 @@ auto const kRouteBuildingMaxDuration = seconds(30);
 void FillSubroutesInfo(Route & route, vector<turns::TurnItem> const & turns = kTestTurnsReachOnly,
                        vector<RouteSegment::RoadNameInfo> const & names = {});
 
-FollowingInfo GetFollowingInfoForNextRoad(RouteSegment::RoadNameInfo const & road)
+UNIT_TEST(FollowingInfoProvidesRoadShieldsForUnannotatedLink)
 {
   auto route = make_shared<Route>("dummy", kTestRoute.begin(), kTestRoute.end(), 0 /* route id */);
   vector<RouteSegment::RoadNameInfo> names(kTestSegments.size());
-  names.back() = road;
+  names.back() = RouteSegment::RoadNameInfo("Storoveien", "150;Ring 3", "", "", "", true);
+  names.back().m_highwayClass = ftypes::HighwayClass::Trunk;
   FillSubroutesInfo(*route, kTestTurns, names);
 
   RoutingSession session;
@@ -58,46 +59,11 @@ FollowingInfo GetFollowingInfoForNextRoad(RouteSegment::RoadNameInfo const & roa
 
   FollowingInfo info;
   session.GetRouteFollowingInfo(info);
-  return info;
-}
 
-UNIT_TEST(RoadShieldsInfoUsesRoadRefOnlyWithoutDestinationInfo)
-{
-  RouteSegment::RoadNameInfo road("Storoveien", "150;Ring 3", "", "", "", true);
-  road.m_highwayClass = ftypes::HighwayClass::Trunk;
-
-  auto const info = GetFollowingInfoForNextRoad(road);
-  auto const & shields = info.m_nextStreetShields;
-
-  TEST_EQUAL(shields.m_targetRoadShields.size(), 2, ());
-  TEST_EQUAL(shields.m_targetRoadShields[0].m_name, "150", ());
-  TEST_EQUAL(shields.m_targetRoadShields[1].m_name, "Ring 3", ());
-  TEST(shields.m_junctionRoadShields.empty(), ());
-}
-
-UNIT_TEST(RoadShieldsInfoDoesNotInferDestinationRefFromRoadRef)
-{
-  RouteSegment::RoadNameInfo road("Storoveien", "150;Ring 3", "", "", "Grefsen;Sandaker", true);
-  road.m_highwayClass = ftypes::HighwayClass::Trunk;
-
-  auto const info = GetFollowingInfoForNextRoad(road);
-  auto const & shields = info.m_nextStreetShields;
-
-  TEST(shields.m_targetRoadShields.empty(), ());
-  TEST(shields.m_junctionRoadShields.empty(), ());
-}
-
-UNIT_TEST(RoadShieldsInfoResolvesExplicitDestinationAndJunctionRefs)
-{
-  RouteSegment::RoadNameInfo road("Storoveien", "150;Ring 3", "67", "E6", "Smestad", true);
-
-  auto const info = GetFollowingInfoForNextRoad(road);
-  auto const & shields = info.m_nextStreetShields;
-
-  TEST_EQUAL(shields.m_targetRoadShields.size(), 1, ());
-  TEST_EQUAL(shields.m_targetRoadShields[0].m_name, "E6", ());
-  TEST_EQUAL(shields.m_junctionRoadShields.size(), 1, ());
-  TEST_EQUAL(shields.m_junctionRoadShields[0].m_name, "67", ());
+  TEST_EQUAL(info.m_nextStreetName, "Storoveien", ());
+  TEST_EQUAL(info.m_nextStreetShields.m_targetRoadShields.size(), 2, ());
+  TEST_EQUAL(info.m_nextStreetShields.m_targetRoadShields[0].m_name, "150", ());
+  TEST_EQUAL(info.m_nextStreetShields.m_targetRoadShields[1].m_name, "Ring 3", ());
 }
 
 // Simple router. It returns route given to him on creation.

@@ -359,16 +359,14 @@ SessionState RoutingSession::OnLocationPositionChanged(GpsInfo const & info)
 void GetRoadShieldsInfo(RouteSegment::RoadNameInfo const & road, FollowingInfo::RoadShieldInfo & info)
 {
   std::string const & mwmName = road.m_mwmId.GetMwmName();
-  info.m_junctionRoadShields =
-      ftypes::GetRoadShields(mwmName, road.m_junction_ref, ftypes::HighwayClass::Undefined);
-  info.m_targetRoadShields.clear();
-
-  if (!road.m_destination_ref.empty())
+  if (road.HasExitInfo())
   {
     info.m_targetRoadShields =
         ftypes::GetRoadShields(mwmName, road.m_destination_ref, ftypes::HighwayClass::Undefined);
+    info.m_junctionRoadShields =
+        ftypes::GetRoadShields(mwmName, road.m_junction_ref, ftypes::HighwayClass::Undefined);
   }
-  else if (road.m_destination.empty())
+  else
   {
     info.m_targetRoadShields = ftypes::GetRoadShields(mwmName, road.m_ref, road.m_highwayClass);
   }
@@ -386,11 +384,11 @@ std::string GetRoadShieldsText(ftypes::RoadShieldsSetT const & roadShields, bool
   return text;
 }
 
-// For next street returns "[ref] name".
+// For next street returns "[ref] name" .
 // For highway exits (or main roads with exit info) returns "[junction:ref]: [target:ref] > target".
-// If no |target|, it will be replaced by |name| of next street.
-// If both |target:ref| and |target| are absent, |target:ref| falls back to |ref| of the next road.
-// So if a link has no exit information, "[ref] name" of the next road is returned.
+// If no |target| - it will be replaced by |name| of next street.
+// If no |target:ref| - it will be replaced by |ref| of next road.
+// So if link has no info at all, "[ref] name" of next will be returned (as for next street).
 void GetFullRoadName(RouteSegment::RoadNameInfo const & road, FollowingInfo::RoadShieldInfo & roadShields,
                      std::string & name)
 {
@@ -501,6 +499,12 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
   RouteSegment::RoadNameInfo nextRoadNameInfo;
   m_route->GetNextTurnStreetName(nextRoadNameInfo);
   GetFullRoadName(nextRoadNameInfo, info.m_nextStreetShields, info.m_nextStreetName);
+  if (nextRoadNameInfo.m_isLink && !nextRoadNameInfo.HasExitTextInfo())
+  {
+    info.m_nextStreetShields.m_targetRoadShields =
+        ftypes::GetRoadShields(nextRoadNameInfo.m_mwmId.GetMwmName(), nextRoadNameInfo.m_ref,
+                               nextRoadNameInfo.m_highwayClass);
+  }
   info.m_nextName = nextRoadNameInfo.m_name;
   info.m_nextRef = ftypes::GetRoadShieldDisplayRef(nextRoadNameInfo.m_ref);
   info.m_nextJunctionRef = nextRoadNameInfo.m_junction_ref;
