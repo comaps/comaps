@@ -58,7 +58,7 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-fragment = { module = "androidx.fragment:fragment", version.ref = "androidxFragment" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppCompat" }
 androidx-annotation = { module = "androidx.annotation:annotation", version.ref = "androidxAnnotation" }
-androidx-customview = { module = "androidx.customview:customview", version.ref = "androidxCustomview" }
+androidx-customview = { module = "androidx.customview:customview", version.ref = "androidxCustomView" }
 androidx-preference = { module = "androidx.preference:preference", version.ref = "androidxPreference" }
 androidx-work-runtime = { module = "androidx.work:work-runtime", version.ref = "androidxWorkRuntime" }
 androidx-documentfile= { module = "androidx.documentfile:documentfile", version.ref ="androidxDocumentFile" }

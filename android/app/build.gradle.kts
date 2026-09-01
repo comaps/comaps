@@ -36,28 +36,32 @@ val appId = "app.comaps"
 // These are properly set in the 'secure.properties.*' files but must be declared here for build sync to succeed.
 project.ext["secretTestStoreFile"] = "comaps-test.keystore"
 project.ext["secretTestStorePassword"] = ""
-project.ext["secretTestKeyAlias"] = "$appName Test"
+project.ext["secretTestKeyAlias"] = "CoMaps Test"
 project.ext["secretTestKeyPassword"] = ""
 project.ext["secretReleaseStoreFile"] = "comaps-release.keystore"
 project.ext["secretReleaseStorePassword"] = ""
-project.ext["secretReleaseKeyAlias"] = "$appName Release"
+project.ext["secretReleaseKeyAlias"] = "CoMaps Release"
 project.ext["secretReleaseKeyPassword"] = ""
 
-val secureReleasePropertiesFileExists = File("secure.properties.release").exists()
+val comapsDebugKeystorePath = "${project.projectDir}/comaps-debug.keystore"
+val securePropertiesReleasePath = "${project.projectDir}/secure.properties.release"
+val securePropertiesTestPath = "${project.projectDir}/secure.properties.test"
+
+val secureReleasePropertiesFileExists = File(securePropertiesReleasePath).exists()
 if (secureReleasePropertiesFileExists) {
-    apply("../secure.properties.release")
+    apply(securePropertiesReleasePath)
 }
 
-val secureTestPropertiesFileExists = File("secure.properties.test").exists()
+val secureTestPropertiesFileExists = File(securePropertiesTestPath).exists()
 if (secureTestPropertiesFileExists) {
-    apply("../secure.properties.test")
+    apply(securePropertiesTestPath)
 }
 
 android {
     namespace = "app.organicmaps"
 
     dependenciesInfo {
-        // Disables dependency metadata when building APKs (for IzzyOnDroid/F-Droid)
+        // Disables dependency metadata when building APKs for IzzyOnDroid, F-Droid, and Codeberg releases.
         includeInApk = false
         // Disables dependency metadata when building Android App Bundles (for Google Play)
         includeInBundle = false
@@ -83,12 +87,12 @@ android {
         applicationId = appId
         minSdk = providers.gradleProperty("propMinSdkVersion").get().toInt()
         targetSdk = providers.gradleProperty("propTargetSdkVersion").get().toInt()
-        base.archivesName = "$appName-${defaultConfig.versionCode}"
+        base.archivesName = "${appName.replace(" ", "")}-${defaultConfig.versionCode!!}"
         ndk.debugSymbolLevel = "full"
         buildConfigField("String", "REVIEW_URL", "\"\"")
         buildConfigField("String", "SUPPORT_MAIL", "\"android@comaps.app\"") // Customized in flavors.
-        println("Version: $versionName")
-        println("VersionCode: $versionCode")
+        println("Version: ${versionName!!}")
+        println("VersionCode: ${versionCode!!}")
     }
 
     flavorDimensions += "default"
@@ -97,7 +101,7 @@ android {
         create("google") {
             dimension = "default"
             applicationIdSuffix = ".google"
-            versionName = "${android.defaultConfig.versionName}-Google"
+            versionName = "${android.defaultConfig.versionName!!}-Google"
             buildConfigField("String", "SUPPORT_MAIL", "\"gplay@comaps.app\"")
             buildConfigField("String", "REVIEW_URL", "\"market://details?id=app.comaps.google\"")
         }
@@ -105,14 +109,14 @@ android {
         // Distributed directly by the project, e.g. in repo releases, chats, etc.
         create("web") {
             dimension = "default"
-            versionName = android.defaultConfig.versionName
+            versionName = android.defaultConfig.versionName!!
             buildConfigField("String", "SUPPORT_MAIL", "\"apk@comaps.app\"")
         }
 
         create("fdroid") {
             dimension = "default"
             applicationIdSuffix = ".fdroid"
-            versionName = "${android.defaultConfig.versionName}-FDroid"
+            versionName = "${android.defaultConfig.versionName!!}-FDroid"
             buildConfigField("String", "SUPPORT_MAIL", "\"fdroid@comaps.app\"")
         }
 
@@ -120,8 +124,8 @@ android {
             val huaweiVersionCodeBase = 1_00_00_00_00
             dimension = "default"
             applicationIdSuffix = ".huawei"
-            versionName = "${android.defaultConfig.versionName}-Huawei"
-            versionCode = huaweiVersionCodeBase + android.defaultConfig.versionCode as Int
+            versionName = "${android.defaultConfig.versionName!!}-Huawei"
+            versionCode = huaweiVersionCodeBase + android.defaultConfig.versionCode!!
             buildConfigField("String", "SUPPORT_MAIL", "\"huawei@comaps.app\"")
             buildConfigField("String", "REVIEW_URL", "\"appmarket://details?id=app.comaps\"")
         }
@@ -153,7 +157,9 @@ android {
 
     gradle.projectsEvaluated {
         android.applicationVariants.configureEach {
-            tasks.register<Exec>(name = "run${name.replaceFirstChar(transform = Char::uppercase)}") {
+            val taskName = name.replaceFirstChar(transform = Char::uppercase)
+            tasks.register<Exec>(name = "run$taskName") {
+                dependsOn("install$taskName")
                 commandLine(
                     android.adbExecutable,
                     "shell",
@@ -172,22 +178,30 @@ android {
 
     signingConfigs {
         getByName("debug") {
-            storeFile = File("${rootProject.layout.projectDirectory}/app/comaps-debug.keystore")
+            storeFile = File(comapsDebugKeystorePath)
             storePassword = "12345678"
             keyAlias = "$appName Debug"
             keyPassword = "12345678"
         }
         create("test") {
-            storeFile = File(project.ext["secretTestStoreFile"] as String)
-            storePassword = project.ext["secretTestStorePassword"] as String
-            keyAlias = project.ext["secretTestKeyAlias"] as String
-            keyPassword = project.ext["secretTestKeyPassword"] as String
+            if (!secureTestPropertiesFileExists) {
+                println("$securePropertiesTestPath doesn't exist.")
+            } else {
+                storeFile = File(project.ext["secretTestStoreFile"] as String)
+                storePassword = project.ext["secretTestStorePassword"] as String
+                keyAlias = project.ext["secretTestKeyAlias"] as String
+                keyPassword = project.ext["secretTestKeyPassword"] as String
+            }
         }
         create("release") {
-            storeFile = File(project.ext["secretReleaseStoreFile"] as String)
-            storePassword = project.ext["secretReleaseStorePassword"] as String
-            keyAlias = project.ext["secretReleaseKeyAlias"] as String
-            keyPassword = project.ext["secretReleaseKeyPassword"] as String
+            if (!secureReleasePropertiesFileExists) {
+                println("$securePropertiesReleasePath doesn't exist.")
+            } else {
+                storeFile = File(project.ext["secretReleaseStoreFile"] as String)
+                storePassword = project.ext["secretReleaseStorePassword"] as String
+                keyAlias = project.ext["secretReleaseKeyAlias"] as String
+                keyPassword = project.ext["secretReleaseKeyPassword"] as String
+            }
         }
     }
 
@@ -215,7 +229,9 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            resValue("string", "app_name", project.name)
+            resValue("string", "app_name", appName)
+            packagingOptions.jniLibs.useLegacyPackaging = true
+            android.packagingOptions.jniLibs.keepDebugSymbols += "**/liborganicmaps.so"
         }
 
         create("beta") {
@@ -236,6 +252,7 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             matchingFallbacks += "release" // Use dependencies of "release" build type.
             resValue("string", "app_name", "$appName Test")
+            android.packagingOptions.jniLibs.keepDebugSymbols += "**/liborganicmaps.so"
         }
     }
 
@@ -315,7 +332,6 @@ android {
         isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
-
     }
 }
 

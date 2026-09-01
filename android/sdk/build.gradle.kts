@@ -6,6 +6,12 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
+/** Sanitizes property values to either "ON" or "OFF". Nonsensical values default to "OFF". */
+private fun Project.getPropertyValueForCMake(propertyName: String): String {
+    val propertyValue = (project.findProperty(propertyName) as? String)?.uppercase() ?: "OFF"
+    return if (propertyValue == "ON" || propertyValue == "OFF") propertyValue else "OFF"
+}
+
 android {
     namespace = "app.organicmaps.sdk"
     compileSdk = providers.gradleProperty("propCompileSdkVersion").get().toInt()
@@ -20,27 +26,19 @@ android {
         minSdk = providers.gradleProperty("propMinSdkVersion").get().toInt()
 
         externalNativeBuild {
-            var pchFlag = "OFF"
-            if (project.hasProperty("pch")) pchFlag = "ON"
-
-            var njobs = ""
-            if (project.hasProperty("njobs")) njobs = project.property("njobs") as String
-
-            var enableVulkanDiagnostics = "OFF"
-            if (project.hasProperty("enableVulkanDiagnostics")) enableVulkanDiagnostics = project.property("enableVulkanDiagnostics") as String
-
-            var enableTrace = "OFF"
-            if (project.hasProperty("enableTrace")) enableTrace = project.property("enableTrace") as String
-
             cmake {
                 cppFlags += listOf("-fexceptions", "-frtti")
                 // There is no sense to enable sections without gcc's --gc-sections flag.
                 cFlags += listOf("-fno-function-sections", "-fno-data-sections", "-Wno-extern-c-compat")
                 arguments += listOf(
-                    "-DANDROID_TOOLCHAIN=clang", "-DANDROID_STL=c++_static",
-                    "-DSKIP_TESTS=ON", "-DSKIP_TOOLS=ON", "-DUSE_PCH=$pchFlag",
-                    "-DNJOBS=$njobs", "-DENABLE_VULKAN_DIAGNOSTICS=$enableVulkanDiagnostics",
-                    "-DENABLE_TRACE=$enableTrace",
+                    "-DANDROID_TOOLCHAIN=clang",
+                    "-DANDROID_STL=c++_static",
+                    "-DSKIP_TESTS=ON",
+                    "-DSKIP_TOOLS=ON",
+                    "-DNJOBS=${project.findProperty("njobs") as? String ?: ""}",
+                    "-DUSE_PCH=${project.getPropertyValueForCMake("enablePCH")}",
+                    "-DENABLE_TRACE=${project.getPropertyValueForCMake("enableTrace")}",
+                    "-DENABLE_VULKAN_DIAGNOSTICS=${project.getPropertyValueForCMake("enableVulkanDiagnostics")}",
                 )
                 targets += "organicmaps"
             }
@@ -48,6 +46,7 @@ android {
 
         // Use, for example, -Parm32 Gradle parameter to build only for armeabi-v7a.
         ndk {
+            abiFilters.clear()
             if (project.hasProperty("arm32") || project.hasProperty("armeabi-v7a")) {
                 abiFilters.add("armeabi-v7a")
             }
@@ -73,6 +72,7 @@ android {
     buildTypes {
         debug {
             isJniDebuggable = true
+            externalNativeBuild.cmake.arguments += listOf("-DANDROID_STL=c++_shared", "-DENABLE_ASAN=ON")
         }
         register("beta") {
             matchingFallbacks += "release"
@@ -124,6 +124,7 @@ dependencies {
     implementation(libs.androidx.documentfile)
     implementation(libs.androidx.lifecycle.process)
     testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
     coreLibraryDesugaring(libs.android.tools.desugar)
 }
 
