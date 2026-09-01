@@ -204,8 +204,6 @@ android {
       zipAlignEnabled true
       signingConfig = signingConfigs.debug
       resValue 'string', 'app_name', 'CoMaps Debug'
-      packagingOptions.jniLibs.useLegacyPackaging true
-      android.packagingOptions.jniLibs.keepDebugSymbols += '**/liborganicmaps.so'
     }
 
     release {
@@ -248,7 +246,6 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
       matchingFallbacks = ['release'] // use dependencies of "release" build type
       resValue 'string', 'app_name', 'CoMaps Test'
-      android.packagingOptions.jniLibs.keepDebugSymbols += '**/liborganicmaps.so'
     }
   }
 
@@ -329,6 +326,17 @@ android {
 
     sourceCompatibility JavaVersion.VERSION_21
     targetCompatibility JavaVersion.VERSION_21
+  }
+}
+
+androidComponents {
+  onVariants(selector().withBuildType("debug")) { variant ->
+    variant.packaging.jniLibs.useLegacyPackaging.set true // for HWAsan
+    variant.packaging.jniLibs.keepDebugSymbols.add '**/liborganicmaps.so' // for debug syms
+  }
+
+  onVariants(selector().withBuildType("beta")) { variant ->
+    variant.packaging.jniLibs.keepDebugSymbols.add '**/liborganicmaps.so' // for debug syms
   }
 }
 
