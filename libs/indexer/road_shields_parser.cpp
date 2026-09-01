@@ -901,6 +901,32 @@ public:
                                               {"L", RoadShieldType::Generic_White_Bordered},
                                               {"K", RoadShieldType::Generic_White_Bordered}})
   {}
+
+};
+
+class GermanyBavariaSwabiaRoadShieldParser : public GermanyRoadShieldParser
+{
+public:
+  explicit GermanyBavariaSwabiaRoadShieldParser(std::string const & baseRoadNumber, HighwayClass highwayClass)
+    : GermanyRoadShieldParser(baseRoadNumber)
+    , m_highwayClass(highwayClass)
+  {}
+  
+  RoadShield ParseRoadShield(std::string_view rawText, uint8_t index) const override
+  {
+    if (rawText.size() > kMaxRoadShieldBytesSize)
+      return RoadShield();
+
+    // edge case: In Augsburg county, Autobahn and Kreisstraße share the same prefix "A "
+    // -> distinguish them by Highway Class
+    if (rawText.starts_with("A ") && (m_highwayClass >= HighwayClass::Primary))
+      return RoadShield(RoadShieldType::Generic_White_Bordered, rawText);
+
+    return GermanyRoadShieldParser::ParseRoadShield(rawText,index);
+  }
+
+private:
+  HighwayClass const m_highwayClass;
 };
 
 class ArgentinaRoadShieldParser : public SimpleRoadShieldParser
@@ -1206,13 +1232,15 @@ RoadShieldsSetT GetRoadShields(FeatureType & f)
   return GetRoadShields(mwmName, ref, highwayClass);
 }
 
-RoadShieldsSetT GetRoadShields(std::string_view mwmName, std::string const & roadNumber,
+RoadShieldsSetT GetRoadShields(std::string_view mwmNameFull, std::string const & roadNumber,
                                HighwayClass const & highwayClass)
 {
+  std::string_view mwmName;
+
   // Find out the country name.
-  auto const underlinePos = mwmName.find('_');
+  auto const underlinePos = mwmNameFull.find('_');
   if (underlinePos != std::string::npos)
-    mwmName = mwmName.substr(0, underlinePos);
+    mwmName = mwmNameFull.substr(0, underlinePos);
 
   if (mwmName == "US")
     return USRoadShieldParser(roadNumber).GetRoadShields();
@@ -1262,6 +1290,8 @@ RoadShieldsSetT GetRoadShields(std::string_view mwmName, std::string const & roa
     return GeorgiaRoadShieldParser(roadNumber, highwayClass).GetRoadShields();
   if (mwmName == "France")
     return FranceRoadShieldParser(roadNumber).GetRoadShields();
+  if (mwmNameFull == "Germany_Free State of Bavaria_Swabia")
+    return GermanyBavariaSwabiaRoadShieldParser(roadNumber, highwayClass).GetRoadShields();
   if (mwmName == "Germany")
     return GermanyRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Spain")
