@@ -34,7 +34,10 @@ public:
   // Floors top first, and empty means no indoor data so the picker should hide.
   using LevelsChangedFn = std::function<void(std::vector<double> const & levels, double activeLevel)>;
 
-  // Runners default to the platform threads, and tests inject their own.
+  /// Scans for any indoor building complexes under the viewport center.
+  /// @param forEachFeature callback to read features within a rect
+  /// @param backgroundRunner background scan task, only specified in tests
+  /// @param uiRunner UI result task, only specified in tests
   explicit IndoorManager(ForEachFeatureFn forEachFeature, TaskRunnerFn backgroundRunner = {},
                          TaskRunnerFn uiRunner = {});
 

@@ -82,7 +82,7 @@ ScreenBase MakeScreen(m2::PointD const & center, int drawScale)
   return screen;
 }
 
-// The Framework's own manager scans on background threads a test never runs, so drive our own.
+// The Framework's manager scans on background threads that tests never run, so drive our own threads.
 IndoorManager MakeSyncManager(Framework & frm)
 {
   auto const & dataSource = frm.GetDataSource();

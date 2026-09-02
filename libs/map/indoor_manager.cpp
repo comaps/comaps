@@ -19,6 +19,12 @@
 
 namespace
 {
+// The default runner for one of the platform threads. Tests supply their own instead.
+IndoorManager::TaskRunnerFn PlatformRunner(Platform::Thread thread)
+{
+  return [thread](std::function<void()> && task) { GetPlatform().RunTask(thread, std::move(task)); };
+}
+
 // Floor closest to ground. Ties resolve upward, so {-1,1} picks 1.
 double ClosestToGround(std::vector<double> const & levels)
 {
@@ -32,15 +38,9 @@ double ClosestToGround(std::vector<double> const & levels)
 
 IndoorManager::IndoorManager(ForEachFeatureFn forEachFeature, TaskRunnerFn backgroundRunner, TaskRunnerFn uiRunner)
   : m_forEachFeature(std::move(forEachFeature))
-  , m_backgroundRunner(std::move(backgroundRunner))
-  , m_uiRunner(std::move(uiRunner))
+  , m_backgroundRunner(backgroundRunner ? std::move(backgroundRunner) : PlatformRunner(Platform::Thread::File))
+  , m_uiRunner(uiRunner ? std::move(uiRunner) : PlatformRunner(Platform::Thread::Gui))
 {
-  if (!m_backgroundRunner)
-    m_backgroundRunner = [](std::function<void()> && task)
-    { GetPlatform().RunTask(Platform::Thread::File, std::move(task)); };
-  if (!m_uiRunner)
-    m_uiRunner = [](std::function<void()> && task) { GetPlatform().RunTask(Platform::Thread::Gui, std::move(task)); };
-
   m_alive = std::make_shared<IndoorManager *>(this);
 }
 
