@@ -95,7 +95,7 @@ struct InformationView: View {
                     .tint(.alternativeAccent)
                     
                     Button {
-                        openUrl(URL(string: String(localized: "translated_om_site_url") + "community/")!)
+                        openUrl(URL(string: String(localized: "translated_om_site_url") + "community/#volunteer-section")!)
                     } label: {
                         Label("volunteer", systemImage: "person.wave.2")
                     }
