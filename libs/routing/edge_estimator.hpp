@@ -1,5 +1,6 @@
 #pragma once
 
+#include "routing/route_weight.hpp"
 #include "routing/vehicle_mask.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
@@ -165,6 +166,23 @@ public:
    * @return The penalty in seconds.
    */
   virtual double GetFerryLandingPenalty(Purpose purpose) const = 0;
+
+  /**
+   * @brief Calculates penalties for moving from `u` to `v`.
+   *
+   * The default implementation returns zero penalty. Descendants can override this method to return
+   * a penalty of their choice between any two segments.
+   *
+   * This penalty applies on top of all other penalties.
+   *
+   * @param purpose The purpose for which the weight is being calculated (choosing the best route
+   * or calculating ETA)
+   * @param u
+   * @param v
+   * @param weight Segment weight of `v`
+   */
+  virtual double GetTransitionPenalty(EdgeEstimator::Purpose purpose, Segment const & u, Segment const & v,
+                                      double weight) const { return 0.0; }
 
   /**
    * @brief Returns the mode in which the router is operating.

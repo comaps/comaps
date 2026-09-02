@@ -554,6 +554,10 @@ RouteWeight IndexGraph::CalculateEdgeWeight(EdgeEstimator::Purpose purpose, bool
   auto const weight = RouteWeight(m_estimator->CalcSegmentWeight(to_segment, to_road, purpose));
   auto const penalties = GetPenalties(purpose, isOutgoing ? from : to, isOutgoing ? to : from, prevWeight);
   auto const turn_penalty = getTurnPenalty(purpose, from_segment, to_segment);
+  auto const transition_penalty = RouteWeight(m_estimator->GetTransitionPenalty(purpose,
+                                                                                (isOutgoing ? from : to),
+                                                                                (isOutgoing ? to : from),
+                                                                                weight.GetWeight()));
   return weight + penalties + turn_penalty;
 }
 
