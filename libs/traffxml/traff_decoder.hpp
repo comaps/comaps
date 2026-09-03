@@ -397,9 +397,10 @@ public:
     double m_highwayTypePenalty = 1.0;
     std::vector<std::string> m_roadShieldsNames;
     double m_roadRefPenalty = 1.0;
+    std::optional<std::string> m_name = std::nullopt;
     bool m_isOneway = false;
     bool m_isRoundabout = false;
-    // future versions may add road names and penalties
+    // future versions may add penalties
   };
 
   RoutingTraffDecoder(DataSource & dataSource, CountryInfoGetterFn countryInfoGetter,

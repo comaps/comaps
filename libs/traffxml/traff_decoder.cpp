@@ -802,6 +802,9 @@ RoutingTraffDecoder::FeatureInfo & RoutingTraffDecoder::GetFeatureInfo(routing::
   if (!m_roadRef.empty())
     fin.m_roadRefPenalty = GetRoadRefPenalty(fin.m_roadShieldsNames);
 
+  if (f->HasName())
+    fin.m_name = f->GetName(localisation::kDefaultNameIndex);
+
   fin.m_isOneway = ftypes::IsOneWayChecker::Instance()(*f);
   fin.m_isRoundabout = ftypes::IsRoundAboutChecker::Instance()(*f);
 
