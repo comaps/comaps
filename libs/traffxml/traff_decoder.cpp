@@ -798,11 +798,9 @@ RoutingTraffDecoder::FeatureInfo & RoutingTraffDecoder::GetFeatureInfo(routing::
   FeaturesLoaderGuard g(m_dataSource, mwmId);
   auto f = g.GetOriginalFeatureByIndex(segment.GetFeatureId());
 
+  fin.m_roadShieldsNames = ftypes::GetRoadShieldsNames(*f);
   if (!m_roadRef.empty())
-  {
-    fin.m_roadShieldsNames = ftypes::GetRoadShieldsNames(*f);
     fin.m_roadRefPenalty = GetRoadRefPenalty(fin.m_roadShieldsNames);
-  }
 
   fin.m_isOneway = ftypes::IsOneWayChecker::Instance()(*f);
   fin.m_isRoundabout = ftypes::IsRoundAboutChecker::Instance()(*f);
