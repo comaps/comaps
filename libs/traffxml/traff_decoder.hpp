@@ -390,17 +390,32 @@ public:
    *
    * This structure is used to cache information on map features so we do not have to re-fetch them
    * each time they are needed.
+   *
+   * Segment weight can be calculated by multiplying the `m_distances` value for the respective segment
+   * with either `m_forwardPenalty` or `m_backwardPenalty`, depending on the direction.
    */
   struct FeatureInfo
   {
     std::optional<routing::HighwayType> m_highwayType = std::nullopt;
-    double m_highwayTypePenalty = 1.0;
     std::vector<std::string> m_roadShieldsNames;
-    double m_roadRefPenalty = 1.0;
     std::optional<std::string> m_name = std::nullopt;
     bool m_isOneway = false;
     bool m_isRoundabout = false;
-    // future versions may add penalties
+
+    /*
+     * Final penalty factor applied in forward direction.
+     */
+    double m_forwardPenalty = 1.0;
+
+    /*
+     * Final penalty factor applied in backward direction.
+     */
+    double m_backwardPenalty = 1.0;
+
+    /**
+     * Segment lengths in meters.
+     */
+    std::vector<double> m_distances;
   };
 
   RoutingTraffDecoder(DataSource & dataSource, CountryInfoGetterFn countryInfoGetter,

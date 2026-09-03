@@ -670,71 +670,14 @@ double RoutingTraffDecoder::TraffEstimator::CalcOffroad(ms::LatLon const & from,
   return defaultWeight;
 }
 
-/*
- * Currently, the attribute penalty (decoder_model::kAttributePenalty or decoder_model::kReducedAttributePenalty)
- * can be applied up to 3 times:
- * - ramp attribute mismatch
- * - road class mismatch
- * - road ref mismatch
- */
 double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment const & segment, routing::RoadGeometry const & road, Purpose /* purpose */) const
 {
-  double result = road.GetDistance(segment.GetSegmentIdx());
-
   auto fin = m_decoder.GetFeatureInfo(segment, road);
 
-  result *= fin.m_highwayTypePenalty * fin.m_roadRefPenalty;
-
-  bool isWrongWay = fin.m_isOneway && !segment.IsForward();
-
-  // different penalty levels for wrong direction, but passable
-  auto kWrongWayPenaltyLow = decoder_model::kReducedAttributePenalty;
-  auto kWrongWayPenaltyHigh = decoder_model::kAttributePenalty;
-  if (m_decoder.m_message
-      && (m_decoder.m_message.value().m_location.value().m_directionality == Directionality::BothDirections))
-  {
-    /*
-     * If the message is bidirectional, temporary oneway restrictions are less likely.
-     * But some sources are sloppy with directionality, especially on oneway roads.
-     */
-    kWrongWayPenaltyLow *= decoder_model::kReducedAttributePenalty;
-    kWrongWayPenaltyHigh *= decoder_model::kReducedAttributePenalty;
-  }
-
-  if (m_decoder.IsClosure())
-  {
-    // TODO should we consider access restrictions in penalties?
-    if (isWrongWay)
-    {
-      if (fin.m_highwayType
-          && (fin.m_highwayType.value() == routing::HighwayType::HighwayMotorway))
-        // oneway on motorway is almost always permanent
-        result *= decoder_model::kImpassablePenalty;
-      else if (fin.m_highwayType && IsRamp(fin.m_highwayType.value()))
-        // most ramps are oneway, but not all
-        result *= kWrongWayPenaltyHigh;
-      else if (fin.m_highwayType && IsConstruction(fin.m_highwayType.value()))
-        // oneway on construction types is usually the planned, post-completion state
-        result *= decoder_model::kImpassablePenalty;
-      else if (fin.m_isRoundabout)
-        // oneway on roundabout is permanent
-        result *= decoder_model::kImpassablePenalty;
-      else
-        result *= kWrongWayPenaltyLow;
-    }
-    else if (fin.m_highwayType && !IsConstruction(fin.m_highwayType.value()))
-      // prefer construction types when decoding closures, penalize all others lightly
-      result *= decoder_model::kReducedAttributePenalty;
-  }
+  if (segment.IsForward())
+    return fin.m_distances[segment.GetSegmentIdx()] * fin.m_forwardPenalty;
   else
-  {
-    if (isWrongWay)
-      result *= decoder_model::kImpassablePenalty;
-    else if (fin.m_highwayType && IsConstruction(fin.m_highwayType.value()))
-      result *= decoder_model::kImpassablePenalty;
-  }
-
-  return result;
+    return fin.m_distances[segment.GetSegmentIdx()] * fin.m_backwardPenalty;
 }
 
 bool RoutingTraffDecoder::TraffEstimator::IsAccessIgnored() const
@@ -777,6 +720,25 @@ RoutingTraffDecoder::RoutingTraffDecoder(DataSource & dataSource, CountryInfoGet
   InitRouter();
 }
 
+/*
+ * We currently have three penalty levels:
+ * - decoder_model::kAttributePenalty
+ * - decoder_model::kReducedAttributePenalty
+ * - decoder_model::kImpassablePenalty
+ *
+ * They can be currently applied for:
+ * - ramp attribute mismatch (in GetHighwayTypePenalty())
+ * - road class mismatch (in GetHighwayTypePenalty())
+ * - road ref mismatch
+ * - construction type mismatch
+ *   - for closures, reduced penalty is applied to non-construction types
+ *   - for other events, impassable penalty is applied to construction types
+ * - going against a one-way restriction
+ *   - for closures, reduced penalty is applied
+ *   - for other events, impassable penalty is applied
+ *
+ * Comparing road names is planned for the future.
+ */
 RoutingTraffDecoder::FeatureInfo & RoutingTraffDecoder::GetFeatureInfo(routing::Segment const & segment,
                                                                        routing::RoadGeometry const & road)
 {
@@ -789,9 +751,9 @@ RoutingTraffDecoder::FeatureInfo & RoutingTraffDecoder::GetFeatureInfo(routing::
 
   if (m_message && m_message.value().m_location.value().m_roadClass)
     // TODO different penalties for closures?
-    fin.m_highwayTypePenalty = GetHighwayTypePenalty(fin.m_highwayType,
-                                                     m_message.value().m_location.value().m_roadClass,
-                                                     m_message.value().m_location.value().m_ramps);
+    fin.m_forwardPenalty *= GetHighwayTypePenalty(fin.m_highwayType,
+                                                  m_message.value().m_location.value().m_roadClass,
+                                                  m_message.value().m_location.value().m_ramps);
 
   auto const countryFile = m_numMwmIds->GetFile(segment.GetMwmId());
   auto const mwmId = m_dataSource.GetMwmIdByCountryFile(countryFile);
@@ -800,13 +762,73 @@ RoutingTraffDecoder::FeatureInfo & RoutingTraffDecoder::GetFeatureInfo(routing::
 
   fin.m_roadShieldsNames = ftypes::GetRoadShieldsNames(*f);
   if (!m_roadRef.empty())
-    fin.m_roadRefPenalty = GetRoadRefPenalty(fin.m_roadShieldsNames);
+    fin.m_forwardPenalty *= GetRoadRefPenalty(fin.m_roadShieldsNames);
 
   if (f->HasName())
     fin.m_name = f->GetName(localisation::kDefaultNameIndex);
 
   fin.m_isOneway = ftypes::IsOneWayChecker::Instance()(*f);
   fin.m_isRoundabout = ftypes::IsRoundAboutChecker::Instance()(*f);
+
+  // sync penalties for both directions before we begin oneway-related logic
+  fin.m_backwardPenalty = fin.m_forwardPenalty;
+
+  // different penalty levels for wrong direction, but passable
+  auto kWrongWayPenaltyLow = decoder_model::kReducedAttributePenalty;
+  auto kWrongWayPenaltyHigh = decoder_model::kAttributePenalty;
+  if (m_message
+      && (m_message.value().m_location.value().m_directionality == Directionality::BothDirections))
+  {
+    /*
+     * If the message is bidirectional, temporary oneway restrictions are less likely.
+     * But some sources are sloppy with directionality, especially on oneway roads.
+     */
+    kWrongWayPenaltyLow *= decoder_model::kReducedAttributePenalty;
+    kWrongWayPenaltyHigh *= decoder_model::kReducedAttributePenalty;
+  }
+
+  if (IsClosure())
+  {
+    // TODO should we consider access restrictions in penalties?
+    if (fin.m_highwayType && !IsConstruction(fin.m_highwayType.value()))
+      // prefer construction types when decoding closures, penalize all others lightly
+      fin.m_forwardPenalty *= decoder_model::kReducedAttributePenalty;
+    if (fin.m_isOneway)
+    {
+      if (fin.m_highwayType
+          && (fin.m_highwayType.value() == routing::HighwayType::HighwayMotorway))
+        // oneway on motorway is almost always permanent
+        fin.m_backwardPenalty *= decoder_model::kImpassablePenalty;
+      else if (fin.m_highwayType && IsRamp(fin.m_highwayType.value()))
+        // most ramps are oneway, but not all
+        fin.m_backwardPenalty *= kWrongWayPenaltyHigh;
+      else if (fin.m_highwayType && IsConstruction(fin.m_highwayType.value()))
+        // oneway on construction types is usually the planned, post-completion state
+        fin.m_backwardPenalty *= decoder_model::kImpassablePenalty;
+      else if (fin.m_isRoundabout)
+        // oneway on roundabout is permanent
+        fin.m_backwardPenalty *= decoder_model::kImpassablePenalty;
+      else
+        fin.m_backwardPenalty *= kWrongWayPenaltyLow;
+    }
+    else
+      fin.m_backwardPenalty = fin.m_forwardPenalty;
+  }
+  else
+  {
+    if (fin.m_highwayType && IsConstruction(fin.m_highwayType.value()))
+      fin.m_forwardPenalty *= decoder_model::kImpassablePenalty;
+    if (fin.m_isOneway)
+      fin.m_backwardPenalty *= decoder_model::kImpassablePenalty;
+    else
+      fin.m_backwardPenalty = fin.m_forwardPenalty;
+  }
+
+  f->ResetGeometry(); // TODO is that needed?
+  auto points = f->GetPoints(FeatureType::BEST_GEOMETRY);
+  fin.m_distances.resize(f->GetPointsCount() - 1);
+  for (size_t i = 0; i < (f->GetPointsCount() - 1); i++)
+    fin.m_distances[i] = ms::DistanceOnEarth(mercator::ToLatLon(points[i]), mercator::ToLatLon(points[i + 1]));
 
   it = m_featureInfoMap.emplace(QualifiedFid{segment.GetMwmId(), segment.GetFeatureId()},
                                 std::move(fin)).first;
