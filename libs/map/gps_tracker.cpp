@@ -86,7 +86,7 @@ TrackStatistics GpsTracker::GetTrackStatistics() const
   return m_track.GetTrackStatistics();
 }
 
-ElevationInfo const & GpsTracker::GetElevationInfo() const
+ElevationInfo GpsTracker::GetElevationInfo() const
 {
   return m_track.GetElevationInfo();
 }
