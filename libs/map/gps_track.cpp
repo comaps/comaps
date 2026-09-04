@@ -85,12 +85,14 @@ void GpsTrack::AddPoints(vector<location::GpsInfo> const & points)
 
 TrackStatistics GpsTrack::GetTrackStatistics() const
 {
+  lock_guard<mutex> lock(m_collectionGuard);
   return m_collection ? m_collection->GetTrackStatistics() : TrackStatistics();
 }
 
-ElevationInfo const & GpsTrack::GetElevationInfo() const
+ElevationInfo GpsTrack::GetElevationInfo() const
 {
-  return m_collection->UpdateAndGetElevationInfo();
+  lock_guard<mutex> lock(m_collectionGuard);
+  return m_collection ? m_collection->UpdateAndGetElevationInfo() : ElevationInfo();
 }
 
 void GpsTrack::Clear()
@@ -105,12 +107,13 @@ void GpsTrack::Clear()
 
 size_t GpsTrack::GetSize() const
 {
-  CHECK(m_collection != nullptr, ());
-  return m_collection->GetSize();
+  lock_guard<mutex> lock(m_collectionGuard);
+  return m_collection ? m_collection->GetSize() : 0;
 }
 
 bool GpsTrack::IsEmpty() const
 {
+  lock_guard<mutex> lock(m_collectionGuard);
   if (!m_collection)
     return true;
   return m_collection->IsEmpty();
@@ -169,6 +172,7 @@ void GpsTrack::InitStorageIfNeed()
 
 void GpsTrack::InitCollection()
 {
+  lock_guard<mutex> lock(m_collectionGuard);
   ASSERT(m_collection == nullptr, ());
 
   m_collection = make_unique<GpsTrackCollection>();
@@ -279,6 +283,7 @@ void GpsTrack::UpdateStorage(bool needClear, vector<location::GpsInfo> const & p
 void GpsTrack::UpdateCollection(bool needClear, vector<location::GpsInfo> const & points,
                                 pair<size_t, size_t> & addedIds, pair<size_t, size_t> & evictedIds)
 {
+  lock_guard<mutex> lock(m_collectionGuard);
   // Apply Clear and Add points
   // Clear points from collection, if need.
   evictedIds = needClear ? m_collection->Clear(false /* resetIds */) : make_pair(kInvalidId, kInvalidId);

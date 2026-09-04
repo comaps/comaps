@@ -39,7 +39,8 @@ public:
 
   /// Returns track statistics
   TrackStatistics GetTrackStatistics() const;
-  ElevationInfo const & GetElevationInfo() const;
+  /// Returns a snapshot, empty until the worker initializes the collection.
+  ElevationInfo GetElevationInfo() const;
 
   /// Clears any previous tracking info
   /// @note Callback is called with 'toRemove' points, if some points were removed.
@@ -66,7 +67,21 @@ public:
   template <typename F>
   void ForEachPoint(F && f) const
   {
-    m_collection->ForEach(std::move(f));
+    std::vector<std::pair<location::GpsInfo, size_t>> points;
+    {
+      std::lock_guard lock(m_collectionGuard);
+      if (!m_collection)
+        return;
+      points.reserve(m_collection->GetSize());
+      m_collection->ForEach([&points](location::GpsInfo const & point, size_t id)
+      {
+        points.emplace_back(point, id);
+        return true;
+      });
+    }
+    for (auto const & [point, id] : points)
+      if (!f(point, id))
+        break;
   }
 
 private:
@@ -96,7 +111,9 @@ private:
   bool m_needSendSnapshop;  // need send initial snapshot
 
   std::unique_ptr<GpsTrackStorage> m_storage;        // used in the worker thread
-  std::unique_ptr<GpsTrackCollection> m_collection;  // used in the worker thread
+  // Guards collection mutations and reads from outside the worker thread.
+  mutable std::mutex m_collectionGuard;
+  std::unique_ptr<GpsTrackCollection> m_collection;
   std::unique_ptr<IGpsTrackFilter> m_filter;         // used in the worker thread
 
   std::mutex m_threadGuard;
