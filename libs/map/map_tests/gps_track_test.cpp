@@ -14,6 +14,7 @@
 
 #include <chrono>
 #include <functional>
+#include <future>
 #include <utility>
 #include <vector>
 
@@ -76,6 +77,70 @@ private:
 };
 
 seconds const kWaitForCallbackTimeout = seconds(5);
+
+UNIT_TEST(GpsTrack_ReadBeforeInitialization)
+{
+  GpsTrack track(GetGpsTrackFilePath());
+  TEST_EQUAL(track.GetElevationInfo().GetSize(), 0, ());
+  TEST_EQUAL(track.GetTrackStatistics().m_length, 0.0, ());
+  TEST_EQUAL(track.GetSize(), 0, ());
+  TEST(track.IsEmpty(), ());
+  track.ForEachPoint([](location::GpsInfo const &, size_t)
+  {
+    TEST(false, ("An uninitialized track must be empty"));
+    return true;
+  });
+}
+
+UNIT_TEST(GpsTrack_ElevationSnapshot)
+{
+  string const filePath = GetGpsTrackFilePath();
+  FileWriter::DeleteFileX(filePath);
+  SCOPE_GUARD(gpsTestFileDeleter, bind(FileWriter::DeleteFileX, filePath));
+
+  // Keep callback state alive until the track's worker has joined.
+  promise<size_t> recorded;
+  promise<size_t> cleared;
+  auto recordedResult = recorded.get_future();
+  auto clearedResult = cleared.get_future();
+  GpsTrack track(filePath);
+  track.SetCallback([&](auto && toAdd, auto const &, TrackStatistics const &)
+  {
+    // Callbacks must be able to read snapshots without deadlocking.
+    auto const size = track.GetElevationInfo().GetSize();
+    if (toAdd.empty())
+      cleared.set_value(size);
+    else
+      recorded.set_value(size);
+  });
+
+  auto first = Make(1, ms::LatLon(0, 0), 1);
+  first.m_altitude = 10;
+  auto second = Make(2, ms::LatLon(0, 0.001), 1);
+  second.m_altitude = 20;
+  track.AddPoints({first, second});
+  TEST(recordedResult.wait_for(kWaitForCallbackTimeout) == future_status::ready, ());
+  TEST_EQUAL(recordedResult.get(), 2, ());
+
+  auto const & snapshot = track.GetElevationInfo();
+  TEST_EQUAL(snapshot.GetSize(), 2, ());
+  size_t visited = 0;
+  track.ForEachPoint([&](location::GpsInfo const & point, size_t id)
+  {
+    TEST_EQUAL(track.GetSize(), 2, ("Point callbacks must run without holding the collection lock"));
+    TEST_EQUAL(id, 0, ());
+    TEST_EQUAL(point.m_altitude, 10, ());
+    ++visited;
+    return false;
+  });
+  TEST_EQUAL(visited, 1, ());
+  track.Clear();
+  TEST(clearedResult.wait_for(kWaitForCallbackTimeout) == future_status::ready, ());
+  TEST_EQUAL(clearedResult.get(), 0, ());
+  TEST_EQUAL(track.GetElevationInfo().GetSize(), 0, ());
+  TEST_EQUAL(snapshot.GetSize(), 2, ("Clearing the worker collection must not change an existing snapshot"));
+  TEST_EQUAL(snapshot.GetPoints()[1].m_point.GetAltitude(), 20, ());
+}
 
 UNIT_TEST(GpsTrack_Simple)
 {
