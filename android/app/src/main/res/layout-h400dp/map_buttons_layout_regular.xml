@@ -10,7 +10,7 @@
   tools:background="@color/bg_primary">
   <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/map_buttons_top"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentLeft="true"
     android:layout_alignParentTop="true"
@@ -24,6 +24,45 @@
       android:layout_alignParentBottom="true"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+      android:id="@+id/modes"
+      android:layout_width="wrap_content"
+      android:layout_height="48dp"
+      android:background="@drawable/bg_pill_rect"
+      android:backgroundTint="?menuBackground"
+      android:orientation="horizontal"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent">
+      <ImageButton
+        android:id="@+id/pedestrian"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:src="@drawable/ic_pedestrian"
+        app:tint="?iconTint" />
+      <ImageButton
+        android:id="@+id/bike"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:src="@drawable/ic_bike"
+        app:tint="?iconTint" />
+      <ImageButton
+        android:id="@+id/car"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:src="@drawable/ic_car"
+        app:tint="?iconTint" />
+      <ImageButton
+        android:id="@+id/metro"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:src="@drawable/ic_bus_railway"
+        app:tint="?iconTint" />
+    </LinearLayout>
   </androidx.constraintlayout.widget.ConstraintLayout>
   <include
     layout="@layout/map_status_track_recording"
