@@ -606,6 +606,129 @@ double RoutingTraffDecoder::TraffEstimator::GetFerryLandingPenalty(Purpose /* pu
   return 20 * 60;   // seconds
 }
 
+double RoutingTraffDecoder::TraffEstimator::GetTransitionPenalty(Purpose /* purpose */,
+                                                                 routing::Segment const & u,
+                                                                 routing::Segment const & v,
+                                                                 double weight) const
+{
+  /*
+   * `weight` is weight of v, without any kind of inter-segment penalties applied.
+   * This argument turned out to be unnecessary here, so we are not using it.
+   * Instead, we are using the cached lengths of the parts of u and v leading to the transition and
+   * away from it, multiplied with the penalty for that direction. The parts of u and v are determined
+   * by the direction of these segments (forward is in ascending order, we are going from u to v).
+   *
+   * This assumes that the opposite end of the respective feature is one of its endpoints, which does
+   * not always hold true: at the start and end, the route typically just uses part of a feature.
+   * Also, I have seen cases where a feature extends beyond a node shared with other features (e.g.
+   * CZ-27223-Krnsko, where 79785 has a track connecting to it in two points and bypassing it, but the
+   * FID does not change) – depending on which turn we take, we might also be using partial features
+   * in the middle of the route.
+   *
+   * Partial features would be handled correctly if the u-v transition is in the middle of the feature.
+   * However, if the opposite end of one feature (from the u-v transition) is not one of its endpoints,
+   * we would overpenalize that feature.
+   *
+   * The entire penalty calculated here would get added to `v`, when entered from `u`.
+   */
+
+  // attributes within the same feature always match, no penalty
+  if ((u.GetMwmId() == v.GetMwmId()) && (u.GetFeatureId() == v.GetFeatureId()))
+    return 0.0;
+
+  auto & location = m_decoder.m_message.value().m_location.value();
+
+  /*
+   * On transition, we penalize only attributes which are not specified in the message.
+   * If the message specifies every attribute we potentially evaluate, return zero immediately
+   * and skip the rest.
+   */
+  if (location.m_roadClass && location.m_roadRef)
+    return 0.0;
+
+  auto uInfo = m_decoder.GetFeatureInfo(u);
+  auto vInfo = m_decoder.GetFeatureInfo(v);
+  if (!uInfo || !vInfo)
+    return 0.0;
+
+  double penalty = 1.0;
+
+  /*
+   * Whether the transition is the boundary of a closure on the map.
+   * If that is the case, some penalties are relaxed.
+   */
+  bool isClosureBoundary = false;
+
+  if (m_decoder.IsClosure())
+  {
+    if (uInfo.value().m_highwayType && vInfo.value().m_highwayType
+        && (IsConstruction(uInfo.value().m_highwayType.value()) != IsConstruction(vInfo.value().m_highwayType.value())))
+      isClosureBoundary = true;
+    // TODO detect changes in accessibility
+  }
+
+  if (!isClosureBoundary && !location.m_roadClass
+      && uInfo.value().m_highwayType && vInfo.value().m_highwayType
+      && (uInfo.value().m_highwayType != vInfo.value().m_highwayType))
+    penalty *= GetRoadClassPenalty(GetRoadClass(uInfo.value().m_highwayType.value()),
+                                   GetRoadClass(vInfo.value().m_highwayType.value()));
+
+  if (!location.m_roadRef
+      && !(uInfo.value().m_roadShieldsNames.empty()
+          && vInfo.value().m_roadShieldsNames.empty()))
+  {
+    bool hasMatch = false;
+    for (auto & uName : uInfo.value().m_roadShieldsNames)
+    {
+      for (auto & vName : vInfo.value().m_roadShieldsNames)
+        if (uName == vName)
+        {
+          hasMatch = true;
+          break;
+        }
+      if (hasMatch)
+        break;
+    }
+    if (!hasMatch)
+      penalty *= isClosureBoundary ? decoder_model::kReducedAttributePenalty : decoder_model::kAttributePenalty;
+  }
+
+  if (!location.m_roadName && (uInfo.value().m_name != vInfo.value().m_name))
+    penalty *= decoder_model::kReducedAttributePenalty;
+
+  double uvWeight = 0.0;
+
+  if (penalty > 1.0)
+  {
+    /*
+     * We are going from u to v. If IsForward() is true for the segment, we are traversing it in
+     * ascending segment order (from 0 to last). The other endpoints of the segments then are u[0]
+     * and v[last]. If IsForward() is false for a segment, we are starting at u[last] and/or going
+     * to v[0].
+     * For determining length, only the segment range is needed at this point, order is being adapted
+     * to make the for loop simpler.
+     */
+    double uWeight = 0;
+    double vWeight = 0;
+    size_t uStart = u.IsForward() ? 0 : u.GetSegmentIdx();
+    size_t uEnd = u.IsForward() ? u.GetSegmentIdx() : (uInfo.value().m_distances.size() - 1);
+    size_t vStart = v.IsForward() ? v.GetSegmentIdx() : 0;
+    size_t vEnd = v.IsForward() ? (vInfo.value().m_distances.size() - 1) : v.GetSegmentIdx();
+    for (size_t i = uStart; i <= uEnd; i++)
+      uWeight += uInfo.value().m_distances[i];
+    for (size_t i = vStart; i <= vEnd; i++)
+      vWeight += vInfo.value().m_distances[i];
+    uWeight *= u.IsForward() ? uInfo.value().m_forwardPenalty : uInfo.value().m_backwardPenalty;
+    vWeight *= v.IsForward() ? vInfo.value().m_forwardPenalty : vInfo.value().m_backwardPenalty;
+    uvWeight += uWeight + vWeight;
+  }
+
+  /*
+   * Subtract 1 from penalty as both weights have already been counted once.
+   */
+  return uvWeight * (penalty - 1.0);
+}
+
 double RoutingTraffDecoder::TraffEstimator::CalcOffroad(ms::LatLon const & from, ms::LatLon const & to,
                                   Purpose /* purpose */) const
 {
@@ -833,6 +956,15 @@ RoutingTraffDecoder::FeatureInfo & RoutingTraffDecoder::GetFeatureInfo(routing::
   it = m_featureInfoMap.emplace(QualifiedFid{segment.GetMwmId(), segment.GetFeatureId()},
                                 std::move(fin)).first;
   return it->second;
+}
+
+std::optional<RoutingTraffDecoder::FeatureInfo> RoutingTraffDecoder::GetFeatureInfo(routing::Segment const & segment)
+{
+  auto it = m_featureInfoMap.find({segment.GetMwmId(), segment.GetFeatureId()});
+  if (it != m_featureInfoMap.end())
+    return it->second;
+  else
+    return std::nullopt;
 }
 
 double RoutingTraffDecoder::GetHighwayTypePenalty(std::optional<routing::HighwayType> highwayType,

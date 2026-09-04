@@ -345,6 +345,27 @@ public:
     double GetFerryLandingPenalty(Purpose /* purpose */) const override;
 
     /**
+     * @brief Calculates penalties for moving from `u` to `v`.
+     *
+     * The TraFF decoder implementation penalizes the transition if certain attributes mismatch
+     * between segments. This applies to the attributes which are also compared with the location,
+     * but only those not set in the location (to avoid penalizing them twice).
+     *
+     * The penalty is `prevWeight` times the penalty factor for attribute mismatches minus 1 (as
+     * `prevWeight` has already been counted for the previous segment.
+     *
+     * This penalty applies on top of all other penalties.
+     *
+     * @param purpose The purpose for which the weight is being calculated (choosing the best route
+     * or calculating ETA)
+     * @param u
+     * @param v
+     * @param weight Segment weight of `v`
+     */
+    double GetTransitionPenalty(Purpose purpose, routing::Segment const & u, routing::Segment const & v,
+                                double weight) const override;
+
+    /**
      * @brief Returns the mode in which the router is operating.
      *
      * The `TraffEstimator` always returns `Mode::Decoding`.
@@ -445,6 +466,14 @@ public:
    * @param road Road attributes to populate the result with, if it is not already cached.
    */
   FeatureInfo & GetFeatureInfo(routing::Segment const & segment, routing::RoadGeometry const & road);
+
+  /**
+   * @brief Retrieves the `FeatureInfo` structure for a segment.
+   *
+   * @param segment The segment for which to retrieve data.
+   * @return The `FeatureInfo` structure, or `std::nullopt` if the segment is not found.
+   */
+  std::optional<FeatureInfo> GetFeatureInfo(routing::Segment const & segment);
 
   /**
    * @brief Determines the penalty factor bases on how highway attributes match.
