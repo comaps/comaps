@@ -5,7 +5,7 @@ echo "Converting Serbian Cyrillic resource files to Serbian Latin"
 REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 ANDROID="$REPO_ROOT/android"
 
-if [ "$(uname)" = "Darwin" ]; then
+if ! command -v uconv >/dev/null 2>&1 && [ "$(uname)" = "Darwin" ] && command -v brew >/dev/null 2>&1; then
   export PATH="$(brew --prefix icu4c)/bin:$PATH"
 fi
 
