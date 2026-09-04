@@ -558,7 +558,7 @@ RouteWeight IndexGraph::CalculateEdgeWeight(EdgeEstimator::Purpose purpose, bool
                                                                                 (isOutgoing ? from : to),
                                                                                 (isOutgoing ? to : from),
                                                                                 weight.GetWeight()));
-  return weight + penalties + turn_penalty;
+  return weight + penalties + turn_penalty + transition_penalty;
 }
 
 RouteWeight IndexGraph::getTurnPenalty(EdgeEstimator::Purpose purpose, Segment const & from, Segment const & to) const
