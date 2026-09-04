@@ -84,6 +84,10 @@ iphone/**/*.swp
 iphone/**/*.mode1v3
 iphone/**/*.mode2v3
 iphone/**/*.perspectivev3
+*.xcresult
+*.xcarchive
+*.ipa
+Payload/
 
 # Carthage
 iphone/Maps/3party/Carthage/Checkouts
