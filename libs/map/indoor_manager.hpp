@@ -24,7 +24,13 @@ namespace df
 class DrapeEngine;
 }  // namespace df
 
-// Tracks the complex under the viewport center. GUI thread only, except the scan itself.
+// Tracks the indoor complex under the viewport center.
+//
+// Every public method and all private methods run on the GUI thread. The one
+// exception is the scan body posted in RunScan, which runs on the File thread.
+// That body reads only m_generation and m_forEachFeature and then hands its
+// result back to the GUI thread through m_uiRunner. Drape is written to by value
+// via SetIndoor and never calls back in.
 class IndoorManager final
 {
 public:
