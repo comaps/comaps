@@ -25,13 +25,15 @@ IndoorManager::TaskRunnerFn PlatformRunner(Platform::Thread thread)
   return [thread](std::function<void()> && task) { GetPlatform().RunTask(thread, std::move(task)); };
 }
 
-// Floor closest to ground. Ties resolve upward, so {-1,1} picks 1.
+/// Return the level closest to ground (0); prefer above-ground if there's a tie
+/// @param levels presorted list of level numbers
 double ClosestToGround(std::vector<double> const & levels)
 {
-  return *std::min_element(levels.begin(), levels.end(), [](double lhs, double rhs)
+  return *std::min_element(levels.begin(), levels.end(), [](double a, double b)
   {
-    double const dl = std::fabs(lhs), dr = std::fabs(rhs);
-    return dl != dr ? dl < dr : lhs > rhs;
+    double const aAbs = std::fabs(a), bAbs = std::fabs(b);
+    // if we have a tie between -1 and 1, or -2 and 2, prefer the positive one
+    return aAbs != bAbs ? aAbs < bAbs : a > b;
   });
 }
 }  // namespace
