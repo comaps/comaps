@@ -962,6 +962,14 @@ IsAddressInterpolChecker::IsAddressInterpolChecker() : BaseChecker(1 /* level */
   m_even = c.GetTypeByPath({"addr:interpolation", "even"});
 }
 
+IsMotorVehicleAccessRestrictedChecker::IsMotorVehicleAccessRestrictedChecker()
+{
+  Classificator const & c = classif();
+  //m_types.push_back(c.GetTypeByPath({"emergency", "access_point"}));
+  m_types.push_back(c.GetTypeByPath({"hwtag", "nocar"}));
+  m_types.push_back(c.GetTypeByPath({"hwtag", "private"}));
+}
+
 uint64_t GetDefPopulation(LocalityType localityType)
 {
   switch (localityType)

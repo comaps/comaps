@@ -654,20 +654,21 @@ double RoutingTraffDecoder::TraffEstimator::GetTransitionPenalty(Purpose /* purp
   double penalty = 1.0;
 
   /*
-   * Whether the transition is the boundary of a closure on the map.
+   * Whether the transition is part of a closure on the map (at one of its boundaries or within).
    * If that is the case, some penalties are relaxed.
    */
-  bool isClosureBoundary = false;
+  bool hasClosureFeature = false;
 
   if (m_decoder.IsClosure())
   {
-    if (uInfo.value().m_highwayType && vInfo.value().m_highwayType
-        && (IsConstruction(uInfo.value().m_highwayType.value()) != IsConstruction(vInfo.value().m_highwayType.value())))
-      isClosureBoundary = true;
-    // TODO detect changes in accessibility
+    if (uInfo.value().m_isAccessRestricted || vInfo.value().m_isAccessRestricted)
+      hasClosureFeature = true;
+    else if ((uInfo.value().m_highwayType && IsConstruction(uInfo.value().m_highwayType.value()))
+        || (vInfo.value().m_highwayType && IsConstruction(vInfo.value().m_highwayType.value())))
+      hasClosureFeature = true;
   }
 
-  if (!isClosureBoundary && !location.m_roadClass
+  if (!hasClosureFeature && !location.m_roadClass
       && uInfo.value().m_highwayType && vInfo.value().m_highwayType
       && (uInfo.value().m_highwayType != vInfo.value().m_highwayType))
     penalty *= GetRoadClassPenalty(GetRoadClass(uInfo.value().m_highwayType.value()),
@@ -690,7 +691,7 @@ double RoutingTraffDecoder::TraffEstimator::GetTransitionPenalty(Purpose /* purp
         break;
     }
     if (!hasMatch)
-      penalty *= isClosureBoundary ? decoder_model::kReducedAttributePenalty : decoder_model::kAttributePenalty;
+      penalty *= hasClosureFeature ? decoder_model::kReducedAttributePenalty : decoder_model::kAttributePenalty;
   }
 
   if (!location.m_roadName && (uInfo.value().m_name != vInfo.value().m_name))
@@ -892,6 +893,7 @@ RoutingTraffDecoder::FeatureInfo & RoutingTraffDecoder::GetFeatureInfo(routing::
 
   fin.m_isOneway = ftypes::IsOneWayChecker::Instance()(*f);
   fin.m_isRoundabout = ftypes::IsRoundAboutChecker::Instance()(*f);
+  fin.m_isAccessRestricted = ftypes::IsMotorVehicleAccessRestrictedChecker::Instance()(*f);
 
   // sync penalties for both directions before we begin oneway-related logic
   fin.m_backwardPenalty = fin.m_forwardPenalty;

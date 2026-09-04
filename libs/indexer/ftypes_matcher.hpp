@@ -707,6 +707,14 @@ public:
   feature::InterpolType GetInterpolType(FeatureType & ft) const { return GetInterpolType(feature::TypesHolder(ft)); }
 };
 
+class IsMotorVehicleAccessRestrictedChecker : public BaseChecker
+{
+  IsMotorVehicleAccessRestrictedChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsMotorVehicleAccessRestrictedChecker);
+};
+
 /// @name Get city radius and population.
 /// @param r Radius in meters.
 //@{

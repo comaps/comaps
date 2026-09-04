@@ -422,6 +422,7 @@ public:
     std::optional<std::string> m_name = std::nullopt;
     bool m_isOneway = false;
     bool m_isRoundabout = false;
+    bool m_isAccessRestricted = false;
 
     /*
      * Final penalty factor applied in forward direction.
