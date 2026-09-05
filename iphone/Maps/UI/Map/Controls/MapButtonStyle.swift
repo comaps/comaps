@@ -14,10 +14,10 @@ struct MapButtonStyle: ButtonStyle {
                 .frame(width: geometry.size.width, height: geometry.size.width)
                 .background {
                     if #unavailable(iOS 27, macOS 27) {
-                        RoundedRectangle(cornerRadius: 28)
+                        RoundedRectangle(cornerRadius: 28, style: .continuous)
                             .stroke(Color.MapButtons.border, lineWidth: 1)
                             .background {
-                                RoundedRectangle(cornerRadius: 28)
+                                RoundedRectangle(cornerRadius: 28, style: .continuous)
                                     .fill(EllipticalGradient(colors: [Color.MapButtons.backgroundGlow, Color.MapButtons.background]))
                                     .opacity(configuration.isPressed ? 0.9 : 1)
                             }
@@ -25,9 +25,9 @@ struct MapButtonStyle: ButtonStyle {
                             .shadow(radius: 2)
                             .compositingGroup()
                     } else {
-                        RoundedRectangle(cornerRadius: 28)
+                        RoundedRectangle(cornerRadius: 28, style: .continuous)
                             .fill(Color.MapButtons.background.opacity(isClear ? 0 : 0.3))
-                            .glassEffect(isClear ? .clear : .regular, in: RoundedRectangle(cornerRadius: 28))
+                            .glassEffect(isClear ? .clear : .regular, in: RoundedRectangle(cornerRadius: 28, style: .continuous))
                             .aspectRatio(1, contentMode: .fill)
                             .shadow(radius: 2)
                             .opacity(configuration.isPressed ? 0.9 : 1)
