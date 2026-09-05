@@ -6,8 +6,8 @@ struct MapModePicker: View {
     
     /// The horizontal size class of the environment
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    
-    
+
+
     /// The vertical size class of the environment
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     
@@ -69,9 +69,9 @@ struct MapModePicker: View {
                             .font(.title2)
                             .bold()
                             .foregroundStyle(Color.white)
-                        
+
                         Spacer(minLength: 0)
-                        
+
                         Button {
                             isPresentingModeOptions.toggle()
                             shouldTemporarilyHideLayersIfNecessary = false
@@ -96,10 +96,11 @@ struct MapModePicker: View {
                                     .hidden()
                             }
                         }
-                        
-                        Capsule()
+
+                        Circle()
                             .fill(isPresentingModeOptions ? Color.clear : draggedMode.color)
-                        
+                            .aspectRatio(1, contentMode: .fit)
+
                         if !isPresentingModeOptions {
                             ForEach((draggedMode.id + 1)..<Mode.allCases.count, id: \.self) { _ in
                                 Circle()
@@ -249,4 +250,5 @@ struct MapModePicker: View {
             MapControls.publicTransportModeSetTransitLines(changedHasTransitLinesForPublicTransport)
         }
     }
+
 }

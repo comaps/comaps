@@ -16,10 +16,6 @@ struct MapLayersButton: View {
     @State private var heightForAnimations: CGFloat = 0
     
     
-    /// The options height
-    @State private var optionsHeight: CGFloat = 0
-    
-    
     /// The options height for animations
     @State private var optionsHeightForAnimations: CGFloat = 0
     
@@ -40,7 +36,9 @@ struct MapLayersButton: View {
     var body: some View {
         ZStack {
             Button {
-                isPresentingLayers.toggle()
+                let willPresentLayers = !isPresentingLayers
+                isPresentingLayers = willPresentLayers
+                updateLayerOptionsSize(isPresented: willPresentLayers)
             } label: {
                 Label {
                     Text("layers")
@@ -96,7 +94,7 @@ struct MapLayersButton: View {
                         HStack(spacing: 12) {
                             ForEach(Layer.allCases.reversed()) { layer in
                                 MapLayersButton.LayerToggle(layer: layer)
-                                    .frame(height: max(0, width - 8))
+                                    .frame(width: optionSize, height: optionSize)
                             }
                         }
                         .padding(4)
@@ -105,43 +103,11 @@ struct MapLayersButton: View {
                         VStack(spacing: 8) {
                             ForEach(Layer.allCases) { layer in
                                 MapLayersButton.LayerToggle(layer: layer)
-                                    .frame(width: max(0, width - 8))
+                                    .frame(width: optionSize, height: optionSize)
                             }
                         }
                         .padding(4)
                         .padding(.vertical, 6)
-                    }
-                }
-            }
-            .background {
-                GeometryReader { optionsGeometry in
-                    if #available(iOS 16.0, *) {
-                        Color.clear
-                            .onAppear {
-                                if isHorizontal {
-                                    optionsHeight = optionsGeometry.size.width
-                                } else {
-                                    optionsHeight = optionsGeometry.size.height
-                                }
-                            }
-                            .onGeometryChange(for: CGRect.self) { changedContentGeometry in
-                                changedContentGeometry.frame(in: .global)
-                            } action: { _ in
-                                if isHorizontal {
-                                    optionsHeight = optionsGeometry.size.width
-                                } else {
-                                    optionsHeight = optionsGeometry.size.height
-                                }
-                            }
-                    } else {
-                        Color.clear
-                            .onAppear {
-                                if isHorizontal {
-                                    optionsHeight = optionsGeometry.size.width
-                                } else {
-                                    optionsHeight = optionsGeometry.size.height
-                                }
-                            }
                     }
                 }
             }
@@ -175,14 +141,53 @@ struct MapLayersButton: View {
             }
             .padding(-4)
             .contentShape(Rectangle())
-            .onChange(of: optionsHeight) { changedOptionsHeight in
-                withAnimation(.spring.speed(4)) {
-                    optionsHeightForAnimations = changedOptionsHeight
+            .onChange(of: width) { _ in
+                updateLayerOptionsSize()
+            }
+            .onChange(of: height) { _ in
+                updateLayerOptionsSize()
+            }
+            .onChange(of: shouldTemporarilyHideLayers) { _ in
+                if shouldTemporarilyHideLayers {
+                    isPresentingLayers = false
                 }
-                withAnimation(.spring.speed(2.1)) {
-                    heightForAnimations = (changedOptionsHeight == 0 ? 0 : height)
-                }
+                updateLayerOptionsSize()
             }
         }
     }
+
+
+    /// The size of a layer option
+    private var optionSize: CGFloat {
+        max(0, width - 8)
+    }
+
+
+    /// The extent spacing occupied by all optons
+    private var layerOptionsExtent: CGFloat {
+        let count = CGFloat(Layer.allCases.count)
+        let spacing = CGFloat(max(0, Layer.allCases.count - 1)) * (isHorizontal ? 12 : 8)
+        return (count * optionSize) + spacing + 20
+    }
+
+
+    // MARK: Methods
+
+    private func updateLayerOptionsSize(isPresented: Bool? = nil) {
+        let isVisible = (isPresented ?? isPresentingLayers) && !shouldTemporarilyHideLayers
+        let changedOptionsHeight = layerOptionsExtent
+
+
+        if #available(iOS 16.0,*) {
+            withAnimation(.spring.speed(4)) {
+                optionsHeightForAnimations = isVisible ? changedOptionsHeight : 0
+            }
+        } else {
+            // This animation doesn't work properly on ios 15
+            optionsHeightForAnimations = isVisible ? changedOptionsHeight : 0
+        }
+        
+        withAnimation(.spring.speed(2.1)) {
+            heightForAnimations = isVisible ? height : 0
+        }    }
 }
