@@ -36,10 +36,10 @@ struct MapZoomButtons: View {
             .background {
                 if isAllowedToDrag {
                     if #unavailable(iOS 27, macOS 27) {
-                        RoundedRectangle(cornerRadius: 28)
+                        RoundedRectangle(cornerRadius: 28, style: .continuous)
                             .stroke(Color.MapButtons.border, lineWidth: 1)
                             .background {
-                                RoundedRectangle(cornerRadius: 28)
+                                RoundedRectangle(cornerRadius: 28, style: .continuous)
                                     .fill(EllipticalGradient(colors: [Color.MapButtons.backgroundGlow, Color.MapButtons.background]))
                                     .opacity(0.9)
                             }
@@ -65,9 +65,9 @@ struct MapZoomButtons: View {
                             })
                             .compositingGroup()
                     } else {
-                        RoundedRectangle(cornerRadius: 28)
+                        RoundedRectangle(cornerRadius: 28, style: .continuous)
                             .fill(Color.MapButtons.background.opacity(0.3))
-                            .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 28))
+                            .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 28, style: .continuous))
                             .shadow(radius: 2)
                             .overlay(content: {
                                 VStack(spacing: 0) {

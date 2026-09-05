@@ -77,7 +77,7 @@ struct MapTrackRecordingIndicator: View {
                         .frame(height: geometry.size.height / 1.8)
                     }
                     .background {
-                        RoundedRectangle(cornerRadius: 28)
+                        RoundedRectangle(cornerRadius: 28, style: .continuous)
                             .stroke(Color.black.opacity(0.1), lineWidth: 1)
                             .background {
                                 Capsule()

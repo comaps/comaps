@@ -163,7 +163,7 @@ struct MapLayersButton: View {
                     } else {
                         Capsule()
                             .fill(Color.MapButtons.background.opacity(0.3))
-                            .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 28))
+                            .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 28, style: .continuous))
                             .shadow(radius: 2)
                     }
                 }
