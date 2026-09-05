@@ -128,6 +128,43 @@ std::string NotificationManager::GenerateRoundaboutNotification(TurnItemDist con
 
   if (m_nextTurnNotificationProgress == PronouncedNotification::Nothing)
   {
+    if (!m_settings.TooCloseForAdvanceNotification(entranceTurn.m_distMeters))
+    {
+      uint32_t const startPronounceDistMeters =
+          entranceTurn.m_distMeters;
+        if (m_turnNotificationWithThen)
+        {
+          FastForwardAdvanceTurnNotification();
+        }
+        else
+        {
+          double const distToPronounceMeters = entranceTurn.m_distMeters;
+          if (distToPronounceMeters < 0)
+          {
+            FastForwardAdvanceTurnNotification();
+            return {};
+          }
+
+          // Advance notification: "In X meters, at the roundabout, take the Nth exit [onto Street]".
+          double const distToPronounceUnits = m_settings.ConvertMetersToUnits(distToPronounceMeters);
+          uint32_t const roundedDistToPronounceUnits = distToPronounceUnits;
+          m_nextTurnNotificationProgress = PronouncedNotification::Advance;
+          return m_getTtsText.GetTurnNotification(
+              {roundedDistToPronounceUnits, static_cast<uint8_t>(exitTurn.m_turnItem.m_exitNum),
+               false /* useThenInsteadOfDistance */, CarDirection::LeaveRoundAbout, lengthUnits, nextStreetInfo,
+               true /* useAtRoundaboutPrefix */});
+        }
+    }
+    else
+    {
+      m_nextTurnNotificationProgress = PronouncedNotification::Advance;
+      FastForwardAdvanceTurnNotification();
+    }
+    return {};
+  }
+
+  if (m_nextTurnNotificationProgress == PronouncedNotification::Advance)
+  {
     if (!m_settings.TooCloseForFisrtNotification(entranceTurn.m_distMeters))
     {
       uint32_t const startPronounceDistMeters =
@@ -147,7 +184,7 @@ std::string NotificationManager::GenerateRoundaboutNotification(TurnItemDist con
             return {};
           }
 
-          // First (advance) notification: "In X meters, at the roundabout, take the Nth exit [onto Street]".
+          // First notification: "In X meters, at the roundabout, take the Nth exit [onto Street]".
           double const distToPronounceUnits = m_settings.ConvertMetersToUnits(distToPronounceMeters);
           uint32_t const roundedDistToPronounceUnits = m_settings.RoundByPresetSoundedDistancesUnits(distToPronounceUnits);
           m_nextTurnNotificationProgress = PronouncedNotification::First;
@@ -369,6 +406,46 @@ std::string NotificationManager::GenerateFirstTurnSound(TurnItem const & turn, d
 
   if (m_nextTurnNotificationProgress == PronouncedNotification::Nothing)
   {
+    if (!m_settings.TooCloseForAdvanceNotification(distanceToTurnMeters))
+    {
+      uint32_t const startPronounceDistMeters =
+          distanceToTurnMeters;
+      if (m_turnNotificationWithThen) {
+        FastForwardAdvanceTurnNotification();
+      }
+      else {
+        double const distToPronounceMeters = distanceToTurnMeters;
+        if (distToPronounceMeters < 0)
+        {
+          FastForwardAdvanceTurnNotification();
+          return {};  // The current position is too close to the turn for the advance notification.
+        }
+        else {
+          // Pronouncing advance turn sound notification.
+          double const distToPronounceUnits = m_settings.ConvertMetersToUnits(distToPronounceMeters);
+          uint32_t const roundedDistToPronounceUnits = distToPronounceUnits;
+          m_nextTurnNotificationProgress = PronouncedNotification::Advance;
+
+          LOG(LINFO,
+              ("Advance notification: TTS meters to pronounce", distanceToPronounceNotificationM, "meters to turn", distanceToTurnMeters,
+                "meters to start pronounce", startPronounceDistMeters, "speed m/s", m_speedMetersPerSecond));
+          return GenerateTurnText(roundedDistToPronounceUnits, turn.m_exitNum, false /* useThenInsteadOfDistance */,
+                                  turn, nextStreetInfo);
+        }
+      }
+    }
+    else
+    {
+      // The advance notification has not been pronounced but the distance to the turn is too short.
+      // It happens if one turn follows shortly behind another one.
+      m_nextTurnNotificationProgress = PronouncedNotification::Advance;
+      FastForwardAdvanceTurnNotification();
+    }
+    return {};
+  }
+
+  if (m_nextTurnNotificationProgress == PronouncedNotification::Advance) 
+  {
     if (!m_settings.TooCloseForFisrtNotification(distanceToTurnMeters))
     {
       uint32_t const startPronounceDistMeters =
@@ -395,7 +472,7 @@ std::string NotificationManager::GenerateFirstTurnSound(TurnItem const & turn, d
           m_nextTurnNotificationProgress = PronouncedNotification::First;
 
           LOG(LINFO,
-              ("TTS meters to pronounce", distanceToPronounceNotificationM, "meters to turn", distanceToTurnMeters,
+              ("First notification: TTS meters to pronounce", distanceToPronounceNotificationM, "meters to turn", distanceToTurnMeters,
                "meters to start pronounce", startPronounceDistMeters, "speed m/s", m_speedMetersPerSecond));
           return GenerateTurnText(roundedDistToPronounceUnits, turn.m_exitNum, false /* useThenInsteadOfDistance */,
                                   turn, nextStreetInfo);
@@ -418,7 +495,7 @@ std::string NotificationManager::GenerateFirstTurnSound(TurnItem const & turn, d
     m_nextTurnNotificationProgress = PronouncedNotification::Second;
     FastForwardFirstTurnNotification();
 
-    LOG(LINFO, ("TTS meters to pronounce", distanceToPronounceNotificationM, "meters to turn", distanceToTurnMeters,
+    LOG(LINFO, ("First turn notification: TTS meters to pronounce", distanceToPronounceNotificationM, "meters to turn", distanceToTurnMeters,
                 "speed m/s", m_speedMetersPerSecond));
     return GenerateTurnText(0 /* distMeters */, turn.m_exitNum, false /* useThenInsteadOfDistance */, turn,
                             nextStreetInfo);
@@ -468,10 +545,17 @@ void NotificationManager::Reset()
   m_secondTurnNotificationIndex = 0;
 }
 
-void NotificationManager::FastForwardFirstTurnNotification()
+void NotificationManager::FastForwardAdvanceTurnNotification()
 {
   m_turnNotificationWithThen = false;
   if (m_nextTurnNotificationProgress == PronouncedNotification::Nothing)
+    m_nextTurnNotificationProgress = PronouncedNotification::Advance;
+}
+
+void NotificationManager::FastForwardFirstTurnNotification()
+{
+  m_turnNotificationWithThen = false;
+  if (m_nextTurnNotificationProgress == PronouncedNotification::Advance)
     m_nextTurnNotificationProgress = PronouncedNotification::First;
 }
 
@@ -519,6 +603,7 @@ std::string DebugPrint(PronouncedNotification notificationProgress)
   switch (notificationProgress)
   {
   case PronouncedNotification::Nothing: return "Nothing";
+  case PronouncedNotification::Advance: return "Advance";
   case PronouncedNotification::First: return "First";
   case PronouncedNotification::Second: return "Second";
   }

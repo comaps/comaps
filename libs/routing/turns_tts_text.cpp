@@ -4,6 +4,7 @@
 #include "routing/turns.hpp"
 #include "routing/turns_sound_settings.hpp"
 #include "routing/turns_tts_text_i18n.hpp"
+#include "routing/turns_notification_manager.hpp"
 
 #include "indexer/road_shields_parser.hpp"
 
@@ -15,6 +16,10 @@
 #include <string>
 
 #include <boost/regex.hpp>
+#include "routing/route.hpp"
+
+#include <cmath>
+#include <cstdio>
 
 namespace routing::turns::sound
 {
@@ -151,8 +156,7 @@ std::string GetTtsText::GetTurnNotification(Notification const & notification) c
 
   std::string distStr;
   if (notification.m_distanceUnits > 0)
-    distStr =
-        GetTextByIdTrimmed(GetDistanceUntilTextId(notification.m_distanceUnits, notification.m_lengthUnits, false));
+    distStr = GetDistanceText(notification.m_distanceUnits, notification.m_lengthUnits);
 
   // For T-junction turns, "At the end of the road, ..." replaces the distance phrase.
   if (notification.m_useAtEndOfRoadPrefix)
@@ -313,7 +317,7 @@ std::string GetTtsText::GetOffRouteNotification(uint32_t distanceUnits, measurem
   char ttsOut[100];
   std::string notRecalculatingMessage = GetTextById("route_not_recalculating");
   std::snprintf(ttsOut, std::size(ttsOut), notRecalculatingMessage.c_str(),
-                GetTextById(GetDistanceFromTextId(distanceUnits, lengthUnits, true)).c_str());
+                GetDistanceText(distanceUnits, lengthUnits).c_str());
   return ttsOut;
 }
 
@@ -351,31 +355,49 @@ std::string GetTtsText::GetTextById(std::string const & textId) const
   return (*m_getCurLang)(textId);
 }
 
-std::string GetDistanceUntilTextId(uint32_t distanceUnits, measurement_utils::Units lengthUnits, bool allowOverflow)
+std::string GetTtsText::GetDistanceText(uint32_t distance, measurement_utils::Units distanceUnits) const
 {
-  switch (lengthUnits)
-  {
-  case measurement_utils::Units::Metric:
-    return DistToTextId(GetAllSoundedDistUntilMeters().cbegin(), GetAllSoundedDistUntilMeters().cend(), distanceUnits,
-                        allowOverflow ? "in_over_3_kilometers" : "");
-  case measurement_utils::Units::Imperial:
-    return DistToTextId(GetAllSoundedDistUntilFeet().cbegin(), GetAllSoundedDistUntilFeet().cend(), distanceUnits,
-                        allowOverflow ? "in_over_2_miles" : "");
-  }
-  UNREACHABLE();
-  return {};
-}
+  std::string dist_notification_text;
+  char buffer[500];
 
-std::string GetDistanceFromTextId(uint32_t distanceUnits, measurement_utils::Units lengthUnits, bool allowOverflow)
-{
-  switch (lengthUnits)
+  switch (distanceUnits)
   {
   case measurement_utils::Units::Metric:
-    return DistToTextId(GetAllSoundedDistFromMeters().cbegin(), GetAllSoundedDistFromMeters().cend(), distanceUnits,
-                        allowOverflow ? "from_over_3_kilometers" : "");
+    if (distance < 1000) {
+	      dist_notification_text = GetTextById("dist_meters");
+	      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), (int)(distance / 100)*100);
+	      return buffer;
+	    }
+
+    else if (distance < 10000) {
+      dist_notification_text = GetTextById("dist_kilometers_decimal");
+      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), ((float)distance/1000));
+      return buffer;
+    }
+
+    else if (distance > 9999) {
+      dist_notification_text = GetTextById("dist_kilometers");
+      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), (distance / 1000));
+      return buffer;
+    }
   case measurement_utils::Units::Imperial:
-    return DistToTextId(GetAllSoundedDistFromFeet().cbegin(), GetAllSoundedDistFromFeet().cend(), distanceUnits,
-                        allowOverflow ? "from_over_2_miles" : "");
+    if (distance < 1000) {
+      dist_notification_text = GetTextById("dist_feet");
+      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), (int)(distance / 100)*100);
+      return buffer;
+    }
+
+    else if (distance < 52800) {
+      dist_notification_text = GetTextById("dist_miles_decimal");
+      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), ((float)distance/1000));
+      return buffer;
+    }
+
+    else if (distance > 52799) {
+      dist_notification_text = GetTextById("dist_miles");
+      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), (distance / 5280));
+      return buffer;
+    }
   }
   ASSERT(false, ());
   return {};

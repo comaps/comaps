@@ -43,6 +43,9 @@ public:
 
   void ForTestingSetLocaleWithJson(std::string const & jsonBuffer, std::string const & locale);
 
+  /// Generates text message for distance. For example: In 300 meters.
+  std::string GetDistanceText(uint32_t distance, measurement_utils::Units distanceUnits) const;
+
 private:
   std::string GetTextById(std::string const & textId) const;
   std::string GetTextByIdTrimmed(std::string const & textId) const;

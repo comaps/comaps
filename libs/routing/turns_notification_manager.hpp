@@ -20,6 +20,7 @@ namespace sound
 enum class PronouncedNotification
 {
   Nothing,
+  Advance, /* The turn notification which is given directly after turning */
   First,
   Second, /** The second notification just before the turn was pronounced. */
 };
@@ -131,6 +132,9 @@ private:
   /// \note This method works independent from m_enabled value.
   /// So it works when the class enable and disable.
   CarDirection GenerateSecondTurnNotification(std::vector<TurnItemDist> const & turns);
+
+  /// \note Same as FastForwardFirstTurnNotification, but for the advance one. See FastForwardFirstTurnNotification.
+  void FastForwardAdvanceTurnNotification();
 
   /// m_enabled == true when tts is turned on.
   /// Important! Clients (iOS/Android) implies that m_enabled is false by default.

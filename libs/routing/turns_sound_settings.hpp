@@ -123,6 +123,10 @@ public:
   /// \return the distance which will be used (will be pronounced) in the next turn sound
   /// notification in m_lengthUnits units. (Meters of feet for the time being.)
   /// The result will be one of the m_soundedDistancesUnits values.
+
+  /// \brief Checks if the user is too close to their upcoming turn to make it worth pronounced an after-turn notification
+  bool TooCloseForAdvanceNotification (double distToTurnMeters) const;
+
   uint32_t RoundByPresetSoundedDistancesUnits(uint32_t turnNotificationUnits) const;
 
   inline measurement_utils::Units GetLengthUnits() const { return m_lengthUnits; }
