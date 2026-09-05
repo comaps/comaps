@@ -106,6 +106,116 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .none)
   }
 
+  func testTouchBrowsingWithoutPanningInterfaceSurvivesPositionEvents() {
+    var policy = CarPlayFollowPolicy()
+    let interfaceState = CarPlayPanningInterfaceState()
+    policy.beginBrowsing()
+
+    XCTAssertFalse(interfaceState.isPresented)
+    // Neither finger lift nor subsequent updates should request following.
+    let modes: [MWMMyPositionMode] = [.notFollow, .notFollow, .notFollowNoPosition, .pendingPosition, .notFollow]
+    for mode in modes {
+      policy.recordPositionMode(mode, isNavigating: false)
+      XCTAssertTrue(policy.isBrowsing)
+      XCTAssertEqual(policy.reconciliationAction(for: mode), .none)
+      XCTAssertFalse(policy.allowsDefaultZoom)
+    }
+  }
+
+  func testReconciliationUsesBrowsingIntentWhenQueuedBeforePan() {
+    var policy = CarPlayFollowPolicy()
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .switchMode)
+
+    policy.beginBrowsing()
+
+    // A queued reconciliation reads the policy at execution, not scheduling time.
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .none)
+    let modes: [MWMMyPositionMode] = [.follow, .followAndRotate]
+    for mode in modes {
+      policy.recordPositionMode(mode, isNavigating: false)
+      XCTAssertEqual(policy.reconciliationAction(for: mode), .stopFollowing)
+      XCTAssertTrue(policy.isBrowsing)
+    }
+  }
+
+  func testDismissingPanningInterfacePreservesBrowsingAndZoomSuppression() {
+    var policy = CarPlayFollowPolicy()
+    var interfaceState = CarPlayPanningInterfaceState()
+    let template = CPMapTemplate()
+    interfaceState.didShow(template)
+    policy.beginBrowsing()
+    policy.recordPositionMode(.notFollow, isNavigating: false)
+
+    XCTAssertTrue(interfaceState.didDismiss(template))
+
+    XCTAssertTrue(policy.isBrowsing)
+    XCTAssertFalse(policy.allowsDefaultZoom)
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .none)
+    // Viewport readiness and scene reactivation use the same policy gates.
+    XCTAssertEqual(policy.reconciliationAction(for: .follow), .stopFollowing)
+    XCTAssertFalse(policy.allowsDefaultZoom)
+  }
+
+  func testRecenterAfterBrowsingPreservesNorthUpPreference() {
+    var policy = CarPlayFollowPolicy()
+    policy.recordExplicitModeSwitch(from: .followAndRotate)
+    policy.beginBrowsing()
+    policy.recordPositionMode(.notFollow, isNavigating: false)
+
+    policy.resumeFollowing()
+
+    XCTAssertFalse(policy.isBrowsing)
+    XCTAssertTrue(policy.allowsDefaultZoom)
+    XCTAssertEqual(policy.orientation, .northUp)
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .switchMode)
+    XCTAssertEqual(policy.reconciliationAction(for: .follow), .none)
+  }
+
+  func testRecenterWhileLocationPendingWaitsThenResumesFollowing() {
+    var policy = CarPlayFollowPolicy()
+    policy.beginBrowsing()
+    policy.recordPositionMode(.pendingPosition, isNavigating: false)
+    policy.resumeFollowing()
+
+    XCTAssertEqual(policy.reconciliationAction(for: .pendingPosition), .waitForPosition)
+    policy.recordPositionMode(.notFollow, isNavigating: false)
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .switchMode)
+    policy.recordPositionMode(.follow, isNavigating: false)
+    XCTAssertEqual(policy.reconciliationAction(for: .follow), .switchMode)
+    policy.recordPositionMode(.followAndRotate, isNavigating: false)
+    XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .none)
+  }
+
+  func testNavigationBrowsingAcceptsTimedReturnButNotStaleFollowEvent() {
+    var policy = CarPlayFollowPolicy()
+    policy.beginBrowsing()
+    policy.recordPositionMode(.followAndRotate, isNavigating: true)
+    XCTAssertTrue(policy.isBrowsing)
+    XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .stopFollowing)
+
+    policy.recordPositionMode(.notFollow, isNavigating: true)
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .none)
+    // Further pan updates must not forget that the core has stopped following.
+    policy.beginBrowsing()
+    policy.recordPositionMode(.followAndRotate, isNavigating: true)
+
+    XCTAssertFalse(policy.isBrowsing)
+    XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .none)
+  }
+
+  func testNewCarSessionClearsBrowsingAndOrientationPreference() {
+    var policy = CarPlayFollowPolicy()
+    policy.recordExplicitModeSwitch(from: .followAndRotate)
+    policy.beginBrowsing()
+
+    policy.reset()
+
+    XCTAssertFalse(policy.isBrowsing)
+    XCTAssertTrue(policy.allowsDefaultZoom)
+    XCTAssertEqual(policy.orientation, .headingUp)
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .switchMode)
+  }
+
   func testSearchContextStateStartsOwnedByPhone() {
     let state = CarPlaySearchContextState()
 
