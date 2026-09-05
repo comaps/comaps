@@ -206,8 +206,7 @@ final class CarPlayService: NSObject {
     self.window = window
     self.interfaceController = interfaceController
     self.interfaceController?.delegate = self
-    let configuration = CPSessionConfiguration(delegate: self)
-    sessionConfiguration = configuration
+    let configuration = ensureSessionConfiguration()
     if isRebind {
       LOG(.info, "[CarPlayHost] setup(): rebinding to a new connection within the teardown grace period")
     } else {
@@ -229,7 +228,6 @@ final class CarPlayService: NSObject {
       router?.restoreTripPreviewOnCarplay(beforeRootTemplateDidAppear: true)
     }
     updateContentStyle(configuration.contentStyle)
-    applyHostAppearanceIfActive()
     if let bookmark = pendingDashboardBookmark {
       LOG(.info, "[CarPlayHost] setup() firing deferred Dashboard bookmark navigation")
       pendingDashboardBookmark = nil
@@ -292,7 +290,9 @@ final class CarPlayService: NSObject {
     searchService = nil
     router = nil
     stopObservingTTS()
-    sessionConfiguration = nil
+    if dashboardWindow == nil {
+      sessionConfiguration = nil
+    }
     interfaceController = nil
     pendingDashboardBookmark = nil
     pendingDashboardNavigationTrip = nil
@@ -302,7 +302,6 @@ final class CarPlayService: NSObject {
     if shouldRestorePhoneNorthUp {
       FrameworkHelper.switchMyPositionMode()
     }
-    ThemeManager.invalidate()
   }
 
   private var pendingTeardown: DispatchWorkItem?
@@ -336,7 +335,9 @@ final class CarPlayService: NSObject {
     logStateSnapshot("appSceneDidDisconnect")
     interfaceController?.delegate = nil
     interfaceController = nil
-    sessionConfiguration = nil
+    if dashboardWindow == nil {
+      sessionConfiguration = nil
+    }
     if isDashboardActive {
       updateMapHost()
     }
@@ -373,18 +374,26 @@ final class CarPlayService: NSObject {
   }
 
   @objc func interfaceStyle() -> UIUserInterfaceStyle {
-    if let window = window,
-      window.traitCollection.userInterfaceIdiom == .carPlay {
-      return rootTemplateStyle == .dark ? .dark : .light
-    }
-    return .unspecified
+    guard isHostingMapOnCarScreen else { return .unspecified }
+    return rootTemplateStyle == .dark ? .dark : .light
+  }
+
+  private func ensureSessionConfiguration() -> CPSessionConfiguration {
+    if let sessionConfiguration { return sessionConfiguration }
+    // Dashboard can connect without the main CarPlay scene. Observe the vehicle's
+    // map content style for as long as either car scene remains connected.
+    let configuration = CPSessionConfiguration(delegate: self)
+    sessionConfiguration = configuration
+    rootTemplateStyle = configuration.contentStyle == .dark ? .dark : .light
+    return configuration
   }
 
   @available(iOS 13.0, *)
   private func updateContentStyle(_ contentStyle: CPContentStyle) {
     rootTemplateStyle = contentStyle == .dark ? .dark : .light
-    // Update the current map style in accordance with the CarPLay content theme.
-    ThemeManager.invalidate()
+    if isHostingMapOnCarScreen {
+      applyHostAppearanceIfActive()
+    }
   }
 
   private var rootTemplateStyle: CPTripEstimateStyle = .light {
@@ -639,6 +648,9 @@ final class CarPlayService: NSObject {
       FrameworkHelper.setCarScreenMode(false)
       CarPlayWindowScaleAdjuster.updateAppearance(toWindow: nil, isCarplayActivated: false)
     }
+    // Host changes also change whose appearance preference applies. Update the
+    // theme after the visual scale, including for Dashboard-only sessions.
+    ThemeManager.invalidate()
   }
 
   @objc private func applicationDidBecomeActive() {
@@ -787,6 +799,7 @@ final class CarPlayService: NSObject {
   @objc func dashboardConnected(window: UIWindow) {
     logStateSnapshot("dashboardConnected")
     dashboardWindow = window
+    _ = ensureSessionConfiguration()
     window.rootViewController = CarPlayDashboardMapViewController()
   }
 
@@ -798,6 +811,9 @@ final class CarPlayService: NSObject {
       mapHost = .none
     }
     dashboardWindow = nil
+    if interfaceController == nil {
+      sessionConfiguration = nil
+    }
     isDashboardActive = false
     updateMapHost()
     refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "dashboardDisconnected")
@@ -1109,6 +1125,7 @@ extension CarPlayService: CPSessionConfigurationDelegate {
   @available(iOS 13.0, *)
   func sessionConfiguration(_ sessionConfiguration: CPSessionConfiguration,
                             contentStyleChanged contentStyle: CPContentStyle) {
+    guard sessionConfiguration === self.sessionConfiguration else { return }
     // Handle the CarPlay content style changing triggered by the 'Always Show Dark Maps' toggle.
     updateContentStyle(contentStyle)
   }

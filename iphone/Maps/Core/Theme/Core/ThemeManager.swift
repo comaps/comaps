@@ -41,14 +41,14 @@ final class ThemeManager: NSObject {
       }
     }(actualTheme)
 
-    let isCarPlayActive = CarPlayService.shared.isCarplayActivated
-    if !isCarPlayActive, Settings.mapAppearance == .light {
+    let isMapOnCarScreen = CarPlayService.shared.isHostingMapOnCarScreen
+    if !isMapOnCarScreen, Settings.mapAppearance == .light {
       if actualTheme == .vehicleDay || actualTheme == .vehicleNight {
           FrameworkHelper.setTheme(.vehicleDay)
       } else {
           FrameworkHelper.setTheme(.day)
       }
-    } else if !isCarPlayActive, Settings.mapAppearance == .dark {
+    } else if !isMapOnCarScreen, Settings.mapAppearance == .dark {
       if actualTheme == .vehicleDay || actualTheme == .vehicleNight {
         FrameworkHelper.setTheme(.vehicleNight)
       } else {
