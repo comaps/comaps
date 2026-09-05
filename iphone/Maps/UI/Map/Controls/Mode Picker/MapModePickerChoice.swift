@@ -36,6 +36,7 @@ extension MapModePicker {
                         .padding(mode == .cycling ? 8 : (mode == .walking ? 9 : 10))
                 }
                 .foregroundStyle(foregroundColor)
+                .aspectRatio(1, contentMode: .fit)
                 .contentShape(Rectangle())
                 .onTapGesture {
                     if !isDragging {
