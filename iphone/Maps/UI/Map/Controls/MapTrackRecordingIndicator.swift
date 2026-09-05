@@ -56,6 +56,7 @@ struct MapTrackRecordingIndicator: View {
                         ForEach(Mode.allCases) { mode in
                             Circle()
                                 .fill(.clear)
+                                .aspectRatio(1, contentMode: .fit)
                         }
                     }
                     .padding(4)
