@@ -158,12 +158,51 @@ final class CarPlayServiceTests: XCTestCase {
                    Array(1 ... 11) + [-1])
   }
 
+  func testListLimiterHandlesRestrictionsWithUnchangedReportedMaximum() {
+    let items = Array(1 ... 21)
+    let reportedMaximum = 24
+
+    for isListLimited in [false, true, false] {
+      let effectiveMaximum = CarPlayListLimiter.effectiveMaximumItemCount(reportedMaximum,
+                                                                          isListLimited: isListLimited)
+      let result = CarPlayListLimiter.applyingMaximumItemCount(effectiveMaximum,
+                                                               to: items,
+                                                               overflowItem: -1)
+
+      XCTAssertEqual(result, isListLimited ? Array(1 ... 11) + [-1] : items)
+    }
+  }
+
+  func testListLimiterRespectsReportedMaximumBelowRestrictionLimit() {
+    let effectiveMaximum = CarPlayListLimiter.effectiveMaximumItemCount(8, isListLimited: true)
+
+    XCTAssertEqual(effectiveMaximum, 8)
+    XCTAssertEqual(CarPlayListLimiter.applyingMaximumItemCount(effectiveMaximum,
+                                                               to: Array(1 ... 21),
+                                                               overflowItem: -1),
+                   Array(1 ... 7) + [-1])
+  }
+
+  func testListLimiterReturnsNoItemsAtZeroCapacity() {
+    for isListLimited in [false, true] {
+      let effectiveMaximum = CarPlayListLimiter.effectiveMaximumItemCount(0,
+                                                                          isListLimited: isListLimited)
+
+      XCTAssertEqual(CarPlayListLimiter.applyingMaximumItemCount(effectiveMaximum,
+                                                                 to: [1],
+                                                                 overflowItem: -1),
+                     [])
+    }
+  }
+
   func testListLimiterDoesNotTruncateItemsAtOrBelowLimit() {
-    XCTAssertEqual(CarPlayListLimiter.applyingMaximumItemCount(12,
+    let effectiveMaximum = CarPlayListLimiter.effectiveMaximumItemCount(24, isListLimited: true)
+
+    XCTAssertEqual(CarPlayListLimiter.applyingMaximumItemCount(effectiveMaximum,
                                                                to: Array(1 ... 12),
                                                                overflowItem: -1),
                    Array(1 ... 12))
-    XCTAssertEqual(CarPlayListLimiter.applyingMaximumItemCount(12,
+    XCTAssertEqual(CarPlayListLimiter.applyingMaximumItemCount(effectiveMaximum,
                                                                to: Array(1 ... 11),
                                                                overflowItem: -1),
                    Array(1 ... 11))

@@ -963,6 +963,13 @@ final class CarPlayService: NSObject {
 // MARK: - CPInterfaceControllerDelegate implementation
 extension CarPlayService: CPInterfaceControllerDelegate {
   func templateWillAppear(_ aTemplate: CPTemplate, animated: Bool) {
+    if let listTemplate = aTemplate as? CPListTemplate,
+       let context = listTemplate.userInfo as? BookmarkListTemplateContext {
+      ListTemplateBuilder.refreshBookmarks(in: listTemplate,
+                                           categoryId: context.categoryId,
+                                           isListLimited: isListLimited)
+      return
+    }
     guard let info = aTemplate.userInfo as? MapInfo else {
         return
     }
@@ -1039,10 +1046,15 @@ extension CarPlayService: CPSessionConfigurationDelegate {
                             limitedUserInterfacesChanged limitedUserInterfaces: CPLimitableUserInterface) {
     let keyboardLimited = limitedUserInterfaces.contains(.keyboard)
     let listsLimited = limitedUserInterfaces.contains(.lists)
-    LOG(.info, "[CarPlayList] restrictions changed keyboard=\(keyboardLimited) lists=\(listsLimited) maximum=\(CPListTemplate.maximumItemCount)")
+    let reportedMaximum = CPListTemplate.maximumItemCount
+    let effectiveMaximum = CarPlayListLimiter.effectiveMaximumItemCount(reportedMaximum,
+                                                                        isListLimited: listsLimited)
+    LOG(.info, "[CarPlayList] restrictions changed keyboard=\(keyboardLimited) lists=\(listsLimited) reportedMaximum=\(reportedMaximum) effectiveMaximum=\(effectiveMaximum)")
     guard let listTemplate = interfaceController?.topTemplate as? CPListTemplate,
           let context = listTemplate.userInfo as? BookmarkListTemplateContext else { return }
-    ListTemplateBuilder.refreshBookmarks(in: listTemplate, categoryId: context.categoryId)
+    ListTemplateBuilder.refreshBookmarks(in: listTemplate,
+                                         categoryId: context.categoryId,
+                                         isListLimited: listsLimited)
   }
   @available(iOS 13.0, *)
   func sessionConfiguration(_ sessionConfiguration: CPSessionConfiguration,

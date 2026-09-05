@@ -5,6 +5,11 @@ struct BookmarkListTemplateContext {
 }
 
 enum CarPlayListLimiter {
+  static func effectiveMaximumItemCount(_ reportedMaximum: Int, isListLimited: Bool) -> Int {
+    // Some cars keep reporting the unrestricted maximum while limiting lists to 12 items.
+    return isListLimited ? min(reportedMaximum, 12) : reportedMaximum
+  }
+
   static func applyingMaximumItemCount<Item>(_ maximumItemCount: Int,
                                               to items: [Item],
                                               overflowItem: @autoclosure () -> Item) -> [Item] {
@@ -67,8 +72,10 @@ final class ListTemplateBuilder {
     return template
   }
 
-  class func refreshBookmarks(in template: CPListTemplate, categoryId: MWMMarkGroupID) {
-    template.updateSections(buildBookmarksSections(categoryId: categoryId))
+  class func refreshBookmarks(in template: CPListTemplate,
+                              categoryId: MWMMarkGroupID,
+                              isListLimited: Bool) {
+    template.updateSections(buildBookmarksSections(categoryId: categoryId, isListLimited: isListLimited))
   }
 
   private class func buildSectionsForType(_ type: ListTemplateType) -> [CPListSection] {
@@ -76,7 +83,8 @@ final class ListTemplateBuilder {
     case .history:
       return buildHistorySections()
     case .bookmarks(let category):
-      return buildBookmarksSections(categoryId: category.categoryId)
+      return buildBookmarksSections(categoryId: category.categoryId,
+                                    isListLimited: CarPlayService.shared.isListLimited)
     case .bookmarkLists:
       return buildBookmarkListsSections()
     case .searchResults(let results):
@@ -111,7 +119,7 @@ final class ListTemplateBuilder {
     return [CPListSection(items: items)]
   }
 
-  private class func buildBookmarksSections(categoryId: MWMMarkGroupID) -> [CPListSection] {
+  private class func buildBookmarksSections(categoryId: MWMMarkGroupID, isListLimited: Bool) -> [CPListSection] {
     let bookmarkManager = BookmarksManager.shared()
     let bookmarks = bookmarkManager.bookmarks(forCategory: categoryId)
     var items = bookmarks.map({ (bookmark) -> CPListItem in
@@ -123,15 +131,17 @@ final class ListTemplateBuilder {
       return item
     })
     let sourceItemCount = items.count
-    let maximumItemCount = CPListTemplate.maximumItemCount
+    let reportedMaximum = CPListTemplate.maximumItemCount
+    let effectiveMaximum = CarPlayListLimiter.effectiveMaximumItemCount(reportedMaximum,
+                                                                        isListLimited: isListLimited)
     let cropWarning = CPListItem(text: L("not_all_shown_bookmarks_carplay"),
                                  detailText: L("switch_to_phone_bookmarks_carplay"))
     cropWarning.isEnabled = false
-    items = CarPlayListLimiter.applyingMaximumItemCount(maximumItemCount,
+    items = CarPlayListLimiter.applyingMaximumItemCount(effectiveMaximum,
                                                         to: items,
                                                         overflowItem: cropWarning)
     LOG(.info,
-        "[CarPlayList] bookmarks category=\(categoryId) source=\(sourceItemCount) maximum=\(maximumItemCount) displayed=\(items.count) limited=\(CarPlayService.shared.isListLimited)")
+        "[CarPlayList] bookmarks category=\(categoryId) source=\(sourceItemCount) reportedMaximum=\(reportedMaximum) effectiveMaximum=\(effectiveMaximum) submitted=\(items.count) limited=\(isListLimited)")
     return [CPListSection(items: items)]
   }
 
