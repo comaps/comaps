@@ -447,7 +447,7 @@ RouteWeight IndexGraph::GetPenalties(EdgeEstimator::Purpose purpose, Segment con
   int8_t accessPenalty = 0;
   int8_t accessConditionalPenalties = 0;
 
-  if (u.GetFeatureId() != v.GetFeatureId())
+  if ((u.GetFeatureId() != v.GetFeatureId()) && !m_estimator->IsAccessIgnored())
   {
     // We do not distinguish between RoadAccess::Type::Private and RoadAccess::Type::Destination for
     // now.
@@ -457,27 +457,22 @@ RouteWeight IndexGraph::GetPenalties(EdgeEstimator::Purpose purpose, Segment con
     auto const [toAccess, toConfidence] = prevWeight ? m_roadAccess.GetAccess(v.GetFeatureId(), *prevWeight)
                                                      : m_roadAccess.GetAccessWithoutConditional(v.GetFeatureId());
 
-    if (!m_estimator->IsAccessIgnored())
+    if (fromConfidence == RoadAccess::Confidence::Sure && toConfidence == RoadAccess::Confidence::Sure)
     {
-      if (fromConfidence == RoadAccess::Confidence::Sure && toConfidence == RoadAccess::Confidence::Sure)
-      {
-        bool const fromAccessAllowed = fromAccess == RoadAccess::Type::Yes;
-        bool const toAccessAllowed = toAccess == RoadAccess::Type::Yes;
-        // Route crosses border of access=yes/access={private, destination} area if |u| and |v| have
-        // different access restrictions.
-        accessPenalty = fromAccessAllowed == toAccessAllowed ? 0 : 1;
-      }
-      else if (toConfidence == RoadAccess::Confidence::Maybe)
-      {
-        accessConditionalPenalties = 1;
-      }
+      bool const fromAccessAllowed = fromAccess == RoadAccess::Type::Yes;
+      bool const toAccessAllowed = toAccess == RoadAccess::Type::Yes;
+      // Route crosses border of access=yes/access={private, destination} area if |u| and |v| have
+      // different access restrictions.
+      accessPenalty = fromAccessAllowed == toAccessAllowed ? 0 : 1;
+    }
+    else if (toConfidence == RoadAccess::Confidence::Maybe)
+    {
+      accessConditionalPenalties = 1;
     }
   }
 
   // RoadPoint between u and v is front of u.
   auto const rp = u.GetRoadPoint(true /* front */);
-  auto const [rpAccessType, rpConfidence] =
-      prevWeight ? m_roadAccess.GetAccess(rp, *prevWeight) : m_roadAccess.GetAccessWithoutConditional(rp);
   uint16_t penaltyTime = 0;
   // Get penalty from new penalty system if MWM supports it
   if (m_estimator->GetMode() == EdgeEstimator::Mode::Navigation)
@@ -488,6 +483,9 @@ RouteWeight IndexGraph::GetPenalties(EdgeEstimator::Purpose purpose, Segment con
   }
 
   if (!m_estimator->IsAccessIgnored())
+  {
+    auto const [rpAccessType, rpConfidence] =
+        prevWeight ? m_roadAccess.GetAccess(rp, *prevWeight) : m_roadAccess.GetAccessWithoutConditional(rp);
     switch (rpConfidence)
     {
       case RoadAccess::Confidence::Sure:
@@ -502,6 +500,7 @@ RouteWeight IndexGraph::GetPenalties(EdgeEstimator::Purpose purpose, Segment con
         break;
       }
     }
+  }
 
   double weightPenalty = 0.0;
   if (IsUTurn(u, v))
