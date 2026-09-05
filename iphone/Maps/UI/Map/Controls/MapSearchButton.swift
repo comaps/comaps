@@ -46,15 +46,15 @@ struct MapSearchButton: View {
                 .buttonStyle(.plain)
             }
             .background {
-                RoundedRectangle(cornerRadius: 28)
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
                     .stroke(Color.MapButtons.border, lineWidth: 1)
                     .background {
                         if colorScheme == .dark {
-                            RoundedRectangle(cornerRadius: 28)
+                            RoundedRectangle(cornerRadius: 28, style: .continuous)
                                 .fill(Color.black)
                         }
                         
-                        RoundedRectangle(cornerRadius: 28)
+                        RoundedRectangle(cornerRadius: 28, style: .continuous)
                             .fill(Color.white.opacity(colorScheme == .dark ? 0.25 : 1))
                     }
                     .shadow(radius: 2)
