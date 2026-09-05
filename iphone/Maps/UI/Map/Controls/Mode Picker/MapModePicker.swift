@@ -92,6 +92,7 @@ struct MapModePicker: View {
                         if !isPresentingModeOptions {
                             ForEach(0..<draggedMode.id, id: \.self) { _ in
                                 Circle()
+                                    .aspectRatio(1, contentMode: .fit)
                                     .hidden()
                             }
                         }
@@ -102,6 +103,7 @@ struct MapModePicker: View {
                         if !isPresentingModeOptions {
                             ForEach((draggedMode.id + 1)..<Mode.allCases.count, id: \.self) { _ in
                                 Circle()
+                                    .aspectRatio(1, contentMode: .fit)
                                     .hidden()
                             }
                         }
