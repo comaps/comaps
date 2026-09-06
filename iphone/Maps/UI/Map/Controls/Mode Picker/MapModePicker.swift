@@ -38,6 +38,10 @@ struct MapModePicker: View {
     
     /// If a mode is currently being dragged
     @State private var isDragging: Bool = false
+
+
+    /// If a mode was activated by a long press
+    @State private var isLongPressingMode: Bool = false
     
     
     /// The dragged mode to not have too quick mode changes when dragging
@@ -51,13 +55,23 @@ struct MapModePicker: View {
                 HStack(spacing: 0) {
                     ForEach(Mode.allCases) { mode in
                         if !isPresentingModeOptions || mode == selectedMode {
-                            MapModePicker.Choice(selectedMode: $selectedMode, mode: mode, isDragging: $isDragging, draggedMode: $draggedMode)
+                            MapModePicker.Choice(selectedMode: $selectedMode,
+                                                 mode: mode,
+                                                 isPresentingModeOptions: isPresentingModeOptions,
+                                                 isDragging: $isDragging,
+                                                 isLongPressingMode: $isLongPressingMode,
+                                                 draggedMode: $draggedMode,
+                                                 toggleModeOptions: toggleModeOptions)
                                 .simultaneousGesture(
                                     LongPressGesture().onEnded { _ in
                                         if !isDragging {
+                                            isLongPressingMode = true
                                             selectedMode = mode
-                                            shouldTemporarilyHideLayersIfNecessary = true
-                                            isPresentingModeOptions.toggle()
+                                            toggleModeOptions()
+                                            Task {
+                                                try? await Task.sleep(nanoseconds: 500_000_000)
+                                                isLongPressingMode = false
+                                            }
                                         }
                                     }
                                 )
@@ -69,6 +83,7 @@ struct MapModePicker: View {
                             .font(.title2)
                             .bold()
                             .foregroundStyle(Color.white)
+                            .accessibilityHidden(true)
 
                         Spacer(minLength: 0)
 
@@ -226,13 +241,7 @@ struct MapModePicker: View {
             .padding(-4)
             .contentShape(Rectangle())
             .padding(.leading, verticalSizeClass == .compact && !isPresentingModeOptions ? (controlHeight + 24) : 0)
-            .accessibilityRepresentation {
-                Picker("mode", selection: $selectedMode) {
-                    ForEach(Mode.allCases) { mode in
-                        Text(mode.description)
-                    }
-                }
-            }
+            .accessibilityElement(children: .contain)
             .frame(maxWidth: !isPresentingModeOptions || (horizontalSizeClass == .compact && verticalSizeClass != .compact) ? .infinity : 320, alignment: verticalSizeClass == .compact ? .leading : .center)
             .frame(maxWidth: .infinity, alignment: verticalSizeClass == .compact ? .leading : .center)
             .animation(.spring.speed(2), value: isPresentingModeOptions)
@@ -249,6 +258,13 @@ struct MapModePicker: View {
             hasTransitLinesForPublicTransportMode = changedHasTransitLinesForPublicTransport
             MapControls.publicTransportModeSetTransitLines(changedHasTransitLinesForPublicTransport)
         }
+    }
+
+
+    /// Toggles the options for the selected mode
+    private func toggleModeOptions() {
+        isPresentingModeOptions.toggle()
+        shouldTemporarilyHideLayersIfNecessary = isPresentingModeOptions
     }
 
 }
