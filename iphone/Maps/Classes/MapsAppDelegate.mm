@@ -94,6 +94,7 @@ void InitLocalizedStrings() {
   [HttpThreadImpl setDownloadIndicatorProtocol:self];
   InitLocalizedStrings();
   GetFramework().SetupMeasurementSystem();
+  [MWMSettings applyCustomMapDownloadUrl];
   [[MWMStorage sharedStorage] addObserver:self];
   [MapsAppDelegate customizeAppearance];
 

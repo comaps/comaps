@@ -355,6 +355,7 @@
 		676507601C10559800830BB3 /* patterns.txt in Resources */ = {isa = PBXBuildFile; fileRef = 451950391B7A3E070085DA05 /* patterns.txt */; };
 		676507611C10559B00830BB3 /* colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = 452FCA3A1B6A3DF7007019AB /* colors.txt */; };
 		6B9978361C89A316003B8AA0 /* editor.config in Resources */ = {isa = PBXBuildFile; fileRef = 6B9978341C89A316003B8AA0 /* editor.config */; };
+		6F6D3995304DEB01005FDA3E /* CustomMapServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D3992304DEAF3005FDA3E /* CustomMapServerView.swift */; };
 		8481206E2FEF165300D4AC63 /* MWMRouteStepInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8481206D2FEF164D00D4AC63 /* MWMRouteStepInfo.mm */; };
 		848120712FEF1FA100D4AC63 /* DirectionsPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848120702FEF1F9400D4AC63 /* DirectionsPreviewViewController.swift */; };
 		848120732FEF20A100D4AC63 /* DirectionsStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848120722FEF209A00D4AC63 /* DirectionsStepCell.swift */; };
@@ -1258,6 +1259,7 @@
 		5605022E1B6211E100169CAD /* sound-strings */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "sound-strings"; path = "../../data/sound-strings"; sourceTree = "<group>"; };
 		6741AA5D1BF340DE002C974C /* CoMaps (Debug).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoMaps (Debug).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B9978341C89A316003B8AA0 /* editor.config */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = editor.config; path = ../../data/editor.config; sourceTree = "<group>"; };
+		6F6D3992304DEAF3005FDA3E /* CustomMapServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapServerView.swift; sourceTree = "<group>"; };
 		8481206A2FEF15EB00D4AC63 /* MWMRouteStepInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWMRouteStepInfo.h; sourceTree = "<group>"; };
 		8481206D2FEF164D00D4AC63 /* MWMRouteStepInfo.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMRouteStepInfo.mm; sourceTree = "<group>"; };
 		848120702FEF1F9400D4AC63 /* DirectionsPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsPreviewViewController.swift; sourceTree = "<group>"; };
@@ -3961,6 +3963,7 @@
 		F6E2FD361E097BA00083EBEC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				6F6D3992304DEAF3005FDA3E /* CustomMapServerView.swift */,
 				279367592E1BE17300AA5C3D /* SettingsView.swift */,
 				27AF184B2E1D5A2700CD41E2 /* SettingsNavigationView.swift */,
 				272F1F352E0EE00B00FA52EF /* Profile */,
@@ -4487,6 +4490,7 @@
 				999FC12023ABA9AD00B0E6F9 /* SearchStyleSheet.swift in Sources */,
 				ED2D745E2D1433DE00660FBF /* TrackRecordingActivityManager.swift in Sources */,
 				3D15ACEE2155117000F725D5 /* MWMObjectsCategorySelectorDataSource.mm in Sources */,
+				6F6D3995304DEB01005FDA3E /* CustomMapServerView.swift in Sources */,
 				272F1F392E0EE09000FA52EF /* ExistingProfileView.swift in Sources */,
 				3454D7D11E07F045004AF2AD /* UIImage+RGBAData.m in Sources */,
 				6741A9B71BF340DE002C974C /* EAGLView.mm in Sources */,
@@ -4612,7 +4616,6 @@
 				3454D7E01E07F045004AF2AD /* UITextField+RuntimeAttributes.m in Sources */,
 				4761BE2A252D3DB900EE2DE4 /* SubgroupCell.swift in Sources */,
 				1DFA2F6A20D3B57400FB2C66 /* UIColor+PartnerColor.m in Sources */,
-				9989273B2449E60200260CE2 /* BottomMenuBuilder.swift in Sources */,
 				848120732FEF20A100D4AC63 /* DirectionsStepCell.swift in Sources */,
 				993DF10F23F6BDB100AC231A /* UIActivityIndicatorRenderer.swift in Sources */,
 				ED9DDF882D6F151000645BC8 /* PlacePageTrackRecordingLayout.swift in Sources */,
