@@ -43,6 +43,9 @@ public:
 
   void ForTestingSetLocaleWithJson(std::string const & jsonBuffer, std::string const & locale);
 
+  /// Generates text message for distance. For example: In 300 meters.
+  std::string GetDistanceText(uint32_t distance, measurement_utils::Units distanceUnits) const;
+
 private:
   std::string GetTextById(std::string const & textId) const;
   std::string GetTextByIdTrimmed(std::string const & textId) const;
@@ -58,10 +61,7 @@ private:
     strings::EatSuffix(s, "।");
   }
 };
-/// Generates text message id about the distance of the notification. For example: "In 300 meters" [turn left].
-std::string GetDistanceUntilTextId(uint32_t distanceUnits, measurement_utils::Units lengthUnits, bool allowOverflow);
-/// Generates text message id about the distance of a place. For example: "300 meters" [away from something].
-std::string GetDistanceFromTextId(uint32_t distanceUnits, measurement_utils::Units lengthUnits, bool allowOverflow);
+
 /// Generates text message id for roundabouts.
 /// For example: leave_the_roundabout or take_the_3_exit
 std::string GetRoundaboutTextId(Notification const & notification);

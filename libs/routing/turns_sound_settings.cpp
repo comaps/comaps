@@ -46,6 +46,12 @@ bool Settings::TooCloseForFisrtNotification(double distToTurnMeters) const
   return m_minDistToSayNotificationMeters >= distToTurnMeters;
 }
 
+bool Settings::TooCloseForAdvanceNotification(double distToTurnMeters) const
+{
+  // 100 meters was chosen as a dummy value. This value was originally 1100, but after noticing that turn notifications provided at 1.5 km omit the Advance turn notification, this value was changed.
+  return 100 >= distToTurnMeters;
+}
+
 uint32_t Settings::RoundByPresetSoundedDistancesUnits(uint32_t turnNotificationUnits) const
 {
   ASSERT(IsValid(), ());
