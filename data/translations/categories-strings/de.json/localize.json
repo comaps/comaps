@@ -186,7 +186,7 @@
         "defaultMessage": "4Geldtransfer|5Geldtransferbüro|4Geldversand"
     },
     "shop-clothes|@category_shopping|@shop": {
-        "defaultMessage": "3Bekleidungsgeschäft|3Kleidung|3Bekleidung|3Kleidungsgeschäft|3Kleiderladen|4Einkaufen|3Shoppen|3Klamotten|3Klamottenladen|4Modegeschäft|U+1F45A|U+1F457|U+1F456|U+1F455 "
+        "defaultMessage": "3Bekleidungsgeschäft|3Kleidung|3Bekleidung|3Kleidungsgeschäft|3Kleiderladen|4Einkaufen|3Shoppen|3Klamotten|3Klamottenladen|4Modegeschäft|U+1F45A|U+1F457|U+1F456|U+1F455"
     },
     "shop-caravan|@category_rv|@shop": {
         "defaultMessage": "5Wohnmobilhändler|5Wohnwagenhändler|6Wohnmobilgeschäft|5Wohnwagen|5Wohnmobil|U+1F690"
@@ -495,7 +495,7 @@
         "defaultMessage": "4Parkplatz|4Parken|4Parkhaus|4Tiefgarage|4Parkgarage|4Garage|5Autoparkplatz|U+1F697|U+1F17F|U+1F698|U+1F699"
     },
     "@category_pharmacy": {
-        "defaultMessage": "3Apotheke|3Pharmazie|3Pharma"
+        "defaultMessage": "3Apotheke|3Pharmazie|3Pharma|4Medikamente|4Arzneimittel"
     },
     "amenity-pharmacy|@category_pharmacy": {
         "defaultMessage": "3Apotheke|3Drogerie|3Medikamente|U+1F489|U+1F48A"
@@ -1026,7 +1026,7 @@
         "defaultMessage": "Reifenservice|Reifen|6Reifenreparatur|Reifeninstandsetzung|Reifenpannenreparatur|Reifenpannenbehebung|Reifenersatz|Pneureparatur|Pneu|Pannenreparatur"
     },
     "shop-chemist|@shop": {
-        "defaultMessage": "4Drogerie"
+        "defaultMessage": "4Drogerie|4Drogeriemarkt|4Kosmetikartikel|4Haushaltsartikel"
     },
     "shop-pet|@shop": {
         "defaultMessage": "4Tierhandlung|3Zoohandlung|4Tierbedarf"
@@ -1143,7 +1143,7 @@
         "defaultMessage": "4Seilbahn|4Seilbahnstation|4Liftstation|U+1F6A0|U+1F6A1"
     },
     "aeroway-helipad": {
-        "defaultMessage": "4Hubschrauberlandeplatz|4Helikopterlandeplatz|U+1F681"
+        "defaultMessage": "4Hubschrauberlandeplatz|4Helikopterlandeplatz|U+1F681|4Helilandeplatz|Heli|Helikopter|Hubschrauber"
     },
     "barrier-border_control": {
         "defaultMessage": "Grenzkontrolle"
@@ -1470,7 +1470,7 @@
         "defaultMessage": "4Kräuterladen"
     },
     "shop-appliance|@shop": {
-        "defaultMessage": "6Laden für Haushaltsgeräte|4Küchengeräte|4Küche"
+        "defaultMessage": "6Laden für Haushaltsgeräte|4Küchengeräte|4Küche|4Haushaltsladen"
     },
     "shop-agrarian|@shop": {
         "defaultMessage": "5Landwirtschaftliches Geschäft"
@@ -1482,10 +1482,10 @@
         "defaultMessage": "Müllumladestation"
     },
     "shop-carpet|@shop": {
-        "defaultMessage": "4Teppichgeschäft"
+        "defaultMessage": "4Teppichgeschäft|Teppichladen|Teppich"
     },
     "shop-craft|@shop": {
-        "defaultMessage": "4Künstlerbedarf"
+        "defaultMessage": "4Künstlerbedarf|4Bastelbedarf|4Bastelladen|4Bastelgeschäft|4Künstlerladen|4Künstlergeschäft"
     },
     "shop-pasta|@shop": {
         "defaultMessage": "Nudelgeschäft"
@@ -1662,7 +1662,7 @@
         "defaultMessage": "Hotdog"
     },
     "cuisine-ice_cream": {
-        "defaultMessage": "Eis"
+        "defaultMessage": "Eis|Sorbet"
     },
     "cuisine-kebab|@fastfood": {
         "defaultMessage": "Kebab|Döner"
@@ -1671,7 +1671,7 @@
         "defaultMessage": "Nudeln"
     },
     "cuisine-pancake|cuisine-crepe": {
-        "defaultMessage": "Pfannkuchen|Crêpe"
+        "defaultMessage": "Pfannkuchen|Crêpe|Eierkuchen|"
     },
     "cuisine-pasta": {
         "defaultMessage": "Pasta"
@@ -1689,7 +1689,7 @@
         "defaultMessage": "Wurst"
     },
     "cuisine-seafood|cuisine-fish": {
-        "defaultMessage": "Meeresfrüchte|Fisch"
+        "defaultMessage": "Meeresfrüchte|Fisch|Krabe|Garnelen"
     },
     "cuisine-soba": {
         "defaultMessage": "Soba-Nudeln"

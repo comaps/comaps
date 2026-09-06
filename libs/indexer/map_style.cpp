@@ -2,23 +2,72 @@
 
 #include "base/assert.hpp"
 
+#ifdef OMIM_OS_ANDROID
 MapStyle const kDefaultMapStyle = MapStyleDefaultLight;
+#else
+MapStyle const kDefaultMapStyle = MapStyleWalkingLight;
+#endif
 
 MapStyle MapStyleFromSettings(std::string const & str)
 {
   // MapStyleMerged is service style. It's unavailable for users.
-  if (str == "MapStyleDefaultLight")
-    return MapStyleDefaultLight;
-  else if (str == "MapStyleDefaultDark")
-    return MapStyleDefaultDark;
+  if (str == "MapStyleWalkingLight")
+    return MapStyleWalkingLight;
+  else if (str == "MapStyleWalkingOutdoorLight")
+    return MapStyleWalkingOutdoorLight;
+  else if (str == "MapStyleWalkingDark")
+    return MapStyleWalkingDark;
+  else if (str == "MapStyleWalkingOutdoorDark")
+    return MapStyleWalkingOutdoorDark;
+  else if (str == "MapStyleCyclingLight")
+    return MapStyleCyclingLight;
+  else if (str == "MapStyleCyclingOutdoorLight")
+    return MapStyleCyclingOutdoorLight;
+  else if (str == "MapStyleCyclingDark")
+    return MapStyleCyclingDark;
+  else if (str == "MapStyleCyclingOutdoorDark")
+    return MapStyleCyclingOutdoorDark;
+  else if (str == "MapStyleDrivingLight")
+    return MapStyleDrivingLight;
+  else if (str == "MapStyleDrivingOutdoorLight")
+    return MapStyleDrivingOutdoorLight;
+  else if (str == "MapStyleDrivingDark")
+    return MapStyleDrivingDark;
+  else if (str == "MapStyleDrivingOutdoorDark")
+    return MapStyleDrivingOutdoorDark;
+  else if (str == "MapStylePublicTransportLight")
+    return MapStylePublicTransportLight;
+  else if (str == "MapStylePublicTransportOutdoorLight")
+    return MapStylePublicTransportOutdoorLight;
+  else if (str == "MapStylePublicTransportDark")
+    return MapStylePublicTransportDark;
+  else if (str == "MapStylePublicTransportOutdoorDark")
+    return MapStylePublicTransportOutdoorDark;
   else if (str == "MapStyleVehicleLight")
     return MapStyleVehicleLight;
   else if (str == "MapStyleVehicleDark")
     return MapStyleVehicleDark;
+
+#ifndef OMIM_OS_ANDROID
+  // These styles are only shipped on Android, in case we end up in an inconsistent state, fall back to walking
+  else if (str == "MapStyleDefaultLight")
+    return MapStyleWalkingLight;
+  else if (str == "MapStyleDefaultDark")
+    return MapStyleWalkingDark;
+  else if (str == "MapStyleOutdoorsLight")
+    return MapStyleWalkingOutdoorLight;
+  else if (str == "MapStyleOutdoorsDark")
+    return MapStyleWalkingOutdoorDark;
+#else
+  else if (str == "MapStyleDefaultLight")
+    return MapStyleDefaultLight;
+  else if (str == "MapStyleDefaultDark")
+    return MapStyleDefaultDark;
   else if (str == "MapStyleOutdoorsLight")
     return MapStyleOutdoorsLight;
   else if (str == "MapStyleOutdoorsDark")
     return MapStyleOutdoorsDark;
+#endif
 
   return kDefaultMapStyle;
 }
@@ -27,13 +76,30 @@ std::string MapStyleToString(MapStyle mapStyle)
 {
   switch (mapStyle)
   {
-  case MapStyleDefaultDark: return "MapStyleDefaultDark";
-  case MapStyleDefaultLight: return "MapStyleDefaultLight";
+  case MapStyleWalkingLight: return "MapStyleWalkingLight";
+  case MapStyleWalkingOutdoorLight: return "MapStyleWalkingOutdoorLight";
+  case MapStyleWalkingDark: return "MapStyleWalkingDark";
+  case MapStyleWalkingOutdoorDark: return "MapStyleWalkingOutdoorDark";
+  case MapStyleCyclingLight: return "MapStyleCyclingLight";
+  case MapStyleCyclingOutdoorLight: return "MapStyleCyclingOutdoorLight";
+  case MapStyleCyclingDark: return "MapStyleCyclingDark";
+  case MapStyleCyclingOutdoorDark: return "MapStyleCyclingOutdoorDark";
+  case MapStyleDrivingLight: return "MapStyleDrivingLight";
+  case MapStyleDrivingOutdoorLight: return "MapStyleDrivingOutdoorLight";
+  case MapStyleDrivingDark: return "MapStyleDrivingDark";
+  case MapStyleDrivingOutdoorDark: return "MapStyleDrivingOutdoorDark";
+  case MapStylePublicTransportLight: return "MapStylePublicTransportLight";
+  case MapStylePublicTransportOutdoorLight: return "MapStylePublicTransportOutdoorLight";
+  case MapStylePublicTransportDark: return "MapStylePublicTransportDark";
+  case MapStylePublicTransportOutdoorDark: return "MapStylePublicTransportOutdoorDark";
   case MapStyleMerged: return "MapStyleMerged";
-  case MapStyleVehicleDark: return "MapStyleVehicleDark";
   case MapStyleVehicleLight: return "MapStyleVehicleLight";
-  case MapStyleOutdoorsDark: return "MapStyleOutdoorsDark";
+  case MapStyleVehicleDark: return "MapStyleVehicleDark";
+
+  case MapStyleDefaultLight: return "MapStyleDefaultLight";
+  case MapStyleDefaultDark: return "MapStyleDefaultDark";
   case MapStyleOutdoorsLight: return "MapStyleOutdoorsLight";
+  case MapStyleOutdoorsDark: return "MapStyleOutdoorsDark";
 
   case MapStyleCount: break;
   }
@@ -46,12 +112,28 @@ std::string DebugPrint(MapStyle mapStyle)
   return MapStyleToString(mapStyle);
 }
 
-bool MapStyleIsDark(MapStyle mapStyle)
+MapStyle GetLightMapStyleVariant(MapStyle mapStyle)
 {
-  for (auto const darkStyle : {MapStyleDefaultDark, MapStyleVehicleDark, MapStyleOutdoorsDark})
-    if (mapStyle == darkStyle)
-      return true;
-  return false;
+  if (!MapStyleIsDark(mapStyle))
+    return mapStyle;
+
+  switch (mapStyle)
+  {
+  case MapStyleWalkingDark: return MapStyleWalkingLight;
+  case MapStyleWalkingOutdoorDark: return MapStyleWalkingOutdoorLight;
+  case MapStyleCyclingDark: return MapStyleCyclingLight;
+  case MapStyleCyclingOutdoorDark: return MapStyleCyclingOutdoorLight;
+  case MapStyleDrivingDark: return MapStyleDrivingLight;
+  case MapStyleDrivingOutdoorDark: return MapStyleDrivingOutdoorLight;
+  case MapStylePublicTransportDark: return MapStylePublicTransportLight;
+  case MapStylePublicTransportOutdoorDark: return MapStylePublicTransportOutdoorLight;
+  case MapStyleVehicleDark: return MapStyleVehicleLight;
+
+  case MapStyleDefaultDark: return MapStyleDefaultLight;
+  case MapStyleOutdoorsDark: return MapStyleOutdoorsLight;
+
+  default: CHECK(false, ()); return MapStyleWalkingLight;
+  }
 }
 
 MapStyle GetDarkMapStyleVariant(MapStyle mapStyle)
@@ -61,23 +143,91 @@ MapStyle GetDarkMapStyleVariant(MapStyle mapStyle)
 
   switch (mapStyle)
   {
-  case MapStyleDefaultLight: return MapStyleDefaultDark;
+  case MapStyleWalkingLight: return MapStyleWalkingDark;
+  case MapStyleWalkingOutdoorLight: return MapStyleWalkingOutdoorDark;
+  case MapStyleCyclingLight: return MapStyleCyclingDark;
+  case MapStyleCyclingOutdoorLight: return MapStyleCyclingOutdoorDark;
+  case MapStyleDrivingLight: return MapStyleDrivingDark;
+  case MapStyleDrivingOutdoorLight: return MapStyleDrivingOutdoorDark;
+  case MapStylePublicTransportLight: return MapStylePublicTransportDark;
+  case MapStylePublicTransportOutdoorLight: return MapStylePublicTransportOutdoorDark;
   case MapStyleVehicleLight: return MapStyleVehicleDark;
+
+  case MapStyleDefaultLight: return MapStyleDefaultDark;
   case MapStyleOutdoorsLight: return MapStyleOutdoorsDark;
-  default: CHECK(false, ()); return MapStyleDefaultDark;
+
+  default: CHECK(false, ()); return MapStyleWalkingDark;
   }
 }
 
-MapStyle GetLightMapStyleVariant(MapStyle mapStyle)
+bool MapStyleIsDark(MapStyle mapStyle)
 {
-  if (!MapStyleIsDark(mapStyle))
+  for (auto const darkStyle :
+       {MapStyleWalkingDark, MapStyleWalkingOutdoorDark, MapStyleCyclingDark, MapStyleCyclingOutdoorDark,
+        MapStyleDrivingDark, MapStyleDrivingOutdoorDark, MapStylePublicTransportDark,
+        MapStylePublicTransportOutdoorDark, MapStyleVehicleDark, MapStyleDefaultDark, MapStyleOutdoorsDark})
+    if (mapStyle == darkStyle)
+      return true;
+  return false;
+}
+
+MapStyle GetRegularMapStyleVariant(MapStyle mapStyle)
+{
+  if (!MapStyleIsOutdoor(mapStyle))
     return mapStyle;
 
   switch (mapStyle)
   {
-  case MapStyleDefaultDark: return MapStyleDefaultLight;
+  case MapStyleWalkingOutdoorLight: return MapStyleWalkingLight;
+  case MapStyleWalkingOutdoorDark: return MapStyleWalkingDark;
+  case MapStyleCyclingOutdoorLight: return MapStyleCyclingLight;
+  case MapStyleCyclingOutdoorDark: return MapStyleCyclingDark;
+  case MapStyleDrivingOutdoorLight: return MapStyleDrivingLight;
+  case MapStyleDrivingOutdoorDark: return MapStyleDrivingDark;
+  case MapStylePublicTransportOutdoorLight: return MapStylePublicTransportLight;
+  case MapStylePublicTransportOutdoorDark: return MapStylePublicTransportDark;
+  case MapStyleVehicleLight: return MapStyleVehicleLight;
   case MapStyleVehicleDark: return MapStyleVehicleLight;
-  case MapStyleOutdoorsDark: return MapStyleOutdoorsLight;
-  default: CHECK(false, ()); return MapStyleDefaultLight;
+
+  case MapStyleOutdoorsLight: return MapStyleDefaultLight;
+  case MapStyleOutdoorsDark: return MapStyleDefaultLight;
+
+  default: CHECK(false, ()); return MapStyleWalkingLight;
   }
+}
+
+MapStyle GetOutdoorMapStyleVariant(MapStyle mapStyle)
+{
+  if (MapStyleIsOutdoor(mapStyle) || mapStyle == MapStyleMerged)
+    return mapStyle;
+
+  switch (mapStyle)
+  {
+  case MapStyleWalkingLight: return MapStyleWalkingOutdoorLight;
+  case MapStyleWalkingDark: return MapStyleWalkingOutdoorDark;
+  case MapStyleCyclingLight: return MapStyleCyclingOutdoorLight;
+  case MapStyleCyclingDark: return MapStyleCyclingOutdoorDark;
+  case MapStyleDrivingLight: return MapStyleDrivingOutdoorLight;
+  case MapStyleDrivingDark: return MapStyleDrivingOutdoorDark;
+  case MapStylePublicTransportLight: return MapStylePublicTransportOutdoorLight;
+  case MapStylePublicTransportDark: return MapStylePublicTransportOutdoorDark;
+  case MapStyleVehicleLight: return MapStyleVehicleLight;
+  case MapStyleVehicleDark: return MapStyleVehicleDark;
+
+  case MapStyleDefaultLight: return MapStyleOutdoorsLight;
+  case MapStyleDefaultDark: return MapStyleOutdoorsDark;
+
+  default: CHECK(false, ()); return MapStyleWalkingOutdoorLight;
+  }
+}
+
+bool MapStyleIsOutdoor(MapStyle mapStyle)
+{
+  for (auto const outdoorStyle : {MapStyleWalkingOutdoorLight, MapStyleWalkingOutdoorDark, MapStyleCyclingOutdoorLight,
+                                  MapStyleCyclingOutdoorDark, MapStyleDrivingOutdoorLight, MapStyleDrivingOutdoorDark,
+                                  MapStylePublicTransportOutdoorLight, MapStylePublicTransportOutdoorDark,
+                                  MapStyleOutdoorsLight, MapStyleOutdoorsDark})
+    if (mapStyle == outdoorStyle)
+      return true;
+  return false;
 }

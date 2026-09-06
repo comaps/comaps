@@ -54,6 +54,7 @@ constexpr char const * kUploaded = "Uploaded";
 constexpr char const * kDeletedFromOSMServer = "Deleted from OSM by someone";
 constexpr char const * kNeedsRetry = "Needs Retry";
 constexpr char const * kMatchedFeatureIsEmpty = "Matched feature has no tags";
+constexpr char const * kFailed = "Failed";
 
 struct XmlSection
 {
@@ -99,7 +100,8 @@ struct LogHelper
 
 bool NeedsUpload(string const & uploadStatus)
 {
-  return uploadStatus != kUploaded && uploadStatus != kDeletedFromOSMServer && uploadStatus != kMatchedFeatureIsEmpty;
+  return uploadStatus != kUploaded && uploadStatus != kDeletedFromOSMServer && uploadStatus != kMatchedFeatureIsEmpty &&
+         uploadStatus != kFailed;
 }
 
 XMLFeature GetMatchingFeatureFromOSM(osm::ChangesetWrapper & cw, osm::EditableMapObject const & o)
@@ -736,6 +738,24 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
         ++errorsCount;
         LOG(LWARNING, (ex.what()));
         changeset.AddToChangesetKeyList("upload_attempt_error", kMatchedFeatureIsEmpty);
+      }
+      catch (ServerApi06::CreateElementHasFailedNoRetry const & ex)
+      {
+        // Upload is not retried after Bad Request error
+        uploadInfo.m_uploadStatus = kFailed;
+        uploadInfo.m_uploadError = ex.Msg();
+        ++errorsCount;
+        LOG(LWARNING, (ex.what()));
+        changeset.AddToChangesetKeyList("upload_attempt_error", ex.Msg());
+      }
+      catch (ServerApi06::ModifyElementHasFailedNoRetry const & ex)
+      {
+        // Upload is not retried after Bad Request error
+        uploadInfo.m_uploadStatus = kFailed;
+        uploadInfo.m_uploadError = ex.Msg();
+        ++errorsCount;
+        LOG(LWARNING, (ex.what()));
+        changeset.AddToChangesetKeyList("upload_attempt_error", ex.Msg());
       }
       catch (RootException const & ex)
       {

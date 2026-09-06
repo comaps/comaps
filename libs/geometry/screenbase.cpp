@@ -78,8 +78,9 @@ void ScreenBase::UpdateDependentParameters()
 
   double constexpr kEps = 1.0E-5;
   double const angle = CalculatePerspectiveAngle(m_Scale);
+  bool const wasPerspective = m_isPerspective;
   m_isPerspective = angle > 0.0;
-  if (std::fabs(angle - m_3dAngleX) > kEps)
+  if (m_isPerspective != wasPerspective || std::fabs(angle - m_3dAngleX) > kEps)
   {
     m_3dMaxAngleX = angle;
     m_3dScale = CalculateScale3d(angle);

@@ -529,7 +529,7 @@
     <string name="mobile_data_option_never">Devnydhya Bynner</string>
     <string name="mobile_data_option_ask">Govyn Pub Prys</string>
     <string name="traffic_update_maps_text">Rag diskwedhes data daromdak, res yw dhywgh nowedhi mappys</string>
-    <string name="big_font">Moghhe labelyow mappa</string>
+    <string name="increase_font_size">Moghhe labelyow mappa</string>
     <string name="traffic_data_unavailable">Data daromdak nag yw kavadow</string>
     <string name="enable_logging">Bywhe kovadhow</string>
     <string name="prefs_languages_information">Ni a dhevnydh lev system rag danvonadow. Meur a dhevisyow Android a dhevnydh TTS Google, hwi a yll iskarga po nowedhi dhyworth Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>

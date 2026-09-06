@@ -417,7 +417,7 @@
     <string name="logout">Abmelden</string>
     <string name="edit_place">Eintrag bearbeiten</string>
     <string name="add_language">Eine Sprache hinzufügen</string>
-    <string name="street">Innerortsstraße</string>
+    <string name="street">Straße</string>
     <!-- Editable House Number text field (in address block). -->
     <string name="house_number">Hausnummer</string>
     <string name="details">Einzelheiten</string>
@@ -533,7 +533,7 @@
     <string name="mobile_data_option_never">Nie verwenden</string>
     <string name="mobile_data_option_ask">Immer fragen</string>
     <string name="traffic_update_maps_text">Um Verkehrsdaten anzuzeigen, müssen die Karten aktualisiert werden</string>
-    <string name="big_font">Schrift auf der Karte vergrößern</string>
+    <string name="increase_font_size">Schrift auf der Karte vergrößern</string>
     <string name="traffic_update_app">Bitte aktualisiere CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">Es sind keine Verkehrsdaten verfügbar</string>
@@ -774,9 +774,9 @@
     <string name="pref_tts_no_system_tts">Die Einstellungen für die Sprachsynthese wurden nicht gefunden. Bist du sicher, dass sie dein Endgerät unterstützt?</string>
     <string name="drive_through">Drive-through</string>
     <string name="clear_the_search">Lösche die Suche</string>
-    <string name="zoom_in">Vergrößern</string>
+    <string name="zoom_in">Zoom hinein</string>
     <!-- Accessibility text for the zoom-out button on the map -->
-    <string name="zoom_out">Verkleinern</string>
+    <string name="zoom_out">Zoom heraus</string>
     <!-- Restaurant or other food place's menu URL field in the Editor -->
     <string name="website_menu">Link zur Speisekarte</string>
     <!-- Button in the Place Page which opens a restaurant or other food place's menu in a browser -->
@@ -888,6 +888,7 @@
     <string name="avoid_paved">Befestigte Straßen meiden</string>
     <string name="opens_at">Öffnet um %s</string>
     <string name="closes_at">Schließt um %s</string>
+    <string name="opens_tomorrow_at">Öffnet morgen um %s</string>
     <string name="opens_day_at">Öffnet am %1$s um %2$s</string>
     <string name="closes_day_at">Schließt am %1$s um %2$s</string>
     <plurals name="minutes_short">
@@ -980,4 +981,9 @@
     <string name="permission_read_navigation_description">Abrufen von Live-Navigationsinformationen wie anstehende Abbiegungen oder den Namen der Straße auf der du dich gerade befindest</string>
     <string name="prefs_group_interface">Benutzeroberfläche</string>
     <string name="prefs_group_privacy_summary">Suchverlauf</string>
+    <string name="bookmarks_text_placement_title">Favoritennamen auf Karte anzeigen</string>
+    <string name="place_reviews_title">Rezensionen zu Orten</string>
+    <string name="place_reviews">%1$s Rezensionen</string>
+    <string name="rating_stars_description">Sterne: %.1f</string>
+    <string name="reviews_by_mangrove">Rezensionen von Mangrove.\nFüge Rezensionen in <a href="https://mapcomplete.org">MapComplete</a> hinzu.</string>
 </resources>

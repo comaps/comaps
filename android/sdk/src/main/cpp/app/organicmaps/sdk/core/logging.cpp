@@ -47,6 +47,10 @@ void AndroidLogMessage(LogLevel level, SrcPoint const & src, std::string const &
 
 bool AndroidAssertMessage(SrcPoint const & src, std::string const & s)
 {
+  // make sure the message gets logged even if JNI is down
+  __android_log_print(ANDROID_LOG_FATAL, "OMcore", "%s", s.c_str());
+  __android_log_print(ANDROID_LOG_FATAL, "OMcore", "%s", DebugPrint(src).c_str());
+
   AndroidMessage(LCRITICAL, src, s);
   return true;
 }

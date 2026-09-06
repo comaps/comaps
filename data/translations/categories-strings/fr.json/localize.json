@@ -564,7 +564,7 @@
         "defaultMessage": "3Toilettes"
     },
     "amenity-toilets|toilets-yes|@category_toilet": {
-        "defaultMessage": "wc"
+        "defaultMessage": "wc|toilettes"
     },
     "amenity-university": {
         "defaultMessage": "4Université|école supérieure"
@@ -1624,5 +1624,62 @@
     },
     "amenity-planetarium|@category_tourism": {
         "defaultMessage": "Planétarium|U+1FA90|Astronomie"
+    },
+    "shop-beauty-nails": {
+        "defaultMessage": "Institut de beauté|4Ésthéticien|5ongles"
+    },
+    "recycling-cartons|@category_recycling": {
+        "defaultMessage": "5Recyclage de cartons|Cartons de recyclage"
+    },
+    "man_made-telescope|man_made-telescope-optical|man_made-telescope-radio|man_made-telescope-gamma": {
+        "defaultMessage": "6Télescope|Télescope radio"
+    },
+    "amenity-animal_boarding": {
+        "defaultMessage": "Pet-Sitter|7Gardiennage d'animaux"
+    },
+    "amenity-sailing_school": {
+        "defaultMessage": "École de voilier"
+    },
+    "amenity-flight_school": {
+        "defaultMessage": "École aéronautique"
+    },
+    "shop|@shop": {
+        "defaultMessage": "magasin"
+    },
+    "amenity-mobile_money_agent": {
+        "defaultMessage": "Crédit téléphonique|Unité téléphonique|4Forfait téléphonique"
+    },
+    "amenity-gambling|@gambling": {
+        "defaultMessage": "4Jetons"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "5Cybercafé|Hacklab"
+    },
+    "sport-boules": {
+        "defaultMessage": "Boules|Pétanque"
+    },
+    "sport-four_square": {
+        "defaultMessage": "City|4Terrain de jeu"
+    },
+    "natural-water|@waterbody": {
+        "defaultMessage": "Cours d'eau|5Étendues d'eau"
+    },
+    "waterway-fuel": {
+        "defaultMessage": "9Dépôt de carburant maritime"
+    },
+    "amenity-charging_station|@charging_station": {
+        "defaultMessage": "Station de recharge"
+    },
+    "amenity-community_centre-youth_centre": {
+        "defaultMessage": "Foyer"
+    },
+    "shop-water|@category_water|@category_food|@shop": {
+        "defaultMessage": "3Eau potable"
+    },
+    "power-generator-wind": {
+        "defaultMessage": "Éolienne"
+    },
+    "tourism-information-guidepost": {
+        "defaultMessage": "Point d'information"
     }
 }

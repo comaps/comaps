@@ -26,7 +26,7 @@ data/categories-strings/*/localize.json
 # ...from data/categories-strings/* by tools/unix/generate_categories.sh
 data/categories.txt
 
-data/bookmarks
+data/bm.json
 data/edits.xml
 data/traffic.xml
 data/World.mwm
@@ -169,6 +169,7 @@ libs/platform/localized_types_map.cpp
 # CMake
 cmake-build-*
 build/
+build-skin_generator_tool/
 
 qt/res/Info.plist
 

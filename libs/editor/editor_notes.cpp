@@ -173,14 +173,21 @@ void Notes::Upload(osm::OsmOAuth const & auth)
   {
     try
     {
+      auto note = m_notes.front();
       dataAccessLock.unlock();
-      auto const id = api.CreateNote(m_notes.front().m_point, m_notes.front().m_note);
+      auto const id = api.CreateNote(note.m_point, note.m_note);
       dataAccessLock.lock();
       LOG(LINFO, ("A note uploaded with id", id));
     }
     catch (osm::ServerApi06::ServerApi06Exception const & e)
     {
       LOG(LERROR, ("Can't upload note.", e.Msg()));
+      // Don't attempt upload for other notes as they will likely suffer from the same error.
+      return;
+    }
+    catch (RootException const & e)
+    {
+      LOG(LERROR, ("Unexpected error during note upload.", e.Msg()));
       // Don't attempt upload for other notes as they will likely suffer from the same error.
       return;
     }

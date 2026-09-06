@@ -3,19 +3,14 @@
 
 @implementation MWMMapWidgetsHelper
 
-+ (void)updateAvailableArea:(CGRect)frame
++ (void)updateLayout
 {
-  [[MWMMapWidgets widgetsManager] updateAvailableArea:frame];
+  [[MWMMapWidgets widgetsManager] updateLayout];
 }
 
-+ (void)updateLayout:(CGRect)frame
++ (void)updatePaddingForTop:(CGFloat)top bottom:(CGFloat)bottom leading:(CGFloat)leading trailing:(CGFloat)trailing
 {
-  [[MWMMapWidgets widgetsManager] updateLayout:frame];
-}
-
-+ (void)updateLayoutForAvailableArea
-{
-  [[MWMMapWidgets widgetsManager] updateLayoutForAvailableArea];
+  [[MWMMapWidgets widgetsManager] updatePaddingForTop:top bottom:bottom leading:leading trailing:trailing];
 }
 
 @end

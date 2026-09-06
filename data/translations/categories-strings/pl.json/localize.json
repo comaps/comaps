@@ -1537,5 +1537,14 @@
     },
     "cuisine-vegan|@cuisine_all_vegetarian": {
         "defaultMessage": "Kuchnia wegańska"
+    },
+    "shop-farm|@category_food|@shop": {
+        "defaultMessage": "Sklep z żywnością od rolnika"
+    },
+    "shop-water|@category_water|@category_food|@shop": {
+        "defaultMessage": "Woda pitna"
+    },
+    "shop-cannabis|@shop": {
+        "defaultMessage": "marihuana|3CBD"
     }
 }

@@ -30,12 +30,14 @@ import app.organicmaps.sdk.bookmarks.data.Track;
 import app.organicmaps.util.Graphics;
 import app.organicmaps.util.InputUtils;
 import app.organicmaps.util.UiUtils;
+import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
+
 import java.util.List;
 
 public class EditBookmarkFragment extends DialogFragment implements View.OnClickListener, Listener
@@ -146,14 +148,15 @@ public class EditBookmarkFragment extends DialogFragment implements View.OnClick
     mIvColor = view.findViewById(R.id.iv__bookmark_color);
     mIvColor.setOnClickListener(this);
 
-    // For tracks an bookmarks same category is used so this portion is common for both
-    if (savedInstanceState != null && savedInstanceState.getParcelable(STATE_BOOKMARK_CATEGORY) != null)
-      mBookmarkCategory = savedInstanceState.getParcelable(STATE_BOOKMARK_CATEGORY);
-    else
+    // For tracks and bookmarks, the same category is used, so this portion is common for both.
+    mBookmarkCategory = Utils.getParcelable(savedInstanceState, STATE_BOOKMARK_CATEGORY,
+                                            BookmarkCategory.class);
+    if (mBookmarkCategory == null)
     {
       long categoryId = args.getLong(EXTRA_CATEGORY_ID);
       mBookmarkCategory = BookmarkManager.INSTANCE.getCategoryById(categoryId);
     }
+
     long id = args.getLong(EXTRA_ID);
 
     switch (mType)
@@ -161,9 +164,8 @@ public class EditBookmarkFragment extends DialogFragment implements View.OnClick
     case TYPE_BOOKMARK ->
     {
       mBookmark = BookmarkManager.INSTANCE.getBookmarkInfo(id);
-      if (savedInstanceState != null && savedInstanceState.getParcelable(STATE_ICON) != null)
-        mIcon = savedInstanceState.getParcelable(STATE_ICON);
-      else if (mBookmark != null)
+      mIcon = Utils.getParcelable(savedInstanceState, STATE_ICON, Icon.class);
+      if (mIcon == null && mBookmark != null)
         mIcon = mBookmark.getIcon();
       refreshBookmark();
     }
@@ -207,6 +209,13 @@ public class EditBookmarkFragment extends DialogFragment implements View.OnClick
     super.onAttach(context);
     if (mListener == null && getParentFragment() instanceof EditBookmarkListener)
       mListener = (EditBookmarkListener) getParentFragment();
+  }
+
+  @Override
+  public void onDetach()
+  {
+    super.onDetach();
+    mListener = null;
   }
 
   private void initToolbar(View view)

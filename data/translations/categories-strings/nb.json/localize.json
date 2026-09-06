@@ -1423,5 +1423,56 @@
     },
     "cuisine-vegan|@cuisine_all_vegetarian": {
         "defaultMessage": "Vegansk"
+    },
+    "amenity-studio": {
+        "defaultMessage": "5Innspillingsstudio|studio"
+    },
+    "shop-cannabis|@shop": {
+        "defaultMessage": "Cannabis|3CBD"
+    },
+    "shop-farm|@category_food|@shop": {
+        "defaultMessage": "Gårsbutikk"
+    },
+    "shop-water|@category_water|@category_food|@shop": {
+        "defaultMessage": "4Drikkevann|3Vannkran|4Vannflasker"
+    },
+    "shop-grocery|@category_food|@shop": {
+        "defaultMessage": "Matbutikk"
+    },
+    "shop-health_food|@category_food|@shop": {
+        "defaultMessage": "7Helsekost|7Sunnere mat|helsekost|økologisk"
+    },
+    "shop-beauty-nails": {
+        "defaultMessage": "4Neglesalong|neglteknikker|negletech|fingernegl|tånegl|negler"
+    },
+    "shop-caravan|@category_rv|@shop": {
+        "defaultMessage": "2Bobilforhandler|4Campingvognforhandler|5Bobilforhandler"
+    },
+    "tourism-artwork-sculpture": {
+        "defaultMessage": "Skulptur|Kunstverk|U+1F3A8"
+    },
+    "tourism-artwork-statue": {
+        "defaultMessage": "Statue|Kunstverk|U+1F3A8"
+    },
+    "tourism-artwork-painting": {
+        "defaultMessage": "Maleri|Kunstverk|U+1F3A8"
+    },
+    "amenity-planetarium|@category_tourism": {
+        "defaultMessage": "5Planetarium|U+1FA90|5astronomi"
+    },
+    "man_made-cross": {
+        "defaultMessage": "Kors"
+    },
+    "leisure-dog_park": {
+        "defaultMessage": "Hundeområde|3Hundeluftepark"
+    },
+    "leisure-dance|@category_entertainment": {
+        "defaultMessage": "4Dans|Danseskole"
+    },
+    "leisure-firepit": {
+        "defaultMessage": "5Leirbål"
+    },
+    "amenity-boat_rental": {
+        "defaultMessage": "4Båtleie|båt|båter|3Utleie"
     }
 }

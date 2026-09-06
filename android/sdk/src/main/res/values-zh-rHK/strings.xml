@@ -1,3 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="m">米</string>
+    <string name="km">公里</string>
+    <string name="mb">MB</string>
+    <string name="gb">GB</string>
+    <string name="core_my_position">我的位置</string>
+    <string name="core_my_places">我的地方</string>
+    <string name="maps_storage_removable">SD卡</string>
+    <string name="category_wifi">WiFi</string>
+    <string name="postal_code">郵政編碼</string>
+    <string name="core_placepage_unknown_place">地圖點</string>
+    <string name="today">今日</string>
+    <string name="yesterday">昨日</string>
+    <string name="days_ago">%s日前</string>
+    <string name="week_ago">%s星期前</string>
+    <string name="weeks_ago">%s星期前</string>
+    <string name="month_ago">%s月前</string>
+    <string name="months_ago">%s月前</string>
+    <string name="year_ago">%s年前</string>
+    <string name="years_ago">%s年前</string>
+    <string name="maps_storage_internal">內部私人儲存空間</string>
+    <string name="mi">英里</string>
+    <string name="ft">英尺</string>
+    <string name="core_exit">出口</string>
+    <string name="core_entrance">入口</string>
+    <string name="maps_storage_shared">內部共用儲存空間</string>
+    <string name="maps_storage_external">外部共用儲存空間</string>
+    <string name="subway_data_unavailable">地鐵地圖不可用</string>
+    <string name="access_rules_author_only">網上編輯</string>
+    <string name="public_access">公共存取</string>
+    <string name="limited_access">有限存取</string>
+    <string name="not_shared">私人</string>
 </resources>

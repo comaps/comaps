@@ -631,6 +631,13 @@ void BookmarkManager::NotifyChanges(bool saveChangesOnDisk)
   }
 }
 
+void BookmarkManager::UpdateBookmarkLabels()
+{
+  df::DrapeEngineLockGuard lock(m_drapeEngine);
+  if (lock)
+    lock.Get()->UpdateBookmarkLabels(&m_drapeChangesTracker);
+}
+
 kml::MarkIdSet const & BookmarkManager::GetUserMarkIds(kml::MarkGroupId groupId) const
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());

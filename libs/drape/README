@@ -1,0 +1,22 @@
+Drape is the custom rendering engine for CoMaps.
+
+The main difference from most rendering engines is that it
+supports dynamically hiding items based on priorities and space.
+This is called displacement.
+
+The drape/ directory contains just the rendering engine;
+drape_frontend/ contains things like classes to draw text and icons.
+
+There are three main threads involved:
+- BackendRenderer loads map data
+- FrontendRenderer organises for rendering to take place
+- The platform UI thread renders the rest of the UI that is not part of the map.
+
+Most of the interesting logic (e.g., item visibility) lies on the FrontendRenderer thread.
+Data is passed between threads by ThreadCommutator using message_subclasses.
+
+Everything drawn on the map has an overlay. Some overlays are not drawn (if !IsVisible()),
+and OverlayTree automatically hides some overlays using SetIsVisible.
+
+Every overlay has an OverlayHandle. Most of the interesting logic is in the OverlayTree.
+Notably, OverlayHandles' OverlayIDs are not unique. Related overlays can have the same ID.

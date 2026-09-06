@@ -212,7 +212,7 @@
 "type.barrier.yes" = "Баријера";
 "type.barrier.block" = "Блок";
 "type.barrier.bollard" = "Стуб";
-"type.barrier.border_control" = "Гранична контрола";
+"type.barrier.border_control" = "Гранични прелаз";
 "type.barrier.chain" = "Ланац";
 "type.barrier.city_wall" = "Градски зид / Бедем";
 "type.barrier.cycle_barrier" = "Баријера за бицикле";
@@ -236,7 +236,7 @@
 "type.boundary" = "Граница";
 "type.boundary.administrative" = "Административна граница";
 /* Borders between countries. */
-"type.boundary.administrative.2" = "Гранични прелаз";
+"type.boundary.administrative.2" = "Државна граница";
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.3" = "Регионална граница";
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
@@ -344,7 +344,7 @@
 "type.cuisine.moroccan" = "Мароканска";
 "type.cuisine.noodles" = "Нудле";
 "type.cuisine.oriental" = "Оријентална";
-"type.cuisine.pancake" = "Палачинке";
+"type.cuisine.pancake" = "Америчке палачинке";
 "type.cuisine.pasta" = "Паста";
 "type.cuisine.persian" = "Персијска";
 "type.cuisine.peruvian" = "Перуанска";

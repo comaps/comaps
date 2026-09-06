@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wns-nH-AQU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wns-nH-AQU">
     <device id="iPad13_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1032" height="1376"/>
                                 <subviews>
                                     <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65S-M4-TnM" customClass="NavigationInfoArea" customModule="CoMaps" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24" width="1032" height="1307"/>
+                                        <rect key="frame" x="0.0" y="32" width="1032" height="1299"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdT-ia-GP9">
@@ -50,23 +50,6 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVk-ab-LFJ" customClass="TabBarArea" customModule="CoMaps" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1283" width="1032" height="93"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" priority="100" constant="350" id="aj4-lb-h52"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="aj4-lb-h52"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="aj4-lb-h52"/>
-                                            </mask>
-                                        </variation>
-                                    </view>
                                     <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awj-9E-eBS" customClass="PlacePageArea" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="1032" height="1331"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
@@ -76,24 +59,12 @@
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NI8-tV-i2B" customClass="WidgetsArea" customModule="CoMaps" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24" width="1032" height="1307"/>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJx-UU-IdV" customClass="SideButtonsArea" customModule="CoMaps" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24" width="1032" height="1307"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QKu-4A-UgP" customClass="TrafficButtonArea" customModule="CoMaps" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24" width="1032" height="1307"/>
-                                    </view>
-                                    <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yto-Gu-Ugz" userLabel="Track Recording Button Area" customClass="TrackRecordingButtonArea" customModule="CoMaps" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24" width="1032" height="1307"/>
+                                        <rect key="frame" x="0.0" y="32" width="1032" height="1299"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="aVk-ab-LFJ" firstAttribute="bottom" secondItem="rL1-9E-4b7" secondAttribute="bottom" priority="100" id="LCC-5Q-3hb"/>
                                     <constraint firstItem="TdT-ia-GP9" firstAttribute="top" secondItem="rL1-9E-4b7" secondAttribute="top" priority="100" id="RAX-O7-Lnd"/>
                                     <constraint firstItem="awj-9E-eBS" firstAttribute="top" secondItem="rL1-9E-4b7" secondAttribute="top" priority="100" id="sdc-wL-91M"/>
                                     <constraint firstItem="FFY-Dy-Wou" firstAttribute="top" secondItem="rL1-9E-4b7" secondAttribute="top" priority="100" id="svT-Vi-vvC"/>
@@ -110,60 +81,54 @@
                                     <outletCollection property="gestureRecognizers" destination="XQ0-VQ-jWW" appends="YES" id="1Fb-bT-x97"/>
                                 </connections>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAs-nW-mdt">
+                                <rect key="frame" x="0.0" y="0.0" width="1032" height="1376"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="6cN-qc-k1e" kind="embed" id="DtP-Ls-fuo"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="utd-Jy-pE5"/>
                         <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" secondItem="65S-M4-TnM" secondAttribute="bottom" priority="100" id="2E3-5i-6An"/>
                             <constraint firstAttribute="bottom" secondItem="rL1-9E-4b7" secondAttribute="bottom" id="4fw-Xu-gAG"/>
-                            <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" secondItem="QKu-4A-UgP" secondAttribute="bottom" priority="100" id="6ko-rI-S5u"/>
                             <constraint firstAttribute="bottom" secondItem="ixC-IZ-Pvs" secondAttribute="bottom" id="7eh-og-Mpe"/>
-                            <constraint firstItem="utd-Jy-pE5" firstAttribute="trailing" secondItem="aVk-ab-LFJ" secondAttribute="trailing" id="85b-Do-jO7"/>
                             <constraint firstItem="at1-V1-pzl" firstAttribute="top" secondItem="utd-Jy-pE5" secondAttribute="bottom" priority="250" id="8JV-dP-iYZ"/>
                             <constraint firstItem="TdT-ia-GP9" firstAttribute="leading" secondItem="utd-Jy-pE5" secondAttribute="leading" id="8YH-dJ-lHZ"/>
-                            <constraint firstItem="utd-Jy-pE5" firstAttribute="top" secondItem="xJx-UU-IdV" secondAttribute="top" priority="100" id="BMq-jc-qfO"/>
+                            <constraint firstItem="PAs-nW-mdt" firstAttribute="leading" secondItem="USG-6L-Uhw" secondAttribute="leading" id="Ag3-6S-3i6"/>
+                            <constraint firstAttribute="bottom" secondItem="PAs-nW-mdt" secondAttribute="bottom" id="BRk-We-to8"/>
                             <constraint firstItem="ixC-IZ-Pvs" firstAttribute="top" secondItem="USG-6L-Uhw" secondAttribute="top" id="DSJ-0D-hwO"/>
                             <constraint firstItem="rL1-9E-4b7" firstAttribute="top" secondItem="USG-6L-Uhw" secondAttribute="top" id="E89-WV-ZTh"/>
-                            <constraint firstItem="yto-Gu-Ugz" firstAttribute="top" secondItem="utd-Jy-pE5" secondAttribute="top" priority="100" id="FGp-pl-Mgy"/>
-                            <constraint firstItem="utd-Jy-pE5" firstAttribute="trailing" secondItem="QKu-4A-UgP" secondAttribute="trailing" id="Fjy-Cy-dHS"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="trailing" secondItem="at1-V1-pzl" secondAttribute="trailing" id="GKG-4Y-2Pq"/>
                             <constraint firstAttribute="trailing" secondItem="aPn-pa-nCx" secondAttribute="trailing" id="GKJ-zm-8xb"/>
                             <constraint firstItem="awj-9E-eBS" firstAttribute="leading" secondItem="utd-Jy-pE5" secondAttribute="leading" id="Hfm-gb-37H"/>
                             <constraint firstAttribute="trailing" secondItem="ixC-IZ-Pvs" secondAttribute="trailing" id="O7f-qU-UN2"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" secondItem="at1-V1-pzl" secondAttribute="bottom" priority="750" constant="48" id="O8L-nd-nOa"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" secondItem="FFY-Dy-Wou" secondAttribute="bottom" priority="100" id="OE7-Qb-J0v"/>
-                            <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" secondItem="yto-Gu-Ugz" secondAttribute="bottom" priority="100" id="PBh-hG-PzA"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="awj-9E-eBS" secondAttribute="bottom" id="PFs-sL-oVA"/>
                             <constraint firstAttribute="trailing" secondItem="rL1-9E-4b7" secondAttribute="trailing" id="QdS-Yx-ADV"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="trailing" secondItem="TdT-ia-GP9" secondAttribute="trailing" id="Rsb-fB-8bn"/>
-                            <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xJx-UU-IdV" secondAttribute="bottom" id="SDX-4J-Jz5"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" secondItem="FFY-Dy-Wou" secondAttribute="bottom" id="TZk-MH-pMV"/>
-                            <constraint firstItem="yto-Gu-Ugz" firstAttribute="leading" secondItem="utd-Jy-pE5" secondAttribute="leading" id="TgS-dg-g9B"/>
-                            <constraint firstItem="utd-Jy-pE5" firstAttribute="trailing" secondItem="yto-Gu-Ugz" secondAttribute="trailing" id="URB-3l-JiC"/>
-                            <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" secondItem="xJx-UU-IdV" secondAttribute="bottom" priority="100" id="VfU-Zk-8IU"/>
-                            <constraint firstItem="utd-Jy-pE5" firstAttribute="top" secondItem="QKu-4A-UgP" secondAttribute="top" priority="100" id="X96-y7-5oI"/>
+                            <constraint firstAttribute="trailing" secondItem="PAs-nW-mdt" secondAttribute="trailing" id="WcW-6P-u9s"/>
                             <constraint firstItem="aPn-pa-nCx" firstAttribute="leading" secondItem="USG-6L-Uhw" secondAttribute="leading" id="YFX-ma-vAf"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FFY-Dy-Wou" secondAttribute="bottom" id="YUs-MJ-9w8"/>
                             <constraint firstItem="rL1-9E-4b7" firstAttribute="leading" secondItem="USG-6L-Uhw" secondAttribute="leading" id="Z1s-Q9-zX6"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" secondItem="awj-9E-eBS" secondAttribute="bottom" priority="100" id="aqR-pe-LgT"/>
                             <constraint firstItem="at1-V1-pzl" firstAttribute="leading" secondItem="utd-Jy-pE5" secondAttribute="leading" id="dVq-df-YMe"/>
-                            <constraint firstItem="QKu-4A-UgP" firstAttribute="leading" secondItem="utd-Jy-pE5" secondAttribute="leading" id="f2R-LX-JVU"/>
-                            <constraint firstItem="utd-Jy-pE5" firstAttribute="trailing" secondItem="xJx-UU-IdV" secondAttribute="trailing" id="fbU-EC-0Bo"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="trailing" secondItem="FFY-Dy-Wou" secondAttribute="trailing" id="fe4-gF-sG0"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" secondItem="NI8-tV-i2B" secondAttribute="bottom" priority="100" id="fgM-Gj-Vd4"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="trailing" secondItem="NI8-tV-i2B" secondAttribute="trailing" id="gRS-fn-hig"/>
-                            <constraint firstItem="xJx-UU-IdV" firstAttribute="leading" secondItem="utd-Jy-pE5" secondAttribute="leading" id="gn8-NV-oAa"/>
-                            <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" secondItem="aVk-ab-LFJ" secondAttribute="top" priority="100" constant="48" id="jQI-62-O5O"/>
+                            <constraint firstItem="PAs-nW-mdt" firstAttribute="top" secondItem="USG-6L-Uhw" secondAttribute="top" id="gov-sl-0wh"/>
                             <constraint firstItem="65S-M4-TnM" firstAttribute="leading" secondItem="utd-Jy-pE5" secondAttribute="leading" id="kan-ei-cIg"/>
                             <constraint firstItem="NI8-tV-i2B" firstAttribute="leading" secondItem="utd-Jy-pE5" secondAttribute="leading" id="lwX-Xm-J8A"/>
                             <constraint firstItem="ixC-IZ-Pvs" firstAttribute="leading" secondItem="USG-6L-Uhw" secondAttribute="leading" id="m7B-SH-DDh"/>
                             <constraint firstItem="FFY-Dy-Wou" firstAttribute="leading" secondItem="utd-Jy-pE5" secondAttribute="leading" id="pc3-CW-vyV"/>
                             <constraint firstItem="aPn-pa-nCx" firstAttribute="top" secondItem="USG-6L-Uhw" secondAttribute="top" id="pwE-hX-IML"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" secondItem="TdT-ia-GP9" secondAttribute="bottom" priority="100" id="pwZ-Fm-mHR"/>
-                            <constraint firstItem="aVk-ab-LFJ" firstAttribute="leading" secondItem="utd-Jy-pE5" secondAttribute="leading" id="qtc-CV-Hae"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="top" secondItem="NI8-tV-i2B" secondAttribute="top" priority="100" id="sSU-QE-9zI"/>
                             <constraint firstAttribute="bottom" secondItem="aPn-pa-nCx" secondAttribute="bottom" id="tB3-eX-gUV"/>
-                            <constraint firstItem="utd-Jy-pE5" firstAttribute="bottom" secondItem="xJx-UU-IdV" secondAttribute="bottom" id="veF-Rn-BEm"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="top" secondItem="65S-M4-TnM" secondAttribute="top" priority="100" id="vfQ-ZT-Dlc"/>
                             <constraint firstItem="utd-Jy-pE5" firstAttribute="trailing" secondItem="awj-9E-eBS" secondAttribute="trailing" id="wGo-EW-X9f"/>
                             <constraint firstAttribute="trailing" secondItem="rL1-9E-4b7" secondAttribute="trailing" priority="100" id="xUq-Vo-ETR"/>
@@ -171,22 +136,13 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="SDX-4J-Jz5"/>
                                 <exclude reference="TZk-MH-pMV"/>
-                                <exclude reference="veF-Rn-BEm"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <exclude reference="85b-Do-jO7"/>
                                 <exclude reference="Rsb-fB-8bn"/>
                                 <include reference="TZk-MH-pMV"/>
-                                <include reference="veF-Rn-BEm"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular">
-                            <mask key="constraints">
-                                <include reference="SDX-4J-Jz5"/>
                             </mask>
                         </variation>
                     </view>
@@ -194,13 +150,10 @@
                     <connections>
                         <outlet property="carplayPlaceholderView" destination="ixC-IZ-Pvs" id="3rZ-Kn-VBS"/>
                         <outlet property="controlsView" destination="rL1-9E-4b7" id="sfV-7X-WlR"/>
+                        <outlet property="mainView" destination="PAs-nW-mdt" id="Glg-3E-YEt"/>
                         <outlet property="mapView" destination="aPn-pa-nCx" id="tCi-LW-1ll"/>
                         <outlet property="placePageArea" destination="awj-9E-eBS" id="nDP-as-zc2"/>
                         <outlet property="placePageAreaKeyboard" destination="PFs-sL-oVA" id="O3P-ia-ZlX"/>
-                        <outlet property="sideButtonsArea" destination="xJx-UU-IdV" id="Qug-gg-Za8"/>
-                        <outlet property="sideButtonsAreaBottom" destination="VfU-Zk-8IU" id="MvP-Ki-4wP"/>
-                        <outlet property="sideButtonsAreaKeyboard" destination="SDX-4J-Jz5" id="kv9-zX-hbD"/>
-                        <outlet property="trafficButtonArea" destination="QKu-4A-UgP" id="uJI-rT-zGt"/>
                         <outlet property="visibleAreaBottom" destination="OE7-Qb-J0v" id="isp-aT-LtA"/>
                         <outlet property="visibleAreaKeyboard" destination="YUs-MJ-9w8" id="UJP-KT-2uK"/>
                         <outlet property="widgetsArea" destination="NI8-tV-i2B" id="xU3-51-vHe"/>
@@ -210,8 +163,6 @@
                         <segue destination="h4a-ne-bSJ" kind="custom" identifier="Map2MapDownloaderSegue" customClass="MWMSegue" id="Tkr-Ad-FQL"/>
                         <segue destination="lFr-lA-JTW" kind="show" identifier="PP2BookmarkEditing" id="0A8-4b-0A2"/>
                         <segue destination="Psz-BY-Fy4" kind="presentation" identifier="PP2BookmarkEditingIPAD" modalPresentationStyle="formSheet" id="k6v-a7-5DO"/>
-                        <segue destination="zWe-Rs-11p" kind="presentation" identifier="Map2Settings" id="QPJ-CO-oy8"/>
-                        <segue destination="IpF-2S-aOf" kind="presentation" identifier="Map2About" id="7vx-Zd-bqe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKg-Q7-bFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -221,7 +172,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1131.8840579710145" y="443.30357142857139"/>
+            <point key="canvasLocation" x="1102" y="392"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lCi-qJ-2rn">
@@ -238,7 +189,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8Z-bG-EEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="322" y="444"/>
+            <point key="canvasLocation" x="-47" y="392"/>
         </scene>
         <!--Edit Bookmark Controller-->
         <scene sceneID="jjY-Mo-EIt">
@@ -311,7 +262,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="X1H-IB-Nv1">
-                                <rect key="frame" x="0.0" y="24" width="1032" height="1263"/>
+                                <rect key="frame" x="0.0" y="32" width="1032" height="1255"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="PressBackground"/>
@@ -322,7 +273,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQv-7U-zAP">
-                                <rect key="frame" x="0.0" y="24" width="1032" height="1263"/>
+                                <rect key="frame" x="0.0" y="32" width="1032" height="1255"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PrH-u2-IEv" userLabel="Editor View" customClass="MWMTextView">
                                         <rect key="frame" x="0.0" y="36" width="1032" height="88"/>
@@ -360,7 +311,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="separator_image" translatesAutoresizingMaskIntoConstraints="NO" id="5T5-Pp-hb5">
-                                        <rect key="frame" x="0.0" y="1218" width="1032" height="1"/>
+                                        <rect key="frame" x="0.0" y="1210" width="1032" height="1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="ZXK-zv-uSz"/>
                                         </constraints>
@@ -649,7 +600,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="JbV-y9-HBo">
-                                <rect key="frame" x="0.0" y="88" width="1032" height="1243"/>
+                                <rect key="frame" x="0.0" y="96" width="1032" height="1235"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="TableView:PressBackground"/>
@@ -660,7 +611,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rI9-RR-sKP" userLabel="Status Bar Background">
-                                <rect key="frame" x="0.0" y="-20" width="1032" height="108"/>
+                                <rect key="frame" x="0.0" y="-12" width="1032" height="108"/>
                                 <color key="backgroundColor" name="Accent Color"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -671,7 +622,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gzF-B7-8pj">
-                                <rect key="frame" x="0.0" y="24" width="1032" height="64"/>
+                                <rect key="frame" x="0.0" y="32" width="1032" height="64"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="2uI-k6-ahr"/>
@@ -720,7 +671,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ina-WD-kps">
-                                <rect key="frame" x="0.0" y="88" width="1032" height="1243"/>
+                                <rect key="frame" x="0.0" y="96" width="1032" height="1235"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="TableView:PressBackground"/>
@@ -731,7 +682,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEU-Bu-3wh" userLabel="Status Bar Background">
-                                <rect key="frame" x="0.0" y="-20" width="1032" height="108"/>
+                                <rect key="frame" x="0.0" y="-12" width="1032" height="108"/>
                                 <color key="backgroundColor" name="Accent Color"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -742,7 +693,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <searchBar contentMode="redraw" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6s-26-dP6">
-                                <rect key="frame" x="0.0" y="24" width="1032" height="64"/>
+                                <rect key="frame" x="0.0" y="32" width="1032" height="64"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" placeholder="YES" id="UAk-z1-2EY"/>
@@ -860,13 +811,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gmw-e3-n53" userLabel="Container" customClass="MWMNoMapsView">
-                                <rect key="frame" x="308.5" y="24" width="415.5" height="1307"/>
+                                <rect key="frame" x="308.5" y="32" width="415.5" height="1299"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCZ-PN-2Ob" userLabel="BoundsView">
-                                        <rect key="frame" x="16" y="0.0" width="383.5" height="1307"/>
+                                        <rect key="frame" x="16" y="0.0" width="383.5" height="1299"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87G-jh-N8H" userLabel="CenteredView">
-                                                <rect key="frame" x="0.0" y="599" width="383.5" height="109.5"/>
+                                                <rect key="frame" x="0.0" y="595" width="383.5" height="109.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="У вас нет загруженных карт" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abh-G0-Alr" userLabel="Title">
                                                         <rect key="frame" x="0.0" y="40" width="383.5" height="24"/>
@@ -1029,13 +980,13 @@
             </objects>
             <point key="canvasLocation" x="2705" y="4393"/>
         </scene>
-        <!--About Bridge Controller-->
-        <scene sceneID="yGh-dT-FN5">
+        <!--Main Bridge Controller-->
+        <scene sceneID="TTz-PF-aOm">
             <objects>
-                <hostingController storyboardIdentifier="AboutBridgeController" id="IpF-2S-aOf" customClass="AboutBridgeController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GIR-DI-T7U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <hostingController id="6cN-qc-k1e" customClass="MainBridgeController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mu4-g7-RCl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1550" y="-785"/>
+            <point key="canvasLocation" x="1774" y="-514"/>
         </scene>
         <!--MWMSettingsViewController-->
         <scene sceneID="ecD-Uc-PMs">
@@ -1043,15 +994,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="MWMSettingsViewController" storyboardName="Settings" referencedIdentifier="MWMSettingsViewController" id="DdR-kk-MnB" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hlm-dO-yBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1818" y="-190"/>
-        </scene>
-        <!--Settings Bridge Controller-->
-        <scene sceneID="rC6-l4-Abg">
-            <objects>
-                <hostingController storyboardIdentifier="SettingsBridgeController" id="zWe-Rs-11p" customClass="SettingsBridgeController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c37-uR-cHF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2098" y="190"/>
+            <point key="canvasLocation" x="1737" y="213"/>
         </scene>
         <!--Downloader No Results Embed View Controller-->
         <scene sceneID="Bce-Yn-A6n">

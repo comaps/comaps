@@ -814,7 +814,3 @@ node|z19-[amenity=parking_entrance][access=private],
 
 node|z17-[amenity=motorcycle_parking],
 {icon-image: motorcycle-parking-m.svg;}
-
-/* 8. Colored Labels */
-
-@import("../../default/include/Icons_Label_Colors.mapcss");

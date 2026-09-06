@@ -1,3 +1,5 @@
+# Only have changes of the base priority file here!
+
 # This file is automatically re-formatted and re-sorted in priorities descending order
 # when generate_drules.sh is run. All comments (automatic priorities of e.g. optional captions, drule types visibilities, etc.)
 # are generated automatically for information only. Custom formatting and comments are not preserved.
@@ -16,31 +18,33 @@
 # - BG-top: water (linear and areal)
 # - BG-by-size: landcover areas sorted by their size
 
-landuse-basin                                       # area z12-
-landuse-reservoir                                   # area z12- (also has caption z10-)
-landuse-salt_pond                                   # area z1-
-natural-water                                       # area z1- (also has caption z10-)
-natural-water-basin                                 # area z1- (also has caption z10-)
-natural-water-ditch                                 # area z13- (also has caption z17-)
-natural-water-drain                                 # area z13- (also has caption z17-)
-natural-water-lake                                  # area z1- (also has caption z10-)
-natural-water-lock                                  # area z1- (also has caption z10-)
-natural-water-moat                                  # area z1- (also has caption z17-)
-natural-water-pond                                  # area z1- (also has caption z10-)
-natural-water-reservoir                             # area z1- (also has caption z10-)
-natural-water-river                                 # area z1- (also has caption z10-)
-natural-water-tunnel                                # area z15-
-natural-water-wastewater                            # area z12- (also has caption z17-)
-waterway-dock                                       # area z1-
-=== 20
+@import("../../default/include/priorities_2_BG-top.prio.txt")
 
-natural-strait                                      # line z11- (also has caption z13-)
-waterway-canal                                      # line z12- (also has pathtext z13-)
-waterway-ditch                                      # line z13-
-waterway-drain                                      # line z13-
-waterway-fish_pass                                  # line z13- (also has pathtext z13-)
-waterway-river                                      # line z10- (also has pathtext z11-)
-waterway-stream                                     # line z12- (also has pathtext z13-)
-waterway-stream-ephemeral                           # line z13- (also has pathtext z13-)
-waterway-stream-intermittent                        # line z13- (also has pathtext z13-)
-=== 10
+# landuse-basin                                     # area z12-
+# landuse-reservoir                                 # area z12- (also has caption z10-)
+# landuse-salt_pond                                 # area z1-
+# natural-water                                     # area z1- (also has caption z10-)
+# natural-water-basin                               # area z1- (also has caption z10-)
+# natural-water-ditch                               # area z13- (also has caption z17-)
+# natural-water-drain                               # area z13- (also has caption z17-)
+# natural-water-lake                                # area z1- (also has caption z10-)
+# natural-water-lock                                # area z1- (also has caption z10-)
+# natural-water-moat                                # area z1- (also has caption z17-)
+# natural-water-pond                                # area z1- (also has caption z10-)
+# natural-water-reservoir                           # area z1- (also has caption z10-)
+# natural-water-river                               # area z1- (also has caption z10-)
+# natural-water-tunnel                              # area z15-
+# natural-water-wastewater                          # area z12- (also has caption z17-)
+# waterway-dock                                     # area z1-
+# === 20
+
+# natural-strait                                    # line z11- (also has caption z13-)
+# waterway-canal                                    # line z12- (also has pathtext z13-)
+# waterway-ditch                                    # line z13-
+# waterway-drain                                    # line z13-
+# waterway-fish_pass                                # line z13- (also has pathtext z13-)
+# waterway-river                                    # line z10- (also has pathtext z11-)
+# waterway-stream                                   # line z12- (also has pathtext z13-)
+# waterway-stream-ephemeral                         # line z13- (also has pathtext z13-)
+# waterway-stream-intermittent                      # line z13- (also has pathtext z13-)
+# === 10

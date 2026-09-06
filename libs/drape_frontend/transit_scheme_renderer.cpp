@@ -261,8 +261,8 @@ void TransitSchemeRenderer::RenderText(ref_ptr<dp::GraphicsContext> context, ref
     mng->GetParamsSetter()->Apply(context, program, params);
 
     renderData.m_bucket->Render(context, false /* draw as line */);
-
-    renderData.m_bucket->RenderDebug(context, screen, debugRectRenderer);
+    if (debugRectRenderer && debugRectRenderer->IsEnabled())
+      renderData.m_bucket->RenderDebug(context, screen, debugRectRenderer);
   }
 }
 
@@ -284,7 +284,8 @@ void TransitSchemeRenderer::RenderStubs(ref_ptr<dp::GraphicsContext> context, re
 
     renderData.m_bucket->Render(context, false /* draw as line */);
 
-    renderData.m_bucket->RenderDebug(context, screen, debugRectRenderer);
+    if (debugRectRenderer && debugRectRenderer->IsEnabled())
+      renderData.m_bucket->RenderDebug(context, screen, debugRectRenderer);
   }
 }
 }  // namespace df

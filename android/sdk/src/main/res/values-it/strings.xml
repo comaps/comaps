@@ -20,7 +20,7 @@
     <string name="core_entrance">Ingresso</string>
     <string name="subway_data_unavailable">La mappa della metropolitana non è disponibile</string>
     <string name="public_access">Accesso pubblico</string>
-    <string name="limited_access">Accesso privato</string>
+    <string name="limited_access">Accesso limitato</string>
     <string name="not_shared">Personale</string>
     <string name="access_rules_author_only">Modifica online</string>
     <string name="ft">ft</string>

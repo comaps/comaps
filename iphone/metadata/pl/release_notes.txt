@@ -1,0 +1,13 @@
+• Nowy interfejs trybów mapy i style mapy dostosowane do środków transportu
+• Wyświetlanie nazw ulubionych miejsc na mapie (można wyłączyć w ustawieniach)
+• Konfigurowalna wielkość czcionki mapy
+• Symbole dróg w Kirgistanie, Uzbekistanie, Tadżykistanie, Kazachstanie i Gruzji
+• Jasne i ciemnie symbole skrętów w CarPlay
+• Edytor OSM: więcej kategorii (więzienie, dojo, kregle, leżak, shop=craft, pole golfowe, minigolf, atrakcje w wesołych miasteczkach (kolejka górska, karuzela...) oraz miejsca zbiórki)
+• Naprawiona możliwość wyszukiwania w skonfigurowanym języku (nie tylko angielskim i lokalnym)
+• Prowadzenie po pasach ruchu: użyj pasów bez ozanczeń przy jeździe prosto
+• Nie interpretuj miejsc z fee=donation jako płatnych
+• Nawigacja głosowa po Macedońsku
+• Naprawione pytanie o lokalizację przed udostępnieniem zabezpieczonych danych
+• Naprawiony znikający przycisk podglądu trasy
+• Dane mapy z 30 sierpnia, a potem aktualizacje co tydzień

@@ -44,4 +44,8 @@
     <string name="years_ago">Fa %s anys</string>
     <string name="yesterday">Ahir</string>
     <string name="weeks_ago">Fa %s setmanes</string>
+    <string name="accessibility_map_action_collapse_label">finalitzar exploració tàctil</string>
+    <string name="accessibility_map_action_expand_label">exploració tàctil</string>
+    <string name="accessibility_map_content_description_expanded">En el mapa, toqueu i aguanteu per a explorar de forma tàctil. Voreu els llocs a mesura que arribeu a ells amb el dit. Llisqueu cap amunt o cap avall amb un dit i descarteu per a sortir.</string>
+    <string name="accessibility_map_content_description_collapsed">Mapa. Llisqueu cap amunt o cap avall amb un dit i amplieu per a explorar de manera tàctil.</string>
 </resources>

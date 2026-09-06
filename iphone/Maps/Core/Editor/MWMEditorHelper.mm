@@ -38,12 +38,13 @@
       authorizationToken = @"";
     }
     std::string const oauthToken = std::string([authorizationToken UTF8String]);
-    osm::Editor::Instance().UploadChanges(
-        oauthToken,
-        {{"created_by",
-          std::string("CoMaps " OMIM_OS_NAME " ") + AppInfo.sharedInfo.bundleVersion.UTF8String},
-         {"bundle_id", NSBundle.mainBundle.bundleIdentifier.UTF8String}},
-        lambda);
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+      osm::Editor::Instance().UploadChanges(
+          oauthToken,
+          {{"created_by", std::string("CoMaps " OMIM_OS_NAME " ") + AppInfo.sharedInfo.bundleVersion.UTF8String},
+           {"bundle_id", NSBundle.mainBundle.bundleIdentifier.UTF8String}},
+          lambda);
+    });
   }
 }
 

@@ -16,7 +16,7 @@
 /* Leave Review dialog - Review button */
 "leave_a_review" = "Lav en bedømmelse";
 /* Choose measurement on first launch alert - choose imperial system button */
-"miles" = "Mil";
+"miles" = "Miles";
 /* A text for current gps location point/arrow selected on the map */
 "core_my_position" = "Min position";
 /* Update maps later button text */
@@ -143,7 +143,6 @@
 "share_my_location" = "Del min placering";
 "prefs_group_route" = "Navigation";
 "pref_zoom_title" = "Zoom-knapper";
-"pref_left_button_type" = "Venstre hovedknap";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Kortsprog";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "Auto";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Perspektivvisning";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "3D-bygninger";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D-bygninger er deaktiveret i strømbesparende tilstand";
 /* Settings «Route» category: «Tts enabled» title */
@@ -571,7 +568,6 @@
 "mobile_data_option_never" = "Brug aldrig";
 "mobile_data_option_ask" = "Spørg altid";
 "traffic_update_maps_text" = "Kort skal opdateres for at vise trafikdata.";
-"big_font" = "Forøg størrelsen på kortetiketter";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Appen skal opdateres for at kunne vise trafikdata.";
 /* "traffic" as in "road congestion" */
@@ -625,8 +621,6 @@
 "restore" = "Gendan";
 "privacy_policy" = "Privatlivspolitik";
 "terms_of_use" = "Vilkår for bruger";
-"button_layer_subway" = "Undergrundsbane";
-"layers_title" = "Kortstile og -lag";
 "subway_data_unavailable" = "Kort over undergrundsbaner er ikke tilgængeligt";
 "title_error_downloading_bookmarks" = "Der er opstået en fejl";
 "popular_place" = "Populær";
@@ -733,7 +727,6 @@
 "transit_not_found" = "Metro-navigation er endnu ikke tilgængelig i denne region";
 "dialog_pedestrian_route_is_long_header" = "Ingen undergrundsrute fundet";
 "dialog_pedestrian_route_is_long_message" = "Vælg venligst et start- eller stoppunkt tættere på en metrostation";
-"button_layer_isolines" = "Konturlinjer";
 "isolines_activation_error_dialog" = "Aktivering af konturlinjer kræver download af kortdata for dette område";
 "isolines_location_error_dialog" = "Konturlinjer er endnu ikke tilgængelige i dette område";
 "elevation_profile_diff_level" = "Sværhedsgrad";
@@ -795,8 +788,6 @@
 "car_continue_on_the_phone" = "Fortsæt på telefonen";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Til bilens skærm";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Vandring";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Eksportér alle favoritter";
 /* Text for the editing the Track's color button. */
@@ -846,10 +837,6 @@
 "recover" = "Gendan";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Gendan alle";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Optag spor";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Stop optagelse af spor";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Stop uden at gemme";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -883,3 +870,30 @@
 "capacity_charging_no" = "Ingen pladser med ladere";
 "planning_route_preview" = "Forhåndsvisning";
 "planning_route_preview_sheet_title" = "Forhåndsvisning af rute";
+"discard" = "Kassér";
+"pref_custom_button_type" = "Knap, der kan tilpasses";
+"osm" = "OpenStreetMap";
+"mode" = "Tilstand";
+"mode_walking" = "Gang";
+"mode_cycling" = "Cykling";
+"mode_driving" = "Kørsel";
+"mode_public-transport" = "Offentlig transport";
+"mode_option_traffic" = "Vis traffik";
+"mode_option_transitlines" = "Vis transportlinjer";
+"mode_option_comingsoon" = "Nye muligheder kommer snart";
+"layers" = "Lag";
+"layers_option_contour-lines" = "Konturlinjer";
+"layers_option_outdoor" = "Friluftsliv";
+"layers_option_buildings-3d" = "3D-bygninger";
+"layers_power-saving" = "Dette lag er i øjeblikket automatisk deaktiveret på grund af din indstilling for strømbesparelsestilstand";
+"postionmode_locate" = "Find din egen placering";
+"postionmode_locating" = "Finder egen placering...";
+"postionmode_following" = "Følger placering med kortet roteret mod nord";
+"postionmode_following-and-rotated" = "Følger placering med kortet roteret mod kørselsretningen";
+"zoom_in" = "Zoom ind";
+"zoom_out" = "Zoom ud";
+"record_track" = "Optag spor";
+"recording_track" = "Optager spor";
+"bookmarks_text_placement_title" = "Vis navnene af favoritterne på kortet";
+"pref_font_size" = "Tekststørrelse på kortetiketter";
+"font_size" = "Tekststørrelse";

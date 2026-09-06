@@ -1,6 +1,6 @@
 package app.organicmaps.bookmarks;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,18 +63,30 @@ public class ChooseBookmarkCategoryFragment
   }
 
   @Override
-  public void onAttach(Activity activity)
+  public void onDestroyView()
+  {
+    super.onDestroyView();
+    mRecycler = null;
+    mAdapter = null;
+  }
+
+  @Override
+  public void onAttach(@NonNull Context context)
   {
     if (mListener == null)
     {
       final Fragment parent = getParentFragment();
       if (parent instanceof Listener)
         mListener = (Listener) parent;
-      else if (activity instanceof Listener)
-        mListener = (Listener) activity;
     }
+    super.onAttach(context);
+  }
 
-    super.onAttach(activity);
+  @Override
+  public void onDetach()
+  {
+    super.onDetach();
+    mListener = null;
   }
 
   private void createCategory(@NonNull String name)

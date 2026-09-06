@@ -15,6 +15,8 @@ class PopupMenuHolder : public QObject
 
   QToolButton * m_toolButton;
 
+  QAction * m_defaultAction = nullptr;
+
   std::vector<QAction *> m_actions;
 
   QAction * addActionImpl(QIcon const & icon, QString const & text, bool checkable);
@@ -46,6 +48,14 @@ public:
   typename std::enable_if<std::is_enum<T>::value, void>::type setCurrent(T idx)
   {
     setCurrent(static_cast<size_t>(idx));
+  }
+
+  template <class SlotT>
+  void setDefaultAction(QIcon const & icon, QString const & text, SlotT slot)
+  {
+    QAction * p = new QAction(icon, text, this);
+    connect(p, &QAction::triggered, std::move(slot));
+    m_defaultAction = p;
   }
 
   void setChecked(size_t idx, bool checked);

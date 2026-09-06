@@ -1443,4 +1443,7 @@
     <string name="type.sport.pickleball">Pickleball</string>
     <string name="type.amenity.stage">Oder</string>
     <string name="type.amenity.animal_boarding">Vkrcanje živali</string>
+    <string name="type.amenity.planetarium">Planetarij</string>
+    <string name="type.amenity.toilets.customers">Dostop za stranke</string>
+    <string name="type.amenity.toilets.private">Zasebni dostop</string>
 </resources>

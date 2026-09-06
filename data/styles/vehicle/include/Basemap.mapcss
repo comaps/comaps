@@ -1,6 +1,6 @@
 /* ~~~~ CONTENT OF BASEMAP ~~~~~
 
-1.Z-INDEX of BASEMAP
+1.BASICS
 2.LAND
 3.BOUNDARY
   3.1 Countries
@@ -25,6 +25,34 @@
   8.3 Barriers, cliffs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
+
+/* 1. BASICS */
+
+way|z1-12::*
+{
+  linejoin: bevel;
+}
+
+way|z13-::*
+{
+  linejoin: round;
+}
+
+way|z1-15::*
+{
+  linecap: butt;
+}
+
+way|z16-::*
+{
+  linecap: round;
+}
+
+*::int_name
+{
+  text-offset: 1;
+}
+
 
 /* 2.LAND */
 

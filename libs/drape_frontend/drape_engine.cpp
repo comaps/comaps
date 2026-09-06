@@ -13,6 +13,7 @@
 #include "drape_frontend/user_marks_provider.hpp"
 #include "drape_frontend/visual_params.hpp"
 
+#include "drape/accessibility_presenter.hpp"
 #include "drape/drape_routine.hpp"
 #include "drape/support_manager.hpp"
 #include "drape/texture_manager.hpp"
@@ -22,6 +23,8 @@
 
 #include "indexer/feature_decl.hpp"
 
+#include "indexer/map_style_reader.hpp"
+
 #include "platform/settings.hpp"
 #include "routing/base/followed_polyline.hpp"
 
@@ -30,6 +33,7 @@
 #include "base/timer.hpp"
 
 #include "3party/ankerl/unordered_dense.h"
+#include "platform/platform.hpp"
 
 namespace df
 {
@@ -75,6 +79,8 @@ DrapeEngine::DrapeEngine(Params && params)
 
   if (!settings::Get(kLastEnterBackground, m_startBackgroundTime))
     m_startBackgroundTime = base::Timer::LocalTime();
+
+  (void)settings::Get(settings::kShowBookmarkLabels, m_showBookmarkLabels);
 
   std::vector<PostprocessRenderer::Effect> effects;
 
@@ -254,6 +260,20 @@ void DrapeEngine::InvalidateUserMarks()
                                   MessagePriority::Normal);
 }
 
+void DrapeEngine::UpdateBookmarkLabels(UserMarksProvider * provider)
+{
+  using namespace settings;
+  bool show = false;
+  if (Get(kShowBookmarkLabels, show))
+  {
+    m_showBookmarkLabels = show;
+
+    UpdateUserMarks(provider, true /* firstTime */);
+
+    InvalidateUserMarks();
+  }
+}
+
 void DrapeEngine::UpdateUserMarks(UserMarksProvider * provider, bool firstTime)
 {
   auto const updatedGroupIds = firstTime ? provider->GetAllGroupIds() : provider->GetUpdatedGroupIds();
@@ -284,6 +304,9 @@ void DrapeEngine::UpdateUserMarks(UserMarksProvider * provider, bool firstTime)
         collection.m_lineIds.push_back(lineId);
   };
 
+  auto const outlineColor =
+      MapStyleIsDark(GetStyleReader().GetCurrentStyle()) ? dp::Color::Black() : dp::Color::White();
+
   auto const collectRenderData =
       [&](kml::MarkIdSet const & markIds, kml::TrackIdSet const & lineIds, GroupFilter const & filter)
   {
@@ -291,7 +314,7 @@ void DrapeEngine::UpdateUserMarks(UserMarksProvider * provider, bool firstTime)
     {
       auto const mark = provider->GetUserPointMark(markId);
       if (filter == nullptr || filter(mark->GetGroupId()))
-        marksRenderCollection->emplace(markId, GenerateMarkRenderInfo(mark));
+        marksRenderCollection->emplace(markId, GenerateMarkRenderInfo(mark, outlineColor));
     }
 
     for (auto const lineId : lineIds)
@@ -388,8 +411,59 @@ void DrapeEngine::InvalidateRect(m2::RectD const & rect)
                                   MessagePriority::High);
 }
 
-void DrapeEngine::UpdateMapStyle()
+// Called on the GUI thread
+void DrapeEngine::OnAccessibilityDataCallback(std::atomic<dp::AccessibilityData *> & ptr)
 {
+  if (!m_accessibilityPresenter)
+    return;
+
+  // Atomically steal the pointer from the FrontendRenderer thread
+  // The pointer we get could be null if conflation happened, or if the presenter was recently removed.
+  auto data = drape_ptr<dp::AccessibilityData>{ptr.exchange(nullptr)};
+  if (data == nullptr)
+    return;
+
+  (*m_accessibilityPresenter)->Update(std::move(data));
+}
+
+// to be called on the RenderThread
+void DrapeEngine::AccessibilityDataHandler(dp::AccessibilityData * data)
+{
+  dp::AccessibilityData * old = m_accessibilityData.exchange(data);
+  if (old != nullptr)
+    delete old;  // TODO it would be neat to recycle these to reduce allocation
+
+  // queue a call to handle on the GUI thread, and conflate while we're at it.
+  GetPlatform().RunTask(Platform::Thread::Gui, [this] { this->OnAccessibilityDataCallback(m_accessibilityData); });
+}
+
+// to be called on the GUI thread, takes ownership of a new accessibility presenter
+void DrapeEngine::SetAccessibilityPresenter(std::optional<drape_ptr<dp::AccessibilityPresenter>> && presenter)
+{
+  m_accessibilityPresenter = std::move(presenter);
+  // we also prevent building the a11y tree when there is no presenter, to save cycles
+  m_threadCommutator->PostMessage(
+      ThreadsCommutator::RenderThread,
+      make_unique_dp<SetAccessibilityDataHandlerMessage>(
+          presenter ? std::bind(&DrapeEngine::AccessibilityDataHandler, this, _1)
+                    : (std::optional<SetAccessibilityDataHandlerMessage::AccessibilityDataHandler>{})),
+      MessagePriority::UberHighSingleton);
+}
+
+// to be called on the GUI thread, gets a ref to the accessibility presenter (only valid until the next call to
+// SetAccessibilityPresenter)
+std::optional<ref_ptr<dp::AccessibilityPresenter>> DrapeEngine::GetAccessibilityPresenter() const
+{
+  if (!m_accessibilityPresenter)
+    return {};
+  return make_ref(*m_accessibilityPresenter);
+}
+
+void DrapeEngine::UpdateMapStyle(bool const forceRerendering)
+{
+  if (forceRerendering)
+    m_frontend->ForceMapStyleRerendering();
+
   m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread, make_unique_dp<UpdateMapStyleMessage>(),
                                   MessagePriority::High);
 }
@@ -865,7 +939,8 @@ void DrapeEngine::EnableDebugRectRendering(bool enabled)
                                   make_unique_dp<EnableDebugRectRenderingMessage>(enabled), MessagePriority::Normal);
 }
 
-drape_ptr<UserMarkRenderParams> DrapeEngine::GenerateMarkRenderInfo(UserPointMark const * mark)
+drape_ptr<UserMarkRenderParams> DrapeEngine::GenerateMarkRenderInfo(UserPointMark const * mark,
+                                                                    dp::Color outlineColor) const
 {
   auto renderInfo = make_unique_dp<UserMarkRenderParams>();
   renderInfo->m_markId = mark->GetId();
@@ -877,12 +952,13 @@ drape_ptr<UserMarkRenderParams> DrapeEngine::GenerateMarkRenderInfo(UserPointMar
     renderInfo->m_customDepth = true;
   }
   renderInfo->m_depthLayer = mark->GetDepthLayer();
+  renderInfo->m_titleDepthLayer = mark->GetDepthLayerEx(m_showBookmarkLabels);
   renderInfo->m_minZoom = mark->GetMinZoom();
   renderInfo->m_minTitleZoom = mark->GetMinTitleZoom();
   renderInfo->m_isVisible = mark->IsVisible();
   renderInfo->m_pivot = mark->GetPivot();
   renderInfo->m_pixelOffset = mark->GetPixelOffset();
-  renderInfo->m_titleDecl = mark->GetTitleDecl();
+  renderInfo->m_titleDecl = mark->GetTitleDeclEx(m_showBookmarkLabels, outlineColor);
   renderInfo->m_symbolNames = mark->GetSymbolNames();
   renderInfo->m_coloredSymbols = mark->GetColoredSymbols();
   renderInfo->m_symbolSizes = mark->GetSymbolSizes();
@@ -918,6 +994,11 @@ drape_ptr<UserLineRenderParams> DrapeEngine::GenerateLineRenderInfo(UserLineMark
                                       mark->GetDepth(layerIndex));
   }
   return renderInfo;
+}
+
+double DrapeEngine::GetVisualScale()
+{
+  return VisualParams::Instance().GetVisualScale();
 }
 
 void DrapeEngine::UpdateVisualScale(double vs, bool needStopRendering)

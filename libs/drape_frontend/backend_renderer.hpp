@@ -91,7 +91,7 @@ protected:
   void OnContextDestroy() override;
 
 private:
-  void RecacheGui(gui::TWidgetsInitInfo const & initInfo, bool needResetOldGui);
+  void RecacheGui(gui::TWidgetsInitInfo const & initInfo, bool needResetOldGui, bool notify = true);
   void RecacheChoosePositionMark();
   void RecacheMapShapes();
   void CleanupTextures();

@@ -2,32 +2,30 @@ name: iOS Check
 on:
   workflow_dispatch: # Manual trigger
   push:
+    paths: &paths
+      - 3party/**
+      - configure.sh
+      - cmake/**
+      - '!cmake/windows/**'
+      - CMakeLists.txt
+      - defines.hpp
+      - .forgejo/workflows/ios-check.yaml  # Run check on self change
+      - libs/**
+      - '!libs/platform/*_android*'
+      - '!libs/platform/*_linux*'
+      - '!libs/platform/*_mac*'
+      - '!libs/platform/*qt*'
+      - '!libs/platform/*_win*'
+      - '!libs/pyhelpers/**'
+      - iphone/**
+      - '!iphone/metadata/**'
+      - '!**/*_tests/**'
+      - private.h
+      - xcode/**
     branches:
       - main
   pull_request:
-    paths-ignore:
-      - .gitignore
-      - .forgejo/**
-      - '!.forgejo/workflows/ios-check.yaml'  # Run check on self change
-      - '**/*_tests/**'
-      - CONTRIBUTORS
-      - LICENSE
-      - NOTICE
-      - README.md
-      - android/**
-      - data/*-strings/**
-      - docs/**
-      - generator/**
-      - iphone/metadata/**
-      - packaging/**
-      - libs/platform/*_android*
-      - libs/platform/*_linux*
-      - libs/platform/*_mac*
-      - libs/platform/*qt*
-      - libs/platform/*_win*
-      - libs/pyhelpers/**
-      - qt*/**
-      - tools/**
+    paths: *paths
 
 jobs:
   ios-check:
@@ -95,13 +93,14 @@ jobs:
         id: release_build
         shell: bash
         run: |
-          xcodebuild build \
+          xcodebuild archive \
             -workspace xcode/CoMaps.xcworkspace \
             -scheme CoMaps \
             -configuration Release \
             -destination 'generic/platform=iOS' \
             -derivedDataPath "${DERIVED_DATA_PATH}" \
             -quiet \
+            -archivePath CoMaps-Release.xcarchive \
             -resultBundlePath ${{ env.RELEASE_RESULTS_BUNDLE_NAME }}.xcresult \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
@@ -113,6 +112,20 @@ jobs:
         with:
           name: ${{ env.RELEASE_RESULTS_BUNDLE_NAME }}-${{ github.run_number }}.xcresult
           path: ${{ env.RELEASE_RESULTS_BUNDLE_NAME }}.xcresult
+          if-no-files-found: error
+
+      - name: Create ipa
+        shell: bash
+        run: |
+          mkdir Payload
+          cp -R CoMaps-Release.xcarchive/Products/Applications/CoMaps.app Payload/
+          zip -ry 'CoMaps.ipa' Payload
+
+      - name: Upload ipa
+        uses: actions/upload-artifact@v3
+        with:
+          name: CoMaps release ipa
+          path: CoMaps.ipa
           if-no-files-found: error
 
       - name: Trim index store from DerivedData before caching

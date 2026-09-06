@@ -1,6 +1,6 @@
 /* ~~~~ CONTENT OF BASEMAP ~~~~~
 
-1.Z-INDEX of BASEMAP
+1.BASICS
 2.LAND
 3.BOUNDARY
   3.1 Countries
@@ -27,6 +27,35 @@
 9.ISOLINES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
+
+
+/* 1. BASICS */
+
+way|z1-12::*
+{
+  linejoin: bevel;
+}
+
+way|z13-::*
+{
+  linejoin: round;
+}
+
+way|z1-15::*
+{
+  linecap: butt;
+}
+
+way|z16-::*
+{
+  linecap: round;
+}
+
+*::int_name
+{
+  text-offset: 1;
+}
+
 
 /* 2.LAND */
 
@@ -801,7 +830,8 @@ line|z17[man_made=embankment],
 line|z18-[man_made=embankment],
 {width: 7; dashes: 8,4,4,3;}
 
-
+line|z17-[natural=tree_row],
+{color: @woods; width: 3.5;}
 line|z18-[natural=tree_row],
 {color: @woods; width: 6;}
 line|z19-[natural=tree_row],

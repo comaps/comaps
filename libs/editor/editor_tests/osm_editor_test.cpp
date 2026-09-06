@@ -1263,7 +1263,7 @@ void EditorTest::LoadExistingEditsXml()
 {
   char const * data = R"(
     <?xml version="1.0"?>
-    <mapsme format_version="1">
+    <comaps format_version="1">
       <mwm name="TestCountry" version="221119">
         <delete />
         <modify />
@@ -1271,11 +1271,24 @@ void EditorTest::LoadExistingEditsXml()
           <node lat="54.0446163" lon="27.6597626" mwm_file_index="4293918720" timestamp="2022-12-09T18:58:28Z">
             <tag k="name:ru" v="xxx" />
             <tag k="amenity" v="bar" />
+            <tag k="check_date" v="2022-12-09" />
+            <journal version="1.0">
+              <entry type="ObjectCreated" timestamp="2022-12-09T18:58:00Z">
+                <data type="amenity-bar" geomType="Point" lat="54.0446163" lon="27.6597626" />
+              </entry>
+              <entry type="TagModification" timestamp="2022-12-09T18:58:28Z">
+                <data key="name:ru" old_value="" new_value="xxx" />
+              </entry>
+              <entry type="TagModification" timestamp="2022-12-09T18:58:28Z">
+                <data key="check_date" old_value="" new_value="2022-12-09" />
+              </entry>
+            </journal>
+            <journalHistory version="1.0" />
           </node>
         </create>
         <obsolete />
       </mwm>
-    </mapsme>
+    </comaps>
   )";
 
   ConstructTestMwm([](editor::testing::TestMwmBuilder &) {});

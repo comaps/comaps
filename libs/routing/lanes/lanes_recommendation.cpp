@@ -65,7 +65,8 @@ bool impl::SetRecommendedLaneWays(CarDirection const carDirection, LanesInfo & l
   bool isLaneConformed = false;
   for (auto & [laneWays, recommendedWay] : lanesInfo)
   {
-    if (laneWays.Contains(laneWay))
+    // Unrestricted lanes (blank/"none") should match "GoStraight" as a first-class lane recommendation
+    if (laneWays.Contains(laneWay) || (carDirection == CarDirection::GoStraight && laneWays.IsUnrestricted()))
     {
       recommendedWay = laneWay;
       isLaneConformed = true;

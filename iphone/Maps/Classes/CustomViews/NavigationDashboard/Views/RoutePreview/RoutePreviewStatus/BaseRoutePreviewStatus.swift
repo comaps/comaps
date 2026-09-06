@@ -85,7 +85,9 @@ final class BaseRoutePreviewStatus: SolidTouchView {
     }
   }
 
-  private var isDirectionsPreviewAvailable = false
+  override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+   return CGRectContainsPoint(self.bounds, point) || CGRectContainsPoint(CGRect(x: self.bounds.origin.x+self.bounds.size.width-68, y: self.bounds.origin.x-68, width: 68, height: self.bounds.size.height + 68), point);
+  }
 
   private func addView() {
     guard superview != ownerView else { return }
@@ -138,10 +140,7 @@ final class BaseRoutePreviewStatus: SolidTouchView {
     manageRouteBox.isHidden = isCompact || resultsBox.isHidden
     manageRouteButtonCompact?.isHidden = !isCompact
     saveRouteAsTrackButtonCompact.isHidden = !isCompact
-      
-    let isRouteBuilt = MWMRouter.isRouteBuilt()
-    directionsPreviewButtonRegular?.isHidden = !isRouteBuilt || !isDirectionsPreviewAvailable || isCompact
-    directionsPreviewButtonCompact?.isHidden = !isRouteBuilt || !isDirectionsPreviewAvailable || !isCompact
+    directionsPreviewButtonCompact?.isHidden = !isCompact
   }
 
   @objc func hide() {
@@ -189,11 +188,6 @@ final class BaseRoutePreviewStatus: SolidTouchView {
     saveRouteAsTrackButtonCompact.isEnabled = isEnabled
   }
     
-  @objc func setDirectionsPreviewAvailable(_ available: Bool) {
-    isDirectionsPreviewAvailable = available
-    updateManageRouteVisibility()
-  }
-
   private func updateResultsLabel() {
     guard let info = navigationInfo else { return }
 

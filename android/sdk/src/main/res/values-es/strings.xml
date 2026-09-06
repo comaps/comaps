@@ -44,4 +44,8 @@
     <string name="months_ago">hace %s meses</string>
     <string name="year_ago">hace %s año</string>
     <string name="years_ago">hace %s años</string>
+    <string name="accessibility_map_content_description_collapsed">En el mapa, deslice un dedo hacia arriba o hacia abajo y expanda para explorar de forma táctil.</string>
+    <string name="accessibility_map_content_description_expanded">En el mapa, mantén pulsado para explorar de forma táctil y escuchar los lugares a medida que los alcances con el dedo, o desliza un dedo hacia arriba o abajo para salir.</string>
+    <string name="accessibility_map_action_expand_label">exploración táctil</string>
+    <string name="accessibility_map_action_collapse_label">finalizar exploración táctil</string>
 </resources>

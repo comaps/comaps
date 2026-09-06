@@ -1,0 +1,6 @@
+@import("../../default/dark/colors.mapcss");
+@import("../../outdoors/dark/colors.mapcss");
+
+@import("../include/main.mapcss");
+
+@import("../../default/dark/drape_colors.mapcss");

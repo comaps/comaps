@@ -474,6 +474,8 @@ public:
   kml::TrackId SaveRoute(std::vector<geometry::PointWithAltitude> points, std::string const & from,
                          std::string const & to);
 
+  void UpdateBookmarkLabels();
+
 private:
   class MarksChangesTracker : public df::UserMarksProvider
   {

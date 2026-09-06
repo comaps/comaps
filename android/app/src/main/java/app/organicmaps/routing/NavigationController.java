@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.location.Location;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -63,6 +64,7 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
 
   private final NavMenu mNavMenu;
   View.OnClickListener mOnSettingsClickListener;
+  View.OnClickListener mOnTrackRecordingClickListener;
   private final SharedPreferences mSharedPreferences;
 
   private void addWindowsInsets(@NonNull View topFrame)
@@ -76,6 +78,7 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
   }
 
   public NavigationController(AppCompatActivity activity, View.OnClickListener onSettingsClickListener,
+                              View.OnClickListener onTrackRecordingClickListener,
                               NavMenu.OnMenuSizeChangedListener onMenuSizeChangedListener)
   {
     mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity);
@@ -85,6 +88,7 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
     mFrame = activity.findViewById(R.id.navigation_frame);
     mNavMenu = new NavMenu(activity, this, onMenuSizeChangedListener);
     mOnSettingsClickListener = onSettingsClickListener;
+    mOnTrackRecordingClickListener = onTrackRecordingClickListener;
 
     // Top frame
     View topFrame = mFrame.findViewById(R.id.nav_top_frame);
@@ -188,8 +192,14 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
     if (hasStreet)
       mNextStreet.setText(instruction);
     int margin = dimen(mFrame.getContext(), R.dimen.nav_frame_padding);
-    if (hasStreet)
+    final boolean hasLanes = UiUtils.isVisible(mLanesView);
+    if (hasStreet || hasLanes)
       margin += mStreetFrame.getHeight();
+    if (hasLanes)
+    {
+      final ViewGroup.MarginLayoutParams lanesParams = (ViewGroup.MarginLayoutParams) mLanesView.getLayoutParams();
+      margin += lanesParams.topMargin + lanesParams.height;
+    }
     mMapButtonsViewModel.setTopButtonsMarginTop(margin);
   }
 
@@ -278,6 +288,11 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
     mOnSettingsClickListener.onClick(null);
   }
 
+  @Override
+  public void onTrackRecordingClicked()
+  {
+    mOnTrackRecordingClickListener.onClick(null);
+  }
   @Override
   public void onStopClicked()
   {

@@ -315,9 +315,24 @@
         "defaultMessage": "In two miles"
     },
     "unknown_camera": {
-        "defaultMessage": "Camera ahead"
+        "defaultMessage": "Priekšā ātruma noteikšanas kamera"
     },
     "at_the_end_of_the_road": {
         "defaultMessage": "Ceļa beigās"
+    },
+    "from_2_miles": {
+        "defaultMessage": "divas jūdzes"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "vairāk nekā divas jūdzes"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Tu esi %1$s no maršruta"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Pēc vairāk nekā trīs kilometriem"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "Pēc vairāk nekā divām jūdzēm"
     }
 }

@@ -1,0 +1,32 @@
+/*
+ * Public transport Outdoor style is based on the default style
+ * with added Public Transport and Outdoor styles changes.
+ * So first it includes default style files,
+ * then - when corresponding change files exist - Public Transport and Outdoor.
+ * And optionally could include its own change files (none at the moment).
+ *
+ * TODO: we don't need Public transport Outdoor style at all?
+ */
+
+@import("../../default/include/Basemap.mapcss");
+@import("../../public-transport/include/Basemap.mapcss");
+@import("../../outdoors/include/Basemap.mapcss");
+
+@import("../../default/include/Basemap_label.mapcss");
+@import("../../outdoors/include/Basemap_label.mapcss");
+
+@import("../../default/include/Roads.mapcss");
+@import("../../outdoors/include/Roads.mapcss");
+
+@import("../../default/include/Roads_label.mapcss");
+@import("../../outdoors/include/Roads_label.mapcss");
+
+@import("../../default/include/Icons.mapcss");
+/* TODO: temporary include walking changes with Fuel stations visibility reduction;
+   move this change to the default style once Modes are released on Android */
+@import("../../walking/include/Icons.mapcss");
+@import("../../outdoors/include/Icons.mapcss");
+
+@import("../../default/include/Icons_Label_Colors.mapcss");
+
+@import("../../default/include/Subways.mapcss");

@@ -150,7 +150,7 @@
         "defaultMessage": "%1$s%5$s%4$s%3$s%2$s"
     },
     "take_the_1_exit": {
-        "defaultMessage": "一番目の出口です。"
+        "defaultMessage": "1番目の出口です。"
     },
     "take_the_1_exit_street": {
         "defaultMessage": "に出ます"
@@ -159,7 +159,7 @@
         "defaultMessage": "1番出口を出て"
     },
     "take_the_2_exit": {
-        "defaultMessage": "二番目の出口を出て。"
+        "defaultMessage": "番目の出口です。"
     },
     "take_the_2_exit_street": {
         "defaultMessage": "に出ます"
@@ -168,7 +168,7 @@
         "defaultMessage": "2番出口を出て"
     },
     "take_the_3_exit": {
-        "defaultMessage": "三番目の出口を出て。"
+        "defaultMessage": "3番目の出口です。"
     },
     "take_the_3_exit_street": {
         "defaultMessage": "に出ます"
@@ -177,7 +177,7 @@
         "defaultMessage": "3番出口を出て"
     },
     "take_the_4_exit": {
-        "defaultMessage": "四番目の出口を出て。"
+        "defaultMessage": "4番目の出口です。"
     },
     "take_the_4_exit_street": {
         "defaultMessage": "に出ます"
@@ -186,7 +186,7 @@
         "defaultMessage": "4番出口を出て"
     },
     "take_the_5_exit": {
-        "defaultMessage": "五番目の出口を出て。"
+        "defaultMessage": "5番目の出口です。"
     },
     "take_the_5_exit_street": {
         "defaultMessage": "に出ます"
@@ -195,7 +195,7 @@
         "defaultMessage": "5番出口を出て"
     },
     "take_the_6_exit": {
-        "defaultMessage": "六番目の出口を出て。"
+        "defaultMessage": "6番目の出口です。"
     },
     "take_the_6_exit_street": {
         "defaultMessage": "に出ます"
@@ -204,7 +204,7 @@
         "defaultMessage": "6番出口を出て"
     },
     "take_the_7_exit": {
-        "defaultMessage": "七番目の出口を出て。"
+        "defaultMessage": "7番目の出口です。"
     },
     "take_the_7_exit_street": {
         "defaultMessage": "に出ます"
@@ -213,7 +213,7 @@
         "defaultMessage": "7番出口を出て"
     },
     "take_the_8_exit": {
-        "defaultMessage": "八番目の出口を出て。"
+        "defaultMessage": "8番目の出口です。"
     },
     "take_the_8_exit_street": {
         "defaultMessage": "に出ます"
@@ -222,7 +222,7 @@
         "defaultMessage": "8番出口を出て"
     },
     "take_the_9_exit": {
-        "defaultMessage": "九番目の出口を出て。"
+        "defaultMessage": "9番目の出口です。"
     },
     "take_the_9_exit_street": {
         "defaultMessage": "に出ます"
@@ -231,7 +231,7 @@
         "defaultMessage": "9番出口を出て"
     },
     "take_the_10_exit": {
-        "defaultMessage": "十番目の出口を出て。"
+        "defaultMessage": "10番目の出口です。"
     },
     "take_the_10_exit_street": {
         "defaultMessage": "に出ます"
@@ -240,7 +240,7 @@
         "defaultMessage": "10番出口を出て"
     },
     "take_the_11_exit": {
-        "defaultMessage": "十一番目の出口を出て。"
+        "defaultMessage": "11番目の出口です。"
     },
     "take_the_11_exit_street": {
         "defaultMessage": "に出ます"

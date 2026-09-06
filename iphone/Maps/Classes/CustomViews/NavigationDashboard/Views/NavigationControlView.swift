@@ -1,5 +1,8 @@
 @objc(MWMNavigationControlView)
-final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapOverlayManagerObserver {
+final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver {
+
+  @IBOutlet private weak var mapPositionButton: UIView!
+  @IBOutlet private weak var activeTrackRecordingButton: UIView!
   @IBOutlet private weak var distanceLabel: UILabel!
   @IBOutlet private weak var distanceLegendLabel: UILabel!
   @IBOutlet private weak var distanceWithLegendLabel: UILabel!
@@ -26,7 +29,7 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
       onTTSStatusUpdated()
     }
   }
-    
+
   @IBOutlet private weak var trackRecordingButton: UIButton!
 
   private lazy var dimBackground: DimBackground = {
@@ -64,6 +67,7 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
 
       dimBackground.setVisible(isExtended, completion: nil)
       extendedView.isHidden = !isExtended
+      mapPositionButton.isHidden = isExtended
       superview!.animateConstraints(animations: {
         if (self.isExtended) {
           self.notExtendedConstraint.isActive = false
@@ -96,7 +100,7 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
       self.removeFromSuperview()
     })
   }
-    
+
   deinit {
     TrackRecordingManager.shared.removeObserver(self)
   }
@@ -107,10 +111,43 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
     updateLegendSize()
 
     MWMTextToSpeech.add(self)
-    MapOverlayManager.add(self)
 
+    let controller = BridgeControllers.mapPositionButton()
+    mapPositionButton.addSubview(controller.view)
+    controller.view.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      controller.view.topAnchor.constraint(equalTo: mapPositionButton.topAnchor),
+      controller.view.leadingAnchor.constraint(equalTo: mapPositionButton.leadingAnchor),
+      controller.view.trailingAnchor.constraint(equalTo: mapPositionButton.safeAreaLayoutGuide.trailingAnchor),
+      controller.view.bottomAnchor.constraint(equalTo: mapPositionButton.bottomAnchor),
+    ])
+
+    let trackRecordingController = BridgeControllers.mapActiveTrackRecordingButton()
+    activeTrackRecordingButton.addSubview(trackRecordingController.view)
+    trackRecordingController.view.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      trackRecordingController.view.topAnchor.constraint(equalTo: activeTrackRecordingButton.topAnchor),
+      trackRecordingController.view.leadingAnchor.constraint(equalTo: activeTrackRecordingButton.leadingAnchor),
+      trackRecordingController.view.trailingAnchor.constraint(equalTo: activeTrackRecordingButton.trailingAnchor),
+      trackRecordingController.view.bottomAnchor.constraint(equalTo: activeTrackRecordingButton.bottomAnchor),
+    ])
+
+    trackRecordingButton.accessibilityLabel = L("record_track")
     TrackRecordingManager.shared.addObserver(self) { [weak self] state, _, _ in
-      self?.trackRecordingButton.isHidden = (state == .active)
+      DispatchQueue.main.async {
+        self?.updateTrackRecordingControls(for: state)
+      }
+    }
+  }
+
+  override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+    if bounds.contains(point) {
+      return true
+    }
+
+    return [mapPositionButton, activeTrackRecordingButton].contains { control in
+      guard let control, !control.isHidden, control.alpha > 0 else { return false }
+      return control.point(inside: convert(point, to: control), with: event)
     }
   }
 
@@ -215,25 +252,26 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
     isExtended = !isExtended
     refreshDiminishTimer()
   }
-  
+
   @IBAction
-    private func trackRecordingAction() {
-      let manager = TrackRecordingManager.shared
-        
-      if manager.recordingState != .active {
-        manager.start { [weak self] result in
-          switch result {
-          case .success:
-            MapViewController.shared()?.controlsManager.setTrackRecordingButtonState(.visible)
-              
-            self?.diminish()
-              
-          case .failure:
-            self?.refreshDiminishTimer()
-          }
+  private func trackRecordingAction() {
+    TrackRecordingManager.shared.start { [weak self] result in
+      DispatchQueue.main.async {
+        switch result {
+        case .success:
+          self?.diminish()
+        case .failure:
+          self?.refreshDiminishTimer()
         }
       }
     }
+  }
+
+  private func updateTrackRecordingControls(for state: TrackRecordingState) {
+    let isRecording = state == .active
+    trackRecordingButton.isHidden = isRecording
+    activeTrackRecordingButton.isHidden = !isRecording
+  }
 
   private func morphExtendButton() {
     guard let imageView = extendButton.imageView else { return }

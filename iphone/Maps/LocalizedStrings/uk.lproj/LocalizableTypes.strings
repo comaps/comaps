@@ -765,7 +765,7 @@
 "type.leisure.sports_centre.sport.skateboard" = "Спортивний центр";
 "type.leisure.sports_centre.sport.skiing" = "Спортивний центр";
 "type.leisure.sports_centre.sport.soccer" = "Спортивний центр";
-"type.leisure.sports_centre.sport.swimming" = "Swimming Centre";
+"type.leisure.sports_centre.sport.swimming" = "Плавальний центр";
 "type.leisure.sports_centre.sport.table_tennis" = "Спортивний центр";
 "type.leisure.sports_centre.sport.tennis" = "Спортивний центр";
 "type.leisure.sports_centre.sport.volleyball" = "Спортивний центр";
@@ -799,7 +799,7 @@
 /* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "Вежа зв'язку";
 /* A regular telecommunications mast. */
-"type.man_made.mast.communication" = "Communications Mast";
+"type.man_made.mast.communication" = "Щогла зв'язку";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "Нефтяна або газова свердловина";
 /* A tower/mast constructed to burn off excess gas. */
@@ -946,8 +946,8 @@
 "type.railway.construction" = "Будівництво залізниці";
 "type.railway.crossing" = "Пішохідний перехід";
 "type.railway.disused" = "Недійсна залізниця";
-"type.railway.disused.bridge" = "Disused Railway Bridge";
-"type.railway.disused.tunnel" = "Disused Railway Tunnel";
+"type.railway.disused.bridge" = "Занедбаний залізничний міст";
+"type.railway.disused.tunnel" = "Занедбаний залізничний тунель";
 "type.railway.funicular" = "Фунікулер";
 "type.railway.funicular.bridge" = "Фунікулер";
 "type.railway.funicular.tunnel" = "Фунікулер";
@@ -959,9 +959,9 @@
 "type.railway.monorail" = "Монорейкова залізниця";
 "type.railway.monorail.bridge" = "Монорейкова залізниця";
 "type.railway.monorail.tunnel" = "Монорейкова залізниця";
-"type.railway.miniature" = "Miniature Railway";
-"type.railway.miniature.bridge" = "Miniature Railway Bridge";
-"type.railway.miniature.tunnel" = "Miniature Railway Tunnel";
+"type.railway.miniature" = "Мініатюрна залізниця";
+"type.railway.miniature.bridge" = "Мініатюрний залізничний міст";
+"type.railway.miniature.tunnel" = "Мініатюрний залізничний тунель";
 "type.railway.narrow_gauge" = "Вузькоколійка";
 "type.railway.narrow_gauge.bridge" = "Вузькоколійка";
 "type.railway.narrow_gauge.tunnel" = "Вузькоколійка";
@@ -973,7 +973,7 @@
 "type.railway.rail.highspeed" = "Швидкісна залізниця";
 "type.railway.rail.tourism" = "Туристична залізниця";
 "type.railway.rail.main" = "Залізниця";
-"type.railway.turntable" = "Railway Turntable";
+"type.railway.turntable" = "Залізничний поворотний круг";
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "Залізнична гілка";
 /* Non-passenger utility tracks: industrial, military, test. */
@@ -1247,7 +1247,7 @@
 "type.shop.bakery" = "Пекарня";
 "type.shop.bathroom_furnishing" = "Меблі для ванної кімнати";
 "type.shop.beauty" = "Салон краси";
-"type.shop.beauty.nails" = "Nail Salon";
+"type.shop.beauty.nails" = "Салон манікюру";
 "type.shop.beverages" = "Напої";
 "type.shop.bicycle" = "Веломагазин";
 "type.shop.bookmaker" = "Букмекерська контора";
@@ -1299,7 +1299,7 @@
 "type.shop.kitchen" = "Магазин кухні";
 "type.shop.laundry" = "Пральня";
 "type.shop.mall" = "Торговий центр";
-"type.shop.beauty.day_spa" = "Day Spa";
+"type.shop.beauty.day_spa" = "Денний спа-центр";
 "type.shop.massage" = "Масажний кабінет";
 "type.shop.mobile_phone" = "Мобільні телефони";
 "type.shop.money_lender" = "Кредити";
@@ -1536,4 +1536,4 @@
 "type.amenity.animal_boarding" = "Animal Boarding";
 "type.amenity.toilets.customers" = "Customer Access";
 "type.amenity.toilets.private" = "Private Access";
-"type.amenity.planetarium" = "Planetarium";
+"type.amenity.planetarium" = "Планетарій";

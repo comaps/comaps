@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.Surface;
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.organicmaps.sdk.display.DisplayType;
@@ -19,6 +20,12 @@ public final class Map
   public interface CallbackUnsupported
   {
     void report();
+  }
+
+  public interface AccessibilityUpdateCallback
+  {
+    @Keep
+    void frame(int[] removed, int[] updated, int[] added);
   }
 
   private static final String TAG = Map.class.getSimpleName();
@@ -50,6 +57,13 @@ public final class Map
   public static final int INVALID_POINTER_MASK = 0xFF;
   public static final int INVALID_TOUCH_ID = -1;
 
+  // Should correspond to dp::ExplorationType from accessibility_node_info.hpp
+  public static final int EXPLORATION_TYPE_NOT_EXPLORABLE = 0;
+  public static final int EXPLORATION_TYPE_ANNOUNCE_LABEL_ON_LONG_HOVER = 1;
+  public static final int EXPLORATION_TYPE_ANNOUNCE_LABEL_ALWAYS = 2;
+  public static final int EXPLORATION_TYPE_SIGNAL_PRESENCE_ALWAYS = 4;
+  public static final int EXPLORATION_TYPE_SIGNAL_HOMING = 8;
+
   @NonNull
   private final DisplayType mDisplayType;
 
@@ -73,6 +87,8 @@ public final class Map
   private MapRenderingListener mMapRenderingListener;
   @Nullable
   private CallbackUnsupported mCallbackUnsupported;
+  @Nullable
+  AccessibilityUpdateCallback mAccessibilityUpdateCallback;
 
   private static int sCurrentDpi = 0;
 
@@ -85,6 +101,12 @@ public final class Map
   public void setLocationHelper(@NonNull LocationHelper locationHelper)
   {
     mLocationHelper = locationHelper;
+  }
+
+  public void setAccessibilityUpdateCallback(@Nullable AccessibilityUpdateCallback accessibilityUpdateCallback)
+  {
+    mAccessibilityUpdateCallback = accessibilityUpdateCallback;
+    nativeSetAccessibilityUpdateCallback(mAccessibilityUpdateCallback);
   }
 
   /**
@@ -195,6 +217,8 @@ public final class Map
     nativeResumeSurfaceRendering();
     if (mMapRenderingListener != null)
       mMapRenderingListener.onRenderingCreated();
+
+    nativeSetAccessibilityUpdateCallback(mAccessibilityUpdateCallback);
   }
 
   public void onSurfaceChanged(final Context context, final Surface surface, Rect surfaceFrame,
@@ -319,6 +343,26 @@ public final class Map
     nativeOnTouch(NATIVE_ACTION_UP, 0, x, y, Map.INVALID_TOUCH_ID, 0, 0, 0);
   }
 
+  public static int getAccessibilityNodeAtPoint(float x, float y)
+  {
+    return nativeGetAccessibilityNodeAtPoint(x, y);
+  }
+
+  public static void getAccessibilityNode(int id, Framework.AccessibilityNodeContext recycle)
+  {
+    nativeGetAccessibilityNode(id, recycle);
+  }
+
+  public static int[] getAllAccessibilityNodes()
+  {
+    return nativeGetAllAccessibilityNodes();
+  }
+
+  public static void setAccessibilityFreezeFrame(boolean freeze)
+  {
+    nativeSetAccessibilityFreezeFrame(freeze);
+  }
+
   public static boolean isEngineCreated()
   {
     return nativeIsEngineCreated();
@@ -423,4 +467,14 @@ public final class Map
 
   private static native void nativeOnTouch(int actionType, int id1, float x1, float y1, int id2, float x2, float y2,
                                            int maskedPointer);
+
+  private static native int nativeGetAccessibilityNodeAtPoint(float x, float y);
+
+  private static native int[] nativeGetAllAccessibilityNodes();
+
+  private static native void nativeGetAccessibilityNode(int id, Framework.AccessibilityNodeContext recycle);
+
+  private static native boolean nativeSetAccessibilityUpdateCallback(AccessibilityUpdateCallback callback);
+
+  private static native boolean nativeSetAccessibilityFreezeFrame(boolean freeze);
 }

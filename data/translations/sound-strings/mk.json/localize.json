@@ -205,5 +205,251 @@
     },
     "unknown_camera": {
         "defaultMessage": "Внимание, камера за брзина"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Оддалечени сте %1$s од рутата"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "За повеќе од три километри"
+    },
+    "from_50_meters": {
+        "defaultMessage": "педесет метри"
+    },
+    "from_100_meters": {
+        "defaultMessage": "сто метри"
+    },
+    "from_200_meters": {
+        "defaultMessage": "двесте метри"
+    },
+    "from_250_meters": {
+        "defaultMessage": "двесте и педесет метри"
+    },
+    "from_300_meters": {
+        "defaultMessage": "триста метри"
+    },
+    "from_400_meters": {
+        "defaultMessage": "четиристотини метри"
+    },
+    "from_500_meters": {
+        "defaultMessage": "петстотини метри"
+    },
+    "from_600_meters": {
+        "defaultMessage": "шестотини метри"
+    },
+    "from_700_meters": {
+        "defaultMessage": "седумстотини метри"
+    },
+    "from_750_meters": {
+        "defaultMessage": "седумстотини и педесет метри"
+    },
+    "from_800_meters": {
+        "defaultMessage": "осумстотини метри"
+    },
+    "from_900_meters": {
+        "defaultMessage": "деветстотини метри"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "еден километар"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "еден и пол километар"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "два километри"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "два и пол километри"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "три километри"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "повеќе од три километри"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "На крајот на патот,"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "За повеќе од две милји"
+    },
+    "from_50_feet": {
+        "defaultMessage": "педесет стапки"
+    },
+    "from_100_feet": {
+        "defaultMessage": "сто стапки"
+    },
+    "from_200_feet": {
+        "defaultMessage": "двесте стапки"
+    },
+    "from_300_feet": {
+        "defaultMessage": "триста стапки"
+    },
+    "from_400_feet": {
+        "defaultMessage": "четиристотини стапки"
+    },
+    "from_500_feet": {
+        "defaultMessage": "петстотини стапки"
+    },
+    "from_600_feet": {
+        "defaultMessage": "шестотини стапки"
+    },
+    "from_700_feet": {
+        "defaultMessage": "седумстотини стапки"
+    },
+    "from_800_feet": {
+        "defaultMessage": "осумстотини стапки"
+    },
+    "from_900_feet": {
+        "defaultMessage": "деветстотини стапки"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "илјада стапки"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "илјада и петстотини стапки"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "две илјади стапки"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "две илјади и петстотини стапки"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "три илјади стапки"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "три илјади и петстотини стапки"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "четири илјади стапки"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "четири илјади и петстотини стапки"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "пет илјади стапки"
+    },
+    "from_1_mile": {
+        "defaultMessage": "една милја"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "една и пол милја"
+    },
+    "from_2_miles": {
+        "defaultMessage": "две милји"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "повеќе од две милји"
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
     }
 }

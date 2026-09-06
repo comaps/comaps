@@ -8,7 +8,7 @@ final class CarPlayServiceTests: XCTestCase {
 
   override func setUp() {
     super.setUp()
-    carPlayService = CarPlayService()
+    carPlayService = .shared
   }
 
   override func tearDown() {
@@ -62,6 +62,57 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertEqual(LaneWay.slightRight.turnImageName, "slight_right")
     XCTAssertEqual(LaneWay.mergeToRight.turnImageName, "slight_right")
     XCTAssertEqual(LaneWay.reverseRight.turnImageName, "uturn_right")
+  }
+
+  func testCarPlayManeuverSymbolUsesBlackAndWhiteVariants() throws {
+    let displayScale: CGFloat = 2
+    let symbol = try XCTUnwrap(
+      CarPlayManeuverSymbol.image(named: "ic_cp_simple_left", displayScale: displayScale))
+    XCTAssertNotNil(symbol.imageAsset)
+    XCTAssertEqual(symbol.scale, displayScale)
+
+    let light = CarPlayManeuverSymbol.resolvedVariant(of: symbol, style: .light)
+    let dark = CarPlayManeuverSymbol.resolvedVariant(of: symbol, style: .dark)
+    XCTAssertLessThan(try averageVisibleLuminance(of: light), 0.1)
+    XCTAssertGreaterThan(try averageVisibleLuminance(of: dark), 0.9)
+  }
+
+  func testNumberedRoundaboutPreservesBlackAndWhiteVariants() throws {
+    let displayScale: CGFloat = 2
+    let plain = try XCTUnwrap(
+      CarPlayManeuverSymbol.image(named: "ic_cp_round", displayScale: displayScale))
+    let numbered = try XCTUnwrap(
+      CarPlayManeuverSymbol.image(named: "ic_cp_round", exitNumber: 3, displayScale: displayScale))
+    XCTAssertEqual(numbered.scale, displayScale)
+
+    let light = CarPlayManeuverSymbol.resolvedVariant(of: numbered, style: .light)
+    let dark = CarPlayManeuverSymbol.resolvedVariant(of: numbered, style: .dark)
+    XCTAssertLessThan(try averageVisibleLuminance(of: light), 0.1)
+    XCTAssertGreaterThan(try averageVisibleLuminance(of: dark), 0.9)
+
+    let plainLight = CarPlayManeuverSymbol.resolvedVariant(of: plain, style: .light)
+    XCTAssertGreaterThan(try visiblePixelCount(of: light),
+                         try visiblePixelCount(of: plainLight),
+                         "The exit number should add visible pixels to the roundabout symbol")
+  }
+
+  func testCarPlayLaneImageSetUsesWhiteLightContentAndBlackDarkContent() throws {
+    let lanes = [
+      LaneInfo(laneWays: [NSNumber(value: LaneWay.left.rawValue)],
+               recommendedWay: LaneWay.left.rawValue),
+      LaneInfo(laneWays: [NSNumber(value: LaneWay.through.rawValue)],
+               recommendedWay: LaneWay.none.rawValue),
+    ]
+    let displayScale: CGFloat = 2
+    let imageSet = try XCTUnwrap(
+      CarPlayLaneSymbol.imageSet(for: lanes, displayScale: displayScale))
+
+    XCTAssertEqual(imageSet.lightContentImage.size, CGSize(width: 120, height: 18))
+    XCTAssertEqual(imageSet.darkContentImage.size, CGSize(width: 120, height: 18))
+    XCTAssertEqual(imageSet.lightContentImage.scale, displayScale)
+    XCTAssertEqual(imageSet.darkContentImage.scale, displayScale)
+    XCTAssertGreaterThan(try averageVisibleLuminance(of: imageSet.lightContentImage), 0.9)
+    XCTAssertLessThan(try averageVisibleLuminance(of: imageSet.darkContentImage), 0.1)
   }
 
   func testInstructionVariants() {
@@ -198,5 +249,42 @@ final class CarPlayServiceTests: XCTestCase {
       }
     }
     return result
+  }
+
+  private func averageVisibleLuminance(of image: UIImage) throws -> CGFloat {
+    let pixels = try rgbaPixels(of: image)
+    var total: CGFloat = 0
+    var count: CGFloat = 0
+    for index in stride(from: 0, to: pixels.count, by: 4) where pixels[index + 3] > 32 {
+      let alpha = CGFloat(pixels[index + 3])
+      let red = min(255, CGFloat(pixels[index]) * 255 / alpha)
+      let green = min(255, CGFloat(pixels[index + 1]) * 255 / alpha)
+      let blue = min(255, CGFloat(pixels[index + 2]) * 255 / alpha)
+      total += (0.2126 * red + 0.7152 * green + 0.0722 * blue) / 255
+      count += 1
+    }
+    XCTAssertGreaterThan(count, 0, "The image should contain visible pixels")
+    return count == 0 ? 0 : total / count
+  }
+
+  private func visiblePixelCount(of image: UIImage) throws -> Int {
+    let pixels = try rgbaPixels(of: image)
+    return stride(from: 3, to: pixels.count, by: 4).filter { pixels[$0] > 32 }.count
+  }
+
+  private func rgbaPixels(of image: UIImage) throws -> [UInt8] {
+    let cgImage = try XCTUnwrap(image.cgImage)
+    let width = cgImage.width
+    let height = cgImage.height
+    var pixels = [UInt8](repeating: 0, count: width * height * 4)
+    let context = try XCTUnwrap(CGContext(data: &pixels,
+                                         width: width,
+                                         height: height,
+                                         bitsPerComponent: 8,
+                                         bytesPerRow: width * 4,
+                                         space: CGColorSpaceCreateDeviceRGB(),
+                                         bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue))
+    context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+    return pixels
   }
 }

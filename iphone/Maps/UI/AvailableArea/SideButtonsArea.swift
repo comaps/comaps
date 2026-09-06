@@ -10,10 +10,6 @@ final class SideButtonsArea: AvailableArea {
     let directions = ov.sideButtonsAreaAffectDirections
     addConstraints(otherView: ov, directions: directions)
   }
-
-  override func notifyObserver() {
-    MWMSideButtons.updateAvailableArea(areaFrame)
-  }
 }
 
 extension UIView {

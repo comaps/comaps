@@ -102,5 +102,59 @@
 			<string>%lld pokoi</string>
 		</dict>
 	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld miejsc dedykowanych osobom niepełnosprawnym</string>
+			<key>one</key>
+			<string>%lld miejsce dedykowane osobom niepełnosprawnym</string>
+			<key>few</key>
+			<string>%lld miejsca dedykowane osobom niepełnosprawnym</string>
+			<key>many</key>
+			<string>%lld miejsc dedykowane osobom niepełnosprawnym</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld miejsc z ładowarką</string>
+			<key>one</key>
+			<string>%lld miejsce z ładowarką</string>
+			<key>few</key>
+			<string>%lld miejsca z ładowarką</string>
+			<key>many</key>
+			<string>%lld miejsc z ładowarką</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld miejsc</string>
+			<key>one</key>
+			<string>%lld miejsce</string>
+			<key>few</key>
+			<string>%lld miejsca</string>
+			<key>many</key>
+			<string>%lld miejsc</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

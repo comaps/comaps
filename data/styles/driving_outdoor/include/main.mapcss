@@ -1,0 +1,30 @@
+/*
+ * Driving Outdoor style is based on the default style
+ * with added Driving and Outdoor styles changes.
+ * So first it includes default style files,
+ * then - when corresponding change files exist - Driving and Outdoor.
+ * And optionally could include its own change files (none at the moment).
+ *
+ * Driving Outdoor style is supposed to be used both for map browsing and car navigation modes.
+ */
+
+@import("../../default/include/Basemap.mapcss");
+@import("../../driving/include/Basemap.mapcss");
+@import("../../outdoors/include/Basemap.mapcss");
+
+@import("../../default/include/Basemap_label.mapcss");
+@import("../../outdoors/include/Basemap_label.mapcss");
+
+@import("../../default/include/Roads.mapcss");
+@import("../../outdoors/include/Roads.mapcss");
+
+@import("../../default/include/Roads_label.mapcss");
+@import("../../outdoors/include/Roads_label.mapcss");
+
+@import("../../default/include/Icons.mapcss");
+@import("../../driving/include/Icons.mapcss");
+@import("../../outdoors/include/Icons.mapcss");
+
+@import("../../default/include/Icons_Label_Colors.mapcss");
+
+@import("../../default/include/Subways.mapcss");

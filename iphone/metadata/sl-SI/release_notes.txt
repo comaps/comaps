@@ -1,0 +1,13 @@
+• Prikaz načina zemljevida je prilagojen načinu navigacije
+• Prikaži imena priljubljenih na zemljevidu (Izklop v nastavitvah)
+• Možnost nastavljanja velikosti pisave
+• Znaki oznak cest v Kirgizistanu, Uzbekistanu, Tadžikistanu, Kazahstanu in Gruziji
+• Izboljšan prikaz zavojev v temnem in svetlem načininu za CarPlay
+• Urejevalnik OSM: dodane kategorije (zapor, dojo, bowling_alley, lounger, shop=craft, golf_course, miniature_golf roller_coaster, carousel... in zbirna mesta)
+• Popravljena možnost iskanja v poljubnem nastavljenem jeziku
+• Uporaba neomejenih voznih pasov za usmerjanje po voznih pasovih pri "Pojdi ravno" navodilih.
+• Ne upošteva fee=donation kot plačano
+• Omogočena glasovna navodila v makedonščini
+• Popravljeno: vprašanje po lokaciji pred razpoložljivostjo zaščitenih podatkov
+• Popravljeno: izginjanje gumba za predogled poti
+• Podatki OpenStreetMap (stanje na 30. avgust) ter nadaljnje tedenske posodobitve

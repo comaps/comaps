@@ -503,6 +503,7 @@ TwoLevelPOIChecker::TwoLevelPOIChecker() : ftypes::BaseChecker(2 /* level */)
                           {"highway", "rest_area"},
                           {"highway", "services"},
                           {"highway", "speed_camera"},
+                          {"landuse", "cemetery"},
                           {"man_made", "communications_tower"},
                           {"man_made", "cross"},
                           {"man_made", "lighthouse"},
@@ -952,6 +953,12 @@ IsEmergencyAccessPointChecker::IsEmergencyAccessPointChecker()
 {
   Classificator const & c = classif();
   m_types.push_back(c.GetTypeByPath({"emergency", "access_point"}));
+}
+
+IsEmergencyPhoneChecker::IsEmergencyPhoneChecker()
+{
+  Classificator const & c = classif();
+  m_types.push_back(c.GetTypeByPath({"emergency", "phone"}));
 }
 
 IsAddressInterpolChecker::IsAddressInterpolChecker() : BaseChecker(1 /* level */)

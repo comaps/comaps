@@ -9,7 +9,6 @@
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_above="@+id/button_container"
     android:layout_gravity="center">
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_advanced"
@@ -22,14 +21,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="@dimen/margin_half" />
-
     <LinearLayout
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_height="wrap_content"
       android:layout_gravity="center_vertical"
+      android:layout_marginHorizontal="@dimen/margin_base"
       android:gravity="center"
       android:orientation="vertical"
-      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintBottom_toTopOf="@id/chb_download_country"
       app:layout_constraintTop_toTopOf="parent">
       <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="90dp"
@@ -42,28 +41,60 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_base"
-        android:layout_marginStart="@dimen/margin_base"
-        android:layout_marginEnd="@dimen/margin_base"
-        android:gravity="center"
+        android:textAlignment="center"
         android:text="@string/download_map_title" />
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/download_message"
         style="@style/MwmTextAppearance.Body2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_base"
         android:layout_marginTop="@dimen/margin_base"
-        android:layout_marginEnd="@dimen/margin_base"
-        android:gravity="center"
+        android:textAlignment="center"
         android:textColor="?android:textColorSecondary"
         tools:text="@string/download_resources" />
     </LinearLayout>
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/chb_download_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/download_country_ask"
+        android:textAppearance="@style/MwmTextAppearance.Body2"
+        android:layout_marginHorizontal="@dimen/margin_base"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button_progress" />
+    <LinearLayout
+        android:id="@+id/button_progress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/margin_base_plus"
+        android:layout_marginBottom="@dimen/margin_base_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+      <com.google.android.material.progressindicator.LinearProgressIndicator
+          android:id="@+id/progressbar"
+          style="@style/Widget.Material3.LinearProgressIndicator"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/margin_base"
+          android:layout_marginBottom="@dimen/margin_base"
+          android:indeterminate="false"
+          android:progress="1"
+          app:indicatorColor="?colorSecondary"
+          app:trackColor="@color/bg_routing_progress"/>
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/btn_download_resources"
+          style="@style/MwmWidget.M3.Button.Primary"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+
+          android:text="@string/download"
+          android:textAppearance="@style/MwmTextAppearance.Body1"
+          app:backgroundTint="?colorSecondary"/>
+    </LinearLayout>
+
   </androidx.constraintlayout.widget.ConstraintLayout>
-  <include
-    android:id="@+id/button_container"
-    layout="@layout/button_with_progress"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true" />
 </RelativeLayout>
 

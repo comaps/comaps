@@ -146,4 +146,7 @@
     <string name="pref_tts_street_names_description">When enabled, the name of the street or exit to turn onto will be spoken aloud.</string>
     <string name="pref_tts_language_title">Voice Language</string>
     <string name="pref_tts_test_voice_title">Test Voice Directions</string>
+    <string name="prefs_group_data_management_summary">Map storage, backup favourites</string>
+    <string name="bookmarks_text_placement_title">Show names of favourites on map</string>
+    <string name="sort_categories">Sort Favourite Lists</string>
 </resources>

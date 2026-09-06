@@ -137,13 +137,12 @@
 "version %@ (%@)" = "%@ (%@) versija";
 "version: %@ (%@)\nmap data: %@" = "Versija: %@ (%@)\nKartes dati: %@";
 /* Title for tracks category in bookmarks manager */
-"tracks_title" = "Pēdojumi";
+"tracks_title" = "Ceļi";
 /* Length of track in cell that describes route */
 "length" = "Garums";
 "share_my_location" = "Kopīgot manu atrašanās vietu";
 "prefs_group_route" = "Navigācija";
 "pref_zoom_title" = "Tālummaiņas pogas";
-"pref_left_button_type" = "Kreisā galvenā poga";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Karšu valoda";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "Automātisks";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Perspektīvas skats";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "3D ēkas";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "Energotaupības režīmā 3D ēkas ir izslēgtas";
 /* Settings «Route» category: «Tts enabled» title */
@@ -242,7 +239,7 @@
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Vēlreiz piespiediet un paturiet uz kartes, lai redzētu saskarni";
 /* Update all button text */
-"downloader_update_all_button" = "Atjaunināt visus";
+"downloader_update_all_button" = "Atjaunināt visas";
 /* Downloaded maps list header */
 "downloader_downloaded_subtitle" = "Lejupielādētās";
 /* Downloaded maps category */
@@ -407,8 +404,8 @@
 "closed" = "Slēgts";
 "add_opening_hours" = "Pievienot darba laiku";
 /* OpenStreetMap */
-"osm_mapdata" = "Kartes dati no OpenStreetMap";
-"osm_mapdata_explanation %@" = "Kopienas veidoti karšu dati, *%@*. Uzziniet vairāk par to, kā piedalīties kartes rediģēšanā un uzlabošanā vietnē „[OpenStreetMap.org](https://openstreetmap.org)“.";
+"osm_mapdata" = "Karšu dati no OpenStreetMap";
+"osm_mapdata_explanation %@" = "Kopienas veidoti karšu dati, *%@*. Vairāk par to, kā piedalīties karšu labošana un atjaunināšana, var [OpenStreetMap.org](https://openstreetmap.org).";
 "osm_more_about" = "Vairāk par „OpenStreetMap“";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
 /* OpenStreetMap Profile */
@@ -571,7 +568,6 @@
 "mobile_data_option_never" = "Nekad neizmantot";
 "mobile_data_option_ask" = "Jautāt vienmēr";
 "traffic_update_maps_text" = "Lai parādītu satiksmes datus, kartes ir jāatjaunina.";
-"big_font" = "Palielināt fonta lielumu kartē";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Lai parādītu satiksmes datus, lietotne ir jāatjaunina.";
 /* "traffic" as in "road congestion" */
@@ -625,8 +621,6 @@
 "restore" = "Atjaunot";
 "privacy_policy" = "Privātuma politika";
 "terms_of_use" = "Izmantošanas nosacījumi";
-"button_layer_subway" = "Metro";
-"layers_title" = "Kartes stili un slāņi";
 "subway_data_unavailable" = "Metro karte nav pieejama";
 "title_error_downloading_bookmarks" = "Notika kļūda";
 "popular_place" = "Populāras";
@@ -733,7 +727,6 @@
 "transit_not_found" = "Metro navigācija šajā reģionā nav pieejama";
 "dialog_pedestrian_route_is_long_header" = "Metro maršruts nav atrasts";
 "dialog_pedestrian_route_is_long_message" = "Izvēlieties sākuma un beigu punktu tuvāk metro stacijai";
-"button_layer_isolines" = "Reljefa līnijas";
 "isolines_activation_error_dialog" = "Reljefa līniju parādīšanai nepieciešamas lejupielādēt šī reģiona karti";
 "isolines_location_error_dialog" = "Topogrāfiskais slānis šim reģionam nav pieejams";
 "elevation_profile_diff_level" = "Sarežģītības līmenis";
@@ -795,8 +788,6 @@
 "car_continue_on_the_phone" = "Turpināt tālrunī";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Uz auto ekrānu";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Aktīvā atpūta";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Izgūt visu izlasi";
 /* Text for the editing the Track's color button. */
@@ -846,14 +837,10 @@
 "recover" = "Atjaunot";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Atjaunot visu";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Ierakstīt pēdojumu";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Apstādināt pēdojuma ierakstīšanu";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
-"stop_without_saving" = "Pārtraukt ierakstīšanu";
+"stop_without_saving" = "Pārtraukt bez saglabāšanas";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
-"continue_recording" = "Turpināt ierakstīt";
+"continue_recording" = "Turpināt ierakstīšanu";
 /* Title for the alert when saving a track recording. */
 "track_recording_alert_title" = "Pievienot izlasei?";
 /* Message for the toast when saving the track recording is finished but nothing to save. */
@@ -873,7 +860,7 @@
 "downloader_check_updates_updated" = "Pieejami karšu atjauninājumi.";
 "downloader_check_updates_no_updates" = "Atjauninājumi nav pieejami";
 "downloader_check_updates_eol" = "Šai lietotnes versijai vairs nav karšu atjauninājumu. Lūgums atjaunināt lietotni.";
-"downloader_check_updates_error" = "Error checking for updates";
+"downloader_check_updates_error" = "Kļūda atjauninājumu pārbaudes laikā";
 "editor_add_select_category_recent_subtitle" = "Nesen izmantotās";
 "oh_unknown" = "Darba laiks nav zināms";
 "carplay_highway_exit" = "Izbraukt %@";
@@ -881,5 +868,32 @@
 "capacity_disabled_no" = "Nav atsevišķu invalīdu vietu";
 "capacity_charging_yes" = "Ir vietas ar lādētājiem";
 "capacity_charging_no" = "Nav vietu ar lādētājiem";
-"planning_route_preview" = "Preview";
+"planning_route_preview" = "Priekšskatījums";
 "planning_route_preview_sheet_title" = "Route Preview";
+"discard" = "Noraidīt";
+"pref_custom_button_type" = "Customizable Button";
+"osm" = "OpenStreetMap";
+"mode" = "Mode";
+"mode_walking" = "Walking";
+"mode_cycling" = "Cycling";
+"mode_driving" = "Driving";
+"mode_public-transport" = "Sabiedriskais transports";
+"mode_option_traffic" = "Rādīt satiksmi";
+"mode_option_transitlines" = "Show Transit Lines";
+"mode_option_comingsoon" = "Options coming soon";
+"layers" = "Slāņi";
+"layers_option_contour-lines" = "Reljefa līnijas";
+"layers_option_outdoor" = "Brīvdaba";
+"layers_option_buildings-3d" = "3D ēkas";
+"layers_power-saving" = "Šis slānis šobrīd ir automātiski atspējots jaudas saglabāšanas iestatījuma dēļ.";
+"postionmode_locate" = "Find own location";
+"postionmode_locating" = "Finding own location...";
+"postionmode_following" = "Following location with map roated towards North";
+"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
+"zoom_in" = "Pietuvināt";
+"zoom_out" = "Attālināt";
+"record_track" = "Ierakstīt ceļu";
+"recording_track" = "Ieraksta ceļu";
+"bookmarks_text_placement_title" = "Show names of favorites on map";
+"pref_font_size" = "Font size for map labels";
+"font_size" = "Font size";

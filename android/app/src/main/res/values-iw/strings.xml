@@ -524,7 +524,7 @@
     <string name="mobile_data_option_never">אף פעם אל תשתמש</string>
     <string name="mobile_data_option_ask">שאל תמיד</string>
     <string name="traffic_update_maps_text">יש לעדכן את המפות בשביל להציג את נתוני עומס התנועה</string>
-    <string name="big_font">הגדל תגיות במפה</string>
+    <string name="increase_font_size">הגדל תגיות במפה</string>
     <string name="traffic_update_app">נא לעדכן את CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">נתוני עומס התנועה אינם זמינים</string>
@@ -814,6 +814,7 @@
     <string name="mb_downloaded">%1$d מ״ב / %2$d מ״ב</string>
     <string name="opens_at">הפתיחה בשעה %s</string>
     <string name="closes_at">הסגירה בשעה %s</string>
+    <string name="opens_tomorrow_at">נפתח מחר ב-%s</string>
     <string name="opens_day_at">הפתיחה ביום %1$s בשעה %2$s</string>
     <string name="closes_day_at">הסגירה ביום %1$s בשעה %2$s</string>
     <plurals name="minutes_short">
@@ -870,4 +871,13 @@
     <string name="pref_openexternallinks_title">פתיחה אוטומטית של קישורי צד־שלישי</string>
     <string name="pref_backup_status_summary_success">הגיבוי המוצלח האחרון</string>
     <string name="route_finished">המסלול הסתיים</string>
+    <string name="bookmark_share_email_subject">שלחתי לך מיקום, יש לפתוח את הקישור %1$s או לחפש את הקואורדינטות %2$s במפה כדי לראות אותו.</string>
+    <string name="my_position_share_email">שלחתי לך את המיקום שלי, יש לפתוח את הקישור %1$s או לחפש את הקואורדינטות %2$s במפה כדי לראות אותו.</string>
+    <string name="pref_about_summary">דיווח על בעיות, קבלת עזרה, תרומה\nגרסה: v%1$s</string>
+    <string name="prefs_group_map_appearance">עיצוב מפה</string>
+    <string name="prefs_group_map_appearance_summary">שפת מפה, גודל גופן, בניינים ב2/3 מימדים</string>
+    <string name="prefs_group_interface">ממשק</string>
+    <string name="prefs_group_interface_summary">מצב לילה, כפתורים, שפה</string>
+    <string name="prefs_group_data_management">ניהול נתונים</string>
+    <string name="prefs_group_route_summary">יחידות מרחק, הנחיות קוליות, אפשרויות מסלול</string>
 </resources>

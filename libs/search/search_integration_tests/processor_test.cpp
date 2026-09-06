@@ -1717,6 +1717,29 @@ UNIT_CLASS_TEST(ProcessorTest, SelectProperName)
   testLanguage("de", "Russian");
 }
 
+// Regression test: Input language should not shadow map language
+UNIT_CLASS_TEST(ProcessorTest, MapLanguagePreservedOnForeignInputLocale)
+{
+  // Example city (Zurich) with name just in Serbian
+  StringUtf8Multilang name;
+  name.AddString("sr", "Цирих");
+  TestCity city({0, 0}, name, 100 /* rank */);
+
+  auto const testWorldId = BuildWorld([&](TestMwmBuilder & builder) { builder.Add(city); });
+
+  SetViewport(m2::RectD(-1.0, -1.0, 1.0, 1.0));
+
+  // Set map language to Serbian
+  m_engine.SetLocale("sr");
+
+  Rules const rules{ExactMatch(testWorldId, city)};
+
+  // If input language is also Serbian, then everything works ok
+  TEST(ResultsMatch("Цирих", rules, "sr"), ());
+  // But, if input language is English, Serbian search must still work
+  TEST(ResultsMatch("Цирих", rules, "en"), ());
+}
+
 UNIT_CLASS_TEST(ProcessorTest, CuisineTest)
 {
   TestPOI vegan({1.0, 1.0}, "Useless name", "en");

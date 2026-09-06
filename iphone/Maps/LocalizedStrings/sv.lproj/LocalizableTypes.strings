@@ -24,7 +24,7 @@
 "type.amenity.bar" = "Bar";
 "type.amenity.bbq" = "Grill för barbecue";
 "type.amenity.bench" = "Bänk";
-"type.amenity.bench.backless" = "Bänk utan ryggstöd";
+"type.amenity.bench.backless" = "Utan ryggstöd";
 "type.amenity.bicycle_parking" = "Cykelparkering";
 "type.amenity.bicycle_parking.covered" = "Cykelparkering under tak";
 "type.amenity.boat_rental" = "Båtuthyrning";
@@ -41,9 +41,9 @@
 "type.amenity.car_sharing" = "Samåkning";
 "type.amenity.car_wash" = "Biltvätt";
 "type.man_made.telescope" = "Teleskop";
-"type.man_made.telescope.optical" = "Telescope (Optical)";
-"type.man_made.telescope.radio" = "Telescope (Radio)";
-"type.man_made.telescope.gamma" = "Telescope (Gamma)";
+"type.man_made.telescope.optical" = "Teleskop (optiskt)";
+"type.man_made.telescope.radio" = "Teleskop (radio)";
+"type.man_made.telescope.gamma" = "Teleskop (gamma)";
 "type.man_made.observatory" = "Observatorium";
 "type.amenity.casino" = "Kasino";
 "type.amenity.gambling" = "Spelande";
@@ -51,17 +51,17 @@
 "type.leisure.adult_gaming_centre" = "Spelcenter för vuxna";
 "type.leisure.amusement_arcade" = "Arkad";
 "type.amenity.charging_station" = "Laddstation";
-"type.amenity.charging_station.motorcar" = "Laddningsstation för bilar";
-"type.amenity.charging_station.motorcycle" = "Motorcycles";
-"type.amenity.charging_station.bicycle" = "Laddningsstation för cykel";
-"type.amenity.charging_station.small" = "Limited Capacity";
+"type.amenity.charging_station.motorcar" = "Bilar";
+"type.amenity.charging_station.motorcycle" = "Motorcyklar";
+"type.amenity.charging_station.bicycle" = "Cyklar";
+"type.amenity.charging_station.small" = "Begränsad kapacitet";
 "type.amenity.childcare" = "Barnomsorg";
 "type.amenity.cinema" = "Bio";
 "type.leisure.bowling_alley" = "Bowlinghall";
 "type.amenity.clinic" = "Klinik";
 "type.amenity.college" = "Högskola";
 "type.amenity.community_centre" = "Stadshus";
-"type.amenity.community_centre.youth_centre" = "Youth Centre";
+"type.amenity.community_centre.youth_centre" = "Ungdomscenter";
 "type.amenity.compressed_air" = "Tryckluft";
 "type.amenity.conference_centre" = "Konferens Center";
 "type.amenity.courthouse" = "Domstol";
@@ -73,8 +73,8 @@
 "type.amenity.exhibition_centre" = "Mässa";
 "type.amenity.money_transfer" = "Pengaöverföring";
 "type.amenity.music_school" = "Musikskola";
-"type.amenity.sailing_school" = "Sailing School";
-"type.amenity.flight_school" = "Flight School";
+"type.amenity.sailing_school" = "Seglarskola";
+"type.amenity.flight_school" = "Flygskola";
 "type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "Språkskola";
 "type.office.diplomatic" = "Ambassad";
@@ -99,7 +99,7 @@
 "type.amenity.library" = "Bibliotek";
 "type.amenity.loading_dock" = "Lastkaj";
 "type.amenity.lounger" = "Lounger";
-"type.amenity.luggage_locker" = "Luggage Locker";
+"type.amenity.luggage_locker" = "Förvaringsboxar";
 "type.amenity.marketplace" = "Marknadsplats";
 "type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.motorcycle_parking" = "Motorcykelparkering";
@@ -409,11 +409,11 @@
 "type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
 "type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
 "type.lateral.port" = "Port";
-"type.lateral.starboard" = "Starboard";
-"type.cardinal.east" = "East";
-"type.cardinal.north" = "North";
-"type.cardinal.south" = "South";
-"type.cardinal.west" = "West";
+"type.lateral.starboard" = "Styrbord";
+"type.cardinal.east" = "Öst";
+"type.cardinal.north" = "Norr";
+"type.cardinal.south" = "Söder";
+"type.cardinal.west" = "Väst";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "Bergsräddningsstation";
 /* This is for secondary entrances, for main entrances see type.entrance.main */
@@ -425,7 +425,7 @@
 "type.entrance.service" = "Service Entrance";
 "type.entrance.entry" = "Entry (Only)";
 "type.entrance.exit" = "Utgång";
-"type.entrance.emergency" = "Emergency Exit";
+"type.entrance.emergency" = "Nödutgång";
 "type.fee.yes" = "€";
 "type.fee.no" = "Gratis";
 "type.healthcare.laboratory" = "Medicinskt laboratorium";
@@ -1365,7 +1365,7 @@
 "type.shop.watches" = "Klockor";
 "type.shop.wholesale" = "Grossistbutik";
 "type.shop.lighting" = "Lighting Shop";
-"type.disusedbusiness" = "Vacant Business";
+"type.disusedbusiness" = "Tom butikslokal";
 "type.sport" = "Sport";
 "type.sport.multi" = "Olika sporter";
 "type.sport.9pin" = "Bowling";

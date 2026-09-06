@@ -57,7 +57,7 @@
 "type.amenity.charging_station.small" = "Begrenzte Kapazität";
 "type.amenity.childcare" = "Kindertagesstätte";
 "type.amenity.cinema" = "Kino";
-"type.leisure.bowling_alley" = "Bowlingbahn";
+"type.leisure.bowling_alley" = "Bowlingcenter";
 "type.amenity.clinic" = "Klinik";
 "type.amenity.college" = "Bildungseinrichtung";
 "type.amenity.community_centre" = "Gemeinschaftszentrum";
@@ -1463,7 +1463,7 @@
 "type.natural.water.ditch" = "Entwässerungsgraben";
 "type.waterway.ditch.tunnel" = "Durchlass";
 "type.waterway.dock" = "Dock";
-"type.waterway.drain" = "Abfluss";
+"type.waterway.drain" = "Abwasserkanal";
 "type.waterway.fuel" = "Bunkerstation";
 "type.natural.water.drain" = "Abfluss";
 "type.waterway.drain.tunnel" = "Durchlass";

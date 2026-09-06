@@ -157,7 +157,7 @@ NSString * const kOfflineMapsExplained = @"OfflineMapsExplained";
   if (self.superview)
     return;
   MapViewController *controller = self.controller;
-  [controller.view insertSubview:self aboveSubview:controller.controlsView];
+  [controller.view insertSubview:self aboveSubview:controller.mainView];
   [[MWMStorage sharedStorage] addObserver:self];
 
   // Center dialog in the parent view.

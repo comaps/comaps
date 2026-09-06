@@ -43,4 +43,8 @@
     <string name="weeks_ago">пре %s недеља</string>
     <string name="year_ago">пре %s године</string>
     <string name="years_ago">пре %s година</string>
+    <string name="accessibility_map_action_expand_label">истражите додиром</string>
+    <string name="accessibility_map_action_collapse_label">завршите истраживање додиром</string>
+    <string name="accessibility_map_content_description_collapsed">Мапа. Померајте горе или доле једним прстом, или раширите да бисте истраживали додиром.</string>
+    <string name="accessibility_map_content_description_expanded">Мапа. Додирните и држите да бисте истраживали додиром. Места ће бити прочитана како их будете додирнули. За завршетак, померите на горе или на доле једним прстом и затворите.</string>
 </resources>

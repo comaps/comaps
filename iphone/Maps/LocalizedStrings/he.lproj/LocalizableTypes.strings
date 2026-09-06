@@ -28,7 +28,7 @@
 "type.amenity.bicycle_repair_station" = "תחנת תיקון אופניים";
 "type.amenity.biergarten" = "גן בירה";
 "type.amenity.brothel" = "בית בושת";
-"type.amenity.love_hotel" = "Love Hotel";
+"type.amenity.love_hotel" = "מלון לפי שעה";
 "type.amenity.bureau_de_change" = "המרת מטבע חוץ";
 "type.amenity.bus_station" = "תחנת אוטובוס";
 "type.amenity.cafe" = "בית קפה";
@@ -40,7 +40,7 @@
 "type.man_made.telescope.optical" = "טלסקופ (אופטי)";
 "type.man_made.telescope.radio" = "Telescope (Radio)";
 "type.man_made.telescope.gamma" = "Telescope (Gamma)";
-"type.man_made.observatory" = "Observatory";
+"type.man_made.observatory" = "מצפה";
 "type.amenity.casino" = "קזינו";
 "type.amenity.gambling" = "הימורים";
 "type.amenity.studio" = "Studio";
@@ -48,7 +48,7 @@
 "type.leisure.amusement_arcade" = "משחקי ארקייד";
 "type.amenity.charging_station" = "תחנת טעינה";
 "type.amenity.charging_station.motorcar" = "תחנת טעינה למכוניות";
-"type.amenity.charging_station.motorcycle" = "Motorcycles";
+"type.amenity.charging_station.motorcycle" = "תחנת טעינה לאופנוע";
 "type.amenity.charging_station.bicycle" = "תחנת טעינה לאופניים";
 "type.amenity.charging_station.small" = "קיבולת מוגבלת";
 "type.amenity.childcare" = "גנון";
@@ -1526,14 +1526,14 @@
 "type.leisure.sports_centre.sport.boules" = "מרכז ספורט";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "מרכז ספורט";
-"type.aerialway" = "Aerialway";
+"type.aerialway" = "רכבלית";
 "type.aeroway" = "Airspace Infrastructure";
-"type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
-"type.amenity.bench.backless" = "Without Backrest";
+"type.amenity.bicycle_parking.covered" = "חניית אופניים מקורה";
+"type.amenity.bench.backless" = "ללא משענת גב";
 "type.railway.narrow_gauge.bridge" = "Narrow Gauge Rail Bridge";
 "type.organic.no" = "No organic options";
 "type.amenity.stage" = "Stage";
 "type.amenity.animal_boarding" = "Animal Boarding";
 "type.amenity.toilets.customers" = "Customer Access";
 "type.amenity.toilets.private" = "Private Access";
-"type.amenity.planetarium" = "Planetarium";
+"type.amenity.planetarium" = "פלנטריום";

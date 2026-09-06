@@ -9,6 +9,7 @@
 #include "drape_frontend/gui/ruler_helper.hpp"
 #include "drape_frontend/gui/scale_fps_helper.hpp"
 #include "drape_frontend/gui/shape.hpp"
+#include "drape_frontend/overlay_id.hpp"
 
 #include "drape/drape_global.hpp"
 #include "drape/graphics_context.hpp"
@@ -171,7 +172,8 @@ class ScaleFpsLabelHandle : public MutableLabelHandle
 public:
   ScaleFpsLabelHandle(uint32_t id, ref_ptr<dp::TextureManager> textures, std::string const & apiLabel,
                       Position const & position)
-    : TBase(id, position.m_anchor, position.m_pixelPivot, textures)
+    // TODO add a11y info
+    : TBase(id, position.m_anchor, position.m_pixelPivot, dp::AccessibilityNodeInfo(), textures)
     , m_apiLabel(apiLabel)
   {
     SetIsVisible(true);
@@ -189,7 +191,10 @@ public:
       m_fps = helper.GetFps();
       m_isPaused = helper.IsPaused();
       std::stringstream ss;
-      ss << m_apiLabel << ": Scale: " << m_scale << " / FPS: " << m_fps;
+#ifndef OMIM_OS_IPHONE
+      ss << m_apiLabel << ": ";
+#endif
+      ss << "Zoom " << m_scale << " | " << m_fps << " FPS";
       if (m_isPaused)
         ss << " (PAUSED)";
       SetContent(ss.str());
@@ -377,7 +382,7 @@ void LayerCacher::CacheScaleFpsLabel(ref_ptr<dp::GraphicsContext> context, Posit
     case dp::ApiVersion::Vulkan: apiLabel = "V"; break;
     case dp::ApiVersion::Invalid: CHECK(false, ("Invalid API version.")); break;
     }
-    return make_unique_dp<ScaleFpsLabelHandle>(EGuiHandle::GuiHandleScaleLabel, textures, apiLabel, position);
+    return make_unique_dp<ScaleFpsLabelHandle>(df::GuiHandleScaleLabel, textures, apiLabel, position);
   };
 
   drape_ptr<ShapeRenderer> scaleRenderer = make_unique_dp<ShapeRenderer>();

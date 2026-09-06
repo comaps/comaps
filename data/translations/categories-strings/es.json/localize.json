@@ -78,7 +78,7 @@
         "defaultMessage": "3Panadería|pan|panificadora|4pastelería|5repostería|4confitería|4bollería"
     },
     "shop-cannabis|@shop": {
-        "defaultMessage": "Cánnabis|marihuana|mariguana"
+        "defaultMessage": "Cánnabis|marihuana|mariguana|CBD"
     },
     "shop-cosmetics|@category_shopping|@shop": {
         "defaultMessage": "4Productos cosméticos|Cosméticos|Belleza|Maquillaje"
@@ -186,19 +186,19 @@
         "defaultMessage": "Transferencia de dinero"
     },
     "shop-clothes|@category_shopping|@shop": {
-        "defaultMessage": "3Ropa|U+1F45A|U+1F457|U+1F456|U+1F455|prendas de vestir|confección|vestimenta|moda|prendas|atuendo"
+        "defaultMessage": "3Ropa|U+1F45A|U+1F457|U+1F456|U+1F455|prendas de vestir|prendas|ropa|moda|vestimenta|atuendos"
     },
     "shop-caravan|@category_rv|@shop": {
-        "defaultMessage": "Venta de caravanas|Venta de autocaravanas|Venta de motorhomes"
+        "defaultMessage": "Venta de caravanas|Venta de autocaravanas|Venta de motorhomes|Concesionario de vehículos recreativos|Concesionario de caravanas|Concesionario de autocaravanas"
     },
     "shop-car|@shop": {
-        "defaultMessage": "Venta de coches|Venta de autos|Automotora|Automotores|5Concesionaria|Concesionario|Carros|Coches|Automóviles|Autos"
+        "defaultMessage": "Venta de coches|Venta de autos|Automotora|Automotores|5Concesionaria|Concesionario|Carros|Coches|Automóviles|Autos|3Concesionario de coches|4Concesionario de automóviles|"
     },
     "shop-bicycle|@shop": {
         "defaultMessage": "4Bicicleta|Bici|7Tienda de ciclismo|bicicletas|U+1F6B2|U+1F6B4|U+1F6B5"
     },
     "shop-kiosk": {
-        "defaultMessage": "4Quiosco|4Kiosko|kiosco"
+        "defaultMessage": "3Quiosco|4Kiosco|Kiosko"
     },
     "highway-bus_stop|@category_transport": {
         "defaultMessage": "4Parada de autobús|Parada|Autobús|Bus|omnibus|omni|bondi|colectivo"
@@ -207,7 +207,7 @@
         "defaultMessage": "3Parada de tranvía|tranvía|parada|U+1F683"
     },
     "amenity-bus_station|@category_transport": {
-        "defaultMessage": "3Estación de autobuses|Estación de ómnibus|Estación de micros|Estación de colectivos|Autobús|bus|Terminal de buses|Terminal de autobusesAutobús|omnibus|omni|bondi|colectivo"
+        "defaultMessage": "3Estación de autobuses|Estación de ómnibus|Estación de micros|Estación de colectivos|Estación de guaguas|Terminal de guaguas|Autobús|bus|Terminal de buses|Terminal de autobuses|Autobús|omnibus|omni|bondi|colectivo|guagua|buses|autobuses"
     },
     "railway-station|railway-halt|building-train_station|@category_transport": {
         "defaultMessage": "3Estación de tren|estación de tren|4ferrocarril|vía férrea|4estación|U+1F684|U+1F685|U+1F689|U+1F682|U+1F686|U+1F688|U+1F68A|U+1F68B|Parada de tren"
@@ -285,34 +285,34 @@
         "defaultMessage": "4Castillo|Castrum|Iglesia fortificada|Fortaleza|Castro|Kremlin|Casa solariega|Palacio"
     },
     "historic-city_gate|@category_tourism": {
-        "defaultMessage": "Puerta de la ciudad|Arco de ciudad"
+        "defaultMessage": "4Puerta de la ciudad|Arco de ciudad|Puerta fortificada|Arco de triunfo|Arco|Torre-puerta"
     },
     "historic-citywalls|@category_tourism": {
-        "defaultMessage": "Muro de la ciudad|Muralla"
+        "defaultMessage": "4Muralla de la ciudad|Muralla urbana|Recinto amurallado|Barbacana"
     },
     "historic-fort|@category_tourism": {
-        "defaultMessage": "Fuerte|Fortificación|Fortín|Fortaleza"
+        "defaultMessage": "Fuerte|Fortificación|Fortín|Fortaleza|Destacamento fortificado|Puesto avanzado"
     },
     "historic-gallows|@category_tourism": {
-        "defaultMessage": "Horca|Patíbulo|Guillotina|Cadalso"
+        "defaultMessage": "Horca|Patíbulo|Guillotina|Cadalso|Picota|Lugar de ejecución"
     },
     "historic-memorial|@category_tourism": {
-        "defaultMessage": "4Memorial|monumento|5conmemoración|U+1F5FC|U+1F5FD|U+1F5FF"
+        "defaultMessage": "4Memorial|Monumento|Conmemoración|Monolito|Hito histórico|Cenotafio|Estatua conmemorativa|Arco de triunfo|Mausoleo|Santuario"
     },
     "historic-memorial-cross": {
-        "defaultMessage": "Cruz conmemorativa|Cruz"
+        "defaultMessage": "Cruz conmemorativa|Cruz de los caídos|Crucero histórico|Monumento fúnebre|Cenotafio|Hito de memoria"
     },
     "historic-memorial-plaque": {
-        "defaultMessage": "Placa conmemorativa"
+        "defaultMessage": "Placa conmemorativa|placa histórica"
     },
     "historic-memorial-sculpture|@category_tourism": {
         "defaultMessage": "Escultura"
     },
     "historic-memorial-statue|@category_tourism": {
-        "defaultMessage": "Estatua"
+        "defaultMessage": "3Estatua"
     },
     "historic-memorial-stolperstein": {
-        "defaultMessage": "Stolperstein"
+        "defaultMessage": "Piedra de la memoria|Adoquín conmemorativo|Stolpersteine"
     },
     "historic-memorial-war_memorial|@category_tourism": {
         "defaultMessage": "Monumento de guerra|Memorial de guerra|Monumento a los caídos"
@@ -327,10 +327,10 @@
         "defaultMessage": "Cañón"
     },
     "historic-anchor": {
-        "defaultMessage": "Ancla|Ancla histórica"
+        "defaultMessage": "4Ancla conmemorativa|Ancla histórica"
     },
     "historic-ruins|@category_tourism": {
-        "defaultMessage": "3Ruinas"
+        "defaultMessage": "4Ruinas históricas|3Ruinas|Vestigios históricos|Yacimiento arqueológico|Restos arqueológicos|Vestigios"
     },
     "historic-mine": {
         "defaultMessage": "Mina histórica"
@@ -450,7 +450,7 @@
         "defaultMessage": "Laboratorio médico|5Laboratorio clínico"
     },
     "healthcare-physiotherapist": {
-        "defaultMessage": "7Fisioterapia"
+        "defaultMessage": "7Fisioterapia|Fisio|Fisioterapeuta|Rehabilitación"
     },
     "healthcare-alternative": {
         "defaultMessage": "5Medicina alternativa|medicina holística"
@@ -993,7 +993,7 @@
         "defaultMessage": "Clínica veterinaria|veterinaria|veterinario"
     },
     "amenity-animal_shelter": {
-        "defaultMessage": "Refugio de animales|rescate de animales"
+        "defaultMessage": "Refugio de animales|rescate de animales|protectora de animales|Perrera municipal|albergue de animales"
     },
     "@charging_station": {
         "defaultMessage": "Estación de carga|punto de carga|punto de recarga|Cargador|recargar|cargar"
@@ -1095,7 +1095,7 @@
         "defaultMessage": "4Área de descanso|Área de servicio|Parada de descanso"
     },
     "man_made-chimney": {
-        "defaultMessage": "Chimenea de fábrica"
+        "defaultMessage": "Chimenea de fábrica|chimenea industrial|chimenea"
     },
     "man_made-crane": {
         "defaultMessage": "Grúa"
@@ -1104,7 +1104,7 @@
         "defaultMessage": "Torre"
     },
     "shop-seafood|@category_food|@shop": {
-        "defaultMessage": "4Pescadería|5Marisquería|Pescadero|Pescatero|Pescado|Mariscos|Comida del mar"
+        "defaultMessage": "4Pescadería|5Marisquería|Pescadero|Pescatero|Pescado|Mariscos|Comida del mar|marino"
     },
     "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
         "defaultMessage": "Tienda de segunda mano|Vintage|Usado|5Segunda mano"
@@ -1140,7 +1140,7 @@
         "defaultMessage": "Control de fronteras"
     },
     "leisure-water_park|@category_tourism|@category_children": {
-        "defaultMessage": "Parque acuático|acuaparque"
+        "defaultMessage": "6Parque acuático|acuaparque|parque de agua"
     },
     "man_made-water_tower": {
         "defaultMessage": "Depósito de agua|Torre de agua"
@@ -1161,7 +1161,7 @@
         "defaultMessage": "Compuerta"
     },
     "amenity-public_bookcase": {
-        "defaultMessage": "Intercambio de libros|biblioteca libre|punto de intercambio|libros"
+        "defaultMessage": "4Intercambio de libros|biblioteca libre|punto de intercambio|libros|libro|librería pública|estantería de libros|biblioteca libre|biblioteca de calle|biblioteca de acera|pequeña biblioteca libre|biblioteca libre|librería libre|librería de intercambio|canje de libros|4donación de libros|micro biblioteca|mini biblioteca|microbiblioteca|minibiblioteca"
     },
     "sport-climbing": {
         "defaultMessage": "Centro de escalada|3Rocódromo|Escalar|Escalada|Gimnasio de escalada"
@@ -1176,7 +1176,7 @@
         "defaultMessage": "Resort|Complejo turístico|Complejo hotelero"
     },
     "amenity-biergarten|@category_eat|@category_nightlife": {
-        "defaultMessage": "5Biergarten|jardín de cerveza|jardín de la cerveza|cerveza"
+        "defaultMessage": "5Biergarten|jardín de cerveza|jardín de la cerveza|cerveza|cervecería al aire libre"
     },
     "amenity-driving_school": {
         "defaultMessage": "4Autoescuela|auto escuela|escuela de conducción|escuela de manejo"
@@ -1188,7 +1188,7 @@
         "defaultMessage": "Escuela de idiomas|idiomas"
     },
     "amenity-ice_cream": {
-        "defaultMessage": "5Heladería|Helados"
+        "defaultMessage": "5Heladería|helado|helados"
     },
     "amenity-internet_cafe": {
         "defaultMessage": "5Cibercafé|2cyber|café internet|ciber"
@@ -1284,7 +1284,7 @@
         "defaultMessage": "7Parque nacional|naturaleza"
     },
     "leisure-nature_reserve|@category_tourism": {
-        "defaultMessage": "Territorio reservado|5Reserva natural|naturaleza"
+        "defaultMessage": "5Reserva natural|naturaleza|6reserva de vida silvestre"
     },
     "natural-cape": {
         "defaultMessage": "Cabo|Punta"
@@ -1416,7 +1416,7 @@
         "defaultMessage": "Pabellón deportivo|Sala deportiva|Salón deportivo|Deporte"
     },
     "amenity-arts_centre|@category_tourism": {
-        "defaultMessage": "Centro de arte"
+        "defaultMessage": "Centro de artes|6Centro cultural"
     },
     "amenity-prison": {
         "defaultMessage": "prisión|cárcel|penitenciario|retén"
@@ -1428,7 +1428,7 @@
         "defaultMessage": "Equipamiento de baño|Muebles de baño"
     },
     "shop-bed|@shop": {
-        "defaultMessage": "Tienda de camas|camas|colchón|colchones"
+        "defaultMessage": "Tienda de camas|camas|colchón|colchones|tienda de colchones|colchonería"
     },
     "shop-boutique|@shop": {
         "defaultMessage": "Boutique"
@@ -1446,7 +1446,7 @@
         "defaultMessage": "Peluquería canina|Peluquería de mascotas"
     },
     "shop-hifi|@shop": {
-        "defaultMessage": "Audio de alta fidelidad|alta fidelidad|sonido|tienda de sonido|equipos de sonido"
+        "defaultMessage": "Audio de alta fidelidad|alta fidelidad|sonido|tienda de sonido|equipos de sonido|tienda de audio|tienda de equipos de sonido|3HiFi"
     },
     "amenity-conference_centre": {
         "defaultMessage": "Centro de conferencias"
@@ -1455,7 +1455,7 @@
         "defaultMessage": "4Herbolario"
     },
     "shop-appliance|@shop": {
-        "defaultMessage": "Tienda de electrodomésticos|electrodomésticos"
+        "defaultMessage": "4Tienda de electrodomésticos|electrodomésticos|electrodoméstico|Electrodomésticos de cocina|Exposición de cocinas"
     },
     "shop-agrarian|@shop": {
         "defaultMessage": "Tienda agrícola"
@@ -1467,10 +1467,10 @@
         "defaultMessage": "Estación de transferencia de residuos|Residuos"
     },
     "shop-carpet|@shop": {
-        "defaultMessage": "Alfombras|Tienda de alfombras"
+        "defaultMessage": "6Tienda de alfombras|3alfombras"
     },
     "shop-craft|@shop": {
-        "defaultMessage": "Artesanía|Manualidades"
+        "defaultMessage": "4Artesanía|Manualidades|artesanías"
     },
     "shop-pasta|@shop": {
         "defaultMessage": "Pasta|Pastería"
@@ -1563,7 +1563,7 @@
         "defaultMessage": "Escuela de vela|Escuela de navegación"
     },
     "amenity-flight_school": {
-        "defaultMessage": "Escuela de aviación|Escuela de aeronáutica|Escuela de pilotos|aeronáutica|vuelo|aviación"
+        "defaultMessage": "Escuela de aviación|Escuela de aeronáutica|Escuela de pilotos|aeronáutica|vuelo|aviación|escuela aeronáutica"
     },
     "amenity-prep_school": {
         "defaultMessage": "Propedéutico|Tutoría"
@@ -1632,10 +1632,10 @@
         "defaultMessage": "Desayunos"
     },
     "cuisine-burger|@fastfood": {
-        "defaultMessage": "Hamburguesas"
+        "defaultMessage": "Hamburguesas|hamburguesa|hamburguesería"
     },
     "cuisine-bubble_tea": {
-        "defaultMessage": "Té de burbujas"
+        "defaultMessage": "Té de burbujas|Té de 4 perlas de tapioca|Té de leche con perlas de tapioca"
     },
     "cuisine-cake": {
         "defaultMessage": "Tartas"
@@ -1662,10 +1662,10 @@
         "defaultMessage": "Parrilla"
     },
     "cuisine-hotdog|@fastfood": {
-        "defaultMessage": "Perritos calientes"
+        "defaultMessage": "Perritos calientes|perrito caliente|perro caliente|perros calientes|pancho|panchos|panchito|panchitos|completo|completos|dog|jocho|jochos|shuco|pan con perro|dogos"
     },
     "cuisine-ice_cream": {
-        "defaultMessage": "Helados"
+        "defaultMessage": "Helado|helado italiano|5helado|helados"
     },
     "cuisine-kebab|@fastfood": {
         "defaultMessage": "Kebabs"
@@ -1674,7 +1674,7 @@
         "defaultMessage": "Tallarines"
     },
     "cuisine-pancake|cuisine-crepe": {
-        "defaultMessage": "Tortitas|Crepes"
+        "defaultMessage": "Tortitas|Panqueque|panqueques|crepes|crepe|crepa|crepas|tortita caliente|tortita de avena"
     },
     "cuisine-pasta": {
         "defaultMessage": "Pastas"
@@ -1698,7 +1698,7 @@
         "defaultMessage": "Soba"
     },
     "cuisine-steak_house": {
-        "defaultMessage": "Asador"
+        "defaultMessage": "asador|asadero|asados|churrasquería|parrillada|asador de carne|parrilla|a la parrilla"
     },
     "cuisine-sushi": {
         "defaultMessage": "Sushi"
@@ -1731,7 +1731,7 @@
         "defaultMessage": "Cuatro cuadras (Four Square)"
     },
     "@cuisine_all_asian": {
-        "defaultMessage": "4Asiática|comida asiática|cocina asiática"
+        "defaultMessage": "4Asiática|comida asiática|cocina asiática|gastronomía asiática"
     },
     "cuisine-vietnamese|@cuisine_all_asian": {
         "defaultMessage": "4Vietnamita|comida vietnamita|cocina vietnamita"
@@ -1836,7 +1836,7 @@
         "defaultMessage": "austríaca|austríaco|cocina austríaca|comida austríaca"
     },
     "cuisine-argentinian": {
-        "defaultMessage": "argentina|argentino|cocina argentina|comida argentina"
+        "defaultMessage": "argentina|argentino|cocina argentina|comida argentina|gastronomía argentina"
     },
     "cuisine-arab": {
         "defaultMessage": "árabe|cocina árabe|comida árabe"
@@ -1854,7 +1854,7 @@
         "defaultMessage": "5Planetario|U+1FA90|5astronomía"
     },
     "amenity-animal_boarding": {
-        "defaultMessage": "Residencia para animales|Residencia para mascotas|Hotel para mascotas"
+        "defaultMessage": "Residencia para animales|Residencia para mascotas|Hotel para mascotas|8Servicio de alojamiento temporal para mascotas|mascota|mascotas|perro|perros|alojamiento para perros|residencia para perros|cuidado de perros|guardería de perros|alojamiento de mascotas|guardería de mascotas|"
     },
     "amenity-stage": {
         "defaultMessage": "Tarima"

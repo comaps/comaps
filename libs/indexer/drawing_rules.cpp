@@ -404,7 +404,7 @@ void RulesHolder::LoadFromBinaryProto(string const & s)
 
   CHECK(doSet.m_cont.ParseFromString(s), ("Error in proto loading!"));
 
-  classif().GetMutableRoot()->ForEachObject(ref(doSet));
+  classif(GetStyleReader().GetLoadingStyle()).GetMutableRoot()->ForEachObject(ref(doSet));
 
   InitBackgroundColors(doSet.m_cont);
   InitColors(doSet.m_cont);
@@ -414,7 +414,18 @@ void LoadRules()
 {
   string buffer;
   GetStyleReader().GetDrawingRulesReader().ReadAsString(buffer);
-  rules().LoadFromBinaryProto(buffer);
+  rules(GetStyleReader().GetLoadingStyle()).LoadFromBinaryProto(buffer);
+}
+
+void CleanupRules()
+{
+  MapStyle const currentMapStyle = GetStyleReader().GetCurrentStyle();
+  for (size_t i = 0; i < MapStyleCount; ++i)
+  {
+    auto const mapStyle = static_cast<MapStyle>(i);
+    if (currentMapStyle != mapStyle)
+      rules(mapStyle).Clean();
+  }
 }
 
 }  // namespace drule

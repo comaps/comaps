@@ -1528,4 +1528,12 @@
     <string name="type.waterway.fuel">Топливный док для марин</string>
     <string name="type.xmas.tree">Рождественская Ёлка</string>
     <string name="type.beacon.special_purpose">Специальный маяк</string>
+    <string name="type.amenity.planetarium">Планетарий</string>
+    <string name="type.amenity.toilets.customers">Для посетителей</string>
+    <string name="type.amenity.toilets.private">Ограниченый доступ</string>
+    <string name="type.amenity.stage">Подиум</string>
+    <string name="type.buoy.cardinal.east">Восточный кардинальный буй</string>
+    <string name="type.leisure.sports_centre.sport.boules">Центр для игры в боулспорт</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Спортивный центр для игры в квадрат</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Спортивный центр для игры в пиклбол</string>
 </resources>

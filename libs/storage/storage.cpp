@@ -366,9 +366,8 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
       return false;
     }
 
-    /// @todo(pastk): request servers list from meta using the new/pending data version.
-    /// e.g. temporary set m_downloader->SetDataVersion(dataVersion); or pass new version as a param.
     // Force fetch new servers list for new data version.
+    m_downloader->SetDataVersion(dataVersion);
     m_downloader->ResetMetaConfig();
 
     auto const countriesUrl = downloader::GetFileDownloadUrl(COUNTRIES_FILE, dataVersion);

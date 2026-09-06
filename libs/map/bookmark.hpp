@@ -64,6 +64,9 @@ public:
   uint8_t GetScale() const;
   void SetScale(uint8_t scale);
 
+  drape_ptr<TitlesInfo> GetTitleDeclEx(bool showLabel, dp::Color outlineColor) const override;
+  df::DepthLayer GetDepthLayerEx(bool showLabel) const override;
+
   dp::Anchor GetAnchor() const override;
   drape_ptr<SymbolNameZoomInfo> GetSymbolNames() const override;
 
@@ -72,6 +75,7 @@ public:
   kml::MarkGroupId GetGroupId() const override;
 
   int GetMinZoom() const override { return m_data.m_minZoom; }
+  int GetMinTitleZoom() const override;
 
   // Whether m_data.m_properties suitable to fill "Key info" part of placepage.
   bool CanFillPlacePageMetadata() const;

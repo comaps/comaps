@@ -466,6 +466,7 @@
     <string name="closed">Closed</string>
     <string name="opens_at">Opens at %s</string>
     <string name="closes_at">Closes at %s</string>
+    <string name="opens_tomorrow_at">Opens tomorrow at %s</string>
     <string name="opens_day_at">Opens on %1$s at %2$s</string>
     <string name="closes_day_at">Closes on %1$s at %2$s</string>
     <plurals name="minutes_short">
@@ -631,7 +632,9 @@
     <string name="mobile_data_option_never">Never Use</string>
     <string name="mobile_data_option_ask">Always Ask</string>
     <string name="traffic_update_maps_text">To display traffic data, maps must be updated</string>
-    <string name="big_font">Increase size for map labels</string>
+    <string name="pref_font_size">Font size for map labels</string>
+    <string name="increase_font_size">Increase map label size</string>
+    <string name="decrease_font_size">Decrease map label size</string>
     <string name="traffic_update_app">Please update CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">Traffic data is not available</string>
@@ -722,6 +725,7 @@
     <string name="power_managment_setting_never">Never</string>
     <string name="power_managment_setting_auto">When battery is low</string>
     <string name="power_managment_setting_manual_max">Always</string>
+    <string name="bookmarks_text_placement_title">Show names of favorites on map</string>
     <string name="enable_logging_warning_message">Enable this option temporarily to record and manually send detailed diagnostic logs about your issue to us using \"Report a bug\" in the Help dialog. Logs may include location info.</string>
     <string name="routing_options_title">Routing options</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -1071,4 +1075,9 @@
     <!-- Permission descriptions -->
     <string name="permission_read_navigation_label">Read CoMaps navigation data</string>
     <string name="permission_read_navigation_description">read live navigation information such as upcoming turns or the name of the road you are on</string>
+    <!-- Reviews -->
+    <string name="place_reviews_title">Place Reviews</string>
+    <string name="place_reviews">%1$s Reviews</string>
+    <string name="rating_stars_description">stars: %.1f</string>
+    <string name="reviews_by_mangrove">Reviews from Mangrove.\nAdd reviews in <a href="https://mapcomplete.org">MapComplete</a>.</string>
 </resources>

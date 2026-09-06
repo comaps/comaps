@@ -101,7 +101,7 @@
 "type.amenity.lounger" = "躺椅";
 "type.amenity.luggage_locker" = "行李保管箱";
 "type.amenity.marketplace" = "市場";
-"type.amenity.mobile_money_agent" = "行動錢包業者";
+"type.amenity.mobile_money_agent" = "Mobile Money 代理";
 "type.amenity.motorcycle_parking" = "機車停車場";
 "type.amenity.nightclub" = "俱樂部";
 "type.amenity.nursing_home" = "療養院";
@@ -1532,8 +1532,8 @@
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Sports Centre";
 "type.organic.no" = "No organic options";
-"type.amenity.stage" = "Stage";
-"type.amenity.animal_boarding" = "Animal Boarding";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
-"type.amenity.planetarium" = "Planetarium";
+"type.amenity.stage" = "舞台";
+"type.amenity.animal_boarding" = "寵物旅館";
+"type.amenity.toilets.customers" = "顧客專用";
+"type.amenity.toilets.private" = "私人專用";
+"type.amenity.planetarium" = "天文館";

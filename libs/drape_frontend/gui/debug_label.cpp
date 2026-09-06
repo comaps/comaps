@@ -8,6 +8,10 @@
 #include <set>
 #include <utility>
 
+#ifdef RENDER_DEBUG_INFO_LABELS
+#include "drape_frontend/overlay_id.hpp"
+#endif
+
 using namespace std::placeholders;
 
 namespace gui
@@ -19,7 +23,7 @@ class DebugLabelHandle : public MutableLabelHandle
 public:
   DebugLabelHandle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot, ref_ptr<dp::TextureManager> tex,
                    TUpdateDebugLabelFn const & onUpdateFn)
-    : MutableLabelHandle(id, anchor, pivot)
+    : MutableLabelHandle(id, anchor, pivot, dp::AccessibilityNodeInfo())
     , m_onUpdateFn(onUpdateFn)
   {
     SetTextureManager(tex);
@@ -68,7 +72,7 @@ void DebugInfoLabels::AddLabel(ref_ptr<dp::TextureManager> tex, std::string cons
   params.m_pivot = m_position.m_pixelPivot;
 
 #ifdef RENDER_DEBUG_INFO_LABELS
-  uint32_t const id = GuiHandleDebugLabel + m_labelsCount;
+  uint32_t const id = df::GuiHandleDebugLabel + m_labelsCount;
 
   params.m_handleCreator = [id, onUpdateFn, tex](dp::Anchor anchor, m2::PointF const & pivot)
   { return make_unique_dp<DebugLabelHandle>(id, anchor, pivot, tex, onUpdateFn); };

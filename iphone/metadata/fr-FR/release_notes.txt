@@ -1,0 +1,13 @@
+• Ajout d'une interface pour les modes et pour les styles spécifiques aux moyens de transport.
+• Affiche les noms des favoris sur la carte (désactivable dans les paramètres)
+• Paramétrage de la taille de police
+• Logos de routes au Kirghizistan, Ouzbékistan, Tadjikistan, Kazakhstan et Géorgie
+• Ajout d'images en mode sombre et clair pour CarPlay
+• Éditeur OSM: ajout de nouvelles catégories (prison, dojo, bowling_alley, lounger, shop=craft, golf_course, miniature_golf, les attractions (roller_coaster, carousel…) et les points de rassemblement)
+• Correction de la recherche en langues étrangères (pas seulement l'anglais et la langue locale)
+• Utilise les voies sans restrictions pour le guidage dans les instructions « continuer tout droit »
+• Arrête de considérer les lieux demandant des dons comme étant payants
+• Ajout du Macédonien pour le guidage vocal
+• Corrige la demande de position avant que les données protégées soient disponibles
+• Corrige la disparition du bouton de prévisualisation du trajet
+• Mise à jour des données du 30 août et mises à jour toutes les semaines

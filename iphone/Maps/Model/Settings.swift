@@ -14,11 +14,15 @@ import Combine
     
     
     /// Key for storing the type of action used for the bottom left main interface button in the user defaults
-    static private let userDefaultsKeyLeftButtonType = "LeftButtonType"
+    static let userDefaultsKeyMapCustomButtonKind = "LeftButtonType"
     
     
     /// Key for storing the map appearance in the user defaults
     static private let userDefaultsKeyMapAppearance = "MapAppearance"
+    
+    
+    /// The notification name for changing the power saving adjustments
+    @objc static let changePowerSavingAdjustmentsNotificationName: Notification.Name = Notification.Name(rawValue: "ChangePowerSavingAdjustments")
     
     
     /// The current distance unit
@@ -52,27 +56,16 @@ import Combine
     
     
     /// The type of action used for the bottom left main interface button
-    static var leftButtonType: LeftButtonType {
+    static var customButtonKind: MapCustomButton.Kind {
         get {
-            if let leftButtonTypeRawValue = UserDefaults.standard.string(forKey: userDefaultsKeyLeftButtonType), let leftButtonType = LeftButtonType(rawValue: leftButtonTypeRawValue) {
-                return leftButtonType
+            if let customButtonKindRawValue = UserDefaults.standard.string(forKey: userDefaultsKeyMapCustomButtonKind), let customButtonKind = MapCustomButton.Kind(rawValue: customButtonKindRawValue) {
+                return customButtonKind
             }
             
-            return .help
+            return .favourites
         }
         set {
-            UserDefaults.standard.set(newValue.rawValue, forKey: userDefaultsKeyLeftButtonType)
-        }
-    }
-    
-    
-    /// If 3D buildings should be displayed
-    @objc static var has3dBuildings: Bool {
-        get {
-            return SettingsBridge.buildings3dViewEnabled()
-        }
-        set {
-            SettingsBridge.setBuildings3dViewEnabled(newValue)
+            UserDefaults.standard.set(newValue.rawValue, forKey: userDefaultsKeyMapCustomButtonKind)
         }
     }
     
@@ -123,13 +116,21 @@ import Combine
     }
     
     
-    /// If an increased font size should be used for map labels
-    @objc static var hasIncreasedFontsize: Bool {
+    /// If the current power saving mode has deactivated 3d buldings
+    static var powerSavingBlocksBuildings3dLayer: Bool {
         get {
-            return SettingsBridge.largeFontSize()
+            return !SettingsBridge.powerManagementBuildings3d()
+        }
+    }
+    
+    
+    /// Font scale factor for map labels
+    @objc static var fontScaleFactor: Double {
+        get {
+            return SettingsBridge.fontScaleFactor()
         }
         set {
-            SettingsBridge.setLargeFontSize(newValue)
+            SettingsBridge.setFontScaleFactor(newValue)
         }
     }
     
@@ -215,6 +216,16 @@ import Combine
             } else {
                 SettingsBridge.setTheme(MWMTheme.auto)
             }
+        }
+    }
+    
+    /// If bookmark labels are shown
+    static var showBookmarkLabels: Bool {
+        get {
+            return SettingsBridge.showBookmarkLabels()
+        }
+        set {
+            SettingsBridge.setShowBookmarkLabels(newValue)
         }
     }
     

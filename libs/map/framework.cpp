@@ -134,20 +134,28 @@ std::string_view constexpr kMapStyleKey = "MapStyleKeyV1";
 std::string_view constexpr kAllow3dKey = "Allow3d";
 std::string_view constexpr kAllow3dBuildingsKey = "Buildings3d";
 std::string_view constexpr kAllowAutoZoom = "AutoZoom";
-std::string_view constexpr kTrafficEnabledKey = "TrafficEnabled";
+std::string_view constexpr kMapModeKey = "MapMode";
+std::string_view constexpr kMapModeDrivingTrafficKey = "DrivingModeHasTraffic";
+std::string_view constexpr kMapModePublicTransportTransitLinesKey = "PublicTransportModeHasTransitLines";
+std::string_view constexpr kContourLinesKey = "HasContourLinesLayer";
+std::string_view constexpr kOutdoorKey = "HasOutdoorLayer";
 std::string_view constexpr kTrafficHttpEnabledKey = "TrafficHttpEnabled";
 std::string_view constexpr kTrafficHttpUrlKey = "TrafficHttpUrl";
-std::string_view constexpr kTransitSchemeEnabledKey = "TransitSchemeEnabled";
-std::string_view constexpr kIsolinesEnabledKey = "IsolinesEnabled";
-std::string_view constexpr kOutdoorsEnabledKey = "OutdoorsEnabled";
 std::string_view constexpr kTrafficSimplifiedColorsKey = "TrafficSimplifiedColors";
 std::string_view constexpr kLargeFontsSize = "LargeFontsSize";
+std::string_view constexpr kFontScaleFactor = "FontScaleFactor";
 std::string_view constexpr kPreferredGraphicsAPI = "PreferredGraphicsAPI";
 std::string_view constexpr kShowDebugInfo = "DebugInfo";
 std::string_view constexpr kScreenViewport = "ScreenClipRect";
 
-auto constexpr kLargeFontsScaleFactor = 1.6;
+// Old (pre-modes) settings keys, kept for backward-compatible fallback reads.
+std::string_view constexpr kOldTrafficEnabledKey = "TrafficEnabled";
+std::string_view constexpr kOldTransitSchemeEnabledKey = "TransitSchemeEnabled";
+std::string_view constexpr kOldIsolinesEnabledKey = "IsolinesEnabled";
+std::string_view constexpr kOldOutdoorsEnabledKey = "OutdoorsEnabled";
+
 size_t constexpr kMaxTrafficCacheSizeBytes = 64 /* Mb */ * 1024 * 1024;
+double constexpr kCloseDistance = 1.0;
 
 // TODO!
 // To adjust GpsTrackFilter was added secret command "?gpstrackaccuracy:xxx;"
@@ -265,21 +273,25 @@ EMyPositionMode Framework::GetMyPositionMode() const
   return m_drapeEngine ? m_drapeEngine->GetMyPositionMode() : PendingPosition;
 }
 
+// Direct access to managers only for legacy Android listener support. So please dont use directly anymore!
 TrafficManager & Framework::GetTrafficManager()
 {
   return m_trafficManager;
 }
 
+// Direct access to managers only for legacy Android listener support. So please dont use directly anymore!
 TransitReadManager & Framework::GetTransitManager()
 {
   return m_transitManager;
 }
 
+// Direct access to managers only for legacy Android listener support. So please dont use directly anymore!
 IsolinesManager & Framework::GetIsolinesManager()
 {
   return m_isolinesManager;
 }
 
+// Direct access to managers only for legacy Android listener support. So please dont use directly anymore!
 IsolinesManager const & Framework::GetIsolinesManager() const
 {
   return m_isolinesManager;
@@ -416,7 +428,7 @@ Framework::Framework(FrameworkParams const & params, bool loadMaps)
   m_trafficManager.SetCurrentDataVersion(m_storage.GetCurrentDataVersion());
   m_trafficManager.SetSimplifiedColorScheme(LoadTrafficSimplifiedColors());
 
-  m_isolinesManager.SetEnabled(LoadIsolinesEnabled());
+  m_isolinesManager.SetEnabled(HasContourLinesLayer());
 
   InitTransliteration();
   LOG(LDEBUG, ("Transliterators initialized"));
@@ -448,7 +460,7 @@ Framework::~Framework()
 
 void Framework::InitializeTraffic()
 {
-  m_trafficManager.SetEnabled(LoadTrafficEnabled());
+  m_trafficManager.SetEnabled(CurrentMapModeHasTraffic());
   if (!m_trafficManager.IsTestMode() && LoadTrafficHttpEnabled())
     // TODO handle invalid URLs
     traffxml::HttpTraffSource::Create(m_trafficManager, LoadTrafficHttpUrl());
@@ -756,7 +768,8 @@ void Framework::FillPointInfo(place_page::Info & info, m2::PointD const & mercat
   auto const fid = GetFeatureAtPoint(mercator, std::move(matcher));
   if (fid.IsValid())
   {
-    m_featuresFetcher.GetDataSource().ReadFeature([&](FeatureType & ft) {
+    m_featuresFetcher.GetDataSource().ReadFeature([&](FeatureType & ft)
+    {
       FillInfoFromFeatureType(ft, info);
       // If all types are either deprecated or unsupported (new maps in older app),
       // then act like its just a map point without features.
@@ -791,7 +804,6 @@ void Framework::FillPostcodeInfo(string const & postcode, m2::PointD const & mer
 
 void Framework::FillInfoFromFeatureType(FeatureType & ft, place_page::Info & info) const
 {
-
   auto const featureStatus = osm::Editor::Instance().GetFeatureStatus(ft.GetID());
   ASSERT_NOT_EQUAL(featureStatus, FeatureStatus::Deleted, ("Deleted features cannot be selected from UI."));
   info.SetFeatureStatus(featureStatus);
@@ -1214,6 +1226,7 @@ void Framework::MakeFrameActive()
 
 int Framework::GetDrawScale() const
 {
+  // FIXME there is a short period where drapeEngine exists but currentModelView is blank
   if (m_drapeEngine != nullptr)
     return df::GetDrawTileScale(m_currentModelView);
 
@@ -1582,19 +1595,19 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
 
   auto const isAutozoomEnabled = LoadAutoZoom();
 
-  auto const trafficEnabled = m_trafficManager.IsEnabled();
-  auto const isolinesEnabled = m_isolinesManager.IsEnabled();
+  auto const hasTraffic = CurrentMapModeHasTraffic();
+  auto const hasContourLines = HasContourLinesLayer();
 
   auto const simplifiedTrafficColors = m_trafficManager.HasSimplifiedColorScheme();
-  auto const fontsScaleFactor = LoadLargeFontsSize() ? kLargeFontsScaleFactor : 1.0;
+  auto const fontsScaleFactor = LoadFontScaleFactor();
 
   df::DrapeEngine::Params p(
       params.m_apiVersion, contextFactory, dp::Viewport(0, 0, params.m_surfaceWidth, params.m_surfaceHeight),
       df::MapDataProvider(std::move(idReadFn), std::move(featureReadFn), std::move(isCountryLoadedByNameFn),
                           std::move(updateCurrentCountryFn)),
       params.m_hints, params.m_visualScale, fontsScaleFactor, std::move(params.m_widgetsInitInfo),
-      std::move(myPositionModeChangedFn), allow3dBuildings, trafficEnabled, isolinesEnabled,
-      params.m_isChoosePositionMode, params.m_isChoosePositionMode, GetSelectedFeatureTriangles(),
+      std::move(myPositionModeChangedFn), allow3dBuildings, hasTraffic, hasContourLines, params.m_isChoosePositionMode,
+      params.m_isChoosePositionMode, GetSelectedFeatureTriangles(),
       m_routingManager.IsRoutingActive() && m_routingManager.IsRoutingFollowing(), isAutozoomEnabled,
       simplifiedTrafficColors, std::nullopt /* arrow3dCustomDecl */, std::move(overlaysShowStatsFn),
       std::move(onGraphicsContextInitialized), std::move(params.m_renderInjectionHandler));
@@ -1631,8 +1644,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
 
   InvalidateUserMarks();
 
-  auto const transitSchemeEnabled = LoadTransitSchemeEnabled();
-  m_transitManager.EnableTransitSchemeMode(transitSchemeEnabled);
+  m_transitManager.EnableTransitSchemeMode(CurrentMapModeHasTransitLines());
 
   // Show debug info if it's enabled in the config.
   bool showDebugInfo;
@@ -1663,6 +1675,13 @@ void Framework::OnRecoverSurface(int width, int height, bool recreateContextDepe
 void Framework::OnDestroySurface()
 {
   m_trafficManager.OnDestroySurface();
+}
+
+double Framework::GetVisualScale()
+{
+  if (m_drapeEngine != nullptr)
+    return m_drapeEngine->GetVisualScale();
+  return 0;
 }
 
 void Framework::UpdateVisualScale(double vs)
@@ -1853,12 +1872,13 @@ void Framework::MarkMapStyle(MapStyle mapStyle)
   GetStyleReader().SetCurrentStyle(mapStyle);
 }
 
-void Framework::SetMapStyle(MapStyle mapStyle)
+void Framework::SetMapStyle(MapStyle mapStyle, bool const forceRerendering)
 {
   MarkMapStyle(mapStyle);
   if (m_drapeEngine != nullptr)
-    m_drapeEngine->UpdateMapStyle();
+    m_drapeEngine->UpdateMapStyle(forceRerendering);
   InvalidateUserMarks();
+  UpdateBookmarkLabels();
   UpdateMinBuildingsTapZoom();
 }
 
@@ -1920,7 +1940,9 @@ FeatureID Framework::GetFeatureAtPoint(m2::PointD const & mercator, FeatureMatch
 {
   FeatureID fullMatch, poi, line, area;
   auto haveBuilding = false;
-  auto closestDistanceToCenter = numeric_limits<double>::max();
+  auto poiClosestDistanceToCenter = numeric_limits<double>::max();
+  auto lineClosestDistance = numeric_limits<double>::max();
+  auto areaClosestDistanceToCenter = numeric_limits<double>::max();
   auto currentDistance = numeric_limits<double>::max();
 
   indexer::ForEachFeatureAtPoint(m_featuresFetcher.GetDataSource(), [&](FeatureType & ft)
@@ -1936,33 +1958,52 @@ FeatureID Framework::GetFeatureAtPoint(m2::PointD const & mercator, FeatureMatch
 
     switch (ft.GetGeomType())
     {
-    case feature::GeomType::Point: poi = ft.GetID(); break;
+    case feature::GeomType::Point:
+    {
+      currentDistance = mercator::DistanceOnEarth(mercator, feature::GetCenter(ft));
+      if (currentDistance >= poiClosestDistanceToCenter)
+        return;
+      poi = ft.GetID();
+      poiClosestDistanceToCenter = currentDistance;
+      break;
+    }
     case feature::GeomType::Line:
+    {
       // Skip/ignore isolines.
       if (ftypes::IsIsolineChecker::Instance()(ft))
         return;
+      currentDistance = feature::GetMinDistanceMeters(ft, mercator);
+      if (currentDistance >= lineClosestDistance)
+        return;
       line = ft.GetID();
+      lineClosestDistance = currentDistance;
       break;
+    }
     case feature::GeomType::Area:
     {
-      // Buildings have higher priority over other types.
-      if (haveBuilding)
-        return;
-
       // Skip/ignore coastlines.
       feature::TypesHolder types(ft);
       if (ftypes::IsCoastlineChecker::Instance()(types))
         return;
 
-      haveBuilding = ftypes::IsBuildingChecker::Instance()(types);
       currentDistance = mercator::DistanceOnEarth(mercator, feature::GetCenter(ft));
-      // Choose the first matching building or, if no buildings are matched,
-      // the first among the closest matching non-buildings.
-      if (!haveBuilding && currentDistance >= closestDistanceToCenter)
+
+      // Buildings have higher priority over other types.
+      // But center/label position is still preferred when it's very close.
+      if (haveBuilding && currentDistance > kCloseDistance)
         return;
+      auto currentIsBuilding = ftypes::IsBuildingChecker::Instance()(types);
+      if (currentDistance >= areaClosestDistanceToCenter)
+      {
+        if (!currentIsBuilding)
+          return;
+        if (areaClosestDistanceToCenter <= kCloseDistance)
+          return;
+      }
 
       area = ft.GetID();
-      closestDistanceToCenter = currentDistance;
+      areaClosestDistanceToCenter = currentDistance;
+      haveBuilding = currentIsBuilding;
       break;
     }
     case feature::GeomType::Undefined: ASSERT(false, ("case feature::Undefined")); break;
@@ -2027,6 +2068,11 @@ place_page::Info & Framework::GetCurrentPlacePageInfo()
   return *m_currentPlacePageInfo;
 }
 
+void Framework::UpdateBookmarkLabels()
+{
+  m_bmManager->UpdateBookmarkLabels();
+}
+
 void Framework::ActivateMapSelection()
 {
   if (!m_currentPlacePageInfo)
@@ -2082,7 +2128,7 @@ void Framework::DeactivateMapSelection()
 
 void Framework::DeactivateMapSelectionCircle(bool restoreViewport)
 {
-  if (m_drapeEngine != nullptr)
+  if (m_drapeEngine)
     m_drapeEngine->DeselectObject(restoreViewport);
 }
 
@@ -2545,37 +2591,25 @@ void Framework::Load3dMode(bool & allow3d, bool & allow3dBuildings)
     allow3dBuildings = true;
 }
 
-bool Framework::LoadLargeFontsSize()
+double Framework::LoadFontScaleFactor()
 {
   bool isLargeSize;
+  double scaleFactor;
   if (!settings::Get(kLargeFontsSize, isLargeSize))
     isLargeSize = false;
-  return isLargeSize;
+  if (!settings::Get(kFontScaleFactor, scaleFactor))
+    scaleFactor = isLargeSize ? 1.6 : 1.0;
+  return scaleFactor;
 }
 
-void Framework::SetLargeFontsSize(bool isLargeSize)
+void Framework::SetFontScaleFactor(double scaleFactor)
 {
-  settings::Set(kLargeFontsSize, isLargeSize);
-
-  double const scaleFactor = isLargeSize ? kLargeFontsScaleFactor : 1.0;
+  settings::Set(kFontScaleFactor, scaleFactor);
 
   ASSERT(m_drapeEngine.get() != nullptr, ());
   m_drapeEngine->SetFontScaleFactor(scaleFactor);
 
   InvalidateRect(GetCurrentViewport());
-}
-
-bool Framework::LoadTrafficEnabled()
-{
-  bool enabled;
-  if (!settings::Get(kTrafficEnabledKey, enabled))
-    enabled = false;
-  return enabled;
-}
-
-void Framework::SaveTrafficEnabled(bool trafficEnabled)
-{
-  settings::Set(kTrafficEnabledKey, trafficEnabled);
 }
 
 void Framework::SetTrafficHttpEnabled(bool enabled)
@@ -2627,6 +2661,11 @@ void Framework::SaveTrafficSimplifiedColors(bool simplified)
   settings::Set(kTrafficSimplifiedColorsKey, simplified);
 }
 
+void Framework::SetTrafficSimplifiedColors(bool simplified)
+{
+  m_trafficManager.SetSimplifiedColorScheme(simplified);
+}
+
 bool Framework::LoadAutoZoom()
 {
   bool allowAutoZoom;
@@ -2649,43 +2688,292 @@ void Framework::SaveAutoZoom(bool allowAutoZoom)
   settings::Set(kAllowAutoZoom, allowAutoZoom);
 }
 
-bool Framework::LoadTransitSchemeEnabled()
+bool Framework::GetShowBookmarkLabels()
 {
-  bool enabled;
-  if (!settings::Get(kTransitSchemeEnabledKey, enabled))
-    enabled = false;
-  return enabled;
+  bool show = true;
+  settings::TryGet(settings::kShowBookmarkLabels, show);
+  return show;
 }
 
-void Framework::SaveTransitSchemeEnabled(bool enabled)
+void Framework::SetShowBookmarkLabels(bool show)
 {
-  settings::Set(kTransitSchemeEnabledKey, enabled);
+  settings::Set(settings::kShowBookmarkLabels, show);
+  UpdateBookmarkLabels();
 }
 
-bool Framework::LoadIsolinesEnabled()
+void Framework::SwitchToMapAppearance(MapAppearance const mapAppearance)
 {
-  bool enabled;
-  if (!settings::Get(kIsolinesEnabledKey, enabled))
-    enabled = false;
-  return enabled;
+  if (mapAppearance == CurrentMapAppearance())
+    return;
+
+  MapStyle mapStyle = GetMapStyle();
+  if (mapAppearance == MapAppearance::Dark)
+    mapStyle = GetDarkMapStyleVariant(mapStyle);
+  else
+    mapStyle = GetLightMapStyleVariant(mapStyle);
+
+  SetMapStyle(mapStyle, true);
 }
 
-void Framework::SaveIsolinesEnabled(bool enabled)
+MapAppearance Framework::CurrentMapAppearance()
 {
-  settings::Set(kIsolinesEnabledKey, enabled);
+  if (MapStyleIsDark(GetMapStyle()))
+    return MapAppearance::Dark;
+
+  return MapAppearance::Light;
 }
 
-bool Framework::LoadOutdoorsEnabled()
+void Framework::SwitchToMapMode(MapMode const mapMode, bool const shouldAlwaysRefresh)
 {
-  bool enabled;
-  if (!settings::Get(kOutdoorsEnabledKey, enabled))
-    enabled = false;
-  return enabled;
+  if (!shouldAlwaysRefresh && mapMode == CurrentMapMode())
+    return;
+
+  MapStyle mapStyle = GetMapStyle();
+
+  string mapModeValue = "Default";
+  switch (mapMode)
+  {
+  case MapMode::Cycling:
+    mapModeValue = "Cycling";
+    if (MapStyleIsDark(mapStyle))
+      if (MapStyleIsOutdoor(mapStyle))
+        mapStyle = MapStyleCyclingOutdoorDark;
+      else
+        mapStyle = MapStyleCyclingDark;
+    else if (MapStyleIsOutdoor(mapStyle))
+      mapStyle = MapStyleCyclingOutdoorLight;
+    else
+      mapStyle = MapStyleCyclingLight;
+    break;
+  case MapMode::Driving:
+    mapModeValue = "Driving";
+    if (MapStyleIsDark(mapStyle))
+      if (MapStyleIsOutdoor(mapStyle))
+        mapStyle = MapStyleDrivingOutdoorDark;
+      else
+        mapStyle = MapStyleDrivingDark;
+    else if (MapStyleIsOutdoor(mapStyle))
+      mapStyle = MapStyleDrivingOutdoorLight;
+    else
+      mapStyle = MapStyleDrivingLight;
+    break;
+  case MapMode::PublicTransport:
+    mapModeValue = "PublicTransport";
+    if (MapStyleIsDark(mapStyle))
+      if (MapStyleIsOutdoor(mapStyle))
+        mapStyle = MapStylePublicTransportOutdoorDark;
+      else
+        mapStyle = MapStylePublicTransportDark;
+    else if (MapStyleIsOutdoor(mapStyle))
+      mapStyle = MapStylePublicTransportOutdoorLight;
+    else
+      mapStyle = MapStylePublicTransportLight;
+    break;
+  case MapMode::Default:
+    mapModeValue = "Default";
+    if (MapStyleIsDark(mapStyle))
+      if (MapStyleIsOutdoor(mapStyle))
+        mapStyle = MapStyleOutdoorsDark;
+      else
+        mapStyle = MapStyleDefaultDark;
+    else if (MapStyleIsOutdoor(mapStyle))
+      mapStyle = MapStyleOutdoorsLight;
+    else
+      mapStyle = MapStyleDefaultLight;
+    break;
+  case MapMode::Walking:
+  default:
+    LOG(LWARNING, ("SwitchToMapMode: unrecognized MapMode value, defaulting to Walking. "
+                   "MapMode enum value:",
+                   static_cast<int>(mapMode)));
+    mapModeValue = "Walking";
+    if (MapStyleIsDark(mapStyle))
+      if (MapStyleIsOutdoor(mapStyle))
+        mapStyle = MapStyleWalkingOutdoorDark;
+      else
+        mapStyle = MapStyleWalkingDark;
+    else if (MapStyleIsOutdoor(mapStyle))
+      mapStyle = MapStyleWalkingOutdoorLight;
+    else
+      mapStyle = MapStyleWalkingLight;
+    break;
+  }
+
+  settings::Set(kMapModeKey, mapModeValue);
+
+  SetMapStyle(mapStyle);
+
+  RefreshForMapMode();
 }
 
-void Framework::SaveOutdoorsEnabled(bool enabled)
+MapMode Framework::CurrentMapMode()
 {
-  settings::Set(kOutdoorsEnabledKey, enabled);
+  string mapModeValue = "Default";
+  UNUSED_VALUE(settings::Get(kMapModeKey, mapModeValue));
+
+  MapMode mapMode = MapMode::Walking;
+  if (mapModeValue == "Cycling")
+    mapMode = MapMode::Cycling;
+  else if (mapModeValue == "Driving")
+    mapMode = MapMode::Driving;
+  else if (mapModeValue == "PublicTransport")
+    mapMode = MapMode::PublicTransport;
+#ifdef OMIM_OS_ANDROID
+  // Default mode is only shipped on Android
+  else if (mapModeValue == "Default")
+    mapMode = MapMode::Default;
+#endif
+
+  return mapMode;
+}
+
+bool Framework::CurrentMapModeHasTraffic()
+{
+  return CurrentMapMode() == MapMode::Driving && DrivingMapModeHasTraffic();
+}
+
+bool Framework::CurrentMapModeHasTransitLines()
+{
+  return CurrentMapMode() == MapMode::PublicTransport && PublicTransportMapModeHasTransitLines();
+}
+
+bool Framework::DrivingMapModeHasTraffic()
+{
+  bool hasTraffic;
+  if (!settings::Get(kMapModeDrivingTrafficKey, hasTraffic) && !settings::Get(kOldTrafficEnabledKey, hasTraffic))
+    hasTraffic = false;
+  return hasTraffic;
+}
+
+void Framework::DrivingMapModeSetTraffic(bool const hasTraffic)
+{
+  if (hasTraffic == DrivingMapModeHasTraffic())
+    return;
+
+  settings::Set(kMapModeDrivingTrafficKey, hasTraffic);
+  RefreshForMapMode();
+}
+
+bool Framework::PublicTransportMapModeHasTransitLines()
+{
+  bool hasTransitLines;
+  if (!settings::Get(kMapModePublicTransportTransitLinesKey, hasTransitLines) &&
+      !settings::Get(kOldTransitSchemeEnabledKey, hasTransitLines))
+    hasTransitLines = true;
+  return hasTransitLines;
+}
+
+void Framework::PublicTransportMapModeSetTransitLines(bool const hasTransitLines)
+{
+  if (hasTransitLines == PublicTransportMapModeHasTransitLines())
+    return;
+
+  settings::Set(kMapModePublicTransportTransitLinesKey, hasTransitLines);
+  RefreshForMapMode();
+}
+
+void Framework::RefreshForMapMode()
+{
+  bool const hasContourLines = HasContourLinesLayer();
+  if (m_isolinesManager.IsEnabled() != hasContourLines)
+    m_isolinesManager.SetEnabled(hasContourLines);
+
+  bool const hasTraffic = CurrentMapModeHasTraffic();
+  if (m_trafficManager.IsEnabled() != hasTraffic)
+    m_trafficManager.SetEnabled(hasTraffic);
+
+  bool const hasTransitLines = CurrentMapModeHasTransitLines();
+  if (m_transitManager.IsTransitSchemeModeEnabled() != hasTransitLines)
+    m_transitManager.EnableTransitSchemeMode(hasTransitLines);
+}
+
+bool Framework::HasOutdoorLayer()
+{
+  bool hasOutdoorLayer;
+  if (!settings::Get(kOutdoorKey, hasOutdoorLayer) && !settings::Get(kOldOutdoorsEnabledKey, hasOutdoorLayer))
+    hasOutdoorLayer = false;
+  return hasOutdoorLayer;
+}
+
+void Framework::SetOutdoorLayer(bool const hasOutdoorLayer)
+{
+  if (hasOutdoorLayer == HasOutdoorLayer())
+    return;
+
+  settings::Set(kOutdoorKey, hasOutdoorLayer);
+
+  MapStyle mapStyle = GetMapStyle();
+  if (hasOutdoorLayer)
+    mapStyle = GetOutdoorMapStyleVariant(mapStyle);
+  else
+    mapStyle = GetRegularMapStyleVariant(mapStyle);
+
+  SetMapStyle(mapStyle);
+
+  RefreshForMapMode();
+}
+
+bool Framework::HasContourLinesLayer()
+{
+  bool hasContourLines;
+  if (!settings::Get(kContourLinesKey, hasContourLines) && !settings::Get(kOldIsolinesEnabledKey, hasContourLines))
+    hasContourLines = false;
+  return hasContourLines;
+}
+
+void Framework::SetContourLinesLayer(bool const hasContourLines)
+{
+  if (hasContourLines == HasContourLinesLayer())
+    return;
+
+  settings::Set(kContourLinesKey, hasContourLines);
+  RefreshForMapMode();
+}
+
+bool Framework::HasBuildings3d()
+{
+  bool allow3d = false;
+  bool allow3dBuildings = true;
+
+  Load3dMode(allow3d, allow3dBuildings);
+  if (!GetPowerManager().IsFacilityEnabled(power_management::Facility::Buildings3d))
+    return false;
+  else
+    return allow3dBuildings;
+}
+
+void Framework::SetBuildings3d(bool const hasBuildings3d)
+{
+  if (hasBuildings3d == HasBuildings3d())
+    return;
+
+  bool allow3d = false;
+  bool allow3dBuildings = true;
+
+  Load3dMode(allow3d, allow3dBuildings);
+  allow3dBuildings = static_cast<bool>(hasBuildings3d);
+  Save3dMode(allow3d, allow3dBuildings);
+  Allow3dMode(allow3d, allow3dBuildings);
+}
+
+bool Framework::IsUsingVehicleStyle()
+{
+  MapStyle const mapStyle = GetMapStyle();
+  return mapStyle == MapStyleVehicleLight || mapStyle == MapStyleVehicleDark;
+}
+
+void Framework::SwitchToUsingVehicleStyle(bool const shouldUseVehicleStyle)
+{
+  if (shouldUseVehicleStyle == IsUsingVehicleStyle())
+    return;
+
+  if (shouldUseVehicleStyle)
+    if (CurrentMapAppearance() == MapAppearance::Dark)
+      SetMapStyle(MapStyleVehicleDark);
+    else
+      SetMapStyle(MapStyleVehicleLight);
+  else
+    SwitchToMapMode(CurrentMapMode(), true);
 }
 
 void Framework::EnableChoosePositionMode(bool enable, bool enableBounds, m2::PointD const * optionalPosition)
@@ -2726,35 +3014,43 @@ void Framework::BlockTapEvents(bool block)
 
 bool Framework::ParseDrapeDebugCommand(string const & query)
 {
-  MapStyle desiredStyle = MapStyleCount;
-  if (query == "?dark" || query == "mapstyle:dark")
-    desiredStyle = MapStyleDefaultDark;
-  else if (query == "?light" || query == "mapstyle:light")
-    desiredStyle = MapStyleDefaultLight;
-  else if (query == "?vlight" || query == "mapstyle:vehicle_light")
-    desiredStyle = MapStyleVehicleLight;
-  else if (query == "?vdark" || query == "mapstyle:vehicle_dark")
-    desiredStyle = MapStyleVehicleDark;
-  else if (query == "?olight" || query == "mapstyle:outdoors_light")
-    desiredStyle = MapStyleOutdoorsLight;
-  else if (query == "?odark" || query == "mapstyle:outdoors_dark")
-    desiredStyle = MapStyleOutdoorsDark;
-
-  if (desiredStyle != MapStyleCount)
+  MapAppearance mapAppearance = CurrentMapAppearance();
+  bool isUsingVehicleStyle = IsUsingVehicleStyle();
+  if (query == "?light" || query == "mapstyle:light")
   {
-#if defined(OMIM_OS_ANDROID)
-    if (m_drapeEngine->GetApiVersion() == dp::ApiVersion::Vulkan)
-    {
-      // See comment in android/jni/app/organicmaps/Framework.cpp Framework::MarkMapStyle().
-      SetMapStyle(desiredStyle);
-    }
-    else
-      MarkMapStyle(desiredStyle);
-#else
-    SetMapStyle(desiredStyle);
-#endif
-    return true;
+    mapAppearance = MapAppearance::Light;
+    isUsingVehicleStyle = false;
   }
+  else if (query == "?dark" || query == "mapstyle:dark")
+  {
+    mapAppearance = MapAppearance::Dark;
+    isUsingVehicleStyle = false;
+  }
+  else if (query == "?vlight" || query == "mapstyle:vehicle_light")
+  {
+    mapAppearance = MapAppearance::Light;
+    isUsingVehicleStyle = true;
+  }
+  else if (query == "?vdark" || query == "mapstyle:vehicle_dark")
+  {
+    mapAppearance = MapAppearance::Dark;
+    isUsingVehicleStyle = true;
+  }
+  else if (query == "?olight" || query == "mapstyle:outdoors_light")
+  {
+    mapAppearance = MapAppearance::Light;
+    isUsingVehicleStyle = false;
+    SetOutdoorLayer(true);
+  }
+  else if (query == "?odark" || query == "mapstyle:outdoors_dark")
+  {
+    mapAppearance = MapAppearance::Dark;
+    isUsingVehicleStyle = false;
+    SetOutdoorLayer(true);
+  }
+
+  SwitchToMapAppearance(mapAppearance);
+  SwitchToUsingVehicleStyle(isUsingVehicleStyle);
 
   if (query == "?aa" || query == "effect:antialiasing")
   {
@@ -2768,22 +3064,22 @@ bool Framework::ParseDrapeDebugCommand(string const & query)
   }
   if (query == "?scheme")
   {
-    m_transitManager.EnableTransitSchemeMode(true /* enable */);
+    PublicTransportMapModeSetTransitLines(true);
     return true;
   }
   if (query == "?no-scheme")
   {
-    m_transitManager.EnableTransitSchemeMode(false /* enable */);
+    PublicTransportMapModeSetTransitLines(false);
     return true;
   }
   if (query == "?isolines")
   {
-    m_isolinesManager.SetEnabled(true /* enable */);
+    SetContourLinesLayer(true);
     return true;
   }
   if (query == "?no-isolines")
   {
-    m_isolinesManager.SetEnabled(false /* enable */);
+    SetContourLinesLayer(false);
     return true;
   }
   if (query == "?debug-info")
@@ -3378,10 +3674,9 @@ void Framework::OnRouteFollow(routing::RouterType type)
     ++scale3d;
 
   bool const isBicycleRoute = type == RouterType::Bicycle;
-  if ((isPedestrianRoute || isBicycleRoute) && LoadTrafficEnabled())
+  if ((isPedestrianRoute || isBicycleRoute) && CurrentMapModeHasTraffic())
   {
     m_trafficManager.SetEnabled(false /* enabled */);
-    SaveTrafficEnabled(false /* enabled */);
   }
   // TODO. We need to sync two enums VehicleType and RouterType to be able to pass
   // GetRoutingSettings(type).m_matchRoute to the FollowRoute() instead of |isPedestrianRoute|.
@@ -3447,6 +3742,11 @@ void Framework::FillDescriptions(FeatureType & ft, place_page::Info & info) cons
     info.SetOSMDescription(std::string(translatedOsmDescription.value()));
 }
 
+void Framework::RunOnPowerManagerChanges(function<void()> fn)
+{
+  m_runOnPowerManagerChangesFn = fn;
+}
+
 void Framework::OnPowerFacilityChanged(power_management::Facility const facility, bool enabled)
 {
   if (facility == power_management::Facility::PerspectiveView || facility == power_management::Facility::Buildings3d)
@@ -3463,18 +3763,24 @@ void Framework::OnPowerFacilityChanged(power_management::Facility const facility
   }
   else if (facility == power_management::Facility::TrafficJams)
   {
-    auto trafficState = enabled && LoadTrafficEnabled();
-    if (trafficState == GetTrafficManager().IsEnabled())
+    auto trafficState = enabled && CurrentMapModeHasTraffic();
+    if (trafficState == m_trafficManager.IsEnabled())
       return;
 
-    GetTrafficManager().SetEnabled(trafficState);
+    m_trafficManager.SetEnabled(trafficState);
   }
+
+  if (m_runOnPowerManagerChangesFn)
+    m_runOnPowerManagerChangesFn();
 }
 
 void Framework::OnPowerSchemeChanged(power_management::Scheme const actualScheme)
 {
-  if (actualScheme == power_management::Scheme::EconomyMaximum && GetTrafficManager().IsEnabled())
-    GetTrafficManager().SetEnabled(false);
+  if (actualScheme == power_management::Scheme::EconomyMaximum && m_trafficManager.IsEnabled())
+    m_trafficManager.SetEnabled(false);
+
+  if (m_runOnPowerManagerChangesFn)
+    m_runOnPowerManagerChangesFn();
 }
 
 void Framework::SetCarScreenMode(bool enabled)

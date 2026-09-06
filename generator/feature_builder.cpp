@@ -226,7 +226,7 @@ bool FeatureBuilder::PreSerialize()
         { nameWithRef.AddString(code, std::string(name) + " (" + m_params.ref + ")"); });
         m_params.name = std::move(nameWithRef);
       }
-      else if (ftypes::IsEmergencyAccessPointChecker::Instance()(types))
+      else if (ftypes::IsEmergencyAccessPointChecker::Instance()(types) || ftypes::IsEmergencyPhoneChecker::Instance()(types))
       {
         m_params.name.Clear();
         m_params.name.AddString(localisation::kDefaultNameIndex, m_params.ref);

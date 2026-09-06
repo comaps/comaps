@@ -1,6 +1,6 @@
-"type.addr_interpolation" = "Adresa/blok";
-"type.addr_interpolation.even" = "Adresa/blok";
-"type.addr_interpolation.odd" = "Adresa/blok";
+"type.addr_interpolation" = "Adresa/Blok";
+"type.addr_interpolation.even" = "Adresa/Blok";
+"type.addr_interpolation.odd" = "Adresa/Blok";
 "type.aerialway" = "Lanová dráha";
 "type.aerialway.cable_car" = "Visutá lanovka";
 "type.aerialway.chair_lift" = "Sedačková lanovka";
@@ -25,8 +25,8 @@
 "type.amenity.bbq" = "Grilování";
 "type.amenity.bench" = "Lavička";
 "type.amenity.bench.backless" = "Bez opěradla";
-"type.amenity.bicycle_parking" = "Parkování kol";
-"type.amenity.bicycle_parking.covered" = "Kryté parkování kol";
+"type.amenity.bicycle_parking" = "Parkoviště kol";
+"type.amenity.bicycle_parking.covered" = "Kryté parkoviště kol";
 "type.amenity.boat_rental" = "Půjčovna lodí";
 "type.amenity.bicycle_rental" = "Půjčovna kol";
 "type.amenity.bicycle_repair_station" = "Stanice na opravu jízdních kol";
@@ -101,7 +101,7 @@
 "type.amenity.lounger" = "Lehátko";
 "type.amenity.luggage_locker" = "Úschovná skříňka";
 "type.amenity.marketplace" = "Tržiště";
-"type.amenity.mobile_money_agent" = "Mobilní peněžní agent";
+"type.amenity.mobile_money_agent" = "Agent Mobile Money";
 "type.amenity.motorcycle_parking" = "Parkování pro motocykly";
 "type.amenity.nightclub" = "Noční klub";
 "type.amenity.nursing_home" = "Dům s pečovatelskou službou";

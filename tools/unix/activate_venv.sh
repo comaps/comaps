@@ -96,8 +96,13 @@ else
   return 1 2>/dev/null || true
 fi
 
-# Install protobuf
-if ! python3 -m pip install -q "$_VENV_PROTOBUF_SPEC"; then
+# Install protobuf into the venv we just activated. On Windows, venv only
+# provides Scripts/python.exe, not python3, which causes weird behavior.
+_VENV_PIP_PYTHON=python3
+if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" ]]; then
+  _VENV_PIP_PYTHON=python
+fi
+if ! "$_VENV_PIP_PYTHON" -m pip install -q "$_VENV_PROTOBUF_SPEC"; then
   echo "ERROR: failed to install $_VENV_PROTOBUF_SPEC into the venv" >&2
   _venv_cleanup
   return 1 2>/dev/null || true

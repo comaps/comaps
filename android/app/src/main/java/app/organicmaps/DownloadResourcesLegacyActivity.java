@@ -18,6 +18,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.CallSuper;
@@ -101,7 +102,6 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
 
       if (item.status != CountryItem.STATUS_DONE)
       {
-        UiUtils.show(mChbDownloadCountry);
         String checkBoxText;
         if (item.status == CountryItem.STATUS_UPDATABLE)
           checkBoxText = String.format(getString(R.string.update_country_ask), item.name, fileSizeString);
@@ -109,6 +109,12 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
           checkBoxText = String.format(getString(R.string.download_country_ask), item.name, fileSizeString);
 
         mChbDownloadCountry.setText(checkBoxText);
+        mChbDownloadCountry.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(300)
+                .setInterpolator(new OvershootInterpolator())
+                .start();
       }
 
       MwmApplication.from(DownloadResourcesLegacyActivity.this).getLocationHelper().removeListener(this);
@@ -185,6 +191,10 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
       setResult(result.getResultCode(), result.getData());
       finish();
     });
+
+    // Set download button hidden so it can be animated in
+    mChbDownloadCountry.setAlpha(0f);
+    mChbDownloadCountry.setTranslationY(20f);
 
     if (prepareFilesDownload(false))
     {

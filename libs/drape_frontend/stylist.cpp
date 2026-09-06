@@ -110,6 +110,9 @@ void CaptionDescription::Init(FeatureType & f, int8_t deviceLang, int zoomLevel,
 void Stylist::ProcessKey(FeatureType & f, drule::Key const & key)
 {
   drule::BaseRule const * const dRule = drule::rules().Find(key);
+  if (!dRule)
+    return;
+
 #ifdef DEBUG
   using feature::GeomType;
   auto const geomType = f.GetGeomType();

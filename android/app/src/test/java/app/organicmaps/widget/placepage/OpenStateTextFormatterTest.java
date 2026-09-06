@@ -15,6 +15,7 @@ public class OpenStateTextFormatterTest
   private static final String CLOSES_AT = "Closes at %s";
   private static final String OPENS_DAY_AT = "Opens %1$s at %2$s";
   private static final String CLOSES_DAY_AT = "Closes %1$s at %2$s";
+  private static final String OPENS_TOMORROW_AT = "Opens tomorrow at %s";
 
   @Test
   public void formatHoursMinutes_24h()
@@ -35,10 +36,10 @@ public class OpenStateTextFormatterTest
   @Test
   public void buildAtLabel_today_open_close()
   {
-    String open = OpenStateTextFormatter.buildAtLabel(true, true, "Sat", "09:00", OPENS_AT, CLOSES_AT, OPENS_DAY_AT,
-                                                      CLOSES_DAY_AT);
-    String close = OpenStateTextFormatter.buildAtLabel(false, true, "Sat", "18:00", OPENS_AT, CLOSES_AT, OPENS_DAY_AT,
-                                                       CLOSES_DAY_AT);
+    String open = OpenStateTextFormatter.buildAtLabel(true, true, false, "Sat", "09:00", OPENS_AT, CLOSES_AT,
+                                                      OPENS_DAY_AT, CLOSES_DAY_AT, OPENS_TOMORROW_AT);
+    String close = OpenStateTextFormatter.buildAtLabel(false, true, false, "Sat", "18:00", OPENS_AT, CLOSES_AT,
+                                                       OPENS_DAY_AT, CLOSES_DAY_AT, OPENS_TOMORROW_AT);
     assertEquals("Opens at 09:00", open);
     assertEquals("Closes at 18:00", close);
   }
@@ -46,12 +47,28 @@ public class OpenStateTextFormatterTest
   @Test
   public void buildAtLabel_other_day()
   {
-    String open = OpenStateTextFormatter.buildAtLabel(true, false, "Sat", "09:00", OPENS_AT, CLOSES_AT, OPENS_DAY_AT,
-                                                      CLOSES_DAY_AT);
-    String close = OpenStateTextFormatter.buildAtLabel(false, false, "Tue", "18:00", OPENS_AT, CLOSES_AT, OPENS_DAY_AT,
-                                                       CLOSES_DAY_AT);
+    String open = OpenStateTextFormatter.buildAtLabel(true, false, false, "Sat", "09:00", OPENS_AT, CLOSES_AT,
+                                                      OPENS_DAY_AT, CLOSES_DAY_AT, OPENS_TOMORROW_AT);
+    String close = OpenStateTextFormatter.buildAtLabel(false, false, false, "Tue", "18:00", OPENS_AT, CLOSES_AT,
+                                                       OPENS_DAY_AT, CLOSES_DAY_AT, OPENS_TOMORROW_AT);
     assertEquals("Opens Sat at 09:00", open);
     assertEquals("Closes Tue at 18:00", close);
+  }
+
+  @Test
+  public void buildAtLabel_tomorrow_opens_uses_tomorrow_string()
+  {
+    String open = OpenStateTextFormatter.buildAtLabel(true, false, true, "Wednesday", "09:00", OPENS_AT, CLOSES_AT,
+                                                      OPENS_DAY_AT, CLOSES_DAY_AT, OPENS_TOMORROW_AT);
+    assertEquals("Opens tomorrow at 09:00", open);
+  }
+
+  @Test
+  public void buildAtLabel_tomorrow_closes_uses_day_name_fallback()
+  {
+    String close = OpenStateTextFormatter.buildAtLabel(false, false, true, "Wednesday", "18:00", OPENS_AT, CLOSES_AT,
+                                                        OPENS_DAY_AT, CLOSES_DAY_AT, OPENS_TOMORROW_AT);
+    assertEquals("Closes Wednesday at 18:00", close);
   }
 
   @Test

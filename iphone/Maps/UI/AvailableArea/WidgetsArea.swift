@@ -17,10 +17,6 @@ final class WidgetsArea: AvailableArea {
     let directions = ov.widgetsAreaAffectDirections
     addConstraints(otherView: ov, directions: directions)
   }
-
-  override func notifyObserver() {
-    MWMMapWidgetsHelper.updateAvailableArea(areaFrame)
-  }
 }
 
 extension UIView {

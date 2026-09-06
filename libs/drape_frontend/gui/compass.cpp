@@ -27,6 +27,8 @@
 #include <functional>
 #include <utility>
 
+#include "drape_frontend/overlay_id.hpp"
+
 using namespace std::placeholders;
 
 namespace gui
@@ -48,7 +50,9 @@ class CompassHandle : public TappableHandle
 
 public:
   CompassHandle(uint32_t id, m2::PointF const & pivot, m2::PointF const & size, Shape::TTapHandler const & tapHandler)
-    : TappableHandle(id, dp::Center, pivot, size)
+    // TODO live angle
+    : TappableHandle(id, dp::Center, pivot, size,
+                     dp::AccessibilityNodeInfo("compass", dp::ExplorationType::ANNOUNCE_LABEL_ALWAYS))
     , m_tapHandler(tapHandler)
     , m_animation(false, 0.25)
   {}
@@ -106,7 +110,11 @@ drape_ptr<ShapeRenderer> Compass::Draw(ref_ptr<dp::GraphicsContext> context, ref
                                        TTapHandler const & tapHandler) const
 {
   dp::TextureManager::SymbolRegion region;
+#ifdef OMIM_OS_IPHONE
+  tex->GetSymbolRegion("compass-ios", region);
+#else
   tex->GetSymbolRegion("compass", region);
+#endif
   auto const halfSize = glsl::ToVec2(region.GetPixelSize() * 0.5f);
   auto const texRect = region.GetTexRect();
 
@@ -140,8 +148,8 @@ drape_ptr<ShapeRenderer> Compass::Draw(ref_ptr<dp::GraphicsContext> context, ref
 
   provider.InitStream(0, info, make_ref(&vertexes));
 
-  drape_ptr<dp::OverlayHandle> handle = make_unique_dp<CompassHandle>(
-      EGuiHandle::GuiHandleCompass, m_position.m_pixelPivot, region.GetPixelSize(), tapHandler);
+  drape_ptr<dp::OverlayHandle> handle =
+      make_unique_dp<CompassHandle>(df::GuiHandleCompass, m_position.m_pixelPivot, region.GetPixelSize(), tapHandler);
 
   drape_ptr<ShapeRenderer> renderer = make_unique_dp<ShapeRenderer>();
   dp::Batcher batcher(dp::Batcher::IndexPerQuad, dp::Batcher::VertexPerQuad);

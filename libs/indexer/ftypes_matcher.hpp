@@ -677,6 +677,14 @@ public:
   DECLARE_CHECKER_INSTANCE(IsEmergencyAccessPointChecker);
 };
 
+class IsEmergencyPhoneChecker : public BaseChecker
+{
+  IsEmergencyPhoneChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsEmergencyPhoneChecker);
+};
+
 class IsAddressInterpolChecker : public BaseChecker
 {
   IsAddressInterpolChecker();

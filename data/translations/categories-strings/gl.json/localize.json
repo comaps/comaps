@@ -1,0 +1,92 @@
+{
+    "@category_fuel": {
+        "defaultMessage": "2Gasolineira|4Gasolina|3Petróleo|4Diésel|4Gasoil"
+    },
+    "@category_parking": {
+        "defaultMessage": "4Parking|4Aparcamento|6Estacionamento"
+    },
+    "@category_hotel": {
+        "defaultMessage": "3Hotel|Hoteis|4Aloxamento|Durmir"
+    },
+    "@category_bank": {
+        "defaultMessage": "3Banco"
+    },
+    "@category_eat": {
+        "defaultMessage": "Onde comer|Comer|Comida"
+    },
+    "@category_transport": {
+        "defaultMessage": "5Transporte"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "4Entretemento|Ocio|Lecer"
+    },
+    "@category_atm": {
+        "defaultMessage": "4Caixeiro|Banco"
+    },
+    "amenity-atm|@category_atm": {
+        "defaultMessage": "diñeiro|efectivo|6minibanco|U+1F3E7|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"
+    },
+    "amenity-bank|@category_bank": {
+        "defaultMessage": "diñeiro|U+1F3E6|U+1F4B0|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"
+    },
+    "@category_recycling": {
+        "defaultMessage": "4Reciclaxe|Reúso de residuos|Eliminación de residuos|Reciclábeis|Reciclables|Reutilizar"
+    },
+    "amenity-bureau_de_change": {
+        "defaultMessage": "4Cambio de moeda|4cambio|diñeiro|U+1F4B1|U+1F4B2|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"
+    },
+    "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
+        "defaultMessage": "2Bar|2pub|cerbexa|beber|U+1F37A|U+1F37B|U+1F376|taberna|tasca|bares e pubs|cóctel"
+    },
+    "amenity-cafe|@category_eat": {
+        "defaultMessage": "3Café|cafetaría"
+    },
+    "amenity-fast_food|@category_eat": {
+        "defaultMessage": "4Comida rápida|4para levar|4comida basura"
+    },
+    "amenity-restaurant|@category_eat": {
+        "defaultMessage": "3Restaurante"
+    },
+    "amenity-fuel|@category_fuel": {
+        "defaultMessage": "3Gasolineira|4Estación de servizo|gasolina|diésel|gasoil|combustíbel|combustible"
+    },
+    "@shop": {
+        "defaultMessage": "3Tenda|4Comercio|4Comprar"
+    },
+    "shop-cannabis|@shop": {
+        "defaultMessage": "Canabo|canabis|cañamo|marihuana"
+    },
+    "shop-farm|@category_food|@shop": {
+        "defaultMessage": "Produtos de granxa|granxa"
+    },
+    "shop-water|@category_water|@category_food|@shop": {
+        "defaultMessage": "4Auga potábel|4auga potable|4auga embotellada"
+    },
+    "shop-butcher|@category_food|@shop": {
+        "defaultMessage": "4Carnizaría|Carne"
+    },
+    "shop-furniture|@shop": {
+        "defaultMessage": "4Mobles|tenda de mobles|Mobiliario"
+    },
+    "shop-books|@shop": {
+        "defaultMessage": "5Libraría|tenda de libros|4libros"
+    },
+    "shop-shoes|@category_shopping|@shop": {
+        "defaultMessage": "Zapataría|zapato|tenda de zapatos|calzado"
+    },
+    "shop-jewelry|@category_shopping|@shop": {
+        "defaultMessage": "4Xoiaría|4Xoias|4Diamantes"
+    },
+    "shop-supermarket|@category_food|@shop": {
+        "defaultMessage": "3Supermercado"
+    },
+    "amenity-marketplace|@category_food": {
+        "defaultMessage": "3Feira|3mercado"
+    },
+    "amenity-money_transfer": {
+        "defaultMessage": "5Transferencia de diñeiro"
+    },
+    "shop-clothes|@category_shopping|@shop": {
+        "defaultMessage": "3Roupa|tenda de roupa|moda|vestimenta"
+    }
+}

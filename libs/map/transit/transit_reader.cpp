@@ -268,6 +268,11 @@ void TransitReadManager::SetDrapeEngine(ref_ptr<df::DrapeEngine> engine)
   m_drapeEngine.Set(engine);
 }
 
+bool TransitReadManager::IsTransitSchemeModeEnabled()
+{
+  return m_isSchemeMode;
+}
+
 void TransitReadManager::EnableTransitSchemeMode(bool enable)
 {
   ChangeState(enable ? TransitSchemeState::Enabled : TransitSchemeState::Disabled);

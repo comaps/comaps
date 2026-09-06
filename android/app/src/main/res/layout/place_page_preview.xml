@@ -45,9 +45,11 @@
         android:hyphenationFrequency="fullFast"
         android:maxLines="@integer/pp_title_lines"
         android:textAppearance="@style/MwmTextAppearance.Title"
+        android:focusable="true"
         tools:background="#C0800000"
         tools:ignore="UnusedAttribute"
         tools:text="Title" />
+
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv__secondary_title"
         android:textAlignment="viewStart"
@@ -58,8 +60,55 @@
         android:fontFamily="@string/robotoMedium"
         android:maxLines="@integer/pp_title_lines"
         android:textAppearance="@style/MwmTextAppearance.Body1"
+        android:focusable="true"
+
         tools:background="#C0800000"
         tools:text="Secondary Title" />
+      <!-- Not focusable by default because it is not clickable -->
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/rating_container"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv__rating_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/MwmTextAppearance.Body3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/rating_stars"
+            android:focusable="true"
+            tools:background="#C0800000"
+            tools:text="3.4" />
+
+        <app.organicmaps.widget.StarRatingView
+            android:id="@+id/rating_stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_quarter"
+            android:paddingLeft="@dimen/margin_quarter"
+            android:paddingRight="@dimen/margin_quarter"
+            android:paddingTop="@dimen/margin_eighth"
+            app:layout_constraintStart_toEndOf="@id/tv__rating_num"
+            app:layout_constraintTop_toTopOf="parent"
+            app:size="@dimen/text_size_body_3" 
+            android:focusable="true" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv__num_reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/MwmTextAppearance.Body3"
+            app:layout_constraintBaseline_toBaselineOf="@id/rating_stars"
+            app:layout_constraintStart_toEndOf="@id/rating_stars"
+            android:focusable="true"
+            tools:background="#C0800000"
+            tools:text="(123)" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv__subtitle"
         android:textAlignment="viewStart"
@@ -68,6 +117,7 @@
         android:layout_marginTop="@dimen/margin_quarter"
         android:ellipsize="end"
         android:textAppearance="@style/MwmTextAppearance.Body3"
+        android:focusable="true"
         tools:background="#300000F0"
         tools:text="Subtitle, very very very very very very very long" />
       <com.google.android.material.textview.MaterialTextView
@@ -78,6 +128,7 @@
           android:layout_marginTop="@dimen/margin_quarter"
           android:ellipsize="end"
           android:textAppearance="@style/MwmTextAppearance.Body3"
+          android:focusable="true"
           tools:background="#300000F0"
           tools:text="Closes in 45 min • at 23:00" />
       <com.google.android.material.textview.MaterialTextView
@@ -87,6 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_quarter"
         android:textAppearance="@style/MwmTextAppearance.Body3"
+        android:focusable="true"
         tools:background="#60000000"
         tools:text="Lenina str, 10" />
       <com.google.android.material.textview.MaterialTextView
@@ -97,6 +149,7 @@
         android:layout_marginTop="@dimen/margin_quarter"
         android:textAppearance="@style/MwmTextAppearance.Body1.Secondary"
         android:visibility="gone"
+        android:focusable="true"
         tools:background="#8000F000"
         tools:text="2.4 GB  •  Maps: 1"
         tools:visibility="visible" />
@@ -175,6 +228,7 @@
           android:layout_gravity="center"
           android:textAppearance="@style/MwmTextAppearance.PlacePage.Accent"
           android:textSize="@dimen/text_size_body_3"
+          android:focusable="true"
           tools:text="2000 km" />
       </LinearLayout>
     </LinearLayout>
@@ -219,6 +273,7 @@
         android:background="?clickableBackground"
         android:maxLines="2"
         android:ellipsize="end"
+        android:focusable="true"
         tools:text="@string/categories" />
       <com.google.android.material.button.MaterialButton
         android:id="@+id/edit_Bookmark"
@@ -263,6 +318,7 @@
         android:layout_weight="1"
         android:background="?clickableBackground"
         android:textAllCaps="false"
+        android:focusable="true"
         tools:text="Some very long text for a very very very very very very very very very very very very very very very very very very very very very very very very looooooong descriptions that doesn't fit into the cell. Interesting, how will it look for even longer text" />
     </LinearLayout>
 

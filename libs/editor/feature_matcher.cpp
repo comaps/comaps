@@ -189,18 +189,26 @@ double ScoreGeometry(pugi::xml_document const & osmResponse, pugi::xml_node cons
   if (bg::is_empty(their))
     return geometry::kPenaltyScore;
 
-  auto const our = geometry::TrianglesToPolygon(ourGeometry);
+  try
+  {
+    auto const our = geometry::TrianglesToPolygon(ourGeometry);
 
-  if (bg::is_empty(our))
+    if (bg::is_empty(our))
+      return geometry::kPenaltyScore;
+
+    auto const score = geometry::GetIntersectionScore(our, their);
+
+    // If area of the intersection is a half of the object area, penalty score will be returned.
+    if (score <= 0.5)
+      return geometry::kPenaltyScore;
+
+    return score;
+  }
+  catch (geometry::NotAPolygonException & ex)
+  {
+    LOG(LWARNING, (ex.Msg()));
     return geometry::kPenaltyScore;
-
-  auto const score = geometry::GetIntersectionScore(our, their);
-
-  // If area of the intersection is a half of the object area, penalty score will be returned.
-  if (score <= 0.5)
-    return geometry::kPenaltyScore;
-
-  return score;
+  }
 }
 }  // namespace
 

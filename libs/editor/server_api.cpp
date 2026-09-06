@@ -60,7 +60,12 @@ uint64_t ServerApi06::CreateElement(editor::XMLFeature const & element) const
   OsmOAuth::Response const response =
       m_auth.Request("/" + element.GetTypeString() + "/create", "PUT", element.ToOSMString());
   if (response.first != OsmOAuth::HTTP::OK)
-    MYTHROW(CreateElementHasFailed, ("CreateElement request has failed:", response, "for", element));
+  {
+    if (response.first == OsmOAuth::HTTP::BadXML)
+      MYTHROW(CreateElementHasFailedNoRetry, ("CreateElement failed with Bad Request:", response, "for", element));
+    else
+      MYTHROW(CreateElementHasFailed, ("CreateElement request has failed:", response, "for", element));
+  }
   uint64_t id;
   if (!strings::to_uint64(response.second, id))
     MYTHROW(CantParseServerResponse, ("Can't parse created node ID from server response."));
@@ -82,7 +87,12 @@ uint64_t ServerApi06::ModifyElement(editor::XMLFeature const & element) const
   OsmOAuth::Response const response =
       m_auth.Request("/" + element.GetTypeString() + "/" + id, "PUT", element.ToOSMString());
   if (response.first != OsmOAuth::HTTP::OK)
-    MYTHROW(ModifyElementHasFailed, ("ModifyElement request has failed:", response, "for", element));
+  {
+    if (response.first == OsmOAuth::HTTP::BadXML)
+      MYTHROW(ModifyElementHasFailedNoRetry, ("ModifyElement failed with Bad Request:", response, "for", element));
+    else
+      MYTHROW(ModifyElementHasFailed, ("ModifyElement request has failed:", response, "for", element));
+  }
   uint64_t version;
   if (!strings::to_uint64(response.second, version))
     MYTHROW(CantParseServerResponse, ("Can't parse element version from server response", response.second));

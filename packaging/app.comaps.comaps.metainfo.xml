@@ -131,8 +131,20 @@
 
 
   <releases>
-    <release version="2026.06.15" date="2026-06-15">
+    <release version="2026.08.31" date="2026-08-31">
      <url type="details">https://comaps.app/latest/</url>
+     <description><ul>
+<li>Switching between transport-specific map styles</li>
+<li>Display favorite names on the map (opt out in settings)</li>
+<li>Custom map font size setting</li>
+<li>Support roadshields in Kyrgyzstan, Uzbekistan, Tajikistan, Kazakhstan and Georgia</li>
+<li>Fixed ability to search in any user-set map language (not just EN and local language)</li>
+<li>Don't interpret fee=donation as paid</li>
+<li>OpenStreetMap data as of August 30 and further weekly updates</li>
+     </ul></description>
+    </release>
+    <release version="2026.07.16" date="2026-07-16">
+     <url type="details">https://codeberg.org/comaps/comaps/releases/tag/v2026.07.16-10</url>
      <description><ul>
 <li>Added display of Mangrove user reviews in POI details</li>
 <li>Display numbers of parking spaces with electric chargers and for disabled drivers</li>

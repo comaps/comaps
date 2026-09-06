@@ -301,6 +301,9 @@ public class NavigationService extends Service implements LocationListener
     if (routingInfo.shouldPlayWarningSignal())
       mPlayer.playback(R.raw.speed_cams_beep);
 
+    RoutingController.get().updateCachedRoutingInfo(routingInfo);
+    getContentResolver().notifyChange(NavigationContract.LIVE_NAVIGATION_DATA_URI, null);
+
     // Don't spend time on updating RemoteView if notifications are not allowed.
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
         && ActivityCompat.checkSelfPermission(this, POST_NOTIFICATIONS) != PERMISSION_GRANTED)
@@ -324,7 +327,5 @@ public class NavigationService extends Service implements LocationListener
 
     // The notification object must be re-created for every update.
     NotificationManagerCompat.from(this).notify(NOTIFICATION_ID, notificationBuilder.build());
-    RoutingController.get().updateCachedRoutingInfo(routingInfo);
-    getContentResolver().notifyChange(NavigationContract.LIVE_NAVIGATION_DATA_URI, null);
   }
 }

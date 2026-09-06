@@ -506,7 +506,7 @@
     <string name="mobile_data_option_never">ไม่ใช้เลย</string>
     <string name="mobile_data_option_ask">ถามก่อนเสมอ</string>
     <string name="traffic_update_maps_text">ต้องอัปเดตแผนที่เพื่อแสดงข้อมูลการจราจร</string>
-    <string name="big_font">เพิ่มขนาดฟอนต์บนแผนที่</string>
+    <string name="increase_font_size">เพิ่มขนาดฟอนต์บนแผนที่</string>
     <string name="traffic_update_app">กรุณาอัปเดต CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">ไม่มีข้อมูลการจราจร</string>

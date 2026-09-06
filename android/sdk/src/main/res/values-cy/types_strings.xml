@@ -476,4 +476,6 @@
     <string name="type.amenity.flight_school">Ysgol Hedfan</string>
     <string name="type.amenity.prep_school">Ysgol Baratoi</string>
     <string name="type.building.guardhouse">Ciosg Diogelwch</string>
+    <string name="type.aerialway.station">Gorsaf Awyrffordd</string>
+    <string name="type.aeroway.runway">Rhedfa</string>
 </resources>

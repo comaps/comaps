@@ -61,6 +61,8 @@ sudo dnf install @development-tools cmake qt6-qtbase qt6-qtsvg qt6-qtpositioning
 
 </details>
 
+### Install Python protobuf and run ./configure.sh
+
 The data generation tools require a specific Python `protobuf` version. You don't
 need to install it manually: `./configure.sh` (run below) creates a local `.venv`
 in the repository root and installs the correct version into it automatically.
@@ -68,11 +70,6 @@ in the repository root and installs the correct version into it automatically.
 If you prefer to manage `protobuf` via your system Python (e.g. a distro
 `python3-protobuf` package), set `SKIP_PYTHON_VENV=1` before running `./configure.sh`
 and the venv step will be skipped.
-
-
-
-
-### Configure running bash script
 
 Go into the cloned repository and configure it for development:
 ```bash
@@ -85,13 +82,34 @@ If you plan to publish the app privately in stores check [special options](#spec
 </details>
 
 <details>
-  <summary><span style="font-size: 1.5em; font-weight: bold;">Windows</span></summary>
-  
-It's probably best to have [Git for Windows](https://git-scm.com/download/win) installed and Git Bash available in the PATH.
+  <summary><span style="font-size: 1.5em; font-weight: bold;" id="windows">Windows 10/11</span></summary>
+
+### WSL builds
+
+Install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) if not already.
+
+Run `wsl configure.sh` etc and follow appropriate Linux instructions/dependencies above. For example you'll at least need to install g++ and jq by running the following command in WSL: `sudo apt install g++ jq`
+
+### Non-WSL Builds
+
+Install the [Visual Studio Developer Command Prompt](https://docs.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2022) (make sure to choose the latest MSVC x64/x86 build tool and Windows 10/11 SDK as individual components while installing Visual Studio).
+
+Use Git Bash via [Git for Windows](https://git-scm.com/download/win) so that running `bash` results in that version and not some other Bash.
 
 [optipng](http://optipng.sourceforge.net/) should be installed and available in the PATH (e.g. via [Chocolatey](https://chocolatey.org/): `choco install optipng`).
 
-It's necessary to enable symlink support:
+[uconv via ICU](https://github.com/unicode-org/icu/releases/latest) for `configure.sh` and generating Serbian Latin strings. Download `icu4c-<version>-Win64-MSVC2022.zip` from Github, extract it somewhere, and add its `bin64` folder to the top of your PATH. If you don't need to generate Serbian strings, you can also set `SKIP_GENERATE_SERBIAN_LATIN_STRINGS=1` before running `configure.sh`.
+
+[`jq`](https://jqlang.org/) for `configure.sh` JSON strings. Install it via `winget install jqlang.jq` or [download the binary directly](https://jqlang.org/download/). Make sure it's in your PATH (able to run `jq` directly).
+
+[`zlib` via vcpkg](https://vcpkg.io/). The Chocolatey `zlib` package has been delisted. vcpkg builds it from source with your MSVC toolchain:
+```
+git clone https://github.com/microsoft/vcpkg C:\vcpkg
+C:\vcpkg\bootstrap-vcpkg.bat
+C:\vcpkg\vcpkg install zlib:x64-windows
+```
+
+It may no longer be necessary to enable symlink support, so only do this if needed:
 1. Activate _Windows Development Mode_ to enable symlinks globally:
   - Windows 10: _Settings_ -> _Update and Security_ -> _For Developers_ -> _Activate Developer Mode_
   - Windows 11: _Settings_ -> _Privacy and Security_ -> _For Developers_ -> _Activate Developer Mode_
@@ -107,19 +125,18 @@ Clone the repository
 git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/comaps.git
 ```
 
-For _Windows 10/11_:  You should be able to build the project by following either of these setup methods:
-
-**Setup 1: Using WSL**
-1. Install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) on your machine.
-2. Install g++ and jq by running the following command in WSL: `sudo apt install g++ jq`
-
-**Setup 2: Using Visual Studio Developer Command Prompt**
-Install the [Visual Studio Developer Command Prompt](https://docs.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2022) (make sure to choose the latest MSVC x64/x86 build tool and Windows 10/11 SDK as individual components while installing Visual Studio).
-
 </details>
 
 <details>
   <summary><span style="font-size: 1.5em; font-weight: bold;">macOS</span></summary>
+
+The recommended version for iOS development is macOS 15 and Xcode 26, as this is the only way to run with the CarPlay external display in the iOS Simulator
+
+With the release of macOS 27, the recommended way is hence to run the development in a VM as macOS 15 is unsupported by Apple. This requires approximately 100 GB disk space
+
+Note that the obligatory Scene migration required by iOS SDK 27 has not yet been merged to `main`, such that Xcode 27 can't compile the app unless you check out the `carplay-dashboard-support` branch. This means that you have to stay on Xcode 26 on macOS 26.
+
+Once we have set up an Apple Organization account it will be possible to use Xcode 27 if you get added as a "Developer" on the team
 
 Install required build dependencies and Xcode
 1. Install Xcode Command Line Tools

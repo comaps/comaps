@@ -10,7 +10,7 @@
 /* Title of offline maps explanation */
 "offline_explanation_title" = "Lineaz kanpoko mapak";
 /* Text of offline maps explanation */
-"offline_explanation_text" = "A map needs to be downloaded to view and navigate the area.\nDownload maps for areas you want to travel.";
+"offline_explanation_text" = "Mapa bat deskargatu behar da eremua ikusteko eta nabigatzeko.\nDeskargatu bidaiatu nahi dituzun eremuen mapak.";
 /* Choose measurement on first launch alert - choose metric system button */
 "kilometres" = "Kilometro";
 /* Leave Review dialog - Review button */
@@ -143,11 +143,10 @@
 "share_my_location" = "Partekatu nire kokapena";
 "prefs_group_route" = "Nabigazioa";
 "pref_zoom_title" = "Zoom botoiak";
-"pref_left_button_type" = "Left Main Button";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Mapen hizkuntza";
 /* Settings «Map» category: «Map Language» local value */
-"pref_maplanguage_local" = "Hizkuntza lokala";
+"pref_maplanguage_local" = "Tokiko hizkuntza";
 /* Settings «Map» category: «Map Appearance» title */
 "pref_mapappearance_title" = "Mapen itxura";
 /* Settings «Map» category: «Appearance» title */
@@ -166,8 +165,6 @@
 "auto" = "Automatikoa";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Perspektiba ikuspegia";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "3D eraikinak";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D eraikinak desgaituta daude energia aurrezteko moduan";
 /* Settings «Route» category: «Tts enabled» title */
@@ -571,17 +568,16 @@
 "mobile_data_option_never" = "Ez erabili inoiz";
 "mobile_data_option_ask" = "Galdetu beti";
 "traffic_update_maps_text" = "Trafiko datuak bistaratzeko, mapak eguneratu behar dira.";
-"big_font" = "Handitu letra tamaina mapan";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Trafiko datuak bistaratzeko, aplikazioa eguneratu behar duzu.";
 /* "traffic" as in "road congestion" */
 "traffic_data_unavailable" = "Trafiko datuak ez daude eskuragarri";
 "enable_logging" = "Historia gaitu";
 "log_file_size" = "Erregistro fitxategiaren tamaina: %@";
-"pref_alt_map_lang_handling" = "Alternative Map Languages";
+"pref_alt_map_lang_handling" = "Maparen hizkuntza alternatiboak";
 "pref_alt_map_lang_handling_ignore_alternatives" = "Ez erabili alternatibarik";
-"pref_alt_map_lang_handling_system_order" = "Use in system order";
-"pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
+"pref_alt_map_lang_handling_system_order" = "Erabili sistemaren ordenan";
+"pref_alt_map_lang_handling_local_only" = "Hobetsi eta erabili bakarrik tokikoa denean";
 "transliteration_title" = "Latinezko transliterazioa";
 "transliteration_title_disabled_summary" = "Desgaituta maparako hizkuntza lokala beti erabiltzean";
 /* Subway exits for public transport marks on the map */
@@ -625,8 +621,6 @@
 "restore" = "Berreskuratu";
 "privacy_policy" = "Pribatutasun politika";
 "terms_of_use" = "Erabilera baldintzak";
-"button_layer_subway" = "Metroa";
-"layers_title" = "Maparen estiloak eta geruzak";
 "subway_data_unavailable" = "Metroaren mapa ez dago erabilgarri";
 "title_error_downloading_bookmarks" = "Akats bat gertatu da";
 "popular_place" = "Ospetsua";
@@ -733,7 +727,6 @@
 "transit_not_found" = "Metroko nabigazioa oraindik ez dago erabilgarri eskualde honetan";
 "dialog_pedestrian_route_is_long_header" = "Ez da aurkitu metroko ibilbiderik";
 "dialog_pedestrian_route_is_long_message" = "Aukeratu metrotik hurbilen dagoen ibilbidearen hasiera edo amaiera puntua";
-"button_layer_isolines" = "Sestra kurbak";
 "isolines_activation_error_dialog" = "Sestra kurbak erabiltzeko, eguneratu edo deskargatu nahi duzun eremuko mapa";
 "isolines_location_error_dialog" = "Erliebearen altitudea oraindik ez dago eskuragarri eskualde honetan";
 "elevation_profile_diff_level" = "Zailtasun maila";
@@ -795,8 +788,6 @@
 "car_continue_on_the_phone" = "Jarraitu telefonoan";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Autoaren pantailara";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Landa-eremua";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Esportatu gogoko guztiak";
 /* Text for the editing the Track's color button. */
@@ -846,10 +837,6 @@
 "recover" = "Berreskuratu";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Guztia berreskuratu";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Grabatu arrastoa";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Gelditu arrastoaren grabaketa";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Gelditu gorde gabe";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -874,12 +861,39 @@
 "downloader_check_updates_no_updates" = "Ez dago eguneratzerik";
 "downloader_check_updates_eol" = "Ez dago mapa eguneratze gehiago aplikazio honen bertsiorako. Eguneratu aplikazioa!";
 "downloader_check_updates_error" = "Ezin izan dira eguneratzeak bilatu";
-"editor_add_select_category_recent_subtitle" = "Recently Used";
+"editor_add_select_category_recent_subtitle" = "Duela gutxikoak";
 "oh_unknown" = "Ordutegi ezezaguna";
 "carplay_highway_exit" = "Exit %@";
 "capacity_disabled_yes" = "Has dedicated disabled spaces";
-"capacity_disabled_no" = "No dedicated disabled spaces";
-"capacity_charging_yes" = "Has spaces with chargers";
-"capacity_charging_no" = "No spaces with chargers";
-"planning_route_preview" = "Preview";
+"capacity_disabled_no" = "Ez du ezinduentzako lekurik";
+"capacity_charging_yes" = "Kargagailua duten espazioak ditu";
+"capacity_charging_no" = "Ez dago lekurik kargagailuekin";
+"planning_route_preview" = "Aurrebista";
 "planning_route_preview_sheet_title" = "Route Preview";
+"discard" = "Discard";
+"pref_custom_button_type" = "Customizable Button";
+"osm" = "OpenStreetMap";
+"mode" = "Mode";
+"mode_walking" = "Walking";
+"mode_cycling" = "Cycling";
+"mode_driving" = "Driving";
+"mode_public-transport" = "Public Transport";
+"mode_option_traffic" = "Show Traffic";
+"mode_option_transitlines" = "Show Transit Lines";
+"mode_option_comingsoon" = "Options coming soon";
+"layers" = "Layers";
+"layers_option_contour-lines" = "Contour Lines";
+"layers_option_outdoor" = "Outdoor";
+"layers_option_buildings-3d" = "3D Buildings";
+"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
+"postionmode_locate" = "Find own location";
+"postionmode_locating" = "Finding own location...";
+"postionmode_following" = "Following location with map roated towards North";
+"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
+"zoom_in" = "Zoom in";
+"zoom_out" = "Zoom out";
+"record_track" = "Record Track";
+"recording_track" = "Recording Track";
+"bookmarks_text_placement_title" = "Show names of favorites on map";
+"pref_font_size" = "Font size for map labels";
+"font_size" = "Font size";

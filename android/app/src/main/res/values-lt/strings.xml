@@ -522,7 +522,7 @@
     <string name="mobile_data_option_never">Niekada nenaudoti</string>
     <string name="mobile_data_option_ask">Visada klausti</string>
     <string name="traffic_update_maps_text">Jeigu norite matyti eismo duomenis, reikia atnaujinti žemėlapius</string>
-    <string name="big_font">Padidinti žemėlapio užrašų šrifto dydį</string>
+    <string name="increase_font_size">Padidinti žemėlapio užrašų šrifto dydį</string>
     <string name="traffic_update_app">Atnaujinkite „CoMaps“</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">Eismo duomenys neprieinami</string>
@@ -867,6 +867,7 @@
     <string name="avoid_paved">Vengti grįstų kelių</string>
     <string name="opens_at">Atidaroma %s</string>
     <string name="closes_at">Uždaroma %s</string>
+    <string name="opens_tomorrow_at">Atsidaro rytoj %s</string>
     <string name="opens_day_at">Atidaroma %1$s , %2$s</string>
     <string name="closes_day_at">Uždaroma %1$s, %2$s</string>
     <plurals name="minutes_short">

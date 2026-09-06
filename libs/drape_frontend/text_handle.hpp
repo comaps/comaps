@@ -16,12 +16,13 @@ namespace df
 class TextHandle : public dp::OverlayHandle
 {
 public:
-  TextHandle(dp::OverlayID const & id, dp::TGlyphs && glyphs, dp::Anchor anchor, uint64_t priority,
-             ref_ptr<dp::TextureManager> textureManager, int minVisibleScale, bool isBillboard);
+  TextHandle(dp::OverlayID const & id, uint8_t subID, dp::TGlyphs && glyphs, dp::Anchor anchor, uint64_t priority,
+             ref_ptr<dp::TextureManager> textureManager, int minVisibleScale, bool isBillboard,
+             dp::AccessibilityNodeInfo && accessibilityInfo);
 
-  TextHandle(dp::OverlayID const & id, dp::TGlyphs && glyphs, dp::Anchor anchor, uint64_t priority,
+  TextHandle(dp::OverlayID const & id, uint8_t subID, dp::TGlyphs && glyphs, dp::Anchor anchor, uint64_t priority,
              ref_ptr<dp::TextureManager> textureManager, gpu::TTextDynamicVertexBuffer && normals, int minVisibleScale,
-             bool IsBillboard);
+             bool IsBillboard, dp::AccessibilityNodeInfo && accessibilityInfo);
 
   bool Update(ScreenBase const & screen) override;
 

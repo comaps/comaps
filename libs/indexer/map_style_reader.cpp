@@ -7,14 +7,33 @@
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
 
+#include "indexer/classificator_loader.hpp"
+
 namespace
 {
-std::string const kSuffixDark = "dark";
 std::string const kSuffixLight = "light";
+std::string const kSuffixDark = "dark";
+std::string const kSuffixWalkingLight = "_walking_light";
+std::string const kSuffixWalkingOutdoorLight = "_walking_outdoor_light";
+std::string const kSuffixWalkingDark = "_walking_dark";
+std::string const kSuffixWalkingOutdoorDark = "_walking_outdoor_dark";
+std::string const kSuffixCyclingLight = "_cycling_light";
+std::string const kSuffixCyclingOutdoorLight = "_cycling_outdoor_light";
+std::string const kSuffixCyclingDark = "_cycling_dark";
+std::string const kSuffixCyclingOutdoorDark = "_cycling_outdoor_dark";
+std::string const kSuffixDrivingLight = "_driving_light";
+std::string const kSuffixDrivingOutdoorLight = "_driving_outdoor_light";
+std::string const kSuffixDrivingDark = "_driving_dark";
+std::string const kSuffixDrivingOutdoorDark = "_driving_outdoor_dark";
+std::string const kSuffixPublicTransportLight = "_public-transport_light";
+std::string const kSuffixPublicTransportOutdoorLight = "_public-transport_outdoor_light";
+std::string const kSuffixPublicTransportDark = "_public-transport_dark";
+std::string const kSuffixPublicTransportOutdoorDark = "_public-transport_outdoor_dark";
+std::string const kSuffixVehicleLight = "_vehicle_light";
+std::string const kSuffixVehicleDark = "_vehicle_dark";
+
 std::string const kSuffixDefaultDark = "_default_dark";
 std::string const kSuffixDefaultLight = "_default_light";
-std::string const kSuffixVehicleDark = "_vehicle_dark";
-std::string const kSuffixVehicleLight = "_vehicle_light";
 std::string const kSuffixOutdoorsLight = "_outdoors_light";
 std::string const kSuffixOutdoorsDark = "_outdoors_dark";
 
@@ -31,19 +50,36 @@ std::string GetStyleRulesSuffix(MapStyle mapStyle)
 #else
   switch (mapStyle)
   {
+  case MapStyleWalkingLight: return kSuffixWalkingLight;
+  case MapStyleWalkingOutdoorLight: return kSuffixWalkingOutdoorLight;
+  case MapStyleWalkingDark: return kSuffixWalkingDark;
+  case MapStyleWalkingOutdoorDark: return kSuffixWalkingOutdoorDark;
+  case MapStyleCyclingLight: return kSuffixCyclingLight;
+  case MapStyleCyclingOutdoorLight: return kSuffixCyclingOutdoorLight;
+  case MapStyleCyclingDark: return kSuffixCyclingDark;
+  case MapStyleCyclingOutdoorDark: return kSuffixCyclingOutdoorDark;
+  case MapStyleDrivingLight: return kSuffixDrivingLight;
+  case MapStyleDrivingOutdoorLight: return kSuffixDrivingOutdoorLight;
+  case MapStyleDrivingDark: return kSuffixDrivingDark;
+  case MapStyleDrivingOutdoorDark: return kSuffixDrivingOutdoorDark;
+  case MapStylePublicTransportLight: return kSuffixPublicTransportLight;
+  case MapStylePublicTransportOutdoorLight: return kSuffixPublicTransportOutdoorLight;
+  case MapStylePublicTransportDark: return kSuffixPublicTransportDark;
+  case MapStylePublicTransportOutdoorDark: return kSuffixPublicTransportOutdoorDark;
+  case MapStyleVehicleLight: return kSuffixVehicleLight;
+  case MapStyleVehicleDark: return kSuffixVehicleDark;
+  case MapStyleMerged: return {};
+
   case MapStyleDefaultDark: return kSuffixDefaultDark;
   case MapStyleDefaultLight: return kSuffixDefaultLight;
-  case MapStyleVehicleDark: return kSuffixVehicleDark;
-  case MapStyleVehicleLight: return kSuffixVehicleLight;
   case MapStyleOutdoorsLight: return kSuffixOutdoorsLight;
   case MapStyleOutdoorsDark: return kSuffixOutdoorsDark;
-  case MapStyleMerged: return {};
 
   case MapStyleCount: break;
   }
   LOG(LWARNING, ("Unknown map style", mapStyle));
-  return kSuffixDefaultLight;
-#endif  // BUILD_DESIGNER
+  return kSuffixWalkingLight;
+#endif  // #ifdef BUILD_DESIGNER #else
 }
 
 std::string GetStyleResourcesSuffix(MapStyle mapStyle)
@@ -55,12 +91,31 @@ std::string GetStyleResourcesSuffix(MapStyle mapStyle)
   // to avoid textures duplication and package size increasing.
   switch (mapStyle)
   {
-  case MapStyleDefaultDark:
-  case MapStyleVehicleDark:
-  case MapStyleOutdoorsDark: return kSuffixDark;
   case MapStyleDefaultLight:
-  case MapStyleVehicleLight:
-  case MapStyleOutdoorsLight: return kSuffixLight;
+  case MapStyleOutdoorsLight:
+
+  case MapStyleWalkingLight:
+  case MapStyleWalkingOutdoorLight:
+  case MapStyleCyclingLight:
+  case MapStyleCyclingOutdoorLight:
+  case MapStyleDrivingLight:
+  case MapStyleDrivingOutdoorLight:
+  case MapStylePublicTransportLight:
+  case MapStylePublicTransportOutdoorLight:
+  case MapStyleVehicleLight: return kSuffixLight;
+
+  case MapStyleDefaultDark:
+  case MapStyleOutdoorsDark:
+
+  case MapStyleWalkingDark:
+  case MapStyleWalkingOutdoorDark:
+  case MapStyleCyclingDark:
+  case MapStyleCyclingOutdoorDark:
+  case MapStyleDrivingDark:
+  case MapStyleDrivingOutdoorDark:
+  case MapStylePublicTransportDark:
+  case MapStylePublicTransportOutdoorDark:
+  case MapStyleVehicleDark: return kSuffixDark;
   case MapStyleMerged: return {};
 
   case MapStyleCount: break;
@@ -75,12 +130,20 @@ StyleReader::StyleReader() : m_mapStyle(kDefaultMapStyle) {}
 
 void StyleReader::SetCurrentStyle(MapStyle mapStyle)
 {
+  m_loadingMapStyle = mapStyle;
+  classificator::Load();
   m_mapStyle = mapStyle;
+  classificator::Cleanup();
 }
 
 MapStyle StyleReader::GetCurrentStyle() const
 {
   return m_mapStyle;
+}
+
+MapStyle StyleReader::GetLoadingStyle() const
+{
+  return m_loadingMapStyle;
 }
 
 bool StyleReader::IsCarNavigationStyle() const
@@ -90,7 +153,7 @@ bool StyleReader::IsCarNavigationStyle() const
 
 ReaderPtr<Reader> StyleReader::GetDrawingRulesReader() const
 {
-  std::string rulesFile = std::string("drules_proto") + GetStyleRulesSuffix(GetCurrentStyle()) + ".bin";
+  std::string rulesFile = std::string("drules_proto") + GetStyleRulesSuffix(GetLoadingStyle()) + ".bin";
 
   auto overriddenRulesFile = base::JoinPath(GetPlatform().WritableDir(), kStylesOverrideDir, rulesFile);
   if (Platform::IsFileExistsByFullPath(overriddenRulesFile))

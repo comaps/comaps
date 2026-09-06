@@ -14,7 +14,7 @@
       android:id="@+id/et__input"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:inputType="text"
+      android:inputType="textMultiLine"
       android:textAlignment="viewStart"
-      android:maxLength="100" />
+      android:gravity="top|start" />
 </com.google.android.material.textfield.TextInputLayout>

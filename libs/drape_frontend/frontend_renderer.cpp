@@ -15,6 +15,7 @@
 #include "drape_frontend/message.hpp"
 #include "drape_frontend/message_subclasses.hpp"
 #include "drape_frontend/overlay_batcher.hpp"
+#include "drape_frontend/overlay_id.hpp"
 #include "drape_frontend/postprocess_renderer.hpp"
 #include "drape_frontend/route_renderer.hpp"
 #include "drape_frontend/route_shape.hpp"
@@ -31,6 +32,8 @@
 #include "shaders/program_manager.hpp"
 #include "shaders/programs.hpp"
 
+#include "drape/accessibility_data.hpp"
+#include "drape/accessibility_node_context.hpp"
 #include "drape/color.hpp"
 #include "drape/constants.hpp"
 #include "drape/drape_global.hpp"
@@ -80,6 +83,12 @@ double constexpr kVSyncInterval = 0.06;
 double constexpr kVSyncIntervalMetalVulkan = 0.03;
 
 std::string const kTransitBackgroundColor = "TransitBackground";
+
+bool IsTextUserMarkState(dp::RenderState const & state)
+{
+  auto const program = state.GetProgram<gpu::Program>();
+  return program == gpu::Program::Text || program == gpu::Program::TextOutlined;
+}
 
 template <typename ToDo>
 bool RemoveGroups(ToDo && filter, std::vector<drape_ptr<RenderGroup>> & groups, ref_ptr<dp::OverlayTree> tree)
@@ -170,6 +179,7 @@ FrontendRenderer::FrontendRenderer(Params && params)
   , m_transitSchemeRenderer(new TransitSchemeRenderer())
   , m_drapeApiRenderer(new DrapeApiRenderer())
   , m_overlayTree(new dp::OverlayTree(VisualParams::Instance().GetVisualScale()))
+  , m_searchMarkTextOverlayTree(new dp::OverlayTree(VisualParams::Instance().GetVisualScale()))
   , m_enablePerspectiveInNavigation(false)
   , m_enable3dBuildings(params.m_allow3dBuildings)
   , m_isIsometry(false)
@@ -206,19 +216,20 @@ FrontendRenderer::FrontendRenderer(Params && params)
   ASSERT(m_tapEventInfoHandler, ());
   ASSERT(m_userPositionChangedHandler, ());
 
-  m_gpsTrackRenderer = make_unique_dp<GpsTrackRenderer>([this](uint32_t pointsCount)
+  m_gpsTrackRenderer = make_unique_dp<GpsTrackRenderer>([this](uint32_t pointsCount, uint8_t subID)
   {
     m_commutator->PostMessage(ThreadsCommutator::ResourceUploadThread,
-                              make_unique_dp<CacheCirclesPackMessage>(pointsCount, CacheCirclesPackMessage::GpsTrack),
+                              make_unique_dp<CacheCirclesPackMessage>(pointsCount, CirclesPackHandleGpsTrack, subID,
+                                                                      CacheCirclesPackMessage::GpsTrack),
                               MessagePriority::Normal);
   });
 
-  m_routeRenderer = make_unique_dp<RouteRenderer>([this](uint32_t pointsCount)
+  m_routeRenderer = make_unique_dp<RouteRenderer>([this](uint32_t pointsCount, uint8_t subID)
   {
-    m_commutator->PostMessage(
-        ThreadsCommutator::ResourceUploadThread,
-        make_unique_dp<CacheCirclesPackMessage>(pointsCount, CacheCirclesPackMessage::RoutePreview),
-        MessagePriority::Normal);
+    m_commutator->PostMessage(ThreadsCommutator::ResourceUploadThread,
+                              make_unique_dp<CacheCirclesPackMessage>(pointsCount, CirclesPackHandleRoutePreview, subID,
+                                                                      CacheCirclesPackMessage::RoutePreview),
+                              MessagePriority::Normal);
   });
 
   m_myPositionController =
@@ -250,8 +261,10 @@ void FrontendRenderer::UpdateCanBeDeletedStatus()
   for (auto const & tileKey : m_notFinishedTiles)
     notFinishedTileRects.push_back(tileKey.GetGlobalRect());
 
-  for (RenderLayer & layer : m_layers)
+  for (size_t i = 0; i < m_layers.size(); ++i)
   {
+    auto const tree = GetOverlayTree(static_cast<DepthLayer>(i));
+    auto & layer = m_layers[i];
     for (auto & group : layer.m_renderGroups)
     {
       if (!group->IsPendingOnDelete())
@@ -264,7 +277,7 @@ void FrontendRenderer::UpdateCanBeDeletedStatus()
         if (tileRect.IsIntersect(screenRect))
           canBeDeleted = !HasIntersection(tileRect, notFinishedTileRects);
       }
-      layer.m_isDirty |= group->UpdateCanBeDeletedStatus(canBeDeleted, GetCurrentZoom(), make_ref(m_overlayTree));
+      layer.m_isDirty |= group->UpdateCanBeDeletedStatus(canBeDeleted, GetCurrentZoom(), tree);
     }
   }
 }
@@ -877,8 +890,8 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
     ref_ptr<EnableDebugRectRenderingMessage> msg = message;
     m_isDebugRectRenderingEnabled = msg->IsEnabled();
     m_debugRectRenderer->SetEnabled(msg->IsEnabled());
+    break;
   }
-  break;
 
   case Message::Type::InvalidateUserMarks:
   {
@@ -1009,6 +1022,13 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
   }
 #endif
 
+  case Message::Type::SetAccessibilityDataHandler:
+  {
+    ref_ptr<SetAccessibilityDataHandlerMessage> msg = message;
+    m_accessibilityDataHandler = msg->GetHandler();
+    break;
+  }
+
   default: ASSERT(false, ());
   }
 }
@@ -1018,13 +1038,25 @@ void FrontendRenderer::UpdateAll()
 {
 #ifdef BUILD_DESIGNER
   classificator::Load();
-#endif  // BUILD_DESIGNER
 
-  // Clear all graphics.
   for (RenderLayer & layer : m_layers)
   {
     layer.m_renderGroups.clear();
     layer.m_isDirty = false;
+  }
+#endif  // BUILD_DESIGNER
+
+  if (m_forceMapStyleRerendering)
+  {
+    for (RenderLayer & layer : m_layers)
+    {
+      layer.m_renderGroups.clear();
+      layer.m_isDirty = false;
+    }
+  }
+  else
+  {
+    RemoveRenderGroupsLater([](drape_ptr<RenderGroup> const & group) { return true; });
   }
 
   // Must be recreated on map style changing.
@@ -1045,10 +1077,13 @@ void FrontendRenderer::UpdateAll()
   // Notify backend renderer and wait for completion.
   {
     BaseBlockingMessage::Blocker blocker;
-    m_commutator->PostMessage(ThreadsCommutator::ResourceUploadThread, make_unique_dp<MessageT>(blocker, std::move(f)),
+    m_commutator->PostMessage(ThreadsCommutator::ResourceUploadThread,
+                              make_unique_dp<MessageT>(blocker, std::move(f), m_forceMapStyleRerendering),
                               MessagePriority::Normal);
     blocker.Wait();
   }
+
+  m_forceMapStyleRerendering = false;
 
   UpdateContextDependentResources();
 }
@@ -1125,10 +1160,10 @@ void FrontendRenderer::InvalidateRect(m2::RectD const & gRect)
     // Remove tiles to invalidate from screen.
     auto eraseFunction = [&tiles](drape_ptr<RenderGroup> const & group)
     { return tiles.find(group->GetTileKey()) != tiles.end(); };
-    for (RenderLayer & layer : m_layers)
+    for (size_t i = 0; i < m_layers.size(); ++i)
     {
-      RemoveGroups(eraseFunction, layer.m_renderGroups, make_ref(m_overlayTree));
-      layer.m_isDirty = true;
+      RemoveGroups(eraseFunction, m_layers[i].m_renderGroups, GetOverlayTree(static_cast<DepthLayer>(i)));
+      m_layers[i].m_isDirty = true;
     }
 
     // Remove tiles to invalidate from backend renderer.
@@ -1196,8 +1231,10 @@ void FrontendRenderer::AddToRenderGroup(dp::RenderState const & state, drape_ptr
 
 void FrontendRenderer::RemoveRenderGroupsLater(TRenderGroupRemovePredicate const & predicate)
 {
-  for (RenderLayer & layer : m_layers)
+  for (size_t i = 0; i < m_layers.size(); ++i)
   {
+    auto const tree = GetOverlayTree(static_cast<DepthLayer>(i));
+    auto & layer = m_layers[i];
     RemoveGroups([&predicate, &layer](drape_ptr<RenderGroup> const & group)
     {
       if (predicate(group))
@@ -1207,7 +1244,7 @@ void FrontendRenderer::RemoveRenderGroupsLater(TRenderGroupRemovePredicate const
         return group->CanBeDeleted();
       }
       return false;
-    }, layer.m_renderGroups, make_ref(m_overlayTree));
+    }, layer.m_renderGroups, tree);
   }
 }
 
@@ -1252,6 +1289,8 @@ std::pair<FeatureID, kml::MarkId> FrontendRenderer::GetVisiblePOI(m2::RectD cons
   ScreenBase const & screen = m_userEventStream.GetCurrentScreen();
   if (m_overlayTree->IsNeedUpdate())
     BuildOverlayTree(screen);
+  if (m_searchMarkTextOverlayTree->IsNeedUpdate())
+    UpdateSearchMarkTextOverlay(screen);
 
   dp::TOverlayContainer selectResult;
 
@@ -1277,7 +1316,7 @@ std::pair<FeatureID, kml::MarkId> FrontendRenderer::GetVisiblePOI(m2::RectD cons
       closestOverlayHandle = handle;
     }
   }
-  CHECK(closestOverlayHandle, ());
+  ASSERT(closestOverlayHandle, ());
 
   auto const & overlayId = closestOverlayHandle->GetOverlayID();
   return {overlayId.m_featureId, overlayId.m_markId};
@@ -1686,6 +1725,13 @@ void FrontendRenderer::RenderUserMarksLayer(ScreenBase const & modelView, DepthL
 void FrontendRenderer::RenderNonDisplaceableUserMarksLayer(ScreenBase const & modelView, DepthLayer layerId)
 {
   TRACE_SECTION("[drape] RenderNonDisplaceableUserMarksLayer");
+  if (layerId == DepthLayer::SearchMarkLayer)
+  {
+    UpdateSearchMarkTextOverlay(modelView);
+    RenderUserMarksLayer(modelView, layerId);
+    return;
+  }
+
   auto & layer = m_layers[static_cast<size_t>(layerId)];
   layer.Sort(nullptr);
   for (drape_ptr<RenderGroup> & group : layer.m_renderGroups)
@@ -1781,6 +1827,23 @@ void FrontendRenderer::RenderFrame()
   if (modelViewChanged || hasForceUpdate)
     UpdateScene(modelView);
 
+  if (m_accessibilityDataHandler)
+  {
+    // add all rendered items to accessibility data and push it
+    // everything is already sorted since we just rendered a frame
+    auto * data = new dp::AccessibilityData{};  // TODO recycle unused ones using a pool, if that's convenient in a
+                                                // thread safe manner
+    for (auto const & layer : m_layers)
+    {
+      for (auto const & renderGroup : layer.m_renderGroups)
+      {
+        renderGroup->ForEachOverlay([&data, &modelView](ref_ptr<dp::OverlayHandle> const & h)
+        { data->Add(h, modelView); });
+      }
+    }
+    (*m_accessibilityDataHandler)(data);
+  }
+
   InterpolationHolder::Instance().Advance(m_frameData.m_frameTime);
   AnimationSystem::Instance().Advance(m_frameData.m_frameTime);
 
@@ -1788,7 +1851,10 @@ void FrontendRenderer::RenderFrame()
   if (!isActiveFrame)
   {
     if (m_frameData.m_inactiveFramesCounter == 0)
+    {
       m_overlayTree->InvalidateOnNextFrame();
+      m_searchMarkTextOverlayTree->InvalidateOnNextFrame();
+    }
     m_frameData.m_inactiveFramesCounter++;
   }
   else
@@ -1797,7 +1863,7 @@ void FrontendRenderer::RenderFrame()
   }
 
   bool const canSuspend = m_frameData.m_inactiveFramesCounter > FrameData::kMaxInactiveFrames;
-  m_frameData.m_forceFullRedrawNextFrame = m_overlayTree->IsNeedUpdate();
+  m_frameData.m_forceFullRedrawNextFrame = m_overlayTree->IsNeedUpdate() || m_searchMarkTextOverlayTree->IsNeedUpdate();
   if (canSuspend)
   {
 #if defined(OMIM_OS_DESKTOP)
@@ -1874,6 +1940,45 @@ void FrontendRenderer::BuildOverlayTree(ScreenBase const & modelView)
   if (m_transitSchemeRenderer->IsSchemeVisible(GetCurrentZoom()) && !HasTransitRouteData())
     m_transitSchemeRenderer->CollectOverlays(make_ref(m_overlayTree), modelView);
   EndUpdateOverlayTree();
+}
+
+void FrontendRenderer::UpdateSearchMarkTextOverlay(ScreenBase const & modelView)
+{
+  if (!IsValidCurrentZoom())
+    return;
+
+  auto const tree = make_ref(m_searchMarkTextOverlayTree);
+  auto & layer = m_layers[static_cast<size_t>(DepthLayer::SearchMarkLayer)];
+
+  if (tree->Frame())
+    tree->StartOverlayPlacing(modelView, GetCurrentZoom());
+
+  layer.Sort(tree);
+  for (auto & group : layer.m_renderGroups)
+  {
+    if (IsTextUserMarkState(group->GetState()))
+    {
+      if (tree->IsNeedUpdate())
+        group->CollectOverlay(tree);
+      else
+        group->Update(modelView);
+    }
+    else
+    {
+      group->SetOverlayVisibility(true);
+      group->Update(modelView);
+    }
+  }
+
+  if (tree->IsNeedUpdate())
+    tree->EndOverlayPlacing();
+}
+
+ref_ptr<dp::OverlayTree> FrontendRenderer::GetOverlayTree(DepthLayer layerId) const
+{
+  if (layerId == DepthLayer::SearchMarkLayer)
+    return make_ref(m_searchMarkTextOverlayTree);
+  return make_ref(m_overlayTree);
 }
 
 void FrontendRenderer::PrepareBucket(dp::RenderState const & state, drape_ptr<dp::RenderBucket> & bucket)
@@ -1972,10 +2077,18 @@ void FrontendRenderer::ResolveZoomLevel(ScreenBase const & screen)
 
 void FrontendRenderer::UpdateDisplacementEnabled()
 {
+  // Do not change displacing for m_searchMarkTextOverlayTree here.
   if (m_choosePositionMode)
-    m_overlayTree->SetDisplacementEnabled(GetCurrentZoom() < scales::GetAddNewPlaceScale());
+  {
+    bool const enableDisplacement = GetCurrentZoom() < scales::GetAddNewPlaceScale();
+    m_overlayTree->SetDisplacementEnabled(enableDisplacement);
+    // m_searchMarkTextOverlayTree->SetDisplacementEnabled(enableDisplacement);
+  }
   else
+  {
     m_overlayTree->SetDisplacementEnabled(true);
+    // m_searchMarkTextOverlayTree->SetDisplacementEnabled(true);
+  }
 }
 
 void FrontendRenderer::OnTap(m2::PointD const & pt, bool isLongTap)
@@ -2254,8 +2367,11 @@ TTilesCollection FrontendRenderer::ResolveTileKeys(ScreenBase const & screen)
            (key.m_x < result.m_minTileX || key.m_x >= result.m_maxTileX || key.m_y < result.m_minTileY ||
             key.m_y >= result.m_maxTileY || base::IsExist(tilesToDelete, key));
   };
-  for (RenderLayer & layer : m_layers)
-    layer.m_isDirty |= RemoveGroups(removePredicate, layer.m_renderGroups, make_ref(m_overlayTree));
+  for (size_t i = 0; i < m_layers.size(); ++i)
+  {
+    m_layers[i].m_isDirty |=
+        RemoveGroups(removePredicate, m_layers[i].m_renderGroups, GetOverlayTree(static_cast<DepthLayer>(i)));
+  }
 
   RemoveRenderGroupsLater([this](drape_ptr<RenderGroup> const & group)
   { return group->GetTileKey().m_zoomLevel != GetCurrentZoom(); });
@@ -2287,6 +2403,8 @@ void FrontendRenderer::OnContextDestroy()
   m_overlayTree->SetSelectedFeature(FeatureID());
   m_overlayTree->SetDebugRectRenderer(nullptr);
   m_overlayTree->Clear();
+  m_searchMarkTextOverlayTree->SetDebugRectRenderer(nullptr);
+  m_searchMarkTextOverlayTree->Clear();
 
   m_guiRenderer.reset();
   m_selectionShape.reset();
@@ -2348,6 +2466,8 @@ void FrontendRenderer::OnContextCreate()
 
   m_overlayTree->SetDebugRectRenderer(make_ref(m_debugRectRenderer));
   m_overlayTree->SetVisualScale(VisualParams::Instance().GetVisualScale());
+  m_searchMarkTextOverlayTree->SetDebugRectRenderer(make_ref(m_debugRectRenderer));
+  m_searchMarkTextOverlayTree->SetVisualScale(VisualParams::Instance().GetVisualScale());
 
   // Resources recovering.
   m_screenQuadRenderer = make_unique_dp<ScreenQuadRenderer>(m_context);
@@ -2381,6 +2501,7 @@ void FrontendRenderer::OnContextCreate()
 void FrontendRenderer::OnRenderingEnabled()
 {
   m_overlayTree->InvalidateOnNextFrame();
+  m_searchMarkTextOverlayTree->InvalidateOnNextFrame();
 
 #ifndef DRAPE_MEASURER_BENCHMARK
   DrapeMeasurer::Instance().Start();
@@ -2517,6 +2638,11 @@ void FrontendRenderer::OnEnterBackground()
   m_myPositionController->OnEnterBackground();
 }
 
+void FrontendRenderer::ForceMapStyleRerendering()
+{
+  m_forceMapStyleRerendering = true;
+}
+
 ScreenBase const & FrontendRenderer::ProcessEvents(bool & modelViewChanged, bool & viewportChanged,
                                                    bool & needActiveFrame)
 {
@@ -2560,8 +2686,11 @@ void FrontendRenderer::UpdateScene(ScreenBase const & modelView)
            (m_maxGeneration - key.m_generation > kMaxGenerationRange) ||
            (group->IsUserMark() && (m_maxUserMarksGeneration - key.m_userMarksGeneration > kMaxGenerationRange));
   };
-  for (RenderLayer & layer : m_layers)
-    layer.m_isDirty |= RemoveGroups(removePredicate, layer.m_renderGroups, make_ref(m_overlayTree));
+  for (size_t i = 0; i < m_layers.size(); ++i)
+  {
+    m_layers[i].m_isDirty |=
+        RemoveGroups(removePredicate, m_layers[i].m_renderGroups, GetOverlayTree(static_cast<DepthLayer>(i)));
+  }
 
   if (m_forceUpdateScene || m_forceUpdateUserMarks || m_lastReadedModelView != modelView)
   {
@@ -2640,14 +2769,24 @@ void FrontendRenderer::SearchInNonDisplaceableUserMarksLayer(ScreenBase const & 
                                                              dp::TOverlayContainer & result)
 {
   auto & layer = m_layers[static_cast<size_t>(layerId)];
-  layer.Sort(nullptr);
+  if (layerId == DepthLayer::SearchMarkLayer)
+    UpdateSearchMarkTextOverlay(modelView);
+  else
+    layer.Sort(nullptr);
+
   for (drape_ptr<RenderGroup> & group : layer.m_renderGroups)
   {
-    group->SetOverlayVisibility(true);
-    group->Update(modelView);
+    if (layerId != DepthLayer::SearchMarkLayer)
+    {
+      group->SetOverlayVisibility(true);
+      group->Update(modelView);
+    }
     group->ForEachOverlay(
         [&modelView, &result, selectionRect = m2::RectF(selectionRect)](ref_ptr<dp::OverlayHandle> const & h)
     {
+      if (!h->IsVisible())
+        return;
+
       dp::OverlayHandle::Rects shapes;
       h->GetPixelShape(modelView, modelView.isPerspective(), shapes);
       for (m2::RectF const & shape : shapes)

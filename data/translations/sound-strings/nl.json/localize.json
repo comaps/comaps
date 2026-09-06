@@ -66,7 +66,7 @@
         "defaultMessage": "Keer"
     },
     "go_straight": {
-        "defaultMessage": "Rij rechtdoor."
+        "defaultMessage": "Ga rechtdoor."
     },
     "exit": {
         "defaultMessage": "Neem de afslag."
@@ -135,7 +135,7 @@
         "defaultMessage": "Over twee kilometer"
     },
     "in_2_5_kilometers": {
-        "defaultMessage": "Over tweeëneenhalve kilometer"
+        "defaultMessage": "Over tweeënhalve kilometer"
     },
     "in_3_kilometers": {
         "defaultMessage": "Over drie kilometer"
@@ -318,7 +318,7 @@
         "defaultMessage": "Neem"
     },
     "at_the_end_of_the_road": {
-        "defaultMessage": "Bij het verlaten van de routine,"
+        "defaultMessage": "Aan het eind van de weg,"
     },
     "in_over_3_kilometers": {
         "defaultMessage": "Over meer dan drie kilometer"
@@ -369,7 +369,7 @@
         "defaultMessage": "twee kilometer"
     },
     "from_2_5_kilometers": {
-        "defaultMessage": "tweeëneenhalf kilometer"
+        "defaultMessage": "tweeënhalve kilometer"
     },
     "from_3_kilometers": {
         "defaultMessage": "drie kilometer"
@@ -423,19 +423,19 @@
         "defaultMessage": "tweeduizend voet"
     },
     "from_2500_feet": {
-        "defaultMessage": "tweeëneenhalf duizend voet"
+        "defaultMessage": "tweeduizendvijfhonderd voet"
     },
     "from_3000_feet": {
         "defaultMessage": "drieduizend voet"
     },
     "from_3500_feet": {
-        "defaultMessage": "drieënhalf duizend voet"
+        "defaultMessage": "drieduizendvijfhonderd voet"
     },
     "from_4000_feet": {
         "defaultMessage": "vierduizend voet"
     },
     "from_4500_feet": {
-        "defaultMessage": "vierenhalf duizend voet"
+        "defaultMessage": "vierduizendvijfhonderd voet"
     },
     "from_5000_feet": {
         "defaultMessage": "vijfduizend voet"
@@ -444,7 +444,7 @@
         "defaultMessage": "één mijl"
     },
     "from_1_5_miles": {
-        "defaultMessage": "anderhalf mijl"
+        "defaultMessage": "anderhalve mijl"
     },
     "from_2_miles": {
         "defaultMessage": "twee mijl"

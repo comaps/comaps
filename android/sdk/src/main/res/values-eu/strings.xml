@@ -44,4 +44,8 @@
     <string name="year_ago">duela %s urte</string>
     <string name="months_ago">duela %s hilabete</string>
     <string name="years_ago">duela %s urte</string>
+    <string name="accessibility_map_content_description_collapsed">Mapa. Irristatu hatz batekin gora edo behera eta zabaldu ukitzen arakatzeko.</string>
+    <string name="accessibility_map_content_description_expanded">Mapa. Luze sakatu ukitu bidez arakatzeko. Lekuak irakurriko dira hatza horietara iristen den heinean. Gelditzeko, pasatu hatza gora edo behera hatz batekin eta baztertu.</string>
+    <string name="accessibility_map_action_expand_label">arakatu ukitzen</string>
+    <string name="accessibility_map_action_collapse_label">bukatu ukipen arakatzea</string>
 </resources>

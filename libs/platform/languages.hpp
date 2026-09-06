@@ -27,7 +27,7 @@ namespace routing::turns::sound
  * - All other variants default to `zh-Hans` (Simplified Chinese).
  *
  */
-std::array<std::pair<std::string_view, std::string_view>, 43> constexpr kLanguageList = {{
+std::array<std::pair<std::string_view, std::string_view>, 44> constexpr kLanguageList = {{
     {"en", "English"},
     {"id", "Bahasa Indonesia"},
     {"ca", "Català"},
@@ -66,6 +66,7 @@ std::array<std::pair<std::string_view, std::string_view>, 43> constexpr kLanguag
     {"el", "Ελληνικά"},
     {"be", "Беларуская"},
     {"bg", "Български"},
+    {"mk", "Македонски"},
     {"ru", "Русский"},
     {"sr", "Српски"},
     {"uk", "Українська"},

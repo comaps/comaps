@@ -1,5 +1,9 @@
 #pragma once
 
+#include <jni.h>
+
+#include "app/organicmaps/sdk/platform/AndroidPlatform.hpp"
+
 #include "traffxml/traff_source.hpp"
 
 namespace traffxml

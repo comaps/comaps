@@ -316,5 +316,92 @@
     },
     "unknown_camera": {
         "defaultMessage": "Fotoradar na drodze"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Jesteś %1$s od trasy"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "W odległości ponad trzech kilometrów"
+    },
+    "from_50_meters": {
+        "defaultMessage": "pięćdziesiąt metrów"
+    },
+    "from_100_meters": {
+        "defaultMessage": "sto metrów"
+    },
+    "from_200_meters": {
+        "defaultMessage": "dwieście metrów"
+    },
+    "from_250_meters": {
+        "defaultMessage": "dwieście pięćdziesiąt metrów"
+    },
+    "from_300_meters": {
+        "defaultMessage": "trzysta metrów"
+    },
+    "from_400_meters": {
+        "defaultMessage": "czterysta metrów"
+    },
+    "from_500_meters": {
+        "defaultMessage": "pięćset metrów"
+    },
+    "from_600_meters": {
+        "defaultMessage": "sześćset metrów"
+    },
+    "from_700_meters": {
+        "defaultMessage": "siedemset metrów"
+    },
+    "from_750_meters": {
+        "defaultMessage": "Dziewięćset pięćdziesiąt metrów"
+    },
+    "from_800_meters": {
+        "defaultMessage": "osiemset metrów"
+    },
+    "from_900_meters": {
+        "defaultMessage": "dziewięćset metrów"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "jeden kilometr"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "półtora kilometra"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "dwa kilometry"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "dwa i pół kilometra"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "trzy kilometry"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "ponad trzy kilometry"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "Na końcu drogi,"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "Za ponad dwie mile"
+    },
+    "from_50_feet": {
+        "defaultMessage": "pięćdziesiąt stóp"
+    },
+    "from_100_feet": {
+        "defaultMessage": "sto stóp"
+    },
+    "from_200_feet": {
+        "defaultMessage": "dwieście stóp"
+    },
+    "from_300_feet": {
+        "defaultMessage": "trzysta stóp"
+    },
+    "from_400_feet": {
+        "defaultMessage": "czterysta stóp"
+    },
+    "from_500_feet": {
+        "defaultMessage": "pięćset stóp"
+    },
+    "from_600_feet": {
+        "defaultMessage": "sześćset stóp"
     }
 }

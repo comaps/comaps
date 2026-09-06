@@ -1,0 +1,23 @@
+/*
+ * Driving style is based on the default style.
+ * So first it includes default style files and then
+ * optionally includes its own files containing overrides/additions.
+ *
+ * Note that Driving style is used for map browsing mode only,
+ * there is a separate Vehicle style for car navigation mode.
+ */
+
+@import("../../default/include/Basemap.mapcss");
+@import("../include/Basemap.mapcss");
+
+@import("../../default/include/Basemap_label.mapcss");
+
+@import("../../default/include/Roads.mapcss");
+@import("../../default/include/Roads_label.mapcss");
+
+@import("../../default/include/Icons.mapcss");
+@import("../include/Icons.mapcss");
+
+@import("../../default/include/Icons_Label_Colors.mapcss");
+
+@import("../../default/include/Subways.mapcss");

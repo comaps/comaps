@@ -36,6 +36,8 @@
 
 #include "coding/files_container.hpp"
 
+#include "platform/preferred_languages.hpp"
+
 #include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 
@@ -68,6 +70,23 @@ enum LanguageTier
   LANGUAGE_TIER_ALT_AND_OLD,
   LANGUAGE_TIER_COUNT
 };
+
+// Sets language (plus similar languages) for scorer tier
+void SetTierLanguages(KeywordLangMatcher & scorer, LanguageTier tier, std::string const & locale)
+{
+  // Try full locale first to match custom codes like "ja_rm" or "zh_pinyin"; fall back to the bare
+  // language subtag ("en_CA" -> "en") so regional locales never produce kUnsupportedLanguageIndex.
+  localisation::LanguageIndex languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
+  if (!localisation::IsSupportedLanguageIndex(languageIndex))
+    languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(languages::Normalize(locale));
+
+  std::vector<localisation::LanguageIndex> languageIndexes;
+  if (localisation::IsSupportedLanguageIndex(languageIndex))
+    languageIndexes.push_back(languageIndex);
+  auto const similarLanguageIndexes = localisation::SimilarLanguageIndexes(languageIndex);
+  languageIndexes.insert(languageIndexes.cend(), similarLanguageIndexes.cbegin(), similarLanguageIndexes.cend());
+  scorer.SetLanguages(tier, std::move(languageIndexes));
+}
 
 m2::RectD GetRectAroundPosition(m2::PointD const & position)
 {
@@ -194,8 +213,7 @@ void Processor::SetPreferredLocale(string const & locale)
 
   LOG(LINFO, ("New preferred locale:", locale));
 
-  localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
-  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_CURRENT, localisation::SimilarLanguageIndexes(languageIndex));
+  SetTierLanguages(m_keywordsScorer, LANGUAGE_TIER_CURRENT, locale);
 
   m_currentLanguageIndex = CategoriesHolder::MapLocaleToInteger(locale);
 
@@ -210,9 +228,9 @@ void Processor::SetInputLocale(string const & locale)
   if (locale.empty())
     return;
 
-  localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
-  LOG(LDEBUG, ("New input locale:", locale, "; locale code:", int(languageIndex)));
-  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_CURRENT, localisation::SimilarLanguageIndexes(languageIndex));
+  LOG(LDEBUG, ("New input locale:", locale, "; locale code:",
+               int(localisation::ConvertLanguageCodeToLanguageIndex(locale))));
+  SetTierLanguages(m_keywordsScorer, LANGUAGE_TIER_INPUT, locale);
   m_inputLanguageIndex = CategoriesHolder::MapLocaleToInteger(locale);
 }
 

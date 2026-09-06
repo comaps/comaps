@@ -23,6 +23,7 @@
 #include "drape_frontend/user_mark_shapes.hpp"
 #include "drape_frontend/user_marks_provider.hpp"
 
+#include "drape/accessibility_data.hpp"
 #include "drape/pointers.hpp"
 #include "drape/render_bucket.hpp"
 
@@ -771,12 +772,16 @@ class SwitchMapStyleMessage : public BaseBlockingMessage
 public:
   using FilterMessagesHandler = std::function<void()>;
 
-  SwitchMapStyleMessage(Blocker & blocker, FilterMessagesHandler && filterMessagesHandler)
+  SwitchMapStyleMessage(Blocker & blocker, FilterMessagesHandler && filterMessagesHandler,
+                        bool forceMapStyleRerendering)
     : BaseBlockingMessage(blocker)
     , m_filterMessagesHandler(std::move(filterMessagesHandler))
+    , m_forceMapStyleRerendering(forceMapStyleRerendering)
   {}
 
   Type GetType() const override { return Type::SwitchMapStyle; }
+
+  bool ShouldForceMapStyleRerendering() const { return m_forceMapStyleRerendering; }
 
   void FilterDependentMessages()
   {
@@ -786,6 +791,7 @@ public:
 
 private:
   FilterMessagesHandler m_filterMessagesHandler;
+  bool m_forceMapStyleRerendering;
 };
 
 class VisualScaleChangedMessage : public SwitchMapStyleMessage
@@ -902,15 +908,24 @@ public:
     RoutePreview
   };
 
-  CacheCirclesPackMessage(uint32_t pointsCount, Destination dest) : m_pointsCount(pointsCount), m_destination(dest) {}
+  CacheCirclesPackMessage(uint32_t pointsCount, uint32_t id, uint8_t subID, Destination dest)
+    : m_pointsCount(pointsCount)
+    , m_id(id)
+    , m_subID(subID)
+    , m_destination(dest)
+  {}
 
   Type GetType() const override { return Type::CacheCirclesPack; }
 
   uint32_t GetPointsCount() const { return m_pointsCount; }
+  uint32_t GetID() const { return m_id; }
+  uint8_t GetSubID() const { return m_subID; }
   Destination GetDestination() const { return m_destination; }
 
 private:
   uint32_t m_pointsCount;
+  uint32_t m_id;
+  uint8_t m_subID;
   Destination m_destination;
 };
 
@@ -1017,6 +1032,23 @@ public:
 private:
   bool m_needInvalidate;
   GraphicsReadyCallback m_callback;
+};
+
+class SetAccessibilityDataHandlerMessage : public Message
+{
+public:
+  using AccessibilityDataHandler = std::function<void(dp::AccessibilityData *)>;
+
+  SetAccessibilityDataHandlerMessage(std::optional<AccessibilityDataHandler> && handler) : m_handler(std::move(handler))
+  {}
+
+  Type GetType() const override { return Type::SetAccessibilityDataHandler; }
+
+  // only called once, so can move()
+  std::optional<AccessibilityDataHandler> GetHandler() const { return std::move(m_handler); }
+
+private:
+  std::optional<AccessibilityDataHandler> m_handler;
 };
 
 class EnableTrafficMessage : public Message

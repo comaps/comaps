@@ -45,7 +45,7 @@
     <string name="type.leisure.amusement_arcade">Sala giochi</string>
     <string name="type.amenity.charging_station">Stazione di ricarica</string>
     <string name="type.amenity.charging_station.bicycle">Biciclette</string>
-    <string name="type.amenity.charging_station.motorcar">Automobili</string>
+    <string name="type.amenity.charging_station.motorcar">Autoveicoli</string>
     <string name="type.amenity.childcare">Asilo</string>
     <string name="type.amenity.cinema">Cinema</string>
     <string name="type.leisure.bowling_alley">Sala da bowling</string>
@@ -289,7 +289,7 @@
     <string name="type.cuisine.filipino">Cucina filippina</string>
     <string name="type.cuisine.fine_dining">Ristorante elegante</string>
     <string name="type.cuisine.fish">Pesce</string>
-    <string name="type.cuisine.fish_and_chips">Fish and Chips</string>
+    <string name="type.cuisine.fish_and_chips">Fish and chips</string>
     <string name="type.cuisine.french">Cucina francese</string>
     <string name="type.cuisine.friture">Fritture</string>
     <string name="type.cuisine.georgian">Cucina georgiana</string>
@@ -375,7 +375,7 @@
     <string name="type.highway.bridleway.bridge">Ponte</string>
     <string name="type.highway.bridleway.permissive">sentiero per cavalli</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.bridleway.tunnel">Tunnel</string>
+    <string name="type.highway.bridleway.tunnel">Galleria</string>
     <string name="type.highway.busway">Strada dedicata agli autobus</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.busway.bridge">Ponte</string>
@@ -405,7 +405,7 @@
     <string name="type.highway.cycleway.bridge">Ponte</string>
     <string name="type.highway.cycleway.permissive">Pista ciclabile</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.cycleway.tunnel">Tunnel</string>
+    <string name="type.highway.cycleway.tunnel">Galleria</string>
     <string name="type.highway.elevator">Ascensore</string>
     <string name="type.highway.footway">Sentiero</string>
     <string name="type.highway.footway.sidewalk">Marciapiede</string>
@@ -414,23 +414,23 @@
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.footway.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.footway.tunnel">Tunnel</string>
+    <string name="type.highway.footway.tunnel">Galleria pedonale</string>
     <string name="type.highway.ford">Guado</string>
     <string name="type.highway.living_street">Via</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.living_street.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.living_street.tunnel">Tunnel</string>
+    <string name="type.highway.living_street.tunnel">Galleria</string>
     <string name="type.highway.motorway">Autostrada</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.motorway.bridge">Ponte autostradale</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.motorway.tunnel">Tunnel autostradale</string>
+    <string name="type.highway.motorway.tunnel">Galleria autostradale</string>
     <string name="type.highway.motorway_link">Svincolo autostradale</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.motorway_link.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.motorway_link.tunnel">Tunnel</string>
+    <string name="type.highway.motorway_link.tunnel">Galleria</string>
     <string name="type.highway.path">Sentiero</string>
     <!-- Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. -->
     <string name="type.highway.path.difficult">Sentiero difficile o poco tracciato</string>
@@ -442,31 +442,31 @@
     <string name="type.highway.path.bridge">Ponte</string>
     <string name="type.highway.path.horse">Sentiero</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.path.tunnel">Tunnel</string>
+    <string name="type.highway.path.tunnel">Galleria</string>
     <string name="type.highway.pedestrian">Strada pedonale</string>
     <string name="type.highway.pedestrian.area">Area pedonale</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">Ponte</string>
     <string name="type.highway.pedestrian.square">Piazza</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.pedestrian.tunnel">Tunnel</string>
+    <string name="type.highway.pedestrian.tunnel">Galleria pedonale</string>
     <string name="type.highway.primary">Strada</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.primary.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.primary.tunnel">Tunnel</string>
+    <string name="type.highway.primary.tunnel">Galleria</string>
     <string name="type.highway.primary_link">Strada</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.primary_link.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.primary_link.tunnel">Tunnel</string>
+    <string name="type.highway.primary_link.tunnel">Galleria</string>
     <string name="type.highway.raceway">Pista</string>
     <string name="type.highway.residential">Via</string>
     <string name="type.highway.residential.area">Via</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.residential.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.residential.tunnel">Tunnel</string>
+    <string name="type.highway.residential.tunnel">Galleria</string>
     <string name="type.highway.rest_area">Area di sosta</string>
     <string name="type.highway.road">Via</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
@@ -474,17 +474,17 @@
     <!-- A bridge structure outline. -->
     <string name="type.man_made.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.road.tunnel">Tunnel</string>
+    <string name="type.highway.road.tunnel">Galleria</string>
     <string name="type.highway.secondary">Strada</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.secondary.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.secondary.tunnel">Tunnel</string>
+    <string name="type.highway.secondary.tunnel">Galleria</string>
     <string name="type.highway.secondary_link">Strada</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.secondary_link.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.secondary_link.tunnel">Tunnel</string>
+    <string name="type.highway.secondary_link.tunnel">Galleria</string>
     <string name="type.highway.service">Via</string>
     <string name="type.highway.service.area">Via</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
@@ -492,23 +492,23 @@
     <string name="type.highway.service.driveway">Via</string>
     <string name="type.highway.service.parking_aisle">Via</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.service.tunnel">Tunnel</string>
+    <string name="type.highway.service.tunnel">Galleria</string>
     <string name="type.highway.speed_camera">Autovelox</string>
     <string name="type.highway.steps">Scale</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.steps.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.steps.tunnel">Tunnel</string>
+    <string name="type.highway.steps.tunnel">Galleria con gradini</string>
     <string name="type.highway.tertiary">Via</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.tertiary.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.tertiary.tunnel">Tunnel</string>
+    <string name="type.highway.tertiary.tunnel">Galleria</string>
     <string name="type.highway.tertiary_link">Via</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.tertiary_link.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.tertiary_link.tunnel">Tunnel</string>
+    <string name="type.highway.tertiary_link.tunnel">Galleria</string>
     <string name="type.highway.track">Via</string>
     <string name="type.highway.track.area">Via</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
@@ -516,24 +516,24 @@
     <string name="type.highway.track.grade1">Via</string>
     <string name="type.highway.track.no.access">Via</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.track.tunnel">Tunnel</string>
+    <string name="type.highway.track.tunnel">Galleria</string>
     <string name="type.highway.traffic_signals">Semaforo</string>
     <string name="type.highway.trunk">Strada</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.trunk.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.trunk.tunnel">Tunnel</string>
+    <string name="type.highway.trunk.tunnel">Galleria</string>
     <string name="type.highway.trunk_link">Strada</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.trunk_link.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.trunk_link.tunnel">Tunnel</string>
+    <string name="type.highway.trunk_link.tunnel">Galleria</string>
     <string name="type.highway.unclassified">Via</string>
     <string name="type.highway.unclassified.area">Via</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.unclassified.bridge">Ponte</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.unclassified.tunnel">Tunnel</string>
+    <string name="type.highway.unclassified.tunnel">Galleria</string>
     <string name="type.area_highway.cycleway">Pista ciclabile</string>
     <string name="type.area_highway.footway">Sentiero</string>
     <string name="type.area_highway.living_street">Via</string>
@@ -647,7 +647,7 @@
     <string name="type.leisure.park.private">Parco</string>
     <string name="type.leisure.picnic_table">Tavolo da picnic</string>
     <string name="type.leisure.pitch">Campo sportivo</string>
-    <string name="type.leisure.playground">Campo giochi</string>
+    <string name="type.leisure.playground">Parco giochi</string>
     <string name="type.leisure.sauna">Sauna</string>
     <string name="type.leisure.slipway">Scivolo per navi</string>
     <string name="type.leisure.sports_centre">Centro sportivo</string>
@@ -660,7 +660,7 @@
     <string name="type.leisure.track.area">Pista da corsa</string>
     <string name="type.leisure.water_park">Parco acquatico</string>
     <string name="type.leisure.beach_resort">Resort balneare</string>
-    <string name="type.man_made">Stabilimento balneare</string>
+    <string name="type.man_made">Struttura artificiale</string>
     <string name="type.man_made.breakwater">Frangiflutti</string>
     <string name="type.man_made.chimney">Ciminiera industriale</string>
     <string name="type.man_made.survey_point">Punto geodetico</string>
@@ -1226,7 +1226,7 @@
     <string name="type.sport.10pin">Bowling</string>
     <string name="type.sport.9pin">Bowling</string>
     <string name="type.sport.padel">Padel</string>
-    <string name="type.sport.futsal">Futsal</string>
+    <string name="type.sport.futsal">Calcio a 5</string>
     <string name="type.sport.ice_hockey">Hockey su ghiaccio</string>
     <string name="type.sport.field_hockey">Hockey su prato</string>
     <string name="type.sport.badminton">Badminton</string>
@@ -1254,7 +1254,7 @@
     <string name="type.tourism.caravan_site">Area camper</string>
     <!-- A rentable countryside vacation house. -->
     <string name="type.tourism.chalet">Cottage per le vacanze</string>
-    <string name="type.tourism.gallery">Galleria</string>
+    <string name="type.tourism.gallery">Galleria d\'arte</string>
     <string name="type.tourism.guest_house">Affittacamere</string>
     <string name="type.tourism.hostel">Ostello</string>
     <string name="type.tourism.hotel">Hotel</string>
@@ -1402,7 +1402,7 @@
     <string name="type.natural.wetland.reedbed">Giunco</string>
     <string name="type.natural.wetland.tidalflat">Piana di Marea</string>
     <string name="type.natural.wetland.fen">Palude</string>
-    <string name="type.leisure.escape_game">Escape Room</string>
+    <string name="type.leisure.escape_game">Escape room</string>
     <string name="type.amenity.ranger_station">Stazione delle guardie forestali</string>
     <string name="type.landuse.religious">Terreno religioso</string>
     <string name="type.amenity.animal_shelter">Rifugio per animali</string>
@@ -1411,7 +1411,7 @@
     <string name="type.office.security">Ufficio della sicurezza</string>
     <string name="type.power.portal">Portale elettrico</string>
     <string name="type.shop.lighting">Negozio di illuminazione</string>
-    <string name="type.amenity.bench.backless">Panchina senza schienale</string>
+    <string name="type.amenity.bench.backless">Senza schienale</string>
     <string name="type.man_made.observatory">Osservatorio</string>
     <string name="type.cardinal.north">Nord</string>
     <string name="type.cardinal.south">Sud</string>
@@ -1490,4 +1490,54 @@
     <string name="type.amenity.toilets.customers">Ingresso per i clienti</string>
     <string name="type.amenity.animal_boarding">Pensione per animali</string>
     <string name="type.leisure.bandstand">Chiosco della musica</string>
+    <string name="type.amenity.prep_school">Scuola preparatoria</string>
+    <string name="type.amenity.lounger">Sdraio</string>
+    <string name="type.amenity.car_pooling">Carpooling</string>
+    <string name="type.amenity.stage">Palco</string>
+    <string name="type.beacon.cardinal.east">Segnale cardinale</string>
+    <string name="type.beacon.cardinal.north">Segnale cardinale</string>
+    <string name="type.beacon.cardinal.south">Segnale cardinale</string>
+    <string name="type.beacon.cardinal.west">Segnale cardinale</string>
+    <string name="type.beacon.isolated_danger">Segnale di pericolo isolato</string>
+    <string name="type.beacon.lateral.port">Segnale laterale</string>
+    <string name="type.beacon.lateral.starboard">Segnale laterale</string>
+    <string name="type.beacon.safe_water">Segnale di acque sicure</string>
+    <string name="type.beacon.special_purpose">Segnale per uso speciale</string>
+    <string name="type.buoy.cardinal.east">Boa cardinale</string>
+    <string name="type.buoy.cardinal.north">Boa cardinale</string>
+    <string name="type.buoy.cardinal.south">Boa cardinale</string>
+    <string name="type.buoy.cardinal.west">Boa cardinale</string>
+    <string name="type.buoy.isolated_danger">Boa di pericolo isolato</string>
+    <string name="type.buoy.lateral.port">Boa laterale</string>
+    <string name="type.buoy.lateral.starboard">Boa laterale</string>
+    <string name="type.buoy.safe_water">Boa di acque sicure</string>
+    <string name="type.buoy.special_purpose">Boa per uso speciale</string>
+    <string name="type.spherical_buoy.cardinal.east">Boa sferica cardinale</string>
+    <string name="type.spherical_buoy.cardinal.north">Boa sferica cardinale</string>
+    <string name="type.spherical_buoy.cardinal.south">Boa sferica cardinale</string>
+    <string name="type.spherical_buoy.cardinal.west">Boa sferica cardinale</string>
+    <string name="type.spherical_buoy.isolated_danger">Boa sferica di pericolo isolato</string>
+    <string name="type.spherical_buoy.lateral.port">Boa sferica laterale</string>
+    <string name="type.spherical_buoy.lateral.starboard">Boa sferica laterale</string>
+    <string name="type.spherical_buoy.safe_water">Boa sferica di acque sicure</string>
+    <string name="type.spherical_buoy.special_purpose">Boa sferica per uso speciale</string>
+    <string name="type.lateral.starboard">Tribordo</string>
+    <string name="type.leisure.fitness_centre.sport.yoga">Studio yoga</string>
+    <string name="type.man_made.mast.communication">Traliccio per telecomunicazioni</string>
+    <string name="type.railway.miniature.tunnel">Galleria della ferrovia in miniatura</string>
+    <string name="type.railway.turntable">Piattaforma girevole ferroviaria</string>
+    <string name="type.shop.water">Distributore d\'acqua</string>
+    <string name="type.sport.boules">Bocce</string>
+    <string name="type.sport.four_square">Quattro quadrati</string>
+    <string name="type.sport.pickleball">Pickleball</string>
+    <string name="type.social_facility.soup_kitchen">Mensa popolare</string>
+    <string name="type.waterway.fuel">Distributore di carburante per imbarcazioni</string>
+    <string name="type.amenity.food_sharing">Punto di condivisione cibo</string>
+    <string name="type.amenity.give_box">Punto di condivisione oggetti</string>
+    <string name="type.amenity.mobile_money_agent">Agente di mobile money</string>
+    <string name="type.amenity.toilets.private">Accesso privato</string>
+    <string name="type.shop.beauty.nails">Centro estetico unghie</string>
+    <string name="type.leisure.indoor_play">Parco giochi al chiuso</string>
+    <string name="type.emergency.disaster_help_point">Punto di assistenza per calamità</string>
+    <string name="type.shop.beauty.day_spa">Centro benessere</string>
 </resources>

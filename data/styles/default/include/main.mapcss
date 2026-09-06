@@ -1,0 +1,13 @@
+/*
+ * Default style is used as a neutral base for all other styles.
+ * Its not supposed to be used directly,
+ * but rather its files are used as base building blocks in other styles.
+ */
+
+@import("../include/Basemap.mapcss");
+@import("../include/Basemap_label.mapcss");
+@import("../include/Roads.mapcss");
+@import("../include/Roads_label.mapcss");
+@import("../include/Icons.mapcss");
+@import("../include/Icons_Label_Colors.mapcss");
+@import("../include/Subways.mapcss");

@@ -84,7 +84,7 @@
         "defaultMessage": "NULL"
     },
     "route_recalculating": {
-        "defaultMessage": "Recalcular el recorregut"
+        "defaultMessage": "Recalculant la ruta"
     },
     "destination": {
         "defaultMessage": "Arribareu a la destinació."
@@ -316,5 +316,128 @@
     },
     "unknown_camera": {
         "defaultMessage": "Càmera al davant"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "Al final de la carretera,"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Estàs a %1$s de la ruta"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "En més de tres quilòmetres"
+    },
+    "from_50_meters": {
+        "defaultMessage": "cinquanta metres"
+    },
+    "from_100_meters": {
+        "defaultMessage": "cent metres"
+    },
+    "from_200_meters": {
+        "defaultMessage": "dos-cents metres"
+    },
+    "from_250_meters": {
+        "defaultMessage": "dos-cents cinquanta metres"
+    },
+    "from_300_meters": {
+        "defaultMessage": "tres-cents metres"
+    },
+    "from_400_meters": {
+        "defaultMessage": "quatre-cents metres"
+    },
+    "from_500_meters": {
+        "defaultMessage": "cinc-cents metres"
+    },
+    "from_600_meters": {
+        "defaultMessage": "sis-cents metres"
+    },
+    "from_700_meters": {
+        "defaultMessage": "set-cents metres"
+    },
+    "from_750_meters": {
+        "defaultMessage": "set-cents cinquanta metres"
+    },
+    "from_800_meters": {
+        "defaultMessage": "vuit-cents metres"
+    },
+    "from_900_meters": {
+        "defaultMessage": "nou-cents metres"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "un quilòmetre"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "un quilòmetre i mig"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "dos quilòmetres"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "dos quilòmetres i mig"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "tres quilòmetres"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "més de tres quilòmetres"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "a més de dos milles"
+    },
+    "from_50_feet": {
+        "defaultMessage": "cinquanta peus"
+    },
+    "from_100_feet": {
+        "defaultMessage": "cent peus"
+    },
+    "from_200_feet": {
+        "defaultMessage": "dos-cents peus"
+    },
+    "from_300_feet": {
+        "defaultMessage": "tres-cents peus"
+    },
+    "from_400_feet": {
+        "defaultMessage": "quatre-cents peus"
+    },
+    "from_500_feet": {
+        "defaultMessage": "cinc-cents peus"
+    },
+    "from_600_feet": {
+        "defaultMessage": "sis-cents peus"
+    },
+    "from_700_feet": {
+        "defaultMessage": "set-cents peus"
+    },
+    "from_800_feet": {
+        "defaultMessage": "vuit-cents peus"
+    },
+    "from_900_feet": {
+        "defaultMessage": "nou-cents peus"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "mil peus"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "dos mil peus"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "tres mil peus"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "quatre mil peus"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "cinc mil peus"
+    },
+    "from_1_mile": {
+        "defaultMessage": "una milla"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "una milla i mitja"
+    },
+    "from_2_miles": {
+        "defaultMessage": "dos milles"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "més de dos milles"
     }
 }

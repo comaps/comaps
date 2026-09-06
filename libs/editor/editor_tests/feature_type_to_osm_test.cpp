@@ -155,7 +155,7 @@ UNIT_TEST(forbiddenSelector)
 {
   std::string data =
       "amenity|lounger;[amenity=lounger][!seasonal];;name;int_name;153;\n"
-      "amenity|charging_station|motorcar|small;[amenity=charging_station][motorcar?][!capacity],[amenity=charging_"
+      "amenity|charging_station|small;[amenity=charging_station][motorcar?][!capacity],[amenity=charging_"
       "station][motorcar?][capacity=1],[amenity=charging_station][motorcar?][capacity=2];;name;int_name;201;\n";
 
   classificator::Load();
@@ -170,7 +170,7 @@ UNIT_TEST(forbiddenSelector)
   TEST_EQUAL(loungerResult[0].m_key, "amenity", ());
   TEST_EQUAL(loungerResult[0].m_value, "lounger", ());
 
-  uint32_t chargingType = classif().GetTypeByReadableObjectName("amenity-charging_station-motorcar-small");
+  uint32_t chargingType = classif().GetTypeByReadableObjectName("amenity-charging_station-small");
   std::vector<OsmElement::Tag> chargingResult = translator.OsmTagsFromType(chargingType);
   TEST_EQUAL(chargingResult.size(), 2, ());
   TEST_EQUAL(chargingResult[0].m_key, "amenity", ());

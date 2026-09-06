@@ -44,4 +44,8 @@
     <string name="year_ago">%s jaar geleden</string>
     <string name="years_ago">%s jaren geleden</string>
     <string name="months_ago">%s maanden geleden</string>
+    <string name="accessibility_map_content_description_collapsed">Kaart. Veeg met één vinger omhoog of omlaag en breid uit om op de tast te verkennen.</string>
+    <string name="accessibility_map_content_description_expanded">Kaart. Tik en houd vast om op de tast te verkennen. Plaatsen worden voorgelezen als je vinger ze bereikt. Veeg met één vinger omhoog of omlaag en wijs af om te stippen.</string>
+    <string name="accessibility_map_action_expand_label">op de tast verkennen</string>
+    <string name="accessibility_map_action_collapse_label">stoten met op de tast verkennen</string>
 </resources>

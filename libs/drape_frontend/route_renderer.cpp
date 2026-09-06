@@ -311,7 +311,7 @@ void RouteRenderer::UpdatePreview(ScreenBase const & screen)
   // Check if there are preview render data.
   if (m_previewRenderData.empty() && !m_waitForPreviewRenderData)
   {
-    m_previewPointsRequest(kPreviewPointsCount);
+    m_previewPointsRequest(kPreviewPointsCount, m_subID++);
     m_waitForPreviewRenderData = true;
   }
   if (m_waitForPreviewRenderData)
@@ -352,7 +352,7 @@ void RouteRenderer::UpdatePreview(ScreenBase const & screen)
       if (h == nullptr)
       {
         // There is no any available handle.
-        m_previewPointsRequest(kPreviewPointsCount);
+        m_previewPointsRequest(kPreviewPointsCount, m_subID++);
         m_waitForPreviewRenderData = true;
         return;
       }

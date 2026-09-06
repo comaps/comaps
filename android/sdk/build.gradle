@@ -76,6 +76,12 @@ android {
   buildTypes {
     debug {
       jniDebuggable true // Enable jni debug build
+      externalNativeBuild {
+        cmake {
+          arguments += ["-DANDROID_STL=c++_shared",
+                        "-DENABLE_ASAN=ON"]
+        }
+      }
     }
     release {
 //      minifyEnabled true
@@ -127,8 +133,10 @@ dependencies {
   implementation libs.androidx.preference
   implementation libs.android.material
   implementation libs.androidx.documentfile
+  implementation libs.androidx.customview
 
   testImplementation libs.junit
+  testImplementation libs.robolectric
 }
 
 android {

@@ -42,7 +42,7 @@ final class CarPlayService: NSObject {
     let configuration = CPSessionConfiguration(delegate: self)
     sessionConfiguration = configuration
     searchService = CarPlaySearchService()
-    let router = CarPlayRouter()
+    let router = CarPlayRouter(displayScale: interfaceController.carTraitCollection.displayScale)
     router.addListener(self)
     router.subscribeToEvents()
     router.setupCarPlaySpeedCameraMode()
@@ -831,5 +831,12 @@ extension CarPlayService {
     let alert = CPAlertTemplate(titleVariants: [title], actions: [noAction, yesAction])
     alert.userInfo = [CPConstants.TemplateKey.alert: CPConstants.TemplateType.restoreRoute]
     presentAlert(alert, animated: true)
+  }
+
+  @objc func windowHeight() -> CGFloat {
+    if let window {
+      return window.height
+    }
+    return 0
   }
 }

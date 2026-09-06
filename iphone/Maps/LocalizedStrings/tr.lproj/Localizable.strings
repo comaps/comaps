@@ -46,15 +46,15 @@
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "Yeni Liste Ekle";
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Yer İmi Listesi Adı";
+"bookmark_set_name" = "Liste Adı";
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Yer İmi Listeleri";
+"bookmark_sets" = "Yer İmleri Listeleri";
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Yer İmleri";
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Favoriler";
 /* Default bookmark list name */
-"core_my_places" = "Yerlerim";
+"core_my_places" = "Yer İmlerim";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Adres";
 /* Settings button in system menu */
@@ -107,11 +107,11 @@
 "category_water" = "Su";
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Karavan tesisleri";
-"share_bookmarks_email_body" = "Merhaba! \n \nEktekiler yer imlerim, lütfen bunları CoMaps'te açın. Eğer uygulama kurulu değilse, şu bağlantıyla iOS ve Android aygıtınıza kurabilirsiniz: https://www.comaps.app/download/ \n \nCoMaps ile gezmenin tadını çıkarın!";
+"share_bookmarks_email_body" = "Merhaba! \n \nEktekiler yer imlerim, lütfen bunları CoMaps'te açın. Eğer uygulama kurulu değilse, buradan indirebilirsin: https://www.comaps.app/download/ \n \nCoMaps ile gezmenin tadını çıkarın!";
 /* message title of loading file */
 "load_kmz_title" = "Yer İmleri Yükleniyor";
 /* Kmz file successful loading */
-"load_kmz_successful" = "Yer İmleri başarılı bir şekilde yüklendi! Bunları Haritada ya da Yer İmleri Yöneticisi ekranında bulabilirsiniz.";
+"load_kmz_successful" = "Yer imleri başarılı bir şekilde yüklendi! Bunları Haritada ya da Yer İmleri Yöneticisi ekranında bulabilirsiniz.";
 /* Kml file loading failed */
 "load_kmz_failed" = "Yer İmlerini yükleme işlemi başarısız oldu. Dosya bozuk ya da hatalı olabilir.";
 /* resource for context menu */
@@ -143,7 +143,6 @@
 "share_my_location" = "Konumumu Paylaş";
 "prefs_group_route" = "Navigasyon";
 "pref_zoom_title" = "Yakınlaştırma düğmeleri";
-"pref_left_button_type" = "Left Main Button";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Harita Dili";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "Kendiliğinden";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Perspektif görünümü";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "3B yapılar";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3B yapılar güç tasarrufu modundayken kapatılır";
 /* Settings «Route» category: «Tts enabled» title */
@@ -459,7 +456,7 @@
 "editor_focus_map_on_location" = "Çarpı imini mekân veya işletmenin konumuna yerleştirmek için haritayı sürükleyin.";
 "editor_add_select_category" = "Kategori seç";
 "editor_add_select_category_popular_subtitle" = "Popüler";
-"editor_add_select_category_all_subtitle" = "Tüm kategoriler";
+"editor_add_select_category_all_subtitle" = "Tüm Kategoriler";
 "editor_edit_place_title" = "Düzenleme";
 "editor_add_place_title" = "Ekleme";
 "editor_edit_place_name_hint" = "Yerin adı";
@@ -525,10 +522,10 @@
 "placepage_more_button" = "Diğer";
 "book_button" = "Rezervasyon";
 "placepage_call_button" = "Ara";
-"placepage_edit_bookmark_button" = "Yer İmini Düzenle";
-"placepage_bookmark_name_hint" = "Yer İmi Adı";
+"placepage_edit_bookmark_button" = "Kaydedilmiş Yeri Düzenle";
+"placepage_bookmark_name_hint" = "Yer Adı";
 "placepage_personal_notes_hint" = "Kişisel notlar (metin veya html)";
-"placepage_delete_bookmark_button" = "Yer İmini Sil";
+"placepage_delete_bookmark_button" = "Yeri Sil";
 "editor_edits_sent_message" = "Notunuz OpenStreetMap'e gönderilecektir";
 "editor_comment_hint" = "Yorum…";
 "editor_reset_edits_message" = "Tüm yerel değişiklikler sıfırlansın mı?";
@@ -571,7 +568,6 @@
 "mobile_data_option_never" = "Asla Kullanma";
 "mobile_data_option_ask" = "Her Zaman Sor";
 "traffic_update_maps_text" = "Trafik verilerini görüntülemek için haritaların güncellenmesi gerekiyor.";
-"big_font" = "Haritadaki yazı tipi boyutunu artır";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Trafik verilerini görüntülemek için uygulamanın güncellenmesi gerekiyor.";
 /* "traffic" as in "road congestion" */
@@ -625,8 +621,6 @@
 "restore" = "Geri al";
 "privacy_policy" = "Gizlilik politikası";
 "terms_of_use" = "Kullanım koşulları";
-"button_layer_subway" = "Metro";
-"layers_title" = "Harita Stilleri ve Katmanlar";
 "subway_data_unavailable" = "Metro haritası yok";
 "title_error_downloading_bookmarks" = "Bir hata oluştu";
 "popular_place" = "Popüler";
@@ -733,7 +727,6 @@
 "transit_not_found" = "Metro navigasyonu henüz bu bölgede kullanılamaz";
 "dialog_pedestrian_route_is_long_header" = "Metro rotası bulunamadı";
 "dialog_pedestrian_route_is_long_message" = "Metro istasyonuna en yakın rotanın başlangıç veya bitiş noktasını seçin";
-"button_layer_isolines" = "Arazi";
 "isolines_activation_error_dialog" = "Arazi katmanını etkinleştirmek ve kullanmak için lütfen haritayı güncelleyin veya indirin";
 "isolines_location_error_dialog" = "Arazi katmanı henüz bu bölgede kullanılamaz";
 "elevation_profile_diff_level" = "Zorluk seviyesi";
@@ -795,8 +788,6 @@
 "car_continue_on_the_phone" = "Telefonda devam et";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Arabada göster";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Açık Hava";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Tüm Yer İmlerini Dışa Aktar";
 /* Text for the editing the Track's color button. */
@@ -809,7 +800,7 @@
 /* Message for the bug report alert. */
 "bugreport_alert_message" = "Geliştiricilere bir hata raporu göndermek ister misiniz?\nCoMaps otomatik olarak herhangi bir hata bilgisi toplamadığı için bu konuda kullanıcılarımıza güveniyoruz. CoMaps'i desteklediğiniz için şimdiden teşekkür ederiz!";
 /* Title for the iCloud synchronization setting */
-"icloud_sync" = "iCloud Syncronization (Beta)";
+"icloud_sync" = "iCloud Senkronizasyonu (Beta)";
 /* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "iCloud Senkronizasyonunu Etkinleştir";
 /* Message for the "Enable iCloud Synchronization" alert. */
@@ -817,7 +808,7 @@
 /* Title for the "iCloud Is Disabled" alert. */
 "icloud_disabled_title" = "iCloud Devre Dışı";
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Bu özelliği kullanmak için lütfen aygıtınızın ayarlarında iCloud'u etkinleştirin.";
+"icloud_disabled_message" = "Bu özelliği kullanmak için lütfen Apple Hesap ayarlarından iCloud'u CoMaps için etkinleştirin.";
 /* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
 "enable" = "Etkinleştir";
 /* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
@@ -846,40 +837,63 @@
 "recover" = "Kurtar";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Tümünü Kurtar";
-/* Prompt to start recording a track. */
-"start_track_recording" = "GPS izini kaydet";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "GPS izi kaydını durdur";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Kaydı sil ve durdur";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "continue_recording" = "Kaydı devam ettir";
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "GPS izi kaydınız yer imleri ve kayıtlı rotalara kaydedilsin mi?";
+"track_recording_alert_title" = "Yer İmlerine Kayıt Edilsin mi?";
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Kaydınız boş - kaydedilecek bir şey yok";
 "edit_track" = "Kaydı Düzenle";
 /* Title of the general section in settings */
-"general" = "General";
+"general" = "Genel";
 /* Title of the interface section in settings */
-"interface" = "Interface";
+"interface" = "Ara yüz";
 /* OpenStreetMap contribution section on the PlacePage. */
-"contribute_to_osm" = "Contribute to OpenStreetMap";
-"contribute_to_osm_add_place" = "Add Place";
-"contribute_to_osm_update_map" = "Update the Map to Contribute";
-"contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"contribute_to_osm" = "OpenStreetMap'e Katkıda Bulun";
+"contribute_to_osm_add_place" = "Yer Ekle";
+"contribute_to_osm_update_map" = "Katkıda Bulunmak İçin Haritayı Güncelle";
+"contribute_to_osm_update_map_description" = "OpenStreetMap verisine katkıda bulunmadan önce %@ haritasını son versiyona güncellemen gerekiyor";
 "downloader_check_updates_button" = "Güncellemeleri denetle";
-"downloader_check_updates_checking" = "Checking for updates...";
-"downloader_check_updates_updated" = "Map updates available!";
-"downloader_check_updates_no_updates" = "No updates available";
+"downloader_check_updates_checking" = "Güncellemeler kontrol ediliyor...";
+"downloader_check_updates_updated" = "Harita güncellemeleri mevcut!";
+"downloader_check_updates_no_updates" = "Güncelleme yok";
 "downloader_check_updates_eol" = "Uygulamanın bu sürümü için daha fazla güncelleme gelmeyecek. Lütfen uygulamayı güncelleyin!";
-"downloader_check_updates_error" = "Error checking for updates";
-"editor_add_select_category_recent_subtitle" = "Recently Used";
+"downloader_check_updates_error" = "Güncelleme kontrol edilemedi";
+"editor_add_select_category_recent_subtitle" = "Yakın Zamanda Kullanıldı";
 "oh_unknown" = "Çalışma saatleri bilinmiyor";
-"carplay_highway_exit" = "Exit %@";
-"capacity_disabled_yes" = "Has dedicated disabled spaces";
-"capacity_disabled_no" = "No dedicated disabled spaces";
-"capacity_charging_yes" = "Has spaces with chargers";
-"capacity_charging_no" = "No spaces with chargers";
-"planning_route_preview" = "Preview";
-"planning_route_preview_sheet_title" = "Route Preview";
+"carplay_highway_exit" = "Çıkış %@";
+"capacity_disabled_yes" = "Özel ayrılmış engelli alanı var";
+"capacity_disabled_no" = "Özel ayrılmış engelli yeri yok";
+"capacity_charging_yes" = "Sarj cihaz alanları var";
+"capacity_charging_no" = "Şarj cihaz alanları yok";
+"planning_route_preview" = "Önizleme";
+"planning_route_preview_sheet_title" = "Rota Önizleme";
+"discard" = "Discard";
+"pref_custom_button_type" = "Customizable Button";
+"osm" = "OpenStreetMap";
+"mode" = "Mode";
+"mode_walking" = "Walking";
+"mode_cycling" = "Cycling";
+"mode_driving" = "Driving";
+"mode_public-transport" = "Public Transport";
+"mode_option_traffic" = "Show Traffic";
+"mode_option_transitlines" = "Show Transit Lines";
+"mode_option_comingsoon" = "Options coming soon";
+"layers" = "Layers";
+"layers_option_contour-lines" = "Contour Lines";
+"layers_option_outdoor" = "Outdoor";
+"layers_option_buildings-3d" = "3D Buildings";
+"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
+"postionmode_locate" = "Find own location";
+"postionmode_locating" = "Finding own location...";
+"postionmode_following" = "Following location with map roated towards North";
+"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
+"zoom_in" = "Zoom in";
+"zoom_out" = "Zoom out";
+"record_track" = "Record Track";
+"recording_track" = "Recording Track";
+"bookmarks_text_placement_title" = "Show names of favorites on map";
+"pref_font_size" = "Font size for map labels";
+"font_size" = "Font size";

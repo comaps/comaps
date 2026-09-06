@@ -16,6 +16,7 @@
 
 #include "kml/type_utils.hpp"
 
+#include "drape/accessibility_data.hpp"
 #include "drape/drape_global.hpp"
 #include "drape/overlay_tree.hpp"
 #include "drape/pointers.hpp"
@@ -105,6 +106,7 @@ public:
   using GraphicsReadyHandler = std::function<void()>;
   using TapEventInfoHandler = std::function<void(TapInfo const &)>;
   using UserPositionChangedHandler = std::function<void(m2::PointD const & pt, bool hasPosition)>;
+  using AccessibilityDataHandler = std::function<void(dp::AccessibilityData *)>;
 
   struct Params : BaseRenderer::Params
   {
@@ -169,6 +171,7 @@ public:
   location::EMyPositionMode GetMyPositionMode() const { return m_myPositionController->GetCurrentMode(); }
 
   void OnEnterBackground();
+  void ForceMapStyleRerendering();
 
 protected:
   void AcceptMessage(ref_ptr<Message> message) override;
@@ -221,6 +224,8 @@ private:
   void PrepareScene(ScreenBase const & modelView);
   void UpdateScene(ScreenBase const & modelView);
   void BuildOverlayTree(ScreenBase const & modelView);
+  void UpdateSearchMarkTextOverlay(ScreenBase const & modelView);
+  ref_ptr<dp::OverlayTree> GetOverlayTree(DepthLayer layerId) const;
 
   void EmitModelViewChanged(ScreenBase const & modelView) const;
 
@@ -235,6 +240,7 @@ private:
 
   void DisablePerspective();
 
+  // TODO all of these should call back to the platform to fire accessibility event / haptics / etc
   void OnTap(m2::PointD const & pt, bool isLong) override;
   void OnForceTap(m2::PointD const & pt) override;
   void OnDoubleTap(m2::PointD const & pt) override;
@@ -345,6 +351,8 @@ private:
   drape_ptr<DrapeApiRenderer> m_drapeApiRenderer;
 
   drape_ptr<dp::OverlayTree> m_overlayTree;
+  // Actually, it holds displacing Bookmark titles. The tree named after SearchMarkLayer.
+  drape_ptr<dp::OverlayTree> m_searchMarkTextOverlayTree;
 
   FrameValues m_frameValues;
 
@@ -435,9 +443,14 @@ private:
 
   drape_ptr<ScenarioManager> m_scenarioManager;
 
+  // note that the ownership of the pointer is transferred
+  std::optional<AccessibilityDataHandler> m_accessibilityDataHandler;
+
   bool m_firstTilesReady = false;
   bool m_firstLaunchAnimationTriggered = false;
   bool m_firstLaunchAnimationInterrupted = false;
+
+  bool m_forceMapStyleRerendering = false;
 
 #if defined(OMIM_OS_DESKTOP)
   GraphicsReadyHandler m_graphicsReadyFn;

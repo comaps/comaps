@@ -8,7 +8,6 @@ framework module CoreApi {
   header "MWMBookmarkGroup.h"
   header "MWMFrameworkHelper.h"
   header "MWMCarPlayBookmarkObject.h"
-  header "MWMMapOverlayManager.h"
   header "MWMSearchFrameworkHelper.h"
   header "MWMNetworkPolicy.h"
   header "PlacePageBookmarkData.h"

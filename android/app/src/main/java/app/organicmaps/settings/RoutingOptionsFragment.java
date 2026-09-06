@@ -65,50 +65,46 @@ public class RoutingOptionsFragment extends BaseMwmToolbarFragment
     viewPager.setAdapter(pagerAdapter);
     TabLayout tabLayout = view.findViewById(R.id.route_options_tab_layout);
 
-    new TabLayoutMediator(tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
-      @Override
-      public void onConfigureTab(@NonNull TabLayout.Tab tab, int position)
+    new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
+      Context context = view.getContext();
+      ImageView imageView = new ImageView(context);
+
+      int sizeInPixels = (int) (48 * context.getResources().getDisplayMetrics().density);
+      FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(sizeInPixels, sizeInPixels);
+      imageView.setLayoutParams(params);
+
+      switch (position)
       {
-        Context context = view.getContext();
-        ImageView imageView = new ImageView(context);
-
-        int sizeInPixels = (int) (48 * context.getResources().getDisplayMetrics().density);
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(sizeInPixels, sizeInPixels);
-        imageView.setLayoutParams(params);
-
-        switch (position)
-        {
-        case 0:
-          imageView.setImageResource(R.drawable.ic_pedestrian);
-          imageView.setContentDescription(getString(R.string.pedestrian));
-          break;
-        case 1:
-          imageView.setImageResource(R.drawable.ic_bike);
-          imageView.setContentDescription(getString(R.string.bicycle));
-          break;
-        case 2:
-          imageView.setImageResource(R.drawable.ic_car);
-          imageView.setContentDescription(getString(R.string.vehicle));
-          break;
-        }
-
-        ColorStateList tabColors = tabLayout.getTabTextColors();
-        if (tabColors != null)
-        {
-          ImageViewCompat.setImageTintList(imageView, tabColors);
-        }
-        tab.setCustomView(imageView);
+      case 0:
+        imageView.setImageResource(R.drawable.ic_pedestrian);
+        imageView.setContentDescription(getString(R.string.pedestrian));
+        break;
+      case 1:
+        imageView.setImageResource(R.drawable.ic_bike);
+        imageView.setContentDescription(getString(R.string.bicycle));
+        break;
+      case 2:
+        imageView.setImageResource(R.drawable.ic_car);
+        imageView.setContentDescription(getString(R.string.vehicle));
+        break;
       }
+
+      ColorStateList tabColors = tabLayout.getTabTextColors();
+      if (tabColors != null)
+      {
+        ImageViewCompat.setImageTintList(imageView, tabColors);
+      }
+      tab.setCustomView(imageView);
     }).attach();
 
-    int index = 0;
-    switch (RoutingController.get().getLastRouterType())
+    int index = switch (RoutingController.get().getLastRouterType())
     {
-    case Pedestrian: index = 0; break;
-    case Bicycle: index = 1; break;
-    case Vehicle: index = 2; break;
-    case Transit: index = 0; break;
-    }
+      case Pedestrian -> 0;
+      case Bicycle -> 1;
+      case Vehicle -> 2;
+      case Transit -> 0;
+      default -> 0;
+    };
     viewPager.setCurrentItem(index, false);
   }
 

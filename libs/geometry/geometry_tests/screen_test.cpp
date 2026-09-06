@@ -5,6 +5,8 @@
 #include "geometry/transformations.hpp"
 #include "testing/testing.hpp"
 
+#include <cmath>
+
 namespace screen_test
 {
 using test::is_equal;
@@ -81,6 +83,39 @@ UNIT_TEST(ScreenBase_3dTransform)
   p3d = m2::PointD(screen.PixelRectIn3d().SizeX(), 0);
   pp = screen.P3dtoP(p3d);
   TEST(fabs(pp.x - screen.PixelRect().maxX()) < kEps, ());
+}
+
+UNIT_TEST(ScreenBase_AutoPerspectiveThresholdTransition)
+{
+  ScreenBase screen;
+  screen.OnSize(0, 0, 600, 400);
+
+  double const threshold = ScreenBase::GetStartPerspectiveScale();
+  screen.SetScale(threshold * 0.99);
+  screen.SetAutoPerspective(true);
+  TEST(screen.isPerspective(), ());
+
+  screen.SetScale(threshold * (1.0 + 1.0e-6));
+  TEST(!screen.isPerspective(), ());
+
+  double const perspectiveScale = threshold * (1.0 - 1.0e-6);
+  double const perspectiveAngle = ScreenBase::CalculateAutoPerspectiveAngle(perspectiveScale);
+  TEST_GREATER(perspectiveAngle, 0.0, ());
+  TEST_LESS(perspectiveAngle, 1.0e-5, ());
+
+  screen.SetScale(perspectiveScale);
+  TEST(screen.isPerspective(), ());
+  TEST_ALMOST_EQUAL_ULPS(screen.GetRotationAngle(), perspectiveAngle, ());
+
+  m2::PointD const point(123.0, 234.0);
+  m2::PointD const projectedPoint = screen.PtoP3d(point);
+  TEST(std::isfinite(projectedPoint.x), (projectedPoint));
+  TEST(std::isfinite(projectedPoint.y), (projectedPoint));
+
+  m2::PointD const roundTripPoint = screen.P3dtoP(projectedPoint);
+  TEST(std::isfinite(roundTripPoint.x), (roundTripPoint));
+  TEST(std::isfinite(roundTripPoint.y), (roundTripPoint));
+  TEST(point.EqualDxDy(roundTripPoint, 1.0e-3), (point, roundTripPoint));
 }
 
 UNIT_TEST(ScreenBase_P2P3d2P)

@@ -45,4 +45,8 @@
     <string name="months_ago">Il y a %s mois</string>
     <string name="year_ago">Il y a %s an</string>
     <string name="years_ago">Il y a %s ans</string>
+    <string name="accessibility_map_content_description_collapsed">Carte. Faites glisser un doigt vers le haut ou vers le bas pour agrandir la carte et l\'explorer au toucher.</string>
+    <string name="accessibility_map_content_description_expanded">Carte. Appuyez et maintenez votre doigt pour explorer au toucher. Les lieux seront lus à voix haute à mesure que votre doigt les effleure. Pour arrêter, faites glisser un doigt vers le haut ou vers le bas, puis fermez la fenêtre.</string>
+    <string name="accessibility_map_action_expand_label">découvrir au toucher</string>
+    <string name="accessibility_map_action_collapse_label">arrêter l\'exploration tactile</string>
 </resources>

@@ -623,7 +623,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
     }
 
     mNavigationController =
-        new NavigationController(this, v -> onSettingsOptionSelected(), this::updateBottomWidgetsOffset);
+        new NavigationController(this, v -> onSettingsOptionSelected(), v -> onTrackRecordingOptionSelected(),
+                this::updateBottomWidgetsOffset);
     // TrafficManager.INSTANCE.attach(mNavigationController);
 
     initMainMenu();
@@ -1403,6 +1404,9 @@ public class MwmActivity extends BaseMwmFragmentActivity
   @Override
   public boolean dispatchGenericMotionEvent(MotionEvent event)
   {
+    if (mDisplayManager.isDeviceDisplayUsed())
+      mMapController.getView().dispatchWindowMotionEvent(event);
+
     if (event.getActionMasked() == MotionEvent.ACTION_SCROLL)
     {
       int exponent = event.getAxisValue(MotionEvent.AXIS_VSCROLL) < 0 ? -1 : 1;
@@ -2235,7 +2239,6 @@ public class MwmActivity extends BaseMwmFragmentActivity
   {
     // Create and show 'Manage Route' Bottom Sheet panel.
     mManageRouteBottomSheet = new ManageRouteBottomSheet();
-    mManageRouteBottomSheet.setCancelable(false);
     mManageRouteBottomSheet.show(getSupportFragmentManager(), "ManageRouteBottomSheet");
   }
 
@@ -2571,8 +2574,23 @@ public class MwmActivity extends BaseMwmFragmentActivity
   {
     super.onTrimMemory(level);
     Logger.d(TAG, "trim memory, level = " + level);
-    if (level >= TRIM_MEMORY_RUNNING_LOW)
-      Framework.nativeMemoryWarning();
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM)
+    {
+      // With API Level >= 35, only TRIM_MEMORY_BACKGROUND and TRIM_MEMORY_UI_HIDDEN memory
+      // levels are reported.
+      if (level >= TRIM_MEMORY_BACKGROUND)
+        Framework.nativeMemoryWarning();
+    }
+    else
+    {
+      // Suppress warning of deprecated TRIM_MEMORY_RUNNING_LOW trim memory level
+      // with API level < 35.
+      @SuppressWarnings("deprecation")
+      int WARNING_LEVEL = TRIM_MEMORY_RUNNING_LOW;
+      if (level >= WARNING_LEVEL)
+        Framework.nativeMemoryWarning();
+    }
   }
 
   private void makeNavigationBarTransparentInLightMode()

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "drape/accessibility_node_info.hpp"
 #include "drape/attribute_buffer_mutator.hpp"
 #include "drape/binding_info.hpp"
 #include "drape/drape_diagnostics.hpp"
@@ -51,6 +52,8 @@ struct OverlayID
   OverlayID() = default;
 
   explicit OverlayID(FeatureID const & featureId) : m_featureId(featureId) {}
+  // Non-map overlays can use this facility to get a unique id. See the list of IDs in drape_frontend/overlay_id.hpp
+  explicit OverlayID(uint32_t index) : m_index(index) {}
 
   OverlayID(FeatureID const & featureId, kml::MarkId markId, m2::PointI const & tileCoords, uint32_t index)
     : m_featureId(featureId)
@@ -59,7 +62,9 @@ struct OverlayID
     , m_index(index)
   {}
 
-  bool IsValid() const { return m_featureId.IsValid() || m_markId != kml::kInvalidMarkId; }
+  bool IsValid() const { return m_featureId.IsValid() || m_markId != kml::kInvalidMarkId || m_index != 0; }
+
+  bool IsValidForMap() const { return m_featureId.IsValid() || m_markId != kml::kInvalidMarkId; }
 
   static OverlayID GetLowerKey(FeatureID const & featureID) { return {featureID, 0, {-1, -1}, 0}; }
 
@@ -79,13 +84,39 @@ struct OverlayID
            strings::to_string(overlayId.m_index);
   }
 };
+}  // namespace dp
+
+namespace std
+{
+template <>
+struct hash<dp::OverlayID>
+{
+  size_t operator()(dp::OverlayID const & overlayId) const noexcept
+  {
+    return hash<FeatureID>()(overlayId.m_featureId) ^ std::hash<kml::MarkId>()(overlayId.m_markId) ^
+           std::hash<m2::PointI>()(overlayId.m_tileCoords) ^ std::hash<uint32_t>()(overlayId.m_index);
+  }
+};
+template <>
+struct hash<pair<dp::OverlayID, uint8_t>>
+{
+  size_t operator()(pair<dp::OverlayID, uint8_t> const & overlaySubId) const noexcept
+  {
+    return hash<dp::OverlayID>()(overlaySubId.first) ^ std::hash<uint8_t>()(overlaySubId.second);
+  }
+};
+}  // namespace std
+
+namespace dp
+{
 
 class OverlayHandle
 {
 public:
   using Rects = std::vector<m2::RectF>;
 
-  OverlayHandle(OverlayID const & id, dp::Anchor anchor, uint64_t priority, uint8_t minVisibleScale, bool isBillboard);
+  OverlayHandle(OverlayID const & id, uint8_t subID, dp::Anchor anchor, uint64_t priority, uint8_t minVisibleScale,
+                bool isBillboard, AccessibilityNodeInfo && accessibilityInfo);
 
   virtual ~OverlayHandle() = default;
 
@@ -94,6 +125,8 @@ public:
 
   uint8_t GetMinVisibleScale() const { return m_minVisibleScale; }
   bool IsBillboard() const { return m_isBillboard; }
+
+  AccessibilityNodeInfo const & GetAccessibilityInfo() const { return m_accessibilityInfo; }
 
   virtual m2::PointD GetPivot(ScreenBase const & screen, bool perspective) const;
 
@@ -121,7 +154,10 @@ public:
   bool HasDynamicAttributes() const;
   void AddDynamicAttribute(BindingInfo const & binding, uint32_t offset, uint32_t count);
 
+  // Semantic group ID; many related OverlayHandles may share an OverlayID
   OverlayID const & GetOverlayID() const { return m_id; }
+  // Unique within an OverlayID group, order is meaningful.
+  uint8_t GetOverlaySubID() const { return m_subID; }
   uint64_t const & GetPriority() const { return m_priority; }
 
   virtual bool IsBound() const { return false; }
@@ -160,6 +196,7 @@ public:
 
 protected:
   OverlayID const m_id;
+  uint8_t m_subID;
   dp::Anchor const m_anchor;
   uint64_t const m_priority;
 
@@ -197,6 +234,8 @@ private:
   mutable m2::RectD m_extendedRectCache;
 
   bool const m_isBillboard : 1;
+  AccessibilityNodeInfo const m_accessibilityInfo;
+
   bool m_isVisible : 1;
 
   bool m_caching : 1;
@@ -213,8 +252,9 @@ class SquareHandle : public OverlayHandle
   using TBase = OverlayHandle;
 
 public:
-  SquareHandle(OverlayID const & id, dp::Anchor anchor, m2::PointD const & gbPivot, m2::PointD const & pxSize,
-               m2::PointD const & pxOffset, uint64_t priority, bool isBound, int minVisibleScale, bool isBillboard);
+  SquareHandle(OverlayID const & id, uint8_t subID, dp::Anchor anchor, m2::PointD const & gbPivot,
+               m2::PointD const & pxSize, m2::PointD const & pxOffset, uint64_t priority, bool isBound,
+               int minVisibleScale, bool isBillboard, AccessibilityNodeInfo && accessibilityInfo);
 
   m2::RectD GetPixelRect(ScreenBase const & screen, bool perspective) const override;
   void GetPixelShape(ScreenBase const & screen, bool perspective, Rects & rects) const override;

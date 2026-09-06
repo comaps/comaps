@@ -22,7 +22,7 @@ NSString *titleForButton(MWMActionBarButtonType type, BOOL isSelected) {
     case MWMActionBarButtonTypeSaveTrackRecording:
       return L(@"save");
     case MWMActionBarButtonTypeNotSaveTrackRecording:
-      return L(@"delete");
+      return L(@"discard");
     case MWMActionBarButtonTypeRouteFrom:
       return L(@"p2p_from_here");
     case MWMActionBarButtonTypeRouteTo:

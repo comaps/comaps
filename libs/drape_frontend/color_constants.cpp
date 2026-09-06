@@ -28,7 +28,7 @@ public:
   dp::Color GetColor(std::string const & name) const
   {
     auto const style = GetStyleReader().GetCurrentStyle();
-    auto const isDarkStyle = style == MapStyle::MapStyleDefaultDark || style == MapStyle::MapStyleVehicleDark;
+    auto const isDarkStyle = MapStyleIsDark(style);
     auto const & colors = isDarkStyle ? m_nightColors : m_clearColors;
     auto const it = colors.find(name);
     if (it == colors.cend())

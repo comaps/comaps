@@ -1,6 +1,8 @@
 #pragma once
 
 #include "indexer/drawing_rule_def.hpp"
+#include "indexer/feature_decl.hpp"
+#include "indexer/map_style_reader.hpp"
 #include "indexer/scales.hpp"
 #include "indexer/types_mapping.hpp"
 
@@ -284,4 +286,4 @@ private:
   DISALLOW_COPY_AND_MOVE(Classificator);
 };
 
-Classificator & classif();
+Classificator & classif(MapStyle const mapStyle = GetStyleReader().GetCurrentStyle());

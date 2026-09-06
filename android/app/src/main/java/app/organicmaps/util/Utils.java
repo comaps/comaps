@@ -84,10 +84,13 @@ public class Utils
 
   private static void showOnLockScreenOld(boolean enable, Activity activity)
   {
+    @SuppressWarnings("deprecation")
+    int flags = WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
+
     if (enable)
-      activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+      activity.getWindow().addFlags(flags);
     else
-      activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+      activity.getWindow().clearFlags(flags);
   }
 
   public static void showOnLockScreen(boolean enable, Activity activity)
@@ -325,11 +328,18 @@ public class Utils
     if (MwmApplication.from(context).getOrganicMaps().arePlatformAndCoreInitialized())
       return;
 
-    FragmentManager manager = fragment.getFragmentManager();
-    if (manager == null)
-      return;
-
-    manager.beginTransaction().detach(fragment).commit();
+    if (fragment.isAdded())
+    {
+      try
+      {
+        FragmentManager manager = fragment.getParentFragmentManager();
+        manager.beginTransaction().detach(fragment).commit();
+      }
+      catch(IllegalStateException e)
+      {
+        Logger.e(TAG, "Fragment.getParentFragmentManager() IllegalStateException", e);
+      }
+    }
   }
 
   public static String capitalize(@Nullable String src)
@@ -414,8 +424,11 @@ public class Utils
     }
   }
 
-  public static <T> T getParcelable(@NonNull Bundle in, @Nullable String key, @NonNull Class<T> clazz)
+  @Nullable
+  public static <T> T getParcelable(@Nullable Bundle in, @Nullable String key, @NonNull Class<T> clazz)
   {
+    if (in == null)
+      return null;
     in.setClassLoader(clazz.getClassLoader());
     return BundleCompat.getParcelable(in, key, clazz);
   }

@@ -143,7 +143,6 @@
 "share_my_location" = "Trimite poziția mea";
 "prefs_group_route" = "Navigare";
 "pref_zoom_title" = "Butoane zoom";
-"pref_left_button_type" = "Left Main Button";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Limba hărții";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "Automat";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Vedere în perspectivă";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "Clădiri 3D";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "Clădirile 3D sunt oprite în modul de economisire a energiei";
 /* Settings «Route» category: «Tts enabled» title */
@@ -571,7 +568,6 @@
 "mobile_data_option_never" = "Nu utiliza niciodată";
 "mobile_data_option_ask" = "Întreabă întotdeauna";
 "traffic_update_maps_text" = "Pentru a afișa datele privind traficul, hărțile trebuie actualizate.";
-"big_font" = "Mărește dimensiunea literelor pe hartă";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Pentru a afișa datele privind traficul, aplicația trebuie actualizată.";
 /* "traffic" as in "road congestion" */
@@ -625,8 +621,6 @@
 "restore" = "Restabilește";
 "privacy_policy" = "Confidențialitate";
 "terms_of_use" = "Termeni de utilizare";
-"button_layer_subway" = "Metrou";
-"layers_title" = "Stiluri și straturi de hartă";
 "subway_data_unavailable" = "Harta de metrou nu este disponibilă";
 "title_error_downloading_bookmarks" = "A apărut o eroare";
 "popular_place" = "Populare";
@@ -733,7 +727,6 @@
 "transit_not_found" = "Navigarea pentru metrou nu este încă disponibilă în această regiune";
 "dialog_pedestrian_route_is_long_header" = "Traseul metroului nu a fost găsit";
 "dialog_pedestrian_route_is_long_message" = "Alege un punct de plecare sau de sosire mai aproape de o stație de metrou";
-"button_layer_isolines" = "Înălțimi";
 "isolines_activation_error_dialog" = "Pentru a activa și utiliza stratul topografic actualizează sau descarcă harta zonei";
 "isolines_location_error_dialog" = "Stratul topografic nu este încă disponibil în această zonă";
 "elevation_profile_diff_level" = "Nivel de dificultate";
@@ -795,8 +788,6 @@
 "car_continue_on_the_phone" = "Continuați în telefon";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "La ecranul mașinii";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Drumeție";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Exportați toate marcajele și piesele";
 /* Text for the editing the Track's color button. */
@@ -846,10 +837,6 @@
 "recover" = "Recuperare";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Recuperează tot";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Înregistrați traseul";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Opriți înregistrarea traseului";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Oprire fără salvare";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -870,12 +857,12 @@
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
 "downloader_check_updates_button" = "Caută actualizări";
 "downloader_check_updates_checking" = "Se verifică actualizările...";
-"downloader_check_updates_updated" = "Map updates available!";
+"downloader_check_updates_updated" = "Actualizări pentru hărți disponibile!";
 "downloader_check_updates_no_updates" = "Nu sunt disponibile actualizări";
-"downloader_check_updates_eol" = "No more map updates for this app version. Please update the app!";
-"downloader_check_updates_error" = "Error checking for updates";
+"downloader_check_updates_eol" = "Nu mai există actualizări de hărți pentru această versiune a aplicației. Te rugăm să actualizezi aplicația!";
+"downloader_check_updates_error" = "Eroare căutând actualizări";
 "editor_add_select_category_recent_subtitle" = "Recently Used";
-"oh_unknown" = "Opening hours unknown";
+"oh_unknown" = "Program necunoscut";
 "carplay_highway_exit" = "Exit %@";
 "capacity_disabled_yes" = "Has dedicated disabled spaces";
 "capacity_disabled_no" = "No dedicated disabled spaces";
@@ -883,3 +870,30 @@
 "capacity_charging_no" = "No spaces with chargers";
 "planning_route_preview" = "Preview";
 "planning_route_preview_sheet_title" = "Route Preview";
+"discard" = "Discard";
+"pref_custom_button_type" = "Customizable Button";
+"osm" = "OpenStreetMap";
+"mode" = "Mode";
+"mode_walking" = "Walking";
+"mode_cycling" = "Cycling";
+"mode_driving" = "Driving";
+"mode_public-transport" = "Public Transport";
+"mode_option_traffic" = "Show Traffic";
+"mode_option_transitlines" = "Show Transit Lines";
+"mode_option_comingsoon" = "Options coming soon";
+"layers" = "Layers";
+"layers_option_contour-lines" = "Contour Lines";
+"layers_option_outdoor" = "Outdoor";
+"layers_option_buildings-3d" = "3D Buildings";
+"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
+"postionmode_locate" = "Find own location";
+"postionmode_locating" = "Finding own location...";
+"postionmode_following" = "Following location with map roated towards North";
+"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
+"zoom_in" = "Zoom in";
+"zoom_out" = "Zoom out";
+"record_track" = "Record Track";
+"recording_track" = "Recording Track";
+"bookmarks_text_placement_title" = "Show names of favorites on map";
+"pref_font_size" = "Font size for map labels";
+"font_size" = "Font size";

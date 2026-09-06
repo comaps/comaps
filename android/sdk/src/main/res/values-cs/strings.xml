@@ -40,4 +40,8 @@
     <string name="months_ago">před %s měsíci</string>
     <string name="year_ago">před %s rokem</string>
     <string name="years_ago">před %s lety</string>
+    <string name="accessibility_map_content_description_collapsed">Mapa. Posuňte jedním prstem nahoru nebo dolů a rozšiřte pro prozkoumávání dotykem.</string>
+    <string name="accessibility_map_content_description_expanded">Mapa. Klepněte a podržte pro prozkoumávání dotykem. Místa budou přečtena, jakmile přes ně přejedete prstem. Pro zastavení posuňte jedním prstem nahoru nebo dolů a zavřete.</string>
+    <string name="accessibility_map_action_expand_label">prozkoumávat dotykem</string>
+    <string name="accessibility_map_action_collapse_label">ukončit prozkoumávání dotykem</string>
 </resources>

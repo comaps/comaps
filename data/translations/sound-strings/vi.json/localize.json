@@ -316,5 +316,65 @@
     },
     "unknown_camera": {
         "defaultMessage": "Camera tốc độ ở phía trước"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Sau hơn ba ki-lô-mét nữa"
+    },
+    "from_50_meters": {
+        "defaultMessage": "Năm mươi mét"
+    },
+    "from_100_meters": {
+        "defaultMessage": "Một trăm mét"
+    },
+    "from_200_meters": {
+        "defaultMessage": "Hai trăm mét"
+    },
+    "from_250_meters": {
+        "defaultMessage": "Hai trăm năm mươi mét"
+    },
+    "from_300_meters": {
+        "defaultMessage": "Ba trăm mét"
+    },
+    "from_400_meters": {
+        "defaultMessage": "Bốn trăm mét"
+    },
+    "from_500_meters": {
+        "defaultMessage": "Năm trăm mét"
+    },
+    "from_600_meters": {
+        "defaultMessage": "Sáu trăm mét"
+    },
+    "from_700_meters": {
+        "defaultMessage": "Bảy trăm mét"
+    },
+    "from_750_meters": {
+        "defaultMessage": "Bảy trăm năm mươi mét"
+    },
+    "from_800_meters": {
+        "defaultMessage": "Tám trăm mét"
+    },
+    "from_900_meters": {
+        "defaultMessage": "Chín trăm mét"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "Một ki-lô-mét"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "Một ki-lô-mét rưỡi"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "Hai ki-lô-mét"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "hai ki-lô-mét rưỡi"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "Ba ki-lô-mét"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "Hơn ba ki-lô-mét"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "ở cuối đường,"
     }
 }

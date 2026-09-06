@@ -316,5 +316,59 @@
     },
     "unknown_camera": {
         "defaultMessage": "Cameră frontală"
+    },
+    "from_50_meters": {
+        "defaultMessage": "cincizeci de metri"
+    },
+    "from_100_meters": {
+        "defaultMessage": "o sută de metri"
+    },
+    "from_200_meters": {
+        "defaultMessage": "două sute de metri"
+    },
+    "from_250_meters": {
+        "defaultMessage": "două sute cincizeci de metri"
+    },
+    "from_300_meters": {
+        "defaultMessage": "trei sute de metri"
+    },
+    "from_400_meters": {
+        "defaultMessage": "patru sute de metri"
+    },
+    "from_500_meters": {
+        "defaultMessage": "cinci sute de metri"
+    },
+    "from_600_meters": {
+        "defaultMessage": "șase sute de metri"
+    },
+    "from_700_meters": {
+        "defaultMessage": "șapte sute de metri"
+    },
+    "from_750_meters": {
+        "defaultMessage": "șapte sute cincizeci de metri"
+    },
+    "from_800_meters": {
+        "defaultMessage": "opt sute de metri"
+    },
+    "from_900_meters": {
+        "defaultMessage": "nouă sute de metri"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "un kilometru"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "un kilometru și jumătate"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "doi kilometri"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "doi kilometri și jumătate"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "trei kilometri"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "mai mult de trei kilometri"
     }
 }

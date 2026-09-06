@@ -29,8 +29,8 @@
     <string name="type.leisure.adult_gaming_centre">Spelcenter för vuxna</string>
     <string name="type.leisure.amusement_arcade">Arkad</string>
     <string name="type.amenity.charging_station">Laddstation</string>
-    <string name="type.amenity.charging_station.bicycle">Laddningsstation för cykel</string>
-    <string name="type.amenity.charging_station.motorcar">Laddningsstation för bilar</string>
+    <string name="type.amenity.charging_station.bicycle">Cyklar</string>
+    <string name="type.amenity.charging_station.motorcar">Bilar</string>
     <string name="type.amenity.childcare">Barnomsorg</string>
     <string name="type.amenity.cinema">Bio</string>
     <string name="type.leisure.bowling_alley">Bowlinghall</string>
@@ -1377,7 +1377,7 @@
     <string name="type.man_made.observatory">Observatorium</string>
     <string name="type.man_made.telescope">Teleskop</string>
     <string name="type.amenity.boat_rental">Båtuthyrning</string>
-    <string name="type.amenity.bench.backless">Bänk utan ryggstöd</string>
+    <string name="type.amenity.bench.backless">Utan ryggstöd</string>
     <string name="type.leisure.bandstand">Musikpaviljong</string>
     <string name="type.xmas.tree">Julgran</string>
     <string name="type.waterway.weir">Överfallsvärn</string>
@@ -1393,4 +1393,21 @@
     <string name="type.leisure.sports_centre.sport.multi">Idrottscentrum</string>
     <string name="type.leisure.escape_game">Escape Room</string>
     <string name="type.landuse.plant_nursery">Plantskola</string>
+    <string name="type.disusedbusiness">Tom butikslokal</string>
+    <string name="type.man_made.telescope.optical">Teleskop (optiskt)</string>
+    <string name="type.man_made.telescope.radio">Teleskop (radio)</string>
+    <string name="type.man_made.telescope.gamma">Teleskop (gamma)</string>
+    <string name="type.amenity.charging_station.motorcycle">Motorcyklar</string>
+    <string name="type.amenity.charging_station.small">Begränsad kapacitet</string>
+    <string name="type.amenity.sailing_school">Seglarskola</string>
+    <string name="type.amenity.flight_school">Flygskola</string>
+    <string name="type.amenity.luggage_locker">Förvaringsboxar</string>
+    <string name="type.amenity.community_centre.youth_centre">Ungdomscenter</string>
+    <string name="type.amenity.planetarium">Planetarium</string>
+    <string name="type.lateral.starboard">Styrbord</string>
+    <string name="type.cardinal.east">Öst</string>
+    <string name="type.cardinal.north">Norr</string>
+    <string name="type.cardinal.south">Söder</string>
+    <string name="type.cardinal.west">Väst</string>
+    <string name="type.entrance.emergency">Nödutgång</string>
 </resources>

@@ -64,10 +64,10 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
-			<key>other</key>
-			<string>%lld residents</string>
 			<key>one</key>
-			<string>%lld resident</string>
+			<string>%lld innbygger</string>
+			<key>other</key>
+			<string>%lld innbyggere</string>
 		</dict>
 	</dict>
 	<key>rooms</key>
@@ -80,10 +80,24 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
-			<key>other</key>
-			<string>%lld rooms</string>
 			<key>one</key>
 			<string>%lld room</string>
+			<key>other</key>
+			<string>%lld rooms</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld plass med lader</string>
+			<key>other</key>
+			<string>%lld plasser med lader</string>
 		</dict>
 	</dict>
 </dict>

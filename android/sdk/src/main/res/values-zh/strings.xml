@@ -45,4 +45,8 @@
     <string name="months_ago">%s 个月前</string>
     <string name="year_ago">%s 年前</string>
     <string name="years_ago">%s 年前</string>
+    <string name="accessibility_map_content_description_collapsed">地图。用单指上下滑动，然后展开即可触摸浏览。</string>
+    <string name="accessibility_map_content_description_expanded">地图。点按并按住即可触摸浏览。手指移动到地点时会朗读。要停止，请用单指上下滑动并关闭。</string>
+    <string name="accessibility_map_action_expand_label">触摸浏览</string>
+    <string name="accessibility_map_action_collapse_label">结束触摸浏览</string>
 </resources>

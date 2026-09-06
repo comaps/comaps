@@ -17,6 +17,27 @@ void OnRenderingInitializationFinished(std::shared_ptr<jobject> const & listener
   JNIEnv * env = jni::GetEnv();
   env->CallVoidMethod(*listener, jni::GetMethodID(env, *listener.get(), "onRenderingInitializationFinished", "()V"));
 }
+void AccessibilityUpdateCallback(std::shared_ptr<jobject> const & callback,
+                                 std::vector<dp::TAccessibilityStableID> removed,
+                                 std::vector<dp::TAccessibilityStableID> updated,
+                                 std::vector<dp::TAccessibilityStableID> added)
+{
+  JNIEnv * env = jni::GetEnv();
+
+  jintArray removedArray = env->NewIntArray(removed.size());
+  jintArray updatedArray = env->NewIntArray(updated.size());
+  jintArray addedArray = env->NewIntArray(added.size());
+
+  if (!removed.empty())
+    env->SetIntArrayRegion(removedArray, 0, removed.size(), removed.data());
+  if (!updated.empty())
+    env->SetIntArrayRegion(updatedArray, 0, updated.size(), updated.data());
+  if (!added.empty())
+    env->SetIntArrayRegion(addedArray, 0, added.size(), added.data());
+
+  env->CallVoidMethod(*callback, jni::GetMethodID(env, *callback.get(), "frame", "([I[I[I)V"), removedArray,
+                      updatedArray, addedArray);
+}
 }  // namespace
 
 extern "C"
@@ -161,5 +182,95 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Map_nativeStorageDisconnected(JN
 {
   android::Platform::Instance().OnExternalStorageStatusChanged(false);
   g_framework->RemoveLocalMaps();
+}
+
+void fillAccessibilityNodeContext(JNIEnv * env, dp::AccessibilityNodeContext const & info, jclass const resultClass,
+                                  jobject const result)
+{
+  jni::TScopedLocalRef const accessibilityLabelString(env,
+                                                      jni::ToJavaString(env, info.GetNodeInfo().m_accessibilityLabel));
+
+  static jfieldID const topField = env->GetFieldID(resultClass, "top", "D");
+  ASSERT(topField, ());
+  env->SetDoubleField(result, topField, info.GetBounds().minY());
+
+  static jfieldID const leftField = env->GetFieldID(resultClass, "left", "D");
+  ASSERT(leftField, ());
+  env->SetDoubleField(result, leftField, info.GetBounds().minX());
+
+  static jfieldID const bottomField = env->GetFieldID(resultClass, "bottom", "D");
+  ASSERT(bottomField, ());
+  env->SetDoubleField(result, bottomField, info.GetBounds().maxY());
+
+  static jfieldID const rightField = env->GetFieldID(resultClass, "right", "D");
+  ASSERT(rightField, ());
+  env->SetDoubleField(result, rightField, info.GetBounds().maxX());
+
+  static jfieldID const accessibilityLabelField =
+      env->GetFieldID(resultClass, "accessibilityLabel", "Ljava/lang/String;");
+  ASSERT(accessibilityLabelField, ());
+  env->SetObjectField(result, accessibilityLabelField, accessibilityLabelString);
+
+  static jfieldID const explorationTypeField = env->GetFieldID(resultClass, "explorationType", "I");
+  ASSERT(explorationTypeField, ());
+  env->SetIntField(result, explorationTypeField, info.GetNodeInfo().m_explorationType);
+}
+
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Map_nativeGetAccessibilityNode(JNIEnv * env, jclass, jint id,
+                                                                                   jobject result)
+{
+  auto info = g_framework->GetAccessibilityNodeContext(id);
+
+  if (!info)
+    return false;
+
+  static jclass const resultClass = env->GetObjectClass(result);
+  ASSERT(resultClass, ());
+
+  fillAccessibilityNodeContext(env, *info->get(), resultClass, result);
+
+  return true;
+}
+
+JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_Map_nativeGetAccessibilityNodeAtPoint(JNIEnv * env, jclass, jfloat x,
+                                                                                      jfloat y)
+{
+  auto id = g_framework->GetAccessibilityNodeAtPoint(m2::PointD(x, y));
+  if (!id)
+    return 0;
+
+  return id;
+}
+
+static_assert(std::numeric_limits<dp::TAccessibilityStableID>::max() == std::numeric_limits<jint>::max());
+
+JNIEXPORT jobject JNICALL Java_app_organicmaps_sdk_Map_nativeGetAllAccessibilityNodes(JNIEnv * env, jclass)
+{
+  auto ids = g_framework->GetAllAccessibilityNodes();
+
+  jintArray array = env->NewIntArray(ids.size());
+
+  if (!ids.empty())
+    env->SetIntArrayRegion(array, 0, ids.size(), ids.data());
+
+  return array;
+}
+
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Map_nativeSetAccessibilityUpdateCallback(JNIEnv * env, jclass,
+                                                                                             jobject callback)
+{
+  if (callback)
+  {
+    return g_framework->SetAccessibilityUpdateCallback(
+        std::bind(&AccessibilityUpdateCallback, jni::make_global_ref(callback), _1, _2, _3));
+  }
+  g_framework->SetAccessibilityUpdateCallback({});
+  return true;
+}
+
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Map_nativeSetAccessibilityFreezeFrame(JNIEnv * env, jclass,
+                                                                                      jboolean freeze)
+{
+  g_framework->SetAccessibilityFreezeFrame(freeze);
 }
 }  // extern "C"

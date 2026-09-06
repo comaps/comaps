@@ -2,14 +2,19 @@ name: mapgen-reviews
 on:
   workflow_dispatch: # Manual trigger
     inputs:
-      reload-postgis:
-        description: 'reload postgis with the current planet.o5m'
-        type: boolean
+      skip-planet-update:
+        description: 'Skip updating OSM Planet (skip copying O5M from PBF)?'
+        required: true
         default: false
+        type: boolean
+      reload-postgis:
+        description: 'Reload postgis with the current planet.o5m'
+        type: boolean
+        default: true
 
 env:
   # software versions
-  MOC_VERSION: 0.5.0  # mangrove-osm-coder version, see https://codeberg.org/mmakowski/mangrove-osm-coder/tags
+  MOC_VERSION: 0.6.1  # mangrove-osm-coder version, see https://codeberg.org/mmakowski/mangrove-osm-coder/tags
   POSTGIS_VERSION: 18-3.6
   OSM2PGSQL_VERSION: 2.2.0
 
@@ -25,8 +30,54 @@ env:
 
 jobs:
 
+  update-planet:
+    if: ${{ ! inputs.skip-planet-update }}
+    name: Update OSM O5M Planet
+    runs-on: mapfilemaker
+    container:
+      image: codeberg.org/comaps/maps_generator:f6d53d54f794
+      volumes:
+        - /mnt/4tbexternal/:/mnt/4tbexternal/
+        - /mnt/4tbexternal/osm-planet:/home/planet
+    concurrency:
+      group: ${{ github.workflow }}-mapgen-reviews-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+    steps:
+      # a copy of the same steps in map-generator.yml
+      - name: Check O5M planet file exists
+        shell: bash
+        run: |
+          if [ ! -f /home/planet/planet/planet.o5m ]; then
+            echo "WARN: No file at /home/planet/planet/planet.o5m"
+            if [ ! -f /home/planet/planet/planet-latest.osm.pbf ]; then
+              echo "ERROR: No file at /home/planet/planet/planet-latest.osm.pbf"
+              ls -al /home/planet/planet/
+              exit 1
+            fi
+            echo "Converting planet-latest.osm.pbf to planet.o5m"
+            cd /home/planet/planet/
+            osmconvert -v --drop-author --drop-version --hash-memory=4000 planet-latest.osm.pbf -o=planet.o5m
+          fi
+          echo "Done."
+      - name: Update O5M Planet
+        shell: bash
+        run: |
+          echo "Starting..."
+          cd /home/planet/planet/
+          rm -f planet-new.o5m
+          osmupdate -v --drop-author --drop-version --hash-memory=4000  --max-merge=32 --out-o5m planet.o5m planet-new.o5m
+          mv planet-new.o5m planet.o5m
+          echo "Done."
+          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
+            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+            --data-urlencode type=stream \
+            --data-urlencode 'to="DevOps"' \
+            --data-urlencode topic=codeberg-bot \
+            --data-urlencode 'content=O5M planet is updated for Mangrove reviews processing.'
+
   import-planet:
     if: inputs.reload-postgis
+    name: Import planet.o5m into postgis
     runs-on: mapfilemaker
     timeout-minutes: 360 # 6hrs
     services:
@@ -53,12 +104,12 @@ jobs:
       run:
         shell: sh
     steps:
-      - name: fetch osm2pgsql config
+      - name: Fetch osm2pgsql config
         run: |
           curl -L -s \
             -o ${OSM2PGSQL_CONFIG_FILE} \
             https://codeberg.org/mmakowski/mangrove-osm-coder/raw/tag/v${{ env.MOC_VERSION }}/run/osm2pgsql-flex-config.lua
-      - name: run osm2pgsql
+      - name: Run osm2pgsql
         env:
           PGPASSWORD: ${{ env.POSTGRES_PASSWORD }}
         run: |
@@ -72,6 +123,7 @@ jobs:
           /home/planet/planet/planet.o5m
 
   preprocess-mangrove:
+    name: Download and preprocess Mangrove reviews
     runs-on: mapfilemaker
     timeout-minutes: 15
     services:
@@ -99,14 +151,15 @@ jobs:
       run:
         shell: bash
     steps:
-      - name: download mangrove dump
+      - name: Download Mangrove dump
         run: |
           curl -L \
             -o ${MANGROVE_FILE} \
             -H 'Accept: application/json' \
             api.mangrove.reviews/dump
-      - name: mangrove-osm-coder
+      - name: Run mangrove-osm-coder
         env:
+          ALLOWED_LICENCES: CC-BY-4.0,CC-BY-SA-4.0
           POSTGIS_HOST: postgis
           POSTGIS_PORT: 5432
           POSTGIS_DB: ${{ env.POSTGRES_DB }}
@@ -115,10 +168,10 @@ jobs:
           NAME_SIMILARITY_THRESHOLD: 4
         run: |
           mangrove-osm-coder
-      - name: clean up
+      - name: Clean up
         run: |
           rm ${MANGROVE_FILE}
-      - name: notify zulip
+      - name: Notify Zulip
         run: |
           MSG="Review preprocessing is finished!"
           if [ -f ${OUT_DIR}/stats.json ]; then

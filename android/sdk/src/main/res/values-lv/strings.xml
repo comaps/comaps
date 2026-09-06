@@ -43,4 +43,7 @@
     <string name="months_ago">Pirms %s mēnešiem</string>
     <string name="year_ago">Pirms %s gada</string>
     <string name="years_ago">Pirms %s gadiem</string>
+    <string name="accessibility_map_action_collapse_label">beigt izpēti ar pieskārienu</string>
+    <string name="accessibility_map_content_description_collapsed">Karte. Pavilkt augšup vai lejup ar vienu pirkstu un izvērst, lai izpētītu ar pieskārienu.</string>
+    <string name="accessibility_map_action_expand_label">izpētīt ar pieskārienu</string>
 </resources>

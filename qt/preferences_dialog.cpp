@@ -79,11 +79,23 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     });
   }
 
-  QCheckBox * largeFontCheckBox = new QCheckBox("Use larger font on the map");
+  QHBoxLayout * fontScaleFactorBox = new QHBoxLayout();
   {
-    largeFontCheckBox->setChecked(framework.LoadLargeFontsSize());
-    connect(largeFontCheckBox, &QCheckBox::stateChanged,
-            [&framework](int i) { framework.SetLargeFontsSize(static_cast<bool>(i)); });
+    QLabel * fontScaleFactorLabel = new QLabel("Text size on map");
+    QSlider * fontScaleFactorSlider = new QSlider(Qt::Horizontal);
+
+    fontScaleFactorSlider->setMinimum(100);
+    fontScaleFactorSlider->setMaximum(400);
+    fontScaleFactorSlider->setSingleStep(5);
+    fontScaleFactorSlider->setPageStep(25);
+    fontScaleFactorSlider->setTickPosition(QSlider::NoTicks);
+    fontScaleFactorSlider->setValue(framework.LoadFontScaleFactor() * 100.0);
+    connect(fontScaleFactorSlider, &QSlider::valueChanged,
+            [&framework](int v) { framework.SetFontScaleFactor(static_cast<double>(v) / 100.0); });
+
+    fontScaleFactorBox->addWidget(fontScaleFactorLabel);
+    fontScaleFactorBox->addStretch();
+    fontScaleFactorBox->addWidget(fontScaleFactorSlider);
   }
 
   QCheckBox * transliterationCheckBox = new QCheckBox("Transliterate to Latin");
@@ -181,31 +193,36 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     });
   }
 
-  QButtonGroup * nightModeGroup = new QButtonGroup(this);
-  QGroupBox * nightModeRadioBox = new QGroupBox("Night Mode");
+  QCheckBox * showBookmarkLabelsCheckBox = new QCheckBox("Show names of favorites on map");
+  {
+    showBookmarkLabelsCheckBox->setChecked(Framework::GetShowBookmarkLabels());
+
+    connect(showBookmarkLabelsCheckBox, &QCheckBox::stateChanged,
+            [&framework](int state) { framework.SetShowBookmarkLabels(state != 0); });
+  }
+
+  QButtonGroup * mapAppearanceGroup = new QButtonGroup(this);
+  QGroupBox * mapAppearanceRadioBox = new QGroupBox("Map Appearance");
   {
     using namespace style_utils;
     QHBoxLayout * layout = new QHBoxLayout();
 
-    QRadioButton * radioButton = new QRadioButton("Off");
+    QRadioButton * radioButton = new QRadioButton("Light");
     layout->addWidget(radioButton);
-    nightModeGroup->addButton(radioButton, static_cast<int>(NightMode::Off));
+    mapAppearanceGroup->addButton(radioButton, static_cast<int>(MapAppearance::Light));
 
-    radioButton = new QRadioButton("On");
+    radioButton = new QRadioButton("Dark");
     layout->addWidget(radioButton);
-    nightModeGroup->addButton(radioButton, static_cast<int>(NightMode::On));
+    mapAppearanceGroup->addButton(radioButton, static_cast<int>(MapAppearance::Dark));
 
-    nightModeRadioBox->setLayout(layout);
+    mapAppearanceRadioBox->setLayout(layout);
 
-    int const btn = MapStyleIsDark(framework.GetMapStyle()) ? 1 : 0;
-    nightModeGroup->button(btn)->setChecked(true);
+    int const btn = framework.CurrentMapAppearance() == MapAppearance::Light ? 0 : 1;
+    mapAppearanceGroup->button(btn)->setChecked(true);
 
     void (QButtonGroup::*buttonClicked)(int) = &QButtonGroup::idClicked;
-    connect(nightModeGroup, buttonClicked, [&framework](int i)
-    {
-      auto const currStyle = framework.GetMapStyle();
-      framework.SetMapStyle((i == 0) ? GetLightMapStyleVariant(currStyle) : GetDarkMapStyleVariant(currStyle));
-    });
+    connect(mapAppearanceGroup, buttonClicked, [&framework](int i)
+    { framework.SwitchToMapAppearance(i == 0 ? MapAppearance::Light : MapAppearance::Dark); });
   }
 
 #ifdef BUILD_DESIGNER
@@ -263,14 +280,15 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
 
   QVBoxLayout * finalLayout = new QVBoxLayout();
   finalLayout->addWidget(unitsRadioBox);
-  finalLayout->addWidget(largeFontCheckBox);
+  finalLayout->addLayout(fontScaleFactorBox);
   finalLayout->addWidget(transliterationCheckBox);
   finalLayout->addWidget(developerModeCheckBox);
   finalLayout->addWidget(mapLanguageLabel);
   finalLayout->addWidget(mapLanguageComboBox);
   finalLayout->addWidget(alternativeMapLanguageHandlingLabel);
   finalLayout->addWidget(alternativeMapLanguageHandlingComboBox);
-  finalLayout->addWidget(nightModeRadioBox);
+  finalLayout->addWidget(mapAppearanceRadioBox);
+  finalLayout->addWidget(showBookmarkLabelsCheckBox);
 #ifdef BUILD_DESIGNER
   finalLayout->addWidget(indexRegenCheckBox);
 #endif

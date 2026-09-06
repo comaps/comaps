@@ -518,7 +518,7 @@
     <string name="mobile_data_option_never">Nunca utilizar</string>
     <string name="mobile_data_option_ask">Perguntar sempre</string>
     <string name="traffic_update_maps_text">Para ver os dados de tráfego, os mapas têm de ser atualizados</string>
-    <string name="big_font">Aumentar tamanho da fonte no mapa</string>
+    <string name="increase_font_size">Aumentar tamanho da fonte no mapa</string>
     <string name="traffic_update_app">Atualize o CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">Os dados de tráfego não estão disponíveis</string>
@@ -748,7 +748,7 @@
     <string name="pref_tts_no_system_tts">Não foram encontradas definições de síntese de voz. Tens a certeza de que o teu dispositivo é compatível?</string>
     <string name="drive_through">Drive-through</string>
     <string name="clear_the_search">Limpar a pesquisa</string>
-    <string name="zoom_in">Ampliar</string>
+    <string name="zoom_in">Aumentar o zoom</string>
     <!-- Accessibility text for the zoom-out button on the map -->
     <string name="zoom_out">Diminuir o zoom</string>
     <!-- Restaurant or other food place's menu URL field in the Editor -->
@@ -880,6 +880,7 @@
     <string name="avoid_paved">Evitar rotas pavimentadas</string>
     <string name="opens_at">Abre às %s</string>
     <string name="closes_at">Fecha às %s</string>
+    <string name="opens_tomorrow_at">Abre amanhã às %s</string>
     <string name="opens_day_at">Abre %1$s às %2$s</string>
     <string name="closes_day_at">Fecha %1$s às %2$s</string>
     <plurals name="minutes_short">
@@ -974,4 +975,9 @@
     <string name="pref_enable_auto_reroute_description">Quando ativo, uma nova rota será automaticamente criada se sair da rota planeada.</string>
     <string name="recalculate_route">Recalcular</string>
     <string name="off_route">Saiu da rota planeada</string>
+    <string name="bookmarks_text_placement_title">Mostrar nomes dos favoritos no mapa</string>
+    <string name="place_reviews_title">Avalições dos lugares</string>
+    <string name="place_reviews">%1$s Avaliações</string>
+    <string name="rating_stars_description">estelas: %.1f</string>
+    <string name="reviews_by_mangrove">Avaliações de Mangrove.\nAdicione avaliações de <a href="https://mapcomplete.org">MapComplete</a>.</string>
 </resources>

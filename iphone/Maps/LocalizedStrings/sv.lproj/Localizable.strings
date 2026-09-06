@@ -32,7 +32,7 @@
 /* Message to display at the center of the screen when the country download has failed */
 "country_status_download_failed" = "Nedladdningen misslyckades";
 /* Text in About screen */
-"about_headline" = "Open project powered by the community";
+"about_headline" = "Ett öppet projekt drivet av communityn";
 /* Text in About screen */
 "about_proposition_1" = "Offline, snabb och enkel att använda";
 /* Text in About screen */
@@ -143,11 +143,10 @@
 "share_my_location" = "Dela min plats";
 "prefs_group_route" = "Navigering";
 "pref_zoom_title" = "Zoom-knappar";
-"pref_left_button_type" = "Left Main Button";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Map Language";
 /* Settings «Map» category: «Map Language» local value */
-"pref_maplanguage_local" = "Local Language";
+"pref_maplanguage_local" = "Lokalt språk";
 /* Settings «Map» category: «Map Appearance» title */
 "pref_mapappearance_title" = "Map Appearance";
 /* Settings «Map» category: «Appearance» title */
@@ -166,8 +165,6 @@
 "auto" = "Auto";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Perspektivvy";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "3D-byggnader";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D-byggnader är avstängda i energisparläge";
 /* Settings «Route» category: «Tts enabled» title */
@@ -571,7 +568,6 @@
 "mobile_data_option_never" = "Använd aldrig";
 "mobile_data_option_ask" = "Fråga alltid";
 "traffic_update_maps_text" = "Kartor måste uppdateras för att visa trafikdata.";
-"big_font" = "Öka teckenstorlek på kartan";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Applikationen måste uppdateras för att trafikdata ska kunna visas.";
 /* "traffic" as in "road congestion" */
@@ -625,8 +621,6 @@
 "restore" = "Återställa";
 "privacy_policy" = "Integritetspolicy";
 "terms_of_use" = "Allmänna villkor";
-"button_layer_subway" = "Tunnelbana";
-"layers_title" = "Kartstilar och lager";
 "subway_data_unavailable" = "Tunnelbanekartan är otillgänglig";
 "title_error_downloading_bookmarks" = "Ett fel har uppstått";
 "popular_place" = "Popular";
@@ -733,7 +727,6 @@
 "transit_not_found" = "Tunnelbanenavigering är ännu inte tillgängligt i denna region";
 "dialog_pedestrian_route_is_long_header" = "Tunnelbanerutt hittades inte";
 "dialog_pedestrian_route_is_long_message" = "Välj ruttens start- eller mål närmare en tunnelbanestation";
-"button_layer_isolines" = "Terräng";
 "isolines_activation_error_dialog" = "Om du vill använda höjdlinjer, uppdatera eller ladda ner en karta över önskat område";
 "isolines_location_error_dialog" = "Höjningslinjer är ännu inte tillgängligt i den här regionen";
 "elevation_profile_diff_level" = "Svårighetsgrad";
@@ -795,8 +788,6 @@
 "car_continue_on_the_phone" = "Fortsätt i telefonen";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Till bilens skärm";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Vandring";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Exportera alla bokmärken och spår";
 /* Text for the editing the Track's color button. */
@@ -846,10 +837,6 @@
 "recover" = "Återställ";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Återställ allt";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Spela in spår";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Stoppa inspelning av spår";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Stoppa utan att spara";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -883,3 +870,30 @@
 "capacity_charging_no" = "No spaces with chargers";
 "planning_route_preview" = "Preview";
 "planning_route_preview_sheet_title" = "Route Preview";
+"discard" = "Discard";
+"pref_custom_button_type" = "Customizable Button";
+"osm" = "OpenStreetMap";
+"mode" = "Mode";
+"mode_walking" = "Walking";
+"mode_cycling" = "Cycling";
+"mode_driving" = "Driving";
+"mode_public-transport" = "Public Transport";
+"mode_option_traffic" = "Show Traffic";
+"mode_option_transitlines" = "Show Transit Lines";
+"mode_option_comingsoon" = "Options coming soon";
+"layers" = "Layers";
+"layers_option_contour-lines" = "Contour Lines";
+"layers_option_outdoor" = "Outdoor";
+"layers_option_buildings-3d" = "3D Buildings";
+"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
+"postionmode_locate" = "Find own location";
+"postionmode_locating" = "Finding own location...";
+"postionmode_following" = "Following location with map roated towards North";
+"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
+"zoom_in" = "Zoom in";
+"zoom_out" = "Zoom out";
+"record_track" = "Record Track";
+"recording_track" = "Recording Track";
+"bookmarks_text_placement_title" = "Show names of favorites on map";
+"pref_font_size" = "Font size for map labels";
+"font_size" = "Font size";

@@ -1,0 +1,33 @@
+He polokalamu palapala ʻāina manuahi a wehe ʻia i alakaʻi ʻia e ke kaiāulu e pili ana i ka ʻikepili OpenStreetMap a hoʻoikaika ʻia me ka hoʻokō ʻana i ka transparency, ka pilikino a me ka ʻole o ka loaʻa kālā. ʻO CoMaps kahi ʻāpana/spin-off o Organic Maps, ʻo ia hoʻi kahi ʻāpana o Maps.ME.
+
+E heluhelu e pili ana i nā kumu no ka papahana a me kona kuhikuhi ma <b><i>codeberg.org/comaps</i></b>.
+
+E hui pū me ke kaiāulu ma laila a kōkua i ka hana ʻana i ka polokalamu palapala ʻāina maikaʻi loa
+• E hoʻohana i ka polokalamu a hoʻolaha i ka ʻōlelo e pili ana iā ia
+• Hāʻawi i nā manaʻo a hōʻike i nā pilikia
+• Hoʻohou i ka ʻikepili palapala ʻāina ma ka polokalamu a i ʻole ma ka pūnaewele OpenStreetMap
+
+‣ <b>Kūpono ma waho</b>: E hoʻolālā a hoʻokele i kāu huakaʻi ma waho me ka ʻole o ka pono no ka lawelawe kelepona, e ʻimi i nā wahi ala i ka wā e hele wāwae ana, a pēlā aku. Hoʻolālā ʻia nā hana polokalamu āpau e hana ma waho.
+‣ <b>Hoʻohanohano i ka pilikino</b>: Hoʻolālā ʻia ka polokalamu me ka noʻonoʻo ʻana i ka pilikino - ʻaʻole ʻike i nā kānaka, ʻaʻole hahai, a ʻaʻole hōʻiliʻili i ka ʻike pilikino. ʻAʻohe hoʻolaha.
+‣ <b>Maʻalahi a Pololei</b>: nā hiʻohiʻona koʻikoʻi maʻalahi e hoʻohana e hana wale ana.
+‣ <b>Mālama i kāu Pākahiko a me kahi</b>: ʻAʻole e hoʻopau i kāu pākahiko e like me nā polokalamu hoʻokele ʻē aʻe. Mālama nā palapala ʻāina liʻiliʻi i kahi makamae ma kāu kelepona.
+‣ <b>Manuahi a Kūkulu ʻia e ke Kaiāulu</b>: Ua kōkua ka poʻe e like me ʻoe i ke kūkulu ʻana i ka polokalamu ma ka hoʻohui ʻana i nā wahi i OpenStreetMap, ka hoʻāʻo ʻana a me ka hāʻawi ʻana i nā manaʻo no nā hiʻohiʻona a me ka hāʻawi ʻana i kā lākou mau mākau hoʻomohala a me ke kālā.
+‣ <b>Hoʻoholo a me nā Waiwai Hoʻoholo Hāmama a Moakaka, ʻAʻole no ka Loaʻa kālā a me ke Kumuwaiwai Hāmama Loa.</b>
+
+<b>Nā Hiʻohiʻona Nui</b>:
+• Nā palapala ʻāina kikoʻī hiki ke hoʻoiho ʻia me nā wahi i loaʻa ʻole me Google Maps
+• ʻAno waho me nā ala hele wāwae i hōʻike ʻia, nā kahua hoʻomoana, nā kumu wai, nā piko, nā laina contour, a pēlā aku
+• Nā ala hele wāwae a me nā ala paikikala
+• Nā wahi hoihoi e like me nā hale ʻaina, nā kikowaena kinoea, nā hōkele, nā hale kūʻai, nā mākaʻikaʻi a me nā mea hou aku
+• Huli ma ka inoa a i ʻole kahi helu wahi a i ʻole ma ke ʻano wahi hoihoi
+• Hoʻokele me nā hoʻolaha leo no ka hele wāwae, ka paikikala, a i ʻole ka hoʻokele kaʻa
+• E hoʻopaʻa i kāu mau wahi punahele me hoʻokahi pā
+• Nā ʻatikala Wikipedia ma waho pūnaewele
+• Papa a me nā kuhikuhi o ka halihali kaʻaahi
+• Hoʻopaʻa leo
+• Hoʻokuʻu aku a lawe mai i nā bookmark a me nā ala ma nā ʻano KML, KMZ, GPX
+• He ʻano pōʻeleʻele e hoʻohana ai i ka pō
+• Hoʻomaikaʻi i ka ʻikepili palapala ʻāina no nā mea āpau e hoʻohana ana i kahi mea hoʻoponopono i kūkulu ʻia
+
+<b>Aia ke Kūʻokoʻa</b>
+E ʻike i kāu huakaʻi, e hoʻokele i ka honua me ka pilikino a me ke kaiāulu ma ke alo!

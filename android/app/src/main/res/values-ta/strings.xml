@@ -230,7 +230,7 @@
     <string name="mobile_data">மொபைல் இணையம்</string>
     <string name="mobile_data_option_never">ஒருபோதும் பயன்படுத்த வேண்டாம்</string>
     <string name="mobile_data_option_ask">எப்பொழுதும் கேள்</string>
-    <string name="big_font">வரைபட லேபிள்களுக்கான அளவை அதிகரிக்கவும்</string>
+    <string name="increase_font_size">வரைபட லேபிள்களுக்கான அளவை அதிகரிக்கவும்</string>
     <string name="traffic_data_unavailable">போக்குவரத்து தரவு கிடைக்கவில்லை</string>
     <string name="enable_logging">பதிவு செய்வதை இயக்கு</string>
     <string name="transliteration_title">லத்தீன் எழுத்துக்களில் ஒலிபெயர்ப்பு</string>
@@ -442,6 +442,7 @@
     <string name="closes_in">%s இல் மூடப்படும்</string>
     <string name="opens_at">%s இல் திறக்கப்படும்</string>
     <string name="closes_at">%s இல் மூடப்படும்</string>
+    <string name="opens_tomorrow_at">நாளை %sக்கு திறக்கப்படும்</string>
     <string name="opens_day_at">%1$s அன்று %2$sக்கு திறக்கப்படும்</string>
     <string name="closes_day_at">%1$s அன்று %2$s இல் மூடப்படும்</string>
     <plurals name="minutes_short">

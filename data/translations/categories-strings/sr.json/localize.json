@@ -951,7 +951,7 @@
         "defaultMessage": "5Хелиодром|5Heliodrom"
     },
     "barrier-border_control": {
-        "defaultMessage": "Гранични прелаз|Granični prelaz"
+        "defaultMessage": "5Гранични прелаз|5Granični prelaz"
     },
     "leisure-water_park|@category_tourism|@category_children": {
         "defaultMessage": "4Аква парк|4Водени парк|4Akva park|4Vodeni park"
@@ -1332,7 +1332,7 @@
         "defaultMessage": "Нудле|Nudle"
     },
     "cuisine-pancake|cuisine-crepe": {
-        "defaultMessage": "Палачинка|Палачинке|Palačinka|Palačinke"
+        "defaultMessage": "5Палачинке|6Америчке палачинке|5Palačinke|6Američke palačinke"
     },
     "cuisine-pasta": {
         "defaultMessage": "Тестенина|Паста|Testenina|Pasta"

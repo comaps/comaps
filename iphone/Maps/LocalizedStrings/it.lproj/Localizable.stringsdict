@@ -72,10 +72,14 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
-			<key>other</key>
-			<string>%lld residents</string>
+			<key>zero</key>
+			<string>Nessun abitante</string>
 			<key>one</key>
-			<string>%lld resident</string>
+			<string>%lld abitante</string>
+			<key>many</key>
+			<string>%lld abitanti</string>
+			<key>other</key>
+			<string>%lld abitanti</string>
 		</dict>
 	</dict>
 	<key>rooms</key>
@@ -88,11 +92,75 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
-			<key>other</key>
-			<string>%lld rooms</string>
+			<key>zero</key>
+			<string>Nessuna camera</string>
 			<key>one</key>
-			<string>%lld room</string>
+			<string>%lld camera</string>
+			<key>many</key>
+			<string>%lld camere</string>
+			<key>other</key>
+			<string>%lld camere</string>
 		</dict>
+	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Nessun posto riservato ai disabili</string>
+			<key>one</key>
+			<string>%lld posto riservato ai disabili</string>
+			<key>many</key>
+			<string>%lld posti riservati ai disabili</string>
+			<key>other</key>
+			<string>%lld posti riservati ai disabili</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Nessun posto con ricarica</string>
+			<key>one</key>
+			<string>%lld posto con ricarica</string>
+			<key>many</key>
+			<string>%lld posti con ricarica</string>
+			<key>other</key>
+			<string>%lld posti con ricarica</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Nessun posto</string>
+			<key>one</key>
+			<string>%lld posto</string>
+			<key>many</key>
+			<string>%lld posti</string>
+			<key>other</key>
+			<string>%lld posti</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
 	</dict>
 </dict>
 </plist>

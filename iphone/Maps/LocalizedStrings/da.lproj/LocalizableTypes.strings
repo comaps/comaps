@@ -951,7 +951,7 @@
 "type.railway.funicular" = "Kabelbane";
 "type.railway.funicular.bridge" = "Kabelbanebro";
 "type.railway.funicular.tunnel" = "Kabelbanetunnel";
-"type.railway.halt" = "Togstation";
+"type.railway.halt" = "Togstop";
 "type.railway.level_crossing" = "Jernbaneoverskæring";
 "type.railway.light_rail" = "Letbane";
 "type.railway.light_rail.bridge" = "Letbanebro";

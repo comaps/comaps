@@ -751,7 +751,6 @@
 				569472402418C8220013CD21 /* car_directions.cpp */,
 				5670595B1F3AF97F0062672D /* checkpoint_predictor.cpp */,
 				5670595C1F3AF97F0062672D /* checkpoint_predictor.hpp */,
-				5670595B1F3AF97F0062672D /* checkpoint_predictor.cpp */,
 				0C15B8011F02A61B0058E253 /* checkpoints.hpp */,
 				0CF709351F05172200D5067E /* checkpoints.cpp */,
 				567F81932154D6FF0093C25B /* city_roads.hpp */,

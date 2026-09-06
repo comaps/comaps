@@ -33,7 +33,9 @@ public:
   DECLARE_EXCEPTION(CreateChangeSetHasFailed, ServerApi06Exception);
   DECLARE_EXCEPTION(UpdateChangeSetHasFailed, ServerApi06Exception);
   DECLARE_EXCEPTION(CreateElementHasFailed, ServerApi06Exception);
+  DECLARE_EXCEPTION(CreateElementHasFailedNoRetry, CreateElementHasFailed);
   DECLARE_EXCEPTION(ModifyElementHasFailed, ServerApi06Exception);
+  DECLARE_EXCEPTION(ModifyElementHasFailedNoRetry, ModifyElementHasFailed);
   DECLARE_EXCEPTION(ErrorClosingChangeSet, ServerApi06Exception);
   DECLARE_EXCEPTION(ErrorAddingNote, ServerApi06Exception);
   DECLARE_EXCEPTION(DeletedElementHasNoIdAttribute, ServerApi06Exception);

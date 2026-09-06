@@ -47,6 +47,9 @@
   <color name="fg_dl_folder">#756940</color>
   <color name="fg_dl_folder_done">#cccdce</color>
 
+  <!-- Rating -->
+  <color name="fg_rating_star">#d7a203</color>
+  <color name="bg_rating_star">#606060</color>
 
   <!-- Categories -->
   <color name="foreground_color">#000</color>
@@ -58,7 +61,6 @@
   <color name="cm_services">#574469</color>
   <color name="medical">#983E44</color>
   <color name="hotel">#614A43</color>
-  <color name="luggagehero">#851F03</color>
   <color name="parking">#20607C</color>
   <color name="tourism">#6E4426</color>
   <color name="transport">#2F6499</color>

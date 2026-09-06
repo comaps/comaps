@@ -1,0 +1,13 @@
+• Gebruikersinterface met transportmodusafhankelijke kaartstijlen
+• Toon namen van favorieten op de kaart (uitschakelbaar in instellingen)
+• Instelling voor aangepaste tekstgrootte op de kaart
+• Ondersteuning voor weglabels in Kirgizië, Oezbekistan, Tadzjikistan, Kazachstan en Georgië
+• Donkere en lichte varianten van afbeeldingen voor afslaan in CarPlay
+• OSM-editor: meer categorieën toegevoegd (prison, dojo, bowling_alley, lounger, shop=craft, golf_course, miniature_golf en attracties (roller_coaster, carousel...) en verzamelpunten)
+• Zoeken in elke door gebruiker ingestelde kaarttaal mogelijk gemaakt (niet alleen Engels en lokale taal)
+• Gebruik rijstroken zonder restrictie voor rijstrookbegeleiding in rechtdoor-instructies
+• Interpreteer fee=donation niet als betaald
+• Spraakinstructies in het Macedonisch mogelijk gemaakt
+• Vragen naar locatie vóór beschermde data beschikbaar is verholpen
+• Verdwijnende routevoorbeeld-knop verholpen
+• OpenStreetMap-data per 30 augustus, verder wekelijkse updates

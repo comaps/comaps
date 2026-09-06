@@ -495,7 +495,7 @@
     <string name="editor_share_to_all_dialog_message_1">Gakktu úr skugga um að þú hafir ekki sett inn nein einkagögn eða persónulegar upplýsingar.</string>
     <string name="editor_share_to_all_dialog_message_2">Ritstjórar OpenStreetMap munu yfirfara breytingarnar og hafa samband við þig ef þeir eru með spurningar.</string>
     <string name="traffic_update_maps_text">Til að birta umferðargögn, þarf að uppfæra kortin.</string>
-    <string name="big_font">Auka stærð á skýringum</string>
+    <string name="increase_font_size">Auka stærð á skýringum</string>
     <string name="prefs_languages_information_off_link">Til að sjá nánari upplýsingar, ættirðu að skoða þessar leiðbeiningar.</string>
     <string name="transliteration_title">Umrita yfir í latneskt stafróf</string>
     <string name="routing_add_start_point">Notaðu leit eða ýttu á kortið til að bæta við upphafspunkti leiðar</string>

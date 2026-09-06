@@ -1,0 +1,10 @@
+• Exibição de nomes de favoritos no mapa
+• Exibição de avaliações de usuários do Mangrove
+• Configuração do tamanho da fonte do mapa
+• TalkBack agora pode ler o mapa
+• Possibilidade de iniciar a gravação de trajeto após o início da navegação
+• Exibição de "Abre amanhã às..." na página de informações do POI
+• Correção da capacidade de pesquisar em qualquer idioma do mapa definido pelo usuário
+• Exibição de pontos de ônibus mais cedo na camada Metrô
+
+Mais detalhes em comaps.app/latest

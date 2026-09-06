@@ -1,5 +1,7 @@
-/* Keep here changes of the base map style file only. */
-@import("../../default/dark/colors.mapcss");
+/*
+ * Keep here changes of the base map style files only
+ * (see style.mapcss for exact processing order).
+ */
 
 @railway_dark: #434343;
 

@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20260408T212157Z",
+    "data_updated": "20260720T232721Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -51,6 +51,12 @@
         {
             "description": "amenity=*",
             "key": "amenity"
+        },
+        {
+            "description": "amenity=animal_boarding",
+            "key": "amenity",
+            "value": "animal_boarding",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/animal_shelter-m.svg"
         },
         {
             "description": "amenity=animal_shelter",
@@ -930,6 +936,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/taoist-m.svg"
         },
         {
+            "description": "amenity=planetarium",
+            "key": "amenity",
+            "value": "planetarium",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/planet-m.svg"
+        },
+        {
             "description": "amenity=police",
             "key": "amenity",
             "value": "police",
@@ -1085,6 +1097,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/social_facility-m.svg"
         },
         {
+            "description": "amenity=stage",
+            "key": "amenity",
+            "value": "stage",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/bandstand-m.svg"
+        },
+        {
             "description": "amenity=stripclub",
             "key": "amenity",
             "value": "stripclub",
@@ -1119,6 +1137,28 @@
             "key": "amenity",
             "value": "toilets",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/toilets-m.svg"
+        },
+        {
+            "description": "amenity=toilets + access=customers",
+            "key": "access",
+            "value": "customers"
+        },
+        {
+            "description": "amenity=toilets + access=customers",
+            "key": "amenity",
+            "value": "toilets"
+        },
+        {
+            "description": "amenity=toilets + access=private",
+            "key": "access",
+            "value": "private",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/toilets_private-m.svg"
+        },
+        {
+            "description": "amenity=toilets + access=private",
+            "key": "amenity",
+            "value": "toilets",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/toilets_private-m.svg"
         },
         {
             "description": "amenity=townhall",
@@ -5342,6 +5382,11 @@
             "description": "amenity=social_facility | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
             "key": "amenity",
             "value": "social_facility"
+        },
+        {
+            "description": "amenity=stage | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "stage"
         },
         {
             "description": "amenity=university | fill-color: (light): #F5DFBC, fill-color: (dark): #1D1A16",

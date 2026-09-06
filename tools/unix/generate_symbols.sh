@@ -19,12 +19,19 @@ export QT_QPA_PLATFORM=offscreen
 
 BINARY_NAME=skin_generator_tool
 OMIM_PATH="${OMIM_PATH:-$(cd "$(dirname "$0")/../.."; pwd)}"
-BUILD_DIR="$OMIM_PATH/build"
+BUILD_DIR="$OMIM_PATH/build_$BINARY_NAME"
 SKIN_GENERATOR="${SKIN_GENERATOR:-$BUILD_DIR/$BINARY_NAME}"
 DATA_PATH="$OMIM_PATH/data"
 
+CMAKE_EXTRA_ARGS=""
+if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" ]]; then
+  # Windows has no reliable prebuilt zlib package; include it via vcpkg. See docs/INSTALL.md#windows.
+  VCPKG_ROOT="${VCPKG_ROOT:-C:/vcpkg}"
+  CMAKE_EXTRA_ARGS="-DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+fi
+
 # cmake rebuilds skin generator binary if necessary.
-cmake -S "$OMIM_PATH" -B "$BUILD_DIR" -G Ninja -DCMAKE_BUILD_TYPE=Release -DSKIP_TESTS:bool=true
+cmake -S "$OMIM_PATH" -B "$BUILD_DIR" -G Ninja -DCMAKE_BUILD_TYPE=Release -DSKIP_TESTS:bool=true $CMAKE_EXTRA_ARGS
 cmake --build "$BUILD_DIR" --target "$BINARY_NAME"
 
 

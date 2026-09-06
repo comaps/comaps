@@ -127,8 +127,8 @@ public:
 
   bool IsFakeSegment(size_t index) const;
 
-  /// \brief Obtain a point |lookaheadDistanceM| meters along the current route
-  m2::PointD GetLookaheadPoint(double lookaheadDistanceM) const;
+  /// Extract polyline from m_current.m_pt up to maxDistanceM meters ahead
+  std::vector<m2::PointD> ExtractSubPolyline(double maxDistanceM) const;
 
 private:
   /// \returns iterator to the best projection of center of |posRect| to the |m_poly|.

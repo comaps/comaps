@@ -6,8 +6,6 @@
 #include "base/assert.hpp"
 #include "base/string_utils.hpp"
 
-#include <sstream>
-
 namespace
 {
 std::string GetBookmarkIconType(kml::BookmarkIcon const & icon)
@@ -60,6 +58,7 @@ std::string GetBookmarkIconType(kml::BookmarkIcon const & icon)
 std::string const kCustomImageProperty = "CustomImage";
 std::string const kHasElevationProfileProperty = "has_elevation_profile";
 int constexpr kInvalidColor = 0;
+int constexpr kMinTitleZoomLevel = 13;
 }  // namespace
 
 Bookmark::Bookmark(m2::PointD const & ptOrg) : Base(ptOrg, UserMark::BOOKMARK), m_groupId(kml::kInvalidMarkGroupId)
@@ -102,6 +101,35 @@ void Bookmark::SetIsVisible(bool isVisible)
 {
   SetDirty();
   m_isVisible = isVisible;
+}
+
+int Bookmark::GetMinTitleZoom() const
+{
+  return std::max(m_data.m_minZoom, kMinTitleZoomLevel);
+}
+
+drape_ptr<df::UserPointMark::TitlesInfo> Bookmark::GetTitleDeclEx(bool showLabel, dp::Color outlineColor) const
+{
+  if (!showLabel)
+    return nullptr;
+
+  dp::TitleDecl title;
+  title.m_anchor = dp::Left;
+
+  title.m_primaryTextFont.m_color = df::GetColorConstant(GetColorConstant());
+  title.m_primaryTextFont.m_outlineColor = outlineColor;
+  title.m_primaryTextFont.m_size = 11;  // most frequent font size in styles
+  title.m_primaryText = GetPreferredName();
+  title.m_primaryOffset.x = 1;
+
+  auto titles = make_unique_dp<TitlesInfo>();
+  titles->push_back(std::move(title));
+  return titles;
+}
+
+df::DepthLayer Bookmark::GetDepthLayerEx(bool showLabel) const
+{
+  return showLabel ? df::DepthLayer::SearchMarkLayer : df::DepthLayer::UserMarkLayer;
 }
 
 dp::Anchor Bookmark::GetAnchor() const

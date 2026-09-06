@@ -485,6 +485,8 @@
     <activity
       android:name="app.organicmaps.widget.placepage.WikiArticleActivity"/>
     <activity
+        android:name="app.organicmaps.widget.placepage.ReviewListActivity"/>
+    <activity
       android:name="app.organicmaps.settings.RoutingOptionsActivity"
       android:label="@string/routing_options_title"/>
     <activity

@@ -143,7 +143,6 @@
 "share_my_location" = "Partilhar a minha localização";
 "prefs_group_route" = "Navegação";
 "pref_zoom_title" = "Botões de ampliação";
-"pref_left_button_type" = "Botão Esquerdo Principal";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Idioma do Mapa";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +165,6 @@
 "auto" = "Automático";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Visão em perspetiva";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "Edifícios em 3D";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "Os edifícios 3D são desativados no modo de poupança de energia";
 /* Settings «Route» category: «Tts enabled» title */
@@ -571,7 +568,6 @@
 "mobile_data_option_never" = "Nunca utilizar";
 "mobile_data_option_ask" = "Perguntar sempre";
 "traffic_update_maps_text" = "Para ver os dados de tráfego, os mapas têm de ser atualizados.";
-"big_font" = "Aumentar tamanho da fonte no mapa";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Para mostrar os dados de tráfego, a aplicação tem de ser atualizada.";
 /* "traffic" as in "road congestion" */
@@ -625,8 +621,6 @@
 "restore" = "Restaurar";
 "privacy_policy" = "Política de privacidade";
 "terms_of_use" = "Termos de utilização";
-"button_layer_subway" = "Metropolitano";
-"layers_title" = "Estilos e camadas de mapas";
 "subway_data_unavailable" = "O mapa de metropolitano não está disponível";
 "title_error_downloading_bookmarks" = "Surgiu um erro";
 "popular_place" = "Popular";
@@ -733,7 +727,6 @@
 "transit_not_found" = "A navegação de metropolitano ainda não está disponível nesta região";
 "dialog_pedestrian_route_is_long_header" = "Não foi encontrada nenhuma rota de metro";
 "dialog_pedestrian_route_is_long_message" = "Escolha um ponto inicial ou final do percurso próximo da estação de metropolitano";
-"button_layer_isolines" = "Terreno";
 "isolines_activation_error_dialog" = "Para ativar e usar a camada Terreno, por favor atualize ou descarregue o mapa da área";
 "isolines_location_error_dialog" = "A camada Terreno ainda não está disponível nesta área";
 "elevation_profile_diff_level" = "Nível de dificuldade";
@@ -795,8 +788,6 @@
 "car_continue_on_the_phone" = "Continuar no telemóvel";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Para ecrã do carro";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Caminhadas";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Exportar todos os Favoritos";
 /* Text for the editing the Track's color button. */
@@ -846,10 +837,6 @@
 "recover" = "Recuperar";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Recuperar tudo";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Gravar trajeto";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Parar gravação de trajeto";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Parar sem guardar";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -883,3 +870,30 @@
 "capacity_charging_yes" = "Têm estacionamento com carregadores";
 "planning_route_preview" = "Pré-visualização";
 "planning_route_preview_sheet_title" = "Pré-visualização da Rota";
+"discard" = "Descartar";
+"pref_custom_button_type" = "Botão personalizável";
+"osm" = "OpenStreetMap";
+"mode" = "Modo";
+"mode_walking" = "A pé";
+"mode_cycling" = "De bicicleta";
+"mode_driving" = "Conduzindo";
+"mode_public-transport" = "De Transporte Público";
+"mode_option_traffic" = "Mostrar Trânsito";
+"mode_option_transitlines" = "Mostrar Linhas de Transporte Público";
+"mode_option_comingsoon" = "Opções em breve";
+"layers" = "Camadas";
+"layers_option_contour-lines" = "Linhas de Nível";
+"layers_option_outdoor" = "Exterior";
+"layers_option_buildings-3d" = "Edifícios em 3D";
+"layers_power-saving" = "Esta camada foi automaticamente desativada devido ao seu modo de economia de energia";
+"postionmode_locate" = "Encontrar a minha localização";
+"postionmode_locating" = "Procurando a localização atual...";
+"postionmode_following" = "Procurando localização com o mapa orientado a norte";
+"postionmode_following-and-rotated" = "Procurando localização com o mapa orientado para a direção de navegação";
+"zoom_in" = "Aumentar o zoom";
+"zoom_out" = "Diminuir o zoom";
+"record_track" = "Gravar Trajeto";
+"recording_track" = "Gravando o Trajeto";
+"bookmarks_text_placement_title" = "Mostrar nomes dos favoritos no mapa";
+"pref_font_size" = "Font size for map labels";
+"font_size" = "Font size";

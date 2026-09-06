@@ -30,12 +30,15 @@ public class OpenStateTextFormatter
     return t.getDayOfWeek().getDisplayName(TextStyle.SHORT, locale);
   }
 
-  static String buildAtLabel(boolean opens, boolean isToday, String dayShort, String time, String opensAtLocalized,
-                             String closesAtLocalized, String opensDayAtLocalized, String closesDayAtLocalized)
+  static String buildAtLabel(boolean opens, boolean isToday, boolean isTomorrow, String dayShort, String time,
+                             String opensAtLocalized, String closesAtLocalized, String opensDayAtLocalized,
+                             String closesDayAtLocalized, String opensTomorrowAtLocalized)
   {
     if (isToday)
       return opens ? String.format(Locale.ROOT, opensAtLocalized, time) // Opens at %s
                    : String.format(Locale.ROOT, closesAtLocalized, time); // Closes at %s
+    if (isTomorrow && opens)
+      return String.format(Locale.ROOT, opensTomorrowAtLocalized, time); // Opens tomorrow at %s
     return opens ? String.format(Locale.ROOT, opensDayAtLocalized, dayShort, time) // Opens %s at %s
                  : String.format(Locale.ROOT, closesDayAtLocalized, dayShort, time); // Closes %s at %s
   }

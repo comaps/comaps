@@ -66,4 +66,9 @@
   </declare-styleable>
 
   <attr name="accentColorSelector" format="color"/>
+
+  <declare-styleable name="StarRatingView">
+    <attr name="rating" format="float" />
+    <attr name="size" format="dimension" />
+  </declare-styleable>
 </resources>

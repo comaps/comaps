@@ -156,7 +156,7 @@ dp::Color GpsTrackRenderer::CalculatePointColor(size_t pointIndex, m2::PointD co
   double startAlpha = kMinDayAlpha;
   double endAlpha = kMaxDayAlpha;
   auto const style = GetStyleReader().GetCurrentStyle();
-  if (style == MapStyle::MapStyleDefaultDark)
+  if (MapStyleIsDark(style))
   {
     startAlpha = kMinNightAlpha;
     endAlpha = kMaxNightAlpha;
@@ -208,7 +208,7 @@ void GpsTrackRenderer::RenderTrack(ref_ptr<dp::GraphicsContext> context, ref_ptr
     // Check if there are render data.
     if (m_renderData.empty() && !m_waitForRenderData)
     {
-      m_dataRequestFn(kAveragePointsCount);
+      m_dataRequestFn(kAveragePointsCount, m_subID++);
       m_waitForRenderData = true;
     }
 
@@ -264,7 +264,7 @@ void GpsTrackRenderer::RenderTrack(ref_ptr<dp::GraphicsContext> context, ref_ptr
 
           if (cacheIndex >= m_handlesCache.size())
           {
-            m_dataRequestFn(kAveragePointsCount);
+            m_dataRequestFn(kAveragePointsCount, m_subID++);
             m_waitForRenderData = true;
             return;
           }

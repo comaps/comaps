@@ -155,7 +155,7 @@
     <!-- Compared to wilderness_hut its smaller and simpler, without a fireplace. -->
     <string name="type.amenity.shelter.basic_hut">Cabaña de vivac</string>
     <!-- A traditional 3-walled shelter (one side open), suitable for overnight camping. -->
-    <string name="type.amenity.shelter.lean_to">Alpende</string>
+    <string name="type.amenity.shelter.lean_to">Cobertizo de montaña</string>
     <string name="type.amenity.public_bath">Baños públicos</string>
     <string name="type.amenity.shower">Ducha</string>
     <string name="type.amenity.stripclub">Club de estriptis</string>

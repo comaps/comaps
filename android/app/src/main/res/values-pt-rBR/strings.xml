@@ -97,7 +97,7 @@
     <!-- Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! -->
     <string name="category_eat">Onde comer</string>
     <!-- Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! -->
-    <string name="category_food">Mercados</string>
+    <string name="category_food">Mercado</string>
     <!-- Search category for public transport; any changes should be duplicated in categories.txt @category_transport! -->
     <string name="category_transport">Transporte</string>
     <!-- Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! -->
@@ -194,7 +194,7 @@
     <!-- Generic «Auto» string -->
     <string name="auto">Automático</string>
     <!-- Settings «Map» category: «Perspective view» title -->
-    <string name="pref_map_3d_title">Visão em perspectiva</string>
+    <string name="pref_map_3d_title">Vista em perspectiva</string>
     <!-- Settings «Map» category: «3D buildings» title -->
     <string name="pref_map_3d_buildings_title">Prédios em 3D</string>
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
@@ -473,7 +473,7 @@
     <string name="mobile_data_option_never">Nunca utilizar</string>
     <string name="mobile_data_option_ask">Perguntar sempre</string>
     <string name="traffic_update_maps_text">Para mostrar os dados de trânsito, os mapas devem ser atualizados</string>
-    <string name="big_font">Aumentar tamanho da fonte no mapa</string>
+    <string name="increase_font_size">Aumentar tamanho da fonte no mapa</string>
     <string name="traffic_update_app">Atualize o CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">Não existem dados de tráfego</string>
@@ -695,7 +695,7 @@
     <string name="pref_tts_open_system_settings">Configurações do sistema de síntese de fala</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
     <string name="pref_tts_no_system_tts">As configurações do Speech Synthesis não foram encontradas. Você tem certeza de que seu dispositivo é compatível?</string>
-    <string name="zoom_in">Ampliar</string>
+    <string name="zoom_in">Aumentar zoom</string>
     <!-- Restaurant or other food place's menu URL field in the Editor -->
     <string name="website_menu">Link do cardápio</string>
     <!-- Button in the Place Page which opens a restaurant or other food place's menu in a browser -->
@@ -776,7 +776,7 @@
     <string name="by_name">Por nome</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="clear_the_search">Limpar a pesquisa</string>
-    <string name="zoom_out">Diminuir o zoom</string>
+    <string name="zoom_out">Diminuir zoom</string>
     <string name="volume">Volume</string>
     <string name="pref_left_button_title">Configuração do botão esquerdo</string>
     <string name="error_enter_correct_facebook_page">Insira um endereço da web, conta ou nome de página válidos do Facebook</string>
@@ -865,6 +865,7 @@
     <string name="avoid_paved">Evitar vias pavimentadas</string>
     <string name="opens_at">Abre às %s</string>
     <string name="closes_at">Fecha às %s</string>
+    <string name="opens_tomorrow_at">Abre amanhã às %s</string>
     <string name="opens_day_at">Abre %1$s às %2$s</string>
     <string name="closes_day_at">Fecha %1$s às %2$s</string>
     <plurals name="minutes_short">
@@ -914,12 +915,12 @@
     <string name="population">População: %s</string>
     <string name="setting_value_system_default">Padrão do sistema</string>
     <string name="change_app_locale">Idioma do app</string>
-    <string name="downloader_check_updates_button">Buscar atualizações</string>
-    <string name="downloader_check_updates_checking">Buscando atualizações...</string>
-    <string name="downloader_check_updates_updated">Atualizações do mapa disponíveis!</string>
+    <string name="downloader_check_updates_button">Buscar atualização</string>
+    <string name="downloader_check_updates_checking">Buscando atualização...</string>
+    <string name="downloader_check_updates_updated">Atualização do mapa disponível!</string>
     <string name="downloader_check_updates_no_updates">Nenhuma atualização disponível</string>
-    <string name="downloader_check_updates_eol">Não haverá mais atualizações de mapas para esta versão do aplicativo. Por favor, atualize o aplicativo!</string>
-    <string name="downloader_check_updates_error">Erro ao buscar atualizações</string>
+    <string name="downloader_check_updates_eol">Não haverá mais atualização de mapas para esta versão do aplicativo. Por favor, atualize o aplicativo!</string>
+    <string name="downloader_check_updates_error">Erro ao buscar atualização</string>
     <string name="oh_unknown">Horário de funcionamento desconhecido</string>
     <string name="tts_toggle_enable">Ativar orientação por voz</string>
     <string name="tts_toggle_disable">Desativar orientação por voz</string>
@@ -958,4 +959,11 @@
     <string name="pref_enable_auto_reroute_description">Quando ativado, uma nova rota será automaticamente calculada se sair da rota planejada.</string>
     <string name="recalculate_route">Recalcular</string>
     <string name="off_route">Você saiu da rota planejada</string>
+    <string name="bookmarks_text_placement_title">Mostrar nomes dos favoritos no mapa</string>
+    <string name="place_reviews_title">Avaliações de lugares</string>
+    <string name="rating_stars_description">estrelas: %.1f</string>
+    <string name="reviews_by_mangrove">Avaliações do Mangrove.\nAdicione avaliações no <a href="https://mapcomplete.org">MapComplete</a>.</string>
+    <string name="pref_font_size">Tamanho da fonte para rótulos do mapa</string>
+    <string name="decrease_font_size">Diminuir o tamanho do rótulo do mapa</string>
+    <string name="place_reviews">Avaliações de %1$s</string>
 </resources>

@@ -224,6 +224,7 @@ double getExactDPI(double contentScaleFactor)
 {
   LOG(LINFO, ("The visual scale is being updated to:", visualScale));
   GetFramework().UpdateVisualScale(visualScale);
+  [_widgetsManager updateLayout];
 }
 
 - (void)updateVisualScaleToMain
@@ -231,6 +232,7 @@ double getExactDPI(double contentScaleFactor)
   CGFloat const visualScale = UIScreen.mainScreen.scale;
   LOG(LINFO, ("The visual scale is being updated to the main scale:", visualScale));
   GetFramework().UpdateVisualScale(visualScale);
+  [_widgetsManager updateLayout];
 }
 
 @end
