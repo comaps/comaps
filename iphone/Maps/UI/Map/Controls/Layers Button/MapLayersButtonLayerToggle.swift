@@ -47,6 +47,7 @@ extension MapLayersButton {
             .symbolRenderingMode(.palette)
             .foregroundStyle((isVisible ? Color.BaseColors.green : Color.BaseColors.red), (isDisabledForPowerSaving ? .secondary.opacity(0.5) : layer.color))
             .contentShape(Rectangle())
+            .accessibilityValue(accessibilityValue)
             .id(layer.id)
             .alert("layers_power-saving", isPresented: $isPresentingPowerSavingHint, actions: {
                 Button("ok") {
@@ -63,6 +64,15 @@ extension MapLayersButton {
             .onReceive(changePowerSavingAdjustmentsPublisher) { _ in
                 isDisabledForPowerSaving = layer.isDisabledForPowerSaving
             }
+        }
+
+        /// VoiceOver values
+        private var accessibilityValue: Text {
+            if isDisabledForPowerSaving {
+                return Text("disabled")
+            }
+
+            return isVisible ? Text("on") : Text("off")
         }
     }
 }

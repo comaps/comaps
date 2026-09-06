@@ -48,6 +48,7 @@ struct MapLayersButton: View {
                 }
             }
             .buttonStyle(MapButtonStyle(isClear: isPresentingLayers))
+            .accessibilityHint(isPresentingLayers ? Text("hide") : Text("show"))
             .background {
                 GeometryReader { geometry in
                     if #available(iOS 16.0, *) {
