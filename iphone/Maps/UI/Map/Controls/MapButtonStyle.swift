@@ -9,6 +9,7 @@ struct MapButtonStyle: ButtonStyle {
             configuration.label
                 .labelStyle(.iconOnly)
                 .font(.title2)
+                .dynamicTypeSize(.large)
                 .scaleEffect(1.1)
                 .aspectRatio(1, contentMode: .fill)
                 .frame(width: geometry.size.width, height: geometry.size.width)

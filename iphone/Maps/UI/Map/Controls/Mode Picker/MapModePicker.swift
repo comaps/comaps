@@ -2,7 +2,17 @@ import SwiftUI
 
 /// View for a map mode picker
 struct MapModePicker: View {
+    /// The elements that can receive VoiceOver focus in the mode picker
+    enum AccessibilityFocus: Hashable {
+        case mode(Mode)
+        case optionsHeading
+    }
+
     // MARK: Properties
+
+    /// The element currently focused by VoiceOver
+    @AccessibilityFocusState(for: .voiceOver) private var accessibilityFocus: AccessibilityFocus?
+
     
     /// The horizontal size class of the environment
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -51,16 +61,13 @@ struct MapModePicker: View {
                 HStack(spacing: 0) {
                     ForEach(Mode.allCases) { mode in
                         if !isPresentingModeOptions || mode == selectedMode {
-                            MapModePicker.Choice(selectedMode: $selectedMode, mode: mode, isDragging: $isDragging, draggedMode: $draggedMode)
-                                .simultaneousGesture(
-                                    LongPressGesture().onEnded { _ in
-                                        if !isDragging {
-                                            selectedMode = mode
-                                            shouldTemporarilyHideLayersIfNecessary = true
-                                            isPresentingModeOptions.toggle()
-                                        }
-                                    }
-                                )
+                            MapModePicker.Choice(selectedMode: $selectedMode,
+                                                 mode: mode,
+                                                 isPresentingModeOptions: isPresentingModeOptions,
+                                                 isDragging: $isDragging,
+                                                 draggedMode: $draggedMode,
+                                                 accessibilityFocus: $accessibilityFocus,
+                                                 toggleModeOptions: toggleModeOptions)
                         }
                     }
                     
@@ -69,12 +76,13 @@ struct MapModePicker: View {
                             .font(.title2)
                             .bold()
                             .foregroundStyle(Color.white)
+                            .accessibilityAddTraits(.isHeader)
+                            .accessibilityFocused($accessibilityFocus, equals: .optionsHeading)
 
                         Spacer(minLength: 0)
 
                         Button {
-                            isPresentingModeOptions.toggle()
-                            shouldTemporarilyHideLayersIfNecessary = false
+                            toggleModeOptions()
                         } label: {
                             Label("close", systemImage: "xmark.circle.fill")
                                 .labelStyle(.iconOnly)
@@ -83,6 +91,7 @@ struct MapModePicker: View {
                         }
                         .buttonStyle(.plain)
                         .font(.title2)
+                        .dynamicTypeSize(.large)
                         .foregroundStyle(Color.white.opacity(0.5))
                     }
                 }
@@ -114,7 +123,7 @@ struct MapModePicker: View {
                 }
                 .simultaneousGesture(
                     DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
-                        if !preventDraging, let mode = Mode(rawValue: min(max(Int(Float(value.location.x / (CGFloat(Mode.allCases.count) * CGFloat(geometry.size.height - 8)) * 4).rounded(.up)), 1), Mode.allCases.count) - 1) {
+                        if !isPresentingModeOptions, !preventDraging, let mode = Mode(rawValue: min(max(Int(Float(value.location.x / (CGFloat(Mode.allCases.count) * CGFloat(geometry.size.height - 8)) * 4).rounded(.up)), 1), Mode.allCases.count) - 1) {
                             if isDragging {
                                 if selectedMode != mode, draggedMode != mode {
                                     draggedMode = mode
@@ -226,16 +235,25 @@ struct MapModePicker: View {
             .padding(-4)
             .contentShape(Rectangle())
             .padding(.leading, verticalSizeClass == .compact && !isPresentingModeOptions ? (controlHeight + 24) : 0)
-            .accessibilityRepresentation {
-                Picker("mode", selection: $selectedMode) {
-                    ForEach(Mode.allCases) { mode in
-                        Text(mode.description)
-                    }
+            .accessibilityElement(children: .contain)
+            // Let the mode options be a modal view for accessibility purposes
+            .accessibilityAddTraits(isPresentingModeOptions ? .isModal : [])
+            .accessibilityAction(.escape) {
+                if isPresentingModeOptions {
+                    toggleModeOptions()
                 }
             }
             .frame(maxWidth: !isPresentingModeOptions || (horizontalSizeClass == .compact && verticalSizeClass != .compact) ? .infinity : 320, alignment: verticalSizeClass == .compact ? .leading : .center)
             .frame(maxWidth: .infinity, alignment: verticalSizeClass == .compact ? .leading : .center)
             .animation(.spring.speed(2), value: isPresentingModeOptions)
+            .onChange(of: isPresentingModeOptions) { isPresented in
+                Task { @MainActor in
+                    // Let the updated accessibility elements appear before moving focus.
+                    await Task.yield()
+                    guard isPresentingModeOptions == isPresented else { return }
+                    accessibilityFocus = isPresented ? .optionsHeading : .mode(selectedMode)
+                }
+            }
             .onChange(of: selectedMode) { changedSelectedMode in
                 draggedMode = changedSelectedMode
                 selectedMode = changedSelectedMode
@@ -249,6 +267,13 @@ struct MapModePicker: View {
             hasTransitLinesForPublicTransportMode = changedHasTransitLinesForPublicTransport
             MapControls.publicTransportModeSetTransitLines(changedHasTransitLinesForPublicTransport)
         }
+    }
+
+
+    /// Toggles the options for the selected mode
+    private func toggleModeOptions() {
+        isPresentingModeOptions.toggle()
+        shouldTemporarilyHideLayersIfNecessary = isPresentingModeOptions
     }
 
 }

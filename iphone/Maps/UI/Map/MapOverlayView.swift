@@ -259,6 +259,7 @@ struct MapOverlayView: View {
                 
                 Image(systemName: "circle")
                     .font(.title2)
+                    .dynamicTypeSize(.large)
                     .padding(13)
                     .hidden()
                     .background {
