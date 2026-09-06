@@ -226,5 +226,32 @@
     },
     "unknown_camera": {
         "defaultMessage": "Speed camera ahead"
+    },
+    "board_line": {
+        "defaultMessage": "Board line %1$s to %2$s."
+    },
+    "deboard_line": {
+        "defaultMessage": "Deboard at the stop %s."
+    },
+    "deboard_next": {
+        "defaultMessage": "This stop is the next stop."
+    },
+    "transfer_far_away": {
+        "defaultMessage": "Transfer at %s."
+    },
+    "first_stop_far_away": {
+        "defaultMessage": "Start at %s."
+    },
+    "transit_walking_start": {
+        "defaultMessage": "Starting walking directions to this stop."
+    },
+    "transit_walking_destination": {
+        "defaultMessage": "Starting walking directions to final destination."
+    },
+    "transit_resume": {
+        "defaultMessage": "Resuming transit directions."
+    },
+    "transit_vehicle_arriving": {
+        "defaultMessage": "Your vehicle is arriving in two minutes."
     }
 }
