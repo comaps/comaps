@@ -45,20 +45,27 @@ struct MapSearchButton: View {
                 .buttonStyle(.plain)
             }
             .background {
-                RoundedRectangle(cornerRadius: 28)
-                    .stroke(Color.MapButtons.border, lineWidth: 1)
-                    .background {
-                        if colorScheme == .dark {
-                            RoundedRectangle(cornerRadius: 28)
-                                .fill(Color.black)
+                if #unavailable(iOS 27, macOS 27) {
+                    RoundedRectangle(cornerRadius: 28, style: .continuous)
+                        .stroke(Color.MapButtons.border, lineWidth: 1)
+                        .background {
+                            if colorScheme == .dark {
+                                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                                    .fill(Color.black)
+                            }
+
+                            RoundedRectangle(cornerRadius: 28, style: .continuous)
+                                .fill(Color.white.opacity(colorScheme == .dark ? 0.25 : 1))
                         }
-                        
-                        RoundedRectangle(cornerRadius: 28)
-                            .fill(Color.white.opacity(colorScheme == .dark ? 0.25 : 1))
-                    }
-                    .shadow(radius: 2)
-                    .foregroundStyle(Color.secondary)
-                    .compositingGroup()
+                        .shadow(radius: 2)
+                        .foregroundStyle(Color.secondary)
+                        .compositingGroup()
+                } else {
+                    RoundedRectangle(cornerRadius: 28, style: .continuous)
+                        .fill(Color.MapButtons.background.opacity(0.3))
+                        .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 28, style: .continuous))
+                        .shadow(radius: 2)
+                }
             }
             .contentShape(Rectangle())
             .padding(.leading, verticalSizeClass == .compact ? (controlHeight + 24) : 0)
