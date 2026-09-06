@@ -11,6 +11,10 @@ extension MapModePicker {
         
         /// The mode
         var mode: Mode = .walking
+
+
+        /// If the mode options are being presented
+        var isPresentingModeOptions: Bool
         
         
         /// If a mode is currently being dragged
@@ -19,6 +23,14 @@ extension MapModePicker {
         
         /// The dragged mode to not have too quick mode changes when dragging
         @Binding var draggedMode: Mode
+
+
+        /// The shared VoiceOver focus of the mode picker
+        var accessibilityFocus: AccessibilityFocusState<AccessibilityFocus?>.Binding
+
+
+        /// Toggles the options for the selected mode
+        var toggleModeOptions: () -> Void
         
         
         /// The foreground color (for animations)
@@ -39,10 +51,21 @@ extension MapModePicker {
                 .aspectRatio(1, contentMode: .fit)
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    if !isDragging {
-                        selectedMode = mode
+                    if !isDragging, !isPresentingModeOptions {
+                        activate()
                     }
                 }
+                .accessibilityRepresentation {
+                    Button {
+                        activate()
+                    } label: {
+                        Text(mode.description)
+                    }
+                    .accessibilityAddTraits(mode == selectedMode ? .isSelected : [])
+                    .accessibilityHint(accessibilityHint)
+                    .accessibilityFocused(accessibilityFocus, equals: .mode(mode))
+                }
+                .accessibilityHidden(isPresentingModeOptions)
                 .onAppear {
                     foregroundColor = (draggedMode == mode ? .white : .primary)
                 }
@@ -59,6 +82,26 @@ extension MapModePicker {
                         foregroundColor = (changedDraggedMode == mode ? .white : .primary)
                     }
                 }
+        }
+
+
+        /// The VoiceOver instruction for the selected mode
+        private var accessibilityHint: Text {
+            guard mode == selectedMode else {
+                return Text("")
+            }
+
+            return Text("mode_options_accessibility_hint")
+        }
+
+
+        /// Selects the mode, or toggles its options if it is already selected
+        private func activate() {
+            if mode == selectedMode {
+                toggleModeOptions()
+            } else {
+                selectedMode = mode
+            }
         }
     }
 }
