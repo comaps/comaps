@@ -44,6 +44,7 @@ extension MapLayersButton {
             }
             .labelStyle(.iconOnly)
             .font(.title2)
+            .dynamicTypeSize(.large)
             .symbolRenderingMode(.palette)
             .foregroundStyle((isVisible ? Color.BaseColors.green : Color.BaseColors.red), (isDisabledForPowerSaving ? .secondary.opacity(0.5) : layer.color))
             .contentShape(Rectangle())

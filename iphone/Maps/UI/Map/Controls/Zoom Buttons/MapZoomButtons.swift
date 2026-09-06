@@ -44,50 +44,14 @@ struct MapZoomButtons: View {
                                     .opacity(0.9)
                             }
                             .shadow(radius: 2)
-                            .overlay(content: {
-                                VStack(spacing: 0) {
-                                    MapZoomButton.Kind.in.image
-                                        .font(.title2)
-                                        .scaleEffect(1.1)
-                                        .foregroundStyle(Color.primary)
-                                        .scaleEffect(0.96)
-                                        .padding(.top, 15)
-                                    
-                                    Spacer(minLength: 0)
-                                    
-                                    MapZoomButton.Kind.out.image
-                                        .font(.title2)
-                                        .scaleEffect(1.1)
-                                        .foregroundStyle(Color.primary)
-                                        .scaleEffect(0.96)
-                                        .padding(.bottom, 23)
-                                }
-                            })
+                            .overlay { dragOverlayIcons }
                             .compositingGroup()
                     } else {
                         RoundedRectangle(cornerRadius: 28, style: .continuous)
                             .fill(Color.MapButtons.background.opacity(0.3))
                             .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 28, style: .continuous))
                             .shadow(radius: 2)
-                            .overlay(content: {
-                                VStack(spacing: 0) {
-                                    MapZoomButton.Kind.in.image
-                                        .font(.title2)
-                                        .scaleEffect(1.1)
-                                        .foregroundStyle(Color.primary)
-                                        .scaleEffect(0.96)
-                                        .padding(.top, 15)
-                                    
-                                    Spacer(minLength: 0)
-                                    
-                                    MapZoomButton.Kind.out.image
-                                        .font(.title2)
-                                        .scaleEffect(1.1)
-                                        .foregroundStyle(Color.primary)
-                                        .scaleEffect(0.96)
-                                        .padding(.bottom, 23)
-                                }
-                            })
+                            .overlay { dragOverlayIcons }
                             .compositingGroup()
                     }
                 }
@@ -140,4 +104,27 @@ struct MapZoomButtons: View {
             }
         }
     }
+
+    private var dragOverlayIcons: some View {
+        VStack(spacing: 0) {
+            MapZoomButton.Kind.in.image
+                .font(.title2)
+                .dynamicTypeSize(.large)
+                .scaleEffect(1.1)
+                .foregroundStyle(Color.primary)
+                .scaleEffect(0.96)
+                .padding(.top, 15)
+
+            Spacer(minLength: 0)
+
+            MapZoomButton.Kind.out.image
+                .font(.title2)
+                .dynamicTypeSize(.large)
+                .scaleEffect(1.1)
+                .foregroundStyle(Color.primary)
+                .scaleEffect(0.96)
+                .padding(.bottom, 23)
+        }
+    }
+
 }

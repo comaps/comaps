@@ -259,6 +259,7 @@ struct MapOverlayView: View {
                 
                 Image(systemName: "circle")
                     .font(.title2)
+                    .dynamicTypeSize(.large)
                     .padding(13)
                     .hidden()
                     .background {
@@ -290,7 +291,7 @@ struct MapOverlayView: View {
     
     
     // MARK: Methods
-    
+
     /// Update the visibility of the controls
     /// - Parameter geometry: The geometry of the view
     /// - Parameter shouldAnimate: If the update should be animated

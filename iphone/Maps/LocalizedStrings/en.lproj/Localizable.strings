@@ -818,6 +818,8 @@
 "mode_driving" = "Driving";
 /* Label for the public transport mode */
 "mode_public-transport" = "Public Transport";
+/* Accessibility hint for the selected map mode */
+"mode_options_accessibility_hint" = "Shows options for this mode.";
 /* Label for the toggle to show the traffic in the driving mode */
 "mode_option_traffic" = "Show Traffic";
 /* Label for the toggle to show the transit lines in the public transport mode */
