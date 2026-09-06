@@ -59,6 +59,7 @@ struct MapMoreButton: View {
                 }
                 .labelStyle(.iconOnly)
                 .font(.title2)
+                .dynamicTypeSize(.large)
                 .scaleEffect(1.1)
                 .padding(12)
                 .aspectRatio(1, contentMode: .fill)
