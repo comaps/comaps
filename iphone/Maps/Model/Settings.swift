@@ -79,6 +79,23 @@ import Combine
             SettingsBridge.setAutoDownloadEnabled(newValue)
         }
     }
+
+
+    /// The custom server used for map downloads
+    static var customMapDownloadUrl: String {
+        get {
+            return SettingsBridge.customMapDownloadUrl()
+        }
+        set {
+            SettingsBridge.setCustomMapDownloadUrl(newValue)
+        }
+    }
+
+
+    /// The map series used by this app version
+    static var mapSeries: String {
+        return SettingsBridge.mapSeries()
+    }
     
     
     /// The current mobile data policy

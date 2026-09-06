@@ -387,6 +387,11 @@
 "share_with_friends" = "Share with friends";
 "editor_report_problem_send_button" = "Send";
 "autodownload" = "Auto-download maps";
+"custom_map_server" = "Custom Map Server";
+"custom_map_server_message" = "Override the default map download server used for map downloads. Leave empty to use the default CoMaps map server.";
+"custom_map_server_error_scheme" = "The URL must start with http:// or https://";
+"custom_map_server_map_series" = "This version of CoMaps is using map series %@.";
+"not_set" = "Not set";
 /* Voice */
 "voice" = "Voice";
 "voice_explanation" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Read & Speak*, *Voices*.";

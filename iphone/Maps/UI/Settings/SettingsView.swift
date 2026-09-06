@@ -14,8 +14,12 @@ struct SettingsView: View {
     
     /// The selected mobile data policy
     @State private var selectedMobileDataPolicy: Settings.MobileDataPolicy = .always
-    
-    
+
+
+    /// The saved custom map server shown in the settings row
+    @State private var customMapDownloadUrl: String = ""
+
+
     /// The selected power saving mode
     @State private var selectedPowerSavingMode: Settings.PowerSavingMode = .never
     
@@ -112,6 +116,7 @@ struct SettingsView: View {
                     } label: {
                         Text("mobile_data")
                     }
+
                     
                     Picker(selection: $selectedPowerSavingMode) {
                         ForEach(Settings.PowerSavingMode.allCases) { powerSavingMode in
@@ -299,6 +304,25 @@ struct SettingsView: View {
                 }
                 
                 Section {
+                    NavigationLink {
+                        CustomMapServerView { url in
+                            customMapDownloadUrl = url
+                        }
+                    } label: {
+                        HStack {
+                            Text("custom_map_server")
+                            Spacer()
+                            if customMapDownloadUrl.isEmpty {
+                                Text("not_set")
+                                    .foregroundStyle(.gray)
+                            } else {
+                                Text(customMapDownloadUrl)
+                                    .foregroundStyle(.gray)
+                                    .lineLimit(1)
+                            }
+                        }
+                    }
+
                     Toggle(isOn: $isLogging) {
                         VStack(alignment: .leading) {
                             Text("enable_logging")
@@ -340,6 +364,7 @@ struct SettingsView: View {
         .onAppear {
             hasAutomaticDownload = Settings.hasAutomaticDownload
             selectedMobileDataPolicy = Settings.mobileDataPolicy
+            customMapDownloadUrl = Settings.customMapDownloadUrl
             selectedPowerSavingMode = Settings.powerSavingMode
             selectedDistanceUnit = Settings.distanceUnit
             selectedAppearance = Settings.appearance
@@ -411,4 +436,5 @@ struct SettingsView: View {
         }
         .accentColor(.toolbarAccent)
     }
+
 }
