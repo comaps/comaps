@@ -6,6 +6,9 @@
 #include <CoreApi/Framework.h>
 #include <CoreApi/Logger.h>
 
+#include "platform/platform.hpp"
+#include "private.h"
+
 using namespace power_management;
 
 namespace
@@ -20,6 +23,7 @@ NSString * const kThemeMode = @"ThemeMode";
 NSString * const kSpotlightLocaleLanguageId = @"SpotlightLocaleLanguageId";
 NSString * const kUDTrackWarningAlertWasShown = @"TrackWarningAlertWasShown";
 NSString * const kiCLoudSynchronizationEnabledKey = @"iCLoudSynchronizationEnabled";
+NSString * const kCustomMapDownloadUrlKey = @"CustomMapDownloadUrl";
 NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
 }  // namespace
 
@@ -65,6 +69,37 @@ NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
 + (void)setAutoDownloadEnabled:(BOOL)autoDownloadEnabled
 {
   settings::Set(kAutoDownloadEnabledKey, static_cast<bool>(autoDownloadEnabled));
+}
+
++ (NSString *)customMapDownloadUrl
+{
+  NSString * url = [NSUserDefaults.standardUserDefaults stringForKey:kCustomMapDownloadUrlKey] ?: @"";
+  url = [url stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+  if (url.length > 0 && ![url hasSuffix:@"/"])
+    url = [url stringByAppendingString:@"/"];
+  return url;
+}
+
++ (void)setCustomMapDownloadUrl:(NSString *)customMapDownloadUrl
+{
+  NSString * url = [customMapDownloadUrl stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+  if (url.length > 0 && ![url hasSuffix:@"/"])
+    url = [url stringByAppendingString:@"/"];
+
+  [NSUserDefaults.standardUserDefaults setObject:url forKey:kCustomMapDownloadUrlKey];
+  [self applyCustomMapDownloadUrl];
+}
+
++ (void)applyCustomMapDownloadUrl
+{
+  std::string url = self.customMapDownloadUrl.UTF8String;
+  GetPlatform().SetCustomMapServerUrl(url);
+  GetFramework().GetStorage().ResetMapDownloadMetaConfig();
+}
+
++ (NSString *)mapSeries
+{
+  return @MAP_SERIES;
 }
 
 + (MWMUnits)measurementUnits

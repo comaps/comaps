@@ -10,6 +10,11 @@ NS_SWIFT_NAME(SettingsBridge)
 + (BOOL)autoDownloadEnabled;
 + (void)setAutoDownloadEnabled:(BOOL)autoDownloadEnabled;
 
++ (NSString *)customMapDownloadUrl;
++ (void)setCustomMapDownloadUrl:(NSString *)customMapDownloadUrl;
++ (void)applyCustomMapDownloadUrl;
++ (NSString *)mapSeries;
+
 + (MWMUnits)measurementUnits;
 + (void)setMeasurementUnits:(MWMUnits)measurementUnits;
 
