@@ -868,7 +868,8 @@ bool TrafficManager::WaitForRequest()
   if (IsEnabled() && !m_isPaused)
     m_isPollNeeded |= timeout;
 
-  LOG(LINFO, ("timeout:", timeout, "active MWMs changed:", m_activeMwmsChanged, "test mode:", IsTestMode()));
+  LOG(LINFO, ("enabled:", IsEnabled(), "timeout:", timeout, "active MWMs changed:", m_activeMwmsChanged,
+      "test mode:", IsTestMode()));
   return true;
 }
 
