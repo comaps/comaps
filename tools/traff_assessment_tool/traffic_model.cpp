@@ -35,13 +35,15 @@ enum class RoadRefParserState
   Alpha
 };
 
-constexpr static dp::Color kColorFrom(0x309302ff);
-constexpr static dp::Color kColorAt(0x1a5ec1ff);
-constexpr static dp::Color kColorVia(0xf19721ff);
-constexpr static dp::Color kColorNotVia(0x8c5678ff);
-constexpr static dp::Color kColorTo(0xe42300ff);
 constexpr static dp::Color kColorDecoded(0x4070ffff);
 constexpr static std::string const kDecodedLineId = "decodedPath";
+
+// See libs/map/api_mark_point.cpp for valid style names.
+constexpr static std::string kStyleFrom = "BookmarkGreen";
+constexpr static std::string kStyleAt = "BookmarkBlue";
+constexpr static std::string kStyleVia = "BookmarkOrange";
+constexpr static std::string kStyleNotVia = "BookmarkPurple";
+constexpr static std::string kStyleTo = "BookmarkRed";
 
 #ifdef openlr_obsolete
 namespace
@@ -772,39 +774,39 @@ void TrafficModel::OnItemSelected(QItemSelection const & selected, QItemSelectio
   auto const row = selected.front().top();
 
   auto editSession = m_framework.GetBookmarkManager().GetEditSession();
-  editSession.ClearGroup(UserMark::Type::COLORED);
+  editSession.ClearGroup(UserMark::Type::API);
   m_drapeApi.Clear();
 
   if (static_cast<size_t>(row) >= m_messages.size())
   {
-    editSession.SetIsVisible(UserMark::Type::COLORED, false);
+    editSession.SetIsVisible(UserMark::Type::API, false);
     return;
   }
 
   auto message = &m_messages[row];
   if (!message->m_location)
   {
-    editSession.SetIsVisible(UserMark::Type::COLORED, false);
+    editSession.SetIsVisible(UserMark::Type::API, false);
     return;
   }
 
   m2::RectD rect;
 
-  editSession.SetIsVisible(UserMark::Type::COLORED, true);
+  editSession.SetIsVisible(UserMark::Type::API, true);
 
-  for (auto & [coords, color] : {
-       std::pair{message->m_location.value().m_from, kColorFrom},
-       std::pair{message->m_location.value().m_at, kColorAt},
-       std::pair{message->m_location.value().m_via, kColorVia},
-       std::pair{message->m_location.value().m_notVia, kColorNotVia},
-       std::pair{message->m_location.value().m_to, kColorTo}
+  for (auto & [coords, style] : {
+       std::pair{message->m_location.value().m_from, kStyleFrom},
+       std::pair{message->m_location.value().m_at, kStyleAt},
+       std::pair{message->m_location.value().m_via, kStyleVia},
+       std::pair{message->m_location.value().m_notVia, kStyleNotVia},
+       std::pair{message->m_location.value().m_to, kStyleTo}
        })
     if (coords)
     {
       auto point = mercator::FromLatLon(coords.value().m_coordinates);
       rect.Add(point);
-      auto mark = editSession.CreateUserMark<ColoredMarkPoint>(point);
-      mark->SetColor(color);
+      auto mark = editSession.CreateUserMark<ApiMarkPoint>(point);
+      mark->SetStyle(style);
     }
 
   for (auto & [mwmId, coloring] : message->m_decoded) {
