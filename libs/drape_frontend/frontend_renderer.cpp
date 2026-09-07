@@ -2053,6 +2053,9 @@ void FrontendRenderer::DisablePerspective()
 
 void FrontendRenderer::CheckIsometryMinScale(ScreenBase const & screen)
 {
+  if (!IsValidCurrentZoom())
+    return;
+
   bool const isScaleAllowableIn3d = IsScaleAllowableIn3d(GetCurrentZoom());
   bool const isIsometry = m_enable3dBuildings && !m_choosePositionMode && isScaleAllowableIn3d;
   if (m_isIsometry != isIsometry)
@@ -2077,6 +2080,9 @@ void FrontendRenderer::ResolveZoomLevel(ScreenBase const & screen)
 
 void FrontendRenderer::UpdateDisplacementEnabled()
 {
+  if (m_choosePositionMode && !IsValidCurrentZoom())
+    return;
+
   // Do not change displacing for m_searchMarkTextOverlayTree here.
   if (m_choosePositionMode)
   {
