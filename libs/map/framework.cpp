@@ -2829,7 +2829,23 @@ MapMode Framework::CurrentMapMode()
 
 bool Framework::CurrentMapModeHasTraffic()
 {
+  /*
+   * Workaround:
+   * Android never seems to enter driving mode.
+   * On Qt, when switching between modes, Traffic response was kind of flaky
+   * (start up in pedestrian mode, switch to car and enabled traffic, no updates until the app
+   * is restarted)
+   */
+#if defined(OMIM_OS_ANDROID)
+  /*
+   * Workaround: modes are not yet implemented on Android, the app doesn’t ever seem to enter driving
+   * mode, so checking for that would prevent traffic from working.
+   * Remove this when modes are implemented on Android (and verify traffic still works as intended).
+   */
+  return DrivingMapModeHasTraffic();
+#else
   return CurrentMapMode() == MapMode::Driving && DrivingMapModeHasTraffic();
+#endif
 }
 
 bool Framework::CurrentMapModeHasTransitLines()
