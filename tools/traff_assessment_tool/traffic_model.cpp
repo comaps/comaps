@@ -13,6 +13,8 @@
 #include "base/assert.hpp"
 #include "base/scope_guard.hpp"
 
+#include "traff_assessment_tool/location_mark_point.hpp"
+
 #include <string>
 #include <variant>
 #include <vector>
@@ -37,13 +39,6 @@ enum class RoadRefParserState
 
 constexpr static dp::Color kColorDecoded(0x4070ffff);
 constexpr static std::string const kDecodedLineId = "decodedPath";
-
-// See libs/map/api_mark_point.cpp for valid style names.
-constexpr static std::string kStyleFrom = "BookmarkGreen";
-constexpr static std::string kStyleAt = "BookmarkBlue";
-constexpr static std::string kStyleVia = "BookmarkOrange";
-constexpr static std::string kStyleNotVia = "BookmarkPurple";
-constexpr static std::string kStyleTo = "BookmarkRed";
 
 #ifdef openlr_obsolete
 namespace
@@ -646,8 +641,8 @@ TrafficModel::TrafficModel(Framework & framework,
 
         // clear markers
         auto editSession = m_framework.GetBookmarkManager().GetEditSession();
-        editSession.ClearGroup(UserMark::Type::COLORED);
-        editSession.SetIsVisible(UserMark::Type::COLORED, false);
+        editSession.ClearGroup(UserMark::Type::ROUTING);
+        editSession.SetIsVisible(UserMark::Type::ROUTING, false);
         m_drapeApi.Clear();
 
         // restore status bar
@@ -774,39 +769,39 @@ void TrafficModel::OnItemSelected(QItemSelection const & selected, QItemSelectio
   auto const row = selected.front().top();
 
   auto editSession = m_framework.GetBookmarkManager().GetEditSession();
-  editSession.ClearGroup(UserMark::Type::API);
+  editSession.ClearGroup(UserMark::Type::ROUTING);
   m_drapeApi.Clear();
 
   if (static_cast<size_t>(row) >= m_messages.size())
   {
-    editSession.SetIsVisible(UserMark::Type::API, false);
+    editSession.SetIsVisible(UserMark::Type::ROUTING, false);
     return;
   }
 
   auto message = &m_messages[row];
   if (!message->m_location)
   {
-    editSession.SetIsVisible(UserMark::Type::API, false);
+    editSession.SetIsVisible(UserMark::Type::ROUTING, false);
     return;
   }
 
   m2::RectD rect;
 
-  editSession.SetIsVisible(UserMark::Type::API, true);
+  editSession.SetIsVisible(UserMark::Type::ROUTING, true);
 
-  for (auto & [coords, style] : {
-       std::pair{message->m_location.value().m_from, kStyleFrom},
-       std::pair{message->m_location.value().m_at, kStyleAt},
-       std::pair{message->m_location.value().m_via, kStyleVia},
-       std::pair{message->m_location.value().m_notVia, kStyleNotVia},
-       std::pair{message->m_location.value().m_to, kStyleTo}
+  for (auto & [coords, role] : {
+       std::pair{message->m_location.value().m_from, LocationMarkPoint::Role::From},
+       std::pair{message->m_location.value().m_at, LocationMarkPoint::Role::At},
+       std::pair{message->m_location.value().m_via, LocationMarkPoint::Role::Via},
+       std::pair{message->m_location.value().m_notVia, LocationMarkPoint::Role::NotVia},
+       std::pair{message->m_location.value().m_to, LocationMarkPoint::Role::To}
        })
     if (coords)
     {
       auto point = mercator::FromLatLon(coords.value().m_coordinates);
       rect.Add(point);
-      auto mark = editSession.CreateUserMark<ApiMarkPoint>(point);
-      mark->SetStyle(style);
+      auto mark = editSession.CreateUserMark<LocationMarkPoint>(point);
+      mark->SetRole(role);
     }
 
   for (auto & [mwmId, coloring] : message->m_decoded) {

@@ -1,6 +1,8 @@
 project(traff_assessment_tool)
 
 set(SRC
+  location_mark_point.cpp
+  location_mark_point.hpp
   main.cpp
   mainwindow.cpp
   mainwindow.hpp
