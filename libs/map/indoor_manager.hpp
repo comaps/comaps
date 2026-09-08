@@ -26,24 +26,22 @@ class DrapeEngine;
 
 // Tracks the indoor complex under the viewport center.
 //
-// Every public method and all private methods run on the GUI thread. The one
-// exception is the scan body posted in RunScan, which runs on the File thread.
-// That body reads only m_generation and m_forEachFeature and then hands its
-// result back to the GUI thread through m_uiRunner. Drape is written to by value
-// via SetIndoor and never calls back in.
+// Every public method and all private methods run on the GUI thread (uiRunner)
+// except RunScan, which runs on the File thread (backgroundRunner).
+// We write to Drape by-value via SetIndoor, no further complexity there.
 class IndoorManager final
 {
 public:
   using ForEachFeatureFn =
       std::function<void(m2::RectD const &, std::function<void(FeatureType &)> const &, int scale)>;
   using TaskRunnerFn = std::function<void(std::function<void()> &&)>;
-  // Floors top first, and empty means no indoor data so the picker should hide.
+  // Holds a listener callback to get an updated list of floors. Empty means no indoor data and the level selector should hide.
   using LevelsChangedFn = std::function<void(std::vector<double> const & levels, double activeLevel)>;
 
   /// Scans for any indoor building complexes under the viewport center.
   /// @param forEachFeature callback to read features within a rect
-  /// @param backgroundRunner background scan task, only specified in tests
-  /// @param uiRunner UI result task, only specified in tests
+  /// @param backgroundRunner background scan task (only set inside tests)
+  /// @param uiRunner UI result task (only set inside tests)
   explicit IndoorManager(ForEachFeatureFn forEachFeature, TaskRunnerFn backgroundRunner = {},
                          TaskRunnerFn uiRunner = {});
 
@@ -54,12 +52,12 @@ public:
 
   void UpdateViewport(ScreenBase const & screen);
   void Invalidate();
-  // Drops any active complex and refuses to scan until unsuspended. The caller decides why.
+  // Set true to drop any active complex and refuses to scan until unsuspended.
   void SetSuspended(bool suspended);
 
   bool IsActive() const { return m_complex != nullptr; }
   std::vector<double> GetViewportLevels() const;
-  // Ignored unless the level is a floor of the active complex.
+  // Returns false when the level isn't a floor of the active complex.
   bool SelectLevel(double level);
 
   double GetActiveLevelValue() const { return m_activeLevel; }
@@ -82,7 +80,7 @@ private:
   std::optional<ScreenBase> m_currentModelView;
 
   std::atomic<uint64_t> m_generation{0};
-  // Scans run on a thread outliving this object, so they hold a handle instead of a raw this.
+  // Scans run on a thread outliving this object, so they hold a handle instead of "this."
   std::shared_ptr<IndoorManager *> m_alive;
   bool m_suspended = false;
   bool m_scanInFlight = false;
@@ -91,13 +89,5 @@ private:
   std::shared_ptr<indoor::Complex const> m_complex;
   double m_activeLevel = 0.0;
 
-  // A scan superseded by a later one before it finishes still gets a chance to run (only the
-  // instant a new one *starts* is skipped, see RunScan), but its result is discarded once done:
-  // by the time it lands, m_generation has moved on and applying it would show a building the
-  // viewport already left. Read the discarded result geometrically instead of throwing it away:
-  // keep it here regardless of generation, and let the next scan's own Contains/Reaches check
-  // (in ScanForActiveComplex) decide whether it's still relevant. That's what lets a rapid zoom
-  // gesture, which supersedes scans faster than any one of them can finish, keep hitting the
-  // "same complex" fast path instead of redoing the expensive building search on every frame.
   std::shared_ptr<indoor::Complex const> m_lastKnownComplex;
 };

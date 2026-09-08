@@ -19,7 +19,7 @@
 
 namespace
 {
-// The default runner for one of the platform threads. Tests supply their own instead.
+// The default runner for one of the platform threads. Tests supply their own.
 IndoorManager::TaskRunnerFn PlatformRunner(Platform::Thread thread)
 {
   return [thread](std::function<void()> && task) { GetPlatform().RunTask(thread, std::move(task)); };
@@ -48,7 +48,7 @@ IndoorManager::IndoorManager(ForEachFeatureFn forEachFeature, TaskRunnerFn backg
 
 IndoorManager::~IndoorManager()
 {
-  // Any scan still queued or in flight sees a null and returns without touching this object.
+  // Any scan still queued or in progress sees a null and returns
   *m_alive = nullptr;
 }
 
@@ -102,7 +102,7 @@ std::vector<double> IndoorManager::GetViewportLevels() const
     return result;
 
   result.reserve(m_complex->m_levels.size());
-  // Topmost floor first, the way a level selector reads.
+  // Topmost floor first, just like in the level selector
   for (auto it = m_complex->m_levels.rbegin(); it != m_complex->m_levels.rend(); ++it)
     result.push_back(*it);
   return result;
@@ -129,8 +129,7 @@ bool IndoorManager::SelectLevel(double level)
 
 void IndoorManager::ScheduleScan(m2::PointD const & center)
 {
-  // One scan at a time. During a gesture the newest center simply replaces the pending one;
-  // the scan already running isn't wasted even so, see m_lastKnownComplex.
+  // One scan at a time. If the user moves away the scan isn't wasted (see m_lastKnownComplex.)
   if (m_scanInFlight)
   {
     m_pendingScanCenter = center;
@@ -145,9 +144,7 @@ void IndoorManager::RunScan(m2::PointD const & center)
 {
   uint64_t const generation = ++m_generation;
 
-  // Snapshot for hysteresis, which the scan only reads. m_lastKnownComplex (not m_complex) so a
-  // fast gesture that supersedes scans across several generations still gets the cheap path; see
-  // its declaration in the header for why.
+  // Even if a scan gets superseded by a later one, we save it just in case the user is panning quickly (debounce/cache)
   auto const current = m_lastKnownComplex;
 
   auto scanStart = std::make_shared<base::Timer>();
@@ -157,8 +154,6 @@ void IndoorManager::RunScan(m2::PointD const & center)
     if (self == nullptr)
       return;
 
-    // Distinct from "complex has no value": that also happens when we skip scanning below
-    // because a newer viewport request already arrived, which says nothing about this center.
     bool const scanned = generation == self->m_generation;
 
     size_t featuresVisited = 0;
@@ -180,10 +175,10 @@ void IndoorManager::RunScan(m2::PointD const & center)
       complex = indoor::ScanForActiveComplex(center, source, current.get());
     }
 
-    LOG(LDEBUG, ("Scan took", scanStart->ElapsedSeconds() * 1000, "ms, visited", featuresVisited, "features, found",
+    LOG(LDEBUG, ("Indoor scan took", scanStart->ElapsedSeconds() * 1000, "ms, visited", featuresVisited, "features, found",
                 complex ? complex->m_triangles.size() : 0, "triangles"));
 
-    // Always posted, so the in-flight slot is released even when the result is stale.
+    // Always run, so stale results don't hang around
     self->m_uiRunner([alive, generation, scanned, complex = std::move(complex)]() mutable
     {
       auto * const me = *alive;
@@ -192,9 +187,7 @@ void IndoorManager::RunScan(m2::PointD const & center)
 
       me->m_scanInFlight = false;
 
-      // Record what we actually found regardless of generation, so the next scan can reuse it
-      // even though this one arrived too late to be shown. A skipped scan (scanned == false) has
-      // nothing new to say, so it leaves the previous hint alone rather than clearing it.
+      // Record what we actually found whether it got shown or not, so the next scan can reuse it
       if (scanned)
         me->m_lastKnownComplex = complex ? std::make_shared<indoor::Complex const>(*complex) : nullptr;
 
@@ -236,7 +229,7 @@ void IndoorManager::ApplyScanResult(std::optional<indoor::Complex> && complex)
   if (!sameComplex || std::find(levels.begin(), levels.end(), m_activeLevel) == levels.end())
     m_activeLevel = ClosestToGround(levels);
 
-  // The footprint too, not just the floors, since absorbing grows it without changing id or levels.
+  // The footprint too, not just the floors
   bool const sameShape =
       previousRect == m_complex->m_rect && previousTriangles == m_complex->m_triangles.size();
   if (sameComplex && sameShape && previousLevels == levels)
