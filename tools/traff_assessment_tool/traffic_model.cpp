@@ -630,7 +630,8 @@ TrafficModel::TrafficModel(Framework & framework,
         m_messages.reserve(messageCache.size());
 
         for (auto & entry : messageCache)
-          m_messages.push_back(std::move(entry.second));
+          if (!entry.second.m_cancellation)
+            m_messages.push_back(std::move(entry.second));
 
         std::sort(m_messages.begin(), m_messages.end(),
                   [](const TraffMessage& a, const TraffMessage& b) {
