@@ -13,7 +13,7 @@ on:
         default: true
         type: boolean
       run-planet-o5m:
-        description: 'Skip OSM planet update? (O5M format for mapgen and reviews)'
+        description: 'Update OSM planet? (O5M format for mapgen and reviews)'
         required: false
         default: true
         type: boolean
