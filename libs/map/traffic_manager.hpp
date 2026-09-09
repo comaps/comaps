@@ -309,6 +309,14 @@ public:
   void Clear();
 
   /**
+   * @brief Deletes the specified traffic message from the message cache.
+   *
+   * This is intended for testing purposes and deletes the specified traffic message from the
+   * message cache. The feed queue or subscriptions are not changed.
+   */
+  void DeleteMessage(const std::string & id);
+
+  /**
    * @brief Registers a callback function which gets called on traffic updates.
    *
    * Intended for testing.

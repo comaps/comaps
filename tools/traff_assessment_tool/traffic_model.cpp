@@ -15,6 +15,9 @@
 
 #include "traff_assessment_tool/location_mark_point.hpp"
 
+#include "traffxml/traff_model.hpp"
+#include "traffxml/traff_model_xml.hpp"
+
 #include <string>
 #include <variant>
 #include <vector>
@@ -760,6 +763,34 @@ QVariant TrafficModel::headerData(int section, Qt::Orientation orientation,
   case 1: return "Description"; break;
   }
   return QVariant();
+}
+
+void TrafficModel::DeleteRows(const QModelIndexList &rows)
+{
+  if (rows.isEmpty())
+    return;
+  ASSERT(rows.count() == 1, ());
+
+  m_framework.GetTrafficManager().DeleteMessage(m_messages[rows[0].row()].m_id);
+}
+
+void TrafficModel::SaveRows(const QModelIndexList &rows)
+{
+  if (rows.isEmpty())
+    return;
+  ASSERT(rows.count() == 1, ());
+
+  auto const & fileName = QFileDialog::getSaveFileName(m_trafficPanel, "Save sample");
+  if (fileName.isEmpty())
+    return;
+
+  pugi::xml_document document;
+
+  TraffFeed feed;
+  feed.push_back(m_messages[rows[0].row()]);
+
+  traffxml::GenerateTraff(feed, document);
+  document.save_file(fileName.toStdString().data(), "  " /* indent */);
 }
 
 void TrafficModel::OnItemSelected(QItemSelection const & selected, QItemSelection const &)

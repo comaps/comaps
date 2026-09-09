@@ -179,6 +179,15 @@ void TrafficManager::Clear()
   OnTrafficDataUpdate();
 }
 
+void TrafficManager::DeleteMessage(const std::string & id)
+{
+  {
+    std::lock_guard<std::mutex> lock(m_mutex);
+    m_messageCache.erase(id);
+  }
+  OnTrafficDataUpdate();
+}
+
 void TrafficManager::SetTrafficUpdateCallbackFn(TrafficUpdateCallbackFn && fn)
 {
   m_trafficUpdateCallbackFn = std::move(fn);

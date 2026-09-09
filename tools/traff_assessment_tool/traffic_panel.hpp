@@ -13,6 +13,8 @@ class QWidget;
 
 namespace traffxml
 {
+class TrafficModel;
+
 class ComboBoxDelegate : public QStyledItemDelegate
 {
   Q_OBJECT
@@ -37,12 +39,12 @@ class TrafficPanel : public QWidget
   Q_OBJECT
 
 public:
-  explicit TrafficPanel(QAbstractItemModel * trafficModel, QWidget * parent);
+  explicit TrafficPanel(TrafficModel * trafficModel, QWidget * parent);
   base::ResumableTimer & GetTimer() { return m_timer; }
   void SetStatus(bool inProgress, std::optional<size_t> messageCount = std::nullopt);
 
 private:
-  void CreateTable(QAbstractItemModel * trafficModel);
+  void CreateTable(TrafficModel * trafficModel);
   void FillTable();
 
 signals:

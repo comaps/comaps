@@ -1,5 +1,7 @@
 #include "traff_assessment_tool/traffic_panel.hpp"
 
+#include "traff_assessment_tool/traffic_model.hpp"
+
 #include <QtCore/QAbstractTableModel>
 #include <QtWidgets/QBoxLayout>
 #include <QtWidgets/QComboBox>
@@ -45,7 +47,7 @@ void ComboBoxDelegate::updateEditorGeometry(QWidget * editor, QStyleOptionViewIt
 }
 
 // TrafficPanel ------------------------------------------------------------------------------------
-TrafficPanel::TrafficPanel(QAbstractItemModel * trafficModel, QWidget * parent)
+TrafficPanel::TrafficPanel(TrafficModel * trafficModel, QWidget * parent)
   : QWidget(parent)
 {
   CreateTable(trafficModel);
@@ -83,10 +85,10 @@ void TrafficPanel::SetStatus(bool inProgress, std::optional<size_t> messageCount
   }
 }
 
-void TrafficPanel::CreateTable(QAbstractItemModel * trafficModel)
+void TrafficPanel::CreateTable(TrafficModel * trafficModel)
 {
   m_table = new QTableView();
-  m_table->setFocusPolicy(Qt::NoFocus);
+  m_table->setFocusPolicy(Qt::StrongFocus);
   m_table->setAlternatingRowColors(true);
   m_table->setShowGrid(false);
   m_table->setSelectionBehavior(QAbstractItemView::SelectionBehavior::SelectRows);
@@ -109,5 +111,28 @@ void TrafficPanel::CreateTable(QAbstractItemModel * trafficModel)
             m_table->resizeRowsToContents();
             //m_table->resizeColumnsToContents();
   });
+
+  auto *saveAction = new QAction(tr("Save message"), this);
+
+  connect(saveAction, &QAction::triggered,
+          this, [trafficModel, this]() {
+              trafficModel->SaveRows(m_table->selectionModel()->selectedRows());
+          });
+
+  auto *deleteAction = new QAction(tr("Delete message"), this);
+  deleteAction->setShortcut(QKeySequence(Qt::Key_Delete));
+  deleteAction->setShortcutContext(Qt::WidgetShortcut);
+
+  connect(deleteAction, &QAction::triggered,
+          this, [trafficModel, this]() {
+              trafficModel->DeleteRows(m_table->selectionModel()->selectedRows());
+          });
+
+  m_table->addAction(saveAction);
+  m_table->addAction(deleteAction);
+
+  m_table->setContextMenuPolicy(Qt::ActionsContextMenu);
+
+  m_table->setFocus();
 }
 }  // namespace traffxml

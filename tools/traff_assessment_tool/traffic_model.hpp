@@ -103,6 +103,8 @@ public:
   m2::PointD const & GetLastPoint() const;
   std::vector<m2::PointD> GetGoldenPathPoints() const;
 #endif
+  void DeleteRows(const QModelIndexList &rows);
+  void SaveRows(const QModelIndexList &rows);
 
 public slots:
   void OnItemSelected(QItemSelection const & selected, QItemSelection const &);
