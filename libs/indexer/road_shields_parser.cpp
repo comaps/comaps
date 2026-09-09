@@ -84,6 +84,10 @@ ankerl::unordered_dense::map<std::string, RoadShieldType> const kRoadNetworkShie
     {"lt:regional", RoadShieldType::Generic_Blue},
     {"lv:national", RoadShieldType::Generic_Red},
     {"lv:regional", RoadShieldType::Generic_Blue},
+    {"ma:a", RoadShieldType::Generic_Blue},
+    {"ma:rn", RoadShieldType::Generic_Red},
+    {"ma:rr", RoadShieldType::Generic_Orange},
+    {"ma:rp", RoadShieldType::Generic_White_Bordered},
     {"pl:national", RoadShieldType::Generic_Red},
     {"pl:regional", RoadShieldType::Generic_Orange_Bordered},
     {"pl:local", RoadShieldType::Generic_White_Bordered},
@@ -1148,6 +1152,35 @@ public:
   {}
 };
 
+class MoroccoRoadShieldParser : public RoadShieldParser
+{
+public:
+  explicit MoroccoRoadShieldParser(std::string const & baseRoadNumber) : RoadShieldParser(baseRoadNumber) {}
+
+  RoadShield ParseRoadShield(std::string_view rawText, uint8_t index) const override
+  {
+    if (rawText.size() > kMaxRoadShieldBytesSize)
+      return RoadShield();
+
+    if (rawText.starts_with("A"))
+      return RoadShield(RoadShieldType::Generic_Blue, rawText);
+
+    // Drop the leading "R" of "RN"/"RR"/"RP", keeping the class letter and the number.
+    if (rawText.size() >= 2 && rawText[0] == 'R')
+    {
+      auto const name = rawText.substr(1);
+      switch (rawText[1])
+      {
+      case 'N': return RoadShield(RoadShieldType::Generic_Red, name);
+      case 'R': return RoadShield(RoadShieldType::Generic_Orange, name);
+      case 'P': return RoadShield(RoadShieldType::Generic_White_Bordered, name);
+      }
+    }
+
+    return RoadShield(RoadShieldType::Default, rawText);
+  }
+};
+
 class MexicoRoadShieldParser : public RoadShieldParser
 {
 public:
@@ -1284,6 +1317,8 @@ RoadShieldsSetT GetRoadShields(std::string_view mwmName, std::string const & roa
     return MalaysiaRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Mexico")
     return MexicoRoadShieldParser(roadNumber).GetRoadShields();
+    if (mwmName == "Morocco")
+    return MoroccoRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Cyprus")
     return CyprusRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Kazakhstan")
