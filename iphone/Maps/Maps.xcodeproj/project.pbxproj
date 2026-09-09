@@ -355,9 +355,12 @@
 		676507601C10559800830BB3 /* patterns.txt in Resources */ = {isa = PBXBuildFile; fileRef = 451950391B7A3E070085DA05 /* patterns.txt */; };
 		676507611C10559B00830BB3 /* colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = 452FCA3A1B6A3DF7007019AB /* colors.txt */; };
 		6B9978361C89A316003B8AA0 /* editor.config in Resources */ = {isa = PBXBuildFile; fileRef = 6B9978341C89A316003B8AA0 /* editor.config */; };
+		842D026E3053D8F100090DA6 /* AccessibilityBridging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D026D3053D8F100090DA6 /* AccessibilityBridging.swift */; };
+		844E19323053435400A0F621 /* AccessibilityBridging.mm in Sources */ = {isa = PBXBuildFile; fileRef = 844E19313053435300A0F621 /* AccessibilityBridging.mm */; };
 		8481206E2FEF165300D4AC63 /* MWMRouteStepInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8481206D2FEF164D00D4AC63 /* MWMRouteStepInfo.mm */; };
 		848120712FEF1FA100D4AC63 /* DirectionsPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848120702FEF1F9400D4AC63 /* DirectionsPreviewViewController.swift */; };
 		848120732FEF20A100D4AC63 /* DirectionsStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848120722FEF209A00D4AC63 /* DirectionsStepCell.swift */; };
+		8481BD3F3051BF1900F5D6AA /* MWMAccessibilityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481BD3E3051BF1800F5D6AA /* MWMAccessibilityDelegate.swift */; };
 		84B90ADA301E37C900E648CB /* MWMShareActivityItemTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84B90AD9301E37BB00E648CB /* MWMShareActivityItemTests.mm */; };
 		8C4FB9C72BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4FB9C62BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift */; };
 		8CB13C3B2BF1276A004288F2 /* CarplayPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB13C3A2BF1276A004288F2 /* CarplayPlaceholderView.swift */; };
@@ -1258,11 +1261,15 @@
 		5605022E1B6211E100169CAD /* sound-strings */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "sound-strings"; path = "../../data/sound-strings"; sourceTree = "<group>"; };
 		6741AA5D1BF340DE002C974C /* CoMaps (Debug).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoMaps (Debug).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B9978341C89A316003B8AA0 /* editor.config */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = editor.config; path = ../../data/editor.config; sourceTree = "<group>"; };
+		842D026D3053D8F100090DA6 /* AccessibilityBridging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityBridging.swift; sourceTree = "<group>"; };
+		844E19303053435300A0F621 /* AccessibilityBridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessibilityBridging.h; sourceTree = "<group>"; };
+		844E19313053435300A0F621 /* AccessibilityBridging.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AccessibilityBridging.mm; sourceTree = "<group>"; };
 		8481206A2FEF15EB00D4AC63 /* MWMRouteStepInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWMRouteStepInfo.h; sourceTree = "<group>"; };
 		8481206D2FEF164D00D4AC63 /* MWMRouteStepInfo.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMRouteStepInfo.mm; sourceTree = "<group>"; };
 		848120702FEF1F9400D4AC63 /* DirectionsPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsPreviewViewController.swift; sourceTree = "<group>"; };
 		848120722FEF209A00D4AC63 /* DirectionsStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsStepCell.swift; sourceTree = "<group>"; };
 		848120742FEF3FF400D4AC63 /* MWMRouteStepInfo+CPP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MWMRouteStepInfo+CPP.h"; sourceTree = "<group>"; };
+		8481BD3E3051BF1800F5D6AA /* MWMAccessibilityDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWMAccessibilityDelegate.swift; sourceTree = "<group>"; };
 		84B90AD9301E37BB00E648CB /* MWMShareActivityItemTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMShareActivityItemTests.mm; sourceTree = "<group>"; };
 		8C4FB9C62BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlayWindowScaleAdjuster.swift; sourceTree = "<group>"; };
 		8CB13C3A2BF1276A004288F2 /* CarplayPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarplayPlaceholderView.swift; sourceTree = "<group>"; };
@@ -1896,6 +1903,7 @@
 				F64F195F1AB8125C006EAF7E /* CustomAlert */,
 				458287C21AD3BE2000BA8940 /* DownloadIndicatorProtocol.h */,
 				46F26CD610F623BA00ECCA39 /* EAGLView.h */,
+				8481BD3E3051BF1800F5D6AA /* MWMAccessibilityDelegate.swift */,
 				46F26CD710F623BA00ECCA39 /* EAGLView.mm */,
 				340475791E081B3300C92850 /* iosOGLContext.h */,
 				3404757A1E081B3300C92850 /* iosOGLContext.mm */,
@@ -1961,6 +1969,9 @@
 				27362B962F4240B500BCB1FB /* MapControls.h */,
 				27362B972F4240B500BCB1FB /* MapControls.mm */,
 				27362B982F4240B500BCB1FB /* MapControls.swift */,
+				844E19303053435300A0F621 /* AccessibilityBridging.h */,
+				842D026D3053D8F100090DA6 /* AccessibilityBridging.swift */,
+				844E19313053435300A0F621 /* AccessibilityBridging.mm */,
 				272F1F452E0EEF8B00FA52EF /* SafariView.swift */,
 				27697F822E254A9900FBD913 /* EmbeddedSafariView.swift */,
 				27697F842E255B6300FBD913 /* EmbeddedSafariViewCoordinator.swift */,
@@ -4612,13 +4623,13 @@
 				3454D7E01E07F045004AF2AD /* UITextField+RuntimeAttributes.m in Sources */,
 				4761BE2A252D3DB900EE2DE4 /* SubgroupCell.swift in Sources */,
 				1DFA2F6A20D3B57400FB2C66 /* UIColor+PartnerColor.m in Sources */,
-				9989273B2449E60200260CE2 /* BottomMenuBuilder.swift in Sources */,
 				848120732FEF20A100D4AC63 /* DirectionsStepCell.swift in Sources */,
 				993DF10F23F6BDB100AC231A /* UIActivityIndicatorRenderer.swift in Sources */,
 				ED9DDF882D6F151000645BC8 /* PlacePageTrackRecordingLayout.swift in Sources */,
 				ED0B1FEF2CAA9A25006E31A4 /* UIView+Highlight.swift in Sources */,
 				99A614E423CDD1D900D8D8D0 /* UIButton+RuntimeAttributes.m in Sources */,
 				343E75981E5B1EE20041226A /* MWMCollectionViewController.m in Sources */,
+				842D026E3053D8F100090DA6 /* AccessibilityBridging.swift in Sources */,
 				34E776141F14B17F003040B3 /* AvailableArea.swift in Sources */,
 				34AB66081FC5AA320078E451 /* MWMNavigationDashboardManager.mm in Sources */,
 				3404F490202898CC0090E401 /* BMCModels.swift in Sources */,
@@ -4824,6 +4835,7 @@
 				34AB66441FC5AA330078E451 /* RouteManagerViewModelProtocol.swift in Sources */,
 				ED2D74652D14357F00660FBF /* TrackRecordingLiveActivityAttributes.swift in Sources */,
 				4701A93D243A917900B87683 /* TouchTransparentView.swift in Sources */,
+				8481BD3F3051BF1900F5D6AA /* MWMAccessibilityDelegate.swift in Sources */,
 				991FCA2423B11E61009AD684 /* BookmarksStyleSheet.swift in Sources */,
 				993DF12823F6BDB100AC231A /* IStyleSheet.swift in Sources */,
 				6741AA1C1BF340DE002C974C /* MWMRoutingDisclaimerAlert.m in Sources */,
@@ -4873,6 +4885,7 @@
 				6741AA281BF340DE002C974C /* MWMAlert.mm in Sources */,
 				993DF11323F6BDB100AC231A /* UITableViewRenderer.swift in Sources */,
 				34AB66261FC5AA330078E451 /* RouteManagerDimView.swift in Sources */,
+				844E19323053435400A0F621 /* AccessibilityBridging.mm in Sources */,
 				6741AA2B1BF340DE002C974C /* CircleView.m in Sources */,
 				4788739220EE326500F6826B /* VerticallyAlignedButton.swift in Sources */,
 				3444DFDE1F18A5AF00E73099 /* SideButtonsArea.swift in Sources */,

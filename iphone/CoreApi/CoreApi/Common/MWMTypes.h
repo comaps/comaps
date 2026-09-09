@@ -60,4 +60,6 @@ typedef NS_ENUM(NSInteger, MWMBookmarkGroupType) {
   MWMBookmarkGroupTypeDay
 } NS_SWIFT_NAME(BookmarkGroupType);
 
+typedef int32_t MWMAccessibilityStableID;
+
 NS_ASSUME_NONNULL_END

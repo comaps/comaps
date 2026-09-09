@@ -1,4 +1,5 @@
 @class MWMMapWidgets;
+@class MWMAccessibilityDelegate;
 
 // This class wraps the CAEAGLLayer from CoreAnimation into a convenient UIView subclass.
 // The view content is basically an EAGL surface you render your OpenGL scene into.
@@ -7,6 +8,7 @@
 
 
 @property(nonatomic) MWMMapWidgets * widgetsManager;
+@property(nonatomic) MWMAccessibilityDelegate * accessibilityDelegate;
 
 @property(nonatomic, readonly) BOOL drapeEngineCreated;
 @property(nonatomic, readonly) CGSize pixelSize;

@@ -77,3 +77,5 @@
 #import "MWMSearchSuggestionCell.h"
 #import "MWMSearch.h"
 #import "SearchResult.h"
+#import "AccessibilityBridging.h"
+

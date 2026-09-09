@@ -220,6 +220,13 @@ double getExactDPI(double contentScaleFactor)
   return _widgetsManager;
 }
 
+- (MWMAccessibilityDelegate *)accessibilityDelegate
+{
+  if (!_accessibilityDelegate)
+    _accessibilityDelegate = [[MWMAccessibilityDelegate alloc] initWithContainer:self];
+  return _accessibilityDelegate;
+}
+
 - (void)updateVisualScaleTo:(CGFloat)visualScale
 {
   LOG(LINFO, ("The visual scale is being updated to:", visualScale));
@@ -233,6 +240,38 @@ double getExactDPI(double contentScaleFactor)
   LOG(LINFO, ("The visual scale is being updated to the main scale:", visualScale));
   GetFramework().UpdateVisualScale(visualScale);
   [_widgetsManager updateLayout];
+}
+
+#pragma mark - UIAccessibilityContainer
+
+- (NSArray *)accessibilityElements
+{
+    if ( self.accessibilityDelegate )
+    {
+        return self.accessibilityDelegate.mwmAccessibilityElements;
+    }
+
+    return @[];
+}
+
+- (BOOL)isAccessibilityElement
+{
+    return NO;
+}
+
+- (id)accessibilityElementAtIndex:(NSInteger)index
+{
+    return [self.accessibilityElements objectAtIndex:index];
+}
+
+- (NSInteger)accessibilityElementCount
+{
+    return self.accessibilityElements.count;
+}
+
+- (NSInteger)indexOfAccessibilityElement:(id)element
+{
+    return [self.accessibilityElements indexOfObject:element];
 }
 
 @end
