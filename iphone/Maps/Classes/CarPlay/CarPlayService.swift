@@ -79,6 +79,8 @@ final class CarPlayService: NSObject {
   private var pendingDashboardNavigationTrip: CPTrip?
 
   @objc func setup(window: CPWindow, interfaceController: CPInterfaceController) {
+    diagnosticConnectionGeneration += 1
+    diagnosticActivation += 1
     LOG(.info, "Settting up service...")
     pendingTeardown?.cancel()
     pendingTeardown = nil
@@ -206,7 +208,9 @@ final class CarPlayService: NSObject {
   }
 
   func appSceneDidDisconnect() {
+    diagnosticActivation += 1
     logStateSnapshot("appSceneDidDisconnect")
+    diagnosticAppScene = nil
     interfaceController?.delegate = nil
     interfaceController = nil
     sessionConfiguration = nil
@@ -231,6 +235,7 @@ final class CarPlayService: NSObject {
   }
 
   @objc func destroy() {
+    diagnosticActivation += 1
     logStateSnapshot("destroy()")
     pendingTeardown?.cancel()
     pendingTeardown = nil
@@ -267,6 +272,54 @@ final class CarPlayService: NSObject {
 
   // MARK: - Diagnostics
 
+  private var diagnosticConnectionGeneration = 0
+  private var diagnosticRootRequest = 0
+  private var diagnosticActivation = 0
+  weak var diagnosticAppScene: CPTemplateApplicationScene?
+
+  static func diagnosticIdentity(_ object: AnyObject?) -> String {
+    guard let object else { return "nil" }
+    return "\(type(of: object))@\(ObjectIdentifier(object))"
+  }
+
+  private static func diagnosticTemplate(_ template: CPTemplate?) -> String {
+    let identity = diagnosticIdentity(template)
+    guard let map = template as? CPMapTemplate else { return identity }
+    let type = (map.userInfo as? MapInfo)?.type ?? "?"
+    return "\(identity){type=\(type) mapButtons=\(map.mapButtons.count) leading=\(map.leadingNavigationBarButtons.count) trailing=\(map.trailingNavigationBarButtons.count)}"
+  }
+
+  var diagnosticConnectionContext: String {
+    "connection=\(diagnosticConnectionGeneration) controller=\(Self.diagnosticIdentity(interfaceController))"
+  }
+
+  func logSceneEvent(_ event: String, scene: UIScene, controller: AnyObject? = nil, window: UIWindow? = nil) {
+    let matchesController = (controller as? CPInterfaceController).map { $0 === interfaceController }
+    LOG(.info, "[CarPlayDiag] scene \(event): id=\(scene.session.persistentIdentifier) scene=\(Self.diagnosticIdentity(scene)) role=\(scene.session.role.rawValue) state=\(scene.activationState.rawValue) callbackController=\(Self.diagnosticIdentity(controller)) callbackWindow=\(Self.diagnosticIdentity(window)) matchesCurrentController=\(String(describing: matchesController)) \(diagnosticConnectionContext)")
+    logStateSnapshot("scene \(event)")
+  }
+
+  func scheduleDiagnosticSnapshots(for scene: UIScene) {
+    diagnosticActivation += 1
+    let activation = diagnosticActivation
+    let connection = diagnosticConnectionGeneration
+    for delay in [0.3, 1.0, 3.0] {
+      DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self, weak scene] in
+        guard let self, let scene,
+              self.diagnosticActivation == activation,
+              self.diagnosticConnectionGeneration == connection,
+              scene.activationState == .foregroundActive,
+              self.diagnosticAppScene === scene,
+              self.interfaceController != nil else { return }
+        self.logStateSnapshot("activation=\(activation) checkpoint=\(delay)s")
+      }
+    }
+  }
+
+  private func logTemplateEvent(_ event: String, template: CPTemplate, animated: Bool) {
+    logStateSnapshot("\(event) callbackTemplate=\(Self.diagnosticTemplate(template)) isRoot=\(template === interfaceController?.rootTemplate) animated=\(animated)")
+  }
+
   func logStateSnapshot(_ reason: String) {
     var template = "root=nil"
     if let root = rootMapTemplate {
@@ -277,26 +330,49 @@ final class CarPlayService: NSObject {
     if let mapVC = MapViewController.shared(), mapVC.isViewLoaded {
       let superview = mapVC.mapView.superview.map { String(describing: type(of: $0)) } ?? "nil"
       let window = mapVC.mapView.window.map { String(describing: type(of: $0)) } ?? "nil"
-      hosting = "mapHost=\(mapHost) superview=\(superview) window=\(window)"
+      hosting = "mapHost=\(mapHost) superview=\(superview) window=\(window) mapViewID=\(Self.diagnosticIdentity(mapVC.mapView)) superviewID=\(Self.diagnosticIdentity(mapVC.mapView.superview)) attachedWindow=\(Self.diagnosticIdentity(mapVC.mapView.window))"
     }
     let service = "activated=\(isCarplayActivated) controller=\(interfaceController != nil) trip=\(router?.currentTrip != nil) dashActive=\(isDashboardActive)"
     let scenes = UIApplication.shared.connectedScenes
-      .map { "\(Self.shortSceneRole($0.session.role)):\($0.activationState.rawValue)" }
+      .map { "\(Self.shortSceneRole($0.session.role)):\($0.activationState.rawValue):\($0.session.persistentIdentifier)" }
       .sorted()
       .joined(separator: " ")
-    LOG(.info, "[CarPlayDiag] \(reason): \(template) | \(hosting) | \(service) | appState=\(UIApplication.shared.applicationState.rawValue) scenes=[\(scenes)]")
+    let presentation = [
+      diagnosticConnectionContext,
+      "request=\(diagnosticRootRequest)",
+      "delegate=\(Self.diagnosticIdentity(interfaceController?.delegate))",
+      "root=\(Self.diagnosticTemplate(interfaceController?.rootTemplate))",
+      "top=\(Self.diagnosticTemplate(interfaceController?.topTemplate))",
+      "modal=\(Self.diagnosticTemplate(interfaceController?.presentedTemplate))",
+      "carWindow=\(Self.diagnosticIdentity(window))",
+      "carScene=\(diagnosticAppScene?.session.persistentIdentifier ?? "nil")",
+      "rootVC=\(Self.diagnosticIdentity(window?.rootViewController))",
+      "dashWindow=\(Self.diagnosticIdentity(dashboardWindow))",
+      "navigation=\(router?.diagnosticNavigationContext ?? "nil")"
+    ].joined(separator: " ")
+    LOG(.info, "[CarPlayDiag] \(reason): \(template) | \(hosting) | \(service) | appState=\(UIApplication.shared.applicationState.rawValue) scenes=[\(scenes)] | \(presentation)")
   }
 
   private static func shortSceneRole(_ role: UISceneSession.Role) -> String {
     if role.rawValue.contains("Dashboard") { return "dash" }
-    if role.rawValue.hasPrefix("CP") { return "car" }
+    if role.rawValue.hasPrefix("CP") { return "full" }
     return "phone"
   }
 
-  private func setRootTemplate(_ template: CPMapTemplate) {
+  private func setRootTemplate(_ template: CPMapTemplate, reason: String) {
     rootTemplateDidAppear = false
-    interfaceController?.setRootTemplate(template, animated: false) { success, error in
-      self.logStateSnapshot("setRootTemplate completion success=\(success) error=\(String(describing: error))")
+    diagnosticRootRequest += 1
+    let request = diagnosticRootRequest
+    let connection = diagnosticConnectionGeneration
+    let controller = interfaceController
+    let requestedController = Self.diagnosticIdentity(controller)
+    let requestedTemplate = Self.diagnosticTemplate(template)
+    let started = ProcessInfo.processInfo.systemUptime
+    logStateSnapshot("setRootTemplate begin request=\(request) reason=\(reason) requestedTemplate=\(requestedTemplate)")
+    controller?.setRootTemplate(template, animated: false) { [weak controller] success, error in
+      let elapsed = ProcessInfo.processInfo.systemUptime - started
+      let currentConnection = connection == self.diagnosticConnectionGeneration && controller != nil && controller === self.interfaceController
+      self.logStateSnapshot("setRootTemplate completion request=\(request) connection=\(connection) requestedController=\(requestedController) requestedTemplate=\(requestedTemplate) reason=\(reason) elapsed=\(elapsed)s currentConnection=\(currentConnection) latestRequest=\(request == self.diagnosticRootRequest) success=\(success) error=\(String(describing: error))")
     }
   }
 
@@ -621,22 +697,22 @@ final class CarPlayService: NSObject {
     updateMapHost()
   }
 
-  private func applyBaseRootTemplate() {
+  private func applyBaseRootTemplate(reason: String = #function) {
     let mapTemplate = MapTemplateBuilder.buildBaseTemplate(positionMode: currentPositionMode)
     mapTemplate.mapDelegate = self
     mapTemplate.tripEstimateStyle = rootTemplateStyle
-    setRootTemplate(mapTemplate)
+    setRootTemplate(mapTemplate, reason: reason)
     needsBaseMapNorthUp = true
     if let mapView = MapViewController.shared()?.mapView {
       mapViewportDidBecomeReady(mapView)
     }
   }
 
-  private func applyNavigationRootTemplate(trip: CPTrip, routeInfo: RouteInfo) {
+  private func applyNavigationRootTemplate(trip: CPTrip, routeInfo: RouteInfo, reason: String = #function) {
     let mapTemplate = MapTemplateBuilder.buildNavigationTemplate()
     needsBaseMapNorthUp = false
     mapTemplate.mapDelegate = self
-    setRootTemplate(mapTemplate)
+    setRootTemplate(mapTemplate, reason: reason)
     router?.startNavigationSession(forTrip: trip, template: mapTemplate)
     if let estimates = createEstimates(routeInfo: routeInfo) {
       mapTemplate.tripEstimateStyle = rootTemplateStyle
@@ -794,6 +870,7 @@ final class CarPlayService: NSObject {
 // MARK: - CPInterfaceControllerDelegate implementation
 extension CarPlayService: CPInterfaceControllerDelegate {
   func templateWillAppear(_ aTemplate: CPTemplate, animated: Bool) {
+    logTemplateEvent("templateWillAppear", template: aTemplate, animated: animated)
     guard let info = aTemplate.userInfo as? MapInfo else {
         return
     }
@@ -815,6 +892,7 @@ extension CarPlayService: CPInterfaceControllerDelegate {
   }
 
   func templateDidAppear(_ aTemplate: CPTemplate, animated: Bool) {
+    logTemplateEvent("templateDidAppear", template: aTemplate, animated: animated)
     guard let mapTemplate = aTemplate as? CPMapTemplate,
       let info = aTemplate.userInfo as? MapInfo else {
         return
@@ -843,6 +921,7 @@ extension CarPlayService: CPInterfaceControllerDelegate {
   }
 
   func templateWillDisappear(_ aTemplate: CPTemplate, animated: Bool) {
+    logTemplateEvent("templateWillDisappear", template: aTemplate, animated: animated)
     guard let info = aTemplate.userInfo as? MapInfo else {
         return
     }
@@ -852,6 +931,7 @@ extension CarPlayService: CPInterfaceControllerDelegate {
   }
 
   func templateDidDisappear(_ aTemplate: CPTemplate, animated: Bool) {
+    logTemplateEvent("templateDidDisappear", template: aTemplate, animated: animated)
     guard !preparedToPreviewTrips.isEmpty,
       let info = aTemplate.userInfo as? [String: String],
       let alertType = info[CPConstants.TemplateKey.alert],

@@ -114,6 +114,10 @@ final class CarPlayRouter: NSObject {
   private let listenerContainer: ListenerContainer<CarPlayRouterListener>
   private let displayScale: CGFloat
   private var routeSession: CPNavigationSession?
+  private var diagnosticNavigationOrigin = "none"
+  var diagnosticNavigationContext: String {
+    "session=\(CarPlayService.diagnosticIdentity(routeSession)) origin={\(diagnosticNavigationOrigin)}"
+  }
   private var initialSpeedCamSettings: SpeedCameraManagerMode
   /// Typed `AnyObject?` until we target iOS 18
   private var activeLaneGuidance: AnyObject?
@@ -313,8 +317,10 @@ extension CarPlayRouter {
       Toast.show(withText: errorMessage, alignment: .top)
       return
     }
-    LOG(.info, "Starting a new navigation session")
+    diagnosticNavigationOrigin = "\(CarPlayService.shared.diagnosticConnectionContext) template=\(CarPlayService.diagnosticIdentity(template))"
+    LOG(.info, "[CarPlayDiag] navigation start \(diagnosticNavigationContext)")
     routeSession = template.startNavigationSession(for: trip)
+    LOG(.info, "[CarPlayDiag] navigation started \(diagnosticNavigationContext)")
     routeSession?.pauseTrip(for: .loading, description: nil)
     updateUpcomingManeuvers()
     RoutingManager.routingManager.setOnNewTurnCallback { [weak self] in
@@ -323,9 +329,10 @@ extension CarPlayRouter {
   }
 
   func cancelNavigationSession() {
-    LOG(.info, "Cancelling navigation session")
+    LOG(.info, "[CarPlayDiag] navigation cancel \(diagnosticNavigationContext)")
     routeSession?.cancelTrip()
     routeSession = nil
+    diagnosticNavigationOrigin = "none"
     activeLaneGuidance = nil
     RoutingManager.routingManager.resetOnNewTurnCallback()
   }
@@ -337,9 +344,10 @@ extension CarPlayRouter {
   }
 
   func finishTrip() {
-    LOG(.info, "Finishing trip")
+    LOG(.info, "[CarPlayDiag] navigation finish \(diagnosticNavigationContext)")
     routeSession?.finishTrip()
     routeSession = nil
+    diagnosticNavigationOrigin = "none"
     activeLaneGuidance = nil
     completeRouteAndRemovePoints()
     RoutingManager.routingManager.resetOnNewTurnCallback()
