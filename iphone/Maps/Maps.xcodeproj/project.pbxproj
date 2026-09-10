@@ -463,6 +463,7 @@
 		BB8123D62130427E00ADE512 /* MetalContextFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = BB8123D52130427E00ADE512 /* MetalContextFactory.mm */; };
 		CD4A1F132305872700F2A6B6 /* PromoBookingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4A1F122305872700F2A6B6 /* PromoBookingPresentationController.swift */; };
 		CD6E8677226774C700D1EDF7 /* CPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6E8676226774C700D1EDF7 /* CPConstants.swift */; };
+		A965F422302047C1A90AE921 /* CarPlayLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A965F421302047C1A90AE921 /* CarPlayLogging.swift */; };
 		CD9AD967228067F500EC174A /* MapInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AD966228067F500EC174A /* MapInfo.swift */; };
 		CD9AD96C2281B56900EC174A /* CPViewPortState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AD96B2281B56900EC174A /* CPViewPortState.swift */; };
 		CD9AD96F2281DF3600EC174A /* CategoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AD96E2281DF3500EC174A /* CategoryInfo.swift */; };
@@ -1421,6 +1422,7 @@
 		BB8123D52130427E00ADE512 /* MetalContextFactory.mm */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.cpp.objcpp; path = MetalContextFactory.mm; sourceTree = "<group>"; tabWidth = 2; };
 		CD4A1F122305872700F2A6B6 /* PromoBookingPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoBookingPresentationController.swift; sourceTree = "<group>"; };
 		CD6E8676226774C700D1EDF7 /* CPConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPConstants.swift; sourceTree = "<group>"; };
+		A965F421302047C1A90AE921 /* CarPlayLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlayLogging.swift; sourceTree = "<group>"; };
 		CD9AD966228067F500EC174A /* MapInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInfo.swift; sourceTree = "<group>"; };
 		CD9AD96B2281B56900EC174A /* CPViewPortState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPViewPortState.swift; sourceTree = "<group>"; };
 		CD9AD96E2281DF3500EC174A /* CategoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInfo.swift; sourceTree = "<group>"; };
@@ -3199,6 +3201,7 @@
 			children = (
 				CD9AD96B2281B56900EC174A /* CPViewPortState.swift */,
 				CD6E8676226774C700D1EDF7 /* CPConstants.swift */,
+				A965F421302047C1A90AE921 /* CarPlayLogging.swift */,
 				CDB4D4FA2231412900104869 /* Template Builders */,
 				CDB4D4F72231412900104869 /* Templates Data */,
 				CDB4D4E3222E8FF600104869 /* CarPlayService.swift */,
@@ -4550,6 +4553,7 @@
 				993DF0B523F6B2EF00AC231A /* PlacePageTrackLayout.swift in Sources */,
 				44360A0D2A7D34990016F412 /* TransportRuler.swift in Sources */,
 				CD6E8677226774C700D1EDF7 /* CPConstants.swift in Sources */,
+				A965F422302047C1A90AE921 /* CarPlayLogging.swift in Sources */,
 				99A906DE23F6F7030005872B /* PlacePageEditBookmarkOrTrackViewController.swift in Sources */,
 				F6791B141C43DF0B007A8A6E /* MWMStartButton.m in Sources */,
 				471527372491C20500E91BBA /* SelectBookmarkGroupViewController.swift in Sources */,

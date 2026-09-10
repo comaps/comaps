@@ -8,12 +8,14 @@
 #import <CoreSpotlight/CoreSpotlight.h>
 
 #include "base/assert.hpp"
+#include "base/logging.hpp"
 
 @implementation SceneDelegate
 
 - (void)scene:(UIScene *)scene
   willConnectToSession:(UISceneSession *)session
                options:(UISceneConnectionOptions *)connectionOptions {
+  [[MWMCarPlayService shared] logSceneEvent:@"willConnectToSession" scene:scene controller:nil window:self.window];
   MapsAppDelegate.theApp.activeSceneDelegate = self;
 
   self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
@@ -25,6 +27,7 @@
     NSURL *launchURL = context.URL;
     if (!launchURL)
       continue;
+    LOG(LINFO, ("URL received delivery=", launchURL.isFileURL ? "immediate" : "deferred", launchURL));
     if (launchURL.isFileURL)
       [DeepLinkHandler.shared applicationDidOpenUrl:launchURL];
     else
@@ -42,13 +45,30 @@
 }
 
 - (void)sceneDidDisconnect:(UIScene *)scene {
+  [[MWMCarPlayService shared] logSceneEvent:@"sceneDidDisconnect" scene:scene controller:nil window:self.window];
   if (MapsAppDelegate.theApp.activeSceneDelegate == self)
     MapsAppDelegate.theApp.activeSceneDelegate = nil;
 }
 
+- (void)sceneWillEnterForeground:(UIScene *)scene {
+  [[MWMCarPlayService shared] logSceneEvent:@"sceneWillEnterForeground" scene:scene controller:nil window:self.window];
+}
+
+- (void)sceneDidBecomeActive:(UIScene *)scene {
+  [[MWMCarPlayService shared] logSceneEvent:@"sceneDidBecomeActive" scene:scene controller:nil window:self.window];
+}
+
+- (void)sceneWillResignActive:(UIScene *)scene {
+  [[MWMCarPlayService shared] logSceneEvent:@"sceneWillResignActive" scene:scene controller:nil window:self.window];
+}
+
+- (void)sceneDidEnterBackground:(UIScene *)scene {
+  [[MWMCarPlayService shared] logSceneEvent:@"sceneDidEnterBackground" scene:scene controller:nil window:self.window];
+}
+
 - (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
   for (UIOpenURLContext *context in URLContexts) {
-    NSLog(@"scene:openURLContexts: %@", context.URL);
+    LOG(LINFO, ("URL received delivery=immediate", context.URL));
     [DeepLinkHandler.shared applicationDidOpenUrl:context.URL];
   }
 }
@@ -75,7 +95,7 @@
       [MapsAppDelegate.theApp searchText:searchString];
   } else if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb] &&
              userActivity.webpageURL != nil) {
-    LOG(LINFO, ("scene continueUserActivity: %@", userActivity.webpageURL));
+    LOG(LINFO, ("universalLink received delivery=", deferUniversalLinkHandling ? "deferred" : "immediate", userActivity.webpageURL));
     if (deferUniversalLinkHandling)
       [DeepLinkHandler.shared applicationDidFinishLaunchingWithUniversalLink:userActivity.webpageURL];
     else

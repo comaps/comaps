@@ -114,6 +114,10 @@ final class CarPlayRouter: NSObject {
   private let listenerContainer: ListenerContainer<CarPlayRouterListener>
   private let displayScale: CGFloat
   private var routeSession: CPNavigationSession?
+  private var diagnosticNavigationOrigin = "none"
+  var diagnosticNavigationContext: String {
+    "session=\(CarPlayLogging.diagnosticIdentity(routeSession)) origin={\(diagnosticNavigationOrigin)}"
+  }
   private var initialSpeedCamSettings: SpeedCameraManagerMode
   /// Typed `AnyObject?` until we target iOS 18
   private var activeLaneGuidance: AnyObject?
@@ -309,12 +313,14 @@ extension CarPlayRouter {
   func startNavigationSession(forTrip trip: CPTrip, template: CPMapTemplate) {
     guard routeSession == nil else {
       let errorMessage = "Route session is already running."
-      LOG(.error, errorMessage)
+      LOG(.error, "\(CarPlayLogging.carPlay) \(errorMessage)")
       Toast.show(withText: errorMessage, alignment: .top)
       return
     }
-    LOG(.info, "Starting a new navigation session")
+    diagnosticNavigationOrigin = "\(CarPlayService.shared.diagnosticConnectionContext) template=\(CarPlayLogging.diagnosticIdentity(template))"
+    LOG(.info, "\(CarPlayLogging.carPlay) navigationSession begin \(diagnosticNavigationContext)")
     routeSession = template.startNavigationSession(for: trip)
+    LOG(.info, "\(CarPlayLogging.carPlay) navigationSession completed \(diagnosticNavigationContext)")
     routeSession?.pauseTrip(for: .loading, description: nil)
     updateUpcomingManeuvers()
     RoutingManager.routingManager.setOnNewTurnCallback { [weak self] in
@@ -323,23 +329,28 @@ extension CarPlayRouter {
   }
 
   func cancelNavigationSession() {
-    LOG(.info, "Cancelling navigation session")
+    LOG(.info, "\(CarPlayLogging.carPlay) navigationSession cancel begin \(diagnosticNavigationContext)")
     routeSession?.cancelTrip()
     routeSession = nil
+    LOG(.info, "\(CarPlayLogging.carPlay) navigationSession cancelled session=nil origin={\(diagnosticNavigationOrigin)}")
+    diagnosticNavigationOrigin = "none"
     activeLaneGuidance = nil
     RoutingManager.routingManager.resetOnNewTurnCallback()
   }
 
   func cancelTrip() {
-    LOG(.info, "Cancelling trip")
+    LOG(.info, "\(CarPlayLogging.carPlay) cancelTrip begin")
     cancelNavigationSession()
     completeRouteAndRemovePoints()
+    LOG(.info, "\(CarPlayLogging.carPlay) cancelTrip completed")
   }
 
   func finishTrip() {
-    LOG(.info, "Finishing trip")
+    LOG(.info, "\(CarPlayLogging.carPlay) navigationSession finish begin \(diagnosticNavigationContext)")
     routeSession?.finishTrip()
     routeSession = nil
+    LOG(.info, "\(CarPlayLogging.carPlay) navigationSession finish completed session=nil origin={\(diagnosticNavigationOrigin)}")
+    diagnosticNavigationOrigin = "none"
     activeLaneGuidance = nil
     completeRouteAndRemovePoints()
     RoutingManager.routingManager.resetOnNewTurnCallback()

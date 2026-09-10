@@ -11,7 +11,7 @@ final class CarPlayDashboardSceneDelegate: UIResponder, CPTemplateApplicationDas
     didConnect dashboardController: CPDashboardController,
     to window: UIWindow
   ) {
-    LOG(.info, "CarPlayDashboardSceneDelegate: didConnect")
+    CarPlayService.shared.logSceneEvent("didConnect", scene: dashboardScene, controller: dashboardController, window: window)
     CarPlayService.shared.dashboardConnected(window: window)
     self.dashboardController = dashboardController
     refreshDashboardButtons()
@@ -30,7 +30,7 @@ final class CarPlayDashboardSceneDelegate: UIResponder, CPTemplateApplicationDas
     didDisconnect dashboardController: CPDashboardController,
     from window: UIWindow
   ) {
-    LOG(.info, "CarPlayDashboardSceneDelegate: didDisconnect")
+    CarPlayService.shared.logSceneEvent("didDisconnect", scene: dashboardScene, controller: dashboardController, window: window)
     if isObservingBookmarks {
       BookmarksManager.shared().remove(self)
       isObservingBookmarks = false
@@ -41,13 +41,25 @@ final class CarPlayDashboardSceneDelegate: UIResponder, CPTemplateApplicationDas
   }
 
   func sceneDidBecomeActive(_ scene: UIScene) {
-    LOG(.info, "[CarPlayHost] dashboard scene sceneDidBecomeActive (state=\(scene.activationState.rawValue))")
+    CarPlayService.shared.logSceneEvent("sceneDidBecomeActive", scene: scene)
     CarPlayService.shared.dashboardDidBecomeActive()
   }
 
   func sceneWillResignActive(_ scene: UIScene) {
-    LOG(.info, "[CarPlayHost] dashboard scene sceneWillResignActive")
+    CarPlayService.shared.logSceneEvent("sceneWillResignActive", scene: scene)
     CarPlayService.shared.dashboardDidResignActive()
+  }
+
+  func sceneWillEnterForeground(_ scene: UIScene) {
+    CarPlayService.shared.logSceneEvent("sceneWillEnterForeground", scene: scene)
+  }
+
+  func sceneDidEnterBackground(_ scene: UIScene) {
+    CarPlayService.shared.logSceneEvent("sceneDidEnterBackground", scene: scene)
+  }
+
+  func sceneDidDisconnect(_ scene: UIScene) {
+    CarPlayService.shared.logSceneEvent("sceneDidDisconnect", scene: scene)
   }
 
   // MARK: - Private
@@ -154,4 +166,5 @@ final class CarPlayDashboardMapViewController: UIViewController {
     }
     placeholderImageView.isHidden = false
   }
+
 }

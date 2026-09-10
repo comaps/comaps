@@ -32,6 +32,7 @@
 #include "platform/local_country_file_utils.hpp"
 
 #include "base/assert.hpp"
+#include "base/scope_guard.hpp"
 
 #include "private.h"
 // If you have a "missing header error" here, then please run configure.sh script in the root repo
@@ -201,6 +202,7 @@ void InitLocalizedStrings() {
 
 - (void)appWillForeground {
   LOG(LINFO, ("appWillForeground - begin"));
+  SCOPE_GUARD(logCompletion, [] { LOG(LINFO, ("appWillForeground - end")); });
   if (!GpsTracker::Instance().IsEnabled())
     return;
 
@@ -217,7 +219,6 @@ void InitLocalizedStrings() {
   }];
 
   [MWMSettings setTrackWarningAlertShown:YES];
-  LOG(LINFO, ("appWillForeground - end"));
 }
 
 - (void)appDidBackground {

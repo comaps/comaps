@@ -77,6 +77,15 @@ std::string DebugPrint(CLAuthorizationStatus status) {
   CHECK(false, ("Unsupported value", static_cast<int>(status)));
 }
 
+std::string DebugPrint(UIApplicationState state) {
+  switch (state) {
+    case UIApplicationStateActive: return "active";
+    case UIApplicationStateInactive: return "inactive";
+    case UIApplicationStateBackground: return "background";
+  }
+  return "unknown";
+}
+
 struct DesiredAccuracy
 {
   CLLocationAccuracy charging;
@@ -245,14 +254,27 @@ void setShowLocationAlert(BOOL needShow) {
 {
   CLLocationManager * locationManager = [self manager].locationManager;
   if ([locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)])
-    [locationManager setAllowsBackgroundLocationUpdates:keepRunningInBackground()];
+  {
+    BOOL const wasAllowed = locationManager.allowsBackgroundLocationUpdates;
+    BOOL const allowsUpdates = keepRunningInBackground();
+    [locationManager setAllowsBackgroundLocationUpdates:allowsUpdates];
+    if (wasAllowed != allowsUpdates)
+      LOG(LINFO, ("Background location policy completed: allowsUpdates", wasAllowed, "->", allowsUpdates,
+                  "appState", DebugPrint(UIApplication.sharedApplication.applicationState),
+                  "carHosting", [MWMCarPlayService shared].isHostingMapOnCarScreen));
+  }
 }
 
 + (void)applicationDidBecomeActive
 {
   // Starting before the first unlock can yield a transient kCLErrorDenied.
   if (!UIApplication.sharedApplication.isProtectedDataAvailable)
+  {
+    LOG(LINFO, ("Location start deferred: protected data unavailable",
+                "appState", DebugPrint(UIApplication.sharedApplication.applicationState),
+                "carHosting", [MWMCarPlayService shared].isHostingMapOnCarScreen));
     return;
+  }
 
   [self start];
   [self applyBackgroundLocationUpdatesPolicy];
@@ -280,7 +302,12 @@ void setShowLocationAlert(BOOL needShow) {
   // Starting Core Location before the first unlock can yield a transient kCLErrorDenied.
   // Keep an already-running session alive, but defer a new session until protected data is available.
   if (shouldRun && !UIApplication.sharedApplication.isProtectedDataAvailable && !manager.started)
+  {
+    LOG(LINFO, ("Background location start deferred: protected data unavailable",
+                "appState", DebugPrint(UIApplication.sharedApplication.applicationState),
+                "carHosting", [MWMCarPlayService shared].isHostingMapOnCarScreen));
     return;
+  }
   manager.started = shouldRun;
 }
 
