@@ -255,6 +255,7 @@
 "type.boundary.protected_area.5" = "Protected Area";
 "type.boundary.protected_area.6" = "Protected Area";
 "type.building" = "Building";
+"type.building.abandoned" = "Abandoned Building";
 /* Duplicates [address] in strings.txt */
 "type.building.address" = "Address";
 "type.building.has_parts" = "Building";

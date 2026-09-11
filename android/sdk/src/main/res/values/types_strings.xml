@@ -260,6 +260,7 @@
     <string name="type.boundary.protected_area.5">Protected Area</string>
     <string name="type.boundary.protected_area.6">Protected Area</string>
     <string name="type.building">Building</string>
+    <string name="type.building.abandoned">Abandoned Building</string>
     <!-- Duplicates [address] in strings.txt -->
     <string name="type.building.address">Address</string>
     <string name="type.building.has_parts">Building</string>

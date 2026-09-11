@@ -1329,6 +1329,7 @@ emergency-emergency_ward_entrance                   # icon z16- (also has captio
 === 250
 
 building                                            # caption z17- (also has area z14-)
+building-abandoned                                  # caption z17- (also has area z14-)
 building-garage                                     # caption z17- (also has area z14-)
 building-guardhouse                                 # icon z18- (also has caption(optional) z18-, area z14-)
 building-has_parts                                  # caption z17- (also has area z14-)

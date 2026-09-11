@@ -848,6 +848,9 @@
     "building": {
         "defaultMessage": "Building|U+1F3E0|U+1F3E1|U+1F3E2"
     },
+    "building-abandoned": {
+        "defaultMessage": "Abandoned Building|abandoned"
+    },
     "building-address": {
         "defaultMessage": "Address"
     },
