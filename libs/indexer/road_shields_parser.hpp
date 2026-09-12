@@ -57,6 +57,9 @@ enum class RoadShieldType
   Bolivia_Fundamental,
   Brazil_National,
   Brazil_State,
+  Romania_National,
+  Romania_County,
+  Romania_Local,
   Hidden,
   Count
 };

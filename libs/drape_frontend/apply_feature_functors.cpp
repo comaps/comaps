@@ -221,6 +221,9 @@ bool IsSymbolRoadShield(ftypes::RoadShield const & shield)
          shield.m_type == ftypes::RoadShieldType::Bolivia_Fundamental ||
          shield.m_type == ftypes::RoadShieldType::Brazil_National ||
          shield.m_type == ftypes::RoadShieldType::Brazil_State ||
+         shield.m_type == ftypes::RoadShieldType::Romania_National ||
+         shield.m_type == ftypes::RoadShieldType::Romania_County ||
+         shield.m_type == ftypes::RoadShieldType::Romania_Local ||
          shield.m_type == ftypes::RoadShieldType::Hungary_Green ||
          shield.m_type == ftypes::RoadShieldType::Hungary_Blue;
 }
@@ -228,6 +231,7 @@ bool IsSymbolRoadShield(ftypes::RoadShield const & shield)
 std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fontScale)
 {
   ASSERT(IsSymbolRoadShield(shield), ());
+
   std::string result = "";
   if (shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Green)
     result = "shield-highway_hexagon_green";
@@ -262,6 +266,12 @@ std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fo
     strings::AsciiToLower(stateCode);
     result = "shield-brazil-" + stateCode;
   }
+  else if (shield.m_type == ftypes::RoadShieldType::Romania_National)
+    result = shield.m_name.size() <= 2 ? "shield-romania-dn" : "shield-romania-dn-wide";
+  else if (shield.m_type == ftypes::RoadShieldType::Romania_County)
+    result = shield.m_name.size() <= 2 ? "shield-romania-dj" : "shield-romania-dj-wide";
+  else if (shield.m_type == ftypes::RoadShieldType::Romania_Local)
+    result = shield.m_name.size() <= 2 ? "shield-romania-dc" : "shield-romania-dc-wide";
   else
     ASSERT(false, ("This shield type doesn't support symbols:", shield.m_type));
 
@@ -377,6 +387,9 @@ dp::Color GetRoadShieldTextColor(dp::Color const & baseColor, ftypes::RoadShield
       {RoadShieldType::Bolivia_Fundamental, kRoadShieldWhiteTextColor},
       {RoadShieldType::Brazil_National, kRoadShieldBlackTextColor},
       {RoadShieldType::Brazil_State, kRoadShieldBlackTextColor},
+      {RoadShieldType::Romania_National, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Romania_County, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Romania_Local, kRoadShieldBlackTextColor},
       {RoadShieldType::Hungary_Green, kRoadShieldWhiteTextColor},
       {RoadShieldType::Hungary_Blue, kRoadShieldWhiteTextColor}};
 
