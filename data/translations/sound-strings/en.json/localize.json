@@ -204,25 +204,19 @@
         "defaultMessage": "NULL"
     },
     "dist_feet": {
-        "defaultMessage": "In %d feet"
+        "defaultMessage": ".match {$d :integer} one {{In {$d} feet}} * {{In {$d} feet}}"
     },
     "dist_yards": {
-        "defaultMessage": "In %d yards"
+        "defaultMessage": ".match {$d :integer} one {{In {$d} yard}} * {{In {$d} yards}}"
     },
     "dist_miles": {
-        "defaultMessage": "In %d miles"
-    },
-    "dist_miles_decimal": {
-        "defaultMessage": "In %.1f miles"
+        "defaultMessage": ".match {$d :integer} one {{In {$d} mile}} * {{In {$d} miles}}"
     },
     "dist_meters": {
-        "defaultMessage": "In %d meters"
+        "defaultMessage": ".match {$d :integer} one {{In {$d} meter}} * {{In {$d} meters}}"
     },
     "dist_kilometers": {
-        "defaultMessage": "In %d kilometers"
-    },    
-    "dist_kilometers_decimal": {
-        "defaultMessage": "In %.1f kilometers"
+        "defaultMessage": ".match {$d :integer} one {{In {$d} kilometer}} * {{In {$d} kilometers}}"
     },
     "unknown_camera": {
         "defaultMessage": "Speed camera ahead"

@@ -18,8 +18,8 @@
 #include <boost/regex.hpp>
 #include "routing/route.hpp"
 
-#include <cmath>
 #include <cstdio>
+
 
 namespace routing::turns::sound
 {
@@ -365,37 +365,25 @@ std::string GetTtsText::GetDistanceText(uint32_t distance, measurement_utils::Un
   case measurement_utils::Units::Metric:
     if (distance < 1000) {
 	      dist_notification_text = GetTextById("dist_meters");
-	      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), (int)(distance / 100)*100);
+	      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), distance);
 	      return buffer;
 	    }
 
-    else if (distance < 10000) {
-      dist_notification_text = GetTextById("dist_kilometers_decimal");
-      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), ((float)distance/1000));
-      return buffer;
-    }
-
-    else if (distance > 9999) {
+    else if (distance > 999) {
       dist_notification_text = GetTextById("dist_kilometers");
-      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), (distance / 1000));
+      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), distance);
       return buffer;
     }
   case measurement_utils::Units::Imperial:
-    if (distance < 1000) {
+    if (distance < 5280) {
       dist_notification_text = GetTextById("dist_feet");
-      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), (int)(distance / 100)*100);
+      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), distance);
       return buffer;
     }
 
-    else if (distance < 52800) {
+    else if (distance > 5279) {
       dist_notification_text = GetTextById("dist_miles_decimal");
-      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), ((float)distance/1000));
-      return buffer;
-    }
-
-    else if (distance > 52799) {
-      dist_notification_text = GetTextById("dist_miles");
-      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), (distance / 5280));
+      std::snprintf(buffer, std::size(buffer), dist_notification_text.c_str(), distance);
       return buffer;
     }
   }
