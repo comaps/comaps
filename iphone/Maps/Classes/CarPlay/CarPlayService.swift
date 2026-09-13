@@ -191,20 +191,48 @@ final class CarPlayService: NSObject {
   private var teardownBackgroundTask: UIBackgroundTaskIdentifier = .invalid
   private static let kTeardownGracePeriod: TimeInterval = 2.0
 
+  private enum TeardownTrigger {
+    case gracePeriodElapsed(requestedConnection: Int)
+    case expired
+  }
+
+  private func teardownIfDisconnected(_ trigger: TeardownTrigger) {
+    // Flaky USB, wireless CarPlay connections, and quick scene changes that pass
+    // the drape engine between map hosts can cause crashes and UI issues
+    // Use a 2 second grace period to avoid this
+    // Once multiple drape engines are supported, this whole CarPlay implementation should be simplified
+    
+    if case .gracePeriodElapsed = trigger {
+      pendingTeardown = nil
+    }
+    guard interfaceController == nil else {
+      if case .gracePeriodElapsed(let requestedConnection) = trigger {
+        LOG(.info, "\(CarPlayLogging.carPlay) teardown cancelled reason=controllerAvailable requestedConnection=\(requestedConnection) \(diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s")
+      }
+      endTeardownBackgroundTask()
+      return
+    }
+
+    let reason: String
+    switch trigger {
+    case .gracePeriodElapsed(let requestedConnection):
+      LOG(.info, "\(CarPlayLogging.carPlay) teardown executed requestedConnection=\(requestedConnection) \(diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s")
+      reason = "gracePeriodElapsed"
+    case .expired:
+      LOG(.warning, "\(CarPlayLogging.carPlay) teardown expired \(diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s; tearing down immediately")
+      pendingTeardown?.cancel()
+      pendingTeardown = nil
+      reason = "expired"
+    }
+    destroy()
+    window = nil
+    logStateSnapshot("teardown completed reason=\(reason)")
+  }
+
   private func beginTeardownBackgroundTask() {
     endTeardownBackgroundTask()
     teardownBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: "CarPlay scene teardown") { [weak self] in
-      guard let self else { return }
-      if self.interfaceController == nil {
-        LOG(.warning, "\(CarPlayLogging.carPlay) teardown expired \(diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s; tearing down immediately")
-        self.pendingTeardown?.cancel()
-        self.pendingTeardown = nil
-        self.destroy()
-        self.window = nil
-        self.logStateSnapshot("teardown completed reason=expired")
-      } else {
-        self.endTeardownBackgroundTask()
-      }
+      self?.teardownIfDisconnected(.expired)
     }
   }
 
@@ -228,17 +256,7 @@ final class CarPlayService: NSObject {
     beginTeardownBackgroundTask()
     let disconnectedConnection = diagnosticConnectionGeneration
     let teardown = DispatchWorkItem { [weak self] in
-      guard let self else { return }
-      self.pendingTeardown = nil
-      guard self.interfaceController == nil else {
-        LOG(.info, "\(CarPlayLogging.carPlay) teardown cancelled reason=controllerAvailable requestedConnection=\(disconnectedConnection) \(self.diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s")
-        self.endTeardownBackgroundTask()
-        return
-      }
-      LOG(.info, "\(CarPlayLogging.carPlay) teardown executed requestedConnection=\(disconnectedConnection) \(self.diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s")
-      self.destroy()
-      self.window = nil
-      self.logStateSnapshot("teardown completed reason=gracePeriodElapsed")
+      self?.teardownIfDisconnected(.gracePeriodElapsed(requestedConnection: disconnectedConnection))
     }
     if pendingTeardown != nil {
       LOG(.info, "\(CarPlayLogging.carPlay) teardown cancelled reason=rescheduled \(diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s")
