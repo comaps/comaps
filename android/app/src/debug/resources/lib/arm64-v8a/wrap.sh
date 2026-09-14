@@ -13,4 +13,6 @@ else
   cmd="$cmd -XjdwpProvider:adbconnection -XjdwpOptions:suspend=n,server=y $@"
 fi
 
+log -p w -t "app.comaps" "Might be running with HWAsan enabled. Missing libclang_rt.hwasan-aarch64-android.so? See docs/DEBUGGING_ANDROID.md."
+
 LD_HWASAN=1 exec $cmd

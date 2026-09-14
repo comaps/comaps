@@ -72,7 +72,9 @@ android {
     buildTypes {
         debug {
             isJniDebuggable = true
-            externalNativeBuild.cmake.arguments += listOf("-DANDROID_STL=c++_shared", "-DENABLE_ASAN=ON")
+            externalNativeBuild.cmake.arguments += "-DANDROID_STL=c++_shared"
+            if (!project.hasProperty("disableHWAsan"))
+              externalNativeBuild.cmake.arguments += "-DENABLE_ASAN=ON"
         }
         register("beta") {
             matchingFallbacks += "release"
