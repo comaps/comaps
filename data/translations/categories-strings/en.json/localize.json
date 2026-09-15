@@ -1112,6 +1112,9 @@
     "amenity-bicycle_parking": {
         "defaultMessage": "4Bicycle Parking|4Bike Parking"
     },
+    "amenity-bicycle_parking-covered": {
+        "defaultMessage": "4Covered Bicycle Parking|Covered Bike Parking"
+    },
     "amenity-waste_basket": {
         "defaultMessage": "4Trash Bin|4litter bin|5waste basket|bin|5dustbin"
     },
