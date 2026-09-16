@@ -1064,4 +1064,12 @@
     <string name="add_review_url_resolution_failed">Place not found in the latest OpenStreetMap.</string>
     <string name="add_review_url_resolution_failed_dev">Place not found in the DEV OpenStreetMap.</string>
     <string name="internet_unavailable">No Internet connection</string>
+    <!-- Stars -->
+    <string name="stars_suffix_0">-star</string>
+    <string name="stars_suffix_1">-star</string>
+    <string name="stars_suffix_2">-star</string>
+    <string name="stars_suffix_3">-star</string>
+    <string name="stars_suffix_4">-star</string>
+    <string name="stars_suffix_5">-star</string>
+    <string name="stars_suffix_many">-star</string>
 </resources>

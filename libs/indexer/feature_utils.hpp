@@ -87,7 +87,7 @@ bool HasToilets(TypesHolder const & types);
 /// @returns formatted drinking water type.
 std::string FormatDrinkingWater(TypesHolder const & types);
 
-/// @returns starsCount of ★ symbol.
+/// @returns formatted star rating of a hotel/restaurant.
 std::string FormatStars(uint8_t starsCount);
 
 /// @returns formatted rating from reviews.

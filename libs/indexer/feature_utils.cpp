@@ -18,6 +18,7 @@
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 
+#include <string>
 #include <utility>
 
 namespace feature
@@ -299,10 +300,9 @@ string FormatDrinkingWater(TypesHolder const & types)
 
 string FormatStars(uint8_t starsCount)
 {
-  std::string stars;
-  for (int i = 0; i < starsCount && i < kMaxStarsCount; ++i)
-    stars.append(kStarSymbol);
-  return stars;
+  auto const starsCountStr = std::to_string(static_cast<int>(starsCount));
+  auto const translationKey = "stars_suffix_" + (starsCount <= 5 ? starsCountStr : "many");
+  return starsCountStr + localisation::TranslatedInterfaceText(translationKey);
 }
 
 string FormatRating(reviews::Rating rating)
