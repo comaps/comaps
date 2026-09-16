@@ -1080,7 +1080,7 @@
         "defaultMessage": "4Animal Boarding|3Pet Boarding|pet hotel"
     },
     "@charging_station": {
-        "defaultMessage": "4Charging Station|charging|charger"
+        "defaultMessage": "4Charging Station|charging|charger|2EV Charging Station|EV charging|EV charger"
     },
     "amenity-charging_station|@charging_station": {
         "defaultMessage": ""
