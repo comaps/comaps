@@ -6,6 +6,8 @@
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QProgressBar>
 
+#include <functional>
+
 namespace place_page_dialog
 {
 enum PressedButton : int
@@ -19,7 +21,7 @@ enum PressedButton : int
 
 void addCommonButtons(QDialog * this_, QDialogButtonBox * dbb, bool shouldShowEditPlace);
 
-template <typename F1, typename F2>
-void resolveReviewEditorUrl(QDialog * this_, place_page::Info const & info, QProgressBar * spinner, F1 && onResolved,
-                            F2 && onEmpty);
+void resolveReviewEditorUrl(QDialog * this_, place_page::Info const & info, QProgressBar * spinner,
+                            std::function<void(std::string const &)> const & onResolved,
+                            std::function<void()> const & onEmpty);
 }  // namespace place_page_dialog

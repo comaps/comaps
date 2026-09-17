@@ -10,6 +10,7 @@
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 
+#include <functional>
 #include <optional>
 #include <string>
 
@@ -51,12 +52,12 @@ void addCommonButtons(QDialog * this_, QDialogButtonBox * dbb, bool shouldShowEd
   }
 }
 
-template <typename F1, typename F2>
-void resolveReviewEditorUrl(QDialog * this_, place_page::Info const & info, QProgressBar * const spinner,
-                            F1 && onResolved, F2 && onEmpty)
+void resolveReviewEditorUrl(QDialog * this_, place_page::Info const & info, QProgressBar * spinner,
+                            std::function<void(std::string const &)> const & onResolved,
+                            std::function<void()> const & onEmpty)
 {
   auto * const watcher = new QFutureWatcher<std::optional<std::string>>(this_);
-  this_->connect(watcher, &QFutureWatcher<std::optional<std::string>>::finished, this_, [=]()
+  QObject::connect(watcher, &QFutureWatcher<std::optional<std::string>>::finished, this_, [=]()
   {
     spinner->hide();
     if (auto const & reviewUrl = watcher->result(); reviewUrl.has_value())
