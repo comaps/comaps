@@ -1035,6 +1035,7 @@
     <string name="type.railway.station.subway.bengalore">Subway Station</string>
     <string name="type.railway.station.subway.berlin">Subway Station</string>
     <string name="type.railway.station.subway.bilbao">Subway Station</string>
+    <string name="type.railway.station.subway.boston">Subway Station</string>
     <string name="type.railway.station.subway.brasilia">Subway Station</string>
     <string name="type.railway.station.subway.brescia">Subway Station</string>
     <string name="type.railway.station.subway.brussels">Subway Station</string>
@@ -1153,6 +1154,7 @@
     <string name="type.railway.subway_entrance.bengalore">Subway Entrance</string>
     <string name="type.railway.subway_entrance.berlin">Subway Entrance</string>
     <string name="type.railway.subway_entrance.bilbao">Subway Entrance</string>
+    <string name="type.railway.subway_entrance.boston">Subway Entrance</string>
     <string name="type.railway.subway_entrance.brasilia">Subway Entrance</string>
     <string name="type.railway.subway_entrance.brescia">Subway Entrance</string>
     <string name="type.railway.subway_entrance.brussels">Subway Entrance</string>
@@ -1220,6 +1222,7 @@
     <string name="type.railway.subway_entrance.paris">Subway Entrance</string>
     <string name="type.railway.subway_entrance.philadelphia">Subway Entrance</string>
     <string name="type.railway.subway_entrance.pyongyang">Subway Entrance</string>
+    <string name="type.railway.subway_entrance.qingdao">Subway Entrance</string>
     <string name="type.railway.subway_entrance.rennes">Subway Entrance</string>
     <string name="type.railway.subway_entrance.rio">Subway Entrance</string>
     <string name="type.railway.subway_entrance.roma">Subway Entrance</string>
