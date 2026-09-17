@@ -13,22 +13,22 @@ git repository.
 ### Overview
 
 ```
-                   [mangrove dump]
-                          |
-                          V
-                 <mangrove-osm-coder>
-                          |
-                          V
-                    [reviews.json]
-                          |
-                          V
-<maps_generator>: ... |Reviews| ... -> [region.mwm]
+                        [mangrove dump]
+                               |
+                               V
+                      <mangrove-osm-coder>
+                               |
+                               V
+                         [reviews.json]
+                               |
+                               V
+<maps_generator>: ... |Features|Reviews| ... -> [region.mwm]
 ```
 
 The review pipeline: a mangrove.reviews [JSON dump](https://docs.mangrove.reviews/#tag/Dump) is processed
 by [mangrove-osm-coder](https://codeberg.org/mmakowski/mangrove-osm-coder) which produces a [
 `reviews.json` file](https://codeberg.org/mmakowski/mangrove-osm-coder/src/branch/main/README.md#reviews-.son). That
-file is then read by the `Reviews` stage of the [maps_generator](../tools/python/maps_generator/README.md).
+file is then read by the `Features` and `Reviews` stages of the [maps_generator](../tools/python/maps_generator/README.md).
 
 ### Running in Codeberg
 
@@ -82,8 +82,9 @@ to the OSM API.
 
 ### Map Generator
 
-The generator processes a single region MWM file at the time. It parses the reviews JSON file, identifies the reviews
-which correspond to features in the current region and uses the library to write a `reviews` section to the MWM file.
+The generator processes a single region MWM file at the time. It parses the reviews JSON file, identifies the reviews which correspond to features in the
+current region and uses the library to write a `reviews` section to the MWM file. The average ratings are also stored in the feature metadata for easy access
+during search.
 
 To test the generation run in the root of the project:
 
@@ -213,7 +214,7 @@ MAPS_BUILD="$BASE/maps_build/$TS/"
 ```
 
 This is more direct, but also more sensitive to changes in the `generator_tool` command line interface, so if you
-struggle to get that to work using the python `maps_generator` tool is a safer option.
+struggle to get that to work, using the python `maps_generator` tool is a safer option.
 
 #### Qt App
 
