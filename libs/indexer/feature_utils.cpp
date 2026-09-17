@@ -6,6 +6,8 @@
 #include "indexer/feature_visibility.hpp"
 #include "indexer/ftypes_matcher.hpp"
 #include "indexer/ftypes_subtypes.hpp"
+#include "indexer/reviews_display.hpp"
+#include "indexer/reviews_model.hpp"
 #include "indexer/scales.hpp"
 
 #include "platform/distance.hpp"
@@ -301,6 +303,13 @@ string FormatStars(uint8_t starsCount)
   for (int i = 0; i < starsCount && i < kMaxStarsCount; ++i)
     stars.append(kStarSymbol);
   return stars;
+}
+
+string FormatRating(reviews::Rating rating)
+{
+  std::string result;
+  result.append(strings::to_string_dac(reviews::ToStarRating(rating), 1)).append(kStarSymbol);
+  return result;
 }
 
 string FormatElevation(string_view elevation)

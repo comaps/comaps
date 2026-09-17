@@ -25,6 +25,7 @@
 #include <algorithm>
 
 #include "3party/opening_hours/opening_hours.hpp"
+#include "indexer/reviews_model.hpp"
 
 namespace search
 {
@@ -289,6 +290,10 @@ void FillDetails(FeatureType & ft, std::string const & name, Result::Details & d
   feature::TypesHolder typesHolder(ft);
   typesHolder.SortBySpec();
 
+  std::string ratingDesc;
+  if (reviews::Rating rating; strings::to_uint(ft.GetMetadata(feature::Metadata::FMD_RATINGS), rating))
+    ratingDesc = feature::FormatRating(rating);
+
   std::string stars;
   uint8_t starsCount = 0;
   bool const isHotel = ftypes::IsHotelChecker::Instance()(typesHolder);
@@ -315,6 +320,7 @@ void FillDetails(FeatureType & ft, std::string const & name, Result::Details & d
     description += sv;
   };
 
+  append(ratingDesc);
   append(stars);
   append(airportIata);
   append(roadShield);

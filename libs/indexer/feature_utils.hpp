@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "indexer/ftraits.hpp"
+#include "indexer/reviews_model.hpp"
 #include "indexer/yes_no_unknown.hpp"
 
 struct FeatureID;
@@ -88,6 +89,9 @@ std::string FormatDrinkingWater(TypesHolder const & types);
 
 /// @returns starsCount of ★ symbol.
 std::string FormatStars(uint8_t starsCount);
+
+/// @returns formatted rating from reviews.
+std::string FormatRating(reviews::Rating rating);
 
 /// @returns formatted elevation with ▲ symbol and units.
 std::string FormatElevation(std::string_view elevation);
