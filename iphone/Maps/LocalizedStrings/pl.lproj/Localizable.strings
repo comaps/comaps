@@ -894,7 +894,13 @@
 "zoom_out" = "Oddal";
 "record_track" = "Nagraj trasę";
 "recording_track" = "Nagrywanie trasy";
-"bookmarks_text_placement_title" = "Show names of favorites on map";
-"pref_font_size" = "Font size for map labels";
-"font_size" = "Font size";
-"mode_options_accessibility_hint" = "Shows options for this mode";
+"bookmarks_text_placement_title" = "Pokaż nazwy ulubionych na mapie";
+"pref_font_size" = "Rozmiar czcionki etyket na mapie";
+"font_size" = "Rozmiar czcionki";
+"mode_options_accessibility_hint" = "Pokaż opcje dla tego trybu";
+"stars_0" = "0 gwiazdek";
+"stars_1" = "1 gwiazdka";
+"stars_2" = "2 gwiazdki";
+"stars_3" = "3 gwiazdki";
+"stars_4" = "4 gwiazdki";
+"stars_5" = "5 gwiazdek";

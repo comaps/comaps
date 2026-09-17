@@ -301,8 +301,11 @@ string FormatDrinkingWater(TypesHolder const & types)
 string FormatStars(uint8_t starsCount)
 {
   auto const starsCountStr = std::to_string(static_cast<int>(starsCount));
-  auto const translationKey = "stars_suffix_" + (starsCount <= 5 ? starsCountStr : "many");
-  return starsCountStr + localisation::TranslatedInterfaceText(translationKey);
+  if (starsCount <= 5)
+    return localisation::TranslatedInterfaceText("stars_" + starsCountStr);
+  std::string stars;
+  stars.append(starsCountStr).append(kStarSymbol);
+  return stars;
 }
 
 string FormatRating(reviews::Rating rating)
