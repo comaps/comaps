@@ -1065,7 +1065,6 @@
     <string name="add_review_url_resolution_failed_dev">Place not found in the DEV OpenStreetMap.</string>
     <string name="internet_unavailable">No Internet connection</string>
     <!-- Stars -->
-    <string name="stars_0">0-star</string>
     <string name="stars_1">1-star</string>
     <string name="stars_2">2-star</string>
     <string name="stars_3">3-star</string>

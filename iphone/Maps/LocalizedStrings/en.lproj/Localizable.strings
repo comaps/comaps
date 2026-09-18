@@ -925,10 +925,13 @@
 /* To indicate the number of charging spaces */
 "capacity_charging_yes" = "Has spaces with chargers";
 "capacity_charging_no" = "No spaces with chargers";
-/* Official star ratings of places such as hotels or restaurants */
-"stars_0" = "0-star";
+/* Official 1-star rating of places such as hotels or restaurants */
 "stars_1" = "1-star";
+/* Official 2-star rating of places such as hotels or restaurants */
 "stars_2" = "2-star";
+/* Official 3-star rating of places such as hotels or restaurants */
 "stars_3" = "3-star";
+/* Official 4-star rating of places such as hotels or restaurants */
 "stars_4" = "4-star";
+/* Official 5-star rating of places such as hotels or restaurants */
 "stars_5" = "5-star";

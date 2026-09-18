@@ -300,6 +300,8 @@ string FormatDrinkingWater(TypesHolder const & types)
 
 string FormatStars(uint8_t starsCount)
 {
+  if (starsCount == 0)
+    return "";
   auto const starsCountStr = std::to_string(static_cast<int>(starsCount));
   if (starsCount <= 5)
     return localisation::TranslatedInterfaceText("stars_" + starsCountStr);
