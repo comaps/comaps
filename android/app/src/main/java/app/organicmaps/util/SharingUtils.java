@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
+import androidx.activity.ComponentActivity;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.annotation.NonNull;
@@ -23,7 +24,6 @@ import app.organicmaps.sdk.bookmarks.data.BookmarkInfo;
 import app.organicmaps.sdk.bookmarks.data.MapObject;
 import app.organicmaps.sdk.util.StorageUtils;
 import app.organicmaps.sdk.util.log.Logger;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -194,6 +194,12 @@ public class SharingUtils
         new SharingContract(), result -> ProcessShareResult(fragment.requireContext().getContentResolver(), result));
   }
   public static ActivityResultLauncher<SharingIntent> RegisterLauncher(@NonNull AppCompatActivity activity)
+  {
+    return activity.registerForActivityResult(new SharingContract(),
+                                              result -> ProcessShareResult(activity.getContentResolver(), result));
+  }
+
+  public static ActivityResultLauncher<SharingIntent> RegisterLauncher(@NonNull ComponentActivity activity)
   {
     return activity.registerForActivityResult(new SharingContract(),
                                               result -> ProcessShareResult(activity.getContentResolver(), result));

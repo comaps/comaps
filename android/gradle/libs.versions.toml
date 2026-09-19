@@ -32,6 +32,7 @@ androidxDocumentFile = "1.1.0"
 androidxRecyclerView = "1.4.0"
 androidxConstraintLayout = "2.2.1"
 androidxLifecycleProcess = "2.9.4"
+androidxComposeBom = "2025.11.01"
 
 [libraries]
 google-guava = { module = "com.google.guava:guava", version.ref = "googleGuava" }
@@ -67,7 +68,16 @@ androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayo
 androidx-car-app-projected = { module = "androidx.car.app:app-projected", version.ref = "androidxCarApp" }
 androidx-lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "androidxLifecycleProcess" }
 
+# Compose
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+androidx-compose-activity = { group = "androidx.activity", name = "activity-compose" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-text = { group = "androidx.compose.ui", name = "ui-text" }
+
 [plugins]
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library= { id = "com.android.library", version.ref = "androidGradlePlugin" }
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

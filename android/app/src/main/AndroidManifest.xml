@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:installLocation="auto">
 
+  <!-- jndcrash requires 23, we gate it at runtime -->
+  <uses-sdk tools:overrideLibrary="ru.ivanarh.jndcrash" />
+
   <!-- Requiring "android.hardware.touchscreen" here breaks DeX mode -->
   <uses-feature
       android:glEsVersion="0x00030000"
@@ -478,6 +481,10 @@
         android:name="app.organicmaps.MapPlaceholderActivity"/>
     <activity
         android:name="app.organicmaps.car.screens.permissions.RequestPermissionsActivity"/>
+    <activity
+        android:name=".crashhandler.CrashHandlerActivity"
+        android:process=":crashhandlerprocess" />
+
     <service
         android:name="app.organicmaps.car.CarAppService"
         android:exported="true"
@@ -523,6 +530,8 @@
             android:name="autoStoreLocales"
             android:value="true" />
     </service>
+
+    <service android:name=".crashhandler.NativeCrashHandlerService" android:process=":crashhandlerprocess" />
 
     <provider
       android:name="androidx.core.content.FileProvider"
