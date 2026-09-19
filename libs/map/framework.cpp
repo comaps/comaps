@@ -3060,6 +3060,11 @@ bool Framework::ParseDrapeDebugCommand(string const & query)
     return true;
   }
 #endif
+  if (query == "?crash")
+  {
+    *((int volatile *)0) = 1;
+    return true;  // umm
+  }
   return false;
 }
 
