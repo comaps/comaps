@@ -19,3 +19,5 @@ dependencyResolutionManagement {
 rootProject.name = "CoMaps"
 include(":app")
 include(":sdk")
+include(":jndcrash")
+project(":jndcrash").projectDir = file("../3party/jndcrash")

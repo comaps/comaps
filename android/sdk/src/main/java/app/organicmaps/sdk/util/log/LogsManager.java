@@ -25,6 +25,7 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -64,6 +65,19 @@ public final class LogsManager
     Log.i(LogsManager.TAG, "Logging started");
   }
 
+  /**
+   * Initialise the file logging for log reading only.
+   * Does not interface with any native code, and does not allow changing modes.
+   */
+  public synchronized void initFileLoggingReadOnly(@NonNull Context context, @NonNull SharedPreferences prefs)
+  {
+    Log.i(TAG, "Init file logging RO");
+    mApplicationContext = context.getApplicationContext();
+    mIsFileLoggingEnabled = prefs.getBoolean(mApplicationContext.getString(R.string.pref_enable_logging), false);
+    Log.i(TAG, "isFileLoggingEnabled preference: " + mIsFileLoggingEnabled);
+    mIsFileLoggingEnabled = mIsFileLoggingEnabled && ensureLogsFolder() != null;
+  }
+
   public synchronized void initFileLogging(@NonNull Context context, @NonNull SharedPreferences prefs)
   {
     Log.i(TAG, "Init file logging");
@@ -80,7 +94,15 @@ public final class LogsManager
 
   private void assertFileLoggingInit()
   {
-    assert mApplicationContext != null : "mApplicationContext must be initialized first by calling initFileLogging()";
+    if (mApplicationContext == null)
+      throw new IllegalStateException(
+          "mApplicationContext must be initialized first by calling initFileLogging() or initFileLoggingReadOnly()");
+  }
+
+  private void assertFileLoggingInitRW()
+  {
+    if (mPrefs == null)
+      throw new IllegalStateException("mPrefs must be initialized first by calling initFileLogging()");
   }
 
   /**
@@ -164,6 +186,7 @@ public final class LogsManager
 
   private void switchFileLoggingEnabled(boolean enabled)
   {
+    assertFileLoggingInitRW();
     mIsFileLoggingEnabled = enabled;
     // Only Debug builds log DEBUG level to Android system log.
     nativeToggleCoreDebugLogs(enabled || BuildConfig.DEBUG);
@@ -183,7 +206,7 @@ public final class LogsManager
    */
   public synchronized boolean setFileLoggingEnabled(boolean enabled)
   {
-    assertFileLoggingInit();
+    assertFileLoggingInitRW();
 
     if (mIsFileLoggingEnabled != enabled)
     {
@@ -203,10 +226,11 @@ public final class LogsManager
   /**
    * NOTE: initFileLogging() must be called before.
    */
-  public synchronized void zipLogs(@NonNull OnZipCompletedListener listener)
+  public synchronized void zipLogs(@NonNull OnZipCompletedListener listener, List<String> extraFiles)
   {
     assertFileLoggingInit();
 
+    // TODO: if the logs FS is recently full, logs from before are lost
     if (ensureLogsFolder() == null)
     {
       Log.e(TAG, "Can't zip log files: no logs folder.");
@@ -215,7 +239,7 @@ public final class LogsManager
     }
 
     Log.i(TAG, "Zipping log files in " + mLogsFolder);
-    final Runnable task = new ZipLogsTask(mLogsFolder, mLogsFolder + ".zip", listener);
+    final Runnable task = new ZipLogsTask(mLogsFolder, extraFiles, mLogsFolder + ".zip", listener);
     EXECUTOR.execute(task);
   }
 

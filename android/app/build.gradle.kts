@@ -23,6 +23,7 @@ plugins {
     id("com.github.triplet.play") version libs.versions.tripletPlayPublisher
     id("ru.cian.huawei-publish-gradle-plugin") version libs.versions.huaweiPublish
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 }
 
 java {
@@ -343,6 +344,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
+    kotlinOptions {
+        jvmTarget = "21"
+    }
 }
 
 androidComponents {
@@ -357,6 +361,10 @@ androidComponents {
 }
 
 dependencies {
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.text)
+    val composeBom = platform(libs.androidx.compose.bom)
+
     implementation(project(":sdk"))
     coreLibraryDesugaring(libs.android.tools.desugar)
 
@@ -373,7 +381,9 @@ dependencies {
     //
     // microG project's FOSS re-implementation of the proprietary libs.google.services.location
     implementation(libs.microg.services.location)
+    implementation(composeBom)
     implementation(libs.androidx.core)
+    implementation(libs.androidx.core.ktx)
     implementation(platform(libs.jetbrains.kotlin.bom))
     implementation(libs.androidx.annotation)
     implementation(libs.androidx.appcompat)
@@ -385,15 +395,20 @@ dependencies {
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.work.runtime)
     implementation(libs.androidx.lifecycle.process)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.activity)
+    implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.documentfile)
     implementation(libs.android.material)
     // Fix for app/organicmaps/util/FileUploadWorker.java:14: error: cannot access ListenableFuture
     // https://github.com/organicmaps/organicmaps/issues/6106
     implementation(libs.google.guava)
     implementation(libs.appdevnext.androidchart)
+    implementation(project(":jndcrash"))
 
     // Test Dependencies
     androidTestImplementation(libs.androidx.test.junit)
+    androidTestImplementation(composeBom)
     testImplementation(libs.junit)
     testImplementation(libs.mockito.core)
 }

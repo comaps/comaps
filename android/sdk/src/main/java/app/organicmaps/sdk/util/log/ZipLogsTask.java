@@ -10,6 +10,8 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -20,14 +22,17 @@ class ZipLogsTask implements Runnable
   @NonNull
   private final String mLogsPath;
   @NonNull
+  private final List<String> mExtraFiles;
+  @NonNull
   private final String mZipPath;
   @Nullable
   private final LogsManager.OnZipCompletedListener mOnCompletedListener;
 
-  ZipLogsTask(@NonNull String logsPath, @NonNull String zipPath,
+  ZipLogsTask(@NonNull String logsPath, @Nullable List<String> extraFiles, @NonNull String zipPath,
               @NonNull LogsManager.OnZipCompletedListener onCompletedListener)
   {
     mLogsPath = logsPath;
+    mExtraFiles = extraFiles != null ? extraFiles : new ArrayList<String>();
     mZipPath = zipPath;
     mOnCompletedListener = onCompletedListener;
   }
@@ -36,12 +41,13 @@ class ZipLogsTask implements Runnable
   public void run()
   {
     saveSystemLogcat(mLogsPath);
-    final boolean success = zipFileAtPath(mLogsPath, mZipPath);
+    final boolean success = zipFileAtPath(mLogsPath, mExtraFiles, mZipPath);
     if (mOnCompletedListener != null)
       mOnCompletedListener.onCompleted(success, mZipPath);
   }
 
-  private boolean zipFileAtPath(@NonNull String sourcePath, @NonNull String toLocation)
+  private boolean zipFileAtPath(@NonNull String sourcePath, @NonNull List<String> extraFiles,
+                                @NonNull String toLocation)
   {
     File sourceFile = new File(sourcePath);
     if (!sourceFile.isDirectory())
@@ -50,6 +56,10 @@ class ZipLogsTask implements Runnable
          ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(dest)))
     {
       zipSubFolder(out, sourceFile, sourceFile.getPath().length());
+      for (String file : extraFiles)
+      {
+        zipFile(out, new File(file), file.lastIndexOf("/"));
+      }
     }
     catch (Exception e)
     {
@@ -73,21 +83,26 @@ class ZipLogsTask implements Runnable
       }
       else
       {
-        final int bufSize = 8 * 1024;
-        byte[] data = new byte[bufSize];
-        String unmodifiedFilePath = file.getPath();
-        String relativePath = unmodifiedFilePath.substring(basePathLength);
-        try (FileInputStream fi = new FileInputStream(unmodifiedFilePath);
-             BufferedInputStream origin = new BufferedInputStream(fi, bufSize))
-        {
-          ZipEntry entry = new ZipEntry(relativePath);
-          out.putNextEntry(entry);
-          int count;
-          while ((count = origin.read(data, 0, bufSize)) != -1)
-          {
-            out.write(data, 0, count);
-          }
-        }
+        zipFile(out, file, basePathLength);
+      }
+    }
+  }
+
+  private void zipFile(ZipOutputStream out, File file, int basePathLength) throws IOException
+  {
+    final int bufSize = 8 * 1024;
+    byte[] data = new byte[bufSize];
+    String unmodifiedFilePath = file.getPath();
+    String relativePath = unmodifiedFilePath.substring(basePathLength);
+    try (FileInputStream fi = new FileInputStream(unmodifiedFilePath);
+         BufferedInputStream origin = new BufferedInputStream(fi, bufSize))
+    {
+      ZipEntry entry = new ZipEntry(relativePath);
+      out.putNextEntry(entry);
+      int count;
+      while ((count = origin.read(data, 0, bufSize)) != -1)
+      {
+        out.write(data, 0, count);
       }
     }
   }
