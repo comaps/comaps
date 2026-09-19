@@ -405,16 +405,24 @@ public final class Config
     return getString(KEY_DONATE_URL);
   }
 
-  public static void init(@NonNull Context context, @NonNull SharedPreferences prefs, @NonNull String flavor,
-                          @NonNull String applicationId, int versionCode, @NonNull String versionName,
-                          @NonNull String fileProviderAuthority)
+  public static void initMinimal(@NonNull String flavor, @NonNull String applicationId, int versionCode,
+                                 @NonNull String versionName, @NonNull String fileProviderAuthority)
   {
-    mPrefs = prefs;
     mFlavor = flavor;
     mApplicationId = applicationId;
     mVersionCode = versionCode;
     mVersionName = versionName;
     mFileProviderAuthority = fileProviderAuthority;
+  }
+
+  public static void init(@NonNull Context context, @NonNull SharedPreferences prefs, @NonNull String flavor,
+                          @NonNull String applicationId, int versionCode, @NonNull String versionName,
+                          @NonNull String fileProviderAuthority)
+  {
+    mPrefs = prefs;
+
+    initMinimal(flavor, applicationId, versionCode, versionName, fileProviderAuthority);
+
     final SharedPreferences.Editor editor = mPrefs.edit();
 
     // Update counters.

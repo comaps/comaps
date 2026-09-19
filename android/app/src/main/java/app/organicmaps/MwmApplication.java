@@ -16,6 +16,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.preference.PreferenceManager;
 import app.organicmaps.background.OsmUploadWork;
+import app.organicmaps.crashhandler.CrashHandler;
 import app.organicmaps.downloader.DownloaderNotifier;
 import app.organicmaps.location.LocationProviderFactoryImpl;
 import app.organicmaps.location.TrackRecordingService;
@@ -56,6 +57,8 @@ public class MwmApplication extends Application implements Application.ActivityL
 
   @Nullable
   private WeakReference<Activity> mTopActivity;
+
+  private boolean mIsCrashHandler;
 
   @SuppressWarnings("NotNullFieldNotInitialized")
   @NonNull
@@ -128,6 +131,18 @@ public class MwmApplication extends Application implements Application.ActivityL
     super.onCreate();
     Logger.i(TAG, "Initializing application");
 
+    mIsCrashHandler = CrashHandler.isCrashHandler(this);
+    if (mIsCrashHandler)
+    {
+      Logger.i(TAG, "Skipping onCreate on crash handler");
+      // just enough for the logging system to work
+      Config.initMinimal(BuildConfig.FLAVOR, BuildConfig.APPLICATION_ID, BuildConfig.VERSION_CODE,
+                         BuildConfig.VERSION_NAME, BuildConfig.FILE_PROVIDER_AUTHORITY);
+      return;
+    }
+
+    CrashHandler.installHandlers(this);
+
     sInstance = this;
 
     PreferenceManager.setDefaultValues(this, R.xml.prefs_main, false);
@@ -147,6 +162,8 @@ public class MwmApplication extends Application implements Application.ActivityL
 
   public boolean initOrganicMaps(@NonNull Runnable onComplete) throws IOException
   {
+    if (mIsCrashHandler)
+      throw new IllegalStateException("Can't init OMCore on crash handler");
     return mOrganicMaps.init(() -> {
       ThemeSwitcher.INSTANCE.initialize(this);
       ThemeSwitcher.INSTANCE.restart(false);
@@ -180,6 +197,11 @@ public class MwmApplication extends Application implements Application.ActivityL
   @Override
   public void onActivityResumed(@NonNull Activity activity)
   {
+    if (mIsCrashHandler)
+    {
+      Logger.i(TAG, "Skipping onActivityResumed on crash handler");
+      return;
+    }
     Logger.d(TAG, "activity = " + activity);
     Utils.showOnLockScreen(Config.isShowOnLockScreenEnabled(), activity);
     getSensorHelper().setRotation(activity.getWindowManager().getDefaultDisplay().getRotation());
@@ -189,6 +211,11 @@ public class MwmApplication extends Application implements Application.ActivityL
   @Override
   public void onActivityPaused(@NonNull Activity activity)
   {
+    if (mIsCrashHandler)
+    {
+      Logger.i(TAG, "Skipping onActivityPaused on crash handler");
+      return;
+    }
     Logger.d(TAG, "activity = " + activity);
     mTopActivity = null;
   }
@@ -213,12 +240,18 @@ public class MwmApplication extends Application implements Application.ActivityL
   {
     Logger.d(TAG);
 
+    if (mIsCrashHandler)
+      throw new IllegalStateException("Can't call onForeground on crash handler");
+
     getLocationHelper().resumeLocationInForeground();
   }
 
   private void onBackground()
   {
     Logger.d(TAG);
+
+    if (mIsCrashHandler)
+      throw new IllegalStateException("Can't call onBackground on crash handler");
 
     OsmUploadWork.startActionUploadOsmChanges(this);
 

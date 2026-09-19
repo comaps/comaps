@@ -1070,4 +1070,9 @@
     <string name="stars_3">3-star</string>
     <string name="stars_4">4-star</string>
     <string name="stars_5">5-star</string>
+    <string name="crashed">CoMaps needs to restart</string>
+    <string name="restart">Restart CoMaps now</string>
+    <string name="send_report">Send bug report</string>
+    <string name="crash_explainer"><![CDATA[An error occurred in CoMaps. Please consider sending a bug report to our developers to help resolve the issue. All bug reports contain your current location and recent search history. Your emailed log file will be handled according to our <a href="https://www.comaps.app/privacy/">privacy policy</a>.]]></string>
+    <string name="crash_enable_logging">You can also enable logging so that more information is available next time a crash occurs. Logs will remain on your device until you choose to send them. Logging can be turned back off in CoMaps Settings.</string>
 </resources>

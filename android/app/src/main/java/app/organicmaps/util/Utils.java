@@ -51,8 +51,9 @@ import app.organicmaps.sdk.util.log.LogsManager;
 import com.google.android.material.snackbar.Snackbar;
 import java.lang.ref.WeakReference;
 import java.time.LocalTime;
-import java.util.Objects;
+import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 @Keep
@@ -249,7 +250,20 @@ public class Utils
     subject =
         activity.getString(R.string.project_name) + " Bug Report" + (TextUtils.isEmpty(subject) ? "" : ": " + subject);
     LogsManager.INSTANCE.zipLogs(
-        new SupportInfoWithLogsCallback(launcher, activity, subject, body, BuildConfig.SUPPORT_MAIL));
+        new SupportInfoWithLogsCallback(launcher, activity, subject, body, BuildConfig.SUPPORT_MAIL), null);
+  }
+
+  /**
+   * @param subject could be an empty string
+   */
+  public static void sendCrashReport(@NonNull ActivityResultLauncher<SharingUtils.SharingIntent> launcher,
+                                     @NonNull Activity activity, @NonNull String subject, @NonNull String body,
+                                     @NonNull List<String> extraFiles)
+  {
+    subject = activity.getString(R.string.project_name) + " Crash Report"
+            + (TextUtils.isEmpty(subject) ? "" : ": " + subject);
+    LogsManager.INSTANCE.zipLogs(
+        new SupportInfoWithLogsCallback(launcher, activity, subject, body, BuildConfig.SUPPORT_MAIL), extraFiles);
   }
 
   // TODO: Don't send logs with general feedback, send system information only (version, device name, connectivity,
@@ -257,8 +271,10 @@ public class Utils
   public static void sendFeedback(@NonNull ActivityResultLauncher<SharingUtils.SharingIntent> launcher,
                                   @NonNull Activity activity)
   {
-    LogsManager.INSTANCE.zipLogs(new SupportInfoWithLogsCallback(
-        launcher, activity, activity.getString(R.string.project_name) + " Feedback", "", BuildConfig.SUPPORT_MAIL));
+    LogsManager.INSTANCE.zipLogs(
+        new SupportInfoWithLogsCallback(launcher, activity, activity.getString(R.string.project_name) + " Feedback", "",
+                                        BuildConfig.SUPPORT_MAIL),
+        null);
   }
 
   public static void navigateToParent(@NonNull Activity activity)
