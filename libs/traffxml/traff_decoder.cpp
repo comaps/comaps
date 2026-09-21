@@ -670,9 +670,19 @@ double RoutingTraffDecoder::TraffEstimator::GetTransitionPenalty(Purpose /* purp
 
   if (!hasClosureFeature && !location.m_roadClass
       && uInfo.value().m_highwayType && vInfo.value().m_highwayType
-      && (uInfo.value().m_highwayType != vInfo.value().m_highwayType))
-    penalty *= GetRoadClassPenalty(GetRoadClass(uInfo.value().m_highwayType.value()),
-                                   GetRoadClass(vInfo.value().m_highwayType.value()));
+      && (uInfo.value().m_highwayType != vInfo.value().m_highwayType)) {
+    bool hasService = ((uInfo.value().m_highwayType.value() == routing::HighwayType::HighwayService)
+        || (vInfo.value().m_highwayType.value() == routing::HighwayType::HighwayService));
+    auto & other = (uInfo.value().m_highwayType.value() == routing::HighwayType::HighwayService)
+        ? vInfo : uInfo;
+    bool hasMotorwayRamp = IsRamp(other.value().m_highwayType.value())
+        && ((GetRoadClass(other.value().m_highwayType.value()) == RoadClass::Motorway)
+            || (GetRoadClass(other.value().m_highwayType.value()) == RoadClass::Trunk));
+    // Transitions from ramp to service and back are common at motorway rest areas, no penalty here
+    if (!(hasService && hasMotorwayRamp))
+      penalty *= GetRoadClassPenalty(GetRoadClass(uInfo.value().m_highwayType.value()),
+                                     GetRoadClass(vInfo.value().m_highwayType.value()));
+  }
 
   if (!location.m_roadRef
       && !(uInfo.value().m_roadShieldsNames.empty()
