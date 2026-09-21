@@ -147,6 +147,16 @@ android {
         isUniversalApk = true
     }
 
+    // Only bundle wrap.sh when arm64-v8a is actually compiled.
+    val buildsArm64 = project.hasProperty("arm64") || project.hasProperty("arm64-v8a") ||
+        !(project.hasProperty("arm32") || project.hasProperty("armeabi-v7a") ||
+            project.hasProperty("x86") || project.hasProperty("x86_64") || project.hasProperty("x64"))
+    if (buildsArm64) {
+        sourceSets.getByName("debug") {
+            resources.srcDir("src/debugArm64/resources")
+        }
+    }
+
     lint {
         disable += "MissingTranslation"
         // https://github.com/organicmaps/organicmaps/issues/3551
