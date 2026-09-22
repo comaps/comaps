@@ -51,7 +51,7 @@ final class PlacePageOSMContributionViewController: UIViewController {
     view.setStyle(.background)
 
     osmHeaderView.iconButton.isHidden = true
-    osmHeaderView.iconButton.widthAnchor.constraint(equalToConstant: Constants.horizontalPadding).isActive = true
+    osmHeaderView.iconButtonWidth = Constants.horizontalPadding
     osmHeaderView.infoLabel.text = L("contribute_to_osm")
     osmHeaderView.infoLabel.setFontStyle(.regular16, color: .blackPrimary)
     osmHeaderView.accessoryButton.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
