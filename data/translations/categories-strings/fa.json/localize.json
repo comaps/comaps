@@ -47,6 +47,9 @@
     "@category_secondhand": {
         "defaultMessage": "دست دوم"
     },
+    "second_hand-yes|second_hand-only|@category_secondhand": {
+        "defaultMessage": ""
+    },
     "amenity-bank|@category_bank": {
         "defaultMessage": "بانک"
     },

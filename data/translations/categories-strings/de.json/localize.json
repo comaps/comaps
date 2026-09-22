@@ -47,6 +47,9 @@
     "@category_secondhand": {
         "defaultMessage": "3Second-hand|3Second Hand|3Gebrauchte Ware|3Gebrauchte Artikel|5Brockenhaus|5Brockenstube"
     },
+    "second_hand-yes|second_hand-only|@category_secondhand": {
+        "defaultMessage": ""
+    },
     "amenity-bank|@category_bank": {
         "defaultMessage": "3Bankfiliale|3Geld"
     },

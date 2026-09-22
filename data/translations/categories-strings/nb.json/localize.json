@@ -47,6 +47,9 @@
     "@category_secondhand": {
         "defaultMessage": "Brukt"
     },
+    "second_hand-yes|second_hand-only|@category_secondhand": {
+        "defaultMessage": ""
+    },
     "@category_recycling": {
         "defaultMessage": "Resirkulering|Avfallsutnytting|Gjenvinningsstasjon|Kildesortering|Gjenbruk"
     },

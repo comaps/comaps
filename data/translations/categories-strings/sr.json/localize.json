@@ -47,6 +47,9 @@
     "@category_secondhand": {
         "defaultMessage": "5Половна одећа|5Секонд-хенд|5Polovna odeća|5Sekond-hend"
     },
+    "second_hand-yes|second_hand-only|@category_secondhand": {
+        "defaultMessage": ""
+    },
     "amenity-bank|@category_bank": {
         "defaultMessage": "новац|novac"
     },
