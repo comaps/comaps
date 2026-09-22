@@ -1655,7 +1655,12 @@ double Framework::GetVisualScale()
 void Framework::UpdateVisualScale(double vs)
 {
   if (m_drapeEngine != nullptr)
-    m_drapeEngine->UpdateVisualScale(vs, m_isRenderingEnabled);
+    m_drapeEngine->UpdateVisualScale(vs, true /* needStopRendering */);
+  /// @todo(pastk): it used to be m_isRenderingEnabled instead of true;
+  /// but then it lead to use-after-free issue with stipple pen texture
+  /// see https://codeberg.org/comaps/comaps/pulls/4840 and https://codeberg.org/comaps/comaps/issues/5256
+  /// This workaround makes sure that textures are not being used for rendering
+  /// when visual scale change is in progress.
 }
 
 void Framework::UpdateMyPositionRoutingOffset(bool useDefault, int offsetY)
