@@ -278,7 +278,7 @@ void Processor::SetQuery(string const & query, bool categorialRequest /* = false
 
   if (ftypes::IsNationalCuisineChecker::Instance()(m_preferredTypes))
     m_isCategorialRequest = true;
-  
+
   if (!m_isCategorialRequest)
   {
     // Assign tokens and prefix to scorer.
@@ -896,7 +896,7 @@ class NotInPreffered : public ftypes::BaseChecker
 {
   NotInPreffered() : ftypes::BaseChecker(1)
   {
-    base::StringIL const types[] = {{"organic"}, {"internet_access"}};
+    base::StringIL const types[] = {{"organic"}, {"internet_access"}, {"second_hand"}};
     auto const & c = classif();
     for (auto const & e : types)
       m_types.push_back(c.GetTypeByPath(e));

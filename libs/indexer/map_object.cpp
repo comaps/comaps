@@ -294,6 +294,18 @@ std::string MapObject::GetOrganic() const
   return {};
 }
 
+std::string MapObject::GetSecondHand() const
+{
+  auto const & isSecondHand = ftypes::IsSecondHandChecker::Instance();
+
+  for (auto const type : m_types) {
+    if (isSecondHand(type))
+      return localisation::TranslatedFeatureType(classif().GetReadableObjectName(type));
+  }
+
+  return {};
+}
+
 bool MapObject::IsPointType() const
 {
   return m_geomType == feature::GeomType::Point;
