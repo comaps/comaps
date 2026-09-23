@@ -130,6 +130,26 @@ UNIT_TEST(RoadShields_Norway)
   TEST_EQUAL(shields.size(), 1, ());
   TEST_EQUAL(shields[0].m_type, RoadShieldType::Generic_Pill_White_Bordered, ());
   TEST(GetRoadShields("Norway", "42", HighwayClass::LivingStreet).empty(), ());
+
+  // US Interstate Business highway test
+  shields = GetRoadShields("US", "I-5 BUS", HighwayClass::Motorway);
+  TEST_EQUAL(shields.size(), 1, ());
+  TEST_EQUAL(shields[0].m_type, RoadShieldType::US_Interstate_Business, ());
+  TEST_EQUAL(shields[0].m_name, "5", ());
+
+  // US state highway test (using Oregon as an example)
+  shields = GetRoadShields("US", "OR 217", HighwayClass::Motorway);
+  TEST_EQUAL(shields.size(), 1, ());
+  TEST_EQUAL(shields[0].m_type, RoadShieldType::US_State, ());
+  TEST_EQUAL(shields[0].m_name, "217", ());
+  TEST_EQUAL(shields[0].m_additionalText, "OR", ());
+
+  // Specifically test OR 99E Business
+  shields = GetRoadShields("US", "OR 99E Bus", HighwayClass::Motorway);
+  TEST_EQUAL(shields.size(), 1, ());
+  TEST_EQUAL(shields[0].m_type, RoadShieldType::US_State, ());
+  TEST_EQUAL(shields[0].m_name, "B99E", ());
+  TEST_EQUAL(shields[0].m_additionalText, "OR", ());
 }
 
 UNIT_TEST(RoadShields_Smoke)

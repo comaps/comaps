@@ -102,6 +102,9 @@ ankerl::unordered_dense::map<std::string, RoadShieldType> const kRoadNetworkShie
     {"us:us", RoadShieldType::US_Highway},
     {"us:sr", RoadShieldType::US_Highway},
     {"us:fsr", RoadShieldType::US_Highway},
+    {"us:i:business:loop", RoadShieldType::US_Interstate_Business},
+    {"us:i:business:spur", RoadShieldType::US_Interstate_Business},
+    {"us:or", RoadShieldType::US_State},
 };
 
 class RoadShieldParser
@@ -116,7 +119,7 @@ public:
     // Special processing for US state highways, to not duplicate the table.
     if (network.size() == 5 && network.starts_with("US:"))
     {
-      if (base::IsExist(kStatesCode, network.substr(3)))
+      if (base::IsExist(kStatesCode, network.substr(3)) && (network.substr(3) != "OR"))
         return RoadShieldType::Generic_White_Bordered;
     }
 
@@ -233,13 +236,16 @@ public:
     }
 
     if (shieldParts.size() <= 1)
-      return RoadShield(RoadShieldType::Default, rawText);
+      return RoadShield(RoadShieldType::Hidden, rawText);
 
     std::string_view const roadType = shieldParts[0];  // 'I' for interstates and kFederalCode/kStatesCode for highways.
     std::string roadNumber(shieldParts[1]);
     std::string additionalInfo;
+    std::string lowerEndModifier;
     if (shieldParts.size() >= 3)
     {
+      lowerEndModifier = std::string(shieldParts[2]); // get the last part of the shield for Interstate business logic
+      strings::AsciiToLower(lowerEndModifier); // make this into lowercase
       additionalInfo = shieldParts[2];
       // Process cases like "US Loop 16".
       if (!strings::IsASCIINumeric(shieldParts[1]) && strings::IsASCIINumeric(shieldParts[2]))
@@ -247,18 +253,33 @@ public:
         roadNumber = shieldParts[2];
         additionalInfo = shieldParts[1];
       }
+      // Special case for OR 99E Business
+      if (base::IsExist(kStatesCode, shieldParts[0]) && lowerEndModifier == "bus"){
+        roadNumber = "B" + std::string(shieldParts[1]);
+        additionalInfo = "";
+      }
+    } else {
+      lowerEndModifier = std::string(""); // define this anyway to avoid weird issues
     }
-
-    if (roadType == "I")
-      return RoadShield(RoadShieldType::US_Interstate, roadNumber, additionalInfo);
+    if (roadType == "I"){
+      if (shieldParts.size() >= 3){
+        if (lowerEndModifier == "bus" || lowerEndModifier == "business" || lowerEndModifier == "bl" || lowerEndModifier == "bs"){
+          return RoadShield(RoadShieldType::US_Interstate_Business, roadNumber, "");
+        } else {
+          return RoadShield(RoadShieldType::US_Interstate, roadNumber, additionalInfo);
+        }
+      } else {
+        return RoadShield(RoadShieldType::US_Interstate, roadNumber, additionalInfo);
+      }
+    }
 
     if (base::IsExist(kFederalCode, shieldParts[0]))
       return RoadShield(RoadShieldType::US_Highway, roadNumber, additionalInfo);
-
+    if (roadType == "OR")
+      return RoadShield(RoadShieldType::US_State, roadNumber, std::string{roadType});
     if (base::IsExist(kStatesCode, shieldParts[0]))
       return RoadShield(RoadShieldType::Generic_White_Bordered, roadNumber, additionalInfo);
-
-    return RoadShield(RoadShieldType::Default, rawText);
+    return RoadShield(RoadShieldType::Hidden, roadNumber, additionalInfo);
   }
 };
 
@@ -1363,6 +1384,8 @@ std::string DebugPrint(RoadShieldType shieldType)
   case RoadShieldType::Highway_Hexagon_Turkey: return "highway hexagon turkey";
   case RoadShieldType::US_Interstate: return "US interstate";
   case RoadShieldType::US_Highway: return "US highway";
+  case RoadShieldType::US_State: return "US state highway";
+  case RoadShieldType::US_Interstate_Business: return "US interstate business route";
   case RoadShieldType::UK_Highway: return "UK highway";
   case RoadShieldType::Bolivia_Fundamental: return "Bolivia fundamental";
   case RoadShieldType::Argentina_RN: return "Argentina national";
