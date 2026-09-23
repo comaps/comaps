@@ -73,7 +73,7 @@ jobs:
             -scheme CoMaps \
             -configuration Debug \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 17 Pro Max,OS=latest' \
+            -destination 'platform=iOS Simulator,name=iPhone 18 Pro Max,OS=latest' \
             -derivedDataPath "${DERIVED_DATA_PATH}" \
             -quiet \
             -resultBundlePath ${{ env.DEBUG_RESULTS_BUNDLE_NAME }}.xcresult \
