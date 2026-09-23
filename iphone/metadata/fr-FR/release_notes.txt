@@ -1,3 +1,6 @@
+Fixed intermittent crashes when using CarPlay.
+
+Changes in the previous release:
 • Ajout d'une interface pour les modes et pour les styles spécifiques aux moyens de transport.
 • Affiche les noms des favoris sur la carte (désactivable dans les paramètres)
 • Paramétrage de la taille de police

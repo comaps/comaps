@@ -1,3 +1,6 @@
+Fixed intermittent crashes when using CarPlay.
+
+Changes in the previous release:
 • Gebruikersinterface met transportmodusafhankelijke kaartstijlen
 • Toon namen van favorieten op de kaart (uitschakelbaar in instellingen)
 • Instelling voor aangepaste tekstgrootte op de kaart

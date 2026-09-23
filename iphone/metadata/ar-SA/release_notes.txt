@@ -1,3 +1,6 @@
+Fixed intermittent crashes when using CarPlay.
+
+Changes in the previous release:
 - واجهة مستخدم جديدة ونمط خريطة مخصص إلى نوعية التنقل المستخدمة
 - إظهار أسامي المفضلات على الخريطة. (يمكنك تعطيلها)
 - إعداد يسمح بتغيير حجم الخط على الخريطة

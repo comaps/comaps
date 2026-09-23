@@ -1,3 +1,6 @@
+Fixed intermittent crashes when using CarPlay.
+
+Changes in the previous release:
 • Verkehrsmittel UI und verkehrsmittelspezifische Kartenstile
 • Anzeige von Favoriten-Namen auf der Karte (Ausschalten in Einstellungen)
 • Einstellung zum Anpassen der Kartenschriftgröße

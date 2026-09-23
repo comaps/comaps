@@ -1,3 +1,6 @@
+Fixed intermittent crashes when using CarPlay.
+
+Changes in the previous release:
 • Estilos de mapa específicos para transporte e interfaz de modos
 • Visualización de nombres de favoritos en el mapa (desactivable en ajustes)
 • Ajuste personalizado del tamaño de fuente del mapa

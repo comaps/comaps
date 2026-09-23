@@ -1,11 +1,12 @@
+Fixed intermittent crashes when using Android Auto.
+
+Changes in the previous release:
 • Display favorite names on the map (opt out in settings)
 • Display Mangrove user reviews in POI info page
 • Custom map font size setting
 • Allow TalkBack users to read the map
 • Ability to start track recording after navigation start
 • Show "Opens tomorrow at ..." on POI info page
-• Fixed ability to search in any user-set map language
 • Roadshields in Kyrgyzstan, Uzbekistan, Tajikistan, Kazakhstan and Georgia
-• Show bus stops earlier in subway layer
 
 More details on comaps.app/latest

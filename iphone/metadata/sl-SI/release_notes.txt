@@ -1,3 +1,6 @@
+Fixed intermittent crashes when using CarPlay.
+
+Changes in the previous release:
 • Prikaz načina zemljevida je prilagojen načinu navigacije
 • Prikaži imena priljubljenih na zemljevidu (Izklop v nastavitvah)
 • Možnost nastavljanja velikosti pisave
