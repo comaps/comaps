@@ -1,3 +1,5 @@
+import com.android.build.api.variant.BuildConfigField
+import com.android.build.api.variant.ResValue
 import com.github.triplet.gradle.androidpublisher.ReleaseStatus
 import ru.cian.huawei.publish.BuildFormat
 import ru.cian.huawei.publish.DeployType
@@ -22,7 +24,6 @@ plugins {
     id("com.android.application")
     id("com.github.triplet.play") version libs.versions.tripletPlayPublisher
     id("ru.cian.huawei-publish-gradle-plugin") version libs.versions.huaweiPublish
-    alias(libs.plugins.kotlin.android)
 }
 
 java {
@@ -73,6 +74,7 @@ android {
     buildFeatures {
         dataBinding = true
         buildConfig = true
+        resValues = true
     }
 
     // Users are complaining that the app should be re-downloaded from the Play Store after changing the language.
@@ -148,12 +150,13 @@ android {
     }
 
     // Only bundle wrap.sh when arm64-v8a is actually compiled.
-    val buildsArm64 = project.hasProperty("arm64") || project.hasProperty("arm64-v8a") ||
-        !(project.hasProperty("arm32") || project.hasProperty("armeabi-v7a") ||
-            project.hasProperty("x86") || project.hasProperty("x86_64") || project.hasProperty("x64"))
-    if (buildsArm64) {
+    val hasArm64Property = project.run { hasProperty("arm64") || hasProperty("arm64-v8a") }
+    val hasNonArm64Property = project.run {
+        hasProperty("arm32") || hasProperty("armeabi-v7a") || hasProperty("x86") || hasProperty("x86_64") || hasProperty("x64")
+    }
+    if (hasArm64Property || !hasNonArm64Property) {
         sourceSets.getByName("debug") {
-            resources.srcDir("src/debugArm64/resources")
+            resources.directories.add("src/debugArm64/resources")
         }
     }
 
@@ -166,27 +169,6 @@ android {
         // https://github.com/organicmaps/organicmaps/issues/3610
         disable += "InsecureBaseConfiguration"
         abortOnError = true
-    }
-
-    gradle.projectsEvaluated {
-        android.applicationVariants.configureEach {
-            val taskName = name.replaceFirstChar(transform = Char::uppercase)
-            tasks.register<Exec>(name = "run$taskName") {
-                dependsOn("install$taskName")
-                commandLine(
-                    android.adbExecutable,
-                    "shell",
-                    "am",
-                    "start",
-                    "-n",
-                    "$applicationId/app.organicmaps.DownloadResourcesActivity",
-                    "-a",
-                    "android.intent.action.MAIN",
-                    "-c",
-                    "android.intent.category.LAUNCHER"
-                )
-            }
-        }
     }
 
     signingConfigs {
@@ -346,14 +328,41 @@ android {
 }
 
 androidComponents {
-  onVariants(selector().withBuildType("debug")) { variant ->
-    variant.packaging.jniLibs.useLegacyPackaging.set(true) // for HWAsan
-    variant.packaging.jniLibs.keepDebugSymbols.add("**/liborganicmaps.so") // for debug syms
-  }
+    onVariants(selector().withBuildType("debug")) { variant ->
+        variant.packaging.jniLibs.useLegacyPackaging.set(true) // for HWAsan
+        variant.packaging.jniLibs.keepDebugSymbols.add("**/liborganicmaps.so") // for debug syms
+    }
 
-  onVariants(selector().withBuildType("beta")) { variant ->
-    variant.packaging.jniLibs.keepDebugSymbols.add("**/liborganicmaps.so") // for debug syms
-  }
+    onVariants(selector().withBuildType("beta")) { variant ->
+        variant.packaging.jniLibs.keepDebugSymbols.add("**/liborganicmaps.so") // for debug syms
+    }
+
+    onVariants { variant ->
+        val applicatedId = variant.applicationId.get()
+        val authorityValue = "${variant.applicationId}.provider"
+        variant.buildConfigFields?.put("FILE_PROVIDER_AUTHORITY", BuildConfigField("String", "\"$authorityValue\"", ""))
+        variant.manifestPlaceholders.put("FILE_PROVIDER_PLACEHOLDER", authorityValue)
+        variant.resValues.put(variant.makeResValueKey("string", "app_id"), ResValue(applicatedId, "Application ID"))
+        gradle.projectsEvaluated {
+            val taskName = variant.name.replaceFirstChar(transform = Char::uppercase)
+            tasks.register<Exec>(name = "run$taskName") {
+                description = "Installs and starts the app."
+                dependsOn("install$taskName")
+                commandLine(
+                    sdkComponents.adb.get().toString(),
+                    "shell",
+                    "am",
+                    "start",
+                    "-n",
+                    "$applicatedId/app.organicmaps.DownloadResourcesActivity",
+                    "-a",
+                    "android.intent.action.MAIN",
+                    "-c",
+                    "android.intent.category.LAUNCHER"
+                )
+            }
+        }
+    }
 }
 
 dependencies {
@@ -396,13 +405,6 @@ dependencies {
     androidTestImplementation(libs.androidx.test.junit)
     testImplementation(libs.junit)
     testImplementation(libs.mockito.core)
-}
-
-android.applicationVariants.configureEach {
-    val authorityValue = "$applicationId.provider"
-    buildConfigField("String", "FILE_PROVIDER_AUTHORITY", "\"$authorityValue\"")
-    getMergedFlavor().manifestPlaceholders["FILE_PROVIDER_PLACEHOLDER"] = authorityValue
-    resValue("string", "app_id", applicationId)
 }
 
 play {

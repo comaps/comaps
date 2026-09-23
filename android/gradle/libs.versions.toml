@@ -5,9 +5,9 @@ googleGuava = "33.5.0-android"
 huaweiPublish = "1.4.2"
 androidMaterial = "1.12.0" # 1.13 Material library version doesn't render properly alpha properties on map buttons
 jetbrainsKotlinBom = "2.2.21"
-androidGradlePlugin = "8.13.2"
+androidGradlePlugin = "9.4.1"
 androidToolsDesugar = "2.1.5"
-tripletPlayPublisher = "3.13.0"
+tripletPlayPublisher = "4.1.1"
 microgServicesLocation = "0.3.14.250932"
 appDevNextAndroidChart = "3.1.0.31"
 

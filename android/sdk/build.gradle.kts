@@ -1,9 +1,9 @@
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.util.Locale
 
 plugins {
     id("com.android.library")
-    alias(libs.plugins.kotlin.android)
 }
 
 /** Sanitizes property values to either "ON" or "OFF". Nonsensical values default to "OFF". */
@@ -107,9 +107,11 @@ android {
     androidResources {
         ignoreAssetsPatterns += "!design"
     }
-    kotlinOptions {
-        // TODO: Remove after upgrading to Gradle 9.0 or higher.
-        jvmTarget = "17"
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_17
     }
 }
 
@@ -151,7 +153,7 @@ project.afterEvaluate {
     }
     if (runSetup) {
         val isWindows = DefaultNativePlatform.getCurrentOperatingSystem().isWindows
-        exec {
+        providers.exec {
             workingDir = File("../..")
 
             if (!taskNames.toString().contains("Google")) {
