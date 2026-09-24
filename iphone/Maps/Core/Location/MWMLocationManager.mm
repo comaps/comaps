@@ -267,15 +267,6 @@ void setShowLocationAlert(BOOL needShow) {
 
 + (void)applicationDidBecomeActive
 {
-  // Starting before the first unlock can yield a transient kCLErrorDenied.
-  if (!UIApplication.sharedApplication.isProtectedDataAvailable)
-  {
-    LOG(LINFO, ("Location start deferred: protected data unavailable",
-                "appState", DebugPrint(UIApplication.sharedApplication.applicationState),
-                "carHosting", [MWMCarPlayService shared].isHostingMapOnCarScreen));
-    return;
-  }
-
   [self start];
   [self applyBackgroundLocationUpdatesPolicy];
 }
@@ -298,17 +289,7 @@ void setShowLocationAlert(BOOL needShow) {
     return;
 
   MWMLocationManager * manager = [self manager];
-  BOOL const shouldRun = keepRunningInBackground();
-  // Starting Core Location before the first unlock can yield a transient kCLErrorDenied.
-  // Keep an already-running session alive, but defer a new session until protected data is available.
-  if (shouldRun && !UIApplication.sharedApplication.isProtectedDataAvailable && !manager.started)
-  {
-    LOG(LINFO, ("Background location start deferred: protected data unavailable",
-                "appState", DebugPrint(UIApplication.sharedApplication.applicationState),
-                "carHosting", [MWMCarPlayService shared].isHostingMapOnCarScreen));
-    return;
-  }
-  manager.started = shouldRun;
+  manager.started = keepRunningInBackground();
 }
 
 #pragma mark - Getters
