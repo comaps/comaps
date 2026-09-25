@@ -50,7 +50,7 @@
     <string name="type.amenity.cinema">Bioscoop</string>
     <string name="type.leisure.bowling_alley">Bowlingbaan</string>
     <string name="type.amenity.clinic">Kliniek</string>
-    <string name="type.amenity.college">College</string>
+    <string name="type.amenity.college">Hogeschool</string>
     <string name="type.amenity.community_centre">Gemeenschapscentrum</string>
     <string name="type.amenity.compressed_air">Perslucht</string>
     <string name="type.amenity.conference_centre">Congrescentrum</string>
@@ -142,7 +142,7 @@
     <string name="type.recycling.cardboard">Karton</string>
     <string name="type.recycling.cans">Blikjes</string>
     <string name="type.recycling.shoes">Schoenen</string>
-    <string name="type.recycling.green_waste">GFTE afval</string>
+    <string name="type.recycling.green_waste">GFTE/organisch afval</string>
     <string name="type.recycling.cartons">Drankverpakkingen</string>
     <string name="type.amenity.restaurant">Restaurant</string>
     <string name="type.amenity.sanitary_dump_station">Camperverzorgingsplaats</string>
@@ -271,7 +271,7 @@
     <string name="type.cuisine.brazilian">Braziliaans</string>
     <string name="type.cuisine.breakfast">Ontbijt</string>
     <string name="type.cuisine.burger">Hamburgers</string>
-    <string name="type.cuisine.buschenschank">Buschenschank</string>
+    <string name="type.cuisine.buschenschank">Taverna</string>
     <string name="type.cuisine.cake">Taart</string>
     <string name="type.cuisine.caribbean">Caraïbisch</string>
     <string name="type.cuisine.chicken">Kip</string>
@@ -329,7 +329,7 @@
     <string name="type.cuisine.sausage">Worst</string>
     <string name="type.cuisine.savory_pancakes">Hartige pannenkoeken</string>
     <string name="type.cuisine.seafood">Vis en zeevruchten</string>
-    <string name="type.cuisine.soba">Soba</string>
+    <string name="type.cuisine.soba">Sobanoedels</string>
     <string name="type.cuisine.spanish">Spaans</string>
     <string name="type.cuisine.steak_house">Steakhouse</string>
     <string name="type.cuisine.sushi">Sushi</string>
@@ -1388,7 +1388,7 @@
     <string name="type.landuse.plant_nursery">Plantenkwekerij</string>
     <string name="type.man_made.crane">Kraan</string>
     <string name="type.barrier.guard_rail">Vangrail</string>
-    <string name="type.amenity.love_hotel">Love Hotel</string>
+    <string name="type.amenity.love_hotel">Liefdeshotel</string>
     <string name="type.amenity.studio">Mediastudio</string>
     <string name="type.sport.diving">Klifduiken</string>
     <string name="type.railway.station.subway.qingdao">Metrostation</string>
@@ -1409,7 +1409,7 @@
     <string name="type.barrier.wicket_gate">Klinket</string>
     <string name="type.office.security">Beveiligingskantoor</string>
     <string name="type.building.guardhouse">Beveiligingsloket</string>
-    <string name="type.power.portal">Verdeelstation</string>
+    <string name="type.power.portal">Elektriciteitsportaal</string>
     <string name="type.shop.lighting">Verlichtingswinkel</string>
     <string name="type.amenity.bench.backless">Zonder rugleuning</string>
     <string name="type.amenity.boat_rental">Bootverhuur</string>
@@ -1540,4 +1540,8 @@
     <string name="type.amenity.planetarium">Planetarium</string>
     <string name="type.amenity.toilets.customers">Klanttoegang</string>
     <string name="type.amenity.toilets.private">Privétoegang</string>
+    <string name="type.landuse.military.danger_area">Militair gevarengebied</string>
+    <string name="type.railway.station.subway.boston">Metrostation</string>
+    <string name="type.railway.subway_entrance.boston">Metro-ingang</string>
+    <string name="type.railway.subway_entrance.qingdao">Metro-ingang</string>
 </resources>

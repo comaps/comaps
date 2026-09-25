@@ -1,0 +1,36 @@
+En kostnadsfri kartapp med öppen källkod, skapad av gemenskapen, som bygger på data från OpenStreetMap och har ett tydligt åtagande för transparens, integritet och att inte drivas med vinst.
+
+Gå med i gemenskapen och hjälp till att skapa den bästa kartappen
+• Använd appen och sprid ordet
+• Ge återkoppling och rapportera problem
+• Uppdatera kartdata i appen eller på OpenStreetMaps webbplats
+
+<i>Din återkoppling och dina femstjärniga recensioner är det bästa stödet för oss!</i>
+
+‣ <b>Enkel och genomarbetad</b>: Viktiga, lättanvända funktioner som bara fungerar.
+‣ <b>Fokus på offlineanvändning</b>: Planera och navigera på din resa utomlands utan mobiluppkoppling, sök efter vägpunkter under en avlägsen vandring och mycket mer. Alla appens funktioner är utformade för att fungera offline.
+‣ <b>Respekt för integriteten</b>: Appen har utformats med integritet i åtanke – den identifierar inte människor, spårar inte och samlar inte in personuppgifter. Utan annonser.
+‣ <b>Sparar batteri och utrymme</b>: Drar inte ur batteriet som andra navigeringsappar. Kompakta kartor sparar värdefullt utrymme i telefonen.
+‣ <b>Gratis och skapad av gemenskapen</b>: Människor som du har hjälpt till att skapa appen genom att lägga till platser i OpenStreetMap, testa och ge återkoppling på funktioner samt bidra med utvecklingskunskaper och pengar.
+‣ <b>Öppet och transparent beslutsfattande och ekonomi, utan vinstintresse och helt med öppen källkod.</b>
+
+<b>Huvudfunktioner</b>:
+• Detaljerade kartor som kan hämtas och innehåller platser som inte finns i Google Maps
+• Friluftsläge med framhävda vandringsleder, campingplatser, vattenkällor, toppar, höjdkurvor med mera
+• Gång- och cykelvägar
+• Intressanta platser som restauranger, bensinstationer, hotell, butiker, sevärdheter och mycket mer
+• Sök efter namn, adress eller kategori av intressant plats
+• Navigering med röstmeddelanden för gång, cykling eller bilkörning
+• Bokmärk dina favoritplatser med en enda tryckning
+• Wikipedia-artiklar offline
+• Kollektivtrafikskikt och vägbeskrivningar för tunnelbana
+• Spårinspelning
+• Exportera och importera bokmärken och spår i formaten KML, KMZ och GPX
+• Ett mörkt läge för användning på natten
+• Förbättra kartdata för alla med en enkel inbyggd redigerare
+• Stöd för Android Auto
+
+Rapportera problem med appen, föreslå idéer och gå med i vår gemenskap på webbplatsen <b><i>comaps.app</i></b>.
+
+<b>Friheten finns här</b>
+Upptäck din resa, navigera världen med integritet och gemenskap i första rummet!

@@ -857,7 +857,7 @@
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
 "downloader_check_updates_button" = "Проверить обновления";
 "downloader_check_updates_checking" = "Проверка обновлений...";
-"downloader_check_updates_updated" = "Карта упешно обновлена!";
+"downloader_check_updates_updated" = "Доступны обновления карт";
 "downloader_check_updates_no_updates" = "Нет доступных обновлений";
 "downloader_check_updates_eol" = "Обновления карт недоступны для этой версии. Пожалуйста, обновите приложение!";
 "downloader_check_updates_error" = "Ошибка проверки обновлений";

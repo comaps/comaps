@@ -10,7 +10,7 @@
     <string name="type.aerialway.drag_lift">Téléski</string>
     <string name="type.aerialway.gondola">Télécabine</string>
     <string name="type.aerialway.mixed_lift">Téléporté mixte</string>
-    <string name="type.aerialway.station">Station de Remontées mécaniques</string>
+    <string name="type.aerialway.station">Station de remontées mécaniques</string>
     <string name="type.aeroway">Équipement aérien</string>
     <string name="type.aeroway.aerodrome">Aéroport</string>
     <string name="type.aeroway.aerodrome.international">Aéroport International</string>
@@ -18,9 +18,9 @@
     <string name="type.aeroway.gate">Porte d’embarquement</string>
     <string name="type.aeroway.helipad">Héliport</string>
     <string name="type.aeroway.runway">Piste d’aviation</string>
-    <string name="type.aeroway.taxiway">Voie de circulation</string>
+    <string name="type.aeroway.taxiway">Voie de taxi</string>
     <string name="type.amenity">Infrastructures</string>
-    <string name="type.amenity.arts_centre">Centre artistique</string>
+    <string name="type.amenity.arts_centre">Centre culturel</string>
     <string name="type.amenity.atm">GAB</string>
     <string name="type.amenity.bank">Banque</string>
     <string name="type.amenity.bbq">Grille de barbecue</string>
@@ -1033,7 +1033,7 @@
     <string name="type.railway.subway_entrance.paris">Entrée du métro</string>
     <string name="type.railway.subway_entrance.philadelphia">Entrée du métro</string>
     <string name="type.railway.subway_entrance.pyongyang">Entrée du métro</string>
-    <string name="type.railway.subway_entrance.rennes">Entrée du métro</string>
+    <string name="type.railway.subway_entrance.rennes">Entrée de métro</string>
     <string name="type.railway.subway_entrance.rio">Entrée du métro</string>
     <string name="type.railway.subway_entrance.roma">Entrée du métro</string>
     <string name="type.railway.subway_entrance.rotterdam">Entrée du métro</string>
@@ -1530,7 +1530,7 @@
     <string name="type.shop.water">Magasin d\'eau</string>
     <string name="type.attraction">Attraction</string>
     <string name="type.leisure.sports_centre.sport.boules">Centre sportif</string>
-    <string name="type.leisure.sports_centre.sport.four_square">Centre sportif</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Complexe sportif</string>
     <string name="type.sport.boules">Boules</string>
     <string name="type.sport.four_square">Four Square</string>
     <string name="type.leisure.sports_centre.sport.pickleball">Centre Sportif</string>
@@ -1540,4 +1540,8 @@
     <string name="type.amenity.toilets.customers">Accès client</string>
     <string name="type.amenity.toilets.private">Accès privé</string>
     <string name="type.amenity.animal_boarding">Pension pour animaux</string>
+    <string name="type.landuse.military.danger_area">Zone militaire dangereuse</string>
+    <string name="type.railway.station.subway.boston">Station de métro</string>
+    <string name="type.railway.subway_entrance.boston">Entrée du métro</string>
+    <string name="type.railway.subway_entrance.qingdao">Entrée de métro</string>
 </resources>

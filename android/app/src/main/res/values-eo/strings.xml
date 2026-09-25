@@ -111,7 +111,7 @@
     <string name="description">Notoj</string>
     <string name="share_bookmarks_email_body">Saluton!\n\nMi sendas miajn favoratojn. Bonvolu malfermi ilin per CoMaps. Se ĝi ne estas instalita, vi povas elŝuti ĝin ĉi tie: https://www.comaps.app/download/\n\nĜuu vojaĝadon per CoMaps!</string>
     <string name="load_kmz_title">Ŝargado de favoratoj</string>
-    <string name="load_kmz_successful">Ŝargado de favoratoj sukcesis! Vi povas trovi ĝin sur la mapo aŭ en la fenestro de favoratoj.</string>
+    <string name="load_kmz_successful">Ŝargado de favoratoj sukcesis! Vi povas trovi ilin sur la mapo aŭ en la fenestro de favoratoj.</string>
     <string name="pref_backup_now_summary_empty_lists">Neniu favorato por savkopii</string>
     <string name="pref_backup_title">Savkopii favoratojn</string>
     <string name="track_recording_alert_title">Ĉu konservi en Favoratojn?</string>

@@ -1,28 +1,27 @@
-Une application cartographique créée par la communauté, gratuite et open source basée sur les données OpenStreetMap et engagée pour la transparence, le respect de la vie privée et son but non lucratif.
+Une application de cartographie gratuite et open source, développée par la communauté et basée sur les données d'OpenStreetMap. Elle s'engage pour la transparence, le respect de la vie privée et est à but non lucratif.
 
-‣ Simple et soignée : des fonctionnalités faciles à utiliser, essentielles et qui fonctionnent.
-‣ Centrée sur le hors-ligne : planifiez et effectuez votre trajet à l'étranger sans avoir besoin de réseau mobile, recherchez des points de passage lors d’une randonnée lointaine, etc. Toutes les fonctionnalités de l’application sont faites pour fonctionner hors-ligne.
-‣ Respecte la vie privée : l'application est conçue avec la vie privée en tête - elle n’identifie pas ses utilisateurs, ne les piste pas et ne collecte pas d'informations personnelles. Sans pub.
-‣ Économise votre batterie et votre stockage : ne vide pas votre batterie comme les autres applications de navigation. Les cartes compactes économisent de l’espace sur votre téléphone.
-‣ Gratuit et créé par la communauté : des gens comme vous ont aidé à créer l’application en ajoutant des lieux sur OpenStreetMap, en la testant, en donnant leur avis sur les fonctionnalités et en contribuant au développement et aux frais financiers.
-‣ Prises de décisions et comptes clairs et transparents, but non lucratif et complètement open source.
+‣ Simple et intuitive : des fonctionnalités essentielles, faciles à utiliser et performantes.
+‣ Fonctionnement hors ligne : planifiez et suivez votre itinéraire à l'étranger sans connexion internet, recherchez des points de passage lors de randonnées lointaines, etc. Toutes les fonctionnalités de l'application sont conçues pour fonctionner hors ligne.
+‣ Respect de la vie privée : l'application est conçue dans le respect de la vie privée : elle n'identifie pas les utilisateurs, ne les suit pas et ne collecte aucune information personnelle. Sans publicité.
+‣ Économie de batterie et d'espace : contrairement à d'autres applications de navigation, elle ne consomme pas beaucoup de batterie. Les cartes compactes permettent de gagner de la place sur votre téléphone.
+‣ Gratuite et développée par la communauté : des personnes comme vous ont contribué à la création de l'application en ajoutant des lieux à OpenStreetMap, en testant et en donnant leur avis sur les fonctionnalités, et en contribuant financièrement et en développant l'application.  ‣ Prise de décision et finances ouvertes et transparentes, sans but lucratif et entièrement open source.
 
 Fonctionnalités principales :
-• Cartes détaillées téléchargeables avec des lieux non disponibles sur Google Maps
-• Mode extérieur avec sentiers de randonnée, campings, sources d’eau, sommets, courbes de niveau, etc. surlignés
-• Chemins piétons et pistes cyclables
-• Points d’intérêt comme des restaurants, stations-service, hôtels, magasins, lieux touristiques et bien plus
-• Recherche par nom, adresse ou catégorie de point d'intérêt
-• Navigation avec annonces vocales pour la marche, le vélo ou la conduite
-• Mettez en favori vos lieux préférés en un seul clic
-• Synchronisation iCloud pour vos favoris et parcours
-• Articles Wikipédia hors-ligne
-• Plan de métro et indications pour s'y rendre
-• Enregistrement des parcours
-• Exportez et importez vos favoris aux formats KML, KMZ et GPX
-• Mode sombre pour utiliser pendant la nuit
-• Amélioration de la carte par tout le monde avec un éditeur simple intégré
-• Support pour CarPlay
+• Cartes détaillées téléchargeables incluant des lieux absents de nombreuses cartes commerciales
+• Mode extérieur avec mise en évidence des sentiers de randonnée, campings, points d’eau, sommets, courbes de niveau, etc.
+• Chemins pédestres et pistes cyclables
+• Points d’intérêt : restaurants, stations-service, hôtels, commerces, sites touristiques et bien plus encore
+• Recherche par nom, adresse ou catégorie de point d’intérêt
+• Navigation avec annonces vocales pour la marche, le vélo ou la voiture
+• Ajoutez vos lieux favoris à vos favoris en un clic
+• Synchronisation iCloud pour vos favoris et vos itinéraires
+• Articles Wikipédia hors ligne
+• Calque et itinéraires du métro
+• Enregistrement des itinéraires
+• Exportation et importation des favoris et des itinéraires aux formats KML, KMZ et GPX
+• Mode sombre pour une utilisation nocturne
+• Améliorez les données cartographiques pour tous grâce à un éditeur intégré simple
+• Compatible CarPlay
 
-La liberté est ici
-Découvrez votre voyage, naviguez dans le monde en plaçant la vie privée et la communauté au premier plan !
+La liberté est là !
+Explorez le monde en toute confidentialité et en toute communauté !

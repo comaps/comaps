@@ -111,7 +111,7 @@
 /* message title of loading file */
 "load_kmz_title" = "Ŝargado de favoratoj";
 /* Kmz file successful loading */
-"load_kmz_successful" = "Ŝargado de favoratoj sukcesis! Vi povas trovi ĝin sur la mapo aŭ en la fenestro de favoratoj.";
+"load_kmz_successful" = "Ŝargado de favoratoj sukcesis! Vi povas trovi ilin sur la mapo aŭ en la fenestro de favoratoj.";
 /* Kml file loading failed */
 "load_kmz_failed" = "Malsukcesis ŝargi favoratojn. La dosiero eble estas difektita.";
 /* resource for context menu */

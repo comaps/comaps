@@ -1,0 +1,28 @@
+En fri kartapp med öppen källkod, ledd av gemenskapen, baserad på data från OpenStreetMap och med fokus på öppenhet, integritet och att inte drivas med vinst.
+
+‣ Enkel och genomarbetad: lättanvända grundfunktioner som bara fungerar.
+‣ Anpassad för offlineanvändning: Planera och navigera under utlandsresan utan mobilnät, sök efter vägpunkter på en avlägsen vandring och mycket mer. Alla appens funktioner är utformade för att fungera offline.
+‣ Respekterar din integritet: Appen är byggd med integriteten i åtanke – den identifierar inte personer, spårar inte och samlar inte in personuppgifter. Utan annonser.
+‣ Sparar batteri och lagringsutrymme: Drar inte ur batteriet som andra navigeringsappar. Kompakta kartor sparar värdefullt utrymme på telefonen.
+‣ Gratis och skapad av gemenskapen: Människor som du har hjälpt till att bygga appen genom att lägga till platser i OpenStreetMap, testa och ge återkoppling om funktioner samt bidra med utvecklingskunskap och pengar.
+‣ Öppet och transparent beslutsfattande och ekonomi, utan vinstsyfte och helt med öppen källkod.
+
+Huvudfunktioner:
+• Nedladdningsbara, detaljerade kartor med platser som saknas på många kommersiella kartor
+• Friluftsläge med markerade vandringsleder, campingplatser, vattenkällor, toppar, höjdkurvor med mera
+• Gång- och cykelvägar
+• Intressepunkter som restauranger, bensinstationer, hotell, butiker, sevärdheter och mycket mer
+• Sök efter namn, adress eller kategori av intressepunkt
+• Navigering med röstmeddelanden för gång, cykling eller bilkörning
+• Spara dina favoritplatser med ett tryck
+• iCloud-synkronisering av dina bokmärken och spår
+• Wikipediaartiklar offline
+• Kartlager och vägbeskrivningar för tunnelbana
+• Spårinspelning
+• Exportera och importera bokmärken och spår i formaten KML, KMZ och GPX
+• Mörkt läge för användning på natten
+• Förbättra kartdata för alla med en enkel inbyggd redigerare
+• Stöd för CarPlay
+
+Friheten är här
+Upptäck din resa och navigera i världen med integritet och gemenskap i centrum!

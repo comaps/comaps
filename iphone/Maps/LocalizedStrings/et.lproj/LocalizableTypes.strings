@@ -1537,3 +1537,7 @@
 "type.amenity.toilets.customers" = "Ligipääs klientidele";
 "type.amenity.toilets.private" = "Privaatne ligipääs";
 "type.amenity.planetarium" = "Planetaarium";
+"type.landuse.military.danger_area" = "Sõjaväe ohuala";
+"type.railway.subway_entrance.boston" = "Metroo sissepääs";
+"type.railway.station.subway.boston" = "Bostoni metroojaam";
+"type.railway.subway_entrance.qingdao" = "Metroo sissepääs";

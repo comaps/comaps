@@ -348,7 +348,7 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.footway.tunnel">Tunnel</string>
     <string name="type.highway.ford">Vadested</string>
-    <string name="type.highway.living_street">Legegade</string>
+    <string name="type.highway.living_street">Stillevej</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.living_street.bridge">Bro</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
@@ -468,7 +468,7 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.unclassified.tunnel">Tunnel</string>
     <string name="type.area_highway.footway">Sti</string>
-    <string name="type.area_highway.living_street">Legegade</string>
+    <string name="type.area_highway.living_street">Stillevej</string>
     <string name="type.area_highway.motorway">Motorvej</string>
     <string name="type.area_highway.path">Sti</string>
     <string name="type.area_highway.pedestrian">Gågade</string>
@@ -1535,4 +1535,8 @@
     <string name="type.amenity.toilets.customers">Kundeadgang</string>
     <string name="type.amenity.toilets.private">Privat adgang</string>
     <string name="type.amenity.animal_boarding">Dyrepension</string>
+    <string name="type.landuse.military.danger_area">Militært område</string>
+    <string name="type.railway.station.subway.boston">Metro</string>
+    <string name="type.railway.subway_entrance.boston">Metroindgang</string>
+    <string name="type.railway.subway_entrance.qingdao">Metroindgang</string>
 </resources>

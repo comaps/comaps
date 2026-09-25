@@ -39,4 +39,8 @@
     <string name="months_ago">för %s månader sedan</string>
     <string name="year_ago">för %s år sedan</string>
     <string name="years_ago">för %s år sedan</string>
+    <string name="accessibility_map_content_description_collapsed">Karta. Svep uppåt eller nedåt med ett finger och expandera för att utforska med beröring.</string>
+    <string name="accessibility_map_content_description_expanded">Karta. Tryck och håll ned för att utforska med beröring. Platser läses upp när fingret når dem. Avsluta genom att svepa uppåt eller nedåt med ett finger och avfärda.</string>
+    <string name="accessibility_map_action_expand_label">utforska med beröring</string>
+    <string name="accessibility_map_action_collapse_label">avsluta utforskning med beröring</string>
 </resources>

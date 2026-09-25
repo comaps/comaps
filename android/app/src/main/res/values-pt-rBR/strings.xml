@@ -463,13 +463,13 @@
     <string name="accept">Aceitar</string>
     <!-- For the first routing -->
     <string name="decline">Declinar</string>
-    <string name="mobile_data_dialog">Utilizar a internet móvel para mostrar informações detalhadas?</string>
+    <string name="mobile_data_dialog">Usar dados móveis?</string>
     <string name="mobile_data_option_always">Utilizar sempre</string>
     <string name="mobile_data_option_today">Apenas hoje</string>
     <string name="mobile_data_option_not_today">Não utilizar hoje</string>
     <string name="mobile_data">Internet móvel</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Internet móvel é necessária para notificações de atualização de mapas e envio de edições</string>
+    <string name="mobile_data_description">Dados móveis são necessários para notificações de atualização de mapas, envio de edições, e links para sites de avaliação</string>
     <string name="mobile_data_option_never">Nunca utilizar</string>
     <string name="mobile_data_option_ask">Perguntar sempre</string>
     <string name="traffic_update_maps_text">Para mostrar os dados de trânsito, os mapas devem ser atualizados</string>
@@ -962,8 +962,12 @@
     <string name="bookmarks_text_placement_title">Mostrar nomes dos favoritos no mapa</string>
     <string name="place_reviews_title">Avaliações de lugares</string>
     <string name="rating_stars_description">estrelas: %.1f</string>
-    <string name="reviews_by_mangrove">Avaliações do Mangrove.\nAdicione avaliações no <a href="https://mapcomplete.org">MapComplete</a>.</string>
+    <string name="reviews_by_mangrove">Avaliações do Mangrove</string>
     <string name="pref_font_size">Tamanho da fonte para rótulos do mapa</string>
     <string name="decrease_font_size">Diminuir o tamanho do rótulo do mapa</string>
     <string name="place_reviews">Avaliações de %1$s</string>
+    <string name="add_review">Adicione uma avaliação através de %1$s</string>
+    <string name="add_review_url_resolution_failed">Local não encontrado na versão mais recente do OpenStreetMap.</string>
+    <string name="add_review_url_resolution_failed_dev">Local não encontrado no servidor DEV do OpenStreetMap.</string>
+    <string name="internet_unavailable">Sem conexão à internet</string>
 </resources>

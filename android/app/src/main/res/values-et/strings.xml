@@ -518,13 +518,13 @@
     <string name="accept">Nõustu</string>
     <!-- For the first routing -->
     <string name="decline">Keeldu</string>
-    <string name="mobile_data_dialog">Kas kasutame mobiilset internetiühendust üksikasjaliku teabe kuvamiseks?</string>
+    <string name="mobile_data_dialog">Kas kasutad mobiilset internetiühendust?</string>
     <string name="mobile_data_option_always">Kasuta alati</string>
     <string name="mobile_data_option_today">Ainult täna</string>
     <string name="mobile_data_option_not_today">Ära kasuta täna</string>
     <string name="mobile_data">Mobiilne internetiühendus</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Mobiilne internetiühendus on vajalik kaardi uuendamise teavituste jaoks ning muudatuste üleslaadimiseks</string>
+    <string name="mobile_data_description">Mobiilne internetiühendus on vajalik kaardi uuendamise teavituste jaoks, muudatuste üleslaadimiseks ning viitamiseks arvustuste veebisaitidesse</string>
     <string name="mobile_data_option_never">Ära kasuta kunagi</string>
     <string name="mobile_data_option_ask">Küsi alati</string>
     <string name="traffic_update_maps_text">Liiklusinfo kuvamiseks palun uuenda kaardid</string>
@@ -981,5 +981,11 @@
     <string name="place_reviews_title">Kohtade arvustused</string>
     <string name="place_reviews">%1$s arvustust</string>
     <string name="rating_stars_description">tärne: %.1f</string>
-    <string name="reviews_by_mangrove">Arvustused on teenusest Mangrove.\nNeid saad lisada <a href="https://mapcomplete.org">MapComplete\'i</a> saidist.</string>
+    <string name="reviews_by_mangrove">Arvustused on teenusest Mangrove</string>
+    <string name="pref_font_size">Kirjasuurus kaardisiltidel</string>
+    <string name="decrease_font_size">Vähenda kirjasuurust kaardisiltidel</string>
+    <string name="internet_unavailable">Internetiühendus puudub</string>
+    <string name="add_review">Lisa arvustus siin: %1$s</string>
+    <string name="add_review_url_resolution_failed">Seda kohta ei leidu viimases OpenStreetMapi andmekogus.</string>
+    <string name="add_review_url_resolution_failed_dev">Seda kohta ei leidu OpenStreetMapi andmekogu arendusvariandis.</string>
 </resources>

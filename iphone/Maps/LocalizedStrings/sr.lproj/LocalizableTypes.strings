@@ -1537,3 +1537,7 @@
 "type.amenity.toilets.customers" = "Само за муштерије";
 "type.amenity.toilets.private" = "Приватни";
 "type.amenity.planetarium" = "Планетаријум";
+"type.landuse.military.danger_area" = "Војна зона опасности";
+"type.railway.subway_entrance.boston" = "Улаз у метро";
+"type.railway.station.subway.boston" = "Метро станица";
+"type.railway.subway_entrance.qingdao" = "Улаз у метро";

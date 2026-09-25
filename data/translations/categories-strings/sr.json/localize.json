@@ -45,7 +45,7 @@
         "defaultMessage": "4Банка|3Banka"
     },
     "@category_secondhand": {
-        "defaultMessage": "6Секонд-хенд|6Sekond-hend"
+        "defaultMessage": "5Половна одећа|5Секонд-хенд|5Polovna odeća|5Sekond-hend"
     },
     "amenity-bank|@category_bank": {
         "defaultMessage": "новац|novac"
@@ -921,7 +921,7 @@
         "defaultMessage": "Рибарница|Риба|Ribarnica|Riba"
     },
     "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
-        "defaultMessage": "5Секонд хенд|5Sekond hend"
+        "defaultMessage": "5Половна одећа|5Секонд-хенд|5Polovna odeća|5Sekond-hend"
     },
     "shop-charity|@shop|@category_secondhand": {
         "defaultMessage": "5Добротворна организација|5Dobrotvorna organizacija"

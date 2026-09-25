@@ -111,7 +111,7 @@
 /* message title of loading file */
 "load_kmz_title" = "Chargement des favoris";
 /* Kmz file successful loading */
-"load_kmz_successful" = "Vos favoris ont été chargés avec succès ! Vous pouvez les trouver sur la carte ou sur l'écran Gestionnaire de favoris.";
+"load_kmz_successful" = "Les favoris ont été chargés avec succès ! Vous pouvez les retrouver sur la carte ou dans le menu Gestionnaire de favoris.";
 /* Kml file loading failed */
 "load_kmz_failed" = "Échec du chargement des favoris. Le fichier est peut-être corrompu ou défectueux.";
 /* resource for context menu */
@@ -358,8 +358,8 @@
 "wikimedia_commons" = "Wikimedia Commons";
 "p2p_your_location" = "Votre emplacement";
 "p2p_start" = "Démarrer";
-"p2p_from_here" = "Depuis";
-"p2p_to_here" = "Itinéraire vers";
+"p2p_from_here" = "Départ";
+"p2p_to_here" = "Arrivée";
 "p2p_only_from_current" = "La navigation est disponible uniquement à partir de votre emplacement actuel.";
 "p2p_reroute_from_current" = "Souhaitez-vous planifier un itinéraire à partir de votre emplacement actuel ?";
 "editor_time_add" = "Ajouter un horaire d’ouverture";
@@ -631,9 +631,9 @@
 "tags_loading_error_subtitle" = "Une erreur s’est produite lors du chargement des tags, veuillez réessayer";
 "download_button" = "Téléchargez";
 "speedcams_alert_title" = "Radars de vitesse";
-"place_description_title" = "Description d’endroit";
+"place_description_title" = "Description du lieu";
 /* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
-"pref_tts_speedcams_auto" = "Avertir en cas de dépassement de la limite de vitesse";
+"pref_tts_speedcams_auto" = "Avertir en cas d'excès de vitesse";
 /* Speed camera settings menu option - Always warn (about speedcams) */
 "pref_tts_speedcams_always" = "Toujours avertir";
 /* Speed camera settings menu option - Never warn (about speedcams) */
@@ -878,22 +878,22 @@
 "mode_cycling" = "Cyclisme";
 "mode_driving" = "En voiture";
 "mode_public-transport" = "Transport public";
-"mode_option_traffic" = "Afficher le traffic";
+"mode_option_traffic" = "Afficher le trafic";
 "mode_option_transitlines" = "Afficher les lignes de transports en commun";
 "mode_option_comingsoon" = "Options disponibles prochainement";
 "layers" = "Couches";
 "layers_option_contour-lines" = "Courbes de niveau";
 "layers_option_outdoor" = "Sports de plein air";
 "layers_option_buildings-3d" = "Bâtiments 3D";
-"layers_power-saving" = "Cette couche est actuellement désactivée automatiquement en raison de votre paramètre de mode d'économie d'énergie";
+"layers_power-saving" = "Cette couche a été désactivée automatiquement en raison du mode d'économie d'énergie paramétré";
 "postionmode_locate" = "Rechercher votre position";
-"postionmode_locating" = "Recherche de votre position en cours ...";
-"postionmode_following" = "Emplacement suivant avec la carte orientée vers le nord";
-"postionmode_following-and-rotated" = "Lieu suivant avec carte orientée dans le sens du déplacement";
+"postionmode_locating" = "Recherche de votre position en cours...";
+"postionmode_following" = "Suivi de la position avec la carte orientée vers le nord";
+"postionmode_following-and-rotated" = "Suivi de la position avec carte orientée dans le sens du déplacement";
 "zoom_in" = "Zoomer";
 "zoom_out" = "Dézoomer";
 "record_track" = "Enregistrer la trace";
 "recording_track" = "Trace en cours d'enregistrement";
 "bookmarks_text_placement_title" = "Afficher les noms des favoris sur la carte";
-"pref_font_size" = "Font size for map labels";
-"font_size" = "Font size";
+"pref_font_size" = "Taille de police des libellés sur la carte";
+"font_size" = "Taille de police";

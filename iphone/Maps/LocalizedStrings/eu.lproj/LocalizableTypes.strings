@@ -1537,3 +1537,7 @@
 "type.amenity.toilets.customers" = "Bezeroaren sarbidea";
 "type.amenity.toilets.private" = "Sarbide pribatua";
 "type.amenity.planetarium" = "Planetarium";
+"type.landuse.military.danger_area" = "Military Danger Area";
+"type.railway.subway_entrance.boston" = "Subway Entrance";
+"type.railway.station.subway.boston" = "Subway Station";
+"type.railway.subway_entrance.qingdao" = "Subway Entrance";

@@ -1,6 +1,6 @@
 Een door de community ontwikkelde, gratis en open source kaartenapp, gebaseerd op OpenStreetMap-gegevens, met een sterke focus op transparantie en privacy, en zonder winstoogmerk. CoMaps is een fork/spin-off van Organic Maps, welke is afgeleid van Maps.ME.
 
-Meer informatie over de redenen voor het project en de richting ervan vindt u op <b><i>codeberg.org/comaps</i></b>.
+Meer informatie over de redenen voor het project en de richting ervan vindt je op <b><i>codeberg.org/comaps</i></b>.
 Sluit je aan bij de community en help mee aan de ontwikkeling van de beste kaartenapp:
 • Gebruik de app en deel je ervaringen met anderen
 • Geef feedback en meld eventuele problemen

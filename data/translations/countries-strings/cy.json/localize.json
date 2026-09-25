@@ -946,5 +946,119 @@
     },
     "Bosnia and Herzegovina_Republic of Srpska": {
         "defaultMessage": "Republika Srpska"
+    },
+    "France_Pays de la Loire_Sarthe Description": {
+        "defaultMessage": "Le Mans, La Flèche, Sablé-sur-Sarthe"
+    },
+    "Seychelles Description": {
+        "defaultMessage": "Victoria, Port Launay, Bel Ombre"
+    },
+    "Spain_Catalonia_Provincia de Barcelona Description": {
+        "defaultMessage": "Barcelona, L'Hospitalet de Llobregat, Badalona"
+    },
+    "Oman Description": {
+        "defaultMessage": "Muscat, Al Khasal, As Suwaiq"
+    },
+    "Spain_Castile and Leon_East Description": {
+        "defaultMessage": "Burgos, Valladolid, Palencia, Soria, Segovia"
+    },
+    "Mexico_Mexico Description": {
+        "defaultMessage": "Dinas Mecsico, Puebla, Cuautitlán Izcalli"
+    },
+    "Canada_Nunavut_North Description": {
+        "defaultMessage": "CFB Alert, Grise Fiord, Eureka"
+    },
+    "US_California_Redding Description": {
+        "defaultMessage": "Eureka, Red Bluff, Crescent City"
+    },
+    "US_Colorado_Aspen Description": {
+        "defaultMessage": "Grand Junction, Glenwood Springs, Steamboat Springs"
+    },
+    "Netherlands_South Holland_Leiden Description": {
+        "defaultMessage": "Leiden, Alphen aan den Rijn, Leiderdorp"
+    },
+    "Nepal_Purwanchal Description": {
+        "defaultMessage": "Sarang Pada, Campa Bazzar, Kerkha Bazar"
+    },
+    "Malaysia Description": {
+        "defaultMessage": "Kuala Lumpur, Petaling Jaya, Kota Kinabalu"
+    },
+    "Switzerland_Central Description": {
+        "defaultMessage": "Lucerne, Zug, Sarnen, Stans, Altdorf, Schwyz"
+    },
+    "Brazil_Southeast Region_Minas Gerais_Contagem Description": {
+        "defaultMessage": "Belo Horizonte, Contagem, Juiz de Fora"
+    },
+    "Indonesia_West Description": {
+        "defaultMessage": "Medan, SIak Sri Indrapura, Lampung Town"
+    },
+    "Andorra Description": {
+        "defaultMessage": "Andorra la Vella, La Massana, Ordino"
+    },
+    "Portugal_Viseu Description": {
+        "defaultMessage": "Viseu, Santo Adrião de Vizela, Felgueiras"
+    },
+    "Jersey Description": {
+        "defaultMessage": "Saint Helier, St. Saviour, St. John"
+    },
+    "Taiwan_North Description": {
+        "defaultMessage": "Taipei City, Taoyuan District, Taichung City"
+    },
+    "Canada_Saskatchewan_North Description": {
+        "defaultMessage": "Meadow Lake, Blaine Lake, Saint Walburg"
+    },
+    "US_Iowa_West Description": {
+        "defaultMessage": "Sioux City, Council Bluffs, Fort Dodge"
+    },
+    "Uruguay Description": {
+        "defaultMessage": "Montevideo, Ciudad de la Costa, Salto"
+    },
+    "US_Missouri_Springfield Description": {
+        "defaultMessage": "Joplin, Branson, Lake of the Ozarks"
+    },
+    "France_Normandy": {
+        "defaultMessage": "Normandi"
+    },
+    "France_Auvergne-Rhone-Alpes": {
+        "defaultMessage": "Auvergne-Rhône-Alpes"
+    },
+    "France_Bourgogne-Franche-Comte": {
+        "defaultMessage": "Bourgogne-Franche-Comté"
+    },
+    "France_Hauts-de-France": {
+        "defaultMessage": "Hauts-de-France"
+    },
+    "France_Nouvelle-Aquitaine": {
+        "defaultMessage": "Nouvelle-Aquitaine"
+    },
+    "France_Occitania": {
+        "defaultMessage": "Occitania"
+    },
+    "Germany_Baden-Wurttemberg_Regierungsbezirk Tubingen": {
+        "defaultMessage": "Tübingen"
+    },
+    "Germany_Berlin": {
+        "defaultMessage": "Berlin"
+    },
+    "Germany_Brandenburg": {
+        "defaultMessage": "Brandenburg"
+    },
+    "Germany_Brandenburg_North": {
+        "defaultMessage": "Potsdam"
+    },
+    "Germany_Brandenburg_South": {
+        "defaultMessage": "Cottbus"
+    },
+    "Germany_Free State of Bavaria": {
+        "defaultMessage": "Bavaria"
+    },
+    "Germany_Free State of Bavaria_Swabia": {
+        "defaultMessage": "Swabia"
+    },
+    "Germany_Hamburg_main": {
+        "defaultMessage": "Hamburg"
+    },
+    "Germany_Hesse": {
+        "defaultMessage": "Hesse"
     }
 }

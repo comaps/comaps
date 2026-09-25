@@ -301,7 +301,17 @@
     <string name="type.office.ngo">Non-Governmental Organisation</string>
     <string name="type.railway.station.light_rail">Train Station</string>
     <string name="type.amenity.charging_station.motorcycle">Motorcycles</string>
-    <string name="type.amenity.kindergarten">Kindergarten</string>
+    <string name="type.amenity.kindergarten">Nursery</string>
     <string name="type.amenity.library">Library</string>
     <string name="type.amenity.lounger">Lounger</string>
+    <string name="type.shop.newsagent">Newsagent</string>
+    <string name="type.emergency.emergency_ward_entrance">A&amp;E Entrance</string>
+    <string name="type.man_made.observatory">Observatory</string>
+    <string name="type.amenity.childcare">Nursery</string>
+    <string name="type.amenity.pharmacy">Pharmacy</string>
+    <string name="type.power.generator.wind">Wind Turbine</string>
+    <string name="type.leisure.sports_centre.sport.beachvolleyball">Sports Centre</string>
+    <string name="type.railway.subway_entrance.qingdao">Metro Entrance</string>
+    <string name="type.railway.subway_entrance.boston">Metro Entrance</string>
+    <string name="type.railway.station.subway.boston">Metro Station</string>
 </resources>

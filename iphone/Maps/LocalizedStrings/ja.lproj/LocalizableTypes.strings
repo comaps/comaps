@@ -75,12 +75,12 @@
 "type.amenity.music_school" = "音楽学校";
 "type.amenity.sailing_school" = "セーリング学校";
 "type.amenity.flight_school" = "フライトスクール";
-"type.amenity.prep_school" = "Tutorial School";
+"type.amenity.prep_school" = "チュートリアルスクール";
 "type.amenity.language_school" = "語学学校";
 "type.office.diplomatic" = "大使館";
 "type.office.security" = "警備員事務所";
 "type.building.guardhouse" = "警備員ブース";
-"type.power.portal" = "Power Portal";
+"type.power.portal" = "電源ポータル";
 "type.amenity.fast_food" = "ファストフード";
 "type.amenity.ferry_terminal" = "フェリー";
 "type.amenity.fire_station" = "消防署";
@@ -98,10 +98,10 @@
 "type.amenity.kindergarten" = "幼稚園";
 "type.amenity.library" = "図書館";
 "type.amenity.loading_dock" = "発送センター";
-"type.amenity.lounger" = "Lounger";
-"type.amenity.luggage_locker" = "Luggage Locker";
+"type.amenity.lounger" = "ラウンジチェア";
+"type.amenity.luggage_locker" = "荷物ロッカー";
 "type.amenity.marketplace" = "市場";
-"type.amenity.mobile_money_agent" = "Mobile Money Agent";
+"type.amenity.mobile_money_agent" = "モバイルマネー代理店";
 "type.amenity.motorcycle_parking" = "バイク駐輪場";
 "type.amenity.nightclub" = "ナイトクラブ";
 "type.amenity.nursing_home" = "養護施設";
@@ -147,7 +147,7 @@
 "type.amenity.police" = "警察";
 "type.amenity.post_box" = "郵便ポスト";
 "type.amenity.post_office" = "郵便局";
-"type.post_office.post_partner" = "Post Partner";
+"type.post_office.post_partner" = "郵便パートナー";
 "type.amenity.prison" = "刑務所";
 "type.amenity.pub" = "バー";
 "type.amenity.public_bookcase" = "街角文庫";
@@ -202,7 +202,7 @@
 "type.amenity.vehicle_inspection" = "車検";
 "type.amenity.vending_machine.fuel" = "燃料ポンプ";
 "type.amenity.veterinary" = "獣医";
-"type.amenity.animal_shelter" = "Animal Shelter";
+"type.amenity.animal_shelter" = "動物シェルター";
 "type.amenity.waste_basket" = "ゴミ箱";
 "type.amenity.waste_disposal" = "ゴミ";
 "type.amenity.waste_transfer_station" = "ゴミ処理場";
@@ -380,19 +380,19 @@
 "type.emergency.phone" = "緊急電話";
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "ライフガード";
-"type.beacon.cardinal.east" = "Cardinal Beacon";
-"type.beacon.cardinal.north" = "Cardinal Beacon";
-"type.beacon.cardinal.south" = "Cardinal Beacon";
-"type.beacon.cardinal.west" = "Cardinal Beacon";
+"type.beacon.cardinal.east" = "カーディナルビーコン";
+"type.beacon.cardinal.north" = "カーディナルビーコン";
+"type.beacon.cardinal.south" = "カーディナルビーコン";
+"type.beacon.cardinal.west" = "カーディナルビーコン";
 "type.beacon.isolated_danger" = "Isolated Danger Beacon";
 "type.beacon.lateral.port" = "Lateral Beacon";
 "type.beacon.lateral.starboard" = "Lateral Beacon";
 "type.beacon.safe_water" = "Safe Water Beacon";
 "type.beacon.special_purpose" = "Special Purpose Beacon";
-"type.buoy.cardinal.east" = "Cardinal Buoy";
-"type.buoy.cardinal.north" = "Cardinal Buoy";
-"type.buoy.cardinal.south" = "Cardinal Buoy";
-"type.buoy.cardinal.west" = "Cardinal Buoy";
+"type.buoy.cardinal.east" = "カーディナルブイ";
+"type.buoy.cardinal.north" = "カーディナルブイ";
+"type.buoy.cardinal.south" = "カーディナルブイ";
+"type.buoy.cardinal.west" = "カーディナルブイ";
 "type.buoy.isolated_danger" = "Isolated Danger Buoy";
 "type.buoy.lateral.port" = "Lateral Buoy";
 "type.buoy.lateral.starboard" = "Lateral Buoy";
@@ -749,10 +749,10 @@
 "type.leisure.sports_centre.sport.bowls" = "スポーツセンター";
 "type.leisure.sports_centre.sport.climbing" = "スポーツセンター";
 "type.leisure.sports_centre.sport.cricket" = "スポーツセンター";
-"type.leisure.sports_centre.sport.curling" = "Sports Centre";
-"type.leisure.sports_centre.sport.equestrian" = "Sports Centre";
-"type.leisure.sports_centre.sport.field_hockey" = "Sports Centre";
-"type.leisure.sports_centre.sport.futsal" = "Sports Centre";
+"type.leisure.sports_centre.sport.curling" = "スポーツセンター";
+"type.leisure.sports_centre.sport.equestrian" = "スポーツセンター";
+"type.leisure.sports_centre.sport.field_hockey" = "スポーツセンター";
+"type.leisure.sports_centre.sport.futsal" = "スポーツセンター";
 "type.leisure.sports_centre.sport.golf" = "スポーツセンター";
 "type.leisure.sports_centre.sport.gymnastics" = "スポーツセンター";
 "type.leisure.sports_centre.sport.handball" = "スポーツセンター";
@@ -798,7 +798,7 @@
 /* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "通信塔";
 /* A regular telecommunications mast. */
-"type.man_made.mast.communication" = "Communications Mast";
+"type.man_made.mast.communication" = "コミュニケーションマスト";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "石油またはガス井戸";
 /* A tower/mast constructed to burn off excess gas. */
@@ -1524,7 +1524,7 @@
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "スポーツホール";
 "type.xmas.tree" = "クリスマスツリー";
-"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.leisure.sports_centre.sport.four_square" = "スポーツセンター";
 "type.sport.four_square" = "Four Square";
 "type.sport.boules" = "Boules";
 "type.leisure.sports_centre.sport.boules" = "スポーツセンター";
@@ -1532,8 +1532,12 @@
 "type.leisure.sports_centre.sport.pickleball" = "スポーツセンター";
 "type.organic.no" = "オーガニックオプションなし";
 "type.amenity.stage" = "ステージ";
-"type.amenity.animal_boarding" = "Animal Boarding";
+"type.amenity.animal_boarding" = "ペットホテル";
 "type.amenity.toilets.customers" = "顧客のみ利用可";
 "type.amenity.planetarium" = "プラネタリウム";
-"type.emergency.life_ring" = "Lifebuoy";
-"type.amenity.toilets.private" = "Private Access";
+"type.emergency.life_ring" = "ライフブイ";
+"type.amenity.toilets.private" = "関係者のみ";
+"type.landuse.military.danger_area" = "Military Danger Area";
+"type.railway.subway_entrance.boston" = "Subway Entrance";
+"type.railway.station.subway.boston" = "Subway Station";
+"type.railway.subway_entrance.qingdao" = "Subway Entrance";

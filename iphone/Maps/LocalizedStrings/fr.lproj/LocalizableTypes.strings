@@ -7,7 +7,7 @@
 "type.aerialway.drag_lift" = "Téléski";
 "type.aerialway.gondola" = "Télécabine";
 "type.aerialway.mixed_lift" = "Téléporté mixte";
-"type.aerialway.station" = "Station de Remontées mécaniques";
+"type.aerialway.station" = "Station de remontées mécaniques";
 "type.aeroway" = "Équipement aérien";
 "type.aeroway.aerodrome" = "Aéroport";
 "type.aeroway.aerodrome.international" = "Aéroport International";
@@ -15,10 +15,10 @@
 "type.aeroway.gate" = "Porte d’embarquement";
 "type.aeroway.helipad" = "Héliport";
 "type.aeroway.runway" = "Piste d’aviation";
-"type.aeroway.taxiway" = "Voie de circulation";
+"type.aeroway.taxiway" = "Voie de taxi";
 "type.aeroway.terminal" = "Terminal";
 "type.amenity" = "Infrastructures";
-"type.amenity.arts_centre" = "Centre artistique";
+"type.amenity.arts_centre" = "Centre culturel";
 "type.amenity.atm" = "GAB";
 "type.amenity.bank" = "Banque";
 "type.amenity.bar" = "Bar";
@@ -1204,7 +1204,7 @@
 "type.railway.subway_entrance.paris" = "Entrée du métro";
 "type.railway.subway_entrance.philadelphia" = "Entrée du métro";
 "type.railway.subway_entrance.pyongyang" = "Entrée du métro";
-"type.railway.subway_entrance.rennes" = "Entrée du métro";
+"type.railway.subway_entrance.rennes" = "Entrée de métro";
 "type.railway.subway_entrance.rio" = "Entrée du métro";
 "type.railway.subway_entrance.roma" = "Entrée du métro";
 "type.railway.subway_entrance.rotterdam" = "Entrée du métro";
@@ -1526,7 +1526,7 @@
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Salle de sport";
 "type.xmas.tree" = "Arbre de Noël";
-"type.leisure.sports_centre.sport.four_square" = "Centre sportif";
+"type.leisure.sports_centre.sport.four_square" = "Complexe sportif";
 "type.sport.four_square" = "Four Square";
 "type.sport.boules" = "Boules";
 "type.leisure.sports_centre.sport.boules" = "Centre sportif";
@@ -1537,3 +1537,7 @@
 "type.amenity.toilets.customers" = "Accès client";
 "type.amenity.toilets.private" = "Accès privé";
 "type.amenity.planetarium" = "Planétarium";
+"type.landuse.military.danger_area" = "Zone militaire dangereuse";
+"type.railway.subway_entrance.boston" = "Entrée du métro";
+"type.railway.station.subway.boston" = "Station de métro";
+"type.railway.subway_entrance.qingdao" = "Entrée de métro";

@@ -1177,7 +1177,7 @@
 "type.railway.subway_entrance.lille" = "Είσοδος μετρό";
 "type.railway.subway_entrance.lima" = "Είσοδος μετρό";
 "type.railway.subway_entrance.lisboa" = "Είσοδος μετρό";
-"type.railway.subway_entrance.london" = "Είσοδος μετρό";
+"type.railway.subway_entrance.london" = "Είσοδος σταθμού μετρό";
 "type.railway.subway_entrance.lyon" = "Είσοδος μετρό";
 "type.railway.subway_entrance.madrid" = "Είσοδος μετρό";
 "type.railway.subway_entrance.malaga" = "Είσοδος μετρό";
@@ -1537,3 +1537,7 @@
 "type.amenity.toilets.customers" = "Πρόσβαση για πελάτες";
 "type.amenity.toilets.private" = "Ιδιωτική πρόσβαση";
 "type.amenity.planetarium" = "Πλανητάριο";
+"type.landuse.military.danger_area" = "Επικίνδυνη στρατιωτική περιοχή";
+"type.railway.subway_entrance.boston" = "Είσοδος μετρό";
+"type.railway.station.subway.boston" = "Σταθμός μετρό";
+"type.railway.subway_entrance.qingdao" = "Είσοδος μετρό";

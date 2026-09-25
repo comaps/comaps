@@ -895,5 +895,5 @@
 "record_track" = "Salvesta rada";
 "recording_track" = "Rada on salvestamisel";
 "bookmarks_text_placement_title" = "Näita kaardil lemmikute nimesid";
-"pref_font_size" = "Font size for map labels";
-"font_size" = "Font size";
+"pref_font_size" = "Kirjasuurus kaardisiltidel";
+"font_size" = "Kirjatüübi suurus";

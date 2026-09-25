@@ -51,7 +51,7 @@
 "type.leisure.adult_gaming_centre" = "Centru de jocuri pentru adulți";
 "type.leisure.amusement_arcade" = "Arcadă";
 "type.amenity.charging_station" = "Stație încărcare";
-"type.amenity.charging_station.motorcar" = "Stație de încărcare autoturisme";
+"type.amenity.charging_station.motorcar" = "Autoturisme";
 "type.amenity.charging_station.motorcycle" = "Motociclete";
 "type.amenity.charging_station.bicycle" = "Bicicletă";
 "type.amenity.charging_station.small" = "Capacitate Limitată";
@@ -75,7 +75,7 @@
 "type.amenity.music_school" = "Scoala de Muzica";
 "type.amenity.sailing_school" = "Școală de navigație";
 "type.amenity.flight_school" = "Școală de zbor";
-"type.amenity.prep_school" = "Tutorial School";
+"type.amenity.prep_school" = "Școală de Tutoriale";
 "type.amenity.language_school" = "Școala de limbi străine";
 "type.office.diplomatic" = "Ambasadă";
 "type.office.security" = "Firmă de pază";
@@ -101,7 +101,7 @@
 "type.amenity.lounger" = "Șezlong";
 "type.amenity.luggage_locker" = "Dulap pentru Bagaje";
 "type.amenity.marketplace" = "Piață";
-"type.amenity.mobile_money_agent" = "Mobile Money Agent";
+"type.amenity.mobile_money_agent" = "Agent de plăți mobile";
 "type.amenity.motorcycle_parking" = "Parcare de motociclete";
 "type.amenity.nightclub" = "Club de noapte";
 "type.amenity.nursing_home" = "Centru de îngrijire";
@@ -176,7 +176,7 @@
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Baracă de Bivuac";
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Adăpost de tip „lean-to”";
+"type.amenity.shelter.lean_to" = "Adăpost pentru dormit tip „lean-to”";
 "type.amenity.public_bath" = "Baie publică";
 "type.amenity.shower" = "Duș";
 "type.amenity.stripclub" = "Club de striptease";
@@ -370,10 +370,10 @@
 "type.cuisine.vegetarian" = "Bucătărie vegetariană";
 "type.cuisine.vietnamese" = "Bucătărie vietnameză";
 "type.emergency" = "Urgență";
-"type.emergency.access_point" = "Emergency Rescue Point";
-"type.emergency.access_point.address" = "Emergency Rescue Address";
+"type.emergency.access_point" = "Punct de salvare de urgență";
+"type.emergency.access_point.address" = "Adresă de salvare în caz de urgență";
 "type.emergency.assembly_point" = "Punct de adunare de urgență";
-"type.emergency.disaster_help_point" = "Emergency Disaster Help Point";
+"type.emergency.disaster_help_point" = "Punct de asistență în caz de dezastru";
 "type.emergency.life_ring" = "Colac de Salvare";
 "type.emergency.defibrillator" = "Defibrilator";
 "type.emergency.fire_hydrant" = "Hidrant";
@@ -1537,3 +1537,7 @@
 "type.amenity.toilets.customers" = "Acces pentru clienți";
 "type.amenity.toilets.private" = "Acces privat";
 "type.amenity.planetarium" = "Planetariu";
+"type.landuse.military.danger_area" = "Military Danger Area";
+"type.railway.subway_entrance.boston" = "Subway Entrance";
+"type.railway.station.subway.boston" = "Subway Station";
+"type.railway.subway_entrance.qingdao" = "Subway Entrance";

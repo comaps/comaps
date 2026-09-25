@@ -1,10 +1,10 @@
 "type.addr_interpolation" = "Adresa/blok";
-"type.addr_interpolation.even" = "adresa/blok";
-"type.addr_interpolation.odd" = "adresa/blok";
+"type.addr_interpolation.even" = "Adresa/blok";
+"type.addr_interpolation.odd" = "Adresa/blok";
 "type.aerialway" = "Vučnica";
 "type.aerialway.cable_car" = "Žičara";
 "type.aerialway.chair_lift" = "Sjedežnica";
-"type.aerialway.drag_lift" = "Vućnica";
+"type.aerialway.drag_lift" = "Vučnica";
 "type.aerialway.gondola" = "Gondola";
 "type.aerialway.mixed_lift" = "Mješovita žičara";
 "type.aerialway.station" = "Stanica žičare";
@@ -51,7 +51,7 @@
 "type.leisure.adult_gaming_centre" = "Centar za igre za odrasle";
 "type.leisure.amusement_arcade" = "Arkada";
 "type.amenity.charging_station" = "Stanica za punjenje";
-"type.amenity.charging_station.motorcar" = "Stanica za punjenje automobila";
+"type.amenity.charging_station.motorcar" = "Automobili";
 "type.amenity.charging_station.motorcycle" = "Motocikli";
 "type.amenity.charging_station.bicycle" = "Bicikli";
 "type.amenity.charging_station.small" = "Ograničeni kapacitet";
@@ -468,119 +468,119 @@
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "Tunel za pješake";
 "type.highway.ford" = "Gaz";
-"type.highway.living_street" = "Living Street";
+"type.highway.living_street" = "Zona smirenog prometa";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "Tunel";
-"type.highway.motorway" = "Motorway";
+"type.highway.motorway" = "Autocesta";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.motorway.bridge" = "Motorway Bridge";
+"type.highway.motorway.bridge" = "Most autoceste";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.motorway.tunnel" = "Motorway Tunnel";
-"type.highway.motorway_junction" = "Road Exit";
-"type.highway.motorway_link" = "Motorway Ramp";
+"type.highway.motorway.tunnel" = "Tunel na autocesti";
+"type.highway.motorway_junction" = "Izlaz s ceste";
+"type.highway.motorway_link" = "Rampa autoceste";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "Tunel";
-"type.highway.path" = "Path";
+"type.highway.path" = "Staza";
 /* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
-"type.highway.path.difficult" = "Difficult or Indistinct Trail";
+"type.highway.path.difficult" = "Teška ili nejasna staza";
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
-"type.highway.path.expert" = "Expert or Indiscernible Trail";
-"type.highway.path.bicycle" = "Cycle & Foot Path";
-"type.highway.footway.bicycle" = "Cycle & Foot Path";
+"type.highway.path.expert" = "Stručna ili nerazlučiva staza";
+"type.highway.path.bicycle" = "Biciklistička i pješačka staza";
+"type.highway.footway.bicycle" = "Biciklistička i pješačka staza";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.path.bridge" = "Bridge";
-"type.highway.path.horse" = "Bridle Path";
+"type.highway.path.bridge" = "Most";
+"type.highway.path.horse" = "Staza za konje";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.path.tunnel" = "Tunnel";
-"type.highway.pedestrian" = "Pedestrian Street";
-"type.highway.pedestrian.area" = "Pedestrian Area";
+"type.highway.path.tunnel" = "Tunel";
+"type.highway.pedestrian" = "Ulica za pješake";
+"type.highway.pedestrian.area" = "Pješačka zona";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.pedestrian.bridge" = "Pedestrian Bridge";
-"type.highway.pedestrian.square" = "Square";
+"type.highway.pedestrian.bridge" = "Pješački most";
+"type.highway.pedestrian.square" = "Trg";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.pedestrian.tunnel" = "Pedestrian Tunnel";
-"type.highway.primary" = "Primary Road";
+"type.highway.pedestrian.tunnel" = "Tunel za pješake";
+"type.highway.primary" = "Državna cesta";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.primary.bridge" = "Bridge";
+"type.highway.primary.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.primary.tunnel" = "Tunnel";
-"type.highway.primary_link" = "Primary Road Ramp";
+"type.highway.primary.tunnel" = "Tunel";
+"type.highway.primary_link" = "Rampa na državnoj cesti";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.primary_link.bridge" = "Bridge";
+"type.highway.primary_link.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.primary_link.tunnel" = "Tunnel";
-"type.highway.raceway" = "Racetrack";
-"type.highway.residential" = "Residential Street";
-"type.highway.residential.area" = "Residential Street";
+"type.highway.primary_link.tunnel" = "Tunel";
+"type.highway.raceway" = "Trkalište";
+"type.highway.residential" = "Stambena ulica";
+"type.highway.residential.area" = "Stambena ulica";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.residential.bridge" = "Bridge";
+"type.highway.residential.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.residential.tunnel" = "Tunnel";
-"type.highway.rest_area" = "Rest Area";
-"type.highway.road" = "Road";
+"type.highway.residential.tunnel" = "Tunel";
+"type.highway.rest_area" = "Područje za odmor";
+"type.highway.road" = "Cesta";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.road.bridge" = "Bridge";
+"type.highway.road.bridge" = "Most";
 /* A bridge structure outline. */
-"type.man_made.bridge" = "Bridge";
+"type.man_made.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.road.tunnel" = "Tunnel";
-"type.highway.secondary" = "Secondary Road";
+"type.highway.road.tunnel" = "Tunel";
+"type.highway.secondary" = "Županijska cesta";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.secondary.bridge" = "Bridge";
+"type.highway.secondary.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.secondary.tunnel" = "Tunnel";
-"type.highway.secondary_link" = "Secondary Road Ramp";
+"type.highway.secondary.tunnel" = "Tunel";
+"type.highway.secondary_link" = "Rampa na županijskoj cesti";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.secondary_link.bridge" = "Bridge";
+"type.highway.secondary_link.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.secondary_link.tunnel" = "Tunnel";
-"type.highway.service" = "Service Road";
-"type.highway.service.area" = "Service Road";
+"type.highway.secondary_link.tunnel" = "Tunel";
+"type.highway.service" = "Pristupna cesta";
+"type.highway.service.area" = "Pristupna cesta";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.service.bridge" = "Bridge";
-"type.highway.service.driveway" = "Driveway";
-"type.highway.service.parking_aisle" = "Parking Aisle";
+"type.highway.service.bridge" = "Most";
+"type.highway.service.driveway" = "Prilaz";
+"type.highway.service.parking_aisle" = "Parkirališni prolaz";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.service.tunnel" = "Tunnel";
-"type.highway.services" = "Service Area";
-"type.highway.speed_camera" = "Speed Camera";
-"type.highway.steps" = "Stairs";
-"type.highway.ladder" = "Ladder";
+"type.highway.service.tunnel" = "Tunel";
+"type.highway.services" = "Odmorište";
+"type.highway.speed_camera" = "Kamera za brzinu";
+"type.highway.steps" = "Stepenice";
+"type.highway.ladder" = "Ljestve";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.steps.bridge" = "Bridge";
+"type.highway.steps.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.steps.tunnel" = "Tunnel";
-"type.highway.tertiary" = "Tertiary Road";
+"type.highway.steps.tunnel" = "Tunel";
+"type.highway.tertiary" = "Lokalna cesta";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.tertiary.bridge" = "Bridge";
+"type.highway.tertiary.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.tertiary.tunnel" = "Tunnel";
-"type.highway.tertiary_link" = "Tertiary Road Ramp";
+"type.highway.tertiary.tunnel" = "Tunel";
+"type.highway.tertiary_link" = "Rampa na lokalnoj cesti";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.tertiary_link.bridge" = "Bridge";
+"type.highway.tertiary_link.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.tertiary_link.tunnel" = "Tunnel";
-"type.highway.track" = "Track";
-"type.highway.track.area" = "Track";
+"type.highway.tertiary_link.tunnel" = "Tunel";
+"type.highway.track" = "Staza";
+"type.highway.track.area" = "Staza";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.track.bridge" = "Bridge";
-"type.highway.track.grade1" = "Track";
-"type.highway.track.no.access" = "Track";
+"type.highway.track.bridge" = "Most";
+"type.highway.track.grade1" = "Staza";
+"type.highway.track.no.access" = "Staza";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.track.tunnel" = "Tunnel";
-"type.highway.traffic_signals" = "Traffic Lights";
-"type.highway.trunk" = "Trunk Road";
+"type.highway.track.tunnel" = "Tunel";
+"type.highway.traffic_signals" = "Semafori";
+"type.highway.trunk" = "Glavna cesta";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.trunk.bridge" = "Bridge";
+"type.highway.trunk.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.trunk.tunnel" = "Tunnel";
-"type.highway.trunk_link" = "Trunk Road Ramp";
+"type.highway.trunk.tunnel" = "Tunel";
+"type.highway.trunk_link" = "Rampa na glavnoj cesti";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.trunk_link.bridge" = "Bridge";
+"type.highway.trunk_link.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "Tunnel";
 "type.highway.unclassified" = "Minor Road";
@@ -589,11 +589,11 @@
 "type.highway.unclassified.bridge" = "Bridge";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "Tunnel";
-"type.area_highway.cycleway" = "Cycle Path";
-"type.area_highway.footway" = "Foot Path";
+"type.area_highway.cycleway" = "Biciklistička staza";
+"type.area_highway.footway" = "Pješačka staza";
 "type.area_highway.living_street" = "Living Street";
 "type.area_highway.motorway" = "Motorway";
-"type.area_highway.path" = "Path";
+"type.area_highway.path" = "Staza";
 "type.area_highway.pedestrian" = "Pedestrian Street";
 "type.area_highway.primary" = "Primary Road";
 "type.area_highway.residential" = "Residential Street";
@@ -1537,3 +1537,7 @@
 "type.highway.construction.living_street" = "Cesta u izgradnji";
 "type.highway.construction.road" = "Cesta u izgradnji";
 "type.highway.construction.track" = "Cesta u izgradnji";
+"type.landuse.military.danger_area" = "Military Danger Area";
+"type.railway.subway_entrance.boston" = "Subway Entrance";
+"type.railway.station.subway.boston" = "Subway Station";
+"type.railway.subway_entrance.qingdao" = "Subway Entrance";

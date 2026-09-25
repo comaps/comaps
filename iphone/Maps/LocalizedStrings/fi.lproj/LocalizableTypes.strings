@@ -1537,3 +1537,7 @@
 "type.amenity.toilets.private" = "Yksityinen pääsy";
 "type.amenity.planetarium" = "Planetaario";
 "type.tourism.information.tactile_map" = "Kohokartta";
+"type.landuse.military.danger_area" = "Military Danger Area";
+"type.railway.subway_entrance.boston" = "Subway Entrance";
+"type.railway.station.subway.boston" = "Subway Station";
+"type.railway.subway_entrance.qingdao" = "Subway Entrance";

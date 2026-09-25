@@ -522,13 +522,13 @@
     <string name="accept">Accepteren</string>
     <!-- For the first routing -->
     <string name="decline">Weigeren</string>
-    <string name="mobile_data_dialog">Mobiel internet gebruiken om gedetailleerde informatie weer te geven?</string>
+    <string name="mobile_data_dialog">Mobiel internet gebruiken?</string>
     <string name="mobile_data_option_always">Gebruik altijd</string>
     <string name="mobile_data_option_today">Alleen vandaag</string>
     <string name="mobile_data_option_not_today">Gebruik vandaag niet</string>
     <string name="mobile_data">Mobiel internet</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Mobiel internet is vereist voor meldingen over kaartupdates en uploaden van wijzigingen</string>
+    <string name="mobile_data_description">Mobiel internet is vereist voor meldingen over kaartupdates, het uploaden van wijzigingen, en linken naar beoordelingswebsites</string>
     <string name="mobile_data_option_never">Gebruik nooit</string>
     <string name="mobile_data_option_ask">Vraag altijd</string>
     <string name="traffic_update_maps_text">Om verkeersgegevens weer te geven, moeten de kaarten bijgewerkt worden</string>
@@ -741,7 +741,7 @@
     <!-- App tip #08 -->
     <string name="app_tip_08">U kunt de kaartgegevens eenvoudig corrigeren en verbeteren.</string>
     <!-- App tip #09 -->
-    <string name="app_tip_09">Ons belangrijkste doel is om snelle, op privacygerichte, gebruiksvriendelijke kaarten te maken waar u van houdt.</string>
+    <string name="app_tip_09">Ons belangrijkste doel is om snelle, privacygerichte, gebruiksvriendelijke kaarten te maken waar u van houdt.</string>
     <!-- Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen -->
     <string name="car_used_on_the_phone_screen">U gebruikt nu CoMaps op het telefoonscherm</string>
     <!-- Text on the phone placeholder screen that maps are displayed on the car screen -->
@@ -956,7 +956,7 @@
     <string name="sort_categories">Favorietenlijsten sorteren</string>
     <string name="by_recently_used">Op laatst gebruikt</string>
     <string name="by_custom">Aangepaste volgorde</string>
-    <string name="capacity_disabled">Plaatsen voor gehandicapten: %s</string>
+    <string name="capacity_disabled">Gehandicaptenparkeerplaatsen: %s</string>
     <string name="capacity_disabled_yes">Heeft plaatsen voor gehandicapten</string>
     <string name="capacity_disabled_no">Geen plaatsen voor gehandicapten</string>
     <string name="capacity_charging">Plaatsen met laders: %s</string>
@@ -982,10 +982,14 @@
     <string name="pref_enable_auto_reroute_description">Indien ingeschakeld, wordt er automatisch een nieuwe route berekend wanneer de geplande route verlaten wordt.</string>
     <string name="off_route">Je bent van de route afgeweken</string>
     <string name="bookmarks_text_placement_title">Namen van favorieten op kaart tonen</string>
-    <string name="place_reviews">%1$s Beoordelingen</string>
-    <string name="reviews_by_mangrove">Beoordelingen van Mangrove.\nBeoordelingen toevoegen in <a href="https://mapcomplete.org">MapComplete</a>.</string>
+    <string name="place_reviews">%1$s beoordelingen</string>
+    <string name="reviews_by_mangrove">Beoordelingen van Mangrove</string>
     <string name="place_reviews_title">Beoordelingen</string>
     <string name="rating_stars_description">sterren: %.1f</string>
     <string name="decrease_font_size">Verklein lettergrootte op de kaart</string>
     <string name="pref_font_size">Lettergrootte voor kaartlabels</string>
+    <string name="add_review">Beoordeling toevoegen via %1$s</string>
+    <string name="add_review_url_resolution_failed">Plaats niet gevonden in de laatste OpenStreetMap.</string>
+    <string name="add_review_url_resolution_failed_dev">Plaats niet gevonden in de DEV-OpenStreetMap.</string>
+    <string name="internet_unavailable">Geen internetverbinding</string>
 </resources>

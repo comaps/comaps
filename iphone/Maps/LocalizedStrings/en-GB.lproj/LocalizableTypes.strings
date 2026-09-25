@@ -79,7 +79,6 @@
 "type.amenity.language_school" = "Language School";
 "type.office.diplomatic" = "Embassy";
 "type.office.security" = "Security Guards Office";
-"type.building.guardhouse" = "Security Booth";
 "type.power.portal" = "Power Portal";
 "type.amenity.fast_food" = "Fast Food";
 "type.amenity.ferry_terminal" = "Ferry";
@@ -95,7 +94,7 @@
 "type.amenity.hunting_stand" = "Hunting Stand";
 "type.amenity.ice_cream" = "Ice Cream";
 "type.amenity.internet_cafe" = "Internet Cafe";
-"type.amenity.kindergarten" = "Kindergarten";
+"type.amenity.kindergarten" = "Nursery";
 "type.amenity.library" = "Library";
 "type.amenity.loading_dock" = "Loading Bay";
 "type.amenity.lounger" = "Lounger";
@@ -266,7 +265,6 @@
 "type.craft.brewery" = "Craft Brewery";
 "type.craft.caterer" = "Caterer";
 "type.craft.carpenter" = "Carpenter";
-"type.craft.confectionery" = "Confectioner";
 "type.craft.electrician" = "Electrician";
 "type.craft.electronics_repair" = "Electronics Repair";
 "type.craft.gardener" = "Gardener";
@@ -306,7 +304,6 @@
 "type.cuisine.chicken" = "Chicken";
 "type.cuisine.chinese" = "Chinese";
 "type.cuisine.coffee_shop" = "Coffee";
-"type.cuisine.crepe" = "Crepe";
 "type.cuisine.croatian" = "Croatian";
 "type.cuisine.curry" = "Curry";
 "type.cuisine.deli" = "Deli";
@@ -909,7 +906,7 @@
 "type.power" = "Power";
 "type.power.generator" = "Power Generator";
 "type.power.generator.solar" = "Solar Generator";
-"type.power.generator.wind" = "Wind Generator";
+"type.power.generator.wind" = "Wind Turbine";
 "type.power.generator.gas" = "Gas Turbine Power Plant";
 "type.power.generator.hydro" = "Hydroelectric Power Plant";
 "type.power.line" = "Power Line";
@@ -1296,7 +1293,7 @@
 "type.shop.motorcycle_repair" = "Motorcycle Repair";
 "type.shop.music" = "Record Shop";
 "type.shop.musical_instrument" = "Musical Instrument Shop";
-"type.shop.newsagent" = "Newspaper Stand";
+"type.shop.newsagent" = "Newsagent";
 "type.shop.optician" = "Optician";
 "type.shop.outdoor" = "Outdoor Equipment Shop";
 "type.shop.outpost" = "Pickup Point";
@@ -1511,7 +1508,7 @@
 "type.amenity.food_sharing" = "Food Sharing";
 "type.amenity.give_box" = "Give Box";
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
-"type.emergency.emergency_ward_entrance" = "Emergency Ward Entrance";
+"type.emergency.emergency_ward_entrance" = "A&E Entrance";
 /* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
 "type.amenity.dojo" = "Dojo";
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
@@ -1537,3 +1534,10 @@
 "type.highway.construction.living_street" = "Road Under Construction";
 "type.highway.construction.road" = "Road Under Construction";
 "type.highway.construction.track" = "Road Under Construction";
+"type.building.guardhouse" = "Security Booth";
+"type.craft.confectionery" = "Confectioner";
+"type.cuisine.crepe" = "Crepe";
+"type.landuse.military.danger_area" = "Military Danger Area";
+"type.railway.subway_entrance.boston" = "Metro Entrance";
+"type.railway.station.subway.boston" = "Metro Station";
+"type.railway.subway_entrance.qingdao" = "Metro Entrance";

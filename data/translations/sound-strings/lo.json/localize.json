@@ -1,0 +1,455 @@
+{
+    "make_a_slight_right_turn": {
+        "defaultMessage": "ຊິດຕິດຂວາ."
+    },
+    "make_a_slight_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_right_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_right_turn": {
+        "defaultMessage": "ລ້ຽວຂວາ."
+    },
+    "make_a_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_right_turn": {
+        "defaultMessage": "ລ້ຽວຂວາຫັກສອກ."
+    },
+    "make_a_sharp_right_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout": {
+        "defaultMessage": "ຢູ່ທີ່ວົງວຽນ."
+    },
+    "enter_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "enter_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout": {
+        "defaultMessage": "ອອກຈາກວົງວຽນ."
+    },
+    "leave_the_roundabout_street": {
+        "defaultMessage": "NULL"
+    },
+    "leave_the_roundabout_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn": {
+        "defaultMessage": "ຊິດຕິດຊ້າຍ."
+    },
+    "make_a_slight_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_slight_left_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_left_turn": {
+        "defaultMessage": "ລ້ຽວຊ້າຍ."
+    },
+    "make_a_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_sharp_left_turn": {
+        "defaultMessage": "ລ້ຽວຊ້າຍຫັກສອກ."
+    },
+    "make_a_sharp_left_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn": {
+        "defaultMessage": "ກັບລົດ."
+    },
+    "make_a_u_turn_street": {
+        "defaultMessage": "NULL"
+    },
+    "make_a_u_turn_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "go_straight": {
+        "defaultMessage": "ໄປຊື່ໆ."
+    },
+    "exit": {
+        "defaultMessage": "ອອກ."
+    },
+    "onto": {
+        "defaultMessage": "ເຂົ້າສູ່"
+    },
+    "take_exit_number": {
+        "defaultMessage": "ໃຊ້ທາງອອກ"
+    },
+    "take_exit_number_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "ທ່ານຢູ່ຫ່າງຈາກເສັ້ນທາງ %1$s"
+    },
+    "route_recalculating": {
+        "defaultMessage": "ກຳລັງຄິດໄລ່ເສັ້ນທາງໃໝ່"
+    },
+    "destination": {
+        "defaultMessage": "ທ່ານກຳລັງຈະເຖິງ."
+    },
+    "you_have_reached_the_destination": {
+        "defaultMessage": "ທ່ານມາເຖິງຈຸດໝາຍແລ້ວ."
+    },
+    "in_50_meters": {
+        "defaultMessage": "ອີກ ຫ້າສິບ ແມັດ"
+    },
+    "in_100_meters": {
+        "defaultMessage": "ອີກ ໜຶ່ງຮ້ອຍ ແມັດ"
+    },
+    "in_200_meters": {
+        "defaultMessage": "ອີກ ສອງຮ້ອຍ ແມັດ"
+    },
+    "in_250_meters": {
+        "defaultMessage": "ອີກ ສອງຮ້ອຍຫ້າສິບ ແມັດ"
+    },
+    "in_300_meters": {
+        "defaultMessage": "ອີກ ສາມຮ້ອຍ ແມັດ"
+    },
+    "in_400_meters": {
+        "defaultMessage": "ອີກ ສີ່ຮ້ອຍ ແມັດ"
+    },
+    "in_500_meters": {
+        "defaultMessage": "ອີກ ຫ້າຮ້ອຍ ແມັດ"
+    },
+    "in_600_meters": {
+        "defaultMessage": "ອີກ ຫົກຮ້ອຍ ແມັດ"
+    },
+    "in_700_meters": {
+        "defaultMessage": "ອີກ ເຈັດຮ້ອຍ ແມັດ"
+    },
+    "in_750_meters": {
+        "defaultMessage": "ອີກ ເຈັດຮ້ອຍຫ້າສິບ ແມັດ"
+    },
+    "in_800_meters": {
+        "defaultMessage": "ອີກ ແປດຮ້ອຍ ແມັດ"
+    },
+    "in_900_meters": {
+        "defaultMessage": "ອີກ ເກົ້າຮ້ອຍ ແມັດ"
+    },
+    "in_1_kilometer": {
+        "defaultMessage": "ອີກ ໜຶ່ງ ກິໂລແມັດ"
+    },
+    "in_1_5_kilometers": {
+        "defaultMessage": "ອີກ ໜຶ່ງ ກິໂລແມັດເຄິ່ງ"
+    },
+    "in_2_kilometers": {
+        "defaultMessage": "ອີກ ສອງ ກິໂລແມັດ"
+    },
+    "in_2_5_kilometers": {
+        "defaultMessage": "ອີກ ສອງ ກິໂລແມັດເຄິ່ງ"
+    },
+    "in_3_kilometers": {
+        "defaultMessage": "ອີກ ສາມ ກິໂລແມັດ"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "ອີກ ຫຼາຍກວ່າ ສາມ ກິໂລແມັດ"
+    },
+    "from_50_meters": {
+        "defaultMessage": "ຫ້າສິບ ແມັດ"
+    },
+    "from_100_meters": {
+        "defaultMessage": "ໜຶ່ງຮ້ອຍ ແມັດ"
+    },
+    "from_200_meters": {
+        "defaultMessage": "ສອງຮ້ອຍ ແມັດ"
+    },
+    "from_250_meters": {
+        "defaultMessage": "ສອງຮ້ອຍຫ້າສິບ ແມັດ"
+    },
+    "from_300_meters": {
+        "defaultMessage": "ສາມຮ້ອຍ ແມັດ"
+    },
+    "from_400_meters": {
+        "defaultMessage": "ສີ່ຮ້ອຍ ແມັດ"
+    },
+    "from_500_meters": {
+        "defaultMessage": "ຫ້າຮ້ອຍ ແມັດ"
+    },
+    "from_600_meters": {
+        "defaultMessage": "ຫົກຮ້ອຍ ແມັດ"
+    },
+    "from_700_meters": {
+        "defaultMessage": "ເຈັດຮ້ອຍ ແມັດ"
+    },
+    "from_750_meters": {
+        "defaultMessage": "ເຈັດຮ້ອຍຫ້າສິບ ແມັດ"
+    },
+    "from_800_meters": {
+        "defaultMessage": "ແປດຮ້ອຍ ແມັດ"
+    },
+    "from_900_meters": {
+        "defaultMessage": "ເກົ້າຮ້ອຍ ແມັດ"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "ໜຶ່ງ ກິໂລແມັດ"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "ໜຶ່ງ ກິໂລແມັດເຄິ່ງ"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "ສອງ ກິໂລແມັດ"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "ສອງ ກິໂລແມັດເຄິ່ງ"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "ສາມ ກິໂລແມັດ"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "ຫຼາຍກວ່າ ສາມ ກິໂລແມັດ"
+    },
+    "then": {
+        "defaultMessage": "ຈາກນັ້ນ"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "ສຸດເສັ້ນທາງ,"
+    },
+    "dist_direction_onto_street": {
+        "defaultMessage": "%1$s %2$s %3$s %4$s"
+    },
+    "take_the_1_exit": {
+        "defaultMessage": "ອອກທາງອອກທີໜຶ່ງ."
+    },
+    "take_the_1_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_1_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit": {
+        "defaultMessage": "ອອກທາງອອກທີສອງ."
+    },
+    "take_the_2_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_2_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit": {
+        "defaultMessage": "ອອກທາງອອກທີສາມ."
+    },
+    "take_the_3_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_3_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit": {
+        "defaultMessage": "ອອກທາງອອກທີສີ່."
+    },
+    "take_the_4_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_4_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit": {
+        "defaultMessage": "ອອກທາງອອກທີຫ້າ."
+    },
+    "take_the_5_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_5_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit": {
+        "defaultMessage": "ອອກທາງອອກທີຫົກ."
+    },
+    "take_the_6_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_6_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit": {
+        "defaultMessage": "ອອກທາງອອກທີເຈັດ."
+    },
+    "take_the_7_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_7_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit": {
+        "defaultMessage": "ອອກທາງອອກທີແປດ."
+    },
+    "take_the_8_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_8_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit": {
+        "defaultMessage": "ອອກທາງອອກທີເກົ້າ."
+    },
+    "take_the_9_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_9_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit": {
+        "defaultMessage": "ອອກທາງອອກທີສິບ."
+    },
+    "take_the_10_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_10_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit": {
+        "defaultMessage": "ອອກທາງອອກທີສິບເອັດ."
+    },
+    "take_the_11_exit_street": {
+        "defaultMessage": "NULL"
+    },
+    "take_the_11_exit_street_verb": {
+        "defaultMessage": "NULL"
+    },
+    "in_50_feet": {
+        "defaultMessage": "ອີກ ຫ້າສິບ ຟຸດ"
+    },
+    "in_100_feet": {
+        "defaultMessage": "ອີກ ໜຶ່ງຮ້ອຍ ຟຸດ"
+    },
+    "in_200_feet": {
+        "defaultMessage": "ອີກ ສອງຮ້ອຍ ຟຸດ"
+    },
+    "in_300_feet": {
+        "defaultMessage": "ອີກ ສາມຮ້ອຍ ຟຸດ"
+    },
+    "in_400_feet": {
+        "defaultMessage": "ອີກ ສີ່ຮ້ອຍ ຟຸດ"
+    },
+    "in_500_feet": {
+        "defaultMessage": "ອີກ ຫ້າຮ້ອຍ ຟຸດ"
+    },
+    "in_600_feet": {
+        "defaultMessage": "ອີກ ຫົກຮ້ອຍ ຟຸດ"
+    },
+    "in_700_feet": {
+        "defaultMessage": "ອີກ ເຈັດຮ້ອຍ ຟຸດ"
+    },
+    "in_800_feet": {
+        "defaultMessage": "ອີກ ແປດຮ້ອຍ ຟຸດ"
+    },
+    "in_900_feet": {
+        "defaultMessage": "ອີກ ເກົ້າຮ້ອຍ ຟຸດ"
+    },
+    "in_1000_feet": {
+        "defaultMessage": "ອີກ ໜຶ່ງພັນ ຟຸດ"
+    },
+    "in_1500_feet": {
+        "defaultMessage": "ອີກ ໜຶ່ງພັນຫ້າຮ້ອຍ ຟຸດ"
+    },
+    "in_2000_feet": {
+        "defaultMessage": "ອີກ ສອງພັນ ຟຸດ"
+    },
+    "in_2500_feet": {
+        "defaultMessage": "ອີກ ສອງພັນຫ້າຮ້ອຍ ຟຸດ"
+    },
+    "in_3000_feet": {
+        "defaultMessage": "ອີກ ສາມພັນ ຟຸດ"
+    },
+    "in_3500_feet": {
+        "defaultMessage": "ອີກ ສາມພັນຫ້າຮ້ອຍ ຟຸດ"
+    },
+    "in_4000_feet": {
+        "defaultMessage": "ອີກ ສີ່ພັນ ຟຸດ"
+    },
+    "in_4500_feet": {
+        "defaultMessage": "ອີກ ສີ່ພັນຫ້າຮ້ອຍ ຟຸດ"
+    },
+    "in_5000_feet": {
+        "defaultMessage": "ອີກ ຫ້າພັນ ຟຸດ"
+    },
+    "in_1_mile": {
+        "defaultMessage": "ອີກ ໜຶ່ງ ໄມລ໌"
+    },
+    "in_1_5_miles": {
+        "defaultMessage": "ອີກ ໜຶ່ງ ໄມລ໌ເຄິ່ງ"
+    },
+    "in_2_miles": {
+        "defaultMessage": "ອີກ ສອງ ໄມລ໌"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "ອີກ ຫຼາຍກວ່າ ສອງ ໄມລ໌"
+    },
+    "from_50_feet": {
+        "defaultMessage": "ຫ້າສິບ ຟຸດ"
+    },
+    "from_100_feet": {
+        "defaultMessage": "ໜຶ່ງຮ້ອຍ ຟຸດ"
+    },
+    "from_200_feet": {
+        "defaultMessage": "ສອງຮ້ອຍ ຟຸດ"
+    },
+    "from_300_feet": {
+        "defaultMessage": "ສາມຮ້ອຍ ຟຸດ"
+    },
+    "from_400_feet": {
+        "defaultMessage": "ສີ່ຮ້ອຍ ຟຸດ"
+    },
+    "from_500_feet": {
+        "defaultMessage": "ຫ້າຮ້ອຍ ຟຸດ"
+    },
+    "from_600_feet": {
+        "defaultMessage": "ຫົກຮ້ອຍ ຟຸດ"
+    },
+    "from_700_feet": {
+        "defaultMessage": "ເຈັດຮ້ອຍ ຟຸດ"
+    },
+    "from_800_feet": {
+        "defaultMessage": "ແປດຮ້ອຍ ຟຸດ"
+    },
+    "from_900_feet": {
+        "defaultMessage": "ເກົ້າຮ້ອຍ ຟຸດ"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "ໜຶ່ງພັນ ຟຸດ"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "ໜຶ່ງພັນຫ້າຮ້ອຍ ຟຸດ"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "ສອງພັນ ຟຸດ"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "ສອງພັນຫ້າຮ້ອຍ ຟຸດ"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "ສາມພັນ ຟຸດ"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "ສາມພັນຫ້າຮ້ອຍ ຟຸດ"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "ສີ່ພັນ ຟຸດ"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "ສີ່ພັນຫ້າຮ້ອຍ ຟຸດ"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "ຫ້າພັນ ຟຸດ"
+    },
+    "from_1_mile": {
+        "defaultMessage": "ໜຶ່ງ ໄມລ໌"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "ໜຶ່ງ ໄມລ໌ເຄິ່ງ"
+    },
+    "from_2_miles": {
+        "defaultMessage": "ສອງ ໄມລ໌"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "ຫຼາຍກວ່າ ສອງ ໄມລ໌"
+    },
+    "unknown_camera": {
+        "defaultMessage": "ມີກ້ອງກວດຈັບຄວາມໄວທາງໜ້າ"
+    }
+}

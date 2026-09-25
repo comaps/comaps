@@ -29,7 +29,7 @@
 "type.amenity.bicycle_parking.covered" = "Parking de bici cubierto";
 "type.amenity.boat_rental" = "Alquiler de botes";
 "type.amenity.bicycle_rental" = "Alquiler de bicicletas";
-"type.amenity.bicycle_repair_station" = "Estación de reparación de bicicletas";
+"type.amenity.bicycle_repair_station" = "Estación de reparación de bicicletas|Estación de autorreparación de bicicletas|Punto de reparación de bicicletas|Punto de autorreparación de bicicletas|Estación de mantenimiento de bicicletas|Punto de mantenimiento de bicicletas|Puesto de reparación de bicicletas|Estación reparadora de bicicletas|Estación de reparación de bicis|Punto de reparación de bicis";
 "type.amenity.biergarten" = "Biergarten";
 "type.amenity.brothel" = "Burdel";
 "type.amenity.love_hotel" = "Hotel del amor";
@@ -176,7 +176,7 @@
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Cabaña de vivac";
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Cobertizo de montaña";
+"type.amenity.shelter.lean_to" = "Refugio de campaña|Abrigo de campaña|Toldo de campaña|Refugio de lona|Abrigo de lona|Refugio inclinado|Abrigo inclinado|Refugio de emergencia|Cobertizo de campaña|Refugio de un solo lado|Refugio para dormir|Abrigo para dormir";
 "type.amenity.public_bath" = "Baños públicos";
 "type.amenity.shower" = "Ducha";
 "type.amenity.stripclub" = "Club de estriptis";
@@ -267,7 +267,7 @@
 "type.craft.carpenter" = "Carpintero";
 "type.craft.confectionery" = "Confitería";
 "type.craft.electrician" = "Electricista";
-"type.craft.electronics_repair" = "Reparación de electrónicos";
+"type.craft.electronics_repair" = "Reparación de electrónica|Reparación electrónica|Reparación de aparatos electrónicos|Reparación de dispositivos electrónicos|Reparación de equipos electrónicos|Servicio técnico de electrónica|Servicio técnico electrónico|Taller de reparación de electrónica|Taller de electrónica|Reparaciones electrónicas|Reparación de circuitos electrónicos";
 "type.craft.gardener" = "Jardinero";
 "type.craft.grinding_mill" = "Molino de molienda";
 "type.craft.handicraft" = "Artesanía";
@@ -281,7 +281,7 @@
 "type.shop.camera" = "Tienda de fotografía";
 "type.craft.plumber" = "Fontanero";
 "type.craft.sawmill" = "Aserradero";
-"type.craft.shoemaker" = "Zapatero";
+"type.craft.shoemaker" = "Reparación de zapatos|Zapatería|Reparación de calzado|Reparaciones de zapatos|Taller de zapatería|Servicio de reparación de calzado|Taller de reparación de calzado|Arreglos de zapatos|Arreglo de zapatos|Zapatería de reparación|Zapatería y arreglos|Taller de reparación de zapatos";
 "type.craft.winery" = "Bodega vinícola";
 "type.craft.tailor" = "Sastre";
 "type.cuisine.african" = "Africana";
@@ -464,10 +464,10 @@
 "type.highway.construction.tertiary_link" = "Vía en construcción";
 "type.highway.construction.residential" = "Vía en construcción";
 "type.highway.construction.unclassified" = "Vía en construcción";
-"type.highway.construction.service" = "Vía en construcción";
-"type.highway.construction.living_street" = "Vía en construcción";
-"type.highway.construction.road" = "Vía en construcción";
-"type.highway.construction.track" = "Vía en construcción";
+"type.highway.construction.service" = "Carretera en obras|Carretera en construcción|Vía en obras|Vía en construcción|Camino en obras|Camino en construcción|Tramo en obras|Tramo en construcción|Carretera en reparación|Carretera en mantenimiento|Carretera en pavimentación|Carretera en remodelación|Carretera en obras de mejora|Carretera en obras de ampliación|Obras en la carretera|Obras viales|Tramo en reparación";
+"type.highway.construction.living_street" = "Carretera en obras|Carretera en construcción|Vía en obras|Vía en construcción|Camino en obras|Camino en construcción|Tramo en obras|Tramo en construcción|Carretera en reparación|Carretera en mantenimiento|Carretera en pavimentación|Carretera en remodelación|Carretera en obras de mejora|Carretera en obras de ampliación|Obras en la carretera|Obras viales|Tramo en reparación";
+"type.highway.construction.road" = "Carretera en obras|Carretera en construcción|Vía en obras|Vía en construcción|Camino en obras|Camino en construcción|Tramo en obras|Tramo en construcción|Carretera en reparación|Carretera en mantenimiento|Carretera en pavimentación|Carretera en remodelación|Carretera en obras de mejora|Carretera en obras de ampliación|Obras en la carretera|Obras viales|Tramo en reparación";
+"type.highway.construction.track" = "Carretera en obras|Carretera en construcción|Vía en obras|Vía en construcción|Camino en obras|Camino en construcción|Tramo en obras|Tramo en construcción|Carretera en reparación|Carretera en mantenimiento|Carretera en pavimentación|Carretera en remodelación|Carretera en obras de mejora|Carretera en obras de ampliación|Obras en la carretera|Obras viales|Tramo en reparación";
 "type.highway.cycleway" = "Ciclovía";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Puente";
@@ -714,7 +714,7 @@
 "type.leisure.dog_park" = "Parque canino";
 "type.leisure.escape_game" = "Sala de Escape";
 "type.leisure.fitness_centre" = "Centro de fitnes";
-"type.leisure.fitness_station" = "Parque de gimnasia";
+"type.leisure.fitness_station" = "Estación de fitness|Estación de ejercicio|Estación de entrenamiento|Punto de fitness|Punto de ejercicio|Punto de entrenamiento|Zona de fitness|Zona de ejercicio|Zona de entrenamiento|Área de fitness|Área de ejercicio|Área de entrenamiento|Estación de gimnasia|Zona de gimnasia|Punto de gimnasia|Estación de gimnasio";
 "type.leisure.dance" = "Salón de baile";
 "type.leisure.garden" = "Jardín";
 "type.leisure.garden.residential" = "Jardín residencial";
@@ -923,9 +923,9 @@
 "type.power.generator.wind" = "Aerogenerador";
 "type.power.generator.gas" = "Planta termoeléctrica a gas";
 "type.power.generator.hydro" = "Planta hidroeléctrica";
-"type.power.line" = "Línea de alta tensión";
-"type.power.line.underground" = "Línea eléctrica subterránea";
-"type.power.minor_line" = "Línea eléctrica menor";
+"type.power.line" = "Línea eléctrica|Línea de alta tensión|Línea de transmisión|Línea de distribución|Cable de alta tensión|Cable eléctrico|Cable de energía|Cable de potencia|Tendido eléctrico|Tendido de alta tensión|Tendido de energía|Línea de energía|Línea de potencia|Cable de distribución|Cable de fuerza";
+"type.power.line.underground" = "Línea eléctrica subterránea|Cable eléctrico subterráneo|Línea de alta tensión subterránea|Cable de alta tensión subterráneo|Tendido eléctrico subterráneo|Línea de distribución subterránea|Cable de distribución subterráneo|Línea eléctrica enterrada|Cable eléctrico enterrado|Línea de energía subterránea|Cable de energía subterráneo|Tendido de alta tensión subterráneo|Línea de potencia subterránea|Cable de potencia subterráneo";
+"type.power.minor_line" = "Línea eléctrica menor|Línea de baja tensión|Línea de baja capacidad|Línea de baja potencia|Línea eléctrica secundaria|Línea de distribución menor|Línea de distribución secundaria|Cable eléctrico menor|Cable de baja tensión|Cable de baja potencia|Cable eléctrico secundario|Tendido eléctrico menor|Tendido de baja tensión|Cable de distribución menor";
 "type.power.plant" = "Planta eléctrica";
 "type.power.plant.coal" = "Central eléctrica de carbón";
 "type.power.plant.gas" = "Planta termoeléctrica de gas";
@@ -951,7 +951,7 @@
 "type.railway.funicular" = "Funicular";
 "type.railway.funicular.bridge" = "Puente de funicular";
 "type.railway.funicular.tunnel" = "Túnel de funicular";
-"type.railway.halt" = "Estación de tren";
+"type.railway.halt" = "Parada de tren|Estación de tren|Parada de ferrocarril|Estación de ferrocarril|Parada del tren|Estación del tren|Parada de trenes|Estación de trenes|Parada de metro|Estación de metro|Parada de tranvía|Estación de tranvía|Parada ferroviaria|Estación ferroviaria|Parada de transporte ferroviario|Estación de transporte ferroviario|Parada de tren ligero|Estación de tren ligero";
 "type.railway.level_crossing" = "Cruce a nivel";
 "type.railway.light_rail" = "Tren ligero";
 "type.railway.light_rail.bridge" = "Puente de tren ligero";
@@ -1241,7 +1241,7 @@
 "type.railway.tram.tunnel" = "Túnel de línea de tranvía";
 "type.railway.tram_stop" = "Parada de tranvía";
 "type.route" = "Ruta";
-"type.route.ferry" = "Ruta de ferry";
+"type.route.ferry" = "Ferry|Transbordador|Barco de pasaje|Barco de pasajeros|Barco de línea|Barco de travesía|Transbordador de pasajeros|Lancha de pasaje|Barco de cabotaje|Transbordador de travesía";
 "type.shop" = "Tienda";
 "type.shop.alcohol" = "Licorería";
 "type.shop.bakery" = "Panadería";
@@ -1316,7 +1316,7 @@
 "type.shop.pawnbroker" = "Casa de empeños";
 "type.shop.pet" = "Tienda de mascotas";
 "type.shop.pet_grooming" = "Aseo de mascotas";
-"type.shop.photo" = "Artículos de fotografía";
+"type.shop.photo" = "Tienda de fotografía|Laboratorio fotográfico|Fotolaboratorio|Tienda de fotos|Laboratorio de fotos|Fotocopiadora y fotos|Tienda de revelado|Laboratorio de revelado|Estudio fotográfico|Tienda de impresión de fotos|Laboratorio de fotografía|Fotografía y revelado|Tienda de fotografía y laboratorio|Laboratorio de copias|Fotocopia y fotos";
 "type.shop.rental" = "Tienda de alquiler";
 "type.shop.rental.bicycle" = "Tienda de alquiler de bicicletas";
 "type.shop.seafood" = "Pescadería";
@@ -1339,7 +1339,7 @@
 "type.shop.agrarian" = "Tienda agrícola";
 "type.shop.antiques" = "Antigüedades";
 "type.shop.appliance" = "Tienda de electrodomésticos";
-"type.shop.water" = "Tienda de agua";
+"type.shop.water" = "Tienda de agua|Tienda de aguas|Tienda de agua embotellada|Tienda de agua mineral|Tienda de agua purificada|Venta de agua|Venta de aguas|Venta de agua embotellada|Almacén de agua|Distribuidora de agua|Tienda de agua natural|Tienda de agua de manantial|Tienda de agua en garrafón|Venta de agua en garrafón|Tienda de agua y bebidas|Depósito de agua";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Tienda de arte";
 "type.shop.baby_goods" = "Tienda de artículos para bebés";
@@ -1420,7 +1420,7 @@
 "type.attraction.bumper_car" = "Coches de choque";
 "type.attraction.big_wheel" = "Noria";
 "type.attraction.carousel" = "Carrusel";
-"type.attraction.historic" = "Atracción histórica";
+"type.attraction.historic" = "Lugar de interés histórico";
 "type.attraction.maze" = "Laberinto";
 "type.attraction.roller_coaster" = "Montaña rusa";
 "type.attraction.water_slide" = "Tobogán acuático";
@@ -1525,15 +1525,19 @@
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Pabellón deportivo";
 "type.xmas.tree" = "Árbol de Navidad";
-"type.leisure.sports_centre.sport.four_square" = "Polideportivo";
-"type.sport.four_square" = "Four Square";
+"type.leisure.sports_centre.sport.four_square" = "Centro deportivo|Centro de deportes|Complejo deportivo|Pabellón deportivo|Pabellón de deportes|Centro polideportivo|Polideportivo|Gimnasio|Club deportivo|Instalación deportiva|Instalaciones deportivas|Centro de actividad física|Centro de ejercicio|Centro de entrenamiento|Complejo de instalaciones deportivas";
+"type.sport.four_square" = "La caja mágica|La caja|Four square|El juego de la caja|La casilla|Cuatro en cuadro|El cuatro cuadrado|La cajita|Juego de cuatro cuadros|Cuatro cuadros";
 "type.sport.boules" = "Deportes de bolas";
-"type.leisure.sports_centre.sport.boules" = "Polideportivo";
+"type.leisure.sports_centre.sport.boules" = "Centro deportivo|Centro de deportes|Complejo deportivo|Pabellón deportivo|Pabellón de deportes|Centro polideportivo|Polideportivo|Gimnasio|Club deportivo|Instalación deportiva|Instalaciones deportivas|Centro de actividad física|Centro de ejercicio|Centro de entrenamiento|Complejo de instalaciones deportivas";
 "type.sport.pickleball" = "Pickleball";
-"type.leisure.sports_centre.sport.pickleball" = "Centro deportivo";
-"type.organic.no" = "Sin opciones orgánicas";
-"type.amenity.stage" = "Escenario";
+"type.leisure.sports_centre.sport.pickleball" = "Centro deportivo|Centro de deportes|Complejo deportivo|Pabellón deportivo|Pabellón de deportes|Centro polideportivo|Polideportivo|Gimnasio|Club deportivo|Instalación deportiva|Instalaciones deportivas|Centro de actividad física|Centro de ejercicio|Centro de entrenamiento|Complejo de instalaciones deportivas";
+"type.organic.no" = "No hay opciones orgánicas|Sin opciones orgánicas|No hay opciones biológicas|Sin opciones biológicas|No hay opciones ecológicas|Sin opciones ecológicas|No hay productos orgánicos|Sin productos orgánicos|No hay productos biológicos|Sin productos biológicos|No hay productos ecológicos|Sin productos ecológicos|No hay opciones de productos orgánicos|Sin opciones de productos orgánicos|No hay opciones de productos biológicos|Sin opciones de productos ecológicos";
+"type.amenity.stage" = "Escenario|Tablado|Plataforma|Escalón|Etapa|Fase|Nivel|Paso|Grado|Acto|Peldaño|Tramo|Rampa|Escenario de eventos|Escenario de conciertos|Escenario teatral";
 "type.amenity.animal_boarding" = "Alojamiento para animales";
 "type.amenity.toilets.customers" = "Acceso para clientes";
 "type.amenity.toilets.private" = "Acceso privado";
 "type.amenity.planetarium" = "Planetario";
+"type.landuse.military.danger_area" = "Zona militar de peligro";
+"type.railway.subway_entrance.boston" = "Entrada al metro";
+"type.railway.station.subway.boston" = "Estación de metro";
+"type.railway.subway_entrance.qingdao" = "Entrada al metro";

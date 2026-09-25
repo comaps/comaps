@@ -586,7 +586,7 @@
     <string name="ruler">Regra</string>
     <string name="bookmark_color">Cor do Favorito</string>
     <string name="dialog_report_error_missing_folder">A localización seleccionada non é accesible ou non se pode escribir nela. Elixe outra por favor.</string>
-    <string name="dialog_report_error_with_logs">Envíanos un informe co fallo:\n - \"Activa o rexistro\" nos axustes\n - reproduce o problema\n - na pantalla \"Sobre e Axuda\" preme en \"Informar dun problema\" e envía un correo ou á mensaxería\n - desactiva o rexistro</string>
+    <string name="dialog_report_error_with_logs">Envíanos un informe co fallo:\n - \"Activa o rexistro\" nos axustes\n - reproduce o problema\n - na pantalla \"Sobre e Axuda\" preme en \"Informar dun problema\" e envía un correo ou á mensaxaría\n - desactiva o rexistro</string>
     <string name="pref_backup_now_summary">Crear unha copia agora mesmo</string>
     <string name="pref_backup_location_summary_initial">Primeiro elixe un cartafol e concede permiso de acceso</string>
     <string name="pref_backup_title">Copia de seguridade de Favoritos</string>

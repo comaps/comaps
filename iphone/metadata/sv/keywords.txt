@@ -1,0 +1,1 @@
+comaps,kartor,openstreetmap,osm,resor,vandra,cykla,köra,offline,integritet,navigera,gps

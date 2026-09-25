@@ -875,7 +875,7 @@
 "pref_custom_button_type" = "Botão personalizável";
 "osm" = "OpenStreetMap";
 "mode" = "Modo";
-"mode_walking" = "Caminhar";
+"mode_walking" = "A pé";
 "mode_cycling" = "Bicicleta";
 "mode_driving" = "Carro";
 "mode_public-transport" = "Transporte público";
@@ -883,7 +883,7 @@
 "mode_option_transitlines" = "Mostrar linhas de transporte público";
 "mode_option_comingsoon" = "Opções disponíveis em breve";
 "layers" = "Camadas";
-"layers_option_contour-lines" = "Linhas de contorno";
+"layers_option_contour-lines" = "Curvas de nível";
 "layers_option_outdoor" = "Ar livre";
 "layers_option_buildings-3d" = "Edifícios em 3D";
 "layers_power-saving" = "Atualmente, essa camada está desativada automaticamente devido à sua configuração do modo de economia de energia";

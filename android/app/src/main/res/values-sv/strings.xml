@@ -38,7 +38,7 @@
     <!-- Text in About screen -->
     <string name="about_proposition_1">• Lättanvändlig och finslipad</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_2">Låg batteriförbrukning, fungerar utan uppkoppling</string>
+    <string name="about_proposition_2">• Integritetsfokuserad och utan reklamer</string>
     <!-- Text in About screen -->
     <string name="about_proposition_3">• Offline, snabb och kompakt</string>
     <!-- Text in About screen -->
@@ -242,7 +242,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Rör telefonen i en åttarörelse för att kalibrera kompassen och fastställa pilens riktning på kartan.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="enable_long_tap_fullscreen_description">Tryck länge på kartan för att se gränssnittet</string>
+    <string name="enable_long_tap_fullscreen_description">Tryck och håll på kartan för att visa gränssnittet</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Uppdatera alla</string>
     <!-- Cancel all button text -->
@@ -445,10 +445,10 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d av %2$d</string>
     <string name="download_over_mobile_header">Ladda ned med mobildata?</string>
-    <string name="download_over_mobile_message">Detta kan vara mycket dyrt med vissa abonnemang och vid roaming</string>
+    <string name="download_over_mobile_message">Detta kan vara mycket dyrt med vissa abonnemang samt vid roaming.</string>
     <string name="error_enter_correct_house_number">Ange giltigt husnummer</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">Redigera byggnaden med max %d våningar</string>
+    <string name="error_enter_correct_storey_number">Antalet våningar får maximalt vara %d</string>
     <string name="editor_zip_code">Postkod</string>
     <string name="error_enter_correct_zip_code">Ange korrekt postkod</string>
     <!-- Title for OSM note section in the editor -->
@@ -464,7 +464,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operatör: %s</string>
     <string name="editor_category_unsuitable_title">Hittar du ingen lämplig kategori?</string>
-    <string name="editor_category_unsuitable_text">CoMaps tillåter endast att lägga till enkla punktkategorier, det betyder inga städer, vägar, sjöar, byggnadskonturer etc. Lägg till sådana kategorier direkt till <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Kontrollera vår <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> för detaljerade steg-för-steg-instruktioner.</string>
+    <string name="editor_category_unsuitable_text">CoMaps tillåter endast att lägga till enkla punktkategorier. Det betyder inga städer, vägar, sjöar, byggnadskonturer etc. Lägg till sådana kategorier direkt till <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Kontrollera vår <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> för detaljerade steg-för-steg-instruktioner.</string>
     <string name="downloader_no_downloaded_maps_title">Du har inte laddat ner några kartor</string>
     <string name="downloader_no_downloaded_maps_message">Ladda ner kartor för att hitta platsen och navigera offline</string>
     <string name="current_location_unknown_error_title">Den nuvarande platsen är okänd</string>
@@ -516,8 +516,8 @@
     <string name="enable_logging">Aktivera loggning</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Allmän feedback</string>
-    <string name="prefs_languages_information">Vi använder TTS-system för röstinstruktioner. Flera Android-enheter använder Google TTS. Du kan ladda ned eller uppdatera det på Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">För vissa språk måste du installera en annan talsyntes eller ett annat språkpaket från appbutiken (Google Play, Samsung Galaxy Store, Huawei AppGallery, F-Droid). \nÖppna inställningarna på enheten → Språk och inmatning → Tal → Text till tal-uppspelning. \nHär kan du hantera inställningarna för talsyntes (till exempel, ladda ned språkpaket för användning offline) och välja en annan text till tal-motor.</string>
+    <string name="prefs_languages_information">Vi använder systemets TTS för röstanvisningar. Flera Android-enheter använder Google TTS. Du kan ladda ned eller uppdatera det på Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">För vissa språk måste du installera en annan talsyntes eller ett annat språkpaket från appbutiken (Google Play, Samsung Galaxy Store, Huawei AppGallery, F-Droid).\nÖppna inställningarna på enheten → Språk och inmatning → Tal → Text till tal-uppspelning.\nHär kan du hantera inställningarna för talsyntes (till exempel, ladda ned språkpaket för användning offline) och välja en annan text till tal-motor.</string>
     <string name="prefs_languages_information_off_link">Kolla in den här guiden för mer information</string>
     <string name="transliteration_title">Translitterera till latinska alfabetet</string>
     <string name="learn_more">Läs mer</string>
@@ -533,7 +533,7 @@
     <string name="dialog_error_storage_message">Extern lagring är inte tillgänglig. SD-kortet är borttaget, skadat eller så är filsystemet skrivskyddat. Kontrollera det och kontakta oss på support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Emulera dålig lagring</string>
     <string name="error_enter_correct_name">Ange ett korrekt namn</string>
-    <string name="bookmark_lists">Listor</string>
+    <string name="bookmark_lists">Favoritlistor</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Dölj alla</string>
     <string name="bookmark_lists_show_all">Visa alla</string>
@@ -603,7 +603,7 @@
     <string name="avoid_motorways">Undvik motorvägar</string>
     <string name="unable_to_calc_alert_title">Det går inte att hitta rutt</string>
     <string name="unable_to_calc_alert_subtitle">Tyvärr kunde vi inte hitta en rutt. Detta kan bero på dina ruttpreferenser eller ofullständigt kartunderlag i OpenStreetMap. Ändra gärna dina val och försök igen.</string>
-    <string name="define_to_avoid_btn">Definiera oönskade vägar</string>
+    <string name="define_to_avoid_btn">Välj ruttinställningar</string>
     <string name="change_driving_options_btn">Ruttinställningar aktiverade</string>
     <string name="toll_road">Betalväg</string>
     <string name="unpaved_road">Oasfalterad väg</string>
@@ -691,7 +691,7 @@
     <!-- App tip #03 -->
     <string name="app_tip_03">Om du känner en mjukvaruutvecklare kan du be honom eller henne att implementera en funktion som du behöver.</string>
     <!-- App tip #04 -->
-    <string name="app_tip_04">Tryck var som helst på kartan för att välja något. Tryck länge för att dölja och visa gränssnittet igen.</string>
+    <string name="app_tip_04">Tryck var som helst på kartan för att välja något. Tryck och håll för att dölja och visa gränssnittet igen.</string>
     <!-- App tip #05 -->
     <string name="app_tip_05">Vet du att du kan välja din nuvarande plats på kartan?</string>
     <!-- App tip #06 -->
@@ -726,7 +726,7 @@
     <string name="browser_not_available">Webbläsaren är inte tillgänglig</string>
     <string name="volume">Volym</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Exportera alla platser och spår</string>
+    <string name="bookmarks_export">Exportera alla favoriter</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Inställningar för talsyntes</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -758,7 +758,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Fortsätt spela in</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Spara inspelning i favoriter?</string>
+    <string name="track_recording_alert_title">Spara i favoriter?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Spåret är tomt - inget att spara</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -798,7 +798,7 @@
     <string name="saved">Sparad</string>
     <string name="pref_left_button_title">Inställning för vänster knapp</string>
     <string name="pref_backup_title">Säkerhetskopiering av favoriter</string>
-    <string name="pref_backup_now_summary_empty_lists">Inga platser eller spår att säkerhetskopiera</string>
+    <string name="pref_backup_now_summary_empty_lists">Inga favoriter att säkerhetskopiera</string>
     <string name="dialog_report_error_missing_folder">Den valda platsen för säkerhetskopiering är inte tillgänglig eller skrivbar. Vänligen välj en annan plats.</string>
     <string name="pref_backup_now_title">Säkerhetskopiera nu</string>
     <string name="pref_left_button_disable">Inaktivera</string>
@@ -834,7 +834,7 @@
     <string name="offline_explanation_title">Offlinekartor</string>
     <string name="charge_socket_count">Antal</string>
     <string name="charge_socket_unknown_other">Andra eller obekant</string>
-    <string name="bookmark_color">Färg för bökmärken</string>
+    <string name="bookmark_color">Färg för favoriter</string>
     <string name="ruler">Måttstock</string>
     <string name="bicycle">Cykel</string>
     <string name="pedestrian">Gående</string>
@@ -867,4 +867,58 @@
     <string name="stop">Stopp</string>
     <string name="pref_maplanguage_local">Lokalt språk</string>
     <string name="search_in_all_lists">Sök i alla listor</string>
+    <string name="bookmark_share_email_subject">Klicka denna länk %1$s eller klistra in dessa koordinater %2$s i ditt kartprogram för att se detta ställe.</string>
+    <string name="my_position_share_email">Klicka denna länk %1$s eller klistra in dessa koordinater %2$s i ditt kartprogram för att se detta ställe.</string>
+    <string name="pref_about_summary">Rapportera problem, få hjälp, donera\nVersion: v%1$s</string>
+    <string name="prefs_group_data_management_summary">Kartlagring, spara favoriter</string>
+    <string name="prefs_group_advanced_summary">Aktivera loggning</string>
+    <string name="download_resources_custom_url_summary_none">Inte angivet</string>
+    <string name="editor_business_vacant_button">Företaget har upphört</string>
+    <string name="download_resources_custom_url_message">Ange en specifik server för kartnerladdning. Lämna tomt för att använda CoMaps standardserver.</string>
+    <string name="tts_toggle_enable">Aktivera röstanvisningar</string>
+    <string name="tts_toggle_disable">Inaktivera röstanvisningar</string>
+    <string name="enable_long_tap_fullscreen">Tryck och håll för att dölja användargränssnittet</string>
+    <string name="long_tap_disabled_toast">För att dölja användargränssnittet, aktivera tryck och håll i inställningarna</string>
+    <string name="downloader_check_updates_button">Sök efter uppdateringar</string>
+    <string name="downloader_check_updates_checking">Söker efter uppdateringar...</string>
+    <string name="downloader_check_updates_updated">Kartuppdateringar tillgängliga!</string>
+    <string name="downloader_check_updates_no_updates">Inga uppdateringar tillgängliga</string>
+    <string name="downloader_check_updates_eol">Inga flera kartuppdateringar för denna version. Vänligen uppdatera appen!</string>
+    <string name="downloader_check_updates_error">Fel under sökning av uppdateringar</string>
+    <string name="opens_tomorrow_at">Öppnar imorgon kl. %s</string>
+    <string name="oh_unknown">Okända öppettider</string>
+    <string name="editor_mark_business_vacant_title">Markera verksamheten som nedlagd</string>
+    <string name="editor_submit">Publicera</string>
+    <string name="error_enter_correct_facebook_page">Ange ett giltigt Facebook kontonamn, sidnamn eller en webaddress</string>
+    <string name="error_enter_correct_twitter_page">Ange ett giltigt Twitter-användarnamn eller en webaddress</string>
+    <string name="error_enter_correct_vk_page">Ange ett giltigt VK-användarnamn eller en webaddress</string>
+    <string name="error_enter_correct_fediverse_page">Ange ett giltigt Mastodon-användarnamn eller en webaddress</string>
+    <string name="error_enter_correct_bluesky_page">Ange ett giltigt Bluesky-användarnamn eller en webaddress</string>
+    <string name="place_page_map_too_old_title">Utdaterad kartdata</string>
+    <string name="place_page_map_too_old_description">Nuvarande kartdata är mycket gammal. Uppdatera kartan.</string>
+    <string name="place_page_app_too_old_description">Nuvarande kartdata är mycket gammal. Uppdatera CoMaps appen.</string>
+    <string name="place_page_update_too_old_map">Uppdatera kartregion</string>
+    <string name="place_page_too_old_to_edit">Redigering av OpenStreetMap är inaktiverat, då kartdatan är för gammal.</string>
+    <string name="osm_note_hint">Alternativt kan du lämna en kommentar på OpenStreetMap, så att någon annan kan lägga till eller korrigera en plats här.</string>
+    <string name="osm_note_toast">Kommentaren skickas till OpenStreetMap</string>
+    <string name="pref_font_size">Textstorlek för kartetiketter</string>
+    <string name="decrease_font_size">Minska kartetikettstorlek</string>
+    <string name="prefs_speed_cameras_information">Varningar för fartkameror är inaktiverade i länder där sådana varningar är förbjudna enligt lokal lagstiftning.</string>
+    <string name="planning_route_preview">Förhandsgranska</string>
+    <string name="prefs_group_power_summary">Tid innan skärmen släcks, mobildata</string>
+    <string name="bookmarks_text_placement_title">Visa namn på favoriter på kartan</string>
+    <string name="population">Befolkning: %s</string>
+    <string name="sort_categories">Sortera listor av favoriter</string>
+    <string name="setting_value_system_default">Följ systemets inställning</string>
+    <string name="by_recently_used">Efter senast använt</string>
+    <string name="by_custom">Efter anpassad ordning</string>
+    <string name="editor_add_select_category_all_subtitle">Alla kategorier</string>
+    <string name="disk_error">Kunde inte skapa mapp och flytta filer till enhetens interna lagring eller SD-kortet</string>
+    <string name="change_app_locale">Appens språk</string>
+    <string name="pref_backup_status_summary_success">Senaste lyckade säkerhetskopieringen</string>
+    <string name="pref_backup_history_title">Antal säkerhetskopior att spara</string>
+    <string name="dialog_report_error_with_logs">Skicka oss en felrapport:\n - \"Aktivera loggning\" i inställningarna\n - återskapa problemet\n - Öppna skärmen ”Om och Hjälp”, tryck på ”Rapportera en bugg” och skicka rapporten via e-post eller chatt.\n - inaktivera loggning</string>
+    <string name="destination">Destination</string>
+    <string name="pref_tts_no_system_tts_short">Ingen text till tal-motor hittades. Kontrollera appinställningarna</string>
+    <string name="navigation_start_tts_message">"Börjar navigering, röstanvisningsspråk: "</string>
 </resources>

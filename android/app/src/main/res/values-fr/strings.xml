@@ -149,11 +149,11 @@
     <string name="description">Notes</string>
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">Mes Favoris CoMaps</string>
-    <string name="share_bookmarks_email_body">Bonjour,\n \nVous trouverez ci-joint mes Favoris, veuillez les ouvrir dans l’application CoMaps. Si vous ne l’avez pas encore installée, téléchargez l\'application depuis : https://www.comaps.app/download/ \n \nBon voyage avec CoMaps !</string>
+    <string name="share_bookmarks_email_body">Bonjour,\n \nVous trouverez ci-joint mes Favoris, veuillez les ouvrir dans l’application CoMaps. Si vous ne l’avez pas encore installée, vous pouvez télécharger l\'application depuis : https://www.comaps.app/download/ \n \nBon voyage avec CoMaps !</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Chargement des favoris</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Vos favoris ont été chargés avec succès ! Vous pouvez les trouver sur la carte ou sur l\'écran Gestionnaire de favoris.</string>
+    <string name="load_kmz_successful">Les favoris ont été chargés avec succès ! Vous pouvez les retrouver sur la carte ou dans le menu Gestionnaire de favoris.</string>
     <!-- Kml file loading failed -->
     <string name="load_kmz_failed">Échec du chargement des Favoris. Le fichier est peut-être corrompu ou défectueux.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
@@ -381,8 +381,8 @@
     <string name="read_in_wikipedia">Wikipédia</string>
     <string name="p2p_your_location">Votre emplacement</string>
     <string name="p2p_start">Démarrer</string>
-    <string name="p2p_from_here">Depuis</string>
-    <string name="p2p_to_here">Itinéraire vers</string>
+    <string name="p2p_from_here">Départ</string>
+    <string name="p2p_to_here">Arrivée</string>
     <string name="p2p_only_from_current">La navigation est disponible uniquement à partir de votre emplacement actuel</string>
     <string name="p2p_reroute_from_current">Souhaitez-vous planifier un itinéraire à partir de votre emplacement actuel ?</string>
     <!-- Edit open hours/set time and minutes dialog -->
@@ -489,7 +489,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Opérateur : %s</string>
     <string name="editor_category_unsuitable_title">Vous ne trouvez pas de catégorie appropriée ?</string>
-    <string name="editor_category_unsuitable_text">CoMaps ne permet d\'ajouter que des catégories de points simples ; il ne permet pas d\'ajouter des villes, des routes, des lacs, les contours de bâtiments, etc. Veuillez ajouter ces catégories directement sur <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consultez notre <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> pour obtenir des instructions détaillées étape par étape.</string>
+    <string name="editor_category_unsuitable_text">CoMaps ne permet d\'ajouter que des catégories de points simples ; il ne permet pas d\'ajouter des villes, des routes, des lacs, les contours des bâtiments, etc. Veuillez ajouter ces catégories directement sur <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consultez notre <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> pour obtenir des instructions détaillées étape par étape.</string>
     <string name="downloader_no_downloaded_maps_title">Vous n’avez téléchargé aucune carte</string>
     <string name="downloader_no_downloaded_maps_message">Télécharger des cartes pour rechercher un lieu et utiliser la navigation hors ligne</string>
     <string name="current_location_unknown_error_title">L’emplacement actuel est inconnu</string>
@@ -530,24 +530,24 @@
     <string name="accept">Accepter</string>
     <!-- For the first routing -->
     <string name="decline">Refuser</string>
-    <string name="mobile_data_dialog">Utiliser l’Internet mobile pour afficher les informations détaillées ?</string>
+    <string name="mobile_data_dialog">Utiliser les données mobiles ?</string>
     <string name="mobile_data_option_always">Toujours utiliser</string>
     <string name="mobile_data_option_today">Aujourd\'hui seulement</string>
     <string name="mobile_data_option_not_today">Ne pas utiliser aujourd’hui</string>
     <string name="mobile_data">Internet mobile</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Une connexion Internet est nécessaire pour recevoir les mises à jour de cartes et pour envoyer vos modifications</string>
+    <string name="mobile_data_description">Une connexion Internet mobile est nécessaire pour recevoir les notifications de mise à jour des cartes, publier des modifications et accéder à des sites d\'avis.</string>
     <string name="mobile_data_option_never">Ne jamais utiliser</string>
     <string name="mobile_data_option_ask">Toujours demander</string>
     <string name="traffic_update_maps_text">Pour afficher les données de circulation, les cartes doivent être mises à jour</string>
-    <string name="increase_font_size">Augmenter la taille de la police sur la carte</string>
+    <string name="increase_font_size">Agrandir les textes sur la carte</string>
     <string name="traffic_update_app">Veuillez mettre à jour CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">Les données de circulation ne sont pas disponibles</string>
     <string name="enable_logging">Activer la journalisation</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Feedback général</string>
-    <string name="prefs_languages_information">Nous utilisons le système de synthèse vocale (TTS) pour les instructions vocales. De nombreux appareils Android utilisent Google TTS ; vous pouvez le télécharger ou le mettre à jour depuis le Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information">Les instructions vocales utilisent la synthétisation de voix d\'Android. Un moteur de synthèse de voix répandu est Google TTS, que vous pouvez télécharger depuis le Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
     <string name="prefs_languages_information_off">Pour certaines langues, vous devrez installer un synthétiseur vocal ou un pack linguistique supplémentaire depuis une boutique d\'applications (Google Play, Galaxy Store, App Gallery, F-Droid). \n\nOuvrez les paramètres de votre appareil → Langue et saisie → Voix → Synthèse vocale. \n\nVous pouvez y gérer les paramètres de synthèse vocale (par exemple, pour télécharger un pack linguistique à utiliser hors ligne) et sélectionner un autre moteur de synthèse vocale.</string>
     <string name="prefs_languages_information_off_link">Pour plus d’informations, veuillez consulter ce guide</string>
     <string name="transliteration_title">Translittérer en alphabet latin</string>
@@ -606,17 +606,17 @@
     <string name="subway">Métro</string>
     <string name="layers_title">Styles et couches de cartes</string>
     <string name="bookmarks_empty_list_title">Cette liste est vide</string>
-    <string name="bookmarks_empty_list_message">Pour enregistrer un lieu, appuyez sur un lieu de la carte puis sur l’icône étoile</string>
+    <string name="bookmarks_empty_list_message">Pour enregistrer un lieu : appuyez sur la carte puis sur l’icône étoile</string>
     <string name="category_desc_more">…plus</string>
     <string name="export_file">Exporter en KMZ</string>
     <string name="export_file_gpx">Exporter en GPX</string>
     <string name="delete_list">Supprimer la liste</string>
     <string name="speedcams_alert_title">Radars de vitesse</string>
-    <string name="place_description_title">Description d’endroit</string>
+    <string name="place_description_title">Description du lieu</string>
     <!-- this text will be shown in application notification preferences opposite checkbox which enable/disable downloader notifications. Devices on Android 8+ are affected. -->
     <string name="notification_channel_downloader">Téléchargeur de cartes</string>
     <!-- "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit -->
-    <string name="pref_tts_speedcams_auto">Avertir en cas de dépassement de la limite de vitesse</string>
+    <string name="pref_tts_speedcams_auto">Avertir en cas d\'excès de vitesse</string>
     <!-- Speed camera settings menu option - Always warn (about speedcams) -->
     <string name="pref_tts_speedcams_always">Toujours avertir</string>
     <!-- Speed camera settings menu option - Never warn (about speedcams) -->
@@ -993,5 +993,11 @@
     <string name="rating_stars_description">étoiles:%.1f</string>
     <string name="place_reviews">%1$s avis</string>
     <string name="place_reviews_title">Avis sur les lieux</string>
-    <string name="reviews_by_mangrove">Avis provenant de Mangrove.\nAjoutez vos avis sur <a href="https://mapcomplete.org">MapComplete</a>.</string>
+    <string name="reviews_by_mangrove">Avis provenant de Mangrove</string>
+    <string name="pref_font_size">Taille de police des libellés sur la carte</string>
+    <string name="decrease_font_size">Rapetisser les textes sur la carte</string>
+    <string name="internet_unavailable">Pas de connexion internet</string>
+    <string name="add_review">Ajouter un avis via %1$s</string>
+    <string name="add_review_url_resolution_failed">Lieu introuvable dans la dernière version d\'OpenStreetMap.</string>
+    <string name="add_review_url_resolution_failed_dev">Lieu introuvable dans la base de données DEV d\'OpenStreetMap.</string>
 </resources>

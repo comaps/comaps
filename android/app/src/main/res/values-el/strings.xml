@@ -520,13 +520,13 @@
     <string name="accept">Συμφωνώ</string>
     <!-- For the first routing -->
     <string name="decline">Διαφωνώ</string>
-    <string name="mobile_data_dialog">Θέλετε να χρησιμοποιήσετε το δίκτυο κινητής τηλεφωνίας για να εμφανίσετε αναλυτικές πληροφορίες;</string>
+    <string name="mobile_data_dialog">Χρήση δεδομένων κινητής τηλεφωνίας;</string>
     <string name="mobile_data_option_always">Χρήση Πάντα</string>
     <string name="mobile_data_option_today">Μόνο Σήμερα</string>
-    <string name="mobile_data_option_not_today">Μη Χρησιμοποιηθεί Σήμερα</string>
-    <string name="mobile_data">Ίντερνετ μέσω δικτύου κινητής</string>
+    <string name="mobile_data_option_not_today">Όχι Χρήση Σήμερα</string>
+    <string name="mobile_data">Δεδομένα κινητής τηλεφωνίας</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Απαιτείται πρόσβαση στο διαδίκτυο μέσω δικτύου κινητής για τις ειδοποιήσεις ενημερώσεων χάρτη και μεταφορτώσεως επεξεργασιών</string>
+    <string name="mobile_data_description">Απαιτείται πρόσβαση μέσω δεδομένων κινητής τηλεφωνίας για τις ειδοποιήσεις ενημερώσεων χάρτη, μεταφορτώσεως επεξεργασιών και την σύνδεση με ιστότοπους κριτικής</string>
     <string name="mobile_data_option_never">Μη Χρησιμοποιείται ποτέ</string>
     <string name="mobile_data_option_ask">Πάντα Ερώτηση</string>
     <string name="traffic_update_maps_text">Για να εμφανιστούν πληροφορίες για την κίνηση, πρέπει να ενημερωθούν οι χάρτες</string>
@@ -613,7 +613,7 @@
     <string name="power_managment_setting_never">Ποτέ</string>
     <string name="power_managment_setting_auto">Όταν η μπαταρία είναι χαμηλή</string>
     <string name="power_managment_setting_manual_max">Πάντα</string>
-    <string name="enable_logging_warning_message">Αυτή η λειτουργία είναι ενεργοποιημένη για την καταγραφή ενεργειών για διαγνωστικούς σκοπούς. Αυτό βοηθά την ομάδα να εντοπίζει προβλήματα με την εφαρμογή. Να ενεργοποιείτε τη λειτουργία μόνο κατόπιν αιτήματος της υποστήριξης του CoMaps.</string>
+    <string name="enable_logging_warning_message">Ενεργοποιήστε αυτήν την επιλογή προσωρινά για να καταγραφούν και να αποστείλετε σε εμάς χειροκίνητα τα αναλυτικά διαγνωστικά αρχεία καταγραφής σχετικά με το ζήτημά σας χρησιμοποιώντας το \"Αναφορά σφάλματος\" στον διάλογο Βοήθειας. Αυτά τα αρχεία καταγραφής ίσως περιέχουν πληροφορίες τοποθεσίας.</string>
     <string name="routing_options_title">Ρυθμίσεις δρομολόγησης</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Αποφυγή διοδίων</string>
@@ -623,7 +623,7 @@
     <string name="avoid_ferry">Αποφυγή πορθμείων</string>
     <string name="avoid_motorways">Αποφυγή αυτοκινητόδρομων</string>
     <string name="unable_to_calc_alert_title">Δεν ήταν δυνατός ο υπολογισμός διαδρομής</string>
-    <string name="unable_to_calc_alert_subtitle">Δυστυχώς, δεν μπορούσαμε να δημιουργήσουμε μια διαδρομή με τις καθορισμένες επιλογές. Αλλάξτε τις ρυθμίσεις και δοκιμάστε πάλι.</string>
+    <string name="unable_to_calc_alert_subtitle">Δεν μπόρεσε να βρεθεί διαδρομή. Αυτό μπορεί να συμβαίνει λόγω των επιλογών δρομολόγησής σας ή λόγω ελλιπών δεδομένων OpenStreetMap. Παρακαλούμε αλλάξτε τις επιλογές δρομολόγησής σας και δοκιμάστε πάλι.</string>
     <string name="define_to_avoid_btn">Επιλέξτε επιλογές δρομολόγησης</string>
     <string name="change_driving_options_btn">Ρυθμίσεις δρομολόγησης ενεργοποιημένες</string>
     <string name="toll_road">Δρόμος με διόδια</string>
@@ -684,7 +684,7 @@
     <string name="transit_not_found">Η πλοήγηση με μετρό σ\' αυτήν την περιοχή δεν είναι ακόμη διαθέσιμη</string>
     <string name="dialog_pedestrian_route_is_long_header">Δεν βρέθηκε διαδρομή του μετρό</string>
     <string name="dialog_pedestrian_route_is_long_message">Επιλέξτε το σημείο εκκίνησης ή τέλους διαδρομής πιο κοντά σε σταθμό του μετρό</string>
-    <string name="button_layer_isolines">Υψοομετρικές γραμμές</string>
+    <string name="button_layer_isolines">Υψομετρικές γραμμές</string>
     <string name="isolines_activation_error_dialog">Η ενεργοποίηση των υψομετρικών γραμμών απαιτεί τη λήψη των δεδομένων χάρτη αυτής της περιοχής</string>
     <string name="isolines_location_error_dialog">Οι υψομετρικές γραμμές δεν είναι ακόμη διαθέσιμες σε αυτήν την περιοχή</string>
     <string name="elevation_profile_ascent">Ανάβαση</string>
@@ -786,13 +786,13 @@
     <!-- Disclaimer summary shown when Power Saving Mode is enabled -->
     <string name="power_save_dialog_summary">Για την πιο ακριβή πλοήγηση, συνιστούμε να απενεργοποιήσετε τη λειτουργία εξοικονόμησης ενέργειας στις ρυθμίσεις μπαταρίας του τηλεφώνου.</string>
     <!-- Prompt to start recording a track. -->
-    <string name="start_track_recording">Εγγραφή ίχνους</string>
+    <string name="start_track_recording">Καταγραφή ίχνους</string>
     <!-- Prompt for stopping a track recording. -->
-    <string name="stop_track_recording">Διακοπή εγγραφής ίχνους</string>
+    <string name="stop_track_recording">Διακοπή καταγραφής ίχνους</string>
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
-    <string name="stop_without_saving">Διακοπή Χωρίς Αποθήκευση</string>
+    <string name="stop_without_saving">Διακοπή χωρίς αποθήκευση</string>
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
-    <string name="continue_recording">Συνέχεια Εγγραφής</string>
+    <string name="continue_recording">Συνέχεια καταγραφής</string>
     <!-- Title for the alert when saving a track recording. -->
     <string name="track_recording_alert_title">Αποθήκευση στα Αγαπημένα;</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
@@ -981,4 +981,15 @@
     <string name="pref_enable_auto_reroute_description">Όταν είναι ενεργό, μια νέα διαδρομή θα δημιουργείται αυτόματα όταν αφήνετε την σχεδιασμένη διαδρομή.</string>
     <string name="recalculate_route">Επανυπολογισμός</string>
     <string name="off_route">Είστε εκτός διαδρομής</string>
+    <string name="pref_font_size">Μέγεθος γραμματοσειράς για ετικέτες χάρτη</string>
+    <string name="decrease_font_size">Μείωση μεγέθους γραμματοσειράς ετικετών χάρτη</string>
+    <string name="bookmarks_text_placement_title">Εμφάνιση ονομάτων αγαπημένων στον χάρτη</string>
+    <string name="place_reviews_title">Κριτικές τοποθεσιών</string>
+    <string name="place_reviews">%1$s κριτικές</string>
+    <string name="rating_stars_description">αστέρια: %.1f</string>
+    <string name="reviews_by_mangrove">Κριτικές από Mangrove</string>
+    <string name="add_review">Προσθέστε μια κριτική μέσω %1$s</string>
+    <string name="add_review_url_resolution_failed">Δεν βρέθηκε η τοποθεσία στα τελευταία δεδομένα του OpenStreetMap.</string>
+    <string name="add_review_url_resolution_failed_dev">Δεν βρέθηκε η τοποθεσία στο DEV OpenStreetMap.</string>
+    <string name="internet_unavailable">Χωρίς σύνδεση στο διαδίκτυο</string>
 </resources>

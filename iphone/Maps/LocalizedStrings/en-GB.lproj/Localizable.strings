@@ -106,8 +106,6 @@
 "category_recycling" = "Recycling";
 /* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
 "category_water" = "Water";
-/* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
-"category_rv" = "RV Facilities";
 "share_bookmarks_email_body" = "Hello!\n\nAttached are my saved places; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
 /* message title of loading file */
 "load_kmz_title" = "Loading Favourites";
@@ -923,3 +921,4 @@
 "bookmarks_text_placement_title" = "Show names of favourites on map";
 "pref_font_size" = "Font size for map labels";
 "font_size" = "Font size";
+"category_rv" = "RV Facilities";

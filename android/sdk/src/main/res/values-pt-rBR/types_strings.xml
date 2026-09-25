@@ -1529,4 +1529,5 @@
     <string name="type.amenity.planetarium">Planetário</string>
     <string name="type.amenity.toilets.customers">Acesso para clientes</string>
     <string name="type.amenity.toilets.private">Acesso privado</string>
+    <string name="type.landuse.military.danger_area">Área de perigo militar</string>
 </resources>

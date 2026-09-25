@@ -1006,7 +1006,7 @@
 "type.railway.station.monorail" = "Stanice monorailu";
 "type.railway.station.subway" = "Stanice metra";
 "type.railway.station.subway.adana" = "Stanice metra";
-"type.railway.station.subway.algiers" = "Stanice metra v Alžíru";
+"type.railway.station.subway.algiers" = "Stanice metra";
 "type.railway.station.subway.almaty" = "Stanice metra";
 "type.railway.station.subway.amsterdam" = "Stanice metra";
 "type.railway.station.subway.ankara" = "Stanice metra";
@@ -1537,3 +1537,7 @@
 "type.amenity.toilets.customers" = "Pouze pro zákazníky";
 "type.amenity.toilets.private" = "Soukromé";
 "type.amenity.planetarium" = "Planetárium";
+"type.landuse.military.danger_area" = "Nebezpečná vojenská oblast";
+"type.railway.subway_entrance.boston" = "Vchod do metra";
+"type.railway.station.subway.boston" = "Stanice metra";
+"type.railway.subway_entrance.qingdao" = "Vchod do metra";

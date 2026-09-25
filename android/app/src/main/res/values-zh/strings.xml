@@ -542,7 +542,7 @@
     <string name="mobile_data_option_never">从不使用</string>
     <string name="mobile_data_option_ask">总是询问</string>
     <string name="traffic_update_maps_text">要显示交通数据，必须更新地图</string>
-    <string name="increase_font_size">增大地图上的字体大小</string>
+    <string name="increase_font_size">增大地图标签大小</string>
     <string name="traffic_update_app">请更新 CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">交通数据不可用</string>
@@ -988,4 +988,6 @@
     <string name="place_reviews">%1$s 评论</string>
     <string name="rating_stars_description">星级：%.1f</string>
     <string name="reviews_by_mangrove">来自 Mangrove 的评价。\n在 <a href="https://mapcomplete.org">MapComplete</a> 中添加评价。</string>
+    <string name="pref_font_size">地图标签的字体大小</string>
+    <string name="decrease_font_size">减小地图标签大小</string>
 </resources>

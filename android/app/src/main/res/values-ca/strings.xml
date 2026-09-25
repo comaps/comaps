@@ -147,7 +147,7 @@
     <string name="description">Notes</string>
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">Els meus preferits de CoMaps</string>
-    <string name="share_bookmarks_email_body">Hola! \n \nAdjunto els meus marcadors de l\'aplicació CoMaps. Obriu-los si teniu l\'CoMaps instal·lat. O, si no teniu l\'aplicació, baixeu-la per al vostre dispositiu iOS o Android seguint aquest enllaç: https://www.comaps.app/download/ \n \nGaudiu viatjant amb CoMaps!</string>
+    <string name="share_bookmarks_email_body">Hola! \n \nAdjunto els meus marcadors de l\'aplicació CoMaps. Obriu-los si teniu el CoMaps instal·lat. O, si no teniu l\'aplicació, baixeu-la per al vostre dispositiu iOS o Android seguint aquest enllaç: https://www.comaps.app/download/ \n \nGaudiu viatjant amb CoMaps!</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Carregant Preferits</string>
     <!-- Kmz file successful loading -->
@@ -163,7 +163,7 @@
     <!-- Warning message when doing search around current position -->
     <string name="unknown_current_position">Encara no s’ha determinat la vostra ubicació</string>
     <!-- Alert message that we can't run Map Storage settings due to some reasons. -->
-    <string name="cant_change_this_setting">La configuració de l\'emmagatzematge del mapes està desactivada</string>
+    <string name="cant_change_this_setting">Ho sentim, la configuració de l\'emmagatzematge de mapes està desactivada</string>
     <!-- Alert message that downloading is in progress. -->
     <string name="downloading_is_active">La baixada del mapa és en curs</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
@@ -173,7 +173,7 @@
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Comparteix</string>
     <!-- Share by email button text, also used in editor and About. -->
-    <string name="email">Correu-e</string>
+    <string name="email">Correu electrònic</string>
     <!-- Text for message when used successfully copied something -->
     <string name="copied_to_clipboard">S’ha copiat al porta-retalls: %s</string>
     <!-- Used for bookmark editing -->
@@ -332,7 +332,7 @@
     <string name="dialog_routing_disclaimer_priority">— Les condicions de la carretera, les normes de trànsit i els senyals de circulació sempre tenen prioritat sobre les indicacions de navegació;</string>
     <string name="dialog_routing_disclaimer_precision">— El mapa pot ser imprecís, i la ruta suggerida potser no sempre és la via més òptima per a arribar a la destinació;</string>
     <string name="dialog_routing_disclaimer_recommendations">— Les rutes suggerides només s’han d’entendre com a recomanacions;</string>
-    <string name="dialog_routing_disclaimer_borders">— Aneu am cura amb les rutes en zones frontereres: les rutes creades per la nostra aplicació de vegades creuen fronteres internacionals en zones no autoritzades.</string>
+    <string name="dialog_routing_disclaimer_borders">— Aneu amb cura amb les rutes en zones frontereres: les rutes creades per la nostra aplicació de vegades creuen fronteres internacionals en zones no autoritzades.</string>
     <string name="dialog_routing_disclaimer_beware">Estigueu alerta i segur a la carretera!</string>
     <string name="dialog_routing_check_gps">Comprova el senyal GPS</string>
     <string name="dialog_routing_error_location_not_found">No s\'ha pogut crear la ruta. No s\'ha pogut identificar les coordenades GPS atuals.</string>
@@ -357,7 +357,7 @@
     <string name="dialog_routing_download_and_build_cross_route">Voleu baixar el mapa i crar una ruta més òptima que travessi més d\'un mapa?</string>
     <string name="dialog_routing_download_cross_route">Baixeu mapes addicionals per a crear una ruta millor que creua els límits d\'aquest mapa.</string>
     <!-- SECTION: Strings for downloading map from search -->
-    <string name="search_without_internet_advertisement">Per a començar a cercar i crear rutes, baixeu el mapa. Després ja no us caldrà connexio a Internet.</string>
+    <string name="search_without_internet_advertisement">Per a començar a cercar i crear rutes, baixeu el mapa. Després, ja no us caldrà connexió a Internet.</string>
     <string name="search_select_map">Seleccioneu un mapa</string>
     <!-- «Show» context menu -->
     <string name="show">Mostra</string>
@@ -375,16 +375,16 @@
     <string name="read_in_wikipedia">Viquipèdia</string>
     <string name="p2p_your_location">La vostra ubicació</string>
     <string name="p2p_start">Inicia</string>
-    <string name="p2p_from_here">De</string>
-    <string name="p2p_to_here">A</string>
+    <string name="p2p_from_here">Ruta des de</string>
+    <string name="p2p_to_here">Ruta fins a</string>
     <string name="p2p_only_from_current">La navegació només és disponible des de la ubicació actual</string>
     <string name="p2p_reroute_from_current">Voleu que planifiquem una ruta des de la vostra ubicació actual?</string>
     <!-- Edit open hours/set time and minutes dialog -->
     <string name="next_button">Següent</string>
     <!-- Tab title in the Edit Opening Hours time picker -->
-    <string name="editor_time_from">De</string>
+    <string name="editor_time_from">Des de</string>
     <!-- Tab title in the Edit Opening Hours time picker -->
-    <string name="editor_time_to">A</string>
+    <string name="editor_time_to">Fins a</string>
     <string name="editor_time_add">Afegeix un horari</string>
     <string name="editor_time_delete">Suprimeix l’horari</string>
     <!-- Text for allday switch. -->
@@ -476,7 +476,7 @@
     <string name="editor_about_osm">Les vostres edicions es pengen a la base de dades pública <a href="https://wiki.openstreetmap.org/wiki/Ca:About">OpenStreetMap</a>. Si us plau, no afegiu informació personal o amb drets d\'autor.</string>
     <string name="editor_more_about_osm">Més sobre l\'OpenStreetMap</string>
     <string name="editor_osm_history">El vostre historial d’edicions</string>
-    <string name="editor_osm_notes">Notes de les vostres dades del mapa</string>
+    <string name="editor_osm_notes">Les vostres notes de mapa</string>
     <string name="editor_operator">Operador</string>
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operador: %s</string>
@@ -492,7 +492,7 @@
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Més</string>
-    <string name="placepage_edit_bookmark_button">Edita el Lloc Desat</string>
+    <string name="placepage_edit_bookmark_button">Edita el lloc desat</string>
     <string name="placepage_personal_notes_hint">Notes personals (text o html)</string>
     <string name="editor_reset_edits_message">Voleu descartar tots els canvis locals?</string>
     <string name="editor_reset_edits_button">Descartar canvis</string>
@@ -523,17 +523,17 @@
     <string name="accept">Accepta</string>
     <!-- For the first routing -->
     <string name="decline">Ho rebutjo</string>
-    <string name="mobile_data_dialog">Voleu usar Internet mòbil per a mostrar informació detallada?</string>
+    <string name="mobile_data_dialog">Fer servir dades mòbils?</string>
     <string name="mobile_data_option_always">Usa’l sempre</string>
     <string name="mobile_data_option_today">Només avui</string>
     <string name="mobile_data_option_not_today">No l’utilitzis avui</string>
-    <string name="mobile_data">Internet mòbil</string>
+    <string name="mobile_data">Dades mòbils</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Es necessita Internet mòbil per a les notificacions d\'actualitzacions del mapa i per a mostrar informació detallada dels llocs i marcadors</string>
+    <string name="mobile_data_description">Calen dades mòbils per a les notificacions d\'actualitzacions del mapa, penjar edicions i enllaçar a webs de valoracions</string>
     <string name="mobile_data_option_never">Mai</string>
     <string name="mobile_data_option_ask">Demana-ho sempre</string>
     <string name="traffic_update_maps_text">Per a mostrar les dades de trànsit, els mapes han d\'estar actualitzats</string>
-    <string name="increase_font_size">Augmenta la mida de lletra del mapa</string>
+    <string name="increase_font_size">Augmenta la mida de lletra d\'etiquetes al mapa</string>
     <string name="traffic_update_app">Actualitzeu l’CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">No hi ha dades de trànsit disponibles</string>
@@ -548,7 +548,7 @@
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
     <string name="routing_add_start_point">Utilitzeu la cerca o toqueu el mapa per afegir un punt de partida de la ruta</string>
     <!-- User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". -->
-    <string name="routing_add_finish_point">Utilitzeu la cerca o toqueu el mapa per afegir un punt de destinació</string>
+    <string name="routing_add_finish_point">Utilitzeu la cerca o toqueu el mapa per a afegir un punt de destinació</string>
     <string name="planning_route_manage_route">Gestionar la ruta</string>
     <string name="button_plan">Planifica</string>
     <string name="placepage_remove_stop">Elimina parada</string>
@@ -624,12 +624,12 @@
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Evita peatges</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
-    <string name="avoid_unpaved">Evita vies sense pavimentar</string>
+    <string name="avoid_unpaved">Evita camins sense pavimentar</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_ferry">Evita ferris</string>
     <string name="avoid_motorways">Evita autopistes</string>
     <string name="unable_to_calc_alert_title">No s’ha pogut calcular la ruta</string>
-    <string name="unable_to_calc_alert_subtitle">Malauradament, no hem pogut trobar cap ruta. Probablement per les opcions que heu triat. Canvieu-les i torneu a intentar-ho.</string>
+    <string name="unable_to_calc_alert_subtitle">Malauradament, no hem pogut trobar cap ruta. Probablement per les opcions que heu triat o perquè falten dades en OpenStreetMap. Canvieu les opcions d\'encaminament i torneu a intentar-ho.</string>
     <string name="define_to_avoid_btn">Tria les opcions d\'enrutament</string>
     <string name="change_driving_options_btn">Paràmetres d’encaminament activats</string>
     <string name="toll_road">Via de peatge</string>
@@ -785,7 +785,7 @@
     <!-- Button in the Place Page which opens a restaurant or other food place's menu in a browser -->
     <string name="view_menu">Visualitza el menú</string>
     <!-- Title for the "Open in Another App" button on the PlacePage. -->
-    <string name="open_in_app">Obre en una altra aplicació</string>
+    <string name="open_in_app">Obrir en una altra aplicació</string>
     <!-- To indicate if the place proposed self service... -->
     <string name="self_service">Autoservei</string>
     <string name="select_option">Seleccioneu l\'opció</string>
@@ -891,10 +891,10 @@
         <item quantity="many">%d mins</item>
         <item quantity="other">%d mins</item>
     </plurals>
-    <string name="editor_place_doesnt_exist_description">Descriu com és el lloc ara mateix per enviar una nota d\'error a la comunitat d\'OpenStreetMap</string>
+    <string name="editor_place_doesnt_exist_description">Descriu la situació actual del lloc per a enviar una nota d\'error a la comunitat d\'OpenStreetMap</string>
     <string name="editor_business_vacant_button">El negoci està vacant</string>
     <string name="editor_mark_business_vacant_title">Marcar negoci com a vacant</string>
-    <string name="editor_mark_business_vacant_description">Fes servir aquesta funció si el negoci s\'ha mogut, i l\'espai està buit i llest per a un altre llogater.</string>
+    <string name="editor_mark_business_vacant_description">Fes servir aquesta funció si el negoci s\'ha mogut i l\'espai està buit i llest per a un altre llogater.</string>
     <string name="editor_submit">Enviar</string>
     <string name="power_management">Gestió de Potència</string>
     <string name="avoid_steps">Evita escales</string>
@@ -908,7 +908,7 @@
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="place_page_too_old_to_edit">L\'edició de dades d\'OpenStreetMap està deshabilitada perquè les dades del mapa són massa antigues.</string>
     <string name="place_page_map_too_old_title">Dades del mapa desactualitzades</string>
-    <string name="place_page_map_too_old_description">Les teves dades de mapa son molt antigues, per favor actualitza el mapa.</string>
+    <string name="place_page_map_too_old_description">Les teves dades del mapa son molt antigues, per favor actualitza el mapa.</string>
     <string name="place_page_app_too_old_description">Les teues dades del mapa son molt antigues, per favor actualitza l\'app de CoMaps.</string>
     <string name="place_page_update_too_old_map">Actualitzar regió del mapa</string>
     <string name="prefs_speed_cameras_information">Les advertències de càmeres radar estan deshabilitades als països on estan prohibides per llei.</string>
@@ -931,8 +931,8 @@
     <string name="pref_alt_map_lang_handling">Idiomes de Mapa Alternatius</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">No facis servir alternatives</string>
     <string name="pref_alt_map_lang_handling_system_order">Fes servir en l\'ordre del sistema</string>
-    <string name="pref_openexternallinks_title">Obre enllaços de tercers automàticament</string>
-    <string name="pref_openexternallinks_summary">Obre enllaços de tercers amb CoMaps per defecte</string>
+    <string name="pref_openexternallinks_title">Obrir enllaços de tercers automàticament</string>
+    <string name="pref_openexternallinks_summary">Obrir enllaços de tercers amb CoMaps per defecte</string>
     <string name="my_position_share_email">Seguiu aquest enllaç %1$s o pegueu aquestes coordenades %2$s als vostres mapes per a veure la meua ubicació.</string>
     <string name="bookmark_share_email_subject">Seguiu aquest enllaç %1$s o enganxeu aquestes coordenades %2$s a la teva aplicació de mapes per a veure aquesta ubicació.</string>
     <string name="stop">Parada</string>
@@ -986,4 +986,15 @@
     <string name="permission_read_navigation_label">Llegir les dades de navegació de CoMaps</string>
     <string name="permission_read_navigation_description">llegir informació de navegació en temps real, com els pròxims girs o el nom del carrer per on circules</string>
     <string name="pref_about_summary">Informar de problemes, obtindre ajuda, fer una donació\nVersió: v%1$s</string>
+    <string name="pref_font_size">Mida del text del mapa</string>
+    <string name="decrease_font_size">Redueix la mida de lletra d\'etiquetes al mapa</string>
+    <string name="bookmarks_text_placement_title">Mostra els noms dels preferits al mapa</string>
+    <string name="place_reviews_title">Ressenyes dels llocs</string>
+    <string name="place_reviews">%1$s ressenyes</string>
+    <string name="rating_stars_description">estreles: %.1f</string>
+    <string name="reviews_by_mangrove">Ressenyes de Mangrove</string>
+    <string name="add_review">Afegeix una Ressenya amb %1$s</string>
+    <string name="add_review_url_resolution_failed">Lloc no trobat a l\'última versió d\'OpenStreetMap.</string>
+    <string name="add_review_url_resolution_failed_dev">Lloc no trobat en la versió DEV d\'OpenStreetMap.</string>
+    <string name="internet_unavailable">Sense connexió a Internet</string>
 </resources>

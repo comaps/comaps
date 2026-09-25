@@ -30,7 +30,7 @@
 "type.amenity.boat_rental" = "Luiganto de boatoj";
 "type.amenity.bicycle_rental" = "Luiganto de bicikloj";
 "type.amenity.bicycle_repair_station" = "Bicikla riparejo";
-"type.amenity.biergarten" = "Biergarten";
+"type.amenity.biergarten" = "Bierĝardeno";
 "type.amenity.brothel" = "Prostituejo";
 "type.amenity.love_hotel" = "Am-hotelo";
 "type.amenity.bureau_de_change" = "Tipo-ŝanĝilo de mono";
@@ -80,7 +80,6 @@
 "type.office.diplomatic" = "Ambasadejo";
 "type.office.security" = "Oficejo de gardistoj";
 "type.building.guardhouse" = "Gardistejo";
-"type.power.portal" = "Power Portal";
 "type.amenity.fast_food" = "Rapidmanĝejo";
 "type.amenity.ferry_terminal" = "Haltejo de pramŝipo";
 "type.amenity.fire_station" = "Fajrobrigado";
@@ -147,28 +146,26 @@
 "type.amenity.police" = "Policio";
 "type.amenity.post_box" = "Poŝtkesto";
 "type.amenity.post_office" = "Poŝtejo";
-"type.post_office.post_partner" = "Post Partner";
 "type.amenity.prison" = "Malliberejo";
-"type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Libro-interŝanĝo";
 "type.amenity.recycling.centre" = "Recikla centro";
 "type.amenity.recycling.container" = "Recikla ujo";
-"type.recycling.batteries" = "Batteries";
-"type.recycling.clothes" = "Clothes";
-"type.recycling.glass_bottles" = "Glass Bottles";
-"type.recycling.paper" = "Paper";
-"type.recycling.plastic" = "Plastic";
-"type.recycling.plastic_bottles" = "Plastic Bottles";
-"type.recycling.scrap_metal" = "Scrap Metal";
-"type.recycling.small_appliances" = "Electronic Waste";
-"type.recycling.cardboard" = "Cardboard";
-"type.recycling.cans" = "Cans";
-"type.recycling.shoes" = "Shoes";
+"type.recycling.batteries" = "Baterioj";
+"type.recycling.clothes" = "Vestoj";
+"type.recycling.glass_bottles" = "Vitraj boteloj";
+"type.recycling.paper" = "Papero";
+"type.recycling.plastic" = "Plasto";
+"type.recycling.plastic_bottles" = "Plastaj boteloj";
+"type.recycling.scrap_metal" = "Metaloruboj";
+"type.recycling.small_appliances" = "Elektraj ruboj";
+"type.recycling.cardboard" = "Kartono";
+"type.recycling.cans" = "Ladskatoloj";
+"type.recycling.shoes" = "Ŝuoj";
 "type.recycling.green_waste" = "Green/Organic Waste";
 "type.recycling.cartons" = "Cartons";
 "type.amenity.restaurant" = "Restaurant";
 "type.amenity.sanitary_dump_station" = "Holding Tank Dump Station";
-"type.amenity.school" = "School";
+"type.amenity.school" = "Lernejo";
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "Shelter";
 /* A weather shelter by the public transport stop. */
@@ -1516,7 +1513,7 @@
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Sportejo";
 "type.organic.no" = "No organic options";
-"type.amenity.stage" = "Stage";
+"type.amenity.stage" = "Scenejo";
 "type.amenity.animal_boarding" = "Animal Boarding";
 "type.amenity.toilets.customers" = "Customer Access";
 "type.amenity.toilets.private" = "Private Access";
@@ -1537,3 +1534,10 @@
 "type.highway.construction.living_street" = "Road Under Construction";
 "type.highway.construction.road" = "Road Under Construction";
 "type.highway.construction.track" = "Road Under Construction";
+"type.amenity.pub" = "Drinkejo";
+"type.power.portal" = "Power Portal";
+"type.post_office.post_partner" = "Post Partner";
+"type.landuse.military.danger_area" = "Military Danger Area";
+"type.railway.subway_entrance.boston" = "Subway Entrance";
+"type.railway.station.subway.boston" = "Subway Station";
+"type.railway.subway_entrance.qingdao" = "Subway Entrance";

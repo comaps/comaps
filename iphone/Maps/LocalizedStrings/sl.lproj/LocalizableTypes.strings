@@ -1537,3 +1537,7 @@
 "type.amenity.toilets.customers" = "Dostop za stranke";
 "type.amenity.toilets.private" = "Zasebni dostop";
 "type.amenity.planetarium" = "Planetarij";
+"type.landuse.military.danger_area" = "Military Danger Area";
+"type.railway.subway_entrance.boston" = "Subway Entrance";
+"type.railway.station.subway.boston" = "Subway Station";
+"type.railway.subway_entrance.qingdao" = "Subway Entrance";

@@ -27,7 +27,7 @@
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">限られた精度</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">正確なナビゲーションを実現するには、設定で「正確な位置情報」を有効にしてください。</string>
+    <string name="precise_location_is_disabled_long_text">正確なナビゲーションを実現するには、設定で「正確な位置情報」を有効にしてください</string>
     <!-- View and button titles for accessibility -->
     <string name="zoom_to_country">地図に表示</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
@@ -38,13 +38,13 @@
     <!-- Text in About screen -->
     <string name="about_headline">コミュニティ主導のオープンプロジェクト</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_1">• 広告、追跡なし、データ収集なし</string>
+    <string name="about_proposition_1">• 使いやすく、洗練されています</string>
     <!-- Text in About screen -->
     <string name="about_proposition_2">• プライバシー重視で広告なし</string>
     <!-- Text in About screen -->
     <string name="about_proposition_3">• オフライン、高速、簡潔</string>
     <!-- Text in About screen -->
-    <string name="about_developed_by_enthusiasts">愛好家とボランティアによって作成されたオープンソースアプリケーション。</string>
+    <string name="about_developed_by_enthusiasts">営利を追求しない完全なオープンソース。透明性の高い意思決定と財務。</string>
     <!-- The button that opens system location settings -->
     <string name="location_settings">ロケーション設定</string>
     <string name="close">閉じる</string>
@@ -84,7 +84,7 @@
     <!-- Header of settings activity where user defines storage path -->
     <string name="maps_storage">地図の保存先</string>
     <!-- Detailed description of Maps Storage settings button -->
-    <string name="maps_storage_summary">マップのダウンロード先を選択してください。</string>
+    <string name="maps_storage_summary">マップのダウンロード先を選択してください</string>
     <!-- E.g. "Downloaded maps: 500Mb" in Maps Storage settings -->
     <string name="maps_storage_downloaded">マップ</string>
     <!-- Free space out of total storage size in Maps Storage settings, e.g. "300 MB free of 2 GB" -->
@@ -148,14 +148,14 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">メモ</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">CoMapsのお気に入りリストが共有されました</string>
-    <string name="share_bookmarks_email_body">こんにちは！ \n \n添付ファイルCoMapsのお気に入りリストです。もしインストールされていない場合はここからダウンロードができます： https://www.comaps.app/download/ \n \n旅行を楽しむときはCoMapsを使用してください!</string>
+    <string name="share_bookmarks_email_subject">CoMapsお気に入りリスト</string>
+    <string name="share_bookmarks_email_body">"こんにちは！ \n \nお気に入りリストをファイルに添付しました。CoMapsで開いてください。もしCoMapsをインストールしていない場合は、https://www.comaps.app/download/  からダウンロードができます。\n \nCoMapsでの旅を楽しんでください！"</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">お気に入りをロード中</string>
+    <string name="load_kmz_title">お気に入りを読み込み中</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">お気に入りをロードできました。 お気に入りはマップ上、またはお気に入り管理画面に表示されます。</string>
+    <string name="load_kmz_successful">お気に入りの読み込みが成功しました！お気に入りはマップ上、またはお気に入り管理画面に表示されます。</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">お気に入りのロードに失敗しました。ファイルが破損していた、または問題があった可能性があります。</string>
+    <string name="load_kmz_failed">お気に入りの読み込みに失敗しました。ファイルが破損していたか、問題があった可能性があります。</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">ファイルタイプがアプリに認識されない： \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -165,9 +165,9 @@
     <!-- Warning message when doing search around current position -->
     <string name="unknown_current_position">現在の座標が未確定です</string>
     <!-- Alert message that we can't run Map Storage settings due to some reasons. -->
-    <string name="cant_change_this_setting">恐れ入りますが、マップストレージ設定が無効になっています。</string>
+    <string name="cant_change_this_setting">恐れ入りますが、マップストレージ設定が無効になっています</string>
     <!-- Alert message that downloading is in progress. -->
-    <string name="downloading_is_active">ダウンロード中です。</string>
+    <string name="downloading_is_active">マップのダウンロード中です</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">CoMaps で私の現在地が見れます！%1$s または %2$s オフラインマップはまだインストールしていないですか？ここからダウンロード： https://www.comaps.app/download/</string>
     <!-- Subject for emailed position -->
@@ -215,9 +215,9 @@
     <!-- Settings «Route» category: «Tts language» title -->
     <string name="pref_tts_language_title">音声言語</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">音声案内をテストする（TTS、Text-To-Speech）</string>
+    <string name="pref_tts_test_voice_title">音声案内をテストする</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">音声が聞こえない場合は、音量またはシステムの音声合成設定を確認する。</string>
+    <string name="pref_tts_playing_test_voice">音声が聞こえない場合は、音量またはシステムの音声合成設定を確認してください</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
     <string name="pref_tts_unavailable">利用不可</string>
     <string name="pref_map_auto_zoom">自動ズーム</string>
@@ -240,7 +240,7 @@
     <!-- Button in the main menu -->
     <string name="donate">寄付</string>
     <!-- Button in the main Help dialog -->
-    <string name="how_to_support_us">プロジェクトを支援する</string>
+    <string name="how_to_support_us">ボランティアでCoMapsを改善する</string>
     <!-- Button in the main Help dialog -->
     <string name="copyright">著作権</string>
     <!-- Text in menu + Button in the main Help dialog -->
@@ -265,7 +265,7 @@
     <string name="downloader_download_all_button">全てをダウンロード</string>
     <string name="downloader_downloading">ダウンロード中：</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">地図を削除するにはナビゲーションを停止してください。</string>
+    <string name="downloader_delete_map_while_routing_dialog">マップを削除するにはナビゲーションを停止してください。</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">一つの地図に完全に収まるルートのみ作成可能です。</string>
     <!-- Context menu item for downloader. -->
@@ -337,18 +337,18 @@
     <string name="dialog_routing_location_turn_on">位置情報サービスを有効にしてください</string>
     <string name="dialog_routing_location_unknown_turn_on">現在地のGPSコードを確認できません。案内ルートを作成するには、位置情報サービスを有効にしてください。</string>
     <string name="dialog_routing_unable_locate_route">ルートの位置を確認できません</string>
-    <string name="dialog_routing_cant_build_route">案内ルートを作成できません。</string>
+    <string name="dialog_routing_cant_build_route">案内ルートを作成できません</string>
     <string name="dialog_routing_change_start_or_end">出発地または目的地を調整してください。</string>
     <string name="dialog_routing_change_start">出発地を調整</string>
     <string name="dialog_routing_start_not_determined">案内ルートを作成できません。出発地が確認できませんでした。</string>
     <string name="dialog_routing_select_closer_start">道路に近い位置にある出発地を設定してください。</string>
     <string name="dialog_routing_change_end">目的地を調整</string>
     <string name="dialog_routing_end_not_determined">案内ルートを作成できません。目的地を確認できませんでした。</string>
-    <string name="dialog_routing_select_closer_end">道路に近い位置にある目的地を設定してください。</string>
-    <string name="dialog_routing_change_intermediate">中間地点を確認できませんでした。</string>
-    <string name="dialog_routing_intermediate_not_determined">中間地点を調整してください。</string>
+    <string name="dialog_routing_select_closer_end">道路に近い位置にある目的地を設定してください</string>
+    <string name="dialog_routing_change_intermediate">中間地点を確認できませんでした</string>
+    <string name="dialog_routing_intermediate_not_determined">中間地点を調整してください</string>
     <string name="dialog_routing_system_error">システムエラー</string>
-    <string name="dialog_routing_application_error">エラーにより案内ルートを作成できませんでした。</string>
+    <string name="dialog_routing_application_error">エラーにより案内ルートを作成できませんでした</string>
     <string name="dialog_routing_try_again">もう一度お試しください</string>
     <string name="not_now">後で</string>
     <string name="dialog_routing_download_and_build_cross_route">マップをダウンロードし、複数マップを利用してより最適なルートを作成しますか？</string>
@@ -362,11 +362,11 @@
     <string name="hide">隠す</string>
     <string name="categories">カテゴリー</string>
     <string name="history">履歴</string>
-    <string name="search_not_found">該当するものは見つかりませんでした。</string>
+    <string name="search_not_found">該当するものは見つかりませんでした</string>
     <!-- The message when user did not find anything in the search. -->
     <string name="search_not_found_query">検索する地域をダウンロードするか、近隣の町村名を追加してみてください。</string>
     <string name="search_history_title">検索履歴</string>
-    <string name="search_history_text">最近の検索を表示します。</string>
+    <string name="search_history_text">最近の検索を表示します</string>
     <string name="clear_search">検索履歴を消去</string>
     <!-- Place Page link to Wikipedia article (if map object has it). -->
     <string name="read_in_wikipedia">ウィキペディア</string>
@@ -376,7 +376,7 @@
     <string name="p2p_start">開始</string>
     <string name="p2p_from_here">出発地</string>
     <string name="p2p_to_here">目的地</string>
-    <string name="p2p_only_from_current">ナビゲーションは現在位置からのみ利用できます。</string>
+    <string name="p2p_only_from_current">ナビゲーションは現在位置からのみ利用できます</string>
     <string name="p2p_reroute_from_current">現在位置からのルートを作成しますか？</string>
     <!-- Edit open hours/set time and minutes dialog -->
     <string name="next_button">次へ</string>
@@ -435,14 +435,14 @@
     <!-- login text field -->
     <string name="editor_add_phone">電話番号を追加</string>
     <string name="level">階</string>
-    <string name="downloader_delete_map_dialog">すべてのマップの変更はマップとともに削除されます。</string>
+    <string name="downloader_delete_map_dialog">すべてのマップの変更はマップとともに削除されます</string>
     <string name="downloader_update_maps">地図を更新</string>
     <string name="downloader_mwm_migration_dialog">ルートを作成するには、全ての地図を更新した後で再びルート計画を行う必要があります。</string>
     <string name="downloader_search_field_hint">地図を検索</string>
-    <string name="common_check_internet_connection_dialog">デバイスがインターネットに接続されているか確認してください。</string>
+    <string name="common_check_internet_connection_dialog">デバイスがインターネットに接続されているか確認してください</string>
     <string name="downloader_no_space_title">十分な空き容量がありません</string>
     <string name="downloader_no_space_message">不要データを削除してください</string>
-    <string name="editor_login_error_dialog">ログインエラー。</string>
+    <string name="editor_login_error_dialog">ログインエラー</string>
     <string name="editor_profile_changes">確認された変更</string>
     <string name="editor_focus_map_on_location">地図をドラッグして、場所や企業の場所に十字を配置します。</string>
     <string name="editor_edit_place_title">編集中</string>
@@ -458,7 +458,7 @@
     <string name="osm_presentation">コミュニティが作成した%s時点の OpenStreetMap のデータ。地図の編集や更新の方法については、OpenStreetMap.org を参照してください</string>
     <!-- OSM explanation on Android login screen -->
     <string name="login_osm_presentation">OpenStreetMap.org(OSM)は、フリーでオープンな地図を構築するコミュニティ・プロジェクトです。OSMは、CoMapsの地図データの主要なソースであり、ウィキペディアと同じように機能します。あなたが場所を追加したり編集したりすると、世界中の何百万人ものユーザーがその場所を利用できるようになります。\nコミュニティに参加して、より良い地図を一緒に作りましょう！</string>
-    <string name="login_to_make_edits_visible">OpenStreetMapのアカウントを作成するかログインして、あなたの地図編集を世界中に公開しましょう。</string>
+    <string name="login_to_make_edits_visible">OpenStreetMapアカウントを作成またはログインすると、あなたのマップ編集を世界中に公開できます</string>
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%2$dのうち%1$d</string>
     <string name="download_over_mobile_header">モバイル通信でダウンロードしますか？</string>
@@ -483,8 +483,8 @@
     <string name="editor_category_unsuitable_title">適切なカテゴリーが見つからない？</string>
     <string name="editor_category_unsuitable_text">つまり、町、道路、湖、建物の輪郭などは追加できない。そのようなカテゴリーは<a href="https://www.openstreetmap.org">OpenStreetMap.org</a>に直接追加してほしい。私たちの<a href="https://www.comaps.app/support/advanced-map-editing/">ガイド</a>のステップバイステップの詳細な手順をチェックする。</string>
     <string name="downloader_no_downloaded_maps_title">マップをダウンロードしていません</string>
-    <string name="downloader_no_downloaded_maps_message">ロケーションの検索とオフラインナビゲートのためにマップをダウンロードしてください。</string>
-    <string name="current_location_unknown_error_title">現在地は不明です。</string>
+    <string name="downloader_no_downloaded_maps_message">ロケーションの検索とオフラインナビゲートのためにマップをダウンロードしてください</string>
+    <string name="current_location_unknown_error_title">現在地は不明です</string>
     <!-- abbreviation for kilometers per hour -->
     <string name="kilometers_per_hour">km/h</string>
     <string name="miles_per_hour">mph</string>
@@ -495,7 +495,7 @@
     <string name="placepage_edit_bookmark_button">ブックマークを編集</string>
     <string name="placepage_personal_notes_hint">パーソナルメモ（テキストまたはHTML）</string>
     <string name="editor_reset_edits_message">ローカル編集をすべてリセットしますか?</string>
-    <string name="editor_reset_edits_button">リセット</string>
+    <string name="editor_reset_edits_button">変更を破棄</string>
     <string name="editor_remove_place_message">追加された場所を削除しますか？</string>
     <string name="editor_remove_place_button">削除</string>
     <string name="editor_place_doesnt_exist">場所が存在しません</string>
@@ -532,7 +532,7 @@
     <string name="mobile_data_description">モバイル通信は場所、写真、価格やレビューのような詳細情報を表示するのに必要です。</string>
     <string name="mobile_data_option_never">使用しない</string>
     <string name="mobile_data_option_ask">常に確認</string>
-    <string name="traffic_update_maps_text">交通データを表示するには、地図を更新する必要があります。</string>
+    <string name="traffic_update_maps_text">交通データを表示するには、マップを更新する必要があります</string>
     <string name="increase_font_size">地図上のフォントサイズを大きくする</string>
     <string name="traffic_update_app">CoMaps をアップデートしてください</string>
     <!-- "traffic" as in "road congestion" -->
@@ -593,7 +593,7 @@
     <string name="subway">地下鉄</string>
     <string name="layers_title">マップのスタイルとレイヤー</string>
     <string name="bookmarks_empty_list_title">このリストは空です</string>
-    <string name="bookmarks_empty_list_message">ブックマークを追加するには、地図上の場所をタップし、星のアイコンをタップしてください</string>
+    <string name="bookmarks_empty_list_message">場所を追加するには、マップ上の場所をタップし、星のアイコンをタップしてください</string>
     <string name="category_desc_more">詳細</string>
     <string name="export_file">KMZをエクスポートする</string>
     <string name="export_file_gpx">GPXをエクスポートする</string>
@@ -834,4 +834,28 @@
     <string name="downloader_check_updates_error">アップデート確認中のエラー</string>
     <string name="downloader_check_updates_checking">アップデートを確認中…</string>
     <string name="oh_unknown">営業時間不明</string>
+    <string name="pref_about_summary">問題を報告、助けを得る、寄付をお願いします\nVersion: v%1$s</string>
+    <string name="prefs_group_advanced">高度な設定</string>
+    <string name="download_resources_custom_url_title">カスタム地図サーバー</string>
+    <string name="download_resources_custom_url_message">デフォルトの地図ダウンロードサーバーをオーバーライドします。CoMapsのデフォルトサーバーを使用する場合は、空のままにしてください。</string>
+    <string name="download_resources_custom_url_error_scheme">http:// または https:// から始めるURLを指定してください</string>
+    <string name="prefs_group_interface">インターフェイス</string>
+    <string name="prefs_group_interface_summary">ナイトモード、ボタン、言語</string>
+    <string name="prefs_group_data_management">データ管理</string>
+    <string name="prefs_group_data_management_summary">地図ストレージ、お気に入りバックアップ</string>
+    <string name="prefs_group_map_appearance">マップの表示</string>
+    <string name="prefs_group_map_appearance_summary">マップの言語、ラベルサイズ、2D/3D建物</string>
+    <string name="tts_toggle_enable">音声案内を有効化</string>
+    <string name="tts_toggle_disable">音声案内を無効化</string>
+    <string name="enable_long_tap_fullscreen">ロングタップでユーザーインターフェイスを隠す</string>
+    <string name="long_tap_disabled_toast">ユーザーインターフェイスを隠すには、設定でロングタップを有効化してください</string>
+    <string name="downloader_check_updates_eol">このアプリバージョンではこれ以上マップの更新はありません。アプリを更新してください。</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <plurals name="minutes_short">
+        <item quantity="other">%d 分</item>
+    </plurals>
+    <string name="hours_confirmed_time_ago">%sに確認済み</string>
+    <string name="existence_confirmed_time_ago">%sに存在を確認済み</string>
+    <string name="prefs_group_advanced_summary">ログを有効化</string>
+    <string name="download_resources_custom_url_summary_none">未設定</string>
 </resources>

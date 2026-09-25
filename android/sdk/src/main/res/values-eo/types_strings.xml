@@ -40,7 +40,7 @@
     <string name="type.amenity.bicycle_rental">Luiganto de bicikloj</string>
     <string name="type.amenity.bicycle_repair_station">Bicikla riparejo</string>
     <string name="type.amenity.animal_shelter">Ŝirmejo por bestoj</string>
-    <string name="type.amenity.biergarten">Biergarten</string>
+    <string name="type.amenity.biergarten">Bierĝardeno</string>
     <string name="type.amenity.brothel">Prostituejo</string>
     <string name="type.amenity.love_hotel">Am-hotelo</string>
     <string name="type.sport.four_square">Kvar Kvadratoj</string>
@@ -166,4 +166,18 @@
     <string name="type.amenity.public_bookcase">Libro-interŝanĝo</string>
     <string name="type.amenity.recycling.centre">Recikla centro</string>
     <string name="type.amenity.recycling.container">Recikla ujo</string>
+    <string name="type.recycling.batteries">Baterioj</string>
+    <string name="type.recycling.clothes">Vestoj</string>
+    <string name="type.recycling.glass_bottles">Vitraj boteloj</string>
+    <string name="type.recycling.paper">Papero</string>
+    <string name="type.recycling.plastic">Plasto</string>
+    <string name="type.recycling.plastic_bottles">Plastaj boteloj</string>
+    <string name="type.recycling.scrap_metal">Metaloruboj</string>
+    <string name="type.amenity.stage">Scenejo</string>
+    <string name="type.amenity.school">Lernejo</string>
+    <string name="type.recycling.small_appliances">Elektraj ruboj</string>
+    <string name="type.recycling.cardboard">Kartono</string>
+    <string name="type.recycling.cans">Ladskatoloj</string>
+    <string name="type.recycling.shoes">Ŝuoj</string>
+    <string name="type.amenity.pub">Drinkejo</string>
 </resources>

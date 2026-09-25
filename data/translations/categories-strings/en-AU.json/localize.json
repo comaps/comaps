@@ -1,6 +1,6 @@
 {
     "shop-alcohol|@category_food|@shop": {
-        "defaultMessage": "Bottleshop|liquor"
+        "defaultMessage": "4Bottleshop|liquor"
     },
     "shop-optician|@shop": {
         "defaultMessage": "Optometrist|4Optician"
@@ -12,10 +12,10 @@
         "defaultMessage": "3Car Dealership|Car showroom"
     },
     "amenity-kindergarten": {
-        "defaultMessage": "Kindy"
+        "defaultMessage": "Kindy|Kinder"
     },
     "amenity-pharmacy|@category_pharmacy": {
-        "defaultMessage": "4Chemist|pharmacist"
+        "defaultMessage": "4Chemist|pharmacist|Pharmacy"
     },
     "amenity-waste_basket": {
         "defaultMessage": "4Waste Bin|4litter bin|trash bin"

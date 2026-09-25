@@ -1537,3 +1537,7 @@
 "type.amenity.toilets.customers" = "Müşteri Erişimi";
 "type.amenity.toilets.private" = "Özel Erişim";
 "type.amenity.planetarium" = "Planetaryum";
+"type.landuse.military.danger_area" = "Military Danger Area";
+"type.railway.subway_entrance.boston" = "Subway Entrance";
+"type.railway.station.subway.boston" = "Subway Station";
+"type.railway.subway_entrance.qingdao" = "Subway Entrance";

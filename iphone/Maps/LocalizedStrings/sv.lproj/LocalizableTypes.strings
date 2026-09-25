@@ -12,7 +12,7 @@
 "type.aeroway.aerodrome" = "Flygplats";
 "type.aeroway.aerodrome.international" = "Flygplats";
 "type.aeroway.apron" = "Apron";
-"type.aeroway.gate" = "Gate";
+"type.aeroway.gate" = "Grind";
 "type.aeroway.helipad" = "Helikopterplatta";
 "type.aeroway.runway" = "Landningsbana";
 "type.aeroway.taxiway" = "Taxibana";
@@ -1537,3 +1537,7 @@
 "type.amenity.toilets.customers" = "Customer Access";
 "type.amenity.toilets.private" = "Private Access";
 "type.amenity.planetarium" = "Planetarium";
+"type.landuse.military.danger_area" = "Military Danger Area";
+"type.railway.subway_entrance.boston" = "Subway Entrance";
+"type.railway.station.subway.boston" = "Subway Station";
+"type.railway.subway_entrance.qingdao" = "Subway Entrance";

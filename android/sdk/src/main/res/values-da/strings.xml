@@ -40,4 +40,8 @@
     <string name="months_ago">%s måneder siden</string>
     <string name="year_ago">%s år siden</string>
     <string name="years_ago">%s år siden</string>
+    <string name="accessibility_map_content_description_collapsed">Kort. Stryg op eller ned med én finger og forstør for at udforske det ved at trykke på det.</string>
+    <string name="accessibility_map_content_description_expanded">Kort. Tryk og hold nede for at udforske ved hjælp af berøring. Stederne læses op, når din finger når frem til dem. For at stoppe skal du stryge op eller ned med en finger og afvis.</string>
+    <string name="accessibility_map_action_expand_label">udforsk ved berøring</string>
+    <string name="accessibility_map_action_collapse_label">afslut berøringsudforskning</string>
 </resources>

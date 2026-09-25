@@ -506,13 +506,13 @@
     <string name="accept">Přijmout</string>
     <!-- For the first routing -->
     <string name="decline">Odmítnout</string>
-    <string name="mobile_data_dialog">Použít mobilní data k zobrazení podrobnějších informací?</string>
+    <string name="mobile_data_dialog">Použít mobilní data?</string>
     <string name="mobile_data_option_always">Vždy použít</string>
     <string name="mobile_data_option_today">Jen dnes</string>
     <string name="mobile_data_option_not_today">Nepoužívat dnes</string>
     <string name="mobile_data">Mobilní data</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Pro zobrazení oznámení o aktualizacích map a nahrávání úprav je potřeba internet</string>
+    <string name="mobile_data_description">Pro zobrazení oznámení o aktualizacích map, nahrávání úprav a odkazování na weby s recenzemi je potřeba internet</string>
     <string name="mobile_data_option_never">Nikdy nepoužívat</string>
     <string name="mobile_data_option_ask">Vždy se zeptat</string>
     <string name="traffic_update_maps_text">Ke zobrazení údajů o provozu musí být mapy aktuální</string>
@@ -950,7 +950,7 @@
     <string name="editor_add_select_category_all_subtitle">Všechny kategorie</string>
     <string name="editor_add_select_category_recent_subtitle">Naposledy použito</string>
     <string name="oh_unknown">Neznámá otevírací doba</string>
-    <string name="enable_long_tap_fullscreen">Podržte pro skrytí uživatelského rozhraní</string>
+    <string name="enable_long_tap_fullscreen">Skrýt uživatelské rozhraní podržením</string>
     <string name="long_tap_disabled_toast">Pro skrytí rozhraní povolte podržení v nastavení</string>
     <string name="sort_categories">Seřadit seznamy oblíbených</string>
     <string name="by_recently_used">Podle nedávno použitých</string>
@@ -984,7 +984,11 @@
     <string name="place_reviews_title">Recenze míst</string>
     <string name="place_reviews">Recenze %1$s</string>
     <string name="rating_stars_description">hvězd: %.1f</string>
-    <string name="reviews_by_mangrove">Recenze ze služby Mangrove.\nSvou recenzi můžete přidat v <a href="https://mapcomplete.org">MapComplete</a>.</string>
-    <string name="pref_font_size">Velikost Písma pro popisy na mapě</string>
+    <string name="reviews_by_mangrove">Recenze ze služby Mangrove</string>
+    <string name="pref_font_size">Velikost písma pro popisky na mapě</string>
     <string name="decrease_font_size">Zmenšit popisy na mapě</string>
+    <string name="add_review">Přidejte recenzi na %1$s</string>
+    <string name="add_review_url_resolution_failed">Místo nenalezeno ve službě OpenStreetMap.</string>
+    <string name="add_review_url_resolution_failed_dev">Místo nenalezeno ve službě DEV OpenStreetMap.</string>
+    <string name="internet_unavailable">Bez připojení k internetu</string>
 </resources>

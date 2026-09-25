@@ -123,7 +123,7 @@
 /* Subject for emailed position */
 "my_position_share_email_subject" = "Ep, mireu la meva ubicació actual en el mapa del CoMaps!";
 /* Share by email button text, also used in editor and About. */
-"email" = "Correu-e";
+"email" = "Correu electrònic";
 /* Text for message to copy something */
 "copy_to_clipboard" = "Copia al porta-retalls";
 /* Text for message when used successfully copied something */
@@ -310,7 +310,7 @@
 "dialog_routing_disclaimer_priority" = "— Les condicions de la carretera, les normes de trànsit i els senyals de circulació sempre tenen prioritat sobre les indicacions de navegació;";
 "dialog_routing_disclaimer_precision" = "— El mapa pot ser imprecís, i la ruta suggerida potser no sempre és la via més òptima per a arribar a la destinació;";
 "dialog_routing_disclaimer_recommendations" = "— Les rutes suggerides només s’han d’entendre com a recomanacions;";
-"dialog_routing_disclaimer_borders" = "— Aneu am cura amb les rutes en zones frontereres: les rutes creades per la nostra aplicació de vegades creuen fronteres internacionals en zones no autoritzades.";
+"dialog_routing_disclaimer_borders" = "— Aneu amb cura amb les rutes en zones frontereres: les rutes creades per la nostra aplicació de vegades creuen fronteres internacionals en zones no autoritzades.";
 "dialog_routing_disclaimer_beware" = "Estigueu alerta i segur a la carretera!";
 "dialog_routing_check_gps" = "Comprova el senyal GPS";
 "dialog_routing_error_location_not_found" = "No s'ha pogut crear la ruta. No s'ha pogut identificar les coordenades GPS atuals.";
@@ -358,8 +358,8 @@
 "wikimedia_commons" = "Wikimedia Commons";
 "p2p_your_location" = "La vostra ubicació";
 "p2p_start" = "Inicia";
-"p2p_from_here" = "De";
-"p2p_to_here" = "A";
+"p2p_from_here" = "Ruta des de";
+"p2p_to_here" = "Ruta fins a";
 "p2p_only_from_current" = "La navegació només és disponible des de la ubicació actual.";
 "p2p_reroute_from_current" = "Voleu que planifiquem una ruta des de la vostra ubicació actual?";
 "editor_time_add" = "Afegeix un horari";
@@ -522,7 +522,7 @@
 "placepage_more_button" = "Més";
 "book_button" = "Reserva";
 "placepage_call_button" = "Truca-hi";
-"placepage_edit_bookmark_button" = "Edita el marcador";
+"placepage_edit_bookmark_button" = "Edita el lloc desat";
 "placepage_bookmark_name_hint" = "Nom del marcador";
 "placepage_personal_notes_hint" = "Notes personals (text o html)";
 "placepage_delete_bookmark_button" = "Suprimeix el marcador";
@@ -533,7 +533,7 @@
 "editor_remove_place_message" = "Voleu suprimir el lloc afegit?";
 "editor_remove_place_button" = "Suprimeix";
 "editor_place_doesnt_exist" = "El lloc no existeix";
-"editor_place_doesnt_exist_description" = "Descriu com és el lloc ara mateix per enviar una nota d'error a la comunitat d'OpenStreetMap";
+"editor_place_doesnt_exist_description" = "Descriu la situació actual del lloc per a enviar una nota d'error a la comunitat d'OpenStreetMap";
 "text_more_button" = "…més";
 /* Phone number error message */
 "error_enter_correct_phone" = "Introduïu un número de telèfon vàlid";
@@ -562,7 +562,7 @@
 "mobile_data_option_always" = "Usa’l sempre";
 "mobile_data_option_today" = "Només avui";
 "mobile_data_option_not_today" = "No l’utilitzis avui";
-"mobile_data" = "Internet mòbil";
+"mobile_data" = "Dades mòbils";
 /* NOTE to translators: please synchronize your translation with the English one. */
 "mobile_data_description" = "Es necessita Internet mòbil per a les notifiacions d'actualitzacions del mapa i per a mostrar informació detallada dels llocs i marcadors.";
 "mobile_data_option_never" = "Mai";
@@ -585,7 +585,7 @@
 /* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
 "routing_add_start_point" = "Utilitzeu la cerca o toqueu el mapa per afegir un punt de partida de la ruta";
 /* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
-"routing_add_finish_point" = "Utilitzeu la cerca o toqueu el mapa per afegir un punt de destinació";
+"routing_add_finish_point" = "Utilitzeu la cerca o toqueu el mapa per a afegir un punt de destinació";
 "planning_route_manage_route" = "Gestionar la ruta";
 "button_plan" = "Planifica";
 "placepage_remove_stop" = "Elimina parada";
@@ -648,14 +648,14 @@
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_tolls" = "Evita peatges";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_unpaved" = "Evita vies sense pavimentar";
+"avoid_unpaved" = "Evita camins sense pavimentar";
 "avoid_paved" = "Evita carreteres asfaltades";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_steps" = "Evita escales";
 "avoid_ferry" = "Evita ferris";
 "avoid_motorways" = "Evita autopistes";
 "unable_to_calc_alert_title" = "No s’ha pogut calcular la ruta";
-"unable_to_calc_alert_subtitle" = "Malauradament, no hem pogut trobar cap ruta. Probablement per les opcions que heu triat. Canvieu-les i torneu a intentar-ho.";
+"unable_to_calc_alert_subtitle" = "Malauradament, no hem pogut trobar cap ruta. Probablement per les opcions que heu triat o perquè falten dades en OpenStreetMap. Canvieu les opcions d'encaminament i torneu a intentar-ho.";
 "define_to_avoid_btn" = "Definiu les vies a evitar";
 "change_driving_options_btn" = "Paràmetres d’encaminament activats";
 "toll_road" = "Via de peatge";
@@ -822,7 +822,7 @@
 /* iCloud error message: iCloud is not available */
 "icloud_synchronization_error_cloud_is_unavailable" = "Error: l’iCloud no està disponible";
 /* Title for the "Open in Another App" button on the PlacePage. */
-"open_in_app" = "Obre en una altra aplicació";
+"open_in_app" = "Obrir en una altra aplicació";
 /* To indicate if the place proposed self service... */
 "self_service" = "Autoservei";
 /* To indicate if restaurant or other place has outdoor seating */
@@ -894,6 +894,6 @@
 "postionmode_following" = "Following location with map roated towards North";
 "record_track" = "Record Track";
 "recording_track" = "Recording Track";
-"bookmarks_text_placement_title" = "Show names of favorites on map";
-"pref_font_size" = "Font size for map labels";
+"bookmarks_text_placement_title" = "Mostra els noms dels preferits al mapa";
+"pref_font_size" = "Mida del text del mapa";
 "font_size" = "Font size";

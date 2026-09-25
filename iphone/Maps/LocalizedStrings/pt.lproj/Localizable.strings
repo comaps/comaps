@@ -895,5 +895,5 @@
 "record_track" = "Gravar Trajeto";
 "recording_track" = "Gravando o Trajeto";
 "bookmarks_text_placement_title" = "Mostrar nomes dos favoritos no mapa";
-"pref_font_size" = "Font size for map labels";
-"font_size" = "Font size";
+"pref_font_size" = "Tamanho da fonte para etiquetas do mapa";
+"font_size" = "Tamanho da fonte";

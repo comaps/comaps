@@ -2001,16 +2001,16 @@
         "defaultMessage": "Nayarit"
     },
     "Mexico_East": {
-        "defaultMessage": "Mehhiko - Ida"
+        "defaultMessage": "Mehhiko idaosa"
     },
     "Mexico_Mexico": {
         "defaultMessage": "Mexico City"
     },
     "Mexico_North": {
-        "defaultMessage": "Mehhiko - Põhi"
+        "defaultMessage": "Mehhiko põhjaosa"
     },
     "Mexico_South": {
-        "defaultMessage": "Mehhiko - Lõuna"
+        "defaultMessage": "Mehhiko lõunaosa"
     },
     "Michigan": {
         "defaultMessage": "Michigan"
@@ -2046,7 +2046,7 @@
         "defaultMessage": "Rabat-Salé-Zemmour-Zaer"
     },
     "Morocco_Southern": {
-        "defaultMessage": "Maroko - Lõuna"
+        "defaultMessage": "Maroko lõunaosa"
     },
     "Morocco_Western Sahara": {
         "defaultMessage": "Lääne-Sahara"
@@ -2088,13 +2088,13 @@
         "defaultMessage": "Friisimaa"
     },
     "Netherlands_Gelderland_Nijmegen": {
-        "defaultMessage": "Gelderland — Nijmegen"
+        "defaultMessage": "Gelderland - Nijmegen"
     },
     "Netherlands_Gelderland_North": {
-        "defaultMessage": "Gelderland — Apeldoorn"
+        "defaultMessage": "Gelderland - Apeldoorn"
     },
     "Netherlands_Gelderland_Zutphen": {
-        "defaultMessage": "Gelderland — Zutphen"
+        "defaultMessage": "Gelderland - Zutphen"
     },
     "Netherlands_Groningen": {
         "defaultMessage": "Groningen"
@@ -2106,10 +2106,10 @@
         "defaultMessage": "Põhja-Brabant - Eindhoven"
     },
     "Netherlands_North Brabant_Roosendaal": {
-        "defaultMessage": "Põhja-Brabant — Roosendaal"
+        "defaultMessage": "Põhja-Brabant - Roosendaal"
     },
     "Netherlands_North Brabant_Tiburg": {
-        "defaultMessage": "Põhja-Brabant — Tilburg"
+        "defaultMessage": "Põhja-Brabant - Tilburg"
     },
     "Netherlands_North Brabant_Uden": {
         "defaultMessage": "Põhja-Brabant — Uden"
@@ -2124,10 +2124,10 @@
         "defaultMessage": "Põhja-Holland - Zaanstad"
     },
     "Netherlands_Overijssel_Enschede": {
-        "defaultMessage": "Overijssel — Enschede"
+        "defaultMessage": "Overijssel - Enschede"
     },
     "Netherlands_Overijssel_Zwolle": {
-        "defaultMessage": "Overijssel — Zwolle"
+        "defaultMessage": "Overijssel - Zwolle"
     },
     "Netherlands_South Holland_Brielle": {
         "defaultMessage": "Lõuna-Holland - Brielle"
@@ -2142,10 +2142,10 @@
         "defaultMessage": "Lõuna-Holland - Rotterdam"
     },
     "Netherlands_Utrecht_Amersfoort": {
-        "defaultMessage": "Utrecht — Amersfoort"
+        "defaultMessage": "Utrecht - Amersfoort"
     },
     "Netherlands_Utrecht_Utrecht": {
-        "defaultMessage": "Utrecht — Utrecht"
+        "defaultMessage": "Utrecht - Utrecht"
     },
     "Netherlands_Zeeland": {
         "defaultMessage": "Zeeland"
@@ -2277,7 +2277,7 @@
         "defaultMessage": "Filipiinid"
     },
     "Philippines_Luzon_Manila": {
-        "defaultMessage": "Metro Manila"
+        "defaultMessage": "Manila linnastu"
     },
     "Philippines_Luzon_North": {
         "defaultMessage": "Luzon - Põhi"
@@ -3267,10 +3267,10 @@
         "defaultMessage": "New Mexico"
     },
     "US_New York_East": {
-        "defaultMessage": "New York — Long Island"
+        "defaultMessage": "New York - Long Island"
     },
     "US_New York_New York": {
-        "defaultMessage": "New York — New York City"
+        "defaultMessage": "New York - New York City"
     },
     "US_New York_North": {
         "defaultMessage": "New York — Põhi"
@@ -3678,10 +3678,10 @@
         "defaultMessage": "Kesk- ja Lõuna-Iraak"
     },
     "Japan_Chubu Region_Aichi_Nagoya": {
-        "defaultMessage": "Aichi — Nagoya"
+        "defaultMessage": "Aichi - Nagoya"
     },
     "Japan_Chubu Region_Aichi_Toyohashi": {
-        "defaultMessage": "Aichi — Toyohashi"
+        "defaultMessage": "Aichi - Toyohashi"
     },
     "Japan_Hokkaido Region_Sapporo": {
         "defaultMessage": "Sapporo"
@@ -3825,7 +3825,7 @@
         "defaultMessage": "Stockholm"
     },
     "Switzerland_Espace Mittelland_Bern": {
-        "defaultMessage": "Espace Mittelland — Bern"
+        "defaultMessage": "Espace Mittelland - Bern"
     },
     "Switzerland_Espace Mittelland_East": {
         "defaultMessage": "Espace Mittelland — Ida"

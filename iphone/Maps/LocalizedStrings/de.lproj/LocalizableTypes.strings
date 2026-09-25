@@ -1537,3 +1537,7 @@
 "type.amenity.toilets.customers" = "Kundenzugang";
 "type.amenity.toilets.private" = "Privatzugang";
 "type.amenity.planetarium" = "Planetarium";
+"type.landuse.military.danger_area" = "Militärische Gefahrenzone";
+"type.railway.subway_entrance.boston" = "U-Bahn-Eingang";
+"type.railway.station.subway.boston" = "U-Bahn-Station";
+"type.railway.subway_entrance.qingdao" = "U-Bahn-Eingang";

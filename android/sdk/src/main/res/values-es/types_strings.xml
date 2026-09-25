@@ -29,7 +29,7 @@
     <string name="type.amenity.bench">Asiento</string>
     <string name="type.amenity.bicycle_parking">Aparcamiento de bicicletas</string>
     <string name="type.amenity.bicycle_rental">Alquiler de bicicletas</string>
-    <string name="type.amenity.bicycle_repair_station">Estación de reparación de bicicletas</string>
+    <string name="type.amenity.bicycle_repair_station">Estación de reparación de bicicletas|Estación de autorreparación de bicicletas|Punto de reparación de bicicletas|Punto de autorreparación de bicicletas|Estación de mantenimiento de bicicletas|Punto de mantenimiento de bicicletas|Puesto de reparación de bicicletas|Estación reparadora de bicicletas|Estación de reparación de bicis|Punto de reparación de bicis</string>
     <string name="type.amenity.biergarten">Biergarten</string>
     <string name="type.amenity.brothel">Burdel</string>
     <string name="type.amenity.bureau_de_change">Casa de cambio</string>
@@ -155,7 +155,7 @@
     <!-- Compared to wilderness_hut its smaller and simpler, without a fireplace. -->
     <string name="type.amenity.shelter.basic_hut">Cabaña de vivac</string>
     <!-- A traditional 3-walled shelter (one side open), suitable for overnight camping. -->
-    <string name="type.amenity.shelter.lean_to">Cobertizo de montaña</string>
+    <string name="type.amenity.shelter.lean_to">Refugio de campaña|Abrigo de campaña|Toldo de campaña|Refugio de lona|Abrigo de lona|Refugio inclinado|Abrigo inclinado|Refugio de emergencia|Cobertizo de campaña|Refugio de un solo lado|Refugio para dormir|Abrigo para dormir</string>
     <string name="type.amenity.public_bath">Baños públicos</string>
     <string name="type.amenity.shower">Ducha</string>
     <string name="type.amenity.stripclub">Club de estriptis</string>
@@ -243,7 +243,7 @@
     <string name="type.craft.carpenter">Carpintero</string>
     <string name="type.craft.confectionery">Confitería</string>
     <string name="type.craft.electrician">Electricista</string>
-    <string name="type.craft.electronics_repair">Reparación de electrónicos</string>
+    <string name="type.craft.electronics_repair">Reparación de electrónica|Reparación electrónica|Reparación de aparatos electrónicos|Reparación de dispositivos electrónicos|Reparación de equipos electrónicos|Servicio técnico de electrónica|Servicio técnico electrónico|Taller de reparación de electrónica|Taller de electrónica|Reparaciones electrónicas|Reparación de circuitos electrónicos</string>
     <string name="type.craft.gardener">Jardinero</string>
     <string name="type.craft.grinding_mill">Molino de molienda</string>
     <string name="type.craft.handicraft">Artesanía</string>
@@ -257,7 +257,7 @@
     <string name="type.shop.camera">Tienda de fotografía</string>
     <string name="type.craft.plumber">Fontanero</string>
     <string name="type.craft.sawmill">Aserradero</string>
-    <string name="type.craft.shoemaker">Zapatero</string>
+    <string name="type.craft.shoemaker">Reparación de zapatos|Zapatería|Reparación de calzado|Reparaciones de zapatos|Taller de zapatería|Servicio de reparación de calzado|Taller de reparación de calzado|Arreglos de zapatos|Arreglo de zapatos|Zapatería de reparación|Zapatería y arreglos|Taller de reparación de zapatos</string>
     <string name="type.craft.winery">Bodega vinícola</string>
     <string name="type.craft.tailor">Sastre</string>
     <string name="type.cuisine.african">Africana</string>
@@ -399,10 +399,10 @@
     <string name="type.highway.construction.tertiary_link">Vía en construcción</string>
     <string name="type.highway.construction.residential">Vía en construcción</string>
     <string name="type.highway.construction.unclassified">Vía en construcción</string>
-    <string name="type.highway.construction.service">Vía en construcción</string>
-    <string name="type.highway.construction.living_street">Vía en construcción</string>
-    <string name="type.highway.construction.road">Vía en construcción</string>
-    <string name="type.highway.construction.track">Vía en construcción</string>
+    <string name="type.highway.construction.service">Carretera en obras|Carretera en construcción|Vía en obras|Vía en construcción|Camino en obras|Camino en construcción|Tramo en obras|Tramo en construcción|Carretera en reparación|Carretera en mantenimiento|Carretera en pavimentación|Carretera en remodelación|Carretera en obras de mejora|Carretera en obras de ampliación|Obras en la carretera|Obras viales|Tramo en reparación</string>
+    <string name="type.highway.construction.living_street">Carretera en obras|Carretera en construcción|Vía en obras|Vía en construcción|Camino en obras|Camino en construcción|Tramo en obras|Tramo en construcción|Carretera en reparación|Carretera en mantenimiento|Carretera en pavimentación|Carretera en remodelación|Carretera en obras de mejora|Carretera en obras de ampliación|Obras en la carretera|Obras viales|Tramo en reparación</string>
+    <string name="type.highway.construction.road">Carretera en obras|Carretera en construcción|Vía en obras|Vía en construcción|Camino en obras|Camino en construcción|Tramo en obras|Tramo en construcción|Carretera en reparación|Carretera en mantenimiento|Carretera en pavimentación|Carretera en remodelación|Carretera en obras de mejora|Carretera en obras de ampliación|Obras en la carretera|Obras viales|Tramo en reparación</string>
+    <string name="type.highway.construction.track">Carretera en obras|Carretera en construcción|Vía en obras|Vía en construcción|Camino en obras|Camino en construcción|Tramo en obras|Tramo en construcción|Carretera en reparación|Carretera en mantenimiento|Carretera en pavimentación|Carretera en remodelación|Carretera en obras de mejora|Carretera en obras de ampliación|Obras en la carretera|Obras viales|Tramo en reparación</string>
     <string name="type.highway.cycleway">Ciclovía</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Puente</string>
@@ -644,7 +644,7 @@
     <string name="type.leisure.common">Terreno comunal</string>
     <string name="type.leisure.dog_park">Parque canino</string>
     <string name="type.leisure.fitness_centre">Centro de fitnes</string>
-    <string name="type.leisure.fitness_station">Parque de gimnasia</string>
+    <string name="type.leisure.fitness_station">Estación de fitness|Estación de ejercicio|Estación de entrenamiento|Punto de fitness|Punto de ejercicio|Punto de entrenamiento|Zona de fitness|Zona de ejercicio|Zona de entrenamiento|Área de fitness|Área de ejercicio|Área de entrenamiento|Estación de gimnasia|Zona de gimnasia|Punto de gimnasia|Estación de gimnasio</string>
     <string name="type.leisure.dance">Salón de baile</string>
     <string name="type.leisure.garden">Jardín</string>
     <string name="type.leisure.garden.residential">Jardín residencial</string>
@@ -808,9 +808,9 @@
     <string name="type.power.generator.wind">Aerogenerador</string>
     <string name="type.power.generator.gas">Planta termoeléctrica a gas</string>
     <string name="type.power.generator.hydro">Planta hidroeléctrica</string>
-    <string name="type.power.line">Línea de alta tensión</string>
-    <string name="type.power.line.underground">Línea eléctrica subterránea</string>
-    <string name="type.power.minor_line">Línea eléctrica menor</string>
+    <string name="type.power.line">Línea eléctrica|Línea de alta tensión|Línea de transmisión|Línea de distribución|Cable de alta tensión|Cable eléctrico|Cable de energía|Cable de potencia|Tendido eléctrico|Tendido de alta tensión|Tendido de energía|Línea de energía|Línea de potencia|Cable de distribución|Cable de fuerza</string>
+    <string name="type.power.line.underground">Línea eléctrica subterránea|Cable eléctrico subterráneo|Línea de alta tensión subterránea|Cable de alta tensión subterráneo|Tendido eléctrico subterráneo|Línea de distribución subterránea|Cable de distribución subterráneo|Línea eléctrica enterrada|Cable eléctrico enterrado|Línea de energía subterránea|Cable de energía subterráneo|Tendido de alta tensión subterráneo|Línea de potencia subterránea|Cable de potencia subterráneo</string>
+    <string name="type.power.minor_line">Línea eléctrica menor|Línea de baja tensión|Línea de baja capacidad|Línea de baja potencia|Línea eléctrica secundaria|Línea de distribución menor|Línea de distribución secundaria|Cable eléctrico menor|Cable de baja tensión|Cable de baja potencia|Cable eléctrico secundario|Tendido eléctrico menor|Tendido de baja tensión|Cable de distribución menor</string>
     <string name="type.power.plant">Planta eléctrica</string>
     <string name="type.power.plant.coal">Central eléctrica de carbón</string>
     <string name="type.power.plant.gas">Planta termoeléctrica de gas</string>
@@ -828,7 +828,7 @@
     <string name="type.railway.crossing">Paso a nivel</string>
     <string name="type.railway.disused">Vía férrea en desuso</string>
     <string name="type.railway.funicular">Funicular</string>
-    <string name="type.railway.halt">Estación de tren</string>
+    <string name="type.railway.halt">Parada de tren|Estación de tren|Parada de ferrocarril|Estación de ferrocarril|Parada del tren|Estación del tren|Parada de trenes|Estación de trenes|Parada de metro|Estación de metro|Parada de tranvía|Estación de tranvía|Parada ferroviaria|Estación ferroviaria|Parada de transporte ferroviario|Estación de transporte ferroviario|Parada de tren ligero|Estación de tren ligero</string>
     <string name="type.railway.level_crossing">Cruce a nivel</string>
     <string name="type.railway.light_rail">Tren ligero</string>
     <string name="type.railway.monorail">Monorriel</string>
@@ -1104,7 +1104,7 @@
     <string name="type.railway.tram.tunnel">Túnel de línea de tranvía</string>
     <string name="type.railway.tram_stop">Parada de tranvía</string>
     <string name="type.route">Ruta</string>
-    <string name="type.route.ferry">Ruta de ferry</string>
+    <string name="type.route.ferry">Ferry|Transbordador|Barco de pasaje|Barco de pasajeros|Barco de línea|Barco de travesía|Transbordador de pasajeros|Lancha de pasaje|Barco de cabotaje|Transbordador de travesía</string>
     <string name="type.shop">Tienda</string>
     <string name="type.shop.alcohol">Licorería</string>
     <string name="type.shop.bakery">Panadería</string>
@@ -1177,7 +1177,7 @@
     <string name="type.shop.pawnbroker">Casa de empeños</string>
     <string name="type.shop.pet">Tienda de mascotas</string>
     <string name="type.shop.pet_grooming">Aseo de mascotas</string>
-    <string name="type.shop.photo">Artículos de fotografía</string>
+    <string name="type.shop.photo">Tienda de fotografía|Laboratorio fotográfico|Fotolaboratorio|Tienda de fotos|Laboratorio de fotos|Fotocopiadora y fotos|Tienda de revelado|Laboratorio de revelado|Estudio fotográfico|Tienda de impresión de fotos|Laboratorio de fotografía|Fotografía y revelado|Tienda de fotografía y laboratorio|Laboratorio de copias|Fotocopia y fotos</string>
     <string name="type.shop.rental">Tienda de alquiler</string>
     <string name="type.shop.rental.bicycle">Tienda de alquiler de bicicletas</string>
     <string name="type.shop.seafood">Pescadería</string>
@@ -1274,7 +1274,7 @@
     <string name="type.attraction.bumper_car">Coches de choque</string>
     <string name="type.attraction.big_wheel">Noria</string>
     <string name="type.attraction.carousel">Carrusel</string>
-    <string name="type.attraction.historic">Atracción histórica</string>
+    <string name="type.attraction.historic">Lugar de interés histórico</string>
     <string name="type.attraction.maze">Laberinto</string>
     <string name="type.attraction.roller_coaster">Montaña rusa</string>
     <string name="type.attraction.water_slide">Tobogán acuático</string>
@@ -1527,18 +1527,22 @@
     <string name="type.emergency.access_point.address">Dirección de Punto de Emergencia</string>
     <string name="type.waterway.fuel">Gasolinera marina</string>
     <string name="type.amenity.community_centre.youth_centre">Centro juvenil</string>
-    <string name="type.shop.water">Tienda de agua</string>
+    <string name="type.shop.water">Tienda de agua|Tienda de aguas|Tienda de agua embotellada|Tienda de agua mineral|Tienda de agua purificada|Venta de agua|Venta de aguas|Venta de agua embotellada|Almacén de agua|Distribuidora de agua|Tienda de agua natural|Tienda de agua de manantial|Tienda de agua en garrafón|Venta de agua en garrafón|Tienda de agua y bebidas|Depósito de agua</string>
     <string name="type.attraction">Atracción</string>
-    <string name="type.leisure.sports_centre.sport.boules">Polideportivo</string>
-    <string name="type.leisure.sports_centre.sport.four_square">Polideportivo</string>
+    <string name="type.leisure.sports_centre.sport.boules">Centro deportivo|Centro de deportes|Complejo deportivo|Pabellón deportivo|Pabellón de deportes|Centro polideportivo|Polideportivo|Gimnasio|Club deportivo|Instalación deportiva|Instalaciones deportivas|Centro de actividad física|Centro de ejercicio|Centro de entrenamiento|Complejo de instalaciones deportivas</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Centro deportivo|Centro de deportes|Complejo deportivo|Pabellón deportivo|Pabellón de deportes|Centro polideportivo|Polideportivo|Gimnasio|Club deportivo|Instalación deportiva|Instalaciones deportivas|Centro de actividad física|Centro de ejercicio|Centro de entrenamiento|Complejo de instalaciones deportivas</string>
     <string name="type.sport.boules">Deportes de bolas</string>
-    <string name="type.sport.four_square">Four Square</string>
-    <string name="type.leisure.sports_centre.sport.pickleball">Centro deportivo</string>
+    <string name="type.sport.four_square">La caja mágica|La caja|Four square|El juego de la caja|La casilla|Cuatro en cuadro|El cuatro cuadrado|La cajita|Juego de cuatro cuadros|Cuatro cuadros</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Centro deportivo|Centro de deportes|Complejo deportivo|Pabellón deportivo|Pabellón de deportes|Centro polideportivo|Polideportivo|Gimnasio|Club deportivo|Instalación deportiva|Instalaciones deportivas|Centro de actividad física|Centro de ejercicio|Centro de entrenamiento|Complejo de instalaciones deportivas</string>
     <string name="type.sport.pickleball">Pickleball</string>
-    <string name="type.organic.no">Sin opciones orgánicas</string>
-    <string name="type.amenity.stage">Escenario</string>
+    <string name="type.organic.no">No hay opciones orgánicas|Sin opciones orgánicas|No hay opciones biológicas|Sin opciones biológicas|No hay opciones ecológicas|Sin opciones ecológicas|No hay productos orgánicos|Sin productos orgánicos|No hay productos biológicos|Sin productos biológicos|No hay productos ecológicos|Sin productos ecológicos|No hay opciones de productos orgánicos|Sin opciones de productos orgánicos|No hay opciones de productos biológicos|Sin opciones de productos ecológicos</string>
+    <string name="type.amenity.stage">Escenario|Tablado|Plataforma|Escalón|Etapa|Fase|Nivel|Paso|Grado|Acto|Peldaño|Tramo|Rampa|Escenario de eventos|Escenario de conciertos|Escenario teatral</string>
     <string name="type.amenity.animal_boarding">Alojamiento para animales</string>
     <string name="type.amenity.toilets.customers">Acceso para clientes</string>
     <string name="type.amenity.toilets.private">Acceso privado</string>
     <string name="type.amenity.planetarium">Planetario</string>
+    <string name="type.landuse.military.danger_area">Zona militar de peligro</string>
+    <string name="type.railway.station.subway.boston">Estación de metro</string>
+    <string name="type.railway.subway_entrance.boston">Entrada al metro</string>
+    <string name="type.railway.subway_entrance.qingdao">Entrada al metro</string>
 </resources>

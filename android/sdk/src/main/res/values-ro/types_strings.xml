@@ -30,7 +30,7 @@
     <string name="type.leisure.amusement_arcade">Arcadă</string>
     <string name="type.amenity.charging_station">Stație încărcare</string>
     <string name="type.amenity.charging_station.bicycle">Bicicletă</string>
-    <string name="type.amenity.charging_station.motorcar">Stație de încărcare autoturisme</string>
+    <string name="type.amenity.charging_station.motorcar">Autoturisme</string>
     <string name="type.amenity.childcare">Creșă</string>
     <string name="type.leisure.bowling_alley">Popicărie</string>
     <string name="type.amenity.clinic">Clinică</string>
@@ -1218,7 +1218,7 @@
     <string name="type.recycling.shoes">Papuci</string>
     <string name="type.recycling.green_waste">Deșeuri organice / Verzi</string>
     <string name="type.recycling.cartons">Cartoane</string>
-    <string name="type.amenity.shelter.lean_to">Adăpost de tip „lean-to”</string>
+    <string name="type.amenity.shelter.lean_to">Adăpost pentru dormit tip „lean-to”</string>
     <string name="type.amenity.taxi">Stație de taxiuri</string>
     <string name="type.amenity.vending_machine">Automat</string>
     <string name="type.amenity.vending_machine.coffee">Automat de cafea</string>
@@ -1501,4 +1501,9 @@
     <string name="type.waterway.fuel">Dană de combustibil</string>
     <string name="type.shop.water">Magazin de apă</string>
     <string name="type.amenity.give_box">Cutie pentru dăruit</string>
+    <string name="type.amenity.prep_school">Școală de Tutoriale</string>
+    <string name="type.amenity.mobile_money_agent">Agent de plăți mobile</string>
+    <string name="type.emergency.access_point">Punct de salvare de urgență</string>
+    <string name="type.emergency.access_point.address">Adresă de salvare în caz de urgență</string>
+    <string name="type.emergency.disaster_help_point">Punct de asistență în caz de dezastru</string>
 </resources>

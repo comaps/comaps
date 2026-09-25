@@ -914,7 +914,7 @@
     <string name="type.railway.subway_entrance.lille">Είσοδος μετρό</string>
     <string name="type.railway.subway_entrance.lima">Είσοδος μετρό</string>
     <string name="type.railway.subway_entrance.lisboa">Είσοδος μετρό</string>
-    <string name="type.railway.subway_entrance.london">Είσοδος μετρό</string>
+    <string name="type.railway.subway_entrance.london">Είσοδος σταθμού μετρό</string>
     <string name="type.railway.subway_entrance.lyon">Είσοδος μετρό</string>
     <string name="type.railway.subway_entrance.madrid">Είσοδος μετρό</string>
     <string name="type.railway.subway_entrance.malaga">Είσοδος μετρό</string>
@@ -1537,4 +1537,8 @@
     <string name="type.amenity.planetarium">Πλανητάριο</string>
     <string name="type.amenity.toilets.customers">Πρόσβαση για πελάτες</string>
     <string name="type.amenity.toilets.private">Ιδιωτική πρόσβαση</string>
+    <string name="type.landuse.military.danger_area">Επικίνδυνη στρατιωτική περιοχή</string>
+    <string name="type.railway.station.subway.boston">Σταθμός μετρό</string>
+    <string name="type.railway.subway_entrance.boston">Είσοδος μετρό</string>
+    <string name="type.railway.subway_entrance.qingdao">Είσοδος μετρό</string>
 </resources>

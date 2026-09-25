@@ -209,7 +209,7 @@
     <!-- Settings «Route» category: «Tts announce street names» title -->
     <string name="pref_tts_street_names_title">Annoncer gadenavne</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Når det er aktiveret, bliver navnet på den gade eller frakørsel, man skal dreje ind på, sagt højt.</string>
+    <string name="pref_tts_street_names_description">Hvis aktiveret bliver navnet på den gade eller frakørsel, du skal dreje ind på, sagt højt.</string>
     <!-- Settings «Route» category: «Tts language» title -->
     <string name="pref_tts_language_title">Stemmesprog</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
@@ -504,15 +504,15 @@
     <string name="accept">Accepter</string>
     <!-- For the first routing -->
     <string name="decline">Afvis</string>
-    <string name="mobile_data_dialog">Brug mobilt internet til at vise detaljeret information?</string>
+    <string name="mobile_data_dialog">Anvend mobildata til at vise detaljeret information?</string>
     <string name="mobile_data_option_always">Brug altid</string>
     <string name="mobile_data_option_today">Kun i dag</string>
     <string name="mobile_data_option_not_today">Brug ikke i dag</string>
-    <string name="mobile_data">Mobilt internet</string>
+    <string name="mobile_data">Mobildata</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
     <string name="mobile_data_description">Mobilt internet er nødvendigt for at få besked om kortopdateringer og uploade ændringer</string>
     <string name="mobile_data_option_never">Brug aldrig</string>
-    <string name="mobile_data_option_ask">Spørg altid</string>
+    <string name="mobile_data_option_ask">Spørg hver gang</string>
     <string name="traffic_update_maps_text">Kort skal opdateres for at vise trafikdata</string>
     <string name="increase_font_size">Forøg størrelsen på kortetiketter</string>
     <string name="traffic_update_app">Opdater CoMaps</string>
@@ -577,7 +577,7 @@
     <string name="subway">Undergrundsbane</string>
     <string name="layers_title">Kortstile og -lag</string>
     <string name="bookmarks_empty_list_title">Listen er tom</string>
-    <string name="bookmarks_empty_list_message">For at gemme et sted, så tryk et sted på kortet og dernæst på stjerneikonet</string>
+    <string name="bookmarks_empty_list_message">For at gemme et sted skal du trykke på stedet på kortet og derefter trykke på stjerneikonet</string>
     <string name="category_desc_more">…mere</string>
     <string name="export_file">Eksporter KMZ</string>
     <string name="export_file_gpx">Eksporter GPX</string>
@@ -682,7 +682,7 @@
     <string name="downloader_loading_ios">Downloader</string>
     <string name="enable_keep_screen_on">Hold skærmen tændt</string>
     <!-- Description in preferences -->
-    <string name="enable_keep_screen_on_description">Når den er aktiveret, vil skærmen altid være tændt, når kortet vises.</string>
+    <string name="enable_keep_screen_on_description">Hvis aktiveret vil skærmen altid være tændt når kortet vises.</string>
     <!-- OpenStreetMap text on splash screen -->
     <string name="splash_subtitle">Kortdata fra OpenStreetMap</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
@@ -793,7 +793,7 @@
     <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="level_value_generic">Etage: %s</string>
     <string name="closes_in">Lukker om %s</string>
-    <string name="enable_show_on_lock_screen_description">Når den er aktiveret, fungerer appen på låseskærmen, selv når enheden er låst.</string>
+    <string name="enable_show_on_lock_screen_description">Hvis aktiveret fungerer appen på låseskærmen, selv når enheden er låst.</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="move_maps_error">Fejl ved flytning af kortfiler</string>
     <string name="disk_error">Kan ikke oprette mapper og flytte filer på enhedens interne hukommelse eller sd-kort</string>
@@ -887,7 +887,7 @@
     <string name="editor_mark_business_vacant_title">Markér forretning som tom</string>
     <string name="editor_mark_business_vacant_description">Brug dette, hvis forretningen er flyttet ud, og lokalet står tomt og er klar til en ny lejer.</string>
     <string name="editor_submit">Indsend</string>
-    <string name="power_management">Strømstyring</string>
+    <string name="power_management">Strømbesparelse</string>
     <string name="charge_socket_schuko">Europæisk</string>
     <string name="prefs_speed_cameras_information">Advarsler om hastighedskameraer er deaktiveret i lande, hvor advarsler er forbudt i henhold til lokal lovgivning.</string>
     <string name="navigation_start_tts_message">"Starter navigation, sprog for stemmeinstruktioner: "</string>
@@ -966,7 +966,7 @@
     <string name="prefs_group_data_management_summary">Kortlagring, sikkerhedskopiering af favoritter</string>
     <string name="prefs_group_advanced_summary">Aktivér logning</string>
     <string name="pref_enable_auto_reroute_title">Automatisk omdirigering</string>
-    <string name="pref_enable_auto_reroute_description">Når aktiveret, oprettes der automatisk en ny rute, når du forlader den planlagte rute.</string>
+    <string name="pref_enable_auto_reroute_description">Hvis aktiveret oprettes der automatisk en ny rute, når du forlader den planlagte rute.</string>
     <string name="recalculate_route">Genberegn</string>
     <string name="off_route">Du er kommet væk fra ruten</string>
     <string name="bookmarks_text_placement_title">Vis navnene af favoritterne på kortet</string>
@@ -974,5 +974,10 @@
     <string name="place_reviews">%1$s anmeldelser</string>
     <string name="rating_stars_description">stjerner: %.1f</string>
     <string name="reviews_by_mangrove">Anmeldelser fra Mangrove.\nTilføj anmeldelser i <a href="https://mapcomplete.org">MapComplete</a>.</string>
-    <string name="pref_font_size">Tekststørrelse på kortetiketter</string>
+    <string name="pref_font_size">Tekststørrelse på kortet</string>
+    <string name="decrease_font_size">Formindsk størrelsen på kortetiketter</string>
+    <string name="add_review">Tilføj en anmeldelse via %1$s</string>
+    <string name="add_review_url_resolution_failed">Stedet er ikke fundet i den seneste OpenStreetMap.</string>
+    <string name="add_review_url_resolution_failed_dev">Stedet er ikke fundet i udvikler-versionen af OpenStreetMap.</string>
+    <string name="internet_unavailable">Ingen internet forbindelse</string>
 </resources>

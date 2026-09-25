@@ -737,7 +737,7 @@
     <string name="type.railway.station.monorail">Stanice monorailu</string>
     <string name="type.railway.station.subway">Stanice metra</string>
     <string name="type.railway.station.subway.adana">Stanice metra</string>
-    <string name="type.railway.station.subway.algiers">Stanice metra v Alžíru</string>
+    <string name="type.railway.station.subway.algiers">Stanice metra</string>
     <string name="type.railway.station.subway.almaty">Stanice metra</string>
     <string name="type.railway.station.subway.amsterdam">Stanice metra</string>
     <string name="type.railway.station.subway.ankara">Stanice metra</string>
@@ -1537,4 +1537,8 @@
     <string name="type.amenity.toilets.customers">Pouze pro zákazníky</string>
     <string name="type.amenity.toilets.private">Soukromé</string>
     <string name="type.amenity.animal_boarding">Hotel pro zvířata</string>
+    <string name="type.landuse.military.danger_area">Nebezpečná vojenská oblast</string>
+    <string name="type.railway.station.subway.boston">Stanice metra</string>
+    <string name="type.railway.subway_entrance.boston">Vchod do metra</string>
+    <string name="type.railway.subway_entrance.qingdao">Vchod do metra</string>
 </resources>

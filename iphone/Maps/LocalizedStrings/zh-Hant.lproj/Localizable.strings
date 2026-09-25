@@ -54,7 +54,7 @@
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "最愛";
 /* Default bookmark list name */
-"core_my_places" = "我的地點";
+"core_my_places" = "我的最愛";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "地址";
 /* Settings button in system menu */
@@ -574,10 +574,10 @@
 "traffic_data_unavailable" = "交通資訊不可用";
 "enable_logging" = "啟用日誌記錄";
 "log_file_size" = "日誌檔案大小：%@";
-"pref_alt_map_lang_handling" = "其他地圖語言";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
-"pref_alt_map_lang_handling_system_order" = "在系統命令中使用";
-"pref_alt_map_lang_handling_local_only" = "偏好而且只在原生使用";
+"pref_alt_map_lang_handling" = "另外的地圖語言";
+"pref_alt_map_lang_handling_ignore_alternatives" = "不要使用另類";
+"pref_alt_map_lang_handling_system_order" = "使用系統順序";
+"pref_alt_map_lang_handling_local_only" = "偏好且只有在原生時使用";
 "transliteration_title" = "拉丁字母音譯";
 "transliteration_title_disabled_summary" = "當在地圖總是使用在地語言時不啟用";
 /* Subway exits for public transport marks on the map */
@@ -804,7 +804,7 @@
 /* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "啟用 iCloud 同步";
 /* Message for the "Enable iCloud Synchronization" alert. */
-"enable_icloud_synchronization_message" = "iCloud 同步是一項正在開發中的實驗性功能。確保您已備份所有書籤和軌跡。";
+"enable_icloud_synchronization_message" = "iCloud 同步是一項正在開發中的實驗性功能。確保您已備份所有的最愛。";
 /* Title for the "iCloud Is Disabled" alert. */
 "icloud_disabled_title" = "iCloud 已停用";
 /* Message for the "iCloud is Disabled" alert. */
@@ -847,53 +847,53 @@
 "track_recording_toast_nothing_to_save" = "軌跡為空 - 沒有可保存的內容";
 "edit_track" = "編輯軌跡";
 /* Title of the general section in settings */
-"general" = "General";
+"general" = "一般";
 /* Title of the interface section in settings */
-"interface" = "Interface";
+"interface" = "介面";
 /* OpenStreetMap contribution section on the PlacePage. */
-"contribute_to_osm" = "Contribute to OpenStreetMap";
-"contribute_to_osm_add_place" = "Add Place";
-"contribute_to_osm_update_map" = "Update the Map to Contribute";
-"contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
-"downloader_check_updates_button" = "Check for updates";
-"downloader_check_updates_checking" = "Checking for updates...";
-"downloader_check_updates_updated" = "Map updates available!";
-"downloader_check_updates_no_updates" = "No updates available";
-"downloader_check_updates_eol" = "No more map updates for this app version. Please update the app!";
-"downloader_check_updates_error" = "Error checking for updates";
-"editor_add_select_category_recent_subtitle" = "Recently Used";
-"oh_unknown" = "Opening hours unknown";
-"carplay_highway_exit" = "Exit %@";
-"capacity_disabled_yes" = "Has dedicated disabled spaces";
-"capacity_disabled_no" = "No dedicated disabled spaces";
-"capacity_charging_yes" = "Has spaces with chargers";
-"capacity_charging_no" = "No spaces with chargers";
-"planning_route_preview" = "Preview";
-"planning_route_preview_sheet_title" = "Route Preview";
-"discard" = "Discard";
-"pref_custom_button_type" = "Customizable Button";
-"osm" = "OpenStreetMap";
-"mode" = "Mode";
-"mode_walking" = "Walking";
-"mode_cycling" = "Cycling";
-"mode_driving" = "Driving";
-"mode_public-transport" = "Public Transport";
-"mode_option_traffic" = "Show Traffic";
-"mode_option_transitlines" = "Show Transit Lines";
-"mode_option_comingsoon" = "Options coming soon";
-"layers" = "Layers";
-"layers_option_contour-lines" = "Contour Lines";
-"layers_option_outdoor" = "Outdoor";
-"layers_option_buildings-3d" = "3D Buildings";
-"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
-"postionmode_locate" = "Find own location";
-"postionmode_locating" = "Finding own location...";
-"postionmode_following" = "Following location with map roated towards North";
-"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
-"zoom_in" = "Zoom in";
-"zoom_out" = "Zoom out";
-"record_track" = "Record Track";
-"recording_track" = "Recording Track";
-"bookmarks_text_placement_title" = "Show names of favorites on map";
-"pref_font_size" = "Font size for map labels";
-"font_size" = "Font size";
+"contribute_to_osm" = "貢獻開放街圖";
+"contribute_to_osm_add_place" = "新增地點";
+"contribute_to_osm_update_map" = "更新地圖來貢獻";
+"contribute_to_osm_update_map_description" = "在貢獻開放街圖之前，您需要更新 %@ 地圖到最新版本";
+"downloader_check_updates_button" = "檢查更新";
+"downloader_check_updates_checking" = "檢查更新…";
+"downloader_check_updates_updated" = "有地圖資料可更新！";
+"downloader_check_updates_no_updates" = "沒有可更新的資料";
+"downloader_check_updates_eol" = "這個 app 版本沒有可更新的資料，請更新 app！";
+"downloader_check_updates_error" = "檢查更新時出現錯誤";
+"editor_add_select_category_recent_subtitle" = "最近使用";
+"oh_unknown" = "營業時間不明";
+"carplay_highway_exit" = "離開 %@";
+"capacity_disabled_yes" = "有無障礙車位";
+"capacity_disabled_no" = "沒有無障礙停車位";
+"capacity_charging_yes" = "具備充電設備的車位";
+"capacity_charging_no" = "沒有充電設備的車位";
+"planning_route_preview" = "預覽";
+"planning_route_preview_sheet_title" = "導航預覽";
+"discard" = "丟棄";
+"pref_custom_button_type" = "自訂按鈕";
+"osm" = "開放街圖";
+"mode" = "模式";
+"mode_walking" = "走路";
+"mode_cycling" = "騎單車";
+"mode_driving" = "開車";
+"mode_public-transport" = "大眾運輸";
+"mode_option_traffic" = "顯示交通路況";
+"mode_option_transitlines" = "顯示大眾運輸路線";
+"mode_option_comingsoon" = "即將有選項";
+"layers" = "圖層";
+"layers_option_contour-lines" = "等高線";
+"layers_option_outdoor" = "戶外";
+"layers_option_buildings-3d" = "3D 建築";
+"layers_power-saving" = "這一圖層因為能源節省模式設定而目前自動關閉";
+"postionmode_locate" = "尋找自己的位置";
+"postionmode_locating" = "尋找自己的位置…";
+"postionmode_following" = "往地點導航的時候地圖歸北";
+"postionmode_following-and-rotated" = "往地點導航時朝向移動方向";
+"zoom_in" = "放大";
+"zoom_out" = "縮小";
+"record_track" = "記錄軌跡";
+"recording_track" = "記錄軌跡中";
+"bookmarks_text_placement_title" = "在地圖上顯示我的最愛名稱";
+"pref_font_size" = "地圖標示的字型大小";
+"font_size" = "字體大小";

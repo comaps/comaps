@@ -1540,4 +1540,8 @@
     <string name="type.amenity.toilets.customers">Само за муштерије</string>
     <string name="type.amenity.toilets.private">Приватни</string>
     <string name="type.amenity.animal_boarding">Хотел за љубимце</string>
+    <string name="type.landuse.military.danger_area">Војна зона опасности</string>
+    <string name="type.railway.station.subway.boston">Метро станица</string>
+    <string name="type.railway.subway_entrance.boston">Улаз у метро</string>
+    <string name="type.railway.subway_entrance.qingdao">Улаз у метро</string>
 </resources>

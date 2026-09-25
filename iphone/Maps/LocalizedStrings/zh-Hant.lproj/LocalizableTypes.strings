@@ -557,78 +557,78 @@
 "type.highway.service" = "服務道路";
 "type.highway.service.area" = "服務道路";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.service.bridge" = "橋";
+"type.highway.service.bridge" = "橋樑";
 "type.highway.service.driveway" = "車道";
 "type.highway.service.parking_aisle" = "停車場通道";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "隧道";
 "type.highway.services" = "服務區";
-"type.highway.speed_camera" = "測速照相機";
-"type.highway.steps" = "人行步道";
+"type.highway.speed_camera" = "測速照相";
+"type.highway.steps" = "階梯";
 "type.highway.ladder" = "梯子";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.steps.bridge" = "橋";
+"type.highway.steps.bridge" = "橋樑";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "隧道";
-"type.highway.tertiary" = "三级道路";
+"type.highway.tertiary" = "三級道路";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.tertiary.bridge" = "橋";
+"type.highway.tertiary.bridge" = "橋樑";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "隧道";
-"type.highway.tertiary_link" = "三级道路連接路";
+"type.highway.tertiary_link" = "三級道路坡道";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.tertiary_link.bridge" = "橋";
+"type.highway.tertiary_link.bridge" = "橋樑";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "隧道";
-"type.highway.track" = "土路";
-"type.highway.track.area" = "土路";
+"type.highway.track" = "產業道路";
+"type.highway.track.area" = "產業道路";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.track.bridge" = "橋";
-"type.highway.track.grade1" = "土路";
-"type.highway.track.no.access" = "土路";
+"type.highway.track.bridge" = "橋樑";
+"type.highway.track.grade1" = "產業道路";
+"type.highway.track.no.access" = "產業道路";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "隧道";
-"type.highway.traffic_signals" = "紅綠燈";
-"type.highway.trunk" = "主幹道";
+"type.highway.traffic_signals" = "交通號誌";
+"type.highway.trunk" = "產業道路";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.trunk.bridge" = "橋";
+"type.highway.trunk.bridge" = "橋樑";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "隧道";
-"type.highway.trunk_link" = "主幹道連接路";
+"type.highway.trunk_link" = "產業道路坡道";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.trunk_link.bridge" = "橋";
+"type.highway.trunk_link.bridge" = "橋樑";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "隧道";
-"type.highway.unclassified" = "道路";
-"type.highway.unclassified.area" = "道路";
+"type.highway.unclassified" = "小路";
+"type.highway.unclassified.area" = "小路";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.unclassified.bridge" = "橋";
+"type.highway.unclassified.bridge" = "橋樑";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "隧道";
-"type.area_highway.cycleway" = "自行車道";
-"type.area_highway.footway" = "人行步道";
-"type.area_highway.living_street" = "路";
+"type.area_highway.cycleway" = "單車道";
+"type.area_highway.footway" = "步道";
+"type.area_highway.living_street" = "生活道路";
 "type.area_highway.motorway" = "高速公路";
-"type.area_highway.path" = "人行步道";
-"type.area_highway.pedestrian" = "路";
+"type.area_highway.path" = "路徑";
+"type.area_highway.pedestrian" = "人行道";
 "type.area_highway.primary" = "主要道路";
-"type.area_highway.residential" = "住宅區道路";
+"type.area_highway.residential" = "住宅道路";
 "type.area_highway.secondary" = "次要道路";
 "type.area_highway.service" = "服務道路";
-"type.area_highway.tertiary" = "三级道路";
-"type.area_highway.steps" = "人行步道";
-"type.area_highway.track" = "土路";
-"type.area_highway.trunk" = "主幹道";
-"type.area_highway.unclassified" = "道路";
-"type.historic" = "歷史地點";
-"type.historic.aircraft" = "歷史悠久的飛機";
-"type.historic.anchor" = "歷史錨";
-"type.historic.archaeological_site" = "考古遺址";
+"type.area_highway.tertiary" = "三級道路";
+"type.area_highway.steps" = "階梯";
+"type.area_highway.track" = "軌跡";
+"type.area_highway.trunk" = "快速道路";
+"type.area_highway.unclassified" = "小路";
+"type.historic" = "歷史物件";
+"type.historic.aircraft" = "老飛機";
+"type.historic.anchor" = "老船錨";
+"type.historic.archaeological_site" = "考古遺跡";
 "type.historic.battlefield" = "古戰場";
-"type.historic.boundary_stone" = "界碑";
+"type.historic.boundary_stone" = "邊界石";
 "type.historic.cannon" = "大砲";
 "type.historic.castle" = "城堡";
-"type.historic.castle.castrum" = "古羅馬兵營";
+"type.historic.castle.castrum" = "羅馬堡壘";
 "type.historic.castle.defensive" = "城堡";
 "type.historic.castle.fortified_church" = "堅固的教堂";
 "type.historic.castle.fortress" = "要塞";
@@ -643,11 +643,11 @@
 "type.historic.fort" = "歷史要塞";
 "type.historic.gallows" = "絞架";
 "type.historic.locomotive" = "歷史悠久的機車";
-"type.historic.memorial" = "紀念館";
+"type.historic.memorial" = "紀念碑";
 "type.historic.memorial.cross" = "紀念十字架";
-"type.historic.memorial.plaque" = "紀念牌匾";
-"type.historic.memorial.sculpture" = "雕塑";
-"type.historic.memorial.statue" = "塑像";
+"type.historic.memorial.plaque" = "銘板";
+"type.historic.memorial.sculpture" = "雕刻";
+"type.historic.memorial.statue" = "雕像";
 "type.historic.memorial.stolperstein" = "絆腳石";
 "type.historic.stone" = "歷史之石";
 "type.historic.memorial.war_memorial" = "戰爭紀念建築";
@@ -880,8 +880,8 @@
 "type.office.lawyer" = "律師事務所";
 "type.office.ngo" = "非政府組織辦公室";
 "type.office.telecommunication" = "行動電話業者";
-"type.organic.only" = "有機";
-"type.organic.yes" = "有機";
+"type.organic.only" = "只有有機";
+"type.organic.yes" = "有機選項";
 "type.place.city" = "城市";
 "type.place.city.capital" = "首府";
 "type.place.city.capital.10" = "城市";
@@ -951,7 +951,7 @@
 "type.railway.funicular" = "纜車";
 "type.railway.funicular.bridge" = "纜索鐵路橋軌道";
 "type.railway.funicular.tunnel" = "纜索鐵路隧道軌道";
-"type.railway.halt" = "小站";
+"type.railway.halt" = "鐵路招呼站";
 "type.railway.level_crossing" = "鐵路道口";
 "type.railway.light_rail" = "輕軌軌道";
 "type.railway.light_rail.bridge" = "輕軌軌道橋";
@@ -1339,7 +1339,7 @@
 "type.shop.agrarian" = "農產品店";
 "type.shop.antiques" = "古董";
 "type.shop.appliance" = "家電店";
-"type.shop.water" = "Water Shop";
+"type.shop.water" = "飲用水店";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "藝術商店";
 "type.shop.baby_goods" = "兒童商店";
@@ -1413,8 +1413,8 @@
 "type.tourism.artwork.painting" = "藝術品";
 "type.tourism.artwork.sculpture" = "藝術品";
 "type.tourism.artwork.statue" = "藝術品";
-"type.tourism.attraction" = "景點";
-"type.attraction" = "Attraction";
+"type.tourism.attraction" = "旅遊景點";
+"type.attraction" = "景點";
 "type.attraction.amusement_ride" = "遊樂設施";
 "type.attraction.animal" = "動物圍欄";
 "type.attraction.bumper_car" = "碰碰車";
@@ -1525,15 +1525,19 @@
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "體育館";
 "type.xmas.tree" = "耶誕樹";
-"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
-"type.sport.four_square" = "Four Square";
-"type.sport.boules" = "Boules";
-"type.leisure.sports_centre.sport.boules" = "Sports Centre";
-"type.sport.pickleball" = "Pickleball";
-"type.leisure.sports_centre.sport.pickleball" = "Sports Centre";
-"type.organic.no" = "No organic options";
+"type.leisure.sports_centre.sport.four_square" = "運動中心";
+"type.sport.four_square" = "四格球";
+"type.sport.boules" = "滾球";
+"type.leisure.sports_centre.sport.boules" = "運動中心";
+"type.sport.pickleball" = "匹克球";
+"type.leisure.sports_centre.sport.pickleball" = "運動中心";
+"type.organic.no" = "沒有有機選項";
 "type.amenity.stage" = "舞台";
 "type.amenity.animal_boarding" = "寵物旅館";
 "type.amenity.toilets.customers" = "顧客專用";
 "type.amenity.toilets.private" = "私人專用";
 "type.amenity.planetarium" = "天文館";
+"type.landuse.military.danger_area" = "Military Danger Area";
+"type.railway.subway_entrance.boston" = "Subway Entrance";
+"type.railway.station.subway.boston" = "Subway Station";
+"type.railway.subway_entrance.qingdao" = "Subway Entrance";

@@ -779,7 +779,7 @@
 /* App tip #08 */
 "app_tip_08" = "U kunt de kaartgegevens eenvoudig corrigeren en verbeteren.";
 /* App tip #09 */
-"app_tip_09" = "Ons belangrijkste doel is om snelle, op privacygerichte, gebruiksvriendelijke kaarten te maken waar u van houdt.";
+"app_tip_09" = "Ons belangrijkste doel is om snelle, privacygerichte, gebruiksvriendelijke kaarten te maken waar u van houdt.";
 /* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
 "car_used_on_the_phone_screen" = "U gebruikt nu CoMaps op het telefoonscherm";
 /* Text on the phone placeholder screen that maps are displayed on the car screen */
@@ -873,7 +873,7 @@
 "discard" = "Negeren";
 "pref_custom_button_type" = "Aanpasbare knop";
 "osm" = "OpenStreetMap";
-"mode" = "Manier";
+"mode" = "Transportmodus";
 "mode_walking" = "Lopen";
 "mode_cycling" = "Fietsen";
 "mode_driving" = "Rijden";

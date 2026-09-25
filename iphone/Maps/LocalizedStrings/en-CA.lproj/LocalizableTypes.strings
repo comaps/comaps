@@ -1,4 +1,3 @@
-"type.addr_interpolation" = "Address/Block";
 "type.addr_interpolation.even" = "Address/Block";
 "type.addr_interpolation.odd" = "Address/Block";
 "type.aerialway" = "Aerialway";
@@ -12,7 +11,6 @@
 "type.aeroway.aerodrome" = "Airport";
 "type.aeroway.aerodrome.international" = "International Airport";
 "type.aeroway.apron" = "Apron";
-"type.aeroway.gate" = "Gate";
 "type.aeroway.helipad" = "Helipad";
 "type.aeroway.runway" = "Runway";
 "type.aeroway.taxiway" = "Taxiway";
@@ -107,8 +105,8 @@
 "type.amenity.nursing_home" = "Nursing Home";
 "type.amenity.parking" = "Parking";
 "type.amenity.parking.fee" = "Parking";
-"type.amenity.parking.multi.storey" = "Multi Storey Parking";
-"type.amenity.parking.multi.storey.fee" = "Multi Storey Parking";
+"type.amenity.parking.multi.storey" = "Parkade";
+"type.amenity.parking.multi.storey.fee" = "Parkade";
 "type.amenity.parking.no.access" = "Private Parking";
 "type.amenity.parking.permissive" = "Private Parking";
 "type.amenity.parking.private" = "Private Parking";
@@ -1537,3 +1535,9 @@
 "type.highway.construction.living_street" = "Road Under Construction";
 "type.highway.construction.road" = "Road Under Construction";
 "type.highway.construction.track" = "Road Under Construction";
+"type.landuse.military.danger_area" = "Military Danger Area";
+"type.railway.subway_entrance.boston" = "Subway Entrance";
+"type.railway.station.subway.boston" = "Subway Station";
+"type.railway.subway_entrance.qingdao" = "Subway Entrance";
+"type.aeroway.gate" = "Gate";
+"type.addr_interpolation" = "Address/Block";

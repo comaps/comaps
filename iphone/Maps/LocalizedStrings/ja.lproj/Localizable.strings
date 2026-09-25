@@ -109,9 +109,9 @@
 "category_rv" = "RV用";
 "share_bookmarks_email_body" = "こんにちは！\n\n添付ファイルCoMapsのお気に入りリストです。もしインストールされていない場合はここからダウンロードができます： https://www.comaps.app/download/\n\n旅行を楽しむときはCoMapsを使用してください!";
 /* message title of loading file */
-"load_kmz_title" = "お気に入りをロード中";
+"load_kmz_title" = "お気に入りを読み込み中";
 /* Kmz file successful loading */
-"load_kmz_successful" = "お気に入りをロードできました。 お気に入りはマップ上、またはお気に入り管理画面に表示されます。";
+"load_kmz_successful" = "お気に入りの読み込みが成功しました！お気に入りはマップ上、またはお気に入り管理画面に表示されます。";
 /* Kml file loading failed */
 "load_kmz_failed" = "お気に入りのロードに失敗しました。ファイルが破損していた、または問題があった可能性があります。";
 /* resource for context menu */
@@ -178,7 +178,7 @@
 /* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "音声言語";
 /* Settings «Route» category: «Test Voice Directions» title */
-"pref_tts_test_voice_title" = "音声案内をテストする（TTS、Text-To-Speech）";
+"pref_tts_test_voice_title" = "音声案内をテストする";
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "その他";
 "pref_map_auto_zoom" = "自動ズーム";
@@ -529,7 +529,7 @@
 "editor_edits_sent_message" = "あなたのメモはOpenStreetMapに送られる";
 "editor_comment_hint" = "コメント…";
 "editor_reset_edits_message" = "ローカル編集をすべてリセットしますか?";
-"editor_reset_edits_button" = "リセット";
+"editor_reset_edits_button" = "変更を破棄";
 "editor_remove_place_message" = "追加された場所を削除しますか？";
 "editor_remove_place_button" = "削除";
 "editor_place_doesnt_exist" = "場所が存在しません";
@@ -859,7 +859,7 @@
 "downloader_check_updates_checking" = "アップデートを確認中…";
 "downloader_check_updates_updated" = "アップデートが利用可能";
 "downloader_check_updates_no_updates" = "すでに最新版です";
-"downloader_check_updates_eol" = "No more map updates for this app version. Please update the app!";
+"downloader_check_updates_eol" = "このアプリバージョンではこれ以上マップの更新はありません。アプリを更新してください。";
 "downloader_check_updates_error" = "アップデート確認中のエラー";
 "editor_add_select_category_recent_subtitle" = "Recently Used";
 "oh_unknown" = "営業時間不明";

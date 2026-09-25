@@ -84,5 +84,47 @@
 			<string>%lld værelser</string>
 		</dict>
 	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld reserveret parkeringsplads for handicappede</string>
+			<key>other</key>
+			<string>%lld reserverede parkeringspladser til handicappede</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld plads med lader</string>
+			<key>other</key>
+			<string>%lld pladser med ladere</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld plads</string>
+			<key>other</key>
+			<string>%lld pladser</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

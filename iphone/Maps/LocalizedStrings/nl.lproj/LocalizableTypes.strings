@@ -32,7 +32,7 @@
 "type.amenity.bicycle_repair_station" = "Fietsreparatie";
 "type.amenity.biergarten" = "Biergarten";
 "type.amenity.brothel" = "Bordeel";
-"type.amenity.love_hotel" = "Love Hotel";
+"type.amenity.love_hotel" = "Liefdeshotel";
 "type.amenity.bureau_de_change" = "Wisselkantoor";
 "type.amenity.bus_station" = "Busstation";
 "type.amenity.cafe" = "Café";
@@ -59,7 +59,7 @@
 "type.amenity.cinema" = "Bioscoop";
 "type.leisure.bowling_alley" = "Bowlingbaan";
 "type.amenity.clinic" = "Kliniek";
-"type.amenity.college" = "College";
+"type.amenity.college" = "Hogeschool";
 "type.amenity.community_centre" = "Gemeenschapscentrum";
 "type.amenity.community_centre.youth_centre" = "Jeugdcentrum";
 "type.amenity.compressed_air" = "Perslucht";
@@ -80,7 +80,7 @@
 "type.office.diplomatic" = "Ambassade";
 "type.office.security" = "Beveiligingskantoor";
 "type.building.guardhouse" = "Beveiligingsloket";
-"type.power.portal" = "Verdeelstation";
+"type.power.portal" = "Elektriciteitsportaal";
 "type.amenity.fast_food" = "Fastfood";
 "type.amenity.ferry_terminal" = "Veerterminal";
 "type.amenity.fire_station" = "Brandweer";
@@ -164,7 +164,7 @@
 "type.recycling.cardboard" = "Karton";
 "type.recycling.cans" = "Blikjes";
 "type.recycling.shoes" = "Schoenen";
-"type.recycling.green_waste" = "GFTE afval";
+"type.recycling.green_waste" = "GFTE/organisch afval";
 "type.recycling.cartons" = "Drankverpakkingen";
 "type.amenity.restaurant" = "Restaurant";
 "type.amenity.sanitary_dump_station" = "Camperverzorgingsplaats";
@@ -299,7 +299,7 @@
 "type.cuisine.breakfast" = "Ontbijt";
 "type.cuisine.bubble_tea" = "Bubbelthee";
 "type.cuisine.burger" = "Hamburgers";
-"type.cuisine.buschenschank" = "Buschenschank";
+"type.cuisine.buschenschank" = "Taverna";
 "type.cuisine.cake" = "Taart";
 "type.cuisine.caribbean" = "Caraïbisch";
 "type.cuisine.chicken" = "Kip";
@@ -358,7 +358,7 @@
 "type.cuisine.sausage" = "Worst";
 "type.cuisine.savory_pancakes" = "Hartige pannenkoeken";
 "type.cuisine.seafood" = "Vis en zeevruchten";
-"type.cuisine.soba" = "Soba";
+"type.cuisine.soba" = "Sobanoedels";
 "type.cuisine.spanish" = "Spaans";
 "type.cuisine.steak_house" = "Steakhouse";
 "type.cuisine.sushi" = "Sushi";
@@ -1537,3 +1537,7 @@
 "type.amenity.toilets.customers" = "Klanttoegang";
 "type.amenity.toilets.private" = "Privétoegang";
 "type.amenity.planetarium" = "Planetarium";
+"type.landuse.military.danger_area" = "Militair gevarengebied";
+"type.railway.subway_entrance.boston" = "Metro-ingang";
+"type.railway.station.subway.boston" = "Metrostation";
+"type.railway.subway_entrance.qingdao" = "Metro-ingang";
