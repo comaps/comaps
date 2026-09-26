@@ -72,7 +72,6 @@ target_link_libraries(${PROJECT_NAME}
     mwm_diff
     platform
     routing_common
-    indexer
     monocypher
   PRIVATE
     cppjansson
