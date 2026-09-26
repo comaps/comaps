@@ -2,8 +2,6 @@
 
 #include "storage/country_decl.hpp"
 
-#include "indexer/feature.hpp"
-
 #include "coding/geometry_coding.hpp"
 #include "coding/read_write_utils.hpp"
 #include "coding/reader.hpp"
@@ -255,7 +253,7 @@ auto CountryInfoReader::WithRegion(RegionId id, Fn && fn) const
   return fn(regions);
 }
 
-void CountryInfoReader::GetTriangles(RegionId id, FeatureType & ft) const
+std::vector<m2::PointD> const & CountryInfoReader::GetTriangles(RegionId id) const
 {
   std::lock_guard lock(m_trgMutex);
 
@@ -268,7 +266,7 @@ void CountryInfoReader::GetTriangles(RegionId id, FeatureType & ft) const
     serial::LoadOuterTriangles(src, serial::GeometryCodingParams(), trgs);
   }
 
-  ft.SetTriangles(trgs);
+  return trgs;
 }
 
 bool CountryInfoReader::BelongsToRegion(m2::PointD const & pt, RegionId id) const
