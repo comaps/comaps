@@ -171,6 +171,10 @@ final class RoutingBottomMenuController implements View.OnClickListener
       showRouteAltitudeChart();
     showRoutingDetails();
     UiUtils.show(mAltitudeChartFrame);
+    MaterialButton saveButton = mAltitudeChartFrame.findViewById(R.id.btn__save);
+    saveButton.setContentDescription(mContext.getString(R.string.save));
+    saveButton.setIcon(AppCompatResources.getDrawable(mContext, R.drawable.ic_bookmark_add));
+    saveButton.setEnabled(true);
   }
 
   void hideAltitudeChartAndRoutingDetails()
