@@ -1580,7 +1580,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
     for (auto it = ids.begin(); it != firstReal; ++it)
     {
       FeatureType ft(*it, borderType);
-      m_infoGetter->GetTriangles(it->m_index, ft);
+      ft.SetTriangles(m_infoGetter->GetTriangles(it->m_index));
       fn(ft);
     }
   };

@@ -21,7 +21,6 @@
 
 
 #include "3party/ankerl/unordered_dense.h"
-class FeatureType;
 
 class Platform;
 
@@ -152,7 +151,8 @@ public:
   // Loads all regions for country number |id| from |m_reader|.
   std::vector<m2::RegionD> LoadRegionsFromDisk(RegionId id) const;
 
-  void GetTriangles(RegionId id, FeatureType & ft) const;
+  // Loads triangles for country number |id| from |m_reader| (for mwm borders rendering).
+  std::vector<m2::PointD> const & GetTriangles(RegionId id) const;
 
 protected:
   CountryInfoReader(ModelReaderPtr polyR);
