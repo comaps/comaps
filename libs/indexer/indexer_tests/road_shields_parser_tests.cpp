@@ -240,56 +240,53 @@ UNIT_TEST(RoadShields_Smoke)
 {
   using namespace ftypes;
 
-  // TODO: Fix broken tests to make code compile
-  /*
-  auto shields = GetRoadShields("France", "D 116A");
+  auto shields = GetRoadShields("France", "D 116A", HighwayClass::Secondary);
   TEST_EQUAL(shields.size(), 1, ());
   TEST_EQUAL(shields[0].m_type, RoadShieldType::Generic_Orange, ());
 
-  shields = GetRoadShields("Belarus", "M1");  // latin letter M
+  shields = GetRoadShields("Belarus", "M1", HighwayClass::Motorway);  // latin letter M
   TEST_EQUAL(shields.size(), 1, ());
   TEST_EQUAL(shields[0].m_type, RoadShieldType::Generic_Red, ());
 
-  shields = GetRoadShields("Belarus", "Е2");  // cyrillic letter Е
+  shields = GetRoadShields("Belarus", "Е2", HighwayClass::Trunk);  // cyrillic letter Е
   TEST_EQUAL(shields.size(), 1, ());
   TEST_EQUAL(shields[0].m_type, RoadShieldType::Generic_Green, ());
 
-  shields = GetRoadShields("Ukraine", "Р50");  // cyrillic letter Р
+  shields = GetRoadShields("Ukraine", "Р50", HighwayClass::Trunk);  // cyrillic letter Р
   TEST_EQUAL(shields.size(), 1, ());
   TEST_EQUAL(shields[0].m_type, RoadShieldType::Generic_Blue, ());
 
-  shields = GetRoadShields("Malaysia", "AH7");
+  shields = GetRoadShields("Malaysia", "AH7", HighwayClass::Trunk);
   TEST_EQUAL(shields.size(), 1, ());
   TEST_EQUAL(shields[0].m_type, RoadShieldType::Generic_Blue, ());
 
-  shields = GetRoadShields("Germany", "A 3;A 7");
+  shields = GetRoadShields("Germany", "A 3;A 7", HighwayClass::Motorway);
   TEST_EQUAL(shields.size(), 2, ());
-  TEST_EQUAL(shields[0].m_type, RoadShieldType::Generic_Blue, ());
-  TEST_EQUAL(shields[1].m_type, RoadShieldType::Generic_Blue, ());
+  TEST_EQUAL(shields[0].m_type, RoadShieldType::Highway_Hexagon_Blue, ());
+  TEST_EQUAL(shields[1].m_type, RoadShieldType::Highway_Hexagon_Blue, ());
 
-  shields = GetRoadShields("Germany", "blue/A 31;national/B 2R");
+  shields = GetRoadShields("Germany", "blue/A 31;national/B 2R", HighwayClass::Motorway);
   TEST_EQUAL(shields.size(), 2, ());
-  TEST_EQUAL(shields[0].m_type, RoadShieldType::Generic_Blue, ());
-  TEST_EQUAL(shields[1].m_type, RoadShieldType::Generic_Orange, ());
+  TEST_EQUAL(shields[0].m_type, RoadShieldType::Highway_Hexagon_Blue, ());
+  TEST_EQUAL(shields[1].m_type, RoadShieldType::Generic_Orange_Bordered, ());
 
-  shields = GetRoadShields("Germany", "TMC 33388 (St 2047)");
+  shields = GetRoadShields("Germany", "TMC 33388 (St 2047)", HighwayClass::Secondary);
   TEST_EQUAL(shields.size(), 0, ());
 
-  shields = GetRoadShields("US", "US:IN");
+  shields = GetRoadShields("US", "US:IN", HighwayClass::Primary);
   TEST_EQUAL(shields.size(), 1, ());
   TEST_EQUAL(shields[0].m_type, RoadShieldType::Default, ());
 
-  shields = GetRoadShields("US", "SR 38;US:IN");
+  shields = GetRoadShields("US", "SR 38;US:IN", HighwayClass::Primary);
   TEST_EQUAL(shields.size(), 2, ());
-  TEST_EQUAL(shields[0].m_type, RoadShieldType::Generic_White, ());
+  TEST_EQUAL(shields[0].m_type, RoadShieldType::Generic_White_Bordered, ());
   TEST_EQUAL(shields[1].m_type, RoadShieldType::Default, ());
 
-  shields = GetRoadShields("Switzerland", "e-road/E 67");
+  shields = GetRoadShields("Switzerland", "e-road/E 67", HighwayClass::Motorway);
   TEST_EQUAL(shields.size(), 1, ());
   TEST_EQUAL(shields[0].m_type, RoadShieldType::Generic_Green, ());
 
-  shields = GetRoadShields("Estonia", "ee:national/27;ee:local/7841171");
+  shields = GetRoadShields("Estonia", "ee:national/27;ee:local/7841171", HighwayClass::Trunk);
   TEST_EQUAL(shields.size(), 1, ());
-  TEST_EQUAL(shields[0].m_type, RoadShieldType::Generic_Orange, ());
-  */
+  TEST_EQUAL(shields[0].m_type, RoadShieldType::Generic_Orange_Bordered, ());
 }
