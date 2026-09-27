@@ -524,6 +524,7 @@ IsPartOfTourismAttractionsChecker::IsPartOfTourismAttractionsChecker() : BaseChe
       {"amenity", "grave_yard"},
       {"amenity", "fountain"},
       {"amenity", "place_of_worship"},
+      {"amenity", "planetarium"},
       {"amenity", "theatre"},
       {"amenity", "townhall"},
       {"amenity", "university"},

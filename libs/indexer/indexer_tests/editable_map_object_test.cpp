@@ -478,77 +478,77 @@ UNIT_TEST(EditableMapObject_GetLocalizedAllTypes)
   {
     EditableMapObject emo;
     SetTypes(emo, {{"amenity", "fuel"}, {"shop"}, {"building"}, {"toilets", "yes"}});
-    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "amenity-fuel • shop", ());
-    TEST_EQUAL(emo.GetLocalizedAllTypes(false), "shop", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "Gas Station • Shop", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(false), "Shop", ());
   }
 
   {
     EditableMapObject emo;
     SetTypes(emo, {{"amenity", "shelter"}, {"amenity", "bench"}, {"highway", "bus_stop"}});
-    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "highway-bus_stop • amenity-shelter • amenity-bench", ());
-    TEST_EQUAL(emo.GetLocalizedAllTypes(false), "amenity-shelter • amenity-bench", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "Bus Stop • Shelter • Bench", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(false), "Shelter • Bench", ());
   }
 
   {
     EditableMapObject emo;
     SetTypes(emo, {{"leisure", "pitch"}, {"sport", "soccer"}});
-    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "sport-soccer • leisure-pitch", ());
-    TEST_EQUAL(emo.GetLocalizedAllTypes(false), "leisure-pitch", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "Soccer • Sport Pitch", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(false), "Sport Pitch", ());
   }
 
   {
     EditableMapObject emo;
     SetTypes(emo, {{"craft", "key_cutter"}});
-    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "craft-key_cutter", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "Key Cutting", ());
     TEST_EQUAL(emo.GetLocalizedAllTypes(false), "", ());
   }
 
   {
     EditableMapObject emo;
     SetTypes(emo, {{"amenity", "parking_entrance"}, {"barrier", "gate"}});
-    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "barrier-gate • amenity-parking_entrance", ());
-    TEST_EQUAL(emo.GetLocalizedAllTypes(false), "amenity-parking_entrance", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "Gate • Parking Entrance", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(false), "Parking Entrance", ());
   }
 
   {
     EditableMapObject emo;
     SetTypes(emo, {{"barrier", "gate"}});
-    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "barrier-gate", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "Gate", ());
     TEST_EQUAL(emo.GetLocalizedAllTypes(false), "", ());
   }
 
   {
     EditableMapObject emo;
     SetTypes(emo, {{"entrance", "main"}});
-    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "entrance-main", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "Main Entrance", ());
     TEST_EQUAL(emo.GetLocalizedAllTypes(false), "", ());
   }
 
   {
     EditableMapObject emo;
     SetTypes(emo, {{"entrance", "main"}, {"barrier", "gate"}});
-    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "barrier-gate", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "Gate", ());
     TEST_EQUAL(emo.GetLocalizedAllTypes(false), "", ());
   }
 
   {
     EditableMapObject emo;
     SetTypes(emo, {{"amenity"}});
-    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "amenity", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "Amenity", ());
     TEST_EQUAL(emo.GetLocalizedAllTypes(false), "", ());
   }
 
   {
     EditableMapObject emo;
     SetTypes(emo, {{"shop"}});
-    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "shop", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "Shop", ());
     TEST_EQUAL(emo.GetLocalizedAllTypes(false), "", ());
   }
 
   {
     EditableMapObject emo;
     SetTypes(emo, {{"tourism", "artwork"}, {"amenity"}});
-    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "tourism-artwork", ());
+    TEST_EQUAL(emo.GetLocalizedAllTypes(true), "Artwork", ());
     TEST_EQUAL(emo.GetLocalizedAllTypes(false), "", ());
   }
 }
