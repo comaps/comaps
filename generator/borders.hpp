@@ -144,8 +144,6 @@ bool GetBordersRect(std::string const & baseDir, std::string const & country, m2
 
 bool LoadCountriesList(std::string const & baseDir, CountryPolygonsCollection & countries);
 
-void GeneratePackedBorders(std::string const & baseDir);
-
 template <typename Source>
 PolygonsList ReadPolygonsOfOneBorder(Source & src)
 {
