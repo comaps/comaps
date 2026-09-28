@@ -28,6 +28,7 @@ from maps_generator.generator.env import Env
 from maps_generator.generator.env import PathProvider
 from maps_generator.generator.env import WORLD_COASTS_NAME
 from maps_generator.generator.env import WORLD_NAME
+from maps_generator.generator.env import BORDERS_DIR
 from maps_generator.generator.env import create_if_not_exist_path
 from maps_generator.generator.exceptions import BadExitStatusError
 from maps_generator.generator.exceptions import SigningError
@@ -457,9 +458,9 @@ class StageCleanup(Stage):
             if os.path.isfile(p) and x.endswith(".mwm.osm2ft"):
                 shutil.move(p, os.path.join(env.paths.osm2ft_path, x))
 
-        logger.info(f"{env.paths.draft_path} will be removed.")
-        shutil.rmtree(env.paths.draft_path)
-
+        p = os.path.join(env.paths.mwm_path, BORDERS_DIR)
+        logger.info(f"Removing {p}")
+        os.remove(p)
         clean = True
         for x in os.listdir(env.paths.mwm_path):
             p = os.path.join(env.paths.mwm_path, x)
