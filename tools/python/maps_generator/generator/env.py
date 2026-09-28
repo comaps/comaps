@@ -158,7 +158,13 @@ class PathProvider:
     @property
     @create_if_not_exist
     def mwm_path(self) -> AnyStr:
-        """mwm_path contains *.mwm files."""
+        """mwm_path contains work-in-progress *.mwm files."""
+        return os.path.join(self.build_path, "mwms")
+
+    @property
+    @create_if_not_exist
+    def output_path(self) -> AnyStr:
+        """contains finalized *.mwm files and countries.txt*."""
         return os.path.join(self.build_path, self.mwm_version)
 
     @property
@@ -329,7 +335,7 @@ class PathProvider:
 
     @property
     def countries_txt_path(self) -> AnyStr:
-        return os.path.join(self.mwm_path, "countries.txt")
+        return os.path.join(self.output_path, "countries.txt")
 
     @property
     def user_resource_path(self) -> AnyStr:
