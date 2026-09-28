@@ -130,19 +130,14 @@ git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/
 <details>
   <summary><span style="font-size: 1.5em; font-weight: bold;">macOS</span></summary>
 
-The recommended version for iOS development is macOS 15 and Xcode 26, as this is the only way to run with the CarPlay external display in the iOS Simulator
-
-With the release of macOS 27, the recommended way is hence to run the development in a VM as macOS 15 is unsupported by Apple. This requires approximately 100 GB disk space
-
-Note that the obligatory Scene migration required by iOS SDK 27 has not yet been merged to `main`, such that Xcode 27 can't compile the app unless you check out the `carplay-dashboard-support` branch. This means that you have to stay on Xcode 26 on macOS 26.
-
-Once we have set up an Apple Organization account it will be possible to use Xcode 27 if you get added as a "Developer" on the team
+Development is supported on macOS 15 and above, with the release build being compiled with Xcode 27 and the iOS 27 SDK.
 
 Install required build dependencies and Xcode
-1. Install Xcode Command Line Tools
-2. Install [Xcode](https://apps.apple.com/app/xcode/id497799835?mt=12) from the App Store
-3. Install [Homebrew](https://brew.sh) and required dependencies
-4. Clone and configure the repository to be able to build the iOS app later
+1. Install [Xcode](https://apps.apple.com/app/xcode/id497799835?mt=12) from the App Store
+2. Install [Homebrew](https://brew.sh)
+3. Install Xcode Command Line Tools
+4. Install required dependencies with Homebrew
+5. Clone and configure the repository to be able to build the iOS app later
 
 #### Xcode Command Line Tools
 ```bash
@@ -154,11 +149,8 @@ xcode-select --install
 brew install wget optipng cmake ninja qt jq
 ```
 
-The required Python `protobuf` version is installed automatically into a local
-`.venv` by `./configure.sh` (run below). Set `SKIP_PYTHON_VENV=1` to manage it via
-your system Python instead.
 
-#### Clone the repository
+#### Clone and configure the repository
 ```bash
 git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/comaps.git
 cd comaps
@@ -588,12 +580,15 @@ Compile and run the project ("Product" → "Run").
 <details>
   <summary><span style="font-size: 1.5em; font-weight: bold;">CarPlay</span></summary>
 
-To test CarPlay, simply select "I/O" → "External Displays" → "CarPlay" in the Simulator
+To test CarPlay:
+- Xcode 16: Simply select "I/O" → "External Displays" → "CarPlay" in the Simulator
+- Xcode 26: The latest Xcode 26 has the broken CarPlay display in the regular simulator, OM has made a [shim](https://github.com/organicmaps/organicmaps/pull/13507) that repairs it
+- Xcode 27: There is no longer an External Display option, the only option is the dedicated CarPlay Simulator part of "Additional Tools for Xcode" available at the [developer downloads](https://developer.apple.com/download/all/). However, that requires compiling and signing the app, which is only possible if you are part of the internal development team as your developer account need to be blessed with a CarPlay entitlement from Apple
 
 ### Spoofing GPS
-The Simulator supports setting a specific location or spoofing a GPX track. This is especially handy when testing CarPlay
+The Simulator supports setting a specific location or spoofing a GPX track. This is especially handy when testing CarPlay or navigation
 
-To select an Apple predetermined track or specific custom location, choose "Features" → "Location" in the Simulator
+To select an Apple predetermined track or specific custom location, choose "Device" → "Location" in the active Simulator in Device Hub
 
 To simulate a custom GPX track use `python3 tools/python/ios_simulator_load_gpx.py <path to your gpx>` which is a wrapper for `xcrun simctl location`. Default values are 60 km/h and 0.1s update intervals, but can be customized
 
