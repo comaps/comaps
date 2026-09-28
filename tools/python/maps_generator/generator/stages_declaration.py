@@ -203,16 +203,15 @@ class StageMwm(Stage):
             logger.info(f'Number of feature data .mwm.tmp country files to process: {len(tmp_mwm_names)}')
 
             if env.publish_path:
-                # TODO: remove old structure compat-publishing when migration is finished
-                symlink_path = os.path.join(env.publish_path, env.mwm_version)
-                make_symlink(env.paths.mwm_path, symlink_path)
-                logger.info(f'Compat-publishing generated maps to: {symlink_path}')
+                symlink_path = env.publish_path
                 if env.min_compat_app_v:
-                    symlink_path = os.path.join(env.publish_path, env.min_compat_app_v)
+                    symlink_path = os.path.join(symlink_path, env.min_compat_app_v)
                     create_if_not_exist_path(symlink_path)
-                    symlink_path = os.path.join(symlink_path, env.mwm_version)
-                    make_symlink(env.paths.mwm_path, symlink_path)
-                    logger.info(f'Publishing generated maps to: {symlink_path}')
+                else:
+                    logger.warning(f'Map series is not set, hence omitting map series dir for publishing.')
+                symlink_path = os.path.join(symlink_path, env.mwm_version)
+                make_symlink(env.paths.mwm_path, symlink_path)
+                logger.info(f'Publishing generated maps to: {symlink_path}')
 
             with ThreadPoolExecutor(settings.THREADS_COUNT) as pool:
                 pool.map(
