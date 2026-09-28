@@ -1335,6 +1335,7 @@
 # === 250
 
 # building                                          # caption z17- (also has area z14-)
+# building-abandoned                                # caption z17- (also has area z14-)
 # building-garage                                   # caption z17- (also has area z14-)
 # building-guardhouse                               # icon z16- (also has caption(optional) z18-, area z14-)
 # building-has_parts                                # caption z17- (also has area z14-)

@@ -547,6 +547,7 @@ power-minor_line::dash                              # line::dash z15- (also has 
 # === 130
 
 # building                                          # area z14- (also has caption z17-)
+# building-abandoned                                # area z14- (also has caption z17-)
 # building-garage                                   # area z14- (also has caption z17-)
 # building-guardhouse                               # area z14- (also has icon z16-, caption(optional) z18-)
 # building-has_parts                                # area z14- (also has caption z17-)
