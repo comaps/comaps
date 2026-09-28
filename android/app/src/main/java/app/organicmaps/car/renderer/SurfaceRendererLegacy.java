@@ -93,4 +93,15 @@ class SurfaceRendererLegacy extends Renderer
   {
     // Not supported.
   }
+  @Override
+  public void setCurrentSpeed(double speedMps)
+  {
+    // Not supported.
+  }
+
+  @Override
+  public void hideCurrentSpeed()
+  {
+    // Not supported.
+  }
 }

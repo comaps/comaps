@@ -75,6 +75,13 @@ public class SpeedLimitView extends BaseSignView
     return mSpeedLimit;
   }
 
+  public void setSignBackgroundColor(int color)
+  {
+    if (mBackgroundColor == color)
+      return;
+    mBackgroundColor = color;
+    invalidate();
+  }
   @Override
   public boolean isAlert()
   {

@@ -157,5 +157,15 @@
   <color name="tourism">#9C6136</color>
   <color name="transport">#2F6499</color>
   <color name="water">#54A3B6</color>
+
+  <!-- Android Auto speed pill widget -->
+  <color name="car_speed_pill_background_light">@color/white_primary</color>
+  <color name="car_speed_pill_background_night">#FF2D3237</color>
+  <color name="car_speed_current_text_light">#FF000000</color>
+  <color name="car_speed_current_text_night">@color/white_primary</color>
+  <color name="car_speed_sign_background_light">@color/white_primary</color>
+  <color name="car_speed_sign_background_night">#FFD9D9D9</color>
+  <color name="car_speed_current_alert_text_light">@color/dark_red</color>
+  <color name="car_speed_current_alert_text_night">#FFFF5252</color>
 </resources>
 

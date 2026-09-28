@@ -25,6 +25,16 @@ public abstract class BaseSignView extends View
     mBorderInsetRatio = ratio;
   }
 
+  private boolean mFlat = false;
+  public void setFlat(boolean flat)
+  {
+    if (mFlat == flat)
+      return;
+    mFlat = flat;
+    configureTextSize();
+    invalidate();
+  }
+
   // colors
   protected int mBackgroundColor;
   protected int mBorderColor;
@@ -92,23 +102,31 @@ public abstract class BaseSignView extends View
     if (str == null)
       return;
 
+    canvas.save();
+    canvas.translate(getPaddingLeft(), getPaddingTop());
+
     final float cx = mWidth / 2f;
     final float cy = mHeight / 2f;
 
-    // background & border
-    boolean alert = isAlert();
-    mBackgroundPaint.setColor(alert ? mAlertColor : mBackgroundColor);
-    canvas.drawCircle(cx, cy, mRadius, mBackgroundPaint);
-    if (!alert)
+    if (!mFlat)
     {
-      mBorderPaint.setStrokeWidth(mBorderWidth);
-      mBorderPaint.setColor(mBorderColor);
-      canvas.drawCircle(cx, cy, mBorderRadius, mBorderPaint);
+      // background & border
+      boolean alert = isAlert();
+      mBackgroundPaint.setColor(alert ? mAlertColor : mBackgroundColor);
+      canvas.drawCircle(cx, cy, mRadius, mBackgroundPaint);
+      if (!alert)
+      {
+        mBorderPaint.setStrokeWidth(mBorderWidth);
+        mBorderPaint.setColor(mBorderColor);
+        canvas.drawCircle(cx, cy, mBorderRadius, mBorderPaint);
+      }
     }
 
     // text
-    mTextPaint.setColor(alert ? mTextAlertColor : mTextColor);
+    mTextPaint.setColor(isAlert() ? mTextAlertColor : mTextColor);
     drawValueString(canvas, cx, cy, str);
+
+    canvas.restore();
   }
 
   @Override
@@ -144,7 +162,7 @@ public abstract class BaseSignView extends View
     String text = getValueString();
     if (text == null)
       return;
-    final float textRadius = mBorderRadius - mBorderWidth;
+    final float textRadius = mFlat ? Math.min(mWidth, mHeight) / 2f : mBorderRadius - mBorderWidth;
     final float maxTextSize = 2f * textRadius;
     final float maxTextSize2 = maxTextSize * maxTextSize;
     float lo = 0f, hi = maxTextSize, sz = maxTextSize;
