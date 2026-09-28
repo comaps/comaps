@@ -536,4 +536,36 @@ UNIT_CLASS_TEST(TestAccessFixture, CycleBarrier)
              ());
 }
 
+UNIT_CLASS_TEST(TestAccessFixture, CarBarrier)
+{
+  CreateCollectors();
+
+  AddWay(MakeOsmElementWithNodes(1 /* id */, {{"highway", "tertiary"}} /* tags */, OsmElement::EntityType::Way,
+                                 {10, 11, 12}));
+  AddWay(MakeOsmElementWithNodes(2 /* id */, {{"highway", "secondary"}} /* tags */, OsmElement::EntityType::Way,
+                                 {20, 21, 22}));
+
+  AddNode(MakeOsmElement(10 /* id */, {{"barrier", "bus_trap"}}, OsmElement::EntityType::Node));
+  AddNode(MakeOsmElement(11 /* id */, {{"barrier", "bus_trap"}}, OsmElement::EntityType::Node));
+  AddNode(MakeOsmElement(12 /* id */, {{"barrier", "bus_trap"}}, OsmElement::EntityType::Node));
+  AddNode(MakeOsmElement(20 /* id */, {{"barrier", "sump_buster"}}, OsmElement::EntityType::Node));
+  AddNode(MakeOsmElement(21 /* id */, {{"barrier", "sump_buster"}}, OsmElement::EntityType::Node));
+  AddNode(MakeOsmElement(22 /* id */, {{"barrier", "sump_buster"}}, OsmElement::EntityType::Node));
+
+  Finish();
+
+  auto const noSure = make_pair(RoadAccess::Type::No, RoadAccess::Confidence::Sure);
+  auto const yesSure = make_pair(RoadAccess::Type::Yes, RoadAccess::Confidence::Sure);
+
+  auto const & vehicle = Get(VehicleType::Car);
+  auto const & bicycle = Get(VehicleType::Bicycle);
+  auto const & pedestrian = Get(VehicleType::Pedestrian);
+  TEST_EQUAL(vehicle.GetAccessWithoutConditional({1, 1}), noSure, ());
+  TEST_EQUAL(vehicle.GetAccessWithoutConditional({2, 1}), noSure, ());
+  TEST_EQUAL(bicycle.GetAccessWithoutConditional({1, 1}), yesSure, ());
+  TEST_EQUAL(bicycle.GetAccessWithoutConditional({2, 1}), yesSure, ());
+  TEST_EQUAL(pedestrian.GetAccessWithoutConditional({1, 1}), yesSure, ());
+  TEST_EQUAL(pedestrian.GetAccessWithoutConditional({2, 1}), yesSure, ());
+}
+
 }  // namespace road_access_test

@@ -2269,6 +2269,8 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SimpleTypesSmoke)
       {"barrier", "turnstile"},
       {"barrier", "wicket_gate"},
       {"barrier", "cycle_barrier"},
+      {"barrier", "bus_trap"},
+      {"barrier", "sump_buster"},
       {"barrier", "swing_gate"},
       {"barrier", "toll_booth"},
       {"barrier", "wall"},
