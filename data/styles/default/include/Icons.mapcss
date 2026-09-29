@@ -1058,6 +1058,7 @@ node|z17-[amenity=parcel_locker],
 node|z17-[amenity=public_bath],
 node|z17-[aeroway=gate],
 node|z17-[sport],
+node|z17-[amenity=tool_library],
 node|z16-[leisure=sports_centre],
 node|z16-[leisure=sports_centre][sport=american_football],
 node|z16-[leisure=sports_centre][sport=basketball],
@@ -1859,6 +1860,9 @@ node|z18[amenity=toilets][access=private],
 node|z19-[amenity=toilets][access=private],
 {icon-image: toilets_private-m.svg;}
 
+node|z17-[amenity=tool_library],
+{icon-image: doityourself-m.svg; font-size: 11;}
+
 node|z18-[amenity=bench],
 {icon-image: bench.svg;}
 node|z18-[amenity=bench][backrest=not],
@@ -2003,6 +2007,7 @@ node|z16-[shop=seafood],
 node|z16-[shop=shoes],
 node|z16-[shop=sports],
 node|z16-[shop=ticket],
+node|z16-[shop=tool_hire],
 node|z16-[shop=toys],
 node|z16-[shop=stationery],
 node|z16-[shop=agrarian],
@@ -2179,6 +2184,8 @@ node|z16[shop=sports],
 {icon-image: sports-m.svg;}
 node|z16[shop=ticket],
 {icon-image: ticket-shop-m.svg;}
+node|z16[shop=tool_hire],
+{icon-image: doityourself-m.svg;}
 node|z16[shop=toys],
 {icon-image: toys-m.svg;}
 node|z16[shop=stationery],
@@ -2328,6 +2335,8 @@ node|z17-[shop=sports],
 {icon-image: sports-m.svg;icon-min-distance: 24;}
 node|z17-[shop=ticket],
 {icon-image: ticket-shop-m.svg;icon-min-distance: 24;}
+node|z17-[shop=tool_hire],
+{icon-image: doityourself-m.svg;icon-min-distance: 24;}
 node|z17-[shop=toys],
 {icon-image: toys-m.svg;icon-min-distance: 24;}
 node|z17-[shop=stationery],

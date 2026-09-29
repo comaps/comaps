@@ -191,6 +191,9 @@
     "shop-laundry": {
         "defaultMessage": "4Laundry|Laundrette|laundromat|5washateria|coin laundry"
     },
+    "shop-tool_hire|@shop": {
+        "defaultMessage": "Tool Hire|tools|U+1F529|U+1F528"
+    },
     "shop-toys|@category_children|@shop": {
         "defaultMessage": "Toy|toyshop|kids|toys|kids toys"
     },
@@ -625,6 +628,9 @@
     },
     "amenity-toilets|toilets-yes|@category_toilet": {
         "defaultMessage": "wc|4Bathroom|loo|lavatory|5washroom|U+1F6BD|U+1F6BE|U+1F4A9|U+1F6BB|U+1F6B9|U+1F6BA"
+    },
+    "amenity-tool_library": {
+        "defaultMessage": "Tool Library|Tool Hire|tools|U+1F529|U+1F528"
     },
     "amenity-university": {
         "defaultMessage": "4University|U+1F393|Uni"

@@ -188,6 +188,7 @@
 "type.amenity.toilets.customers" = "Customer Access";
 "type.amenity.toilets.private" = "Private Access";
 "type.toilets.yes" = "Toilet";
+"type.amenity.tool_library" = "Tool Library";
 "type.amenity.townhall" = "Town Hall";
 "type.amenity.university" = "University";
 "type.amenity.vending_machine" = "Vending Machine";
@@ -1342,6 +1343,7 @@
 "type.shop.tea" = "Tea Shop";
 "type.shop.telecommunication" = "Telecommunication Shop";
 "type.shop.ticket" = "Ticket Shop";
+"type.shop.tool_hire" = "Tool Hire";
 "type.shop.toys" = "Toy Store";
 "type.shop.travel_agency" = "Travel Agency";
 "type.shop.tyres" = "Tyre Shop";

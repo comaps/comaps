@@ -192,6 +192,7 @@
     <string name="type.amenity.toilets.customers">Customer Access</string>
     <string name="type.amenity.toilets.private">Private Access</string>
     <string name="type.toilets.yes">Toilet</string>
+    <string name="type.amenity.tool_library">Tool Library</string>
     <string name="type.amenity.townhall">Town Hall</string>
     <string name="type.amenity.university">University</string>
     <string name="type.amenity.vending_machine">Vending Machine</string>
@@ -1350,6 +1351,7 @@
     <string name="type.shop.tea">Tea Shop</string>
     <string name="type.shop.telecommunication">Telecommunication Shop</string>
     <string name="type.shop.ticket">Ticket Shop</string>
+    <string name="type.shop.tool_hire">Tool Hire</string>
     <string name="type.shop.toys">Toy Store</string>
     <string name="type.shop.travel_agency">Travel Agency</string>
     <string name="type.shop.tyres">Tyre Shop</string>
