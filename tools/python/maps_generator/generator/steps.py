@@ -38,8 +38,6 @@ def multithread_run_if_one_country(func):
             kwargs.update({"threads_count": settings.THREADS_COUNT})
         # Otherwise index stage of Taiwan_* mwms continues to run after all other mwms have finished:
         elif country == 'Taiwan_North':
-            kwargs.update({"threads_count": 5})
-        elif country == 'Taiwan_South':
             kwargs.update({"threads_count": 2})
         func(env, country, **kwargs)
 
