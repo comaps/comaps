@@ -240,6 +240,32 @@ else()
     message(FATAL_ERROR "Python protobuf not found. Run ./configure.sh to provision a local .venv with the correct version (>=3.20, <4.0), or set SKIP_PYTHON_VENV=1 to manage protobuf via your system Python.")
 endif()
 
+find_package(Doxygen OPTIONAL_COMPONENTS dot)
+
+if(DOXYGEN_FOUND)
+  set(DOXYGEN_PROJECT_NAME CoMaps)
+  set(DOXYGEN_PROJECT_LOGO "${CMAKE_CURRENT_SOURCE_DIR}/docs/doxygen/logo.svg height=60px")
+  set(DOXYGEN_HTML_EXTRA_STYLESHEET "${CMAKE_CURRENT_SOURCE_DIR}/docs/doxygen/comaps.css")
+  set(DOXYGEN_EXTRACT_ALL YES)
+  set(DOXYGEN_EXTRACT_PRIVATE YES)
+  set(DOXYGEN_EXTRACT_STATIC YES)
+  set(DOXYGEN_HAVE_DOT YES)
+  set(DOXYGEN_CALL_GRAPH YES)
+  set(DOXYGEN_CALLER_GRAPH YES)
+  set(DOXYGEN_SOURCE_BROWSER YES)
+  set(DOXYGEN_ENABLE_PREPROCESSING YES)
+  set(DOXYGEN_MACRO_EXPANSION YES)
+
+  doxygen_add_docs(
+    docs
+    ${OMIM_ROOT}/libs
+    ${OMIM_ROOT}/qt
+    ${OMIM_ROOT}/generator
+    COMMENT "Generating code documentation with call graphs using Doxygen"
+  )
+else()
+  message(STATUS "Doxygen or Graphviz not found. 'docs' target will be unavailable.")
+endif()
 
 add_subdirectory(libs)
 
