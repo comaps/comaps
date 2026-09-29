@@ -897,3 +897,4 @@
 "bookmarks_text_placement_title" = "在地图上显示收藏的名称";
 "pref_font_size" = "地图标签的字体大小";
 "font_size" = "字体大小";
+"mode_options_accessibility_hint" = "显示此模式的选项";

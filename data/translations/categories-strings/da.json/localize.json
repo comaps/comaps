@@ -47,9 +47,6 @@
     "@category_secondhand": {
         "defaultMessage": "Brugt|Genbrugsbutikker"
     },
-    "second_hand-yes|second_hand-only|@category_secondhand": {
-        "defaultMessage": ""
-    },
     "amenity-bank|@category_bank": {
         "defaultMessage": "3penge"
     },
@@ -129,7 +126,7 @@
         "defaultMessage": "Husholdningsartikler"
     },
     "shop-jewelry|@category_shopping|@shop": {
-        "defaultMessage": "Smykkebutik|smykker|4juveler"
+        "defaultMessage": "Smykkebutik|smykker|4juveler|4Diamant"
     },
     "shop-optician|@shop": {
         "defaultMessage": "4Optiker"
@@ -210,7 +207,7 @@
         "defaultMessage": "2Færge|færgehavn|terminal"
     },
     "amenity-taxi|@category_transport": {
-        "defaultMessage": "3Taxi|taxa"
+        "defaultMessage": "3Taxa|3Taxaholdeplads"
     },
     "amenity-townhall": {
         "defaultMessage": "3Rådhus"
@@ -429,7 +426,7 @@
         "defaultMessage": "Medicinsk laboratorium"
     },
     "healthcare-physiotherapist": {
-        "defaultMessage": "Fysioterapeut"
+        "defaultMessage": "5Fysioterapeut"
     },
     "healthcare-alternative": {
         "defaultMessage": "Alternativ medicin"
@@ -933,7 +930,7 @@
         "defaultMessage": "4Cykelparkering"
     },
     "amenity-waste_basket": {
-        "defaultMessage": "Skraldespand"
+        "defaultMessage": "5Skraldespand"
     },
     "emergency-phone": {
         "defaultMessage": "4Nødtelefon"
@@ -954,7 +951,7 @@
         "defaultMessage": "Dyrehandel"
     },
     "tourism-zoo|@category_tourism|@category_children": {
-        "defaultMessage": "3Zoo"
+        "defaultMessage": "2Zoo"
     },
     "attraction-animal": {
         "defaultMessage": "Indhegning til dyr"
@@ -996,7 +993,7 @@
         "defaultMessage": "Rasteplads"
     },
     "man_made-chimney": {
-        "defaultMessage": "Fabriksskorsten|sbrieksschoorsteen"
+        "defaultMessage": "Fabriksskorsten|Skorsten"
     },
     "man_made-tower|man_made-flare": {
         "defaultMessage": "Tårn"
@@ -1062,7 +1059,7 @@
         "defaultMessage": "Låseport"
     },
     "amenity-public_bookcase": {
-        "defaultMessage": "Bog udveksling"
+        "defaultMessage": "Bogudveksling"
     },
     "sport-climbing": {
         "defaultMessage": "Klatrecenter"
@@ -1089,7 +1086,7 @@
         "defaultMessage": "Sprogskole"
     },
     "amenity-ice_cream": {
-        "defaultMessage": "Isbod"
+        "defaultMessage": "2Isbod|3Isbutik"
     },
     "amenity-internet_cafe": {
         "defaultMessage": "3Internetcafe"
@@ -1104,7 +1101,7 @@
         "defaultMessage": "Plejehjem"
     },
     "amenity-payment_terminal": {
-        "defaultMessage": "Betalingsautomat"
+        "defaultMessage": "5Betalingsautomat"
     },
     "amenity-public_bath": {
         "defaultMessage": "Offentligt bad|havbad|søbad|badested"
@@ -1176,7 +1173,7 @@
         "defaultMessage": "National park"
     },
     "leisure-nature_reserve|@category_tourism": {
-        "defaultMessage": "Reservat"
+        "defaultMessage": "4Reservat|5Naturreservat"
     },
     "natural-cape": {
         "defaultMessage": "Tange"
@@ -1275,7 +1272,7 @@
         "defaultMessage": "Sportshal"
     },
     "amenity-arts_centre|@category_tourism": {
-        "defaultMessage": "Kunsthus"
+        "defaultMessage": "Kunsthus|Kulturelt center|Kunstcenter"
     },
     "amenity-prison": {
         "defaultMessage": "Fængsel"
@@ -1287,7 +1284,7 @@
         "defaultMessage": "Badeværelsesindretning"
     },
     "shop-bed|@shop": {
-        "defaultMessage": "Senge butik"
+        "defaultMessage": "4Sengebutik|4Madras"
     },
     "shop-boutique|@shop": {
         "defaultMessage": "Boutique"
@@ -1302,7 +1299,7 @@
         "defaultMessage": "Kæledyrspleje"
     },
     "shop-hifi|@shop": {
-        "defaultMessage": "HiFi lyd"
+        "defaultMessage": "HiFi-lydbutik"
     },
     "amenity-conference_centre": {
         "defaultMessage": "Konferencecenter"
@@ -1311,7 +1308,7 @@
         "defaultMessage": "Urtebutik"
     },
     "shop-appliance|@shop": {
-        "defaultMessage": "Hvidevarer butik"
+        "defaultMessage": "4Hvidevarebutik"
     },
     "shop-agrarian|@shop": {
         "defaultMessage": "Landbrugsbutik"
@@ -1353,7 +1350,7 @@
         "defaultMessage": "Diner"
     },
     "cuisine-donut": {
-        "defaultMessage": "Donuts"
+        "defaultMessage": "5Donuts"
     },
     "cuisine-fish_and_chips": {
         "defaultMessage": "Fish and chips"
@@ -1365,7 +1362,7 @@
         "defaultMessage": "Grill"
     },
     "cuisine-hotdog|@fastfood": {
-        "defaultMessage": "Hotdogs"
+        "defaultMessage": "4Hotdogs|5Pølsehorn"
     },
     "cuisine-ice_cream": {
         "defaultMessage": "Is"
@@ -1420,5 +1417,443 @@
     },
     "amenity-studio": {
         "defaultMessage": "Medie-studie|lydstudie|tv-studie|radiostudie|musikstudie"
+    },
+    "shop-water|@category_water|@category_food|@shop": {
+        "defaultMessage": "4Drikkevand|4Vand på flaske"
+    },
+    "shop-beauty-nails": {
+        "defaultMessage": "4Neglesalon|negletekniker|negleteknik|fingernegle|tånegle|negle"
+    },
+    "historic-ship|@category_tourism": {
+        "defaultMessage": "Skib|båd"
+    },
+    "leisure-dog_park": {
+        "defaultMessage": "4Hundeområde|4Hundepark"
+    },
+    "leisure-dance|@category_entertainment": {
+        "defaultMessage": "3Dans|4Danseskole"
+    },
+    "leisure-firepit": {
+        "defaultMessage": "3Bålsted"
+    },
+    "amenity-boat_rental": {
+        "defaultMessage": "3Bådudlejning|Båd|Både|4Udlejning"
+    },
+    "amenity-love_hotel": {
+        "defaultMessage": "4Kærlighedshotel|3Sexhotel|4Voksenhotel"
+    },
+    "healthcare-blood_donation": {
+        "defaultMessage": "Bloddonation"
+    },
+    "healthcare-sample_collection": {
+        "defaultMessage": "Prøveindsamling"
+    },
+    "recycling-cans|@category_recycling": {
+        "defaultMessage": "4Genbrug af dåser|4Dåsegenbrug|4Genbrug af aluminiumsdåser|4Genbrug af blikdåser|Dåser"
+    },
+    "recycling-shoes|@category_recycling": {
+        "defaultMessage": "4Genbrug af sko|Skogenbrug|Donér sko|Sko"
+    },
+    "recycling-green_waste|@category_recycling": {
+        "defaultMessage": "4Genanvendelse af grønt affald|5Organisk affald genanvendelse|5Grønt affald genanvendelse|Mad- og køkkenaffald|Haveaffald"
+    },
+    "amenity-sanitary_dump_station|@category_rv": {
+        "defaultMessage": "4Tømningsstation til autocampere|4Tømningsstation til tanke|4Tømningsstation|sanitær tømningsstation|spildevand|autocamperaffald|4Tømningsstation til autocampere|4Tømningsstation til campingvogne"
+    },
+    "natural-peak|@mountain": {
+        "defaultMessage": "Top"
+    },
+    "leisure-sports_centre-sport-swimming": {
+        "defaultMessage": "4Svømmehal"
+    },
+    "waterway-fuel": {
+        "defaultMessage": "Marina Brændstof Dok|Benzin Dok|Brændstof kaj"
+    },
+    "man_made-mast": {
+        "defaultMessage": "Mast|pæl"
+    },
+    "man_made-telescope|man_made-telescope-optical|man_made-telescope-radio|man_made-telescope-gamma": {
+        "defaultMessage": "4Teleskop"
+    },
+    "man_made-observatory": {
+        "defaultMessage": "4Observatorium"
+    },
+    "amenity-animal_boarding": {
+        "defaultMessage": "4Dyrepasning|3Kæledyrspasning|kæledyrshotel"
+    },
+    "amenity-charging_station-motorcycle|@charging_station": {
+        "defaultMessage": "5Motorcykelladestation|Motorcykelopladning|Elcykelopladning"
+    },
+    "amenity-charging_station-motorcar|@charging_station": {
+        "defaultMessage": "4Ladestation til elbiler|5Opladning af elbiler|3Elbilopladning"
+    },
+    "man_made-cross": {
+        "defaultMessage": "Kors"
+    },
+    "sport-bowls": {
+        "defaultMessage": "Bowls"
+    },
+    "sport-cricket": {
+        "defaultMessage": "Cricket"
+    },
+    "sport-9pin": {
+        "defaultMessage": "Bowling"
+    },
+    "sport-10pin": {
+        "defaultMessage": "Bowling"
+    },
+    "amenity-vending_machine": {
+        "defaultMessage": "4Salgsautomat|Automat"
+    },
+    "amenity-community_centre-youth_centre": {
+        "defaultMessage": "4Ungdomscenter"
+    },
+    "amenity-vending_machine-coffee": {
+        "defaultMessage": "5Kaffedispenser|5Kaffeautomat|Kaffe|Automat"
+    },
+    "amenity-vending_machine-condoms": {
+        "defaultMessage": "4Kondom-dispenser|Kondomer|Kondomautomat|Automat"
+    },
+    "amenity-vending_machine-food|@category_food": {
+        "defaultMessage": "4Fødevareautomat|Mad|Snacks|Automat"
+    },
+    "amenity-vending_machine-newspapers": {
+        "defaultMessage": "4Avis-automat|Aviser"
+    },
+    "amenity-vending_machine-sweets": {
+        "defaultMessage": "4Slik-automat|4Slik|Slikkepinde|Automat"
+    },
+    "amenity-vending_machine-excrement_bags": {
+        "defaultMessage": "5Lortepose-dispenser|4Lorteposer|3Hundelorteposer|Dyre-efterladenskaber"
+    },
+    "man_made-crane": {
+        "defaultMessage": "Kran"
+    },
+    "tourism-information-guidepost": {
+        "defaultMessage": "Vejviser"
+    },
+    "leisure-fitness_centre-sport-yoga": {
+        "defaultMessage": "Yogacenter"
+    },
+    "amenity-parcel_locker|@category_post": {
+        "defaultMessage": "4Pakkeskab|4Pakkeafhentning"
+    },
+    "amenity-vending_machine-fuel|@category_fuel": {
+        "defaultMessage": "Brændstofstander|Benzinpumpe"
+    },
+    "tourism-information-tactile_map": {
+        "defaultMessage": "Taktilt kort|kort|4Information"
+    },
+    "amenity-sailing_school": {
+        "defaultMessage": "4Sejlerskole|4Bådskole"
+    },
+    "amenity-payment_centre": {
+        "defaultMessage": "4Betalingscenter"
+    },
+    "emergency-access_point": {
+        "defaultMessage": "5Nødredningspunkt|Nødsted|Nødmarkør|Adgangspunkt til nødsituationer"
+    },
+    "tourism-gallery|@category_tourism": {
+        "defaultMessage": "5Kunstudstilling|4Udstilling|3Museum"
+    },
+    "tourism-theme_park|@category_tourism|@category_children": {
+        "defaultMessage": "4Temapark|Forlystelsespark"
+    },
+    "leisure-marina": {
+        "defaultMessage": "4Lystbådehavn"
+    },
+    "sport-four_square": {
+        "defaultMessage": "Four Square"
+    },
+    "amenity-animal_shelter": {
+        "defaultMessage": "Dyreinternat"
+    },
+    "barrier-toll_booth": {
+        "defaultMessage": "Vejafgiftsstation"
+    },
+    "shop-chocolate|@category_food|@shop": {
+        "defaultMessage": "5Chokolade"
+    },
+    "leisure-indoor_play": {
+        "defaultMessage": "3Indendørs legeland|indendørs leg|indendørs legeplads"
+    },
+    "shop-coffee|@category_food|@shop": {
+        "defaultMessage": "Kaffehandel|Kaffe"
+    },
+    "shop-fabric|@shop": {
+        "defaultMessage": "Stof|5tekstiler"
+    },
+    "shop-money_lender": {
+        "defaultMessage": "5Pengeudlåner|4lånehaj"
+    },
+    "shop-tea|@shop": {
+        "defaultMessage": "Te|Tebutik"
+    },
+    "shop-music|@shop": {
+        "defaultMessage": "Plade|4vinyl|Musik|6Pladehandel"
+    },
+    "shop-telecommunication|@shop": {
+        "defaultMessage": "6Telebutik|Telekommunikation|tele"
+    },
+    "shop-lighting|@shop": {
+        "defaultMessage": "4Belysning|Belysningsarmaturer|4Lamper"
+    },
+    "man_made-cairn": {
+        "defaultMessage": "4Varde"
+    },
+    "social_facility-soup_kitchen": {
+        "defaultMessage": "4Suppekøkken|Mad"
+    },
+    "amenity-food_sharing": {
+        "defaultMessage": "Maddeling|Mad|donér"
+    },
+    "amenity-food_court": {
+        "defaultMessage": "5Madtorv"
+    },
+    "shop-craft|@shop": {
+        "defaultMessage": "3Værk|6håndværk"
+    },
+    "attraction-amusement_ride|attraction-carousel|attraction-roller_coaster|attraction-maze|attraction-historic|attraction-big_wheel|attraction-bumper_car|@category_children": {
+        "defaultMessage": "Attraktion|Labyrint|Forlystelse|attraktioner"
+    },
+    "office-security": {
+        "defaultMessage": "6Sikkerhedskontor"
+    },
+    "building-guardhouse": {
+        "defaultMessage": "4Vagt"
+    },
+    "@cuisine_all_asian": {
+        "defaultMessage": "5Asiatisk mad|7Asiatisk køkken"
+    },
+    "cuisine-vietnamese|@cuisine_all_asian": {
+        "defaultMessage": "7Vietnametisk mad|7Vietnametisk køkken"
+    },
+    "shop-caravan|@category_rv|@shop": {
+        "defaultMessage": "4Campingvognforhandler|4Autocamperforhandler"
+    },
+    "tourism-artwork-sculpture": {
+        "defaultMessage": "Skulptur|Kunst"
+    },
+    "tourism-artwork-statue": {
+        "defaultMessage": "Statue|Kunst"
+    },
+    "tourism-artwork-painting": {
+        "defaultMessage": "Maleri|Kunst"
+    },
+    "amenity-planetarium|@category_tourism": {
+        "defaultMessage": "5Planetarium|5Astronomi"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "4Apotek|apoteker|4udleveringssted"
+    },
+    "recycling-cardboard|@category_recycling": {
+        "defaultMessage": "4Genbrug af pap|Papaffald|Pap"
+    },
+    "recycling-cartons|@category_recycling": {
+        "defaultMessage": "4Genbrug af drikkevarekartoner|5Karton genbrug|Kartoner"
+    },
+    "amenity-toilets|toilets-yes|@category_toilet": {
+        "defaultMessage": "2WC|4Badeværelse|3Toilet|3Toiletter|4Vaskerum"
+    },
+    "highway-elevator": {
+        "defaultMessage": "4Elevator"
+    },
+    "amenity-police|@category_police": {
+        "defaultMessage": "5Politistation"
+    },
+    "man_made-survey_point": {
+        "defaultMessage": "4Målepunkt|målingsmarkør|målingsbenchmark|4geodætisk mærke|geodætisk hjørne|4trianguleringsstation|5trigonometrisk punkt|trigonometrisk søjle|5trigonometrisk station|trigonometrisk fyrtårn|trigonometrisk"
+    },
+    "man_made-flagpole": {
+        "defaultMessage": "4Flagstang"
+    },
+    "amenity-flight_school": {
+        "defaultMessage": "5Flyveskole"
+    },
+    "amenity-car_pooling|@category_parking": {
+        "defaultMessage": "4Samkørsel"
+    },
+    "emergency-disaster_help_point": {
+        "defaultMessage": "5Nødhjælpepunkt|5Katastrofehjælpepunkt"
+    },
+    "emergency-life_ring": {
+        "defaultMessage": "4Redningskrans|flydeanordning"
+    },
+    "shop-beauty-day_spa": {
+        "defaultMessage": "Spa|Wellness"
+    },
+    "shop-musical_instrument|@shop": {
+        "defaultMessage": "7Musikinstrumenter|instrumenter|guitar"
+    },
+    "leisure-track": {
+        "defaultMessage": "Bane"
+    },
+    "leisure-bandstand": {
+        "defaultMessage": "5Musikpavillon"
+    },
+    "social_facility-food_bank": {
+        "defaultMessage": "4Fødevarebank|Mad|donér|Gratis spisekammer|Gratis køleskab"
+    },
+    "amenity-give_box": {
+        "defaultMessage": "Indsamling|donér"
+    },
+    "amenity-waste_transfer_station": {
+        "defaultMessage": "Affaldsoverslagsstation"
+    },
+    "shop-cannabis|@shop": {
+        "defaultMessage": "Cannabisbutik"
+    },
+    "shop-health_food|@category_food|@shop": {
+        "defaultMessage": "5Helsebutik|5Helsekost|3Økologisk"
+    },
+    "sport-boules": {
+        "defaultMessage": "Boules|Petanque"
+    },
+    "cuisine-turkish": {
+        "defaultMessage": "7Tyrkisk mad| 9Tyrkisk køkken"
+    },
+    "cuisine-thai|@cuisine_all_asian": {
+        "defaultMessage": "4Thailandsk mad|6Thailandsk køkken"
+    },
+    "cuisine-spanish": {
+        "defaultMessage": "6Spansk mad|8Spansk køkken"
+    },
+    "cuisine-russian": {
+        "defaultMessage": "7Russisk mad|9Russisk køkken"
+    },
+    "cuisine-portuguese": {
+        "defaultMessage": "9Portugisisk mad|9Portugisisk køkken"
+    },
+    "cuisine-polish": {
+        "defaultMessage": "5Polsk mad|7Polsk køkken"
+    },
+    "amenity-stage": {
+        "defaultMessage": "Scene"
+    },
+    "power-generator-wind": {
+        "defaultMessage": "Vindgenerator"
+    },
+    "shop-grocery|@category_food|@shop": {
+        "defaultMessage": "Dagligvarer"
+    },
+    "cuisine-peruvian": {
+        "defaultMessage": "9Peruviansk mad|9Peruviansk køkken"
+    },
+    "cuisine-persian": {
+        "defaultMessage": "7Persisk mad|9Persisk køkken"
+    },
+    "cuisine-moroccan": {
+        "defaultMessage": "5Marokkansk mad|7Marokkansk køkken"
+    },
+    "cuisine-mexican": {
+        "defaultMessage": "7Mexicansk mad|9Mexicansk køkken"
+    },
+    "cuisine-malaysian|@cuisine_all_asian": {
+        "defaultMessage": "5Malaysisk mad|7Malaysisk køkken"
+    },
+    "cuisine-malagasy": {
+        "defaultMessage": "9Malagassisk mad|9Malagassisk køkken"
+    },
+    "cuisine-lebanese": {
+        "defaultMessage": "8Libanesisk mad|9Libanesisk køkken"
+    },
+    "cuisine-korean|@cuisine_all_asian": {
+        "defaultMessage": "8Koreansk mad|9Koreansk køkken"
+    },
+    "cuisine-japanese|@cuisine_all_asian": {
+        "defaultMessage": "7Japansk mad|9Japansk køkken"
+    },
+    "cuisine-italian": {
+        "defaultMessage": "9Italiansk mad|9Italiansk køkken"
+    },
+    "cuisine-irish": {
+        "defaultMessage": "4Irsk mad|6Irsk køkken"
+    },
+    "cuisine-indonesian|@cuisine_all_asian": {
+        "defaultMessage": "6Indonesisk mad|8Indonesisk køkken"
+    },
+    "cuisine-indian": {
+        "defaultMessage": "6Indisk mad|8Indisk køkken"
+    },
+    "cuisine-hungarian": {
+        "defaultMessage": "7Ungarsk mad|9Ungarsk køkken"
+    },
+    "cuisine-greek": {
+        "defaultMessage": "5Græsk mad|7Græsk køkken"
+    },
+    "cuisine-german": {
+        "defaultMessage": "4Tysk mad|6Tysk køkken"
+    },
+    "cuisine-georgian": {
+        "defaultMessage": "8Georgisk mad|9Georgisk køkken"
+    },
+    "cuisine-french": {
+        "defaultMessage": "6Fransk mad|8Fransk køkken"
+    },
+    "cuisine-filipino": {
+        "defaultMessage": "6Filippinsk mad|8Filippinsk køkken"
+    },
+    "cuisine-ethiopian": {
+        "defaultMessage": "8Etiopisk mad|9Etiopisk køkken"
+    },
+    "cuisine-croatian": {
+        "defaultMessage": "8Kroatisk mad|9Kroatisk køkken"
+    },
+    "cuisine-chinese|@cuisine_all_asian": {
+        "defaultMessage": "8Kinesisk mad|9Kinesisk køkken"
+    },
+    "cuisine-caribbean": {
+        "defaultMessage": "8Caribisk mad|9Caribisk køkken"
+    },
+    "cuisine-brazilian": {
+        "defaultMessage": "8Brasiliansk mad|9Brasiliansk køkken"
+    },
+    "cuisine-balkan": {
+        "defaultMessage": "6Balkan mad|8Balkan køkken"
+    },
+    "cuisine-austrian": {
+        "defaultMessage": "8Østrigsk mad|9Østrigsk køkken"
+    },
+    "cuisine-argentinian": {
+        "defaultMessage": "8Argentinsk mad|9Argentinsk køkken"
+    },
+    "cuisine-arab": {
+        "defaultMessage": "7Arabisk mad|7Arabisk køkken"
+    },
+    "cuisine-american": {
+        "defaultMessage": "8Amerikansk mad|9Amerikansk køkken"
+    },
+    "cuisine-african": {
+        "defaultMessage": "8Afrikansk mad|9Afrikansk køkken"
+    },
+    "shop-farm|@category_food|@shop": {
+        "defaultMessage": "Gårdmad"
+    },
+    "amenity-mobile_money_agent": {
+        "defaultMessage": "6Mobile Money-forhandler"
+    },
+    "natural-saddle|mountain_pass": {
+        "defaultMessage": "5Bjergsadel|5Bjergpas|3Sadel|3Pas"
+    },
+    "leisure-hackerspace": {
+        "defaultMessage": "Hackerspace"
+    },
+    "building-abandoned": {
+        "defaultMessage": "Forladt bygning|forladt"
+    },
+    "cuisine-bubble_tea": {
+        "defaultMessage": "Boblete"
+    },
+    "cuisine-oriental": {
+        "defaultMessage": "8Orientalsk mad|9Orientalsk køkken"
+    },
+    "cuisine-mediterranean": {
+        "defaultMessage": "9Middelhavsmad|9Middelhavskøkken"
+    },
+    "cuisine-lao|@cuisine_all_asian": {
+        "defaultMessage": "7Laotisk mad|9Laotisk køkken"
+    },
+    "cuisine-bavarian": {
+        "defaultMessage": "7Bayersk mad|9Bayersk køkken"
     }
 }

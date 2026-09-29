@@ -897,3 +897,4 @@
 "bookmarks_text_placement_title" = "Vis navnene af favoritterne på kortet";
 "pref_font_size" = "Tekststørrelse på kortet";
 "font_size" = "Tekststørrelse";
+"mode_options_accessibility_hint" = "Vis indstillinger for denne modus";

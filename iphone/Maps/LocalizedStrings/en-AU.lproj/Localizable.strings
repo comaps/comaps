@@ -639,3 +639,4 @@
 "thank_you" = "Thank You";
 "yes_available" = "Yes";
 "osm_profile_reauthorize" = "Reconnect with OpenStreetMap";
+"mode_options_accessibility_hint" = "Shows options for this mode";

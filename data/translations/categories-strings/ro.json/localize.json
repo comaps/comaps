@@ -47,9 +47,6 @@
     "@category_secondhand": {
         "defaultMessage": "La mâna a doua|3Second Hand|Secondhand"
     },
-    "second_hand-yes|second_hand-only|@category_secondhand": {
-        "defaultMessage": ""
-    },
     "amenity-bank|@category_bank": {
         "defaultMessage": "bani"
     },

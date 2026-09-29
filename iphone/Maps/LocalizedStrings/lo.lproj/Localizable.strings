@@ -639,3 +639,4 @@
 "capacity_charging_no" = "ບໍ່ມີບ່ອນຈອດລົດທີ່ມີບ່ອນຊາດໄຟ";
 "pref_font_size" = "ຂະໜາດຕົວອັກສອນສຳລັບປ້າຍຊື່ເທິງແຜນທີ່";
 "font_size" = "Font size";
+"mode_options_accessibility_hint" = "Shows options for this mode";

@@ -1541,3 +1541,4 @@
 "type.railway.subway_entrance.qingdao" = "Subway Entrance";
 "type.aeroway.gate" = "Gate";
 "type.addr_interpolation" = "Address/Block";
+"type.building.abandoned" = "Abandoned Building";

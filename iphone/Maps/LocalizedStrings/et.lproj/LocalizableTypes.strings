@@ -1541,3 +1541,4 @@
 "type.railway.subway_entrance.boston" = "Metroo sissepääs";
 "type.railway.station.subway.boston" = "Bostoni metroojaam";
 "type.railway.subway_entrance.qingdao" = "Metroo sissepääs";
+"type.building.abandoned" = "Abandoned Building";

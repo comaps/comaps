@@ -168,9 +168,9 @@
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D-gebouwen zijn uitgeschakeld in energiebesparingsmodus";
 /* Settings «Route» category: «Tts enabled» title */
-"pref_tts_title" = "Gesproken instructies";
+"pref_tts_title" = "Gesproken aanwijzingen";
 /* Settings «Route» category: «Tts enable» title */
-"pref_tts_enable_title" = "Gesproken instructies inschakelen";
+"pref_tts_enable_title" = "Gesproken aanwijzingen inschakelen";
 /* Settings «Route» category: «Tts announce street names» title */
 "pref_tts_street_names_title" = "Straatnamen aankondigen";
 /* Settings «Route» category: «Tts announce street names» description */
@@ -178,7 +178,7 @@
 /* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "Gesproken taal";
 /* Settings «Route» category: «Test Voice Directions» title */
-"pref_tts_test_voice_title" = "Gesproken instructies testen";
+"pref_tts_test_voice_title" = "Gesproken aanwijzingen testen";
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "Andere";
 "pref_map_auto_zoom" = "Automatisch zoomen";
@@ -308,7 +308,7 @@
 "blue_gray" = "Grijsblauw";
 "dialog_routing_disclaimer_title" = "Belangrijk bij het volgen van een route:";
 "dialog_routing_disclaimer_priority" = "— De situatie op de weg, verkeersregels en verkeersborden gaan altijd vóór op het advies van het navigatiesysteem;";
-"dialog_routing_disclaimer_precision" = "— De kaart kan onnauwkeurig zijn en de voorgestelde route is niet altijd de meest optimale manier om uw bestemming te bereiken;";
+"dialog_routing_disclaimer_precision" = "— De kaart kan onnauwkeurig zijn en de voorgestelde route is niet altijd de meest optimale manier om de bestemming te bereiken;";
 "dialog_routing_disclaimer_recommendations" = "— Beschouw de voorgestelde routes enkel als aanbevelingen;";
 "dialog_routing_disclaimer_borders" = "— Wees voorzichtig met routes in grensgebieden: door onze app gemaakte routes kunnen soms landsgrenzen kruisen waar toegangsbeperkingen gelden.";
 "dialog_routing_disclaimer_beware" = "Blijf alert en rijd veilig!";
@@ -494,7 +494,7 @@
 "downloader_no_downloaded_maps_title" = "U hebt geen kaarten gedownload";
 "downloader_no_downloaded_maps_message" = "Download kaarten om offline te zoeken en navigeren.";
 "current_location_unknown_error_title" = "Huidige locatie is onbekend.";
-"current_location_unknown_error_message" = "Er is een fout opgetreden tijdens het zoeken naar uw locatie. Controleer of uw apparaat goed werkt en probeer het later opnieuw.";
+"current_location_unknown_error_message" = "Er is een fout opgetreden tijdens het bepalen van uw locatie. Controleer of uw apparaat goed werkt en probeer het later opnieuw.";
 "location_services_disabled_header" = "Locatiediensten zijn uitgeschakeld";
 "location_services_disabled_message" = "Schakel de toegang tot geolocatie in in de instellingen van het apparaat";
 "location_services_disabled_1" = "1. Instellingen openen";
@@ -741,7 +741,7 @@
 "downloader_updating_ios" = "Updaten";
 "downloader_loading_ios" = "Downloaden";
 /* Autoupdate dialog on start */
-"whats_new_auto_update_title" = "Werk uw gedownloade kaarten bij";
+"whats_new_auto_update_title" = "Werk de gedownloade kaarten bij";
 /* Autoupdate dialog on start */
 "whats_new_auto_update_message" = "Kaarten bijwerken houdt de informatie over objecten actueel";
 /* Autoupdate dialog on start */
@@ -897,3 +897,4 @@
 "bookmarks_text_placement_title" = "Namen van favorieten op kaart tonen";
 "pref_font_size" = "Lettergrootte voor kaartlabels";
 "font_size" = "Lettergrootte";
+"mode_options_accessibility_hint" = "Toont opties voor deze modus";

@@ -1544,4 +1544,5 @@
     <string name="type.railway.station.subway.boston">Metrostation</string>
     <string name="type.railway.subway_entrance.boston">Metro-ingang</string>
     <string name="type.railway.subway_entrance.qingdao">Metro-ingang</string>
+    <string name="type.building.abandoned">Verlaten gebouw</string>
 </resources>

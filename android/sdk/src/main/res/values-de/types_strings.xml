@@ -1546,4 +1546,5 @@
     <string name="type.railway.station.subway.boston">U-Bahn-Station</string>
     <string name="type.railway.subway_entrance.boston">U-Bahn-Eingang</string>
     <string name="type.railway.subway_entrance.qingdao">U-Bahn-Eingang</string>
+    <string name="type.building.abandoned">Verlassenes Gebäude</string>
 </resources>

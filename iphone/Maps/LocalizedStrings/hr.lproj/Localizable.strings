@@ -723,7 +723,7 @@
 "fuel_places" = "Benzinske postaje";
 "medicine" = "Lijekovi";
 "search_in_the_list" = "Traži u popisu";
-"religious_places" = "Vjerska mjesta";
+"religious_places" = "Religiozna mjesta";
 "transit_not_found" = "Navigacija podzemnom željeznicom u ovoj regiji još nije dostupna";
 "dialog_pedestrian_route_is_long_header" = "Nije pronađena ruta podzemne željeznice";
 "dialog_pedestrian_route_is_long_message" = "Molimo odaberite početnu ili završnu točku bliže stanici podzemne željeznice";
@@ -897,3 +897,4 @@
 "bookmarks_text_placement_title" = "Show names of favorites on map";
 "pref_font_size" = "Font size for map labels";
 "font_size" = "Font size";
+"mode_options_accessibility_hint" = "Shows options for this mode";

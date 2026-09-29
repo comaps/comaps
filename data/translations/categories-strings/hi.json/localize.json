@@ -44,9 +44,6 @@
     "@category_secondhand": {
         "defaultMessage": "सेकंड हैंड"
     },
-    "second_hand-yes|second_hand-only|@category_secondhand": {
-        "defaultMessage": ""
-    },
     "@category_recycling": {
         "defaultMessage": "पुनर्चक्रण"
     },

@@ -47,9 +47,6 @@
     "@category_secondhand": {
         "defaultMessage": "Втора употреба"
     },
-    "second_hand-yes|second_hand-only|@category_secondhand": {
-        "defaultMessage": ""
-    },
     "amenity-bank|@category_bank": {
         "defaultMessage": "пари"
     },

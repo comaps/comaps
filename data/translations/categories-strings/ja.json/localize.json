@@ -47,9 +47,6 @@
     "@category_secondhand": {
         "defaultMessage": "中古品"
     },
-    "second_hand-yes|second_hand-only|@category_secondhand": {
-        "defaultMessage": ""
-    },
     "amenity-bank|@category_bank": {
         "defaultMessage": "バンク|お金|マネー|金|引き出し|預金|振り込み"
     },

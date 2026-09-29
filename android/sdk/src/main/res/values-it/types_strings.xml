@@ -1540,4 +1540,6 @@
     <string name="type.leisure.indoor_play">Parco giochi al chiuso</string>
     <string name="type.emergency.disaster_help_point">Punto di assistenza per calamità</string>
     <string name="type.shop.beauty.day_spa">Centro benessere</string>
+    <string name="type.building.abandoned">Edificio abbandonato</string>
+    <string name="type.railway.station.subway.boston">Stazione della metropolitana</string>
 </resources>

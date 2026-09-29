@@ -897,3 +897,4 @@
 "bookmarks_text_placement_title" = "Zobrazit názvy oblíbených na mapě";
 "pref_font_size" = "Velikost písma pro popisky na mapě";
 "font_size" = "Velikost písma";
+"mode_options_accessibility_hint" = "Shows options for this mode";

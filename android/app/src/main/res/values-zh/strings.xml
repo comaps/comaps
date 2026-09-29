@@ -532,13 +532,13 @@
     <string name="accept">接受</string>
     <!-- For the first routing -->
     <string name="decline">拒绝</string>
-    <string name="mobile_data_dialog">使用移动网络显示更多详细信息吗？</string>
+    <string name="mobile_data_dialog">要使用移动网络吗？</string>
     <string name="mobile_data_option_always">始终使用</string>
     <string name="mobile_data_option_today">仅在今天</string>
     <string name="mobile_data_option_not_today">今天不使用</string>
     <string name="mobile_data">移动网络</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">地图更新通知和上传编辑内容需要移动互联网</string>
+    <string name="mobile_data_description">地图更新通知、上传编辑内容和链接到点评网站需要移动网络</string>
     <string name="mobile_data_option_never">从不使用</string>
     <string name="mobile_data_option_ask">总是询问</string>
     <string name="traffic_update_maps_text">要显示交通数据，必须更新地图</string>
@@ -987,7 +987,11 @@
     <string name="place_reviews_title">地点评论</string>
     <string name="place_reviews">%1$s 评论</string>
     <string name="rating_stars_description">星级：%.1f</string>
-    <string name="reviews_by_mangrove">来自 Mangrove 的评价。\n在 <a href="https://mapcomplete.org">MapComplete</a> 中添加评价。</string>
+    <string name="reviews_by_mangrove">来自 Mangrove 的点评</string>
     <string name="pref_font_size">地图标签的字体大小</string>
     <string name="decrease_font_size">减小地图标签大小</string>
+    <string name="add_review">通过 %1$s 添加点评</string>
+    <string name="add_review_url_resolution_failed">在最新的 OpenStreetMap 中未找到该地点。</string>
+    <string name="add_review_url_resolution_failed_dev">在 DEV OpenStreetMap 中未找到该地点。</string>
+    <string name="internet_unavailable">未连接到互联网</string>
 </resources>

@@ -29,9 +29,6 @@
     "@category_secondhand": {
         "defaultMessage": "Mtumba"
     },
-    "second_hand-yes|second_hand-only|@category_secondhand": {
-        "defaultMessage": ""
-    },
     "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
         "defaultMessage": "Baa|vinywaji"
     },

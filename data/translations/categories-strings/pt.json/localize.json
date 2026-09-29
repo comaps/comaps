@@ -47,9 +47,6 @@
     "@category_secondhand": {
         "defaultMessage": "Em segunda mão"
     },
-    "second_hand-yes|second_hand-only|@category_secondhand": {
-        "defaultMessage": ""
-    },
     "amenity-bank|@category_bank": {
         "defaultMessage": "dinheiro|U+1F3E6|U+1F4B0|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"
     },

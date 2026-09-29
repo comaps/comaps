@@ -897,3 +897,4 @@
 "bookmarks_text_placement_title" = "Mostrar nombres de los favoritos en el mapa";
 "pref_font_size" = "Tamaño de letra para etiquetas de mapas";
 "font_size" = "Tamaño de letra";
+"mode_options_accessibility_hint" = "Muestra opciones para este modo";

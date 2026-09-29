@@ -319,5 +319,137 @@
     },
     "at_the_end_of_the_road": {
         "defaultMessage": "Ved enden af vejen,"
+    },
+    "from_50_meters": {
+        "defaultMessage": "halvtreds meter"
+    },
+    "from_100_meters": {
+        "defaultMessage": "et hundrede meter"
+    },
+    "from_200_meters": {
+        "defaultMessage": "to hundrede meter"
+    },
+    "from_250_meters": {
+        "defaultMessage": "to hundrede og halvtreds meter"
+    },
+    "from_300_meters": {
+        "defaultMessage": "tre hundrede meter"
+    },
+    "from_400_meters": {
+        "defaultMessage": "fire hundrede meter"
+    },
+    "from_500_meters": {
+        "defaultMessage": "fem hundrede meter"
+    },
+    "from_600_meters": {
+        "defaultMessage": "seks hundrede meter"
+    },
+    "from_700_meters": {
+        "defaultMessage": "syv hundrede meter"
+    },
+    "from_750_meters": {
+        "defaultMessage": "syv hundrede og halvtreds meter"
+    },
+    "from_800_meters": {
+        "defaultMessage": "otte hundrede meter"
+    },
+    "from_900_meters": {
+        "defaultMessage": "ni hundrede meter"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "en kilometer"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "halvanden kilometer"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "to kilometer"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "to en halv kilometer"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "tre kilometer"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "mere end tre kilometer"
+    },
+    "from_50_feet": {
+        "defaultMessage": "halvtreds fod"
+    },
+    "from_100_feet": {
+        "defaultMessage": "et hundrede fod"
+    },
+    "from_200_feet": {
+        "defaultMessage": "to hundrede fod"
+    },
+    "from_300_feet": {
+        "defaultMessage": "tre hundrede fod"
+    },
+    "from_400_feet": {
+        "defaultMessage": "fire hundrede fod"
+    },
+    "from_500_feet": {
+        "defaultMessage": "fem hundrede fod"
+    },
+    "from_600_feet": {
+        "defaultMessage": "seks hundrede fod"
+    },
+    "from_700_feet": {
+        "defaultMessage": "syv hundrede fod"
+    },
+    "from_800_feet": {
+        "defaultMessage": "otte hundrede fod"
+    },
+    "from_900_feet": {
+        "defaultMessage": "ni hundrede fod"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "et tusind fod"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "et tusind fem hundrede fod"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "to tusind fod"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "to tusinde fem hundrede fod"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "tre tusind fod"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "tre tusind fem hundrede fod"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "fire tusind fod"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "fire tusind fem hundrede fod"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "fem tusind fod"
+    },
+    "from_1_mile": {
+        "defaultMessage": "en mil"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "halvanden mil"
+    },
+    "from_2_miles": {
+        "defaultMessage": "to mil"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Du er %1$s fra ruten"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Om mere end tre kilometer"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "Om mere end to mil"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "mere end to mil"
     }
 }

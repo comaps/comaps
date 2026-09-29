@@ -10,7 +10,7 @@
 /* Title of offline maps explanation */
 "offline_explanation_title" = "Offlinekartor";
 /* Text of offline maps explanation */
-"offline_explanation_text" = "A map needs to be downloaded to view and navigate the area.\nDownload maps for areas you want to travel.";
+"offline_explanation_text" = "En karta måste laddas ner för att visa området och navigera i området.\nLadda ner kartor för de områden du vill resa i.";
 /* Choose measurement on first launch alert - choose metric system button */
 "kilometres" = "Kilometer";
 /* Leave Review dialog - Review button */
@@ -574,10 +574,10 @@
 "traffic_data_unavailable" = "Trafikdata är inte tillgänglig";
 "enable_logging" = "Aktivera loggning";
 "log_file_size" = "Loggfilens storlek: %@";
-"pref_alt_map_lang_handling" = "Alternative Map Languages";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
-"pref_alt_map_lang_handling_system_order" = "Use in system order";
-"pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
+"pref_alt_map_lang_handling" = "Alternativa Kartspråk";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Använd inte alternativa språk";
+"pref_alt_map_lang_handling_system_order" = "Använd i systemordning";
+"pref_alt_map_lang_handling_local_only" = "Föredra och använd alltid där inhemskt";
 "transliteration_title" = "Translitterera till latinska alfabetet";
 "transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
 /* Subway exits for public transport marks on the map */
@@ -861,7 +861,7 @@
 "downloader_check_updates_no_updates" = "Inga uppdateringar tillgängliga";
 "downloader_check_updates_eol" = "Inga flera kartuppdateringar för denna version. Vänligen uppdatera appen!";
 "downloader_check_updates_error" = "Fel under sökning av uppdateringar";
-"editor_add_select_category_recent_subtitle" = "Recently Used";
+"editor_add_select_category_recent_subtitle" = "Nyligen använda";
 "oh_unknown" = "Okända öppettider";
 "carplay_highway_exit" = "Exit %@";
 "capacity_disabled_yes" = "Has dedicated disabled spaces";
@@ -870,7 +870,7 @@
 "capacity_charging_no" = "No spaces with chargers";
 "planning_route_preview" = "Förhandsgranska";
 "planning_route_preview_sheet_title" = "Route Preview";
-"discard" = "Discard";
+"discard" = "Kasta bort";
 "pref_custom_button_type" = "Customizable Button";
 "osm" = "OpenStreetMap";
 "mode" = "Mode";
@@ -897,3 +897,4 @@
 "bookmarks_text_placement_title" = "Visa namn på favoriter på kartan";
 "pref_font_size" = "Textstorlek för kartetiketter";
 "font_size" = "Font size";
+"mode_options_accessibility_hint" = "Shows options for this mode";

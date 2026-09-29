@@ -897,3 +897,4 @@
 "bookmarks_text_placement_title" = "Εμφάνιση ονομάτων αγαπημένων στον χάρτη";
 "pref_font_size" = "Μέγεθος γραμματοσειράς για ετικέτες χάρτη";
 "font_size" = "Μέγεθος γραμματοσειράς";
+"mode_options_accessibility_hint" = "Shows options for this mode";

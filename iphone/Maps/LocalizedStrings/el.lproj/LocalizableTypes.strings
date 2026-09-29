@@ -1541,3 +1541,4 @@
 "type.railway.subway_entrance.boston" = "Είσοδος μετρό";
 "type.railway.station.subway.boston" = "Σταθμός μετρό";
 "type.railway.subway_entrance.qingdao" = "Είσοδος μετρό";
+"type.building.abandoned" = "Abandoned Building";

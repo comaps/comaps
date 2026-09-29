@@ -1544,4 +1544,5 @@
     <string name="type.railway.station.subway.boston">Метро станица</string>
     <string name="type.railway.subway_entrance.boston">Улаз у метро</string>
     <string name="type.railway.subway_entrance.qingdao">Улаз у метро</string>
+    <string name="type.building.abandoned">Напуштена зграда</string>
 </resources>

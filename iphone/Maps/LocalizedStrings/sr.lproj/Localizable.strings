@@ -897,3 +897,4 @@
 "bookmarks_text_placement_title" = "Прикажи имена маркера на мапи";
 "pref_font_size" = "Увећана слова на мапи";
 "font_size" = "Величина слова";
+"mode_options_accessibility_hint" = "Прикажи опције за овај режим";

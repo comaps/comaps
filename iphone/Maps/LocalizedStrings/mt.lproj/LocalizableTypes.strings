@@ -1541,3 +1541,4 @@
 "type.railway.subway_entrance.boston" = "Subway Entrance";
 "type.railway.station.subway.boston" = "Subway Station";
 "type.railway.subway_entrance.qingdao" = "Subway Entrance";
+"type.building.abandoned" = "Abandoned Building";

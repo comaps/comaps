@@ -44,9 +44,6 @@
     "@category_secondhand": {
         "defaultMessage": "4Сэканд-хэнд"
     },
-    "second_hand-yes|second_hand-only|@category_secondhand": {
-        "defaultMessage": ""
-    },
     "@category_recycling": {
         "defaultMessage": "Перапрацоўка|5Перапрацоўка адходаў|Утылізацыя адходаў|5Прыём другаснай сыравіны|5Здаць другсыравіну|Паасобны збор смецця|Сартаванне смецця|Паўторнае выкарыстанне|Утыль"
     },

@@ -47,9 +47,6 @@
     "@category_secondhand": {
         "defaultMessage": "Käytetyt tavarat"
     },
-    "second_hand-yes|second_hand-only|@category_secondhand": {
-        "defaultMessage": ""
-    },
     "@category_recycling": {
         "defaultMessage": "Jätteiden kierrätys|Jätteiden hyötykäyttö|Kierrätyskelpoinen jäte|Jätelajittelu|Jätteiden lajittelu|Hyötykäyttö"
     },

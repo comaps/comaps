@@ -1540,3 +1540,4 @@
 "type.railway.subway_entrance.boston" = "Boca de metro|Entrada de metro";
 "type.railway.station.subway.boston" = "Estació de metro";
 "type.railway.subway_entrance.qingdao" = "Boca de metro";
+"type.building.abandoned" = "Edifici abandonat";

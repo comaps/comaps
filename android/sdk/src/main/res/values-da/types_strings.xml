@@ -1536,7 +1536,8 @@
     <string name="type.amenity.toilets.private">Privat adgang</string>
     <string name="type.amenity.animal_boarding">Dyrepension</string>
     <string name="type.landuse.military.danger_area">Militært område</string>
-    <string name="type.railway.station.subway.boston">Metro</string>
+    <string name="type.railway.station.subway.boston">Metrostation</string>
     <string name="type.railway.subway_entrance.boston">Metroindgang</string>
     <string name="type.railway.subway_entrance.qingdao">Metroindgang</string>
+    <string name="type.building.abandoned">Forladt bygning</string>
 </resources>

@@ -897,3 +897,4 @@
 "bookmarks_text_placement_title" = "Näita kaardil lemmikute nimesid";
 "pref_font_size" = "Kirjasuurus kaardisiltidel";
 "font_size" = "Kirjatüübi suurus";
+"mode_options_accessibility_hint" = "Shows options for this mode";

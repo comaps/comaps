@@ -1539,5 +1539,6 @@
 "type.amenity.planetarium" = "Planetarium";
 "type.landuse.military.danger_area" = "Militært område";
 "type.railway.subway_entrance.boston" = "Metroindgang";
-"type.railway.station.subway.boston" = "Metro";
+"type.railway.station.subway.boston" = "Metrostation";
 "type.railway.subway_entrance.qingdao" = "Metroindgang";
+"type.building.abandoned" = "Forladt bygning";

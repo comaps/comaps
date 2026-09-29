@@ -1448,3 +1448,4 @@
 "type.place.city" = "City";
 "type.amenity.parking_entrance.permissive" = "Parking Entrance";
 "type.man_made.silo" = "Silo";
+"type.building.abandoned" = "Abandoned Building";

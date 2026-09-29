@@ -922,3 +922,4 @@
 "pref_font_size" = "Font size for map labels";
 "font_size" = "Font size";
 "category_rv" = "RV Facilities";
+"mode_options_accessibility_hint" = "Shows options for this mode";

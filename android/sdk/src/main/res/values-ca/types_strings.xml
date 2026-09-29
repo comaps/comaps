@@ -1452,4 +1452,5 @@
     <string name="type.railway.subway_entrance.boston">Boca de metro|Entrada de metro</string>
     <string name="type.railway.station.subway.boston">Estació de metro</string>
     <string name="type.landuse.military.danger_area">Àrea de perill militar|Zona de perill militar|Zona de risc militar|Zona militar restringida</string>
+    <string name="type.building.abandoned">Edifici abandonat</string>
 </resources>
