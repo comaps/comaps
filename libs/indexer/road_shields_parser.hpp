@@ -53,6 +53,8 @@ enum class RoadShieldType
   Highway_Hexagon_Turkey,
   US_Interstate,
   US_Highway,
+  US_State,
+  US_Interstate_Business,
   UK_Highway,
   UY_National,
   Italy_Autostrada,
