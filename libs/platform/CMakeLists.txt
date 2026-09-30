@@ -148,6 +148,7 @@ else() # neither iPhone nor Android
       secure_storage_qt.cpp
       socket_apple.mm
       http_session_manager.mm
+      crypto/ed25519_monocypher.cpp
     )
   elseif(${PLATFORM_LINUX})
     append(SRC
@@ -177,7 +178,7 @@ if (PLATFORM_LINUX OR PLATFORM_WIN)
   set_target_properties(${PROJECT_NAME} PROPERTIES AUTOMOC ON)
 endif()
 
-if (NOT APPLE)
+if (NOT PLATFORM_IPHONE)
   target_link_libraries(${PROJECT_NAME} PUBLIC monocypher)
 endif()
 

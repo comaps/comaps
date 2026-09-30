@@ -1,5 +1,4 @@
 #include "platform/crypto/ed25519.hpp"
-#include "base/logging.hpp"
 
 #import "platform-Swift.h"
 
