@@ -216,8 +216,6 @@
 "type.barrier.chain" = "Chain";
 "type.barrier.city_wall" = "دیوار شهر";
 "type.barrier.cycle_barrier" = "Cycle Barrier";
-"type.barrier.bus_trap" = "Bus Trap";
-"type.barrier.sump_buster" = "Sump Buster";
 "type.waterway.ditch" = "خندق زهکشی";
 "type.natural.water.moat" = "ﻕﺪﻨﺧ";
 "type.natural.water.wastewater" = "فاضلاب";
