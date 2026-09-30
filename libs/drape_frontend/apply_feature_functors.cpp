@@ -216,6 +216,8 @@ bool IsSymbolRoadShield(ftypes::RoadShield const & shield)
          shield.m_type == ftypes::RoadShieldType::UY_National ||
          shield.m_type == ftypes::RoadShieldType::US_Interstate ||
          shield.m_type == ftypes::RoadShieldType::US_Highway ||
+         shield.m_type == ftypes::RoadShieldType::US_State ||
+         shield.m_type == ftypes::RoadShieldType::US_Interstate_Business ||
          shield.m_type == ftypes::RoadShieldType::Italy_Autostrada ||
          shield.m_type == ftypes::RoadShieldType::Argentina_RN ||
          shield.m_type == ftypes::RoadShieldType::Bolivia_Fundamental ||
@@ -243,6 +245,18 @@ std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fo
     result = shield.m_name.size() <= 2 ? "shield-us-i-thin" : "shield-us-i-wide";
   else if (shield.m_type == ftypes::RoadShieldType::US_Highway)
     result = shield.m_name.size() <= 2 ? "shield-us-hw-thin" : "shield-us-hw-wide";
+  else if (shield.m_type == ftypes::RoadShieldType::US_State){
+    std::string stateCode = shield.m_additionalText;
+    strings::AsciiToLower(stateCode);
+    if (shield.m_name.size() <= 2){
+      result = "shield-us-" + stateCode;
+    } else {
+      result = "shield-us-" + stateCode + "-wide";
+    }
+  }
+  else if (shield.m_type == ftypes::RoadShieldType::US_Interstate_Business) {
+    result = shield.m_name.size() <= 2 ? "shield-us-i-bus-thin" : "shield-us-i-bus-wide";
+  }
   else if (shield.m_type == ftypes::RoadShieldType::Italy_Autostrada)
     result = "shield-it-a";
   else if (shield.m_type == ftypes::RoadShieldType::Hungary_Green)
@@ -372,6 +386,8 @@ dp::Color GetRoadShieldTextColor(dp::Color const & baseColor, ftypes::RoadShield
       {RoadShieldType::UY_National, kRoadShieldWhiteTextColor},
       {RoadShieldType::US_Interstate, kRoadShieldWhiteTextColor},
       {RoadShieldType::US_Highway, kRoadShieldBlackTextColor},
+      {RoadShieldType::US_State, kRoadShieldBlackTextColor},
+      {RoadShieldType::US_Interstate_Business, kRoadShieldWhiteTextColor},
       {RoadShieldType::UK_Highway, kRoadShieldUKYellowTextColor},
       {RoadShieldType::Italy_Autostrada, kRoadShieldWhiteTextColor},
       {RoadShieldType::Bolivia_Fundamental, kRoadShieldWhiteTextColor},
@@ -1138,9 +1154,8 @@ void ApplyLineFeatureAdditional::GetRoadShieldsViewParams(ref_ptr<dp::TextureMan
     shieldPixelSize = region.GetPixelSize();
   }
 
-  // Brazil state shields use m_additionalText to select the symbol, it is not a caption.
-  if (!shield.m_additionalText.empty() && shield.m_type != ftypes::RoadShieldType::Brazil_State &&
-      (anchor & dp::Top || anchor & dp::Center))
+  // Brazil and US state shields use m_additionalText to select the symbol. This text is not a caption, so it should not be rendered as one.
+  if (!shield.m_additionalText.empty() && shield.m_type != ftypes::RoadShieldType::Brazil_State && shield.m_type != ftypes::RoadShieldType::US_State && (anchor & dp::Top || anchor & dp::Center))
   {
     auto & titleDecl = textParams.m_titleDecl;
     titleDecl.m_secondaryText = shield.m_additionalText;
