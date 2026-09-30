@@ -51,7 +51,9 @@ void RelationTagsNode::Process(RelationElement const & e)
   bool const processAssociatedStreet =
       type == "associatedStreet" && Base::IsKeyTagExists("addr:housenumber") && !Base::IsKeyTagExists("addr:street");
   // "label" means the node represents the relation itself, "admin_centre" just means it is the capital.
-  bool const isLabelRole = e.GetNodeRole(Base::m_featureID) == "label";
+  // But if the name tags match we still consider them to be the same place and inherit wiki tags.
+  auto const nodeName = Base::m_current->GetTag("name");
+  bool const isSamePlace = e.GetNodeRole(Base::m_featureID) == "label" || (!nodeName.empty() && nodeName == e.GetTagValue("name"));
   for (auto const & p : e.m_tags)
   {
     // - used in railway station processing
@@ -70,7 +72,7 @@ void RelationTagsNode::Process(RelationElement const & e)
     }
     else if (isBoundary && isPlaceDest && (p.first == "wikipedia" || p.first == "wikidata"))
     {
-      if (isLabelRole && !Base::IsKeyTagExists(p.first))
+      if (isSamePlace && !Base::IsKeyTagExists(p.first))
         Base::AddCustomTag(p);
     }
   }
