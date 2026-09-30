@@ -216,6 +216,8 @@
 "type.barrier.chain" = "Chain";
 "type.barrier.city_wall" = "शहर की दीवार";
 "type.barrier.cycle_barrier" = "Cycle Barrier";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";
 "type.waterway.ditch" = "Drainage Ditch";
 "type.natural.water.moat" = "Moat";
 "type.natural.water.wastewater" = "Wastewater";

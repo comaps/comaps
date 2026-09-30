@@ -216,6 +216,8 @@
 "type.barrier.chain" = "Chain";
 "type.barrier.city_wall" = "Ukuta wa jiji";
 "type.barrier.cycle_barrier" = "Cycle Barrier";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";
 "type.waterway.ditch" = "Mfereji wa mifereji ya maji";
 "type.natural.water.moat" = "Moti";
 "type.natural.water.wastewater" = "Maji machafu";

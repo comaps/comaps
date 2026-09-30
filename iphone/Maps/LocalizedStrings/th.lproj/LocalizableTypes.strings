@@ -216,6 +216,8 @@
 "type.barrier.chain" = "Chain";
 "type.barrier.city_wall" = "กำแพงเมือง";
 "type.barrier.cycle_barrier" = "Cycle Barrier";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";
 "type.waterway.ditch" = "คูระบายน้ำ";
 "type.natural.water.moat" = "คูเมือง";
 "type.natural.water.wastewater" = "น้ำเสีย";

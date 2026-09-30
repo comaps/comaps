@@ -216,6 +216,8 @@
 "type.barrier.chain" = "Ланцуг";
 "type.barrier.city_wall" = "Гарадскі вал";
 "type.barrier.cycle_barrier" = "Cycle Barrier";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";
 "type.waterway.ditch" = "Дрэнажная канава";
 "type.natural.water.moat" = "Роў";
 "type.natural.water.wastewater" = "Сцёкавыя вады";

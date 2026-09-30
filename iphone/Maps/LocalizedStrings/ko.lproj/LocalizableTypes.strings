@@ -216,6 +216,8 @@
 "type.barrier.chain" = "Chain";
 "type.barrier.city_wall" = "도시의 벽";
 "type.barrier.cycle_barrier" = "Cycle Barrier";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";
 "type.waterway.ditch" = "배수구";
 "type.natural.water.moat" = "해자 외호";
 "type.natural.water.wastewater" = "폐수";

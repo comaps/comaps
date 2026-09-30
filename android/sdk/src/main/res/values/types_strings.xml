@@ -227,6 +227,8 @@
     <string name="type.barrier.chain">Chain</string>
     <string name="type.barrier.city_wall">City Wall</string>
     <string name="type.barrier.cycle_barrier">Cycle Barrier</string>
+    <string name="type.barrier.bus_trap">Bus Trap</string>
+    <string name="type.barrier.sump_buster">Sump Buster</string>
     <string name="type.waterway.ditch">Drainage Ditch</string>
     <string name="type.natural.water.moat">Moat</string>
     <string name="type.natural.water.wastewater">Wastewater</string>
