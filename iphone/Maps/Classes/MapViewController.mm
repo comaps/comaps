@@ -22,6 +22,8 @@
 
 #include "geometry/mercator.hpp"
 
+#include "base/logging.hpp"
+
 // If you have a "missing header error" here, then please run configure.sh script in the root repo
 // folder.
 #import "../../../private.h"
@@ -829,6 +831,8 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
   [[self.mapView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor] setActive:YES];
   self.mainView.hidden = NO;
   self.controlsView.hidden = NO;
+  LOG(LINFO, ("[CarPlay] [ViewportDiag] phone disableCarPlayRepresentation setVisibleViewport bounds=",
+              NSStringFromCGRect(self.view.bounds).UTF8String));
   [MWMFrameworkHelper setVisibleViewport:self.view.bounds scaleFactor:self.view.contentScaleFactor];
 }
 

@@ -140,6 +140,7 @@ final class CarPlayDashboardMapViewController: UIViewController {
     if !mapView.drapeEngineCreated && !MapsAppDelegate.isTestsEnvironment() {
       mapView.createDrapeEngine()
     }
+    LOG(.info, "\(CarPlayLogging.carPlay) [ViewportDiag] dashboard setVisibleViewport frame=\(view.bounds)")
     FrameworkHelper.setVisibleViewport(view.bounds, scaleFactor: mapView.contentScaleFactor)
     CarPlayService.shared.mapViewportDidBecomeReady(mapView)
   }

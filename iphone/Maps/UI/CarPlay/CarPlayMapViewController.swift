@@ -28,6 +28,11 @@ final class CarPlayMapViewController: MWMViewController {
     updateVisibleViewPortState(viewPortState)
   }
 
+  override func viewSafeAreaInsetsDidChange() {
+    super.viewSafeAreaInsetsDidChange()
+    LOG(.info, "\(CarPlayLogging.carPlay) [ViewportDiag] safeAreaInsetsDidChange state=\(viewPortState) insets=\(view.safeAreaInsets)")
+  }
+
   func addMapView(_ mapView: EAGLView, mapButtonSafeAreaLayoutGuide: UILayoutGuide) {
     mapView.translatesAutoresizingMaskIntoConstraints = false
     removeMapView()
@@ -42,6 +47,7 @@ final class CarPlayMapViewController: MWMViewController {
     speedInfoView.trailingAnchor.constraint(equalTo: mapButtonSafeAreaLayoutGuide.trailingAnchor).isActive = true
 
     speedCamLimitContainer.layer.borderWidth = 2.0
+    LOG(.info, "\(CarPlayLogging.carPlay) [ViewportDiag] addMapView state=\(viewPortState) insets=\(view.safeAreaInsets)")
   }
 
   func removeMapView() {
@@ -186,6 +192,7 @@ final class CarPlayMapViewController: MWMViewController {
 
   private func updateVisibleViewPort(frame: CGRect) {
     guard CarPlayService.shared.isCarplayActivated, let mapView else { return }
+    LOG(.info, "\(CarPlayLogging.carPlay) [ViewportDiag] carplay setVisibleViewport state=\(viewPortState) insets=\(view.safeAreaInsets) frame=\(frame)")
     FrameworkHelper.setVisibleViewport(frame, scaleFactor: mapView.contentScaleFactor)
     CarPlayService.shared.mapViewportDidBecomeReady(mapView)
   }

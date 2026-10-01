@@ -11,8 +11,10 @@ final class VisibleArea: AvailableArea {
 
   override func notifyObserver() {
     if CarPlayService.shared.isCarplayActivated {
+      LOG(.info, "\(CarPlayLogging.carPlay) [ViewportDiag] phone VisibleArea skipped reason=carplayActivated areaFrame=\(areaFrame) carHosting=\(CarPlayService.shared.isHostingMapOnCarScreen)")
       return
     }
+    LOG(.info, "\(CarPlayLogging.carPlay) [ViewportDiag] phone VisibleArea setVisibleViewport frame=\(areaFrame)")
     FrameworkHelper.setVisibleViewport(areaFrame, scaleFactor: MapViewController.shared()?.mapView.contentScaleFactor ?? 1.0)
   }
 }
