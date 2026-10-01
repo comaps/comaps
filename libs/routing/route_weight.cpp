@@ -101,6 +101,14 @@ bool RouteWeight::operator<(RouteWeight const & rhs) const
     return m_weight < rhs.m_weight;
   */
 
+  if ((m_numPassThroughChanges | m_numAccessChanges | m_numAccessConditionalPenalties) == 0 &&
+      (rhs.m_numPassThroughChanges | rhs.m_numAccessChanges | rhs.m_numAccessConditionalPenalties) == 0)
+  {
+    if (m_weight != rhs.m_weight)
+      return m_weight < rhs.m_weight;
+    return m_transitTime > rhs.m_transitTime;
+  }
+
   // The reason behind that is described here:
   // https://github.com/organicmaps/organicmaps/issues/1788
   // Before that change, a very small weight but with m_numPassThroughChanges > 0 was *always worse* than
