@@ -59,6 +59,11 @@ public class MapController implements DefaultLifecycleObserver
     mMap.updateMyPositionRoutingOffset(offsetY);
   }
 
+  public void setCarNavigationView(boolean enabled)
+  {
+    mMap.setCarNavigationView(enabled);
+  }
+
   public void setOnDestroyListener(@NonNull Runnable task)
   {
     mOnSurfaceDestroyedListener = task;
