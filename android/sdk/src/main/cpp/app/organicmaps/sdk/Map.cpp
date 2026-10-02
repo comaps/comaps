@@ -117,6 +117,11 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Map_nativeUpdateMyPositionRoutin
   g_framework->UpdateMyPositionRoutingOffset(offsetY);
 }
 
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Map_nativeSetCarNavigationView(JNIEnv *, jclass, jboolean enabled)
+{
+  g_framework->SetCarNavigationView(static_cast<bool>(enabled));
+}
+
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Map_nativeApplyWidgets(JNIEnv *, jclass)
 {
   g_framework->ApplyWidgets();

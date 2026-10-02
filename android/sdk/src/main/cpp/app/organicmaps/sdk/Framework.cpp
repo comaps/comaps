@@ -809,6 +809,11 @@ void Framework::UpdateMyPositionRoutingOffset(int offsetY)
   NativeFramework()->UpdateMyPositionRoutingOffset(false, offsetY);
 }
 
+void Framework::SetCarNavigationView (bool enabled)
+{
+  NativeFramework()->SetCarNavigationView(enabled);
+}
+
 void Framework::ApplyWidgets()
 {
   gui::TWidgetsLayoutInfo layout;
