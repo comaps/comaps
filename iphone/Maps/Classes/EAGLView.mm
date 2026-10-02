@@ -194,6 +194,7 @@ double getExactDPI(double contentScaleFactor)
   {
     m_lastViewSize = self.frame;
     CGSize const objcSize = [self pixelSize];
+    LOG(LINFO, ("[CarPlay] [ViewportDiag] EAGLView OnSize px=", objcSize.width, objcSize.height));
     GetFramework().OnSize(static_cast<int>(objcSize.width), static_cast<int>(objcSize.height));
     [self.widgetsManager resize:objcSize];
   }

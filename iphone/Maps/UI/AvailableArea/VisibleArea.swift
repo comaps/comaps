@@ -1,4 +1,17 @@
 final class VisibleArea: AvailableArea {
+  private static weak var current: VisibleArea?
+
+  @objc static func republish() {
+    current?.scheduleNotification()
+  }
+
+  override func didMoveToSuperview() {
+    super.didMoveToSuperview()
+    if superview != nil {
+      VisibleArea.current = self
+    }
+  }
+
   override func isAreaAffectingView(_ other: UIView) -> Bool {
     return !other.visibleAreaAffectDirections.isEmpty
   }
@@ -10,8 +23,8 @@ final class VisibleArea: AvailableArea {
   }
 
   override func notifyObserver() {
-    if CarPlayService.shared.isCarplayActivated {
-      LOG(.info, "\(CarPlayLogging.carPlay) [ViewportDiag] phone VisibleArea skipped reason=carplayActivated areaFrame=\(areaFrame) carHosting=\(CarPlayService.shared.isHostingMapOnCarScreen)")
+    if CarPlayService.shared.isHostingMapOnCarScreen {
+      LOG(.info, "\(CarPlayLogging.carPlay) [ViewportDiag] phone VisibleArea skipped reason=carHosting areaFrame=\(areaFrame) carHosting=\(CarPlayService.shared.isHostingMapOnCarScreen)")
       return
     }
     LOG(.info, "\(CarPlayLogging.carPlay) [ViewportDiag] phone VisibleArea setVisibleViewport frame=\(areaFrame)")

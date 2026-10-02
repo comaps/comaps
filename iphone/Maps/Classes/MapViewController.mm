@@ -834,6 +834,7 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
   LOG(LINFO, ("[CarPlay] [ViewportDiag] phone disableCarPlayRepresentation setVisibleViewport bounds=",
               NSStringFromCGRect(self.view.bounds).UTF8String));
   [MWMFrameworkHelper setVisibleViewport:self.view.bounds scaleFactor:self.view.contentScaleFactor];
+  [VisibleArea republish];
 }
 
 - (void)enableCarPlayRepresentation {

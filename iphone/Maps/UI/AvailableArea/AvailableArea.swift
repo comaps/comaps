@@ -122,7 +122,7 @@ class AvailableArea: UIView {
   }
 
   @objc
-  private func scheduleNotification() {
+  func scheduleNotification() {
     if deferNotification {
       let selector = #selector(notifyObserver)
       NSObject.cancelPreviousPerformRequests(withTarget: self, selector: selector, object: nil)
