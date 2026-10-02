@@ -162,6 +162,11 @@ public final class Map
   {
     nativeUpdateMyPositionRoutingOffset(offsetY);
   }
+  
+  public void setCarNavigationView(boolean enabled)
+  {
+    nativeSetCarNavigationView(enabled);
+  }
 
   public void onSurfaceCreated(final Context context, final Surface surface, Rect surfaceFrame, int surfaceDpi)
   {
@@ -451,6 +456,8 @@ public final class Map
   private static native void nativeCleanWidgets();
 
   private static native void nativeUpdateMyPositionRoutingOffset(int offsetY);
+
+  private static native void nativeSetCarNavigationView(boolean enabled);
 
   private static native void nativeSetupWidget(int widget, float x, float y, int anchor);
 
