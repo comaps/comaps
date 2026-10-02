@@ -663,7 +663,7 @@ building|abandoned;[building][abandoned=yes],[building][disused=yes],[abandoned:
 sport|pickleball;531;
 amenity|tool_library;532;
 shop|tool_hire;533;
-deprecated|deprecated;534;x
+amenity|parking|customers;[amenity=parking][access=customers];;;;534;
 deprecated|deprecated;535;x
 deprecated:boundary|administrative|state:04.2024;[boundary=administrative][border_type=state];x;name;int_name;536;
 deprecated|deprecated;537;x

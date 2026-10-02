@@ -248,6 +248,7 @@ shop-caravan                                        # icon z17-
 
 amenity-car_pooling                                 # icon z15- (also has caption(optional) z16-, area z15-)
 amenity-parking                                     # icon z15- (also has caption(optional) z16-, area z15-)
+amenity-parking-customers                           # icon z15- (also has caption(optional) z16-, area z15-)
 amenity-parking-fee                                 # icon z15- (also has caption(optional) z16-, area z15-)
 amenity-parking-multi-storey                        # icon z15- (also has caption(optional) z16-, area z15-)
 amenity-parking-multi-storey-fee                    # icon z15- (also has caption(optional) z16-, area z15-)
@@ -853,6 +854,7 @@ entrance-emergency                                  # icon z19- (also has captio
 
 # amenity-car_pooling                               # caption(optional) z16- (also has icon z15-, area z15-)
 # amenity-parking                                   # caption(optional) z16- (also has icon z15-, area z15-)
+# amenity-parking-customers                         # caption(optional) z16- (also has icon z15-, area z15-)
 # amenity-parking-fee                               # caption(optional) z16- (also has icon z15-, area z15-)
 # amenity-parking-multi-storey                      # caption(optional) z16- (also has icon z15-, area z15-)
 # amenity-parking-multi-storey-fee                  # caption(optional) z16- (also has icon z15-, area z15-)

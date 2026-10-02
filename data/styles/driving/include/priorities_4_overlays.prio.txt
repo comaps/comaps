@@ -1316,6 +1316,7 @@
 
 # amenity-car_pooling                               # icon z16- (also has caption(optional) z18-, area z15-)
 # amenity-parking                                   # icon z16- (also has caption(optional) z18-, area z15-)
+# amenity-parking-customers                         # icon z16- (also has caption(optional) z18-, area z15-)
 # amenity-parking-fee                               # icon z16- (also has caption(optional) z18-, area z15-)
 # amenity-parking-multi-storey                      # icon z16- (also has caption(optional) z18-, area z15-)
 # amenity-parking-multi-storey-fee                  # icon z16- (also has caption(optional) z18-, area z15-)
@@ -2390,6 +2391,7 @@
 
 # amenity-car_pooling                               # caption(optional) z18- (also has icon z16-, area z15-)
 # amenity-parking                                   # caption(optional) z18- (also has icon z16-, area z15-)
+# amenity-parking-customers                         # caption(optional) z18- (also has icon z16-, area z15-)
 # amenity-parking-fee                               # caption(optional) z18- (also has icon z16-, area z15-)
 # amenity-parking-multi-storey                      # caption(optional) z18- (also has icon z16-, area z15-)
 # amenity-parking-multi-storey-fee                  # caption(optional) z18- (also has icon z16-, area z15-)

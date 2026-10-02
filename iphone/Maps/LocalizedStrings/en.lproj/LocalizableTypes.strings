@@ -106,6 +106,7 @@
 "type.amenity.nightclub" = "Nightclub";
 "type.amenity.nursing_home" = "Nursing Home";
 "type.amenity.parking" = "Parking";
+"type.amenity.parking.customers" = "Customer Parking";
 "type.amenity.parking.fee" = "Parking";
 "type.amenity.parking.multi.storey" = "Multi Storey Parking";
 "type.amenity.parking.multi.storey.fee" = "Multi Storey Parking";
