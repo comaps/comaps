@@ -110,30 +110,29 @@ if [ -z "$SKIP_MAP_DOWNLOAD" ]; then
 
   mkdir -p "$MWM_PATH"
 
-  # TODO: if needed World map file version exists already then we need to update a symlink to point to it anyway
+  # TODO: compare World* checksums with countries.txt and resume download / redownload if needed
   if [ ! -f "$WORLD_PATH" ]; then
-    echo "Downloading world map..."
+    echo "Downloading World map to $WORLD_PATH"
     # mapgen-fi-1 is supposed to have all historic prod map versions as well as recent test maps
     if ! curl -fL -o "$WORLD_PATH" "$MAPS_BASE_URL/World.mwm"; then
       echo "ERROR: could not download World.mwm from $MAPS_BASE_URL" >&2
       exit 1
     fi
-    rm -f World.mwm; ln -s "$WORLD_PATH" World.mwm
   fi
   if [ ! -f "$WORLD_PATH2" ]; then
+    echo "Downloading WorldCoasts map to $WORLD_PATH2"
     if ! curl -fL -o "$WORLD_PATH2" "$MAPS_BASE_URL/WorldCoasts.mwm"; then
       echo "ERROR: could not download WorldCoasts.mwm from $MAPS_BASE_URL" >&2
       exit 1
     fi
-    rm -f WorldCoasts.mwm; ln -s "$WORLD_PATH2" WorldCoasts.mwm
   fi
 
-  if [ ! -f "World.mwm" ]; then
-    ln -s "$WORLD_PATH" World.mwm
-  fi
-  if [ ! -f "WorldCoasts.mwm" ]; then
-    ln -s "$WORLD_PATH2" WorldCoasts.mwm
-  fi
+  # Re-create symlinks to point to the right version as per countries.txt
+  rm -f World.mwm; ln -s "$WORLD_PATH" World.mwm
+  rm -f WorldCoasts.mwm; ln -s "$WORLD_PATH2" WorldCoasts.mwm
+
+  echo "World maps in use:"
+  ls -l World*.mwm
 
   popd
 else
