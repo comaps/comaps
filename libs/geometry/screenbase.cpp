@@ -15,7 +15,7 @@ double constexpr kStartPerspectiveScale1 = 1.7e-5;
 double constexpr kEndPerspectiveScale1 = 0.3e-5;
 double constexpr kEndPerspectiveScale2 = 0.13e-5;
 
-double constexpr kCarPerspectiveAngle = math::pi * 50.0 / 180.0;
+double constexpr kCarPerspectiveAngle = math::pi * 53.0 / 180.0;
 double constexpr kCarFlatPerspectiveScale = 1.5e-4;
 double constexpr kCarFullPerspectiveScale = 6.0e-5;
 
