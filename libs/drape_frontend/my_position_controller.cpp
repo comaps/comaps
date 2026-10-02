@@ -98,8 +98,10 @@ double CalculateZoomByMaxSpeed(double speedMpS, bool isPerspectiveAllowed)
       {0.0, 1.75}, {77.0, 4.50}  // 48 mph
   }};
   static std::array<TSpeedScale, 2> const scales3d = {{{0.0, 1.00}, {77.0, 4.50}}};
+  static std::array<TSpeedScale, 2> const scales3dCar = {{{0.0, 1.00}, {77.0, 2.00}}};
 
-  std::array<TSpeedScale, 2> const & scales = isPerspectiveAllowed ? scales3d : scales2d;
+  std::array<TSpeedScale, 2> const & scales =
+	isPerspectiveAllowed ? (ScreenBase::IsCarNavigationView() ? scales3dCar : scales3d) : scales2d;
 
   double constexpr kDefaultSpeedLimitKmpH = 50.0;
   double const speedKmpH = speedMpS > 0 ? measurement_utils::MpsToKmph(speedMpS) : kDefaultSpeedLimitKmpH;

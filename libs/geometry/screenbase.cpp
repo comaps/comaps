@@ -5,13 +5,21 @@
 #include "base/assert.hpp"
 #include "base/math.hpp"
 
+#include <atomic>
+
 double constexpr kPerspectiveAngleFOV = math::pi / 3.0;
 double constexpr kMaxPerspectiveAngle1 = math::pi4;
 double constexpr kMaxPerspectiveAngle2 = math::pi * 55.0 / 180.0;
 
 double constexpr kStartPerspectiveScale1 = 1.7e-5;
-double constexpr kEndPerspectiveScale1 = 0.3e-5;
-double constexpr kEndPerspectiveScale2 = 0.13e-5;
+double constexpr kEndPerspectiveScale = 0.3e-5;
+double constexpr kEndPerspectiveScale = 0.13e-5;
+
+double constexpr kCarPerspectiveAngle = math::pi * 50.0 / 180.0;
+double constexpr kCarFlatPerspectiveScale = 1.5e-4;
+double constexpr kCarFullPerspectiveScale = 6.0e-5;
+
+static std::atomic<bool> g_isCarNavigationView{false};
 
 ScreenBase::ScreenBase()
   : m_Org(320, 240)
@@ -91,6 +99,20 @@ void ScreenBase::UpdateDependentParameters()
 // static
 double ScreenBase::CalculateAutoPerspectiveAngle(double scale)
 {
+  if (g_isCarNavigationView)
+  {
+    if (scale >= kCarFlatPerspectiveScale)
+      return 0.0;
+
+    if (scale > kCarFullPerspectiveScale)
+    {
+      double const k = (kCarFlatPerspectiveScale - scale) / (kCarFlatPerspectiveScale - kCarFullPerspectiveScale);
+      return kCarPerspectiveAngle * k;
+    }
+
+    return kCarPerspectiveAngle * 0.99;
+  }
+
   if (scale > kStartPerspectiveScale1)
     return 0.0;
 
@@ -113,6 +135,18 @@ double ScreenBase::CalculateAutoPerspectiveAngle(double scale)
 double ScreenBase::GetStartPerspectiveScale()
 {
   return kStartPerspectiveScale1;
+}
+
+// static
+void ScreenBase::SetCarNavigationView(bool enabled)
+{
+   g_isCarNavigationView = enabled;
+}
+
+// static
+bool ScreenBase::IsCarNavigationView()
+{
+   return g_isCarNavigationView;
 }
 
 double ScreenBase::CalculatePerspectiveAngle(double scale) const
