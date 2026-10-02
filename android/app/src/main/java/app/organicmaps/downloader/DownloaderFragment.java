@@ -150,6 +150,7 @@ public class DownloaderFragment
       @Override
       public void onCheckUpdates(int status)
       {
+        final boolean wasManuallyStarted = mBottomPanel.isCheckUpdatesManuallyStarted();
         mBottomPanel.resetCheckUpdatesButton();
         if (status == MapManager.CHECK_UPDATES_UPDATED)
           update();
@@ -164,7 +165,11 @@ public class DownloaderFragment
           case MapManager.CHECK_UPDATES_ERROR -> R.string.downloader_check_updates_error;
           default -> R.string.downloader_check_updates_error;
         };
-        Toast.makeText(requireContext(), getString(notifResId), Toast.LENGTH_LONG).show();
+
+        // Don't notify if the check was automatic and resulted in noupdate or error,
+        // i.e. from user POV a map download/update is just being carried out using current/"old" map version.
+        if (wasManuallyStarted || status == MapManager.CHECK_UPDATES_UPDATED || status == MapManager.CHECK_UPDATES_EOL)
+          Toast.makeText(requireContext(), getString(notifResId), Toast.LENGTH_LONG).show();
       }
     });
 

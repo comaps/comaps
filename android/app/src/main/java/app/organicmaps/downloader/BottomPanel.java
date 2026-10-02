@@ -29,6 +29,8 @@ class BottomPanel
   private final MaterialButton mButton;
   private final MaterialButton mCheckUpdatesButton;
 
+  private boolean mIsCheckUpdatesManuallyStarted = false;
+
   private final View.OnClickListener mDownloadListener = new View.OnClickListener() {
     @Override
     public void onClick(View v)
@@ -85,6 +87,7 @@ class BottomPanel
         Logger.i(TAG, "Check updates triggered by button press");
         mCheckUpdatesButton.setText(mFragment.getString(R.string.downloader_check_updates_checking));
         mCheckUpdatesButton.setEnabled(false);
+        mIsCheckUpdatesManuallyStarted = true;
         MapManager.startCheckUpdates();
       });
     });
@@ -120,6 +123,12 @@ class BottomPanel
   {
     mCheckUpdatesButton.setText(mFragment.getString(R.string.downloader_check_updates_button));
     mCheckUpdatesButton.setEnabled(true);
+    mIsCheckUpdatesManuallyStarted = false;
+  }
+
+  public boolean isCheckUpdatesManuallyStarted()
+  {
+    return mIsCheckUpdatesManuallyStarted;
   }
 
   public void update()
