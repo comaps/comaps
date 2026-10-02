@@ -11,7 +11,7 @@ SINGLE_REPLACE = False
 
 def main(lang, data_en):
     strings_file_path = os.path.join('iphone', 'Maps', 'LocalizedStrings', f'{lang}.lproj', 'LocalizableTypes.strings')
-    json_file_path = os.path.join('data', 'categories-strings', f'{lang}.json', 'localize.json')
+    json_file_path = os.path.join('data', 'translations', 'categories-strings', f'{lang}.json', 'localize.json')
 
     with open(strings_file_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -34,7 +34,7 @@ def main(lang, data_en):
 
                 if type_name == key.replace('-', '.').replace('_', '.'):
                     key_matched = True
-                    data_split = data[json_key].split('|')
+                    data_split = data[json_key]['defaultMessage'].split('|')
 
                     try:
                         data_split.extend([
@@ -43,7 +43,7 @@ def main(lang, data_en):
                                             [a for a in json_key_split
                                                 if a.startswith('@')]
                                             for value in
-                                            data[category].split('|')
+                                            data[category]['defaultMessage'].split('|')
                                         ])
                     except KeyError:
                         pass
@@ -69,11 +69,11 @@ def main(lang, data_en):
 
                     if not _key_matched:
                         if SINGLE_REPLACE and len(data_split) == 1:
-                            data[json_key] = localized_value
-                            print(f'Replaced "{data[json_key]}" with "{localized_value}" in "{json_key}"')
+                            data[json_key]['defaultMessage'] = localized_value
+                            print(f'Replaced "{data[json_key]['defaultMessage']}" with "{localized_value}" in "{json_key}"')
 
                         else:
-                            data[json_key] = localized_value+'|'+data[json_key]
+                            data[json_key]['defaultMessage'] = localized_value+'|'+data[json_key]['defaultMessage']
                             print(f'Appended "{localized_value}" to "{json_key}"')
 
         if not key_matched:
@@ -81,10 +81,9 @@ def main(lang, data_en):
                 for key in json_key.split('|'):
                     if type_name == key.replace('-', '.').replace('_', '.'):
                         print(f'Created "{localized_value}" for "{json_key}"')
-                        data.update({json_key: localized_value})
+                        data.update({json_key: {'defaultMessage': localized_value}})
 
-    res = json.dumps(data, ensure_ascii=False, separators=(",\n", ": ")
-                     ).replace('{', '{\n').replace('}', '\n}')
+    res = json.dumps(data, ensure_ascii=False, separators=(",", ": "), indent=4) + '\n'
 
     with open(json_file_path, 'w', encoding='utf-8') as f:
         f.write(res)
@@ -102,7 +101,7 @@ if __name__ == '__main__':
             print("No languages specified")
             sys.exit(1)
 
-    with open('data/categories-strings/en.json/localize.json', 'r', encoding='utf-8') as f:
+    with open('data/translations/categories-strings/en.json/localize.json', 'r', encoding='utf-8') as f:
         data_en = json.load(f)
 
     if len(sys.argv) > 2:
