@@ -6,7 +6,7 @@
         "defaultMessage": "4Alimentari|Cibo|Negozio"
     },
     "@category_transport": {
-        "defaultMessage": "5Trasporto"
+        "defaultMessage": "Trasporti|5Trasporto"
     },
     "@category_fuel": {
         "defaultMessage": "3Benzinaio"
@@ -18,7 +18,7 @@
         "defaultMessage": "4Shopping|Negozi"
     },
     "@category_hotel": {
-        "defaultMessage": "Hôtel|Alberghi"
+        "defaultMessage": "Albergo|Hôtel|Alberghi"
     },
     "@category_tourism": {
         "defaultMessage": "5Luoghi turistici|4Turistico"
@@ -30,13 +30,13 @@
         "defaultMessage": "Vita notturna"
     },
     "@category_children": {
-        "defaultMessage": "Divertimento in famiglia|Vacanze bambini"
+        "defaultMessage": "Vacanza in famiglia|Divertimento in famiglia|Vacanze bambini"
     },
     "@category_atm": {
-        "defaultMessage": "3Bancomat"
+        "defaultMessage": "Bancomat ATM|3Bancomat"
     },
     "@category_rv": {
-        "defaultMessage": "Per camper"
+        "defaultMessage": "Struttura per camper|Per camper"
     },
     "amenity-atm|@category_atm": {
         "defaultMessage": "soldi"

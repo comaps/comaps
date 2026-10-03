@@ -3,31 +3,31 @@
         "defaultMessage": "Tempat makan|Makanan"
     },
     "@category_food": {
-        "defaultMessage": "Toserba|Makanan|Toko"
+        "defaultMessage": "Bahan makanan|Toserba|Makanan|Toko"
     },
     "@category_transport": {
         "defaultMessage": "5Transportasi"
     },
     "@category_fuel": {
-        "defaultMessage": "Bahan bakar"
+        "defaultMessage": "Bensin|Bahan bakar"
     },
     "@category_parking": {
         "defaultMessage": "4Parkir"
     },
     "@category_shopping": {
-        "defaultMessage": "Berbelanja"
+        "defaultMessage": "Belanja|Berbelanja"
     },
     "@category_hotel": {
         "defaultMessage": "Hotel|Hotel"
     },
     "@category_tourism": {
-        "defaultMessage": "Pemandangan"
+        "defaultMessage": "Wisata|Pemandangan"
     },
     "@category_entertainment": {
         "defaultMessage": "Hiburan"
     },
     "@category_nightlife": {
-        "defaultMessage": "Kehidupan Malam"
+        "defaultMessage": "Hiburan Malam|Kehidupan Malam"
     },
     "@category_children": {
         "defaultMessage": "Liburan keluarga"
@@ -36,7 +36,7 @@
         "defaultMessage": "2ATM"
     },
     "@category_rv": {
-        "defaultMessage": "Untuk RV"
+        "defaultMessage": "Fasilitas Karavan|Untuk RV"
     },
     "amenity-atm|@category_atm": {
         "defaultMessage": "uang"
@@ -45,13 +45,13 @@
         "defaultMessage": "3Bank"
     },
     "@category_secondhand": {
-        "defaultMessage": "Tangan kedua"
+        "defaultMessage": "Barang Bekas|Tangan kedua"
     },
     "amenity-bank|@category_bank": {
         "defaultMessage": "uang"
     },
     "@category_recycling": {
-        "defaultMessage": "Mendaur ulang|Pemanfaatan limbah|Dapat didaur ulang|Pemisahan pengumpulan sampah|Pemilahan limbah|Penggunaan kembali"
+        "defaultMessage": "Daur Ulang|Mendaur ulang|Pemanfaatan limbah|Dapat didaur ulang|Pemisahan pengumpulan sampah|Pemilahan limbah|Penggunaan kembali"
     },
     "amenity-bureau_de_change": {
         "defaultMessage": "3Pertukaran valuta|pertukaran"

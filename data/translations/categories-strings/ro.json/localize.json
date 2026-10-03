@@ -450,7 +450,7 @@
         "defaultMessage": "3Farmacie"
     },
     "@category_post": {
-        "defaultMessage": "3Poştă"
+        "defaultMessage": "Poștă|3Poştă"
     },
     "amenity-post_box|@category_post": {
         "defaultMessage": "Cutie poștală"

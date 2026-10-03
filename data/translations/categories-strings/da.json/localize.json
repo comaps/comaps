@@ -36,7 +36,7 @@
         "defaultMessage": "3Hæveautomat"
     },
     "@category_rv": {
-        "defaultMessage": "Til RV"
+        "defaultMessage": "Autocamper-faciliteter|Til RV"
     },
     "amenity-atm|@category_atm": {
         "defaultMessage": "4hæveautomat|5bankautomat|5bankomat|4penge"

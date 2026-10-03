@@ -3,7 +3,7 @@
         "defaultMessage": "Non jan|jan|Janaria"
     },
     "@category_food": {
-        "defaultMessage": "Produktuak|Jan"
+        "defaultMessage": "Janari-denda|Produktuak|Jan"
     },
     "@category_transport": {
         "defaultMessage": "5Garraioa"
@@ -27,10 +27,10 @@
         "defaultMessage": "Entretenimendua"
     },
     "@category_nightlife": {
-        "defaultMessage": "Gaueko bizitza"
+        "defaultMessage": "Gaueko giroa|Gaueko bizitza"
     },
     "@category_children": {
-        "defaultMessage": "Umeekin atseden hartu"
+        "defaultMessage": "Familiako jarduerak|Umeekin atseden hartu"
     },
     "@category_atm": {
         "defaultMessage": "4Kutxazain automatikoa"
@@ -51,7 +51,7 @@
         "defaultMessage": "3dirua|Banketxea"
     },
     "@category_recycling": {
-        "defaultMessage": "Hondakinen birziklapena|Hondakinak ezabatzea|Material birziklagarriak|Zabor bilketa selektiboa|Hondakinak sailkatzea|Berrerabilpena"
+        "defaultMessage": "Birziklapena|Hondakinen birziklapena|Hondakinak ezabatzea|Material birziklagarriak|Zabor bilketa selektiboa|Hondakinak sailkatzea|Berrerabilpena"
     },
     "amenity-bureau_de_change": {
         "defaultMessage": "3Moneta-trukea|dirua"
@@ -726,7 +726,7 @@
         "defaultMessage": "Helbidea"
     },
     "@category_police": {
-        "defaultMessage": "4Poliziak"
+        "defaultMessage": "Polizia|4Poliziak"
     },
     "office-diplomatic": {
         "defaultMessage": "4Enbaxada"

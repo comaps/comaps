@@ -1,6 +1,6 @@
 {
     "@category_eat": {
-        "defaultMessage": "Kus süüa|Toit"
+        "defaultMessage": "Söögikohad|Kus süüa|Toit"
     },
     "@category_food": {
         "defaultMessage": "Toidukaubad"
@@ -9,13 +9,13 @@
         "defaultMessage": "Transport"
     },
     "@category_fuel": {
-        "defaultMessage": "Tankla"
+        "defaultMessage": "Tanklad|Tankla"
     },
     "@category_parking": {
-        "defaultMessage": "Parkla"
+        "defaultMessage": "Parkimine|Parkla"
     },
     "@category_shopping": {
-        "defaultMessage": "Ostud"
+        "defaultMessage": "Poed|Ostud"
     },
     "@category_hotel": {
         "defaultMessage": "Hotell|Hotellid"
@@ -45,13 +45,13 @@
         "defaultMessage": "3Pank"
     },
     "@category_secondhand": {
-        "defaultMessage": "Kasutatud"
+        "defaultMessage": "Taaskasutuspoed|Kasutatud"
     },
     "amenity-bank|@category_bank": {
         "defaultMessage": "raha"
     },
     "@category_recycling": {
-        "defaultMessage": "Taaskasutus|Jäätmete kasutamine|Jäätmete äraandmine|Taaskasutatavad|Prügi eraldi korjamine|Prügi sorteerimne|Taaskasutus"
+        "defaultMessage": "Jäätmekäitlus|Taaskasutus|Jäätmete kasutamine|Jäätmete äraandmine|Taaskasutatavad|Prügi eraldi korjamine|Prügi sorteerimne|Taaskasutus"
     },
     "amenity-bureau_de_change": {
         "defaultMessage": "4Valuutavahetus"
@@ -564,7 +564,7 @@
         "defaultMessage": "2Telefon|Taksofon"
     },
     "@category_toilet": {
-        "defaultMessage": "WC"
+        "defaultMessage": "Tualett|WC"
     },
     "amenity-toilets|toilets-yes|@category_toilet": {
         "defaultMessage": "WC|tualett"

@@ -492,7 +492,7 @@
         "defaultMessage": "3Farmacia|Droguería"
     },
     "@category_post": {
-        "defaultMessage": "4Correos|Correo|correo postal|paquetería"
+        "defaultMessage": "Oficina de correos|4Correos|Correo|correo postal|paquetería"
     },
     "amenity-post_box|@category_post": {
         "defaultMessage": "3Buzón de correos|buzón|casillero de correo"

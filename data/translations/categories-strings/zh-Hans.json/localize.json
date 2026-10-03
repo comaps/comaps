@@ -882,7 +882,7 @@
         "defaultMessage": "海洋"
     },
     "@category_wifi": {
-        "defaultMessage": "无线网络"
+        "defaultMessage": "Wi-Fi|无线网络"
     },
     "internet_access|internet_access-wlan|@category_wifi": {
         "defaultMessage": "3互联网|WiFi|3Internet"

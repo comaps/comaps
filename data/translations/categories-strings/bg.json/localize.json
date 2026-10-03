@@ -24,7 +24,7 @@
         "defaultMessage": "5Забележителности|4Туризъм"
     },
     "@category_entertainment": {
-        "defaultMessage": "Развлечение"
+        "defaultMessage": "Развлечения|Развлечение"
     },
     "@category_nightlife": {
         "defaultMessage": "Нощен живот|С приятели"
@@ -36,7 +36,7 @@
         "defaultMessage": "3Банкомат"
     },
     "@category_rv": {
-        "defaultMessage": "кемпери|каравани|къщи на колела"
+        "defaultMessage": "За RV|кемпери|каравани|къщи на колела"
     },
     "amenity-atm|@category_atm": {
         "defaultMessage": "пари"

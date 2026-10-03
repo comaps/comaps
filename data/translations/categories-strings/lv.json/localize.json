@@ -36,7 +36,7 @@
         "defaultMessage": "5Bankomāts|3ATM"
     },
     "@category_rv": {
-        "defaultMessage": "4Treileru laukumi|4Treileri|5Karavāna"
+        "defaultMessage": "Dzīvojamo auto labierīcības|4Treileru laukumi|4Treileri|5Karavāna"
     },
     "amenity-atm|@category_atm": {
         "defaultMessage": "nauda|U+1F3E7|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"

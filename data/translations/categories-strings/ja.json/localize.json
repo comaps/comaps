@@ -894,7 +894,7 @@
         "defaultMessage": "海"
     },
     "@category_wifi": {
-        "defaultMessage": "無線LAN"
+        "defaultMessage": "WiFi|無線LAN"
     },
     "internet_access|internet_access-wlan|@category_wifi": {
         "defaultMessage": "3インターネット|WiFi|3Internet"

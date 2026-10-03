@@ -3,7 +3,7 @@
         "defaultMessage": "Où manger|Nourriture|Manger"
     },
     "@category_food": {
-        "defaultMessage": "4Epiceries|5Nourriture|5Alimentation"
+        "defaultMessage": "Épicerie|4Epiceries|5Nourriture|5Alimentation"
     },
     "@category_transport": {
         "defaultMessage": "5Transport"
@@ -45,7 +45,7 @@
         "defaultMessage": "3Banque|Agence Bancaire"
     },
     "@category_secondhand": {
-        "defaultMessage": "D'occasion|Seconde main"
+        "defaultMessage": "D’occasion|D'occasion|Seconde main"
     },
     "amenity-bank|@category_bank": {
         "defaultMessage": "Banque|Argent"

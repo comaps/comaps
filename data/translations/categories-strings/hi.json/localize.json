@@ -1165,5 +1165,11 @@
     },
     "cuisine-vegan|@cuisine_all_vegetarian": {
         "defaultMessage": "शाकाहारी"
+    },
+    "@category_post": {
+        "defaultMessage": "डाकघर"
+    },
+    "@category_wifi": {
+        "defaultMessage": "वाईफ़ाई"
     }
 }

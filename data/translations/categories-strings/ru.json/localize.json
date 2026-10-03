@@ -9,7 +9,7 @@
         "defaultMessage": "5Транспорт"
     },
     "@category_fuel": {
-        "defaultMessage": "3Бензин|3Дизель|4Топливо"
+        "defaultMessage": "Заправка|3Бензин|3Дизель|4Топливо"
     },
     "@category_parking": {
         "defaultMessage": "4Парковка"
