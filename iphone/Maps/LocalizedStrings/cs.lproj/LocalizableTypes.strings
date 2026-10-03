@@ -1541,4 +1541,9 @@
 "type.railway.subway_entrance.boston" = "Vchod do metra";
 "type.railway.station.subway.boston" = "Stanice metra";
 "type.railway.subway_entrance.qingdao" = "Vchod do metra";
-"type.building.abandoned" = "Abandoned Building";
+"type.building.abandoned" = "Opuštěná budova";
+"type.shop.tool_hire" = "Půjčovna nářadí";
+"type.amenity.tool_library" = "Knihovna nářadí";
+"type.amenity.parking.customers" = "Parkoviště pro zákazníky";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";

@@ -714,7 +714,7 @@
 "type.leisure.dog_park" = "Parque canino";
 "type.leisure.escape_game" = "Sala de Escape";
 "type.leisure.fitness_centre" = "Centro de fitnes";
-"type.leisure.fitness_station" = "Estación de fitness|Estación de ejercicio|Estación de entrenamiento|Punto de fitness|Punto de ejercicio|Punto de entrenamiento|Zona de fitness|Zona de ejercicio|Zona de entrenamiento|Área de fitness|Área de ejercicio|Área de entrenamiento|Estación de gimnasia|Zona de gimnasia|Punto de gimnasia|Estación de gimnasio";
+"type.leisure.fitness_station" = "Parque de gimnasia";
 "type.leisure.dance" = "Salón de baile";
 "type.leisure.garden" = "Jardín";
 "type.leisure.garden.residential" = "Jardín residencial";
@@ -1309,7 +1309,7 @@
 "type.shop.musical_instrument" = "Tienda de instrumentos musicales";
 "type.shop.newsagent" = "Puesto de venta de periódicos";
 "type.shop.optician" = "Óptica";
-"type.shop.outdoor" = "Equipamiento de ocio al aire libre";
+"type.shop.outdoor" = "Tienda de montaña";
 "type.shop.outpost" = "Punto de recogida";
 "type.shop.pasta" = "Tienda de pasta";
 "type.shop.pastry" = "Pastelería";
@@ -1542,3 +1542,8 @@
 "type.railway.station.subway.boston" = "Estación de metro";
 "type.railway.subway_entrance.qingdao" = "Entrada al metro";
 "type.building.abandoned" = "Abandoned Building";
+"type.shop.tool_hire" = "Tool Hire";
+"type.amenity.tool_library" = "Tool Library";
+"type.amenity.parking.customers" = "Customer Parking";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";

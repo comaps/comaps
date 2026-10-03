@@ -1026,7 +1026,7 @@
         "defaultMessage": "Area di sosta|Area di servizio"
     },
     "man_made-chimney": {
-        "defaultMessage": "Ciminiera industriale"
+        "defaultMessage": "Ciminiera"
     },
     "man_made-tower|man_made-flare": {
         "defaultMessage": "Torre"
@@ -1035,7 +1035,7 @@
         "defaultMessage": "Centro scommesse"
     },
     "shop-seafood|@category_food|@shop": {
-        "defaultMessage": "Pescivendolo"
+        "defaultMessage": "Pescivendolo|Pescheria"
     },
     "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
         "defaultMessage": "Negozio di articoli usati|Negozio dell'usato|Mercatino delle pulci"
@@ -1071,7 +1071,7 @@
         "defaultMessage": "Controllo di frontiera"
     },
     "leisure-water_park|@category_tourism|@category_children": {
-        "defaultMessage": "Parco acquatico"
+        "defaultMessage": "5Parco acquatico"
     },
     "man_made-water_tower": {
         "defaultMessage": "Cisterna per acqua"
@@ -1092,7 +1092,7 @@
         "defaultMessage": "Sbarramento"
     },
     "amenity-public_bookcase": {
-        "defaultMessage": "Libreria|Scambio libri"
+        "defaultMessage": "Libreria|Scambio libri|Book crossing|Bookcrossing"
     },
     "sport-climbing": {
         "defaultMessage": "Centro di arrampicata"
@@ -1480,5 +1480,38 @@
     },
     "amenity-food_sharing": {
         "defaultMessage": "Frigo sociale|Cibo|donare|dono|condiviso"
+    },
+    "tourism-artwork-painting": {
+        "defaultMessage": "Dipinto|Quadro"
+    },
+    "man_made-cross": {
+        "defaultMessage": "Croce|Crocifisso"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "5Farmacia"
+    },
+    "shop-farm|@category_food|@shop": {
+        "defaultMessage": "Cibo agricolo"
+    },
+    "highway-elevator": {
+        "defaultMessage": "Ascensore"
+    },
+    "building-abandoned": {
+        "defaultMessage": "Edificio abbandonato|Abbandonato"
+    },
+    "@waterbody": {
+        "defaultMessage": "Specchio d'acqua|Corpo idrico|Acqua"
+    },
+    "man_made-survey_point": {
+        "defaultMessage": "Riferimento geodetico"
+    },
+    "amenity-vending_machine-fuel|@category_fuel": {
+        "defaultMessage": "Benzinaio|Distributore di benzina|Pompa di benzina|Pompa di carburante"
+    },
+    "tourism-information-tactile_map": {
+        "defaultMessage": "Mappa tattile"
+    },
+    "shop-grocery|@category_food|@shop": {
+        "defaultMessage": "Droghiere"
     }
 }

@@ -1449,3 +1449,8 @@
 "type.amenity.parking_entrance.permissive" = "Parking Entrance";
 "type.man_made.silo" = "Silo";
 "type.building.abandoned" = "Abandoned Building";
+"type.shop.tool_hire" = "Tool Hire";
+"type.amenity.tool_library" = "Tool Library";
+"type.amenity.parking.customers" = "Customer Parking";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";

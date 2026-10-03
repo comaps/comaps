@@ -53,8 +53,8 @@
     <!-- Used in DownloadResources startup screen -->
     <string name="not_enough_free_space_on_sdcard">Ελευθερώσετε χώρο αποθήκευσης στην SD κάρτα/USB πρώτα προκειμένου να χρησιμοποιήσετε την εφαρμογή</string>
     <string name="download_resources">Πριν ξεκινήσετε τη χρήση της εφαρμογής, επιτρέψτε μας να κατεβάσουμε το γενικό παγκόσμιο χάρτη στη συσκευή σας. \nΘα χρησιμοποιήσει %s αποθηκευτικού χώρου.</string>
-    <string name="download_resources_continue">Μετάβαση στο χάρτη</string>
-    <string name="downloading_country_can_proceed">Λήψη %1$s (%2$s). Μπορείτε τώρα να \nμεταβείτε στο χάρτη.</string>
+    <string name="download_resources_continue">Μετάβαση στον χάρτη</string>
+    <string name="downloading_country_can_proceed">Λήψη %1$s (%2$s). Μπορείτε τώρα να \nμεταβείτε στον χάρτη.</string>
     <string name="download_country_ask">Να γίνει λήψη %1$s; (%2$s)</string>
     <string name="update_country_ask">Να γίνει ενημέρωση %1$s; (%2$s)</string>
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
@@ -62,7 +62,7 @@
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
     <string name="continue_button">Συνέχεια</string>
     <!-- Show popup notification on top of the map when country download has failed. -->
-    <string name="download_country_failed">η λήψη %s απέτυχε</string>
+    <string name="download_country_failed">Η λήψη %s απέτυχε</string>
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Δημιουργία νέας λίστας</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
@@ -84,13 +84,13 @@
     <!-- Detailed description of Maps Storage settings button -->
     <string name="maps_storage_summary">Επιλέξτε τον φάκελο για τη λήψη των χαρτών</string>
     <!-- E.g. "Downloaded maps: 500Mb" in Maps Storage settings -->
-    <string name="maps_storage_downloaded">Κατεβασμένοι Χάρτες</string>
+    <string name="maps_storage_downloaded">Κατεβασμένοι χάρτες</string>
     <!-- Free space out of total storage size in Maps Storage settings, e.g. "300 MB free of 2 GB" -->
     <string name="maps_storage_free_size">%1$s ελεύθερα από τα %2$s</string>
     <!-- Question dialog for transferring maps from one storage to another -->
     <string name="move_maps">Να γίνει μετακίνηση των χαρτών;</string>
     <!-- Error moving map files from one storage to another -->
-    <string name="move_maps_error">Σφάλμα κατά τη μετακίνηση των αρχείων</string>
+    <string name="move_maps_error">Σφάλμα κατά τη μετακίνηση των αρχείων χαρτών</string>
     <!-- Ask user to wait several minutes (some long process in modal dialog). -->
     <string name="wait_several_minutes">Αυτό μπορεί να κρατήσει αρκετά λεπτά. \nΠαρακαλώ περιμένετε…</string>
     <!-- Measurement units title in settings activity -->
@@ -175,7 +175,7 @@
     <!-- Share by email button text, also used in editor and About. -->
     <string name="email">Email</string>
     <!-- Text for message when used successfully copied something -->
-    <string name="copied_to_clipboard">Αντιγράφηκε στο Πρόχειρο: %s</string>
+    <string name="copied_to_clipboard">Αντιγράφηκε στο πρόχειρο: %s</string>
     <!-- Used for bookmark editing -->
     <string name="done">Έτοιμο</string>
     <!-- Data version in «About» screen, %@ is replaced by a local, human readable date. -->
@@ -388,7 +388,7 @@
     <string name="editor_time_add">Προσθήκη χρονοδιαγράμματος</string>
     <string name="editor_time_delete">Διαγραφή χρονοδιαγράμματος</string>
     <!-- Text for allday switch. -->
-    <string name="editor_time_allday">Όλη την ημέρα (24 ώρες)</string>
+    <string name="editor_time_allday">Όλη μέρα (24 ώρες)</string>
     <string name="editor_time_open">Ανοικτό</string>
     <string name="editor_time_close">Κλειστό</string>
     <string name="editor_time_add_closed">Προσθήκη μη-εργάσιμων ωρών</string>
@@ -521,14 +521,14 @@
     <!-- For the first routing -->
     <string name="decline">Διαφωνώ</string>
     <string name="mobile_data_dialog">Χρήση δεδομένων κινητής τηλεφωνίας;</string>
-    <string name="mobile_data_option_always">Χρήση Πάντα</string>
-    <string name="mobile_data_option_today">Μόνο Σήμερα</string>
-    <string name="mobile_data_option_not_today">Όχι Χρήση Σήμερα</string>
+    <string name="mobile_data_option_always">Χρήση πάντα</string>
+    <string name="mobile_data_option_today">Μόνο σήμερα</string>
+    <string name="mobile_data_option_not_today">Μη χρησιμοποιηθούν σήμερα</string>
     <string name="mobile_data">Δεδομένα κινητής τηλεφωνίας</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
     <string name="mobile_data_description">Απαιτείται πρόσβαση μέσω δεδομένων κινητής τηλεφωνίας για τις ειδοποιήσεις ενημερώσεων χάρτη, μεταφορτώσεως επεξεργασιών και την σύνδεση με ιστότοπους κριτικής</string>
-    <string name="mobile_data_option_never">Μη Χρησιμοποιείται ποτέ</string>
-    <string name="mobile_data_option_ask">Πάντα Ερώτηση</string>
+    <string name="mobile_data_option_never">Μη χρησιμοποιηθούν ποτέ</string>
+    <string name="mobile_data_option_ask">Πάντα ερώτηση</string>
     <string name="traffic_update_maps_text">Για να εμφανιστούν πληροφορίες για την κίνηση, πρέπει να ενημερωθούν οι χάρτες</string>
     <string name="increase_font_size">Αύξηση μεγέθους γραμματοσειράς ετικετών χάρτη</string>
     <string name="traffic_update_app">Παρακαλούμε ενημερώστε το CoMaps</string>
@@ -757,7 +757,7 @@
     <!-- Grant Permissions button. -->
     <string name="aa_grant_permissions">Να επιτραπεί</string>
     <!-- Outdoors/hiking map style (activity) name in the Styles and Layers dialog -->
-    <string name="button_layer_outdoor">Εξωτερικοί Χώροι</string>
+    <string name="button_layer_outdoor">Ύπαιθρος</string>
     <!-- Text displayed when a webview or a browser are disabled, and external links can't be opened. -->
     <string name="browser_not_available">Δεν είναι διαθέσιμος ο περιηγητής</string>
     <string name="volume">Ένταση</string>
@@ -875,7 +875,7 @@
     <string name="editor_submit">Υποβολή</string>
     <string name="editor_mark_business_vacant_description">Χρησιμοποιήστε αυτό αν η επιχείρηση έχει μετακομίσει και ο χώρος είναι άδειος και έτοιμος για νέο ενοικιαστή.</string>
     <string name="place_page_map_too_old_description">Τα τρέχοντα δεδομένα χάρτη σας είναι πολύ παλιά, παρακαλούμε ενημερώστε τον χάρτη.</string>
-    <string name="place_page_map_too_old_title">Απαρχαιωμένα δεδομένα χάρτη</string>
+    <string name="place_page_map_too_old_title">Ξεπερασμένα δεδομένα χάρτη</string>
     <string name="rooms">%s δωμάτια</string>
     <string name="location_privacy">Απόρρητο Τοποθεσίας</string>
     <string name="pref_speedlimit_title">Εμφάνιση ορίων ταχύτητας</string>
@@ -992,4 +992,9 @@
     <string name="add_review_url_resolution_failed">Δεν βρέθηκε η τοποθεσία στα τελευταία δεδομένα του OpenStreetMap.</string>
     <string name="add_review_url_resolution_failed_dev">Δεν βρέθηκε η τοποθεσία στο DEV OpenStreetMap.</string>
     <string name="internet_unavailable">Χωρίς σύνδεση στο διαδίκτυο</string>
+    <string name="stars_1">1 αστέρι</string>
+    <string name="stars_2">2 αστέρια</string>
+    <string name="stars_3">3 αστέρια</string>
+    <string name="stars_4">4 αστέρια</string>
+    <string name="stars_5">5 αστέρια</string>
 </resources>

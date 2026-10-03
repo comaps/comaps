@@ -1542,3 +1542,8 @@
 "type.railway.station.subway.boston" = "Stazione della metropolitana";
 "type.railway.subway_entrance.qingdao" = "Subway Entrance";
 "type.building.abandoned" = "Edificio abbandonato";
+"type.shop.tool_hire" = "Tool Hire";
+"type.amenity.tool_library" = "Tool Library";
+"type.amenity.parking.customers" = "Customer Parking";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";

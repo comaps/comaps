@@ -991,4 +991,9 @@
     <string name="add_review_url_resolution_failed">Místo nenalezeno ve službě OpenStreetMap.</string>
     <string name="add_review_url_resolution_failed_dev">Místo nenalezeno ve službě DEV OpenStreetMap.</string>
     <string name="internet_unavailable">Bez připojení k internetu</string>
+    <string name="stars_1">1 hvězda</string>
+    <string name="stars_2">2 hvězdy</string>
+    <string name="stars_3">3 hvězdy</string>
+    <string name="stars_4">4 hvězdy</string>
+    <string name="stars_5">5 hvězd</string>
 </resources>

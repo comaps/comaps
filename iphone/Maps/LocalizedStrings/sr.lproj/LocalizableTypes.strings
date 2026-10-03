@@ -1542,3 +1542,8 @@
 "type.railway.station.subway.boston" = "Метро станица";
 "type.railway.subway_entrance.qingdao" = "Улаз у метро";
 "type.building.abandoned" = "Напуштена зграда";
+"type.shop.tool_hire" = "Tool Hire";
+"type.amenity.tool_library" = "Tool Library";
+"type.amenity.parking.customers" = "Customer Parking";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";

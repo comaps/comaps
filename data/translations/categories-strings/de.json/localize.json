@@ -39,7 +39,7 @@
         "defaultMessage": "6Einrichtungen für Wohnmobile|4Wohnmobile|4Wohnmobilstellplatz|3Campingbus"
     },
     "amenity-atm|@category_atm": {
-        "defaultMessage": "5Geldautomat|5Bankautomat|5Bankomat|4Bargeld|3Geld|U+1F3E7|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"
+        "defaultMessage": "5Geldautomat|5Bankautomat|5Bankomat|4Bargeld|3Geld"
     },
     "@category_bank": {
         "defaultMessage": "3Bank|4Geldbank|4Kreditinstitut"
@@ -135,7 +135,7 @@
         "defaultMessage": "4Haushaltswaren"
     },
     "shop-jewelry|@category_shopping|@shop": {
-        "defaultMessage": "4Juwelier|Juweliergeschäft|Schmuck|Schmuckgeschäft|Uhren"
+        "defaultMessage": "4Juwelier|8Juweliergeschäft|5Schmuck|6Schmuckgeschäft|4Uhren|5Diamant"
     },
     "shop-optician|@shop": {
         "defaultMessage": "3Optiker|3Brillengeschäft|5Augenoptiker|3Brillen|5Sonnenbrillen|4Kontaktlinsen|U+1F453"
@@ -444,7 +444,7 @@
         "defaultMessage": "3Spital|3Klinik|3Arzt|3Doktor|3Medizinische Einrichtung|3Medizinisches Zentrum|3Gesundheitswesen|3Ambulanz|3Gesundheitsdienstleistungen|3Erste Hilfe|3Notfall|U+1F691|U+1F3E5|U+1F489|U+1F48A"
     },
     "amenity-clinic|@category_hospital": {
-        "defaultMessage": "3Klinik|3Krankenhaus|3Ambulanz|3Arzt|3Diagnostik|3Gesundheitsdienstleistungen|3Doktor|U+1F3E5|U+1F489"
+        "defaultMessage": "3Klinik|3Krankenhaus|3Ambulanz|3Arzt|3Diagnostik|3Gesundheitsdienstleistungen|3Doktor|3Spital"
     },
     "amenity-doctors|@category_hospital": {
         "defaultMessage": "3Arztpraxis|3Arzt|5Allgemeinmediziner|3Ärztezentrum|3Ärztehaus|U+1F489|U+1F3E5|U+1F691"
@@ -1170,7 +1170,7 @@
         "defaultMessage": "Schleuse"
     },
     "amenity-public_bookcase": {
-        "defaultMessage": "4Bücherregal|4Büchertausch|4Bücherschrank|4Bücherbox|4Bücherzelle"
+        "defaultMessage": "4Bücherregal|4Büchertausch|4Bücherschrank|4Bücherbox|4Bücherzelle|Straßenbücherei"
     },
     "sport-climbing": {
         "defaultMessage": "4Kletterzentrum|4Kletterhalle|U+1F9D7"
@@ -1212,7 +1212,7 @@
         "defaultMessage": "Pflegeheim"
     },
     "amenity-payment_terminal": {
-        "defaultMessage": "3Bezahlterminal"
+        "defaultMessage": "3Bezahlterminal|3Kartenlesegerät"
     },
     "amenity-public_bath": {
         "defaultMessage": "4Öffentliches Bad|4Hallenbad|5Schwimmen|5Schwimmbad|U+1F3CA"
@@ -1299,7 +1299,7 @@
         "defaultMessage": "5Naturschutzpark|5Nationalpark"
     },
     "leisure-nature_reserve|@category_tourism": {
-        "defaultMessage": "5Naturschutzgebiet"
+        "defaultMessage": "5Naturschutzgebiet|4Wildschutzgebiet"
     },
     "natural-cape": {
         "defaultMessage": "Kap|Landzunge|Landspitze"
@@ -1311,7 +1311,7 @@
         "defaultMessage": "Gletscher|Ferner|Kees|Firn"
     },
     "highway-ford": {
-        "defaultMessage": "Furt"
+        "defaultMessage": "Furt|6Wasserfurt"
     },
     "leisure-marina": {
         "defaultMessage": "5Jachthafen"
@@ -1632,7 +1632,7 @@
         "defaultMessage": "Frühstück"
     },
     "cuisine-burger|@fastfood": {
-        "defaultMessage": "Burger|Hamburger"
+        "defaultMessage": "Burger|4Hamburger"
     },
     "cuisine-cake": {
         "defaultMessage": "Kuchen|Bäckerei"

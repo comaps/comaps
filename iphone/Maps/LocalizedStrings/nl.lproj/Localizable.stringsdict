@@ -13,11 +13,11 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
 			<key>zero</key>
-			<string>Nul bladwijzers</string>
+			<string>Nul plaatsen</string>
 			<key>one</key>
-			<string>%lld bladwijzer</string>
+			<string>%lld plaats</string>
 			<key>other</key>
-			<string>%lld bladwijzers</string>
+			<string>%lld plaatsen</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
@@ -49,11 +49,11 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
 			<key>zero</key>
-			<string>%lld tracks</string>
+			<string>%lld routes</string>
 			<key>one</key>
-			<string>%lld track</string>
+			<string>%lld route</string>
 			<key>other</key>
-			<string>%lld tracks</string>
+			<string>%lld routes</string>
 		</dict>
 	</dict>
 	<key>population</key>
@@ -67,11 +67,11 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
 			<key>zero</key>
-			<string>%lld bewoners</string>
+			<string>%lld inwoners</string>
 			<key>one</key>
-			<string>%lld bewoner</string>
+			<string>%lld inwoner</string>
 			<key>other</key>
-			<string>%lld bewoners</string>
+			<string>%lld inwoners</string>
 		</dict>
 	</dict>
 	<key>rooms</key>
@@ -103,11 +103,11 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
 			<key>zero</key>
-			<string>%lld plaatsen voor gehandicapten</string>
+			<string>%lld gehandicaptenparkeerplaatsen</string>
 			<key>one</key>
-			<string>%lld plaats voor een gehandicapte</string>
+			<string>%lld gehandicaptenparkeerplaats</string>
 			<key>other</key>
-			<string>%lld plaatsen voor gehandicapten</string>
+			<string>%lld gehandicaptenparkeerplaatsen</string>
 		</dict>
 	</dict>
 	<key>capacity_charging</key>

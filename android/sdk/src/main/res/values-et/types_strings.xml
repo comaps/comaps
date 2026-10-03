@@ -1544,4 +1544,5 @@
     <string name="type.railway.station.subway.boston">Bostoni metroojaam</string>
     <string name="type.railway.subway_entrance.boston">Metroo sissepääs</string>
     <string name="type.railway.subway_entrance.qingdao">Metroo sissepääs</string>
+    <string name="type.building.abandoned">Hüljatud ehitus</string>
 </resources>

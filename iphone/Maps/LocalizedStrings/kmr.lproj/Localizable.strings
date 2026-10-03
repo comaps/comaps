@@ -898,3 +898,13 @@
 "pref_font_size" = "Font size for map labels";
 "font_size" = "Font size";
 "mode_options_accessibility_hint" = "Shows options for this mode";
+"stars_5" = "5-star";
+"custom_map_server_error_scheme" = "The URL must start with http:// or https://";
+"stars_4" = "4-star";
+"stars_2" = "2-star";
+"custom_map_server_map_series" = "This version of CoMaps is using map series %@.";
+"not_set" = "Not set";
+"custom_map_server" = "Custom Map Server";
+"stars_3" = "3-star";
+"stars_1" = "1-star";
+"custom_map_server_message" = "Override the default map download server used for map downloads. Leave empty to use the default CoMaps map server.";

@@ -1541,4 +1541,8 @@
     <string name="type.railway.station.subway.boston">Stanice metra</string>
     <string name="type.railway.subway_entrance.boston">Vchod do metra</string>
     <string name="type.railway.subway_entrance.qingdao">Vchod do metra</string>
+    <string name="type.amenity.tool_library">Knihovna nářadí</string>
+    <string name="type.building.abandoned">Opuštěná budova</string>
+    <string name="type.shop.tool_hire">Půjčovna nářadí</string>
+    <string name="type.amenity.parking.customers">Parkoviště pro zákazníky</string>
 </resources>

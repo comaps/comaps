@@ -48,7 +48,7 @@
         "defaultMessage": "D'occasion|Seconde main"
     },
     "amenity-bank|@category_bank": {
-        "defaultMessage": "argent"
+        "defaultMessage": "Banque|Argent"
     },
     "@category_recycling": {
         "defaultMessage": "4Recyclage|Traitement des déchets|Dépôt de matières recyclables|Tri de déchets|Tri des déchets|Réutilisation"
@@ -1170,7 +1170,7 @@
         "defaultMessage": "École de langue"
     },
     "amenity-ice_cream": {
-        "defaultMessage": "Stand de crème glacée|Marchand de glaces|Glacier"
+        "defaultMessage": "Stand de glace|Marchand de glaces|Glacier"
     },
     "amenity-internet_cafe": {
         "defaultMessage": "5Cybercafé"
@@ -1386,7 +1386,7 @@
         "defaultMessage": "Salle de sport"
     },
     "amenity-arts_centre|@category_tourism": {
-        "defaultMessage": "Centre artistique"
+        "defaultMessage": "Centre artistique|Centre culturel"
     },
     "amenity-prison": {
         "defaultMessage": "prison|centre pénitentiaire|centre de détention"
@@ -1545,7 +1545,7 @@
         "defaultMessage": "Hot-dog"
     },
     "cuisine-ice_cream": {
-        "defaultMessage": "Crème glacée"
+        "defaultMessage": "Glace|Crème glacée"
     },
     "cuisine-kebab|@fastfood": {
         "defaultMessage": "Kebab"
@@ -1563,7 +1563,7 @@
         "defaultMessage": "Pizza"
     },
     "cuisine-ramen": {
-        "defaultMessage": "Râmen"
+        "defaultMessage": "Rāmen"
     },
     "cuisine-sandwich|@fastfood": {
         "defaultMessage": "Sandwich"
@@ -1681,5 +1681,26 @@
     },
     "tourism-information-guidepost": {
         "defaultMessage": "Point d'information"
+    },
+    "building-abandoned": {
+        "defaultMessage": "Bâtiment abandonné|abandonné"
+    },
+    "shop-beauty-day_spa": {
+        "defaultMessage": "Spa|bien-être"
+    },
+    "leisure-indoor_play": {
+        "defaultMessage": "Aire de jeux d'intérieur|aire de jeux couverte"
+    },
+    "leisure-fitness_centre-sport-yoga": {
+        "defaultMessage": "4Salle de yoga|3Cours de yoga"
+    },
+    "amenity-car_pooling|@category_parking": {
+        "defaultMessage": "3Covoiturage"
+    },
+    "emergency-life_ring": {
+        "defaultMessage": "4Bouée de sauvetage"
+    },
+    "amenity-give_box": {
+        "defaultMessage": "Boîte à dons|Dons"
     }
 }

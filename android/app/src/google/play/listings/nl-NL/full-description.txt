@@ -25,7 +25,7 @@ Sluit je aan bij de community en help mee aan de ontwikkeling van de beste kaart
 • Offline Wikipedia-artikelen
 • Metrolaag en routebeschrijvingen
 • Trackregistratie
-• Exporteer en importeer bladwijzers en tracks in KML, KMZ, GPX-formaten
+• Exporteer en importeer favorieten en routes in KML, KMZ, GPX-formaten
 • Een donkere modus voor gebruik 's nachts
 • Verbeter kaartgegevens voor iedereen met een eenvoudige ingebouwde editor
 • Ondersteuning voor Android Auto

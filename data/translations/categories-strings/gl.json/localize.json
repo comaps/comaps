@@ -88,5 +88,71 @@
     },
     "shop-clothes|@category_shopping|@shop": {
         "defaultMessage": "3Roupa|tenda de roupa|moda|vestimenta"
+    },
+    "@category_shopping": {
+        "defaultMessage": "3Tenda|4Compras"
+    },
+    "@category_tourism": {
+        "defaultMessage": "5Atraccións turísticas|5Atraccións|3Turismo"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "4Vida nocturna|4Noite"
+    },
+    "amenity-studio": {
+        "defaultMessage": "5Estudio multimedia|5Estudio"
+    },
+    "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
+        "defaultMessage": "3Panadaría|3Torta|3Pastel"
+    },
+    "shop-cosmetics|@category_shopping|@shop": {
+        "defaultMessage": "4Cosméticos|4Beleza|4Maquillaxe"
+    },
+    "shop-alcohol|@category_food|@shop": {
+        "defaultMessage": "3Licor|3Alcol|4Alcohol"
+    },
+    "shop-electronics|@shop": {
+        "defaultMessage": "4Electrónica"
+    },
+    "shop-optician|@shop": {
+        "defaultMessage": "4Óptica|4lentes|5anteollos|5lentes de sol"
+    },
+    "shop-gift|@category_shopping|@shop": {
+        "defaultMessage": "4Regalo|4presente|4souvenir|6tenda de regalos|6tenda de souvenirs"
+    },
+    "shop-toys|@category_children|@shop": {
+        "defaultMessage": "4Xoguete|tenda de xoguetes|nenos|xoguetes de nenos"
+    },
+    "shop-bicycle|@shop": {
+        "defaultMessage": "4Bicicleta|Bici|Tenda de bicicletas"
+    },
+    "highway-bus_stop|@category_transport": {
+        "defaultMessage": "4Parada de bus|bus|4parada"
+    },
+    "railway-tram_stop|@category_transport": {
+        "defaultMessage": "4Parada de tranvía|4tranvía|4parada"
+    },
+    "amenity-bus_station|@category_transport": {
+        "defaultMessage": "4Estación de autobuses|bus|autobus"
+    },
+    "railway-station|railway-halt|building-train_station|@category_transport": {
+        "defaultMessage": "4Estación de tren|tren|4ferrocarril|vía de tren|estación"
+    },
+    "railway-station-funicular": {
+        "defaultMessage": "4Funicular"
+    },
+    "railway-station-subway|@category_transport": {
+        "defaultMessage": "4Estación de metro|metro|5metropolitano"
+    },
+    "amenity-townhall": {
+        "defaultMessage": "4Concello|4Consistorio|4Pleno municipal|4municipio|6casa do concello"
+    },
+    "tourism-attraction|@category_tourism": {
+        "defaultMessage": "4Atracción"
+    },
+    "waterway-waterfall|@category_tourism": {
+        "defaultMessage": "4Fervenza|salto|salto de auga|4cadoiro|4catarata"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "4Segunda man"
     }
 }

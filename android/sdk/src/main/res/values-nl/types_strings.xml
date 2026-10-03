@@ -103,7 +103,7 @@
     <string name="type.amenity.parking.lane.fee">Parkeerstrook</string>
     <string name="type.amenity.parking.lane.private">Privéparkeerstrook</string>
     <string name="type.amenity.parking_entrance">Parkeeringang</string>
-    <string name="type.amenity.parking_entrance.private">Eigen parkeerplaats ingang</string>
+    <string name="type.amenity.parking_entrance.private">Privéparkeerplaatsingang</string>
     <string name="type.amenity.parking_entrance.permissive">Parkeeringang</string>
     <string name="type.amenity.parking_space">Parkeerplek</string>
     <string name="type.amenity.parking_space.permissive">Parkeerplek</string>
@@ -129,7 +129,7 @@
     <string name="type.amenity.pub">Kroeg</string>
     <string name="type.amenity.public_bookcase">Mini-bieb</string>
     <!-- SECTION: Types: Recycling -->
-    <string name="type.amenity.recycling.centre">Recyclestation|Millieustraat</string>
+    <string name="type.amenity.recycling.centre">Milieustraat</string>
     <string name="type.amenity.recycling.container">Recyclingcontainer</string>
     <string name="type.recycling.batteries">Batterijen</string>
     <string name="type.recycling.clothes">Kleding</string>
@@ -159,7 +159,7 @@
     <string name="type.amenity.taxi">Taxistandplaats</string>
     <string name="type.amenity.telephone">Telefoon</string>
     <string name="type.amenity.theatre">Theater</string>
-    <string name="type.amenity.toilets">Toiletten</string>
+    <string name="type.amenity.toilets">Toilet</string>
     <string name="type.toilets.yes">Toiletten</string>
     <string name="type.amenity.townhall">Gemeentehuis</string>
     <string name="type.amenity.university">Universiteit</string>
@@ -242,7 +242,7 @@
     <string name="type.craft.electrician">Elektricien</string>
     <string name="type.craft.electronics_repair">Elektronica-reparatie</string>
     <string name="type.craft.gardener">Tuinarchitect</string>
-    <string name="type.craft.grinding_mill">Malende molen</string>
+    <string name="type.craft.grinding_mill">Maalderij</string>
     <string name="type.craft.handicraft">Handwerk</string>
     <!-- Heating, Ventilation, and Air Conditioning -->
     <string name="type.craft.hvac">Airconditioning</string>
@@ -255,7 +255,7 @@
     <string name="type.craft.plumber">Loodgieter</string>
     <string name="type.craft.sawmill">Zagerij</string>
     <string name="type.craft.shoemaker">Schoenmaker</string>
-    <string name="type.craft.winery">Wijnhandel</string>
+    <string name="type.craft.winery">Wijnmakerij</string>
     <string name="type.craft.tailor">Kleermaker</string>
     <string name="type.cuisine.african">Afrikaans</string>
     <string name="type.cuisine.american">Amerikaans</string>
@@ -743,8 +743,8 @@
     <string name="type.natural.vineyard">Wijngaard</string>
     <string name="type.natural.volcano">Vulkaan</string>
     <string name="type.natural.water">Waterlichaam</string>
-    <string name="type.natural.wetland">Moerasland</string>
-    <string name="type.natural.wetland.bog">Moeras</string>
+    <string name="type.natural.wetland">Drasland</string>
+    <string name="type.natural.wetland.bog">Hoogveen</string>
     <string name="type.natural.wetland.marsh">Moeras</string>
     <string name="type.noexit">Doodlopende weg</string>
     <string name="type.office">Kantoor</string>
@@ -1249,7 +1249,7 @@
     <string name="type.sport.swimming">Zwemmen</string>
     <string name="type.sport.table_tennis">Tafeltennis</string>
     <string name="type.sport.tennis">Tennis</string>
-    <string name="type.sport.volleyball">Volleyball</string>
+    <string name="type.sport.volleyball">Volleybal</string>
     <string name="type.sport.10pin">Bowlen</string>
     <string name="type.sport.9pin">Bowlen</string>
     <string name="type.sport.padel">Padel</string>
@@ -1258,7 +1258,7 @@
     <string name="type.sport.field_hockey">Veldhockey</string>
     <string name="type.sport.badminton">Badminton</string>
     <string name="type.sport.pelota">Pelota</string>
-    <string name="type.tourism">Tourisme</string>
+    <string name="type.tourism">Toerisme</string>
     <string name="type.tourism.aquarium">Aquarium</string>
     <!-- Typically serviced, staff is present and food is available (compared to wilderness_hut). -->
     <string name="type.tourism.alpine_hut">Berghut</string>
@@ -1392,12 +1392,12 @@
     <string name="type.amenity.studio">Mediastudio</string>
     <string name="type.sport.diving">Klifduiken</string>
     <string name="type.railway.station.subway.qingdao">Metrostation</string>
-    <string name="type.landuse.religious">Religieus Land</string>
+    <string name="type.landuse.religious">Religieus terrein</string>
     <string name="type.natural.wetland.saltmarsh.tidal">Kwelder</string>
     <string name="type.natural.wetland.fen">Laagveen</string>
     <string name="type.natural.wetland.reedbed">Rietland</string>
     <string name="type.natural.wetland.swamp">Moeras</string>
-    <string name="type.natural.wetland.saltmarsh">Zoutmoeras</string>
+    <string name="type.natural.wetland.saltmarsh">Kwelder</string>
     <string name="type.natural.wetland.mangrove">Mangrove</string>
     <string name="type.natural.wetland.tidalflat">Wad</string>
     <string name="type.amenity.luggage_locker">Bagagekluis</string>
@@ -1466,8 +1466,8 @@
     <string name="type.amenity.flight_school">Vliegschool</string>
     <string name="type.amenity.prep_school">Bijscholing</string>
     <string name="type.cardinal.east">Oost</string>
-    <string name="type.cardinal.north">Noorden</string>
-    <string name="type.cardinal.south">Zuiden</string>
+    <string name="type.cardinal.north">Noord</string>
+    <string name="type.cardinal.south">Zuid</string>
     <string name="type.natural.sand">Zand</string>
     <string name="type.natural.tree">Boom</string>
     <string name="type.beacon.cardinal.east">Kardinaal baken</string>
@@ -1497,8 +1497,8 @@
     <string name="type.lateral.port">Bakboord</string>
     <string name="type.lateral.starboard">Stuurboord</string>
     <string name="type.cardinal.west">West</string>
-    <string name="type.entrance.house">Huis entree</string>
-    <string name="type.entrance.garage">Garage entree</string>
+    <string name="type.entrance.house">Huisingang</string>
+    <string name="type.entrance.garage">Garage-ingang</string>
     <string name="type.entrance.service">Dienstingang</string>
     <string name="type.entrance.entry">Ingang (alleen ingang)</string>
     <string name="type.entrance.emergency">Nooduitgang</string>
@@ -1545,4 +1545,7 @@
     <string name="type.railway.subway_entrance.boston">Metro-ingang</string>
     <string name="type.railway.subway_entrance.qingdao">Metro-ingang</string>
     <string name="type.building.abandoned">Verlaten gebouw</string>
+    <string name="type.amenity.tool_library">Gereedschapsbibliotheek</string>
+    <string name="type.shop.tool_hire">Gereedschapsverhuur</string>
+    <string name="type.amenity.parking.customers">Parkeerplaats voor klanten</string>
 </resources>

@@ -741,9 +741,9 @@
 "downloader_updating_ios" = "Uuendamine";
 "downloader_loading_ios" = "Allalaadimisel";
 /* Autoupdate dialog on start */
-"whats_new_auto_update_title" = "Värskenda oma allalaaditud kaarte";
+"whats_new_auto_update_title" = "Uuenda oma allalaaditud kaarte";
 /* Autoupdate dialog on start */
-"whats_new_auto_update_message" = "Kaartide värskendamine hoiab objektide info ajakohasena";
+"whats_new_auto_update_message" = "Kaartide uuendamine hoiab objektide teabe ajakohasena";
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_size" = "Uuenda (%@)";
 /* Autoupdate dialog on start */
@@ -897,4 +897,14 @@
 "bookmarks_text_placement_title" = "Näita kaardil lemmikute nimesid";
 "pref_font_size" = "Kirjasuurus kaardisiltidel";
 "font_size" = "Kirjatüübi suurus";
-"mode_options_accessibility_hint" = "Shows options for this mode";
+"mode_options_accessibility_hint" = "Näitab selle režiimi valikuid";
+"stars_5" = "5-star";
+"custom_map_server_error_scheme" = "The URL must start with http:// or https://";
+"stars_4" = "4-star";
+"stars_2" = "2-star";
+"custom_map_server_map_series" = "This version of CoMaps is using map series %@.";
+"not_set" = "Not set";
+"custom_map_server" = "Custom Map Server";
+"stars_3" = "3-star";
+"stars_1" = "1-star";
+"custom_map_server_message" = "Override the default map download server used for map downloads. Leave empty to use the default CoMaps map server.";

@@ -1544,3 +1544,6 @@
 "type.aeroway.gate" = "Gate";
 "type.addr_interpolation" = "Address/Block";
 "type.building.abandoned" = "Abandoned Building";
+"type.shop.tool_hire" = "Tool Hire";
+"type.amenity.tool_library" = "Tool Library";
+"type.amenity.parking.customers" = "Customer Parking";

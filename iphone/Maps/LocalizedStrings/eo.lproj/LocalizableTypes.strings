@@ -59,7 +59,7 @@
 "type.amenity.cinema" = "Kinejo";
 "type.leisure.bowling_alley" = "Bovlingejo";
 "type.amenity.clinic" = "Kliniko";
-"type.amenity.college" = "Universitato";
+"type.amenity.college" = "Altlernejo";
 "type.amenity.community_centre" = "Komunumejo";
 "type.amenity.community_centre.youth_centre" = "Junulejo";
 "type.amenity.compressed_air" = "Aerpumpilo";
@@ -134,15 +134,15 @@
 "type.amenity.payment_centre" = "Pagcentro";
 "type.amenity.pharmacy" = "Apoteko";
 "type.amenity.place_of_worship" = "Adorloko";
-"type.amenity.place_of_worship.buddhist" = "Buda Templo";
+"type.amenity.place_of_worship.buddhist" = "Buda templo";
 "type.amenity.place_of_worship.christian" = "Kirko";
 "type.amenity.place_of_worship.christian.mormon" = "Eklezio de Jesuo Kristo de la Sanktuloj de la Lastaj Tagoj";
 "type.amenity.place_of_worship.christian.jehovahs_witness" = "Reĝa Halo de Atestantoj de Jehovo";
-"type.amenity.place_of_worship.hindu" = "Hindua Templo";
+"type.amenity.place_of_worship.hindu" = "Hindua templo";
 "type.amenity.place_of_worship.jewish" = "Sinagogo";
 "type.amenity.place_of_worship.muslim" = "Moskeo";
 "type.amenity.place_of_worship.shinto" = "Ŝintoa templo";
-"type.amenity.place_of_worship.taoist" = "Taoista Templo";
+"type.amenity.place_of_worship.taoist" = "Taoista templo";
 "type.amenity.police" = "Policio";
 "type.amenity.post_box" = "Poŝtkesto";
 "type.amenity.post_office" = "Poŝtejo";
@@ -163,28 +163,28 @@
 "type.recycling.shoes" = "Ŝuoj";
 "type.recycling.green_waste" = "Green/Organic Waste";
 "type.recycling.cartons" = "Cartons";
-"type.amenity.restaurant" = "Restaurant";
+"type.amenity.restaurant" = "Restoracio";
 "type.amenity.sanitary_dump_station" = "Holding Tank Dump Station";
 "type.amenity.school" = "Lernejo";
 /* Weather shelter (including sun shelters and natural rock shelters). */
-"type.amenity.shelter" = "Shelter";
+"type.amenity.shelter" = "Ŝirmejo";
 /* A weather shelter by the public transport stop. */
-"type.amenity.shelter.public_transport" = "Shelter";
+"type.amenity.shelter.public_transport" = "Ŝirmejo";
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Bivouac Hut";
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "Lean-to Sleep Shelter";
 "type.amenity.public_bath" = "Public Bath";
-"type.amenity.shower" = "Shower";
+"type.amenity.shower" = "Duŝo";
 "type.amenity.stripclub" = "Stripclub";
-"type.amenity.taxi" = "Taxi Stand";
-"type.amenity.telephone" = "Phone";
-"type.amenity.theatre" = "Theatre";
-"type.amenity.toilets" = "Toilet";
-"type.toilets.yes" = "Toilet";
-"type.amenity.townhall" = "Town Hall";
-"type.amenity.university" = "University";
-"type.amenity.vending_machine" = "Vending Machine";
+"type.amenity.taxi" = "Taksistacio";
+"type.amenity.telephone" = "Telefono";
+"type.amenity.theatre" = "Teatro";
+"type.amenity.toilets" = "Tualeto";
+"type.toilets.yes" = "Tualeto";
+"type.amenity.townhall" = "Urbodomo";
+"type.amenity.university" = "Universitato";
+"type.amenity.vending_machine" = "Vendaŭtomato";
 "type.amenity.vending_machine.cigarettes" = "Cigarette Dispenser";
 "type.amenity.vending_machine.coffee" = "Coffee Dispenser";
 "type.amenity.vending_machine.condoms" = "Condoms Dispenser";
@@ -1542,3 +1542,8 @@
 "type.railway.station.subway.boston" = "Subway Station";
 "type.railway.subway_entrance.qingdao" = "Subway Entrance";
 "type.building.abandoned" = "Abandoned Building";
+"type.shop.tool_hire" = "Tool Hire";
+"type.amenity.tool_library" = "Tool Library";
+"type.amenity.parking.customers" = "Customer Parking";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";

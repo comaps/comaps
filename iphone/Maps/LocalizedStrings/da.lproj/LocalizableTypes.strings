@@ -41,7 +41,7 @@
 "type.amenity.car_sharing" = "Delebiler";
 "type.amenity.car_wash" = "Bilvask";
 "type.man_made.telescope" = "Teleskop";
-"type.man_made.telescope.optical" = "Teleskop (Optisk)";
+"type.man_made.telescope.optical" = "Teleskop (optisk)";
 "type.man_made.telescope.radio" = "Teleskop (Radio)";
 "type.man_made.telescope.gamma" = "Teleskop (Gamma)";
 "type.man_made.observatory" = "Observatorium";
@@ -862,7 +862,7 @@
 "type.natural.volcano" = "Vulkan";
 "type.natural.water" = "Vandmasse";
 "type.natural.wetland" = "Vådområde";
-"type.natural.wetland.bog" = "Mose";
+"type.natural.wetland.bog" = "Højmose";
 "type.natural.wetland.marsh" = "Marsk";
 "type.natural.wetland.saltmarsh" = "Forland";
 "type.natural.wetland.saltmarsh.tidal" = "Vade";
@@ -1542,3 +1542,8 @@
 "type.railway.station.subway.boston" = "Metrostation";
 "type.railway.subway_entrance.qingdao" = "Metroindgang";
 "type.building.abandoned" = "Forladt bygning";
+"type.shop.tool_hire" = "Værktøjsudlejning";
+"type.amenity.tool_library" = "Værktøjsbibliotek";
+"type.amenity.parking.customers" = "Parkering for kunder";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";

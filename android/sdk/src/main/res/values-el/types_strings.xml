@@ -84,19 +84,19 @@
     <string name="type.amenity.parking.no.access">Ιδιωτικός χώρος στάθμευσης</string>
     <string name="type.amenity.parking.permissive">Ιδιωτικός χώρος στάθμευσης</string>
     <string name="type.amenity.parking.private">Ιδιωτικός χώρος στάθμευσης</string>
-    <string name="type.amenity.parking.park_and_ride">Χώρος στάθμευσης</string>
+    <string name="type.amenity.parking.park_and_ride">Χώρος στάθμευσης Park and Ride</string>
     <string name="type.amenity.parking.underground">Υπόγειος χώρος στάθμευσης</string>
     <string name="type.amenity.parking.underground.fee">Υπόγειος χώρος στάθμευσης</string>
     <string name="type.amenity.parking.underground.private">Ιδιωτικός υπόγειος χώρος στάθμευσης</string>
-    <string name="type.amenity.parking.street_side">Στάθμευση στην πλευρά του δρόμου</string>
-    <string name="type.amenity.parking.street_side.fee">Στάθμευση στην πλευρά του δρόμου</string>
-    <string name="type.amenity.parking.street_side.private">Ιδιωτικός δρόμος πλευρικός χώρος στάθμευσης</string>
+    <string name="type.amenity.parking.street_side">Στάθμευση στην άκρη του δρόμου</string>
+    <string name="type.amenity.parking.street_side.fee">Στάθμευση στην άκρη του δρόμου</string>
+    <string name="type.amenity.parking.street_side.private">Ιδιωτική στάθμευση στην άκρη του δρόμου</string>
     <string name="type.amenity.parking.lane">Λωρίδα στάθμευσης</string>
     <string name="type.amenity.parking.lane.fee">Λωρίδα στάθμευσης</string>
-    <string name="type.amenity.parking.lane.private">Ιδιωτική λωρίδα στάθμευσης</string>
-    <string name="type.amenity.parking_entrance">Είσοδος στάθμευσης</string>
-    <string name="type.amenity.parking_entrance.private">Ιδιωτική είσοδος στάθμευσης</string>
-    <string name="type.amenity.parking_entrance.permissive">Είσοδος στάθμευσης</string>
+    <string name="type.amenity.parking.lane.private">Λωρίδα ιδιωτικής στάθμευσης</string>
+    <string name="type.amenity.parking_entrance">Είσοδος χώρου στάθμευσης</string>
+    <string name="type.amenity.parking_entrance.private">Είσοδος ιδιωτικού χώρου στάθμευσης</string>
+    <string name="type.amenity.parking_entrance.permissive">Είσοδος χώρου στάθμευσης</string>
     <string name="type.amenity.parking_space">Χώρος στάθμευσης</string>
     <string name="type.amenity.parking_space.permissive">Χώρος στάθμευσης</string>
     <string name="type.amenity.parking_space.private">Χώρος στάθμευσης</string>
@@ -1386,9 +1386,9 @@
     <string name="type.amenity.food_court">Χώρος Εστίασης</string>
     <string name="type.amenity.lounger">Ανέσεις</string>
     <string name="type.amenity.luggage_locker">Θυρίδες Αποσκευών</string>
-    <string name="type.amenity.mobile_money_agent">Mobile Money Agent</string>
+    <string name="type.amenity.mobile_money_agent">Πρακτορείο μεταφοράς χρημάτων</string>
     <string name="type.amenity.car_pooling">Συνεπιβατισμός</string>
-    <string name="type.amenity.payment_centre">Κέντρο Πληρωμών</string>
+    <string name="type.amenity.payment_centre">Κέντρο πληρωμών</string>
     <string name="type.post_office.post_partner">Ταχυδρομικός Συνεργάτης</string>
     <string name="type.barrier.wicket_gate">Πεζόπορτα</string>
     <string name="type.emergency.access_point">Σημείο Έκτακτης Ανάγκης</string>
@@ -1541,4 +1541,7 @@
     <string name="type.railway.station.subway.boston">Σταθμός μετρό</string>
     <string name="type.railway.subway_entrance.boston">Είσοδος μετρό</string>
     <string name="type.railway.subway_entrance.qingdao">Είσοδος μετρό</string>
+    <string name="type.amenity.tool_library">Βιβλιοθήκη εργαλείων</string>
+    <string name="type.building.abandoned">Εγκαταλελειμμένο κτίριο</string>
+    <string name="type.shop.tool_hire">Ενοικίαση εργαλείων</string>
 </resources>

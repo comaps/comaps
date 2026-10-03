@@ -627,7 +627,7 @@
     <string name="type.natural.volcano">Vulkan</string>
     <string name="type.natural.water">Vandmasse</string>
     <string name="type.natural.wetland">Vådområde</string>
-    <string name="type.natural.wetland.bog">Mose</string>
+    <string name="type.natural.wetland.bog">Højmose</string>
     <string name="type.natural.wetland.marsh">Marsk</string>
     <string name="type.office">Kontor</string>
     <string name="type.office.company">Firmakontor</string>
@@ -1420,7 +1420,7 @@
     <string name="type.leisure.sports_centre.sport.golf">Idrætscenter</string>
     <string name="type.leisure.sports_centre.sport.gymnastics">Idrætscenter</string>
     <string name="type.man_made.telescope">Teleskop</string>
-    <string name="type.man_made.telescope.optical">Teleskop (Optisk)</string>
+    <string name="type.man_made.telescope.optical">Teleskop (optisk)</string>
     <string name="type.man_made.telescope.radio">Teleskop (Radio)</string>
     <string name="type.man_made.telescope.gamma">Teleskop (Gamma)</string>
     <string name="type.leisure.sports_centre.sport.swimming">Svømmehal</string>
@@ -1540,4 +1540,7 @@
     <string name="type.railway.subway_entrance.boston">Metroindgang</string>
     <string name="type.railway.subway_entrance.qingdao">Metroindgang</string>
     <string name="type.building.abandoned">Forladt bygning</string>
+    <string name="type.amenity.tool_library">Værktøjsbibliotek</string>
+    <string name="type.shop.tool_hire">Værktøjsudlejning</string>
+    <string name="type.amenity.parking.customers">Parkering for kunder</string>
 </resources>

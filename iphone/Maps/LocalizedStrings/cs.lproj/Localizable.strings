@@ -897,4 +897,14 @@
 "bookmarks_text_placement_title" = "Zobrazit názvy oblíbených na mapě";
 "pref_font_size" = "Velikost písma pro popisky na mapě";
 "font_size" = "Velikost písma";
-"mode_options_accessibility_hint" = "Shows options for this mode";
+"mode_options_accessibility_hint" = "Zobrazit možnosti tohoto režimu";
+"stars_5" = "5 hvězd";
+"custom_map_server_error_scheme" = "Adresa URL musí začínat s http:// nebo https://";
+"stars_4" = "4 hvězdy";
+"stars_2" = "2 hvězdy";
+"custom_map_server_map_series" = "Tato verze CoMaps používá mapové série %@.";
+"not_set" = "Není nastaveno";
+"custom_map_server" = "Vlastní mapový server";
+"stars_3" = "3 hvězdy";
+"stars_1" = "1 hvězda";
+"custom_map_server_message" = "Přepsat výchozí server používaný ke stahování map. Nechte pole prázdné, pokud chcete použít výchozí server CoMaps.";

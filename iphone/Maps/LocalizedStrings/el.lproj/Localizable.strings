@@ -127,7 +127,7 @@
 /* Text for message to copy something */
 "copy_to_clipboard" = "Αντιγραφή στο πρόχειρο";
 /* Text for message when used successfully copied something */
-"copied_to_clipboard" = "Αντιγράφηκε στο Πρόχειρο: %@";
+"copied_to_clipboard" = "Αντιγράφηκε στο πρόχειρο: %@";
 /* place preview title */
 "info" = "Πληροφορίες";
 /* Used for bookmark editing */
@@ -365,7 +365,7 @@
 "editor_time_add" = "Προσθήκη χρονοδιαγράμματος";
 "editor_time_delete" = "Διαγραφή χρονοδιαγράμματος";
 /* Text for allday switch. */
-"editor_time_allday" = "Όλη την ημέρα (24 ώρες)";
+"editor_time_allday" = "Όλη μέρα (24 ώρες)";
 "editor_time_open" = "Ανοικτό";
 "editor_time_close" = "Κλειστό";
 "editor_time_add_closed" = "Προσθήκη μη-εργάσιμων ωρών";
@@ -559,14 +559,14 @@
 /* For the first routing */
 "decline" = "Διαφωνώ";
 "mobile_data_dialog" = "Χρήση δεδομένων κινητής τηλεφωνίας για εμφάνιση αναλυτικών πληροφοριών;";
-"mobile_data_option_always" = "Χρήση Πάντα";
-"mobile_data_option_today" = "Μόνο Σήμερα";
-"mobile_data_option_not_today" = "Όχι Χρήση Σήμερα";
+"mobile_data_option_always" = "Χρήση πάντα";
+"mobile_data_option_today" = "Μόνο σήμερα";
+"mobile_data_option_not_today" = "Μη χρησιμοποιηθούν σήμερα";
 "mobile_data" = "Δεδομένα κινητής τηλεφωνίας";
 /* NOTE to translators: please synchronize your translation with the English one. */
 "mobile_data_description" = "Απαιτείται πρόσβαση μέσω δεδομένων κινητής τηλεφωνίας για τις ειδοποιήσεις ενημερώσεων χάρτη και μεταφορτώσεως επεξεργασιών.";
-"mobile_data_option_never" = "Μη Χρησιμοποιείται ποτέ";
-"mobile_data_option_ask" = "Πάντα Ερώτηση";
+"mobile_data_option_never" = "Μη χρησιμοποιηθούν ποτέ";
+"mobile_data_option_ask" = "Πάντα ερώτηση";
 "traffic_update_maps_text" = "Για να εμφανιστούν πληροφορίες για την κίνηση, πρέπει να ενημερωθούν οι χάρτες.";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Για να εμφανιστούν πληροφορίες για την κίνηση, πρέπει να γίνει ενημέρωση της εφαρμογής.";
@@ -897,4 +897,14 @@
 "bookmarks_text_placement_title" = "Εμφάνιση ονομάτων αγαπημένων στον χάρτη";
 "pref_font_size" = "Μέγεθος γραμματοσειράς για ετικέτες χάρτη";
 "font_size" = "Μέγεθος γραμματοσειράς";
-"mode_options_accessibility_hint" = "Shows options for this mode";
+"mode_options_accessibility_hint" = "Εμφανίζει επιλογές για αυτήν τη λειτουργία";
+"stars_5" = "5 αστέρια";
+"custom_map_server_error_scheme" = "Το URL πρέπει να ξεκινά με http:// ή https://";
+"stars_4" = "4 αστέρια";
+"stars_2" = "2 αστέρια";
+"custom_map_server_map_series" = "Αυτή η έκδοση του CoMaps χρησιμοποιεί χάρτες σειράς %@.";
+"not_set" = "Δεν έχει οριστεί";
+"custom_map_server" = "Προσαρμοσμένος διακομιστής χάρτη";
+"stars_3" = "3 αστέρια";
+"stars_1" = "1 αστέρι";
+"custom_map_server_message" = "Παρακάμπτει τον προσαρμοσμένο διακομιστή λήψης χάρτη που χρησιμοποιείται για λήψεις χάρτη. Αφήστε το κενό για να χρησιμοποιήσετε τον προεπιλεγμένο διακομιστή χάρτη του CoMaps.";

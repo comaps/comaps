@@ -980,4 +980,9 @@
     <string name="add_review_url_resolution_failed">Stedet er ikke fundet i den seneste OpenStreetMap.</string>
     <string name="add_review_url_resolution_failed_dev">Stedet er ikke fundet i udvikler-versionen af OpenStreetMap.</string>
     <string name="internet_unavailable">Ingen internetforbindelse</string>
+    <string name="stars_1">1-stjernet</string>
+    <string name="stars_2">2-stjernet</string>
+    <string name="stars_3">3-stjernet</string>
+    <string name="stars_4">4-stjernet</string>
+    <string name="stars_5">5-stjernet</string>
 </resources>

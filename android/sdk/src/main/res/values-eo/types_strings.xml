@@ -73,7 +73,7 @@
     <string name="type.amenity.studio">Studio</string>
     <string name="type.leisure.bowling_alley">Bovlingejo</string>
     <string name="type.amenity.clinic">Kliniko</string>
-    <string name="type.amenity.college">Universitato</string>
+    <string name="type.amenity.college">Altlernejo</string>
     <string name="type.amenity.community_centre">Komunumejo</string>
     <string name="type.amenity.compressed_air">Aerpumpilo</string>
     <string name="type.amenity.conference_centre">Kongresejo</string>
@@ -152,14 +152,14 @@
     <string name="type.amenity.payment_terminal">Pagterminalo</string>
     <string name="type.amenity.pharmacy">Apoteko</string>
     <string name="type.amenity.place_of_worship">Adorloko</string>
-    <string name="type.amenity.place_of_worship.buddhist">Buda Templo</string>
+    <string name="type.amenity.place_of_worship.buddhist">Buda templo</string>
     <string name="type.amenity.place_of_worship.christian.mormon">Eklezio de Jesuo Kristo de la Sanktuloj de la Lastaj Tagoj</string>
     <string name="type.amenity.place_of_worship.christian.jehovahs_witness">Reĝa Halo de Atestantoj de Jehovo</string>
-    <string name="type.amenity.place_of_worship.hindu">Hindua Templo</string>
+    <string name="type.amenity.place_of_worship.hindu">Hindua templo</string>
     <string name="type.amenity.place_of_worship.jewish">Sinagogo</string>
     <string name="type.amenity.place_of_worship.muslim">Moskeo</string>
     <string name="type.amenity.place_of_worship.shinto">Ŝintoa templo</string>
-    <string name="type.amenity.place_of_worship.taoist">Taoista Templo</string>
+    <string name="type.amenity.place_of_worship.taoist">Taoista templo</string>
     <string name="type.amenity.police">Policio</string>
     <string name="type.amenity.post_box">Poŝtkesto</string>
     <string name="type.amenity.post_office">Poŝtejo</string>
@@ -180,4 +180,16 @@
     <string name="type.recycling.cans">Ladskatoloj</string>
     <string name="type.recycling.shoes">Ŝuoj</string>
     <string name="type.amenity.pub">Drinkejo</string>
+    <string name="type.amenity.restaurant">Restoracio</string>
+    <string name="type.amenity.shelter">Ŝirmejo</string>
+    <string name="type.amenity.shelter.public_transport">Ŝirmejo</string>
+    <string name="type.amenity.shower">Duŝo</string>
+    <string name="type.amenity.taxi">Taksistacio</string>
+    <string name="type.amenity.theatre">Teatro</string>
+    <string name="type.amenity.toilets">Tualeto</string>
+    <string name="type.toilets.yes">Tualeto</string>
+    <string name="type.amenity.townhall">Urbodomo</string>
+    <string name="type.amenity.university">Universitato</string>
+    <string name="type.amenity.vending_machine">Vendaŭtomato</string>
+    <string name="type.amenity.telephone">Telefono</string>
 </resources>

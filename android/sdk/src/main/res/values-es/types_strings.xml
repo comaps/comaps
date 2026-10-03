@@ -644,7 +644,7 @@
     <string name="type.leisure.common">Terreno comunal</string>
     <string name="type.leisure.dog_park">Parque canino</string>
     <string name="type.leisure.fitness_centre">Centro de fitnes</string>
-    <string name="type.leisure.fitness_station">Estación de fitness|Estación de ejercicio|Estación de entrenamiento|Punto de fitness|Punto de ejercicio|Punto de entrenamiento|Zona de fitness|Zona de ejercicio|Zona de entrenamiento|Área de fitness|Área de ejercicio|Área de entrenamiento|Estación de gimnasia|Zona de gimnasia|Punto de gimnasia|Estación de gimnasio</string>
+    <string name="type.leisure.fitness_station">Parque de gimnasia</string>
     <string name="type.leisure.dance">Salón de baile</string>
     <string name="type.leisure.garden">Jardín</string>
     <string name="type.leisure.garden.residential">Jardín residencial</string>
@@ -1170,7 +1170,7 @@
     <string name="type.shop.musical_instrument">Tienda de instrumentos musicales</string>
     <string name="type.shop.newsagent">Puesto de venta de periódicos</string>
     <string name="type.shop.optician">Óptica</string>
-    <string name="type.shop.outdoor">Equipamiento de ocio al aire libre</string>
+    <string name="type.shop.outdoor">Tienda de montaña</string>
     <string name="type.shop.outpost">Punto de recogida</string>
     <string name="type.shop.pasta">Tienda de pasta</string>
     <string name="type.shop.pastry">Pastelería</string>

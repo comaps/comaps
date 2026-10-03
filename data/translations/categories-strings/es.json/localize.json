@@ -1,6 +1,6 @@
 {
     "@category_eat": {
-        "defaultMessage": "Dónde comer|Comer|Comida"
+        "defaultMessage": "Comer|Comida|Gastronomía|Dónde comer"
     },
     "@category_food": {
         "defaultMessage": "Provisiones|Víveres|4Alimentos|4Alimentación|Abasto|Despensa|Abarrotes|Comestibles"
@@ -9,49 +9,49 @@
         "defaultMessage": "5Transporte"
     },
     "@category_fuel": {
-        "defaultMessage": "3Gasolinera|Gasolinería|3Estación de servicio|3Bencinera|grifo|servicentro|gasolinería|gasetería|gasoil|diésel|nafta|combustible|carburante|bencina|gasolina|gasóleo|surtidor|4bomba de gasolina"
+        "defaultMessage": "3Gasolinera|Gasolinería|3Estación de servicio|3Bencinera|grifo|servicentro|gasolinería|gasetería|gasoil|diésel|nafta|combustible|carburante|bencina|gasolina|gasóleo|surtidor|4bomba de gasolina|Dispensador de gasolina|Carga de combustible"
     },
     "@category_parking": {
-        "defaultMessage": "5Aparcamiento|5Estacionamiento|Aparcar|Estacionar|Parquear|4Parking|Aparcadero|Parqueadero|Parqueo"
+        "defaultMessage": "5Aparcamiento|aparcamientos|5Estacionamiento|Estacionamientos|Aparcar|Estacionar|Parquear|4Parking|Aparcadero|Parqueadero|Parqueo|Parqueadero|Parqueaderos|Plaza de aparcamiento|Cochera|Playas de estacionamiento|Zonas de aparcar|Disuasorio"
     },
     "@category_shopping": {
-        "defaultMessage": "4Compras"
+        "defaultMessage": "4Compras|Tiendas|Tienda|Comercios|Negocios|Establecimientos"
     },
     "@category_hotel": {
-        "defaultMessage": "Hotel|Hoteles|alojamiento"
+        "defaultMessage": "Hotel|Hoteles|alojamiento|dónde dormir|dormir|hospedaje|4Alojamiento|alojamientos|estancias|estancia|dónde quedarse|alojamiento turístico|pernoctar|hospedaje|hospedajes|Estadía"
     },
     "@category_tourism": {
-        "defaultMessage": "5Atracciones turísticas|4Turismo|Lugares de interés"
+        "defaultMessage": "4Turismo|4Atracciones turísticas|Puntos de interés|Qué ver|Lugares de interés|Sitios turísticos|Atracciones|Punto turístico"
     },
     "@category_entertainment": {
         "defaultMessage": "Entretenimiento|Diversión|Ocio"
     },
     "@category_nightlife": {
-        "defaultMessage": "Vida nocturna|noche"
+        "defaultMessage": "4Vida nocturna|noche|salir de noche|diversión nocturna|salir de rumba|antros y bares|zonas de fiesta|salir de joda|boliches y bares|carrete|zonas de copas|discotecas y pubs|salir de fiesta|bares de copas|bar de copas|ir de pubs|fiesta|salir|lugares para salir|ir de cañas|ir de pubs|ir de cortos|ir de cañas"
     },
     "@category_children": {
-        "defaultMessage": "Ocio en familia|Diversión en familia|4Familia|3Niños|Infantil"
+        "defaultMessage": "Ocio en familia|Diversión en familia|4Familia|3Niños|Infantil|Niños|Infantil|Para niños|Bebés|Juegos infantiles|Parques infantiles|Plazas infantiles|Zona de juegos|"
     },
     "@category_atm": {
-        "defaultMessage": "Cajero|cajero automático"
+        "defaultMessage": "4Cajero automático|cajeros automáticos|cajero|cajeros|dispensador de efectivo|dispensador de dinero|sacar dinero|sacar efectivo|sacar plata|retirar dinero|retirar efectivo"
     },
     "@category_rv": {
         "defaultMessage": "Instalaciones para autocaravanas|5Caravanas|5Autocaravanas|5Motorhome|camper|campervan|camper van"
     },
     "amenity-atm|@category_atm": {
-        "defaultMessage": "dinero|efectivo|5minibank|6mini-bank|6mini bank|U+1F3E7|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"
+        "defaultMessage": "dinero|efectivo|5minibank|6mini-bank|6mini bank"
     },
     "@category_bank": {
-        "defaultMessage": "3Banco|4Sucursal bancaria"
+        "defaultMessage": "3Banco|4Sucursal bancaria|banca|entidad bancaria|Caja de ahorros|Entidad financiera|Institución financiera|Servicios financieros|Servicios bancarios)"
     },
     "@category_secondhand": {
         "defaultMessage": "4Segunda mano"
     },
     "amenity-bank|@category_bank": {
-        "defaultMessage": "dinero"
+        "defaultMessage": "dinero|plata|efectivo"
     },
     "@category_recycling": {
-        "defaultMessage": "4Reciclaje|Reciclaje de residuos|Eliminación de residuos|Materiales reciclables|Recogida selectiva de basura|Clasificación de residuos|Reutilización"
+        "defaultMessage": "4Reciclaje|Reciclaje de residuos|Eliminación de residuos|Materiales reciclables|Recogida selectiva de basura|Clasificación de residuos|Reutilización|Valorización de residuos"
     },
     "amenity-bureau_de_change": {
         "defaultMessage": "3Cambio de divisas|dinero|Casa de cambio|Cambista"
@@ -66,7 +66,7 @@
         "defaultMessage": "3Café|cafetería"
     },
     "amenity-fast_food|@category_eat": {
-        "defaultMessage": "4Comida rápida|restaurante|restaurant|3Restaurante de comida rápida|comida para llevar|comida basura"
+        "defaultMessage": "4Comida rápida|restaurante|restaurant|3Restaurante de comida rápida|comida para llevar|comida basura|comida chatarra|comida al paso|para llevar"
     },
     "amenity-restaurant|@category_eat": {
         "defaultMessage": "3Restaurante|3Café|restaurant|restorán"
@@ -192,7 +192,7 @@
         "defaultMessage": "Venta de caravanas|Venta de autocaravanas|Venta de motorhomes|Concesionario de vehículos recreativos|Concesionario de caravanas|Concesionario de autocaravanas"
     },
     "shop-car|@shop": {
-        "defaultMessage": "Venta de coches|Venta de autos|Automotora|Automotores|5Concesionaria|Concesionario|Carros|Coches|Automóviles|Autos|Concesionario de coches|3Concesionario de automóviles|"
+        "defaultMessage": "Venta de coches|Venta de autos|Automotora|Automotores|5Concesionaria|Concesionario|Carros|Coches|Automóviles|Autos|Concesionario de coches|3Concesionario de automóviles|Concesionaria de autos|Venta de carros|Agencia de autos|Venta de coches|Compraventa de vehículos|Agencia de coches"
     },
     "shop-bicycle|@shop": {
         "defaultMessage": "4Bicicleta|Bici|7Tienda de ciclismo|bicicletas|U+1F6B2|U+1F6B4|U+1F6B5"
@@ -273,7 +273,7 @@
         "defaultMessage": "Yacimiento arqueológico|Sitio arqueológico|arquelogía"
     },
     "historic-battlefield": {
-        "defaultMessage": "Campo de batalla"
+        "defaultMessage": "Campo de batalla|batalla|lugar de batalla"
     },
     "historic-stone": {
         "defaultMessage": "Piedra histórica"
@@ -306,7 +306,7 @@
         "defaultMessage": "Placa conmemorativa|placa histórica"
     },
     "historic-memorial-sculpture|@category_tourism": {
-        "defaultMessage": "Escultura"
+        "defaultMessage": "Escultura|Obra escultórica"
     },
     "historic-memorial-statue|@category_tourism": {
         "defaultMessage": "3Estatua"
@@ -501,7 +501,7 @@
         "defaultMessage": "4Oficina de correos|oficina postal"
     },
     "amenity-vehicle_inspection": {
-        "defaultMessage": "Inspección de vehículos|inspección vehicular|ITV|verificación vehicular|verificación de vehículos"
+        "defaultMessage": "Inspección de vehículos|inspección vehicular|ITV|verificación vehicular|verificación de vehículos|Revisión técnica|Inspección técnica de vehículos|Revisión técnica vehicular|RTO|VTV|Inspección de vehículos|Chequeo mecánico vehicular"
     },
     "amenity-waste_disposal": {
         "defaultMessage": "Basura|Basurero|Cubo de basura|Contenedor de basura"
@@ -1230,7 +1230,7 @@
         "defaultMessage": "Puesto de rescate de montaña|Búsqueda y rescate|Rescate|rescatista|rescatistas"
     },
     "leisure-fitness_station": {
-        "defaultMessage": "Aparatos de gimnasia|Aparatos de ejercicio|Estación de ejercicios|Gimnasio exterior|Calistenia|Ejercicio"
+        "defaultMessage": "Estación de fitness|Estación de ejercicio|Estación de entrenamiento|Punto de fitness|Punto de ejercicio|Punto de entrenamiento|Zona de fitness|Zona de ejercicio|Zona de entrenamiento|Área de fitness|Área de ejercicio|Área de entrenamiento|Estación de gimnasia|Zona de gimnasia|Punto de gimnasia|Estación de gimnasio|Aparatos de gimnasia|Aparatos de ejercicio|Gimnasio exterior|Calistenia|Ejercicio"
     },
     "office-insurance": {
         "defaultMessage": "Oficina de seguros|Corredor de seguros|Aseguradora"
@@ -1488,7 +1488,7 @@
         "defaultMessage": "Garita|Puesto de guardia|Puesto de vigilancia|Vigilancia"
     },
     "tourism-picnic_site|amenity-bbq|leisure-picnic_table": {
-        "defaultMessage": "3Pícnic|4Barbacoa|BBQ|Parrilla|Parrillera|Asador|Mesa de pícnic"
+        "defaultMessage": "3Pícnic|4Barbacoa|BBQ|Parrilla|Parrillera|Asador|Mesa de pícnic| Área de picnic|Zona de picnic|Merendero|Lugar de picnic|Barbacoa|Asador|Parrilla|Parrillero|Quincho|Fogonero|Mesa de picnic|Mesa de camping|Bancos para picnic"
     },
     "sport-9pin": {
         "defaultMessage": "Bolos"
@@ -1858,5 +1858,8 @@
     },
     "amenity-stage": {
         "defaultMessage": "Tarima"
+    },
+    "building-abandoned": {
+        "defaultMessage": "edificio abandonado|construcción abandonada|inmueble abandonado|edificación abandonada|estructura abandonada|edificio derruido|edificio en ruinas|caserón abandonado|edificio vacío|propiedad abandonada|edificio maltrecho|edificio deshabitado|edificio desértico|edificio social abandonado|casa tentadora|obra abandonada|bloque abandonado|instalación abandonada|predio abandonado|finca abandonada|local abandonado|abandonado"
     }
 }

@@ -898,3 +898,13 @@
 "pref_font_size" = "Tekststørrelse på kortet";
 "font_size" = "Tekststørrelse";
 "mode_options_accessibility_hint" = "Vis indstillinger for denne modus";
+"stars_5" = "5-stjernet";
+"custom_map_server_error_scheme" = "URL’en skal begynde med http:// eller https://";
+"stars_4" = "4-stjernet";
+"stars_2" = "2-stjernet";
+"custom_map_server_map_series" = "Denne CoMaps-version bruger kortserie %@.";
+"not_set" = "Ikke indstillet";
+"custom_map_server" = "Brugerdefineret kortserver";
+"stars_3" = "3-stjernet";
+"stars_1" = "1-stjernet";
+"custom_map_server_message" = "Tilsidesæt den som standard anvendte server til download af kort. Lad feltet være tomt for at bruge CoMaps' standardserver.";

@@ -1541,3 +1541,8 @@
 "type.railway.station.subway.boston" = "Estació de metro";
 "type.railway.subway_entrance.qingdao" = "Boca de metro";
 "type.building.abandoned" = "Edifici abandonat";
+"type.shop.tool_hire" = "Tool Hire";
+"type.amenity.tool_library" = "Tool Library";
+"type.amenity.parking.customers" = "Customer Parking";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";

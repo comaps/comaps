@@ -994,4 +994,9 @@
     <string name="add_review_url_resolution_failed">在最新的 OpenStreetMap 中未找到该地点。</string>
     <string name="add_review_url_resolution_failed_dev">在 DEV OpenStreetMap 中未找到该地点。</string>
     <string name="internet_unavailable">未连接到互联网</string>
+    <string name="stars_1">1星</string>
+    <string name="stars_2">2星</string>
+    <string name="stars_3">3星</string>
+    <string name="stars_4">4星</string>
+    <string name="stars_5">5星</string>
 </resources>

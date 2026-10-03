@@ -123,7 +123,7 @@
         "defaultMessage": "4Elektronicawinkel"
     },
     "shop-hardware|shop-doityourself|@shop": {
-        "defaultMessage": "6Gereedschap|4Klussen|Bouwmarkt|DHZ|3doe het zelf|doe-het-zelf|5IJzerwaren"
+        "defaultMessage": "6Gereedschap|4Klussen|4Bouwmarkt|DHZ|3doe het zelf|doe-het-zelf|5IJzerwaren|5IJzerwarenwinkel"
     },
     "shop-houseware|@shop": {
         "defaultMessage": "4Huishouden"
@@ -492,7 +492,7 @@
         "defaultMessage": "4Afvalcontainer|afval|prullenbak|vuilnis"
     },
     "amenity-recycling-centre|@category_recycling": {
-        "defaultMessage": "Milieustraat|recycling centrum|milieupark|gemeentewerf"
+        "defaultMessage": "5Milieustraat|4Recyclecentrum|Milieupark|Gemeentewerf|3Stort"
     },
     "amenity-recycling-container|@category_recycling": {
         "defaultMessage": "4Recyclingcontainer"
@@ -879,7 +879,7 @@
         "defaultMessage": "6Schoenmaker|schoenmakerij"
     },
     "craft-winery": {
-        "defaultMessage": "4Wijnhandel|Wijn"
+        "defaultMessage": "4Wijnmakerij|Wijn"
     },
     "craft-tailor": {
         "defaultMessage": "4Kleermaker|kledingreparatie"
@@ -948,7 +948,7 @@
         "defaultMessage": "4Dierenarts|3Veterinair|3veearts"
     },
     "@charging_station": {
-        "defaultMessage": "4Laadstation|Opladen|Laden|EV laadstation|EV opladen|EV laden|Lader"
+        "defaultMessage": "4Laadstation|Opladen|Laden|EV laadstation|EV opladen|EV laden|Lader|4Laadpaal"
     },
     "amenity-charging_station-bicycle|@charging_station": {
         "defaultMessage": "Fiets-laadstation|Fiets opladen"
@@ -1867,5 +1867,14 @@
     },
     "building-abandoned": {
         "defaultMessage": "Verlaten gebouw|verlaten"
+    },
+    "shop-tool_hire|@shop": {
+        "defaultMessage": "Gereedschapsverhuur|Gereedschap"
+    },
+    "amenity-tool_library": {
+        "defaultMessage": "Gereedschapsbibliotheek|Gereedschap"
+    },
+    "amenity-bicycle_parking-covered": {
+        "defaultMessage": "7Overdekte fietsenstalling|5Ondergrondse fietsenstalling"
     }
 }

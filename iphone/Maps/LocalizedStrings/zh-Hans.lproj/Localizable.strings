@@ -898,3 +898,13 @@
 "pref_font_size" = "地图标签的字体大小";
 "font_size" = "字体大小";
 "mode_options_accessibility_hint" = "显示此模式的选项";
+"stars_5" = "5星";
+"custom_map_server_error_scheme" = "URL 必须以 http:// 或 https:// 开头";
+"stars_4" = "4星";
+"stars_2" = "2星";
+"custom_map_server_map_series" = "此版本的 CoMaps 正在使用地图系列 %@。";
+"not_set" = "未设置";
+"custom_map_server" = "自定义地图服务器";
+"stars_3" = "3星";
+"stars_1" = "1星";
+"custom_map_server_message" = "覆盖用于地图下载的默认地图下载服务器。留空则使用默认的 CoMaps 地图服务器。";

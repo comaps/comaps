@@ -126,7 +126,7 @@
         "defaultMessage": "家庭用品"
     },
     "shop-jewelry|@category_shopping|@shop": {
-        "defaultMessage": "珠寶店|1購物|店鋪|商店|雜貨店|便利商店"
+        "defaultMessage": "珠寶店|1購物|店鋪|商店"
     },
     "shop-optician|@shop": {
         "defaultMessage": "眼鏡店|1購物|店鋪|商店|雜貨店|便利商店"
@@ -1444,5 +1444,20 @@
     },
     "cuisine-vegan|@cuisine_all_vegetarian": {
         "defaultMessage": "全素料理"
+    },
+    "amenity-studio": {
+        "defaultMessage": "工作室"
+    },
+    "shop-farm|@category_food|@shop": {
+        "defaultMessage": "農場食物"
+    },
+    "shop-water|@category_water|@category_food|@shop": {
+        "defaultMessage": "2飲用水|3可飲用水|2瓶裝水"
+    },
+    "shop-grocery|@category_food|@shop": {
+        "defaultMessage": "生鮮食品"
+    },
+    "shop-health_food|@category_food|@shop": {
+        "defaultMessage": "健康食品|健康食品|有機"
     }
 }

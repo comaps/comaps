@@ -25,5 +25,8 @@
     },
     "amenity-conference_centre": {
         "defaultMessage": "Conference Centre"
+    },
+    "shop-convenience|@category_food|@shop": {
+        "defaultMessage": "corner shop"
     }
 }

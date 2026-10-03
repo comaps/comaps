@@ -408,7 +408,7 @@
         "defaultMessage": "Bedemand"
     },
     "@category_hospital": {
-        "defaultMessage": "4Hospital"
+        "defaultMessage": "4Hospital|3Sygehus"
     },
     "amenity-hospital|@category_hospital": {
         "defaultMessage": "sygehus"
@@ -1855,5 +1855,17 @@
     },
     "cuisine-bavarian": {
         "defaultMessage": "7Bayersk mad|9Bayersk køkken"
+    },
+    "shop-tool_hire|@shop": {
+        "defaultMessage": "Værktøjsbibliotek|Værktøj"
+    },
+    "amenity-tool_library": {
+        "defaultMessage": "Værktøjsudlejning|Værktøj"
+    },
+    "amenity-bicycle_parking-covered": {
+        "defaultMessage": "5Overdækket cykelparkering"
+    },
+    "amenity-prep_school": {
+        "defaultMessage": "6Forberedende skole"
     }
 }
