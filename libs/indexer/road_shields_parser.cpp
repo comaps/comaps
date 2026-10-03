@@ -1350,7 +1350,7 @@ RoadShieldsSetT GetRoadShields(FeatureType & f)
 RoadShieldsSetT GetRoadShields(std::string_view mwmNameFull, std::string const & roadNumber,
                                HighwayClass const & highwayClass)
 {
-  std::string_view mwmName;
+  std::string_view mwmName = mwmNameFull;
 
   // Find out the country name.
   auto const underlinePos = mwmNameFull.find('_');

@@ -221,6 +221,21 @@ UNIT_TEST(RoadShields_Romania)
   TEST_EQUAL(shields[1].m_name, "7", ());
 }
 
+UNIT_TEST(RoadShields_MwmName)
+{
+  using namespace ftypes;
+
+  // Single-mwm country.
+  auto shields = GetRoadShields("Cyprus", "A1", HighwayClass::Motorway);
+  TEST_EQUAL(shields.size(), 1, ());
+  TEST_EQUAL(shields[0].m_type, RoadShieldType::Highway_Hexagon_Green, ());
+
+  // Region mwm of a split country.
+  shields = GetRoadShields("Romania_South_East", "DN2A", HighwayClass::Trunk);
+  TEST_EQUAL(shields.size(), 1, ());
+  TEST_EQUAL(shields[0].m_type, RoadShieldType::Romania_National, ());
+}
+
 UNIT_TEST(RoadShields_Smoke)
 {
   using namespace ftypes;
