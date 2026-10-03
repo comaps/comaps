@@ -816,8 +816,8 @@ deprecated|deprecated;683;x
 deprecated|deprecated;684;x
 deprecated|deprecated;685;x
 natural|vineyard;686;landuse|vineyard
-deprecated|deprecated;687;x
-deprecated|deprecated;688;x
+barrier|bus_trap;687;
+barrier|sump_buster;688;
 deprecated|deprecated;689;x
 deprecated|deprecated;690;x
 deprecated:boundary|administrative|country:04.2024;[boundary=administrative][border_type=country];x;name;int_name;691;
@@ -1769,5 +1769,3 @@ amenity|luggage_locker;1629;
 building|guardhouse;[building=guardhouse],[amenity=security_booth],[amenity=checkpoint];;;;1630;
 office|security;1631;
 shop|lighting;1632;
-barrier|bus_trap;1633;
-barrier|sump_buster;1634;
