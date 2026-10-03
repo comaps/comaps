@@ -1543,4 +1543,6 @@
     <string name="type.amenity.tool_library">Værktøjsbibliotek</string>
     <string name="type.shop.tool_hire">Værktøjsudlejning</string>
     <string name="type.amenity.parking.customers">Parkering for kunder</string>
+    <string name="type.barrier.bus_trap">Bussluse</string>
+    <string name="type.barrier.sump_buster">Bundkarsknuser</string>
 </resources>

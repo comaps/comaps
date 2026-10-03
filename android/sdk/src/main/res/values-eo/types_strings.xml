@@ -192,4 +192,10 @@
     <string name="type.amenity.university">Universitato</string>
     <string name="type.amenity.vending_machine">Vendaŭtomato</string>
     <string name="type.amenity.telephone">Telefono</string>
+    <string name="type.amenity.vending_machine.drinks">Trinkaĵaŭtomato</string>
+    <string name="type.amenity.veterinary">Veterinaro</string>
+    <string name="type.amenity.waste_basket">Rubujo</string>
+    <string name="type.landuse.landfill">Rubodeponejo</string>
+    <string name="type.barrier">Bariero</string>
+    <string name="type.barrier.yes">Bariero</string>
 </resources>
