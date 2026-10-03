@@ -188,7 +188,7 @@
 "type.amenity.vending_machine.cigarettes" = "Cigarette Dispenser";
 "type.amenity.vending_machine.coffee" = "Coffee Dispenser";
 "type.amenity.vending_machine.condoms" = "Condoms Dispenser";
-"type.amenity.vending_machine.drinks" = "Drinks Dispenser";
+"type.amenity.vending_machine.drinks" = "Trinkaĵaŭtomato";
 "type.amenity.vending_machine.food" = "Food Dispenser";
 "type.amenity.vending_machine.newspapers" = "Newspaper Dispenser";
 "type.amenity.vending_machine.parking_tickets" = "Parking Meter";
@@ -198,15 +198,15 @@
 "type.amenity.parcel_locker" = "Parcel Locker";
 "type.amenity.vehicle_inspection" = "Vehicle Inspection";
 "type.amenity.vending_machine.fuel" = "Fuel Pump";
-"type.amenity.veterinary" = "Veterinary Doctor";
+"type.amenity.veterinary" = "Veterinaro";
 "type.amenity.animal_shelter" = "Ŝirmejo por bestoj";
-"type.amenity.waste_basket" = "Trash Bin";
+"type.amenity.waste_basket" = "Rubujo";
 "type.amenity.waste_disposal" = "Dumpster";
 "type.amenity.waste_transfer_station" = "Waste Transfer Station";
 "type.amenity.water_point" = "Water Tank Refill Point";
 "type.amenity.water_point.drinking_water_no" = "Water Tank Refill Point";
-"type.barrier" = "Barrier";
-"type.barrier.yes" = "Barrier";
+"type.barrier" = "Bariero";
+"type.barrier.yes" = "Bariero";
 "type.barrier.block" = "Block";
 "type.barrier.bollard" = "Bollard";
 "type.barrier.border_control" = "Border Control";
@@ -675,7 +675,7 @@
 "type.landuse.greenfield" = "Greenfield";
 "type.landuse.greenhouse_horticulture" = "Greenhouse";
 "type.landuse.industrial" = "Industrial Area";
-"type.landuse.landfill" = "Landfill";
+"type.landuse.landfill" = "Rubodeponejo";
 "type.landuse.meadow" = "Meadow";
 "type.landuse.military" = "Military Area";
 "type.landuse.orchard" = "Orchard";

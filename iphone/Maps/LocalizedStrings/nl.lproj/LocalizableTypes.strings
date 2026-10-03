@@ -207,7 +207,7 @@
 "type.amenity.waste_disposal" = "Afvalcontainer";
 "type.amenity.waste_transfer_station" = "Afvaloverslagstation";
 "type.amenity.water_point" = "Waterpunt";
-"type.amenity.water_point.drinking_water_no" = "Waterpunt";
+"type.amenity.water_point.drinking_water_no" = "Watervulpunt";
 "type.barrier" = "Barrière";
 "type.barrier.yes" = "Barrière";
 "type.barrier.block" = "Blok";
@@ -694,7 +694,7 @@
 "type.landuse.greenfield" = "Bouwgrond";
 "type.landuse.greenhouse_horticulture" = "Kas";
 "type.landuse.industrial" = "Industrieterrein";
-"type.landuse.landfill" = "Stortplaats";
+"type.landuse.landfill" = "Vuilnisbelt";
 "type.landuse.meadow" = "Weiland";
 "type.landuse.military" = "Militair terrein";
 "type.landuse.orchard" = "Boomgaard";
@@ -1545,5 +1545,5 @@
 "type.shop.tool_hire" = "Gereedschapsverhuur";
 "type.amenity.tool_library" = "Gereedschapsbibliotheek";
 "type.amenity.parking.customers" = "Parkeerplaats voor klanten";
-"type.barrier.bus_trap" = "Bus Trap";
-"type.barrier.sump_buster" = "Sump Buster";
+"type.barrier.bus_trap" = "Bussluis";
+"type.barrier.sump_buster" = "Carterbreker";

@@ -182,7 +182,7 @@
     <string name="type.amenity.waste_disposal">Afvalcontainer</string>
     <string name="type.amenity.waste_transfer_station">Afvaloverslagstation</string>
     <string name="type.amenity.water_point">Waterpunt</string>
-    <string name="type.amenity.water_point.drinking_water_no">Waterpunt</string>
+    <string name="type.amenity.water_point.drinking_water_no">Watervulpunt</string>
     <string name="type.barrier">Barrière</string>
     <string name="type.barrier.yes">Barrière</string>
     <string name="type.barrier.block">Blok</string>
@@ -619,7 +619,7 @@
     <string name="type.landuse.grass">Gazon</string>
     <string name="type.landuse.greenhouse_horticulture">Kas</string>
     <string name="type.landuse.industrial">Industrieterrein</string>
-    <string name="type.landuse.landfill">Stortplaats</string>
+    <string name="type.landuse.landfill">Vuilnisbelt</string>
     <string name="type.landuse.meadow">Weiland</string>
     <string name="type.landuse.military">Militair terrein</string>
     <string name="type.landuse.orchard">Boomgaard</string>
@@ -1548,4 +1548,6 @@
     <string name="type.amenity.tool_library">Gereedschapsbibliotheek</string>
     <string name="type.shop.tool_hire">Gereedschapsverhuur</string>
     <string name="type.amenity.parking.customers">Parkeerplaats voor klanten</string>
+    <string name="type.barrier.bus_trap">Bussluis</string>
+    <string name="type.barrier.sump_buster">Carterbreker</string>
 </resources>

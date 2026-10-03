@@ -1545,5 +1545,5 @@
 "type.shop.tool_hire" = "Værktøjsudlejning";
 "type.amenity.tool_library" = "Værktøjsbibliotek";
 "type.amenity.parking.customers" = "Parkering for kunder";
-"type.barrier.bus_trap" = "Bus Trap";
-"type.barrier.sump_buster" = "Sump Buster";
+"type.barrier.bus_trap" = "Bussluse";
+"type.barrier.sump_buster" = "Bundkarsknuser";
