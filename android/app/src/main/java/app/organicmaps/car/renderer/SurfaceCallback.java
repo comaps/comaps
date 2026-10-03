@@ -38,6 +38,8 @@ class SurfaceCallback extends SurfaceCallbackBase
   private static final int PILL_PADDING_DP = 6;
   private static final int PILL_GAP_DP = 6;
   private static final int PILL_MARGIN_DP = 6;
+  private static final float PILL_SIZE_FRACTION = 0.18f;
+  private static final int MIN_SIGN_SIZE_DP = 44;
 
   private static final String VIRTUAL_DISPLAY_NAME = "OM_Android_Auto_Display";
 
@@ -57,12 +59,20 @@ class SurfaceCallback extends SurfaceCallbackBase
   @Nullable
   private LinearLayout.LayoutParams mCurrentSpeedParams;
 
-  private final int mSignSize;
-  private final int mCurrentSpeedWidth;
-  private final int mPillPadding;
-  private final int mPillGap;
-  private final int mPillMargin;
-  private final int mCurrentSpeedPadding;
+  private int mSignSize;
+  private int mCurrentSpeedWidth;
+  private int mPillPadding;
+  private int mPillGap;
+  private int mPillMargin;
+  private int mCurrentSpeedPadding;
+
+  private final int mMaxSignSize;
+  private final int mMinSignSize;
+  private final int mMaxCurrentSpeedWidth;
+  private final int mMaxPillPadding;
+  private final int mMaxPillGap;
+  private final int mMaxPillMargin;
+  private final int mMaxCurrentSpeedPadding;
 
   @Nullable
   private VirtualDisplay mVirtualDisplay;
@@ -90,13 +100,14 @@ class SurfaceCallback extends SurfaceCallbackBase
     });
 
     final android.util.DisplayMetrics metrics = mCarContext.getResources().getDisplayMetrics();
-    mSignSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, SIGN_SIZE_DP, metrics);
-    mCurrentSpeedWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, CURRENT_SPEED_WIDTH_DP, metrics);
-    mCurrentSpeedPadding =
-        (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, CURRENT_SPEED_PADDING_DP, metrics);
-    mPillPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, PILL_PADDING_DP, metrics);
-    mPillGap = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, PILL_GAP_DP, metrics);
-    mPillMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, PILL_MARGIN_DP, metrics);
+    mMaxSignSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, SIGN_SIZE_DP, metrics);
+    mMinSignSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, MIN_SIGN_SIZE_DP, metrics);
+    mMaxCurrentSpeedWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, CURRENT_SPEED_WIDTH_DP, metrics);
+    mMaxCurrentSpeedPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, CURRENT_SPEED_PADDING_DP, metrics);
+    mMaxPillPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, PILL_PADDING_DP, metrics);
+    mMaxPillGap = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, PILL_GAP_DP, metrics);
+    mMaxPillMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, PILL_MARGIN_DP, metrics);
+    applyPillScale(1f);
 
     initSpeedPill();
   }
@@ -123,6 +134,7 @@ class SurfaceCallback extends SurfaceCallbackBase
 
     assert mPillOverlay != null : "mPillOverlay must be initialized";
     mPillOverlay.setLayoutParams(getOverlayLayoutParams());
+    updatePillSize();
   }
 
   @Override
@@ -171,6 +183,44 @@ class SurfaceCallback extends SurfaceCallbackBase
     mSpeedPill.requestLayout();
 
     applyTheme();
+  }
+
+    private void applyPillScale(float scale)
+  {
+    mSignSize = Math.round(mMaxSignSize * scale);
+    mCurrentSpeedWidth = Math.round(mMaxCurrentSpeedWidth * scale);
+    mCurrentSpeedPadding = Math.round(mMaxCurrentSpeedPadding * scale);
+    mPillPadding = Math.round(mMaxPillPadding * scale);
+    mPillGap = Math.round(mMaxPillGap * scale);
+    mPillMargin = Math.round(mMaxPillMargin * scale);
+  }
+
+  private void updatePillSize()
+  {
+    if (mVisibleArea.isEmpty() || mSpeedPill == null || mSpeedLimitParams == null || mCurrentSpeedParams == null
+        || mCurrentSpeedView == null)
+      return;
+
+    final int shorterSide = Math.min(mVisibleArea.width(), mVisibleArea.height());
+    final int target = Math.round(shorterSide * PILL_SIZE_FRACTION);
+    final int signSize = Math.max(mMinSignSize, Math.min(mMaxSignSize, target));
+    applyPillScale((float) signSize / mMaxSignSize);
+
+    mSpeedLimitParams.width = mSignSize;
+    mSpeedLimitParams.height = mSignSize;
+    mCurrentSpeedParams.height = mSignSize;
+    mSpeedPill.setPadding(mPillPadding, mPillPadding, mPillPadding, mPillPadding);
+    mCurrentSpeedView.setPadding(mCurrentSpeedPadding, mCurrentSpeedPadding, mCurrentSpeedPadding,
+                                 mCurrentSpeedPadding);
+
+    final ViewGroup.LayoutParams lp = mSpeedPill.getLayoutParams();
+    if (lp instanceof FrameLayout.LayoutParams pillParams)
+    {
+      pillParams.rightMargin = mPillMargin;
+      pillParams.bottomMargin = mPillMargin;
+    }
+
+    updatePillVisibility();
   }
 
   private void applyTheme()
