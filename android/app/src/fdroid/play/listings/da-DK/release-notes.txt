@@ -1,0 +1,8 @@
+• Tilføjet link for at tilføje anmeldelser til POI-info
+• Vis nuværende hastighed i Android Auto
+• Vis anmeldelsesvurderinger i søgeresultater
+• Vis stjerner for hoteller/restauranter som tekst
+• Tilføjet værktøjsudlejningssteder og værktøjsbiblioteker, vejskilte tilføjet i Rumænien og Marokko og rettet for Augsburg og A-veje i Cypern
+• Erstattet knapper Forhåndsvisning og Gem med ikoner på ruteplanlægningsskærmen
+
+Flere detaljer på comaps.app/latest

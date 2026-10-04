@@ -1,0 +1,6 @@
+• Tilføjet understøttelse for CarPlay dashboard
+• Tilføjet indstilling for URL for brugerdefineret kortserver
+• Gjort transportmodusvælger tilgængelig og ekstra muligheder vises nu også ved andet tryk, ud over ved et langt tryk
+• Vis stjerner for hoteller/restauranter som tekst
+• Tilføjet værktøjsudlejningssteder og værktøjsbiblioteker, vejskilte tilføjet i Rumænien og Marokko og rettet for Augsburg og A-veje i Cypern
+• OpenStreetMap-data pr. 4. oktober og yderligere ugentlige opdateringer
