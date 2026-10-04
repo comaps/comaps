@@ -16,7 +16,7 @@
   5.3 Tunnels
   5.4 Piste
   5.5 Transport
- 6.LABELS COLORS
+6.LABELS COLORS
   6.1 Main labels
   6.2 Natural labels
   6.3 Place labels
@@ -26,8 +26,8 @@
 
 /* 1.BASEMAP */
 
-@background0: #181715;
-@background1: #181715;
+@background0: #000000;
+@background1: #000000;
 
 /* 2.BOUNDARY */
 
@@ -216,9 +216,9 @@
 /* 6.LABELS COLORS */
 /* 6.1 Main labels */
 
-@label_dark: #888888;
-@label_medium: #777777;
-@label_light: #666666;
+@label_dark: #BBBBBB;
+@label_medium: #AAAAAA;
+@label_light: #999999;
 @label_halo_medium: #111100;
 @label_halo_light: #060600;
 
