@@ -1,0 +1,6 @@
+• Ondersteuning voor CarPlay dashboard toegevoegd
+• Instelling voor URL voor aangepaste kaartserver
+• Transportmoduskiezer toegankelijk gemaakt en extra opties worden nu ook getoond bij een tweede tik, in aanvulling op lang indrukken
+• Tonen van sterren van hotels/restaurants als tekst
+• Gereedschapsverhuurlocaties en gereedschapsbibliotheken toegevoegd, weglabels toegevoegd voor Roemenië en Marokko en gecorrigeerd voor Augsburg en A-wegen in Cyprus
+• OpenStreetMap-gegevens per 4 oktober, verder wekelijkse updates

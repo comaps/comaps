@@ -1,0 +1,8 @@
+• Link voor het toevoegen van recensies toegevoegd aan POI-info
+• Huidige snelheid tonen in Android Auto
+• Tonen van recensiebeoordelingen in zoekresultaten
+• Tonen van hotel-/restaurantssterren als tekst
+• Gereedschapsverhuurlocaties en gereedschapsbibliotheken toegevoegd, weglabels toegevoegd voor Roemenië en Marokko en gecorrigeerd voor Augsburg en A-wegen in Cyprus
+• In routeplanningsscherm de knoppen voor Voorbeeld en Opslaan vervangen door pictogrammen
+
+Meer details op comaps.app/latest
