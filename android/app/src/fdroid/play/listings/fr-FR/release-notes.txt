@@ -1,0 +1,7 @@
+- Ajout d'un lien pour mettre de nouvelles notes sur un lieu
+- Affichage de la vitesse dans Android Auto
+- Afficher les notes des lieux dans les résultats de recherche
+- Affichage des étoiles des hôtels/restaurants comme du texte
+- Ajout des magasins de location et de prêt d'outils, des panneaux routiers de Roumanie et du Maroc, et correction des panneaux routiers de Chypre et Augsburg.
+
+Plus de détails sur comaps.app/latest
