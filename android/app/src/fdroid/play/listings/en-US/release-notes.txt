@@ -1,11 +1,7 @@
-• Display favorite names on the map (opt out in settings)
-• Display Mangrove user reviews in POI info page
-• Custom map font size setting
-• Allow TalkBack users to read the map
-• Ability to start track recording after navigation start
-• Show "Opens tomorrow at ..." on POI info page
-• Fixed ability to search in any user-set map language
-• Roadshields in Kyrgyzstan, Uzbekistan, Tajikistan, Kazakhstan and Georgia
-• Show bus stops earlier in subway layer
+- Add link to add new reviews on place page
+- Show current speed in Android Auto
+- Show review ratings in search results
+- Display hotel/restaurant stars as text
+- Added tool hire shops and tool libraries, Romania and Morocco road shields and fixed Germany Augsburg and Cyprus A-road ones
 
 More details on comaps.app/latest

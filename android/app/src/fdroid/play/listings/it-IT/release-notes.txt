@@ -1,9 +1,0 @@
-• Visualizza i nomi dei preferiti sulla mappa (disattivabile)
-• Visualizza le recensioni degli utenti Mangrove nella pagina info dei POI
-• Dimensione del carattere della mappa personalizzata
-• Consenti agli utenti TalkBack di leggere la mappa
-• Possibilità di avviare la registrazione della traccia dopo l'inizio della navigazione
-• Mostra "Apre domani alle..." nelle info dei POI
-• Corretta la possibilità di cercare nella lingua impostata dall'utente
-
-Maggiori dettagli su comaps.app/latest
