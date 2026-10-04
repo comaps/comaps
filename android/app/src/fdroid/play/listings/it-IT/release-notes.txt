@@ -1,0 +1,8 @@
+- Aggiunto link per inserire recensioni nella pagina del luogo
+- Mostra la velocità attuale in Android Auto
+- Mostra le valutazioni delle recensioni nei risultati di ricerca
+- Mostra come testo le stelle di hotel e ristoranti
+- Aggiunta noleggio e prestito di attrezzi, cartelli stradali della Romania e del Marocco e correzione dei cartelli stradali di Cipro e Augsburg
+- Icone per l’anteprima e il salvataggio nella schermata di pianificazione del percorso
+
+Maggiori dettagli su comaps.app/latest
