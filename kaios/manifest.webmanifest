@@ -1,0 +1,22 @@
+{
+    "id": "CoMaps-KaiOS-Port",
+    "lang": "en-US",
+    "theme_color": "#588157",
+    "background_color": "#ffffff",
+    "name": "CoMaps",
+    "description": "A port of CoMaps, the community-made, fully open-source navigation app to help you reach new places.",
+    "orientation": "natural",
+    "start_url": "/index.html",
+    "icons": [
+        {
+            "src": "/res/logo-56.png",
+            "type": "image/png",
+            "sizes": "56x56"
+        },
+        {
+            "src": "/res/logo-112.png",
+            "type": "image/png",
+            "sizes": "112x112"
+        }
+    ]
+}

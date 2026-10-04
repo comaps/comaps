@@ -1,0 +1,18 @@
+{
+    "version": "1.0.0",
+    "name": "CoMaps",
+    "description": "A port of CoMaps, the community-made, fully open-source navigation app to help you reach new places.",
+    "developer": "CoMaps",
+    "icons": {
+        "56": "/icons/logo-56.png",
+        "112": "/icons/logo-112.png"
+    },
+    "developer": {
+        "name": "CoMaps",
+        "url": "https://comaps.app"
+    },
+    "default_locale": "en-US",
+    "type": "web",
+    "subtitle": "Navigate with Privacy",
+    "categories": "utilities"
+}
