@@ -1,7 +1,8 @@
-- Link zum Hinzufügen neuer Bewertungen auf Ortsseite hinzugefügt
+- Link zum Hinzufügen neuer Rezensionen auf Ortsseite hinzugefügt
 - Anzeige aktueller Geschwindigkeit in Android Auto
-- Anzeige von Bewertungswerten in Suchergebnissen
+- Anzeige von Rezensionsbewertungen in Suchergebnissen
 - Anzeige von Sternen für Hotels/Restaurants als Text
-- Werkzeugverleihe & Werkzeugbibliotheken hinzugefügt, Straßenschilder für Rumänien & Marokko hinzugefügt und für Augsburg und A-Straßen auf Zypern korrigiert
+- Werkzeugverleihe & Werkzeugbibliotheken hinzugefügt, Straßenschilder für Rumänien/Marokko hinzugefügt und für Augsburg und A-Straßen auf Zypern korrigiert
+-  Icons für Vorschau & Speichern im Routenplanungsbildschirm
 
 Weitere Details unter comaps.app/latest
