@@ -14,7 +14,7 @@ on:
 
 env:
   # software versions
-  MOC_VERSION: 0.6.2  # mangrove-osm-coder version, see https://codeberg.org/mmakowski/mangrove-osm-coder/tags
+  MOC_VERSION: 0.7.0  # mangrove-osm-coder version, see https://codeberg.org/mmakowski/mangrove-osm-coder/tags
   POSTGIS_VERSION: 18-3.6
   OSM2PGSQL_VERSION: 2.3.1
 
@@ -120,6 +120,7 @@ jobs:
           -P 5432 \
           -O flex \
           -S ${OSM2PGSQL_CONFIG_FILE} \
+          -F /tmp/flat-nodes \
           /home/planet/planet/planet.o5m
 
   preprocess-mangrove:
