@@ -106,8 +106,9 @@
 @railway_platform: #232220;
 @university: #1D1A16;
 @hospital: #1E1A19;
-@industrial: #1C1C1C;
-@construction_area: #1C1C1C;
+@industrial: #101010;
+@construction_area: #101010;
+/* TODO: Sport varibles need to be renamed according to purpose */
 @sport0: #31302A;
 @sport1: #2E2E27;
 @sport2: #2A2E1E;
@@ -115,7 +116,7 @@
 @parking: #1E1F1F;
 @military: #B71C1C;
 @prison: #7f7f7f;
-@farmland: #2D2C22;
+@farmland: #1D1C12; /* #2D2C22 */
 @farmyard: #2E2B23;
 
 /*4.2 Aerodrome*/
@@ -224,7 +225,7 @@
 
 /* 6.2 Natural labels */
 
-@park_label: #4A6141;
+@park_label: #6C8363;
 @halo_park_label: #111;
 
 /* 6.3 Place labels */
@@ -232,7 +233,7 @@
 @city_label: #999999;
 @country_label: #555555;
 @state_label: #555555;
-@district_label: #7A7A7A;
+@district_label: #999999;
 @housenumber: #747474;
 @building_label: #767676;
 @poi_label: #8C8C8C;
