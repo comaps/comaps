@@ -1,0 +1,6 @@
+• Añadida compatibilidad con el panel de CarPlay
+• Añadida opción para configurar la URL del servidor de descarga de mapas
+• Hacer accesible el selector de modos de transporte y activar opciones adicionales con un segundo toque, además de mantener pulsado
+• Mostrar estrellas de hoteles y restaurantes como texto
+• Añadidas tiendas de alquiler de herramientas, bibliotecas de herramientas, señales de carretera de Rumanía y Marruecos, y corregidas las de carreteras A de Augsburgo y Chipre
+• Datos de OpenStreetMap a 4 de octubre y actualizaciones semanales posteriores

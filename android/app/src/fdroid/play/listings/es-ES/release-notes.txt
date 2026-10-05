@@ -1,0 +1,8 @@
+• Añadido enlace para publicar nuevas reseñas
+• Mostrar velocidad en Android Auto
+• Mostrar valoraciones en resultados de búsqueda
+• Mostrar estrellas de hoteles y restaurantes como texto
+• Añadidas tiendas de alquiler de herramientas, bibliotecas de herramientas, señales de carretera de Rumanía y Marruecos, y corregidas las de carreteras A de Augsburgo y Chipre
+• Cambiados botones de vista previa y guardar por iconos en planificación de ruta
+
+Más detalles en comaps.app/latest
