@@ -1,0 +1,6 @@
+• Adicionar suporte para o CarPlay no painel de instrumentos
+• Adicionar a configuração da URL do servidor de download de mapas personalizados
+• Tornar o seletor de modos de transporte acessível e ativar opções adicionais com um segundo toque, para além do toque prolongado
+• Exibir as estrelas de hotéis/restaurantes como texto
+• Adicionadas lojas de aluguer de ferramentas e bibliotecas de ferramentas, sinais de trânsito da Roménia e de Marrocos, e corrigidos os sinais de trânsito de Augsburg, na Alemanha, e das estradas A de Chipre
+• Dados do OpenStreetMap à data de 4 de outubro e futuras atualizações semanais

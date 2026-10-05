@@ -1,0 +1,8 @@
+• Link para adicionar novas avaliações na página do local
+• Velocidade atual no Android Auto
+• Classificações das avaliações nos resultados de pesquisa
+• Estrelas de hotéis/restaurantes como texto
+• Adicionadas lojas de aluguer e bibliotecas de ferramentas, sinais de trânsito da Roménia e de Marrocos; corrigidos os de Augsburg (Alemanha) e das estradas A de Chipre
+• Alterar a pré-visualização e o botão "Guardar" para ícones no ecrã de planeamento de percursos
+
+Mais detalhes em comaps.app/latest

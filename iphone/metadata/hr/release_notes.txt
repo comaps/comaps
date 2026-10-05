@@ -1,0 +1,6 @@
+• Podrška za nadzornu ploču u CarPlayu
+• Mogućnost postavljanja prilagođenog URL-a poslužitelja za preuzimanje karata
+• Birač načina prijevoza sada je pristupačniji, a dodatne opcije sada se mogu aktivirati i dodatnim dodirom (uz dosadašnji dugi pritisak)
+• Zvjezdice hotela/restorana sada se prikazuju kao tekst
+• Dodavanje trgovina za najam i posudbu alata; dodane oznake cesta za Rumunjsku i Maroko, te ispravke istih u Augsburgu u Njemačkoj i cesta tipa "A" na Cipru
+• OpenStreetMap podaci zaključno s 4. listopadom, uz daljnja tjedna ažuriranja
