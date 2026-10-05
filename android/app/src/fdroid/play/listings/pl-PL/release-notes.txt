@@ -1,0 +1,8 @@
+• Link do dodania recenzji w panelu szczegółów miejsca
+• Aktualna prędkośc w Android Auto
+• Oceny z recenzji w wynikach wyszukiwania
+• Gwiazdki hoteli i restauracji wyświetlane jako tekst
+• Dodane wypożyczalnie narzędzi, symbole dróg dodane w Rumunii i Maroku oraz naprawione na drogach A w Niemczech (Augsburg) i na Cyprze
+• Dodane przyciski podglądu i zapisu na ekranie planowania trasy
+
+Szczegóły na comaps.app/latest

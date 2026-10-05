@@ -1,0 +1,6 @@
+• Obsługa CarPlay dashboard
+• Konfigurowalny URL serwera map
+• Ułatwienia dostępu w wyborze trybu transportu, dodatkowe opcje aktywowane zarówno przytrzymaniem jak i drugim dotknięciem
+• Gwiazdki hoteli i restauracji wyświetlane jako tekst
+• Dodane wypożyczalnie narzędzi, symbole dróg dodane w Rumunii i Maroku oraz naprawione na drogach A w Niemczech (Augsburg) i na Cyprze
+• Dane OpenStreetMap z 4 października, potem cotygodniowe aktualizacje
