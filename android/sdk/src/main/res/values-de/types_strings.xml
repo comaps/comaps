@@ -1547,4 +1547,9 @@
     <string name="type.railway.subway_entrance.boston">U-Bahn-Eingang</string>
     <string name="type.railway.subway_entrance.qingdao">U-Bahn-Eingang</string>
     <string name="type.building.abandoned">Verlassenes Gebäude</string>
+    <string name="type.amenity.parking.customers">Kundenparkplätze</string>
+    <string name="type.amenity.tool_library">Werkzeug-Ausleihe</string>
+    <string name="type.barrier.bus_trap">Busschleuse</string>
+    <string name="type.barrier.sump_buster">Ölwannenbrecher</string>
+    <string name="type.shop.tool_hire">Werkzeugverleih</string>
 </resources>

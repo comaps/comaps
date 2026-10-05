@@ -988,4 +988,9 @@
     <string name="add_review">Lisa arvustus siin: %1$s</string>
     <string name="add_review_url_resolution_failed">Seda kohta ei leidu viimases OpenStreetMapi andmekogus.</string>
     <string name="add_review_url_resolution_failed_dev">Seda kohta ei leidu OpenStreetMapi andmekogu arendusvariandis.</string>
+    <string name="stars_1">1 tärn</string>
+    <string name="stars_2">2 tärni</string>
+    <string name="stars_3">3 tärni</string>
+    <string name="stars_4">4 tärni</string>
+    <string name="stars_5">5 tärni</string>
 </resources>

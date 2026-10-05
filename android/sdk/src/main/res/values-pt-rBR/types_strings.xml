@@ -1531,4 +1531,12 @@
     <string name="type.amenity.toilets.private">Acesso privado</string>
     <string name="type.landuse.military.danger_area">Área de perigo militar</string>
     <string name="type.building.abandoned">Edifício abandonado</string>
+    <string name="type.amenity.parking.customers">Estacionamento para clientes</string>
+    <string name="type.railway.station.subway.boston">Estação de metrô</string>
+    <string name="type.railway.subway_entrance.boston">Entrada do metrô</string>
+    <string name="type.railway.subway_entrance.qingdao">Entrada de metrô</string>
+    <string name="type.amenity.tool_library">Biblioteca de ferramentas</string>
+    <string name="type.barrier.bus_trap">Barreira seletiva para ônibus</string>
+    <string name="type.barrier.sump_buster">Lombada seletiva</string>
+    <string name="type.shop.tool_hire">Aluguel de ferramentas</string>
 </resources>

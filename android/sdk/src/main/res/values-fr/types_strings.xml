@@ -90,7 +90,7 @@
     <string name="type.amenity.parking.no.access">Stationnement privé</string>
     <string name="type.amenity.parking.permissive">Stationnement privé</string>
     <string name="type.amenity.parking.private">Stationnement privé</string>
-    <string name="type.amenity.parking.park_and_ride">Parking relais</string>
+    <string name="type.amenity.parking.park_and_ride">Parking relais|Parking-relais|Parc relais|Parc-relais|P+R</string>
     <string name="type.amenity.parking.underground">Parking souterrain</string>
     <string name="type.amenity.parking.underground.fee">Stationnement souterrain</string>
     <string name="type.amenity.parking.underground.private">Parking privé souterrain</string>
@@ -1545,4 +1545,9 @@
     <string name="type.railway.subway_entrance.boston">Entrée du métro</string>
     <string name="type.railway.subway_entrance.qingdao">Entrée de métro</string>
     <string name="type.building.abandoned">Bâtiment abandonné</string>
+    <string name="type.amenity.parking.customers">Parking réservé aux clients</string>
+    <string name="type.amenity.tool_library">Prêt d\'outils</string>
+    <string name="type.barrier.bus_trap">Fosse anti-voiture</string>
+    <string name="type.barrier.sump_buster">Plot filtrant</string>
+    <string name="type.shop.tool_hire">Location d\'outils</string>
 </resources>

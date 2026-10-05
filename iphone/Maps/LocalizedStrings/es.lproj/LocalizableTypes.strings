@@ -1,7 +1,7 @@
-"type.addr_interpolation" = "Dirección/manzana";
+"type.addr_interpolation" = "Dirección/Bloque";
 "type.addr_interpolation.even" = "Dirección/manzana";
 "type.addr_interpolation.odd" = "Dirección/manzana";
-"type.aerialway" = "Transporte por Cable";
+"type.aerialway" = "Teleférico";
 "type.aerialway.cable_car" = "Teleférico";
 "type.aerialway.chair_lift" = "Telesilla";
 "type.aerialway.drag_lift" = "Telesquí";
@@ -11,7 +11,7 @@
 "type.aeroway" = "Infraestructura aeronáutica";
 "type.aeroway.aerodrome" = "Aeropuerto";
 "type.aeroway.aerodrome.international" = "Aeropuerto internacional";
-"type.aeroway.apron" = "Plataforma de estacionamiento de aviones";
+"type.aeroway.apron" = "Plataforma aeronáutica";
 "type.aeroway.gate" = "Puerta de embarque";
 "type.aeroway.helipad" = "Helipuerto";
 "type.aeroway.runway" = "Pista de despegue";
@@ -38,7 +38,7 @@
 "type.amenity.cafe" = "Café";
 "type.amenity.car_rental" = "Alquiler de coches";
 "type.amenity.motorcycle_rental" = "Alquiler de motocicletas";
-"type.amenity.car_sharing" = "Estación de uso temporal de vehículos";
+"type.amenity.car_sharing" = "Vehículo compartido";
 "type.amenity.car_wash" = "Lavado de coches";
 "type.man_made.telescope" = "Telescopio";
 "type.man_made.telescope.optical" = "Telescopio (óptico)";
@@ -145,7 +145,7 @@
 "type.amenity.place_of_worship.shinto" = "Santuario sintoísta";
 "type.amenity.place_of_worship.taoist" = "Templo taoísta";
 "type.amenity.police" = "Policía";
-"type.amenity.post_box" = "Buzón de correos";
+"type.amenity.post_box" = "Buzón";
 "type.amenity.post_office" = "Oficina de correos";
 "type.post_office.post_partner" = "Asociado de Correo";
 "type.amenity.prison" = "Prisión";
@@ -281,7 +281,7 @@
 "type.shop.camera" = "Tienda de fotografía";
 "type.craft.plumber" = "Fontanero";
 "type.craft.sawmill" = "Aserradero";
-"type.craft.shoemaker" = "Reparación de zapatos|Zapatería|Reparación de calzado|Reparaciones de zapatos|Taller de zapatería|Servicio de reparación de calzado|Taller de reparación de calzado|Arreglos de zapatos|Arreglo de zapatos|Zapatería de reparación|Zapatería y arreglos|Taller de reparación de zapatos";
+"type.craft.shoemaker" = "Reparación de zapatos|Zapatería|Reparación de calzado|Reparaciones de zapatos|Taller de zapatería|Servicio de reparación de calzado|Taller de reparación de calzado|Arreglos de zapatos|Arreglo de zapatos|Zapatería de reparación|Zapatería y arreglos|Taller de reparación de zapatos|Zapatero|Compostura de calzado|Arreglo de zapatos|Zapatería rápida|Remendonería|Renovadora de calzado|Remendón|renovadora";
 "type.craft.winery" = "Bodega vinícola";
 "type.craft.tailor" = "Sastre";
 "type.cuisine.african" = "Africana";
@@ -1541,9 +1541,9 @@
 "type.railway.subway_entrance.boston" = "Entrada al metro";
 "type.railway.station.subway.boston" = "Estación de metro";
 "type.railway.subway_entrance.qingdao" = "Entrada al metro";
-"type.building.abandoned" = "Abandoned Building";
-"type.shop.tool_hire" = "Tool Hire";
-"type.amenity.tool_library" = "Tool Library";
-"type.amenity.parking.customers" = "Customer Parking";
-"type.barrier.bus_trap" = "Bus Trap";
-"type.barrier.sump_buster" = "Sump Buster";
+"type.building.abandoned" = "Estructura abandonada";
+"type.shop.tool_hire" = "Alquiler de herramientas";
+"type.amenity.tool_library" = "Taller de herramientas compartidas";
+"type.amenity.parking.customers" = "Aparcamiento para clientes";
+"type.barrier.bus_trap" = "Filtro de autobuses";
+"type.barrier.sump_buster" = "Filtro de autobuses";

@@ -999,4 +999,9 @@
     <string name="add_review_url_resolution_failed_dev">Lugar no encontrado en el servidor DEV de OpenStreetMap.</string>
     <string name="add_review_url_resolution_failed">Lugar no encontrado en la última versión de OpenStreetMap.</string>
     <string name="add_review">Añadir una reseña a través de %1$s</string>
+    <string name="stars_1">1-estrella</string>
+    <string name="stars_2">2-estrellas</string>
+    <string name="stars_3">3-estrellas</string>
+    <string name="stars_4">4-estrellas</string>
+    <string name="stars_5">5-estrellas</string>
 </resources>

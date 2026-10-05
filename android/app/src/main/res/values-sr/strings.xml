@@ -188,7 +188,7 @@
     <string name="pref_zoom_summary">Прикажи на мапи</string>
     <string name="prefs_group_advanced">Напредно</string>
     <string name="download_resources_custom_url_title">Сопствени сервер мапа</string>
-    <string name="download_resources_custom_url_message">Замени подразумевани сервер за преузимање мапа који се користи за преузимања мапа. Оставите празно да бисте користили CoMaps сервер.</string>
+    <string name="download_resources_custom_url_message">Замените подразумевани сервер за преузимање мапа. Оставите празно да бисте користили подразумевани CoMaps сервер.</string>
     <string name="download_resources_custom_url_summary_none">Није постављено</string>
     <string name="download_resources_custom_url_error_scheme">Унесите пуну УРЛ адресу која почиње са https:// и која се завршава са /</string>
     <!-- Settings «Map» category: «Night style» title -->
@@ -991,4 +991,9 @@
     <string name="add_review_url_resolution_failed">Место није пронађено на OpenStreetMap-у.</string>
     <string name="add_review_url_resolution_failed_dev">Место није пронађено на DEV OpenStreetMap-у.</string>
     <string name="internet_unavailable">Нема конекције са Интернетом</string>
+    <string name="stars_1">1 звездица</string>
+    <string name="stars_2">2 звездице</string>
+    <string name="stars_3">3 звездице</string>
+    <string name="stars_4">4 звездице</string>
+    <string name="stars_5">5 звездица</string>
 </resources>

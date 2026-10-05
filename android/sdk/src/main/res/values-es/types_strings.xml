@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- SECTION: Types -->
-    <string name="type.addr_interpolation">Dirección/manzana</string>
+    <string name="type.addr_interpolation">Dirección/Bloque</string>
     <string name="type.addr_interpolation.even">Dirección/manzana</string>
     <string name="type.addr_interpolation.odd">Dirección/manzana</string>
-    <string name="type.aerialway">Transporte por Cable</string>
+    <string name="type.aerialway">Teleférico</string>
     <string name="type.aerialway.cable_car">Teleférico</string>
     <string name="type.aerialway.chair_lift">Telesilla</string>
     <string name="type.aerialway.drag_lift">Telesquí</string>
@@ -14,7 +14,7 @@
     <string name="type.aeroway">Infraestructura aeronáutica</string>
     <string name="type.aeroway.aerodrome">Aeropuerto</string>
     <string name="type.aeroway.aerodrome.international">Aeropuerto internacional</string>
-    <string name="type.aeroway.apron">Plataforma de estacionamiento de aviones</string>
+    <string name="type.aeroway.apron">Plataforma aeronáutica</string>
     <string name="type.aeroway.gate">Puerta de embarque</string>
     <string name="type.aeroway.helipad">Helipuerto</string>
     <string name="type.aeroway.runway">Pista de despegue</string>
@@ -37,7 +37,7 @@
     <string name="type.amenity.cafe">Café</string>
     <string name="type.amenity.car_rental">Alquiler de coches</string>
     <string name="type.amenity.motorcycle_rental">Alquiler de motocicletas</string>
-    <string name="type.amenity.car_sharing">Estación de uso temporal de vehículos</string>
+    <string name="type.amenity.car_sharing">Vehículo compartido</string>
     <string name="type.amenity.car_wash">Lavado de coches</string>
     <string name="type.amenity.casino">Casino</string>
     <string name="type.amenity.gambling">Apuestas</string>
@@ -124,7 +124,7 @@
     <string name="type.amenity.place_of_worship.shinto">Santuario sintoísta</string>
     <string name="type.amenity.place_of_worship.taoist">Templo taoísta</string>
     <string name="type.amenity.police">Policía</string>
-    <string name="type.amenity.post_box">Buzón de correos</string>
+    <string name="type.amenity.post_box">Buzón</string>
     <string name="type.amenity.post_office">Oficina de correos</string>
     <string name="type.amenity.prison">Prisión</string>
     <string name="type.amenity.pub">Taberna</string>
@@ -257,7 +257,7 @@
     <string name="type.shop.camera">Tienda de fotografía</string>
     <string name="type.craft.plumber">Fontanero</string>
     <string name="type.craft.sawmill">Aserradero</string>
-    <string name="type.craft.shoemaker">Reparación de zapatos|Zapatería|Reparación de calzado|Reparaciones de zapatos|Taller de zapatería|Servicio de reparación de calzado|Taller de reparación de calzado|Arreglos de zapatos|Arreglo de zapatos|Zapatería de reparación|Zapatería y arreglos|Taller de reparación de zapatos</string>
+    <string name="type.craft.shoemaker">Reparación de zapatos|Zapatería|Reparación de calzado|Reparaciones de zapatos|Taller de zapatería|Servicio de reparación de calzado|Taller de reparación de calzado|Arreglos de zapatos|Arreglo de zapatos|Zapatería de reparación|Zapatería y arreglos|Taller de reparación de zapatos|Zapatero|Compostura de calzado|Arreglo de zapatos|Zapatería rápida|Remendonería|Renovadora de calzado|Remendón|renovadora</string>
     <string name="type.craft.winery">Bodega vinícola</string>
     <string name="type.craft.tailor">Sastre</string>
     <string name="type.cuisine.african">Africana</string>
@@ -1545,4 +1545,10 @@
     <string name="type.railway.station.subway.boston">Estación de metro</string>
     <string name="type.railway.subway_entrance.boston">Entrada al metro</string>
     <string name="type.railway.subway_entrance.qingdao">Entrada al metro</string>
+    <string name="type.amenity.tool_library">Taller de herramientas compartidas</string>
+    <string name="type.building.abandoned">Estructura abandonada</string>
+    <string name="type.shop.tool_hire">Alquiler de herramientas</string>
+    <string name="type.amenity.parking.customers">Aparcamiento para clientes</string>
+    <string name="type.barrier.bus_trap">Filtro de autobuses</string>
+    <string name="type.barrier.sump_buster">Filtro de autobuses</string>
 </resources>

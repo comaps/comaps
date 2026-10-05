@@ -9,7 +9,7 @@
     <string name="delete">Verwijderen</string>
     <string name="download_maps">Kaarten downloaden</string>
     <!-- Settings/Downloader - info for country when download fails -->
-    <string name="download_has_failed">Downloaden is mislukt, tik om het opnieuw te proberen.</string>
+    <string name="download_has_failed">Downloaden is mislukt, tik om het opnieuw te proberen</string>
     <!-- Settings/Downloader - info for country which started downloading -->
     <string name="downloading">Downloaden…</string>
     <!-- Choose measurement on first launch alert - choose metric system button -->
@@ -528,7 +528,7 @@
     <string name="mobile_data_option_not_today">Gebruik vandaag niet</string>
     <string name="mobile_data">Mobiel internet</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Internet is vereist voor meldingen over kaartupdates, het uploaden van wijzigingen en linken naar beoordelingswebsites</string>
+    <string name="mobile_data_description">Internet is vereist voor meldingen over kaartupdates, het uploaden van wijzigingen en linken naar recensiewebsites</string>
     <string name="mobile_data_option_never">Gebruik nooit</string>
     <string name="mobile_data_option_ask">Vraag altijd</string>
     <string name="traffic_update_maps_text">Om verkeersgegevens weer te geven, moeten de kaarten bijgewerkt worden</string>
@@ -982,13 +982,13 @@
     <string name="pref_enable_auto_reroute_description">Indien ingeschakeld, wordt er automatisch een nieuwe route berekend wanneer de geplande route verlaten wordt.</string>
     <string name="off_route">Je bent van de route afgeweken</string>
     <string name="bookmarks_text_placement_title">Namen van favorieten op kaart tonen</string>
-    <string name="place_reviews">%1$s beoordelingen</string>
-    <string name="reviews_by_mangrove">Beoordelingen van Mangrove</string>
-    <string name="place_reviews_title">Beoordelingen</string>
+    <string name="place_reviews">%1$s recensies</string>
+    <string name="reviews_by_mangrove">Recensies van Mangrove</string>
+    <string name="place_reviews_title">Recensies</string>
     <string name="rating_stars_description">sterren: %.1f</string>
     <string name="decrease_font_size">Verklein lettergrootte op de kaart</string>
     <string name="pref_font_size">Lettergrootte voor kaartlabels</string>
-    <string name="add_review">Beoordeling toevoegen via %1$s</string>
+    <string name="add_review">Recensies toevoegen via %1$s</string>
     <string name="add_review_url_resolution_failed">Plaats niet gevonden in de laatste OpenStreetMap.</string>
     <string name="add_review_url_resolution_failed_dev">Plaats niet gevonden in de DEV-OpenStreetMap.</string>
     <string name="internet_unavailable">Geen internetverbinding</string>

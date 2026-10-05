@@ -191,7 +191,7 @@
     <string name="pref_zoom_title">Botons de zoom</string>
     <string name="pref_zoom_summary">Mostra\'ls al mapa</string>
     <string name="prefs_group_advanced">Avançat</string>
-    <string name="download_resources_custom_url_title">Servidor de Mapes Personalitzat</string>
+    <string name="download_resources_custom_url_title">Servidor de mapes personalitzat</string>
     <string name="download_resources_custom_url_message">Sobreescriu el servidor de descàrrega de mapes per defecte. Deixa en blanc per a emprar el servidor per defecte de CoMaps.</string>
     <string name="download_resources_custom_url_summary_none">No establert</string>
     <string name="download_resources_custom_url_error_scheme">Per favor introdueix una URL que comence amb http:// o https://</string>
@@ -997,4 +997,9 @@
     <string name="add_review_url_resolution_failed">Lloc no trobat a l\'última versió d\'OpenStreetMap.</string>
     <string name="add_review_url_resolution_failed_dev">Lloc no trobat en la versió DEV d\'OpenStreetMap.</string>
     <string name="internet_unavailable">Sense connexió a Internet</string>
+    <string name="stars_5">5 estrelles</string>
+    <string name="stars_4">4 estrelles</string>
+    <string name="stars_3">3 estrelles</string>
+    <string name="stars_2">2 estrelles</string>
+    <string name="stars_1">1 estrella</string>
 </resources>

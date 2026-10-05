@@ -5,7 +5,7 @@ Sluit je aan bij de community en help mee aan de ontwikkeling van de beste kaart
 • Geef feedback en meld eventuele problemen
 • Houd de kaarten up-to-date, zowel in de app als op de OpenStreetMap-website
 
-<i>Jouw feedback en 5-sterrenbeoordelingen zijn de beste steun voor ons!!</i>
+<i>Jouw feedback en 5-sterrenbeoordelingen zijn de beste steun voor ons!</i>
 
 ‣ <b>Eenvoudig en verfijnd</b>: essentiële, gebruiksvriendelijke functies die gewoon werken.
 ‣ <b>Offline-georiënteerd</b>: Plan en navigeer je reis in het buitenland zonder internet, zoek waypoints tijdens een lange wandeling, enzovoort. Alle functies zijn ontworpen om offline te functioneren.
@@ -15,12 +15,12 @@ Sluit je aan bij de community en help mee aan de ontwikkeling van de beste kaart
 ‣ <b>Open en transparant besluitvormings- en financieel beleid, geen winstoogmerk en volledig open source.</b>
 
 <b>Hoofdfuncties</b>:
-• Downloadbare gedetailleerde kaarten met plaatsen die niet beschikbaar zijn bij Google Maps
+• Downloadbare gedetailleerde kaarten met plaatsen die niet beschikbaar zijn in Google Maps
 • Buitenmodus met gemarkeerde wandelpaden, campings, waterbronnen, toppen, hoogtelijnen, enz.
 • Wandelpaden en fietspaden
 • Bezienswaardigheden zoals restaurants, tankstations, hotels, winkels en nog veel meer
 • Zoeken op naam of adres of op categorie
-• Navigatie met spraakmeldingen voor wandelen, fietsen of autorijden
+• Navigatie met gesproken aanwijzingen voor wandelen, fietsen of autorijden
 • Sla je favoriete plaatsen op met een enkele klik
 • Offline Wikipedia-artikelen
 • Metrolaag en routebeschrijvingen

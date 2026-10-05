@@ -8,13 +8,14 @@ Een door de community ontwikkelde, gratis en open source kaartenapp, gebaseerd o
 ‣ Open en transparant besluitvormings- en financieel beleid, geen winstoogmerk en volledig open source.
 
 Hoofdfuncties:
-• Downloadbare gedetailleerde kaarten met plaatsen die niet beschikbaar zijn bij Google Maps
+• Downloadbare gedetailleerde kaarten met plaatsen die niet beschikbaar zijn op veel commerciële kaarten
 • Buitenmodus met gemarkeerde wandelpaden, campings, waterbronnen, toppen, hoogtelijnen, enz.
 • Wandelpaden en fietspaden
 • Bezienswaardigheden zoals restaurants, tankstations, hotels, winkels en nog veel meer
 • Zoeken op naam of adres of op categorie
-• Navigatie met spraakmeldingen voor wandelen, fietsen of autorijden
+• Navigatie met gesproken aanwijzingen voor wandelen, fietsen of autorijden
 • Sla je favoriete plaatsen op met een enkele klik
+• iCloud synchronisatie voor je favorieten
 • Offline Wikipedia-artikelen
 • Metrolaag en routebeschrijvingen
 • Trackregistratie

@@ -1208,7 +1208,7 @@
 "type.railway.subway_entrance.milan" = "Metro Entrance";
 "type.area_highway.tertiary" = "Tertiary Road";
 "type.shop" = "Shop";
-"type.shop.tobacco" = "Smoke Shop";
+"type.shop.tobacco" = "Tobacco Shop";
 "type.highway.primary_link.tunnel" = "Tunnel";
 "type.landuse.field" = "Field";
 "type.power.generator.solar" = "Solar Panels";
@@ -1353,7 +1353,7 @@
 "type.railway.subway_entrance.kyoto" = "Metro Entrance";
 "type.shop.car_parts" = "Car Parts Shop";
 "type.craft.beekeeper" = "Beekeeper";
-"type.amenity.prep_school" = "Tutorial School";
+"type.amenity.prep_school" = "Preschool";
 "type.cuisine.mexican" = "Mexican";
 "type.healthcare.optometrist" = "Optometrist";
 "type.power.generator.hydro" = "Hydroelectric Power Plant";

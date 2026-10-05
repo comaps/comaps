@@ -112,7 +112,7 @@
 "type.amenity.parking.no.access" = "Stationnement privé";
 "type.amenity.parking.permissive" = "Stationnement privé";
 "type.amenity.parking.private" = "Stationnement privé";
-"type.amenity.parking.park_and_ride" = "Parking relais";
+"type.amenity.parking.park_and_ride" = "Parking relais|Parking-relais|Parc relais|Parc-relais|P+R";
 "type.amenity.parking.underground" = "Parking souterrain";
 "type.amenity.parking.underground.fee" = "Stationnement souterrain";
 "type.amenity.parking.underground.private" = "Parking privé souterrain";
@@ -1542,8 +1542,8 @@
 "type.railway.station.subway.boston" = "Station de métro";
 "type.railway.subway_entrance.qingdao" = "Entrée de métro";
 "type.building.abandoned" = "Bâtiment abandonné";
-"type.shop.tool_hire" = "Tool Hire";
-"type.amenity.tool_library" = "Tool Library";
-"type.amenity.parking.customers" = "Customer Parking";
-"type.barrier.bus_trap" = "Bus Trap";
-"type.barrier.sump_buster" = "Sump Buster";
+"type.shop.tool_hire" = "Location d'outils";
+"type.amenity.tool_library" = "Prêt d'outils";
+"type.amenity.parking.customers" = "Parking réservé aux clients";
+"type.barrier.bus_trap" = "Fosse anti-voiture";
+"type.barrier.sump_buster" = "Plot filtrant";

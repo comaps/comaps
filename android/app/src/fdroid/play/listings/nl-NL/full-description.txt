@@ -14,12 +14,12 @@ Sluit je aan bij de community en help mee aan de ontwikkeling van de beste kaart
 ‣ <b>Open en transparant besluitvormings- en financieel beleid, geen winstoogmerk en volledig open source.</b>
 
 <b>Hoofdfuncties</b>:
-• Downloadbare gedetailleerde kaarten met plaatsen die niet beschikbaar zijn bij Google Maps
+• Downloadbare gedetailleerde kaarten met plaatsen die niet beschikbaar zijn in Google Maps
 • Buitenmodus met gemarkeerde wandelpaden, campings, waterbronnen, toppen, hoogtelijnen, enz.
 • Wandelpaden en fietspaden
 • Bezienswaardigheden zoals restaurants, tankstations, hotels, winkels en nog veel meer
 • Zoeken op naam of adres of op categorie
-• Navigatie met spraakmeldingen voor wandelen, fietsen of autorijden
+• Navigatie met gesproken aanwijzingen voor wandelen, fietsen of autorijden
 • Sla je favoriete plaatsen op met een enkele klik
 • Offline Wikipedia-artikelen
 • Metrolaag en routebeschrijvingen

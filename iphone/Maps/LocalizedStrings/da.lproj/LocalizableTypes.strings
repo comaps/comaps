@@ -480,9 +480,9 @@
 "type.highway.footway.crossing" = "Fodgængerovergang";
 "type.highway.footway.area" = "Fodgængerareal";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.footway.bridge" = "Bro";
+"type.highway.footway.bridge" = "Gangbro";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.footway.tunnel" = "Tunnel";
+"type.highway.footway.tunnel" = "Gangtunnel";
 "type.highway.ford" = "Vadested";
 "type.highway.living_street" = "Stillevej";
 /* These translations are used for all type.highway.*.bridge. */

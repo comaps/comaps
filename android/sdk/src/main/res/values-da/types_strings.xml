@@ -344,9 +344,9 @@
     <string name="type.highway.footway.crossing">Fodgængerovergang</string>
     <string name="type.highway.footway.area">Fodgængerareal</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
-    <string name="type.highway.footway.bridge">Bro</string>
+    <string name="type.highway.footway.bridge">Gangbro</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.footway.tunnel">Tunnel</string>
+    <string name="type.highway.footway.tunnel">Gangtunnel</string>
     <string name="type.highway.ford">Vadested</string>
     <string name="type.highway.living_street">Stillevej</string>
     <!-- These translations are used for all type.highway.*.bridge. -->

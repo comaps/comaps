@@ -1,3 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="feedback">Feedback</string>
+    <string name="choose_color">Choose Colour</string>
+    <string name="bookmark_color">Colour for Favourite</string>
+    <string name="bookmarks_and_tracks">Favourites</string>
+    <string name="share_bookmarks_email_subject">My CoMaps Favourites</string>
+    <string name="share_bookmarks_email_body">Hello! \n \nAttached are my Favourites, please open them in CoMaps. If you don\'t have it installed you can download it here: https://www.comaps.app/download/ \n \nEnjoy travelling with CoMaps!</string>
+    <string name="load_kmz_title">Loading Favourites</string>
+    <string name="load_kmz_successful">Favourites loaded successfully! You can find them on the map or on the Favourites Manager screen.</string>
+    <string name="load_kmz_failed">Failed to load Favourites. The file may be corrupted or defective.</string>
+    <string name="prefs_group_data_management_summary">Map storage, backup favourites</string>
+    <string name="bookmark_lists">Favourite Lists</string>
+    <string name="bookmarks_import">Import Favourites</string>
+    <string name="bookmarks_text_placement_title">Show names of favourites on map</string>
+    <string name="sort_bookmarks">Sort Favourites</string>
+    <string name="sort_categories">Sort Favourite Lists</string>
+    <string name="bookmarks_export">Export all Favourites</string>
+    <string name="track_recording_alert_title">Save to Favourites?</string>
+    <string name="pref_backup_title">Backup Favourites</string>
+    <string name="pref_backup_now_summary_empty_lists">No Favourites to backup</string>
+    <string name="kilometres">Kilometres</string>
+    <string name="location_is_disabled_long_text">You currently have all Location Services for this device or app disabled. Please enable them in Settings.</string>
+    <string name="about_proposition_2">• Privacy-focused and ad-free</string>
+    <string name="measurement_units_summary">Choose between miles and kilometres</string>
+    <string name="category_fuel">Fuel</string>
+    <string name="pref_tts_street_names_description">When enabled, the name of the street or exit to turn onto will be spoken aloud.</string>
+    <string name="gray">Grey</string>
+    <string name="blue_gray">Blue Grey</string>
+    <string name="dialog_routing_disclaimer_borders">— Exercise caution with routes in border zones: the routes created by our app may sometimes cross country borders in unauthorised places.</string>
+    <string name="not_signed_in">Not logged in</string>
+    <string name="logout">Logout</string>
+    <string name="download_over_mobile_header">Download over a mobile network connection?</string>
+    <string name="pref_use_google_play">A proprietary service that combines GPS, Wi-Fi, mobile networks etc. to determine your location more accurately. It may connect to Google servers.</string>
+    <string name="fuel_places">Petrol Stations</string>
 </resources>

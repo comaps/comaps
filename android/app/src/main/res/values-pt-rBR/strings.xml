@@ -970,4 +970,9 @@
     <string name="add_review_url_resolution_failed">Local não encontrado na versão mais recente do OpenStreetMap.</string>
     <string name="add_review_url_resolution_failed_dev">Local não encontrado no servidor DEV do OpenStreetMap.</string>
     <string name="internet_unavailable">Sem conexão à internet</string>
+    <string name="stars_1">1 estrela</string>
+    <string name="stars_2">2 estrelas</string>
+    <string name="stars_3">3 estrelas</string>
+    <string name="stars_4">4 estrelas</string>
+    <string name="stars_5">5 estrelas</string>
 </resources>

@@ -1545,4 +1545,9 @@
     <string name="type.railway.subway_entrance.boston">Metroo sissepääs</string>
     <string name="type.railway.subway_entrance.qingdao">Metroo sissepääs</string>
     <string name="type.building.abandoned">Hüljatud ehitus</string>
+    <string name="type.amenity.parking.customers">Kliendiparkla</string>
+    <string name="type.amenity.tool_library">Kogukonna töötuba</string>
+    <string name="type.barrier.bus_trap">Läbipääs vaid bussidele</string>
+    <string name="type.barrier.sump_buster">Väikeautode tõke</string>
+    <string name="type.shop.tool_hire">Tööriistarent</string>
 </resources>

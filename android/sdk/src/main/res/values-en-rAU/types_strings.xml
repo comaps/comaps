@@ -367,4 +367,6 @@
     <string name="type.amenity">Amenity</string>
     <string name="type.amenity.atm">ATM</string>
     <string name="type.emergency.emergency_ward_entrance">Emergency Department Entrance</string>
+    <string name="type.shop.tobacco">Tobacco Shop</string>
+    <string name="type.amenity.prep_school">Preschool</string>
 </resources>

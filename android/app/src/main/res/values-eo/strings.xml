@@ -129,7 +129,7 @@
     <string name="data_version">Datumoj de OpenStreetMap: %s</string>
     <string name="tracks_title">Trakoj</string>
     <string name="length">Longo</string>
-    <string name="share_my_location">Kunhavigi Mian Lokon</string>
+    <string name="share_my_location">Kunhavigi mian lokon</string>
     <string name="prefs_group_information">Informoj</string>
     <string name="prefs_group_route">Navigado</string>
     <string name="pref_zoom_title">Zoom-butonoj</string>

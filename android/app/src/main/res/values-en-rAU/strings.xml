@@ -53,4 +53,8 @@
     <string name="hour">h</string>
     <string name="minute">min</string>
     <string name="day">d</string>
+    <string name="about_proposition_2">• Privacy focused and ad-free</string>
+    <string name="about_proposition_3">• Offline, fast and compact</string>
+    <string name="about_developed_by_enthusiasts">Fully open source, not for profit, transparent decision-making and finances.</string>
+    <string name="logout">Logout</string>
 </resources>

@@ -143,7 +143,7 @@
     <string name="type.recycling.cans">Blikjes</string>
     <string name="type.recycling.shoes">Schoenen</string>
     <string name="type.recycling.green_waste">GFTE/organisch afval</string>
-    <string name="type.recycling.cartons">Drankverpakkingen</string>
+    <string name="type.recycling.cartons">Drankkartons</string>
     <string name="type.amenity.restaurant">Restaurant</string>
     <string name="type.amenity.sanitary_dump_station">Camperverzorgingsplaats</string>
     <string name="type.amenity.school">School</string>
@@ -249,7 +249,7 @@
     <string name="type.craft.key_cutter">Sleutelmaker</string>
     <string name="type.craft.locksmith">Slotenmaker</string>
     <string name="type.craft.metal_construction">Metaalarbeider</string>
-    <string name="type.craft.painter">Schilder</string>
+    <string name="type.craft.painter">Huisschilder</string>
     <string name="type.craft.photographer">Fotograaf</string>
     <string name="type.shop.camera">Camerawinkel</string>
     <string name="type.craft.plumber">Loodgieter</string>
@@ -270,14 +270,14 @@
     <string name="type.cuisine.beef_bowl">Gyudon</string>
     <string name="type.cuisine.brazilian">Braziliaans</string>
     <string name="type.cuisine.breakfast">Ontbijt</string>
-    <string name="type.cuisine.burger">Hamburgers</string>
+    <string name="type.cuisine.burger">Hamburger</string>
     <string name="type.cuisine.buschenschank">Taverna</string>
     <string name="type.cuisine.cake">Taart</string>
     <string name="type.cuisine.caribbean">Caraïbisch</string>
     <string name="type.cuisine.chicken">Kip</string>
     <string name="type.cuisine.chinese">Chinees</string>
     <string name="type.cuisine.coffee_shop">Koffie</string>
-    <string name="type.cuisine.crepe">Pannenkoek</string>
+    <string name="type.cuisine.crepe">Flensje</string>
     <string name="type.cuisine.croatian">Kroatisch</string>
     <string name="type.cuisine.curry">Curry</string>
     <string name="type.cuisine.deli">Delicatessen</string>
@@ -366,7 +366,7 @@
     <string name="type.healthcare.sample_collection">Bemonstering</string>
     <string name="type.healthcare.speech_therapist">Logopedie</string>
     <!-- SECTION: Types: Roads -->
-    <string name="type.highway">Straat</string>
+    <string name="type.highway">Weg</string>
     <string name="type.highway.bridleway">Ruiterpad</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.bridleway.bridge">Brug</string>
@@ -413,7 +413,7 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.footway.tunnel">Voetgangerstunnel</string>
     <string name="type.highway.ford">Voorde</string>
-    <string name="type.highway.living_street">Woonerf</string>
+    <string name="type.highway.living_street">Straat</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.living_street.bridge">Brug</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
@@ -465,8 +465,8 @@
     <string name="type.highway.residential.bridge">Brug</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.residential.tunnel">Tunnel</string>
-    <string name="type.highway.rest_area">Parkeerplaats</string>
-    <string name="type.highway.road">Straat</string>
+    <string name="type.highway.rest_area">Verzorgingsplaats</string>
+    <string name="type.highway.road">Weg</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.road.bridge">Brug</string>
     <!-- A bridge structure outline. -->
@@ -483,15 +483,15 @@
     <string name="type.highway.secondary_link.bridge">Brug</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.secondary_link.tunnel">Tunnel</string>
-    <string name="type.highway.service">Straat</string>
-    <string name="type.highway.service.area">Straat</string>
+    <string name="type.highway.service">Toegangsweg</string>
+    <string name="type.highway.service.area">Toegangsweg</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.service.bridge">Brug</string>
-    <string name="type.highway.service.driveway">Straat</string>
-    <string name="type.highway.service.parking_aisle">Straat</string>
+    <string name="type.highway.service.driveway">Oprijlaan</string>
+    <string name="type.highway.service.parking_aisle">Parkeerweg</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.service.tunnel">Tunnel</string>
-    <string name="type.highway.services">Servicegebied</string>
+    <string name="type.highway.services">Verzorgingsplaats</string>
     <string name="type.highway.speed_camera">Flitspaal</string>
     <string name="type.highway.steps">Trap</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
@@ -535,7 +535,7 @@
     <string name="type.highway.unclassified.tunnel">Tunnel</string>
     <string name="type.area_highway.cycleway">Fietspad</string>
     <string name="type.area_highway.footway">Voetpad</string>
-    <string name="type.area_highway.living_street">Straat</string>
+    <string name="type.area_highway.living_street">Woonerf</string>
     <string name="type.area_highway.motorway">Snelweg</string>
     <string name="type.area_highway.path">Pad</string>
     <string name="type.area_highway.pedestrian">Voetgangersgebied</string>
@@ -600,7 +600,7 @@
     <string name="type.junction.roundabout">Rotonde</string>
     <string name="type.landuse">Landgebruik</string>
     <string name="type.landuse.allotments">Volkstuinen</string>
-    <string name="type.landuse.basin">Waterbassin</string>
+    <string name="type.landuse.basin">Waterbekken</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
     <string name="type.landuse.cemetery">Begraafplaats</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
@@ -727,7 +727,7 @@
     <string name="type.natural.water.lock">Schutkolk</string>
     <string name="type.natural.water.pond">Vijver</string>
     <string name="type.natural.water.reservoir">Reservoir</string>
-    <string name="type.natural.water.basin">Waterbassin</string>
+    <string name="type.natural.water.basin">Waterbekken</string>
     <string name="type.natural.water.river">Rivier</string>
     <string name="type.natural.land">Land</string>
     <string name="type.natural.meadow">Weiland</string>
@@ -1409,7 +1409,7 @@
     <string name="type.barrier.wicket_gate">Klinket</string>
     <string name="type.office.security">Beveiligingskantoor</string>
     <string name="type.building.guardhouse">Beveiligingsloket</string>
-    <string name="type.power.portal">Elektriciteitsportaal</string>
+    <string name="type.power.portal">Portaalmast</string>
     <string name="type.shop.lighting">Verlichtingswinkel</string>
     <string name="type.amenity.bench.backless">Zonder rugleuning</string>
     <string name="type.amenity.boat_rental">Bootverhuur</string>

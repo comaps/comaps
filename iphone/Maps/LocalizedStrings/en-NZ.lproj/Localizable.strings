@@ -73,7 +73,7 @@
 "downloader_status_maps" = "Maps";
 "avoid_tolls" = "Avoid tolls";
 "enable_logging" = "Enable logging";
-"bookmarks_text_placement_title" = "Show names of favorites on map";
+"bookmarks_text_placement_title" = "Show names of favourites on map";
 "osm_profile_promt" = "Create an OpenStreetMap account or log in to publish your map edits to the world.";
 "self_service" = "Self-service";
 "rate_the_app" = "Rate the app";
@@ -103,7 +103,7 @@
 "fediverse" = "Mastodon";
 "delete_list" = "Delete list";
 "osm_more_about" = "More about OpenStreetMap";
-"kilometres" = "Kilometers";
+"kilometres" = "Kilometres";
 "move" = "Move";
 "stars_5" = "5-star";
 "elevation_profile_diff_level_moderate" = "Moderate";
@@ -153,12 +153,12 @@
 "location_services_disabled_2" = "2. Tap Location";
 "clear" = "Clear";
 "pref_custom_button_type" = "Customizable Button";
-"bookmarks_import" = "Import Favorites";
+"bookmarks_import" = "Import Favourites";
 "opens_tomorrow_at" = "Opens tomorrow at %@";
 "about_proposition_3" = "Transparent and not for profit";
 "closes_in" = "Closes in %@";
 "downloader_check_updates_button" = "Check for updates";
-"gray" = "Gray";
+"gray" = "Grey";
 "downloader_downloading" = "Downloading:";
 "unknown" = "Unknown";
 "p2p_reroute_from_current" = "Do you want to plan a route from your current location?";
@@ -247,7 +247,7 @@
 "message_invalid_feature_position" = "No object can be located here";
 "mobile_data_option_always" = "Use Always";
 "off_recent_track_background_button" = "Disable";
-"dialog_routing_disclaimer_borders" = "— Exercise caution with routes in border zones: the routes created by our app may sometimes cross country borders in unauthorized places.";
+"dialog_routing_disclaimer_borders" = "— Exercise caution with routes in border zones: the routes created by our app may sometimes cross country borders in unauthorised places.";
 "dialog_pedestrian_route_is_long_header" = "No subway route found";
 "category_nightlife" = "Nightlife";
 "pref_alt_map_lang_handling_system_order" = "Use in system order";
@@ -274,14 +274,14 @@
 "general_settings" = "General settings";
 "bookmarks_error_title_share_empty" = "Sharing error";
 "ok" = "OK";
-"bookmarks_export" = "Export all Favorites";
+"bookmarks_export" = "Export all Favourites";
 "pref_appearance_light" = "Light";
 "dialog_routing_change_end" = "Adjust destination";
 "planning_route_manage_route" = "Manage Route";
 "capacity_charging_yes" = "Has spaces with chargers";
 "place_name" = "Place Name";
 "navigation_stop_button" = "Stop";
-"load_kmz_successful" = "Favorites loaded successfully! You can find them on the map or on the Favorites Manager screen.";
+"load_kmz_successful" = "Favourites loaded successfully! You can find them on the map or on the Favourites Manager screen.";
 "mode_option_traffic" = "Show Traffic";
 "power_managment_setting_manual_max" = "Always";
 "faq" = "Frequently Asked Questions";
@@ -355,7 +355,7 @@
 "miles" = "Miles";
 "deep_purple" = "Deep Purple";
 "error_enter_correct_storey_number" = "The number of floors must non exceed %d";
-"download_over_mobile_header" = "Download over a cellular network connection?";
+"download_over_mobile_header" = "Download over a mobile network connection?";
 "custom_map_server_map_series" = "This version of CoMaps is using map series %@.";
 "measurement_units" = "Measurement units";
 "orange" = "Orange";
@@ -518,7 +518,7 @@
 "elevation_profile_diff_level_hard" = "Hard";
 "dialog_routing_try_again" = "Please try again";
 "no_available" = "No";
-"fuel_places" = "Gas Stations";
+"fuel_places" = "Petrol Stations";
 "sharing_call_action_look" = "Check out";
 "volunteer" = "Volunteer and improve CoMaps";
 "clear_search" = "Clear Search History";
@@ -582,7 +582,7 @@
 "icloud_synchronization_error_connection_error" = "Error: Failed to synchronize due to connection error";
 "dialog_routing_change_start" = "Adjust starting point";
 "editor_remove_place_message" = "Delete added place?";
-"blue_gray" = "Blue Gray";
+"blue_gray" = "Blue Grey";
 "report_a_bug" = "Report a bug";
 "wikimedia_commons" = "Wikimedia Commons";
 "editor_reset_edits_message" = "Discard all local changes?";
@@ -591,7 +591,7 @@
 "postionmode_locating" = "Finding own location...";
 "copyright" = "Copyright";
 "traffic_update_app_message" = "To display traffic data, the application must be updated.";
-"category_fuel" = "Gas";
+"category_fuel" = "Fuel";
 "editor_add_place_title" = "Adding";
 "downloader_check_updates_updated" = "Map updates available!";
 "bookmark_set_name" = "List Name";
@@ -609,7 +609,7 @@
 "sort_default" = "Sort by default";
 "planning_route_preview_sheet_title" = "Route Preview";
 "search_not_found_query" = "Download the region where you are searching or try adding a nearby town/village name.";
-"load_kmz_title" = "Loading Favorites";
+"load_kmz_title" = "Loading Favourites";
 "carplay_highway_exit" = "Exit %@";
 "later" = "Later";
 "version %@ (%@)" = "Version %@ (%@)";
@@ -621,7 +621,7 @@
 "bookmarks_error_message_share_general" = "Unable to share due to an application error";
 "map" = "Map";
 "bookmarks" = "Places";
-"bookmarks_and_tracks" = "Favorites";
+"bookmarks_and_tracks" = "Favourites";
 "downloader_downloaded_subtitle" = "Downloaded";
 "blue" = "Blue";
 "traffic_data_unavailable" = "Traffic data is not available";

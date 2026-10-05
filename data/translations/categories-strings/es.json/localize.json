@@ -1861,5 +1861,14 @@
     },
     "building-abandoned": {
         "defaultMessage": "edificio abandonado|construcción abandonada|inmueble abandonado|edificación abandonada|estructura abandonada|edificio derruido|edificio en ruinas|caserón abandonado|edificio vacío|propiedad abandonada|edificio maltrecho|edificio deshabitado|edificio desértico|edificio social abandonado|casa tentadora|obra abandonada|bloque abandonado|instalación abandonada|predio abandonado|finca abandonada|local abandonado|abandonado"
+    },
+    "shop-tool_hire|@shop": {
+        "defaultMessage": "herramientas|alquiler de herramientas|préstamo de herramientas"
+    },
+    "amenity-tool_library": {
+        "defaultMessage": "librería de herramientas|préstamo de herramientas|herramientas|herramientas compartidas|herramientas comunitarias|alquiler de herramientas"
+    },
+    "amenity-bicycle_parking-covered": {
+        "defaultMessage": "4parking de bicicleta cubierto|parking para bicicletas cubierto|estacionamiento de bicicletas cubierto|estacionamiento para bicicletas cubierto"
     }
 }

@@ -992,4 +992,9 @@
     <string name="add_review_url_resolution_failed">Ort wurde nicht gefunden in neuester OpenStreetMap.</string>
     <string name="add_review_url_resolution_failed_dev">Ort nicht gefunden in der DEV OpenStreetMap.</string>
     <string name="internet_unavailable">Keine Internetverbindung</string>
+    <string name="stars_1">1-Stern</string>
+    <string name="stars_2">2-Sterne</string>
+    <string name="stars_3">3-Sterne</string>
+    <string name="stars_4">4-Sterne</string>
+    <string name="stars_5">5-Sterne</string>
 </resources>
