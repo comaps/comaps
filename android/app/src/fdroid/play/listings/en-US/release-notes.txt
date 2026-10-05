@@ -1,8 +1,8 @@
-- Add link to add new reviews on place page
-- Show current speed in Android Auto
-- Show review ratings in search results
-- Display hotel/restaurant stars as text
-- Added tool hire shops and tool libraries, Romania and Morocco road shields and fixed Germany Augsburg and Cyprus A-road ones
-- Change preview and save button to icons in route planning screen
+• Add link to add new reviews on place page
+• Show current speed in Android Auto
+• Show review ratings in search results
+• Display hotel/restaurant stars as text
+• Added tool hire shops and tool libraries, Romania and Morocco road shields and fixed Germany Augsburg and Cyprus A-road ones
+• Change preview and save button to icons in route planning screen
 
 More details on comaps.app/latest

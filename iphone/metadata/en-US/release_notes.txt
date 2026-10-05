@@ -1,6 +1,6 @@
-- Add CarPlay dashboard support
-- Add custom map download server URL setting
-- Make transport Modes picker accessible and activate extra options with a second tap in addition to a long tap
-- Display hotel/restaurant stars as text
-- Added tool hire shops and tool libraries, Romania and Morocco road shields and fixed Germany Augsburg and Cyprus A-road ones
-- OpenStreetMap data as of October 4 and further weekly updates
+• Add CarPlay dashboard support
+• Add custom map download server URL setting
+• Make transport Modes picker accessible and activate extra options with a second tap in addition to a long tap
+• Display hotel/restaurant stars as text
+• Added tool hire shops and tool libraries, Romania and Morocco road shields and fixed Germany Augsburg and Cyprus A-road ones
+• OpenStreetMap data as of October 4 and further weekly updates

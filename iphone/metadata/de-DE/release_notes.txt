@@ -1,6 +1,6 @@
-- Unterstützung für CarPlay-Armaturenbrett hinzugefügt
-- Einstellung für benutzerdefinierte URL für den Kartendownload-Server hinzugefügt
-- Auswahlfeld für Verkehrsmittel zugänglich gemacht und zusätzliche Optionen durch ein zweites Antippen sowie durch langes Antippen aktiviert
-- Sterne für Hotels/Restaurants als Text anzeigen
-- Werkzeugverleihgeschäfte und Werkzeugbibliotheken hinzugefügt, Straßenschilder für Rumänien und Marokko hinzugefügt sowie die für Augsburg und die A-Straßen in Zypern korrigiert
-- OpenStreetMap-Daten vom 4. Oktober und weitere wöchentliche Updates
+• Unterstützung für CarPlay-Armaturenbrett hinzugefügt
+• Einstellung für benutzerdefinierte URL für den Kartendownload-Server hinzugefügt
+• Auswahlfeld für Verkehrsmittel zugänglich gemacht und zusätzliche Optionen durch ein zweites Antippen sowie durch langes Antippen aktiviert
+• Sterne für Hotels/Restaurants als Text anzeigen
+• Werkzeugverleihgeschäfte und Werkzeugbibliotheken hinzugefügt, Straßenschilder für Rumänien und Marokko hinzugefügt sowie die für Augsburg und die A-Straßen in Zypern korrigiert
+• OpenStreetMap-Daten vom 4. Oktober und weitere wöchentliche Updates

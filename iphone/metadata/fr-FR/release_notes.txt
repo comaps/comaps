@@ -1,7 +1,7 @@
-- Ajout du support du tableau de bord CarPlay
-- Ajout du paramètre pour un URL de serveur de cartes personnalisé
-- Choix du mode de transport rendu accessible, activation d'options supplémentaires avec un appui double/long
-- Affichage des étoiles des hôtels/restaurants comme du texte 
-- Display hotel/restaurant stars as text
-- Ajout des magasins de location et de prêt d'outils, des panneaux routiers de Roumanie et du Maroc, et correction des panneaux routiers de Chypre et Augsburg.
-- Données OpenStreetMap du 4 Octobre et mises à jour hebdomadaires.
+• Ajout du support du tableau de bord CarPlay
+• Ajout du paramètre pour un URL de serveur de cartes personnalisé
+• Choix du mode de transport rendu accessible, activation d'options supplémentaires avec un appui double/long
+• Affichage des étoiles des hôtels/restaurants comme du texte 
+• Display hotel/restaurant stars as text
+• Ajout des magasins de location et de prêt d'outils, des panneaux routiers de Roumanie et du Maroc, et correction des panneaux routiers de Chypre et Augsburg.
+• Données OpenStreetMap du 4 Octobre et mises à jour hebdomadaires.

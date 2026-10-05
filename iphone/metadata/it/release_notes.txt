@@ -1,6 +1,6 @@
-- Aggiunto il supporto per la dashboard di CarPlay
-- Aggiunta l'impostazione dell'URL del server personalizzato per il download delle mappe
-- Reso accessibile il selettore delle modalità di trasporto e attivate le opzioni aggiuntive anche con un secondo tocco, oltre che con una pressione prolungata
-- Visualizzate come testo le stelle di hotel e ristoranti
-- Aggiunti negozi di noleggio e prestito di attrezzi, cartelli stradali della Romania e del Marocco e correzione dei cartelli stradali di Cipro e Augsburg
-- Dati di OpenStreetMap aggiornati al 4 ottobre e ulteriori aggiornamenti settimanali
+• Aggiunto il supporto per la dashboard di CarPlay
+• Aggiunta l'impostazione dell'URL del server personalizzato per il download delle mappe
+• Reso accessibile il selettore delle modalità di trasporto e attivate le opzioni aggiuntive anche con un secondo tocco, oltre che con una pressione prolungata
+• Visualizzate come testo le stelle di hotel e ristoranti
+• Aggiunti negozi di noleggio e prestito di attrezzi, cartelli stradali della Romania e del Marocco e correzione dei cartelli stradali di Cipro e Augsburg
+• Dati di OpenStreetMap aggiornati al 4 ottobre e ulteriori aggiornamenti settimanali
