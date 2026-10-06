@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20260720T232721Z",
+    "data_updated": "20261006T173232Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -1332,6 +1332,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/bcontrol-m.svg"
         },
         {
+            "description": "barrier=bus_trap",
+            "key": "barrier",
+            "value": "bus_trap",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/dot-m.svg"
+        },
+        {
             "description": "barrier=chain",
             "key": "barrier",
             "value": "chain",
@@ -1371,6 +1377,12 @@
             "description": "barrier=stile",
             "key": "barrier",
             "value": "stile",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/dot-m.svg"
+        },
+        {
+            "description": "barrier=sump_buster",
+            "key": "barrier",
+            "value": "sump_buster",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/dot-m.svg"
         },
         {
