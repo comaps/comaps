@@ -235,6 +235,8 @@ private:
   // Finish segment id
   Ending m_finish;
   double m_startToFinishDistanceM;
+  int8_t m_changesAllowed = 0;
+  bool m_changesAllowedValid = false;
   FakeGraph m_fake;
   GuidesGraph m_guides;
   uint32_t m_fakeNumerationStart;
