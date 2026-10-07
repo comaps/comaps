@@ -958,8 +958,8 @@ highway|track|grade3|no-access;[highway=track][tracktype=grade3][access=not],[hi
 highway|track|grade4|no-access;[highway=track][tracktype=grade4][access=not],[highway=track][tracktype=grade4][access=no];x;name;int_name;822;highway|track
 highway|track|grade5|no-access;[highway=track][tracktype=grade4][access=not],[highway=track][tracktype=grade5][access=no];x;name;int_name;823;highway|track
 highway|track|no-access;[highway=track][access=not],[highway=track][access=no];;name;int_name;824;
-deprecated|deprecated;825;x
-deprecated|deprecated;826;x
+cuisine|vegetarian_only;[diet:vegetarian=only];;;;825;
+cuisine|vegan_only;[diet:vegan=only];;;;826;
 deprecated|deprecated;827;x
 deprecated|deprecated;828;x
 deprecated|deprecated;829;x
@@ -1402,7 +1402,7 @@ cuisine|spanish;1263;
 cuisine|fish;1264;
 cuisine|vietnamese;1265;
 cuisine|noodles;1266;
-cuisine|vegetarian;1267;
+cuisine|vegetarian;[diet:vegetarian=yes];;;;1267;
 cuisine|korean;1268;
 cuisine|friture;1269;
 cuisine|barbecue;1270;
@@ -1440,7 +1440,7 @@ cuisine|balkan;1301;
 cuisine|brazilian;1302;
 cuisine|caribbean;1303;
 cuisine|austrian;1304;
-cuisine|vegan;1305;
+cuisine|vegan;[diet:vegan=yes];;;;1305;
 cuisine|argentinian;1306;
 cuisine|persian;1307;
 cuisine|soba;1308;

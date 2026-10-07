@@ -944,7 +944,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Вегетарыянская кухня"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "Веганская кухня"
     }
 }

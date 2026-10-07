@@ -1421,7 +1421,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Vegetarisk|Vegetarretter"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "Vegansk"
     },
     "amenity-studio": {

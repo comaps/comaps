@@ -1445,7 +1445,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "素菜"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "全素菜"
     }
 }

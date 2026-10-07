@@ -379,8 +379,10 @@
 "type.cuisine.tea" = "Tea";
 "type.cuisine.thai" = "Thai";
 "type.cuisine.turkish" = "Turkish";
-"type.cuisine.vegan" = "Vegan";
-"type.cuisine.vegetarian" = "Vegetarian";
+"type.cuisine.vegan" = "Vegan Options";
+"type.cuisine.vegan_only" = "Vegan Only";
+"type.cuisine.vegetarian" = "Vegetarian Options";
+"type.cuisine.vegetarian_only" = "Vegetarian Only";
 "type.cuisine.vietnamese" = "Vietnamese";
 "type.emergency" = "Emergency";
 "type.emergency.access_point" = "Emergency Rescue Point";

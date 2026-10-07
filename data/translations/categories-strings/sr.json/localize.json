@@ -1367,7 +1367,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Вегетаријанска|Вегетаријанци|Vegetarijanska|Vegetarijanci"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "8Веганска храна|10Веганска кухиња|Вегани|8Veganska hrana|10Veganska kuhinja|Vegani"
     },
     "historic-stone": {
@@ -1850,7 +1850,7 @@
     "cuisine-african": {
         "defaultMessage": "7Афричка храна|9Афричка кухиња|7Afrička hrana|9Afrička kuhinja"
     },
-    "cuisine-vegetarian|@cuisine_all_vegetarian": {
+    "cuisine-vegetarian|cuisine-vegetarian_only|@cuisine_all_vegetarian": {
         "defaultMessage": "4Вегетаријанска храна|16Вегетаријанска кухиња|4Vegetarijanska kuhinja|16Vegetarijanska hrana"
     },
     "cuisine-asian|@cuisine_all_asian": {
