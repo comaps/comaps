@@ -1712,7 +1712,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "4Vegetariano|8Comida vegetariana|8Cocina vegetariana"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "8Cocina vegana|vegana|comida vegana"
     },
     "cuisine-brazilian": {

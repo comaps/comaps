@@ -1592,7 +1592,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Cuisine végétarienne"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "Cuisine végétalienne"
     },
     "amenity-boat_rental": {
