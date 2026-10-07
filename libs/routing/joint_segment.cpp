@@ -2,8 +2,7 @@
 
 #include "base/assert.hpp"
 
-#include "std/boost_container_hash.hpp"
-
+#include <cstdint>
 #include <sstream>
 
 namespace routing
@@ -112,12 +111,13 @@ namespace std
 {
 size_t std::hash<routing::JointSegment>::operator()(routing::JointSegment const & jointSegment) const
 {
-  size_t seed = 0;
-  boost::hash_combine(seed, jointSegment.GetMwmId());
-  boost::hash_combine(seed, jointSegment.GetFeatureId());
-  boost::hash_combine(seed, jointSegment.GetStartSegmentId());
-  boost::hash_combine(seed, jointSegment.GetEndSegmentId());
-  boost::hash_combine(seed, jointSegment.IsForward());
-  return seed;
+  uint64_t h = jointSegment.GetFeatureId();
+  h = h * 0x9E3779B97F4A7C15ULL + jointSegment.GetStartSegmentId();
+  h = h * 0x9E3779B97F4A7C15ULL + jointSegment.GetEndSegmentId();
+  h = h * 0x9E3779B97F4A7C15ULL + (uint64_t{jointSegment.GetMwmId()} << 1) + (jointSegment.IsForward() ? 1 : 0);
+  h ^= h >> 33;
+  h *= 0xff51afd7ed558ccdULL;
+  h ^= h >> 29;
+  return static_cast<size_t>(h);
 }
 }  // namespace std
