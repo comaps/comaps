@@ -139,6 +139,9 @@ final class CarPlayService: NSObject {
       return mode == .always ? true : false
     }
   }
+  var carDisplayScale: CGFloat {
+    return interfaceController?.carTraitCollection.displayScale ?? UIScreen.main.scale
+  }
   var isKeyboardLimited: Bool {
     return sessionConfiguration?.limitedUserInterfaces.contains(.keyboard) ?? false
   }
