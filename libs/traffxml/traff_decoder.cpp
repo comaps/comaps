@@ -1417,6 +1417,48 @@ void RoutingTraffDecoder::TruncateLowResRoute(std::vector<routing::RouteSegment>
   }
 }
 
+void RoutingTraffDecoder::TruncateRouteToRamps(std::vector<routing::RouteSegment> & rsegments, Ramps ramps)
+{
+  if (rsegments.empty())
+    return;
+
+  size_t firstRamp = rsegments.size();
+  size_t lastRamp = 0;
+  double rampLength = 0;
+  double otherLength = 0;
+
+  for (size_t i = 0; i < rsegments.size(); i++)
+  {
+    auto fin = GetFeatureInfo(rsegments[i].GetSegment());
+    if (!fin)
+      continue;  // TODO we should never get here, make this an assertion
+    if (fin.value().m_highwayType && IsRamp(fin.value().m_highwayType.value()))
+    {
+      if (i < firstRamp)
+        firstRamp = i;
+      if (i > lastRamp)
+        lastRamp = i;
+      if (ramps == Ramps::None)
+        rampLength += fin.value().m_distances[rsegments[i].GetSegment().GetSegmentIdx()];
+    } else if (ramps == Ramps::None)
+      otherLength += fin.value().m_distances[rsegments[i].GetSegment().GetSegmentIdx()];
+  }
+
+  // return if the decoded location has no ramps
+  if (firstRamp > lastRamp)
+    return;
+
+  // return if the location was not declared a ramp location and less than half its length are ramps
+  if ((ramps == Ramps::None) && (rampLength < otherLength))
+    return;
+
+  // truncate
+  if ((lastRamp + 1) < rsegments.size())
+    rsegments.erase(rsegments.begin() + lastRamp + 1, rsegments.end());
+  if (firstRamp > 0)
+    rsegments.erase(rsegments.begin(), rsegments.begin() + firstRamp);
+}
+
 void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & message,
                                                   traffxml::MultiMwmColoring & decoded, bool backwards)
 {
@@ -1563,6 +1605,8 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & messa
       TruncateLowResRoute(rsegments, checkpoints, backwards);
     else
       TruncateHiResRoute(rsegments, checkpoints);
+
+    TruncateRouteToRamps(rsegments, m_message.value().m_location.value().m_ramps);
 
     /*
      * `m_onRoundabout` is set only for the first segment after the junction. In order to identify

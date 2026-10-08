@@ -655,6 +655,21 @@ protected:
   void TruncateLowResRoute(std::vector<routing::RouteSegment> & rsegments,
                            routing::Checkpoints const & checkpoints, bool backwards);
 
+  /**
+   * @brief Truncates the route to its ramp segments.
+   *
+   * This method first checks whether the route meets the criteria for truncation. Criteria are determined
+   * by the `ramps` argument: if it is `Ramps::None`, the route is truncated only if at least half of its
+   * length is in ramp segments; else it is truncated if it contains at least one ramp segment.
+   *
+   * Routes that do not meet the criteria for truncation are not modified. Any segments before the first,
+   * or after the last, non-ramp segment are discarded.
+   *
+   * @param rsegments The segments of the route
+   * @param ramps The ramps attribute of the location
+   */
+  void TruncateRouteToRamps(std::vector<routing::RouteSegment> & rsegments, Ramps ramps);
+
 private:
   static void LogCode(routing::RouterResultCode code, double const elapsedSec);
 
