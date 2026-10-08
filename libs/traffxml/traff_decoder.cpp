@@ -1553,6 +1553,14 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & messa
   {
     std::vector<routing::RouteSegment> rsegments(route->GetRouteSegments());
 
+    if (m_message.value().m_location.value().m_fuzziness
+        && (m_message.value().m_location.value().m_fuzziness.value() == traffxml::Fuzziness::LowRes))
+      TruncateLowResRoute(rsegments, checkpoints, backwards);
+    else
+      TruncateHiResRoute(rsegments, checkpoints);
+
+    TruncateRouteToRamps(rsegments, m_message.value().m_location.value().m_ramps);
+
     /*
      * Discard overly long routes, they are probably incorrect.
      * Closures are particularly prone, because they may also be reflected on the map, but in such a
@@ -1566,30 +1574,32 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & messa
      */
     if (!message.m_location.value().m_at)
     {
-      auto lengthDistanceRatio = route->GetTotalDistanceMeters()
-                      / checkpoints.GetSummaryLengthBetweenPointsMeters();
-      bool ramps = (message.m_location.value().m_ramps != traffxml::Ramps::None);
-      // not all locations indicate ramps correctly, examine decoded segments
-      if (!ramps)
+      double rampLength = 0;
+      double otherLength = 0;
+
+      for (routing::RouteSegment & rsegment : rsegments)
       {
-        size_t rampSegments = 0;
-        size_t nonRampSegments = 0;
-        for (routing::RouteSegment & rsegment : rsegments)
-          /*
-           * Going by length rather than segment count would be nicer, but we don’t have length
-           * information in an easily accessible form.
-           * m_link is not set for construction types, as they are evaluated using an `IsLinkChecker`,
-           * which is constrained to two levels (e.g. `highway-motorway_link`) while construction types
-           * are three-level (`highway-construction-motorway_link`). This may cause this code to fail
-           * to recognize construction-link types, apply the stricter threshold and discard some decoded
-           * locations. In practice, this is not an issue as these segments are impassable anyway.
-           */
-          if (rsegment.GetRoadNameInfo().m_isLink)
-            rampSegments++;
-          else
-            nonRampSegments++;
-        ramps = (rampSegments >= nonRampSegments);
+        auto fin = GetFeatureInfo(rsegment.GetSegment());
+        if (fin.value().m_highwayType && IsRamp(fin.value().m_highwayType.value()))
+          rampLength += fin.value().m_distances[rsegment.GetSegment().GetSegmentIdx()];
+        else
+          otherLength += fin.value().m_distances[rsegment.GetSegment().GetSegmentIdx()];
       }
+
+      double totalLength = rampLength + otherLength;
+      /*
+       * Segments are counted with their full length. If the first or last segment overshoots its
+       * reference point, we want only the part between the reference point and the rest of the route.
+       * As long as we cannot determine that cleanly, we use total route length if it is shorter than
+       * the sum of all segment lengths.
+       */
+      // FIXME for first and last segment, count partial length, not full length (and ditch this kludge)
+      if (totalLength > route->GetTotalDistanceMeters())
+        totalLength = route->GetTotalDistanceMeters();
+
+      // not all locations indicate ramps correctly, examine decoded segments as well
+      bool ramps = (message.m_location.value().m_ramps != traffxml::Ramps::None) || (rampLength > otherLength);
+      auto lengthDistanceRatio = totalLength / checkpoints.GetSummaryLengthBetweenPointsMeters();
       auto threshold = ramps ? kRatioThresholdRamps : kRatioThresholdDefault;
       if (lengthDistanceRatio > threshold)
       {
@@ -1599,14 +1609,6 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & messa
         return;
       }
     }
-
-    if (m_message.value().m_location.value().m_fuzziness
-        && (m_message.value().m_location.value().m_fuzziness.value() == traffxml::Fuzziness::LowRes))
-      TruncateLowResRoute(rsegments, checkpoints, backwards);
-    else
-      TruncateHiResRoute(rsegments, checkpoints);
-
-    TruncateRouteToRamps(rsegments, m_message.value().m_location.value().m_ramps);
 
     /*
      * `m_onRoundabout` is set only for the first segment after the junction. In order to identify
