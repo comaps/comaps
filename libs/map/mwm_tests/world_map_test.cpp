@@ -5,15 +5,26 @@
 #include "indexer/data_source.hpp"
 #include "indexer/feature.hpp"
 
+#include "geometry/distance_on_sphere.hpp"
+#include "geometry/mercator.hpp"
+
 #include "i18n/localisation.hpp"
 
 #include <iostream>
+#include <map>
+#include <set>
 
 UNIT_TEST(World_Capitals)
 {
   classificator::Load();
   auto const capitalType = classif().GetTypeByPath({"place", "city", "capital", "2"});
-  std::set<std::string_view> testCapitals = {"Lisbon", "Warsaw", "Kyiv", "Roseau"};
+  std::map<std::string_view, ms::LatLon> const testCapitals = {
+      {"Lisbon", {38.7077507, -9.1365919}},
+      {"Warsaw", {52.2319581, 21.0067249}},
+      {"Kyiv", {50.4500336, 30.5241361}},
+      {"Roseau", {15.2991923, -61.3872868}},
+  };
+  std::set<std::string_view> foundCapitals;
 
   platform::LocalCountryFile localFile(platform::LocalCountryFile::MakeForTesting(WORLD_FILE_NAME));
 
@@ -38,13 +49,17 @@ UNIT_TEST(World_Capitals)
         found = true;
     });
 
-    if (found)
-      ++capitalsCount;
+    if (!found)
+      continue;
 
-    std::string_view const name = ft->GetName(localisation::kEnglishLanguageIndex);
-    if (testCapitals.count(name) > 0)
-      TEST(found, (name));
+    ++capitalsCount;
+
+    auto const it = testCapitals.find(ft->GetName(localisation::kEnglishLanguageIndex));
+    if (it != testCapitals.end() && ms::DistanceOnEarth(mercator::ToLatLon(ft->GetCenter()), it->second) < 20000)
+      foundCapitals.insert(it->first);
   }
+
+  TEST_EQUAL(foundCapitals.size(), testCapitals.size(), (foundCapitals));
 
   // Got 225 values from the first launch. May vary slightly ..
   TEST_GREATER_OR_EQUAL(capitalsCount, 215, ());
