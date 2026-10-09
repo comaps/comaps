@@ -11,6 +11,7 @@ namespace routing
 struct RouteStepInfo
 {
   uint32_t m_index = 0;
+  uint32_t m_sequence = 0;
   uint32_t m_turnIndex = 0;
   turns::CarDirection m_turn = turns::CarDirection::None;
   turns::PedestrianDirection m_pedestrianTurn = turns::PedestrianDirection::None;
