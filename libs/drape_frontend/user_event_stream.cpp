@@ -430,7 +430,8 @@ bool UserEventStream::OnSetCenter(ref_ptr<SetCenterEvent> centerEvent)
 
   if (zoom != kDoNotChangeZoom)
   {
-    screen.SetFromParams(center, screen.GetAngle(), GetScreenScale(zoom));
+    double const angle = centerEvent->HasAngle() ? centerEvent->GetAngle() : screen.GetAngle();
+    screen.SetFromParams(center, angle, GetScreenScale(zoom));
     screen.MatchGandP3d(center, m_visibleViewport.Center());
   }
   else if (scaleFactor > 0.0)
@@ -441,6 +442,8 @@ bool UserEventStream::OnSetCenter(ref_ptr<SetCenterEvent> centerEvent)
   else
   {
     GetTargetScreen(screen);
+    if (centerEvent->HasAngle())
+      screen.SetAngle(centerEvent->GetAngle());
     screen.MatchGandP3d(center, m_visibleViewport.Center());
   }
 
