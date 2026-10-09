@@ -169,6 +169,8 @@ public class PlacePageView extends Fragment
   private MaterialTextView mTvCuisine;
   private View mOrganic;
   private MaterialTextView mTvOrganic;
+  private View mSecondHand;
+  private MaterialTextView mTvSecondHand;
   private View mOutdoorSeating;
   private MaterialTextView mTvOutdoorSeating;
   private View mEntrance;
@@ -363,6 +365,8 @@ public class PlacePageView extends Fragment
     mTvCuisine = mFrame.findViewById(R.id.tv__place_cuisine);
     mOrganic = mFrame.findViewById(R.id.ll__place_organic);
     mTvOrganic = mFrame.findViewById(R.id.tv__place_organic);
+    mSecondHand = mFrame.findViewById(R.id.ll__place_second_hand);
+    mTvSecondHand = mFrame.findViewById(R.id.tv__place_second_hand);
     mEntrance = mFrame.findViewById(R.id.ll__place_entrance);
     mTvEntrance = mEntrance.findViewById(R.id.tv__place_entrance);
     mTvLastChecked = mFrame.findViewById(R.id.place_page_last_checked);
@@ -723,6 +727,8 @@ public class PlacePageView extends Fragment
     refreshMetadataOrHide(Framework.nativeGetActiveObjectFormattedCuisine(), mCuisine, mTvCuisine);
     final String organic = getLocalizedFeatureType(getContext(), mMapObject.getOrganic());
     refreshMetadataOrHide(organic, mOrganic, mTvOrganic);
+    final String secondHand = getLocalizedFeatureType(getContext(), mMapObject.getSecondHand());
+    refreshMetadataOrHide(secondHand, mSecondHand, mTvSecondHand);
     refreshWiFi();
     refreshMetadataOrHide(mMapObject.getMetadata(Metadata.MetadataType.FMD_FLATS), mEntrance, mTvEntrance);
     final String level = Utils.getLocalizedLevel(getContext(), mMapObject.getMetadata(Metadata.MetadataType.FMD_LEVEL));
@@ -765,7 +771,7 @@ public class PlacePageView extends Fragment
             case "no" -> getString(R.string.capacity_charging_no);
             default -> getString(R.string.capacity_charging, capacityCharging);
 		};
-    }
+  }
 	refreshMetadataOrHide(capacityCharging, mCapacityCharging, mTvCapacityCharging);
 
     final String driveThrough = mMapObject.getMetadata(Metadata.MetadataType.FMD_DRIVE_THROUGH);

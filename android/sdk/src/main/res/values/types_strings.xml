@@ -904,6 +904,9 @@
     <string name="type.organic.only">Organic only</string>
     <string name="type.organic.yes">Organic options</string>
     <string name="type.organic.no">No organic options</string>
+    <string name="type.second_hand.only">Second-hand only</string>
+    <string name="type.second_hand.yes">Second-hand options</string>
+    <string name="type.second_hand.no">No second-hand options</string>
     <string name="type.place.city">City</string>
     <string name="type.place.city.capital">Capital</string>
     <string name="type.place.city.capital.10">City</string>
@@ -1414,7 +1417,7 @@
     <string name="type.sport.diving">High Diving</string>
     <string name="type.sport.equestrian">Equestrian Sports</string>
     <string name="type.sport.field_hockey">Field Hockey</string>
-    <string name="type.sport.four_square">Four Square</string>    
+    <string name="type.sport.four_square">Four Square</string>
     <string name="type.sport.futsal">Futsal</string>
     <string name="type.sport.golf">Golf</string>
     <string name="type.sport.gymnastics">Gymnastics</string>

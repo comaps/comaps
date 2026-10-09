@@ -406,6 +406,11 @@ public class MapObject implements PlacePageData
     return getFeatureType("organic-");
   }
 
+  public String getSecondHand()
+  {
+    return getFeatureType("second_hand-");
+  }
+
   public final boolean isMyPosition()
   {
     return mMapObjectType == MY_POSITION;
