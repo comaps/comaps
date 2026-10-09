@@ -372,6 +372,7 @@ final class CarPlayRouter: NSObject {
   private var lastObservedDirection: CarDirection?
   private var lastObservedDistanceMeters: Double?
   private var lastManeuverPhase: CarPlayManeuverPhase?
+  private var lastRoadNameVariants: [String]?
   private var isMissingPrimaryWarningActive = false
   var currentTrip: CPTrip? {
     return routeSession?.trip
@@ -621,6 +622,7 @@ extension CarPlayRouter {
     lastObservedDirection = nil
     lastObservedDistanceMeters = nil
     lastManeuverPhase = nil
+    lastRoadNameVariants = nil
     isMissingPrimaryWarningActive = false
   }
 
@@ -825,19 +827,22 @@ extension CarPlayRouter {
 
     if #available(iOS 17.4, *) {
       let phase = maneuverPhase(forDistanceToTurn: routeInfo.distanceToTurn, units: routeInfo.turnUnits)
-      switch phase {
-      case .execute: routeSession.maneuverState = .execute
-      case .prepare: routeSession.maneuverState = .prepare
-      case .initial: routeSession.maneuverState = .initial
-      case .continue: routeSession.maneuverState = .continue
-      }
-      let roadName = routeInfo.currentRoadName.trimmingCharacters(in: .whitespacesAndNewlines)
-      routeSession.currentRoadNameVariants = roadName.isEmpty ? [] : [roadName]
-
       if phase != lastManeuverPhase {
+        switch phase {
+        case .execute: routeSession.maneuverState = .execute
+        case .prepare: routeSession.maneuverState = .prepare
+        case .initial: routeSession.maneuverState = .initial
+        case .continue: routeSession.maneuverState = .continue
+        }
         LOG(.info,
             "[CarPlayGuidance] maneuver_state_changed from=\(lastManeuverPhase?.rawValue ?? "none") to=\(phase.rawValue) snapshot=\(identityDescription(routeIdentity(routeInfo))) direction=\(routeInfo.carDirection.diagnosticName) distanceM=\(formattedDistanceMeters(routeInfo)) \(roadDescription(routeInfo))")
         lastManeuverPhase = phase
+      }
+      let roadName = routeInfo.currentRoadName.trimmingCharacters(in: .whitespacesAndNewlines)
+      let roadNameVariants = roadName.isEmpty ? [] : [roadName]
+      if roadNameVariants != lastRoadNameVariants {
+        routeSession.currentRoadNameVariants = roadNameVariants
+        lastRoadNameVariants = roadNameVariants
       }
     }
   }
