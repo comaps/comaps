@@ -965,7 +965,8 @@
     <string name="backup_interval_manual_only">Off (manual only)</string>
     <string name="dialog_report_error_missing_folder">The selected backup location is not available or writable. Select a different location, please.</string>
     <string name="dialog_report_error_with_logs">Please send us an error report:\n
-    - \"Enable logging\" in the settings\n
+    - Go to settings, then choose "Advanced"\n
+    - \"Enable logging\"\n
     - reproduce the problem\n
     - in the \"About &amp; Help\" screen press the \"Report a bug\" button and send via email or chat\n
     - disable logging
