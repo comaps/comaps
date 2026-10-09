@@ -16,6 +16,8 @@ public class MapButtonsViewModel extends ViewModel
   private final MutableLiveData<SearchWheel.SearchOption> mSearchOption = new MutableLiveData<>();
   private final MutableLiveData<Boolean> mTrackRecorderState =
       new MutableLiveData<>(TrackRecorder.nativeIsTrackRecordingEnabled());
+  private final MutableLiveData<RoutePreviewControlsState> mRoutePreviewControlsState =
+      new MutableLiveData<>(RoutePreviewControlsState.none());
 
   public MutableLiveData<Boolean> getButtonsHidden()
   {
@@ -85,5 +87,24 @@ public class MapButtonsViewModel extends ViewModel
   public MutableLiveData<Boolean> getTrackRecorderState()
   {
     return mTrackRecorderState;
+  }
+
+  public MutableLiveData<RoutePreviewControlsState> getRoutePreviewControlsState()
+  {
+    return mRoutePreviewControlsState;
+  }
+
+  public void setRoutePreviewControlsState(RoutePreviewControlsState state)
+  {
+    mRoutePreviewControlsState.setValue(state);
+  }
+
+  public record
+      RoutePreviewControlsState(boolean isVisible, String positionText, boolean allowPrevious, boolean allowNext)
+  {
+    public static RoutePreviewControlsState none()
+    {
+      return new RoutePreviewControlsState(false, "", false, false);
+    }
   }
 }

@@ -64,6 +64,7 @@ public class RoutingController
     default void updateBuildProgress(@IntRange(from = 0, to = 100) int progress, Router router) {}
     default void refreshNavigationController() {}
     default void onStartRouteBuilding() {}
+    default void onTurnPreviewChanged(boolean isPreviewing, int segmentIndex) {}
   }
 
   private static final RoutingController sInstance = new RoutingController();
@@ -73,6 +74,8 @@ public class RoutingController
 
   private BuildState mBuildState = BuildState.NONE;
   private State mState = State.NONE;
+  private boolean mIsPreviewingTurn;
+  private int mPreviewedTurnSegmentIndex = -1;
   @Nullable
   private RouteMarkType mWaitingPoiPickType = null;
   private int mLastBuildProgress;
@@ -124,6 +127,18 @@ public class RoutingController
       }
 
       processRoutingEvent();
+    }
+
+    @MainThread
+    @Override
+    public void onTurnPreviewChanged(boolean isPreviewing, int segmentIndex)
+    {
+      UiThread.run(() -> {
+        mIsPreviewingTurn = isPreviewing;
+        mPreviewedTurnSegmentIndex = segmentIndex;
+        if (mContainer != null)
+          mContainer.onTurnPreviewChanged(mIsPreviewingTurn, mPreviewedTurnSegmentIndex);
+      });
     }
   };
 
@@ -281,6 +296,12 @@ public class RoutingController
   public void attach(@NonNull Container container)
   {
     mContainer = container;
+    mContainer.onTurnPreviewChanged(mIsPreviewingTurn, mPreviewedTurnSegmentIndex);
+  }
+
+  public boolean isPreviewingTurn()
+  {
+    return mIsPreviewingTurn;
   }
 
   public void initialize(@NonNull LocationHelper locationHelper)

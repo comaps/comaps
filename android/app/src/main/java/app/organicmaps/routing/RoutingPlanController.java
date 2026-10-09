@@ -17,7 +17,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
-import app.organicmaps.settings.RoutingOptionsActivity;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.Router;
 import app.organicmaps.sdk.routing.RoutingController;
@@ -25,13 +24,13 @@ import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.routing.RoutingOptions;
 import app.organicmaps.sdk.routing.TransitRouteInfo;
 import app.organicmaps.sdk.settings.RoadType;
+import app.organicmaps.settings.RoutingOptionsActivity;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
 import app.organicmaps.widget.RoutingToolbarButton;
 import app.organicmaps.widget.ToolbarController;
 import app.organicmaps.widget.WheelProgressView;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.textview.MaterialTextView;
 
 public class RoutingPlanController extends ToolbarController
 {
@@ -57,6 +56,7 @@ public class RoutingPlanController extends ToolbarController
 
   int mFrameHeight;
   final int mAnimToggle;
+  private boolean mIsPreviewingTurn;
 
   @NonNull
   private final FrameLayout mRoutingOptionsBanner;
@@ -120,6 +120,8 @@ public class RoutingPlanController extends ToolbarController
             .setExcludeTop()
             .build();
     ViewCompat.setOnApplyWindowInsetsListener(menuFrame, insetsListener);
+
+    onTurnPreviewChanged(RoutingController.get().isPreviewingTurn());
   }
 
   @NonNull
@@ -191,6 +193,12 @@ public class RoutingPlanController extends ToolbarController
 
   private void updateProgressLabels()
   {
+    if (mIsPreviewingTurn)
+    {
+      mRoutingBottomMenuController.hideAltitudeChartAndRoutingDetails();
+      return;
+    }
+
     RoutingController.BuildState buildState = RoutingController.get().getBuildState();
 
     final boolean ready = (buildState == RoutingController.BuildState.BUILT);
@@ -272,6 +280,17 @@ public class RoutingPlanController extends ToolbarController
       progressView.setProgress(progress);
   }
 
+  public void onTurnPreviewChanged(boolean isPreviewing)
+  {
+    boolean wasPreviewing = mIsPreviewingTurn;
+    mIsPreviewingTurn = isPreviewing;
+
+    if (isPreviewing)
+      mRoutingBottomMenuController.hideAltitudeChartAndRoutingDetails();
+    else if (wasPreviewing)
+      updateProgressLabels();
+  }
+
   private boolean isTransitType()
   {
     return RoutingController.get().isTransitType();
@@ -290,7 +309,11 @@ public class RoutingPlanController extends ToolbarController
 
   void restoreRoutingPanelState(@NonNull Bundle state)
   {
-    mRoutingBottomMenuController.restoreRoutingPanelState(state);
+    if (mIsPreviewingTurn)
+      mRoutingBottomMenuController.hideAltitudeChartAndRoutingDetails();
+    else
+      mRoutingBottomMenuController.restoreRoutingPanelState(state);
+
     boolean hasView = state.getBoolean(BUNDLE_HAS_DRIVING_OPTIONS_VIEW);
     if (hasView)
       showRoutingOptionsView();

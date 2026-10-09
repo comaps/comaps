@@ -15,6 +15,7 @@ import app.organicmaps.sdk.routing.RoutingController;
 public class RoutingPlanFragment extends BaseMwmFragment
 {
   private RoutingPlanController mPlanController;
+  private RoutePreviewPanelController mRoutePreviewPanelController;
 
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
@@ -23,6 +24,9 @@ public class RoutingPlanFragment extends BaseMwmFragment
     View res = inflater.inflate(R.layout.fragment_routing, container, false);
     mPlanController =
         new RoutingPlanController(res, activity, activity.startRoutingOptionsForResult, activity, activity);
+    mRoutePreviewPanelController = new RoutePreviewPanelController(res, activity::exitRoutePreview);
+
+    onTurnPreviewChanged(RoutingController.get().isPreviewingTurn(), activity.getPreviewedTurnInstruction());
     return res;
   }
 
@@ -31,15 +35,30 @@ public class RoutingPlanFragment extends BaseMwmFragment
     mPlanController.updateBuildProgress(progress, router);
   }
 
+  public void onTurnPreviewChanged(boolean isPreviewing, @Nullable String instruction)
+  {
+    if (mPlanController != null)
+      mPlanController.onTurnPreviewChanged(isPreviewing);
+    if (mRoutePreviewPanelController != null)
+      mRoutePreviewPanelController.onTurnPreviewChanged(isPreviewing, instruction);
+  }
+
   @Override
   public boolean onBackPressed()
   {
+    if (RoutingController.get().isPreviewingTurn())
+    {
+      ((MwmActivity) requireActivity()).exitRoutePreview();
+      return true;
+    }
     return RoutingController.get().cancel();
   }
 
   public void restoreRoutingPanelState(@NonNull Bundle state)
   {
     mPlanController.restoreRoutingPanelState(state);
+    onTurnPreviewChanged(RoutingController.get().isPreviewingTurn(),
+                         ((MwmActivity) requireActivity()).getPreviewedTurnInstruction());
   }
 
   public void saveRoutingPanelState(@NonNull Bundle outState)
