@@ -1059,6 +1059,28 @@ void Framework::SetViewportCenter(m2::PointD const & pt, int zoomLevel /* = -1 *
     m_drapeEngine->SetModelViewCenter(pt, zoomLevel, isAnim, trackVisibleViewport);
 }
 
+void Framework::SetViewportCenterAndAngle(m2::PointD const & pt, int zoomLevel, double angle, bool isAnim,
+                                          bool trackVisibleViewport)
+{
+  if (m_drapeEngine != nullptr)
+    m_drapeEngine->SetModelViewCenterAndAngle(pt, zoomLevel, angle, isAnim, trackVisibleViewport);
+}
+
+void Framework::PreviewTurn(uint32_t segmentIndex)
+{
+  auto & routingManager = GetRoutingManager();
+  if (!routingManager.IsRoutingActive() || !routingManager.IsRouteValid())
+    return;
+
+  auto const point = routingManager.GetJunctionPointForUpcomingTurn(segmentIndex);
+  auto const azimuth = routingManager.GetDirectionForUpcomingTurn(segmentIndex);
+  routingManager.SetPreviewedTurn(segmentIndex);
+
+  int const kTurnPreviewZoom = routingManager.GetCurrentRouterType() == RouterType::Vehicle ? 16 : 17;
+  StopLocationFollow();
+  SetViewportCenterAndAngle(point, kTurnPreviewZoom, -azimuth, true /* isAnim */);
+}
+
 m2::RectD Framework::GetCurrentViewport() const
 {
   return m_currentModelView.ClipRect();
@@ -3596,9 +3618,7 @@ void Framework::OnRouteFollow(routing::RouterType type)
 
   bool const isBicycleRoute = type == RouterType::Bicycle;
   if ((isPedestrianRoute || isBicycleRoute) && CurrentMapModeHasTraffic())
-  {
     m_trafficManager.SetEnabled(false /* enabled */);
-  }
   // TODO. We need to sync two enums VehicleType and RouterType to be able to pass
   // GetRoutingSettings(type).m_matchRoute to the FollowRoute() instead of |isPedestrianRoute|.
   // |isArrowGlued| parameter fully corresponds to |m_matchRoute| in RoutingSettings.

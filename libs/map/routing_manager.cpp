@@ -1,5 +1,6 @@
 #include "routing_manager.hpp"
 
+#include "base/thread_checker.hpp"
 #include "drape_frontend/my_position_controller.hpp"
 #include "map/bookmark_manager.hpp"
 #include "map/chart_generator.hpp"
@@ -56,6 +57,7 @@
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
+#include <cstdint>
 #include <ios>
 #include <map>
 
@@ -563,6 +565,8 @@ void RoutingManager::SetRouterImpl(RouterType type)
 
 void RoutingManager::RemoveRoute(bool deactivateFollowing)
 {
+  ClearPreviewedTurn();
+
   GetPlatform().RunTask(Platform::Thread::Gui, [this, deactivateFollowing]()
   {
     {
@@ -911,6 +915,8 @@ void RoutingManager::FollowRoute()
   if (!m_routingSession.EnableFollowMode())
     return;
 
+  ClearPreviewedTurn();
+
   m_transitReadManager->BlockTransitSchemeMode(true /* isBlocked */);
 
   m_delegate.OnRouteFollow(m_currentRouterType);
@@ -1154,6 +1160,7 @@ void RoutingManager::GenerateNotifications(vector<string> & turnNotifications, b
 void RoutingManager::BuildRoute(uint32_t timeoutSec)
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ("BuildRoute"));
+  ClearPreviewedTurn();
 
   m_bmManager->GetEditSession().ClearGroup(UserMark::Type::TRANSIT);
 
@@ -1735,6 +1742,39 @@ void RoutingManager::CancelRecommendation(Recommendation recommendation)
     m_loadRoutePointsTimestamp = chrono::steady_clock::time_point();
 }
 
+void RoutingManager::SetPreviewedTurn(uint32_t segmentIndex)
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ("SetPreviewedTurn"));
+  if (m_currentPreviewedTurnIndex.has_value() && *m_currentPreviewedTurnIndex == segmentIndex)
+    return;
+
+  m_currentPreviewedTurnIndex = segmentIndex;
+  NotifyPreviewedTurnChanged();
+}
+
+void RoutingManager::ClearPreviewedTurn()
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ("ClearPreviewedTurn"));
+  if (!m_currentPreviewedTurnIndex.has_value())
+    return;
+
+  m_currentPreviewedTurnIndex.reset();
+  NotifyPreviewedTurnChanged();
+}
+
+void RoutingManager::SetPreviewedTurnChangedCallback(PreviewedTurnChangedCallback callback)
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ("SetPreviewedTurnChangedCallback"));
+  m_previewedTurnChangedCallback = std::move(callback);
+  NotifyPreviewedTurnChanged();
+}
+
+void RoutingManager::NotifyPreviewedTurnChanged() const
+{
+  if (m_previewedTurnChangedCallback)
+    m_previewedTurnChangedCallback(m_currentPreviewedTurnIndex.has_value(), m_currentPreviewedTurnIndex.value_or(0));
+}
+
 TransitRouteInfo RoutingManager::GetTransitRouteInfo() const
 {
   lock_guard<mutex> lock(m_drapeSubroutesMutex);
@@ -1760,4 +1800,14 @@ bool RoutingManager::IsSpeedCamLimitExceeded() const
 std::vector<routing::RouteStepInfo> RoutingManager::GetRouteTurnsForDisplay(std::string const & locale) const
 {
   return m_routingSession.GetRouteTurnsForDisplay(locale);
+}
+
+m2::PointD RoutingManager::GetJunctionPointForUpcomingTurn(uint32_t segmentIndex) const
+{
+  return m_routingSession.GetRouteForTests()->GetJunctionPointForTurn(segmentIndex);
+}
+
+double RoutingManager::GetDirectionForUpcomingTurn(uint32_t segmentIndex) const
+{
+  return m_routingSession.GetRouteForTests()->GetDirectionForTurn(segmentIndex);
 }

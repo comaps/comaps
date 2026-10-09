@@ -474,7 +474,12 @@ public:
 
   std::string DebugPrintTurns() const;
 
+  /// \returns list of turns intended for display to the user
   std::vector<RouteStepInfo> GetTurnsForDisplay(std::string const & locale) const;
+  /// \returns the point for at a specific turn index along the route
+  m2::PointD GetJunctionPointForTurn(uint32_t segmentIndex) const;
+  /// \returns the approach direction for the turn
+  double GetDirectionForTurn(uint32_t segmentIndex) const;
 
 private:
   friend std::string DebugPrint(Route const & r);

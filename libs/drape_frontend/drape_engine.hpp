@@ -150,6 +150,8 @@ public:
 
   // If zoom == -1 then current zoom will not be changed.
   void SetModelViewCenter(m2::PointD const & centerPt, int zoom, bool isAnim, bool trackVisibleViewport);
+  void SetModelViewCenterAndAngle(m2::PointD const & centerPt, int zoom, double angle, bool isAnim,
+                                  bool trackVisibleViewport);
   void SetModelViewRect(m2::RectD const & rect, bool applyRotation, int zoom, bool isAnim, bool useVisibleViewport);
   void SetModelViewAnyRect(m2::AnyRectD const & rect, bool isAnim, bool useVisibleViewport);
 
