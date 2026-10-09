@@ -198,6 +198,7 @@ final class CarPlayService: NSObject {
 
   private var pendingDashboardBookmark: MWMCarPlayBookmarkObject?
   private var pendingDashboardNavigationTrip: CPTrip?
+  private var lastTripEstimates: CarPlayEstimatesSnapshot?
 
   @objc func setup(window: CPWindow, interfaceController: CPInterfaceController) {
     if pendingTeardown != nil {
@@ -1515,7 +1516,11 @@ extension CarPlayService: CarPlayRouterListener {
       return
     }
     if let estimates = createEstimates(routeInfo: routeInfo) {
-      template.updateEstimates(estimates, for: trip)
+      let snapshot = CarPlayEstimatesSnapshot(targets: [template, trip], estimates: estimates)
+      if snapshot != lastTripEstimates {
+        template.updateEstimates(estimates, for: trip)
+        lastTripEstimates = snapshot
+      }
     }
     trip.routeChoices.first?.userInfo = routeInfo
   }
@@ -1664,6 +1669,7 @@ extension CarPlayService {
     let estimates = CPTravelEstimates(distanceRemaining: measurement,
                                       timeRemaining: -1)
     template.updateEstimates(estimates, for: trip)
+    lastTripEstimates = nil
   }
 
   func showRerouteAlert(trips: [CPTrip]) {

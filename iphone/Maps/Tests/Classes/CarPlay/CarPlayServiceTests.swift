@@ -475,6 +475,32 @@ final class CarPlayServiceTests: XCTestCase {
                                               holdingExecute: false), .execute)
   }
 
+  func testEstimatesSnapshotIgnoresInvisibleChanges() {
+    let maneuver = CPManeuver()
+    func snapshot(_ target: AnyObject, meters: Double, seconds: TimeInterval) -> CarPlayEstimatesSnapshot {
+      let estimates = CPTravelEstimates(distanceRemaining: Measurement(value: meters, unit: UnitLength.meters),
+                                        timeRemaining: seconds)
+      return CarPlayEstimatesSnapshot(targets: [target], estimates: estimates)
+    }
+
+    XCTAssertEqual(snapshot(maneuver, meters: 380, seconds: 61), snapshot(maneuver, meters: 380, seconds: 89))
+    XCTAssertNotEqual(snapshot(maneuver, meters: 380, seconds: 89), snapshot(maneuver, meters: 380, seconds: 90))
+    XCTAssertNotEqual(snapshot(maneuver, meters: 380, seconds: 61), snapshot(maneuver, meters: 370, seconds: 61))
+    XCTAssertNotEqual(snapshot(maneuver, meters: 380, seconds: 61), snapshot(CPManeuver(), meters: 380, seconds: 61))
+    XCTAssertNotEqual(snapshot(maneuver, meters: -1, seconds: -1), snapshot(maneuver, meters: -1, seconds: 0))
+  }
+
+  func testEstimatesSnapshotNeverMatchesAReleasedTarget() {
+    var maneuver: CPManeuver? = CPManeuver()
+    let estimates = CPTravelEstimates(distanceRemaining: Measurement(value: 380, unit: UnitLength.meters),
+                                      timeRemaining: 0)
+    let previous = CarPlayEstimatesSnapshot(targets: [maneuver!], estimates: estimates)
+    maneuver = nil
+    let replacement = CPManeuver()
+
+    XCTAssertNotEqual(previous, CarPlayEstimatesSnapshot(targets: [replacement], estimates: estimates))
+  }
+
   func testManeuverPhaseHoldsExecuteInsideRoundabout() {
     XCTAssertEqual(CarPlayManeuverPhase.phase(distanceMeters: 300,
                                               firstNotificationDistanceMeters: 1000,
@@ -542,7 +568,7 @@ final class CarPlayServiceTests: XCTestCase {
   func testCarPlayManeuverSymbolUsesBlackAndWhiteVariants() throws {
     let displayScale: CGFloat = 2
     let symbol = try XCTUnwrap(
-      CarPlayManeuverSymbol.image(named: "ic_cp_simple_left", displayScale: displayScale))
+      CarPlayManeuverSymbol.images(named: "ic_cp_simple_left", displayScale: displayScale)).adaptive
     XCTAssertNotNil(symbol.imageAsset)
     XCTAssertEqual(symbol.scale, displayScale)
 
@@ -555,9 +581,9 @@ final class CarPlayServiceTests: XCTestCase {
   func testNumberedRoundaboutPreservesBlackAndWhiteVariants() throws {
     let displayScale: CGFloat = 2
     let plain = try XCTUnwrap(
-      CarPlayManeuverSymbol.image(named: "ic_cp_round", displayScale: displayScale))
+      CarPlayManeuverSymbol.images(named: "ic_cp_round", displayScale: displayScale)).adaptive
     let numbered = try XCTUnwrap(
-      CarPlayManeuverSymbol.image(named: "ic_cp_round", exitNumber: 3, displayScale: displayScale))
+      CarPlayManeuverSymbol.images(named: "ic_cp_round", exitNumber: 3, displayScale: displayScale)).adaptive
     XCTAssertEqual(numbered.scale, displayScale)
 
     let light = CarPlayManeuverSymbol.resolvedVariant(of: numbered, style: .light)
@@ -569,6 +595,56 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertGreaterThan(try visiblePixelCount(of: light),
                          try visiblePixelCount(of: plainLight),
                          "The exit number should add visible pixels to the roundabout symbol")
+  }
+
+  func testCarPlayManeuverCardSymbolIsAlwaysWhite() throws {
+    let displayScale: CGFloat = 2
+    let card = try XCTUnwrap(
+      CarPlayManeuverSymbol.images(named: "ic_cp_simple_left", displayScale: displayScale)).card
+
+    XCTAssertEqual(card.scale, displayScale)
+    XCTAssertEqual(card.renderingMode, .alwaysOriginal)
+    XCTAssertGreaterThan(try averageVisibleLuminance(of: card), 0.9)
+    let resolvedLight = CarPlayManeuverSymbol.resolvedVariant(of: card, style: .light)
+    XCTAssertGreaterThan(try averageVisibleLuminance(of: resolvedLight), 0.9)
+  }
+
+  func testCarPlayManeuverSymbolIsTrimmedToFillTheCanvas() throws {
+    let card = try XCTUnwrap(
+      CarPlayManeuverSymbol.images(named: "ic_cp_simple_left", displayScale: 2)).card
+    let bounds = try visibleBounds(of: card)
+    let cgImage = try XCTUnwrap(card.cgImage)
+
+    XCTAssertEqual(card.size, CarPlayManeuverSymbol.canvasSize)
+    XCTAssertGreaterThanOrEqual(bounds.height / CGFloat(cgImage.height), 0.85)
+  }
+
+  func testDestinationStepWithoutRoadNameUsesDestinationName() {
+    let destination = CarPlayManeuverDescription(
+      step: makePlan([(6, .reachedYourDestination, 1100)]).steps[0], isLeftHandTraffic: false)
+    let turn = CarPlayManeuverDescription(
+      step: makePlan([(4, .turnLeft, 1000)]).steps[0], isLeftHandTraffic: false)
+
+    XCTAssertEqual(destination.fallbackInstructionVariants(destinationName: " Tante "), ["Tante"])
+    XCTAssertEqual(destination.fallbackInstructionVariants(destinationName: nil), [L("pick_destination")])
+    XCTAssertEqual(destination.fallbackInstructionVariants(destinationName: ""), [L("pick_destination")])
+    XCTAssertEqual(turn.fallbackInstructionVariants(destinationName: "Tante"), [""])
+  }
+
+  func testMultipleRoadRefsAreSeparatedAndDeduplicated() {
+    XCTAssertEqual(NavigationInstructionFormatter.instructionVariants(roadName: "Storoveien",
+                                                                      roadRef: "150;Ring 3;Ring 3",
+                                                                      junctionRef: "",
+                                                                      destinationRef: "",
+                                                                      destination: ""),
+                   ["150 / Ring 3 Storoveien", "150 / Ring 3", "Storoveien"])
+    XCTAssertEqual(NavigationInstructionFormatter.instructionVariants(roadName: "",
+                                                                      roadRef: "",
+                                                                      junctionRef: "",
+                                                                      destinationRef: "E6; E18",
+                                                                      destination: "Smestad"),
+                   ["E6 / E18 → Smestad", "E6 / E18"])
+    XCTAssertEqual(NavigationInstructionFormatter.displayRefs(" 150 ;; Ring 3;150 "), "150 / Ring 3")
   }
 
   func testCarPlayLaneImageSetUsesWhiteLightContentAndBlackDarkContent() throws {
@@ -1101,6 +1177,22 @@ final class CarPlayServiceTests: XCTestCase {
   private func visiblePixelCount(of image: UIImage) throws -> Int {
     let pixels = try rgbaPixels(of: image)
     return stride(from: 3, to: pixels.count, by: 4).filter { pixels[$0] > 32 }.count
+  }
+
+  private func visibleBounds(of image: UIImage) throws -> CGRect {
+    let pixels = try rgbaPixels(of: image)
+    let width = try XCTUnwrap(image.cgImage).width
+    var minX = Int.max, minY = Int.max, maxX = -1, maxY = -1
+    for index in stride(from: 3, to: pixels.count, by: 4) where pixels[index] > 32 {
+      let pixel = index / 4
+      minX = min(minX, pixel % width)
+      maxX = max(maxX, pixel % width)
+      minY = min(minY, pixel / width)
+      maxY = max(maxY, pixel / width)
+    }
+    XCTAssertGreaterThanOrEqual(maxX, 0, "The image should contain visible pixels")
+    guard maxX >= 0 else { return .zero }
+    return CGRect(x: minX, y: minY, width: maxX - minX + 1, height: maxY - minY + 1)
   }
 
   private func rgbaPixels(of image: UIImage) throws -> [UInt8] {

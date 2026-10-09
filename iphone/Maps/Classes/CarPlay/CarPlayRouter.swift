@@ -11,18 +11,29 @@ protocol CarPlayRouterListener: AnyObject {
 }
 
 enum CarPlayManeuverSymbol {
-  static func image(named name: String,
-                    exitNumber: Int? = nil,
-                    displayScale: CGFloat) -> UIImage? {
-    guard let base = UIImage(named: name) else { return nil }
+  struct Images {
+    let card: UIImage
+    let adaptive: UIImage
+  }
 
-    let black = render(base, tint: .black, exitNumber: exitNumber, displayScale: displayScale)
-    let white = render(base, tint: .white, exitNumber: exitNumber, displayScale: displayScale)
+  static let canvasSize = CGSize(width: 50, height: 50)
+  static let glyphInset: CGFloat = 2
+  private static var glyphBoundsCache = [String: CGRect]()
+
+  static func images(named name: String,
+                     exitNumber: Int? = nil,
+                     displayScale: CGFloat) -> Images? {
+    guard let base = UIImage(named: name) else { return nil }
+    let bounds = glyphBounds(of: base, named: name)
+
+    let card = render(base, glyphBounds: bounds, tint: .white, exitNumber: exitNumber, displayScale: displayScale)
+    let black = render(base, glyphBounds: bounds, tint: .black, exitNumber: exitNumber, displayScale: displayScale)
+    let white = render(base, glyphBounds: bounds, tint: .white, exitNumber: exitNumber, displayScale: displayScale)
 
     let asset = UIImageAsset()
     asset.register(black, with: traits(for: .light, scale: displayScale))
     asset.register(white, with: traits(for: .dark, scale: displayScale))
-    return asset.image(with: traits(for: .light, scale: displayScale))
+    return Images(card: card, adaptive: asset.image(with: traits(for: .light, scale: displayScale)))
   }
 
   static func resolvedVariant(of image: UIImage, style: UIUserInterfaceStyle) -> UIImage {
@@ -37,15 +48,67 @@ enum CarPlayManeuverSymbol {
     ])
   }
 
+  private static func glyphBounds(of base: UIImage, named name: String) -> CGRect {
+    if let cached = glyphBoundsCache[name] {
+      return cached
+    }
+    let fullBounds = CGRect(origin: .zero, size: base.size)
+    let scale: CGFloat = 4
+    let width = Int(ceil(base.size.width * scale))
+    let height = Int(ceil(base.size.height * scale))
+    guard width > 0, height > 0,
+      let context = CGContext(data: nil,
+                              width: width,
+                              height: height,
+                              bitsPerComponent: 8,
+                              bytesPerRow: width * 4,
+                              space: CGColorSpaceCreateDeviceRGB(),
+                              bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else {
+      return fullBounds
+    }
+    context.translateBy(x: 0, y: CGFloat(height))
+    context.scaleBy(x: scale, y: -scale)
+    UIGraphicsPushContext(context)
+    base.draw(in: fullBounds)
+    UIGraphicsPopContext()
+
+    guard let data = context.data else { return fullBounds }
+    let pixels = data.bindMemory(to: UInt8.self, capacity: width * height * 4)
+    var minX = width, minY = height, maxX = -1, maxY = -1
+    for y in 0..<height {
+      for x in 0..<width where pixels[(y * width + x) * 4 + 3] > 25 {
+        minX = min(minX, x)
+        maxX = max(maxX, x)
+        minY = min(minY, y)
+        maxY = max(maxY, y)
+      }
+    }
+    guard maxX >= minX, maxY >= minY else { return fullBounds }
+    let bounds = CGRect(x: CGFloat(minX) / scale,
+                        y: CGFloat(minY) / scale,
+                        width: CGFloat(maxX - minX + 1) / scale,
+                        height: CGFloat(maxY - minY + 1) / scale)
+    glyphBoundsCache[name] = bounds
+    return bounds
+  }
+
   private static func render(_ base: UIImage,
+                             glyphBounds: CGRect,
                              tint: UIColor,
                              exitNumber: Int?,
                              displayScale: CGFloat) -> UIImage {
     let format = UIGraphicsImageRendererFormat()
     format.scale = displayScale
     format.opaque = false
-    let renderer = UIGraphicsImageRenderer(size: base.size, format: format)
-    let image = renderer.image { _ in
+    let target = CGRect(origin: .zero, size: canvasSize).insetBy(dx: glyphInset, dy: glyphInset)
+    let fit = min(target.width / glyphBounds.width, target.height / glyphBounds.height)
+    let renderer = UIGraphicsImageRenderer(size: canvasSize, format: format)
+    let image = renderer.image { context in
+      let cgContext = context.cgContext
+      cgContext.translateBy(x: target.midX, y: target.midY)
+      cgContext.scaleBy(x: fit, y: fit)
+      cgContext.translateBy(x: -glyphBounds.midX, y: -glyphBounds.midY)
+
       base.withRenderingMode(.alwaysTemplate)
         .withTintColor(tint, renderingMode: .alwaysOriginal)
         .draw(in: CGRect(origin: .zero, size: base.size))
@@ -191,6 +254,12 @@ struct CarPlayManeuverDescription {
     destinationRef = step.destinationRef
     destination = step.destination
     self.isLeftHandTraffic = isLeftHandTraffic
+  }
+
+  func fallbackInstructionVariants(destinationName: String?) -> [String] {
+    guard carDirection == .reachedYourDestination else { return [""] }
+    let name = destinationName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+    return [name.isEmpty ? L("pick_destination") : name]
   }
 }
 
@@ -348,6 +417,37 @@ enum CarPlayManeuverPhase: String, Equatable {
   }
 }
 
+struct CarPlayEstimatesSnapshot: Equatable {
+  private struct WeakTarget {
+    weak var object: AnyObject?
+  }
+
+  static let timeBucketSeconds = 30.0
+
+  private let targets: [WeakTarget]
+  let distance: Double
+  let unit: UnitLength
+  let timeBucket: Int
+
+  init(targets: [AnyObject], estimates: CPTravelEstimates) {
+    self.targets = targets.map { WeakTarget(object: $0) }
+    distance = estimates.distanceRemaining.value
+    unit = estimates.distanceRemaining.unit
+    timeBucket = estimates.timeRemaining < 0 ? -1 : Int(estimates.timeRemaining / Self.timeBucketSeconds)
+  }
+
+  static func == (lhs: CarPlayEstimatesSnapshot, rhs: CarPlayEstimatesSnapshot) -> Bool {
+    guard lhs.distance == rhs.distance, lhs.unit == rhs.unit, lhs.timeBucket == rhs.timeBucket,
+          lhs.targets.count == rhs.targets.count else {
+      return false
+    }
+    return zip(lhs.targets, rhs.targets).allSatisfy { lhsTarget, rhsTarget in
+      guard let object = lhsTarget.object else { return false }
+      return object === rhsTarget.object
+    }
+  }
+}
+
 struct CarPlayManeuverRefreshState {
   private(set) var displayedContent: CarPlayManeuverContent?
 
@@ -403,6 +503,7 @@ final class CarPlayRouter: NSObject {
   private var lastManeuverPhase: CarPlayManeuverPhase?
   private var lastRoadNameVariants: [String]?
   private var isMissingPrimaryWarningActive = false
+  private var lastManeuverEstimates: CarPlayEstimatesSnapshot?
   var currentTrip: CPTrip? {
     return routeSession?.trip
   }
@@ -653,6 +754,7 @@ extension CarPlayRouter {
     lastManeuverPhase = nil
     lastRoadNameVariants = nil
     isMissingPrimaryWarningActive = false
+    lastManeuverEstimates = nil
   }
 
   private func resetRoutePlan() {
@@ -667,6 +769,7 @@ extension CarPlayRouter {
 
   private func installRoutePlanIfNeeded(for routeInfo: RouteInfo) {
     guard let routeSession, routePlan?.routeID != routeInfo.routeID else { return }
+    let isReroute = routePlan != nil
     resetRoutePlan()
     let locale = NSLocale.preferredLanguages.first ?? "en"
     let plan = CarPlayRoutePlan(routeID: routeInfo.routeID,
@@ -696,11 +799,16 @@ extension CarPlayRouter {
       maneuvers.append(maneuver)
     }
     if #available(iOS 17.4, *) {
-      if #available(iOS 18.0, *), let guidances = laneGuidances as? [CPLaneGuidance], !guidances.isEmpty {
-        routeSession.add(guidances)
-      }
-      if !maneuvers.isEmpty {
-        routeSession.add(maneuvers)
+      let guidances = laneGuidances as? [CPLaneGuidance] ?? []
+      if isReroute, !maneuvers.isEmpty {
+        resumeRerouted(routeSession, plan: plan, maneuvers: maneuvers, laneGuidances: guidances, routeInfo: routeInfo)
+      } else {
+        if #available(iOS 18.0, *), !guidances.isEmpty {
+          routeSession.add(guidances)
+        }
+        if !maneuvers.isEmpty {
+          routeSession.add(maneuvers)
+        }
       }
     }
     let stepList = plan.steps.map { "\($0.turnIndex):\($0.carDirection.diagnosticName)" }.joined(separator: ",")
@@ -709,6 +817,42 @@ extension CarPlayRouter {
     if plan.steps.isEmpty {
       LOG(.warning, "[CarPlayGuidance] invariant_failed no_steps route=\(plan.routeID)")
     }
+  }
+
+  @available(iOS 17.4, *)
+  private func resumeRerouted(_ routeSession: CPNavigationSession,
+                              plan: CarPlayRoutePlan,
+                              maneuvers: [CPManeuver],
+                              laneGuidances: [CPLaneGuidance],
+                              routeInfo: RouteInfo) {
+    let content = CarPlayManeuverContent(routeInfo: routeInfo, plan: plan)
+    let currentManeuver = (content.isPlannedPrimary ? plannedManeuvers[content.primaryIdentity.turnIndex] : nil)
+      ?? maneuvers[0]
+    let currentLaneGuidance: CPLaneGuidance
+    if content.isPlannedPrimary,
+       let planned = plannedLaneGuidances[content.primaryIdentity.turnIndex] as? CPLaneGuidance {
+      currentLaneGuidance = planned
+    } else {
+      currentLaneGuidance = CPLaneGuidance()
+      currentLaneGuidance.lanes = []
+      currentLaneGuidance.instructionVariants = currentManeuver.instructionVariants
+    }
+    let tripEstimates = CPTravelEstimates(
+      distanceRemaining: Measurement(value: routeInfo.targetDistance, unit: routeInfo.targetUnits),
+      timeRemaining: routeInfo.timeToTarget)
+    let routeInformation = CPRouteInformation(maneuvers: maneuvers,
+                                              laneGuidances: laneGuidances,
+                                              currentManeuvers: [currentManeuver],
+                                              currentLaneGuidance: currentLaneGuidance,
+                                              trip: tripEstimates,
+                                              maneuverTravelEstimates: CPTravelEstimates(
+                                                distanceRemaining: Measurement(value: routeInfo.distanceToTurn,
+                                                                               unit: routeInfo.turnUnits),
+                                                timeRemaining: 0.0))
+    routeSession.pauseTrip(for: .rerouting, description: nil)
+    routeSession.resumeTrip(updatedRouteInformation: routeInformation)
+    LOG(.info,
+        "[CarPlayGuidance] route_resumed route=\(plan.routeID) maneuvers=\(maneuvers.count) laneGuidances=\(laneGuidances.count) current=\(identityDescription(content.primaryIdentity)) planned=\(content.isPlannedPrimary)")
   }
 
   private func refreshUpcomingManeuvers(
@@ -853,7 +997,11 @@ extension CarPlayRouter {
       return
     }
     isMissingPrimaryWarningActive = false
-    routeSession.updateEstimates(estimates, for: primaryManeuver)
+    let snapshot = CarPlayEstimatesSnapshot(targets: [routeSession, primaryManeuver], estimates: estimates)
+    if snapshot != lastManeuverEstimates {
+      routeSession.updateEstimates(estimates, for: primaryManeuver)
+      lastManeuverEstimates = snapshot
+    }
 
     if #available(iOS 17.4, *) {
       let phase = maneuverPhase(for: routeInfo)
@@ -994,6 +1142,10 @@ extension CarPlayRouter {
     return NavigationInstructionFormatter.prefixCarPlayInstructionVariants(formattedVariants, with: exitNumber)
   }
 
+  private var destinationName: String? {
+    return routeSession?.trip.destination.name
+  }
+
   private func createManeuver(description: CarPlayManeuverDescription,
                               turnImageName: String?,
                               shields: RoadShieldInfo?,
@@ -1002,16 +1154,20 @@ extension CarPlayRouter {
     maneuver.userInfo = CPConstants.Maneuvers.primary
     let variants = instructionVariants(description: description, shields: shields)
     // CarPlay requires at least one variant; use "" when the turn has no road name.
-    maneuver.instructionVariants = variants.text.isEmpty ? [""] : variants.text
+    maneuver.instructionVariants = variants.text.isEmpty
+      ? description.fallbackInstructionVariants(destinationName: destinationName)
+      : variants.text
     if !variants.attributed.isEmpty {
       maneuver.attributedInstructionVariants = variants.attributed
     }
     if let turnImageName,
-      let symbol = CarPlayManeuverSymbol.image(
+      let symbols = CarPlayManeuverSymbol.images(
         named: turnImageName,
         exitNumber: description.exitNumber == 0 ? nil : description.exitNumber,
         displayScale: displayScale) {
-      maneuver.symbolImage = symbol
+      maneuver.symbolImage = symbols.card
+      maneuver.dashboardSymbolImage = symbols.adaptive
+      maneuver.notificationSymbolImage = symbols.adaptive
     }
     if let estimates {
       maneuver.initialTravelEstimates = estimates

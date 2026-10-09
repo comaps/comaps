@@ -298,9 +298,9 @@ final class NavigationInstructionFormatter: NSObject {
     }
 
     let name = clean(roadName)
-    let ref = clean(roadRef)
+    let ref = displayRefs(roadRef)
     let junctionRef = clean(junctionRef)
-    let destinationRef = clean(destinationRef)
+    let destinationRef = displayRefs(destinationRef)
     let destination = clean(destination)
 
     let targetShields = shields?.targetRoadShields ?? []
@@ -352,6 +352,14 @@ final class NavigationInstructionFormatter: NSObject {
       .map(InstructionCandidate.init(parts:))
       .filter { !$0.plainText.isEmpty && seen.insert($0.plainText).inserted }
       .sorted { $0.plainText.count > $1.plainText.count }
+  }
+
+  static func displayRefs(_ refs: String) -> String {
+    var seen = Set<String>()
+    return refs.split(separator: ";")
+      .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+      .filter { !$0.isEmpty && seen.insert($0).inserted }
+      .joined(separator: " / ")
   }
 
   private static func render(_ candidate: InstructionCandidate,
