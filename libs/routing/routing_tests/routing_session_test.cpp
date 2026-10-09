@@ -18,8 +18,10 @@
 
 #include "base/logging.hpp"
 
+#include <algorithm>
 #include <chrono>
 #include <initializer_list>
+#include <limits>
 #include <memory>
 #include <mutex>
 #include <string>
@@ -747,6 +749,105 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRoundaboutNextNextRoad
   TEST(followingInfoInCallback.m_nextNextDestinationRef.empty(), ());
   TEST(followingInfoInCallback.m_nextNextDestination.empty(), ());
   TEST(!followingInfoInCallback.m_nextNextIsLink, ());
+}
+
+UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRouteStepsMatchFollowingTurnIndex)
+{
+  vector<m2::PointD> const routePoints = {{0.0, 0.0},   {0.0, 0.0},   {0.0, 0.001}, {0.0, 0.002},
+                                           {0.0, 0.003}, {0.0, 0.004}, {0.0, 0.005}, {0.0, 0.006}};
+  vector<turns::TurnItem> const turns = {
+      {1, turns::CarDirection::None},
+      {2, turns::CarDirection::TurnLeft},
+      {3, turns::CarDirection::EnterRoundAbout, 2},
+      {4, turns::CarDirection::None},
+      {5, turns::CarDirection::LeaveRoundAbout, 2},
+      {6, turns::CarDirection::None},
+      {7, turns::CarDirection::ReachedYourDestination}};
+  vector<RouteSegment::RoadNameInfo> const names = {
+      {"Incoming Road"},
+      {"Incoming Road"},
+      {"Main Street"},
+      {"Sinsenkrysset"},
+      {"Sinsenkrysset"},
+      {"Ring 3", "150", "67", "E6", "Smestad", true},
+      {"Ring 3"}};
+
+  TimedSignal routeBuiltSignal;
+  size_t buildCounter = 0;
+  GetPlatform().RunTask(Platform::Thread::Gui, [&, this]()
+  {
+    InitRoutingSession();
+
+    Route masterRoute("dummy", routePoints.begin(), routePoints.end(), 0 /* route id */);
+    vector<RouteSegment> routeSegments;
+    RouteSegmentsFrom({}, routePoints, turns, names, routeSegments);
+    FillSegmentInfo({1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0}, routeSegments);
+    masterRoute.SetRouteSegments(std::move(routeSegments));
+    masterRoute.SetSubroteAttrs(vector<Route::SubrouteAttrs>{Route::SubrouteAttrs(
+        geometry::PointWithAltitude(routePoints.front(), geometry::kDefaultAltitudeMeters),
+        geometry::PointWithAltitude(routePoints.back(), geometry::kDefaultAltitudeMeters), 0,
+        routePoints.size() - 1)});
+
+    m_session->SetRouter(make_unique<DummyRouter>(masterRoute, RouterResultCode::NoError, buildCounter), nullptr);
+    m_session->SetRoutingCallbacks(
+        [&routeBuiltSignal](Route const &, RouterResultCode) { routeBuiltSignal.Signal(); },
+        nullptr /* rebuildReadyCallback */, nullptr /* needMoreMapsCallback */, nullptr /* removeRouteCallback */);
+    m_session->BuildRoute(Checkpoints(routePoints.front(), routePoints.back()), RouterDelegate::kNoTimeout);
+  });
+  TEST(routeBuiltSignal.WaitUntil(steady_clock::now() + kRouteBuildingMaxDuration), ("Route was not built."));
+
+  vector<RouteStepInfo> steps;
+  vector<uint32_t> followingTurnIndexes;
+  TimedSignal routeFollowedSignal;
+  GetPlatform().RunTask(Platform::Thread::Gui, [&, this]()
+  {
+    TEST(m_session->EnableFollowMode(), ());
+    steps = m_session->GetRouteTurnsForDisplay("en");
+
+    location::GpsInfo info;
+    info.m_longitude = mercator::XToLon(0.0);
+    info.m_horizontalAccuracy = 2.0;
+    info.m_speed = 10.0;
+    for (double const y : {0.0009, 0.0011, 0.0031, 0.0051})
+    {
+      info.m_latitude = mercator::YToLat(y);
+      m_session->OnLocationPositionChanged(info);
+      FollowingInfo followingInfo;
+      m_session->GetRouteFollowingInfo(followingInfo);
+      followingTurnIndexes.push_back(followingInfo.m_turnIndex);
+    }
+    routeFollowedSignal.Signal();
+  });
+  TEST(routeFollowedSignal.WaitUntil(steady_clock::now() + kRouteBuildingMaxDuration), ("Route was not followed."));
+
+  TEST_EQUAL(steps.size(), 3, ());
+  TEST_EQUAL(steps[0].m_turnIndex, 2, ());
+  TEST_EQUAL(steps[0].m_turn, turns::CarDirection::TurnLeft, ());
+  TEST_EQUAL(steps[0].m_toStreetName, "Main Street", ());
+  TEST_EQUAL(steps[1].m_turnIndex, 5, ());
+  TEST_EQUAL(steps[1].m_turn, turns::CarDirection::LeaveRoundAbout, ());
+  TEST_EQUAL(steps[1].m_exitNum, 2, ());
+  TEST_EQUAL(steps[1].m_toStreetName, "Ring 3", ());
+  TEST_EQUAL(steps[1].m_toRef, "150", ());
+  TEST_EQUAL(steps[1].m_toJunctionRef, "67", ());
+  TEST_EQUAL(steps[1].m_toDestinationRef, "E6", ());
+  TEST_EQUAL(steps[1].m_toDestination, "Smestad", ());
+  TEST(steps[1].m_toIsLink, ());
+  TEST_EQUAL(steps[2].m_turnIndex, 7, ());
+  TEST_EQUAL(steps[2].m_turn, turns::CarDirection::ReachedYourDestination, ());
+
+  auto const stepTurnIndexFor = [&steps](uint32_t turnIndex)
+  {
+    auto const it = find_if(steps.cbegin(), steps.cend(),
+                            [turnIndex](RouteStepInfo const & step) { return step.m_turnIndex >= turnIndex; });
+    return it == steps.cend() ? numeric_limits<uint32_t>::max() : it->m_turnIndex;
+  };
+
+  vector<uint32_t> const expectedFollowingTurnIndexes = {2, 3, 5, 7};
+  vector<uint32_t> const expectedStepTurnIndexes = {2, 5, 5, 7};
+  TEST_EQUAL(followingTurnIndexes, expectedFollowingTurnIndexes, ());
+  for (size_t i = 0; i < followingTurnIndexes.size(); ++i)
+    TEST_EQUAL(stepTurnIndexFor(followingTurnIndexes[i]), expectedStepTurnIndexes[i], (i));
 }
 
 UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestFollowRoutePercentTest)
