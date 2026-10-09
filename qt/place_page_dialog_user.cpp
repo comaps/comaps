@@ -225,6 +225,10 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, place_page::Info cons
       addEntry("Charging sockets", oss.str());
     }
 
+    // Second-hand fragment
+    if (auto secondHand = info.GetSecondHand(); !secondHand.empty())
+      addEntry("Second-hand", secondHand == "second_hand-yes" ? "Yes" : "Only");
+
     // Entrance fragment
     // TODO
 
