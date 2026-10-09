@@ -206,138 +206,117 @@ final class CarPlayServiceTests: XCTestCase {
   }
 
   func testManeuverRefreshStateUsesPrimaryIdentity() {
-    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo())
-    let nextIdenticalTurn = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2))
+    let plan = makePlan([(2, .turnLeft, 0), (3, .turnLeft, 1000)])
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2), plan: plan)
+    let nextIdenticalTurn = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 3), plan: plan)
     var state = CarPlayManeuverRefreshState()
 
-    XCTAssertEqual(state.decision(for: content), .replacePrimary(.initial))
+    XCTAssertEqual(state.reason(for: content), .initial)
     state.didDisplay(content)
-    XCTAssertEqual(state.decision(for: content), .none)
-    XCTAssertEqual(state.decision(for: nextIdenticalTurn), .replacePrimary(.primaryAdvanced),
+    XCTAssertNil(state.reason(for: content))
+    XCTAssertEqual(state.reason(for: nextIdenticalTurn), .primaryAdvanced,
                    "Consecutive visually identical turns must still replace the primary")
   }
 
-  func testManeuverRefreshStatePublishesInitialSnapshotOnlyOnce() {
-    let initial = CarPlayManeuverContent(routeInfo: makeRouteInfo(distanceToTurn: 500))
-    let distanceUpdate = CarPlayManeuverContent(routeInfo: makeRouteInfo(distanceToTurn: 20))
-    var state = CarPlayManeuverRefreshState()
-
-    state.reset()
-    XCTAssertEqual(state.decision(for: initial), .replacePrimary(.initial))
-    state.didDisplay(initial)
-    XCTAssertEqual(state.decision(for: initial), .none)
-    XCTAssertEqual(state.decision(for: distanceUpdate), .none,
-                   "Distance updates must update estimates without republishing the initial maneuver")
-  }
-
-  func testManeuverRefreshStateReplacesPrimaryForNewRouteWithSameTurnIndex() {
-    let firstRoute = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 1, turnIndex: 4))
-    let reroute = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 2, turnIndex: 4))
-    var state = CarPlayManeuverRefreshState()
-    state.didDisplay(firstRoute)
-
-    XCTAssertEqual(state.decision(for: reroute), .replacePrimary(.routeChanged))
-  }
-
-  func testManeuverRefreshStateRetainsPrimaryForSecondaryChange() {
-    let withoutSecondary = CarPlayManeuverContent(routeInfo: makeRouteInfo())
-    let withSecondary = CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(nextTurnImageName: "ic_cp_simple_right_then"))
-    var state = CarPlayManeuverRefreshState()
-
-    state.didDisplay(withoutSecondary)
-
-    XCTAssertEqual(state.decision(for: withSecondary), .retainPrimary(.supplementaryChanged))
-    state.didDisplay(withSecondary)
-    XCTAssertEqual(state.decision(for: withSecondary), .none)
-  }
-
   func testManeuverRefreshStateIgnoresDistanceOnlyChanges() {
-    let far = CarPlayManeuverContent(routeInfo: makeRouteInfo(distanceToTurn: 500))
-    let near = CarPlayManeuverContent(routeInfo: makeRouteInfo(distanceToTurn: 20))
+    let plan = makePlan([(2, .turnLeft, 0)])
+    let far = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2, distanceToTurn: 500), plan: plan)
+    let near = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2, distanceToTurn: 20), plan: plan)
     var state = CarPlayManeuverRefreshState()
     state.didDisplay(far)
 
-    XCTAssertEqual(state.decision(for: near), .none)
+    XCTAssertNil(state.reason(for: near),
+                 "Distance updates must update estimates without republishing maneuvers")
   }
 
-  func testManeuverRefreshStateRetainsPrimaryForLaneGuidanceChanges() {
-    let withoutLanes = CarPlayManeuverContent(routeInfo: makeRouteInfo())
-    let leftLane = makeLane(ways: [.left], recommended: .left)
-    let rightLane = makeLane(ways: [.right], recommended: .right)
-    let withLeftLane = CarPlayManeuverContent(routeInfo: makeRouteInfo(lanes: [leftLane]))
-    let withRightLane = CarPlayManeuverContent(routeInfo: makeRouteInfo(lanes: [rightLane]))
-    let withUnrecommendedLeftLane = CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(lanes: [makeLane(ways: [.left], recommended: .none)]))
+  func testManeuverRefreshStateReplacesPrimaryForNewRouteWithSameTurnIndex() {
+    let firstRoute = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 1, turnIndex: 4),
+                                            plan: makePlan(routeID: 1, [(4, .turnLeft, 0)]))
+    let reroute = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 2, turnIndex: 4),
+                                         plan: makePlan(routeID: 2, [(4, .turnLeft, 0)]))
+    var state = CarPlayManeuverRefreshState()
+    state.didDisplay(firstRoute)
+
+    XCTAssertEqual(state.reason(for: reroute), .routeChanged)
+  }
+
+  func testManeuverRefreshStateRepublishesForLaneGuidanceChanges() {
+    let plan = makePlan([(2, .turnLeft, 0)])
+    let withoutLanes = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2), plan: plan)
+    let withLeftLane = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(turnIndex: 2, lanes: [makeLane(ways: [.left], recommended: .left)]), plan: plan)
+    let withRightLane = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(turnIndex: 2, lanes: [makeLane(ways: [.right], recommended: .right)]), plan: plan)
     var state = CarPlayManeuverRefreshState()
 
     state.didDisplay(withoutLanes)
-    XCTAssertEqual(state.decision(for: withLeftLane), .retainPrimary(.supplementaryChanged))
+    XCTAssertEqual(state.reason(for: withLeftLane), .supplementaryChanged)
     state.didDisplay(withLeftLane)
-    XCTAssertEqual(state.decision(for: withRightLane), .retainPrimary(.supplementaryChanged))
-    state.didDisplay(withLeftLane)
-    XCTAssertEqual(state.decision(for: withUnrecommendedLeftLane), .retainPrimary(.supplementaryChanged))
-    state.didDisplay(withLeftLane)
-    XCTAssertEqual(state.decision(for: withoutLanes), .retainPrimary(.supplementaryChanged),
-                   "Removing lane guidance must refresh supplementary maneuver content")
+    XCTAssertEqual(state.reason(for: withRightLane), .supplementaryChanged)
+    XCTAssertEqual(state.reason(for: withoutLanes), .supplementaryChanged,
+                   "Removing lane guidance must refresh the maneuvers")
   }
 
-  func testManeuverRefreshStatePreservesCombinedRoundaboutPrimary() {
-    let entrance = CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(turnIndex: 4, carDirection: .enterRoundAbout))
-    let exit = CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(turnIndex: 5,
-                               carDirection: .leaveRoundAbout,
-                               nextTurnImageName: "ic_cp_simple_right_then",
-                               lanes: [makeLane(ways: [.right], recommended: .right)]))
-    var state = CarPlayManeuverRefreshState()
-    state.didDisplay(entrance)
-
-    XCTAssertEqual(state.decision(for: exit), .retainPrimary(.roundaboutPrimaryRetained),
-                   "The post-roundabout turn and lanes should update without replacing the combined primary")
-  }
-
-  func testManeuverRefreshStateDoesNotRetainRoundaboutPrimaryAcrossRoutes() {
-    let entrance = CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(routeID: 1, turnIndex: 4, carDirection: .enterRoundAbout))
-    let exitOnReroute = CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(routeID: 2, turnIndex: 5, carDirection: .leaveRoundAbout))
-    var state = CarPlayManeuverRefreshState()
-    state.didDisplay(entrance)
-
-    XCTAssertEqual(state.decision(for: exitOnReroute), .replacePrimary(.routeChanged))
-  }
-
-  func testManeuverRefreshStateResetForcesReplacement() {
-    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo())
+  func testManeuverRefreshStateResetForcesInitialPublish() {
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2), plan: makePlan([(2, .turnLeft, 0)]))
     var state = CarPlayManeuverRefreshState()
     state.didDisplay(content)
     state.reset()
 
-    XCTAssertEqual(state.decision(for: content), .replacePrimary(.initial))
+    XCTAssertEqual(state.reason(for: content), .initial)
   }
 
-  func testManeuverRefreshStateCanForceRerouteReplacement() {
-    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo())
+  func testManeuverRefreshStateCanForceReroute() {
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2), plan: makePlan([(2, .turnLeft, 0)]))
     var state = CarPlayManeuverRefreshState()
     state.didDisplay(content)
 
-    XCTAssertEqual(state.decision(for: content, forcing: .reroute), .replacePrimary(.reroute))
+    XCTAssertEqual(state.reason(for: content, forcing: .reroute), .reroute)
   }
 
-  func testRoundaboutEntranceSuppressesRawExitManeuver() {
-    let imageName = "ic_cp_round_then"
+  func testRoundaboutEntranceAndExitMapToTheSamePlannedManeuver() {
+    let plan = makePlan([(2, .turnLeft, 0), (5, .leaveRoundAbout, 1000), (9, .reachedYourDestination, 3000)])
+    let entrance = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(turnIndex: 3, carDirection: .enterRoundAbout), plan: plan)
+    let exit = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(turnIndex: 5, carDirection: .leaveRoundAbout), plan: plan)
+    var state = CarPlayManeuverRefreshState()
+    state.didDisplay(entrance)
 
-    XCTAssertNil(CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(carDirection: .enterRoundAbout, nextTurnImageName: imageName))
-      .secondaryTurnImageName)
-    XCTAssertNil(CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(carDirection: .stayOnRoundAbout, nextTurnImageName: imageName))
-      .secondaryTurnImageName)
-    XCTAssertEqual(CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(carDirection: .leaveRoundAbout, nextTurnImageName: imageName))
-      .secondaryTurnImageName,
-                   imageName)
+    XCTAssertTrue(entrance.isPlannedPrimary)
+    XCTAssertEqual(entrance.primaryIdentity.turnIndex, 5)
+    XCTAssertEqual(exit.primaryIdentity.turnIndex, 5)
+    XCTAssertNil(state.reason(for: exit),
+                 "Entering the roundabout must not replace the combined roundabout maneuver")
+  }
+
+  func testSecondaryManeuverIsTheNextStepWithinThreshold() {
+    let plan = makePlan([(2, .turnLeft, 0), (4, .turnRight, 1000), (6, .turnLeft, 1400),
+                         (8, .reachedYourDestination, 1801)])
+
+    XCTAssertNil(CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2), plan: plan).secondaryTurnIndex)
+    XCTAssertEqual(CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 4), plan: plan).secondaryTurnIndex, 6)
+    XCTAssertNil(CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 6), plan: plan).secondaryTurnIndex)
+    XCTAssertNil(CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 8), plan: plan).secondaryTurnIndex)
+  }
+
+  func testManeuverContentFallsBackToRouteInfoWithoutMatchingPlan() {
+    let otherRoutePlan = makePlan(routeID: 7, [(2, .turnLeft, 0)])
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 1, turnIndex: 2), plan: otherRoutePlan)
+
+    XCTAssertFalse(content.isPlannedPrimary)
+    XCTAssertEqual(content.primaryIdentity, CarPlayPrimaryManeuverIdentity(routeID: 1, turnIndex: 2))
+    XCTAssertNil(content.secondaryTurnIndex)
+  }
+
+  func testRoundaboutManeuverTypeCarriesExitNumber() throws {
+    guard #available(iOS 17.4, *) else { throw XCTSkip("Maneuver metadata requires iOS 17.4") }
+    XCTAssertEqual(CarDirection.leaveRoundAbout.cpManeuverType(exitNumber: 3), .roundaboutExit3)
+    XCTAssertEqual(CarDirection.enterRoundAbout.cpManeuverType(exitNumber: 1), .roundaboutExit1)
+    XCTAssertEqual(CarDirection.leaveRoundAbout.cpManeuverType(exitNumber: 19), .roundaboutExit19)
+    XCTAssertEqual(CarDirection.leaveRoundAbout.cpManeuverType(exitNumber: 0), .exitRoundabout)
+    XCTAssertEqual(CarDirection.leaveRoundAbout.cpManeuverType(exitNumber: 20), .exitRoundabout)
+    XCTAssertEqual(CarDirection.turnLeft.cpManeuverType(exitNumber: 3), .leftTurn)
   }
 
   func testLaneWayTurnImageNames() {
@@ -538,7 +517,7 @@ final class CarPlayServiceTests: XCTestCase {
                                   destination: "San Jose; San Francisco",
                                   isLink: true)
 
-    CarPlayInstrumentClusterMetadata.apply(to: maneuver, routeInfo: routeInfo)
+    CarPlayInstrumentClusterMetadata.apply(to: maneuver, description: CarPlayManeuverDescription(routeInfo: routeInfo))
 
     let roadFollowingVariants = try XCTUnwrap(maneuver.roadFollowingManeuverVariants)
     XCTAssertEqual(roadFollowingVariants, [
@@ -560,7 +539,7 @@ final class CarPlayServiceTests: XCTestCase {
                                   destination: "",
                                   isLink: false)
 
-    CarPlayInstrumentClusterMetadata.apply(to: maneuver, routeInfo: routeInfo)
+    CarPlayInstrumentClusterMetadata.apply(to: maneuver, description: CarPlayManeuverDescription(routeInfo: routeInfo))
 
     XCTAssertNil(maneuver.roadFollowingManeuverVariants)
     XCTAssertTrue(maneuver.highwayExitLabel.isEmpty)
@@ -864,6 +843,27 @@ final class CarPlayServiceTests: XCTestCase {
                      currentRoadName: "Current Street",
                      carDirectionIndex: carDirection.rawValue,
                      isLeftHandTraffic: false)
+  }
+
+  private func makePlan(routeID: UInt64 = 1,
+                        _ steps: [(turnIndex: UInt32, direction: CarDirection, distanceFromStart: Double)])
+    -> CarPlayRoutePlan {
+    var previousDistance = 0.0
+    return CarPlayRoutePlan(routeID: routeID, steps: steps.map { step in
+      defer { previousDistance = step.distanceFromStart }
+      return CarPlayRouteStep(turnIndex: step.turnIndex,
+                              carDirection: step.direction,
+                              exitNumber: step.direction.isRoundabout ? 2 : 0,
+                              distanceFromStartMeters: step.distanceFromStart,
+                              distanceFromPreviousMeters: step.distanceFromStart - previousDistance,
+                              roadName: "Main Street",
+                              roadRef: "",
+                              junctionRef: "",
+                              destinationRef: "",
+                              destination: "",
+                              isLink: false,
+                              lanes: [])
+    })
   }
 
   private func makeLane(ways: [LaneWay], recommended: LaneWay) -> LaneInfo {

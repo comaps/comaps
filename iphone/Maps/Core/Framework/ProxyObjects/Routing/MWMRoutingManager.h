@@ -35,6 +35,7 @@ NS_SWIFT_NAME(RoutingManager)
 - (void)addRoutePoint:(MWMRoutePoint *)point NS_SWIFT_NAME(add(routePoint:));
 - (void)buildRouteWithDidFailError:(NSError **)errorPtr __attribute__((swift_error(nonnull_error))) NS_SWIFT_NAME(buildRoute());
 - (void)startRoute;
++ (nullable NSString *)turnImageNameForCarDirection:(UInt8)carDirection isPrimary:(BOOL)isPrimary NS_SWIFT_NAME(turnImageName(carDirection:isPrimary:));
 - (instancetype)init __attribute__((unavailable("call +routingManager instead")));
 - (instancetype)copy __attribute__((unavailable("call +routingManager instead")));
 - (instancetype)copyWithZone:(NSZone *)zone __attribute__((unavailable("call +routingManager instead")));
