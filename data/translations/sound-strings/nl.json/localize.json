@@ -84,7 +84,7 @@
         "defaultMessage": "Route herberekenen"
     },
     "destination": {
-        "defaultMessage": "Arriveert u."
+        "defaultMessage": "Arriveer je."
     },
     "you_have_reached_the_destination": {
         "defaultMessage": "Bestemming bereikt."
@@ -402,7 +402,7 @@
         "defaultMessage": "zeshonderd voet"
     },
     "route_not_recalculating": {
-        "defaultMessage": "U bent %1$s van de route"
+        "defaultMessage": "Je bent %1$s van de route"
     },
     "from_700_feet": {
         "defaultMessage": "zevenhonderd voet"

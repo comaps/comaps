@@ -204,7 +204,7 @@
     <string name="type.barrier.stile">Tourniquet</string>
     <string name="type.barrier.turnstile">Tourniquet</string>
     <string name="type.barrier.swing_gate">Slagboom</string>
-    <string name="type.barrier.toll_booth">Tolhokje</string>
+    <string name="type.barrier.toll_booth">Tolpoort</string>
     <string name="type.barrier.wall">Muur</string>
     <string name="type.boundary">Grens</string>
     <string name="type.boundary.administrative">Administratieve grens</string>
@@ -596,7 +596,7 @@
     <string name="type.internet_access">Internet</string>
     <string name="type.internet_access.wlan">Draadloos internet</string>
     <string name="type.junction">Kruispunt</string>
-    <string name="type.junction.circular">Rotonde</string>
+    <string name="type.junction.circular">Verkeersplein</string>
     <string name="type.junction.roundabout">Rotonde</string>
     <string name="type.landuse">Landgebruik</string>
     <string name="type.landuse.allotments">Volkstuinen</string>
@@ -616,7 +616,7 @@
     <string name="type.landuse.forest.deciduous">Loofbos</string>
     <string name="type.landuse.forest.mixed">Gemengd bos</string>
     <string name="type.landuse.garages">Garages</string>
-    <string name="type.landuse.grass">Gazon</string>
+    <string name="type.landuse.grass">Gras</string>
     <string name="type.landuse.greenhouse_horticulture">Kas</string>
     <string name="type.landuse.industrial">Industrieterrein</string>
     <string name="type.landuse.landfill">Vuilnisbelt</string>
@@ -634,7 +634,7 @@
     <string name="type.leisure">Recreatie</string>
     <string name="type.leisure.common">Openbare grond</string>
     <string name="type.leisure.dog_park">Hondenuitlaatplek</string>
-    <string name="type.leisure.fitness_centre">Fitnesscentrum</string>
+    <string name="type.leisure.fitness_centre">Sportschool</string>
     <string name="type.leisure.fitness_station">Fitness-station</string>
     <string name="type.leisure.dance">Danszaal</string>
     <string name="type.leisure.garden">Tuin</string>
@@ -661,15 +661,15 @@
     <string name="type.leisure.stadium">Stadion</string>
     <string name="type.leisure.swimming_pool">Zwembad</string>
     <string name="type.leisure.swimming_pool.private">Privézwembad</string>
-    <string name="type.leisure.track">Parcours</string>
-    <string name="type.leisure.track.area">Parcours</string>
+    <string name="type.leisure.track">Sportbaan</string>
+    <string name="type.leisure.track.area">Sportbaan</string>
     <string name="type.leisure.water_park">Waterpark</string>
     <string name="type.leisure.beach_resort">Strandresort</string>
     <string name="type.man_made">Kunstmatige constructie</string>
     <string name="type.man_made.breakwater">Golfbreker</string>
     <string name="type.man_made.cairn">Steenmannetje</string>
     <string name="type.man_made.chimney">Fabrieksschoorsteen</string>
-    <string name="type.man_made.cutline">Cutline</string>
+    <string name="type.man_made.cutline">Brandtra</string>
     <string name="type.man_made.survey_point">Meetpunt</string>
     <string name="type.man_made.flagpole">Vlaggenmast</string>
     <string name="type.man_made.lighthouse">Vuurtoren</string>
@@ -682,14 +682,14 @@
     <string name="type.man_made.surveillance">Bewakingscamera</string>
     <string name="type.man_made.tower">Toren</string>
     <!-- A huge telecommunications tower. Often a local monument or a landmark. -->
-    <string name="type.man_made.communications_tower">Communicatietoren</string>
+    <string name="type.man_made.communications_tower">Televisietoren</string>
     <!-- A regular telecommunications tower / mast. -->
-    <string name="type.man_made.tower.communication">Communicatietoren</string>
+    <string name="type.man_made.tower.communication">Telecommunicatietoren</string>
     <!-- A deep hole drilled into the earth to extract oil or gas. -->
     <string name="type.man_made.petroleum_well">Olie- of gasput</string>
     <!-- A tower/mast constructed to burn off excess gas. -->
     <string name="type.man_made.flare">Gasfakkel</string>
-    <string name="type.man_made.wastewater_plant">Waterzuiveringsinstallatie</string>
+    <string name="type.man_made.wastewater_plant">Rioolwaterzuiveringsinstallatie</string>
     <string name="type.man_made.water_tap">Waterkraan</string>
     <string name="type.man_made.water_tap.drinking_water_no">Waterkraan</string>
     <string name="type.man_made.water_tower">Watertoren</string>
@@ -702,7 +702,7 @@
     <string name="type.mountain_pass">Bergpas</string>
     <string name="type.natural">Natuur</string>
     <!-- A rocky land cover. -->
-    <string name="type.natural.bare_rock">Kale rots</string>
+    <string name="type.natural.bare_rock">Kale rotsen</string>
     <!-- A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. -->
     <string name="type.natural.shingle">Kiezels</string>
     <!-- A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. -->
@@ -726,7 +726,7 @@
     <string name="type.natural.water.lake">Meer</string>
     <string name="type.natural.water.lock">Schutkolk</string>
     <string name="type.natural.water.pond">Vijver</string>
-    <string name="type.natural.water.reservoir">Reservoir</string>
+    <string name="type.natural.water.reservoir">Stuwmeer</string>
     <string name="type.natural.water.basin">Waterbekken</string>
     <string name="type.natural.water.river">Rivier</string>
     <string name="type.natural.land">Land</string>
@@ -754,7 +754,7 @@
     <string name="type.office.insurance">Verzekeringskantoor</string>
     <string name="type.office.lawyer">Advocatenkantoor</string>
     <string name="type.office.ngo">NGO-kantoor</string>
-    <string name="type.office.telecommunication">Mobiele provider</string>
+    <string name="type.office.telecommunication">Telecommunicatiebedrijf</string>
     <string name="type.organic.only">Alleen biologisch</string>
     <string name="type.organic.yes">Biologisch verkrijgbaar</string>
     <string name="type.place.city">Stad</string>
@@ -794,7 +794,7 @@
     <string name="type.place.village">Dorp</string>
     <string name="type.power">Elektriciteit</string>
     <string name="type.power.generator.solar">Zonne-generator</string>
-    <string name="type.power.generator.wind">Windgenerator</string>
+    <string name="type.power.generator.wind">Windturbine</string>
     <string name="type.power.generator.gas">Gascentrale</string>
     <string name="type.power.generator.hydro">Waterkrachtcentrale</string>
     <string name="type.power.line">Hoogspanningsleiding</string>
@@ -864,9 +864,9 @@
     <string name="type.railway.station">Station</string>
     <string name="type.railway.station.funicular">Kabelspoorstation</string>
     <string name="type.railway.station.light_rail">Lightrailstation</string>
-    <string name="type.railway.station.light_rail.berlin">S-bahn station</string>
-    <string name="type.railway.station.light_rail.london">Station</string>
-    <string name="type.railway.station.light_rail.porto">Station</string>
+    <string name="type.railway.station.light_rail.berlin">S-bahnstation</string>
+    <string name="type.railway.station.light_rail.london">DLR-station</string>
+    <string name="type.railway.station.light_rail.porto">Lightrailstation</string>
     <string name="type.railway.station.monorail">Monorailstation</string>
     <string name="type.railway.station.subway">Metrostation</string>
     <string name="type.railway.station.subway.adana">Metrostation</string>
@@ -1181,7 +1181,7 @@
     <string name="type.shop.rental">Verhuurwinkel</string>
     <string name="type.shop.rental.bicycle">Fietsverhuurwinkel</string>
     <string name="type.shop.seafood">Visboer</string>
-    <string name="type.shop.second_hand">Tweedehandswinkel</string>
+    <string name="type.shop.second_hand">Kringloopwinkel</string>
     <string name="type.shop.shoes">Schoenenwinkel</string>
     <string name="type.shop.sports">Sportwinkel</string>
     <string name="type.shop.stationery">Kantoorboekhandel</string>
@@ -1193,7 +1193,7 @@
     <string name="type.shop.travel_agency">Reisbureau</string>
     <string name="type.shop.tyres">Bandenwinkel</string>
     <string name="type.shop.variety_store">Voordeelwinkel</string>
-    <string name="type.shop.video">Videowinkel</string>
+    <string name="type.shop.video">Videotheek</string>
     <string name="type.shop.video_games">Gamewinkel</string>
     <string name="type.shop.wine">Wijnhandel</string>
     <string name="type.shop.agrarian">Agrarische winkel</string>
@@ -1205,7 +1205,7 @@
     <string name="type.shop.bag">Tassenwinkel</string>
     <string name="type.shop.bed">Beddenwinkel</string>
     <string name="type.shop.boutique">Boetiek</string>
-    <string name="type.shop.charity">Kringloopwinkel</string>
+    <string name="type.shop.charity">Liefdadigheidswinkel</string>
     <string name="type.shop.cheese">Kaaswinkel</string>
     <string name="type.shop.craft">Kunst- en hobbywinkel</string>
     <string name="type.shop.dairy">Zuivelwinkel</string>
@@ -1306,7 +1306,7 @@
     <string name="type.traffic_calming.hump">Verkeersdrempel</string>
     <string name="type.waterway">Waterweg</string>
     <string name="type.waterway.canal">Kanaal</string>
-    <string name="type.waterway.canal.tunnel">Kanaal</string>
+    <string name="type.waterway.canal.tunnel">Kanaaltunnel</string>
     <string name="type.waterway.fish_pass">Vistrap</string>
     <string name="type.waterway.dam">Dam</string>
     <string name="type.barrier.ditch">Sloot</string>
@@ -1329,7 +1329,7 @@
     <string name="type.wheelchair.limited">Gedeeltelijk rolstoeltoegankelijk</string>
     <string name="type.wheelchair.no">Niet rolstoeltoegankelijk</string>
     <string name="type.wheelchair.yes">Volledig rolstoeltoegankelijk</string>
-    <string name="type.aerialway.j.bar">Sleeplift (J)</string>
+    <string name="type.aerialway.j.bar">Sleeplift (J-beugel)</string>
     <string name="type.aerialway.magic_carpet">Lopende band (skilift)</string>
     <string name="type.aerialway.platter">Pannenkoeklift</string>
     <string name="type.aerialway.rope_tow">Touwlift</string>
@@ -1386,7 +1386,7 @@
     <string name="type.highway.ladder">Ladder</string>
     <string name="type.leisure.firepit">Vuurplaats</string>
     <string name="type.landuse.plant_nursery">Plantenkwekerij</string>
-    <string name="type.man_made.crane">Kraan</string>
+    <string name="type.man_made.crane">Hijskraan</string>
     <string name="type.barrier.guard_rail">Vangrail</string>
     <string name="type.amenity.love_hotel">Liefdeshotel</string>
     <string name="type.amenity.studio">Mediastudio</string>

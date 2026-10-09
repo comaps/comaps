@@ -7624,5 +7624,11 @@
     },
     "Switzerland_Espace Mittelland_East Short": {
         "defaultMessage": "中央地带"
+    },
+    "World": {
+        "defaultMessage": "全球概览"
+    },
+    "WorldCoasts": {
+        "defaultMessage": "全球概览（海岸线）"
     }
 }

@@ -395,7 +395,7 @@
 "day_off_today" = "Stängt idag";
 "day_off" = "Stängt";
 "today" = "Idag";
-"opens_tomorrow_at" = "Opens tomorrow at %@";
+"opens_tomorrow_at" = "Öppnar imorgon kl. %@";
 "opens_dayoftheweek_at" = "Opens %1$@ at %2$@";
 "opens_at" = "Opens at %@";
 "opens_in" = "Opens in %@";

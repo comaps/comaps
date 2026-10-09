@@ -518,13 +518,13 @@
     <string name="accept">اقبل</string>
     <!-- For the first routing -->
     <string name="decline">رفض</string>
-    <string name="mobile_data_dialog">استخدام بيانات الجوال لإظهار المعلومات التفصيلية؟</string>
+    <string name="mobile_data_dialog">استخدم بيانات الجوّال؟</string>
     <string name="mobile_data_option_always">استخدم دائمًا</string>
     <string name="mobile_data_option_today">اليوم فقط</string>
     <string name="mobile_data_option_not_today">عدم الاستخدام اليوم</string>
     <string name="mobile_data">بيانات الجوال</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">يُشترط وجود اتصال بالإنترنت عبر الجوال لتلقي إشعارات تحديث الخرائط ورفع التحريرات</string>
+    <string name="mobile_data_description">يُشترط وجود اتصال بالإنترنت عبر الجوال لتلقي إشعارات تحديث الخرائط ورفع التحريرات والربط بمواقع المارجعة</string>
     <string name="mobile_data_option_never">عدم الاستخدام مطلقًا</string>
     <string name="mobile_data_option_ask">إسأل دائمًا</string>
     <string name="traffic_update_maps_text">لعرض البيانات المرورية، يجب تحديث الخرائط</string>
@@ -993,4 +993,20 @@
     <string name="prefs_group_interface">الواجهة</string>
     <string name="recalculate_route">أعِد الحساب</string>
     <string name="opens_tomorrow_at">يفتح غدًا عند %s</string>
+    <string name="pref_font_size">حجم الخط لتسميات الخريطة</string>
+    <string name="decrease_font_size">قلّل حجم تسميات الخريطة</string>
+    <string name="bookmarks_text_placement_title">اعرض أسماء المفضلة على الخريطة</string>
+    <string name="place_reviews_title">ضع مراجعات</string>
+    <string name="place_reviews">%1$s مراجعة</string>
+    <string name="rating_stars_description">تقييم: %.1f</string>
+    <string name="reviews_by_mangrove">تقييمات من «مانغروف»</string>
+    <string name="add_review">أضف مراجعة من خلال %1$s</string>
+    <string name="add_review_url_resolution_failed">لم يُعثر على هذا المكان في أحدث إصدار من OpenStreetMap.</string>
+    <string name="add_review_url_resolution_failed_dev">لم يُعثر على هذا المكان في نُسخة DEV من OpenStreetMap.</string>
+    <string name="stars_1">نجمة واحدة</string>
+    <string name="stars_2">نجمتان</string>
+    <string name="stars_3">ثلاث نجوم</string>
+    <string name="stars_4">اربع نجوم</string>
+    <string name="stars_5">خمس نجوم</string>
+    <string name="internet_unavailable">لا يوجد اتصال بالإنترنت</string>
 </resources>

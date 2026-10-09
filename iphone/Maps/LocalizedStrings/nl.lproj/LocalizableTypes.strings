@@ -231,7 +231,7 @@
 "type.barrier.turnstile" = "Tourniquet";
 "type.barrier.wicket_gate" = "Klinket";
 "type.barrier.swing_gate" = "Slagboom";
-"type.barrier.toll_booth" = "Tolhokje";
+"type.barrier.toll_booth" = "Tolpoort";
 "type.barrier.wall" = "Muur";
 "type.boundary" = "Grens";
 "type.boundary.administrative" = "Administratieve grens";
@@ -667,7 +667,7 @@
 "type.internet_access" = "Internet";
 "type.internet_access.wlan" = "Draadloos internet";
 "type.junction" = "Kruispunt";
-"type.junction.circular" = "Rotonde";
+"type.junction.circular" = "Verkeersplein";
 "type.junction.roundabout" = "Rotonde";
 "type.landuse" = "Landgebruik";
 "type.landuse.allotments" = "Volkstuinen";
@@ -690,7 +690,7 @@
 "type.landuse.forest.deciduous" = "Loofbos";
 "type.landuse.forest.mixed" = "Gemengd bos";
 "type.landuse.garages" = "Garages";
-"type.landuse.grass" = "Gazon";
+"type.landuse.grass" = "Gras";
 "type.landuse.greenfield" = "Bouwgrond";
 "type.landuse.greenhouse_horticulture" = "Kas";
 "type.landuse.industrial" = "Industrieterrein";
@@ -713,7 +713,7 @@
 "type.leisure.common" = "Openbare grond";
 "type.leisure.dog_park" = "Hondenuitlaatplek";
 "type.leisure.escape_game" = "Escaperoom";
-"type.leisure.fitness_centre" = "Fitnesscentrum";
+"type.leisure.fitness_centre" = "Sportschool";
 "type.leisure.fitness_station" = "Fitness-station";
 "type.leisure.dance" = "Danszaal";
 "type.leisure.garden" = "Tuin";
@@ -774,15 +774,15 @@
 "type.leisure.stadium" = "Stadion";
 "type.leisure.swimming_pool" = "Zwembad";
 "type.leisure.swimming_pool.private" = "Privézwembad";
-"type.leisure.track" = "Parcours";
-"type.leisure.track.area" = "Parcours";
+"type.leisure.track" = "Sportbaan";
+"type.leisure.track.area" = "Sportbaan";
 "type.leisure.water_park" = "Waterpark";
 "type.leisure.beach_resort" = "Strandresort";
 "type.man_made" = "Kunstmatige constructie";
 "type.man_made.breakwater" = "Golfbreker";
 "type.man_made.cairn" = "Steenmannetje";
 "type.man_made.chimney" = "Fabrieksschoorsteen";
-"type.man_made.cutline" = "Cutline";
+"type.man_made.cutline" = "Brandtra";
 "type.man_made.survey_point" = "Meetpunt";
 "type.man_made.flagpole" = "Vlaggenmast";
 "type.man_made.lighthouse" = "Vuurtoren";
@@ -795,17 +795,17 @@
 "type.man_made.surveillance" = "Bewakingscamera";
 "type.man_made.tower" = "Toren";
 /* A huge telecommunications tower. Often a local monument or a landmark. */
-"type.man_made.communications_tower" = "Communicatietoren";
+"type.man_made.communications_tower" = "Televisietoren";
 /* A regular telecommunications tower. */
-"type.man_made.tower.communication" = "Communicatietoren";
+"type.man_made.tower.communication" = "Telecommunicatietoren";
 /* A regular telecommunications mast. */
 "type.man_made.mast.communication" = "Telecommunicatiemast";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "Olie- of gasput";
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "Gasfakkel";
-"type.man_made.crane" = "Kraan";
-"type.man_made.wastewater_plant" = "Waterzuiveringsinstallatie";
+"type.man_made.crane" = "Hijskraan";
+"type.man_made.wastewater_plant" = "Rioolwaterzuiveringsinstallatie";
 "type.man_made.water_tap" = "Waterkraan";
 "type.man_made.water_tap.drinking_water_no" = "Waterkraan";
 "type.man_made.water_tower" = "Watertoren";
@@ -818,7 +818,7 @@
 "type.mountain_pass" = "Bergpas";
 "type.natural" = "Natuur";
 /* A rocky land cover. */
-"type.natural.bare_rock" = "Kale rots";
+"type.natural.bare_rock" = "Kale rotsen";
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "Kiezels";
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
@@ -843,7 +843,7 @@
 "type.natural.water.lake" = "Meer";
 "type.natural.water.lock" = "Schutkolk";
 "type.natural.water.pond" = "Vijver";
-"type.natural.water.reservoir" = "Reservoir";
+"type.natural.water.reservoir" = "Stuwmeer";
 "type.natural.water.basin" = "Waterbekken";
 "type.natural.water.river" = "Rivier";
 "type.natural.land" = "Land";
@@ -879,7 +879,7 @@
 "type.office.insurance" = "Verzekeringskantoor";
 "type.office.lawyer" = "Advocatenkantoor";
 "type.office.ngo" = "NGO-kantoor";
-"type.office.telecommunication" = "Mobiele provider";
+"type.office.telecommunication" = "Telecommunicatiebedrijf";
 "type.organic.only" = "Alleen biologisch";
 "type.organic.yes" = "Biologisch verkrijgbaar";
 "type.place.city" = "Stad";
@@ -920,7 +920,7 @@
 "type.power" = "Elektriciteit";
 "type.power.generator" = "Generator";
 "type.power.generator.solar" = "Zonne-generator";
-"type.power.generator.wind" = "Windgenerator";
+"type.power.generator.wind" = "Windturbine";
 "type.power.generator.gas" = "Gascentrale";
 "type.power.generator.hydro" = "Waterkrachtcentrale";
 "type.power.line" = "Hoogspanningsleiding";
@@ -1000,9 +1000,9 @@
 "type.railway.station" = "Station";
 "type.railway.station.funicular" = "Kabelspoorstation";
 "type.railway.station.light_rail" = "Lightrailstation";
-"type.railway.station.light_rail.berlin" = "S-bahn station";
-"type.railway.station.light_rail.london" = "Station";
-"type.railway.station.light_rail.porto" = "Station";
+"type.railway.station.light_rail.berlin" = "S-bahnstation";
+"type.railway.station.light_rail.london" = "DLR-station";
+"type.railway.station.light_rail.porto" = "Lightrailstation";
 "type.railway.station.monorail" = "Monorailstation";
 "type.railway.station.subway" = "Metrostation";
 "type.railway.station.subway.adana" = "Metrostation";
@@ -1320,7 +1320,7 @@
 "type.shop.rental" = "Verhuurwinkel";
 "type.shop.rental.bicycle" = "Fietsverhuurwinkel";
 "type.shop.seafood" = "Visboer";
-"type.shop.second_hand" = "Tweedehandswinkel";
+"type.shop.second_hand" = "Kringloopwinkel";
 "type.shop.shoes" = "Schoenenwinkel";
 "type.shop.sports" = "Sportwinkel";
 "type.shop.stationery" = "Kantoorboekhandel";
@@ -1333,7 +1333,7 @@
 "type.shop.travel_agency" = "Reisbureau";
 "type.shop.tyres" = "Bandenwinkel";
 "type.shop.variety_store" = "Voordeelwinkel";
-"type.shop.video" = "Videowinkel";
+"type.shop.video" = "Videotheek";
 "type.shop.video_games" = "Gamewinkel";
 "type.shop.wine" = "Wijnhandel";
 "type.shop.agrarian" = "Agrarische winkel";
@@ -1346,7 +1346,7 @@
 "type.shop.bag" = "Tassenwinkel";
 "type.shop.bed" = "Beddenwinkel";
 "type.shop.boutique" = "Boetiek";
-"type.shop.charity" = "Kringloopwinkel";
+"type.shop.charity" = "Liefdadigheidswinkel";
 "type.shop.cheese" = "Kaaswinkel";
 "type.shop.craft" = "Kunst- en hobbywinkel";
 "type.shop.dairy" = "Zuivelwinkel";
@@ -1456,7 +1456,7 @@
 "type.traffic_calming.hump" = "Verkeersdrempel";
 "type.waterway" = "Waterweg";
 "type.waterway.canal" = "Kanaal";
-"type.waterway.canal.tunnel" = "Kanaal";
+"type.waterway.canal.tunnel" = "Kanaaltunnel";
 "type.waterway.fish_pass" = "Vistrap";
 "type.waterway.dam" = "Dam";
 "type.barrier.ditch" = "Sloot";
@@ -1480,7 +1480,7 @@
 "type.wheelchair.limited" = "Gedeeltelijk rolstoeltoegankelijk";
 "type.wheelchair.no" = "Niet rolstoeltoegankelijk";
 "type.wheelchair.yes" = "Volledig rolstoeltoegankelijk";
-"type.aerialway.j.bar" = "Sleeplift (J)";
+"type.aerialway.j.bar" = "Sleeplift (J-beugel)";
 "type.aerialway.magic_carpet" = "Lopende band (skilift)";
 "type.aerialway.platter" = "Pannenkoeklift";
 "type.aerialway.rope_tow" = "Touwlift";

@@ -162,17 +162,17 @@
 /* Generic «On» string */
 "on" = "Ŝaltita";
 /* Generic «Auto» string */
-"auto" = "Auto";
+"auto" = "Aŭtomata";
 /* Settings «Map» category: «Perspective view» title */
-"pref_map_3d_title" = "Perspective view";
+"pref_map_3d_title" = "Perspektiva vido";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
-"pref_map_3d_buildings_disabled_summary" = "3D buildings are disabled in power saving mode";
+"pref_map_3d_buildings_disabled_summary" = "3D-konstruaĵoj estas malŝaltitaj en energiŝpara reĝimo";
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_title" = "Voice Instructions";
 /* Settings «Route» category: «Tts enable» title */
 "pref_tts_enable_title" = "Enable Voice Instructions";
 /* Settings «Route» category: «Tts announce street names» title */
-"pref_tts_street_names_title" = "Announce Street Names";
+"pref_tts_street_names_title" = "Anonci stratnomojn";
 /* Settings «Route» category: «Tts announce street names» description */
 "pref_tts_street_names_description" = "When enabled, the name of the street or exit to turn onto will be spoken aloud.";
 /* Settings «Route» category: «Tts language» title */
@@ -377,7 +377,7 @@
 "editor_add_select_location" = "Select Location";
 "editor_done_dialog_1" = "You’ve changed the world map! Don't keep it to yourself; tell your friends and edit it together.";
 "share_with_friends" = "Share with friends";
-"editor_report_problem_send_button" = "Send";
+"editor_report_problem_send_button" = "Sendi";
 "autodownload" = "Auto-download maps";
 /* Voice */
 "voice" = "Voice";
@@ -572,7 +572,7 @@
 "traffic_update_app_message" = "To display traffic data, the application must be updated.";
 /* "traffic" as in "road congestion" */
 "traffic_data_unavailable" = "Traffic data is not available";
-"enable_logging" = "Enable logging";
+"enable_logging" = "Aktivigi protokoladon";
 "log_file_size" = "Log file size: %@";
 "pref_alt_map_lang_handling" = "Alternative Map Languages";
 "pref_alt_map_lang_handling_ignore_alternatives" = "Ne uzi aliajn lingvojn";
@@ -638,7 +638,7 @@
 "pref_tts_speedcams_always" = "Always warn";
 /* Speed camera settings menu option - Never warn (about speedcams) */
 "pref_tts_speedcams_never" = "Never warn";
-"power_managment_title" = "Power saving mode";
+"power_managment_title" = "Energiŝpara reĝimo";
 "power_managment_description" = "Try to reduce power usage at the expense of some functionality.";
 "power_managment_setting_never" = "Never";
 "power_managment_setting_auto" = "When battery is low";

@@ -67,7 +67,7 @@
     <string name="bookmark_share_email_subject">Sekvu la ligilo %1$s aŭ enigu la koordinatojn %2$s en vian mapan apon por vidi tiun ĉi pozicion.</string>
     <string name="my_position_share_email">Sekvu la ligilo %1$s aŭ enigu la koordinatojn %2$s en vian mapan apon por vidi mian pozicion.</string>
     <string name="dialog_routing_error_location_not_found">Ne povas krei vojon. Viaj nunaj koordinatoj ne troviĝis per GPS.</string>
-    <string name="downloader_cancel_all">Halti ĉiun</string>
+    <string name="downloader_cancel_all">Nuligi ĉiun</string>
     <string name="bookmark_set_name">Nomo de listo</string>
     <string name="bookmarks">Lokoj</string>
     <string name="measurement_units">Mezurunuo</string>
@@ -139,4 +139,27 @@
     <string name="downloader_update_map">Ĝisdatigu Mapon</string>
     <string name="google_play_services">Google Fused Location Service</string>
     <string name="routing_download_maps_along">Elŝutu ĉiujn mapojn laŭlonge de via itinero</string>
+    <string name="pref_about_summary">Raporti problemojn, ricevi helpon, donaci\nVersio: v%1$s</string>
+    <string name="prefs_group_map_appearance">Mapaspekto</string>
+    <string name="prefs_group_map_appearance_summary">Maplingvo, etikedgrandeco, 2D/3D-konstruaĵoj</string>
+    <string name="editor_report_problem_send_button">Sendi</string>
+    <string name="prefs_group_interface">Interfaco</string>
+    <string name="prefs_group_interface_summary">Nokta reĝimo, butonoj, lingvo</string>
+    <string name="prefs_group_data_management">Datumadministrado</string>
+    <string name="prefs_group_data_management_summary">Mapstokado, sekurkopii favoratoj</string>
+    <string name="prefs_group_route_summary">Unuoj, voĉaj instrukcioj, itineraj agordoj</string>
+    <string name="prefs_group_advanced">Altnivelaj</string>
+    <string name="prefs_group_advanced_summary">Aktivigi protokoladon</string>
+    <string name="enable_logging">Aktivigi protokoladon</string>
+    <string name="download_resources_custom_url_title">Agordebla mapservilo</string>
+    <string name="download_resources_custom_url_summary_none">Ne agordita</string>
+    <string name="download_resources_custom_url_error_scheme">Bonvolu enigi URL-on komenciĝantan per http:// aŭ https://</string>
+    <string name="pref_map_style_title">Nokta reĝimo</string>
+    <string name="pref_map_3d_title">Perspektiva vido</string>
+    <string name="pref_map_3d_buildings_title">3D-konstruaĵoj</string>
+    <string name="power_managment_title">Energiŝpara reĝimo</string>
+    <string name="pref_map_3d_buildings_disabled_summary">3D-konstruaĵoj estas malŝaltitaj en energiŝpara reĝimo</string>
+    <string name="pref_tts_enable_title">Voĉaj instrukcioj</string>
+    <string name="pref_tts_street_names_title">Anonci stratnomojn</string>
+    <string name="auto">Aŭtomata</string>
 </resources>

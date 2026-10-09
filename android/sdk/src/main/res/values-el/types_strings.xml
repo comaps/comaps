@@ -1544,4 +1544,5 @@
     <string name="type.amenity.tool_library">Βιβλιοθήκη εργαλείων</string>
     <string name="type.building.abandoned">Εγκαταλελειμμένο κτίριο</string>
     <string name="type.shop.tool_hire">Ενοικίαση εργαλείων</string>
+    <string name="type.amenity.parking.customers">Χώρος στάθμευσης πελατών</string>
 </resources>

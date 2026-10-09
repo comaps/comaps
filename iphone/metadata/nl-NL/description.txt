@@ -15,7 +15,7 @@ Hoofdfuncties:
 • Zoeken op naam of adres of op categorie
 • Navigatie met gesproken aanwijzingen voor wandelen, fietsen of autorijden
 • Sla je favoriete plaatsen op met een enkele klik
-• iCloud synchronisatie voor je favorieten
+• iCloud-synchronisatie voor je favorieten
 • Offline Wikipedia-artikelen
 • Metrolaag en routebeschrijvingen
 • Trackregistratie

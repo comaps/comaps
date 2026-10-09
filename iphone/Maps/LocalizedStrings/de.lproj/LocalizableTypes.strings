@@ -12,7 +12,7 @@
 "type.aeroway.aerodrome" = "Flughafen";
 "type.aeroway.aerodrome.international" = "Internationaler Flughafen";
 "type.aeroway.apron" = "Vorfeld";
-"type.aeroway.gate" = "Gate";
+"type.aeroway.gate" = "Flugsteig";
 "type.aeroway.helipad" = "Hubschrauberlandeplatz";
 "type.aeroway.runway" = "Start-/Landebahn";
 "type.aeroway.taxiway" = "Rollweg";
@@ -44,7 +44,7 @@
 "type.man_made.telescope.optical" = "Teleskop (Optisch)";
 "type.man_made.telescope.radio" = "Teleskop (Radio)";
 "type.man_made.telescope.gamma" = "Teleskop (Gamma)";
-"type.man_made.observatory" = "Observatorium";
+"type.man_made.observatory" = "Sternwarte";
 "type.amenity.casino" = "Kasino";
 "type.amenity.gambling" = "Glücksspiel";
 "type.amenity.studio" = "Medienstudio";
@@ -62,16 +62,16 @@
 "type.amenity.college" = "Bildungseinrichtung";
 "type.amenity.community_centre" = "Gemeinschaftszentrum";
 "type.amenity.community_centre.youth_centre" = "Jugendzentrum";
-"type.amenity.compressed_air" = "Druckluft";
+"type.amenity.compressed_air" = "Druckluftpumpe";
 "type.amenity.conference_centre" = "Konferenzzentrum";
 "type.amenity.courthouse" = "Gericht";
 "type.amenity.dentist" = "Zahnarzt";
 "type.amenity.doctors" = "Arztpraxis";
-"type.amenity.drinking_water" = "Trinkwasser";
+"type.amenity.drinking_water" = "Trinkwasserstelle";
 "type.drinking_water.yes" = "Trinkwasser";
 "type.amenity.driving_school" = "Fahrschule";
 "type.amenity.exhibition_centre" = "Messezentrum";
-"type.amenity.money_transfer" = "Geldtransfer";
+"type.amenity.money_transfer" = "Geldtransferbüro";
 "type.amenity.music_school" = "Musikschule";
 "type.amenity.sailing_school" = "Segelschule";
 "type.amenity.flight_school" = "Flugschule";
@@ -84,7 +84,7 @@
 "type.amenity.fast_food" = "Fast-Food";
 "type.amenity.ferry_terminal" = "Fähranleger";
 "type.amenity.fire_station" = "Feuerwehr";
-"type.amenity.food_court" = "Food Court";
+"type.amenity.food_court" = "Gastronomiebereich";
 "type.amenity.fountain" = "Springbrunnen";
 "type.amenity.fuel" = "Tankstelle";
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
@@ -176,7 +176,7 @@
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Biwakschachtel";
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Lean-to Schlafschutz";
+"type.amenity.shelter.lean_to" = "Offene Übernachtungshütte";
 "type.amenity.public_bath" = "Öffentliches Bad";
 "type.amenity.shower" = "Dusche";
 "type.amenity.stripclub" = "Stripclub";
@@ -272,7 +272,7 @@
 "type.craft.grinding_mill" = "Mühle";
 "type.craft.handicraft" = "Kunsthandwerk";
 /* Heating, Ventilation, and Air Conditioning */
-"type.craft.hvac" = "Heizung, Lüftung und Klimatisierung";
+"type.craft.hvac" = "Heizungs-, Lüftungs- und Klimattechnik";
 "type.craft.key_cutter" = "Schlüssel-Nachmachdienst";
 "type.craft.locksmith" = "Schlüsseldienst";
 "type.craft.metal_construction" = "Metallverarbeitung";
@@ -380,7 +380,7 @@
 "type.amenity.hydrant" = "Beregnungshydrant";
 "type.emergency.phone" = "Notruftelefon";
 /* A place where a lifeguard is on duty. */
-"type.emergency.lifeguard" = "Rettungsschwimmer";
+"type.emergency.lifeguard" = "Wasserrettungsstation";
 "type.beacon.cardinal.east" = "Kardinalbake";
 "type.beacon.cardinal.north" = "Kardinalbake";
 "type.beacon.cardinal.south" = "Kardinalbake";
@@ -429,14 +429,14 @@
 "type.fee.yes" = "$";
 "type.fee.no" = "Kostenlos";
 "type.healthcare.laboratory" = "Medizinisches Labor";
-"type.healthcare.physiotherapist" = "Physiotherapie";
+"type.healthcare.physiotherapist" = "Physiotherapeut";
 "type.healthcare.alternative" = "Alternative Medizin";
-"type.healthcare.audiologist" = "Audiologie";
+"type.healthcare.audiologist" = "Hörakustiker";
 "type.healthcare.blood_donation" = "Blutspendezentrum";
-"type.healthcare.optometrist" = "Optometrie";
-"type.healthcare.podiatrist" = "Podologie";
-"type.healthcare.psychotherapist" = "Psychotherapie";
-"type.healthcare.sample_collection" = "Probenahme";
+"type.healthcare.optometrist" = "Augenoptiker";
+"type.healthcare.podiatrist" = "Podologe";
+"type.healthcare.psychotherapist" = "Psychotherapeut";
+"type.healthcare.sample_collection" = "Probenahmenzentrum";
 "type.healthcare.speech_therapist" = "Logopädie";
 "type.highway" = "Straße";
 "type.highway.bridleway" = "Reitweg";
@@ -776,7 +776,7 @@
 "type.leisure.swimming_pool.private" = "Schwimmbecken";
 "type.leisure.track" = "Laufbahn";
 "type.leisure.track.area" = "Laufbahn";
-"type.leisure.water_park" = "Aquapark";
+"type.leisure.water_park" = "Wasserpark";
 "type.leisure.beach_resort" = "Strandbad";
 "type.man_made" = "Künstliche Anlage";
 "type.man_made.breakwater" = "Wellenbrecher";
@@ -801,7 +801,7 @@
 /* A regular telecommunications mast. */
 "type.man_made.mast.communication" = "Funkmast";
 /* A deep hole drilled into the earth to extract oil or gas. */
-"type.man_made.petroleum_well" = "Öl- oder Gasbohrung";
+"type.man_made.petroleum_well" = "Erdöl- oder Erdgaspumpe";
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "Gasfackel";
 "type.man_made.crane" = "Kran";
@@ -853,7 +853,7 @@
 "type.natural.saddle" = "Bergsattel";
 "type.natural.rock" = "Fels";
 "type.natural.scrub" = "Dickicht";
-"type.natural.spring" = "Quelle";
+"type.natural.spring" = "Wasserquelle";
 "type.natural.spring.drinking_water_no" = "Quelle";
 "type.natural.strait" = "Meerenge";
 "type.natural.tree" = "Baum";
@@ -1255,7 +1255,7 @@
 "type.shop.butcher" = "Metzgerei";
 "type.shop.cannabis" = "Cannabis-Laden";
 "type.shop.car" = "Autohaus";
-"type.shop.car_parts" = "Autoersatzteile";
+"type.shop.car_parts" = "Autoteile-Geschäft";
 "type.shop.car_repair" = "Autowerkstatt";
 "type.shop.car_repair.tyres" = "Reifenservice";
 "type.shop.caravan" = "Wohnmobilhändler";
@@ -1286,13 +1286,13 @@
 "type.shop.gas" = "Gas-Geschäft";
 "type.shop.gift" = "Geschenkeladen";
 "type.shop.greengrocer" = "Obst- und Gemüseladen";
-"type.shop.grocery" = "Lebensmittelkonserven";
+"type.shop.grocery" = "Lebensmittelladen";
 "type.shop.hairdresser" = "Friseur";
 "type.shop.hardware" = "Eisenwarengeschäft";
 "type.shop.health_food" = "Reformhaus";
 "type.shop.hearing_aids" = "Hörgeräteladen";
 "type.shop.herbalist" = "Kräuterladen";
-"type.shop.hifi" = "HiFi-Audio";
+"type.shop.hifi" = "HiFi-Geräteladen";
 "type.shop.houseware" = "Haushaltswarengeschäft";
 "type.shop.jewelry" = "Juwelier";
 "type.shop.kiosk" = "Kiosk";
@@ -1337,26 +1337,26 @@
 "type.shop.video_games" = "Gameshop";
 "type.shop.wine" = "Weinhandlung";
 "type.shop.agrarian" = "Landwirtschaftliches Geschäft";
-"type.shop.antiques" = "Antiquitäten";
+"type.shop.antiques" = "Antiquitätenladen";
 "type.shop.appliance" = "Laden für Haushaltsgeräte";
 "type.shop.water" = "Trinkwassergeschäft";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Kunstgeschäft";
-"type.shop.baby_goods" = "Babybedarf";
-"type.shop.bag" = "Taschen Shop";
+"type.shop.baby_goods" = "Babyartikel-Laden";
+"type.shop.bag" = "Taschengeschäft";
 "type.shop.bed" = "Bettengeschäft";
 "type.shop.boutique" = "Boutique";
 "type.shop.charity" = "Wohltätigkeitsladen";
 "type.shop.cheese" = "Käseladen";
-"type.shop.craft" = "Kunst und Handwerk";
-"type.shop.dairy" = "Milchprodukte";
+"type.shop.craft" = "Geschäft für Künstler- und Bastelbedarf";
+"type.shop.dairy" = "Geschäft für Milchprodukte";
 "type.shop.electrical" = "Elektrogeschäft";
 "type.shop.fishing" = "Angelgeschäft";
 "type.shop.interior_decoration" = "Einrichtungsgeschäft";
-"type.shop.lottery" = "Lotteriescheine";
+"type.shop.lottery" = "Lotterieladen";
 "type.shop.medical_supply" = "Sanitätshaus";
-"type.shop.nutrition_supplements" = "Nahrungsergänzungsmittel";
-"type.shop.paint" = "Farben";
+"type.shop.nutrition_supplements" = "Geschäft für Nahrungsergänzungsmittel";
+"type.shop.paint" = "Lackiererei";
 "type.shop.perfumery" = "Parfümerie";
 "type.shop.sewing" = "Nähzubehör";
 "type.shop.storage_rental" = "Lagervermietung";
@@ -1437,8 +1437,8 @@
 "type.tourism.information.board" = "Informationstafel";
 "type.tourism.information.guidepost" = "Wegweiser";
 "type.tourism.information.map" = "Touristenkarte";
-"type.tourism.information.tactile_map" = "Taktile Karte";
-"type.tourism.information.office" = "Fremdenverkehrsamt";
+"type.tourism.information.tactile_map" = "Karte für Sehbehinderte";
+"type.tourism.information.office" = "Touristen-Information";
 "type.tourism.information.visitor_centre" = "Besucherzentrum";
 "type.amenity.ranger_station" = "Försterstation";
 "type.tourism.motel" = "Motel";
@@ -1507,7 +1507,7 @@
 "type.piste_type.skitour" = "Skitouren-Route";
 "type.amenity.events_venue" = "Veranstaltungszentrum";
 "type.shop.auction" = "Auktion";
-"type.shop.collector" = "Sammlerartikel";
+"type.shop.collector" = "Geschäft für Sammlerartikel";
 "type.self_service.yes" = "Selbstbedienung verfügbar";
 "type.self_service.only" = "Nur Selbstbedienung";
 "type.self_service.partially" = "Teilweise Selbstbedienung";
@@ -1541,7 +1541,7 @@
 "type.railway.subway_entrance.boston" = "U-Bahn-Eingang";
 "type.railway.station.subway.boston" = "U-Bahn-Station";
 "type.railway.subway_entrance.qingdao" = "U-Bahn-Eingang";
-"type.building.abandoned" = "Verlassenes Gebäude";
+"type.building.abandoned" = "Leerstehendes Gebäude";
 "type.shop.tool_hire" = "Werkzeugverleih";
 "type.amenity.tool_library" = "Werkzeug-Ausleihe";
 "type.amenity.parking.customers" = "Kundenparkplätze";

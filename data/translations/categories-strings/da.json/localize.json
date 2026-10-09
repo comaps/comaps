@@ -1827,7 +1827,7 @@
         "defaultMessage": "8Afrikansk mad|9Afrikansk køkken"
     },
     "shop-farm|@category_food|@shop": {
-        "defaultMessage": "Gårdmad"
+        "defaultMessage": "Gårdmad|Gårdbutik"
     },
     "amenity-mobile_money_agent": {
         "defaultMessage": "6Mobile Money-forhandler"

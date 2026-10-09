@@ -993,7 +993,7 @@
         "defaultMessage": "Parking à vélo|Stationnement vélo"
     },
     "amenity-waste_basket": {
-        "defaultMessage": "Poubelle"
+        "defaultMessage": "4Poubelle|3Ordures"
     },
     "emergency-phone": {
         "defaultMessage": "3Téléphone d'urgence"
@@ -1572,7 +1572,7 @@
         "defaultMessage": "Saucisse"
     },
     "cuisine-seafood|cuisine-fish": {
-        "defaultMessage": "Fruits de mer|Poisson"
+        "defaultMessage": "4Fruits de mer|4Poisson|5Restaurant de poissons"
     },
     "cuisine-soba": {
         "defaultMessage": "Soba"
@@ -1702,5 +1702,29 @@
     },
     "amenity-give_box": {
         "defaultMessage": "Boîte à dons|Dons"
+    },
+    "amenity-tool_library": {
+        "defaultMessage": "3Prêt d'outils|4Location d'outils|3Outils"
+    },
+    "amenity-bicycle_parking-covered": {
+        "defaultMessage": "4Parking à vélos couvert|3Abri à vélos"
+    },
+    "amenity-vending_machine": {
+        "defaultMessage": "5Distributeur automatique"
+    },
+    "tourism-information-tactile_map": {
+        "defaultMessage": "5Carte touristique|Plan|4Information|Plan interactif"
+    },
+    "barrier-toll_booth": {
+        "defaultMessage": "4Barrière de péage"
+    },
+    "amenity-payment_centre": {
+        "defaultMessage": "3Guichet de paiement"
+    },
+    "leisure-marina": {
+        "defaultMessage": "3Marina|3Port"
+    },
+    "shop-telecommunication|@shop": {
+        "defaultMessage": "4Boutique télécoms|4Boutique de téléphones|5Téléphonie"
     }
 }

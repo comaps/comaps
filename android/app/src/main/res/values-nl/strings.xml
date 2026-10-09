@@ -9,7 +9,7 @@
     <string name="delete">Verwijderen</string>
     <string name="download_maps">Kaarten downloaden</string>
     <!-- Settings/Downloader - info for country when download fails -->
-    <string name="download_has_failed">Downloaden is mislukt, tik om het opnieuw te proberen</string>
+    <string name="download_has_failed">Downloaden mislukt, tik om het opnieuw te proberen</string>
     <!-- Settings/Downloader - info for country which started downloading -->
     <string name="downloading">Downloaden…</string>
     <!-- Choose measurement on first launch alert - choose metric system button -->
@@ -23,7 +23,7 @@
     <!-- Search box placeholder text; Used when searching on the map itself, not when searching for a map -->
     <string name="search_map">Zoeken op kaart</string>
     <!-- Location services are disabled by user alert - message -->
-    <string name="location_is_disabled_long_text">U heeft momenteel alle locatiediensten voor dit apparaat of deze app uitgeschakeld. Schakel ze in bij Instellingen.</string>
+    <string name="location_is_disabled_long_text">Je hebt momenteel alle locatiediensten voor dit apparaat of deze app uitgeschakeld. Schakel ze in via Instellingen.</string>
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">Beperkte nauwkeurigheid</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
@@ -56,7 +56,7 @@
     <string name="not_enough_free_space_on_sdcard">Maak eerst ruimte vrij op de SD-kaart/USB-opslag om de app te gebruiken</string>
     <string name="download_resources">Laten we, voor de eerste start, de algemene wereldkaart downloaden. \nDeze gebruikt %s aan opslag.</string>
     <string name="download_resources_continue">Ga naar kaart</string>
-    <string name="downloading_country_can_proceed">%1$s (%2$s) downloaden. U kunt nu \ndoorgaan naar de kaart.</string>
+    <string name="downloading_country_can_proceed">%1$s (%2$s) downloaden. Je kunt nu\ndoorgaan naar de kaart.</string>
     <string name="download_country_ask">%1$s downloaden? (%2$s)</string>
     <string name="update_country_ask">%1$s bijwerken? (%2$s)</string>
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
@@ -153,7 +153,7 @@
     <!-- message title of loading file -->
     <string name="load_kmz_title">Favorieten laden</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Favorieten succesvol geladen! U vindt ze op de kaart of in Favorietenbeheer.</string>
+    <string name="load_kmz_successful">Favorieten succesvol geladen! Je vindt ze op de kaart of in Favorietenbeheer.</string>
     <!-- Kml file loading failed -->
     <string name="load_kmz_failed">Favorieten laden is mislukt. Het bestand is mogelijk beschadigd.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
@@ -163,7 +163,7 @@
     <!-- resource for context menu -->
     <string name="edit">Bewerken</string>
     <!-- Warning message when doing search around current position -->
-    <string name="unknown_current_position">Uw locatie is nog niet vastgesteld</string>
+    <string name="unknown_current_position">Je locatie is nog niet bepaald</string>
     <!-- Alert message that we can't run Map Storage settings due to some reasons. -->
     <string name="cant_change_this_setting">Sorry, instellingen voor kaartopslag zijn momenteel uitgeschakeld</string>
     <!-- Alert message that downloading is in progress. -->
@@ -216,13 +216,13 @@
     <!-- Settings «Route» category: «Tts announce street names» title -->
     <string name="pref_tts_street_names_title">Straatnamen aankondigen</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Indien ingeschakeld, wordt de naam van de straat of afrit waar u afslaat hardop uitgesproken.</string>
+    <string name="pref_tts_street_names_description">Indien ingeschakeld, wordt de naam van de straat of afrit waar je afslaat hardop uitgesproken.</string>
     <!-- Settings «Route» category: «Tts language» title -->
     <string name="pref_tts_language_title">Gesproken taal</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
     <string name="pref_tts_test_voice_title">Gesproken aanwijzingen testen</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Controleer het volume of de tekst-naar-spraak instellingen van het systeem als u de stem nu niet hoort</string>
+    <string name="pref_tts_playing_test_voice">Controleer het volume of de tekst-naar-spraak instellingen van het systeem als je de stem nu niet hoort</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
     <string name="pref_tts_unavailable">Niet beschikbaar</string>
     <string name="pref_map_auto_zoom">Automatisch zoomen</string>
@@ -288,7 +288,7 @@
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Alle kaarten op de route downloaden</string>
     <!-- Text for routing error dialog -->
-    <string name="routing_requires_all_map">Voor het samenstellen van een route moeten alle kaarten van uw locatie naar de bestemming gedownload en bijgewerkt zijn.</string>
+    <string name="routing_requires_all_map">Om een route te maken moeten alle kaarten van je locatie naar je bestemming gedownload en bijgewerkt zijn.</string>
     <!-- Text for routing error dialog -->
     <string name="routing_not_enough_space">Niet genoeg opslagruimte</string>
     <!-- location service disabled -->
@@ -331,12 +331,12 @@
     <string name="dialog_routing_disclaimer_title">Belangrijk bij het volgen van een route:</string>
     <string name="dialog_routing_disclaimer_priority">— De situatie op de weg, verkeersregels en verkeersborden gaan altijd vóór op navigatie-aanwijzingen;</string>
     <string name="dialog_routing_disclaimer_precision">— De kaart kan onnauwkeurig zijn en de voorgestelde route is niet altijd de optimale manier om de bestemming te bereiken;</string>
-    <string name="dialog_routing_disclaimer_recommendations">— Beschouw de voorgestelde routes enkel als aanbevelingen;</string>
+    <string name="dialog_routing_disclaimer_recommendations">— Beschouw voorgestelde routes enkel als aanbevelingen;</string>
     <string name="dialog_routing_disclaimer_borders">— Wees voorzichtig met routes in grensgebieden: door onze app gemaakte routes kunnen soms landsgrenzen kruisen waar toegangsbeperkingen gelden.</string>
     <string name="dialog_routing_disclaimer_beware">Blijf alert en rijd veilig!</string>
     <string name="dialog_routing_check_gps">Controleer gps-signaal</string>
     <string name="dialog_routing_error_location_not_found">Route samenstellen mislukt. De huidige gps-coördinaten kunnen niet worden bepaald.</string>
-    <string name="dialog_routing_location_turn_wifi">Controleer uw gps-signaal. De locatie wordt nauwkeuriger bepaald als wifi is ingeschakeld.</string>
+    <string name="dialog_routing_location_turn_wifi">Controleer je gps-signaal. Je locatie is nauwkeuriger met wifi ingeschakeld.</string>
     <string name="dialog_routing_location_turn_on">Schakel locatiediensten in</string>
     <string name="dialog_routing_location_unknown_turn_on">Kan de huidige gps-coördinaten niet bepalen. Schakel locatiediensten in om de route te berekenen.</string>
     <string name="dialog_routing_unable_locate_route">Route kan niet worden gevonden</string>
@@ -357,7 +357,7 @@
     <string name="dialog_routing_download_and_build_cross_route">Kaart(en) downloaden om een betere route samen te stellen die meer dan één kaart omvat?</string>
     <string name="dialog_routing_download_cross_route">Download extra kaarten om een betere route samen te stellen die de grenzen van deze kaart overschrijdt.</string>
     <!-- SECTION: Strings for downloading map from search -->
-    <string name="search_without_internet_advertisement">Om te beginnen met zoeken en om routebeschrijvingen te kunnen maken, moet u de kaart downloaden. Daarna is een internetverbinding niet meer nodig.</string>
+    <string name="search_without_internet_advertisement">Om te beginnen met zoeken en het maken van routes moet je de kaart downloaden. Daarna heb je geen internetverbinding meer nodig.</string>
     <string name="search_select_map">Selecteer kaart</string>
     <!-- «Show» context menu -->
     <string name="show">Tonen</string>
@@ -367,16 +367,16 @@
     <string name="history">Geschiedenis</string>
     <string name="search_not_found">Geen resultaten gevonden</string>
     <!-- The message when user did not find anything in the search. -->
-    <string name="search_not_found_query">Download de regio waar u zoekt of probeer een nabijgelegen stad/dorpnaam toe te voegen.</string>
+    <string name="search_not_found_query">Download de regio waar je zoekt of voeg de naam van een nabijgelegen stad of dorp toe.</string>
     <string name="search_history_title">Zoekgeschiedenis</string>
     <string name="search_history_text">Recente zoekopdrachten</string>
     <string name="clear_search">Zoekgeschiedenis wissen</string>
-    <string name="p2p_your_location">Uw locatie</string>
+    <string name="p2p_your_location">Je locatie</string>
     <string name="p2p_start">Start</string>
     <string name="p2p_from_here">Route van</string>
     <string name="p2p_to_here">Route naar</string>
-    <string name="p2p_only_from_current">Navigeren kan alleen vanaf uw huidige locatie</string>
-    <string name="p2p_reroute_from_current">Wilt u een route plannen vanaf uw huidige locatie?</string>
+    <string name="p2p_only_from_current">Navigeren kan alleen vanaf je huidige locatie</string>
+    <string name="p2p_reroute_from_current">Wil je een route plannen vanaf je huidige locatie?</string>
     <!-- Edit open hours/set time and minutes dialog -->
     <string name="next_button">Volgende</string>
     <!-- Tab title in the Edit Opening Hours time picker -->
@@ -436,9 +436,9 @@
     <string name="level">Verdieping</string>
     <string name="downloader_delete_map_dialog">Alle wijzigingen aan de kaart worden samen met de kaart verwijderd</string>
     <string name="downloader_update_maps">Kaarten bijwerken</string>
-    <string name="downloader_mwm_migration_dialog">Om een route te creëren, moet u alle kaarten updaten en dan de route opnieuw plannen.</string>
+    <string name="downloader_mwm_migration_dialog">Om een route te maken moet je alle kaarten bijwerken en daarna de route opnieuw plannen.</string>
     <string name="downloader_search_field_hint">Kaart zoeken</string>
-    <string name="common_check_internet_connection_dialog">Zorg ervoor dat uw apparaat verbonden is met het internet</string>
+    <string name="common_check_internet_connection_dialog">Zorg ervoor dat je apparaat verbonden is met internet</string>
     <string name="downloader_no_space_title">Onvoldoende opslagruimte</string>
     <string name="downloader_no_space_message">Verwijder overbodige gegevens</string>
     <string name="editor_login_error_dialog">Inlogfout</string>
@@ -456,8 +456,8 @@
     <!-- Text in About and OSM Login screens. First %@ is replaced by a local, human readable date. -->
     <string name="osm_presentation">Door de gemeenschap samengestelde OpenStreetMap-gegevens tot %s. Lees meer over hoe je de kaart kunt bewerken en bijwerken op OpenStreetMap.org</string>
     <!-- OSM explanation on Android login screen -->
-    <string name="login_osm_presentation">OpenStreetMap.org (OSM) is een gemeenschapsproject om een vrije en open kaart te maken. Het is de belangrijkste bron van kaartgegevens voor CoMaps en werkt op een vergelijkbare manier als Wikipedia. U kunt plaatsen toevoegen of bewerken, waarna deze beschikbaar komen voor miljoenen gebruikers wereldwijd.\nSluit u aan bij de gemeenschap en help mee om de kaart voor iedereen te verbeteren!</string>
-    <string name="login_to_make_edits_visible">Maak een OpenStreetMap-account aan of log in om uw kaartbewerkingen voor de wereld te publiceren</string>
+    <string name="login_osm_presentation">OpenStreetMap.org (OSM) is een gemeenschapsproject voor het maken van een vrije en open kaart. Het is de belangrijkste bron van kaartgegevens voor CoMaps en werkt op een vergelijkbare manier als Wikipedia. Je kunt plaatsen toevoegen of bewerken, waarna deze beschikbaar komen voor miljoenen gebruikers wereldwijd.\nSluit je aan bij de gemeenschap en help mee de kaart voor iedereen te verbeteren!</string>
+    <string name="login_to_make_edits_visible">Maak een OpenStreetMap-account aan of log in om je kaartbewerkingen wereldwijd te publiceren</string>
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d van %2$d</string>
     <string name="download_over_mobile_header">Downloaden via mobiele internetverbinding?</string>
@@ -472,16 +472,16 @@
     <!-- Hint of the input field in the OSM note section of the editor -->
     <string name="editor_note_hint">Beschrijf fouten op de kaart of dingen die niet bewerkt kunnen worden met CoMaps</string>
     <!-- Information about OSM at the top of the editing page -->
-    <string name="editor_about_osm">Uw bewerkingen worden geüpload naar de openbare <a href="https://wiki.openstreetmap.org/wiki/NL:About">OpenStreetMap</a> database. Voeg geen persoonlijke of auteursrechtelijk beschermde informatie toe.</string>
+    <string name="editor_about_osm">Je bewerkingen worden geüpload naar de openbare <a href="https://wiki.openstreetmap.org/wiki/NL:About">OpenStreetMap</a>-database. Voeg geen persoonlijke of auteursrechtelijk beschermde informatie toe.</string>
     <string name="editor_more_about_osm">Meer over OpenStreetMap</string>
-    <string name="editor_osm_history">Uw bewerkingsgeschiedenis</string>
-    <string name="editor_osm_notes">Uw opmerkingen over de kaartgegevens</string>
+    <string name="editor_osm_history">Je bewerkingsgeschiedenis</string>
+    <string name="editor_osm_notes">Je opmerkingen over de kaartgegevens</string>
     <string name="editor_operator">Exploitant</string>
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Exploitant: %s</string>
     <string name="editor_category_unsuitable_title">Geen passende categorie gevonden?</string>
     <string name="editor_category_unsuitable_text">CoMaps kan alleen eenvoudige puntcategorieën toevoegen, dus geen steden, wegen, meren, contouren van gebouwen, enz. Voeg dergelijke categorieën direct toe aan <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Lees onze <a href="https://www.comaps.app/support/advanced-map-editing/">handleiding</a> voor gedetailleerde stapsgewijze instructies.</string>
-    <string name="downloader_no_downloaded_maps_title">U hebt geen kaarten gedownload</string>
+    <string name="downloader_no_downloaded_maps_title">Je hebt geen kaarten gedownload</string>
     <string name="downloader_no_downloaded_maps_message">Download kaarten om offline te zoeken en navigeren</string>
     <string name="current_location_unknown_error_title">Huidige locatie is onbekend</string>
     <!-- abbreviation for kilometers per hour -->
@@ -513,8 +513,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Wijzigingen publiceren voor alle gebruikers?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Controleer of u geen vertrouwelijke of persoonlijke gegevens hebt ingevoerd.</string>
-    <string name="editor_share_to_all_dialog_message_2">Vrijwilligers van OpenStreetMap zullen de wijzigingen controleren en contact met u opnemen als ze vragen hebben.</string>
+    <string name="editor_share_to_all_dialog_message_1">Controleer of je geen vertrouwelijke of persoonlijke gegevens hebt ingevoerd.</string>
+    <string name="editor_share_to_all_dialog_message_2">Vrijwilligers van OpenStreetMap zullen de wijzigingen controleren en contact met je opnemen als ze vragen hebben.</string>
     <string name="navigation_stop_button">Stop</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Route opnemen</string>
@@ -540,7 +540,7 @@
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Algemene feedback</string>
     <string name="prefs_languages_information">We gebruiken de systeem-TTS voor gesproken aanwijzingen. Veel Android-apparaten gebruiken Google TTS, dat te downloaden of te updaten is via de Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Voor sommige talen moet een andere tekst-naar-spraak-engine of een aanvullend taalpakket worden geïnstalleerd vanuit een appstore (Google Play, Galaxy Store, App Gallery, F-Droid).\nOpen de instellingen van uw apparaat → Taal en invoer → Spraak → Tekst-naar-spraak-uitvoer.\nHier kunt u de instellingen voor spraaksynthese beheren (bijvoorbeeld een taalpakket downloaden voor offline gebruik) en een andere tekst-naar-spraak-engine selecteren.</string>
+    <string name="prefs_languages_information_off">Voor sommige talen moet een andere tekst-naar-spraak-engine of een aanvullend taalpakket worden geïnstalleerd vanuit een appstore (Google Play, Galaxy Store, App Gallery, F-Droid).\nOpen de instellingen van je apparaat → Taal en invoer → Spraak → Tekst-naar-spraak-uitvoer.\nHier kun je de instellingen voor spraaksynthese beheren (bijvoorbeeld een taalpakket downloaden voor offline gebruik) en een andere tekst-naar-spraak-engine selecteren.</string>
     <string name="prefs_languages_information_off_link">Zie deze handleiding voor meer informatie</string>
     <string name="transliteration_title">Transliteratie naar Latijns alfabet</string>
     <string name="learn_more">Meer informatie</string>
@@ -595,7 +595,7 @@
     <string name="subway">Metro</string>
     <string name="layers_title">Kaartstijlen en -lagen</string>
     <string name="bookmarks_empty_list_title">Deze lijst is leeg</string>
-    <string name="bookmarks_empty_list_message">Om een plaats op te slaan, tikt u op een plaats op de kaart en vervolgens op het stersymbool</string>
+    <string name="bookmarks_empty_list_message">Om een plaats op te slaan, tikt je op een plaats op de kaart en vervolgens op het sterpictogram</string>
     <string name="category_desc_more">…meer</string>
     <string name="export_file">KMZ exporteren</string>
     <string name="export_file_gpx">GPX exporteren</string>
@@ -615,7 +615,7 @@
     <string name="power_managment_setting_never">Nooit</string>
     <string name="power_managment_setting_auto">Wanneer batterij bijna leeg is</string>
     <string name="power_managment_setting_manual_max">Altijd</string>
-    <string name="enable_logging_warning_message">Schakel deze optie tijdelijk in om gedetailleerde diagnostische loggegevens over uw probleem te verzamelen en handmatig naar ons te sturen via \"Meld een fout\" in het Help-dialoogvenster. Loggegevens kunnen locatie-informatie bevatten.</string>
+    <string name="enable_logging_warning_message">Schakel deze optie tijdelijk in om gedetailleerde diagnostische loggegevens over je probleem te verzamelen en deze handmatig naar ons te sturen via ‘Meld een fout’ in het Help-dialoogvenster. Loggegevens kunnen locatiegegevens bevatten.</string>
     <string name="routing_options_title">Route-instellingen</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Tolwegen vermijden</string>
@@ -625,7 +625,7 @@
     <string name="avoid_ferry">Veerboten vermijden</string>
     <string name="avoid_motorways">Snelwegen vermijden</string>
     <string name="unable_to_calc_alert_title">Kan geen route berekenen</string>
-    <string name="unable_to_calc_alert_subtitle">Het is niet gelukt om een route te vinden. Dit kan aan uw route-instellingen of aan onvolledige OpenStreetMap-gegevens liggen. Wijzig uw route-instellingen en probeer het opnieuw.</string>
+    <string name="unable_to_calc_alert_subtitle">Er is geen route gevonden. Dit kan liggen aan je route-instellingen of aan onvolledige OpenStreetMap-gegevens. Wijzig je route-instellingen en probeer het opnieuw.</string>
     <string name="define_to_avoid_btn">Routeopties kiezen</string>
     <string name="change_driving_options_btn">Route-instellingen ingeschakeld</string>
     <string name="toll_road">Tolweg</string>
@@ -725,37 +725,37 @@
     <!-- App Tip #00 -->
     <string name="app_tip_00">Bedankt voor het gebruik van onze gemeenschappelijk gemaakte kaarten!</string>
     <!-- App tip #01 -->
-    <string name="app_tip_01">Met uw donaties en steun kunnen we de beste kaarten ter wereld maken!</string>
+    <string name="app_tip_01">Met jouw donaties en steun kunnen we de beste kaarten ter wereld maken!</string>
     <!-- App tip #02 -->
     <string name="app_tip_02">Bevalt onze app? Steun de ontwikkeling met een donatie! Bevalt de app nog niet? Laat ons weten waarom, dan lossen we het op!</string>
     <!-- App tip #03 -->
-    <string name="app_tip_03">Als u een softwareontwikkelaar kent, kunt u deze vragen om een functie te implementeren die u nodig heeft.</string>
+    <string name="app_tip_03">Als je een softwareontwikkelaar kent, kun je deze vragen om een functie te implementeren die je nodig hebt.</string>
     <!-- App tip #04 -->
     <string name="app_tip_04">Tik ergens op de kaart om iets te selecteren. Tik lang om de interface te verbergen en weer te geven.</string>
     <!-- App tip #05 -->
-    <string name="app_tip_05">Wist u dat u uw huidige locatie op de kaart kunt selecteren?</string>
+    <string name="app_tip_05">Wist je dat je je huidige locatie op de kaart kunt selecteren?</string>
     <!-- App tip #06 -->
-    <string name="app_tip_06">U kunt helpen onze app in uw taal te vertalen.</string>
+    <string name="app_tip_06">Je kunt helpen onze app in jouw taal te vertalen.</string>
     <!-- App tip #07 -->
     <string name="app_tip_07">Onze app is ontwikkeld door een paar enthousiastelingen en de community.</string>
     <!-- App tip #08 -->
-    <string name="app_tip_08">U kunt de kaartgegevens eenvoudig corrigeren en verbeteren.</string>
+    <string name="app_tip_08">Je kunt de kaartgegevens eenvoudig corrigeren en verbeteren.</string>
     <!-- App tip #09 -->
-    <string name="app_tip_09">Ons belangrijkste doel is om snelle, privacygerichte, gebruiksvriendelijke kaarten te maken waar u van houdt.</string>
+    <string name="app_tip_09">Ons belangrijkste doel is om snelle, privacygerichte, gebruiksvriendelijke kaarten te maken waar jij van houdt.</string>
     <!-- Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen -->
-    <string name="car_used_on_the_phone_screen">U gebruikt nu CoMaps op het telefoonscherm</string>
+    <string name="car_used_on_the_phone_screen">Je gebruikt CoMaps nu op het telefoonscherm</string>
     <!-- Text on the phone placeholder screen that maps are displayed on the car screen -->
-    <string name="car_used_on_the_car_screen">U gebruikt nu CoMaps op het autoscherm</string>
+    <string name="car_used_on_the_car_screen">Je gebruikt CoMaps nu op het autoscherm</string>
     <!-- Displayed on the phone screen. Android Auto connected -->
-    <string name="aa_connected_title">U bent verbonden met Android Auto</string>
+    <string name="aa_connected_title">Je bent verbonden met Android Auto</string>
     <!-- Displayed on the phone screen. Button to display maps on the phone screen instead of a car -->
     <string name="car_continue_on_the_phone">Ga verder op de telefoon</string>
     <!-- Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! -->
     <string name="car_continue_in_the_car">Naar het autoscherm</string>
     <!-- Ask user to grant location permissions -->
-    <string name="aa_location_permissions_request">CoMaps heeft locatietoegang nodig. Controleer, wanneer het veilig kan, de melding op uw telefoon.</string>
+    <string name="aa_location_permissions_request">CoMaps heeft locatietoegang nodig. Controleer, wanneer het veilig kan, de melding op je telefoon.</string>
     <!-- Notification title for permission request from AA. -->
-    <string name="aa_request_permission_notification">Deze app heeft uw toestemming nodig</string>
+    <string name="aa_request_permission_notification">Deze app heeft je toestemming nodig</string>
     <!-- The text in the activity for location permission request. -->
     <string name="aa_request_permission_activity_text">CoMaps in Android Auto heeft locatietoestemming nodig om effectief te werken</string>
     <!-- Grant Permissions button. -->
@@ -770,7 +770,7 @@
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Systeeminstellingen spraaksynthese</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Instellingen voor spraaksynthese zijn niet gevonden, weet u zeker dat uw apparaat dit ondersteunt?</string>
+    <string name="pref_tts_no_system_tts">Instellingen voor spraaksynthese zijn niet gevonden. Weet je zeker dat je apparaat dit ondersteunt?</string>
     <string name="drive_through">Drive-though</string>
     <string name="clear_the_search">Zoekopdracht wissen</string>
     <string name="zoom_in">Zoom in</string>
@@ -802,7 +802,7 @@
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Geen route - niets op te slaan</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
-    <string name="error_no_file_manager_app">Het venster voor het selecteren van een map kan niet worden weergeven, omdat er geen geschikte app op uw apparaat is geïnstalleerd. Installeer een app voor bestandsbeheer en probeer het opnieuw.</string>
+    <string name="error_no_file_manager_app">Het venster voor het selecteren van een map kan niet worden weergegeven, omdat er geen geschikte app op je apparaat is geïnstalleerd. Installeer een app voor bestandsbeheer en probeer het opnieuw.</string>
     <string name="choose_color">Kies een kleur</string>
     <string name="edit_track">Route bewerken</string>
     <string name="uri_open_location_failed">Geen app geïnstalleerd die de locatie kan openen</string>
@@ -834,19 +834,19 @@
     <string name="bookmark_color">Kleur voor favoriet</string>
     <string name="backup_interval_every_day">Dagelijks</string>
     <string name="backup_interval_manual_only">Uit (alleen handmatig)</string>
-    <string name="pref_backup_title">Back-up maken van Favorieten</string>
-    <string name="pref_backup_summary">Automatisch back-up maken naar een map op uw apparaat</string>
+    <string name="pref_backup_title">Back-ups maken van Favorieten</string>
+    <string name="pref_backup_summary">Automatisch back-ups maken naar een map op je apparaat</string>
     <string name="pref_backup_now_title">Nu back-up maken</string>
     <string name="pref_backup_now_summary">Onmiddellijk een back-up maken</string>
     <string name="pref_backup_now_summary_progress">Bezig met back-up maken…</string>
-    <string name="pref_backup_now_summary_ok">Back-up met succes voltooid</string>
+    <string name="pref_backup_now_summary_ok">Back-up voltooid</string>
     <string name="pref_backup_now_summary_empty_lists">Geen Favorieten voor een back-up</string>
     <string name="pref_backup_status_summary_success">Laatste succesvolle back-up</string>
     <string name="pref_backup_interval_title">Automatische back-up</string>
     <string name="pref_backup_location_title">Back-uplocatie</string>
-    <string name="pref_backup_now_summary_failed">Back-up is mislukt</string>
+    <string name="pref_backup_now_summary_failed">Back-up mislukt</string>
     <string name="pref_backup_history_title">Aantal te bewaren back-ups</string>
-    <string name="dialog_report_error_missing_folder">De geselecteerde back-uplocatie is niet beschikbaar of niet beschrijfbaar. Kies een andere locatie.</string>
+    <string name="dialog_report_error_missing_folder">De gekozen back-uplocatie is niet beschikbaar of er kan niet naar worden geschreven. Kies een andere locatie.</string>
     <string name="backup_interval_every_week">Wekelijks</string>
     <string name="pref_backup_now_summary_folder_unavailable">De back-upmap is niet beschikbaar</string>
     <string name="panoramax">Panoramax-afbeelding</string>
@@ -864,8 +864,8 @@
     <string name="hours_confirmed_time_ago">Bevestigd %s</string>
     <string name="pref_tts_no_system_tts_short">Geen tekst-naar-spraak processor gevonden, controleer de app-instellingen</string>
     <string name="offline_explanation_title">Offline kaarten</string>
-    <string name="offline_explanation_text">Er moet een kaart worden gedownload om het gebied te kunnen bekijken en er te navigeren.\nDownload kaarten voor gebieden waar u wilt reizen.</string>
-    <string name="editor_place_doesnt_exist_description">Beschrijf hoe de plaats er nu uitziet om een foutbericht te sturen naar de OpenStreetMap-community</string>
+    <string name="offline_explanation_text">Er moet een kaart worden gedownload om het gebied te kunnen bekijken en erin te navigeren.\nDownload kaarten voor gebieden waar je wilt reizen.</string>
+    <string name="editor_place_doesnt_exist_description">Beschrijf hoe de plaats er nu uitziet om een foutbericht te sturen naar de OpenStreetMap-gemeenschap</string>
     <string name="avoid_steps">Trappen vermijden</string>
     <string name="avoid_paved">Verharde wegen vermijden</string>
     <string name="charge_socket_type2">Type 2 (zonder kabel)</string>
@@ -905,12 +905,12 @@
     <string name="prefs_speed_cameras_information">Waarschuwingen voor flitsers zijn uitgeschakeld in landen waar deze wettelijk zijn verboden.</string>
     <string name="navigation_start_tts_disabled_message">Gesproken aanwijzingen uitgeschakeld: TTS-engine niet beschikbaar</string>
     <string name="place_page_map_too_old_title">Kaartgegevens verouderd</string>
-    <string name="place_page_map_too_old_description">Uw huidige kaartgegevens zijn erg oud. Werk de kaart bij.</string>
-    <string name="place_page_app_too_old_description">Uw huidige kaartgegevens zijn erg oud. Update de CoMaps-app.</string>
+    <string name="place_page_map_too_old_description">De huidige kaartgegevens zijn sterk verouderd. Werk de kaart bij.</string>
+    <string name="place_page_app_too_old_description">Je huidige kaartgegevens zijn sterk verouderd. Update de CoMaps-app.</string>
     <string name="place_page_update_too_old_map">Kaartregio bijwerken</string>
     <string name="place_page_too_old_to_edit">Het bewerken van OpenStreetMap is uitgeschakeld omdat de kaartgegevens te oud zijn.</string>
     <string name="pref_maplanguage_local">Plaatselijke taal</string>
-    <string name="location_privacy_info">Apps ontvangen locatiegegevens van de locatiedienst van uw besturingssysteem, die deze gegevens kan delen met Google en/of de leverancier van uw apparaat. Gebruik een privacyvriendelijk Android-besturingssysteem om dit te voorkomen.</string>
+    <string name="location_privacy_info">Apps ontvangen locatiegegevens van de locatiedienst van je besturingssysteem, die deze gegevens kan delen met Google en/of de leverancier van je apparaat. Gebruik een privacyvriendelijk Android-besturingssysteem om dit te voorkomen.</string>
     <string name="location_privacy">Privacy van locatie</string>
     <string name="pref_speedlimit_title">Snelheidslimieten tonen</string>
     <string name="rooms">%s kamers</string>
@@ -929,8 +929,8 @@
     <string name="pref_alt_map_lang_handling_system_order">Gebruik in systeemvolgorde</string>
     <string name="pref_alt_map_lang_handling_local_only">Voorkeur voor lokale taal</string>
     <string name="destination">Bestemming</string>
-    <string name="bookmark_share_email_subject">Volg deze link %1$s of plak deze coördinaten %2$s in een kaarten-app om deze locatie te zien.</string>
-    <string name="my_position_share_email">Volg deze link %1$s of plak deze coördinaten %2$s in een kaarten-app om deze locatie te zien.</string>
+    <string name="bookmark_share_email_subject">Volg deze link %1$s of plak deze coördinaten %2$s in een kaartenapp om deze locatie te zien.</string>
+    <string name="my_position_share_email">Volg deze link %1$s of plak deze coördinaten %2$s in een kaartenapp om deze locatie te zien.</string>
     <string name="stop">Stop</string>
     <string name="route_recalculating">Route herberekenen…</string>
     <string name="charge_socket_type1_combo">Type 1 combo</string>
@@ -944,8 +944,8 @@
     <string name="downloader_check_updates_eol">Geen kaartupdates meer voor deze appversie. Update de app!</string>
     <string name="downloader_check_updates_error">Fout bij het controleren op updates</string>
     <string name="pref_aa_support_title">Android Auto</string>
-    <string name="pref_aa_support_summary_yes">De app is geïnstalleerd vanuit Google Play, u kunt hem gebruiken in uw auto.</string>
-    <string name="pref_aa_support_summary_no">De app is niet geïnstalleerd vanuit Google Play en daarom kunt u hem niet gebruiken in uw auto. Tik op de instelling voor meer informatie in onze FAQ.</string>
+    <string name="pref_aa_support_summary_yes">De app is geïnstalleerd vanuit Google Play, je kunt hem gebruiken in je auto.</string>
+    <string name="pref_aa_support_summary_no">De app is niet geïnstalleerd vanuit Google Play en kan daarom niet in je auto worden gebruikt. Tik op deze instelling voor meer informatie in onze FAQ.</string>
     <string name="tts_toggle_enable">Gesproken aanwijzingen inschakelen</string>
     <string name="tts_toggle_disable">Gesproken aanwijzingen uitschakelen</string>
     <string name="oh_unknown">Openingstijden onbekend</string>
@@ -962,22 +962,22 @@
     <string name="capacity_charging">Plaatsen met laders: %s</string>
     <string name="capacity_charging_yes">Heeft plaatsen met laders</string>
     <string name="capacity_charging_no">Geen plaatsen met laders</string>
-    <string name="prefs_group_route_summary">Eenheden, spraakaanwijzingen, routeringsopties</string>
+    <string name="prefs_group_route_summary">Eenheden, gesproken aanwijzingen, route-opties</string>
     <string name="prefs_group_privacy_summary">Zoekgeschiedenis</string>
     <string name="prefs_group_power_summary">Scherm-time-out, mobiele gegevens</string>
     <string name="permission_read_navigation_label">CoMaps navigatiegegevens lezen</string>
-    <string name="permission_read_navigation_description">lees live navigatie-informatie zoals aankomende bochten of de naam van de weg waarop u zich bevindt</string>
+    <string name="permission_read_navigation_description">lees live navigatie-informatie, zoals aankomende bochten of de naam van de weg waarop je je bevindt</string>
     <string name="prefs_group_map_appearance">Kaartuiterlijk</string>
     <string name="prefs_group_map_appearance_summary">Kaarttaal, labelgrootte, 2D/3D-gebouwen</string>
     <string name="planning_route_preview">Voorbeeld</string>
     <string name="search_in_all_lists">Zoek in alle lijsten</string>
-    <string name="prefs_group_interface">Vormgeving</string>
+    <string name="prefs_group_interface">Interface</string>
     <string name="prefs_group_data_management">Gegevensbeheer</string>
     <string name="prefs_group_advanced_summary">Logboekregistratie inschakelen</string>
     <string name="recalculate_route">Herberekenen</string>
-    <string name="pref_about_summary">Meld problemen, hulp, doneer\nVersie: v%1$s</string>
+    <string name="pref_about_summary">Meld problemen, krijg hulp, doneer\nVersie: v%1$s</string>
     <string name="prefs_group_interface_summary">Nachtmodus, knoppen, taal</string>
-    <string name="prefs_group_data_management_summary">Kaartopslag, back-up maken van favorieten</string>
+    <string name="prefs_group_data_management_summary">Kaartopslag, back-ups maken van favorieten</string>
     <string name="pref_enable_auto_reroute_title">Route automatisch herberekenen</string>
     <string name="pref_enable_auto_reroute_description">Indien ingeschakeld, wordt er automatisch een nieuwe route berekend wanneer de geplande route verlaten wordt.</string>
     <string name="off_route">Je bent van de route afgeweken</string>

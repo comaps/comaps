@@ -1544,6 +1544,6 @@
 "type.building.abandoned" = "Εγκαταλελειμμένο κτίριο";
 "type.shop.tool_hire" = "Ενοικίαση εργαλείων";
 "type.amenity.tool_library" = "Βιβλιοθήκη εργαλείων";
-"type.amenity.parking.customers" = "Customer Parking";
+"type.amenity.parking.customers" = "Χώρος στάθμευσης πελατών";
 "type.barrier.bus_trap" = "Bus Trap";
 "type.barrier.sump_buster" = "Sump Buster";

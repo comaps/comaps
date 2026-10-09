@@ -134,7 +134,7 @@
 /* Used for bookmark editing */
 "done" = "Fertig";
 /* Prints version number in About dialog */
-"version" = "CoMaps Version: %@";
+"version" = "CoMaps-Version: %@";
 "version %@ (%@)" = "Version %@ (%@)";
 "version: %@ (%@)\nmap data: %@" = "Version: %@ (%@)\nKartendaten: %@";
 /* Title for tracks category in bookmarks manager */
@@ -227,7 +227,7 @@
 /* Button in the main Help dialog */
 "copyright" = "Copyright";
 /* Text in menu + Button in the main Help dialog */
-"report_a_bug" = "App-Fehler melden";
+"report_a_bug" = "Fehler melden";
 /* Button in the About screen */
 "report_incorrect_map_bug" = "Falsche Kartendaten melden oder korrigieren";
 /* Button in the About screen */
@@ -384,7 +384,7 @@
 /* Voice */
 "voice" = "Stimme";
 "voice_explanation" = "Es ist möglich in den Systemeinstellungen eine bessere Stimme unter *Barrierefreiheit*, *Lesen & Sprechen*, *Stimmen* auszuwählen.";
-"voice_explanation_before_version26" = "Es ist möglich in den Systemeinstellungen eine bessere Stimme unter *Barrierefreiheit*, *Gesprochene Inhalte*, *Stimmen* auszuwählen.";
+"voice_explanation_before_version26" = "In den Systemeinstellungen kann unter *Barrierefreiheit*, *Gesprochene Inhalte*, *Stimmen* eine bessere Stimme ausgewählt werden.";
 "unknown" = "Unbekannt";
 /* Place page confirmation messages and time ago formatting */
 "existence_confirmed_time_ago" = "Existenz bestätigt %@";
@@ -493,7 +493,7 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Betreiber: %@";
 "editor_category_unsuitable_title" = "Keine passende Kategorie gefunden?";
-"editor_category_unsuitable_text" = "Mit CoMaps kannst du nur einfache Punktkategorien hinzufügen, dass bedeutet keine Städte, Straßen, Seen, Gebäudeumrisse etc. Bitte füge solche Kategorien direkt bei <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> hinzu. In unserem <a href=\"https://www.comaps.app/support/advanced-map-editing/\">Leitfaden (auf Englisch)</a> findest du eine detaillierte Schritt-für-Schritt Anleitung.";
+"editor_category_unsuitable_text" = "Mit CoMaps kannst du nur einfache Punktkategorien hinzufügen, dass bedeutet keine Städte, Straßen, Seen, Gebäudeumrisse etc. Bitte füge solche Kategorien direkt bei <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> hinzu. In unserem <a href=\"https://www.comaps.app/support/advanced-map-editing/\">Leitfaden (auf Englisch)</a> findest du eine detaillierte Schritt-für-Schritt-Anleitung.";
 "downloader_no_downloaded_maps_title" = "Du hast keine Karten heruntergeladen";
 "downloader_no_downloaded_maps_message" = "Lade Karten für die Offline-Suche und Navigation herunter.";
 "current_location_unknown_error_title" = "Aktueller Standort ist unbekannt.";
@@ -580,7 +580,7 @@
 "pref_alt_map_lang_handling" = "Alternative Kartensprachen";
 "pref_alt_map_lang_handling_ignore_alternatives" = "Verwende keine Alternativen";
 "pref_alt_map_lang_handling_system_order" = "Systemreihenfolge verwenden";
-"pref_alt_map_lang_handling_local_only" = "Bevorzugen und nur verwenden, wo es lokale Sprache ist";
+"pref_alt_map_lang_handling_local_only" = "Bevorzugen und nur verwenden, wo es die lokale Sprache ist";
 "transliteration_title" = "Transliteration ins lateinische Alphabet";
 "transliteration_title_disabled_summary" = "Deaktiviert, wenn für die Karte immer die lokale Sprache verwendet wird";
 /* Subway exits for public transport marks on the map */
@@ -646,7 +646,7 @@
 "power_managment_setting_never" = "Niemals";
 "power_managment_setting_auto" = "Bei niedrigem Akkustand";
 "power_managment_setting_manual_max" = "Immer";
-"enable_logging_warning_message" = "Aktiviere diese Option zeitweise, um manuell Aktivitäten zwecks Diagnostik aufzuzeichnen und zu senden. Das hilft unserem Team, Probleme mit der App zu erkennen. Aktiviere diese Option, reproduziere das Problem und sende die Protokolle über die Schaltfläche \"Fehler melden\" an uns.";
+"enable_logging_warning_message" = "Aktiviere diese Option zeitweise, um manuell Aktivitäten zwecks Diagnostik aufzuzeichnen und zu senden. Das hilft unserem Team Probleme mit der App zu erkennen. Aktiviere diese Option, reproduziere das Problem und sende die Protokolle über die Schaltfläche „Fehler melden“ an uns.";
 "driving_options_title" = "Routenoptionen";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_tolls" = "Mautstraßen vermeiden";
@@ -918,14 +918,14 @@
 "bookmarks_text_placement_title" = "Favoritennamen auf Karte anzeigen";
 "pref_font_size" = "Schrift auf der Karte vergrößern";
 "font_size" = "Schriftgröße";
-"mode_options_accessibility_hint" = "Shows options for this mode";
+"mode_options_accessibility_hint" = "Zeigt Optionen für diesen Modus";
 "stars_5" = "5-Sterne";
-"custom_map_server_error_scheme" = "The URL must start with http:// or https://";
+"custom_map_server_error_scheme" = "Die URL muss mit http:// oder https:// anfangen";
 "stars_4" = "4-Sterne";
 "stars_2" = "2-Sterne";
-"custom_map_server_map_series" = "This version of CoMaps is using map series %@.";
-"not_set" = "Not set";
-"custom_map_server" = "Custom Map Server";
+"custom_map_server_map_series" = "Diese CoMaps-Version verwendet die Kartenversion %@.";
+"not_set" = "Nicht eingestellt";
+"custom_map_server" = "Benutzerdefinierter Kartenserver";
 "stars_3" = "3-Sterne";
 "stars_1" = "1-Stern";
-"custom_map_server_message" = "Override the default map download server used for map downloads. Leave empty to use the default CoMaps map server.";
+"custom_map_server_message" = "Standardserver für Kartendownloads überschreiben. Leer lassen, um den CoMaps-Standardserver zu nutzen.";

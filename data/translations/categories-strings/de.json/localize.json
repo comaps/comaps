@@ -393,7 +393,7 @@
         "defaultMessage": "5Autovermietung|5Autoverleih|4Mietauto|4Auto|5Fahrzeug mieten|5Verleih|4KFZ-Vermietung|5Fahrzeugvermietung|U+1F697|U+1F698|U+1F699"
     },
     "amenity-motorcycle_rental": {
-        "defaultMessage": "5Motorradvermietung|5Motorrad|5Motorrad mieten|5Mofa mieten|5Motorroller mieten|3Töffvermietung|3TöffverleihU+1F3CD|U+1F6F5"
+        "defaultMessage": "5Motorradvermietung|5Motorrad|5Motorrad mieten|5Mofa mieten|5Motorroller mieten|3Töffvermietung|3Töffverleih|U+1F3CD|U+1F6F5"
     },
     "amenity-cinema|@category_entertainment": {
         "defaultMessage": "3Kino|4Cinema|4Filmtheater|4Film|4Filme|5Lichtspielhaus|U+1F3A6|U+1F3AC"
@@ -684,7 +684,7 @@
         "defaultMessage": "3Golfplatz|2Golf|3Golfanlage|U+26F3|U+1F3CC"
     },
     "leisure-miniature_golf": {
-        "defaultMessage": "4Minigolf|5Miniaturgolf|4Golf|3Pitch und Putt|4Mini Golf |4Mini-Golf|U+26F3|U+1F3CC"
+        "defaultMessage": "4Minigolf|5Miniaturgolf|4Golf|3Pitch und Putt|4Mini Golf|4Mini-Golf|U+26F3|U+1F3CC"
     },
     "leisure-escape_game": {
         "defaultMessage": "4Escape Room|4Escape Game|4Live Escape Game"
@@ -864,7 +864,7 @@
         "defaultMessage": "3Imker|4Bienenzüchter|4Bienenhalter|3Honig"
     },
     "craft-blacksmith": {
-        "defaultMessage": "4Schmied|4Goldschmied|4Silberschmied|3Hufschmied|4Schwertfeger|4Messerschmied|4Kesselschmied|5Kunstschmied"
+        "defaultMessage": "4Schmied|4Goldschmied|4Silberschmied|3Hufschmied|4Schwertfeger|4Messerschmied|4Kesselschmied|5Kunstschmied|Eisenschmied"
     },
     "craft-brewery": {
         "defaultMessage": "4Brauerei|4Brauhaus|5Hausbrauerei|3Bier|3Bierausschank|5Hausbräu"
@@ -972,7 +972,7 @@
         "defaultMessage": "4Fotofachgeschäft|Foto|Rahmen"
     },
     "shop-camera|@shop": {
-        "defaultMessage": "3Kamerageschäft|3Kamerafachgeschäft|3Fotofachgeschäft|3Foto|3Fotoladen|3Fotogeschäft|3Kamera|3Photografie|3Fotografie|3Fototechnik|3Photo|3Fotoausrüstung|U+1F4F7|U+1F4F8|U+1F4F9|U+1F39E|U+1F5BC"
+        "defaultMessage": "3Kamerageschäft|3Kamerafachgeschäft|3Fotofachgeschäft|3Foto|3Fotoladen|3Fotogeschäft|3Kamera|3Photografie|3Fotografie|3Fototechnik|3Photo|3Fotoausrüstung|Kameraladen|U+1F4F7|U+1F4F8|U+1F4F9|U+1F39E|U+1F5BC"
     },
     "shop-travel_agency": {
         "defaultMessage": "5Reisebüro|Reisen|Rundreisen|Reisevermittlung|Reisevermittler|Reiseagentur|Touren|Ausflüge|Urlaub|Touristeninformation|Last-Minute-Tour"
@@ -993,7 +993,7 @@
         "defaultMessage": "4Tierarzt|4Tierärztin|4Tierarztpraxis|4Tierpraxis|4Tierdoktor|5Hundearzt|5Katzenarzt|4Haustiere|U+2695"
     },
     "@charging_station": {
-        "defaultMessage": "4Ladestation|4aufladen"
+        "defaultMessage": "4Ladestation|4aufladen|Ladesäule|Ladepunkt|Ladestelle|Stromtankstelle"
     },
     "amenity-charging_station-bicycle|@charging_station": {
         "defaultMessage": "5Fahrradladestation|Fahrrad aufladen|E-Bike aufladen|Fahrrad laden|E-Bike laden"
@@ -1032,7 +1032,7 @@
         "defaultMessage": "4Tierhandlung|3Zoohandlung|4Tierbedarf"
     },
     "tourism-zoo|@category_tourism|@category_children": {
-        "defaultMessage": "2Zoo|4Tierpark"
+        "defaultMessage": "2Zoo|4Tierpark|Menagerie|Tiergehege|Tierschau|Tiergarten|Zoologischer Garten|Wildgehege"
     },
     "attraction-animal": {
         "defaultMessage": "Tiergehege"
@@ -1197,7 +1197,7 @@
         "defaultMessage": "4Sprachschule"
     },
     "amenity-ice_cream": {
-        "defaultMessage": "2Eis|3Eisstand|3Eisdiele|3Eisladen|4Eisgeschäft|4Eissalon|4Speiseeis"
+        "defaultMessage": "2Eis|3Eisstand|3Eisdiele|3Eisladen|4Eisgeschäft|4Eissalon|4Speiseeis|Sorbet"
     },
     "amenity-internet_cafe": {
         "defaultMessage": "3Internetcafé"
@@ -1329,7 +1329,7 @@
         "defaultMessage": "4Kaffeegeschäft"
     },
     "shop-fabric|@shop": {
-        "defaultMessage": "4Textilgeschäft|Stoffgeschäft|Stoffladen|Stoffe"
+        "defaultMessage": "4Textilgeschäft|Stoffgeschäft|Stoffladen|Stoffe|Textilien|Textilladen"
     },
     "shop-money_lender": {
         "defaultMessage": "4Geldverleiher|4Geldverleih"
@@ -1446,7 +1446,7 @@
         "defaultMessage": "4Badezimmerausstattung"
     },
     "shop-bed|@shop": {
-        "defaultMessage": "4Bettengeschäft|4Matratzengeschäft|4Bettenfachgeschäft"
+        "defaultMessage": "4Bettengeschäft|4Matratzengeschäft|4Bettenfachgeschäft|Matratzen|Matratzenladen"
     },
     "shop-boutique|@shop": {
         "defaultMessage": "4Modehaus|4Modegeschäft|4Modeshop|4Modeladen|4Boutique"
@@ -1858,5 +1858,11 @@
     },
     "amenity-stage": {
         "defaultMessage": "Bühne"
+    },
+    "building-abandoned": {
+        "defaultMessage": "Verlassenes Gebäude|verlassen|Leerstehendes Gebäude|leerstehend|Stillgelegtes Gebäude|stillgelegt"
+    },
+    "amenity-bicycle_parking-covered": {
+        "defaultMessage": "Überdachter Fahrradparkplatz|Überdachter Fahrradständer|Überdachter Fahrradstellplatz|Überdachter Radparkplatz|Überdachter Radstellplatz"
     }
 }

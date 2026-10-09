@@ -7624,5 +7624,8 @@
     },
     "Switzerland_Espace Mittelland_East Short": {
         "defaultMessage": "中部— 東"
+    },
+    "WorldCoasts": {
+        "defaultMessage": "世界の概観（海岸線）"
     }
 }

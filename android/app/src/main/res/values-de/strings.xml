@@ -191,7 +191,7 @@
     <string name="prefs_group_information">Information</string>
     <string name="prefs_group_route">Navigation</string>
     <string name="pref_zoom_title">Zoom-Tasten</string>
-    <string name="pref_zoom_summary">Zur Anzeige auf der Karte</string>
+    <string name="pref_zoom_summary">Auf der Karte anzeigen</string>
     <string name="prefs_group_advanced">Fortgeschritten</string>
     <string name="download_resources_custom_url_title">Benutzerdefinierter Kartenserver</string>
     <string name="download_resources_custom_url_message">Standardserver für Kartendownloads überschreiben. Leer lassen, um den CoMaps-Standardserver zu nutzen.</string>
@@ -247,7 +247,7 @@
     <!-- Button in the main Help dialog -->
     <string name="copyright">Copyright</string>
     <!-- Text in menu + Button in the main Help dialog -->
-    <string name="report_a_bug">App-Fehler melden</string>
+    <string name="report_a_bug">Fehler melden</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_recommended">Verbessere die Pfeilrichtung, indem du das Smartphone so bewegst, als würdest du eine acht (8) in der Luft nachzeichnen, um den Kompass zu kalibrieren.</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
@@ -612,11 +612,11 @@
     <!-- Speed camera settings menu option - Never warn (about speedcams) -->
     <string name="pref_tts_speedcams_never">Niemals warnen</string>
     <string name="power_managment_title">Stromsparmodus</string>
-    <string name="power_managment_description">Versuche den Stromverbrauch durch Deaktivierung einiger Funktionen zu reduzieren</string>
+    <string name="power_managment_description">Versucht den Stromverbrauch durch Deaktivierung einiger Funktionen zu reduzieren</string>
     <string name="power_managment_setting_never">Niemals</string>
     <string name="power_managment_setting_auto">Bei niedrigem Akkustand</string>
     <string name="power_managment_setting_manual_max">Immer</string>
-    <string name="enable_logging_warning_message">Aktiviere diese Option zeitweise, um manuell Aktivitäten zwecks Diagnostik aufzuzeichnen und zu senden. Das hilft unserem Team, Probleme mit der App zu erkennen. Aktiviere diese Option, reproduziere das Problem und sende die Protokolle über die Schaltfläche \"Fehler melden\" an uns.</string>
+    <string name="enable_logging_warning_message">Aktiviere diese Option zeitweise, um manuell Aktivitäten zwecks Diagnostik aufzuzeichnen und zu senden. Das hilft unserem Team Probleme mit der App zu erkennen. Aktiviere diese Option, reproduziere das Problem und sende die Protokolle über die Schaltfläche „Fehler melden“ an uns.</string>
     <string name="routing_options_title">Routenoptionen</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Mautstraßen vermeiden</string>
@@ -847,7 +847,7 @@
     <string name="backup_interval_manual_only">Aus (nur manuell)</string>
     <string name="pref_backup_title">Favoriten sichern</string>
     <string name="pref_backup_status_summary_success">Letzte erfolgreiche Sicherung</string>
-    <string name="dialog_report_error_with_logs">Bitte sende uns einen Fehlerbericht:\n - in den Einstellungen \"Protokollierung aktivieren\"\n - das Problem reproduzieren\n - im Bildschirm \"Über &amp; Hilfe\" drücke den \"App-Fehler melden\"-Knopf und sende via E-Mail oder Chat\n - die Protokollierung deaktivieren</string>
+    <string name="dialog_report_error_with_logs">Bitte sende uns einen Fehlerbericht:\n - in den Einstellungen unter „Fortgeschritten“, dann „Protokollierung aktivieren“\n - das Problem reproduzieren\n - im Bildschirm „Über &amp; Hilfe“ drücke den „Fehler melden“-Knopf und sende via E-Mail oder Chat\n - die Protokollierung deaktivieren</string>
     <string name="dialog_report_error_missing_folder">Der ausgewählte Sicherungs-Ort ist nicht verfügbar oder beschreibbar. Bitte wähle einen anderen Ort.</string>
     <string name="pref_backup_now_title">Sicherung jetzt erstellen</string>
     <string name="pref_backup_location_title">Ort für Sicherung</string>
@@ -910,7 +910,7 @@
     <string name="navigation_start_tts_message">"Navigation wird gestartet, Sprache der Sprachansagen: "</string>
     <string name="navigation_start_tts_disabled_message">Sprachansagen deaktiviert: TTS-Engine nicht verfügbar</string>
     <string name="pref_maplanguage_local">Lokale Sprache</string>
-    <string name="location_privacy_info">Apps erhalten Standortdaten von deinem Standortdienst des Betriebssystems, der deinen Standort möglicherweise an Google und/oder deinen Gerätehersteller weitergibt. Verwende ein datenschutzkonformes Android-Betriebssystem, um dies zu vermeiden.</string>
+    <string name="location_privacy_info">Apps erhalten Standortdaten von dem Standortdienst deines Betriebssystems, der deinen Standort möglicherweise an Google und/oder deinen Gerätehersteller weitergibt. Verwende ein datenschutzkonformes Android-Betriebssystem, um dies zu vermeiden.</string>
     <string name="location_privacy">Standort-Datenschutz</string>
     <string name="pref_speedlimit_title">Tempolimits anzeigen</string>
     <string name="rooms">%s Räume</string>
@@ -927,7 +927,7 @@
     <string name="pref_alt_map_lang_handling">Alternative Kartensprachen</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">Verwende keine Alternativen</string>
     <string name="pref_alt_map_lang_handling_system_order">Systemreihenfolge verwenden</string>
-    <string name="pref_alt_map_lang_handling_local_only">Bevorzugen und nur verwenden, wo es lokale Sprache ist</string>
+    <string name="pref_alt_map_lang_handling_local_only">Bevorzugen und nur verwenden, wo es die lokale Sprache ist</string>
     <string name="bookmark_share_email_subject">Klick einfach auf diesen Link %1$s oder kopiere die Koordinaten %2$s in deine Karten-App, um den Standort zu sehen.</string>
     <string name="my_position_share_email">Klick einfach auf diesen Link %1$s oder kopiere diese Koordinaten %2$s in deine Karten-App, um meinen Standort zu sehen.</string>
     <string name="destination">Ziel</string>
@@ -955,7 +955,7 @@
     <string name="long_tap_disabled_toast">Um die Benutzeroberfläche zu verstecken, aktiviere „Tippen und Halten, um die Benutzeroberfläche zu verstecken“ in den Einstellungen</string>
     <string name="sort_categories">Favoritenliste sortieren</string>
     <string name="by_recently_used">Zuletzt verwendet</string>
-    <string name="by_custom">benutzerdefiniert</string>
+    <string name="by_custom">Benutzerdefiniert</string>
     <string name="capacity_disabled">Behindertenparkplätze: %s</string>
     <string name="pref_about_summary">Melde Probleme, bekomme Hilfe, spende\nVersion: v%1$s</string>
     <string name="prefs_group_map_appearance">Kartendarstellung</string>

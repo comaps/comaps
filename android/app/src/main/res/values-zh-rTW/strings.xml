@@ -994,4 +994,9 @@
     <string name="add_review_url_resolution_failed">沒有在最近的開放街圖資料找到地點。</string>
     <string name="add_review_url_resolution_failed_dev">沒在在開發版開放街圖找到地點。</string>
     <string name="internet_unavailable">沒有網路連線</string>
+    <string name="stars_1">1顆星</string>
+    <string name="stars_2">2顆星</string>
+    <string name="stars_3">3顆星</string>
+    <string name="stars_4">4顆星</string>
+    <string name="stars_5">5顆星</string>
 </resources>

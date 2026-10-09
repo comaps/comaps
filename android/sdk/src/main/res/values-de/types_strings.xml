@@ -54,16 +54,16 @@
     <string name="type.amenity.college">Bildungseinrichtung</string>
     <string name="type.amenity.community_centre">Gemeinschaftszentrum</string>
     <string name="type.amenity.community_centre.youth_centre">Jugendzentrum</string>
-    <string name="type.amenity.compressed_air">Druckluft</string>
+    <string name="type.amenity.compressed_air">Druckluftpumpe</string>
     <string name="type.amenity.conference_centre">Konferenzzentrum</string>
     <string name="type.amenity.courthouse">Gericht</string>
     <string name="type.amenity.dentist">Zahnarzt</string>
     <string name="type.amenity.doctors">Arztpraxis</string>
-    <string name="type.amenity.drinking_water">Trinkwasser</string>
+    <string name="type.amenity.drinking_water">Trinkwasserstelle</string>
     <string name="type.drinking_water.yes">Trinkwasser</string>
     <string name="type.amenity.driving_school">Fahrschule</string>
     <string name="type.amenity.exhibition_centre">Messezentrum</string>
-    <string name="type.amenity.money_transfer">Geldtransfer</string>
+    <string name="type.amenity.money_transfer">Geldtransferbüro</string>
     <string name="type.amenity.music_school">Musikschule</string>
     <string name="type.amenity.language_school">Sprachschule</string>
     <string name="type.office.diplomatic">Botschaft</string>
@@ -155,7 +155,7 @@
     <!-- Compared to wilderness_hut its smaller and simpler, without a fireplace. -->
     <string name="type.amenity.shelter.basic_hut">Biwakschachtel</string>
     <!-- A traditional 3-walled shelter (one side open), suitable for overnight camping. -->
-    <string name="type.amenity.shelter.lean_to">Lean-to Schlafschutz</string>
+    <string name="type.amenity.shelter.lean_to">Offene Übernachtungshütte</string>
     <string name="type.amenity.public_bath">Öffentliches Bad</string>
     <string name="type.amenity.shower">Dusche</string>
     <string name="type.amenity.stripclub">Stripclub</string>
@@ -241,7 +241,7 @@
     <string name="type.craft.grinding_mill">Mühle</string>
     <string name="type.craft.handicraft">Kunsthandwerk</string>
     <!-- Heating, Ventilation, and Air Conditioning -->
-    <string name="type.craft.hvac">Heizung, Lüftung und Klimatisierung</string>
+    <string name="type.craft.hvac">Heizungs-, Lüftungs- und Klimattechnik</string>
     <string name="type.craft.key_cutter">Schlüssel-Nachmachdienst</string>
     <string name="type.craft.locksmith">Schlüsseldienst</string>
     <string name="type.craft.metal_construction">Metallverarbeitung</string>
@@ -346,7 +346,7 @@
     <string name="type.emergency.fire_hydrant">Hydrant</string>
     <string name="type.emergency.phone">Notruftelefon</string>
     <!-- A place where a lifeguard is on duty. -->
-    <string name="type.emergency.lifeguard">Rettungsschwimmer</string>
+    <string name="type.emergency.lifeguard">Wasserrettungsstation</string>
     <string name="type.beacon.cardinal.east">Kardinalbake</string>
     <string name="type.beacon.cardinal.north">Kardinalbake</string>
     <string name="type.beacon.cardinal.south">Kardinalbake</string>
@@ -394,14 +394,14 @@
     <string name="type.entrance.emergency">Notausgang</string>
     <string name="type.fee.no">Kostenlos</string>
     <string name="type.healthcare.laboratory">Medizinisches Labor</string>
-    <string name="type.healthcare.physiotherapist">Physiotherapie</string>
+    <string name="type.healthcare.physiotherapist">Physiotherapeut</string>
     <string name="type.healthcare.alternative">Alternative Medizin</string>
-    <string name="type.healthcare.audiologist">Audiologie</string>
+    <string name="type.healthcare.audiologist">Hörakustiker</string>
     <string name="type.healthcare.blood_donation">Blutspendezentrum</string>
-    <string name="type.healthcare.optometrist">Optometrie</string>
-    <string name="type.healthcare.podiatrist">Podologie</string>
-    <string name="type.healthcare.psychotherapist">Psychotherapie</string>
-    <string name="type.healthcare.sample_collection">Probenahme</string>
+    <string name="type.healthcare.optometrist">Augenoptiker</string>
+    <string name="type.healthcare.podiatrist">Podologe</string>
+    <string name="type.healthcare.psychotherapist">Psychotherapeut</string>
+    <string name="type.healthcare.sample_collection">Probenahmenzentrum</string>
     <string name="type.healthcare.speech_therapist">Logopädie</string>
     <!-- SECTION: Types: Roads -->
     <string name="type.highway">Straße</string>
@@ -734,7 +734,7 @@
     <string name="type.leisure.swimming_pool.private">Schwimmbecken</string>
     <string name="type.leisure.track">Laufbahn</string>
     <string name="type.leisure.track.area">Laufbahn</string>
-    <string name="type.leisure.water_park">Aquapark</string>
+    <string name="type.leisure.water_park">Wasserpark</string>
     <string name="type.man_made">Künstliche Anlage</string>
     <string name="type.man_made.breakwater">Wellenbrecher</string>
     <string name="type.man_made.cairn">Steinmännchen</string>
@@ -756,7 +756,7 @@
     <!-- A regular telecommunications mast. -->
     <string name="type.man_made.mast.communication">Funkmast</string>
     <!-- A deep hole drilled into the earth to extract oil or gas. -->
-    <string name="type.man_made.petroleum_well">Öl- oder Gasbohrung</string>
+    <string name="type.man_made.petroleum_well">Erdöl- oder Erdgaspumpe</string>
     <!-- A tower/mast constructed to burn off excess gas. -->
     <string name="type.man_made.flare">Gasfackel</string>
     <string name="type.man_made.wastewater_plant">Kläranlage</string>
@@ -806,7 +806,7 @@
     <string name="type.natural.saddle">Bergsattel</string>
     <string name="type.natural.rock">Fels</string>
     <string name="type.natural.scrub">Dickicht</string>
-    <string name="type.natural.spring">Quelle</string>
+    <string name="type.natural.spring">Wasserquelle</string>
     <string name="type.natural.spring.drinking_water_no">Quelle</string>
     <string name="type.natural.strait">Meerenge</string>
     <string name="type.natural.tree">Baum</string>
@@ -1188,7 +1188,7 @@
     <string name="type.shop.butcher">Metzgerei</string>
     <string name="type.shop.cannabis">Cannabis-Laden</string>
     <string name="type.shop.car">Autohaus</string>
-    <string name="type.shop.car_parts">Autoersatzteile</string>
+    <string name="type.shop.car_parts">Autoteile-Geschäft</string>
     <string name="type.shop.car_repair">Autowerkstatt</string>
     <string name="type.shop.car_repair.tyres">Reifenservice</string>
     <string name="type.shop.caravan">Wohnmobilhändler</string>
@@ -1219,13 +1219,13 @@
     <string name="type.shop.gas">Gas-Geschäft</string>
     <string name="type.shop.gift">Geschenkeladen</string>
     <string name="type.shop.greengrocer">Obst- und Gemüseladen</string>
-    <string name="type.shop.grocery">Lebensmittelkonserven</string>
+    <string name="type.shop.grocery">Lebensmittelladen</string>
     <string name="type.shop.hairdresser">Friseur</string>
     <string name="type.shop.hardware">Eisenwarengeschäft</string>
     <string name="type.shop.health_food">Reformhaus</string>
     <string name="type.shop.hearing_aids">Hörgeräteladen</string>
     <string name="type.shop.herbalist">Kräuterladen</string>
-    <string name="type.shop.hifi">HiFi-Audio</string>
+    <string name="type.shop.hifi">HiFi-Geräteladen</string>
     <string name="type.shop.houseware">Haushaltswarengeschäft</string>
     <string name="type.shop.jewelry">Juwelier</string>
     <string name="type.shop.kitchen">Küchengeschäft</string>
@@ -1267,25 +1267,25 @@
     <string name="type.shop.video_games">Gameshop</string>
     <string name="type.shop.wine">Weinhandlung</string>
     <string name="type.shop.agrarian">Landwirtschaftliches Geschäft</string>
-    <string name="type.shop.antiques">Antiquitäten</string>
+    <string name="type.shop.antiques">Antiquitätenladen</string>
     <string name="type.shop.appliance">Laden für Haushaltsgeräte</string>
     <!-- maybe change to Art Gallery for en-US when supported -->
     <string name="type.shop.art">Kunstgeschäft</string>
-    <string name="type.shop.baby_goods">Babybedarf</string>
-    <string name="type.shop.bag">Taschen Shop</string>
+    <string name="type.shop.baby_goods">Babyartikel-Laden</string>
+    <string name="type.shop.bag">Taschengeschäft</string>
     <string name="type.shop.bed">Bettengeschäft</string>
     <string name="type.shop.boutique">Boutique</string>
     <string name="type.shop.charity">Wohltätigkeitsladen</string>
     <string name="type.shop.cheese">Käseladen</string>
-    <string name="type.shop.craft">Kunst und Handwerk</string>
-    <string name="type.shop.dairy">Milchprodukte</string>
+    <string name="type.shop.craft">Geschäft für Künstler- und Bastelbedarf</string>
+    <string name="type.shop.dairy">Geschäft für Milchprodukte</string>
     <string name="type.shop.electrical">Elektrogeschäft</string>
     <string name="type.shop.fishing">Angelgeschäft</string>
     <string name="type.shop.interior_decoration">Einrichtungsgeschäft</string>
-    <string name="type.shop.lottery">Lotteriescheine</string>
+    <string name="type.shop.lottery">Lotterieladen</string>
     <string name="type.shop.medical_supply">Sanitätshaus</string>
-    <string name="type.shop.nutrition_supplements">Nahrungsergänzungsmittel</string>
-    <string name="type.shop.paint">Farben</string>
+    <string name="type.shop.nutrition_supplements">Geschäft für Nahrungsergänzungsmittel</string>
+    <string name="type.shop.paint">Lackiererei</string>
     <string name="type.shop.perfumery">Parfümerie</string>
     <string name="type.shop.sewing">Nähzubehör</string>
     <string name="type.shop.storage_rental">Lagervermietung</string>
@@ -1368,7 +1368,7 @@
     <string name="type.tourism.information.board">Informationstafel</string>
     <string name="type.tourism.information.guidepost">Wegweiser</string>
     <string name="type.tourism.information.map">Touristenkarte</string>
-    <string name="type.tourism.information.office">Fremdenverkehrsamt</string>
+    <string name="type.tourism.information.office">Touristen-Information</string>
     <string name="type.tourism.information.visitor_centre">Besucherzentrum</string>
     <string name="type.tourism.motel">Motel</string>
     <string name="type.tourism.museum">Museum</string>
@@ -1435,7 +1435,7 @@
     <string name="type.piste_type.skitour">Skitouren-Route</string>
     <string name="type.amenity.events_venue">Veranstaltungszentrum</string>
     <string name="type.shop.auction">Auktion</string>
-    <string name="type.shop.collector">Sammlerartikel</string>
+    <string name="type.shop.collector">Geschäft für Sammlerartikel</string>
     <string name="type.self_service.yes">Selbstbedienung verfügbar</string>
     <string name="type.self_service.only">Nur Selbstbedienung</string>
     <string name="type.self_service.partially">Teilweise Selbstbedienung</string>
@@ -1460,11 +1460,11 @@
     <string name="type.building.garage">Garage</string>
     <string name="type.cuisine.fish_and_chips">Fish and Chips</string>
     <string name="type.leisure.beach_resort">Strandbad</string>
-    <string name="type.amenity.food_court">Food Court</string>
+    <string name="type.amenity.food_court">Gastronomiebereich</string>
     <string name="type.fee.yes">$</string>
     <string name="type.man_made.utility_pole">Versorgungsmast</string>
     <string name="type.cuisine.bubble_tea">Bubble Tea</string>
-    <string name="type.aeroway.gate">Gate</string>
+    <string name="type.aeroway.gate">Flugsteig</string>
     <string name="type.amenity.biergarten">Biergarten</string>
     <string name="type.amenity.kindergarten">Kindergarten</string>
     <string name="type.public_transport.platform">Plattform</string>
@@ -1507,7 +1507,7 @@
     <string name="type.man_made.telescope.optical">Teleskop (Optisch)</string>
     <string name="type.man_made.telescope.radio">Teleskop (Radio)</string>
     <string name="type.man_made.telescope.gamma">Teleskop (Gamma)</string>
-    <string name="type.man_made.observatory">Observatorium</string>
+    <string name="type.man_made.observatory">Sternwarte</string>
     <string name="type.amenity.payment_centre">Zahlungszentrum</string>
     <string name="type.social_facility.soup_kitchen">Suppenküche</string>
     <string name="type.social_facility.food_bank">Tafel</string>
@@ -1526,7 +1526,7 @@
     <string name="type.railway.miniature.bridge">Miniatur-Eisenbahnbrücke</string>
     <string name="type.railway.miniature.tunnel">Miniatur-Eisenbahntunnel</string>
     <string name="type.railway.turntable">Eisenbahn-Drehscheibe</string>
-    <string name="type.tourism.information.tactile_map">Taktile Karte</string>
+    <string name="type.tourism.information.tactile_map">Karte für Sehbehinderte</string>
     <string name="type.railway.miniature">Miniatureisenbahn</string>
     <string name="type.waterway.fuel">Bunkerstation</string>
     <string name="type.shop.water">Trinkwassergeschäft</string>
@@ -1546,7 +1546,7 @@
     <string name="type.railway.station.subway.boston">U-Bahn-Station</string>
     <string name="type.railway.subway_entrance.boston">U-Bahn-Eingang</string>
     <string name="type.railway.subway_entrance.qingdao">U-Bahn-Eingang</string>
-    <string name="type.building.abandoned">Verlassenes Gebäude</string>
+    <string name="type.building.abandoned">Leerstehendes Gebäude</string>
     <string name="type.amenity.parking.customers">Kundenparkplätze</string>
     <string name="type.amenity.tool_library">Werkzeug-Ausleihe</string>
     <string name="type.barrier.bus_trap">Busschleuse</string>

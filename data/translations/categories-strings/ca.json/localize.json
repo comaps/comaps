@@ -781,5 +781,14 @@
     },
     "@category_wifi": {
         "defaultMessage": "WiFi"
+    },
+    "shop-tool_hire|@shop": {
+        "defaultMessage": "lloguer de ferramentes|ferramentes"
+    },
+    "building-abandoned": {
+        "defaultMessage": "edifici abandonat|abandonat|construcció abandonada|casa abandonada"
+    },
+    "shop-seafood|@category_food|@shop": {
+        "defaultMessage": "4pescateria|4peixateria|5mariscos|peixos"
     }
 }

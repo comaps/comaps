@@ -1575,7 +1575,7 @@
         "defaultMessage": "3Ambacht|5Kunstmaterialen"
     },
     "shop-farm|@category_food|@shop": {
-        "defaultMessage": "Boerderijvoedsel"
+        "defaultMessage": "Boerderijvoedsel|Boerderijwinkel"
     },
     "man_made-cross": {
         "defaultMessage": "Kruis"
