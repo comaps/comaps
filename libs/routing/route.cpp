@@ -603,7 +603,12 @@ std::vector<RouteStepInfo> Route::GetTurnsForDisplay(std::string const & locale)
     if (turn.IsTurnNone())
       continue;
     if (turn.m_turn == CarDirection::EnterRoundAbout)
-      continue;
+    {
+      auto const nextTurn = std::find_if(m_routeSegments.cbegin() + i + 1, m_routeSegments.cend(),
+                                         [](RouteSegment const & s) { return IsNormalTurn(s.GetTurn()); });
+      if (nextTurn != m_routeSegments.cend() && nextTurn->GetTurn().m_turn == CarDirection::LeaveRoundAbout)
+        continue;
+    }
 
     double distance = segment.GetDistFromBeginningMeters() - totalDistance;
 

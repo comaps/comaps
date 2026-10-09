@@ -480,6 +480,20 @@ void NotificationManager::Reset()
   m_secondTurnNotificationIndex = 0;
 }
 
+uint32_t NotificationManager::GetFirstNotificationDistM() const
+{
+  if (!m_settings.IsValid())
+    return 0;
+  return m_settings.ComputeTurnDistanceM(m_speedMetersPerSecond) + GetSecondNotificationDistM();
+}
+
+uint32_t NotificationManager::GetSecondNotificationDistM() const
+{
+  if (!m_settings.IsValid())
+    return 0;
+  return m_settings.ComputeDistToPronounceDistM(m_speedMetersPerSecond, false /* pedestrian */);
+}
+
 void NotificationManager::FastForwardFirstTurnNotification()
 {
   m_turnNotificationWithThen = false;

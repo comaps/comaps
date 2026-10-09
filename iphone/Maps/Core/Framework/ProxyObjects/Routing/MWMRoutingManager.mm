@@ -141,7 +141,8 @@ static NSString * MWMTurnImageName(routing::turns::CarDirection turn, BOOL isPri
                                                        distanceToTurn:info.m_distToTurn.GetDistance()
                                                        turnUnitsIndex:static_cast<UInt8>(info.m_distToTurn.GetUnits())
                                                         turnImageName:MWMTurnImageName(info.m_turn, YES)
-                                                    nextTurnImageName:MWMTurnImageName(info.m_nextTurn, NO)
+                                      firstNotificationDistanceMeters:info.m_firstNotificationDistM
+                                     secondNotificationDistanceMeters:info.m_secondNotificationDistM
                                                              speedMps:speedMps
                                                         speedLimitMps:info.m_speedLimitMps
                                                       roundExitNumber:roundExitNumber

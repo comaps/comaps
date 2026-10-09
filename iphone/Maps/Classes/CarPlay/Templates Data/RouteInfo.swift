@@ -535,7 +535,8 @@ class RouteInfo: NSObject {
   let distanceToTurn: Double
   let turnUnits: UnitLength
   let turnImageName: String?
-  let nextTurnImageName: String?
+  let firstNotificationDistanceMeters: Double
+  let secondNotificationDistanceMeters: Double
   let speedMps: Double
   let speedLimitMps: Double?
   let roundExitNumber: Int
@@ -563,7 +564,8 @@ class RouteInfo: NSObject {
              distanceToTurn: Double,
              turnUnitsIndex: UInt8,
              turnImageName: String?,
-             nextTurnImageName: String?,
+             firstNotificationDistanceMeters: Double,
+             secondNotificationDistanceMeters: Double,
              speedMps: Double,
              speedLimitMps: Double,
              roundExitNumber: Int,
@@ -586,7 +588,8 @@ class RouteInfo: NSObject {
     self.distanceToTurn = distanceToTurn
     self.turnUnits = RouteInfo.unitLength(for: turnUnitsIndex)
     self.turnImageName = turnImageName
-    self.nextTurnImageName = nextTurnImageName
+    self.firstNotificationDistanceMeters = firstNotificationDistanceMeters
+    self.secondNotificationDistanceMeters = secondNotificationDistanceMeters
     self.speedMps = speedMps
     // speedLimitMps >= 0 means known limited speed.
     self.speedLimitMps = speedLimitMps < 0 ? nil : speedLimitMps

@@ -79,6 +79,27 @@ UNIT_TEST(TurnNotificationSettings_NotValidTest)
   TEST(!settings2.IsValid(), ());
 }
 
+UNIT_TEST(TurnsSound_NotificationDistances)
+{
+  NotificationManager const unconfigured;
+  TEST_EQUAL(unconfigured.GetFirstNotificationDistM(), 0, ());
+  TEST_EQUAL(unconfigured.GetSecondNotificationDistM(), 0, ());
+
+  auto slow = NotificationManager::CreateNotificationManagerForTesting(
+      5 /* startBeforeSeconds */, 10 /* minStartBeforeMeters */, 100 /* maxStartBeforeMeters */,
+      100 /* minDistToSayNotificationMeters */, measurement_utils::Units::Metric, "{}",
+      20 /* notificationTimeSecond */, 10.0 /* speedMeterPerSecond */);
+  TEST_EQUAL(slow.GetSecondNotificationDistM(), 50, ());
+  TEST_EQUAL(slow.GetFirstNotificationDistM(), 250, ());
+
+  auto fast = NotificationManager::CreateNotificationManagerForTesting(
+      5 /* startBeforeSeconds */, 10 /* minStartBeforeMeters */, 100 /* maxStartBeforeMeters */,
+      100 /* minDistToSayNotificationMeters */, measurement_utils::Units::Metric, "{}",
+      20 /* notificationTimeSecond */, 30.0 /* speedMeterPerSecond */);
+  TEST_EQUAL(fast.GetSecondNotificationDistM(), 100, ());
+  TEST_EQUAL(fast.GetFirstNotificationDistM(), 700, ());
+}
+
 UNIT_TEST(TurnsSound_MetersTest)
 {
   string const engShortJson =

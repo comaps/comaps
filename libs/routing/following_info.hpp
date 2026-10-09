@@ -48,6 +48,8 @@ public:
   /// Route identity is unique within one application session. Turn identity is the point index on this route.
   uint64_t m_routeId = 0;
   uint32_t m_turnIndex;
+  uint32_t m_firstNotificationDistM = 0;
+  uint32_t m_secondNotificationDistM = 0;
   turns::CarDirection m_turn;
   /// Turn after m_turn. Returns NoTurn if there is no turns after.
   turns::CarDirection m_nextTurn;

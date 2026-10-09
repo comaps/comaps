@@ -269,8 +269,12 @@ struct CarPlayRoutePlan {
     self.init(routeID: routeID, steps: steps)
   }
 
-  func primaryStepIndex(forTurnIndex turnIndex: UInt32) -> Int? {
-    return steps.firstIndex { $0.turnIndex >= turnIndex }
+  func primaryStepIndex(forTurnIndex turnIndex: UInt32, direction: CarDirection) -> Int? {
+    guard let index = steps.firstIndex(where: { $0.turnIndex >= turnIndex }) else { return nil }
+    if steps[index].turnIndex == turnIndex {
+      return index
+    }
+    return direction == .enterRoundAbout && steps[index].carDirection == .leaveRoundAbout ? index : nil
   }
 
   func secondaryStepIndex(after primaryIndex: Int) -> Int? {
@@ -290,7 +294,8 @@ struct CarPlayManeuverContent: Equatable {
   init(routeInfo: RouteInfo, plan: CarPlayRoutePlan?) {
     lanes = routeInfo.lanes.map(CarPlayLaneManeuverContent.init)
     if let plan, plan.routeID == routeInfo.routeID,
-       let primaryIndex = plan.primaryStepIndex(forTurnIndex: routeInfo.turnIndex) {
+       let primaryIndex = plan.primaryStepIndex(forTurnIndex: routeInfo.turnIndex,
+                                                direction: routeInfo.carDirection) {
       primaryIdentity = CarPlayPrimaryManeuverIdentity(routeID: plan.routeID,
                                                        turnIndex: plan.steps[primaryIndex].turnIndex)
       isPlannedPrimary = true
@@ -317,6 +322,30 @@ enum CarPlayManeuverPhase: String, Equatable {
   case prepare
   case initial
   case `continue`
+
+  static let executeDistanceMeters = 30.0
+  static let fallbackPrepareDistanceMeters = 150.0
+  static let fallbackInitialDistanceMeters = 400.0
+
+  static func phase(distanceMeters: Double,
+                    firstNotificationDistanceMeters: Double,
+                    secondNotificationDistanceMeters: Double,
+                    holdingExecute: Bool) -> CarPlayManeuverPhase {
+    if holdingExecute {
+      return .execute
+    }
+    let prepareDistance = secondNotificationDistanceMeters > 0 ? secondNotificationDistanceMeters
+                                                               : fallbackPrepareDistanceMeters
+    let initialDistance = firstNotificationDistanceMeters > 0 ? max(firstNotificationDistanceMeters, prepareDistance)
+                                                              : fallbackInitialDistanceMeters
+    let executeDistance = min(executeDistanceMeters, prepareDistance)
+    switch distanceMeters {
+    case ..<executeDistance: return .execute
+    case ..<prepareDistance: return .prepare
+    case ..<initialDistance: return .initial
+    default: return .continue
+    }
+  }
 }
 
 struct CarPlayManeuverRefreshState {
@@ -722,6 +751,9 @@ extension CarPlayRouter {
       routeSession.currentLaneGuidance = currentLaneGuidance(for: routeInfo, content: content) as? CPLaneGuidance
     }
     maneuverRefreshState.didDisplay(content)
+    if previousContent?.primaryIdentity != content.primaryIdentity {
+      lastManeuverPhase = nil
+    }
     publishedPrimaryIdentity = content.primaryIdentity
 
     LOG(.info,
@@ -800,15 +832,13 @@ extension CarPlayRouter {
     return guidance
   }
 
-  private func maneuverPhase(forDistanceToTurn distance: Double,
-                             units: UnitLength) -> CarPlayManeuverPhase {
-    let meters = distanceInMeters(distance, units: units)
-    switch meters {
-    case ..<30: return .execute
-    case ..<150: return .prepare
-    case ..<400: return .initial
-    default: return .continue
-    }
+  private func maneuverPhase(for routeInfo: RouteInfo) -> CarPlayManeuverPhase {
+    let holdingExecute = routeInfo.carDirection == .leaveRoundAbout && lastManeuverPhase == .execute
+    return CarPlayManeuverPhase.phase(
+      distanceMeters: distanceInMeters(routeInfo.distanceToTurn, units: routeInfo.turnUnits),
+      firstNotificationDistanceMeters: routeInfo.firstNotificationDistanceMeters,
+      secondNotificationDistanceMeters: routeInfo.secondNotificationDistanceMeters,
+      holdingExecute: holdingExecute)
   }
 
   private func updateDynamicNavigationState(with routeInfo: RouteInfo) {
@@ -826,7 +856,7 @@ extension CarPlayRouter {
     routeSession.updateEstimates(estimates, for: primaryManeuver)
 
     if #available(iOS 17.4, *) {
-      let phase = maneuverPhase(forDistanceToTurn: routeInfo.distanceToTurn, units: routeInfo.turnUnits)
+      let phase = maneuverPhase(for: routeInfo)
       if phase != lastManeuverPhase {
         switch phase {
         case .execute: routeSession.maneuverState = .execute
@@ -859,7 +889,6 @@ extension CarPlayRouter {
       }
       LOG(.info,
           "[CarPlayGuidance] \(sameRoute ? "turn_advanced" : "route_changed") previous=\(identityDescription(previousIdentity)) current=\(identityDescription(identity)) previousDirection=\(lastObservedDirection?.diagnosticName ?? "none") currentDirection=\(routeInfo.carDirection.diagnosticName) indexDelta=\(indexDelta) previousLastDistanceM=\(formatMeters(lastObservedDistanceMeters)) currentDistanceM=\(formatMeters(distanceMeters)) \(roadDescription(routeInfo))")
-      lastManeuverPhase = nil
     } else if lastObservedIdentity == nil {
       LOG(.info,
           "[CarPlayGuidance] route_observed current=\(identityDescription(identity)) direction=\(routeInfo.carDirection.diagnosticName) distanceM=\(formatMeters(distanceMeters)) \(roadDescription(routeInfo))")

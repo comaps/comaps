@@ -481,6 +481,8 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
   info.m_distToTurn = platform::Distance::CreateFormatted(distanceToTurnMeters);
   info.m_routeId = m_route->GetRouteId();
   info.m_turnIndex = turn.m_index;
+  info.m_firstNotificationDistM = m_turnNotificationsMgr.GetFirstNotificationDistM();
+  info.m_secondNotificationDistM = m_turnNotificationsMgr.GetSecondNotificationDistM();
   info.m_turn = turn.m_turn;
 
   info.m_speedLimitMps = GetCurrentSpeedLimit();

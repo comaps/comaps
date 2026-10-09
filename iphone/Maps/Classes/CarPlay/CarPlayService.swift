@@ -1240,7 +1240,6 @@ extension CarPlayService: CPMapTemplateDelegate {
     if let type = maneuver.userInfo as? String {
       switch type {
       case CPConstants.Maneuvers.lanes: return .symbolOnly
-      case CPConstants.Maneuvers.secondary: return .trailingSymbol
       default: break
       }
     }

@@ -179,7 +179,8 @@ final class CarPlayServiceTests: XCTestCase {
                               distanceToTurn: 0.5,
                               turnUnitsIndex: 0, // m
                               turnImageName: nil,
-                              nextTurnImageName: nil,
+                              firstNotificationDistanceMeters: 0,
+                              secondNotificationDistanceMeters: 0,
                               speedMps: 40.5,
                               speedLimitMps: 60,
                               roundExitNumber: 0,
@@ -288,6 +289,74 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertEqual(exit.primaryIdentity.turnIndex, 5)
     XCTAssertNil(state.reason(for: exit),
                  "Entering the roundabout must not replace the combined roundabout maneuver")
+  }
+
+  func testRoundaboutEntranceOnRouteEndingOnRingIsItsOwnPlannedManeuver() {
+    let plan = makePlan([(2, .turnLeft, 0), (3, .enterRoundAbout, 1000), (6, .reachedYourDestination, 1100)])
+    let entrance = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(turnIndex: 3, carDirection: .enterRoundAbout), plan: plan)
+
+    XCTAssertTrue(entrance.isPlannedPrimary)
+    XCTAssertEqual(entrance.primaryIdentity.turnIndex, 3)
+  }
+
+  func testManeuverPhaseFollowsVoicePromptDistances() {
+    func phase(_ distance: Double) -> CarPlayManeuverPhase {
+      return CarPlayManeuverPhase.phase(distanceMeters: distance,
+                                        firstNotificationDistanceMeters: 1000,
+                                        secondNotificationDistanceMeters: 120,
+                                        holdingExecute: false)
+    }
+
+    XCTAssertEqual(phase(1500), .continue)
+    XCTAssertEqual(phase(999), .initial)
+    XCTAssertEqual(phase(119), .prepare)
+    XCTAssertEqual(phase(29), .execute)
+  }
+
+  func testManeuverPhaseFallsBackWithoutVoicePromptDistances() {
+    func phase(_ distance: Double) -> CarPlayManeuverPhase {
+      return CarPlayManeuverPhase.phase(distanceMeters: distance,
+                                        firstNotificationDistanceMeters: 0,
+                                        secondNotificationDistanceMeters: 0,
+                                        holdingExecute: false)
+    }
+
+    XCTAssertEqual(phase(400), .continue)
+    XCTAssertEqual(phase(399), .initial)
+    XCTAssertEqual(phase(149), .prepare)
+    XCTAssertEqual(phase(29), .execute)
+  }
+
+  func testManeuverPhaseKeepsExecuteWithinShortPrepareDistance() {
+    XCTAssertEqual(CarPlayManeuverPhase.phase(distanceMeters: 25,
+                                              firstNotificationDistanceMeters: 235,
+                                              secondNotificationDistanceMeters: 20,
+                                              holdingExecute: false), .initial)
+    XCTAssertEqual(CarPlayManeuverPhase.phase(distanceMeters: 19,
+                                              firstNotificationDistanceMeters: 235,
+                                              secondNotificationDistanceMeters: 20,
+                                              holdingExecute: false), .execute)
+  }
+
+  func testManeuverPhaseHoldsExecuteInsideRoundabout() {
+    XCTAssertEqual(CarPlayManeuverPhase.phase(distanceMeters: 300,
+                                              firstNotificationDistanceMeters: 1000,
+                                              secondNotificationDistanceMeters: 120,
+                                              holdingExecute: true), .execute)
+  }
+
+  func testTurnMissingFromPlanDoesNotMapToALaterStep() {
+    let plan = makePlan([(2, .turnLeft, 0), (6, .reachedYourDestination, 1100)])
+    let entrance = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(turnIndex: 3, carDirection: .enterRoundAbout), plan: plan)
+    let turn = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(turnIndex: 4, carDirection: .turnRight), plan: plan)
+
+    XCTAssertFalse(entrance.isPlannedPrimary)
+    XCTAssertEqual(entrance.primaryIdentity, CarPlayPrimaryManeuverIdentity(routeID: 1, turnIndex: 3))
+    XCTAssertFalse(turn.isPlannedPrimary)
+    XCTAssertEqual(turn.primaryIdentity, CarPlayPrimaryManeuverIdentity(routeID: 1, turnIndex: 4))
   }
 
   func testSecondaryManeuverIsTheNextStepWithinThreshold() {
@@ -812,7 +881,8 @@ final class CarPlayServiceTests: XCTestCase {
                              turnIndex: UInt32 = 1,
                              carDirection: CarDirection = .turnLeft,
                              distanceToTurn: Double = 100,
-                             nextTurnImageName: String? = nil,
+                             firstNotificationDistanceMeters: Double = 0,
+                             secondNotificationDistanceMeters: Double = 0,
                              lanes: [LaneInfo] = [],
                              roadName: String = "Main Street",
                              roadRef: String = "",
@@ -828,7 +898,8 @@ final class CarPlayServiceTests: XCTestCase {
                      distanceToTurn: distanceToTurn,
                      turnUnitsIndex: 0,
                      turnImageName: "ic_cp_simple_left",
-                     nextTurnImageName: nextTurnImageName,
+                     firstNotificationDistanceMeters: firstNotificationDistanceMeters,
+                     secondNotificationDistanceMeters: secondNotificationDistanceMeters,
                      speedMps: 10,
                      speedLimitMps: 50,
                      roundExitNumber: 0,
