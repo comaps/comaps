@@ -1320,13 +1320,13 @@
     <string name="type.waterway.river">Rivier</string>
     <string name="type.waterway.river.tunnel">Rivier</string>
     <string name="type.waterway.stream">Beek</string>
-    <string name="type.waterway.stream.ephemeral">Rivier</string>
+    <string name="type.waterway.stream.ephemeral">Beek</string>
     <string name="type.waterway.stream.intermittent">Beek</string>
     <string name="type.waterway.stream.tunnel">Beek</string>
     <string name="type.waterway.waterfall">Waterval</string>
     <string name="type.waterway.weir">Stuw</string>
     <string name="type.wheelchair">Rolstoel</string>
-    <string name="type.wheelchair.limited">Gedeeltelijk rolstoeltoegankelijk</string>
+    <string name="type.wheelchair.limited">Beperkt rolstoeltoegankelijk</string>
     <string name="type.wheelchair.no">Niet rolstoeltoegankelijk</string>
     <string name="type.wheelchair.yes">Volledig rolstoeltoegankelijk</string>
     <string name="type.aerialway.j.bar">Sleeplift (J-beugel)</string>
@@ -1512,7 +1512,7 @@
     <string name="type.shop.beauty.nails">Nagelsalon</string>
     <string name="type.amenity.food_sharing">Voedseldeelpunt</string>
     <string name="type.amenity.give_box">Weggeefkast</string>
-    <string name="type.amenity.hydrant">Watertappunt|waterkraan</string>
+    <string name="type.amenity.hydrant">Waterkraan</string>
     <string name="type.railway.miniature">Miniatuurspoorweg</string>
     <string name="type.railway.miniature.bridge">Miniatuurspoorbrug</string>
     <string name="type.railway.miniature.tunnel">Miniatuurspoortunnel</string>

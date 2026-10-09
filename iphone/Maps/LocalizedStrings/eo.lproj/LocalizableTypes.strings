@@ -161,10 +161,10 @@
 "type.recycling.cardboard" = "Kartono";
 "type.recycling.cans" = "Ladskatoloj";
 "type.recycling.shoes" = "Ŝuoj";
-"type.recycling.green_waste" = "Green/Organic Waste";
+"type.recycling.green_waste" = "Bioruboj";
 "type.recycling.cartons" = "Cartons";
 "type.amenity.restaurant" = "Restoracio";
-"type.amenity.sanitary_dump_station" = "Holding Tank Dump Station";
+"type.amenity.sanitary_dump_station" = "Stacio de forigo de fekaĵoj";
 "type.amenity.school" = "Lernejo";
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "Ŝirmejo";
@@ -173,7 +173,7 @@
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Bivouac Hut";
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Lean-to Sleep Shelter";
+"type.amenity.shelter.lean_to" = "Duon-ferma ŝirmejo";
 "type.amenity.public_bath" = "Banejo";
 "type.amenity.shower" = "Duŝo";
 "type.amenity.stripclub" = "Striptizejo";
@@ -186,7 +186,7 @@
 "type.amenity.university" = "Universitato";
 "type.amenity.vending_machine" = "Vendaŭtomato";
 "type.amenity.vending_machine.cigarettes" = "Cigarette Dispenser";
-"type.amenity.vending_machine.coffee" = "Coffee Dispenser";
+"type.amenity.vending_machine.coffee" = "Kafvendilo";
 "type.amenity.vending_machine.condoms" = "Condoms Dispenser";
 "type.amenity.vending_machine.drinks" = "Trinkaĵaŭtomato";
 "type.amenity.vending_machine.food" = "Food Dispenser";
@@ -1451,13 +1451,13 @@
 "type.waterway.lock_gate" = "Kluzpordo";
 "type.waterway.river" = "Rivero";
 "type.waterway.river.tunnel" = "Rivero";
-"type.waterway.stream" = "Stream";
-"type.waterway.stream.ephemeral" = "Ephemeral Stream";
-"type.waterway.stream.intermittent" = "Intermittent Stream";
-"type.waterway.stream.tunnel" = "Stream";
-"type.waterway.waterfall" = "Waterfall";
-"type.waterway.weir" = "Weir";
-"type.wheelchair" = "Wheelchair";
+"type.waterway.stream" = "Rivereto";
+"type.waterway.stream.ephemeral" = "Rivereto";
+"type.waterway.stream.intermittent" = "Rivereto";
+"type.waterway.stream.tunnel" = "Rivereto";
+"type.waterway.waterfall" = "Akvofalo";
+"type.waterway.weir" = "Vejro";
+"type.wheelchair" = "Rulseĝo";
 "type.wheelchair.limited" = "Limited Wheelchair Access";
 "type.wheelchair.no" = "No Wheelchair Access";
 "type.wheelchair.yes" = "Full Wheelchair Access";

@@ -1106,4 +1106,15 @@
     <string name="type.waterway.drain.tunnel">Kulverto</string>
     <string name="type.waterway.river">Rivero</string>
     <string name="type.waterway.river.tunnel">Rivero</string>
+    <string name="type.waterway.stream">Rivereto</string>
+    <string name="type.waterway.stream.ephemeral">Rivereto</string>
+    <string name="type.waterway.stream.intermittent">Rivereto</string>
+    <string name="type.waterway.stream.tunnel">Rivereto</string>
+    <string name="type.waterway.waterfall">Akvofalo</string>
+    <string name="type.waterway.weir">Vejro</string>
+    <string name="type.wheelchair">Rulseĝo</string>
+    <string name="type.recycling.green_waste">Bioruboj</string>
+    <string name="type.amenity.sanitary_dump_station">Stacio de forigo de fekaĵoj</string>
+    <string name="type.amenity.shelter.lean_to">Duon-ferma ŝirmejo</string>
+    <string name="type.amenity.vending_machine.coffee">Kafvendilo</string>
 </resources>

@@ -756,7 +756,7 @@
         "defaultMessage": "3Water"
     },
     "amenity-drinking_water|drinking_water-yes|@category_water": {
-        "defaultMessage": "4Drinkwater"
+        "defaultMessage": "4Drinkwater|5Watertappunt"
     },
     "natural-hot_spring|@category_water": {
         "defaultMessage": "Hete bron|Warmwaterbron"
@@ -768,7 +768,7 @@
         "defaultMessage": "Waterbron"
     },
     "amenity-water_point|@category_water|@category_rv": {
-        "defaultMessage": "5Watertappunt|5Camper-waterpunt|water voor camper|water voor caravan"
+        "defaultMessage": "5Watervulpunt|5Camper-waterpunt|water voor camper|water voor caravan"
     },
     "man_made-water_tap|@category_water": {
         "defaultMessage": "5Waterkraan"

@@ -377,7 +377,7 @@
 "type.emergency.life_ring" = "Reddingsboei";
 "type.emergency.defibrillator" = "Defibrillator (AED)";
 "type.emergency.fire_hydrant" = "Brandkraan";
-"type.amenity.hydrant" = "Watertappunt|waterkraan";
+"type.amenity.hydrant" = "Waterkraan";
 "type.emergency.phone" = "Praatpaal";
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "Strandwacht";
@@ -1471,13 +1471,13 @@
 "type.waterway.river" = "Rivier";
 "type.waterway.river.tunnel" = "Rivier";
 "type.waterway.stream" = "Beek";
-"type.waterway.stream.ephemeral" = "Rivier";
+"type.waterway.stream.ephemeral" = "Beek";
 "type.waterway.stream.intermittent" = "Beek";
 "type.waterway.stream.tunnel" = "Beek";
 "type.waterway.waterfall" = "Waterval";
 "type.waterway.weir" = "Stuw";
 "type.wheelchair" = "Rolstoel";
-"type.wheelchair.limited" = "Gedeeltelijk rolstoeltoegankelijk";
+"type.wheelchair.limited" = "Beperkt rolstoeltoegankelijk";
 "type.wheelchair.no" = "Niet rolstoeltoegankelijk";
 "type.wheelchair.yes" = "Volledig rolstoeltoegankelijk";
 "type.aerialway.j.bar" = "Sleeplift (J-beugel)";
