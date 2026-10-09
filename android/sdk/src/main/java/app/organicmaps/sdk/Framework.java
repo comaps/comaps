@@ -279,6 +279,12 @@ public class Framework
   @Nullable
   public static native RouteStepInfo[] nativeGetRouteSteps(String language);
 
+  public static native void nativePreviewTurn(int segmentIndex);
+
+  public static native void nativeClearPreviewedTurn();
+
+  public static native boolean nativeIsPreviewingTurn();
+
   @NonNull
   public static native TransitRouteInfo nativeGetTransitRouteInfo();
   /**

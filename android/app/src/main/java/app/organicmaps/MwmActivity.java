@@ -77,6 +77,8 @@ import app.organicmaps.routing.DirectionsPreviewBottomSheet;
 import app.organicmaps.routing.ManageRouteBottomSheet;
 import app.organicmaps.routing.NavigationController;
 import app.organicmaps.routing.NavigationService;
+import app.organicmaps.routing.RoutePreviewController;
+import app.organicmaps.routing.RoutePreviewPanelController;
 import app.organicmaps.routing.RoutingBottomMenuListener;
 import app.organicmaps.routing.RoutingErrorDialogFragment;
 import app.organicmaps.routing.RoutingPlanFragment;
@@ -174,10 +176,16 @@ public class MwmActivity extends BaseMwmFragmentActivity
   @NonNull
   private MapController mMapController;
 
+  @SuppressWarnings("NotNullFieldNotInitialized")
+  @NonNull
+  private RoutePreviewController mRoutePreviewController;
+
   private View mPointChooser;
   private MaterialToolbar mPointChooserToolbar;
 
   private RoutingPlanInplaceController mRoutingPlanInplaceController;
+  @Nullable
+  private RoutePreviewPanelController mRoutePreviewPanelController;
 
   private NavigationController mNavigationController;
 
@@ -503,6 +511,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
 
     mPlacePageViewModel = new ViewModelProvider(this).get(PlacePageViewModel.class);
     mMapButtonsViewModel = new ViewModelProvider(this).get(MapButtonsViewModel.class);
+    mRoutePreviewController = new RoutePreviewController(this, mMapButtonsViewModel);
     // We don't need to manually handle removing the observers it follows the activity lifecycle
     mMapButtonsViewModel.getBottomButtonsHeight().observe(this, this::onMapBottomButtonsHeightChange);
     mMapButtonsViewModel.getLayoutMode().observe(this, this::initNavigationButtons);
@@ -619,6 +628,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
     if (!mIsTabletLayout)
     {
       mRoutingPlanInplaceController = new RoutingPlanInplaceController(this, startRoutingOptionsForResult, this, this);
+      mRoutePreviewPanelController =
+          new RoutePreviewPanelController(findViewById(R.id.map_container), mRoutePreviewController::exitPreview);
       removeCurrentFragment(false);
     }
 
@@ -630,6 +641,17 @@ public class MwmActivity extends BaseMwmFragmentActivity
     initMainMenu();
     initOnmapDownloader();
     initPositionChooser();
+  }
+
+  @Nullable
+  public String getPreviewedTurnInstruction()
+  {
+    return mRoutePreviewController.getPreviewedTurnInstruction();
+  }
+
+  public void exitRoutePreview()
+  {
+    mRoutePreviewController.exitPreview();
   }
 
   private void initPositionChooser()
@@ -902,6 +924,9 @@ public class MwmActivity extends BaseMwmFragmentActivity
     {
     case zoomIn -> Map.zoomIn();
     case zoomOut -> Map.zoomOut();
+    case routePreviewPrevious -> mRoutePreviewController.previewPreviousTurn();
+    case routePreviewNext -> mRoutePreviewController.previewNextTurn();
+    case routePreviewCancel -> mRoutePreviewController.exitPreview();
     case myPosition ->
     {
       Logger.i(LOCATION_TAG, "The location button pressed");
@@ -1667,6 +1692,25 @@ public class MwmActivity extends BaseMwmFragmentActivity
     else
     {
       mRoutingPlanInplaceController.updateBuildProgress(progress, router);
+    }
+  }
+
+  @Override
+  public void onTurnPreviewChanged(boolean isPreviewing, int segmentIndex)
+  {
+    mRoutePreviewController.onTurnPreviewChanged(isPreviewing, segmentIndex);
+
+    if (mIsTabletLayout)
+    {
+      RoutingPlanFragment fragment = (RoutingPlanFragment) getFragment(RoutingPlanFragment.class);
+      if (fragment != null)
+        fragment.onTurnPreviewChanged(isPreviewing, getPreviewedTurnInstruction());
+    }
+    else if (mRoutingPlanInplaceController != null)
+    {
+      mRoutingPlanInplaceController.onTurnPreviewChanged(isPreviewing);
+      if (mRoutePreviewPanelController != null)
+        mRoutePreviewPanelController.onTurnPreviewChanged(isPreviewing, getPreviewedTurnInstruction());
     }
   }
 

@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.OptIn;
@@ -55,6 +56,16 @@ public class MapButtonsController extends Fragment
   private View mInnerLeftButtonsFrame;
   private View mInnerRightButtonsFrame;
   @Nullable
+  private View mRoutePreviewButtonsFrame;
+  @Nullable
+  private View mRoutePreviewPreviousButton;
+  @Nullable
+  private View mRoutePreviewNextButton;
+  @Nullable
+  private View mRoutePreviewCancelButton;
+  @Nullable
+  private TextView mRoutePreviewPosition;
+  @Nullable
   private View mBottomButtonsFrame;
   @Nullable
   private LayersButton mToggleMapLayerButton;
@@ -83,6 +94,8 @@ public class MapButtonsController extends Fragment
     updateLeftButtonToggleState(enable);
   };
   private final Observer<Integer> mTopButtonMarginObserver = this::updateTopButtonsMargin;
+  private final Observer<MapButtonsViewModel.RoutePreviewControlsState> mRoutePreviewControlsObserver =
+      this::updateRoutePreviewControls;
 
   private LeftButton mLeftButton;
 
@@ -106,6 +119,21 @@ public class MapButtonsController extends Fragment
     mInnerLeftButtonsFrame = mFrame.findViewById(R.id.map_buttons_inner_left);
     mInnerRightButtonsFrame = mFrame.findViewById(R.id.map_buttons_inner_right);
     mBottomButtonsFrame = mFrame.findViewById(R.id.map_buttons_bottom);
+    mRoutePreviewButtonsFrame = mFrame.findViewById(R.id.route_preview_buttons_container);
+    mRoutePreviewCancelButton = mFrame.findViewById(R.id.nav_route_preview_cancel);
+    mRoutePreviewPreviousButton = mFrame.findViewById(R.id.nav_route_preview_prev);
+    mRoutePreviewNextButton = mFrame.findViewById(R.id.nav_route_preview_next);
+    mRoutePreviewPosition = mFrame.findViewById(R.id.nav_route_preview_text);
+
+    if (mRoutePreviewCancelButton != null)
+      mRoutePreviewCancelButton.setOnClickListener(
+          v -> mMapButtonClickListener.onMapButtonClick(MapButtons.routePreviewCancel));
+    if (mRoutePreviewPreviousButton != null)
+      mRoutePreviewPreviousButton.setOnClickListener(
+          v -> mMapButtonClickListener.onMapButtonClick(MapButtons.routePreviewPrevious));
+    if (mRoutePreviewNextButton != null)
+      mRoutePreviewNextButton.setOnClickListener(
+          v -> mMapButtonClickListener.onMapButtonClick(MapButtons.routePreviewNext));
 
     mButtonsMap = new HashMap<>();
 
@@ -443,6 +471,7 @@ public class MapButtonsController extends Fragment
     mMapButtonsViewModel.getSearchOption().observe(activity, mSearchOptionObserver);
     mMapButtonsViewModel.getTrackRecorderState().observe(activity, mTrackRecorderObserver);
     mMapButtonsViewModel.getTopButtonsMarginTop().observe(activity, mTopButtonMarginObserver);
+    mMapButtonsViewModel.getRoutePreviewControlsState().observe(activity, mRoutePreviewControlsObserver);
   }
 
   public void onResume()
@@ -478,6 +507,27 @@ public class MapButtonsController extends Fragment
     mMapButtonsViewModel.getButtonsHidden().removeObserver(mButtonHiddenObserver);
     mMapButtonsViewModel.getMyPositionMode().removeObserver(mMyPositionModeObserver);
     mMapButtonsViewModel.getSearchOption().removeObserver(mSearchOptionObserver);
+    mMapButtonsViewModel.getRoutePreviewControlsState().removeObserver(mRoutePreviewControlsObserver);
+  }
+
+  private void updateRoutePreviewControls(@Nullable MapButtonsViewModel.RoutePreviewControlsState state)
+  {
+    if (mRoutePreviewButtonsFrame == null)
+      return;
+
+    if (state == null || !state.isVisible())
+    {
+      UiUtils.hide(mRoutePreviewButtonsFrame);
+      return;
+    }
+
+    UiUtils.show(mRoutePreviewButtonsFrame);
+    if (mRoutePreviewPosition != null)
+      mRoutePreviewPosition.setText(state.positionText());
+    if (mRoutePreviewPreviousButton != null)
+      mRoutePreviewPreviousButton.setEnabled(state.allowPrevious());
+    if (mRoutePreviewNextButton != null)
+      mRoutePreviewNextButton.setEnabled(state.allowNext());
   }
 
   public void onSearchOptionChange(@Nullable SearchWheel.SearchOption searchOption)
@@ -525,7 +575,10 @@ public class MapButtonsController extends Fragment
     bookmarks,
     menu,
     help,
-    trackRecordingStatus
+    trackRecordingStatus,
+    routePreviewPrevious,
+    routePreviewNext,
+    routePreviewCancel
   }
 
   public interface MapButtonClickListener

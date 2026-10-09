@@ -9,25 +9,21 @@ jobject ToJavaRouteStepInfo(JNIEnv * env, routing::RouteStepInfo const & step)
                                                                        "I"
                                                                        "I"
                                                                        "I"
+                                                                       "I"
                                                                        "Ljava/lang/String;"
                                                                        "Ljava/lang/String;"
                                                                        "I"
                                                                        "D"
                                                                        "Lapp/organicmaps/sdk/util/Distance;"
                                                                        "Ljava/lang/String;"
-                                                                       ")V"
-    );
+                                                                       ")V");
 
-    return env->NewObject(routeStepInfoClass, ctorRouteStepInfoID,
-                   static_cast<jint>(step.m_index),
-                   static_cast<jint>(step.m_turn),
-                   static_cast<jint>(step.m_pedestrianTurn),
-                   jni::ToJavaString(env, step.m_fromStreetName),
-                   jni::ToJavaString(env, step.m_toStreetName),
-                   static_cast<jint>(step.m_exitNum),
-                   static_cast<jdouble>(step.m_distMeters),
-                   ToJavaDistance(env, step.m_formattedDistance),
-                   jni::ToJavaString(env, step.m_textualInstruction));
+    return env->NewObject(routeStepInfoClass, ctorRouteStepInfoID, static_cast<jint>(step.m_index),
+                          static_cast<jint>(step.m_sequence), static_cast<jint>(step.m_turn),
+                          static_cast<jint>(step.m_pedestrianTurn), jni::ToJavaString(env, step.m_fromStreetName),
+                          jni::ToJavaString(env, step.m_toStreetName), static_cast<jint>(step.m_exitNum),
+                          static_cast<jdouble>(step.m_distMeters), ToJavaDistance(env, step.m_formattedDistance),
+                          jni::ToJavaString(env, step.m_textualInstruction));
 }
 
 jobjectArray CreateRouteStepInfoArray(JNIEnv * env, std::vector<routing::RouteStepInfo> const & steps)

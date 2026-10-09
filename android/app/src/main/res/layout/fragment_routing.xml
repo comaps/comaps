@@ -9,6 +9,10 @@
   <include layout="@layout/routing_plan"/>
 
   <include
+      layout="@layout/route_preview"
+      android:visibility="gone" />
+
+  <include
     layout="@layout/altitude_chart_panel"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>

@@ -38,6 +38,10 @@
       layout="@layout/routing_plan"
       android:visibility="invisible" />
     <include
+        layout="@layout/route_preview"
+        android:visibility="gone" />
+
+    <include
       layout="@layout/menu"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"

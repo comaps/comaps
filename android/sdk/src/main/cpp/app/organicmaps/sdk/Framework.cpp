@@ -901,6 +901,13 @@ void CallRoutingListener(shared_ptr<jobject> listener, int errorCode, storage::C
                       jni::TScopedLocalObjectArrayRef(env, jni::ToJavaStringArray(env, absentMaps)).get());
 }
 
+void CallTurnPreviewChangedListener(shared_ptr<jobject> listener, bool isPreviewing, uint32_t segmentIndex)
+{
+  JNIEnv * env = jni::GetEnv();
+  jmethodID const methodId = jni::GetMethodID(env, *listener, "onTurnPreviewChanged", "(ZI)V");
+  env->CallVoidMethod(*listener, methodId, static_cast<jboolean>(isPreviewing), static_cast<jint>(segmentIndex));
+}
+
 void CallRouteProgressListener(shared_ptr<jobject> listener, float progress)
 {
   JNIEnv * env = jni::GetEnv();
@@ -1492,9 +1499,12 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetRoutingListen
                                                                                    jobject listener)
 {
   CHECK(g_framework, ("Framework isn't created yet!"));
-  frm()->GetRoutingManager().SetRouteBuildingListener(
-      [rf = jni::make_global_ref(listener)](routing::RouterResultCode e, storage::CountriesSet const & countries)
+  auto const rf = jni::make_global_ref(listener);
+  auto & rm = frm()->GetRoutingManager();
+  rm.SetRouteBuildingListener([rf](routing::RouterResultCode e, storage::CountriesSet const & countries)
   { CallRoutingListener(rf, static_cast<int>(e), countries); });
+  rm.SetPreviewedTurnChangedCallback([rf](bool isPreviewing, uint32_t segmentIndex)
+  { CallTurnPreviewChangedListener(rf, isPreviewing, segmentIndex); });
 }
 
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetRouteProgressListener(JNIEnv * env, jclass,
@@ -1596,6 +1606,24 @@ JNIEXPORT jobjectArray JNICALL Java_app_organicmaps_sdk_Framework_nativeGetRoute
 
   auto const steps = rm.GetRouteTurnsForDisplay(nativeLanguage);
   return CreateRouteStepInfoArray(env, steps);
+}
+
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativePreviewTurn(JNIEnv *, jclass, jint segmentIndex)
+{
+  if (segmentIndex < 0)
+    return;
+
+  frm()->PreviewTurn(static_cast<uint32_t>(segmentIndex));
+}
+
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeClearPreviewedTurn(JNIEnv *, jclass)
+{
+  frm()->GetRoutingManager().ClearPreviewedTurn();
+}
+
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeIsPreviewingTurn(JNIEnv *, jclass)
+{
+  return static_cast<jboolean>(frm()->GetRoutingManager().IsPreviewingTurn());
 }
 
 JNIEXPORT jobject JNICALL Java_app_organicmaps_sdk_Framework_nativeGetTransitRouteInfo(JNIEnv * env, jclass)

@@ -434,6 +434,10 @@
     <string name="p2p_reroute_from_current">Do you want to plan a route from your current location?</string>
     <!-- Edit open hours/set time and minutes dialog -->
     <string name="next_button">Next</string>
+    <string name="route_preview_previous_turn">Previous turn</string>
+    <string name="route_preview_next_turn">Next turn</string>
+    <string name="route_preview_turn_position">%1$d of %2$d</string>
+    <string name="route_preview_cancel">Close route preview</string>
     <!-- Tab title in the Edit Opening Hours time picker -->
     <string name="editor_time_from">From</string>
     <!-- Tab title in the Edit Opening Hours time picker -->
