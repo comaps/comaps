@@ -594,6 +594,7 @@ std::vector<RouteStepInfo> Route::GetTurnsForDisplay(std::string const & locale)
   getTtsText.SetLocale(locale);
 
   double totalDistance = 0.0;
+  int seq = 0;
   for (size_t i = 0; i < m_routeSegments.size(); ++i)
   {
     auto const & segment = m_routeSegments[i];
@@ -610,6 +611,7 @@ std::vector<RouteStepInfo> Route::GetTurnsForDisplay(std::string const & locale)
 
     RouteStepInfo step;
     step.m_index = i;
+    step.m_sequence = ++seq;
     step.m_turn = segment.GetTurn().m_turn;
     step.m_pedestrianTurn = segment.GetTurn().m_pedestrianTurn;
     step.m_exitNum = segment.GetTurn().m_exitNum;
@@ -627,6 +629,38 @@ std::vector<RouteStepInfo> Route::GetTurnsForDisplay(std::string const & locale)
   }
 
   return steps;
+}
+
+m2::PointD Route::GetJunctionPointForTurn(uint32_t segmentIndex) const
+{
+  if (segmentIndex >= m_routeSegments.size())
+    return {};
+  return m_routeSegments[segmentIndex].GetJunction().GetPoint();
+}
+
+double Route::GetDirectionForTurn(uint32_t segmentIndex) const
+{
+  if (segmentIndex >= m_routeSegments.size())
+    return 0.0;
+
+  auto const & turnPoint = m_routeSegments[segmentIndex].GetJunction().GetPoint();
+  // calculate from a point far back enough
+  for (size_t i = segmentIndex; i > 0; --i)
+  {
+    auto const & previousPoint = m_routeSegments[i - 1].GetJunction().GetPoint();
+    if (!AlmostEqualULPs(previousPoint, turnPoint))
+      return ang::Azimuth(previousPoint, turnPoint);
+  }
+
+  // first turn only
+  for (size_t i = segmentIndex + 1; i < m_routeSegments.size(); ++i)
+  {
+    auto const & nextPoint = m_routeSegments[i].GetJunction().GetPoint();
+    if (!AlmostEqualULPs(turnPoint, nextPoint))
+      return ang::Azimuth(turnPoint, nextPoint);
+  }
+
+  return 0.0;
 }
 
 bool IsNormalTurn(TurnItem const & turn)
