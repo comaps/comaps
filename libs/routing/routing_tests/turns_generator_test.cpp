@@ -26,8 +26,8 @@
 namespace routing
 {
 void GetTurnDirectionBasic(turns::IRoutingResult const & result, size_t outgoingSegmentIndex,
-                           NumMwmIds const & numMwmIds, RoutingSettings const & vehicleSettings,
-                           turns::TurnItem & turn);
+                           NumMwmIds const & numMwmIds, RoutingSettings const & vehicleSettings, turns::TurnItem & turn,
+                           turns::CarDirection & previousDirection);
 }  // namespace routing
 
 namespace turn_generator_test
@@ -361,8 +361,9 @@ UNIT_TEST(GetTurnDirectionBasic_ContinuousHairpin)
     resultTest.SetPossibleTurns(2 /* ingoingCount */, turns);
 
     TurnItem turn;
-    GetTurnDirectionBasic(resultTest, 1 /* outgoingSegmentIndex */, numMwmIds,
-                          GetRoutingSettings(VehicleType::Car), turn);
+    CarDirection prevDir = CarDirection::None;
+    GetTurnDirectionBasic(resultTest, 1 /* outgoingSegmentIndex */, numMwmIds, GetRoutingSettings(VehicleType::Car),
+                          turn, prevDir);
     TEST_EQUAL(turn.m_turn, expectedDirection, (candidateClass));
   };
 
@@ -422,5 +423,141 @@ UNIT_TEST(GetNextRoutePointIndex)
   TEST(!GetNextRoutePointIndex(resultTest, RoutePointIndex({0 /* m_segmentIndex */, 0 /* m_pathIndex */}), NumMwmIds(),
                                false /* forward */, nextIndex),
        ());
+}
+
+UNIT_TEST(TestTurnAcrossCarriageway)
+{
+  /*
+    This test models a two-carriageway road "Hyde Drive",
+    with a one-carriageway road "Pine street" intersecting it as follows.
+
+      Hyde Drive
+        ↓    ↑
+        ↓    ↑
+    ----+====x=== Pine street
+        ↓    ↑
+        ↓    ↑
+
+    We test that, when coming from south and turning left into Pine street at the "x",
+    no "go straight" instruction is generated at "+", even if the highwayClass becomes smaller.
+   */
+
+  NumMwmId kMwmId = 0;
+  uint32_t kHydeDriveNorthFeatureId = 1;
+  uint32_t kHydeDriveSouthFeatureId = 2;
+  uint32_t kPineStreetFeatureId = 3;
+
+  FeatureID hydeDriveNorthFeature = routing_test::MakeTestFeatureID(kHydeDriveNorthFeatureId);
+  FeatureID hydeDriveSouthFeature = routing_test::MakeTestFeatureID(kHydeDriveSouthFeatureId);
+  FeatureID pineStreetFeature = routing_test::MakeTestFeatureID(kPineStreetFeatureId);
+
+  NumMwmIds numMwmIds;
+  numMwmIds.RegisterFile(platform::CountryFile("0"));
+
+  auto P = [](double x, double y)
+  { return geometry::PointWithAltitude({mercator::MetersToMercator(x), mercator::MetersToMercator(y)}, 0); };
+
+  TUnpackedPathSegments pathSegments(7, LoadedPathSegment());
+  pathSegments[0].m_isLink = false;
+  pathSegments[0].m_onRoundabout = false;
+  pathSegments[0].m_isOneWay = true;
+  pathSegments[0].m_roadNameInfo = {"Hyde Drive", "", "", "", "", false};
+  pathSegments[0].m_highwayClass = ftypes::HighwayClass::Primary;
+  pathSegments[0].m_path = {P(20, 0), P(20, 10)};
+  pathSegments[0].m_segmentRange =
+      SegmentRange(hydeDriveNorthFeature, 0, 0, true /* forward */, pathSegments[0].m_path.front().GetPoint(),
+                   pathSegments[0].m_path.back().GetPoint());
+  pathSegments[0].m_segments.emplace_back(kMwmId, kHydeDriveNorthFeatureId, 0, true /* forward */);
+
+  pathSegments[1] = pathSegments[0];
+  pathSegments[1].m_path = {P(20, 10), P(20, 20)};
+  pathSegments[1].m_segmentRange =
+      SegmentRange(hydeDriveNorthFeature, 1, 1, true /* forward */, pathSegments[1].m_path.front().GetPoint(),
+                   pathSegments[1].m_path.back().GetPoint());
+  pathSegments[1].m_segments = {Segment(kMwmId, kHydeDriveNorthFeatureId, 1, true /* forward */)};
+
+  pathSegments[2] = pathSegments[1];
+  pathSegments[2].m_path = {P(10, 20), P(10, 10)};
+  pathSegments[2].m_segmentRange =
+      SegmentRange(hydeDriveSouthFeature, 0, 0, true /* forward */, pathSegments[2].m_path.front().GetPoint(),
+                   pathSegments[2].m_path.back().GetPoint());
+  pathSegments[2].m_segments = {Segment(kMwmId, kHydeDriveSouthFeatureId, 0, true /* forward */)};
+
+  pathSegments[3] = pathSegments[2];
+  pathSegments[3].m_path = {P(10, 10), P(10, 0)};
+  pathSegments[3].m_segmentRange =
+      SegmentRange(hydeDriveSouthFeature, 1, 1, true /* forward */, pathSegments[3].m_path.front().GetPoint(),
+                   pathSegments[3].m_path.back().GetPoint());
+  pathSegments[3].m_segments = {Segment(kMwmId, kHydeDriveSouthFeatureId, 1, true /* forward */)};
+
+  pathSegments[4].m_isLink = false;
+  pathSegments[4].m_onRoundabout = false;
+  pathSegments[4].m_isOneWay = false;
+  pathSegments[4].m_roadNameInfo = {"Pine street", "", "", "", "", false};
+  pathSegments[4].m_highwayClass = ftypes::HighwayClass::Tertiary;
+  pathSegments[4].m_path = {P(30, 10), P(20, 10)};
+  pathSegments[4].m_segmentRange =
+      SegmentRange(pineStreetFeature, 0, 0, true /* forward */, pathSegments[4].m_path.front().GetPoint(),
+                   pathSegments[4].m_path.back().GetPoint());
+  pathSegments[4].m_segments.emplace_back(kMwmId, kPineStreetFeatureId, 0, true /* forward */);
+
+  pathSegments[5] = pathSegments[4];
+  pathSegments[5].m_highwayClass = ftypes::HighwayClass::Primary;
+  pathSegments[5].m_path = {P(20, 10), P(10, 10)};
+  pathSegments[5].m_segmentRange =
+      SegmentRange(pineStreetFeature, 1, 1, true /* forward */, pathSegments[5].m_path.front().GetPoint(),
+                   pathSegments[5].m_path.back().GetPoint());
+  pathSegments[5].m_segments = {Segment(kMwmId, kPineStreetFeatureId, 1, true /* forward */)};
+
+  pathSegments[6] = pathSegments[5];
+  pathSegments[6].m_highwayClass = ftypes::HighwayClass::Tertiary;
+  pathSegments[6].m_path = {P(10, 10), P(0, 10)};
+  pathSegments[6].m_segmentRange =
+      SegmentRange(pineStreetFeature, 2, 2, true /* forward */, pathSegments[6].m_path.front().GetPoint(),
+                   pathSegments[6].m_path.back().GetPoint());
+  pathSegments[6].m_segments = {Segment(kMwmId, kPineStreetFeatureId, 2, true /* forward */)};
+
+  // The route comes from south on Hyde Drive (0), turns left into Pine street (5),
+  // and continues straight west (6).
+  TUnpackedPathSegments route = {pathSegments[0], pathSegments[5], pathSegments[6]};
+  RoutingResultTest resultTest(route);
+
+  RoutingSettings const vehicleSettings = GetRoutingSettings(VehicleType::Car);
+  CarDirection previousDirection = CarDirection::None;
+
+  TurnItem turnAtX;
+  TurnCandidates turnsAtX;
+  double routeAngleAtX = CalcOneSegmentTurnAngle(TurnInfo(&route[0], &route[1]));
+  turnsAtX.isCandidatesAngleValid = true;
+  turnsAtX.candidates.emplace_back(routeAngleAtX, pathSegments[5].m_segments.front(), pathSegments[5].m_highwayClass,
+                                   false /* isLink */);
+  turnsAtX.candidates.emplace_back(0.0, pathSegments[1].m_segments.front(), ftypes::HighwayClass::Primary,
+                                   false /* isLink */);
+  resultTest.SetPossibleTurns(2 /* ingoingCount */, turnsAtX);
+  GetTurnDirectionBasic(resultTest, 1 /* outgoingSegmentIndex */, numMwmIds, vehicleSettings, turnAtX,
+                        previousDirection);
+  TEST_EQUAL(turnAtX.m_turn, CarDirection::TurnLeft, ());
+  TEST_EQUAL(previousDirection, CarDirection::TurnLeft, ());
+
+  TurnItem turnAtPlus;
+  TurnCandidates turnsAtPlus;
+  double routeAngleAtPlus = CalcOneSegmentTurnAngle(TurnInfo(&route[1], &route[2]));
+  turnsAtPlus.isCandidatesAngleValid = true;
+  turnsAtPlus.candidates.emplace_back(-90.0, pathSegments[3].m_segments.front(), ftypes::HighwayClass::Primary,
+                                      false /* isLink */);
+  turnsAtPlus.candidates.emplace_back(routeAngleAtPlus, pathSegments[6].m_segments.front(),
+                                      ftypes::HighwayClass::Tertiary, false /* isLink */);
+  resultTest.SetPossibleTurns(2 /* ingoingCount */, turnsAtPlus);
+  GetTurnDirectionBasic(resultTest, 2 /* outgoingSegmentIndex */, numMwmIds, vehicleSettings, turnAtPlus,
+                        previousDirection);
+  TEST_EQUAL(turnAtPlus.m_turn, CarDirection::None, ());
+
+  // Verify that without the prior turn across the dual carriageway,
+  // a "GoStraight" would normally be generated when entering a lower road class across a higher class.
+  CarDirection noPriorTurn = CarDirection::None;
+  TurnItem turnWithoutPriorTurn;
+  GetTurnDirectionBasic(resultTest, 2 /* outgoingSegmentIndex */, numMwmIds, vehicleSettings, turnWithoutPriorTurn,
+                        noPriorTurn);
+  TEST_EQUAL(turnWithoutPriorTurn.m_turn, CarDirection::GoStraight, ());
 }
 }  // namespace turn_generator_test

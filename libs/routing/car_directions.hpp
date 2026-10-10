@@ -20,6 +20,8 @@ protected:
                                   NumMwmIds const & numMwmIds, RoutingSettings const & vehicleSettings,
                                   turns::TurnItem & turn);
   virtual void FixupTurns(std::vector<RouteSegment> & routeSegments);
+
+  turns::CarDirection previousDirection;
 };
 
 void FixupCarTurns(std::vector<RouteSegment> & routeSegments);
