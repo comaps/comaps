@@ -21,6 +21,9 @@
 @import("../../public-transport/include/priorities_2_BG-top.prio.txt")
 @import("../../outdoors/include/priorities_2_BG-top.prio.txt")
 
+# comapsapp-mwm_border                              # area z1-7
+# === 30
+
 # landuse-basin                                     # area z12-
 # landuse-reservoir                                 # area z12- (also has caption z10-)
 # landuse-salt_pond                                 # area z1-
