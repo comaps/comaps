@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.hardware.display.DisplayManager;
 import android.hardware.display.VirtualDisplay;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.SurfaceHolder;
@@ -117,13 +118,38 @@ class SurfaceCallback extends SurfaceCallbackBase
   {
     Logger.d(TAG, "Surface available " + surfaceContainer);
 
-    mVirtualDisplay =
-        mCarContext.getSystemService(DisplayManager.class)
-            .createVirtualDisplay(VIRTUAL_DISPLAY_NAME, surfaceContainer.getWidth(), surfaceContainer.getHeight(),
-                                  surfaceContainer.getDpi(), surfaceContainer.getSurface(), 0);
-    mPresentation = new Presentation(mCarContext, mVirtualDisplay.getDisplay());
+    if (mVirtualDisplay == null)
+    {
+      mVirtualDisplay =
+          mCarContext.getSystemService(DisplayManager.class)
+              .createVirtualDisplay(VIRTUAL_DISPLAY_NAME, surfaceContainer.getWidth(), surfaceContainer.getHeight(),
+                  surfaceContainer.getDpi(), surfaceContainer.getSurface(), 0);
+    }
+    else
+    {
+      mVirtualDisplay.resize(surfaceContainer.getWidth(), surfaceContainer.getHeight(), surfaceContainer.getDpi());
+      mVirtualDisplay.setSurface(surfaceContainer.getSurface());
+    }
 
-    mPresentation.setContentView(prepareViewForPresentation(mMapController.getView()));
+    if (mVirtualDisplay == null)
+    {
+      Logger.e(TAG, "Invalid virtual display, aborting.");
+      return;
+    }
+
+    // Ensure existing presentation is in sync with virtual display
+    if (mPresentation != null && mPresentation.getDisplay().getDisplayId() != mVirtualDisplay.getDisplay().getDisplayId())
+    {
+      mPresentation.dismiss();
+      mPresentation = null;
+    }
+
+    if (mPresentation == null)
+    {
+      mPresentation = new Presentation(mCarContext, mVirtualDisplay.getDisplay());
+      mPresentation.setContentView(prepareViewForPresentation(mMapController.getView()));
+    }
+
     mPresentation.show();
   }
 
@@ -141,10 +167,22 @@ class SurfaceCallback extends SurfaceCallbackBase
   public void onSurfaceDestroyed(@NonNull SurfaceContainer surfaceContainer)
   {
     Logger.d(TAG, "Surface destroyed");
+    releaseDisplayAndPresentation();
+  }
+
+  public void releaseDisplayAndPresentation()
+  {
     if (mPresentation != null)
+    {
       mPresentation.dismiss();
+      mPresentation = null;
+    }
+
     if (mVirtualDisplay != null)
+    {
       mVirtualDisplay.release();
+      mVirtualDisplay = null;
+    }
   }
 
   @NonNull
