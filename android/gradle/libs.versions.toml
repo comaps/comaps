@@ -1,6 +1,5 @@
 [versions]
 
-kotlin = "2.2.20"
 googleGuava = "33.5.0-android"
 huaweiPublish = "1.4.2"
 androidMaterial = "1.12.0" # 1.13 Material library version doesn't render properly alpha properties on map buttons
@@ -69,6 +68,5 @@ androidx-car-app-projected = { module = "androidx.car.app:app-projected", versio
 androidx-lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "androidxLifecycleProcess" }
 
 [plugins]
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library= { id = "com.android.library", version.ref = "androidGradlePlugin" }
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
