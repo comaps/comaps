@@ -771,7 +771,7 @@ public class PlacePageView extends Fragment
             case "no" -> getString(R.string.capacity_charging_no);
             default -> getString(R.string.capacity_charging, capacityCharging);
 		};
-  }
+    }
 	refreshMetadataOrHide(capacityCharging, mCapacityCharging, mTvCapacityCharging);
 
     final String driveThrough = mMapObject.getMetadata(Metadata.MetadataType.FMD_DRIVE_THROUGH);

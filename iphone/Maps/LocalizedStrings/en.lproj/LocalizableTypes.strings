@@ -896,6 +896,9 @@
 "type.organic.only" = "Organic only";
 "type.organic.yes" = "Organic options";
 "type.organic.no" = "No organic options";
+"type.second_hand.only" = "Second-hand only";
+"type.second_hand.yes" = "Second-hand options";
+"type.second_hand.no" = "No second-hand options";
 "type.place.city" = "City";
 "type.place.city.capital" = "Capital";
 "type.place.city.capital.10" = "City";
