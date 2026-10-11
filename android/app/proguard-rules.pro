@@ -28,3 +28,8 @@
 # R8 crypts the source line numbers in all log messages.
 # https://github.com/organicmaps/organicmaps/issues/6559#issuecomment-1812039926
 -dontoptimize
+
+# AGP 9.x strips the required classes
+# An alternative fix is to update androidx.work:work to 2.11.2, but it requires minSDK 23
+-keep class androidx.work.impl.WorkDatabase { *; }
+-keep class androidx.work.impl.WorkDatabase_Impl { *; }

@@ -27,7 +27,8 @@ androidxAppCompat = "1.7.1"
 androidxAnnotation = "1.10.0"
 androidxCustomView = "1.2.0"
 androidxPreference = "1.2.1"
-androidxWorkRuntime = "2.10.5"
+# TODO: androidxWorkRuntime 2.11 upgrade will make special keep rules in proguard-rules.pro redundant
+androidxWorkRuntime = "2.10.5" # 2.11 requires minSDK 23, 2.12 requires SDK 24
 androidxDocumentFile = "1.1.0"
 androidxRecyclerView = "1.4.0"
 androidxConstraintLayout = "2.2.1"
