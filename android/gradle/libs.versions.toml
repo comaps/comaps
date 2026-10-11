@@ -1,38 +1,38 @@
 [versions]
 
 kotlin = "2.2.20"
-googleGuava = "33.5.0-android"
+googleGuava = "33.6.0-android" # 33.7 requires minSDK 23
 huaweiPublish = "1.4.2"
-androidMaterial = "1.12.0" # 1.13 Material library version doesn't render properly alpha properties on map buttons
-jetbrainsKotlinBom = "2.2.21"
+androidMaterial = "1.12.0" # 1.13 Material library version doesn't render properly alpha properties on map buttons, 1.14 requires minSDK 23
+jetbrainsKotlinBom = "2.4.21"
 androidGradlePlugin = "8.13.2"
 androidToolsDesugar = "2.1.5"
 tripletPlayPublisher = "3.13.0"
 microgServicesLocation = "0.3.14.250932"
-appDevNextAndroidChart = "3.1.0.31"
+appDevNextAndroidChart = "3.1.0.31" # 4.x requires minSDK 23
 dependencyUpdatesPlugin = "0.66.0"
 
 # Testing
 robo = "4.16.1"
 jUnit = "4.13.2"
-mockitoCore = "5.23.0"
+mockitoCore = "5.24.0"
 androidxTestJUnit = "1.3.0"
 
 # AndroidX
-coreKtx = "1.16.0"
-androidxCore = "1.17.0"
-androidxMedia = "1.7.1"
+coreKtx = "1.17.0"
+androidxCore = "1.17.0" # 1.18 requires minSDK 23
+androidxMedia = "1.7.1" # 1.8 requires minSDK 23
 androidxCarApp = "1.7.0"
-androidxFragment = "1.8.9"
-androidxAppCompat = "1.7.1"
-androidxAnnotation = "1.10.0"
+androidxFragment = "1.8.9" # 1.9 requires minSDK 23
+androidxAppCompat = "1.7.1" # 1.8 requires minSDK 23
+androidxAnnotation = "1.11.0"
 androidxCustomView = "1.2.0"
 androidxPreference = "1.2.1"
 androidxWorkRuntime = "2.10.5"
 androidxDocumentFile = "1.1.0"
 androidxRecyclerView = "1.4.0"
-androidxConstraintLayout = "2.2.1"
-androidxLifecycleProcess = "2.9.4"
+androidxConstraintLayout = "2.2.2"
+androidxLifecycleProcess = "2.9.4" # 2.10 requires minSDK 23
 
 [libraries]
 google-guava = { module = "com.google.guava:guava", version.ref = "googleGuava" }
