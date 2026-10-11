@@ -10,6 +10,7 @@ androidToolsDesugar = "2.1.5"
 tripletPlayPublisher = "3.13.0"
 microgServicesLocation = "0.3.14.250932"
 appDevNextAndroidChart = "3.1.0.31"
+dependencyUpdatesPlugin = "0.66.0"
 
 # Testing
 robo = "4.16.1"
@@ -71,3 +72,4 @@ androidx-lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", 
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library= { id = "com.android.library", version.ref = "androidGradlePlugin" }
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+dependencyUpdates = { id = "io.github.ben-manes.versions", version.ref = "dependencyUpdatesPlugin" }

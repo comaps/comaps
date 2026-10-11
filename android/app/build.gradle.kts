@@ -1,3 +1,4 @@
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import com.github.triplet.gradle.androidpublisher.ReleaseStatus
 import ru.cian.huawei.publish.BuildFormat
 import ru.cian.huawei.publish.DeployType
@@ -23,6 +24,12 @@ plugins {
     id("com.github.triplet.play") version libs.versions.tripletPlayPublisher
     id("ru.cian.huawei-publish-gradle-plugin") version libs.versions.huaweiPublish
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.dependencyUpdates)
+}
+
+tasks.named<DependencyUpdatesTask>("dependencyUpdates") {
+  revision = "release"
+  rejectPreReleases = true
 }
 
 java {
