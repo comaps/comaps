@@ -1894,5 +1894,161 @@
     },
     "cuisine-african": {
         "defaultMessage": "7African Food|9African Cuisine"
+    },
+    "@club": {
+        "defaultMessage": "Club|clubs"
+    },
+    "club|@club": {
+        "defaultMessage": ""
+    },
+    "club-aeronautical|@club": {
+        "defaultMessage": "Aeronautical Club|aviation club|flying club|aeroclub|aero club"
+    },
+    "club-allotments|@club": {
+        "defaultMessage": "Allotment Association|allotments club"
+    },
+    "club-amateur_radio|@club": {
+        "defaultMessage": "Amateur Radio Club|ham radio"
+    },
+    "club-art|@club": {
+        "defaultMessage": "Art Club"
+    },
+    "club-automobile|@club": {
+        "defaultMessage": "Automobile Club|car club"
+    },
+    "club-board_games|@club": {
+        "defaultMessage": "Board Games Club|board games|card games|boardgame|board game|cardgame|tabletop|tabletop games|games|U+1F3B2|U+1F3B4"
+    },
+    "club-cadet|@club": {
+        "defaultMessage": "Cadet Club"
+    },
+    "club-computer|@club": {
+        "defaultMessage": "Computer Club|computers club|linux club"
+    },
+    "club-culture|@club": {
+        "defaultMessage": "Culture Club"
+    },
+    "club-dog|@club": {
+        "defaultMessage": "Dog Club|dogs club"
+    },
+    "club-fishing|@club": {
+        "defaultMessage": "Fishing Club|fishing"
+    },
+    "club-freemasonry|@club": {
+        "defaultMessage": "Masonic Lodge|freemasonry|freemasonry lodge|freemasons|masons"
+    },
+    "club-game|@club": {
+        "defaultMessage": "Gaming Club|game club|video games|videogames|videogame"
+    },
+    "club-gardening|@club": {
+        "defaultMessage": "Gardening Club|gardening"
+    },
+    "club-history|@club": {
+        "defaultMessage": "History Club"
+    },
+    "club-hunting|@club": {
+        "defaultMessage": "Hunting Club|hunting"
+    },
+    "club-model_aerodrome|@club": {
+        "defaultMessage": "Model Aircraft Club|model aerodrome|rc model|model flying|rc airplane|rc airplanes|rc"
+    },
+    "club-model_railway|@club": {
+        "defaultMessage": "Model Railway Club|model railway|miniature railway|miniature trains"
+    },
+    "club-motorcycle|@club": {
+        "defaultMessage": "Motorcycle Club|motoclub|motorbike club"
+    },
+    "club-music|@club": {
+        "defaultMessage": "Music Club"
+    },
+    "club-religion|@club": {
+        "defaultMessage": "Religious Club"
+    },
+    "club-sailing|@club": {
+        "defaultMessage": "Sailing Club|sailing|regatta|sail"
+    },
+    "club-scout|@club": {
+        "defaultMessage": "Scout Club|scout|scouts|scouting"
+    },
+    "club-social|@club": {
+        "defaultMessage": "Social Club|Fraternity|Ethnic Club"
+    },
+    "club-sport|@club": {
+        "defaultMessage": "Sports Club|sport club"
+    },
+    "club-student|@club": {
+        "defaultMessage": "Student Club"
+    },
+    "club-surf_life_saving|@club": {
+        "defaultMessage": "Surf Life Saving|lifesaving club|surf lifesaving|lifeguard"
+    },
+    "club-theatre|@club": {
+        "defaultMessage": "Theatre Club"
+    },
+    "club-tourism|@club": {
+        "defaultMessage": "Tourism Club"
+    },
+    "club-veterans|@club": {
+        "defaultMessage": "Veterans Club"
+    },
+    "club-youth|@club": {
+        "defaultMessage": "Youth Club"
+    },
+    "club-youth_movement|@club": {
+        "defaultMessage": "Youth Movement|youth movement club"
+    },
+    "sport-pickleball": {
+        "defaultMessage": "Pickleball|pickle ball"
+    },
+    "sport-field_hockey": {
+        "defaultMessage": "Field Hockey"
+    },
+    "sport-boxing": {
+        "defaultMessage": "Boxing"
+    },
+    "sport-canoe": {
+        "defaultMessage": "Canoeing|canoe|kayak"
+    },
+    "sport-cycling": {
+        "defaultMessage": "Cycling|bike|bicycle"
+    },
+    "sport-fitness": {
+        "defaultMessage": "Fitness"
+    },
+    "sport-gaelic_games": {
+        "defaultMessage": "Gaelic Games|hurling|camogie"
+    },
+    "sport-gliding": {
+        "defaultMessage": "Gliding|glider|soaring"
+    },
+    "sport-judo": {
+        "defaultMessage": "Judo"
+    },
+    "sport-martial_arts": {
+        "defaultMessage": "Martial Arts|dojo"
+    },
+    "sport-rowing": {
+        "defaultMessage": "Rowing"
+    },
+    "sport-rugby": {
+        "defaultMessage": "Rugby"
+    },
+    "sport-rugby_league": {
+        "defaultMessage": "Rugby League|rugby"
+    },
+    "sport-rugby_union": {
+        "defaultMessage": "Rugby Union|rugby"
+    },
+    "sport-running": {
+        "defaultMessage": "Running|jogging"
+    },
+    "sport-surfing": {
+        "defaultMessage": "Surfing|surf"
+    },
+    "sport-taekwondo": {
+        "defaultMessage": "Taekwondo"
+    },
+    "club-yachting|@club": {
+        "defaultMessage": "Yachting Club|yacht club"
     }
 }
