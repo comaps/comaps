@@ -9,6 +9,7 @@ androidToolsDesugar = "2.1.5"
 tripletPlayPublisher = "4.1.1"
 microgServicesLocation = "0.3.14.250932"
 appDevNextAndroidChart = "3.1.0.31"
+dependencyUpdatesPlugin = "0.65.0"
 
 # Testing
 robo = "4.16.1"
@@ -70,3 +71,4 @@ androidx-lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", 
 [plugins]
 android-library= { id = "com.android.library", version.ref = "androidGradlePlugin" }
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+dependencyUpdates = { id = "io.github.ben-manes.versions", version.ref = "dependencyUpdatesPlugin" }
