@@ -141,7 +141,7 @@ It also introduces a number of modifications to existing code. Most of them conc
   * `python/maps?generator/generator`: Remove `generate_traffic_keys`, which no longer works, is no longer needed and has not been used since the days of MapsWithMe.
 * `xcode`: XCode changes related to new files in the code tree
 
-Additionally, Doxygen comments were added and/or improved in many source files
+Additionally, Doxygen comments were added and/or improved in many source files. Most of these have been submitted in advance as PR #5443, except for those that refer to newly introduced code or were difficult to separate from the `traffic` branch.
 
 In `data/test_data`, a `traff` folder has been added with various TraFF feeds for testing purposes.
 
