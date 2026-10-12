@@ -188,7 +188,7 @@ UNIT_TEST(GenerateChartByPoints_Test)
   TEST(maps::GenerateChartByPoints(width, height, geometry, MapStyleWalkingLight /* mapStyle */, frameBuffer), ());
 
   TEST_EQUAL(frameBuffer.size(), width * height * kAltitudeChartBPP, ());
-  TEST(IsColor(frameBuffer, 0 /* startColorIdx */, 30 /* expectedR */, 150 /* expectedG */, 240 /* expectedB */,
+  TEST(IsColor(frameBuffer, 0 /* startColorIdx */, 55 /* expectedR */, 101 /* expectedG */, 63 /* expectedB */,
                255 /* expectedA */),
        ());
   TEST(IsColor(frameBuffer, kAltitudeChartBPP * (width - 1) /* startColorIdx */, 255 /* expectedR */,
@@ -256,8 +256,8 @@ UNIT_TEST(GenerateChart_Test)
   TEST(IsColor(frameBuffer, 0 /* startColorIdx */, 255 /* expectedR */, 255 /* expectedG */, 255 /* expectedB */,
                0 /* expectedA */),
        ());
-  TEST(IsColor(frameBuffer, kAltitudeChartBPP * 3 * width - kAltitudeChartBPP /* startColorIdx */, 255 /* expectedR */,
-               230 /* expectedG */, 140 /* expectedB */, 255 /* expectedA */),
+  TEST(IsColor(frameBuffer, kAltitudeChartBPP * 3 * width - kAltitudeChartBPP /* startColorIdx */, 124 /* expectedR */,
+               188 /* expectedG */, 123 /* expectedB */, 255 /* expectedA */),
        ());
 }
 }  // namespace chart_generator_tests

@@ -3337,6 +3337,9 @@
     "Timór Loro Sa'e",
     "Viqueque"
    ],
+   "country_name_synonyms": [
+    "Timor-Leste"
+   ],
    "s": 22465046,
    "sha1_base64": "HMoLefe1/dJf7/SiKK4PAH5m/Sg="
   },
