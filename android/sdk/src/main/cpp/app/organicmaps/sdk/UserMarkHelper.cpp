@@ -58,6 +58,18 @@ void InjectReviews(JNIEnv * env, jclass const clazz, jobject const mapObject, re
   }
 }
 
+void InjectTitleAndBranch(JNIEnv * env, jclass const clazz, jobject const mapObject,
+                          feature::TitleAndBranch const & titleAndBranch)
+{
+  static jmethodID const setId =
+      env->GetMethodID(clazz, "setTitleAndBranch", "(Ljava/lang/String;Ljava/lang/String;)V");
+  ASSERT(setId, ());
+
+  jni::TScopedLocalRef jTitle(env, jni::ToJavaString(env, titleAndBranch.m_title));
+  jni::TScopedLocalRef jBranch(env, jni::ToJavaString(env, titleAndBranch.m_branch));
+  env->CallVoidMethod(mapObject, setId, jTitle.get(), jBranch.get());
+}
+
 // jobject CreatePopularity(JNIEnv * env, place_page::Info const & info)
 //{
 //   static jclass const popularityClass =
@@ -169,6 +181,8 @@ jobject CreateMapObject(JNIEnv * env, place_page::Info const & info, int mapObje
     InjectReviews(env, g_mapObjectClazz, mapObject, info.GetReviews().value());
   if (parseMeta)
     InjectMetadata(env, g_mapObjectClazz, mapObject, info);
+  if (auto const titleAndBranch = info.GetTitleAndBranch(); !titleAndBranch.m_branch.empty())
+    InjectTitleAndBranch(env, g_mapObjectClazz, mapObject, titleAndBranch);
   return mapObject;
 }
 
@@ -272,6 +286,8 @@ jobject CreateBookmark(JNIEnv * env, place_page::Info const & info, jni::TScoped
     InjectReviews(env, g_mapObjectClazz, mapObject, info.GetReviews().value());
   if (info.HasMetadata())
     InjectMetadata(env, g_mapObjectClazz, mapObject, info);
+  if (auto const titleAndBranch = info.GetTitleAndBranch(); !titleAndBranch.m_branch.empty())
+    InjectTitleAndBranch(env, g_mapObjectClazz, mapObject, titleAndBranch);
   return mapObject;
 }
 
