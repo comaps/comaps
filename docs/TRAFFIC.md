@@ -16,6 +16,8 @@ CoMaps Traffic reuses many of these concepts, with only minimal changes: The ren
 
 The goal was to keep traffic information in a format that is independent from a particular map version, or even map format, allowing it to be used with any MWM version or even by other navigation apps. This is being achieved by relying on the TraFF data format and API (http://traffxml.org) for acquiring data.
 
+The server runs [TraFF Server](https://gitlab.com/traffxml/traff-server), which is a separate project. Documentation for the installation used by CoMaps can be found at https://codeberg.org/comaps/traffic-server.
+
 ### TraFF Format
 
 TraFF is a map-agnostic data format for traffic information. Traffic is assumed to be normal on every segment, unless a **message** indicates otherwise. A message is the unit of information in TraFF, about one or more **events**  at a certain **location** at a given time.
