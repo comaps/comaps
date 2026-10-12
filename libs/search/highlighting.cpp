@@ -4,8 +4,6 @@
 
 #include "base/assert.hpp"
 
-#include "std/target_os.hpp"
-
 namespace search
 {
 namespace
@@ -54,15 +52,8 @@ void HighlightResult(QueryTokens const & tokens, strings::UniString const & pref
   CombinedIter end(tokens.end() /* cur */, tokens.end() /* end */, nullptr);
 
   // Highlight Title (potentially including branch)
-  std::string titleForHighlighting = res.GetString();
-#if defined(OMIM_OS_IPHONE)
-  std::string const & branch = res.GetBranch();
-
-  // On iOS we append branch text to the title for highlighting if it's not already present.
-  if (!branch.empty() && titleForHighlighting.find(branch) == std::string::npos)
-    titleForHighlighting += " " + branch;
-#endif
-
+  auto const [title, branch] = res.GetTitleAndBranch();
+  std::string const titleForHighlighting = branch.empty() ? title : title + " " + branch;
   SearchStringTokensIntersectionRanges(titleForHighlighting, beg, end, [&](std::pair<uint16_t, uint16_t> const & range)
   { res.AddHighlightRange(range); });
 

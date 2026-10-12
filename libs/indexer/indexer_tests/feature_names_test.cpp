@@ -569,4 +569,33 @@ UNIT_TEST(GetNameForSearchOnBooking)
   }
 }
 */
+
+UNIT_TEST(SplitTitleAndBranch)
+{
+  auto const check = [](string const & title, string const & branch, string const & expectedTitle,
+                        string const & expectedBranch)
+  {
+    auto const res = feature::SplitTitleAndBranch(title, branch);
+    TEST_EQUAL(res.m_title, expectedTitle, (title, branch));
+    TEST_EQUAL(res.m_branch, expectedBranch, (title, branch));
+  };
+
+  check("Tesco Express", "Canary Wharf", "Tesco Express", "Canary Wharf");
+  check("Hilton Garden Inn New York/Times Square Central", "New York/Times Square Central", "Hilton Garden Inn",
+        "New York/Times Square Central");
+  check("Rema 1000 Grünerløkka", "Grünerløkka", "Rema 1000", "Grünerløkka");
+  check("Bislet Kebab", "Bislet", "Bislet Kebab", "Bislet");
+  check("Grünerløkka Kebab", "Grünerløkka", "Grünerløkka Kebab", "Grünerløkka");
+  check("Rema 1000 (Grünerløkka)", "Grünerløkka", "Rema 1000 (Grünerløkka)", "Grünerløkka");
+  check("Rema 1000 - Grünerløkka", "Grünerløkka", "Rema 1000 -", "Grünerløkka");
+  check("Rema 1000, Grünerløkka", "Grünerløkka", "Rema 1000,", "Grünerløkka");
+  check("Kiwi (Storo) Grünerløkka", "Grünerløkka", "Kiwi (Storo)", "Grünerløkka");
+  check("Grünerløkka", "Grünerløkka", "Grünerløkka", "");
+  check("ローソン新宿店", "新宿店", "ローソン新宿店", "");
+  check("ローソン", "東浅草一丁目店", "ローソン", "東浅草一丁目店");
+  check("セブン-イレブン 松戸小山店", "松戸小山店", "セブン-イレブン", "松戸小山店");
+  check("Sentrumsgården", "Sentrum", "Sentrumsgården", "Sentrum");
+  check("", "Grünerløkka", "", "");
+  check("Kafé", "", "Kafé", "");
+}
 }  // namespace feature_names_test

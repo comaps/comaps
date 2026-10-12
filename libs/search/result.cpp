@@ -99,6 +99,11 @@ std::string Result::GetLocalizedFeatureType() const
   }
 }
 
+feature::TitleAndBranch Result::GetTitleAndBranch() const
+{
+  return feature::SplitTitleAndBranch(m_str.empty() ? GetLocalizedFeatureType() : m_str, m_branch);
+}
+
 std::string Result::GetFeatureDescription() const
 {
   std::string res = GetLocalizedFeatureType();
