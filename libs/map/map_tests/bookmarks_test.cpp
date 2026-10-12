@@ -291,9 +291,8 @@ namespace
 void DeleteCategoryFiles(vector<string> const & arrFiles)
 {
   string const path = GetBookmarksDirectory();
-  string const extension = ".kmb";
   for (auto const & fileName : arrFiles)
-    FileWriter::DeleteFileX(base::JoinPath(path, fileName + extension));
+    FileWriter::DeleteFileX(base::JoinPath(path, fileName + string{kKmlExtension}));
 }
 
 UserMark const * GetMark(Framework & fm, m2::PointD const & pt)
@@ -1622,6 +1621,7 @@ UNIT_CLASS_TEST(Runner, Bookmarks_TestSaveRoute)
   auto const points = {geometry::PointWithAltitude({0.0, 0.0}, 0.0), geometry::PointWithAltitude({0.001, 0.001}, 0)};
   auto const trackId = bmManager.SaveRoute(points, "London", "Paris");
   auto const * track = bmManager.GetTrack(trackId);
+  SCOPE_GUARD(fileDeleter, [&] { (void)base::DeleteFileX(bmManager.GetCategoryFileName(track->GetGroupId())); });
   TEST_EQUAL(track->GetName(), "London - Paris", ());
   auto const line = track->GetData().m_geometry.m_lines[0];
   std::vector const expectedLine = {{geometry::PointWithAltitude(m2::PointD(0.0, 0.0), 0.0),
