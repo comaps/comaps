@@ -33,7 +33,9 @@
     _titleText = result.GetString().empty() ? @(result.GetLocalizedFeatureType().c_str()) : @(result.GetString().c_str());
     _addressText = @(result.GetAddress().c_str());
     _infoText = @(result.GetFeatureDescription().c_str());
-    _branchText = result.GetBranch().empty() ? nil : @(result.GetBranch().c_str());
+    auto const titleAndBranch = result.GetTitleAndBranch();
+    _titleWithoutBranch = @(titleAndBranch.m_title.c_str());
+    _branchText = titleAndBranch.m_branch.empty() ? nil : @(titleAndBranch.m_branch.c_str());
     if (result.IsSuggest())
       _suggestion = @(result.GetSuggestionString().c_str());
 
