@@ -131,6 +131,7 @@ set(DATA_FILES
   symbols
   welcome.html
   categories.txt
+  categories_brands.txt
   classificator.txt
   colors.txt
   copyright.html
