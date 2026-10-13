@@ -149,6 +149,7 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
   private void refreshOpeningHours(MapObject mapObject)
   {
     final String ohStr = mapObject.getMetadata(Metadata.MetadataType.FMD_OPEN_HOURS);
+    final boolean isPostBox = mapObject.isPostBox();
     final Timetable[] timetables = OpeningHours.nativeTimetablesFromString(ohStr);
     mFrame.setOnLongClickListener((v) -> {
       PlacePageUtils.copyToClipboard(requireContext(), mFrame,
@@ -171,9 +172,18 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
         UiUtils.show(mFrame);
         switch (ohStr)
         {
-          case "off", "closed" -> refreshTodayOpeningHours(getString(R.string.day_off), getResources().getColor(R.color.base_red));
-          case "unknown" -> refreshTodayOpeningHours(getString(R.string.oh_unknown), color);
-          default -> refreshTodayOpeningHours(ohStr, color);
+          case "off", "closed" -> refreshTodayOpeningHours(isPostBox ? getString(R.string.collection_day_off_today)
+                                                                      : getString(R.string.day_off),
+                                                           getResources().getColor(R.color.base_red));
+          case "unknown" -> refreshTodayOpeningHours(isPostBox ? getString(R.string.collection_unknown)
+                                                               : getString(R.string.oh_unknown), color);
+          default -> {
+            if (isPostBox)
+              refreshTodayOpeningHours(getString(R.string.collection_times_fmt,
+                                                 TimeFormatUtils.formatCollectionTimes(requireContext(), ohStr)), color);
+            else
+              refreshTodayOpeningHours(ohStr, color);
+          }
         }
         UiUtils.hide(mFullWeekOpeningHours);
       }
@@ -232,7 +242,8 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
             {
               shifts = TimeFormatUtils.getShiftStrings(tt);
             }
-            refreshTodayOpeningHours(resources.getString(app.organicmaps.sdk.R.string.today), shifts, color);
+            refreshTodayOpeningHours(isPostBox ? resources.getString(R.string.collection_times)
+                                               : resources.getString(app.organicmaps.sdk.R.string.today), shifts, color);
             break;
           }
         }
@@ -240,7 +251,8 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
         // Show that place is closed today.
         if (!containsCurrentWeekday)
         {
-          refreshTodayOpeningHours(resources.getString(R.string.day_off_today),
+          refreshTodayOpeningHours(isPostBox ? resources.getString(R.string.collection_day_off_today)
+                                             : resources.getString(R.string.day_off_today),
                                    ContextCompat.getColor(requireContext(), R.color.base_red));
         }
       }

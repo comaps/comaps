@@ -459,6 +459,10 @@
     <string name="twentyfour_seven">24/7</string>
     <string name="day_off_today">Closed today</string>
     <string name="day_off">Closed</string>
+    <string name="collection_times">Collection times</string>
+    <string name="collection_times_fmt">Collection times: %1$s</string>
+    <string name="collection_unknown">Collection times unknown</string>
+    <string name="collection_day_off_today">No collection today</string>
     <string name="opens_in">Opens in %s</string>
     <string name="closes_in">Closes in %s</string>
     <string name="closed">Closed</string>

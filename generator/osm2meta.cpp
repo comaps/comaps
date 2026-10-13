@@ -607,7 +607,12 @@ void MetadataTagProcessor::operator()(std::string const & k, std::string const &
   std::string valid;
   switch (mdType)
   {
-  case Metadata::FMD_OPEN_HOURS: valid = ValidateAndFormat_opening_hours(v); break;
+  case Metadata::FMD_OPEN_HOURS:
+    // Explicit `opening_hours` tag takes precedence over `collection_times`.
+    if (k == "collection_times" && md.Has(Metadata::FMD_OPEN_HOURS))
+      return;
+    valid = ValidateAndFormat_opening_hours(v);
+    break;
   case Metadata::FMD_CHECK_DATE:
     if (ftypes::IsCheckDateChecker::Instance()(types))
       valid = ValidateAndFormat_date(v);

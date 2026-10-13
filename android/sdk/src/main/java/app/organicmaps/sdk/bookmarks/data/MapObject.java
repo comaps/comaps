@@ -401,6 +401,10 @@ public class MapObject implements PlacePageData
     return mRawTypes.contains("amenity-atm");
   }
 
+  public boolean isPostBox()
+  {
+    return mRawTypes != null && mRawTypes.contains("amenity-post_box");
+  }
   public String getOrganic()
   {
     return getFeatureType("organic-");

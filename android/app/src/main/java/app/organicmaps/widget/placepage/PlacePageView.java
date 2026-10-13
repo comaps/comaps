@@ -964,6 +964,13 @@ public class PlacePageView extends Fragment
 
   private void refreshOpenState()
   {
+    // Post boxes show collection times, not "open now" state.
+    if (mMapObject.isPostBox())
+    {
+      UiUtils.hide(mTvOpenState);
+      return;
+    }
+
     UiThread.runLater(updateOpenState, 45000); // Refresh every 45s
 
     final String ohStr = mMapObject.getMetadata(Metadata.MetadataType.FMD_OPEN_HOURS);
