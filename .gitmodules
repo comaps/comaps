@@ -3,10 +3,10 @@
   url = https://github.com/organicmaps/osmctools.git
 [submodule "tools/kothic"]
   path = tools/kothic
-  url = https://codeberg.org/comaps/kothic.git
+  url = ./kothic.git
 [submodule "3party/protobuf/protobuf"]
   path = 3party/protobuf/protobuf
-  url = https://codeberg.org/comaps/protobuf.git
+  url = ./protobuf.git
 [submodule "3party/Vulkan-Headers"]
   path = 3party/Vulkan-Headers
   url = https://github.com/KhronosGroup/Vulkan-Headers.git
@@ -17,7 +17,7 @@
   ignore = dirty
 [submodule "3party/just_gtfs"]
   path = 3party/just_gtfs
-  url = https://codeberg.org/comaps/just_gtfs.git
+  url = ./just_gtfs.git
   branch = for-usage-as-submodule
 [submodule "3party/expat"]
   path = 3party/expat
