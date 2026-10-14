@@ -159,7 +159,7 @@ public final class CarAppSession extends Session implements DefaultLifecycleObse
   @Override
   public void onDestroy(@NonNull LifecycleOwner owner)
   {
-    mDisplayManager.removeListener(DisplayType.Car);
+    mDisplayManager.removeListener(DisplayType.Car, this);
     Framework.nativeSetCarScreenMode(false);
   }
 

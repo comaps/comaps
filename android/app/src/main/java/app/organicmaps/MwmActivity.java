@@ -246,7 +246,6 @@ public class MwmActivity extends BaseMwmFragmentActivity
 
   private DirectionsPreviewBottomSheet mDirectionsPreviewBottomSheet;
 
-  private boolean mRemoveDisplayListener = true;
   private static int mLastUiMode = Configuration.UI_MODE_TYPE_UNDEFINED;
 
   public interface LeftAnimationTrackListener
@@ -462,7 +461,6 @@ public class MwmActivity extends BaseMwmFragmentActivity
   @Override
   public void onDisplayChangedToCar(@NonNull Runnable onTaskFinishedCallback)
   {
-    mRemoveDisplayListener = false;
     startActivity(new Intent(this, MapPlaceholderActivity.class));
     mMapController.setOnDestroyListener(onTaskFinishedCallback);
     finish();
@@ -531,7 +529,6 @@ public class MwmActivity extends BaseMwmFragmentActivity
     mDisplayManager = MwmApplication.from(this).getDisplayManager();
     if (mDisplayManager.isCarDisplayUsed())
     {
-      mRemoveDisplayListener = false;
       startActivity(new Intent(this, MapPlaceholderActivity.class));
       finish();
       return;
@@ -1277,8 +1274,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
     mPostNotificationPermissionRequest = null;
     mPowerSaveSettings.unregister();
     mPowerSaveSettings = null;
-    if (mRemoveDisplayListener && !isChangingConfigurations())
-      mDisplayManager.removeListener(DisplayType.Device);
+    if (!isChangingConfigurations())
+      mDisplayManager.removeListener(DisplayType.Device, this);
   }
 
   @Override
