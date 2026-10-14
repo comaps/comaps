@@ -33,9 +33,9 @@ public final class StarRatingView extends View
   private float mRating;
   private final int mStarSize;
   @NonNull
-  private final Drawable mStarDrawable;
-  private final int mFgColor;
-  private final int mBgColor;
+  private final Drawable mStarDrawableBg;
+  @NonNull
+  private final Drawable mStarDrawableFg;
 
   public StarRatingView(Context context, @Nullable AttributeSet attrs, int defStyleAttr)
   {
@@ -44,9 +44,10 @@ public final class StarRatingView extends View
     {
       mRating = validateRating(typedArray.getFloat(R.styleable.StarRatingView_rating, MIN_RATING + (float) (MAX_RATING - MIN_RATING) / 2));
       mStarSize = typedArray.getDimensionPixelSize(R.styleable.StarRatingView_size, R.dimen.text_size_body_0);
-      mStarDrawable = Objects.requireNonNull(ContextCompat.getDrawable(context, R.drawable.ic_star)).mutate();
-      mFgColor = ContextCompat.getColor(context, R.color.fg_rating_star);
-      mBgColor = ContextCompat.getColor(context, R.color.bg_rating_star);
+      mStarDrawableBg = Objects.requireNonNull(ContextCompat.getDrawable(context, R.drawable.ic_star)).mutate();
+      mStarDrawableBg.setTint(ContextCompat.getColor(context, R.color.bg_rating_star));
+      mStarDrawableFg = Objects.requireNonNull(ContextCompat.getDrawable(context, R.drawable.ic_star)).mutate();
+      mStarDrawableFg.setTint(ContextCompat.getColor(context, R.color.fg_rating_star));
     }
   }
 
@@ -80,31 +81,30 @@ public final class StarRatingView extends View
   protected void onDraw(@NonNull Canvas canvas)
   {
     super.onDraw(canvas);
+    drawStars(canvas, mStarDrawableBg);
 
-    mStarDrawable.setTint(mBgColor);
-    drawStars(canvas);
-
-    mStarDrawable.setTint(mFgColor);
     int fillWidth = (int) (mStarSize * mRating);
     canvas.save();
     if (getLayoutDirection() == View.LAYOUT_DIRECTION_RTL)
     {
       int rightEdge = getWidth() - getPaddingRight();
       canvas.clipRect(rightEdge - fillWidth, 0, rightEdge, getHeight());
-    } else {
+    }
+    else
+    {
       canvas.clipRect(getPaddingLeft(), 0, getPaddingLeft() + fillWidth, getHeight());
     }
-    drawStars(canvas);
+    drawStars(canvas, mStarDrawableFg);
     canvas.restore();
   }
 
-  private void drawStars(@NonNull Canvas canvas)
+  private void drawStars(@NonNull Canvas canvas, @NonNull Drawable star)
   {
     for (int i = 0; i < MAX_RATING; i++)
     {
       int left = getPaddingLeft() + i * mStarSize;
-      mStarDrawable.setBounds(left, getPaddingTop(), left + mStarSize, getPaddingTop() + mStarSize);
-      mStarDrawable.draw(canvas);
+      star.setBounds(left, getPaddingTop(), left + mStarSize, getPaddingTop() + mStarSize);
+      star.draw(canvas);
     }
   }
 
