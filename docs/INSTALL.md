@@ -61,6 +61,15 @@ sudo dnf install @development-tools cmake qt6-qtbase qt6-qtsvg qt6-qtpositioning
 
 </details>
 
+<details>
+  <summary><span style="font-size: 1em; font-weight: bold;">openSUSE Tumbleweed</span></summary>
+
+```bash
+sudo zypper in optipng clang qt6-network-devel qt6-widgets-devel qt6-xml-devel qt6-svg-devel qt6-opengl-devel qt6-openglwidgets-devel qt6-positioning-devel icu libicu-devel freetype2-devel harfbuzz-devel libXinerama-devel libXcursor-devel jq
+```
+
+</details>
+
 ### Install Python protobuf and run ./configure.sh
 
 The data generation tools require a specific Python `protobuf` version. You don't
