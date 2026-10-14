@@ -1723,7 +1723,9 @@ void FrontendRenderer::RenderRouteLayer(ScreenBase const & modelView)
 void FrontendRenderer::RenderMwmBorderLayer(ScreenBase const & modelView)
 {
   TRACE_SECTION("[drape] RenderMwmBorderLayer");
-  if (m_layers[static_cast<size_t>(DepthLayer::MwmBorderLayer)].m_renderGroups.empty())
+  // skip if groups exist but no render buckets (may occur during zoom transitions)
+  auto const & groups = m_layers[static_cast<size_t>(DepthLayer::MwmBorderLayer)].m_renderGroups;
+  if (std::none_of(groups.begin(), groups.end(), [](drape_ptr<RenderGroup> const & g) { return !g->IsEmpty(); }))
     return;
 
   CHECK(m_context != nullptr, ("Graphics context not initalized"));
