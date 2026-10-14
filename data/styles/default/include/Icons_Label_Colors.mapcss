@@ -175,6 +175,7 @@ node[amenity=doctors],
 node[amenity=hospital],
 node[amenity=pharmacy],
 node[amenity=veterinary],
+node[emergency=mountain_rescue],
 node[healthcare],
 {text-color: @healthcare_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
 
