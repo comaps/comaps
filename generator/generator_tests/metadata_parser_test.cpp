@@ -666,3 +666,17 @@ UNIT_TEST(Metadata_ValidateAndFormat_url)
   for (auto const & [input, output] : kTests)
     TEST_EQUAL(tp.ValidateAndFormat_url(input), output, ());
 }
+
+UNIT_TEST(Metadata_ValidateAndFormat_outdoor_seating)
+{
+  FeatureBuilderParams params;
+  MetadataTagProcessorImpl tp(params);
+  TEST_EQUAL(tp.ValidateAndFormat_outdoor_seating("yes"), "yes", ());
+  TEST_EQUAL(tp.ValidateAndFormat_outdoor_seating("no"), "no", ());
+  TEST_EQUAL(tp.ValidateAndFormat_outdoor_seating("garden"), "yes", ());
+  TEST_EQUAL(tp.ValidateAndFormat_outdoor_seating("Terrace"), "yes", ());
+  TEST_EQUAL(tp.ValidateAndFormat_outdoor_seating("sidewalk"), "yes", ());
+  TEST_EQUAL(tp.ValidateAndFormat_outdoor_seating("roof"), "yes", ());
+  TEST_EQUAL(tp.ValidateAndFormat_outdoor_seating("unknown"), "", ());
+  TEST_EQUAL(tp.ValidateAndFormat_outdoor_seating(""), "", ());
+}
