@@ -28,6 +28,13 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
+/* Region overlay colors:
+    Downloaded regions are drawn by the mwm_border rule below
+    Non-downloaded overlay is applied by FrontendRenderer (see drape_colors.mapcss). */
+@region_downloaded_overlay: #7D8BE6;
+@region_downloaded_overlay_opacity: 0.5;
+@region_non_downloaded_overlay: #1A325C;
+@region_non_downloaded_overlay_opacity: 0.31;
 
 /* 1. BASICS */
 
@@ -57,7 +64,7 @@ way|z16-::*
 }
 
 area|z0-7[comapsapp=mwm_border]
-{fill-color: #7D8BE6; fill-opacity: 0.5;}
+{fill-color: @region_downloaded_overlay; fill-opacity: @region_downloaded_overlay_opacity;}
 
 /* 2.LAND */
 
