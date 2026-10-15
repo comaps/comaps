@@ -89,6 +89,7 @@ uint32_t constexpr kStencilRefMask = 1;
 uint32_t constexpr kStencilRefOverlay = 2;
 
 std::string const kTransitBackgroundColor = "TransitBackground";
+std::string const kNonDownloadedOverlay = "NonDownloadedOverlay";
 
 bool IsTextUserMarkState(dp::RenderState const & state)
 {
@@ -1741,7 +1742,7 @@ void FrontendRenderer::RenderMwmBorderLayer(ScreenBase const & modelView)
 
     // Draw full-screen tint where stencil is NOT equal to 1 (i.e. non-downloaded regions)
     dp::TextureManager::ColorRegion region;
-    m_texMng->GetColorRegion(dp::Color(0x1A, 0x32, 0x5C, 80 /* ~31% opacity */), region);
+    m_texMng->GetColorRegion(GetColorConstant(kNonDownloadedOverlay), region);
     CHECK(region.GetTexture() != nullptr, ("Texture manager is not initialized"));
     m_screenQuadRenderer->SetTextureRect(m_context, region.GetTexRect());
     m_context->SetStencilFunction(dp::StencilFace::FrontAndBack, dp::TestFunction::NotEqual);
