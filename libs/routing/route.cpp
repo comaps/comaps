@@ -3,6 +3,8 @@
 #include "platform/measurement_utils.hpp"
 #include "routing/route_step.hpp"
 
+#include "indexer/road_shields_parser.hpp"
+
 #include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 #include "geometry/rect2d.hpp"
@@ -601,7 +603,12 @@ std::vector<RouteStepInfo> Route::GetTurnsForDisplay(std::string const & locale)
     if (turn.IsTurnNone())
       continue;
     if (turn.m_turn == CarDirection::EnterRoundAbout)
-      continue;
+    {
+      auto const nextTurn = std::find_if(m_routeSegments.cbegin() + i + 1, m_routeSegments.cend(),
+                                         [](RouteSegment const & s) { return IsNormalTurn(s.GetTurn()); });
+      if (nextTurn != m_routeSegments.cend() && nextTurn->GetTurn().m_turn == CarDirection::LeaveRoundAbout)
+        continue;
+    }
 
     double distance = segment.GetDistFromBeginningMeters() - totalDistance;
 
@@ -610,12 +617,19 @@ std::vector<RouteStepInfo> Route::GetTurnsForDisplay(std::string const & locale)
 
     RouteStepInfo step;
     step.m_index = i;
+    step.m_turnIndex = turn.m_index;
     step.m_turn = segment.GetTurn().m_turn;
     step.m_pedestrianTurn = segment.GetTurn().m_pedestrianTurn;
     step.m_exitNum = segment.GetTurn().m_exitNum;
     step.m_distMeters = distance;
     step.m_fromStreetName = segment.GetRoadNameInfo().m_name;
     step.m_toStreetName = rni.m_name;
+    step.m_toRef = ftypes::GetRoadShieldDisplayRef(rni.m_ref);
+    step.m_toJunctionRef = rni.m_junction_ref;
+    step.m_toDestinationRef = ftypes::GetRoadShieldDisplayRef(rni.m_destination_ref);
+    step.m_toDestination = rni.m_destination;
+    step.m_toIsLink = rni.m_isLink;
+    step.m_lanes = turn.m_lanes;
     step.m_formattedDistance = platform::Distance::CreateFormatted(step.m_distMeters);
 
     sound::Notification notification(0, step.m_exitNum, false, true, true, step.m_turn, step.m_pedestrianTurn,
