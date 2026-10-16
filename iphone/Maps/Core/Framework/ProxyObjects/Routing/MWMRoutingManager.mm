@@ -4,7 +4,9 @@
 #import "MWMFrameworkListener.h"
 #import "MWMFrameworkObservers.h"
 #import "MWMCoreRouterType.h"
+#import "MWMFollowingInfo+CPP.h"
 #import "MWMRoutePoint+CPP.h"
+#import "MWMRouteStepInfo+CPP.h"
 #import "MWMRoadShieldInfo+CPP.h"
 #import "MWMCoreUnits.h"
 #import "MWMTextToSpeech.h"
@@ -14,6 +16,35 @@
 
 #include "routing/following_info.hpp"
 #include "routing/lanes/lane_info.hpp"
+
+static NSString * MWMTurnImageName(routing::turns::CarDirection turn, BOOL isPrimary) {
+  using namespace routing::turns;
+  NSString *imageName = nil;
+  switch (turn) {
+    case CarDirection::ExitHighwayToRight: imageName = @"ic_cp_exit_highway_to_right"; break;
+    case CarDirection::TurnSlightRight: imageName = @"ic_cp_slight_right"; break;
+    case CarDirection::TurnRight: imageName = @"ic_cp_simple_right"; break;
+    case CarDirection::TurnSharpRight: imageName = @"ic_cp_sharp_right"; break;
+    case CarDirection::ExitHighwayToLeft: imageName = @"ic_cp_exit_highway_to_left"; break;
+    case CarDirection::TurnSlightLeft: imageName = @"ic_cp_slight_left"; break;
+    case CarDirection::TurnLeft: imageName = @"ic_cp_simple_left"; break;
+    case CarDirection::TurnSharpLeft: imageName = @"ic_cp_sharp_left"; break;
+    case CarDirection::UTurnLeft: imageName = @"ic_cp_uturn_left"; break;
+    case CarDirection::UTurnRight: imageName = @"ic_cp_uturn_right"; break;
+    case CarDirection::ReachedYourDestination: imageName = @"ic_cp_finish_point"; break;
+    case CarDirection::LeaveRoundAbout:
+    case CarDirection::EnterRoundAbout: imageName = @"ic_cp_round"; break;
+    case CarDirection::GoStraight: imageName = @"ic_cp_straight"; break;
+    case CarDirection::StartAtEndOfStreet:
+    case CarDirection::StayOnRoundAbout:
+    case CarDirection::Count:
+    case CarDirection::None: imageName = isPrimary ? @"ic_cp_straight" : nil; break;
+  }
+  if (!isPrimary && imageName != nil) {
+    imageName = [NSString stringWithFormat:@"%@_then", imageName];
+  }
+  return imageName;
+}
 
 @interface MWMRoutingManager()<MWMFrameworkRouteBuilderObserver, MWMLocationObserver>
 @property(nonatomic, readonly) RoutingManager & rm;
@@ -98,35 +129,31 @@
       info.m_turn == routing::turns::CarDirection::LeaveRoundAbout) {
     roundExitNumber = info.m_exitNum;
   }
+  auto const displayedRoad = routing::ios::GetDisplayedRoadInfo(info);
 
-  NSMutableArray<MWMLaneInfo *> *lanes = [NSMutableArray arrayWithCapacity:info.m_lanes.size()];
-  for (auto const & lane : info.m_lanes) {
-    auto const activeWays = lane.laneWays.GetActiveLaneWays();
-    NSMutableArray<NSNumber *> *laneWays = [NSMutableArray arrayWithCapacity:activeWays.size()];
-    for (auto const way : activeWays)
-      [laneWays addObject:@(static_cast<uint8_t>(way))];
-    [lanes addObject:[[MWMLaneInfo alloc] initWithLaneWays:laneWays
-                                            recommendedWay:static_cast<uint8_t>(lane.recommendedWay)]];
-  }
+  NSArray<MWMLaneInfo *> *lanes = MWMBuildLaneInfos(info.m_lanes);
 
-  MWMRouteInfo *objCInfo = [[MWMRouteInfo alloc] initWithTimeToTarget:info.m_time
+  MWMRouteInfo *objCInfo = [[MWMRouteInfo alloc] initWithRouteID:info.m_routeId
+                                                          turnIndex:info.m_turnIndex
+                                                       timeToTarget:info.m_time
                                                      targetDistance: info.m_distToTarget.GetDistance()
                                                      targetUnitsIndex:static_cast<UInt8>(info.m_distToTarget.GetUnits())
                                                        distanceToTurn:info.m_distToTurn.GetDistance()
                                                        turnUnitsIndex:static_cast<UInt8>(info.m_distToTurn.GetUnits())
-                                                        turnImageName:[self turnImageName:info.m_turn isPrimary:YES]
-                                                    nextTurnImageName:[self turnImageName:info.m_nextTurn isPrimary:NO]
+                                                        turnImageName:MWMTurnImageName(info.m_turn, YES)
+                                      firstNotificationDistanceMeters:info.m_firstNotificationDistM
+                                     secondNotificationDistanceMeters:info.m_secondNotificationDistM
                                                              speedMps:speedMps
                                                         speedLimitMps:info.m_speedLimitMps
                                                       roundExitNumber:roundExitNumber
                                                                 lanes:lanes
-                                                             roadName:@(info.m_nextName.c_str())
-                                                              roadRef:@(info.m_nextRef.c_str())
-                                                          junctionRef:@(info.m_nextJunctionRef.c_str())
-                                                       destinationRef:@(info.m_nextDestinationRef.c_str())
-                                                              destination:@(info.m_nextDestination.c_str())
-                                                               isLink:info.m_nextIsLink
-                                                           roadShields:MWMBuildRoadShieldInfo(info.m_nextStreetShields)
+                                                             roadName:@(displayedRoad.m_name.c_str())
+                                                              roadRef:@(displayedRoad.m_ref.c_str())
+                                                          junctionRef:@(displayedRoad.m_junctionRef.c_str())
+                                                       destinationRef:@(displayedRoad.m_destinationRef.c_str())
+                                                              destination:@(displayedRoad.m_destination.c_str())
+                                                               isLink:displayedRoad.m_isLink
+                                                           roadShields:MWMBuildRoadShieldInfo(displayedRoad.m_shields)
                                                       currentRoadName:@(info.m_currentStreetName.c_str())
                                                     carDirectionIndex:static_cast<UInt8>(info.m_turn)
                                                     isLeftHandTraffic:info.m_isLeftHandTraffic];
@@ -224,16 +251,6 @@
   }
 }
 
-- (void)setOnNewTurnCallback:(MWMVoidBlock)callback {
-  self.rm.RoutingSession().SetOnNewTurnCallback([callback] {
-    callback();
-  });
-}
-
-- (void)resetOnNewTurnCallback {
-  self.rm.RoutingSession().SetOnNewTurnCallback(nullptr);
-}
-
 #pragma mark - MWMFrameworkRouteBuilderObserver implementation
 
 - (void)processRouteBuilderEvent:(routing::RouterResultCode)code
@@ -285,39 +302,15 @@
   for (auto const & text : notifications) {
     [routeNotifications addObject:@(text.c_str())];
   }
+  RouteInfo * routeInfo = self.routeInfo;
   NSArray<id<MWMRoutingManagerListener>> * objects = self.listeners.allObjects;
   for (id<MWMRoutingManagerListener> object in objects) {
-    [object didLocationUpdate:routeNotifications];
+    [object didLocationUpdate:routeNotifications routeInfo:routeInfo];
   }
 }
 
-- (NSString *)turnImageName:(routing::turns::CarDirection)turn isPrimary:(BOOL)isPrimary {
-  using namespace routing::turns;
-  NSString *imageName = nil;
-  switch (turn) {
-    case CarDirection::ExitHighwayToRight: imageName = @"ic_cp_exit_highway_to_right"; break;
-    case CarDirection::TurnSlightRight: imageName = @"ic_cp_slight_right"; break;
-    case CarDirection::TurnRight: imageName = @"ic_cp_simple_right"; break;
-    case CarDirection::TurnSharpRight: imageName = @"ic_cp_sharp_right"; break;
-    case CarDirection::ExitHighwayToLeft: imageName = @"ic_cp_exit_highway_to_left"; break;
-    case CarDirection::TurnSlightLeft: imageName = @"ic_cp_slight_left"; break;
-    case CarDirection::TurnLeft: imageName = @"ic_cp_simple_left"; break;
-    case CarDirection::TurnSharpLeft: imageName = @"ic_cp_sharp_left"; break;
-    case CarDirection::UTurnLeft: imageName = @"ic_cp_uturn_left"; break;
-    case CarDirection::UTurnRight: imageName = @"ic_cp_uturn_right"; break;
-    case CarDirection::ReachedYourDestination: imageName = @"ic_cp_finish_point"; break;
-    case CarDirection::LeaveRoundAbout:
-    case CarDirection::EnterRoundAbout: imageName = @"ic_cp_round"; break;
-    case CarDirection::GoStraight: imageName = @"ic_cp_straight"; break;
-    case CarDirection::StartAtEndOfStreet:
-    case CarDirection::StayOnRoundAbout:
-    case CarDirection::Count:
-    case CarDirection::None: imageName = isPrimary ? @"ic_cp_straight" : nil; break;
-  }
-  if (!isPrimary && imageName != nil) {
-    imageName = [NSString stringWithFormat:@"%@_then", imageName];
-  }
-  return imageName;
++ (NSString *)turnImageNameForCarDirection:(UInt8)carDirection isPrimary:(BOOL)isPrimary {
+  return MWMTurnImageName(static_cast<routing::turns::CarDirection>(carDirection), isPrimary);
 }
 
 @end
