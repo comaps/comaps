@@ -9,6 +9,7 @@
 #include "routing/routing_callbacks.hpp"
 #include "routing/turns.hpp"
 
+#include <limits>
 #include <string>
 #include <vector>
 
@@ -26,7 +27,8 @@ public:
   };
 
   FollowingInfo()
-    : m_turn(turns::CarDirection::None)
+    : m_turnIndex(std::numeric_limits<uint32_t>::max())
+    , m_turn(turns::CarDirection::None)
     , m_nextTurn(turns::CarDirection::None)
     , m_exitNum(0)
     , m_time(0)
@@ -43,6 +45,10 @@ public:
   /// @name Formatted distance to the next turn.
   //@{
   platform::Distance m_distToTurn;
+  uint64_t m_routeId = 0;
+  uint32_t m_turnIndex;
+  uint32_t m_firstNotificationDistM = 0;
+  uint32_t m_secondNotificationDistM = 0;
   turns::CarDirection m_turn;
   /// Turn after m_turn. Returns NoTurn if there is no turns after.
   turns::CarDirection m_nextTurn;
@@ -80,6 +86,14 @@ public:
   std::string m_nextDestination;      // E.g. "San Jose; San Francisco International Airport".
   bool m_nextIsLink = false;          // True when the next segment is a link (ramp).
   ftypes::HighwayClass m_nextHighwayClass = ftypes::HighwayClass::Undefined;
+
+  // NextNext variants for showing the correct direction string in roundabouts that has two instructions
+  std::string m_nextNextName;
+  std::string m_nextNextRef;
+  std::string m_nextNextJunctionRef;
+  std::string m_nextNextDestinationRef;
+  std::string m_nextNextDestination;
+  bool m_nextNextIsLink = false;
 
   // True in left-hand-driving regions (e.g. UK, Japan)
   bool m_isLeftHandTraffic = false;

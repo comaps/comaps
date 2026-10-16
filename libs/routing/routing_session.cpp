@@ -479,6 +479,10 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
   turns::TurnItem turn;
   m_route->GetNearestTurn(distanceToTurnMeters, turn);
   info.m_distToTurn = platform::Distance::CreateFormatted(distanceToTurnMeters);
+  info.m_routeId = m_route->GetRouteId();
+  info.m_turnIndex = turn.m_index;
+  info.m_firstNotificationDistM = m_turnNotificationsMgr.GetFirstNotificationDistM();
+  info.m_secondNotificationDistM = m_turnNotificationsMgr.GetSecondNotificationDistM();
   info.m_turn = turn.m_turn;
 
   info.m_speedLimitMps = GetCurrentSpeedLimit();
@@ -516,6 +520,12 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
   RouteSegment::RoadNameInfo nextNextRoadNameInfo;
   m_route->GetNextNextTurnStreetName(nextNextRoadNameInfo);
   GetFullRoadName(nextNextRoadNameInfo, info.m_nextNextStreetShields, info.m_nextNextStreetName);
+  info.m_nextNextName = nextNextRoadNameInfo.m_name;
+  info.m_nextNextRef = ftypes::GetRoadShieldDisplayRef(nextNextRoadNameInfo.m_ref);
+  info.m_nextNextJunctionRef = nextNextRoadNameInfo.m_junction_ref;
+  info.m_nextNextDestinationRef = ftypes::GetRoadShieldDisplayRef(nextNextRoadNameInfo.m_destination_ref);
+  info.m_nextNextDestination = nextNextRoadNameInfo.m_destination;
+  info.m_nextNextIsLink = nextNextRoadNameInfo.m_isLink;
 
   info.m_completionPercent = GetCompletionPercent();
 

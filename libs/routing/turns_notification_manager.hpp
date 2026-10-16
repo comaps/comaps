@@ -103,6 +103,9 @@ public:
   /// So it works when the class enable and disable.
   CarDirection GetSecondTurnNotification() const { return m_secondTurnNotification; }
 
+  uint32_t GetFirstNotificationDistM() const;
+  uint32_t GetSecondNotificationDistM() const;
+
 private:
   std::string GenerateTurnText(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance,
                                TurnItem const & turn, RouteSegment::RoadNameInfo const & nextStreetInfo,
