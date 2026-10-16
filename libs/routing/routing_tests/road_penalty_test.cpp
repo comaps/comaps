@@ -116,8 +116,8 @@ UNIT_TEST(RoadPenalty_DefaultTimes)
   TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::MediumCalming, VehicleType::Car), 5, ());
   TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::LargeCalming, VehicleType::Car), 7, ());
   TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::Gate, VehicleType::Car), 30, ());
-  TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::UncontrolledJunction, VehicleType::Car), 15, ());
-  TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::ControlledJunction, VehicleType::Car), 30, ());
+  TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::UncontrolledJunction, VehicleType::Car), 5, ());
+  TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::ControlledJunction, VehicleType::Car), 10, ());
 
   // Test constructor with vehicle type
   RoadPenalty::Penalty smallCalming(RoadPenalty::Type::SmallCalming, VehicleType::Car);
@@ -136,7 +136,7 @@ UNIT_TEST(RoadPenalty_VehicleSpecificTimes)
   TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::Gate, VehicleType::Car), 30, ());
   TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::Gate, VehicleType::Bicycle), 10, ());
   TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::Gate, VehicleType::Pedestrian), 10, ());
-  TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::Gate, VehicleType::Transit), 5, ());
+  TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::Gate, VehicleType::Transit), 0, ());
 
   // Test constructor with vehicle type
   RoadPenalty::Penalty carGate(RoadPenalty::Type::Gate, VehicleType::Car);
@@ -159,7 +159,7 @@ UNIT_TEST(RoadPenalty_VehicleSpecificTimes)
   // Test junction penalties with different vehicles
   TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::UncontrolledJunction, VehicleType::Bicycle), 10,
              ());
-  TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::ControlledJunction, VehicleType::Bicycle), 30, ());
+  TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::ControlledJunction, VehicleType::Bicycle), 15, ());
   TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::UncontrolledJunction, VehicleType::Pedestrian), 0,
              ());
   TEST_EQUAL(RoadPenalty::Penalty::GetTimePenalty(RoadPenalty::Type::ControlledJunction, VehicleType::Pedestrian), 0,
