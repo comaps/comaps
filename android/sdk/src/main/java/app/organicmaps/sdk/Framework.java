@@ -218,6 +218,9 @@ public class Framework
   @Nullable
   public static native RoutingInfo nativeGetRouteFollowingInfo();
 
+  public static native double nativeGetRoadSpeedLimit(double lat, double lon, double bearingDeg);
+  public static native void nativeResetRoadSpeedLimit();
+
   @Nullable
   /// @param[in] maxDistM Max distance between points in meters.
   public static native JunctionInfo[] nativeGetRouteJunctionPoints(double maxDistM);

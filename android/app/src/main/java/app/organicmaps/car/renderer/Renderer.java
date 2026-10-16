@@ -138,7 +138,7 @@ public abstract class Renderer implements DefaultLifecycleObserver
 
   public void hideSpeedLimit()
   {
-    setSpeedLimit(0, false);
+    setSpeedLimit(-1, false);
   }
 
   /**

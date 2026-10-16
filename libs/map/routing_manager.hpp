@@ -196,6 +196,11 @@ public:
   void CloseRouting(bool removeRoutePoints);
   void GetRouteFollowingInfo(routing::FollowingInfo & info) const;
 
+  // Speed limit of the road nearest to the position, matched against |bearingDeg|.
+  // @returns m/s, 0 for "no limit" (maxspeed=none), -1 if unknown.
+  double GetRoadSpeedLimitMps(double lat, double lon, double bearingDeg);
+  void ResetRoadSpeedLimitCache();
+
   TransitRouteInfo GetTransitRouteInfo() const;
 
   m2::PointD GetRouteEndPoint() const { return m_routingSession.GetEndPoint(); }
@@ -397,6 +402,9 @@ private:
   bool m_loadAltitudes = false;
   routing::RoutingSession m_routingSession;
   Delegate & m_delegate;
+
+  struct RoadSpeedLimitState;
+  std::unique_ptr<RoadSpeedLimitState> m_roadSpeedLimit;
 
   BookmarkManager * m_bmManager = nullptr;
   extrapolation::Extrapolator m_extrapolator;
