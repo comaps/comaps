@@ -170,6 +170,16 @@ UNIT_TEST(MyPositionController_PanDuringNavigationKeepsFollowAfterwards)
   TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
 }
 
+UNIT_TEST(MyPositionController_NavigationEndFallbackIsNotPersisted)
+{
+  PositionFixture f(location::FollowAndRotate, location::FollowAndRotate, 0.0);
+  f.UpdateLocation();
+
+  f.Navigate();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
+  TEST(!f.m_lastShouldPersist, ());
+}
+
 UNIT_TEST(MyPositionController_LocationOffSurvivesRecenterTimeout)
 {
   PositionFixture f(location::NotFollowNoPosition, location::FollowAndRotate, kLongBackgroundSec);
@@ -267,6 +277,21 @@ UNIT_TEST(MyPositionController_CarPanKeepsPhoneFollowMode)
   TEST_EQUAL(f.m_controller->GetCurrentMode(), location::NotFollow, ());
 
   f.m_controller->NextMode(f.m_screen);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
+}
+
+UNIT_TEST(MyPositionController_CarNavigationKeepsPhoneFollowMode)
+{
+  PositionFixture f(location::Follow, location::Follow, 0.0);
+  f.UpdateLocation();
+  f.UpdateCompass();
+
+  f.m_controller->SetCarOwnsMode(true);
+  f.m_controller->SetFollowMode(location::FollowAndRotate, -1 /* zoomLevel */);
+  f.Navigate();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::FollowAndRotate, ());
+
+  f.m_controller->SetCarOwnsMode(false);
   TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
 }
 

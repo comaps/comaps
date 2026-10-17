@@ -1014,7 +1014,7 @@ void MyPositionController::ActivateRouting(int zoomLevel, bool enableAutoZoom, b
   if (!m_isInRouting)
   {
     bool const isFollowing = m_mode == location::Follow || m_mode == location::FollowAndRotate;
-    m_followModeBeforeRouting = isFollowing ? m_mode : m_lastFollowMode;
+    m_followModeBeforeRouting = (isFollowing && !m_carOwnsMode) ? m_mode : m_lastFollowMode;
 
     m_isInRouting = true;
     m_isArrowGluedInRouting = isArrowGlued;
@@ -1048,18 +1048,18 @@ void MyPositionController::DeactivateRouting()
     m_isArrowDirectionAssigned = m_isCompassAvailable && m_isArrowDirectionAssigned;
     m_isRouteDirectionAssigned = false;
 
+    if (m_carOwnsMode)
+    {
+      ApplyFollowMode(m_mode == location::FollowAndRotate ? location::FollowAndRotate : location::Follow,
+                      kDoNotChangeZoom);
+      return;
+    }
+
     m_lastFollowMode = m_followModeBeforeRouting;
     if (m_followModeBeforeRouting == location::FollowAndRotate && IsArrowRotationAvailable())
-    {
-      m_direction = m_arrowDirection;
-      ChangeMode(location::FollowAndRotate);
-      ChangeModelView(m_position, m_direction, m_visiblePixelRect.Center(), kDoNotChangeZoom);
-    }
+      ApplyFollowMode(location::FollowAndRotate, kDoNotChangeZoom);
     else
-    {
-      ChangeMode(location::Follow);
-      ChangeModelView(m_position, 0.0, m_visiblePixelRect.Center(), kDoNotChangeZoom);
-    }
+      ApplyFollowMode(location::Follow, kDoNotChangeZoom);
   }
 }
 
