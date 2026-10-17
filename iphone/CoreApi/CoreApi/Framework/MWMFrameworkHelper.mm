@@ -127,14 +127,6 @@
   }
 }
 
-+ (void)setZoomLevel:(int)zoomLevel animated:(BOOL)isAnimated {
-  auto & f = GetFramework();
-  int const currentZoomLevel = f.GetDrawScale();
-  if (currentZoomLevel == zoomLevel)
-    return;
-  f.Scale(std::pow(2.0, zoomLevel - currentZoomLevel), isAnimated);
-}
-
 + (void)moveMap:(UIOffset)offset {
   GetFramework().Move(offset.horizontal, offset.vertical, true);
 }
@@ -152,8 +144,8 @@
   GetFramework().SwitchMyPositionNextMode();
 }
 
-+ (BOOL)phonePrefersHeadingUp {
-  return GetFramework().GetLastFollowMode() == location::FollowAndRotate;
++ (void)setFollowMode:(BOOL)headingUp zoomLevel:(int)zoomLevel {
+  GetFramework().SetFollowMode(headingUp ? location::FollowAndRotate : location::Follow, zoomLevel);
 }
 
 + (void)stopLocationFollow {
@@ -272,6 +264,10 @@
 
 + (void)setCarScreenMode:(BOOL)enabled {
   GetFramework().SetCarScreenMode(enabled);
+}
+
++ (void)setCarOwnsPositionMode:(BOOL)carOwnsMode {
+  GetFramework().SetCarOwnsPositionMode(carOwnsMode);
 }
 
 @end

@@ -39,12 +39,11 @@ NS_SWIFT_NAME(FrameworkHelper)
 + (MWMMarkID)invalidBookmarkId;
 + (MWMMarkGroupID)invalidCategoryId;
 + (void)zoomMap:(MWMZoomMode)mode;
-+ (void)setZoomLevel:(int)zoomLevel animated:(BOOL)isAnimated;
 + (void)moveMap:(UIOffset)offset;
 + (void)scrollMapToDistanceX:(double)x andY:(double)y;
 + (void)deactivateMapSelection;
 + (void)switchMyPositionMode;
-+ (BOOL)phonePrefersHeadingUp;
++ (void)setFollowMode:(BOOL)headingUp zoomLevel:(int)zoomLevel NS_SWIFT_NAME(setFollowMode(headingUp:zoomLevel:));
 + (void)stopLocationFollow;
 + (NSArray<NSString *> *)obtainLastSearchQueries;
 + (void)rotateMap:(double)azimuth animated:(BOOL)isAnimated;
@@ -62,6 +61,7 @@ NS_SWIFT_NAME(FrameworkHelper)
 + (void)updateAfterDeleteBookmark;
 + (int)currentZoomLevel;
 + (void)setCarScreenMode:(BOOL)enabled;
++ (void)setCarOwnsPositionMode:(BOOL)carOwnsMode;
 
 @end
 

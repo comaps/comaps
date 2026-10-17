@@ -45,6 +45,14 @@ std::string_view constexpr kLocationStateMode = "LastLocationStateMode";
 std::string_view constexpr kLastFollowMode = "LastFollowMode";
 std::string_view constexpr kPreferredRoutingMode = "PreferredRoutingMode";
 std::string_view constexpr kLastEnterBackground = "LastEnterBackground";
+
+location::EMyPositionMode LoadLastFollowMode()
+{
+  location::EMyPositionMode mode;
+  if (settings::Get(kLastFollowMode, mode) && mode == location::FollowAndRotate)
+    return location::FollowAndRotate;
+  return location::Follow;
+}
 }  // namespace
 
 DrapeEngine::DrapeEngine(Params && params)
@@ -806,15 +814,6 @@ void DrapeEngine::SetCarOwnsPositionMode(bool carOwnsMode)
   m_carOwnsPositionMode = carOwnsMode;
   m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread,
                                   make_unique_dp<SetCarOwnsPositionModeMessage>(carOwnsMode), MessagePriority::High);
-}
-
-// static
-location::EMyPositionMode DrapeEngine::LoadLastFollowMode()
-{
-  location::EMyPositionMode mode;
-  if (settings::Get(kLastFollowMode, mode) && mode == location::FollowAndRotate)
-    return location::FollowAndRotate;
-  return location::Follow;
 }
 
 void DrapeEngine::OnEnterBackground()
