@@ -184,6 +184,7 @@ bool IsModeChangeViewport(location::EMyPositionMode mode)
 
 MyPositionController::MyPositionController(Params && params, ref_ptr<DrapeNotifier> notifier)
   : m_notifier(notifier)
+  , m_lastFollowMode(params.m_lastFollowMode)
   , m_modeChangeCallback(std::move(params.m_myPositionModeCallback))
   , m_hints(params.m_hints)
   , m_isInRouting(params.m_isRoutingActive)
