@@ -123,6 +123,10 @@ public:
   Coloring const & GetColoring() const { return m_coloring; }
   Availability GetAvailability() const { return m_availability; }
 
+#if 0
+  /*
+   * These were formerly used by pytraffic.
+   */
   /**
    * @brief Extracts RoadSegmentIds from an MWM and stores them in a sorted order.
    * @param mwmPath Path to the MWM file
@@ -163,6 +167,7 @@ public:
   static void DeserializeTrafficKeys(std::vector<uint8_t> const & data, std::vector<RoadSegmentId> & result);
 
   static void SerializeTrafficValues(std::vector<SpeedGroup> const & values, std::vector<uint8_t> & result);
+#endif
 
 private:
   /**

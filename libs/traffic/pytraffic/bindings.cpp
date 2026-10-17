@@ -1,3 +1,12 @@
+/*
+ * TODO The whole pytraffic construct appears to be obsolete.
+ * It appears to have been used to serialize/deserialize (unconditional) traffic coloring into two
+ * files per MWM, one holding keys, another holding speed groups.
+ * This is no longer needed with the TraFF backend, and most of this code does not even work any more
+ * after the changes made there, and has therefore been commented out.
+ * Unless there is still something useful to be salvaged from this code, it can be removed.
+ */
+
 #include "traffic/speed_groups.hpp"
 #include "traffic/traffic_info.hpp"
 
@@ -96,6 +105,10 @@ std::string RoadSegmentIdRepr(traffic::TrafficInfo::RoadSegmentId const & v)
   return ss.str();
 }
 
+#if 0
+/*
+ * TODO Obsolete and no longer needed.
+ */
 boost::python::list GenerateTrafficKeys(std::string const & mwmPath)
 {
   std::vector<traffic::TrafficInfo::RoadSegmentId> result;
@@ -176,6 +189,7 @@ std::vector<uint8_t> GenerateTrafficValuesFromBinary(std::vector<uint8_t> const 
 
   return GenerateTrafficValues(keys, segmentMappingDict, useTempBlock);
 }
+#endif
 
 void LoadClassificator(std::string const & classifPath)
 {
@@ -219,10 +233,13 @@ BOOST_PYTHON_MODULE(pytraffic)
       .value("Unknown", traffic::SpeedGroup::Unknown);
 
   def("load_classificator", LoadClassificator);
+#if 0
+  // TODO obsolete
   def("generate_traffic_keys", GenerateTrafficKeys);
   // TODO obsolete, see function definition
   def("generate_traffic_values_from_list", GenerateTrafficValuesFromList);
   // TODO obsolete, see function definition
   def("generate_traffic_values_from_binary", GenerateTrafficValuesFromBinary,
       (arg("keysBlob"), arg("segmentMappingDict"), arg("useTempBlock") = 1));
+#endif
 }

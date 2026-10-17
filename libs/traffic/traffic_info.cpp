@@ -78,6 +78,10 @@ SpeedGroup TrafficInfo::GetSpeedGroup(RoadSegmentId const & id) const
   return it->second;
 }
 
+#if 0
+/*
+ * These were formerly used by pytraffic.
+ */
 // static
 void TrafficInfo::ExtractTrafficKeys(string const & mwmPath, vector<RoadSegmentId> & result)
 {
@@ -200,6 +204,7 @@ void TrafficInfo::SerializeTrafficValues(vector<SpeedGroup> const & values, vect
 
   deflate(buf.data(), buf.size(), back_inserter(result));
 }
+#endif
 
 string DebugPrint(TrafficInfo::RoadSegmentId const & id)
 {
