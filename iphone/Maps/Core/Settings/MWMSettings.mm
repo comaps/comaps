@@ -15,6 +15,7 @@ namespace
 {
 char const * kAutoDownloadEnabledKey = "AutoDownloadEnabled";
 char const * kZoomButtonsEnabledKey = "ZoomButtonsEnabled";
+char const * kCarPlayNorthUpKey = "CarPlayNorthUp";
 char const * kRoutingDisclaimerApprovedKey = "IsDisclaimerApproved";
 
 // TODO(igrechuhin): Remove outdated kUDAutoNightModeOff
@@ -125,6 +126,18 @@ NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
 + (void)setZoomButtonsEnabled:(BOOL)zoomButtonsEnabled
 {
   settings::Set(kZoomButtonsEnabledKey, static_cast<bool>(zoomButtonsEnabled));
+}
+
++ (BOOL)carPlayNorthUp
+{
+  bool northUp = false;
+  UNUSED_VALUE(settings::Get(kCarPlayNorthUpKey, northUp));
+  return northUp;
+}
+
++ (void)setCarPlayNorthUp:(BOOL)carPlayNorthUp
+{
+  settings::Set(kCarPlayNorthUpKey, static_cast<bool>(carPlayNorthUp));
 }
 
 + (BOOL)showBookmarkLabels

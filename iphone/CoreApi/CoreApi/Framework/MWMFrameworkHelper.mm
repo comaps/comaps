@@ -152,6 +152,10 @@
   GetFramework().SwitchMyPositionNextMode();
 }
 
++ (BOOL)phonePrefersHeadingUp {
+  return GetFramework().GetLastFollowMode() == location::FollowAndRotate;
+}
+
 + (void)stopLocationFollow {
   GetFramework().StopLocationFollow();
 }

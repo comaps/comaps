@@ -36,9 +36,13 @@ struct CarPlayFollowPolicy {
     case stopFollowing
   }
 
-  private(set) var orientation: Orientation = .headingUp
+  private(set) var orientation: Orientation
   private(set) var isBrowsing = false
   private var hasObservedNotFollowWhileBrowsing = false
+
+  init(orientation: Orientation = .headingUp) {
+    self.orientation = orientation
+  }
 
   var allowsDefaultZoom: Bool { !isBrowsing }
 
@@ -93,7 +97,7 @@ struct CarPlayFollowPolicy {
   }
 
   mutating func reset() {
-    self = CarPlayFollowPolicy()
+    self = CarPlayFollowPolicy(orientation: orientation)
   }
 }
 
@@ -164,7 +168,7 @@ final class CarPlayService: NSObject {
   private var rootTemplateDidAppear = false
   private var panningInterfaceState = CarPlayPanningInterfaceState()
   private var hasAppliedDefaultCarZoom = false
-  private var followPolicy = CarPlayFollowPolicy()
+  private var followPolicy = CarPlayFollowPolicy(orientation: SettingsBridge.carPlayNorthUp() ? .northUp : .headingUp)
   private var isFollowReconciliationScheduled = false
   private var needsDefaultZoomRestoreOnViewportReady = false
   private func resetCarSessionDefaults() {
@@ -286,9 +290,6 @@ final class CarPlayService: NSObject {
 
   private func switchScreenToPhone() {
     defer { logStateSnapshot("switchScreenToPhone completed") }
-    let shouldRestorePhoneNorthUp = router?.currentTrip == nil &&
-      !MWMRouter.isRoutingActive() &&
-      currentPositionMode == .followAndRotate
     router?.removeListener(self)
     router?.unsubscribeFromEvents()
     router?.setupInitialSpeedCameraMode()
@@ -310,9 +311,6 @@ final class CarPlayService: NSObject {
     // Apply the visual-scale change (and its GPU context reset) before the theme switch,
     // so the context teardown doesn't race with an in-flight route recache from the style change.
     updateMapHost()
-    if shouldRestorePhoneNorthUp {
-      FrameworkHelper.switchMyPositionMode()
-    }
     ThemeManager.invalidate()
   }
 
@@ -687,10 +685,23 @@ final class CarPlayService: NSObject {
     if desired == .phone || desired == .none {
       resetCarSessionDefaults()
     }
+    if desired == .phone, wasHostingMapOnCarScreen {
+      restorePhoneOrientation(currentMode: mapVC.currentPositionMode)
+    }
     applyDefaultCarZoom()
     scheduleCarFollowReconciliation()
     logStateSnapshot("mapHost completed")
     refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "updateMapHost")
+  }
+
+  private func restorePhoneOrientation(currentMode: MWMMyPositionMode) {
+    guard !MWMRouter.isRoutingActive(),
+          currentMode == .follow || currentMode == .followAndRotate
+    else { return }
+    let targetMode: MWMMyPositionMode = FrameworkHelper.phonePrefersHeadingUp() ? .followAndRotate : .follow
+    if currentMode != targetMode {
+      FrameworkHelper.switchMyPositionMode()
+    }
   }
 
   private func updateSearchContext(for host: MapHost) {
@@ -907,6 +918,7 @@ final class CarPlayService: NSObject {
       return
     }
     followPolicy.recordExplicitModeSwitch(from: currentPositionMode)
+    SettingsBridge.setCarPlayNorthUp(followPolicy.orientation == .northUp)
     FrameworkHelper.switchMyPositionMode()
   }
 
