@@ -34,7 +34,8 @@ int constexpr kPositionRoutingOffsetY = 104;
 // Speed threshold to switch to GPS bearing. Use compass for slow walking only.
 double constexpr kMinSpeedThresholdMps = 0.7;  // 2.5 km/h
 double constexpr kGpsBearingLifetimeSec = 5.0;
-double constexpr kMaxTimeInBackgroundSec = 60.0 * 15;  // 15 minutes before starting detecting position again
+double constexpr kMaxTimeInBackgroundSec = 60.0 * 60 * 30;  // 30 hours before starting detecting position again
+double constexpr kRecenterAfterBackgroundSec = 60.0 * 15;
 double constexpr kMaxNotFollowRoutingTimeSec = 20.0;
 double constexpr kMaxUpdateLocationInvervalSec = 30.0;
 double constexpr kMaxBlockAutoZoomTimeSec = 10.0;
@@ -230,7 +231,8 @@ MyPositionController::MyPositionController(Params && params, ref_ptr<DrapeNotifi
   {
     m_desiredInitMode = Follow;
   }
-  else if (params.m_timeInBackground >= kMaxTimeInBackgroundSec)
+  else if (params.m_timeInBackground >= kMaxTimeInBackgroundSec ||
+           (params.m_timeInBackground >= kRecenterAfterBackgroundSec && params.m_initMode != NotFollowNoPosition))
   {
     m_desiredInitMode = m_lastFollowMode;
   }
@@ -816,8 +818,11 @@ void MyPositionController::StopLocationFollow()
 
 void MyPositionController::OnEnterForeground(double backgroundTime)
 {
+  if (m_carOwnsMode)
+    return;
+
   // Handle the case when the app was in the background for a long time and the user is opening the app.
-  if (backgroundTime >= kMaxTimeInBackgroundSec)
+  if (backgroundTime >= kRecenterAfterBackgroundSec)
   {
     // When location was active during previous session the app will try to follow the user.
     if (m_mode == location::NotFollow)
@@ -830,7 +835,7 @@ void MyPositionController::OnEnterForeground(double backgroundTime)
     }
 
     // When location was stopped by the user manually app will try to find position but without following.
-    else if (m_mode == location::NotFollowNoPosition)
+    else if (m_mode == location::NotFollowNoPosition && backgroundTime >= kMaxTimeInBackgroundSec)
     {
       ChangeMode(location::PendingPosition);
     }
