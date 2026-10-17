@@ -878,7 +878,7 @@ bool ColoringFromXml(pugi::xml_node const & node, DataSource const & dataSource,
   std::string countryName;
   if (!StringFromXml(node.attribute("country_name"), countryName))
   {
-    LOG(LWARNING, ("coloring element without coutry_name attribute, skipping"));
+    LOG(LWARNING, ("coloring element without country_name attribute, skipping"));
     return false;
   }
   auto const & mwmId = dataSource.GetMwmIdByCountryFile(platform::CountryFile(countryName));
