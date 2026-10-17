@@ -213,6 +213,8 @@ private:
   location::EMyPositionMode m_preferredRoutingMode;
   /// @brief The last follow mode used
   location::EMyPositionMode m_lastFollowMode;
+  /// @brief The follow mode to return to when routing ends
+  location::EMyPositionMode m_followModeBeforeRouting;
 
   TMyPositionModeChanged m_modeChangeCallback;
   Hints m_hints;
