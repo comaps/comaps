@@ -437,7 +437,8 @@ void RoutingManager::OnBuildRouteReady(Route const & route, RouterResultCode cod
   {
     m2::RectD routeRect = route.GetPoly().GetLimitRect();
     routeRect.Scale(kRouteScaleMultiplier);
-    m_drapeEngine.SafeCall(&df::DrapeEngine::SetModelViewRect, routeRect, true /* applyRotation */, -1 /* zoom */,
+    // Always show route preview north up
+    m_drapeEngine.SafeCall(&df::DrapeEngine::SetModelViewRect, routeRect, false /* applyRotation */, -1 /* zoom */,
                            true /* isAnim */, true /* useVisibleViewport */);
   }
 
