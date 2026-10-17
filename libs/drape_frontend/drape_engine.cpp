@@ -790,7 +790,8 @@ void DrapeEngine::SetKineticScrollEnabled(bool enabled)
 
 void DrapeEngine::OnEnterForeground()
 {
-  double const backgroundTime = base::Timer::LocalTime() - m_startBackgroundTime;
+  // The car manages its own follow mode, so don't trigger recenter when returning from background
+  double const backgroundTime = m_isCarScreenMode ? 0.0 : base::Timer::LocalTime() - m_startBackgroundTime;
   m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread,
                                   make_unique_dp<OnEnterForegroundMessage>(backgroundTime), MessagePriority::High);
 }

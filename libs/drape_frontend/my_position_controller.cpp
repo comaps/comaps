@@ -34,7 +34,7 @@ int constexpr kPositionRoutingOffsetY = 104;
 // Speed threshold to switch to GPS bearing. Use compass for slow walking only.
 double constexpr kMinSpeedThresholdMps = 0.7;  // 2.5 km/h
 double constexpr kGpsBearingLifetimeSec = 5.0;
-double constexpr kMaxTimeInBackgroundSec = 60.0 * 60 * 30;  // 30 hours before starting detecting position again
+double constexpr kMaxTimeInBackgroundSec = 60.0 * 15;  // 15 minutes before starting detecting position again
 double constexpr kMaxNotFollowRoutingTimeSec = 20.0;
 double constexpr kMaxUpdateLocationInvervalSec = 30.0;
 double constexpr kMaxBlockAutoZoomTimeSec = 10.0;
@@ -231,7 +231,7 @@ MyPositionController::MyPositionController(Params && params, ref_ptr<DrapeNotifi
   }
   else if (params.m_timeInBackground >= kMaxTimeInBackgroundSec)
   {
-    m_desiredInitMode = Follow;
+    m_desiredInitMode = m_lastFollowMode;
   }
   else
   {
@@ -820,8 +820,10 @@ void MyPositionController::OnEnterForeground(double backgroundTime)
     // When location was active during previous session the app will try to follow the user.
     if (m_mode == location::NotFollow)
     {
-      ChangeMode((m_isInRouting && m_preferredRoutingMode == location::FollowAndRotate) ? location::FollowAndRotate
-                                                                                        : location::Follow);
+      if (m_isInRouting)
+        ChangeMode(m_preferredRoutingMode == location::FollowAndRotate ? location::FollowAndRotate : location::Follow);
+      else
+        ChangeMode(m_lastFollowMode);
       UpdateViewport(kDoNotChangeZoom);
     }
 
