@@ -634,6 +634,7 @@ public:
   void NotifyGraphicsReady(TGraphicsReadyFn const & fn, bool needInvalidate);
 #endif
 
+  void SetFollowMode(location::EMyPositionMode mode, int zoomLevel);
   void StopLocationFollow();
 
   /// Resize event from window.
@@ -868,6 +869,8 @@ public:
   /// Call this from iOS/Android when CarPlay/AA session starts/ends
   void SetCarScreenMode(bool enabled);
   bool m_isCarScreenMode = false;
+  void SetCarOwnsPositionMode(bool carOwnsMode);
+  bool m_carOwnsPositionMode = false;
 
 private:
   void Refresh3dMode();

@@ -465,6 +465,20 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
     break;
   }
 
+  case Message::Type::SetFollowMode:
+  {
+    ref_ptr<SetFollowModeMessage> const msg = message;
+    m_myPositionController->SetFollowMode(msg->GetMode(), msg->GetZoomLevel());
+    break;
+  }
+
+  case Message::Type::SetCarOwnsPositionMode:
+  {
+    ref_ptr<SetCarOwnsPositionModeMessage> const msg = message;
+    m_myPositionController->SetCarOwnsMode(msg->CarOwnsMode());
+    break;
+  }
+
   case Message::Type::CompassInfo:
   {
     ref_ptr<CompassInfoMessage> msg = message;

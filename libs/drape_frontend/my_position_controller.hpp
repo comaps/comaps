@@ -150,6 +150,8 @@ public:
 
   void StopLocationFollow();
   void NextMode(ScreenBase const & screen);
+  void SetFollowMode(location::EMyPositionMode mode, int zoomLevel);
+  void SetCarOwnsMode(bool carOwnsMode);
   void LoseLocation();
   location::EMyPositionMode GetCurrentMode() const { return m_mode; }
   void StartPendingPositionMode();
@@ -178,6 +180,7 @@ public:
 private:
   void ChangeMode(location::EMyPositionMode newMode, bool persist);
   void ChangeMode(location::EMyPositionMode newMode);
+  void ApplyFollowMode(location::EMyPositionMode mode, int zoomLevel);
   void SetRouteDirection(double bearing);
   void SetArrowDirection(double bearing);
 
@@ -221,6 +224,7 @@ private:
 
   bool m_isInRouting = false;
   bool m_isArrowGluedInRouting = false;
+  bool m_carOwnsMode = false;
 
   bool m_needBlockAnimation;
   bool m_wasRotationInScaling;

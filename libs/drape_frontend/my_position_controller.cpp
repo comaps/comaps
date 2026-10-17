@@ -444,7 +444,7 @@ void MyPositionController::NextMode(ScreenBase const & screen)
         (IsArrowRotationAvailable() || (m_preferRouteDirectionInRouting && IsRouteRotationAvailable())))
       ChangeMode(location::FollowAndRotate, true);
     else
-      ChangeMode(location::Follow, true);
+      ChangeMode(location::Follow, m_isInRouting || m_lastFollowMode == location::Follow);
 
     UpdateViewport(preferredZoomLevel);
     return;
@@ -588,7 +588,7 @@ void MyPositionController::OnLocationUpdate(location::GpsInfo const & info,
 
   if (!m_isPositionAssigned)
   {
-    ChangeMode(m_isInRouting ? m_preferredRoutingMode : m_desiredInitMode, true);
+    ChangeMode(m_isInRouting ? m_preferredRoutingMode : m_desiredInitMode, m_isInRouting);
 
     if (!m_hints.m_isFirstLaunch || !AnimationSystem::Instance().AnimationExists(Animation::Object::MapPlane))
     {
@@ -613,7 +613,7 @@ void MyPositionController::OnLocationUpdate(location::GpsInfo const & info,
     }
     else
     {
-      ChangeMode(location::Follow, true);
+      ChangeMode(location::Follow, m_isInRouting);
       if (m_hints.m_isFirstLaunch)
       {
         if (!AnimationSystem::Instance().AnimationExists(Animation::Object::MapPlane))
@@ -640,7 +640,7 @@ void MyPositionController::OnLocationUpdate(location::GpsInfo const & info,
     else
     {
       // Here we silently get the position and go to NotFollow mode.
-      ChangeMode(location::NotFollow, true);
+      ChangeMode(location::NotFollow, m_isInRouting);
     }
   }
 
@@ -805,7 +805,8 @@ void MyPositionController::StopLocationFollow()
 {
   if (m_mode == location::Follow || m_mode == location::FollowAndRotate)
   {
-    m_lastFollowMode = m_mode;
+    if (!m_carOwnsMode)
+      m_lastFollowMode = m_mode;
     ChangeMode(location::NotFollow);
   }
   m_desiredInitMode = location::NotFollow;
@@ -1054,6 +1055,60 @@ void MyPositionController::DeactivateRouting()
       ChangeMode(location::Follow);
       ChangeModelView(m_position, 0.0, m_visiblePixelRect.Center(), kDoNotChangeZoom);
     }
+  }
+}
+
+void MyPositionController::SetFollowMode(location::EMyPositionMode mode, int zoomLevel)
+{
+  ASSERT(mode == location::Follow || mode == location::FollowAndRotate, (mode));
+  if (m_mode == location::NotFollowNoPosition)
+    return;
+
+  if (IsWaitingForLocation())
+  {
+    m_desiredInitMode = mode;
+    return;
+  }
+
+  ApplyFollowMode(mode, zoomLevel);
+}
+
+void MyPositionController::SetCarOwnsMode(bool carOwnsMode)
+{
+  if (m_carOwnsMode == carOwnsMode)
+    return;
+
+  bool const isFollowing = m_mode == location::Follow || m_mode == location::FollowAndRotate;
+  m_carOwnsMode = carOwnsMode;
+  if (carOwnsMode)
+  {
+    if (isFollowing && !m_isInRouting)
+      m_lastFollowMode = m_mode;
+    return;
+  }
+
+  if (m_isInRouting || !isFollowing || m_mode == m_lastFollowMode)
+    return;
+
+  if (m_lastFollowMode == location::FollowAndRotate && !IsArrowRotationAvailable())
+    return;
+
+  ApplyFollowMode(m_lastFollowMode, kDoNotChangeZoom);
+}
+
+void MyPositionController::ApplyFollowMode(location::EMyPositionMode mode, int zoomLevel)
+{
+  if (mode == location::FollowAndRotate)
+  {
+    m_direction = m_preferRouteDirectionInRouting ? m_routeDirection : m_arrowDirection;
+    ChangeMode(location::FollowAndRotate);
+    ChangeModelView(m_position, m_direction,
+                    m_isInRouting ? GetRoutingRotationPixelCenter() : m_visiblePixelRect.Center(), zoomLevel);
+  }
+  else
+  {
+    ChangeMode(location::Follow);
+    ChangeModelView(m_position, 0.0, m_visiblePixelRect.Center(), zoomLevel);
   }
 }
 

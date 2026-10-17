@@ -35,6 +35,8 @@ public:
     MapShapes,
     ChangeMyPositionMode,
     StartPendingPositionMode,
+    SetFollowMode,
+    SetCarOwnsPositionMode,
     CompassInfo,
     GpsInfo,
     SelectObject,

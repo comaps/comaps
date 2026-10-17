@@ -20,7 +20,8 @@ public:
     m_controller = make_unique_dp<df::MyPositionController>(
         df::MyPositionController::Params(initMode, lastFollowMode, location::FollowAndRotate, timeInBackground,
                                          df::Hints{}, false /* isRoutingActive */, false /* isAutozoomEnabled */,
-                                         [](location::EMyPositionMode, bool, bool) {}),
+                                         [this](location::EMyPositionMode, bool, bool shouldPersist)
+    { m_lastShouldPersist = shouldPersist; }),
         nullptr /* notifier */);
     m_controller->SetListener(make_ref(this));
     m_screen.SetFromParams(m2::PointD::Zero(), 0.0, df::GetScreenScale(15));
@@ -68,6 +69,7 @@ public:
   {}
 
   drape_ptr<df::MyPositionController> m_controller;
+  bool m_lastShouldPersist = false;
   ScreenBase m_screen;
   df::NavigationContext m_context;
   location::GpsInfo m_gps;
@@ -163,6 +165,94 @@ UNIT_TEST(MyPositionController_PanDuringNavigationKeepsFollowAfterwards)
   TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
 
   f.m_controller->StopLocationFollow();
+  f.m_controller->NextMode(f.m_screen);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
+}
+
+UNIT_TEST(MyPositionController_SetFollowModeRotatesWhenHeadingArrives)
+{
+  PositionFixture f(location::Follow, location::Follow, 0.0);
+  f.m_gps.m_bearing = -1.0;
+  f.UpdateLocation();
+  TEST(!f.m_controller->IsArrowRotationAvailable(), ());
+
+  f.m_controller->SetFollowMode(location::FollowAndRotate, -1 /* zoomLevel */);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::FollowAndRotate, ());
+  TEST(!f.m_lastShouldPersist, ());
+
+  f.UpdateCompass();
+  TEST(f.m_controller->IsArrowRotationAvailable(), ());
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::FollowAndRotate, ());
+}
+
+UNIT_TEST(MyPositionController_SetFollowModeWhilePendingAppliesOnFirstFix)
+{
+  PositionFixture f(location::Follow, location::Follow, 0.0);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::PendingPosition, ());
+
+  f.m_controller->SetFollowMode(location::FollowAndRotate, -1 /* zoomLevel */);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::PendingPosition, ());
+
+  f.UpdateLocation();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::FollowAndRotate, ());
+}
+
+UNIT_TEST(MyPositionController_SetFollowModeKeepsLocationOff)
+{
+  PositionFixture f(location::NotFollowNoPosition, location::Follow, 0.0);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::NotFollowNoPosition, ());
+
+  f.m_controller->SetFollowMode(location::Follow, -1 /* zoomLevel */);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::NotFollowNoPosition, ());
+}
+
+UNIT_TEST(MyPositionController_SetFollowModeInRoutingKeepsPreferredRoutingMode)
+{
+  PositionFixture f(location::Follow, location::Follow, 0.0);
+  f.UpdateLocation();
+  f.UpdateCompass();
+
+  f.m_controller->ActivateRouting(17 /* zoomLevel */, false /* enableAutoZoom */, false /* isArrowGlued */,
+                                  false /* allowRouteRotation */);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::FollowAndRotate, ());
+
+  f.m_controller->SetFollowMode(location::Follow, -1 /* zoomLevel */);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
+  TEST(!f.m_lastShouldPersist, ());
+
+  f.m_controller->DeactivateRouting();
+  f.m_controller->ActivateRouting(17 /* zoomLevel */, false /* enableAutoZoom */, false /* isArrowGlued */,
+                                  false /* allowRouteRotation */);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::FollowAndRotate, ());
+}
+
+UNIT_TEST(MyPositionController_LeavingCarRestoresPhoneOrientation)
+{
+  PositionFixture f(location::Follow, location::FollowAndRotate, 0.0);
+  f.UpdateLocation();
+  f.UpdateCompass();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
+
+  f.m_controller->SetCarOwnsMode(true);
+  f.m_controller->SetFollowMode(location::FollowAndRotate, -1 /* zoomLevel */);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::FollowAndRotate, ());
+
+  f.m_controller->SetCarOwnsMode(false);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
+}
+
+UNIT_TEST(MyPositionController_CarPanKeepsPhoneFollowMode)
+{
+  PositionFixture f(location::Follow, location::Follow, 0.0);
+  f.UpdateLocation();
+  f.UpdateCompass();
+
+  f.m_controller->SetCarOwnsMode(true);
+  f.m_controller->SetFollowMode(location::FollowAndRotate, -1 /* zoomLevel */);
+  f.m_controller->StopLocationFollow();
+  f.m_controller->SetCarOwnsMode(false);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::NotFollow, ());
+
   f.m_controller->NextMode(f.m_screen);
   TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
 }
