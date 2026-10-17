@@ -9,6 +9,7 @@
 namespace
 {
 double constexpr kLongBackgroundSec = 60.0 * 16;
+double constexpr kVeryLongBackgroundSec = 60.0 * 60 * 31;
 
 class PositionFixture : public df::MyPositionController::Listener
 {
@@ -169,6 +170,18 @@ UNIT_TEST(MyPositionController_PanDuringNavigationKeepsFollowAfterwards)
   TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
 }
 
+UNIT_TEST(MyPositionController_LocationOffSurvivesRecenterTimeout)
+{
+  PositionFixture f(location::NotFollowNoPosition, location::FollowAndRotate, kLongBackgroundSec);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::NotFollowNoPosition, ());
+
+  f.m_controller->OnEnterForeground(kLongBackgroundSec);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::NotFollowNoPosition, ());
+
+  f.m_controller->OnEnterForeground(kVeryLongBackgroundSec);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::PendingPosition, ());
+}
+
 UNIT_TEST(MyPositionController_SetFollowModeRotatesWhenHeadingArrives)
 {
   PositionFixture f(location::Follow, location::Follow, 0.0);
@@ -255,4 +268,15 @@ UNIT_TEST(MyPositionController_CarPanKeepsPhoneFollowMode)
 
   f.m_controller->NextMode(f.m_screen);
   TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
+}
+
+UNIT_TEST(MyPositionController_CarOwnedForegroundDoesNotRecenter)
+{
+  PositionFixture f(location::Follow, location::Follow, 0.0);
+  f.UpdateLocation();
+
+  f.m_controller->SetCarOwnsMode(true);
+  f.m_controller->StopLocationFollow();
+  f.m_controller->OnEnterForeground(kLongBackgroundSec);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::NotFollow, ());
 }
