@@ -484,7 +484,6 @@ public:
   void SetMyPositionModeListener(location::TMyPositionModeChanged && fn);
 
   location::EMyPositionMode GetMyPositionMode() const;
-  location::EMyPositionMode GetLastFollowMode() const;
 
 private:
   void OnUserPositionChanged(m2::PointD const & position, bool hasPosition);

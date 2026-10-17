@@ -261,11 +261,6 @@ EMyPositionMode Framework::GetMyPositionMode() const
   return m_drapeEngine ? m_drapeEngine->GetMyPositionMode() : PendingPosition;
 }
 
-EMyPositionMode Framework::GetLastFollowMode() const
-{
-  return df::DrapeEngine::LoadLastFollowMode();
-}
-
 // Direct access to managers only for legacy Android listener support. So please dont use directly anymore!
 TrafficManager & Framework::GetTrafficManager()
 {

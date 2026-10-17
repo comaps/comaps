@@ -61,7 +61,7 @@ final class CarPlayServiceTests: XCTestCase {
 
     XCTAssertEqual(policy.orientation, .headingUp)
     XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .none)
-    XCTAssertEqual(policy.reconciliationAction(for: .follow), .switchMode)
+    XCTAssertEqual(policy.reconciliationAction(for: .follow), .follow)
   }
 
   func testFollowPolicyRecordsExplicitNorthUpUntilChanged() {
@@ -71,7 +71,7 @@ final class CarPlayServiceTests: XCTestCase {
 
     XCTAssertEqual(policy.orientation, .northUp)
     XCTAssertEqual(policy.reconciliationAction(for: .follow), .none)
-    XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .switchMode)
+    XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .follow)
 
     policy.recordExplicitModeSwitch(from: .follow)
 
@@ -79,11 +79,13 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .none)
   }
 
-  func testFollowPolicyIgnoresPendingPositionAndRequestsDisabledPosition() {
-    let policy = CarPlayFollowPolicy()
+  func testFollowPolicyLeavesLocationStateAlone() {
+    var policy = CarPlayFollowPolicy()
 
     XCTAssertEqual(policy.reconciliationAction(for: .pendingPosition), .none)
-    XCTAssertEqual(policy.reconciliationAction(for: .notFollowNoPosition), .switchMode)
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollowNoPosition), .none)
+    policy.recordExplicitModeSwitch(from: .followAndRotate)
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollowNoPosition), .none)
   }
 
   func testTouchBrowsingWithoutPanningInterfaceSurvivesPositionEvents() {
@@ -102,7 +104,7 @@ final class CarPlayServiceTests: XCTestCase {
 
   func testReconciliationUsesBrowsingIntentWhenQueuedBeforePan() {
     var policy = CarPlayFollowPolicy()
-    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .switchMode)
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .follow)
 
     policy.beginBrowsing()
 
@@ -143,7 +145,7 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertFalse(policy.isBrowsing)
     XCTAssertTrue(policy.allowsDefaultZoom)
     XCTAssertEqual(policy.orientation, .northUp)
-    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .switchMode)
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .follow)
     XCTAssertEqual(policy.reconciliationAction(for: .follow), .none)
   }
 
@@ -155,9 +157,9 @@ final class CarPlayServiceTests: XCTestCase {
 
     XCTAssertEqual(policy.reconciliationAction(for: .pendingPosition), .none)
     policy.recordPositionMode(.notFollow, isNavigating: false)
-    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .switchMode)
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .follow)
     policy.recordPositionMode(.follow, isNavigating: false)
-    XCTAssertEqual(policy.reconciliationAction(for: .follow), .switchMode)
+    XCTAssertEqual(policy.reconciliationAction(for: .follow), .follow)
     policy.recordPositionMode(.followAndRotate, isNavigating: false)
     XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .none)
   }
@@ -189,7 +191,7 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertFalse(policy.isBrowsing)
     XCTAssertTrue(policy.allowsDefaultZoom)
     XCTAssertEqual(policy.orientation, .northUp)
-    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .switchMode)
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .follow)
     XCTAssertEqual(policy.reconciliationAction(for: .follow), .none)
   }
 
@@ -198,7 +200,7 @@ final class CarPlayServiceTests: XCTestCase {
 
     XCTAssertEqual(policy.orientation, .northUp)
     XCTAssertEqual(policy.reconciliationAction(for: .follow), .none)
-    XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .switchMode)
+    XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .follow)
   }
 
   func testSearchContextStateStartsOwnedByPhone() {

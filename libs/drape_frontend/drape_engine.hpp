@@ -226,7 +226,6 @@ public:
   void OnEnterBackground();
 
   void SetCarOwnsPositionMode(bool carOwnsMode);
-  static location::EMyPositionMode LoadLastFollowMode();
 
   using TRequestSymbolsSizeCallback = std::function<void(std::map<std::string, m2::PointF> &&)>;
 
