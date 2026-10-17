@@ -184,6 +184,7 @@ public:
   void SwitchMyPositionNextMode();
   void StartPendingPositionMode();
   void LoseLocation();
+  void SetFollowMode(location::EMyPositionMode mode, int zoomLevel);
   void StopLocationFollow();
 
   using TapEventInfoHandler = FrontendRenderer::TapEventInfoHandler;
@@ -226,7 +227,7 @@ public:
   void OnEnterForeground();
   void OnEnterBackground();
 
-  void SetCarScreenMode(bool enabled);
+  void SetCarOwnsPositionMode(bool carOwnsMode);
   static location::EMyPositionMode LoadLastFollowMode();
 
   using TRequestSymbolsSizeCallback = std::function<void(std::map<std::string, m2::PointF> &&)>;
@@ -316,7 +317,7 @@ private:
   std::atomic<dp::DrapeID> m_drapeIdGenerator = 0;
 
   double m_startBackgroundTime = 0;
-  std::atomic<bool> m_isCarScreenMode = false;
+  std::atomic<bool> m_carOwnsPositionMode = false;
 
   // temporary storage used to transfer and conflate the latest accessibility data into the GUI thread
   std::atomic<dp::AccessibilityData *> m_accessibilityData;

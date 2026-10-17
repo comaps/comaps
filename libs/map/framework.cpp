@@ -1142,6 +1142,12 @@ void Framework::NotifyGraphicsReady(TGraphicsReadyFn const & fn, bool needInvali
 }
 #endif
 
+void Framework::SetFollowMode(EMyPositionMode mode, int zoomLevel)
+{
+  if (m_drapeEngine != nullptr)
+    m_drapeEngine->SetFollowMode(mode, zoomLevel);
+}
+
 void Framework::StopLocationFollow()
 {
   if (m_drapeEngine != nullptr)
@@ -1610,7 +1616,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
       std::move(onGraphicsContextInitialized), std::move(params.m_renderInjectionHandler));
 
   m_drapeEngine = make_unique_dp<df::DrapeEngine>(std::move(p));
-  m_drapeEngine->SetCarScreenMode(m_isCarScreenMode);
+  m_drapeEngine->SetCarOwnsPositionMode(m_carOwnsPositionMode);
   m_drapeEngine->SetModelViewListener([this](ScreenBase const & screen)
   { GetPlatform().RunTask(Platform::Thread::Gui, [this, screen]() { OnViewportChanged(screen); }); });
   m_drapeEngine->SetTapEventInfoListener([this](df::TapInfo const & tapInfo)
@@ -3732,14 +3738,22 @@ void Framework::OnPowerSchemeChanged(power_management::Scheme const actualScheme
     m_runOnPowerManagerChangesFn();
 }
 
+void Framework::SetCarOwnsPositionMode(bool carOwnsMode)
+{
+  if (m_carOwnsPositionMode == carOwnsMode)
+    return;
+
+  m_carOwnsPositionMode = carOwnsMode;
+  if (m_drapeEngine)
+    m_drapeEngine->SetCarOwnsPositionMode(carOwnsMode);
+}
+
 void Framework::SetCarScreenMode(bool enabled)
 {
   if (m_isCarScreenMode == enabled)
     return;
 
   m_isCarScreenMode = enabled;
-  if (m_drapeEngine)
-    m_drapeEngine->SetCarScreenMode(enabled);
 
   bool allow3d, allow3dBuildings;
   Load3dMode(allow3d, allow3dBuildings);

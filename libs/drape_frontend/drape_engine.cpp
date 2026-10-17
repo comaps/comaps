@@ -514,14 +514,14 @@ void DrapeEngine::ModelViewChanged(ScreenBase const & screen)
 void DrapeEngine::MyPositionModeChanged(location::EMyPositionMode mode, bool routingActive, bool shouldPersistMode)
 {
   // Only the phone mode is saved, to allow the car screen to manage its own mode
-  if (!m_isCarScreenMode)
+  if (!m_carOwnsPositionMode)
   {
     settings::Set(kLocationStateMode, mode);
-    if (!routingActive && (mode == location::Follow || mode == location::FollowAndRotate))
+    if (shouldPersistMode && !routingActive && (mode == location::Follow || mode == location::FollowAndRotate))
       settings::Set(kLastFollowMode, mode);
+    if (shouldPersistMode && routingActive)
+      settings::Set(kPreferredRoutingMode, mode);
   }
-  if (shouldPersistMode && routingActive)
-    settings::Set(kPreferredRoutingMode, mode);
   if (m_myPositionModeChanged)
     m_myPositionModeChanged(mode, routingActive);
 }
@@ -584,6 +584,12 @@ void DrapeEngine::LoseLocation()
   m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread,
                                   make_unique_dp<ChangeMyPositionModeMessage>(Mode::LoseLocation),
                                   MessagePriority::Normal);
+}
+
+void DrapeEngine::SetFollowMode(location::EMyPositionMode mode, int zoomLevel)
+{
+  m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread,
+                                  make_unique_dp<SetFollowModeMessage>(mode, zoomLevel), MessagePriority::Normal);
 }
 
 void DrapeEngine::StopLocationFollow()
@@ -790,15 +796,16 @@ void DrapeEngine::SetKineticScrollEnabled(bool enabled)
 
 void DrapeEngine::OnEnterForeground()
 {
-  // The car manages its own follow mode, so don't trigger recenter when returning from background
-  double const backgroundTime = m_isCarScreenMode ? 0.0 : base::Timer::LocalTime() - m_startBackgroundTime;
+  double const backgroundTime = base::Timer::LocalTime() - m_startBackgroundTime;
   m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread,
                                   make_unique_dp<OnEnterForegroundMessage>(backgroundTime), MessagePriority::High);
 }
 
-void DrapeEngine::SetCarScreenMode(bool enabled)
+void DrapeEngine::SetCarOwnsPositionMode(bool carOwnsMode)
 {
-  m_isCarScreenMode = enabled;
+  m_carOwnsPositionMode = carOwnsMode;
+  m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread,
+                                  make_unique_dp<SetCarOwnsPositionModeMessage>(carOwnsMode), MessagePriority::High);
 }
 
 // static

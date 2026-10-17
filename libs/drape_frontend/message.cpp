@@ -34,6 +34,8 @@ std::string DebugPrint(Message::Type msgType)
   case Message::Type::MapShapes: return "MapShapes";
   case Message::Type::ChangeMyPositionMode: return "ChangeMyPositionMode";
   case Message::Type::StartPendingPositionMode: return "StartPendingPositionMode";
+  case Message::Type::SetFollowMode: return "SetFollowMode";
+  case Message::Type::SetCarOwnsPositionMode: return "SetCarOwnsPositionMode";
   case Message::Type::CompassInfo: return "CompassInfo";
   case Message::Type::GpsInfo: return "GpsInfo";
   case Message::Type::SelectObject: return "SelectObject";

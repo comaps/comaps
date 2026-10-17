@@ -467,6 +467,34 @@ public:
   Type GetType() const override { return Type::StartPendingPositionMode; }
 };
 
+class SetFollowModeMessage : public Message
+{
+public:
+  SetFollowModeMessage(location::EMyPositionMode mode, int zoomLevel) : m_mode(mode), m_zoomLevel(zoomLevel) {}
+
+  Type GetType() const override { return Type::SetFollowMode; }
+
+  location::EMyPositionMode GetMode() const { return m_mode; }
+  int GetZoomLevel() const { return m_zoomLevel; }
+
+private:
+  location::EMyPositionMode const m_mode;
+  int const m_zoomLevel;
+};
+
+class SetCarOwnsPositionModeMessage : public Message
+{
+public:
+  explicit SetCarOwnsPositionModeMessage(bool carOwnsMode) : m_carOwnsMode(carOwnsMode) {}
+
+  Type GetType() const override { return Type::SetCarOwnsPositionMode; }
+
+  bool CarOwnsMode() const { return m_carOwnsMode; }
+
+private:
+  bool const m_carOwnsMode;
+};
+
 class CompassInfoMessage : public Message
 {
 public:
