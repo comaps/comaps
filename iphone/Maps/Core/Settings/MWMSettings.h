@@ -21,6 +21,9 @@ NS_SWIFT_NAME(SettingsBridge)
 + (BOOL)zoomButtonsEnabled;
 + (void)setZoomButtonsEnabled:(BOOL)zoomButtonsEnabled;
 
++ (BOOL)carPlayNorthUp;
++ (void)setCarPlayNorthUp:(BOOL)carPlayNorthUp;
+
 + (BOOL)showBookmarkLabels;
 + (void)setShowBookmarkLabels:(BOOL)show;
 

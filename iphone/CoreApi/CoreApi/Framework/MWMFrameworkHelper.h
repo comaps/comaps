@@ -44,6 +44,7 @@ NS_SWIFT_NAME(FrameworkHelper)
 + (void)scrollMapToDistanceX:(double)x andY:(double)y;
 + (void)deactivateMapSelection;
 + (void)switchMyPositionMode;
++ (BOOL)phonePrefersHeadingUp;
 + (void)stopLocationFollow;
 + (NSArray<NSString *> *)obtainLastSearchQueries;
 + (void)rotateMap:(double)azimuth animated:(BOOL)isAnimated;
