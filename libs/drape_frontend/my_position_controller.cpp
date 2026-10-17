@@ -185,6 +185,7 @@ bool IsModeChangeViewport(location::EMyPositionMode mode)
 MyPositionController::MyPositionController(Params && params, ref_ptr<DrapeNotifier> notifier)
   : m_notifier(notifier)
   , m_lastFollowMode(params.m_lastFollowMode)
+  , m_followModeBeforeRouting(params.m_lastFollowMode)
   , m_modeChangeCallback(std::move(params.m_myPositionModeCallback))
   , m_hints(params.m_hints)
   , m_isInRouting(params.m_isRoutingActive)
@@ -1006,6 +1007,9 @@ void MyPositionController::ActivateRouting(int zoomLevel, bool enableAutoZoom, b
 {
   if (!m_isInRouting)
   {
+    bool const isFollowing = m_mode == location::Follow || m_mode == location::FollowAndRotate;
+    m_followModeBeforeRouting = isFollowing ? m_mode : m_lastFollowMode;
+
     m_isInRouting = true;
     m_isArrowGluedInRouting = isArrowGlued;
     m_enableAutoZoomInRouting = enableAutoZoom;
@@ -1038,8 +1042,18 @@ void MyPositionController::DeactivateRouting()
     m_isArrowDirectionAssigned = m_isCompassAvailable && m_isArrowDirectionAssigned;
     m_isRouteDirectionAssigned = false;
 
-    ChangeMode(location::Follow);
-    ChangeModelView(m_position, 0.0, m_visiblePixelRect.Center(), kDoNotChangeZoom);
+    m_lastFollowMode = m_followModeBeforeRouting;
+    if (m_followModeBeforeRouting == location::FollowAndRotate && IsArrowRotationAvailable())
+    {
+      m_direction = m_arrowDirection;
+      ChangeMode(location::FollowAndRotate);
+      ChangeModelView(m_position, m_direction, m_visiblePixelRect.Center(), kDoNotChangeZoom);
+    }
+    else
+    {
+      ChangeMode(location::Follow);
+      ChangeModelView(m_position, 0.0, m_visiblePixelRect.Center(), kDoNotChangeZoom);
+    }
   }
 }
 

@@ -42,6 +42,21 @@ public:
     m_controller->OnLocationUpdate(m_gps, m_context, m_screen);
   }
 
+  void UpdateCompass()
+  {
+    location::CompassInfo info;
+    info.m_bearing = 1.0;
+    m_controller->OnCompassUpdate(info, m_screen);
+  }
+
+  void Navigate()
+  {
+    m_controller->ActivateRouting(17 /* zoomLevel */, false /* enableAutoZoom */, false /* isArrowGlued */,
+                                  false /* allowRouteRotation */);
+    TEST_EQUAL(m_controller->GetCurrentMode(), location::FollowAndRotate, ());
+    m_controller->DeactivateRouting();
+  }
+
   void PositionChanged(m2::PointD const &, bool) override {}
   void ChangeModelView(m2::PointD const &, int, df::TAnimationCreator const &) override {}
   void ChangeModelView(double, df::TAnimationCreator const &) override {}
@@ -101,4 +116,53 @@ UNIT_TEST(MyPositionController_LongForegroundReturnUsesSavedFollowMode)
 
   f.m_controller->OnEnterForeground(kLongBackgroundSec);
   TEST_EQUAL(f.m_controller->GetCurrentMode(), location::FollowAndRotate, ());
+}
+
+UNIT_TEST(MyPositionController_NavigationEndRestoresFollow)
+{
+  PositionFixture f(location::Follow, location::FollowAndRotate, 0.0);
+  f.UpdateLocation();
+  f.UpdateCompass();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
+
+  f.Navigate();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
+}
+
+UNIT_TEST(MyPositionController_NavigationEndRestoresFollowAndRotate)
+{
+  PositionFixture f(location::FollowAndRotate, location::FollowAndRotate, 0.0);
+  f.UpdateLocation();
+  f.UpdateCompass();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::FollowAndRotate, ());
+
+  f.Navigate();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::FollowAndRotate, ());
+}
+
+UNIT_TEST(MyPositionController_NavigationEndWithoutDirectionFallsBackToFollow)
+{
+  PositionFixture f(location::FollowAndRotate, location::FollowAndRotate, 0.0);
+  f.UpdateLocation();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::FollowAndRotate, ());
+
+  f.Navigate();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
+}
+
+UNIT_TEST(MyPositionController_PanDuringNavigationKeepsFollowAfterwards)
+{
+  PositionFixture f(location::Follow, location::Follow, 0.0);
+  f.UpdateLocation();
+  f.UpdateCompass();
+
+  f.m_controller->ActivateRouting(17 /* zoomLevel */, false /* enableAutoZoom */, false /* isArrowGlued */,
+                                  false /* allowRouteRotation */);
+  f.m_controller->StopLocationFollow();
+  f.m_controller->DeactivateRouting();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
+
+  f.m_controller->StopLocationFollow();
+  f.m_controller->NextMode(f.m_screen);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
 }
