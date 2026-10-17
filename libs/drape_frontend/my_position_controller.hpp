@@ -84,9 +84,11 @@ public:
 
   struct Params
   {
-    Params(location::EMyPositionMode initMode, location::EMyPositionMode preferredRoutingMode, double timeInBackground,
-           Hints const & hints, bool isRoutingActive, bool isAutozoomEnabled, TMyPositionModeChanged && fn)
+    Params(location::EMyPositionMode initMode, location::EMyPositionMode lastFollowMode,
+           location::EMyPositionMode preferredRoutingMode, double timeInBackground, Hints const & hints,
+           bool isRoutingActive, bool isAutozoomEnabled, TMyPositionModeChanged && fn)
       : m_initMode(initMode)
+      , m_lastFollowMode(lastFollowMode)
       , m_preferredRoutingMode(preferredRoutingMode)
       , m_timeInBackground(timeInBackground)
       , m_hints(hints)
@@ -96,6 +98,7 @@ public:
     {}
 
     location::EMyPositionMode m_initMode;
+    location::EMyPositionMode m_lastFollowMode;
     location::EMyPositionMode m_preferredRoutingMode;
     double m_timeInBackground;
     Hints m_hints;

@@ -261,6 +261,11 @@ EMyPositionMode Framework::GetMyPositionMode() const
   return m_drapeEngine ? m_drapeEngine->GetMyPositionMode() : PendingPosition;
 }
 
+EMyPositionMode Framework::GetLastFollowMode() const
+{
+  return df::DrapeEngine::LoadLastFollowMode();
+}
+
 // Direct access to managers only for legacy Android listener support. So please dont use directly anymore!
 TrafficManager & Framework::GetTrafficManager()
 {
@@ -1581,6 +1586,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
       std::move(onGraphicsContextInitialized), std::move(params.m_renderInjectionHandler));
 
   m_drapeEngine = make_unique_dp<df::DrapeEngine>(std::move(p));
+  m_drapeEngine->SetCarScreenMode(m_isCarScreenMode);
   m_drapeEngine->SetModelViewListener([this](ScreenBase const & screen)
   { GetPlatform().RunTask(Platform::Thread::Gui, [this, screen]() { OnViewportChanged(screen); }); });
   m_drapeEngine->SetTapEventInfoListener([this](df::TapInfo const & tapInfo)
@@ -3710,6 +3716,8 @@ void Framework::SetCarScreenMode(bool enabled)
     return;
 
   m_isCarScreenMode = enabled;
+  if (m_drapeEngine)
+    m_drapeEngine->SetCarScreenMode(enabled);
 
   bool allow3d, allow3dBuildings;
   Load3dMode(allow3d, allow3dBuildings);

@@ -224,6 +224,9 @@ public:
   void OnEnterForeground();
   void OnEnterBackground();
 
+  void SetCarScreenMode(bool enabled);
+  static location::EMyPositionMode LoadLastFollowMode();
+
   using TRequestSymbolsSizeCallback = std::function<void(std::map<std::string, m2::PointF> &&)>;
 
   void RequestSymbolsSize(std::vector<std::string> const & symbols, TRequestSymbolsSizeCallback const & callback);
@@ -311,6 +314,7 @@ private:
   std::atomic<dp::DrapeID> m_drapeIdGenerator = 0;
 
   double m_startBackgroundTime = 0;
+  std::atomic<bool> m_isCarScreenMode = false;
 
   // temporary storage used to transfer and conflate the latest accessibility data into the GUI thread
   std::atomic<dp::AccessibilityData *> m_accessibilityData;

@@ -42,6 +42,7 @@ using namespace std::placeholders;
 namespace
 {
 std::string_view constexpr kLocationStateMode = "LastLocationStateMode";
+std::string_view constexpr kLastFollowMode = "LastFollowMode";
 std::string_view constexpr kPreferredRoutingMode = "PreferredRoutingMode";
 std::string_view constexpr kLastEnterBackground = "LastEnterBackground";
 }  // namespace
@@ -95,7 +96,7 @@ DrapeEngine::DrapeEngine(Params && params)
   //  effects.push_back(PostprocessRenderer::Antialiasing);
   //}
 
-  MyPositionController::Params mpParams(lastMode, preferredRoutingMode,
+  MyPositionController::Params mpParams(lastMode, LoadLastFollowMode(), preferredRoutingMode,
                                         base::Timer::LocalTime() - m_startBackgroundTime, params.m_hints,
                                         params.m_isRoutingActive, params.m_isAutozoomEnabled,
                                         std::bind(&DrapeEngine::MyPositionModeChanged, this, _1, _2, _3));
@@ -505,7 +506,13 @@ void DrapeEngine::ModelViewChanged(ScreenBase const & screen)
 
 void DrapeEngine::MyPositionModeChanged(location::EMyPositionMode mode, bool routingActive, bool shouldPersistMode)
 {
-  settings::Set(kLocationStateMode, mode);
+  // Only the phone mode is saved, to allow the car screen to manage its own mode
+  if (!m_isCarScreenMode)
+  {
+    settings::Set(kLocationStateMode, mode);
+    if (!routingActive && (mode == location::Follow || mode == location::FollowAndRotate))
+      settings::Set(kLastFollowMode, mode);
+  }
   if (shouldPersistMode && routingActive)
     settings::Set(kPreferredRoutingMode, mode);
   if (m_myPositionModeChanged)
@@ -779,6 +786,20 @@ void DrapeEngine::OnEnterForeground()
   double const backgroundTime = base::Timer::LocalTime() - m_startBackgroundTime;
   m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread,
                                   make_unique_dp<OnEnterForegroundMessage>(backgroundTime), MessagePriority::High);
+}
+
+void DrapeEngine::SetCarScreenMode(bool enabled)
+{
+  m_isCarScreenMode = enabled;
+}
+
+// static
+location::EMyPositionMode DrapeEngine::LoadLastFollowMode()
+{
+  location::EMyPositionMode mode;
+  if (settings::Get(kLastFollowMode, mode) && mode == location::FollowAndRotate)
+    return location::FollowAndRotate;
+  return location::Follow;
 }
 
 void DrapeEngine::OnEnterBackground()
