@@ -8,6 +8,8 @@
 
 namespace
 {
+double constexpr kLongBackgroundSec = 60.0 * 16;
+
 class PositionFixture : public df::MyPositionController::Listener
 {
 public:
@@ -75,4 +77,28 @@ UNIT_TEST(MyPositionController_NotFollowReturnsToSavedFollow)
 
   f.m_controller->NextMode(f.m_screen);
   TEST_EQUAL(f.m_controller->GetCurrentMode(), location::Follow, ());
+}
+
+UNIT_TEST(MyPositionController_LongBackgroundStartsInSavedFollowMode)
+{
+  PositionFixture f(location::NotFollow, location::FollowAndRotate, kLongBackgroundSec);
+  f.UpdateLocation();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::FollowAndRotate, ());
+}
+
+UNIT_TEST(MyPositionController_ShortBackgroundKeepsSavedMode)
+{
+  PositionFixture f(location::NotFollow, location::FollowAndRotate, 60.0);
+  f.UpdateLocation();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::NotFollow, ());
+}
+
+UNIT_TEST(MyPositionController_LongForegroundReturnUsesSavedFollowMode)
+{
+  PositionFixture f(location::NotFollow, location::FollowAndRotate, 0.0);
+  f.UpdateLocation();
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::NotFollow, ());
+
+  f.m_controller->OnEnterForeground(kLongBackgroundSec);
+  TEST_EQUAL(f.m_controller->GetCurrentMode(), location::FollowAndRotate, ());
 }
