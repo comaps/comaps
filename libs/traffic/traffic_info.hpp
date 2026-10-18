@@ -100,6 +100,11 @@ public:
   // todo(@m) unordered_map?
   using Coloring = std::map<RoadSegmentId, SpeedGroup>;
 
+  /**
+   * @brief Mapping from feature segments to speed groups (see `speed_groups.hpp`), for all MWMs.
+   */
+  using GlobalColoring = std::map<MwmSet::MwmId, Coloring>;
+
   TrafficInfo() = default;
 
   TrafficInfo(MwmSet::MwmId const & mwmId, Coloring && coloring);

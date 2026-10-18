@@ -252,7 +252,7 @@ void TrafficGenerator::FlushSegmentsGeometry(ref_ptr<dp::GraphicsContext> contex
   context->Flush();
 }
 
-void TrafficGenerator::UpdateColoring(TrafficSegmentsColoring const & coloring)
+void TrafficGenerator::UpdateColoring(traffic::TrafficInfo::GlobalColoring const & coloring)
 {
   for (auto const & p : coloring)
     m_coloring[p.first] = p.second;

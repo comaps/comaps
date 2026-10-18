@@ -824,7 +824,7 @@ void DrapeEngine::UpdateTraffic(traffic::TrafficInfo const & info)
     ASSERT_NOT_EQUAL(segmentPair.second, traffic::SpeedGroup::Unknown, ());
 #endif
 
-  df::TrafficSegmentsColoring segmentsColoring;
+  traffic::TrafficInfo::GlobalColoring segmentsColoring;
   segmentsColoring.emplace(info.GetMwmId(), info.GetColoring());
 
   m_threadCommutator->PostMessage(ThreadsCommutator::ResourceUploadThread,

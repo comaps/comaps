@@ -84,7 +84,6 @@ struct TrafficSegmentGeometry
 using TrafficSegmentsGeometryValue =
     std::vector<std::pair<traffic::TrafficInfo::RoadSegmentId, TrafficSegmentGeometry>>;
 using TrafficSegmentsGeometry = std::map<MwmSet::MwmId, TrafficSegmentsGeometryValue>;
-using TrafficSegmentsColoring = std::map<MwmSet::MwmId, traffic::TrafficInfo::Coloring>;
 
 struct TrafficRenderData
 {
@@ -174,7 +173,7 @@ public:
 
   void FlushSegmentsGeometry(ref_ptr<dp::GraphicsContext> context, TileKey const & tileKey,
                              TrafficSegmentsGeometry const & geom, ref_ptr<dp::TextureManager> textures);
-  void UpdateColoring(TrafficSegmentsColoring const & coloring);
+  void UpdateColoring(traffic::TrafficInfo::GlobalColoring const & coloring);
 
   void ClearCache();
   void ClearCache(MwmSet::MwmId const & mwmId);
@@ -229,7 +228,7 @@ private:
                                 traffic::TrafficInfo::Coloring const & coloring,
                                 ref_ptr<dp::TextureManager> texturesMgr);
 
-  TrafficSegmentsColoring m_coloring;
+  traffic::TrafficInfo::GlobalColoring m_coloring;
 
   std::array<dp::TextureManager::ColorRegion, static_cast<size_t>(traffic::SpeedGroup::Count)> m_colorsCache;
   bool m_colorsCacheValid = false;

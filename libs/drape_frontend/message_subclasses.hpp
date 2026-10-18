@@ -1089,16 +1089,16 @@ public:
 class UpdateTrafficMessage : public Message
 {
 public:
-  explicit UpdateTrafficMessage(TrafficSegmentsColoring && segmentsColoring)
+  explicit UpdateTrafficMessage(traffic::TrafficInfo::GlobalColoring && segmentsColoring)
     : m_segmentsColoring(std::move(segmentsColoring))
   {}
 
   Type GetType() const override { return Type::UpdateTraffic; }
 
-  TrafficSegmentsColoring & GetSegmentsColoring() { return m_segmentsColoring; }
+  traffic::TrafficInfo::GlobalColoring & GetSegmentsColoring() { return m_segmentsColoring; }
 
 private:
-  TrafficSegmentsColoring m_segmentsColoring;
+  traffic::TrafficInfo::GlobalColoring m_segmentsColoring;
 };
 
 using FlushTrafficDataMessage = FlushRenderDataMessage<TrafficRenderData, Message::Type::FlushTrafficData>;
