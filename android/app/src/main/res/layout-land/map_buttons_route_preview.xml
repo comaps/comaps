@@ -27,10 +27,11 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/nav_route_preview_text"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="@dimen/map_button_size"
         android:layout_marginStart="@dimen/margin_eighth"
         android:layout_marginEnd="@dimen/margin_eighth"
+        android:minWidth="100dp"
         android:background="@drawable/bg_route_preview_label"
         android:gravity="center"
         android:textSize="@dimen/text_size_body_1"
