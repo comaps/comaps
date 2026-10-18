@@ -1310,6 +1310,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     final RoutingController routingController = RoutingController.get();
     if (!closeBottomSheet(MAIN_MENU_ID) && !closeBottomSheet(LAYERS_MENU_ID) && !collapseNavMenu() && !closePlacePage()
         && !closeSearchToolbar(true, true) && !closeSidePanel() && !closePositionChooser()
+        && !exitRoutePreviewIfPreviewing()
         && !routingController.resetToPlanningStateIfNavigating() && !routingController.cancel())
     {
       try
@@ -1321,6 +1322,15 @@ public class MwmActivity extends BaseMwmFragmentActivity
         // Sometimes this can be called after onSaveState() for unknown reason.
       }
     }
+  }
+
+  private boolean exitRoutePreviewIfPreviewing()
+  {
+    if (!RoutingController.get().isPreviewingTurn())
+      return false;
+
+    exitRoutePreview();
+    return true;
   }
 
   private boolean interceptBackPress()
