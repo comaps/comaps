@@ -484,7 +484,7 @@ bool TrafficManager::RestoreCache()
       std::swap(message, feedIn.front());
       feedIn.erase(feedIn.begin());
 
-      if (!message.IsExpired(traffxml::IsoTime::Now()))
+      if (!message.IsExpired(traffic::IsoTime::Now()))
       {
         if (!message.m_decoded.empty())
         {
@@ -564,7 +564,7 @@ bool TrafficManager::PurgeExpiredMessagesImpl()
   std::lock_guard<std::mutex> lock(m_mutex);
   bool result = false;
   LOG(LINFO, ("before:", m_messageCache.size(), "message(s)"));
-  traffxml::IsoTime now = traffxml::IsoTime::Now();
+  traffic::IsoTime now = traffic::IsoTime::Now();
   for (auto it = m_messageCache.begin(); it != m_messageCache.end(); )
   {
     if (it->second.IsExpired(now))

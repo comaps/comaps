@@ -254,7 +254,7 @@ std::optional<std::string> OptionalStringFromXml(pugi::xml_attribute const & att
 }
 
 /**
- * @brief Parses time in ISO 8601 format from a time attribute and stores it in an `IsoTime`.
+ * @brief Parses time in ISO 8601 format from a time attribute and stores it in a `traffic::IsoTime`.
  *
  * ISO 8601 timestamps have the format `yyyy-mm-ddThh:mm:ss[.sss]`, optionally followed by a UTC
  * offset. For example, `2019-11-01T11:45:42+01:00` refers to 11:45:42 in the UTC+1 timezone, which
@@ -272,13 +272,13 @@ std::optional<std::string> OptionalStringFromXml(pugi::xml_attribute const & att
  * @param tm Receives the parsed time.
  * @return `true` on success, `false` if the attribute is not set or does not contain a timestamp.
  */
-bool TimeFromXml(pugi::xml_attribute const & attribute, IsoTime & tm)
+bool TimeFromXml(pugi::xml_attribute const & attribute, traffic::IsoTime & tm)
 {
   std::string timeString;
   if (!StringFromXml(attribute, timeString))
     return false;
 
-  std::optional<IsoTime> result = IsoTime::ParseIsoTime(timeString);
+  std::optional<traffic::IsoTime> result = traffic::IsoTime::ParseIsoTime(timeString);
   if (!result)
     return false;
 
@@ -287,7 +287,7 @@ bool TimeFromXml(pugi::xml_attribute const & attribute, IsoTime & tm)
 }
 
 /**
- * @brief Parses time in ISO 8601 format from a time attribute and stores it in an `IsoTime`.
+ * @brief Parses time in ISO 8601 format from a time attribute and stores it in a `traffic::IsoTime`.
  *
  * ISO 8601 timestamps have the format `yyyy-mm-ddThh:mm:ss[.sss]`, optionally followed by a UTC
  * offset. For example, `2019-11-01T11:45:42+01:00` refers to 11:45:42 in the UTC+1 timezone, which
@@ -304,9 +304,9 @@ bool TimeFromXml(pugi::xml_attribute const & attribute, IsoTime & tm)
  * @param attribute The XML attribute from which to receive time.
  * @return The parsed time, or `std::nullopt` if the attribute is not set or does not contain a timestamp.
  */
-std::optional<IsoTime> OptionalTimeFromXml(pugi::xml_attribute const & attribute)
+std::optional<traffic::IsoTime> OptionalTimeFromXml(pugi::xml_attribute const & attribute)
 {
-  IsoTime result = IsoTime::Now();
+  traffic::IsoTime result = traffic::IsoTime::Now();
   if (!TimeFromXml(attribute, result))
     return std::nullopt;
   return result;

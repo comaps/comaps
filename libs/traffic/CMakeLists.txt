@@ -1,6 +1,8 @@
 project(traffic)
 
 set(SRC
+  iso_time.cpp
+  iso_time.hpp
   speed_groups.cpp
   speed_groups.hpp
   traffic_cache.cpp
