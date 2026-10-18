@@ -37,6 +37,37 @@ namespace traffic
 {
 using namespace std;
 
+bool Condition::operator< (const Condition & rhs) const
+{
+  if (m_startTime)
+  {
+    if (!rhs.m_startTime)
+      return false;
+    if (m_startTime.value() < rhs.m_startTime.value())
+      return true;
+    if (m_startTime.value() > rhs.m_startTime.value())
+      return false;
+  }
+  else if (rhs.m_startTime.has_value())
+      return true;
+
+  // start times are equal (or both empty), compare end times
+  if (m_endTime)
+  {
+    if (!rhs.m_endTime)
+      return true;
+    if (m_endTime.value() < rhs.m_endTime.value())
+      return true;
+    if (m_endTime.value() > rhs.m_endTime.value())
+      return false;
+  }
+  else if (rhs.m_endTime.has_value())
+      return false;
+
+  // end times are equal (or both empty), both conditions are equal
+  return false;
+}
+
 // TrafficInfo::RoadSegmentId -----------------------------------------------------------------
 TrafficInfo::RoadSegmentId::RoadSegmentId() : m_fid(0), m_idx(0), m_dir(0) {}
 
@@ -72,8 +103,8 @@ void TrafficInfo::SetTrafficKeysForTesting(vector<RoadSegmentId> const & keys)
 
 SpeedGroup TrafficInfo::GetSpeedGroup(RoadSegmentId const & id) const
 {
-  auto const it = m_coloring.find(id);
-  if (it == m_coloring.cend())
+  auto const it = m_coloring.m_unconditional.find(id);
+  if (it == m_coloring.m_unconditional.cend())
     return SpeedGroup::Unknown;
   return it->second;
 }
@@ -81,6 +112,8 @@ SpeedGroup TrafficInfo::GetSpeedGroup(RoadSegmentId const & id) const
 #if 0
 /*
  * These were formerly used by pytraffic.
+ * Commented out as the whole construct no longer works as-is with the introduction of conditional
+ * traffic coloring.
  */
 // static
 void TrafficInfo::ExtractTrafficKeys(string const & mwmPath, vector<RoadSegmentId> & result)

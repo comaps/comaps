@@ -195,28 +195,29 @@ void TraffMessage::ShiftTimestamps()
     m_endTime.value().Shift(nowRef);
 }
 
-void MergeMultiMwmColoring(const MultiMwmColoring & delta, MultiMwmColoring & target)
+void MergeGlobalSimpleColoring(const GlobalSimpleColoring & delta,
+                               std::optional<traffic::Condition> condition,
+                               traffic::TrafficInfo::GlobalColoring & target)
 {
   // for each mwm in delta
-  for (auto [mwmId, coloring] : delta)
-    // if target contains mwm
-    if (auto target_it = target.find(mwmId); target_it != target.end())
-      // for each segment in delta[mwm] (coloring)
-      for (auto [rsid, sg] : coloring)
-        // if target[mwm] contains segment
-        if (auto c_it = target_it->second.find(rsid) ; c_it != target_it->second.end())
-        {
-          // if delta overrules target (target is Unknown, delta is TempBlock or delta is slower than target)
-          if ((sg == traffic::SpeedGroup::TempBlock)
-              || (c_it->second == traffic::SpeedGroup::Unknown) || (sg < c_it->second))
-            target_it->second[rsid] = sg;
-        }
-        else
-          // if target[mwm] does not contain segment, add speed group
-          target_it->second[rsid] = sg;
-    else
-      // if target does not contain mwm, add coloring
-      target[mwmId] = coloring;
+  for (auto [mwmId, deltaSimpleColoring] : delta)
+  {
+    traffic::TrafficInfo::Coloring & targetColoring = target[mwmId];
+    traffic::TrafficInfo::SimpleColoring & targetSimpleColoring =
+        condition ? targetColoring.m_conditional[condition.value()] : targetColoring.m_unconditional;
+    for (auto [rsid, sg] : deltaSimpleColoring)
+      // if target[mwm] contains segment
+      if (auto c_it = targetSimpleColoring.find(rsid) ; c_it != targetSimpleColoring.end())
+      {
+        // if delta overrules target (target is Unknown, delta is TempBlock or delta is slower than target)
+        if ((sg == traffic::SpeedGroup::TempBlock)
+            || (c_it->second == traffic::SpeedGroup::Unknown) || (sg < c_it->second))
+          targetSimpleColoring[rsid] = sg;
+      }
+      else
+        // if target[mwm] does not contain segment, add speed group
+        targetSimpleColoring[rsid] = sg;
+  }
 }
 
 /*

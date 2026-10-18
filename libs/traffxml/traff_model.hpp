@@ -356,8 +356,11 @@ struct TraffEvent
 
 /**
  * @brief Global mapping from feature segments to speed groups, across all MWMs.
+ *
+ * `GlobalSimpleColoring` is condition-agnostic. Conditionality information must be provided outside
+ * this type. Use `traffic::TrafficInfo::GlobalColoring` where full condition support is needed.
  */
-using MultiMwmColoring = std::map<MwmSet::MwmId, std::map<traffic::TrafficInfo::RoadSegmentId, traffic::SpeedGroup>>;
+using GlobalSimpleColoring = std::map<MwmSet::MwmId, traffic::TrafficInfo::SimpleColoring>;
 
 struct TraffMessage
 {
@@ -418,7 +421,8 @@ struct TraffMessage
   std::optional<TraffLocation> m_location;
   std::vector<TraffEvent> m_events;
   std::vector<std::string> m_replaces;
-  MultiMwmColoring m_decoded;
+  std::optional<traffic::Condition> m_condition = {};
+  GlobalSimpleColoring m_decoded;
 };
 
 using TraffFeed = std::vector<TraffMessage>;
@@ -476,19 +480,26 @@ struct TraffResponse
 };
 
 /**
- * @brief Merges the contents of one `MultiMwmColoring` into another.
+ * @brief Merges coloring for one message into global coloring.
  *
  * After this function returns, `target` will hold the union of the entries it had prior to the
  * function call and the entries from `delta`.
+ *
+ * If the message has start/end times, they are mapped to `condition`, else `condition` is empty.
+ * If `condition` is empty, entries from `delta` will be added to `target` as unconditional entries.
+ * Otherwise, entries from `delta` will be added to `delta` with the condition specified by `condition`.
+ * The condition will be created if it does not exist, else entries will be merged.
  *
  * In case of conflict, the more restrictive speed group wins. That is, `TempBlock` overrides
  * everything else, `Unknown` never overrides anything else, and among `G0` to `G5`, the lowest
  * group wins.
  *
  * @param delta Contains the entries to be added.
+ * @param condition The condition for the entries in `delta`, empty for unconditional messages
  * @param target Receives the added entries.
  */
-void MergeMultiMwmColoring(const MultiMwmColoring & delta, MultiMwmColoring & target);
+void MergeGlobalSimpleColoring(const GlobalSimpleColoring & delta, std::optional<traffic::Condition> condition,
+                               traffic::TrafficInfo::GlobalColoring & target);
 
 std::string DebugPrint(Directionality directionality);
 std::string DebugPrint(Ramps ramps);

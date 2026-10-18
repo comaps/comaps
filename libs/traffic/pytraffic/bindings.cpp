@@ -61,10 +61,10 @@ std::string SegmentSpeedsRepr(SegmentSpeeds const & v)
   return ss.str();
 }
 
-traffic::TrafficInfo::Coloring TransformToSpeedGroups(SegmentMapping const & segmentMapping)
+traffic::TrafficInfo::SimpleColoring TransformToSpeedGroups(SegmentMapping const & segmentMapping)
 {
   double const kEps = 1e-9;
-  traffic::TrafficInfo::Coloring result;
+  traffic::TrafficInfo::SimpleColoring result;
   for (auto const & kv : segmentMapping)
   {
     double const ws = kv.second.m_weightedSpeed;
@@ -108,6 +108,10 @@ std::string RoadSegmentIdRepr(traffic::TrafficInfo::RoadSegmentId const & v)
 #if 0
 /*
  * TODO Obsolete and no longer needed.
+ * Also, coloring logic has been amended to support conditional coloring (what was previously `Coloring`
+ * is now `SimpleColoring`, and `Coloring` is now a struct with one member of type  `SimpleColoring`
+ * and one of type `std::map<Condition, SimpleColoring>` aka `ConditionalColoring`, which
+ * breaks most of the existing logic (resulting in compilation errors or incorrect behavior).
  */
 boost::python::list GenerateTrafficKeys(std::string const & mwmPath)
 {

@@ -30,13 +30,13 @@ traffic::SpeedGroup TrafficStash::GetSpeedGroup(Segment const & segment) const
   if (itMwm == m_mwmToTraffic.cend())
     return traffic::SpeedGroup::Unknown;
 
-  auto const & coloring = itMwm->second;
-  auto const itSeg = coloring->find(traffic::TrafficInfo::RoadSegmentId(
+  auto const & coloring = itMwm->second->m_unconditional;
+  auto const itSeg = coloring.find(traffic::TrafficInfo::RoadSegmentId(
       segment.GetFeatureId(), base::asserted_cast<uint16_t>(segment.GetSegmentIdx()),
       segment.IsForward() ? traffic::TrafficInfo::RoadSegmentId::kForwardDirection
                           : traffic::TrafficInfo::RoadSegmentId::kReverseDirection));
 
-  if (itSeg == coloring->cend())
+  if (itSeg == coloring.cend())
     return traffic::SpeedGroup::Unknown;
 
   return itSeg->second;

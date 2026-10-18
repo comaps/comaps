@@ -136,7 +136,7 @@ TraffDecoder::TraffDecoder(DataSource & dataSource, CountryInfoGetterFn countryI
   , m_messageCache(messageCache)
 {}
 
-void TraffDecoder::ApplyTrafficImpact(traffxml::TrafficImpact & impact, traffxml::MultiMwmColoring & decoded)
+void TraffDecoder::ApplyTrafficImpact(traffxml::TrafficImpact & impact, traffxml::GlobalSimpleColoring & decoded)
 {
   traffic::SpeedGroup fromDelay = traffic::SpeedGroup::Unknown;
 
@@ -258,7 +258,7 @@ void TraffDecoder::DecodeMessage(traffxml::TraffMessage & message)
   if (!m_trafficImpact)
     return;
 
-  traffxml::MultiMwmColoring decoded;
+  traffxml::GlobalSimpleColoring decoded;
   bool isDecoded = false;
 
   std::vector<std::string> ids = message.m_replaces;
@@ -484,7 +484,7 @@ std::vector<openlr::LinearSegment> OpenLrV3TraffDecoder::TraffLocationToOpenLrSe
  * structures to accept a TraFF message ID (string) rather than an integer, or derive
  * [partner] segment IDs from TraFF message IDs.
  */
-void OpenLrV3TraffDecoder::DecodeLocation(traffxml::TraffMessage & message, traffxml::MultiMwmColoring & decoded)
+void OpenLrV3TraffDecoder::DecodeLocation(traffxml::TraffMessage & message, traffxml::GlobalSimpleColoring & decoded)
 {
   ASSERT(message.m_location, ("Message has no location"));
   decoded.clear();
@@ -1204,7 +1204,7 @@ void RoutingTraffDecoder::LogCode(routing::RouterResultCode code, double const e
   }
 }
 
-void RoutingTraffDecoder::AddDecodedSegment(traffxml::MultiMwmColoring & decoded, routing::Segment & segment)
+void RoutingTraffDecoder::AddDecodedSegment(traffxml::GlobalSimpleColoring & decoded, routing::Segment & segment)
 {
   auto const countryFile = m_numMwmIds->GetFile(segment.GetMwmId());
   MwmSet::MwmId mwmId = m_dataSource.GetMwmIdByCountryFile(countryFile);
@@ -1460,7 +1460,7 @@ void RoutingTraffDecoder::TruncateRouteToRamps(std::vector<routing::RouteSegment
 }
 
 void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & message,
-                                                  traffxml::MultiMwmColoring & decoded, bool backwards)
+                                                  traffxml::GlobalSimpleColoring & decoded, bool backwards)
 {
   bool adjustToPrevRoute = false; // calculate a fresh route, no adjustments to previous one
   uint64_t routeId = 0; // used in callbacks to identify the route, we might not need it at all
@@ -1698,7 +1698,7 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & messa
   }
 }
 
-void RoutingTraffDecoder::DecodeLocation(traffxml::TraffMessage & message, traffxml::MultiMwmColoring & decoded)
+void RoutingTraffDecoder::DecodeLocation(traffxml::TraffMessage & message, traffxml::GlobalSimpleColoring & decoded)
 {
   ASSERT(message.m_location, ("Message has no location"));
   decoded.clear();

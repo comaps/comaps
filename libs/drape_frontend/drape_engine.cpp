@@ -816,12 +816,15 @@ void DrapeEngine::EnableTraffic(bool trafficEnabled)
 
 void DrapeEngine::UpdateTraffic(traffic::TrafficInfo const & info)
 {
-  if (info.GetColoring().empty())
+  if (info.GetColoring().m_unconditional.empty() && info.GetColoring().m_conditional.empty())
     return;
 
 #ifdef DEBUG
-  for (auto const & segmentPair : info.GetColoring())
+  for (auto const & segmentPair : info.GetColoring().m_unconditional)
     ASSERT_NOT_EQUAL(segmentPair.second, traffic::SpeedGroup::Unknown, ());
+  for (auto const & conditionPair : info.GetColoring().m_conditional)
+    for (auto const & segmentPair : conditionPair.second)
+      ASSERT_NOT_EQUAL(segmentPair.second, traffic::SpeedGroup::Unknown, ());
 #endif
 
   traffic::TrafficInfo::GlobalColoring segmentsColoring;

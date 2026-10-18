@@ -755,7 +755,7 @@ void TrafficManager::DecodeFirstMessage()
    *      traffic impact are unchanged or have worsened) – for this purpose, closure is considered
    *      lower than any other speed group
    *  In this case, run:
-   *      traffxml::MergeMultiMwmColoring(message.m_decoded, m_allMwmColoring);
+   *      traffxml::MergeGlobalSimpleColoring(message.m_decoded, m_allMwmColoring);
    *  Otherwise, set a flag indicating we need to process coloring in full.
    */
 }
@@ -959,7 +959,7 @@ void TrafficManager::OnTrafficDataUpdate()
 
     m_allMwmColoring.clear();
     for (const auto & [id, message] : m_messageCache)
-      traffxml::MergeMultiMwmColoring(message.m_decoded, m_allMwmColoring);
+      traffxml::MergeGlobalSimpleColoring(message.m_decoded, message.m_condition, m_allMwmColoring);
   }
 
   /*
@@ -992,7 +992,8 @@ void TrafficManager::OnTrafficDataUpdate()
     if (tcit != m_allMwmColoring.end())
     {
       traffic::TrafficInfo::Coloring coloring = tcit->second;
-      LOG(LINFO, ("Setting new coloring for", mwmId, "with", coloring.size(), "entries"));
+      LOG(LINFO, ("Setting new coloring for", mwmId, "with", coloring.m_unconditional.size(),
+          "unconditional entries,", coloring.m_conditional.size(), "conditions"));
       traffic::TrafficInfo info(mwmId, std::move(coloring));
 
       if (notifyDrape)

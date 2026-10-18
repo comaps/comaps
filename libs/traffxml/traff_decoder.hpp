@@ -79,7 +79,7 @@ protected:
    * @param message The message to decode.
    * @param decoded Receives the decoded segments. The speed group will be `Unknown`.
    */
-  virtual void DecodeLocation(traffxml::TraffMessage & message, traffxml::MultiMwmColoring & decoded) = 0;
+  virtual void DecodeLocation(traffxml::TraffMessage & message, traffxml::GlobalSimpleColoring & decoded) = 0;
 
   /**
    * @brief Applies traffic impact to a decoded TraFF location.
@@ -89,7 +89,7 @@ protected:
    * @param impact The traffic impact to apply.
    * @param decoded The decoded segments.
    */
-  void ApplyTrafficImpact(traffxml::TrafficImpact & impact, traffxml::MultiMwmColoring & decoded);
+  void ApplyTrafficImpact(traffxml::TrafficImpact & impact, traffxml::GlobalSimpleColoring & decoded);
 
   DataSource & m_dataSource;
   CountryInfoGetterFn m_countryInfoGetterFn;
@@ -129,7 +129,7 @@ protected:
    * @param message The message to decode.
    * @param decoded Receives the decoded segments. The speed group will be `Unknown`.
    */
-  void DecodeLocation(traffxml::TraffMessage & message, traffxml::MultiMwmColoring & decoded) override;
+  void DecodeLocation(traffxml::TraffMessage & message, traffxml::GlobalSimpleColoring & decoded) override;
 
 private:
   /**
@@ -564,7 +564,7 @@ protected:
    * @param decoded The decoded segments.
    * @param segment The segment to add.
    */
-  void AddDecodedSegment(traffxml::MultiMwmColoring & decoded, routing::Segment & segment);
+  void AddDecodedSegment(traffxml::GlobalSimpleColoring & decoded, routing::Segment & segment);
 
   /**
    * @brief Decodes one direction of a TraFF location.
@@ -574,7 +574,7 @@ protected:
    * @param backwards If true, decode the backward direction, else the forward direction.
    */
   void DecodeLocationDirection(traffxml::TraffMessage & message,
-                               traffxml::MultiMwmColoring & decoded, bool backwards);
+                               traffxml::GlobalSimpleColoring & decoded, bool backwards);
 
   /**
    * @brief Decodes a TraFF location.
@@ -582,7 +582,7 @@ protected:
    * @param message The message to decode.
    * @param decoded Receives the decoded segments. The speed group will be `Unknown`.
    */
-  void DecodeLocation(traffxml::TraffMessage & message, traffxml::MultiMwmColoring & decoded) override;
+  void DecodeLocation(traffxml::TraffMessage & message, traffxml::GlobalSimpleColoring & decoded) override;
 
   /**
    * @brief Retrieves a point of a segment from the map.

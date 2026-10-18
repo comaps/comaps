@@ -165,8 +165,8 @@ void TrafficGenerator::GenerateSegmentsGeometry(ref_ptr<dp::GraphicsContext> con
 
   for (auto const & geomPair : geometry)
   {
-    auto const coloringIt = coloring.find(geomPair.first);
-    if (coloringIt == coloring.cend() || coloringIt->second == traffic::SpeedGroup::Unknown)
+    auto const coloringIt = coloring.m_unconditional.find(geomPair.first);
+    if (coloringIt == coloring.m_unconditional.cend() || coloringIt->second == traffic::SpeedGroup::Unknown)
       continue;
 
     auto const & colorRegion = m_colorsCache[static_cast<size_t>(coloringIt->second)];

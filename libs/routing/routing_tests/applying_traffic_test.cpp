@@ -139,7 +139,7 @@ UNIT_CLASS_TEST(ApplyingTrafficTest, XXGraph_EmptyTrafficColoring)
 UNIT_CLASS_TEST(ApplyingTrafficTest, XXGraph_G0onF3)
 {
   TrafficInfo::Coloring const coloring = {
-      {{3 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G0}};
+      {{{3 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G0}}, {}};
   SetTrafficColoring(make_shared<TrafficInfo::Coloring const>(coloring));
 
   unique_ptr<WorldGraph> graph = BuildXXGraph(GetEstimator());
@@ -154,7 +154,7 @@ UNIT_CLASS_TEST(ApplyingTrafficTest, XXGraph_G0onF3)
 UNIT_CLASS_TEST(ApplyingTrafficTest, XXGraph_TempBlockonF3)
 {
   TrafficInfo::Coloring const coloring = {
-      {{3 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::TempBlock}};
+      {{{3 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::TempBlock}}, {}};
   SetTrafficColoring(make_shared<TrafficInfo::Coloring const>(coloring));
 
   unique_ptr<WorldGraph> graph = BuildXXGraph(GetEstimator());
@@ -169,7 +169,7 @@ UNIT_CLASS_TEST(ApplyingTrafficTest, XXGraph_TempBlockonF3)
 UNIT_CLASS_TEST(ApplyingTrafficTest, XXGraph_G0onF3ReverseDir)
 {
   TrafficInfo::Coloring const coloring = {
-      {{3 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kReverseDirection}, SpeedGroup::G0}};
+      {{{3 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kReverseDirection}, SpeedGroup::G0}}, {}};
   SetTrafficColoring(make_shared<TrafficInfo::Coloring const>(coloring));
 
   unique_ptr<WorldGraph> graph = BuildXXGraph(GetEstimator());
@@ -184,10 +184,10 @@ UNIT_CLASS_TEST(ApplyingTrafficTest, XXGraph_G0onF3ReverseDir)
 UNIT_CLASS_TEST(ApplyingTrafficTest, XXGraph_G0onF3andF6andG4onF8andF4)
 {
   TrafficInfo::Coloring const coloring = {
-      {{3 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G0},
+      {{{3 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G0},
       {{6 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G0},
       {{8 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G4},
-      {{7 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G4}};
+      {{7 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G4}}, {}};
   SetTrafficColoring(make_shared<TrafficInfo::Coloring const>(coloring));
 
   unique_ptr<WorldGraph> graph = BuildXXGraph(GetEstimator());
@@ -224,11 +224,11 @@ UNIT_CLASS_TEST(ApplyingTrafficTest, XXGraph_ChangingTraffic)
 
   // Overloading traffic jam on F3. Middle traffic (SpeedGroup::G3) on F1, F3, F4, F7 and F8.
   TrafficInfo::Coloring const coloringMiddleF1F3F4F7F8 = {
-      {{1 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G3},
+      {{{1 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G3},
       {{3 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G3},
       {{4 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G3},
       {{7 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G3},
-      {{8 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G3}};
+      {{8 /* feature id */, 0 /* segment id */, TrafficInfo::RoadSegmentId::kForwardDirection}, SpeedGroup::G3}}, {}};
   SetTrafficColoring(make_shared<TrafficInfo::Coloring const>(coloringMiddleF1F3F4F7F8));
   {
     TestRouteGeometry(*starter, Algorithm::Result::OK, noTrafficGeom);

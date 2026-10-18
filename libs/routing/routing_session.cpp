@@ -1017,15 +1017,19 @@ void RoutingSession::OnTrafficInfoClear()
 
 void RoutingSession::OnTrafficInfoAdded(TrafficInfo && info)
 {
+  // Create a shared copy of the coloring in `info` and post it
   TrafficInfo::Coloring const & fullColoring = info.GetColoring();
   auto coloring = std::make_shared<TrafficInfo::Coloring>();
-  for (auto const & kv : fullColoring)
+  for (auto const & kv : fullColoring.m_unconditional)
   {
     ASSERT_NOT_EQUAL(kv.second, SpeedGroup::Unknown, ());
-    coloring->insert(kv);
+    coloring->m_unconditional.insert(kv);
   }
 
-  // Note. |coloring| should not be used after this call on gui thread.
+  /*
+   * Note: `coloring` is not guaranteed to be valid after the call to `RunTask()`, do not use it after
+   * posting the task.
+   */
   auto const mwmId = info.GetMwmId();
   GetPlatform().RunTask(Platform::Thread::Gui, [this, mwmId, coloring]()
   {

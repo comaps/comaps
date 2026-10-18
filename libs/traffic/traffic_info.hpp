@@ -1,11 +1,13 @@
 #pragma once
 
+#include "traffic/iso_time.hpp"
 #include "traffic/speed_groups.hpp"
 
 #include "indexer/mwm_set.hpp"
 
 #include <cstdint>
 #include <map>
+#include <optional>
 #include <vector>
 
 namespace platform
@@ -15,6 +17,34 @@ class HttpClient;
 
 namespace traffic
 {
+/**
+ * @brief Represents a condition for a traffic situation.
+ *
+ * An unconditional traffic situation is assumed to be active from the moment it is reported until
+ * it expires. Conditions can be used to constrain this time, e.g. for planned events with a known
+ * start and/or end time.
+ *
+ * A condition currently consists of a start and end time; the traffic situation is assumed to be active
+ * during this entire period. If start time is empty, the situation is assumed to be active from the
+ * moment it is reported. If end time is empty, the situation is assumed to be active indefinitely,
+ * as long as it has not expired.
+ *
+ * Future versions may add schedules, e.g. to indicate that a situation is active only during certain
+ * hours of the day.
+ *
+ * Comparison is rudimentary and only for the purpose of using `Condition` as a map key. It is implemented
+ * by comparing start times first, and then end times if start times are considered equal. Empty values
+ * are considered equal. An empty start time is considered less (earlier) than an explicit one, an empty
+ * end time is considered more (later) than an explicit one.
+ */
+class Condition
+{
+public:
+  std::optional<IsoTime> m_startTime = {};
+  std::optional<IsoTime> m_endTime = {};
+  bool operator< (const Condition & rhs) const;
+};
+
 /**
  * @brief The `TrafficInfo` class is responsible for providing the real-time information about road
  * traffic for one MWM.
@@ -95,13 +125,64 @@ public:
   };
 
   /**
-   * @brief Mapping from feature segments to speed groups (see `speed_groups.hpp`), for one MWM.
+   * @brief Mapping from feature segments to speed groups (see `speed_groups.hpp`), condition-agnostic and for one MWM.
+   *
+   * `SimpleColoring` does not have a representation for conditions (time windows) in which the mapping
+   * applies. Is this functionality is needed, use `ConditionalColoring` or `Coloring`.
    */
   // todo(@m) unordered_map?
-  using Coloring = std::map<RoadSegmentId, SpeedGroup>;
+  using SimpleColoring = std::map<RoadSegmentId, SpeedGroup>;
+
+  /**
+   * @brief Conditional mapping from feature segments to speed groups (see `speed_groups.hpp`), for one MWM.
+   *
+   * Each entry has a time slot during which it is valid, expressed as `Condition`, and the mapping
+   * that applies during that time slot.
+   *
+   * Entries may overlap in time and contain different sets of segments. To determine the speed group
+   * of a particular segment at a given time, it is therefore necessary to evaluate every matching
+   * entry which has a mapping for the segment and resolve conflicting speed group information.
+   *
+   * By convention, the most restrictive speed group wins: `TempBlock` wins over anything else, `Unknown`
+   * loses against anything else; between different speeds, the lowest wins.
+   */
+  using ConditionalColoring = std::map<Condition, SimpleColoring>;
+
+  /**
+   * @brief Mapping from feature segments to speed groups (see `speed_groups.hpp`), for one MWM.
+   *
+   * `Coloring` represents both conditional and unconditional mappings.
+   *
+   * To determine the speed group of a particular segment at a given time, it is necessary to evaluate
+   * both `m_unconditional` and every matching entry from `m_conditional`, gather all mappings for the
+   * segment in question and resolve conflicting speed group information.
+   *
+   * By convention, the most restrictive speed group wins: `TempBlock` wins over anything else, `Unknown`
+   * loses against anything else; between different speeds, the lowest wins.
+   */
+  struct Coloring
+  {
+    /**
+     * @brief Unconditional coloring.
+     *
+     * These mappings apply at all times, unless overruled by a more restrictive speed group in
+     * `m_conditional`.
+     */
+    SimpleColoring m_unconditional;
+
+    /**
+     * @brief Conditional coloring.
+     *
+     * These mappings apply during the time specified, unless overruled by another, more restrictive
+     * speed group in the same map or in `m_unconditional`.
+     */
+    ConditionalColoring m_conditional;
+  };
 
   /**
    * @brief Mapping from feature segments to speed groups (see `speed_groups.hpp`), for all MWMs.
+   *
+   * `GlobalColoring` represents both conditional and unconditional mappings.
    */
   using GlobalColoring = std::map<MwmSet::MwmId, Coloring>;
 
@@ -131,6 +212,8 @@ public:
 #if 0
   /*
    * These were formerly used by pytraffic.
+   * Commented out as the whole construct no longer works as-is with the introduction of conditional
+   * traffic coloring.
    */
   /**
    * @brief Extracts RoadSegmentIds from an MWM and stores them in a sorted order.

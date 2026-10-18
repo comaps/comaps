@@ -873,7 +873,7 @@ bool SegmentFromXml(pugi::xml_node const & node,
  * @return whether the decoded segments can be used, see description
  */
 bool ColoringFromXml(pugi::xml_node const & node, DataSource const & dataSource,
-                     MultiMwmColoring & decoded)
+                     GlobalSimpleColoring & decoded)
 {
   std::string countryName;
   if (!StringFromXml(node.attribute("country_name"), countryName))
@@ -958,7 +958,7 @@ void ColoringToXml(MwmSet::MwmId const & mwmId,
  */
 void AllMwmColoringFromXml(pugi::xml_node const & node,
                            std::optional<std::reference_wrapper<const DataSource>> dataSource,
-                           MultiMwmColoring & decoded)
+                           GlobalSimpleColoring & decoded)
 {
   if (!node)
     return;
