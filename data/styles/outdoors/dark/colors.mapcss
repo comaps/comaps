@@ -3,15 +3,20 @@
  * (see style.mapcss for exact processing order).
  */
 
-@railway_dark: #434343;
+@cycleway: #6166EA; /* slightly darker than in main */
 
-@tertiary: #616060;
-@residential: #5D5D5D;
+@pedestrian: #7A7A7A; /* slightly lighter than in main */
+@footway: #7A7A7A; /* slightly lighter than in main */
 
-@motorway1_border: #A66108;
-@trunk1_border: #A66F28;
-@primary1_border: #A17A2F;
-@primary2_border: #AB8132;
-@secondary0_border: #9E803C;
-@secondary1_border: #A9893F;
-@minor_road_border: #000000;
+@construction: #91918B;
+
+@railway: #55544A;
+@railway_dark: #5C5B51;
+@railway_dash: #121212;
+
+@motorway1_border: #624F3F;
+@trunk1_border: #61503D;
+@primary1_border: #5E513D;
+@primary2_border: #5D523F;
+@secondary0_border: #5B523E;
+@secondary1_border: #5A5240;

@@ -331,7 +331,7 @@ node|z13-[place=neighbourhood],
 node|z14-[place=farm],
 node|z14-[place=isolated_dwelling],
 node|z17-[landuse=residential],
-{text: name;text-color: @district_label;}
+{text: name;text-color: @district_label;text-halo-radius: 1;text-halo-opacity: 0.8;text-halo-color: @label_halo_medium;}
 node|z13-14[place=suburb]::int_name,
 node|z13-[place=locality]::int_name,
 node|z13-[place=quarter]::int_name,
@@ -339,7 +339,7 @@ node|z13-[place=neighbourhood]::int_name,
 node|z14-[place=farm]::int_name,
 node|z14-[place=isolated_dwelling]::int_name,
 node|z17-[landuse=residential]::int_name,
-{text: int_name;text-color: @district_label;}
+{text: int_name;text-color: @district_label;text-halo-radius: 1;text-halo-opacity: 0.8;text-halo-color: @label_halo_medium;}
 
 node|z10[place=suburb]
 {font-size: 9;}
