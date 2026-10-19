@@ -284,7 +284,7 @@ void SaveCategoryExtendedData(Writer & writer, CategoryData const & categoryData
 
   SaveStringsArray(writer, categoryData.m_toponyms, "toponyms", indent);
 
-  std::vector<std::string_view> languageCodes;
+  std::vector<std::string> languageCodes;
   languageCodes.reserve(categoryData.m_languageCodes.size());
   for (auto const & lang : categoryData.m_languageCodes)
     if (auto const str = localisation::ConvertLanguageIndexToLanguageCode(lang); !str.empty())

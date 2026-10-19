@@ -131,7 +131,7 @@
       <mwm:lang code="default">Test description</mwm:lang>
     </mwm:description>
     <mwm:imageUrl>https://localhost/123.png</mwm:imageUrl>
-    <mwm:author id="12345">Organic Maps</mwm:author>
+    <mwm:author id="12345">author</mwm:author>
     <mwm:lastModified>1970-01-01T00:16:40Z</mwm:lastModified>
     <mwm:rating>8.9</mwm:rating>
     <mwm:reviewsNumber>567</mwm:reviewsNumber>
@@ -169,7 +169,7 @@
       </mwm:description>
       <mwm:visibility>1</mwm:visibility>
       <mwm:imageUrl>https://localhost/1234.png</mwm:imageUrl>
-      <mwm:author id="54321">Organic Maps</mwm:author>
+      <mwm:author id="54321">author</mwm:author>
       <mwm:lastModified>1970-01-01T00:16:39Z</mwm:lastModified>
       <mwm:rating>5.9</mwm:rating>
       <mwm:reviewsNumber>333</mwm:reviewsNumber>
@@ -207,7 +207,7 @@
       </mwm:description>
       <mwm:visibility>0</mwm:visibility>
       <mwm:imageUrl>https://localhost/134.png</mwm:imageUrl>
-      <mwm:author id="11111">Organic Maps</mwm:author>
+      <mwm:author id="11111">author</mwm:author>
       <mwm:lastModified>1970-01-01T00:05:23Z</mwm:lastModified>
       <mwm:rating>3.3</mwm:rating>
       <mwm:reviewsNumber>222</mwm:reviewsNumber>
