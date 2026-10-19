@@ -17,6 +17,20 @@ SpeedGroup GetSpeedGroupByPercentage(double p)
   return res;
 }
 
+SpeedGroup MergeSpeedGroups(SpeedGroup lhs, SpeedGroup rhs)
+{
+  if ((lhs == SpeedGroup::TempBlock) || (rhs == SpeedGroup::TempBlock))
+    return SpeedGroup::TempBlock;
+  if (lhs == SpeedGroup::Unknown)
+    return rhs;
+  if (rhs == SpeedGroup::Unknown)
+    return lhs;
+  if (lhs < rhs)
+    return lhs;
+  else
+    return rhs;
+}
+
 std::string DebugPrint(SpeedGroup const & group)
 {
   switch (group)

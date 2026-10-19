@@ -58,5 +58,20 @@ extern uint32_t const kSpeedGroupThresholdPercentage[static_cast<size_t>(SpeedGr
  */
 SpeedGroup GetSpeedGroupByPercentage(double p);
 
+/**
+ * @brief Merges two speed groups.
+ *
+ * This function is intended where two sources specify two different speed groups for the same segment.
+ * It will return the more restrictive of the two speed groups `lhs` and `rhs`: `SpeedGroup::TempBlock`
+ * wins against everything else, `SpeedGroup::Unknown` loses against everyting else; between two values
+ * from `SpeedGroup::G0` and `SpeedGroup::G5`, the lower speed group wins.
+ *
+ * @param lhs See description
+ * @param rhs See description
+ *
+ * @return the more restrictive of `lhs` and `rhs`
+ */
+SpeedGroup MergeSpeedGroups(SpeedGroup lhs, SpeedGroup rhs);
+
 std::string DebugPrint(SpeedGroup const & group);
 }  // namespace traffic

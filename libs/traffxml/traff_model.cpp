@@ -208,12 +208,7 @@ void MergeGlobalSimpleColoring(const GlobalSimpleColoring & delta,
     for (auto [rsid, sg] : deltaSimpleColoring)
       // if target[mwm] contains segment
       if (auto c_it = targetSimpleColoring.find(rsid) ; c_it != targetSimpleColoring.end())
-      {
-        // if delta overrules target (target is Unknown, delta is TempBlock or delta is slower than target)
-        if ((sg == traffic::SpeedGroup::TempBlock)
-            || (c_it->second == traffic::SpeedGroup::Unknown) || (sg < c_it->second))
-          targetSimpleColoring[rsid] = sg;
-      }
+        targetSimpleColoring[rsid] = traffic::MergeSpeedGroups(sg, c_it->second);
       else
         // if target[mwm] does not contain segment, add speed group
         targetSimpleColoring[rsid] = sg;
