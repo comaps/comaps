@@ -674,7 +674,7 @@ addr:interpolation;[addr:interpolation];;addr:housenumber;name;541;
 leisure|indoor_play;542;
 area:highway|track;543;
 area:highway|primary;544;
-deprecated|deprecated;545;x
+shop|games;545;
 deprecated|deprecated;546;x
 deprecated|deprecated;547;x
 deprecated|deprecated;548;x

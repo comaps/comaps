@@ -104,6 +104,9 @@
     "shop-water|@category_water|@category_food|@shop": {
         "defaultMessage": "4Drinking Water|3Potable Water|4Bottled Water"
     },
+    "shop-games|@shop": {
+        "defaultMessage": "4Game Shop|games shop|board game|board game shop|board games|board games shop|card games|boardgame|cardgame|role playing|roleplaying|games|trading card|U+1F3B2|U+1F3B4"
+    },
     "shop-garden_centre|@shop": {
         "defaultMessage": "4Garden Centre|U+1F3E1"
     },

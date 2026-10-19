@@ -4324,6 +4324,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/furniture-m.svg"
         },
         {
+            "description": "shop=games",
+            "key": "shop",
+            "value": "games",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/games-m.svg"
+        },
+        {
             "description": "shop=garden_centre",
             "key": "shop",
             "value": "garden_centre",

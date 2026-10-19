@@ -1965,6 +1965,7 @@ node|z16-[shop=chemist],
 node|z16-[shop=clothes],
 node|z16-[shop=computer],
 node|z16-[shop=video_games],
+node|z16-[shop=games],
 node|z16-[shop=tattoo],
 node|z16-[shop=erotic],
 node|z16-[shop=confectionery],
@@ -2105,6 +2106,8 @@ node|z16[shop=computer],
 {icon-image: computer-m.svg;}
 node|z16[shop=video_games],
 {icon-image: video-games-m.svg;}
+node|z16[shop=games],
+{icon-image: games-m.svg;}
 node|z16[shop=tattoo],
 {icon-image: craft-m.svg;}
 node|z16[shop=erotic],
@@ -2258,6 +2261,8 @@ node|z17-[shop=computer],
 {icon-image: computer-m.svg;icon-min-distance: 24;}
 node|z17-[shop=video_games],
 {icon-image: video-games-m.svg;icon-min-distance: 24;}
+node|z17-[shop=games],
+{icon-image: games-m.svg;icon-min-distance: 24;}
 node|z17-[shop=tattoo],
 {icon-image: craft-m.svg;icon-min-distance: 24;}
 node|z17-[shop=erotic],

@@ -2631,6 +2631,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SimpleTypesSmoke)
       {"shop", "florist"},
       {"shop", "funeral_directors"},
       {"shop", "furniture"},
+      {"shop", "games"},
       {"shop", "garden_centre"},
       {"shop", "gift"},
       {"shop", "greengrocer"},
