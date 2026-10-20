@@ -5,6 +5,7 @@
 #import "MWMFrameworkObservers.h"
 #import "MWMCoreRouterType.h"
 #import "MWMFollowingInfo+CPP.h"
+#import "MWMLaneInfo+CPP.h"
 #import "MWMRoutePoint+CPP.h"
 #import "MWMRouteStepInfo+CPP.h"
 #import "MWMRoadShieldInfo+CPP.h"

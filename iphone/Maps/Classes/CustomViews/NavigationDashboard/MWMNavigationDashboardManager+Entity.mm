@@ -1,5 +1,6 @@
 #import "MWMLocationManager.h"
 #import "MWMFollowingInfo+CPP.h"
+#import "MWMLaneInfo+CPP.h"
 #import "MWMNavigationDashboardEntity.h"
 #import "MWMNavigationDashboardManager+Entity.h"
 #import "MWMRoadShieldInfo+CPP.h"
@@ -99,19 +100,6 @@ NSArray<MWMRouterTransitStepInfo *> *buildRouteTransitSteps(NSArray<MWMRoutePoin
   }
 
   return steps;
-}
-
-NSArray<MWMLaneInfo *> *buildLanes(routing::turns::lanes::LanesInfo const & info) {
-  NSMutableArray<MWMLaneInfo *> * lanes = [NSMutableArray arrayWithCapacity:info.size()];
-  for (auto const & lane : info) {
-    auto const activeWays = lane.laneWays.GetActiveLaneWays();
-    NSMutableArray<NSNumber *> * laneWays = [NSMutableArray arrayWithCapacity:activeWays.size()];
-    for (auto const way : activeWays)
-      [laneWays addObject:@(static_cast<uint8_t>(way))];
-    [lanes addObject:[[MWMLaneInfo alloc] initWithLaneWays:laneWays
-                                            recommendedWay:static_cast<uint8_t>(lane.recommendedWay)]];
-  }
-  return lanes;
 }
 
 // Collapse the full ftypes::RoadShieldType set into the few styles the UI renders.
@@ -352,7 +340,7 @@ MWMRoadShieldInfo * MWMBuildRoadShieldInfo(routing::FollowingInfo::RoadShieldInf
         entity.roundExitNumber = info.m_exitNum;
       else
         entity.roundExitNumber = 0;
-      entity.lanes = buildLanes(info.m_lanes);
+      entity.lanes = MWMBuildLaneInfos(info.m_lanes);
 
       entity.nextRoadName = @(displayedRoad.m_name.c_str());
       entity.nextRoadRef = @(displayedRoad.m_ref.c_str());
