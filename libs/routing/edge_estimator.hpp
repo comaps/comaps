@@ -10,6 +10,7 @@
 #include "geometry/point_with_altitude.hpp"
 
 #include <memory>
+#include <optional>
 
 #include "3party/ankerl/unordered_dense.h"
 
@@ -136,9 +137,12 @@ public:
    * @param segment The segment.
    * @param road The road geometry (speed, restrictions, points) for the road which the segment is a part of.
    * @param purpose The purpose for which the result is to be used.
+   * @prarm weightToSegment The time needed to reach `segment`, can be used if travel time along the segment
+   * depends on when it is reached.
    * @return Travel time in seconds.
    */
-  virtual double CalcSegmentWeight(Segment const & segment, RoadGeometry const & road, Purpose purpose) const = 0;
+  virtual double CalcSegmentWeight(Segment const & segment, RoadGeometry const & road, Purpose purpose,
+                                   std::optional<double> const & weightToSegment = std::nullopt) const = 0;
 
   /**
    * @brief Returns the penalty for making a U turn.

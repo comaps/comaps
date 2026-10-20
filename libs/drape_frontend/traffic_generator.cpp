@@ -133,6 +133,23 @@ void TrafficGenerator::ClearContextDependentResources()
   m_circlesBatcher.reset();
 }
 
+traffic::SpeedGroup TrafficGenerator::GetSpeedGroup(traffic::TrafficInfo::Coloring const & coloring,
+                                                    traffic::TrafficInfo::RoadSegmentId const & seg)
+{
+  auto res = traffic::SpeedGroup::Unknown;
+  auto const coloringIt = coloring.m_unconditional.find(seg);
+  if (coloringIt != coloring.m_unconditional.cend())
+    res = coloringIt->second;
+  for (auto const & [condition, conditionalColoring] : coloring.m_conditional)
+    if (condition.IsTrueAt(traffic::IsoTime::Now()))
+    {
+      auto const conditionalColoringIt = conditionalColoring.find(seg);
+      if (conditionalColoringIt != conditionalColoring.cend())
+        res = traffic::MergeSpeedGroups(res, conditionalColoringIt->second);
+    }
+  return res;
+}
+
 void TrafficGenerator::GenerateSegmentsGeometry(ref_ptr<dp::GraphicsContext> context, MwmSet::MwmId const & mwmId,
                                                 TileKey const & tileKey, TrafficSegmentsGeometryValue const & geometry,
                                                 traffic::TrafficInfo::Coloring const & coloring,
@@ -165,20 +182,20 @@ void TrafficGenerator::GenerateSegmentsGeometry(ref_ptr<dp::GraphicsContext> con
 
   for (auto const & geomPair : geometry)
   {
-    auto const coloringIt = coloring.m_unconditional.find(geomPair.first);
-    if (coloringIt == coloring.m_unconditional.cend() || coloringIt->second == traffic::SpeedGroup::Unknown)
+    auto const speedGroup = GetSpeedGroup(coloring, geomPair.first);
+    if (speedGroup == traffic::SpeedGroup::Unknown)
       continue;
 
-    auto const & colorRegion = m_colorsCache[static_cast<size_t>(coloringIt->second)];
-    auto const vOffset = kCoordVOffsets[static_cast<size_t>(coloringIt->second)];
-    auto const minU = kMinCoordU[static_cast<size_t>(coloringIt->second)];
+    auto const & colorRegion = m_colorsCache[static_cast<size_t>(speedGroup)];
+    auto const vOffset = kCoordVOffsets[static_cast<size_t>(speedGroup)];
+    auto const minU = kMinCoordU[static_cast<size_t>(speedGroup)];
 
     TrafficSegmentGeometry const & g = geomPair.second;
     ref_ptr<dp::Batcher> batcher = m_batchersPool->GetBatcher(TrafficBatcherKey(mwmId, tileKey, g.m_roadClass));
     batcher->SetBatcherHash(tileKey.GetHashValue(BatcherBucket::Traffic));
 
     auto const finalDepth =
-        kRoadClassDepths[static_cast<size_t>(g.m_roadClass)] + static_cast<float>(coloringIt->second);
+        kRoadClassDepths[static_cast<size_t>(g.m_roadClass)] + static_cast<float>(speedGroup);
 
     int width = 0;
     if (TrafficRenderer::CanBeRenderedAsLine(g.m_roadClass, tileKey.m_zoomLevel, width))

@@ -24,11 +24,12 @@ TrafficStash::TrafficStash(traffic::TrafficCache const & source, shared_ptr<NumM
   CHECK(m_numMwmIds, ());
 }
 
-traffic::SpeedGroup TrafficStash::GetSpeedGroup(Segment const & segment) const
+traffic::SpeedGroup TrafficStash::GetSpeedGroup(Segment const & segment, std::optional<double> weight) const
 {
+  auto res = traffic::SpeedGroup::Unknown;
   auto itMwm = m_mwmToTraffic.find(segment.GetMwmId());
   if (itMwm == m_mwmToTraffic.cend())
-    return traffic::SpeedGroup::Unknown;
+    return res;
 
   auto const & coloring = itMwm->second->m_unconditional;
   auto const itSeg = coloring.find(traffic::TrafficInfo::RoadSegmentId(
@@ -36,10 +37,52 @@ traffic::SpeedGroup TrafficStash::GetSpeedGroup(Segment const & segment) const
       segment.IsForward() ? traffic::TrafficInfo::RoadSegmentId::kForwardDirection
                           : traffic::TrafficInfo::RoadSegmentId::kReverseDirection));
 
-  if (itSeg == coloring.cend())
-    return traffic::SpeedGroup::Unknown;
+  if (itSeg != coloring.cend())
+    res = itSeg->second;
 
-  return itSeg->second;
+  if (weight)
+  {
+#if 0
+    /*
+     * Evaluate conditional traffic information within a defined range around ETA:
+     * For the lower boundary, assume we are 10% faster than calculated.
+     * For the upper boundary, assume:
+     * - a fixed delay of 5 minutes (300 s)
+     * - a delay of up to one hour during the first hour (100%, up to 3600 s)
+     * - a delay uf up to one hour per additional four hours (25%)
+     */
+    auto minWeight = weight.value() * 0.9;
+    auto maxWeight = (weight.value() <= 3600) ?
+        (weight.value() * 2 + 300) :
+        ((weight.value() - 3600) * 1.25 + 3600 * 2 + 300);
+#else
+    /*
+     * Workaround: evaluate conditional traffic information within +/- 1 h of `weight`.
+     * We get called indirectly from `IndexGraph::CalculateEdgeWeight()`, which passes not ETA, but
+     * the weight (as used by A*), which may deviate significantly. See the comment in
+     * `IndexGraph::CalculateEdgeWeight()` for a detailed discussion and solution approach.
+     * Until then, we replicate the logic used for conditional access restrictions, which suffer from
+     * the same issue, so at least we get consistent behavior between these two.
+     */
+    auto minWeight = weight.value() -3600;
+    auto maxWeight = weight.value() + 3600;
+#endif
+    auto minTime = traffic::IsoTime::SecondsFromNow(minWeight);
+    auto maxTime = traffic::IsoTime::SecondsFromNow(maxWeight);
+
+    for (auto const & [condition, conditionalColoring] : itMwm->second->m_conditional)
+      if (condition.IsTrueDuring(minTime, maxTime))
+      {
+        auto const itCondSeg = conditionalColoring.find(traffic::TrafficInfo::RoadSegmentId(
+            segment.GetFeatureId(), base::asserted_cast<uint16_t>(segment.GetSegmentIdx()),
+            segment.IsForward() ? traffic::TrafficInfo::RoadSegmentId::kForwardDirection
+                : traffic::TrafficInfo::RoadSegmentId::kReverseDirection));
+        if (itCondSeg != conditionalColoring.cend())
+          res = traffic::MergeSpeedGroups(res, itCondSeg->second);
+      }
+  }
+
+  return res;
 }
 
 void TrafficStash::SetColoring(NumMwmId numMwmId, shared_ptr<traffic::TrafficInfo::Coloring const> coloring)

@@ -324,7 +324,8 @@ public:
      * @return Travel time in seconds.
      */
     double CalcOffroad(ms::LatLon const & from, ms::LatLon const & to, Purpose /* purpose */) const override;
-    double CalcSegmentWeight(routing::Segment const & segment, routing::RoadGeometry const & road, Purpose /* purpose */) const override;
+    double CalcSegmentWeight(routing::Segment const & segment, routing::RoadGeometry const & road, Purpose /* purpose */,
+                             std::optional<double> const & /* weightToSegment */) const override;
 
     double GetUTurnPenalty(Purpose /* purpose */) const override;
 

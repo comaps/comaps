@@ -818,6 +818,19 @@ void TrafficManager::ThreadRoutine()
     // `m_mutex` is obtained inside the method, no need to do it here
     if (hasUpdates)
       OnTrafficDataUpdate();
+
+    // check if conditions have changed, rerender if necessary
+    bool rerenderNeeded = false;
+    {
+      std::lock_guard<std::mutex> lock(m_mutex);
+      auto lastElapsed = m_conditionChangeTimes.upper_bound(traffic::IsoTime::Now());
+      rerenderNeeded = (m_conditionChangeTimes.begin() != lastElapsed);
+      if (rerenderNeeded)
+        m_conditionChangeTimes.erase(m_conditionChangeTimes.begin(),
+                                     m_conditionChangeTimes.upper_bound(traffic::IsoTime::Now()));
+    }
+    if (rerenderNeeded)
+      Rerender();
   }
   Unsubscribe();
 }
@@ -882,13 +895,29 @@ bool TrafficManager::WaitForRequest()
   return true;
 }
 
+void TrafficManager::Rerender()
+{
+  m_drapeEngine.SafeCall(&df::DrapeEngine::RegenerateTraffic);
+}
+
 void TrafficManager::OnTrafficDataUpdate()
 {
   bool feedQueueEmpty = false;
 
   {
     std::lock_guard<std::mutex> lock(m_mutex);
+    auto const currentTime = traffic::IsoTime::Now();
     feedQueueEmpty = m_feedQueue.empty();
+
+    // rebuild condition change times from cache
+    m_conditionChangeTimes.clear();
+    for (auto const & [id, message] : m_messageCache)
+    {
+      if (message.m_startTime && (message.m_startTime.value() > currentTime))
+        m_conditionChangeTimes.insert(message.m_startTime.value());
+      if (message.m_endTime && (message.m_endTime.value() > currentTime))
+        m_conditionChangeTimes.insert(message.m_endTime.value());
+    }
   }
   // Whether to notify the Drape engine of the update.
   bool notifyDrape = (feedQueueEmpty);
@@ -959,7 +988,7 @@ void TrafficManager::OnTrafficDataUpdate()
 
     m_allMwmColoring.clear();
     for (const auto & [id, message] : m_messageCache)
-      traffxml::MergeGlobalSimpleColoring(message.m_decoded, message.m_condition, m_allMwmColoring);
+      traffxml::MergeGlobalSimpleColoring(message.m_decoded, message.GetCondition(), m_allMwmColoring);
   }
 
   /*

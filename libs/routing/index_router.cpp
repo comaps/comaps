@@ -1751,7 +1751,7 @@ RouterResultCode IndexRouter::RedressRoute(vector<Segment> const & segments, bas
           routeSegment.SetSpeedCameraInfo(worldGraph.GetSpeedCamInfo(segment));
 
         if (m_trafficStash)
-          routeSegment.SetTraffic(m_trafficStash->GetSpeedGroup(segment));
+          routeSegment.SetTraffic(m_trafficStash->GetSpeedGroup(segment, routeSegment.GetTimeFromBeginningSec()));
 
         routeSegment.SetSpeedLimit(worldGraph.GetSpeedLimit(segment));
       }

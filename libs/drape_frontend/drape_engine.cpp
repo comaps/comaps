@@ -835,6 +835,13 @@ void DrapeEngine::UpdateTraffic(traffic::TrafficInfo const & info)
                                   MessagePriority::Normal);
 }
 
+void DrapeEngine::RegenerateTraffic()
+{
+  m_threadCommutator->PostMessage(ThreadsCommutator::ResourceUploadThread,
+                                  make_unique_dp<RegenerateTrafficMessage>(),
+                                  MessagePriority::Normal);
+}
+
 void DrapeEngine::ClearTrafficCache(MwmSet::MwmId const & mwmId)
 {
   m_threadCommutator->PostMessage(ThreadsCommutator::ResourceUploadThread,

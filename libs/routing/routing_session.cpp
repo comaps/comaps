@@ -1026,6 +1026,13 @@ void RoutingSession::OnTrafficInfoAdded(TrafficInfo && info)
     coloring->m_unconditional.insert(kv);
   }
 
+  for (auto const & [condition, conditionalColoring] : fullColoring.m_conditional)
+    for (auto const & kv : conditionalColoring)
+    {
+      ASSERT_NOT_EQUAL(kv.second, SpeedGroup::Unknown, ());
+      coloring->m_conditional[condition].insert(kv);
+    }
+
   /*
    * Note: `coloring` is not guaranteed to be valid after the call to `RunTask()`, do not use it after
    * posting the task.

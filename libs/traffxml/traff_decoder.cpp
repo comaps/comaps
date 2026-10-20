@@ -804,7 +804,8 @@ double RoutingTraffDecoder::TraffEstimator::CalcOffroad(ms::LatLon const & from,
   return defaultWeight;
 }
 
-double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment const & segment, routing::RoadGeometry const & road, Purpose /* purpose */) const
+double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment const & segment, routing::RoadGeometry const & road, Purpose /* purpose */,
+                                                              std::optional<double> const & /* weightToSegment */) const
 {
   auto fin = m_decoder.GetFeatureInfo(segment, road);
 

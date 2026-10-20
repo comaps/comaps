@@ -230,6 +230,7 @@ public:
 
   void EnableTraffic(bool trafficEnabled);
   void UpdateTraffic(traffic::TrafficInfo const & info);
+  void RegenerateTraffic();
   void ClearTrafficCache(MwmSet::MwmId const & mwmId);
   void SetSimplifiedTrafficColors(bool simplified);
 

@@ -12,6 +12,8 @@
 
 #include "storage/country_info_getter.hpp"
 
+#include "traffic/iso_time.hpp"
+
 #include "traffxml/traff_decoder.hpp"
 #include "traffxml/traff_model.hpp"
 #include "traffxml/traff_source.hpp"
@@ -446,6 +448,14 @@ private:
   bool WaitForRequest();
 
   /**
+   * @brief Requests rerendering of traffic data.
+   *
+   * This method does not submit any new colorings to the drape engine, it just requests a redraw of
+   * traffic data. This is needed whenever the start or end time of a message is reached.
+   */
+  void Rerender();
+
+  /**
    * @brief Processes new traffic data.
    *
    * The new per-MWM colorings (preprocessed traffic information) are taken from `m_allMmColoring`.
@@ -774,6 +784,15 @@ private:
    * Intended for testing.
    */
   std::optional<TrafficUpdateCallbackFn> m_trafficUpdateCallbackFn;
+
+  /**
+   * @brief Timestamps of upcoming condition changes.
+   *
+   * This member is normally accessed from the traffic worker thread, but since `OnTrafficDataUdate()`
+   * (which accesses this member) may be called from other threads, any operation must be protected by
+   * locking `m_mutex`.
+   */
+  std::set<traffic::IsoTime> m_conditionChangeTimes;
 };
 
 extern std::string DebugPrint(TrafficManager::TrafficState state);

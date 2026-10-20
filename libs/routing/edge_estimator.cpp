@@ -626,7 +626,8 @@ public:
     UNREACHABLE();
   }
 
-  double CalcSegmentWeight(Segment const & segment, RoadGeometry const & road, Purpose purpose) const override
+  double CalcSegmentWeight(Segment const & segment, RoadGeometry const & road, Purpose purpose,
+                           std::optional<double> const & /* weightToSegment */) const override
   {
     return CalcClimbSegment(purpose, segment, road,
                             [purpose](double speedMpS, double tangent, geometry::Altitude altitude)
@@ -658,7 +659,8 @@ public:
     UNREACHABLE();
   }
 
-  double CalcSegmentWeight(Segment const & segment, RoadGeometry const & road, Purpose purpose) const override
+  double CalcSegmentWeight(Segment const & segment, RoadGeometry const & road, Purpose purpose,
+                           std::optional<double> const & /* weightToSegment */) const override
   {
     return CalcClimbSegment(purpose, segment, road,
                             [purpose, this](double speedMpS, double tangent, geometry::Altitude altitude)
@@ -733,7 +735,8 @@ public:
   {}
 
   // EdgeEstimator overrides:
-  double CalcSegmentWeight(Segment const & segment, RoadGeometry const & road, Purpose purpose) const override;
+  double CalcSegmentWeight(Segment const & segment, RoadGeometry const & road, Purpose purpose,
+                           std::optional<double> const & weightToSegment) const override;
   double GetUTurnPenalty(Purpose /* purpose */) const override;
   double GetTurnPenalty(Purpose purpose, double angle, RoadGeometry const & from_road, RoadGeometry const & to_road,
                         bool is_left_hand_traffic = false) const override;
@@ -789,13 +792,14 @@ double CarEstimator::GetTurnPenalty(Purpose purpose, double angle, RoadGeometry 
   return result;
 }
 
-double CarEstimator::CalcSegmentWeight(Segment const & segment, RoadGeometry const & road, Purpose purpose) const
+double CarEstimator::CalcSegmentWeight(Segment const & segment, RoadGeometry const & road, Purpose purpose,
+                                       std::optional<double> const & weightToSegment) const
 {
   double result = road.GetDistance(segment.GetSegmentIdx()) / GetSpeedMpS(purpose, segment, road);
 
   if (m_trafficStash)
   {
-    SpeedGroup const speedGroup = m_trafficStash->GetSpeedGroup(segment);
+    SpeedGroup const speedGroup = m_trafficStash->GetSpeedGroup(segment, weightToSegment);
     ASSERT_LESS(speedGroup, SpeedGroup::Count, ());
     double const trafficFactor = CalcTrafficFactor(speedGroup);
     result *= trafficFactor;
