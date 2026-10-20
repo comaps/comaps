@@ -216,7 +216,7 @@ enum CarPlayLaneMetadata {
 
 struct CarPlayPrimaryManeuverIdentity: Hashable {
   let routeID: UInt64
-  let turnIndex: UInt32
+  let step: UInt32
 }
 
 struct CarPlayLaneSymbolKey: Hashable {
@@ -286,7 +286,7 @@ enum CarPlayInstrumentClusterMetadata {
 }
 
 struct CarPlayRouteStep {
-  let turnIndex: UInt32
+  let sequence: UInt32
   let carDirection: CarDirection
   let exitNumber: Int
   let distanceFromStartMeters: Double
@@ -305,8 +305,6 @@ struct CarPlayRouteStep {
 }
 
 struct CarPlayRoutePlan {
-  static let secondaryManeuverThresholdMeters = 400.0
-
   let routeID: UInt64
   let steps: [CarPlayRouteStep]
 
@@ -322,7 +320,7 @@ struct CarPlayRoutePlan {
       guard let direction = CarDirection(rawValue: UInt8(truncatingIfNeeded: info.carDirection)) else {
         return nil
       }
-      return CarPlayRouteStep(turnIndex: info.turnIndex,
+      return CarPlayRouteStep(sequence: info.sequence,
                               carDirection: direction,
                               exitNumber: Int(info.exitNum),
                               distanceFromStartMeters: distanceFromStart,
@@ -338,42 +336,27 @@ struct CarPlayRoutePlan {
     self.init(routeID: routeID, steps: steps)
   }
 
-  func primaryStepIndex(forTurnIndex turnIndex: UInt32, direction: CarDirection) -> Int? {
-    guard let index = steps.firstIndex(where: { $0.turnIndex >= turnIndex }) else { return nil }
-    if steps[index].turnIndex == turnIndex {
-      return index
-    }
-    return direction == .enterRoundAbout && steps[index].carDirection == .leaveRoundAbout ? index : nil
-  }
-
-  func secondaryStepIndex(after primaryIndex: Int) -> Int? {
-    let nextIndex = primaryIndex + 1
-    guard nextIndex < steps.count else { return nil }
-    let gap = steps[nextIndex].distanceFromStartMeters - steps[primaryIndex].distanceFromStartMeters
-    return gap <= Self.secondaryManeuverThresholdMeters ? nextIndex : nil
+  func step(withSequence sequence: UInt32) -> CarPlayRouteStep? {
+    return steps.first { $0.sequence == sequence }
   }
 }
 
 struct CarPlayManeuverContent: Equatable {
   let primaryIdentity: CarPlayPrimaryManeuverIdentity
   let isPlannedPrimary: Bool
-  let secondaryTurnIndex: UInt32?
+  let secondaryStep: UInt32?
   let lanes: [CarPlayLaneManeuverContent]
 
   init(routeInfo: RouteInfo, plan: CarPlayRoutePlan?) {
     lanes = routeInfo.lanes.map(CarPlayLaneManeuverContent.init)
+    primaryIdentity = CarPlayPrimaryManeuverIdentity(routeID: routeInfo.routeID, step: routeInfo.currentStep ?? 0)
     if let plan, plan.routeID == routeInfo.routeID,
-       let primaryIndex = plan.primaryStepIndex(forTurnIndex: routeInfo.turnIndex,
-                                                direction: routeInfo.carDirection) {
-      primaryIdentity = CarPlayPrimaryManeuverIdentity(routeID: plan.routeID,
-                                                       turnIndex: plan.steps[primaryIndex].turnIndex)
+       let currentStep = routeInfo.currentStep, plan.step(withSequence: currentStep) != nil {
       isPlannedPrimary = true
-      secondaryTurnIndex = plan.secondaryStepIndex(after: primaryIndex).map { plan.steps[$0].turnIndex }
+      secondaryStep = routeInfo.nextStep
     } else {
-      primaryIdentity = CarPlayPrimaryManeuverIdentity(routeID: routeInfo.routeID,
-                                                       turnIndex: routeInfo.turnIndex)
       isPlannedPrimary = false
-      secondaryTurnIndex = nil
+      secondaryStep = nil
     }
   }
 }
@@ -792,10 +775,10 @@ extension CarPlayRouter {
                                     description: CarPlayManeuverDescription(step: step,
                                                                             isLeftHandTraffic: routeInfo.isLeftHandTraffic))
         maneuver.linkedLaneGuidance = guidance
-        plannedLaneGuidances[step.turnIndex] = guidance
+        plannedLaneGuidances[step.sequence] = guidance
         laneGuidances.append(guidance)
       }
-      plannedManeuvers[step.turnIndex] = maneuver
+      plannedManeuvers[step.sequence] = maneuver
       maneuvers.append(maneuver)
     }
     if #available(iOS 17.4, *) {
@@ -811,7 +794,7 @@ extension CarPlayRouter {
         }
       }
     }
-    let stepList = plan.steps.map { "\($0.turnIndex):\($0.carDirection.diagnosticName)" }.joined(separator: ",")
+    let stepList = plan.steps.map { "\($0.sequence):\($0.carDirection.diagnosticName)" }.joined(separator: ",")
     LOG(.info,
         "[CarPlayGuidance] steps_installed route=\(plan.routeID) count=\(plan.steps.count) laneGuidances=\(laneGuidances.count) steps=[\(stepList)]")
     if plan.steps.isEmpty {
@@ -826,11 +809,11 @@ extension CarPlayRouter {
                               laneGuidances: [CPLaneGuidance],
                               routeInfo: RouteInfo) {
     let content = CarPlayManeuverContent(routeInfo: routeInfo, plan: plan)
-    let currentManeuver = (content.isPlannedPrimary ? plannedManeuvers[content.primaryIdentity.turnIndex] : nil)
+    let currentManeuver = (content.isPlannedPrimary ? plannedManeuvers[content.primaryIdentity.step] : nil)
       ?? maneuvers[0]
     let currentLaneGuidance: CPLaneGuidance
     if content.isPlannedPrimary,
-       let planned = plannedLaneGuidances[content.primaryIdentity.turnIndex] as? CPLaneGuidance {
+       let planned = plannedLaneGuidances[content.primaryIdentity.step] as? CPLaneGuidance {
       currentLaneGuidance = planned
     } else {
       currentLaneGuidance = CPLaneGuidance()
@@ -873,7 +856,7 @@ extension CarPlayRouter {
     let previousContent = maneuverRefreshState.displayedContent
 
     let primaryManeuver: CPManeuver
-    if content.isPlannedPrimary, let planned = plannedManeuvers[content.primaryIdentity.turnIndex] {
+    if content.isPlannedPrimary, let planned = plannedManeuvers[content.primaryIdentity.step] {
       decoratePlannedPrimaryIfNeeded(planned, identity: content.primaryIdentity, routeInfo: routeInfo)
       primaryManeuver = planned
     } else {
@@ -886,8 +869,8 @@ extension CarPlayRouter {
     if let laneManeuver = laneSymbolManeuver(for: routeInfo, identity: content.primaryIdentity) {
       maneuvers.append(laneManeuver)
     }
-    if let secondaryTurnIndex = content.secondaryTurnIndex,
-       let secondaryManeuver = plannedManeuvers[secondaryTurnIndex] {
+    if let secondaryStep = content.secondaryStep,
+       let secondaryManeuver = plannedManeuvers[secondaryStep] {
       maneuvers.append(secondaryManeuver)
     }
     routeSession.upcomingManeuvers = maneuvers
@@ -901,7 +884,7 @@ extension CarPlayRouter {
     publishedPrimaryIdentity = content.primaryIdentity
 
     LOG(.info,
-        "[CarPlayGuidance] maneuvers_published reason=\(reason.rawValue) previous=\(identityDescription(previousContent?.primaryIdentity)) route=\(identityDescription(routeIdentity(routeInfo)))->step=\(identityDescription(content.primaryIdentity)) planned=\(content.isPlannedPrimary) direction=\(routeInfo.carDirection.diagnosticName) lanes=\(previousContent?.lanes.count ?? 0)->\(content.lanes.count) secondary=\(previousContent?.secondaryTurnIndex.map { String($0) } ?? "none")->\(content.secondaryTurnIndex.map { String($0) } ?? "none") \(secondaryDescription(content)) count=\(maneuvers.count) \(roadDescription(routeInfo))")
+        "[CarPlayGuidance] maneuvers_published reason=\(reason.rawValue) previous=\(identityDescription(previousContent?.primaryIdentity)) turn=\(routeInfo.turnIndex) step=\(identityDescription(content.primaryIdentity)) planned=\(content.isPlannedPrimary) direction=\(routeInfo.carDirection.diagnosticName) lanes=\(previousContent?.lanes.count ?? 0)->\(content.lanes.count) secondary=\(previousContent?.secondaryStep.map { String($0) } ?? "none")->\(content.secondaryStep.map { String($0) } ?? "none") \(secondaryDescription(content)) count=\(maneuvers.count) \(roadDescription(routeInfo))")
     if #available(iOS 18.0, *) {
       logLaneGuidanceTransition(from: previousContent, to: content)
     }
@@ -961,9 +944,9 @@ extension CarPlayRouter {
   private func currentLaneGuidance(for routeInfo: RouteInfo, content: CarPlayManeuverContent) -> AnyObject? {
     guard #available(iOS 18.0, *), !content.lanes.isEmpty else { return nil }
     if content.isPlannedPrimary,
-       let step = routePlan?.steps.first(where: { $0.turnIndex == content.primaryIdentity.turnIndex }),
+       let step = routePlan?.step(withSequence: content.primaryIdentity.step),
        step.laneContent == content.lanes,
-       let planned = plannedLaneGuidances[step.turnIndex] {
+       let planned = plannedLaneGuidances[step.sequence] {
       return planned
     }
     let key = CarPlayLaneSymbolKey(identity: content.primaryIdentity, lanes: content.lanes)
@@ -1030,7 +1013,7 @@ extension CarPlayRouter {
     let distanceMeters = distanceInMeters(routeInfo.distanceToTurn, units: routeInfo.turnUnits)
     if let previousIdentity = lastObservedIdentity, previousIdentity != identity {
       let sameRoute = previousIdentity.routeID == identity.routeID
-      let indexDelta = Int64(identity.turnIndex) - Int64(previousIdentity.turnIndex)
+      let indexDelta = Int64(identity.step) - Int64(previousIdentity.step)
       if sameRoute && indexDelta < 0 {
         LOG(.warning,
             "[CarPlayGuidance] invariant_failed turn_index_moved_backwards previous=\(identityDescription(previousIdentity)) current=\(identityDescription(identity))")
@@ -1047,7 +1030,7 @@ extension CarPlayRouter {
   }
 
   private func routeIdentity(_ routeInfo: RouteInfo) -> CarPlayPrimaryManeuverIdentity {
-    return CarPlayPrimaryManeuverIdentity(routeID: routeInfo.routeID, turnIndex: routeInfo.turnIndex)
+    return CarPlayPrimaryManeuverIdentity(routeID: routeInfo.routeID, step: routeInfo.currentStep ?? 0)
   }
 
   private func distanceInMeters(_ distance: Double, units: UnitLength) -> Double {
@@ -1074,7 +1057,7 @@ extension CarPlayRouter {
 
   private func identityDescription(_ identity: CarPlayPrimaryManeuverIdentity?) -> String {
     guard let identity else { return "none" }
-    return "\(identity.routeID):\(identity.turnIndex)"
+    return "\(identity.routeID):\(identity.step)"
   }
 
   private func logValue(_ value: String) -> String {
@@ -1089,12 +1072,12 @@ extension CarPlayRouter {
 
   private func secondaryDescription(_ content: CarPlayManeuverContent) -> String {
     guard let plan = routePlan, content.isPlannedPrimary,
-          let primary = plan.steps.first(where: { $0.turnIndex == content.primaryIdentity.turnIndex }) else {
+          let primary = plan.step(withSequence: content.primaryIdentity.step) else {
       return "secondaryGapM=none"
     }
-    guard let secondaryTurnIndex = content.secondaryTurnIndex,
-          let secondary = plan.steps.first(where: { $0.turnIndex == secondaryTurnIndex }) else {
-      let next = plan.steps.first { $0.turnIndex > primary.turnIndex }
+    guard let secondaryStep = content.secondaryStep,
+          let secondary = plan.step(withSequence: secondaryStep) else {
+      let next = plan.steps.first { $0.sequence > primary.sequence }
       let gap = next.map { formatMeters($0.distanceFromStartMeters - primary.distanceFromStartMeters) } ?? "none"
       return "secondaryGapM=\(gap) secondaryDirection=none"
     }

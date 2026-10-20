@@ -4,7 +4,6 @@
 #import "MWMFrameworkListener.h"
 #import "MWMFrameworkObservers.h"
 #import "MWMCoreRouterType.h"
-#import "MWMFollowingInfo+CPP.h"
 #import "MWMLaneInfo+CPP.h"
 #import "MWMRoutePoint+CPP.h"
 #import "MWMRouteStepInfo+CPP.h"
@@ -130,12 +129,14 @@ static NSString * MWMTurnImageName(routing::turns::CarDirection turn, BOOL isPri
       info.m_turn == routing::turns::CarDirection::LeaveRoundAbout) {
     roundExitNumber = info.m_exitNum;
   }
-  auto const displayedRoad = routing::ios::GetDisplayedRoadInfo(info);
+  auto const & nextRoad = info.m_nextRoadInfo;
 
   NSArray<MWMLaneInfo *> *lanes = MWMBuildLaneInfos(info.m_lanes);
 
   MWMRouteInfo *objCInfo = [[MWMRouteInfo alloc] initWithRouteID:info.m_routeId
                                                           turnIndex:info.m_turnIndex
+                                                        currentStep:info.m_currentStep ? @(*info.m_currentStep) : nil
+                                                           nextStep:info.m_nextStep ? @(*info.m_nextStep) : nil
                                                        timeToTarget:info.m_time
                                                      targetDistance: info.m_distToTarget.GetDistance()
                                                      targetUnitsIndex:static_cast<UInt8>(info.m_distToTarget.GetUnits())
@@ -148,13 +149,13 @@ static NSString * MWMTurnImageName(routing::turns::CarDirection turn, BOOL isPri
                                                         speedLimitMps:info.m_speedLimitMps
                                                       roundExitNumber:roundExitNumber
                                                                 lanes:lanes
-                                                             roadName:@(displayedRoad.m_name.c_str())
-                                                              roadRef:@(displayedRoad.m_ref.c_str())
-                                                          junctionRef:@(displayedRoad.m_junctionRef.c_str())
-                                                       destinationRef:@(displayedRoad.m_destinationRef.c_str())
-                                                              destination:@(displayedRoad.m_destination.c_str())
-                                                               isLink:displayedRoad.m_isLink
-                                                           roadShields:MWMBuildRoadShieldInfo(displayedRoad.m_shields)
+                                                             roadName:@(nextRoad.m_name.c_str())
+                                                              roadRef:@(nextRoad.m_ref.c_str())
+                                                          junctionRef:@(nextRoad.m_junctionRef.c_str())
+                                                       destinationRef:@(nextRoad.m_destinationRef.c_str())
+                                                              destination:@(nextRoad.m_destination.c_str())
+                                                               isLink:nextRoad.m_isLink
+                                                           roadShields:MWMBuildRoadShieldInfo(nextRoad.m_shields)
                                                       currentRoadName:@(info.m_currentStreetName.c_str())
                                                     carDirectionIndex:static_cast<UInt8>(info.m_turn)
                                                     isLeftHandTraffic:info.m_isLeftHandTraffic];

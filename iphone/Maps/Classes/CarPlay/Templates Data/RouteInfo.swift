@@ -537,6 +537,8 @@ final class NavigationInstructionFormatter: NSObject {
 class RouteInfo: NSObject {
   let routeID: UInt64
   let turnIndex: UInt32
+  let currentStep: UInt32?
+  let nextStep: UInt32?
   let timeToTarget: TimeInterval
   let targetDistance: Double
   let targetUnits: UnitLength
@@ -566,6 +568,8 @@ class RouteInfo: NSObject {
 
   @objc init(routeID: UInt64,
              turnIndex: UInt32,
+             currentStep: NSNumber?,
+             nextStep: NSNumber?,
              timeToTarget: TimeInterval,
              targetDistance: Double,
              targetUnitsIndex: UInt8,
@@ -590,6 +594,8 @@ class RouteInfo: NSObject {
              isLeftHandTraffic: Bool) {
     self.routeID = routeID
     self.turnIndex = turnIndex
+    self.currentStep = currentStep?.uint32Value
+    self.nextStep = nextStep?.uint32Value
     self.timeToTarget = timeToTarget
     self.targetDistance = targetDistance
     self.targetUnits = RouteInfo.unitLength(for: targetUnitsIndex)

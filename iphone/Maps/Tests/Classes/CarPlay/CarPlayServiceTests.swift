@@ -173,6 +173,8 @@ final class CarPlayServiceTests: XCTestCase {
   func testCreateEstimates() {
     let routeInfo = RouteInfo(routeID: 1,
                               turnIndex: 1,
+                              currentStep: nil,
+                              nextStep: nil,
                               timeToTarget: 100,
                               targetDistance: 25.2,
                               targetUnitsIndex: 1, // km
@@ -207,9 +209,9 @@ final class CarPlayServiceTests: XCTestCase {
   }
 
   func testManeuverRefreshStateUsesPrimaryIdentity() {
-    let plan = makePlan([(2, .turnLeft, 0), (3, .turnLeft, 1000)])
-    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2), plan: plan)
-    let nextIdenticalTurn = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 3), plan: plan)
+    let plan = makePlan([(1, .turnLeft, 0), (2, .turnLeft, 1000)])
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo(currentStep: 1), plan: plan)
+    let nextIdenticalTurn = CarPlayManeuverContent(routeInfo: makeRouteInfo(currentStep: 2), plan: plan)
     var state = CarPlayManeuverRefreshState()
 
     XCTAssertEqual(state.reason(for: content), .initial)
@@ -220,9 +222,9 @@ final class CarPlayServiceTests: XCTestCase {
   }
 
   func testManeuverRefreshStateIgnoresDistanceOnlyChanges() {
-    let plan = makePlan([(2, .turnLeft, 0)])
-    let far = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2, distanceToTurn: 500), plan: plan)
-    let near = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2, distanceToTurn: 20), plan: plan)
+    let plan = makePlan([(1, .turnLeft, 0)])
+    let far = CarPlayManeuverContent(routeInfo: makeRouteInfo(distanceToTurn: 500), plan: plan)
+    let near = CarPlayManeuverContent(routeInfo: makeRouteInfo(distanceToTurn: 20), plan: plan)
     var state = CarPlayManeuverRefreshState()
     state.didDisplay(far)
 
@@ -230,11 +232,11 @@ final class CarPlayServiceTests: XCTestCase {
                  "Distance updates must update estimates without republishing maneuvers")
   }
 
-  func testManeuverRefreshStateReplacesPrimaryForNewRouteWithSameTurnIndex() {
-    let firstRoute = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 1, turnIndex: 4),
-                                            plan: makePlan(routeID: 1, [(4, .turnLeft, 0)]))
-    let reroute = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 2, turnIndex: 4),
-                                         plan: makePlan(routeID: 2, [(4, .turnLeft, 0)]))
+  func testManeuverRefreshStateReplacesPrimaryForNewRouteWithSameStep() {
+    let firstRoute = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 1),
+                                            plan: makePlan(routeID: 1, [(1, .turnLeft, 0)]))
+    let reroute = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 2),
+                                         plan: makePlan(routeID: 2, [(1, .turnLeft, 0)]))
     var state = CarPlayManeuverRefreshState()
     state.didDisplay(firstRoute)
 
@@ -242,12 +244,12 @@ final class CarPlayServiceTests: XCTestCase {
   }
 
   func testManeuverRefreshStateRepublishesForLaneGuidanceChanges() {
-    let plan = makePlan([(2, .turnLeft, 0)])
-    let withoutLanes = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2), plan: plan)
+    let plan = makePlan([(1, .turnLeft, 0)])
+    let withoutLanes = CarPlayManeuverContent(routeInfo: makeRouteInfo(), plan: plan)
     let withLeftLane = CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(turnIndex: 2, lanes: [makeLane(ways: [.left], recommended: .left)]), plan: plan)
+      routeInfo: makeRouteInfo(lanes: [makeLane(ways: [.left], recommended: .left)]), plan: plan)
     let withRightLane = CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(turnIndex: 2, lanes: [makeLane(ways: [.right], recommended: .right)]), plan: plan)
+      routeInfo: makeRouteInfo(lanes: [makeLane(ways: [.right], recommended: .right)]), plan: plan)
     var state = CarPlayManeuverRefreshState()
 
     state.didDisplay(withoutLanes)
@@ -259,7 +261,7 @@ final class CarPlayServiceTests: XCTestCase {
   }
 
   func testManeuverRefreshStateResetForcesInitialPublish() {
-    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2), plan: makePlan([(2, .turnLeft, 0)]))
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo(), plan: makePlan([(1, .turnLeft, 0)]))
     var state = CarPlayManeuverRefreshState()
     state.didDisplay(content)
     state.reset()
@@ -268,7 +270,7 @@ final class CarPlayServiceTests: XCTestCase {
   }
 
   func testManeuverRefreshStateCanForceReroute() {
-    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2), plan: makePlan([(2, .turnLeft, 0)]))
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo(), plan: makePlan([(1, .turnLeft, 0)]))
     var state = CarPlayManeuverRefreshState()
     state.didDisplay(content)
 
@@ -276,28 +278,19 @@ final class CarPlayServiceTests: XCTestCase {
   }
 
   func testRoundaboutEntranceAndExitMapToTheSamePlannedManeuver() {
-    let plan = makePlan([(2, .turnLeft, 0), (5, .leaveRoundAbout, 1000), (9, .reachedYourDestination, 3000)])
+    let plan = makePlan([(1, .turnLeft, 0), (2, .leaveRoundAbout, 1000), (3, .reachedYourDestination, 3000)])
     let entrance = CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(turnIndex: 3, carDirection: .enterRoundAbout), plan: plan)
+      routeInfo: makeRouteInfo(turnIndex: 3, carDirection: .enterRoundAbout, currentStep: 2), plan: plan)
     let exit = CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(turnIndex: 5, carDirection: .leaveRoundAbout), plan: plan)
+      routeInfo: makeRouteInfo(turnIndex: 5, carDirection: .leaveRoundAbout, currentStep: 2), plan: plan)
     var state = CarPlayManeuverRefreshState()
     state.didDisplay(entrance)
 
     XCTAssertTrue(entrance.isPlannedPrimary)
-    XCTAssertEqual(entrance.primaryIdentity.turnIndex, 5)
-    XCTAssertEqual(exit.primaryIdentity.turnIndex, 5)
+    XCTAssertEqual(entrance.primaryIdentity.step, 2)
+    XCTAssertEqual(exit.primaryIdentity.step, 2)
     XCTAssertNil(state.reason(for: exit),
                  "Entering the roundabout must not replace the combined roundabout maneuver")
-  }
-
-  func testRoundaboutEntranceOnRouteEndingOnRingIsItsOwnPlannedManeuver() {
-    let plan = makePlan([(2, .turnLeft, 0), (3, .enterRoundAbout, 1000), (6, .reachedYourDestination, 1100)])
-    let entrance = CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(turnIndex: 3, carDirection: .enterRoundAbout), plan: plan)
-
-    XCTAssertTrue(entrance.isPlannedPrimary)
-    XCTAssertEqual(entrance.primaryIdentity.turnIndex, 3)
   }
 
   func testManeuverPhaseFollowsVoicePromptDistances() {
@@ -372,36 +365,32 @@ final class CarPlayServiceTests: XCTestCase {
                                               holdingExecute: true), .execute)
   }
 
-  func testTurnMissingFromPlanDoesNotMapToALaterStep() {
-    let plan = makePlan([(2, .turnLeft, 0), (6, .reachedYourDestination, 1100)])
-    let entrance = CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(turnIndex: 3, carDirection: .enterRoundAbout), plan: plan)
-    let turn = CarPlayManeuverContent(
-      routeInfo: makeRouteInfo(turnIndex: 4, carDirection: .turnRight), plan: plan)
+  func testStepMissingFromPlanIsUnplanned() {
+    let plan = makePlan([(1, .turnLeft, 0), (3, .reachedYourDestination, 1100)])
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo(currentStep: 2, nextStep: 3), plan: plan)
 
-    XCTAssertFalse(entrance.isPlannedPrimary)
-    XCTAssertEqual(entrance.primaryIdentity, CarPlayPrimaryManeuverIdentity(routeID: 1, turnIndex: 3))
-    XCTAssertFalse(turn.isPlannedPrimary)
-    XCTAssertEqual(turn.primaryIdentity, CarPlayPrimaryManeuverIdentity(routeID: 1, turnIndex: 4))
+    XCTAssertFalse(content.isPlannedPrimary)
+    XCTAssertEqual(content.primaryIdentity, CarPlayPrimaryManeuverIdentity(routeID: 1, step: 2))
+    XCTAssertNil(content.secondaryStep)
   }
 
-  func testSecondaryManeuverIsTheNextStepWithinThreshold() {
-    let plan = makePlan([(2, .turnLeft, 0), (4, .turnRight, 1000), (6, .turnLeft, 1400),
-                         (8, .reachedYourDestination, 1801)])
+  func testSecondaryManeuverIsTheNextStepFromCore() {
+    let plan = makePlan([(1, .turnLeft, 0), (2, .turnRight, 1000), (3, .reachedYourDestination, 1400)])
 
-    XCTAssertNil(CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 2), plan: plan).secondaryTurnIndex)
-    XCTAssertEqual(CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 4), plan: plan).secondaryTurnIndex, 6)
-    XCTAssertNil(CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 6), plan: plan).secondaryTurnIndex)
-    XCTAssertNil(CarPlayManeuverContent(routeInfo: makeRouteInfo(turnIndex: 8), plan: plan).secondaryTurnIndex)
+    let withoutNext = CarPlayManeuverContent(routeInfo: makeRouteInfo(currentStep: 1), plan: plan)
+    let withNext = CarPlayManeuverContent(routeInfo: makeRouteInfo(currentStep: 2, nextStep: 3), plan: plan)
+
+    XCTAssertNil(withoutNext.secondaryStep)
+    XCTAssertEqual(withNext.secondaryStep, 3)
   }
 
   func testManeuverContentFallsBackToRouteInfoWithoutMatchingPlan() {
-    let otherRoutePlan = makePlan(routeID: 7, [(2, .turnLeft, 0)])
-    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 1, turnIndex: 2), plan: otherRoutePlan)
+    let otherRoutePlan = makePlan(routeID: 7, [(1, .turnLeft, 0), (2, .turnRight, 100)])
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo(routeID: 1, nextStep: 2), plan: otherRoutePlan)
 
     XCTAssertFalse(content.isPlannedPrimary)
-    XCTAssertEqual(content.primaryIdentity, CarPlayPrimaryManeuverIdentity(routeID: 1, turnIndex: 2))
-    XCTAssertNil(content.secondaryTurnIndex)
+    XCTAssertEqual(content.primaryIdentity, CarPlayPrimaryManeuverIdentity(routeID: 1, step: 1))
+    XCTAssertNil(content.secondaryStep)
   }
 
   func testRoundaboutManeuverTypeCarriesExitNumber() throws {
@@ -965,9 +954,13 @@ final class CarPlayServiceTests: XCTestCase {
                              junctionRef: String = "",
                              destinationRef: String = "",
                              destination: String = "",
-                             isLink: Bool = false) -> RouteInfo {
+                             isLink: Bool = false,
+                             currentStep: UInt32? = 1,
+                             nextStep: UInt32? = nil) -> RouteInfo {
     return RouteInfo(routeID: routeID,
                      turnIndex: turnIndex,
+                     currentStep: currentStep.map { NSNumber(value: $0) },
+                     nextStep: nextStep.map { NSNumber(value: $0) },
                      timeToTarget: 100,
                      targetDistance: 1,
                      targetUnitsIndex: 1,
@@ -993,12 +986,12 @@ final class CarPlayServiceTests: XCTestCase {
   }
 
   private func makePlan(routeID: UInt64 = 1,
-                        _ steps: [(turnIndex: UInt32, direction: CarDirection, distanceFromStart: Double)])
+                        _ steps: [(sequence: UInt32, direction: CarDirection, distanceFromStart: Double)])
     -> CarPlayRoutePlan {
     var previousDistance = 0.0
     return CarPlayRoutePlan(routeID: routeID, steps: steps.map { step in
       defer { previousDistance = step.distanceFromStart }
-      return CarPlayRouteStep(turnIndex: step.turnIndex,
+      return CarPlayRouteStep(sequence: step.sequence,
                               carDirection: step.direction,
                               exitNumber: step.direction.isRoundabout ? 2 : 0,
                               distanceFromStartMeters: step.distanceFromStart,

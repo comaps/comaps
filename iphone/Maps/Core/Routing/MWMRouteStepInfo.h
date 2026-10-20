@@ -1,7 +1,7 @@
 @interface MWMRouteStepInfo : NSObject
 
 @property(nonatomic, readonly) uint32_t index;
-@property(nonatomic, readonly) uint32_t turnIndex;
+@property(nonatomic, readonly) uint32_t sequence;
 @property(nonatomic, readonly) NSString * _Nullable fromStreetName;
 @property(nonatomic, readonly) NSString * _Nullable toStreetName;
 @property(nonatomic, readonly) NSString * _Nonnull toRef;
