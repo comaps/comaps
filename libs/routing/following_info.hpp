@@ -6,10 +6,12 @@
 #include "indexer/road_shields_parser.hpp"
 
 #include "routing/lanes/lane_info.hpp"
+#include "routing/road_info.hpp"
 #include "routing/routing_callbacks.hpp"
 #include "routing/turns.hpp"
 
 #include <limits>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -18,13 +20,7 @@ namespace routing
 class FollowingInfo
 {
 public:
-  struct RoadShieldInfo
-  {
-    /// An array of road shields for the target street
-    ftypes::RoadShieldsSetT m_targetRoadShields;
-    /// An array of road shields for the junction
-    ftypes::RoadShieldsSetT m_junctionRoadShields;
-  };
+  using RoadShieldInfo = routing::RoadShieldInfo;
 
   FollowingInfo()
     : m_turnIndex(std::numeric_limits<uint32_t>::max())
@@ -47,6 +43,8 @@ public:
   platform::Distance m_distToTurn;
   uint64_t m_routeId = 0;
   uint32_t m_turnIndex;
+  std::optional<uint32_t> m_currentStep;
+  std::optional<uint32_t> m_nextStep;
   uint32_t m_firstNotificationDistM = 0;
   uint32_t m_secondNotificationDistM = 0;
   turns::CarDirection m_turn;
@@ -75,25 +73,7 @@ public:
   // Road shields for the next next street.
   RoadShieldInfo m_nextNextStreetShields;
 
-  // Structured, presentation-safe components of the next turn's road, mirroring
-  // RouteSegment::RoadNameInfo. Unlike m_nextStreetName these are not pre-formatted, letting
-  // platform UIs (e.g. CarPlay) build their own width-appropriate instruction variants.
-  // All may be empty.
-  std::string m_nextName;             // E.g. "Bayshore Freeway".
-  std::string m_nextRef;              // Road number, e.g. "CA 85".
-  std::string m_nextJunctionRef;      // Junction/exit number, e.g. "6A".
-  std::string m_nextDestinationRef;   // Number of the road the exit leads to, e.g. "US 101 South".
-  std::string m_nextDestination;      // E.g. "San Jose; San Francisco International Airport".
-  bool m_nextIsLink = false;          // True when the next segment is a link (ramp).
-  ftypes::HighwayClass m_nextHighwayClass = ftypes::HighwayClass::Undefined;
-
-  // NextNext variants for showing the correct direction string in roundabouts that has two instructions
-  std::string m_nextNextName;
-  std::string m_nextNextRef;
-  std::string m_nextNextJunctionRef;
-  std::string m_nextNextDestinationRef;
-  std::string m_nextNextDestination;
-  bool m_nextNextIsLink = false;
+  RoadInfo m_nextRoadInfo;
 
   // True in left-hand-driving regions (e.g. UK, Japan)
   bool m_isLeftHandTraffic = false;

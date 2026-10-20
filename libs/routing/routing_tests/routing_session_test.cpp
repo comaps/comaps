@@ -24,6 +24,7 @@
 #include <limits>
 #include <memory>
 #include <mutex>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -568,7 +569,7 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestFollowingTurnIdentityA
   TEST_EQUAL(afterTurn.m_turn, turns::CarDirection::TurnRight, ());
 }
 
-UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRoundaboutNextNextRoadInfoIsFresh)
+UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRoundaboutEntranceUsesExitRoadInfo)
 {
   vector<m2::PointD> const routePoints = {{0.0, 0.0},   {0.0, 0.0},   {0.0, 0.001},
                                            {0.0, 0.002}, {0.0, 0.003}, {0.0, 0.004},
@@ -633,13 +634,14 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRoundaboutNextNextRoad
     FollowingInfo beforeEntrance;
     m_session->GetRouteFollowingInfo(beforeEntrance);
     TEST_EQUAL(beforeEntrance.m_turn, turns::CarDirection::EnterRoundAbout, ());
-    TEST_EQUAL(beforeEntrance.m_nextName, "Sinsenkrysset", ());
-    TEST_EQUAL(beforeEntrance.m_nextNextName, "Ring 3", ());
-    TEST_EQUAL(beforeEntrance.m_nextNextRef, "150", ());
-    TEST_EQUAL(beforeEntrance.m_nextNextJunctionRef, "67", ());
-    TEST_EQUAL(beforeEntrance.m_nextNextDestinationRef, "E6", ());
-    TEST_EQUAL(beforeEntrance.m_nextNextDestination, "Smestad", ());
-    TEST(beforeEntrance.m_nextNextIsLink, ());
+    TEST_EQUAL(beforeEntrance.m_currentStep, 1, ());
+    TEST_EQUAL(beforeEntrance.m_nextStreetName, "Sinsenkrysset", ());
+    TEST_EQUAL(beforeEntrance.m_nextRoadInfo.m_name, "Ring 3", ());
+    TEST_EQUAL(beforeEntrance.m_nextRoadInfo.m_ref, "150", ());
+    TEST_EQUAL(beforeEntrance.m_nextRoadInfo.m_junctionRef, "67", ());
+    TEST_EQUAL(beforeEntrance.m_nextRoadInfo.m_destinationRef, "E6", ());
+    TEST_EQUAL(beforeEntrance.m_nextRoadInfo.m_destination, "Smestad", ());
+    TEST(beforeEntrance.m_nextRoadInfo.m_isLink, ());
 
     followingInfoInCallback = beforeEntrance;
 
@@ -657,21 +659,16 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRoundaboutNextNextRoad
 
   TEST(callbackCalled, ());
   TEST_EQUAL(followingInfoInCallback.m_turn, turns::CarDirection::LeaveRoundAbout, ());
-  TEST_EQUAL(followingInfoInCallback.m_nextName, "Ring 3", ());
-  TEST_EQUAL(followingInfoInCallback.m_nextJunctionRef, "67", ());
-  TEST_EQUAL(followingInfoInCallback.m_nextDestination, "Smestad", ());
-  TEST(followingInfoInCallback.m_nextNextName.empty(), ());
-  TEST(followingInfoInCallback.m_nextNextRef.empty(), ());
-  TEST(followingInfoInCallback.m_nextNextJunctionRef.empty(), ());
-  TEST(followingInfoInCallback.m_nextNextDestinationRef.empty(), ());
-  TEST(followingInfoInCallback.m_nextNextDestination.empty(), ());
-  TEST(!followingInfoInCallback.m_nextNextIsLink, ());
+  TEST_EQUAL(followingInfoInCallback.m_currentStep, 1, ());
+  TEST_EQUAL(followingInfoInCallback.m_nextRoadInfo.m_name, "Ring 3", ());
+  TEST_EQUAL(followingInfoInCallback.m_nextRoadInfo.m_junctionRef, "67", ());
+  TEST_EQUAL(followingInfoInCallback.m_nextRoadInfo.m_destination, "Smestad", ());
 }
 
-UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRouteStepsMatchFollowingTurnIndex)
+UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestFollowingInfoReferencesRouteSteps)
 {
   vector<m2::PointD> const routePoints = {{0.0, 0.0},   {0.0, 0.0},   {0.0, 0.001}, {0.0, 0.002},
-                                           {0.0, 0.003}, {0.0, 0.004}, {0.0, 0.005}, {0.0, 0.006}};
+                                           {0.0, 0.003}, {0.0, 0.004}, {0.0, 0.005}, {0.0, 0.010}};
   vector<turns::TurnItem> const turns = {
       {1, turns::CarDirection::None},
       {2, turns::CarDirection::TurnLeft},
@@ -715,6 +712,8 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRouteStepsMatchFollowi
 
   vector<RouteStepInfo> steps;
   vector<uint32_t> followingTurnIndexes;
+  vector<optional<uint32_t>> currentSteps;
+  vector<optional<uint32_t>> nextSteps;
   TimedSignal routeFollowedSignal;
   GetPlatform().RunTask(Platform::Thread::Gui, [&, this]()
   {
@@ -732,39 +731,41 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRouteStepsMatchFollowi
       FollowingInfo followingInfo;
       m_session->GetRouteFollowingInfo(followingInfo);
       followingTurnIndexes.push_back(followingInfo.m_turnIndex);
+      currentSteps.push_back(followingInfo.m_currentStep);
+      nextSteps.push_back(followingInfo.m_nextStep);
     }
     routeFollowedSignal.Signal();
   });
   TEST(routeFollowedSignal.WaitUntil(steady_clock::now() + kRouteBuildingMaxDuration), ("Route was not followed."));
 
   TEST_EQUAL(steps.size(), 3, ());
-  TEST_EQUAL(steps[0].m_turnIndex, 2, ());
+  TEST_EQUAL(steps[0].m_index, 1, ());
+  TEST_EQUAL(steps[0].m_sequence, 1, ());
   TEST_EQUAL(steps[0].m_turn, turns::CarDirection::TurnLeft, ());
-  TEST_EQUAL(steps[0].m_toStreetName, "Main Street", ());
-  TEST_EQUAL(steps[1].m_turnIndex, 5, ());
+  TEST_EQUAL(steps[0].m_toRoad.m_name, "Main Street", ());
+  TEST_EQUAL(steps[1].m_index, 4, ());
+  TEST_EQUAL(steps[1].m_sequence, 2, ());
   TEST_EQUAL(steps[1].m_turn, turns::CarDirection::LeaveRoundAbout, ());
   TEST_EQUAL(steps[1].m_exitNum, 2, ());
-  TEST_EQUAL(steps[1].m_toStreetName, "Ring 3", ());
-  TEST_EQUAL(steps[1].m_toRef, "150", ());
-  TEST_EQUAL(steps[1].m_toJunctionRef, "67", ());
-  TEST_EQUAL(steps[1].m_toDestinationRef, "E6", ());
-  TEST_EQUAL(steps[1].m_toDestination, "Smestad", ());
-  TEST(steps[1].m_toIsLink, ());
-  TEST_EQUAL(steps[2].m_turnIndex, 7, ());
+  TEST_EQUAL(steps[1].m_toRoad.m_name, "Ring 3", ());
+  TEST_EQUAL(steps[1].m_toRoad.m_ref, "150", ());
+  TEST_EQUAL(steps[1].m_toRoad.m_junctionRef, "67", ());
+  TEST_EQUAL(steps[1].m_toRoad.m_destinationRef, "E6", ());
+  TEST_EQUAL(steps[1].m_toRoad.m_destination, "Smestad", ());
+  TEST(steps[1].m_toRoad.m_isLink, ());
+  TEST_EQUAL(steps[2].m_index, 6, ());
+  TEST_EQUAL(steps[2].m_sequence, 3, ());
   TEST_EQUAL(steps[2].m_turn, turns::CarDirection::ReachedYourDestination, ());
 
-  auto const stepTurnIndexFor = [&steps](uint32_t turnIndex)
-  {
-    auto const it = find_if(steps.cbegin(), steps.cend(),
-                            [turnIndex](RouteStepInfo const & step) { return step.m_turnIndex >= turnIndex; });
-    return it == steps.cend() ? numeric_limits<uint32_t>::max() : it->m_turnIndex;
-  };
-
   vector<uint32_t> const expectedFollowingTurnIndexes = {2, 3, 5, 7};
-  vector<uint32_t> const expectedStepTurnIndexes = {2, 5, 5, 7};
+  vector<optional<uint32_t>> const expectedCurrentSteps = {1, 2, 2, 3};
+  vector<optional<uint32_t>> const expectedNextSteps = {2, nullopt, nullopt, nullopt};
   TEST_EQUAL(followingTurnIndexes, expectedFollowingTurnIndexes, ());
-  for (size_t i = 0; i < followingTurnIndexes.size(); ++i)
-    TEST_EQUAL(stepTurnIndexFor(followingTurnIndexes[i]), expectedStepTurnIndexes[i], (i));
+  for (size_t i = 0; i < expectedFollowingTurnIndexes.size(); ++i)
+  {
+    TEST_EQUAL(currentSteps[i], expectedCurrentSteps[i], (i));
+    TEST_EQUAL(nextSteps[i], expectedNextSteps[i], (i));
+  }
 }
 
 UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRouteStepsKeepRoundaboutEntranceWhenRouteEndsOnRing)
@@ -814,11 +815,11 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRouteStepsKeepRoundabo
   TEST(stepsSignal.WaitUntil(steady_clock::now() + kRouteBuildingMaxDuration), ("Steps were not read."));
 
   TEST_EQUAL(steps.size(), 3, ());
-  TEST_EQUAL(steps[0].m_turnIndex, 2, ());
+  TEST_EQUAL(steps[0].m_index, 1, ());
   TEST_EQUAL(steps[0].m_turn, turns::CarDirection::TurnLeft, ());
-  TEST_EQUAL(steps[1].m_turnIndex, 3, ());
+  TEST_EQUAL(steps[1].m_index, 2, ());
   TEST_EQUAL(steps[1].m_turn, turns::CarDirection::EnterRoundAbout, ());
-  TEST_EQUAL(steps[2].m_turnIndex, 6, ());
+  TEST_EQUAL(steps[2].m_index, 5, ());
   TEST_EQUAL(steps[2].m_turn, turns::CarDirection::ReachedYourDestination, ());
 }
 

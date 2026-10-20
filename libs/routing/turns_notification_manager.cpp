@@ -17,10 +17,6 @@ namespace sound
 
 namespace
 {
-// If the distance between two sequential turns is less than kSecondTurnThresholdDistM
-// the information about the second turn will be shown or pronounced
-// when the user is approaching to the first one with "Then,".
-double constexpr kSecondTurnThresholdDistM = 400.0;
 // If the distance between two sequential turns is less than kDistanceNotifyThresholdM
 // the notification will *not* append second distance, (like "In 500 meters. Turn left. Then. Turn right.")
 double constexpr kDistanceNotifyThresholdM = 80.0;
