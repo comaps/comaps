@@ -37,6 +37,22 @@ namespace traffic
 {
 using namespace std;
 
+Condition::Condition(std::optional<IsoTime> startTime, std::optional<IsoTime> endTime)
+  : m_startTime(startTime)
+  , m_endTime(endTime)
+{}
+
+bool Condition::IsTrueAt(IsoTime const & time) const
+{
+  return ((time >= m_startTime) && (time <= m_endTime));
+}
+
+bool Condition::IsTrueDuring(IsoTime const & start, IsoTime const & end) const
+{
+  ASSERT(start <= end, "start time cannot be greater then end time");
+  return !((end < m_startTime) || (start > m_endTime));
+}
+
 bool Condition::operator< (const Condition & rhs) const
 {
   if (m_startTime)
@@ -73,6 +89,24 @@ TrafficInfo::RoadSegmentId::RoadSegmentId() : m_fid(0), m_idx(0), m_dir(0) {}
 
 TrafficInfo::RoadSegmentId::RoadSegmentId(uint32_t fid, uint16_t idx, uint8_t dir) : m_fid(fid), m_idx(idx), m_dir(dir)
 {}
+
+// TrafficInfo::Coloring
+std::optional<traffic::IsoTime> TrafficInfo::Coloring::GetNextConditionChange() const
+{
+  std::optional<traffic::IsoTime> res = std::nullopt;
+  for (auto const & [condition, coloring] : m_conditional)
+    if (condition.m_startTime && (condition.m_startTime.value() > traffic::IsoTime::Now()))
+    {
+      if (!res || (res.value() > condition.m_startTime.value()))
+        res = condition.m_startTime;
+    }
+    else if (condition.m_endTime && (condition.m_endTime.value() > traffic::IsoTime::Now()))
+    {
+      if (!res || (res.value() > condition.m_endTime.value()))
+        res = condition.m_endTime;
+    }
+  return res;
+}
 
 // TrafficInfo --------------------------------------------------------------------------------
 

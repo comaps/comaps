@@ -42,6 +42,28 @@ class Condition
 public:
   std::optional<IsoTime> m_startTime = {};
   std::optional<IsoTime> m_endTime = {};
+  Condition(std::optional<IsoTime> startTime, std::optional<IsoTime> endTime);
+
+  /**
+   * @brief Whether this condition is true at a given point in time.
+   *
+   * @param time The point in time to examine.
+   * @return true if the condition is true at `time`, false if not.
+   */
+  bool IsTrueAt(IsoTime const & time) const;
+
+  /**
+   * @brief Whether this condition is true in a given period of time.
+   *
+   * This evaluates if the validity of the condition overlaps with the time period from `start` to `end`.
+   * That is, if validity of the condition changes between `start` and `end`, the result is true.
+   *
+   * @param start The start of the period to examine.
+   * @param end The end of the period to examine.
+   * @return true if the condition is true at any time from `start` to `end`, false if not.
+   */
+  bool IsTrueDuring(IsoTime const & start, IsoTime const & end) const;
+
   bool operator< (const Condition & rhs) const;
 };
 
@@ -177,6 +199,14 @@ public:
      * speed group in the same map or in `m_unconditional`.
      */
     ConditionalColoring m_conditional;
+
+    /**
+     * @brief Returns the point in time at which the next condition in this instance changes.
+     *
+     * @return the time of the next condition change, or `std::nullopt` if this instance has no conditional
+     * entries that will change in the future.
+     */
+    std::optional<traffic::IsoTime> GetNextConditionChange() const;
   };
 
   /**
