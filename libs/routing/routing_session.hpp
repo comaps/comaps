@@ -25,6 +25,7 @@
 #include <limits>
 #include <map>
 #include <memory>
+#include <optional>
 #include <queue>
 #include <string>
 
@@ -171,6 +172,8 @@ public:
   SpeedCameraManager const & GetSpeedCamManager() const { return m_speedCameraManager; }
 
   std::vector<routing::RouteStepInfo> GetRouteTurnsForDisplay(std::string const & locale) const;
+  std::optional<m2::PointD> GetJunctionPointForTurn(uint32_t segmentIndex) const;
+  double GetDirectionForTurn(uint32_t segmentIndex) const;
 
   std::shared_ptr<Route> GetRouteForTests() const { return m_route; }
   void SetGuidesForTests(GuidesTracks guides) { m_router->SetGuidesTracks(std::move(guides)); }

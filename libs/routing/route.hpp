@@ -481,7 +481,7 @@ public:
   std::optional<uint32_t> GetNextStepSequence(uint32_t sequence, double maxDistM) const;
   std::optional<uint32_t> GetStepTurnIndex(uint32_t sequence) const;
   /// \returns the point for at a specific turn index along the route
-  m2::PointD GetJunctionPointForTurn(uint32_t segmentIndex) const;
+  std::optional<m2::PointD> GetJunctionPointForTurn(uint32_t segmentIndex) const;
   /// \returns the approach direction for the turn
   double GetDirectionForTurn(uint32_t segmentIndex) const;
 

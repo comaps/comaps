@@ -344,7 +344,7 @@ public:
   routing::RouterType GetCurrentRouterType() const { return m_currentRouterType; }
 
   std::vector<routing::RouteStepInfo> GetRouteTurnsForDisplay(std::string const & locale) const;
-  m2::PointD GetJunctionPointForUpcomingTurn(uint32_t segmentIndex) const;
+  std::optional<m2::PointD> GetJunctionPointForUpcomingTurn(uint32_t segmentIndex) const;
   double GetDirectionForUpcomingTurn(uint32_t segmentIndex) const;
 
   std::vector<double> GetIntermediateStopsProgress() const { return m_routingSession.GetIntermediateStopsProgress(); }

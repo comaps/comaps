@@ -1802,12 +1802,12 @@ std::vector<routing::RouteStepInfo> RoutingManager::GetRouteTurnsForDisplay(std:
   return m_routingSession.GetRouteTurnsForDisplay(locale);
 }
 
-m2::PointD RoutingManager::GetJunctionPointForUpcomingTurn(uint32_t segmentIndex) const
+std::optional<m2::PointD> RoutingManager::GetJunctionPointForUpcomingTurn(uint32_t segmentIndex) const
 {
-  return m_routingSession.GetRouteForTests()->GetJunctionPointForTurn(segmentIndex);
+  return m_routingSession.GetJunctionPointForTurn(segmentIndex);
 }
 
 double RoutingManager::GetDirectionForUpcomingTurn(uint32_t segmentIndex) const
 {
-  return m_routingSession.GetRouteForTests()->GetDirectionForTurn(segmentIndex);
+  return m_routingSession.GetDirectionForTurn(segmentIndex);
 }

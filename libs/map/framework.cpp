@@ -1073,12 +1073,14 @@ void Framework::PreviewTurn(uint32_t segmentIndex)
     return;
 
   auto const point = routingManager.GetJunctionPointForUpcomingTurn(segmentIndex);
+  if (!point)
+    return;
   auto const azimuth = routingManager.GetDirectionForUpcomingTurn(segmentIndex);
   routingManager.SetPreviewedTurn(segmentIndex);
 
   int const kTurnPreviewZoom = routingManager.GetCurrentRouterType() == RouterType::Vehicle ? 16 : 17;
   StopLocationFollow();
-  SetViewportCenterAndAngle(point, kTurnPreviewZoom, -azimuth, true /* isAnim */);
+  SetViewportCenterAndAngle(*point, kTurnPreviewZoom, -azimuth, true /* isAnim */);
 }
 
 m2::RectD Framework::GetCurrentViewport() const

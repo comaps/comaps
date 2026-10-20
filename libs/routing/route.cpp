@@ -708,7 +708,7 @@ std::optional<uint32_t> Route::GetStepTurnIndex(uint32_t sequence) const
   return m_routeSegments[*segIdx].GetTurn().m_index;
 }
 
-m2::PointD Route::GetJunctionPointForTurn(uint32_t segmentIndex) const
+std::optional<m2::PointD> Route::GetJunctionPointForTurn(uint32_t segmentIndex) const
 {
   if (segmentIndex >= m_routeSegments.size())
     return {};

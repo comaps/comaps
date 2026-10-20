@@ -993,6 +993,16 @@ std::vector<routing::RouteStepInfo> RoutingSession::GetRouteTurnsForDisplay(std:
   return m_route->GetTurnsForDisplay(locale);
 }
 
+std::optional<m2::PointD> RoutingSession::GetJunctionPointForTurn(uint32_t segmentIndex) const
+{
+  return m_route->GetJunctionPointForTurn(segmentIndex);
+}
+
+double RoutingSession::GetDirectionForTurn(uint32_t segmentIndex) const
+{
+  return m_route->GetDirectionForTurn(segmentIndex);
+}
+
 void RoutingSession::SetLocaleWithJsonForTesting(std::string const & json, std::string const & locale)
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());
