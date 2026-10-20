@@ -111,6 +111,14 @@ traffic::IsoTime TraffMessage::GetEffectiveExpirationTime()
   return result;
 }
 
+std::optional<traffic::Condition> TraffMessage::GetCondition() const
+{
+  if (m_startTime || m_endTime)
+    return traffic::Condition(m_startTime, m_endTime);
+  else
+    return std::nullopt;
+}
+
 bool TraffMessage::IsExpired(traffic::IsoTime now)
 {
   return GetEffectiveExpirationTime() < now;

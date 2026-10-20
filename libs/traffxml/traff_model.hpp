@@ -11,6 +11,7 @@
 #include "traffic/traffic_info.hpp"
 
 #include <map>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -375,6 +376,16 @@ struct TraffMessage
   traffic::IsoTime GetEffectiveExpirationTime();
 
   /**
+   * @brief Returns the condition for the message.
+   *
+   * For unconditional messages, the result is `std::nullopt`.
+   *
+   * Conditions currently include the start and end time, if set. Future versions may add further
+   * conditions, such as recurring schedules.
+   */
+  std::optional<traffic::Condition> GetCondition() const;
+
+  /**
    * @brief Whether the message has expired.
    *
    * A message is considered to have expired if its effective expiration time (as returned by
@@ -421,7 +432,6 @@ struct TraffMessage
   std::optional<TraffLocation> m_location;
   std::vector<TraffEvent> m_events;
   std::vector<std::string> m_replaces;
-  std::optional<traffic::Condition> m_condition = {};
   GlobalSimpleColoring m_decoded;
 };
 
