@@ -12,6 +12,8 @@ NS_SWIFT_NAME(RoutingManagerListener)
                                countries:(NSArray<NSString *> *)absentCountries;
 - (void)didLocationUpdate:(NSArray<NSString *> *)routeNotifications routeInfo:(nullable RouteInfo *)routeInfo;
 - (void)updateCameraInfo:(BOOL)isCameraOnRoute speedLimitMps:(double)limit NS_SWIFT_NAME(updateCameraInfo(isCameraOnRoute:speedLimitMps:));
+@optional
+- (void)didPassTurn:(RouteInfo *)routeInfo;
 @end
 
 NS_SWIFT_NAME(RoutingManager)

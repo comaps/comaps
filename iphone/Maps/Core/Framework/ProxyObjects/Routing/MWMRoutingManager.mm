@@ -168,6 +168,22 @@ static NSString * MWMTurnImageName(routing::turns::CarDirection turn, BOOL isPri
 
 - (void)addListener:(id<MWMRoutingManagerListener>)listener {
   [self.listeners addObject:listener];
+  self.rm.RoutingSession().SetOnNewTurnCallback([] {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [[MWMRoutingManager routingManager] notifyTurnPassed];
+    });
+  });
+}
+
+- (void)notifyTurnPassed {
+  RouteInfo * routeInfo = self.routeInfo;
+  if (!routeInfo)
+    return;
+  NSArray<id<MWMRoutingManagerListener>> * objects = self.listeners.allObjects;
+  for (id<MWMRoutingManagerListener> object in objects) {
+    if ([object respondsToSelector:@selector(didPassTurn:)])
+      [object didPassTurn:routeInfo];
+  }
 }
 
 - (void)removeListener:(id<MWMRoutingManagerListener>)listener {

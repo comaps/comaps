@@ -1238,6 +1238,13 @@ extension CarPlayRouter: RoutingManagerListener {
     }
   }
 
+  func didPassTurn(_ routeInfo: RouteInfo) {
+    guard previewTrip != nil, RoutingManager.routingManager.isRoutingActive else { return }
+    observeGuidance(routeInfo)
+    refreshUpcomingManeuvers(with: routeInfo)
+    updateDynamicNavigationState(with: routeInfo)
+  }
+
   func didLocationUpdate(_ routeNotifications: [String], routeInfo: RouteInfo?) {
     guard let trip = previewTrip else { return }
 
