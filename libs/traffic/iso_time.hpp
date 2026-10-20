@@ -45,6 +45,14 @@ namespace traffic
     static IsoTime Now();
 
     /**
+     * @brief Returns an `IsoTime` which is a specified number of seconds from current wall clock time.
+     *
+     * @param offset The offset in seconds, positive for a time in the future
+     * @return An `IsoTime` that is `offset` seconds from current wall clock time.
+     */
+    static IsoTime SecondsFromNow(double offset);
+
+    /**
      * @brief Whether the instance refers to a point of time in the past.
      *
      * Comparison is against system time.
@@ -70,8 +78,11 @@ namespace traffic
      */
     std::string ToString() const;
 
+    bool operator== (const IsoTime & rhs) const;
     bool operator< (const IsoTime & rhs) const;
+    bool operator<= (const IsoTime & rhs) const;
     bool operator> (const IsoTime & rhs) const;
+    bool operator>= (const IsoTime & rhs) const;
   private:
     friend std::string DebugPrint(IsoTime time);
 

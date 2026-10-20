@@ -96,6 +96,11 @@ namespace traffic
     return IsoTime(std::chrono::system_clock::now());
   }
 
+  IsoTime IsoTime::SecondsFromNow(double offset)
+  {
+    return IsoTime(std::chrono::system_clock::now() + std::chrono::seconds((long) offset));
+  }
+
   IsoTime::IsoTime(std::chrono::time_point<std::chrono::system_clock> tp)
     : m_tp(tp)
   {}
@@ -103,7 +108,7 @@ namespace traffic
   bool IsoTime::IsPast()
   {
     return m_tp < std::chrono::system_clock::now();
-  }\
+  }
 
   void IsoTime::Shift(IsoTime nowRef)
   {
@@ -123,14 +128,29 @@ namespace traffic
     return ss.str();
   }
 
+  bool IsoTime::operator== (const IsoTime & rhs) const
+  {
+    return m_tp == rhs.m_tp;
+  }
+
   bool IsoTime::operator< (const IsoTime & rhs) const
   {
     return m_tp < rhs.m_tp;
   }
 
+  bool IsoTime::operator<= (const IsoTime & rhs) const
+  {
+    return m_tp <= rhs.m_tp;
+  }
+
   bool IsoTime::operator> (const IsoTime & rhs) const
   {
     return m_tp > rhs.m_tp;
+  }
+
+  bool IsoTime::operator>= (const IsoTime & rhs) const
+  {
+    return m_tp >= rhs.m_tp;
   }
 
   std::string DebugPrint(IsoTime time)
