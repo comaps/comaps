@@ -2,5 +2,6 @@
 @import("colors.mapcss");
 
 @import("../include/main.mapcss");
+@import("../../default/dark/trails.mapcss");
 
 @import("../../default/dark/drape_colors.mapcss");

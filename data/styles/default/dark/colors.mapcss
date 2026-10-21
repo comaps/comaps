@@ -26,8 +26,8 @@
 
 /* 1.BASEMAP */
 
-@background0: #000000;
-@background1: #000000;
+@background0: #181715;
+@background1: #181715;
 
 /* 2.BOUNDARY */
 
@@ -38,29 +38,29 @@
 /* 3.NATURAL */
 /* 3.1 Main natural */
 
-@glacier: #2A2A2A;
-@water: #223A40;
-@water_bad: #233A3C;
-@wetland_tidal: #243639;
-@wetland_tidal_saltmarsh: #213632;
-@wetland_saltmarsh: #22342B;
-@wetland_marsh: #22342B;
-@wetland_fen: #233129;
-@wetland_bog: #243127;
-@wetland_reedbed: #232D28;
-@wetland_swamp: #25372D;
-@wetland_mangrove: #26382B;
-@beach: #322812;
-@sand: #272016;
-@barerock: #2D2B24;
-@scree: #312F2B;
-@desert: #241F16;
+@glacier: #3C3C3C;
+@water: #19546B;
+@water_bad: #105667;
+@wetland_tidal: #274C52;
+@wetland_tidal_saltmarsh: #214C46;
+@wetland_saltmarsh: #264A3A;
+@wetland_marsh: #274A39;
+@wetland_fen: #2B4737;
+@wetland_bog: #2E4734;
+@wetland_reedbed: #2E4138;
+@wetland_swamp: #2A4E3B;
+@wetland_mangrove: #2B4F37;
+@beach: #4A3706;
+@sand: #392E18;
+@barerock: #413C30;
+@scree: #454239;
+@desert: #352C19;
 
 /*3.2 Vegetation*/
 
-@residential_garden: #232118;
-@residential_garden_13: #232018;
-@residential_garden_12: #232017;
+@residential_garden: #332E1D;
+@residential_garden_13: #332E1D;
+@residential_garden_12: #322D1C;
 @park: #2F3116;
 @park_13: #2F3116;
 @park_12: #2E3016;
@@ -95,36 +95,36 @@
 @woods_11: #373D1A;
 @woods_10: #363C1B;
 
-@protected_nature: #434B2A;
+@protected_nature: #52611C;
 
 /* 4.LANDUSE */
 /*4.1 Main landuse*/
 
-@general_area: #24221E;
-@pedestrian_area: #26231F;
-@railway_platform: #23201C;
-@university: #2A2317;
-@hospital: #2D2120;
-@industrial: #232323;
-@construction_area: #242425;
-@sport0: #222017;
-@sport1: #252418;
-@sport2: #2B3215;
-@playground: #2C2D14;
-@parking: #222424;
+@general_area: #343029;
+@pedestrian_area: #37322A;
+@railway_platform: #322D25;
+@university: #3E311A;
+@hospital: #442E2B;
+@industrial: #313131;
+@construction_area: #343335;
+@sport0: #312D1C;
+@sport1: #35341C;
+@sport2: #3C4605;
+@playground: #3F3F0A;
+@parking: #313433;
 @military: #DE2D28;
 @prison: #5C5C5C;
-@farmland: #2C2A18;
-@farmyard: #2E291B;
+@farmland: #3F3B18;
+@farmyard: #44391F;
 
 /*4.2 Aerodrome*/
 
-@aerodrome0: #2E3B42;
-@aerodrome1: #2F3C43;
-@aerodrome2: #303C43;
-@aerodrome3: #313D44;
-@aerodrome4: #333F46;
-@aerodrome5: #354149;
+@aerodrome0: #37505D;
+@aerodrome1: #38505E;
+@aerodrome2: #39515E;
+@aerodrome3: #3A525F;
+@aerodrome4: #3C5361;
+@aerodrome5: #3E5664;
 
 /* 4.3 Barriers */
 @fence: #4D4D4D;
@@ -133,8 +133,8 @@
 
 /* 4.4 Buildings */
 
-@building0: #373736;
-@building1: #393937;
+@building0: #484846;
+@building1: #4B4B48;
 @building_border0: #403F39;
 @building_border1: #44433C;
 @historic_wall: #393830;
@@ -142,48 +142,48 @@
 /* 5.ROADS */
 /* 5.1 All roads */
 
-@motorway0: #B7876A;
-@motorway1: #B18867;
-@trunk0: #AB8865;
-@trunk1: #A78866;
-@primary0: #9D8664;
-@primary1: #9C855F;
-@primary2: #998461;
-@secondary0: #94835D;
-@secondary1: #918261;
+@motorway0: #D48048;
+@motorway1: #CB8444;
+@trunk0: #C28540;
+@trunk1: #BD8544;
+@primary0: #AE8543;
+@primary1: #AD8438;
+@primary2: #A8843F;
+@secondary0: #A28339;
+@secondary1: #9D8243;
 @tertiary: #7A7A7A;
 @residential: #7B7A7A;
-@pedestrian: #7C7B7A;
-@footway: #7C7B7A;
+@pedestrian: #7C7B79;
+@footway: #7C7B79;
 @cycleway: #6E6DCC;
-@construction: #8A8D93;
-@track: #776E53;
-@path: #895C3E;
-@path_expert: #A08C80;
+@construction: #8C909B;
+@track: #988F73;
+@path: #B38364;
+@path_expert: #B4A094;
 @bridleway: #8E8876;
-@motorway1_border: #6B4A2E;
-@trunk1_border: #644A2D;
-@primary1_border: #5D4A28;
-@primary2_border: #5B492B;
-@secondary0_border: #584928;
-@secondary1_border: #56492C;
+@motorway1_border: #7C470D;
+@trunk1_border: #72480F;
+@primary1_border: #684903;
+@primary2_border: #64490F;
+@secondary0_border: #614907;
+@secondary1_border: #5F480A;
 @minor_road_border: #000000;
 
 /* 5.2 Bridges */
 
-@bridge_background: #25211B;
-@bridge_casing: #2D2821;
-@bridge_minor_road_border: #292620;
+@bridge_background: #362F24;
+@bridge_casing: #41392B;
+@bridge_minor_road_border: #3C362B;
 
 /* 5.3 Tunnels */
 
-@motorway_tunnel: #A48767;
+@motorway_tunnel: #B98547;
 @motorway_tunnel_casing: #535353;
-@trunk_tunnel: #9B8566;
+@trunk_tunnel: #AB844A;
 @trunk_tunnel_casing: #535353;
-@primary_tunnel: #93836B;
+@primary_tunnel: #9F8356;
 @primary_tunnel_casing: #535353;
-@secondary_tunnel: #90826C;
+@secondary_tunnel: #9A8259;
 @secondary_tunnel_casing:  #535353;
 @tertiary_tunnel: #7A7A7A;
 @tertiary_tunnel_casing:  #535353;
