@@ -54,7 +54,7 @@
 @sand: #312d24;
 @barerock: #2B2A26;
 @scree: #292825;
-@desert: #312E28;
+@desert: #211E18; /*312E28;*/
 
 /*3.2 Vegetation*/
 
@@ -116,7 +116,7 @@
 @parking: #1E1F1F;
 @military: #B71C1C;
 @prison: #7f7f7f;
-@farmland: #1D1C12; /* #2D2C22 */
+@farmland: #1D1C12;
 @farmyard: #2E2B23;
 
 /*4.2 Aerodrome*/
