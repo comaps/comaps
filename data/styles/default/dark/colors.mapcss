@@ -38,7 +38,7 @@
 /* 3.NATURAL */
 /* 3.1 Main natural */
 
-@glacier: #3C3C3C;
+@glacier: #455A71;
 @water: #19546B;
 @water_bad: #105667;
 @wetland_tidal: #274C52;
