@@ -4612,6 +4612,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/tobacco-m.svg"
         },
         {
+            "description": "shop=swimming_pool",
+            "key": "shop",
+            "value": "swimming_pool",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/shop-m.svg"
+        },
+        {
             "description": "shop=tool_hire",
             "key": "shop",
             "value": "tool_hire",

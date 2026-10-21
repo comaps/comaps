@@ -2025,6 +2025,7 @@ node|z18-[shop=auction],
 node|z18-[shop=bookmaker],
 node|z18-[shop=fabric],
 node|z18-[shop=funeral_directors],
+node|z18-[shop=swimming_pool],
 node|z18-[shop=collector],
 node|z18-[shop=wholesale],
 node|z18-[shop=tobacco],
@@ -2374,6 +2375,8 @@ node|z18-[shop=fabric],
 {icon-image: shop-m.svg;}
 node|z18-[shop=funeral_directors],
 {icon-image: funeral_directors-m.svg;}
+node|z18-[shop=swimming_pool],
+{icon-image: shop-m.svg;}
 node|z18-[shop=bookmaker],
 {icon-image: lottery-m.svg;}
 node|z18-[shop=wholesale],

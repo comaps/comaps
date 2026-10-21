@@ -2665,6 +2665,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SimpleTypesSmoke)
       {"shop", "sports"},
       {"shop", "stationery"},
       {"shop", "supermarket"},
+      {"shop", "swimming_pool"},
       {"shop", "tattoo"},
       {"shop", "tea"},
       {"shop", "ticket"},
