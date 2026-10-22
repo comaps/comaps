@@ -664,7 +664,7 @@ sport|pickleball;531;
 amenity|tool_library;532;
 shop|tool_hire;533;
 amenity|parking|customers;[amenity=parking][access=customers];;;;534;
-deprecated|deprecated;535;x
+amenity|fast_food|cafeteria;[amenity=fast_food][fast_food=cafeteria],[amenity=canteen];;;;535;
 deprecated:boundary|administrative|state:04.2024;[boundary=administrative][border_type=state];x;name;int_name;536;
 deprecated|deprecated;537;x
 deprecated|deprecated;538;x

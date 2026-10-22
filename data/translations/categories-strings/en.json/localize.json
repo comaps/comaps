@@ -71,6 +71,9 @@
     "amenity-fast_food|@category_eat": {
         "defaultMessage": "4Fast Food|takeaway|U+1F354|U+1F355|U+1F35F|U+1F363|U+1F366|U+1F367|U+1F368|U+1F369|U+1F370|U+1F372|U+1F374|food to go|junk food"
     },
+    "amenity-fast_food-cafeteria|@category_eat": {
+        "defaultMessage": "4Cafeteria|Canteen"
+    },
     "amenity-restaurant|@category_eat": {
         "defaultMessage": "3Restaurant|U+1F356|U+1F357|U+1F35A|U+1F35B|U+1F35C|U+1F35D|U+1F363|U+1F366|U+1F367|U+1F368|U+1F369|U+1F370|U+1F372|U+1F374|U+1F377|U+1F60B"
     },

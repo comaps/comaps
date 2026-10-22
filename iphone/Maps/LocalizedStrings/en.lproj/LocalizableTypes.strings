@@ -82,6 +82,8 @@
 "type.building.guardhouse" = "Security Booth";
 "type.power.portal" = "Power Portal";
 "type.amenity.fast_food" = "Fast Food";
+/* Cafeteria or canteen where you can quickly have a full meal without table service. */
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
 "type.amenity.ferry_terminal" = "Ferry";
 "type.amenity.fire_station" = "Fire Station";
 "type.amenity.food_court" = "Food Court";

@@ -85,6 +85,8 @@
     <string name="type.building.guardhouse">Security Booth</string>
     <string name="type.power.portal">Power Portal</string>
     <string name="type.amenity.fast_food">Fast Food</string>
+    <!-- Cafeteria or canteen where you can quickly have a full meal without table service. -->
+    <string name="type.amenity.fast_food.cafeteria">Cafeteria</string>
     <string name="type.amenity.ferry_terminal">Ferry</string>
     <string name="type.amenity.fire_station">Fire Station</string>
     <string name="type.amenity.food_court">Food Court</string>
@@ -1418,7 +1420,7 @@
     <string name="type.sport.diving">High Diving</string>
     <string name="type.sport.equestrian">Equestrian Sports</string>
     <string name="type.sport.field_hockey">Field Hockey</string>
-    <string name="type.sport.four_square">Four Square</string>    
+    <string name="type.sport.four_square">Four Square</string>
     <string name="type.sport.futsal">Futsal</string>
     <string name="type.sport.golf">Golf</string>
     <string name="type.sport.gymnastics">Gymnastics</string>

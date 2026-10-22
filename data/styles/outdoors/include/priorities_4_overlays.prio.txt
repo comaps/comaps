@@ -411,6 +411,7 @@
 # === 4100
 
 # amenity-fast_food                                 # icon z15- (also has caption(optional) z15-)
+# amenity-fast_food-cafeteria                       # icon z15- (also has caption(optional) z15-)
 # amenity-food_court                                # icon z15- (also has caption(optional) z15-)
 # === 4050
 
@@ -1732,6 +1733,7 @@ power-pole                                          # icon z15-
 # === -5900
 
 # amenity-fast_food                                 # caption(optional) z15- (also has icon z15-)
+# amenity-fast_food-cafeteria                       # caption(optional) z15- (also has icon z15-)
 # amenity-food_court                                # caption(optional) z15- (also has icon z15-)
 # === -5950
 
