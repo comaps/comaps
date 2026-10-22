@@ -8,6 +8,7 @@ import androidx.annotation.StringRes;
 import androidx.annotation.UiThread;
 import androidx.car.app.CarContext;
 import app.organicmaps.R;
+import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.MapAppearance;
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.util.Config;
@@ -68,6 +69,9 @@ public final class ThemeUtils
 
     if (MapAppearance.get() != newMapAppearance)
       MapAppearance.set(newMapAppearance);
+    
+    // Switch to car navigation style when using the car router (AA or car navigation on the phone).
+    Framework.nativeSwitchToUsingVehicleStyle(RoutingController.get().isVehicleNavigation());
   }
 
   public static boolean isNightMode(@NonNull CarContext context)
