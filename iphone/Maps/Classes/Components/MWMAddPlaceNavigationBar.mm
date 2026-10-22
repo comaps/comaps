@@ -7,6 +7,8 @@
 @property(copy, nonatomic) MWMVoidBlock doneBlock;
 @property(copy, nonatomic) MWMVoidBlock cancelBlock;
 @property(assign, nonatomic) NSLayoutConstraint* topConstraint;
+@property(weak, nonatomic) IBOutlet UIButton * cancelButton;
+@property(weak, nonatomic) IBOutlet UIButton * doneButton;
 
 @end
 
@@ -31,6 +33,12 @@
   navBar.topConstraint.constant = -navBar.height;
   [navBar.trailingAnchor constraintEqualToAnchor:superview.trailingAnchor].active = true;
   [navBar.leadingAnchor constraintEqualToAnchor:superview.leadingAnchor].active = true;
+  if (@available(iOS 26.0, *)) {
+    UILayoutGuide * cornerSafeArea = [navBar layoutGuideForLayoutRegion:
+        [UIViewLayoutRegion safeAreaLayoutRegionWithCornerAdaptation:UIViewLayoutRegionAdaptivityAxisHorizontal]];
+    [navBar.cancelButton.leadingAnchor constraintGreaterThanOrEqualToAnchor:cornerSafeArea.leadingAnchor constant:8].active = true;
+    [cornerSafeArea.trailingAnchor constraintGreaterThanOrEqualToAnchor:navBar.doneButton.trailingAnchor constant:8].active = true;
+  }
   [navBar show:isBusiness position:optionalPosition];
 }
 

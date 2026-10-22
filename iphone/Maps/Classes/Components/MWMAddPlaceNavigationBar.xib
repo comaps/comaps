@@ -75,8 +75,6 @@
                         <constraint firstItem="zs9-MX-bIe" firstAttribute="top" secondItem="ZKD-Be-eMp" secondAttribute="top" constant="12" id="BNr-Gr-o3j"/>
                         <constraint firstItem="8So-22-JS1" firstAttribute="top" secondItem="ZKD-Be-eMp" secondAttribute="top" constant="12" id="CCm-fM-FcD"/>
                         <constraint firstItem="boX-sU-7DW" firstAttribute="top" secondItem="ZKD-Be-eMp" secondAttribute="top" constant="12" id="Ofu-8n-bBo"/>
-                        <constraint firstItem="boX-sU-7DW" firstAttribute="leading" secondItem="ZKD-Be-eMp" secondAttribute="leading" constant="8" id="Sbg-dn-iro"/>
-                        <constraint firstAttribute="trailing" secondItem="zs9-MX-bIe" secondAttribute="trailing" constant="8" id="jiJ-gk-0bx"/>
                         <constraint firstItem="8So-22-JS1" firstAttribute="centerX" secondItem="ZKD-Be-eMp" secondAttribute="centerX" id="m6T-st-PPz"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -121,11 +119,17 @@
                 <constraint firstAttribute="bottom" secondItem="UsM-Al-MCC" secondAttribute="bottom" id="Eii-Wt-WAj"/>
                 <constraint firstItem="tvs-e8-vSU" firstAttribute="trailing" secondItem="IhK-ce-TXk" secondAttribute="trailing" id="FcR-B0-Kwb"/>
                 <constraint firstAttribute="trailing" secondItem="UsM-Al-MCC" secondAttribute="trailing" id="FrY-zu-zwd"/>
+                <constraint firstItem="boX-sU-7DW" firstAttribute="leading" secondItem="tvs-e8-vSU" secondAttribute="leading" constant="8" priority="750" id="Sbg-dn-iro"/>
                 <constraint firstItem="UsM-Al-MCC" firstAttribute="top" secondItem="IhK-ce-TXk" secondAttribute="bottom" id="Tfo-lj-gPb"/>
                 <constraint firstAttribute="trailing" secondItem="ZKD-Be-eMp" secondAttribute="trailing" id="Yrh-qN-0sk"/>
                 <constraint firstItem="IhK-ce-TXk" firstAttribute="bottom" secondItem="ZKD-Be-eMp" secondAttribute="bottom" id="fae-mk-c1a"/>
+                <constraint firstItem="tvs-e8-vSU" firstAttribute="trailing" secondItem="zs9-MX-bIe" secondAttribute="trailing" constant="8" priority="750" id="jiJ-gk-0bx"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelButton" destination="boX-sU-7DW" id="Ax9-cB-tN1"/>
+                <outlet property="doneButton" destination="zs9-MX-bIe" id="Dn7-oB-tN2"/>
+            </connections>
             <point key="canvasLocation" x="321.60000000000002" y="248.27586206896552"/>
         </view>
     </objects>
