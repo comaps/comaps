@@ -203,8 +203,8 @@ class TabView: UIView {
     tabsContentCollectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
     tabsContentCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
 
-    tabsCollectionView.leftAnchor.constraint(equalTo: headerView.leftAnchor).isActive = true
-    tabsCollectionView.rightAnchor.constraint(equalTo: headerView.rightAnchor).isActive = true
+    tabsCollectionView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor).isActive = true
+    tabsCollectionView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor).isActive = true
     tabsCollectionView.topAnchor.constraint(equalTo: headerView.topAnchor).isActive = true
     tabsCollectionView.bottomAnchor.constraint(equalTo: slidingView.topAnchor).isActive = true
 

@@ -105,12 +105,12 @@ final class SearchOnMapHeaderView: UIView {
       grabberTapHandlerView.bottomAnchor.constraint(equalTo: searchBar.topAnchor),
 
       searchBar.topAnchor.constraint(equalTo: grabberView.bottomAnchor, constant: Constants.searchBarInsets.top),
-      searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.searchBarInsets.left),
+      searchBar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: Constants.searchBarInsets.left),
       searchBar.trailingAnchor.constraint(equalTo: cancelContainer.leadingAnchor),
       searchBar.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.searchBarInsets.bottom),
       searchBar.heightAnchor.constraint(equalToConstant: Constants.searchBarHeight),
 
-      cancelContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
+      cancelContainer.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
       cancelContainer.topAnchor.constraint(equalTo: searchBar.topAnchor),
       cancelContainer.bottomAnchor.constraint(equalTo: searchBar.bottomAnchor),
 
