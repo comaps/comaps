@@ -1,12 +1,25 @@
 # Mwm name	Generation time
 WorldCoasts	24988.217021
-Vietnam	96251.687552
+Malaysia_East	10000.0
+Malaysia_West	10000.0
+Vietnam_North	10000.0
+Vietnam_South	10000.0
+China_Guangdong	10000.0
+China_Hainan	10000.0
+Hong Kong	10000.0
+Macau	10000.0
+Tanzania_Coastal	10000.0
+Tanzania_Central	10000.0
+Tanzania_Northern	10000.0
+Tanzania_Southern Highlands	10000.0
+Tanzania_Offshore Islands	10000.0
+Tanzania_Lake	10000.0
+Tanzania_Western	10000.0
 India_Uttar Pradesh	86292.78550000001
 Mexico_Mexico	67715.105467
 Mexico_South	58889.180098
 Pakistan	44724.235022
 Kenya	36404.959757
-Tanzania	35558.877908
 Poland_Masovian Voivodeship	32600.5327
 Poland_Lesser Poland Voivodeship	26869.406049
 Nigeria_South	25568.925918999998
@@ -167,7 +180,6 @@ US_Connecticut	5048.849241000001
 Portugal_South	5032.41706
 South Korea_North	4998.647239
 Australia_Victoria	4954.04876
-China_Guangdong	4944.660353
 France_Centre-Val de Loire_Indre-et-Loire	4845.291428
 Uzbekistan	4844.768196999999
 Peru_North	4839.160175999999
@@ -313,7 +325,6 @@ Austria_Upper Austria_Linz	2798.437909
 Uruguay	2797.794088
 US_Nebraska_West	2785.702245
 Slovenia_West	2781.784506
-Malaysia	2756.6660269999998
 US_South Carolina_Columbia	2743.029382
 Belgium_Flemish Brabant	2740.973499
 Ghana	2703.000052
