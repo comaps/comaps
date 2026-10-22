@@ -9877,22 +9877,6 @@
             }
         },
         {
-            "key": "Malaysia_East",
-            "value": {
-                "profileName": "extra_small",
-                "tileCoordsSubset": [],
-                "tilesAreBanned": false
-            }
-        },
-        {
-            "key": "Malaysia_West",
-            "value": {
-                "profileName": "extra_small",
-                "tileCoordsSubset": [],
-                "tilesAreBanned": false
-            }
-        },
-        {
             "key": "Mali",
             "value": {
                 "profileName": "extra_small",
@@ -9925,22 +9909,6 @@
             }
         },
         {
-            "key": "Vietnam_North",
-            "value": {
-                "profileName": "extra_small",
-                "tileCoordsSubset": [],
-                "tilesAreBanned": false
-            }
-        },
-        {
-            "key": "Vietnam_South",
-            "value": {
-                "profileName": "extra_small",
-                "tileCoordsSubset": [],
-                "tilesAreBanned": false
-            }
-        },
-        {
             "key": "Nigeria_South",
             "value": {
                 "profileName": "high_f3",
@@ -9958,62 +9926,6 @@
         },
         {
             "key": "Russia_Sakha Republic",
-            "value": {
-                "profileName": "poor",
-                "tileCoordsSubset": [],
-                "tilesAreBanned": false
-            }
-        },
-        {
-            "key": "Tanzania_Central",
-            "value": {
-                "profileName": "poor",
-                "tileCoordsSubset": [],
-                "tilesAreBanned": false
-            }
-        },
-        {
-            "key": "Tanzania_Coastal",
-            "value": {
-                "profileName": "poor",
-                "tileCoordsSubset": [],
-                "tilesAreBanned": false
-            }
-        },
-        {
-            "key": "Tanzania_Lake",
-            "value": {
-                "profileName": "poor",
-                "tileCoordsSubset": [],
-                "tilesAreBanned": false
-            }
-        },
-        {
-            "key": "Tanzania_Northern",
-            "value": {
-                "profileName": "poor",
-                "tileCoordsSubset": [],
-                "tilesAreBanned": false
-            }
-        },
-        {
-            "key": "Tanzania_Offshore Islands",
-            "value": {
-                "profileName": "poor",
-                "tileCoordsSubset": [],
-                "tilesAreBanned": false
-            }
-        },
-        {
-            "key": "Tanzania_Southern Highlands",
-            "value": {
-                "profileName": "poor",
-                "tileCoordsSubset": [],
-                "tilesAreBanned": false
-            }
-        },
-        {
-            "key": "Tanzania_Western",
             "value": {
                 "profileName": "poor",
                 "tileCoordsSubset": [],
