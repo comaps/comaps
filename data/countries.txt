@@ -8697,50 +8697,64 @@
   },
   {
    "id": "Malaysia",
-   "old": [
-    "Malaysia"
-   ],
-   "affiliations": [
-    "Terengganu / ترڠڬانو",
-    "Johor",
-    "Kedah / قدح",
-    "Kelantan / کلنتن دار النعيم",
-    "Kuala Lumpur",
-    "Labuan",
-    "Putrajaya",
-    "Malaysia",
-    "Negeri Sembilan",
-    "Melaka",
-    "Perak / ڨيرق",
-    "Perlis",
-    "Pahang",
-    "Pulau Bidong",
-    "Pulau Burung",
-    "Pulau Rusukan Besar",
-    "Pulau Rusukan Kecil",
-    "Pulau Susu Dara Kecil",
-    "Pulau Tenggol",
-    "Pulau Tikus",
-    "Pulau Aman",
-    "Pulau Betong",
-    "Pulau Daat",
-    "Pulau Gedung",
-    "Pulau Gemia",
-    "Pulau Jerejak",
-    "Pulau Kapas",
-    "Pulau Kendi",
-    "Pulau Kuraman",
-    "Pulau Papan",
-    "Pulau Pinang",
-    "Pulau Rhu",
-    "Pulau Rimau",
-    "Sabah",
-    "Selangor",
-    "Sarawak",
-    "Singapura"
-   ],
-   "s": 258195939,
-   "sha1_base64": "9FlNlID8YGetELF8W5FrO8CaDzw="
+   "g": [
+    {
+     "id": "Malaysia_East",
+     "old": [
+      "Malaysia"
+     ],
+     "affiliations": [
+      "Labuan",
+      "Pulau Rusukan Besar",
+      "Pulau Rusukan Kecil",
+      "Pulau Kuraman",
+      "Sabah",
+      "Sarawak"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
+    },
+    {
+     "id": "Malaysia_West",
+     "old": [
+      "Malaysia"
+     ],
+     "affiliations": [
+      "Terengganu / ترڠڬانو",
+      "Johor",
+      "Kedah / قدح",
+      "Kelantan / کلنتن دار النعيم",
+      "Kuala Lumpur",
+      "Putrajaya",
+      "Negeri Sembilan",
+      "Melaka",
+      "Perak / ڨيرق",
+      "Perlis",
+      "Pahang",
+      "Pulau Bidong",
+      "Pulau Burung",
+      "Pulau Susu Dara Kecil",
+      "Pulau Tenggol",
+      "Pulau Tikus",
+      "Pulau Aman",
+      "Pulau Betong",
+      "Pulau Daat",
+      "Pulau Gedung",
+      "Pulau Gemia",
+      "Pulau Jerejak",
+      "Pulau Kapas",
+      "Pulau Kendi",
+      "Pulau Papan",
+      "Pulau Pinang",
+      "Pulau Rhu",
+      "Pulau Rimau",
+      "Selangor",
+      "Singapura"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
+    }
+   ]
   },
   {
    "id": "Maldives",
@@ -9832,14 +9846,44 @@
      ],
      "affiliations": [
       "中国",
-      "广东省",
-      "海南省"
-     ],
-     "country_name_synonyms": [
-      "Hong Kong"
+      "广东省"
      ],
      "s": 310011726,
      "sha1_base64": "FIx4xt37uDD85tipo/N2BPgqb0s="
+    },
+    {
+     "id": "China_Hainan",
+     "old": [
+      "China_Guangdong"
+     ],
+     "affiliations": [
+      "中国",
+      "海南省"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
+    },
+    {
+     "id": "Hong Kong",
+     "old": [
+      "China_Guangdong"
+     ],
+     "affiliations": [
+      "香港特別行政區"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
+    },
+    {
+     "id": "Macau",
+     "old": [
+      "China_Guangdong"
+     ],
+     "affiliations": [
+      "澳門特別行政區"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
     },
     {
      "id": "China_Guangxi",
@@ -13338,39 +13382,109 @@
   },
   {
    "id": "Tanzania",
-   "old": [
-    "Tanzania"
-   ],
-   "affiliations": [
-    "Arusha",
-    "Dar es Salaam",
-    "Dodoma",
-    "Iringa",
-    "Kagera",
-    "Kilimanjaro",
-    "Kaskazini Pemba",
-    "Kusini Pemba",
-    "Katavi",
-    "Kigoma",
-    "Lindi",
-    "Pwani",
-    "Manyara",
-    "Mara",
-    "Mbeya",
-    "Morogoro",
-    "Mtwara",
-    "Njombe",
-    "Rukwa",
-    "Ruvuma",
-    "Singida",
-    "Tanzania",
-    "Tanga",
-    "Unguja Kaskazini",
-    "Unguja Kusini",
-    "Unguja Mjini Magharibi"
-   ],
-   "s": 618686283,
-   "sha1_base64": "eeVz01i430wkPsFO8KGaDEVj8m8="
+   "g": [
+    {
+     "id": "Tanzania_Southern Highlands",
+     "old": [
+      "Tanzania"
+     ],
+     "affiliations": [
+      "Iringa",
+      "Mbeya",
+      "Njombe",
+      "Rukwa",
+      "Ruvuma",
+      "Songwe"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
+    },
+    {
+     "id": "Tanzania_Offshore Islands",
+     "old": [
+      "Tanzania"
+     ],
+     "affiliations": [
+      "Kaskazini Pemba",
+      "Kusini Pemba",
+      "Unguja Kaskazini",
+      "Unguja Kusini",
+      "Unguja Mjini Magharibi"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
+    },
+    {
+     "id": "Tanzania_Lake",
+     "old": [
+      "Tanzania"
+     ],
+     "affiliations": [
+      "Geita",
+      "Kagera",
+      "Mara",
+      "Mwanza",
+      "Shinyanga",
+      "Simiyu"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
+    },
+    {
+     "id": "Tanzania_Coastal",
+     "old": [
+      "Tanzania"
+     ],
+     "affiliations": [
+      "Dar es Salaam",
+      "Lindi",
+      "Pwani",
+      "Morogoro",
+      "Mtwara"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
+    },
+    {
+     "id": "Tanzania_Central",
+     "old": [
+      "Tanzania"
+     ],
+     "affiliations": [
+      "Dodoma",
+      "Tabora",
+      "Singida"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
+    },
+    {
+     "id": "Tanzania_Northern",
+     "old": [
+      "Tanzania"
+     ],
+     "affiliations": [
+      "Arusha",
+      "Kilimanjaro",
+      "Manyara",
+      "Tanga"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
+    },
+    {
+     "id": "Tanzania_Western",
+     "old": [
+      "Tanzania"
+     ],
+     "affiliations": [
+      "Katavi",
+      "Kigoma"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
+    }
+   ]
   },
   {
    "id": "Thailand",
@@ -17142,77 +17256,93 @@
   },
   {
    "id": "Vietnam",
-   "old": [
-    "Vietnam"
-   ],
-   "affiliations": [
-    "Tỉnh Hà Nam",
-    "Tỉnh Hà Tĩnh",
-    "Tỉnh Hòa Bình",
-    "Tỉnh Hải Dương",
-    "Tỉnh Hưng Yên",
-    "Tỉnh Hậu Giang",
-    "Tỉnh Khánh Hòa",
-    "Tỉnh Kon Tum",
-    "Tỉnh Lai Châu",
-    "Tỉnh Long An",
-    "Tỉnh Lào Cai",
-    "Tỉnh Lâm Đồng",
-    "Tỉnh Lạng Sơn",
-    "Tỉnh Nam Định",
-    "Tỉnh Nghệ An",
-    "Tỉnh Ninh Bình",
-    "Tỉnh Ninh Thuận",
-    "Tỉnh Phú Thọ",
-    "Tỉnh Phú Yên",
-    "Tỉnh Quảng Bình",
-    "Tỉnh Quảng Nam",
-    "Tỉnh Quảng Ngãi",
-    "Tỉnh Quảng Trị",
-    "Tỉnh Sơn La",
-    "Tỉnh Thanh Hóa",
-    "Tỉnh Thái Bình",
-    "Tỉnh Thái Nguyên",
-    "Tỉnh Thừa Thiên - Huế",
-    "Tỉnh Tiền Giang",
-    "Tỉnh Trà Vinh",
-    "Tỉnh Tuyên Quang",
-    "Tỉnh Tây Ninh",
-    "Tỉnh Vĩnh Long",
-    "Tỉnh Vĩnh Phúc",
-    "Tỉnh Yên Bái",
-    "Tỉnh Điện Biên",
-    "Tỉnh Đắk Lắk",
-    "Tỉnh Đắk Nông",
-    "Tỉnh Đồng Nai",
-    "Tỉnh Đồng Tháp",
-    "Bạc Liêu",
-    "Cao Bằng",
-    "Cà Mau",
-    "Kiên Giang",
-    "Provinz Tỉnh Quảng Ninh",
-    "Sóc Trăng",
-    "Thành phố Cần Thơ",
-    "Thành phố Hà Nội",
-    "Thành phố Hồ Chí Minh",
-    "Thành phố Hải Phòng",
-    "Thành phố Đà Nẵng",
-    "Tỉnh An Giang",
-    "Tỉnh Bà Rịa – Vũng Tàu",
-    "Tỉnh Bình Dương",
-    "Tỉnh Bình Phước",
-    "Tỉnh Bình Thuận",
-    "Tỉnh Bình Định",
-    "Tỉnh Bắc Giang",
-    "Tỉnh Bắc Kạn",
-    "Tỉnh Bắc Ninh",
-    "Tỉnh Bến Tre",
-    "Tỉnh Gia Lai",
-    "Tỉnh Hà Giang",
-    "Việt Nam"
-   ],
-   "s": 358605911,
-   "sha1_base64": "B81DzMRc2X0MDSv5jv9UuQYZKf4="
+   "g": [
+    {
+     "id": "Vietnam_North",
+     "old": [
+      "Vietnam"
+     ],
+     "affiliations": [
+      "Tỉnh Hà Nam",
+      "Tỉnh Hà Tĩnh",
+      "Tỉnh Hòa Bình",
+      "Tỉnh Hải Dương",
+      "Tỉnh Hưng Yên",
+      "Tỉnh Lai Châu",
+      "Tỉnh Lào Cai",
+      "Tỉnh Lạng Sơn",
+      "Tỉnh Nam Định",
+      "Tỉnh Nghệ An",
+      "Tỉnh Ninh Bình",
+      "Tỉnh Phú Thọ",
+      "Tỉnh Quảng Bình",
+      "Tỉnh Quảng Trị",
+      "Tỉnh Sơn La",
+      "Tỉnh Thanh Hóa",
+      "Tỉnh Thái Bình",
+      "Tỉnh Thái Nguyên",
+      "Tỉnh Thừa Thiên - Huế",
+      "Tỉnh Tuyên Quang",
+      "Tỉnh Vĩnh Phúc",
+      "Tỉnh Yên Bái",
+      "Tỉnh Điện Biên",
+      "Cao Bằng",
+      "Provinz Tỉnh Quảng Ninh",
+      "Thành phố Hà Nội",
+      "Thành phố Hải Phòng",
+      "Tỉnh Bắc Giang",
+      "Tỉnh Bắc Kạn",
+      "Tỉnh Bắc Ninh",
+      "Tỉnh Hà Giang",
+      "Việt Nam"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
+    },
+    {
+     "id": "Vietnam_South",
+     "old": [
+      "Vietnam"
+     ],
+     "affiliations": [
+      "Tỉnh Hậu Giang",
+      "Tỉnh Khánh Hòa",
+      "Tỉnh Kon Tum",
+      "Tỉnh Long An",
+      "Tỉnh Lâm Đồng",
+      "Tỉnh Ninh Thuận",
+      "Tỉnh Phú Yên",
+      "Tỉnh Quảng Nam",
+      "Tỉnh Quảng Ngãi",
+      "Tỉnh Tiền Giang",
+      "Tỉnh Trà Vinh",
+      "Tỉnh Tây Ninh",
+      "Tỉnh Vĩnh Long",
+      "Tỉnh Đắk Lắk",
+      "Tỉnh Đắk Nông",
+      "Tỉnh Đồng Nai",
+      "Tỉnh Đồng Tháp",
+      "Bạc Liêu",
+      "Cà Mau",
+      "Kiên Giang",
+      "Sóc Trăng",
+      "Thành phố Cần Thơ",
+      "Thành phố Hồ Chí Minh",
+      "Thành phố Đà Nẵng",
+      "Tỉnh An Giang",
+      "Tỉnh Bà Rịa – Vũng Tàu",
+      "Tỉnh Bình Dương",
+      "Tỉnh Bình Phước",
+      "Tỉnh Bình Thuận",
+      "Tỉnh Bình Định",
+      "Tỉnh Bến Tre",
+      "Tỉnh Gia Lai",
+      "Việt Nam"
+     ],
+     "s": 10,
+     "sha1_base64": "x"
+    }
+   ]
   },
   {
    "id": "Yemen",
