@@ -283,11 +283,7 @@ public:
       return RoadShield(RoadShieldType::US_State, roadNumber, std::string{roadType});
     if (base::IsExist(kStatesCode, shieldParts[0]))
       return RoadShield(RoadShieldType::Generic_White_Bordered, roadNumber, additionalInfo);
-    if (strings::IsASCIINumeric(shieldParts[0])){
-      // Remove duplicate road shields that just consist of a number, e.g. to prevent I-80 BUS from having a duplicate generic "80" shield
-      return RoadShield(RoadShieldType::Hidden, roadNumber, additionalInfo);
-    }
-    // Still allow county routes and the single-word refs (like "NJTP") to be rendered
+
     return RoadShield(RoadShieldType::Default, rawText);
   }
 };
