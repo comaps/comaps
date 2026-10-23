@@ -20,8 +20,6 @@
 #include <utility>
 #include <vector>
 
-#include "3party/ankerl/unordered_dense.h"
-
 /// @name Declarations.
 //@{
 template <typename T>
@@ -71,10 +69,6 @@ inline std::string DebugPrint(std::unordered_set<Key, Hash, Pred> const & v);
 template <class Key, class T, class Hash = std::hash<Key>, class Pred = std::equal_to<Key>>
 inline std::string DebugPrint(std::unordered_map<Key, T, Hash, Pred> const & v);
 
-template <class Key, class Hash = std::hash<Key>, class Pred = std::equal_to<Key>>
-inline std::string DebugPrint(ankerl::unordered_dense::set<Key, Hash, Pred> const & v);
-template <class Key, class T, class Hash = std::hash<Key>, class Pred = std::equal_to<Key>>
-inline std::string DebugPrint(ankerl::unordered_dense::map<Key, T, Hash, Pred> const & v);
 //@}
 
 template <typename T>
@@ -248,18 +242,6 @@ inline std::string DebugPrint(std::unordered_set<Key, Hash, Pred> const & v)
 
 template <class Key, class T, class Hash, class Pred>
 inline std::string DebugPrint(std::unordered_map<Key, T, Hash, Pred> const & v)
-{
-  return DebugPrintSequence(v.begin(), v.end());
-}
-
-template <class Key, class Hash, class Pred>
-inline std::string DebugPrint(ankerl::unordered_dense::set<Key, Hash, Pred> const & v)
-{
-  return DebugPrintSequence(v.begin(), v.end());
-}
-
-template <class Key, class T, class Hash, class Pred>
-inline std::string DebugPrint(ankerl::unordered_dense::map<Key, T, Hash, Pred> const & v)
 {
   return DebugPrintSequence(v.begin(), v.end());
 }
