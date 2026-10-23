@@ -24,6 +24,7 @@ add_library(icuuc
   icu/icu4c/source/common/dictionarydata.h
   icu/icu4c/source/common/edits.cpp
   icu/icu4c/source/common/emojiprops.cpp
+  icu/icu4c/source/common/errorcode.cpp
   icu/icu4c/source/common/hash.h
   icu/icu4c/source/common/icuplugimp.h
   icu/icu4c/source/common/loadednormalizer2impl.cpp
@@ -69,8 +70,10 @@ add_library(icuuc
   icu/icu4c/source/common/ruleiter.cpp
   icu/icu4c/source/common/ruleiter.h
   icu/icu4c/source/common/serv.h
+  icu/icu4c/source/common/sharedobject.cpp
   icu/icu4c/source/common/sharedobject.h
   icu/icu4c/source/common/sprpimpl.h
+  icu/icu4c/source/common/static_unicode_sets.cpp
   icu/icu4c/source/common/static_unicode_sets.h
   icu/icu4c/source/common/stringpiece.cpp
   icu/icu4c/source/common/uarrsort.cpp
@@ -128,6 +131,7 @@ add_library(icuuc
   icu/icu4c/source/common/umutablecptrie.cpp
   icu/icu4c/source/common/umutex.cpp
   icu/icu4c/source/common/unames.cpp
+  icu/icu4c/source/common/unifiedcache.cpp
   icu/icu4c/source/common/unifilt.cpp
   icu/icu4c/source/common/unifunct.cpp
   icu/icu4c/source/common/uniset.cpp
@@ -155,6 +159,7 @@ add_library(icuuc
   icu/icu4c/source/common/ustrcase_locale.cpp
   icu/icu4c/source/common/ustrenum.cpp
   icu/icu4c/source/common/ustrenum.h
+  icu/icu4c/source/common/ustrfmt.cpp
   icu/icu4c/source/common/ustrfmt.h
   icu/icu4c/source/common/ustring.cpp
   icu/icu4c/source/common/ustrtrns.cpp
@@ -169,6 +174,7 @@ add_library(icuuc
   icu/icu4c/source/common/utrie2_impl.h
   icu/icu4c/source/common/utrie_swap.cpp
   icu/icu4c/source/common/utypeinfo.h
+  icu/icu4c/source/common/utypes.cpp
   icu/icu4c/source/common/uvector.cpp
   icu/icu4c/source/common/uvectr32.cpp
   icu/icu4c/source/common/uvectr64.h
@@ -233,17 +239,27 @@ add_library(icui18n
   icu/icu4c/source/i18n/currfmt.h
   icu/icu4c/source/i18n/dangical.h
   icu/icu4c/source/i18n/dayperiodrules.h
+  icu/icu4c/source/i18n/decContext.cpp
   icu/icu4c/source/i18n/decContext.h
+  icu/icu4c/source/i18n/decNumber.cpp
   icu/icu4c/source/i18n/decNumber.h
   icu/icu4c/source/i18n/decNumberLocal.h
+  icu/icu4c/source/i18n/displayoptions.cpp
+  icu/icu4c/source/i18n/double-conversion-bignum-dtoa.cpp
   icu/icu4c/source/i18n/double-conversion-bignum-dtoa.h
+  icu/icu4c/source/i18n/double-conversion-bignum.cpp
   icu/icu4c/source/i18n/double-conversion-bignum.h
+  icu/icu4c/source/i18n/double-conversion-cached-powers.cpp
   icu/icu4c/source/i18n/double-conversion-cached-powers.h
   icu/icu4c/source/i18n/double-conversion-diy-fp.h
+  icu/icu4c/source/i18n/double-conversion-double-to-string.cpp
   icu/icu4c/source/i18n/double-conversion-double-to-string.h
+  icu/icu4c/source/i18n/double-conversion-fast-dtoa.cpp
   icu/icu4c/source/i18n/double-conversion-fast-dtoa.h
   icu/icu4c/source/i18n/double-conversion-ieee.h
+  icu/icu4c/source/i18n/double-conversion-string-to-double.cpp
   icu/icu4c/source/i18n/double-conversion-string-to-double.h
+  icu/icu4c/source/i18n/double-conversion-strtod.cpp
   icu/icu4c/source/i18n/double-conversion-strtod.h
   icu/icu4c/source/i18n/double-conversion-utils.h
   icu/icu4c/source/i18n/double-conversion.h
@@ -255,8 +271,12 @@ add_library(icui18n
   icu/icu4c/source/i18n/esctrn.h
   icu/icu4c/source/i18n/ethpccal.h
   icu/icu4c/source/i18n/fmtableimp.h
+  icu/icu4c/source/i18n/formatted_string_builder.cpp
   icu/icu4c/source/i18n/formatted_string_builder.h
+  icu/icu4c/source/i18n/formattedval_impl.cpp
   icu/icu4c/source/i18n/formattedval_impl.h
+  icu/icu4c/source/i18n/formattedval_sbimpl.cpp
+  icu/icu4c/source/i18n/formattedvalue.cpp
   icu/icu4c/source/i18n/fphdlimp.h
   icu/icu4c/source/i18n/funcrepl.cpp
   icu/icu4c/source/i18n/funcrepl.h
@@ -266,6 +286,7 @@ add_library(icui18n
   icu/icu4c/source/i18n/inputext.h
   icu/icu4c/source/i18n/islamcal.h
   icu/icu4c/source/i18n/japancal.h
+  icu/icu4c/source/i18n/measunit.cpp
   icu/icu4c/source/i18n/measunit_impl.h
   icu/icu4c/source/i18n/msgfmt_impl.h
   icu/icu4c/source/i18n/name2uni.cpp
@@ -282,15 +303,20 @@ add_library(icui18n
   icu/icu4c/source/i18n/number_asformat.h
   icu/icu4c/source/i18n/number_compact.h
   icu/icu4c/source/i18n/number_currencysymbols.h
+  icu/icu4c/source/i18n/number_decimalquantity.cpp
   icu/icu4c/source/i18n/number_decimalquantity.h
+  icu/icu4c/source/i18n/number_decimfmtprops.cpp
   icu/icu4c/source/i18n/number_decimfmtprops.h
   icu/icu4c/source/i18n/number_decnum.h
+  icu/icu4c/source/i18n/number_fluent.cpp
+  icu/icu4c/source/i18n/number_formatimpl.cpp
   icu/icu4c/source/i18n/number_formatimpl.h
   icu/icu4c/source/i18n/number_longnames.h
   icu/icu4c/source/i18n/number_mapper.h
   icu/icu4c/source/i18n/number_microprops.h
   icu/icu4c/source/i18n/number_modifiers.h
   icu/icu4c/source/i18n/number_multiplier.h
+  icu/icu4c/source/i18n/number_output.cpp
   icu/icu4c/source/i18n/number_patternmodifier.h
   icu/icu4c/source/i18n/number_patternstring.h
   icu/icu4c/source/i18n/number_roundingutils.h
@@ -311,10 +337,13 @@ add_library(icui18n
   icu/icu4c/source/i18n/numparse_utils.h
   icu/icu4c/source/i18n/numparse_validators.h
   icu/icu4c/source/i18n/numrange_impl.h
+  icu/icu4c/source/i18n/numrange_fluent.cpp
   icu/icu4c/source/i18n/numsys_impl.h
   icu/icu4c/source/i18n/olsontz.h
   icu/icu4c/source/i18n/persncal.h
+  icu/icu4c/source/i18n/pluralranges.cpp
   icu/icu4c/source/i18n/pluralranges.h
+  icu/icu4c/source/i18n/plurrule.cpp
   icu/icu4c/source/i18n/plurrule_impl.h
   icu/icu4c/source/i18n/quant.cpp
   icu/icu4c/source/i18n/quant.h
@@ -346,6 +375,7 @@ add_library(icui18n
   icu/icu4c/source/i18n/sharednumberformat.h
   icu/icu4c/source/i18n/sharedpluralrules.h
   icu/icu4c/source/i18n/smpdtfst.h
+  icu/icu4c/source/i18n/standardplural.cpp
   icu/icu4c/source/i18n/standardplural.h
   icu/icu4c/source/i18n/string_segment.h
   icu/icu4c/source/i18n/strmatch.cpp

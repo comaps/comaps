@@ -2,6 +2,7 @@
   "strategy": "additive",
   "featureFilters": {
     "translit": "include",
-    "normalization": "include"
+    "normalization": "include",
+    "misc": { "includelist": ["plurals", "pluralRanges"] }
   }
 }
