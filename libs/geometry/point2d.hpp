@@ -4,6 +4,8 @@
 #include "base/math.hpp"
 #include "base/matrix.hpp"
 
+#include <boost/container_hash/hash.hpp>
+
 #include <array>
 #include <cmath>
 #include <limits>
@@ -145,11 +147,6 @@ public:
     y = org.y + oldX * dx.y + y * dy.y;
   }
   /// @}
-
-  struct Hash
-  {
-    size_t operator()(Point const & p) const { return math::Hash(p.x, p.y); }
-  };
 };
 
 using PointF = Point<float>;
@@ -286,3 +283,15 @@ bool operator<(Point<T> const & l, Point<T> const & r)
   return l.y < r.y;
 }
 }  // namespace m2
+
+template <typename T>
+struct std::hash<m2::Point<T>>
+{
+  size_t operator()(m2::Point<T> const & p) const
+  {
+    size_t seed = 0;
+    boost::hash_combine(seed, p.x);
+    boost::hash_combine(seed, p.y);
+    return seed;
+  }
+};
