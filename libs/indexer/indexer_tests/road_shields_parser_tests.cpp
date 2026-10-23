@@ -238,8 +238,10 @@ UNIT_TEST(RoadShields_MwmName)
 
 UNIT_TEST(RoadShields_US)
 {
+  using namespace ftypes;
+
   // US Interstate Business highway test
-  shields = GetRoadShields("US", "I-5 BUS", HighwayClass::Motorway);
+  auto shields = GetRoadShields("US", "I-5 BUS", HighwayClass::Motorway);
   TEST_EQUAL(shields.size(), 1, ());
   TEST_EQUAL(shields[0].m_type, RoadShieldType::US_Interstate_Business, ());
   TEST_EQUAL(shields[0].m_name, "5", ());
@@ -252,7 +254,7 @@ UNIT_TEST(RoadShields_US)
   TEST_EQUAL(shields[0].m_additionalText, "OR", ());
 
   // Specifically test OR 99E Business
-  shields = GetRoadShields("US", "OR 99E Bus", HighwayClass::Motorway);
+  shields = GetRoadShields("US", "OR 99E Bus", HighwayClass::Trunk);
   TEST_EQUAL(shields.size(), 1, ());
   TEST_EQUAL(shields[0].m_type, RoadShieldType::US_State, ());
   TEST_EQUAL(shields[0].m_name, "B99E", ());
