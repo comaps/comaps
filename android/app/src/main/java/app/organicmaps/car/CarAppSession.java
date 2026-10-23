@@ -147,6 +147,7 @@ public final class CarAppSession extends Session implements DefaultLifecycleObse
   public void onStop(@NonNull LifecycleOwner owner)
   {
     Logger.d(TAG);
+    ThemeUtils.cancelSunCheck();
     mSensorsManager.onStop();
     if (mDisplayManager.isCarDisplayUsed())
     {
