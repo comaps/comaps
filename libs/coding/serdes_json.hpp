@@ -17,6 +17,7 @@
 #include <map>
 #include <memory>
 #include <type_traits>
+#include <unordered_set>
 #include <utility>
 #include <vector>
 
@@ -274,6 +275,29 @@ public:
       json_t * context = SaveContext();
       m_json = json_array_get(context, index);
       (*this)(dest[index]);
+      RestoreContext(context);
+    }
+
+    RestoreContext(outerContext);
+  }
+
+  template <typename T, class H = std::hash<T>>
+  void operator()(std::unordered_set<T, H> & dest, char const * name = nullptr)
+  {
+    json_t * outerContext = SaveContext(name);
+
+    if (!json_is_array(m_json))
+      MYTHROW(base::Json::Exception, ("The field", name, "must contain a json array."));
+
+    T tmp;
+    size_t const size = json_array_size(m_json);
+    dest.reserve(size);
+    for (size_t index = 0; index < size; ++index)
+    {
+      json_t * context = SaveContext();
+      m_json = json_array_get(context, index);
+      (*this)(tmp);
+      dest.insert(tmp);
       RestoreContext(context);
     }
 
