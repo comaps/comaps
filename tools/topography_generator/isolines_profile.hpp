@@ -12,8 +12,7 @@
 
 #include <map>
 #include <string>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_set>
 
 namespace topography_generator
 {
@@ -67,7 +66,7 @@ struct TileCoordHash
 struct CountryIsolinesParams
 {
   std::string m_profileName;
-  ankerl::unordered_dense::set<TileCoord, TileCoordHash> m_tileCoordsSubset;
+  std::unordered_set<TileCoord, TileCoordHash> m_tileCoordsSubset;
   bool m_tilesAreBanned;
 
   bool NeedSkipTile(int lat, int lon) const
