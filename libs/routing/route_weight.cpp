@@ -101,6 +101,7 @@ bool RouteWeight::operator<(RouteWeight const & rhs) const
     return m_weight < rhs.m_weight;
   */
 
+  // Skip the integrated weight calculation when there are no penalties.
   if ((m_numPassThroughChanges | m_numAccessChanges | m_numAccessConditionalPenalties) == 0 &&
       (rhs.m_numPassThroughChanges | rhs.m_numAccessChanges | rhs.m_numAccessConditionalPenalties) == 0)
   {
