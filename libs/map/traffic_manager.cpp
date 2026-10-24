@@ -1033,8 +1033,8 @@ void TrafficManager::OnTrafficDataUpdate()
          * left behind. This was not a problem for MapsWithMe as the set of segments never
          * changed, but is an issue wherever the segment set is dynamic. Workaround is to clear
          * before sending an update. Ultimately, the processing logic for UpdateTraffic needs to
-         * be fixed, but the code is hard to read (involves multiple messages getting thrown back
-         * and forth between threads).
+         * be fixed.
+         * See https://codeberg.org/comaps/comaps/issues/5515
          */
         m_drapeEngine.SafeCall(&df::DrapeEngine::ClearTrafficCache,
                                static_cast<MwmSet::MwmId const &>(mwmId));
