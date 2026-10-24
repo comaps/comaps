@@ -178,18 +178,36 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     alternativeMapLanguageHandlingComboBox->setMaxVisibleItems(3);
 
     QStringList languagesList = QStringList();
-    std::vector<size_t> sortedIndices;
     languagesList << QString::fromStdString("Don't use alternatives");
-    sortedIndices.push_back(0);
     languagesList << QString::fromStdString("Use in system order");
-    sortedIndices.push_back(1);
     languagesList << QString::fromStdString("Prefer and only use where native");
-    sortedIndices.push_back(1);
     alternativeMapLanguageHandlingComboBox->addItems(languagesList);
 
     alternativeMapLanguageHandlingComboBox->setCurrentText(languagesList.at(framework.GetAlternativeMapLanguageHandling()));
-    connect(alternativeMapLanguageHandlingComboBox, &QComboBox::currentIndexChanged, [&framework, languagesList](int index) {
+    connect(alternativeMapLanguageHandlingComboBox, &QComboBox::currentIndexChanged, [&framework](int index) {
       framework.SetAlternativeMapLanguageHandling(localisation::AlternativeMapLanguageHandling(index));
+    });
+  }
+
+  QLabel * regionOverlayModeLabel = new QLabel("Region Overlay Mode");
+  QComboBox * regionOverlayModeComboBox = new QComboBox();
+  {
+
+    // The property maxVisibleItems is ignored for non-editable comboboxes in styles that
+    // return true for `QStyle::SH_ComboBox_Popup such as the Mac style or the Gtk+ Style.
+    // So we ensure that it returns false here.
+    regionOverlayModeComboBox->setStyleSheet("QComboBox { combobox-popup: 0; }");
+    regionOverlayModeComboBox->setMaxVisibleItems(3);
+
+    QStringList modeList = QStringList();
+    modeList << QString::fromStdString("Off");
+    modeList << QString::fromStdString("Downloaded");
+    modeList << QString::fromStdString("Non-Downloaded");
+    regionOverlayModeComboBox->addItems(modeList);
+
+    regionOverlayModeComboBox->setCurrentIndex(static_cast<int>(framework.GetRegionOverlayMode()));
+    connect(regionOverlayModeComboBox, &QComboBox::currentIndexChanged, [&framework](int index) {
+      framework.SetRegionOverlayMode(static_cast<Framework::RegionOverlayMode>(index));
     });
   }
 
@@ -258,6 +276,8 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
   finalLayout->addWidget(mapLanguageComboBox);
   finalLayout->addWidget(alternativeMapLanguageHandlingLabel);
   finalLayout->addWidget(alternativeMapLanguageHandlingComboBox);
+  finalLayout->addWidget(regionOverlayModeLabel);
+  finalLayout->addWidget(regionOverlayModeComboBox);
   finalLayout->addWidget(mapAppearanceRadioBox);
   finalLayout->addWidget(showBookmarkLabelsCheckBox);
 #ifdef BUILD_DESIGNER
