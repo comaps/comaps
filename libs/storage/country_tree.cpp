@@ -272,11 +272,10 @@ MwmSubtreeAttrs LoadGroupImpl(size_t depth, json_t * node, CountryId const & par
 
   {
     vector<string> strings;
-    /* @todo(pastk): temporary disable until countries.txt is cleaned of historic "old" entries
+
     FromJSONObjectOptionalField(node, "old", strings);
     for (auto & v : strings)
       store.InsertOldCountry(id, std::move(v));
-    */
 
     strings.clear();
     FromJSONObjectOptionalField(node, "country_name_synonyms", strings);
