@@ -301,6 +301,10 @@ public class Framework
 
   public static native void nativeSet3dMode(boolean allow3d, boolean allow3dBuildings);
 
+  public static native int nativeGetRegionOverlayMode();
+
+  public static native void nativeSetRegionOverlayMode(int mode);
+
   public static native void nativeSetCarScreenMode(boolean enabled);
 
   public static native boolean nativeGetAutoZoomEnabled();

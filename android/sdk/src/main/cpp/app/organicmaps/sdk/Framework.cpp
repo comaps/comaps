@@ -1632,6 +1632,20 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSet3dMode(JNIEnv
   g_framework->Set3dMode(allow3d, allow3dBuildings);
 }
 
+JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_Framework_nativeGetRegionOverlayMode(JNIEnv * env, jclass)
+{
+  if (g_framework)
+    return static_cast<jint>(frm()->GetRegionOverlayMode());
+  else
+    return static_cast<jint>(::Framework::RegionOverlayMode::NonDownloaded);
+}
+
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetRegionOverlayMode(JNIEnv * env, jclass, jint mode)
+{
+  if (g_framework)
+    frm()->SetRegionOverlayMode(static_cast<::Framework::RegionOverlayMode>(mode));
+}
+
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetCarScreenMode(JNIEnv * env, jclass, jboolean enabled)
 {
   if (g_framework)
