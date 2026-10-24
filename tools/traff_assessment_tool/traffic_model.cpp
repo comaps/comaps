@@ -319,6 +319,26 @@ std::string GetEventText(TraffMessage const & message)
   return result;
 }
 
+/**
+ * @brief Returns a description for the start and end time of the message.
+ *
+ * @param message
+ * @return
+ */
+std::string GetStartEndDesc(TraffMessage const & message)
+{
+  std::string result = "";
+  if (message.m_startTime)
+  {
+    result += "Starts: " + message.m_startTime->ToString();
+    if (message.m_endTime)
+      result += "\n";
+  }
+  if (message.m_endTime)
+    result += "Ends: " + message.m_endTime->ToString();
+  return result;
+}
+
 QVariant GetDescription(TraffMessage const & message)
 {
   std::string result = "";
@@ -396,7 +416,13 @@ QVariant GetDescription(TraffMessage const & message)
         result += "\n";
       result += eventText;
     }
-    // TODO start/end date
+    auto startEndDesc = GetStartEndDesc(message);
+    if (!startEndDesc.empty())
+    {
+      if (!result.empty())
+        result += "\n";
+      result += startEndDesc;
+    }
   }
   if (!result.empty())
     result += "\n";
