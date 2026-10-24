@@ -572,6 +572,9 @@
     "China_Guizhou": {
         "defaultMessage": "Guizhou"
     },
+    "China_Hainan": {
+        "defaultMessage": "Hebei"
+    },
     "China_Hebei": {
         "defaultMessage": "Hebei"
     },
@@ -1388,6 +1391,9 @@
     "Honduras": {
         "defaultMessage": "Honduras"
     },
+    "Hong Kong": {
+        "defaultMessage": "Hong Kong"
+    },
     "Hungary": {
         "defaultMessage": "Hungary"
     },
@@ -1990,6 +1996,9 @@
     },
     "Luxembourg": {
         "defaultMessage": "Luxembourg"
+    },
+    "Macau": {
+        "defaultMessage": "Macau"
     },
     "Macedonia": {
         "defaultMessage": "North Macedonia"
@@ -4601,6 +4610,9 @@
     "China_Guizhou Description": {
         "defaultMessage": "Guiyang, Liupanshui, Weining"
     },
+    "China_Hainan Description": {
+        "defaultMessage": "Haikou, Sanya, Wanning"
+    },
     "China_Hebei Description": {
         "defaultMessage": "Beijing, Tianjin, Shijiazhuang"
     },
@@ -5330,6 +5342,9 @@
     "Honduras Description": {
         "defaultMessage": "Tegucigalpa, San Pedro Sula, Santa Barbara"
     },
+    "Hong Kong Description": {
+        "defaultMessage": "Hong Kong, Kowloon, Tsuen Wan"
+    },
     "Hungary_Kozep-Magyarorszag Description": {
         "defaultMessage": "Budapest, Érd, Dunakeszi"
     },
@@ -5875,6 +5890,9 @@
     },
     "Luxembourg Description": {
         "defaultMessage": "Luxembourg, Mondorf-les-Bains, Esch-sur-Alzette"
+    },
+    "Macau Description": {
+        "defaultMessage": "Macau, Taipa, Coloane"
     },
     "Macedonia Description": {
         "defaultMessage": "Skopje, Ohrid, Kavadarci"
