@@ -184,12 +184,12 @@ The tool is loosely based on the OpenLR assessment tool, which appears to have b
 
 ### Building
 
-The TraFF assessment tool can be built by running the following commands from the CoMaps source dir:
+Since 17fd87a4, the TraFF assessment tool can be built with `build_omim.sh` in the usual way.
+
+Should you need to build an earlier version, either cherry-pick 17fd87a4 or run the following commands from the CoMaps source dir:
 
     mkdir build
     cmake . -B build ; cmake --build build --target traff_assessment_tool
-
-Building with `build_omim.sh` is currently not supported, any help is welcome (see #2675).
 
 ### Usage prerequisites
 
