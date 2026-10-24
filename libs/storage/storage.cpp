@@ -810,7 +810,7 @@ namespace
 bool IsRealObsolete(LocalFilePtr const & lf)
 {
   /// @todo "Old version" should be somewhere in countries.txt, but needs a deep refactoring.
-  std::pair<std::string_view, int64_t> constexpr arr[] = {{"China_Guangdong", 250101}};
+  std::pair<std::string_view, int64_t> constexpr arr[] = {{"China_Guangdong", 261028}};
   for (auto const & e : arr)
     if (lf->GetCountryName() == e.first)
       return lf->GetVersion() < e.second;
