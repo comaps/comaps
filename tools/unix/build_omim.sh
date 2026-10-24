@@ -68,7 +68,7 @@ done
 
 OPT_TARGET=${@:$OPTIND}
 
-if [ "$OPT_TARGET" != "desktop" -a -z "$OPT_DESIGNER" -a -z "$OPT_STANDALONE" ]; then
+if [ "$OPT_TARGET" != "desktop" -a "$OPT_TARGET" != "traff_assessment_tool" -a -z "$OPT_DESIGNER" -a -z "$OPT_STANDALONE" ]; then
   CMAKE_CONFIG="${CMAKE_CONFIG:-} -DSKIP_QT_GUI=ON"
 fi
 
