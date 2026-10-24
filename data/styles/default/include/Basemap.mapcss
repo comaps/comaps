@@ -33,8 +33,8 @@
     Non-downloaded overlay is applied by FrontendRenderer (see drape_colors.mapcss). */
 @region_downloaded_overlay: #7D8BE6;
 @region_downloaded_overlay_opacity: 0.5;
-@region_non_downloaded_overlay: #1A325C;
-@region_non_downloaded_overlay_opacity: 0.31;
+@region_non_downloaded_overlay: #000000;
+@region_non_downloaded_overlay_opacity: 0.11;
 
 /* 1. BASICS */
 
