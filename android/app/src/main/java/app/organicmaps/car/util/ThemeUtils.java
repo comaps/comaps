@@ -72,7 +72,9 @@ public final class ThemeUtils
       MapAppearance.set(newMapAppearance);
     
     // Switch to car navigation style when using the car router (AA or car navigation on the phone).
-    Framework.nativeSwitchToUsingVehicleStyle(RoutingController.get().isVehicleNavigation());
+    final boolean useVehicleStyle = RoutingController.get().isVehicleNavigation()
+                                    || MwmApplication.from(context).getDisplayManager().isCarDisplayUsed();
+    Framework.nativeSwitchToUsingVehicleStyle(useVehicleStyle);
 
     if (oldThemeMode == ThemeMode.SUNRISE_SUNSET)
       scheduleSunCheck(context);
