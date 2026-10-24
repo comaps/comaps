@@ -959,6 +959,7 @@ bool Storage::DeleteFakeCountry(CountryId const & countryId)
   if (iFile != m_localFilesForFakeCountries.end())
   {
     auto lf = iFile->second;
+    LOG(LINFO, ("Deleting corresponding deprecated map file", *lf));
     if (!m_willDelete(countryId, lf))
     {
       DeleteCountryIndexes(*lf);
@@ -1227,7 +1228,10 @@ void Storage::RegisterDownloadedFiles(CountryId const & countryId, MapFileType t
         auto const & lst = iFile->second;
         ASSERT(!lst.empty(), ());
         if (!lst.empty() && IsRealObsolete(lst.front()))
+        {
+          LOG(LINFO, ("Deleting deprecated, but not renamed, map file", *lst.front()));
           DeleteCountry(it->second, MapFileType::Map);
+        }
       }
     }
   }
@@ -1687,6 +1691,28 @@ bool Storage::IsMapTooOldToEdit(CountryId const & countryId) const
     return !IsAllowedToEditFile(localFile);
   }
 
+  return false;
+}
+
+bool Storage::IsDeprecated(CountryId const & countryId) const
+{
+  for (auto const & [_, oldCountry] : m_countriesInfo.m_mwmToOld)
+    if (oldCountry == countryId)
+    {
+      auto const oldLocalFile = m_localFilesForFakeCountries.find(CountryFile(countryId));
+      if (oldLocalFile != m_localFilesForFakeCountries.end())
+        return true;
+
+      // "old" region wasn't renamed
+      auto const iFile = m_localFiles.find(countryId);
+      if (iFile != m_localFiles.end())
+      {
+        auto const & lst = iFile->second;
+        ASSERT(!lst.empty(), ());
+        if (!lst.empty() && IsRealObsolete(lst.front()))
+          return true;
+      }
+    }
   return false;
 }
 

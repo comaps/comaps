@@ -176,7 +176,8 @@ pair<MwmSet::MwmId, MwmSet::RegResult> Framework::RegisterMap(LocalCountryFile c
   {
     auto const & id = res.first;
     ASSERT(id.IsAlive(), ());
-    LOG(LINFO, ("Loaded", file.GetCountryName(), "map, of version", id.GetInfo()->GetVersion()));
+    LOG(LINFO, ("Loaded", file.GetCountryName(), "map version", id.GetInfo()->GetVersion(),
+                m_storage.IsDeprecated(file.GetCountryName()) ? "(deprecated)" : ""));
   }
 
   return res;
