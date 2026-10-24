@@ -1019,6 +1019,10 @@
     <string name="pref_alt_map_lang_handling_ignore_alternatives">Don\'t use alternatives</string>
     <string name="pref_alt_map_lang_handling_system_order">Use in system order</string>
     <string name="pref_alt_map_lang_handling_local_only">Prefer and only use where native</string>
+    <string name="pref_region_overlay_mode">Region Overlay Mode</string>
+    <string name="pref_region_overlay_mode_off">Off</string>
+    <string name="pref_region_overlay_mode_downloaded">Downloaded</string>
+    <string name="pref_region_overlay_mode_nondownloaded">Non-Downloaded</string>
     <string name="location_privacy_info">Apps receive location data from your OS location service, which may share your location with Google and/or your device vendor. Use a privacy-preserving Android OS to avoid this.</string>
     <string name="location_privacy">Location Privacy</string>
     <string name="pref_speedlimit_title">Show speed limits</string>
