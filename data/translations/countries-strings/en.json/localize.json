@@ -2963,6 +2963,27 @@
     "Tanzania": {
         "defaultMessage": "Tanzania"
     },
+    "Tanzania_Central": {
+        "defaultMessage": "Tanzania — Centre"
+    },
+    "Tanzania_Coastal": {
+        "defaultMessage": "Tanzania — Coast"
+    },
+    "Tanzania_Northern": {
+        "defaultMessage": "Tanzania — North"
+    },
+    "Tanzania_Western": {
+        "defaultMessage": "Tanzania — West"
+    },
+    "Tanzania_Lake": {
+        "defaultMessage": "Tanzania — Lake"
+    },
+    "Tanzania_Southern Highlands": {
+        "defaultMessage": "Tanzania — Southern Highlands"
+    },
+    "Tanzania_Offshore Islands": {
+        "defaultMessage": "Tanzania — Offshore Islands"
+    },
     "Tennessee": {
         "defaultMessage": "Tennessee"
     },
@@ -6787,6 +6808,27 @@
     },
     "Tanzania Description": {
         "defaultMessage": "Dar es Salaam, Dodoma, Kigoma"
+    },
+    "Tanzania_Central Description": {
+        "defaultMessage": "Tabora, Singida, Dodoma"
+    },
+    "Tanzania_Coastal Description": {
+        "defaultMessage": "Morogoro, Dar es Salaam, Lindi, Mtwara, Kibaha"
+    },
+    "Tanzania_Northern Description": {
+        "defaultMessage": "Tanga, Babati, Arusha, Kilimanjaro, Moshi"
+    },
+    "Tanzania_Western Description": {
+        "defaultMessage": "Kigoma, Mpanda"
+    },
+    "Tanzania_Southern Highlands Description": {
+        "defaultMessage": "Songea, Iringa, Mbeya, Sumbawanga"
+    },
+    "Tanzania_Lake Description": {
+        "defaultMessage": "Bukoba, Musoma, Mwanza, Shinyanga"
+    },
+    "Tanzania_Offshore Islands Description": {
+        "defaultMessage": "Zanzibar, Pemba, Mafia, Wete, Mikoani, Mkokotoni, Koani"
     },
     "Thailand_Central Description": {
         "defaultMessage": "Nam Som, Nakhon Ratchasima, Udon Thani"
