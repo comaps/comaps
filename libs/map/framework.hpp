@@ -310,11 +310,17 @@ public:
   /// Set if the map has contour lines
   void SetContourLinesLayer(bool const hasContourLinesLayer);
 
-  /// Set if the map has 3D buildings
+  /// If the map has 3D buildings
   bool HasBuildings3d();
 
   /// Set if the map has 3D buildings
   void SetBuildings3d(bool const hasBuildings3d);
+
+  /// Get downloaded region overlay mode
+  RegionOverlayMode GetRegionOverlayMode() const;
+
+  /// Set downloaded region overlay mode
+  void SetRegionOverlayMode(RegionOverlayMode mode);
 
   /// If the vehicle style is being used
   bool IsUsingVehicleStyle();

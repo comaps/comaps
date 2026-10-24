@@ -2943,6 +2943,19 @@ void Framework::SetBuildings3d(bool const hasBuildings3d)
   Allow3dMode(allow3d, allow3dBuildings);
 }
 
+Framework::RegionOverlayMode Framework::GetRegionOverlayMode() const
+{
+  return m_regionOverlayMode;
+}
+
+void Framework::SetRegionOverlayMode(Framework::RegionOverlayMode const mode)
+{
+  m_regionOverlayMode = mode;
+  settings::Set(kRegionOverlayMode, DebugPrint(mode));
+  if (m_drapeEngine != nullptr)
+    m_drapeEngine->EnableNonDownloaded(mode == Framework::RegionOverlayMode::NonDownloaded);
+}
+
 bool Framework::IsUsingVehicleStyle()
 {
   MapStyle const mapStyle = GetMapStyle();
@@ -3098,26 +3111,17 @@ bool Framework::ParseDrapeDebugCommand(string const & query)
   }
   if (query == "?regions:downloaded")
   {
-    m_regionOverlayMode = Framework::RegionOverlayMode::Downloaded;
-    settings::Set(kRegionOverlayMode, DebugPrint(m_regionOverlayMode));
-    if (m_drapeEngine)
-      m_drapeEngine->EnableNonDownloaded(false);
+    SetRegionOverlayMode(RegionOverlayMode::Downloaded);
     return true;
   }
   if (query == "?regions:non-downloaded")
   {
-    m_regionOverlayMode = Framework::RegionOverlayMode::NonDownloaded;
-    settings::Set(kRegionOverlayMode, DebugPrint(m_regionOverlayMode));
-    if (m_drapeEngine)
-      m_drapeEngine->EnableNonDownloaded(true);
+    SetRegionOverlayMode(RegionOverlayMode::NonDownloaded);
     return true;
   }
   if (query == "?regions:off")
   {
-    m_regionOverlayMode = Framework::RegionOverlayMode::Off;
-    settings::Set(kRegionOverlayMode, DebugPrint(m_regionOverlayMode));
-    if (m_drapeEngine)
-      m_drapeEngine->EnableNonDownloaded(false);
+    SetRegionOverlayMode(RegionOverlayMode::Off);
     return true;
   }
 
