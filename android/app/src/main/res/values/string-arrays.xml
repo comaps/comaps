@@ -64,14 +64,26 @@
     <item>@string/always_enum_value</item>
     <item>@string/never_enum_value</item>
   </string-array>
-  
+
   <string-array name="pref_alt_map_lang_handling_options">
     <item>@string/pref_alt_map_lang_handling_ignore_alternatives</item>
     <item>@string/pref_alt_map_lang_handling_system_order</item>
     <item>@string/pref_alt_map_lang_handling_local_only</item>
   </string-array>
-  
+
   <string-array name="pref_alt_map_lang_handling_options_values">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+  </string-array>
+
+  <string-array name="pref_region_overlay_mode_options">
+    <item>@string/pref_region_overlay_mode_off</item>
+    <item>@string/pref_region_overlay_mode_downloaded</item>
+    <item>@string/pref_region_overlay_mode_nondownloaded</item>
+  </string-array>
+
+  <string-array name="pref_region_overlay_mode_options_values">
     <item>0</item>
     <item>1</item>
     <item>2</item>
