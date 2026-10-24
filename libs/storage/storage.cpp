@@ -178,8 +178,7 @@ void Storage::ApplyCountriesInMemory(std::string const & buffer)
   /// @todo(pastk): why do we need a temp dummy Storage object?
   std::shared_ptr<Storage> parsed(new Storage(7 /* dummy */));
   int64_t const newVersion =
-      LoadCountriesFromBuffer(buffer, parsed->m_countries, parsed->m_affiliations, parsed->m_countryNameSynonyms,
-                              parsed->m_mwmTopCityGeoIds, parsed->m_mwmTopCountryGeoIds, parsed->m_mapSeries);
+      LoadCountriesFromBuffer(buffer, parsed->m_countries, parsed->m_countriesInfo, parsed->m_mapSeries);
 
   ASSERT_GREATER(newVersion, m_currentVersion, ());
 
@@ -189,10 +188,7 @@ void Storage::ApplyCountriesInMemory(std::string const & buffer)
 
   RegisterAllLocalMaps(false /* enableDiffs */);
 
-  m_affiliations = std::move(parsed->m_affiliations);
-  m_countryNameSynonyms = std::move(parsed->m_countryNameSynonyms);
-  m_mwmTopCityGeoIds = std::move(parsed->m_mwmTopCityGeoIds);
-  m_mwmTopCountryGeoIds = std::move(parsed->m_mwmTopCountryGeoIds);
+  m_countriesInfo = std::move(parsed->m_countriesInfo);
 
   NotifyStatusChanged(GetRootId());
 
@@ -400,14 +396,12 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
       }
 
       CountryTree countries;
-      Affiliations affiliations;
-      CountryNameSynonyms synonyms;
-      MwmTopCityGeoIds topCities;
-      MwmTopCountryGeoIds topCountries;
+      CountriesInfo countriesInfo;
+
       std::string mapSeries = "";
 
       int64_t const parsedVersion =
-        LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries, mapSeries);
+        LoadCountriesFromBuffer(buffer, countries, countriesInfo, mapSeries);
       if (parsedVersion != dataVersion || mapSeries != MAP_SERIES)
       {
         LOG(LWARNING, ("COUNTRIES: parsed map version", parsedVersion, "expected", dataVersion,
@@ -1482,10 +1476,7 @@ void Storage::ApplyCountries(std::string const & countriesBuffer, Storage & stor
   /// @todo The best way is to restart the app after ApplyCountries.
   // Do not to update this information containers to avoid possible races.
   // Affiliations, synonyms, etc can be updated with the app update.
-  // m_affiliations = std::move(storage.m_affiliations);
-  // m_countryNameSynonyms = std::move(storage.m_countryNameSynonyms);
-  // m_mwmTopCityGeoIds = std::move(storage.m_mwmTopCityGeoIds);
-  // m_mwmTopCountryGeoIds = std::move(storage.m_mwmTopCountryGeoIds);
+  // m_countriesInfo = std::move(storage.m_countriesInfo);
 
   LOG(LDEBUG, ("Version", m_currentVersion, "is applied"));
 
