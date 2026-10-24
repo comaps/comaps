@@ -422,6 +422,10 @@ public:
   /// \brief Returns true when the map exists and is too old for map editing.
   bool IsMapTooOldToEdit(CountryId const & countryId) const;
 
+  /// \brief Returns true if the map file is deprecated or "old"
+  /// e.g. was replaced by a differently split regions.
+  bool IsDeprecated(CountryId const & countryId) const;
+
   /// Returns version of downloaded mwm or zero.
   int64_t GetVersion(CountryId const & countryId) const;
 
