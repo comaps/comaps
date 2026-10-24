@@ -10,7 +10,7 @@ This solution required minimal processing on the app side, at the expense of req
 
 The server is no longer available (the code appears to have been proprietary anyway), and traffic functionality has been disabled in code, but, as of the CoMaps fork, almost all functionality (save for parts of the iOS UI) was still there and in principle working. Rolling back a few commits and generating fake server responses showed that the code was still workable.
 
-CoMaps Traffic reuses many of these concepts, with only minimal changes: The rendering and routing engines still consume MWM coloring information in the same form as MapsWithMe did. On the other hand, the way traffic information is acquired (and processed into MWM coloring) has been changed fundamentally – see **Functionality**.
+CoMaps Traffic reuses many of these concepts, with only minimal changes: The rendering and routing engines still consume MWM coloring information in much the same form as MapsWithMe did. On the other hand, the way traffic information is acquired (and processed into MWM coloring) has been changed fundamentally – see **Functionality**.
 
 ## Functionality
 
@@ -76,6 +76,28 @@ A traffic update is announced to the rendering engine, routing engine and the ca
 
 The router ignores traffic information during initial route calculation, to avoid delaying the process. All updates received during that time will be processed after the initial route has been calculated.
 
+### Conditional coloring
+
+One change to the MapsWithMe coloring logic was needed to support start/end times for traffic messages (#2833): introducing conditional coloring.
+
+Originally, coloring was considered valid immediately and until further notice. Conditional coloring has an explicit start/end time. There can be multiple conditions, each with their own coloring, alongside unconditional coloring.
+
+To implement this, a `Condition` class was introduced. It represents a start and/or end time for one or more traffic messages.
+
+`Coloring`, as it was known before, was renamed to `SimpleColoring`. The definition remained the same: `std::map<RoadSegmentId, SpeedGroup>`, i.e. a map of segments and their speed group.
+
+`ConditionalColoring` was added. It is a `std::map<Condition, SimpleColoring>`, i.e. a map of conditions to the coloring that applies during that time.
+
+`Coloring` was redefined to be a `struct` of two members: `SimpleColoring m_unconditional` holds unconditional coloring, i.e. the information that was formerly represented by `Coloring`. `ConditionalColoring m_conditional` holds conditional coloring for that MWM.
+
+Processing logic was updated to deal with the new structure:
+
+* Most of the code that just moves `Coloring` without examining it did not require any changes.
+* When assembling coloring from individual TraFF mesages, information from messages without a start or end time is added to unconditional coloring. Information from messages with a start and/or end time is added to conditional coloring. Where two messages have identical start/end times, their colorings are merged under the same condition.
+* Copy logic for `Coloring` was adapted to handle both unconditional and conditional coloring.
+* The renderer renders conditional coloring that is currently active, along with unconditional coloring. As elsewhere, conflicts are resolved in favor of the most restrictive speed group.
+* The routing engine evaluates conditional coloring based on the time at which we are expecting to reach the segment in question. This may mean avoiding traffic situations that are not yet visible on the map, or going through situations on the map (they show because they are currentley active, but are expected to end before we get there).
+
 ## Code structure
 
 The `traffic` branch adds two folders to the overall code structure:
@@ -88,15 +110,21 @@ The `traffic` branch adds two folders to the overall code structure:
   * `traff_storage`: Implements a persistent cache for TraFF data, including per-message MWM coloring
 * `tools/traff_assessment_tool`: a diagnostic tool for TraFF messages, see **TraFF Assessment Tool**
 
-It also introduces a number of modifications to existing code. Most of them concern the traffic manager (which has been mostly rewritten) and the router (re-enable traffic, also allow it to be used for location decoding):
+It also introduces a number of modifications to existing code. Most of them concern the traffic manager (which has been mostly rewritten) and the router (re-enable traffic, add logic for conditional traffic information, also allow it to be used for location decoding):
 
-* `libs/drape_frontend`: Add missing element to `kAverageSegmentsCount` (bug fix)
+* `libs/drape_frontend`: Add missing element to `kAverageSegmentsCount` (bug fix), update handling of `Coloring`
 * `libs/geometry`: In `parametrized_segment`, extend `ClosestPointTo()` with an optional `snapToEnds` argument. If true, it constrains the result to one of the segment endpoints, false (default) maintains existing behavior
 * `libs/indexer`: In `ftypes_matcher`, construction types were added to `HighwayClass()`, and a new `IsMotorVehicleAccessRestrictedChecker` was introduced
 * `libs/map`:
   * In `framework`, update code for traffic manager initialization (including a newly introduced test mode), provide the configuration API for traffic and a implement a `?clear-traffic` debug command in the search UI
   * `traffic_manager` has been mostly rewritten: It now controls TraFF sources, retrieves messages from them and provides a thread for the TraFF decoder
-* `libs/routing`: Changes so the router can be used for TraFF decoding:
+* `libs/routing`: Update handling of `Coloring`, and introduce changes so the router can be used for TraFF decoding:
+  * Update any uses of `Coloring` to work with the redesigned structure (existing logic now uses `Coloring::m_unconditional` instead of `Coloring`; copy conditional coloring along with unconditional coloring)
+  * In `index_graph`, pass weight from `IndexGraph::CalculateEdgeWeight()` down to `EdgeEstimator::CalcSegmentWeight()`
+  * In `edge_estimator`:
+    * Modify `EdgeEstimator::CalcSegmentWeight()` and overrides to accept weight as an additional, optional argument
+    * Pass down weight from `CarEstimator::CalcSegmentWeight()` to `TrafficStash::GetSpeedGroup()`
+  * In `index_router`, in `IndexRouter::RedressRoute()`, call `TrafficStash::GetSpeedGroup()` with ETA argument
   * In `absent_regions_finder`, change thread synchronization (for TraFF decoding, the router runs on the decoder thread, not on its own thread)
   * In `async_router`, allow running without an absent regions finder (in regular routing, this is used to prompt the user to download additional maps; this is not desired for the traffic decoder, it works with the maps it has)
   * In `directions_engine`, populate `RoadNameInfo::m_onRoundabout` (indicating if the segment is part of a roundabout, needed by the TraFF decoder)
@@ -125,6 +153,9 @@ It also introduces a number of modifications to existing code. Most of them conc
   * `decoder_model`: Vehicle model for the TraFF decoder; this is already present on `main` as a stub, allowing us to generate maps with TraFF decoder support (including routable construction types), the changes make it fully functional for TraFF location decoding
   * In `vehicle_model`, add support for three-level feature types (e.g. `highway-construction-primary`) in `GetHighwayType()` (falling back to the two-level type if nothing is found)
 * `libs/traffic`:
+  * Add `iso_time` with a new `IsoTime` class, which parses time in ISO format and keeps it as a timestamp relative to UTC
+  * In `speed_groups`, add a function to merge two speed groups referring to the same segment
+  * In `traffic_stash`, rewrite `TrafficStash::GetSpeedGroup()` to take an optional ETA argument and, if present, evaluate conditional coloring against it
   * In `traffic_info`, remove obsolete code and rewrite for use with TraFF data sources
   * `traffic_tests` has tests that probably no longer work, but have been left there for the moment, in case some TraFF tests can be derived from the code
 * Android:
