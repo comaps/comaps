@@ -2003,6 +2003,12 @@
     "Malaysia": {
         "defaultMessage": "Malaysia"
     },
+    "Malaysia_East": {
+        "defaultMessage": "Malaysia — East"
+    },
+    "Malaysia_West": {
+        "defaultMessage": "Malaysia — West"
+    },
     "Maldives": {
         "defaultMessage": "Maldives"
     },
@@ -3595,6 +3601,12 @@
     },
     "Vietnam": {
         "defaultMessage": "Vietnam"
+    },
+    "Vietnam_North": {
+        "defaultMessage": "Vietnam — North"
+    },
+    "Vietnam_South": {
+        "defaultMessage": "Vietnam — South"
     },
     "Virginia": {
         "defaultMessage": "Virginia"
@@ -5876,6 +5888,12 @@
     "Malaysia Description": {
         "defaultMessage": "Kuala Lumpur, Petaling Jaya, Kota Kinabalu"
     },
+    "Malaysia_East Description": {
+        "defaultMessage": "Kota Kinabalu, Kuching, Sandakan"
+    },
+    "Malaysia_West Description": {
+        "defaultMessage": "Kuala Lumpur, Johor Bahru, George Town, Malacca, Ipoh"
+    },
     "Maldives Description": {
         "defaultMessage": "Feridhoo, Malé, Dhiggiri"
     },
@@ -7507,6 +7525,12 @@
     },
     "Vietnam Description": {
         "defaultMessage": "Hanoi, Ho Chi Minh City, Vung Tau"
+    },
+    "Vietnam_North Description": {
+        "defaultMessage": "Hanoi, Hai Phong, Hue, Sa Pa"
+    },
+    "Vietnam_South Description": {
+        "defaultMessage": "Ho Chi Minh City, Da Nang, Can Tho, Nha Trang"
     },
     "Wallis and Futuna Description": {
         "defaultMessage": "Mata-Utu, Fiua, Tavai"
