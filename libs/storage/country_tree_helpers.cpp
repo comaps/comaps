@@ -48,6 +48,6 @@ std::optional<CountryTree> LoadCountriesFromFile(std::string const & path)
   if (res == -1)
     return {};
 
-  return std::move(countries);
+  return countries;
 }
 }  // namespace storage
