@@ -144,19 +144,19 @@
 /* 5.ROADS */
 /* 5.1 All roads */
 
-@motorway0: #7A4006;
-@motorway1: #784606;
-@trunk0: #794D11;
-@trunk1: #79511D;
-@primary0: #7A5C2A;
-@primary1: #7C5E24;
-@primary2: #7C622F;
-@secondary0: #7F6730;
-@secondary1: #7F6B3C;
-@tertiary: #4C4B4B;
-@residential: #4C4C4C;
-@pedestrian: #4C4B4B;
-@footway: #4C4B4B;
+@motorway0: #9C622C;
+@motorway1: #9C622C;
+@trunk0: #966832;
+@trunk1: #966832;
+@primary0: #906E30;
+@primary1: #906E30;
+@primary2: #906E30;
+@secondary0: #8A7440;
+@secondary1: #8A7440;
+@tertiary: #7A7A7A;
+@residential: #7A7A7A;
+@pedestrian: #7A7A7A;
+@footway: #7A7A7A;
 @cycleway: #48477F;
 @construction: #5A5D65;
 @track: #5F532D;
