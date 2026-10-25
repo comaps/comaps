@@ -76,6 +76,7 @@
     <string name="type.amenity.exhibition_centre">Exhibition Center</string>
     <string name="type.amenity.money_transfer">Money Transfer</string>
     <string name="type.amenity.music_school">Music School</string>
+    <string name="type.amenity.music_venue">Music Venue</string>
     <string name="type.amenity.sailing_school">Sailing School</string>
     <string name="type.amenity.flight_school">Flight School</string>
     <string name="type.amenity.prep_school">Tutorial School</string>

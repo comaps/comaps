@@ -452,6 +452,9 @@
     "amenity-nightclub|@category_entertainment|@category_nightlife": {
         "defaultMessage": "3Nightclub|night club|4disco|dance|U+1F378|U+1F379|U+1F46F|U+1F483|club|nightspot|night bar"
     },
+    "amenity-music_venue|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "4Music venue|live music|4concert|concert hall|gig"
+    },
     "amenity-brothel": {
         "defaultMessage": "Brothel|whorehouse|bordello|U+1F3E9"
     },

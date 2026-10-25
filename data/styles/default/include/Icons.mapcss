@@ -990,6 +990,7 @@ node|z16-[barrier=cycle_barrier],
 node|z16-[barrier=bus_trap],
 node|z16-[barrier=sump_buster],
 node|z16-[amenity=nightclub],
+node|z16-[amenity=music_venue],
 node|z15-[amenity=townhall],
 node|z16-[amenity=bank],
 node|z16-[amenity=taxi],
@@ -1520,6 +1521,9 @@ node|z15-[amenity=place_of_worship][religion=christian][denomination=jehovahs_wi
 
 node|z16-[amenity=nightclub],
 {icon-image: nightclub-m.svg;font-size: 11;}
+
+node|z16-[amenity=music_venue],
+{icon-image: music_venue-m.svg;font-size: 11;}
 
 node|z18-[amenity=love_hotel],
 node|z18-[amenity=brothel],

@@ -148,6 +148,7 @@ std::map<std::string, ReviewEditorSpec> const reviewEditorConfigs = {
     {"amenity-motorcycle_parking", kMangrove},
     {"amenity-motorcycle_rental", kMangrove},
     {"amenity-music_school", kMangrove},
+    {"amenity-music_venue", kMangrove},
     {"amenity-nightclub", kMapCompleteCafesAndPubs},
     {"amenity-nursing_home", kMangrove},
     {"amenity-parking", kMangrove},

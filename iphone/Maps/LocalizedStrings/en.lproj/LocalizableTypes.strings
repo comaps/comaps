@@ -73,6 +73,7 @@
 "type.amenity.exhibition_centre" = "Exhibition Center";
 "type.amenity.money_transfer" = "Money Transfer";
 "type.amenity.music_school" = "Music School";
+"type.amenity.music_venue" = "Music Venue";
 "type.amenity.sailing_school" = "Sailing School";
 "type.amenity.flight_school" = "Flight School";
 "type.amenity.prep_school" = "Tutorial School";

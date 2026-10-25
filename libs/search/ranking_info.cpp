@@ -212,6 +212,7 @@ public:
         {"amenity", "ice_cream"},
         {"amenity", "library"},
         {"amenity", "marketplace"},
+        {"amenity", "music_venue"},
         {"amenity", "nightclub"},
         {"amenity", "pharmacy"},
         {"amenity", "police"},
