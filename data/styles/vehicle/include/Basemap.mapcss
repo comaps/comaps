@@ -29,10 +29,10 @@
 /* Region overlay colors:
     Downloaded regions are drawn by the mwm_border rule below
     Non-downloaded overlay is applied by FrontendRenderer (see drape_colors.mapcss). */
-@region_downloaded_overlay: #7D8BE6;
-@region_downloaded_overlay_opacity: 0.5;
-@region_non_downloaded_overlay: #1A325C;
-@region_non_downloaded_overlay_opacity: 0.31;
+@region_downloaded_overlay: #77FFAA;
+@region_downloaded_overlay_opacity: 0.2;
+@region_non_downloaded_overlay: #888888;
+@region_non_downloaded_overlay_opacity: 0.15;
 
 /* 1. BASICS */
 
