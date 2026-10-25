@@ -54,7 +54,7 @@
 @sand: #312d24;
 @barerock: #2B2A26;
 @scree: #292825;
-@desert: #211E18; /*312E28;*/
+@desert: #211E18;
 
 /*3.2 Vegetation*/
 
@@ -95,7 +95,7 @@
 @woods_11: #1F2211;
 @woods_10: #1F2311;
 
-@protected_nature: #191D0B;
+@protected_nature: #705020;
 
 
 /* 4.LANDUSE */
