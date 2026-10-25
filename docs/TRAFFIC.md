@@ -98,6 +98,47 @@ Processing logic was updated to deal with the new structure:
 * The renderer renders conditional coloring that is currently active, along with unconditional coloring. As elsewhere, conflicts are resolved in favor of the most restrictive speed group.
 * The routing engine evaluates conditional coloring based on the time at which we are expecting to reach the segment in question. This may mean avoiding traffic situations that are not yet visible on the map, or going through situations on the map (they show because they are currentley active, but are expected to end before we get there).
 
+## Privacy annd security concerns
+
+Both TraFF and the CoMaps implementation have been designed with privacy in mind, and avoid unnecessary data disclosure. Communication with the server is opt-in, the server can be configured freely, and requests are anonymous.
+
+CoMaps will not issue requests to the TraFF server unless the respective option is enabled; it is disabled on a fresh install.
+
+The URL to which traffic requests are issued is freely configurable. Theoretically, you can run your own TraFF server and point CoMaps to that. If you are really paranoid and want a second level of protection in case you accidentally enable traffic, or in case of a hypothetical bug, you can set the URL to something like http://127.0.0.1, ensuring that even stray requests would not leave your device.)
+
+Requests to the server are anonymous, i.e. they do not require registration or a user account. The first request will create a subscription, for which the server assigns a randomly-created ID. The purpose of a subscription is to reduce the amount of data transferred: the first poll will return all messages active in the area at the given time, whereas subsequent polls will return only what has changed since the last poll. A subscription is terminated when CoMaps exits; the server may also terminate it after a certain period of inactivity (e.g. one hour, though this is up to the server). The TraFF specification allows the client to unsubscribe at any time. When a client unsubscribes or a subscription expires due to inactivity, it is removed from the server database.
+
+Subscriptions specify a filter of the area(s) the user is interested in, and optionally a minimum road class. The client can update the filter at any time. CoMaps subscribes to the bounding boxes of all currently active MWMs; these include the MWMs currently in view, the MWM in which the current position lies, and if a route is active, the MWMs used on the route. If any of these positions is close to the boundary between two MWMs, CoMaps may consider both MWMs active. CoMaps changes its subscription whenever the set of active MWMs changes.
+
+Thus, in the worst-case scenario, a malicious server implementation could deduce that the user is in the area of one particular MWM, or near the border between two MWMs. From subscription changes it could track the user’s movements across MWMs.
+
+TraFF does not provide a mechanism to link multiple subscriptions to the same user. If you are on a road trip and stop for the night, CoMaps would unsubscribe on the evening of day one, and create a new subscription with a new ID when you re-open it on day two. CoMaps never persists the subscription ID – if it is terminated or crashes, the subscription ID is lost and it would create a new one on restart; the server would eventually clean out the old subscription ID after a certain period of inactivity.
+
+That said, while TraFF and CoMaps are designed to limit the amount of data revealed to the minimum necessary to ensure the functionality, they are not specifically hardened against targeted attacks, including users hitting a rogue server (other than through use of TLS).
+
+What the server will see or be able to do – the same goes for eavesdroppers if you are not using TLS or the eavesdropper manages to compromise TLS:
+
+* See your IP address.
+* Infer from your IP address where you are:
+  * If the address belongs to a mobile ISP, it means you are likely somewhere on the road. The geographic area tells them the country your mobile network provider is located in.
+  * If the address belongs to a landline ISP, it means you are still at home, or at your destination, or have stopped somewhere. From the address, they may infer where you are. They may determine whether the ISP provides domestic or commercial services, and thus infer whether you are at a private home (or small business such as a B&B) or at a public venue (hotels, airports, rest areas etc.).
+* Track IP address changes to infer whether you have left your starting point, stopped somewhere or reached your destination.
+* Link your IP address to your subscription ID.
+* See the areas covered by your subscription and how they change, inferring where you are planning to go.
+* Use fingerprinting techniques to infer details about your device and the software used. If an eavesdropper manages to listen in on your entire network traffic, they could also evaluate network traffic from other apps on your device. What they can do with that depends on what other apps you use.
+
+These should not be a concern unless you hit a rogue server or a rogue network. Note that some commercial wifi providers do break up TLS encryption and can therefore look into your TLS traffic. Real risk from these factors (as a product of likelihood and damage) is usually low, unless you are being targeted by criminal investigators or secret service. An exhaustive list of countermeasures is beyond the scope of this description, but some measures include:
+
+* Connect through a VPN service or Tor if you have concerns about your IP address being revealed
+* Disable live traffic when using CoMaps on a trip you wish to keep private
+* Alternatively, enable traffic, calculate your route, then disable traffic (this can be done in advance). This avoids revealing information related to your movements in real time, while still giving you informations on planned/predictable traffic events at that point. However, you will not receive information on unplanned traffic events, such as accidents.
+* If you are using Android and are traveling in an area with TMC coverage, disable live traffic and instead use [Qz](https://f-droid.org/en/packages/com.vonglasow.michael.qz/) with an external TMC receiver. This will receive traffic information broadcast on the radio network, without disclosing any data related to your travel.
+* Avoid using public wifi networks, using mobile data instead, to decrease the risk of revealing your location or hitting a rogue network
+* Disable use of 2G networks to reduce the risk of connecting to a rogue mobile base station
+* Never install TLS root certificates from an unknown source, including from public wifis prompting you to do so
+* Assess what other apps on your device communicate with the network, and whether they exchange any data that can be used to identify you
+* Avoid using exotic device configurations (hardware, OS, apps) to make fingerprinting more difficult
+
 ## Code structure
 
 The `traffic` branch adds two folders to the overall code structure:
