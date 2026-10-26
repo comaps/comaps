@@ -1,6 +1,7 @@
 #pragma once
 
 #include "routing/regions_decl.hpp"
+#include "routing/routing_callbacks.hpp"
 
 #include "base/thread.hpp"
 
