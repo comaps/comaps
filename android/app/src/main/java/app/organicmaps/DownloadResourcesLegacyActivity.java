@@ -94,6 +94,9 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
       if (TextUtils.isEmpty(mCurrentCountry))
       {
         mCurrentCountry = null;
+        mChbDownloadCountry.setChecked(false);
+        mChbDownloadCountry.setEnabled(false);
+        mChbDownloadCountry.setClickable(false);
         return;
       }
 
@@ -109,6 +112,8 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
           checkBoxText = String.format(getString(R.string.download_country_ask), item.name, fileSizeString);
 
         mChbDownloadCountry.setText(checkBoxText);
+        mChbDownloadCountry.setEnabled(true);
+        mChbDownloadCountry.setClickable(true);
         mChbDownloadCountry.animate()
                 .alpha(1f)
                 .translationY(0f)
@@ -195,6 +200,9 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
     // Set download button hidden so it can be animated in
     mChbDownloadCountry.setAlpha(0f);
     mChbDownloadCountry.setTranslationY(20f);
+    mChbDownloadCountry.setChecked(false);
+    mChbDownloadCountry.setEnabled(false);
+    mChbDownloadCountry.setClickable(false);
 
     if (prepareFilesDownload(false))
     {
