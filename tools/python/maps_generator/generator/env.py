@@ -31,6 +31,8 @@ WORLD_COASTS_NAME = "WorldCoasts"
 
 WORLDS_NAMES = {WORLD_NAME, WORLD_COASTS_NAME}
 
+BORDERS_DIR = "borders"
+
 
 def get_all_countries_list(borders_path: AnyStr) -> List[AnyStr]:
     """Returns all countries including World and WorldCoasts."""
@@ -158,7 +160,13 @@ class PathProvider:
     @property
     @create_if_not_exist
     def mwm_path(self) -> AnyStr:
-        """mwm_path contains *.mwm files."""
+        """mwm_path contains work-in-progress *.mwm files."""
+        return os.path.join(self.build_path, "mwms")
+
+    @property
+    @create_if_not_exist
+    def output_path(self) -> AnyStr:
+        """contains finalized *.mwm files and countries.txt*."""
         return os.path.join(self.build_path, self.mwm_version)
 
     @property
@@ -174,13 +182,7 @@ class PathProvider:
         generation_borders_path contains *.poly files, that define
         which .mwm files are generated.
         """
-        return os.path.join(self.intermediate_data_path, "borders")
-
-    @property
-    @create_if_not_exist
-    def draft_path(self) -> AnyStr:
-        """draft_path is used for saving temporary intermediate files."""
-        return os.path.join(self.build_path, "draft")
+        return os.path.join(self.intermediate_data_path, BORDERS_DIR)
 
     @property
     @create_if_not_exist
@@ -329,7 +331,7 @@ class PathProvider:
 
     @property
     def countries_txt_path(self) -> AnyStr:
-        return os.path.join(self.mwm_path, "countries.txt")
+        return os.path.join(self.output_path, "countries.txt")
 
     @property
     def user_resource_path(self) -> AnyStr:
@@ -349,7 +351,7 @@ class PathProvider:
 
     @staticmethod
     def borders_path() -> AnyStr:
-        return os.path.join(settings.USER_RESOURCE_PATH, "borders")
+        return os.path.join(settings.USER_RESOURCE_PATH, BORDERS_DIR)
 
     @staticmethod
     @create_if_not_exist
@@ -604,7 +606,7 @@ class Env:
 
             poly = f"{x}.poly"
             make_symlink(os.path.join(borders, poly), os.path.join(temp_borders, poly))
-        make_symlink(temp_borders, os.path.join(self.paths.draft_path, "borders"))
+        make_symlink(temp_borders, os.path.join(self.paths.mwm_path, BORDERS_DIR))
 
     def setup_osm2ft(self):
         for x in os.listdir(self.paths.osm2ft_path):

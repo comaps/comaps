@@ -9,7 +9,7 @@
         "defaultMessage": "5Transport"
     },
     "@category_fuel": {
-        "defaultMessage": "3Bensin"
+        "defaultMessage": "Bensinstation|3Bensin"
     },
     "@category_parking": {
         "defaultMessage": "4Parkering"

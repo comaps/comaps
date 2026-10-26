@@ -39,7 +39,7 @@ git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/
   <summary><span style="font-size: 1em; font-weight: bold;">Ubuntu/Debian</span></summary>
 
 ```bash
-sudo apt install build-essential cmake qt6-base-dev qt6-svg-dev qt6-positioning-dev libicu-dev libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev optipng python3-venv ninja-build jq
+sudo apt install build-essential cmake qt6-base-dev qt6-svg-dev qt6-positioning-dev libicu-dev libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev optipng python3-venv ninja-build jq curl python3-pip python-is-python3
 ```
 </details>
 
@@ -130,19 +130,14 @@ git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/
 <details>
   <summary><span style="font-size: 1.5em; font-weight: bold;">macOS</span></summary>
 
-The recommended version for iOS development is macOS 15 and Xcode 26, as this is the only way to run with the CarPlay external display in the iOS Simulator
-
-With the release of macOS 27, the recommended way is hence to run the development in a VM as macOS 15 is unsupported by Apple. This requires approximately 100 GB disk space
-
-Note that the obligatory Scene migration required by iOS SDK 27 has not yet been merged to `main`, such that Xcode 27 can't compile the app unless you check out the `carplay-dashboard-support` branch. This means that you have to stay on Xcode 26 on macOS 26.
-
-Once we have set up an Apple Organization account it will be possible to use Xcode 27 if you get added as a "Developer" on the team
+Development is supported on macOS 15 and above, with the release build being compiled with Xcode 27 and the iOS 27 SDK.
 
 Install required build dependencies and Xcode
-1. Install Xcode Command Line Tools
-2. Install [Xcode](https://apps.apple.com/app/xcode/id497799835?mt=12) from the App Store
-3. Install [Homebrew](https://brew.sh) and required dependencies
-4. Clone and configure the repository to be able to build the iOS app later
+1. Install [Xcode](https://apps.apple.com/app/xcode/id497799835?mt=12) from the App Store
+2. Install [Homebrew](https://brew.sh)
+3. Install Xcode Command Line Tools
+4. Install required dependencies with Homebrew
+5. Clone and configure the repository to be able to build the iOS app later
 
 #### Xcode Command Line Tools
 ```bash
@@ -154,11 +149,8 @@ xcode-select --install
 brew install wget optipng cmake ninja qt jq
 ```
 
-The required Python `protobuf` version is installed automatically into a local
-`.venv` by `./configure.sh` (run below). Set `SKIP_PYTHON_VENV=1` to manage it via
-your system Python instead.
 
-#### Clone the repository
+#### Clone and configure the repository
 ```bash
 git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/comaps.git
 cd comaps
@@ -283,21 +275,29 @@ adb shell pm grant app.organicmaps.debug android.permission.READ_LOGS
 <details>
   <summary><span style="font-size: 1.5em; font-weight: bold;">Android Auto</span></summary>
 
-Android Auto can be developed and tested without having a physical device by using [Desktop Head Unit (DHU)](https://developer.android.com/training/cars/testing/dhu). Go to Android Studio > Tools -> SDK Manager -> SDK Tools and enable "Android Auto Desktop Head Unit".
+Android Auto can be developed and tested without having a physical head unit by using [Desktop Head Unit (DHU)](https://developer.android.com/training/cars/testing/dhu). Go to Android Studio > Tools -> SDK Manager -> SDK Tools and enable "Android Auto Desktop Head Unit".
 
-[Android Auto App](https://play.google.com/store/apps/details?id=com.google.android.projection.gearhead) is required for Auto functionality. The app should be installed from Google Play before connecting a phone to the Desktop Head Unit or a real car. Android Auto doesn't work on phones without Google Play Services.
+The DHU will be located at the following path: 
+
+```
+$ANDROID_HOME/extras/google/auto/desktop-head-unit`
+```
+
+Where `$ANDROID_HOME` is the path of the Android SDK on your system.
+The default location is:
+  - Windows: `%USERPROFILE%\Android\Sdk`
+  - MacOS: `~/Library/Android/sdk`
+  - Linux `~/Android/Sdk`
+
+### With a physical phone
+
+The [Android Auto app](https://play.google.com/store/apps/details?id=com.google.android.projection.gearhead) is required for Auto functionality. The app should be installed from Google Play before connecting a phone to the Desktop Head Unit or a real car. Android Auto doesn't work on phones without Google Play Services.
 
 To run Android Auto, connect the phone using USB cable and run the Desktop Head Unit with the `--usb` flag:
 
 ```
-[Android SDK path]/extras/google/auto/desktop-head-unit --usb
+$ANDROID_HOME/extras/google/auto/desktop-head-unit --usb
 ```
-Where `[Android SDK path]` is the path of the Android SDK on your system.
-The default location is:
-  - Windows: %USERPROFILE%\Android\Sdk
-  - MacOS: ~/Library/Android/sdk
-  - Linux ~/Android/Sdk
-
 
 ```
 [REDACTED]
@@ -307,7 +307,92 @@ The default location is:
 [I]: Attached!
 ```
 
-CoMaps icon will appear in the application list in DHU.
+The CoMaps icon will appear in the application list in DHU.
+
+### With an emulated phone
+
+The emulated device will need a recent version of Android and **must be using a
+Google Play variant image**.
+
+The Android Auto app will need to be installed inside the emulated device. You
+can download it from [APKMirror](https://www.apkmirror.com/apk/google-inc/android-auto/).
+Make sure the version you download matches the architecture you are emulating, 
+and is the latest available version.
+
+<details>
+<summary>Sideloading from outside the emulator</summary>
+
+This section assumes you've downloaded the archive to your computer.
+
+Unpack the `.apkm`:
+
+```
+unzip com.google.android.projection.gearhead_17.2.662638-release-172662638_1arch_1dpi_24lang_e37912cf480ba711cd4bd3db5050e647_apkmirror.com.apkm
+```
+
+(This will unzip a lot of files into your current working directory. You may
+want to consider moving to an empty directory before unpacking.)
+
+Install all the necessary parts, for example:
+
+```
+adb install-multiple base.apk split_config.x86_64.apk split_config.en.apk split_config.xxhdpi.apk
+```
+
+Change the command to whatever architecture, languages, and DPI you need.
+</details>
+
+<details>
+
+<summary>Installing from inside the emulator</summary>
+
+This section assumes you've downloaded the archive inside the emulator and you
+have an shell open (`adb shell`).
+
+Unpack the `.apkm` and move all `.apk` files into `/data/local/tmp`:
+
+```
+cd /storage/emulated/0/Download
+unzip com.google.android.projection.gearhead_17.2.662638-release-172662638_1arch_1dpi_24lang_e37912cf480ba711cd4bd3db5050e647_apkmirror.com.apkm
+mv *.apk /data/local/tmp
+cd /data/local/tmp
+```
+
+Start an install session and install all the necessary parts, for example:
+
+```
+pm install-create
+pm install-write XX base base.apk
+pm install-write XX config.x86_64 split_config.x86_64.apk
+pm install-write XX config.en split_config.en.apk
+pm install-write XX config.xxhdpi split_config.xxhdpi.apk
+pm install-commit
+```
+
+Where `XX` is the session ID. Change the command to whatever architecture,
+languages, and DPI you need.
+</details>
+
+Next, access Android Auto by going to Settings > Connected devices > Connection 
+preferences > Android Auto. Scroll to the bottom and tap the version a bunch of
+times to enable Developer Mode. Once enabled, tap the three dots in the top
+right and tap "Start head unit server".
+
+Finally, forward port `5277` from the emulator and start the DHU:
+
+```
+adb forward tcp:5277 tcp:5277
+$ANDROID_HOME/extras/google/auto/desktop-head-unit
+```
+
+There will be a few screens which pop up to grant permissions and set up Android
+Auto for first use. 
+
+#### Troubleshooting
+
+*I see a certificate error when trying to connect the DHU.* This means your
+Android Auto version is out of date. Make sure you're on a later version of
+both Android and Android Auto.
 
 ### More options
 
@@ -495,12 +580,15 @@ Compile and run the project ("Product" → "Run").
 <details>
   <summary><span style="font-size: 1.5em; font-weight: bold;">CarPlay</span></summary>
 
-To test CarPlay, simply select "I/O" → "External Displays" → "CarPlay" in the Simulator
+To test CarPlay:
+- Xcode 16: Simply select "I/O" → "External Displays" → "CarPlay" in the Simulator
+- Xcode 26: The latest Xcode 26 has the broken CarPlay display in the regular simulator, OM has made a [shim](https://github.com/organicmaps/organicmaps/pull/13507) that repairs it
+- Xcode 27: There is no longer an External Display option, the only option is the dedicated CarPlay Simulator part of "Additional Tools for Xcode" available at the [developer downloads](https://developer.apple.com/download/all/). However, that requires compiling and signing the app, which is only possible if you are part of the internal development team as your developer account need to be blessed with a CarPlay entitlement from Apple
 
 ### Spoofing GPS
-The Simulator supports setting a specific location or spoofing a GPX track. This is especially handy when testing CarPlay
+The Simulator supports setting a specific location or spoofing a GPX track. This is especially handy when testing CarPlay or navigation
 
-To select an Apple predetermined track or specific custom location, choose "Features" → "Location" in the Simulator
+To select an Apple predetermined track or specific custom location, choose "Device" → "Location" in the active Simulator in Device Hub
 
 To simulate a custom GPX track use `python3 tools/python/ios_simulator_load_gpx.py <path to your gpx>` which is a wrapper for `xcrun simctl location`. Default values are 60 km/h and 0.1s update intervals, but can be customized
 

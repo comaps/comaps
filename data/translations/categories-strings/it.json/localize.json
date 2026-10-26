@@ -6,7 +6,7 @@
         "defaultMessage": "4Alimentari|Cibo|Negozio"
     },
     "@category_transport": {
-        "defaultMessage": "5Trasporto"
+        "defaultMessage": "Trasporti|5Trasporto"
     },
     "@category_fuel": {
         "defaultMessage": "3Benzinaio"
@@ -18,7 +18,7 @@
         "defaultMessage": "4Shopping|Negozi"
     },
     "@category_hotel": {
-        "defaultMessage": "Hôtel|Alberghi"
+        "defaultMessage": "Albergo|Hôtel|Alberghi"
     },
     "@category_tourism": {
         "defaultMessage": "5Luoghi turistici|4Turistico"
@@ -30,13 +30,13 @@
         "defaultMessage": "Vita notturna"
     },
     "@category_children": {
-        "defaultMessage": "Divertimento in famiglia|Vacanze bambini"
+        "defaultMessage": "Vacanza in famiglia|Divertimento in famiglia|Vacanze bambini"
     },
     "@category_atm": {
-        "defaultMessage": "3Bancomat"
+        "defaultMessage": "Bancomat ATM|3Bancomat"
     },
     "@category_rv": {
-        "defaultMessage": "Per camper"
+        "defaultMessage": "Struttura per camper|Per camper"
     },
     "amenity-atm|@category_atm": {
         "defaultMessage": "soldi"
@@ -1026,7 +1026,7 @@
         "defaultMessage": "Area di sosta|Area di servizio"
     },
     "man_made-chimney": {
-        "defaultMessage": "Ciminiera industriale"
+        "defaultMessage": "Ciminiera"
     },
     "man_made-tower|man_made-flare": {
         "defaultMessage": "Torre"
@@ -1035,7 +1035,7 @@
         "defaultMessage": "Centro scommesse"
     },
     "shop-seafood|@category_food|@shop": {
-        "defaultMessage": "Pescivendolo"
+        "defaultMessage": "Pescivendolo|Pescheria"
     },
     "shop-second_hand|@category_shopping|@shop|@category_secondhand": {
         "defaultMessage": "Negozio di articoli usati|Negozio dell'usato|Mercatino delle pulci"
@@ -1071,7 +1071,7 @@
         "defaultMessage": "Controllo di frontiera"
     },
     "leisure-water_park|@category_tourism|@category_children": {
-        "defaultMessage": "Parco acquatico"
+        "defaultMessage": "5Parco acquatico"
     },
     "man_made-water_tower": {
         "defaultMessage": "Cisterna per acqua"
@@ -1092,7 +1092,7 @@
         "defaultMessage": "Sbarramento"
     },
     "amenity-public_bookcase": {
-        "defaultMessage": "Libreria|Scambio libri"
+        "defaultMessage": "Libreria|Scambio libri|Book crossing|Bookcrossing"
     },
     "sport-climbing": {
         "defaultMessage": "Centro di arrampicata"
@@ -1480,5 +1480,38 @@
     },
     "amenity-food_sharing": {
         "defaultMessage": "Frigo sociale|Cibo|donare|dono|condiviso"
+    },
+    "tourism-artwork-painting": {
+        "defaultMessage": "Dipinto|Quadro"
+    },
+    "man_made-cross": {
+        "defaultMessage": "Croce|Crocifisso"
+    },
+    "amenity-pharmacy|@category_pharmacy": {
+        "defaultMessage": "5Farmacia"
+    },
+    "shop-farm|@category_food|@shop": {
+        "defaultMessage": "Cibo agricolo"
+    },
+    "highway-elevator": {
+        "defaultMessage": "Ascensore"
+    },
+    "building-abandoned": {
+        "defaultMessage": "Edificio abbandonato|Abbandonato"
+    },
+    "@waterbody": {
+        "defaultMessage": "Specchio d'acqua|Corpo idrico|Acqua"
+    },
+    "man_made-survey_point": {
+        "defaultMessage": "Riferimento geodetico"
+    },
+    "amenity-vending_machine-fuel|@category_fuel": {
+        "defaultMessage": "Benzinaio|Distributore di benzina|Pompa di benzina|Pompa di carburante"
+    },
+    "tourism-information-tactile_map": {
+        "defaultMessage": "Mappa tattile"
+    },
+    "shop-grocery|@category_food|@shop": {
+        "defaultMessage": "Droghiere"
     }
 }

@@ -77,6 +77,15 @@ std::string DebugPrint(CLAuthorizationStatus status) {
   CHECK(false, ("Unsupported value", static_cast<int>(status)));
 }
 
+std::string DebugPrint(UIApplicationState state) {
+  switch (state) {
+    case UIApplicationStateActive: return "active";
+    case UIApplicationStateInactive: return "inactive";
+    case UIApplicationStateBackground: return "background";
+  }
+  return "unknown";
+}
+
 struct DesiredAccuracy
 {
   CLLocationAccuracy charging;
@@ -129,6 +138,9 @@ BOOL keepRunningInBackground()
   if (isOnRoute && !isRouteFinished)
     return YES;
 
+  if ([MWMCarPlayService shared].isHostingMapOnCarScreen)
+    return YES;
+
   return NO;
 }
 
@@ -159,6 +171,9 @@ void setShowLocationAlert(BOOL needShow) {
 @property(nonatomic) MWMLocationPredictor * predictor;
 @property(nonatomic) Observers * observers;
 @property(nonatomic) location::TLocationSource locationSource;
+
++ (void)applyBackgroundLocationUpdatesPolicy;
+- (void)startUpdatingLocationFor:(CLLocationManager *)manager;
 
 @end
 
@@ -192,8 +207,15 @@ void setShowLocationAlert(BOOL needShow) {
 
 - (void)protectedDataDidBecomeAvailable
 {
-  if (UIApplication.sharedApplication.applicationState == UIApplicationStateActive)
-    [MWMLocationManager applicationDidBecomeActive];
+  if (UIApplication.sharedApplication.applicationState != UIApplicationStateActive && !keepRunningInBackground())
+    return;
+
+  MWMLocationManager * manager = [MWMLocationManager manager];
+  if (manager.started)
+    [manager startUpdatingLocationFor:manager.locationManager];
+  else
+    manager.started = YES;
+  [MWMLocationManager applyBackgroundLocationUpdatesPolicy];
 }
 
 - (void)dealloc
@@ -228,22 +250,46 @@ void setShowLocationAlert(BOOL needShow) {
 
 #pragma mark - App Life Cycle
 
++ (void)applyBackgroundLocationUpdatesPolicy
+{
+  CLLocationManager * locationManager = [self manager].locationManager;
+  if ([locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)])
+  {
+    BOOL const wasAllowed = locationManager.allowsBackgroundLocationUpdates;
+    BOOL const allowsUpdates = keepRunningInBackground();
+    [locationManager setAllowsBackgroundLocationUpdates:allowsUpdates];
+    if (wasAllowed != allowsUpdates)
+      LOG(LINFO, ("Background location policy completed: allowsUpdates", wasAllowed, "->", allowsUpdates,
+                  "appState", DebugPrint(UIApplication.sharedApplication.applicationState),
+                  "carHosting", [MWMCarPlayService shared].isHostingMapOnCarScreen));
+  }
+}
+
 + (void)applicationDidBecomeActive
 {
-  if (!UIApplication.sharedApplication.isProtectedDataAvailable)
-    return;
-
   [self start];
+  [self applyBackgroundLocationUpdatesPolicy];
 }
 
 + (void)applicationWillResignActive
 {
-  BOOL const keepRunning = keepRunningInBackground();
+  [self applyBackgroundLocationUpdatesPolicy];
+  [self manager].started = keepRunningInBackground();
+}
+
++ (BOOL)shouldKeepRunningInBackground
+{
+  return keepRunningInBackground();
+}
+
++ (void)refreshBackgroundLocationPolicy
+{
+  [self applyBackgroundLocationUpdatesPolicy];
+  if (UIApplication.sharedApplication.applicationState != UIApplicationStateBackground)
+    return;
+
   MWMLocationManager * manager = [self manager];
-  CLLocationManager * locationManager = manager.locationManager;
-  if ([locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)])
-    [locationManager setAllowsBackgroundLocationUpdates:keepRunning];
-  manager.started = keepRunning;
+  manager.started = keepRunningInBackground();
 }
 
 #pragma mark - Getters

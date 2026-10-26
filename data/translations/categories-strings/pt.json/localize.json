@@ -3,7 +3,7 @@
         "defaultMessage": "Onde comer|comer|comida"
     },
     "@category_food": {
-        "defaultMessage": "Mercearias|Comida|Alimentos"
+        "defaultMessage": "Lojas alimentares|Mercearias|Comida|Alimentos"
     },
     "@category_transport": {
         "defaultMessage": "5Transporte"

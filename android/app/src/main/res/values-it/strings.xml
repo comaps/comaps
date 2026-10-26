@@ -519,13 +519,13 @@
     <string name="accept">Accetta</string>
     <!-- For the first routing -->
     <string name="decline">Rifiuta</string>
-    <string name="mobile_data_dialog">Usare una connessione mobile a internet per mostrare informazioni più dettagliate?</string>
+    <string name="mobile_data_dialog">Usare una connessione mobile a internet?</string>
     <string name="mobile_data_option_always">Usa sempre</string>
     <string name="mobile_data_option_today">Solo oggi</string>
     <string name="mobile_data_option_not_today">Non usare oggi</string>
     <string name="mobile_data">Internet mobile</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">È necessaria una connessione dati per ricevere notifiche sugli aggiornamenti alle mappe e per caricare modifiche</string>
+    <string name="mobile_data_description">È necessaria una connessione dati per ricevere notifiche sugli aggiornamenti alle mappe, caricare modifiche e collegare a siti di recensioni</string>
     <string name="mobile_data_option_never">Non usare mai</string>
     <string name="mobile_data_option_ask">Chiedi sempre</string>
     <string name="traffic_update_maps_text">Per visualizzare i dati sul traffico, le mappe devono essere aggiornate</string>
@@ -982,4 +982,12 @@
         <item quantity="many">%d min</item>
         <item quantity="other">%d min</item>
     </plurals>
+    <string name="opens_tomorrow_at">Apre domani alle %s</string>
+    <string name="pref_font_size">Dimensione del testo per le etichette della mappa</string>
+    <string name="decrease_font_size">Diminuisci la dimensione delle etichette della mappa</string>
+    <string name="bookmarks_text_placement_title">Mostra i nomi dei preferiti sulla mappa</string>
+    <string name="place_reviews_title">Recensioni del luogo</string>
+    <string name="place_reviews">%1$s recensioni</string>
+    <string name="reviews_by_mangrove">Recensioni da Mangrove</string>
+    <string name="internet_unavailable">Nessuna connessione a Internet</string>
 </resources>

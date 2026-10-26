@@ -980,4 +980,5 @@
     <string name="place_reviews">%1$s Avaliações</string>
     <string name="rating_stars_description">estelas: %.1f</string>
     <string name="reviews_by_mangrove">Avaliações de Mangrove.\nAdicione avaliações de <a href="https://mapcomplete.org">MapComplete</a>.</string>
+    <string name="pref_font_size">Tamanho da fonte para etiquetas do mapa</string>
 </resources>

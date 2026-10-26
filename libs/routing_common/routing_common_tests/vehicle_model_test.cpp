@@ -454,11 +454,11 @@ UNIT_TEST(VehicleModel_CarModelValidation)
   for (auto const hwType : carRoadTypes)
   {
     auto const factor = kHighwayBasedFactors.find(hwType);
-    TEST(factor == kHighwayBasedFactors.cend(), (hwType));
+    TEST(factor != kHighwayBasedFactors.cend(), (hwType));
     TEST(factor->second.IsValid(), (hwType, factor->second));
 
     auto const speed = kHighwayBasedSpeeds.find(hwType);
-    TEST(speed == kHighwayBasedSpeeds.cend(), (hwType));
+    TEST(speed != kHighwayBasedSpeeds.cend(), (hwType));
     TEST(speed->second.IsValid(), (hwType, speed->second));
   }
 }

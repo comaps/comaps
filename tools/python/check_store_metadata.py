@@ -4,6 +4,7 @@
 #
 
 import os
+import re
 import sys
 import glob
 import shutil
@@ -105,12 +106,14 @@ GPLAY_LOCALES = [
 ]
 
 IOS_META_PATH='iphone/metadata'
-# From a Fastline error message and https://help.apple.com/app-store-connect/#/dev997f9cf7c
+# From https://developer.apple.com/documentation/appstoreconnectapi/managing-metadata-in-your-app-by-using-locale-shortcodes
 APPSTORE_LOCALES = [
-    "ar-SA", "ca", "cs", "da", "de-DE", "el", "en-AU", "en-CA", "en-GB", "en-US", "es-ES", "es-MX", "fi", "fr-CA", "fr-FR", "he", "hi", "hr", "hu", "id", "it", "ja", "ko", "ms", "nl-NL", "no", "pl", "pt-BR", "pt-PT", "ro", "ru", "sk", "sv", "th", "tr", "uk", "vi", "zh-Hans", "zh-Hant"
+    "ar-SA", "bn-BD", "ca", "cs", "da", "de-DE", "el", "en-AU", "en-CA", "en-GB", "en-US", "es-ES", "es-MX", "fi", "fr-CA", "fr-FR", "gu-IN", "he", "hi", "hr", "hu", "id", "it", "ja", "kn-IN", "ko", "ml-IN", "mr-IN", "ms", "nl-NL", "no", "no-IN", "pa-IN", "pl", "pt-BR", "pt-PT", "ro", "ru", "sk", "sl-SI", "sv", "ta-IN", "te-IN", "th", "tr", "uk", "ur-PK", "vi", "zh-Hans", "zh-Hant"
 ]
 
 verbose = False
+
+MARKUP_REGEX = re.compile(r'</?[a-zA-Z][^>]*>')
 
 def error(path, message, *args, **kwargs):
     print(f'ERROR: {path}', message.format(*args, **kwargs), file=sys.stderr)
@@ -141,9 +144,12 @@ def check_raw(path, max_length, ignoreEmptyFilesAndNewLines=False):
             ok = error(path, f'too long {cur_length} (max {max_length})')
         return ok, text
 
-def check_text(path, max, optional=False, ignoreEmptyFilesAndNewLines=False):
+def check_text(path, max, optional=False, ignoreEmptyFilesAndNewLines=False, no_markup=False):
     try:
-        return done(path, check_raw(path, max, ignoreEmptyFilesAndNewLines)[0])
+        ok, text = check_raw(path, max, ignoreEmptyFilesAndNewLines)
+        if no_markup and MARKUP_REGEX.search(text):
+            ok = error(path, 'contains markup language') and ok
+        return done(path, ok)
     except FileNotFoundError as e:
         if optional:
             return True
@@ -229,7 +235,19 @@ def check_android(is_gplay, fix=False):
         return True
 
 
-def check_ios(fix=False):
+def emplace_english(path):
+    filename = os.path.basename(path)
+    source = os.path.join(IOS_META_PATH, 'en-US', filename)
+    if not os.path.isfile(source):
+        error(path, 'cannot copy English translation, source not found: {}', source)
+        return False
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    shutil.copyfile(source, path)
+    print(f'COPIED English translation {source} to {path}')
+    return True
+
+
+def check_ios(fix=False, ci=False):
     ok = True
     for locale in glob.glob(f'{IOS_META_PATH}/*/'):
         if locale.split('/')[-2] not in APPSTORE_LOCALES:
@@ -238,23 +256,30 @@ def check_ios(fix=False):
                 drop_locale(locale)
             ok = False
         else:
-            locale_ok = check_text(locale + "subtitle.txt", 30, False, True)
-            locale_ok = check_text(locale + "description.txt", 4000, False, True) and locale_ok
-            locale_ok = check_text(locale + "keywords.txt", 100, False, True) and locale_ok
-            locale_ok = check_text(locale + "release_notes.txt", 4000, True, True) and locale_ok
-            locale_ok = check_url(locale + "support_url.txt", True) and locale_ok
-            locale_ok = check_url(locale + "marketing_url.txt", True) and locale_ok
-            locale_ok = check_url(locale + "privacy_url.txt", True) and locale_ok
+            locale_ok = True
+            for path, max_len, optional, ignore_empty in [
+                (locale + "subtitle.txt", 30, False, True),
+                (locale + "description.txt", 4000, False, True),
+                (locale + "keywords.txt", 100, False, True),
+                (locale + "release_notes.txt", 4000, False if ci else True, True),
+            ]:
+                if not check_text(path, max_len, optional, ignore_empty, no_markup=True):
+                    locale_ok = False
+                    if fix:
+                        emplace_english(path)
+            for path in (locale + "support_url.txt", locale + "marketing_url.txt", locale + "privacy_url.txt"):
+                if not check_url(path, True):
+                    locale_ok = False
+                    if fix:
+                        emplace_english(path)
             done(locale, locale_ok)
             if not locale_ok:
                 error(locale, 'locale is INVALID or INCOMPLETE')
-                if fix:
-                    drop_locale(locale)
                 ok = False
 
     if not ok:
         if fix:
-            print(f'FIXED by removing invalid locales from {IOS_META_PATH}')
+            print(f'FIXED by copying English translations to invalid locales in {IOS_META_PATH}')
             return True
         else:
             error(IOS_META_PATH, 'HAS INVALID LOCALES')
@@ -268,12 +293,15 @@ if __name__ == "__main__":
     parser.add_argument("platform", choices=["gplay", "fdroid", "ios"], help="store metadata to check")
     parser.add_argument("-v", "--verbose", action="store_true", help="verbose output")
     parser.add_argument("-f", "--fix", action="store_true", help="remove invalid/incomplete locales")
+    parser.add_argument("--ci", action="store_true", help="indicate running in CI (makes relnotes not optional)")
     args = parser.parse_args()
     verbose = args.verbose
     to_fix = args.fix
+    is_ci = args.ci
     if args.platform == 'gplay':
         sys.exit(0 if check_android(is_gplay=True, fix=to_fix) else 2)
     elif args.platform == 'fdroid':
         sys.exit(0 if check_android(is_gplay=False, fix=to_fix) else 2)
     elif args.platform == "ios":
-        sys.exit(0 if check_ios(fix=to_fix) else 2)
+        sys.exit(0 if check_ios(fix=to_fix, ci=is_ci) else 2)
+

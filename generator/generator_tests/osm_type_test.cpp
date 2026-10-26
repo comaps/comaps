@@ -2243,6 +2243,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SimpleTypesSmoke)
       {"amenity", "telephone"},
       {"amenity", "theatre"},
       {"amenity", "toilets"},
+      {"amenity", "tool_library"},
       {"amenity", "townhall"},
       {"amenity", "university"},
       {"amenity", "veterinary"},
@@ -2268,6 +2269,8 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SimpleTypesSmoke)
       {"barrier", "turnstile"},
       {"barrier", "wicket_gate"},
       {"barrier", "cycle_barrier"},
+      {"barrier", "bus_trap"},
+      {"barrier", "sump_buster"},
       {"barrier", "swing_gate"},
       {"barrier", "toll_booth"},
       {"barrier", "wall"},
@@ -2664,6 +2667,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SimpleTypesSmoke)
       {"shop", "tattoo"},
       {"shop", "tea"},
       {"shop", "ticket"},
+      {"shop", "tool_hire"},
       {"shop", "toys"},
       {"shop", "travel_agency"},
       {"shop", "tyres"},
@@ -3182,15 +3186,15 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_MultipleComplexTypesSmoke)
   using Type = std::vector<std::string>;
   std::vector<std::pair<std::vector<Type>, Tags>> const complexTypes = {
       {{{"amenity", "parking"}, {"fee", "no"}}, {{"amenity", "parking"}, {"fee", "no"}}},
-      {{{"amenity", "parking", "fee"}, {"fee", "yes"}}, {{"amenity", "parking"}, {"fee", "any_value"}}},
+      {{{"amenity", "parking", "fee"}, {"fee", "yes"}}, {{"amenity", "parking"}, {"fee", "yes"}}},
       {{{"amenity", "parking", "lane", "fee"}, {"fee", "yes"}},
-       {{"amenity", "parking"}, {"parking", "lane"}, {"fee", "any_value"}}},
+       {{"amenity", "parking"}, {"parking", "lane"}, {"fee", "yes"}}},
       {{{"amenity", "parking", "multi-storey", "fee"}, {"fee", "yes"}},
-       {{"amenity", "parking"}, {"parking", "multi-storey"}, {"fee", "any_value"}}},
+       {{"amenity", "parking"}, {"parking", "multi-storey"}, {"fee", "yes"}}},
       {{{"amenity", "parking", "street_side", "fee"}, {"fee", "yes"}},
-       {{"amenity", "parking"}, {"parking", "street_side"}, {"fee", "any_value"}}},
+       {{"amenity", "parking"}, {"parking", "street_side"}, {"fee", "yes"}}},
       {{{"amenity", "parking", "underground", "fee"}, {"fee", "yes"}},
-       {{"amenity", "parking"}, {"parking", "underground"}, {"fee", "any_value"}}},
+       {{"amenity", "parking"}, {"parking", "underground"}, {"fee", "yes"}}},
   };
 
   for (auto const & type : complexTypes)

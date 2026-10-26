@@ -57,6 +57,9 @@ enum class RoadShieldType
   Bolivia_Fundamental,
   Brazil_National,
   Brazil_State,
+  Romania_National,
+  Romania_County,
+  Romania_Local,
   Hidden,
   Count
 };
@@ -112,7 +115,7 @@ struct RoadShield
 // Use specific country road shield styles based on mwm feature belongs to.
 using RoadShieldsSetT = buffer_vector<RoadShield, 2>;
 RoadShieldsSetT GetRoadShields(FeatureType & f);
-RoadShieldsSetT GetRoadShields(std::string_view mwmName, std::string const & roadNumber,
+RoadShieldsSetT GetRoadShields(std::string_view mwmNameFull, std::string const & roadNumber,
                                HighwayClass const & highwayClass);
 
 // Simple parsing without specific country styles.

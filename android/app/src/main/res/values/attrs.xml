@@ -17,6 +17,7 @@
     <attr name="currentSpeedBackgroundColor" format="color" />
     <attr name="currentSpeedBorderColor" format="color" />
     <attr name="currentSpeedTextColor" format="color" />
+    <attr name="currentSpeedTextAlertColor" format="color" />
     <!-- These values are used only in edit mode -->
     <attr name="currentSpeedEditModeCurrentSpeed" format="integer" />
   </declare-styleable>

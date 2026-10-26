@@ -106,6 +106,7 @@
 "type.amenity.nightclub" = "Nightclub";
 "type.amenity.nursing_home" = "Nursing Home";
 "type.amenity.parking" = "Parking";
+"type.amenity.parking.customers" = "Customer Parking";
 "type.amenity.parking.fee" = "Parking";
 "type.amenity.parking.multi.storey" = "Multi Storey Parking";
 "type.amenity.parking.multi.storey.fee" = "Multi Storey Parking";
@@ -188,6 +189,7 @@
 "type.amenity.toilets.customers" = "Customer Access";
 "type.amenity.toilets.private" = "Private Access";
 "type.toilets.yes" = "Toilet";
+"type.amenity.tool_library" = "Tool Library";
 "type.amenity.townhall" = "Town Hall";
 "type.amenity.university" = "University";
 "type.amenity.vending_machine" = "Vending Machine";
@@ -220,6 +222,8 @@
 "type.barrier.chain" = "Chain";
 "type.barrier.city_wall" = "City Wall";
 "type.barrier.cycle_barrier" = "Cycle Barrier";
+"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.sump_buster" = "Sump Buster";
 "type.waterway.ditch" = "Drainage Ditch";
 "type.natural.water.moat" = "Moat";
 "type.natural.water.wastewater" = "Wastewater";
@@ -255,6 +259,7 @@
 "type.boundary.protected_area.5" = "Protected Area";
 "type.boundary.protected_area.6" = "Protected Area";
 "type.building" = "Building";
+"type.building.abandoned" = "Abandoned Building";
 /* Duplicates [address] in strings.txt */
 "type.building.address" = "Address";
 "type.building.has_parts" = "Building";
@@ -701,6 +706,7 @@
 "type.landuse.landfill" = "Landfill";
 "type.landuse.meadow" = "Meadow";
 "type.landuse.military" = "Military Area";
+"type.landuse.military.danger_area" = "Military Danger Area";
 "type.landuse.orchard" = "Orchard";
 "type.landuse.quarry" = "Quarry";
 "type.landuse.railway" = "Railway Premises";
@@ -1026,6 +1032,7 @@
 "type.railway.station.subway.bengalore" = "Subway Station";
 "type.railway.station.subway.berlin" = "Subway Station";
 "type.railway.station.subway.bilbao" = "Subway Station";
+"type.railway.station.subway.boston" = "Subway Station";
 "type.railway.station.subway.brasilia" = "Subway Station";
 "type.railway.station.subway.brescia" = "Subway Station";
 "type.railway.station.subway.brussels" = "Subway Station";
@@ -1144,6 +1151,7 @@
 "type.railway.subway_entrance.bengalore" = "Subway Entrance";
 "type.railway.subway_entrance.berlin" = "Subway Entrance";
 "type.railway.subway_entrance.bilbao" = "Subway Entrance";
+"type.railway.subway_entrance.boston" = "Subway Entrance";
 "type.railway.subway_entrance.brasilia" = "Subway Entrance";
 "type.railway.subway_entrance.brescia" = "Subway Entrance";
 "type.railway.subway_entrance.brussels" = "Subway Entrance";
@@ -1211,6 +1219,7 @@
 "type.railway.subway_entrance.paris" = "Subway Entrance";
 "type.railway.subway_entrance.philadelphia" = "Subway Entrance";
 "type.railway.subway_entrance.pyongyang" = "Subway Entrance";
+"type.railway.subway_entrance.qingdao" = "Subway Entrance";
 "type.railway.subway_entrance.rennes" = "Subway Entrance";
 "type.railway.subway_entrance.rio" = "Subway Entrance";
 "type.railway.subway_entrance.roma" = "Subway Entrance";
@@ -1337,6 +1346,7 @@
 "type.shop.tea" = "Tea Shop";
 "type.shop.telecommunication" = "Telecommunication Shop";
 "type.shop.ticket" = "Ticket Shop";
+"type.shop.tool_hire" = "Tool Hire";
 "type.shop.toys" = "Toy Store";
 "type.shop.travel_agency" = "Travel Agency";
 "type.shop.tyres" = "Tyre Shop";

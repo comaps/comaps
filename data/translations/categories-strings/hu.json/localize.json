@@ -3,7 +3,7 @@
         "defaultMessage": "Hol lehet enni valamit|Étkezés|Étterem|Étel|Kaja"
     },
     "@category_food": {
-        "defaultMessage": "Élelmiszer|Ennivaló|Üzlet"
+        "defaultMessage": "Élelmiszerek|Élelmiszer|Ennivaló|Üzlet"
     },
     "@category_transport": {
         "defaultMessage": "Közlekedés|Tömegközlekedés"

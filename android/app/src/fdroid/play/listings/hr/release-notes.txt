@@ -1,0 +1,8 @@
+• Poveznica za dodavanje novih recenzija
+• Prikaz trenutačne brzine za Android Auto
+• Prikaz ocjena recenzija u rezultatima pretraživanja
+• Zvjezdice hotela/restorana sada se prikazuju kao tekst
+• Dodavanje trgovina za najam i posudbu alata; dodane oznake cesta za Rumunjsku i Maroko, te ispravke istih u Augsburgu u Njemačkoj i cesta tipa "A" na Cipru
+• Prilikom planiranja rute, gumbi za pregled i spremanje su promijenjeni u ikone
+
+Više detalja na comaps.app/latest

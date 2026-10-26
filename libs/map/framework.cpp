@@ -1782,7 +1782,7 @@ void Framework::SetTrackRecordingUpdateHandler(TrackRecordingUpdateHandler && tr
     m_trackRecordingUpdateHandler(GpsTracker::Instance().GetTrackStatistics());
 }
 
-ElevationInfo const & Framework::GetTrackRecordingElevationInfo()
+ElevationInfo Framework::GetTrackRecordingElevationInfo()
 {
   return GpsTracker::Instance().GetElevationInfo();
 }

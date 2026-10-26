@@ -1,9 +1,9 @@
 {
     "@category_eat": {
-        "defaultMessage": "طعام|مكان لتناول الطعام|أكل|غذاء"
+        "defaultMessage": "أمكان لتناول الطعام|طعام|مكان لتناول الطعام|أكل|غذاء"
     },
     "@category_food": {
-        "defaultMessage": "طعام|بقالة|بقال|بقول"
+        "defaultMessage": "بقالية|طعام|بقالة|بقال|بقول"
     },
     "@category_transport": {
         "defaultMessage": "مواصلات|مواصلات"
@@ -36,7 +36,7 @@
         "defaultMessage": "ماكينة صرافة آلية|صراف|صراف آلي|صراف آلي"
     },
     "@category_rv": {
-        "defaultMessage": "منشآت للمنازل المتنقلة"
+        "defaultMessage": "منشآت المركبات الترفيهية|منشآت للمنازل المتنقلة"
     },
     "amenity-atm|@category_atm": {
         "defaultMessage": "ماكينة صراف آلي|الأموال|فلوس|صرافة آلية|نقود"
@@ -891,7 +891,7 @@
         "defaultMessage": "المحيط|محيط"
     },
     "@category_wifi": {
-        "defaultMessage": "وايفاي|إنترنت لا سلكي"
+        "defaultMessage": "واي فاي|وايفاي|إنترنت لا سلكي"
     },
     "internet_access|internet_access-wlan|@category_wifi": {
         "defaultMessage": "واي فاي|الإنترنت|WiFi|3Internet"

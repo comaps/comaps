@@ -32,11 +32,10 @@ struct Checker
 {
   explicit Checker(size_t & count) : m_count(count) {}
 
-  void operator()(CategoriesHolder::Category const & cat)
+  void operator()(uint32_t type, CategoriesHolder::Category const & cat)
   {
-    switch (m_count)
-    {
-    case 0:
+    Classificator const & c = classif();
+    if (type == c.GetTypeByPath({"amenity", "bench"}))
     {
       TEST_EQUAL(cat.m_synonyms.size(), 8, ());
       TEST_EQUAL(cat.m_synonyms[0].m_locale, CategoriesHolder::MapLocaleToInteger("en"), ());
@@ -66,12 +65,11 @@ struct Checker
       TEST_EQUAL(cat.m_synonyms[6].m_name, "長板凳", ());
       TEST_EQUAL(cat.m_synonyms[7].m_locale, CategoriesHolder::MapLocaleToInteger("da"), ());
       TEST_EQUAL(cat.m_synonyms[7].m_name, "bænk", ());
-      ++m_count;
     }
-    break;
-    case 1:
-    case 2:
+    else
     {
+      TEST(type == c.GetTypeByPath({"place", "village"}) || type == c.GetTypeByPath({"place", "hamlet"}),
+           (c.GetReadableObjectName(type)));
       TEST_EQUAL(cat.m_synonyms.size(), 3, ());
       TEST_EQUAL(cat.m_synonyms[0].m_locale, CategoriesHolder::MapLocaleToInteger("en"), ());
       TEST_EQUAL(cat.m_synonyms[0].m_name, "village", ());
@@ -81,11 +79,8 @@ struct Checker
       TEST_EQUAL(cat.m_synonyms[2].m_locale, CategoriesHolder::MapLocaleToInteger("de"), ());
       TEST_EQUAL(cat.m_synonyms[2].m_name, "weiler", ());
       TEST_EQUAL(cat.m_synonyms[2].m_prefixLengthToSuggest, 4, ());
-      ++m_count;
     }
-    break;
-    default: TEST(false, ("Too many categories"));
-    }
+    ++m_count;
   }
 
   size_t & m_count;
@@ -98,7 +93,7 @@ UNIT_TEST(LoadCategories)
   CategoriesHolder h(make_unique<MemReader>(g_testCategoriesTxt, sizeof(g_testCategoriesTxt) - 1));
   size_t count = 0;
   Checker f(count);
-  h.ForEachCategory(f);
+  h.ForEachTypeAndCategory(f);
   TEST_EQUAL(count, 3, ());
 }
 
@@ -317,6 +312,6 @@ UNIT_TEST(CategoriesIndex_AllCategoriesEnglishName)
   CategoriesIndex index;
 
   index.AddAllCategoriesInLang(CategoriesHolder::MapLocaleToInteger("en"));
-  TEST_LESS(index.GetNumTrieNodes(), 15000, ());
+  TEST_LESS(index.GetNumTrieNodes(), 20000, ());
 }
 #endif

@@ -136,7 +136,7 @@ E.g. `leisure-swimming_pool-private` is defined explicitly to prevent matching b
 This also means that if e.g. `historic-memorial-statue` is to be matched by both specific (`statue`) and parent's (`monument`) keywords then the latter ones has to be duplicated explicitly or via use of `@` grouping.
 (see `generator/search_index_builder.cpp::GetCategoryTypes()`)
 
-Maps regeneration is required for new types added to [data/categories-strings/](https://codeberg.org/comaps/comaps/src/branch/main/data/categories-strings/) to become searchable.
+Maps regeneration is required for new types added to [data/translations/categories-strings/](https://codeberg.org/comaps/comaps/src/branch/main/data/translations/categories-strings/) to become searchable.
 
 Some features won't be category-searchable unless they're tagged with a name, e.g. roads, rivers, chimneys (see `libs/search/types_skipper.cpp`).
 

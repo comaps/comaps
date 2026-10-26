@@ -970,7 +970,7 @@
     <string name="long_tap_disabled_toast">Чтобы скрыть интерфейс, включите долгий тап в настройках</string>
     <string name="downloader_check_updates_button">Проверить обновления</string>
     <string name="downloader_check_updates_checking">Проверка обновлений...</string>
-    <string name="downloader_check_updates_updated">Карта упешно обновлена!</string>
+    <string name="downloader_check_updates_updated">Доступны обновления карт</string>
     <string name="downloader_check_updates_no_updates">Нет доступных обновлений</string>
     <string name="downloader_check_updates_eol">Обновления карт недоступны для этой версии. Пожалуйста, обновите приложение!</string>
     <string name="downloader_check_updates_error">Ошибка проверки обновлений</string>

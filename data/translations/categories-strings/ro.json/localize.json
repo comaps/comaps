@@ -27,7 +27,7 @@
         "defaultMessage": "4Divertisment|3Distracție"
     },
     "@category_nightlife": {
-        "defaultMessage": "Viața nocturnă|cu prietenii|petrecere|Viață de noapte"
+        "defaultMessage": "Viața nocturnă|cu prietenii|petrecere|Viață de noapte|Viață nocturnă"
     },
     "@category_children": {
         "defaultMessage": "Divertisment cu copiii|Divertisment cu familia|Vacanță cu copiii|Pentru copii|Copii|Pentru familie"
@@ -450,7 +450,7 @@
         "defaultMessage": "3Farmacie"
     },
     "@category_post": {
-        "defaultMessage": "3Poştă"
+        "defaultMessage": "Poștă|3Poştă"
     },
     "amenity-post_box|@category_post": {
         "defaultMessage": "Cutie poștală"

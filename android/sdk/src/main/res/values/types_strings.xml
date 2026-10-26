@@ -109,6 +109,7 @@
     <string name="type.amenity.nightclub">Nightclub</string>
     <string name="type.amenity.nursing_home">Nursing Home</string>
     <string name="type.amenity.parking">Parking</string>
+    <string name="type.amenity.parking.customers">Customer Parking</string>
     <string name="type.amenity.parking.fee">Parking</string>
     <string name="type.amenity.parking.multi.storey">Multi Storey Parking</string>
     <string name="type.amenity.parking.multi.storey.fee">Multi Storey Parking</string>
@@ -192,6 +193,7 @@
     <string name="type.amenity.toilets.customers">Customer Access</string>
     <string name="type.amenity.toilets.private">Private Access</string>
     <string name="type.toilets.yes">Toilet</string>
+    <string name="type.amenity.tool_library">Tool Library</string>
     <string name="type.amenity.townhall">Town Hall</string>
     <string name="type.amenity.university">University</string>
     <string name="type.amenity.vending_machine">Vending Machine</string>
@@ -225,6 +227,8 @@
     <string name="type.barrier.chain">Chain</string>
     <string name="type.barrier.city_wall">City Wall</string>
     <string name="type.barrier.cycle_barrier">Cycle Barrier</string>
+    <string name="type.barrier.bus_trap">Bus Trap</string>
+    <string name="type.barrier.sump_buster">Sump Buster</string>
     <string name="type.waterway.ditch">Drainage Ditch</string>
     <string name="type.natural.water.moat">Moat</string>
     <string name="type.natural.water.wastewater">Wastewater</string>
@@ -260,6 +264,7 @@
     <string name="type.boundary.protected_area.5">Protected Area</string>
     <string name="type.boundary.protected_area.6">Protected Area</string>
     <string name="type.building">Building</string>
+    <string name="type.building.abandoned">Abandoned Building</string>
     <!-- Duplicates [address] in strings.txt -->
     <string name="type.building.address">Address</string>
     <string name="type.building.has_parts">Building</string>
@@ -709,6 +714,7 @@
     <string name="type.landuse.landfill">Landfill</string>
     <string name="type.landuse.meadow">Meadow</string>
     <string name="type.landuse.military">Military Area</string>
+    <string name="type.landuse.military.danger_area">Military Danger Area</string>
     <string name="type.landuse.orchard">Orchard</string>
     <string name="type.landuse.quarry">Quarry</string>
     <string name="type.landuse.railway">Railway Premises</string>
@@ -1034,6 +1040,7 @@
     <string name="type.railway.station.subway.bengalore">Subway Station</string>
     <string name="type.railway.station.subway.berlin">Subway Station</string>
     <string name="type.railway.station.subway.bilbao">Subway Station</string>
+    <string name="type.railway.station.subway.boston">Subway Station</string>
     <string name="type.railway.station.subway.brasilia">Subway Station</string>
     <string name="type.railway.station.subway.brescia">Subway Station</string>
     <string name="type.railway.station.subway.brussels">Subway Station</string>
@@ -1152,6 +1159,7 @@
     <string name="type.railway.subway_entrance.bengalore">Subway Entrance</string>
     <string name="type.railway.subway_entrance.berlin">Subway Entrance</string>
     <string name="type.railway.subway_entrance.bilbao">Subway Entrance</string>
+    <string name="type.railway.subway_entrance.boston">Subway Entrance</string>
     <string name="type.railway.subway_entrance.brasilia">Subway Entrance</string>
     <string name="type.railway.subway_entrance.brescia">Subway Entrance</string>
     <string name="type.railway.subway_entrance.brussels">Subway Entrance</string>
@@ -1219,6 +1227,7 @@
     <string name="type.railway.subway_entrance.paris">Subway Entrance</string>
     <string name="type.railway.subway_entrance.philadelphia">Subway Entrance</string>
     <string name="type.railway.subway_entrance.pyongyang">Subway Entrance</string>
+    <string name="type.railway.subway_entrance.qingdao">Subway Entrance</string>
     <string name="type.railway.subway_entrance.rennes">Subway Entrance</string>
     <string name="type.railway.subway_entrance.rio">Subway Entrance</string>
     <string name="type.railway.subway_entrance.roma">Subway Entrance</string>
@@ -1345,6 +1354,7 @@
     <string name="type.shop.tea">Tea Shop</string>
     <string name="type.shop.telecommunication">Telecommunication Shop</string>
     <string name="type.shop.ticket">Ticket Shop</string>
+    <string name="type.shop.tool_hire">Tool Hire</string>
     <string name="type.shop.toys">Toy Store</string>
     <string name="type.shop.travel_agency">Travel Agency</string>
     <string name="type.shop.tyres">Tyre Shop</string>

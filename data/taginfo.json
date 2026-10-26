@@ -1161,6 +1161,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/toilets_private-m.svg"
         },
         {
+            "description": "amenity=tool_library",
+            "key": "amenity",
+            "value": "tool_library",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/doityourself-m.svg"
+        },
+        {
             "description": "amenity=townhall",
             "key": "amenity",
             "value": "townhall",
@@ -4586,6 +4592,12 @@
             "key": "shop",
             "value": "tobacco",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/tobacco-m.svg"
+        },
+        {
+            "description": "shop=tool_hire",
+            "key": "shop",
+            "value": "tool_hire",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/doityourself-m.svg"
         },
         {
             "description": "shop=toys",

@@ -100,5 +100,71 @@
     },
     "amenity-arts_centre|@category_tourism": {
         "defaultMessage": "Centro de artes"
+    },
+    "@category_eat": {
+        "defaultMessage": "Dónde comer"
+    },
+    "@category_food": {
+        "defaultMessage": "Provisiones"
+    },
+    "@category_transport": {
+        "defaultMessage": "Transporte"
+    },
+    "@category_fuel": {
+        "defaultMessage": "Gasolinera"
+    },
+    "@category_parking": {
+        "defaultMessage": "Aparcamiento"
+    },
+    "@category_shopping": {
+        "defaultMessage": "Compras"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "Segunda mano"
+    },
+    "@category_hotel": {
+        "defaultMessage": "Hotel"
+    },
+    "@category_tourism": {
+        "defaultMessage": "Turismo"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "Entretenimiento"
+    },
+    "@category_atm": {
+        "defaultMessage": "Cajero automático"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "Vida nocturna"
+    },
+    "@category_children": {
+        "defaultMessage": "Ocio en familia"
+    },
+    "@category_bank": {
+        "defaultMessage": "Banco"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "Farmacia"
+    },
+    "@category_hospital": {
+        "defaultMessage": "Hospital"
+    },
+    "@category_toilet": {
+        "defaultMessage": "Baño"
+    },
+    "@category_post": {
+        "defaultMessage": "Oficina de correos"
+    },
+    "@category_police": {
+        "defaultMessage": "Policía"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi"
+    },
+    "@category_water": {
+        "defaultMessage": "Agua"
+    },
+    "@category_rv": {
+        "defaultMessage": "Caravanas"
     }
 }

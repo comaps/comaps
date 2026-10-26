@@ -14,7 +14,7 @@
     <string name="type.shop.tyres">Tire Shop</string>
     <string name="type.traffic_calming.bump">Road Bump</string>
     <string name="type.traffic_calming.hump">Road Bump</string>
-    <string name="type.addr_interpolation">Address/Block</string>
-    <string name="type.aeroway.gate">Gate</string>
     <string name="type.amenity.mobile_money_agent">Mobile Money Agent</string>
+    <string name="type.amenity.parking.multi.storey">Parkade</string>
+    <string name="type.amenity.parking.multi.storey.fee">Parkade</string>
 </resources>

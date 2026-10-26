@@ -17,7 +17,9 @@ import com.google.android.material.textview.MaterialTextView;
 
 import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmRecyclerFragment;
+import app.organicmaps.sdk.bookmarks.data.FeatureId;
 import app.organicmaps.sdk.bookmarks.data.Review;
+import app.organicmaps.util.Utils;
 
 import java.util.List;
 import java.util.Objects;
@@ -25,6 +27,8 @@ import java.util.Objects;
 public final class ReviewListFragment extends BaseMwmRecyclerFragment<ReviewListAdapter>
 {
   public static final String EXTRA_REVIEWS = "reviews";
+  public static final String EXTRA_REVIEW_EDITOR_APP_NAME = "review_editor_app_name";
+  public static final String EXTRA_FEATURE_ID = "feature_id";
 
   @CallSuper
   @Override
@@ -34,6 +38,7 @@ public final class ReviewListFragment extends BaseMwmRecyclerFragment<ReviewList
     DividerItemDecoration divider = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);
     getRecyclerView().addItemDecoration(divider);
     handleBottomNavBar(view);
+    configureAddReviewLink(view);
     view.<MaterialTextView>findViewById(R.id.review_source).setMovementMethod(LinkMovementMethod.getInstance());
   }
 
@@ -49,23 +54,16 @@ public final class ReviewListFragment extends BaseMwmRecyclerFragment<ReviewList
   {
     List<Review> reviews;
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
-    {
       reviews = Objects.requireNonNull(requireArguments().getParcelableArrayList(EXTRA_REVIEWS, Review.class));
-    }
     else
-    {
       //noinspection deprecation
       reviews = Objects.requireNonNull(requireArguments().getParcelableArrayList(EXTRA_REVIEWS));
-    }
+
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-    {
       return new ReviewListAdapter(reviews, getResources().getConfiguration().getLocales().get(0));
-    }
     else
-    {
       //noinspection deprecation
       return new ReviewListAdapter(reviews, getResources().getConfiguration().locale);
-    }
   }
 
   private void handleBottomNavBar(View view)
@@ -87,4 +85,12 @@ public final class ReviewListFragment extends BaseMwmRecyclerFragment<ReviewList
     }
   }
 
+  private void configureAddReviewLink(View view)
+  {
+    Bundle args = requireArguments();
+    String editorAppName = args.getString(EXTRA_REVIEW_EDITOR_APP_NAME);
+    FeatureId featureId = Objects.requireNonNull(Utils.getParcelable(args, EXTRA_FEATURE_ID, FeatureId.class));
+    AddReviewController addReviewController = new AddReviewController(view.findViewById(R.id.add_review_container), getParentFragmentManager());
+    addReviewController.updateView(editorAppName, featureId);
+  }
 }

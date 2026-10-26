@@ -18,7 +18,7 @@
         "defaultMessage": "קניות"
     },
     "@category_hotel": {
-        "defaultMessage": "מלון|בתי"
+        "defaultMessage": "בית מלון|מלון|בתי"
     },
     "@category_tourism": {
         "defaultMessage": "נקודות עיניין"
@@ -709,5 +709,8 @@
     },
     "cuisine-vegan|@cuisine_all_vegetarian": {
         "defaultMessage": "ממטבח צמחוני"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi"
     }
 }

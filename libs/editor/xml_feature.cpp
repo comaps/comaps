@@ -33,6 +33,7 @@ using std::string, std::string_view;
 namespace
 {
 constexpr char const * kTimestamp = "timestamp";
+constexpr char const * kId = "id";
 constexpr char const * kIndex = "mwm_file_index";
 constexpr char const * kUploadTimestamp = "upload_timestamp";
 constexpr char const * kUploadStatus = "upload_status";
@@ -165,6 +166,11 @@ XMLFeature::Type XMLFeature::GetType() const
 string XMLFeature::GetTypeString() const
 {
   return GetRootNode().name();
+}
+
+std::string XMLFeature::GetOSMIdString() const
+{
+  return GetRootNode().attribute(kId).value();
 }
 
 void XMLFeature::Save(std::ostream & ost) const

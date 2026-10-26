@@ -81,7 +81,7 @@ preferably look for icons in [collections CoMaps uses already](../data/copyright
 6. Add the English string (and optionally translations e.g. for your native language) into iOS and Android type strings
 e strings
 7. Add search keywords into `data/categories.txt`
-8. Add new or fix current classifier tests at `generator/generator_tests/osm_type_tests.cpp` if you can
+8. Add new or fix current classifier tests at `generator/generator_tests/osm_type_test.cpp` if you can
 9. [Test](#testing-your-changes) your changes
 10. Relax and wait for the next maps update :)
 

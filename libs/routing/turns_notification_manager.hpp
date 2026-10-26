@@ -112,6 +112,17 @@ private:
   std::string GenerateFirstTurnSound(TurnItem const & turn, double distanceToTurnMeters,
                                      RouteSegment::RoadNameInfo const & nextStreetInfo);
 
+  /// Generates the notification about turns[followingIdx] as it is chained after the notification
+  /// about turns[followingIdx - 1] ("Then. Turn right."). A roundabout entrance+exit pair is
+  /// announced as "Then. At the roundabout. Take the Xth exit."
+  /// \param useThenPrefix false emits the instruction on its own, without "Then". It is
+  /// used when there is no notification about the preceding turn to chain it to.
+  /// @return an empty string when the turn is too far after the preceding one to be chained
+  
+  std::string GenerateFollowingTurnSound(std::vector<TurnItemDist> const & turns, size_t followingIdx,
+                                         RouteSegment::RoadNameInfo const & nextStreetInfo,
+                                         bool useThenPrefix) const;
+
   /// Generates a combined "In X meters, at the roundabout, take the Nth exit [onto Street]"
   /// notification when the upcoming turn pair is a classic roundabout entrance+exit.
   /// Mirrors GenerateFirstTurnSound's progress tracking but emits a single combined notification

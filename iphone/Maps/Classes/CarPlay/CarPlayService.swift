@@ -1,10 +1,41 @@
 import CarPlay
 import Contacts
 
+struct CarPlayPanningInterfaceState {
+  private var presentedTemplateIdentifier: ObjectIdentifier?
+
+  var isPresented: Bool {
+    presentedTemplateIdentifier != nil
+  }
+
+  mutating func didShow(_ template: CPMapTemplate) {
+    presentedTemplateIdentifier = ObjectIdentifier(template)
+  }
+
+  @discardableResult
+  mutating func didDismiss(_ template: CPMapTemplate) -> Bool {
+    guard presentedTemplateIdentifier == ObjectIdentifier(template) else { return false }
+    presentedTemplateIdentifier = nil
+    return true
+  }
+
+  mutating func reset() {
+    presentedTemplateIdentifier = nil
+  }
+}
+
 @objc(MWMCarPlayService)
 final class CarPlayService: NSObject {
   @objc static let shared = CarPlayService()
   @objc var isCarplayActivated: Bool = false
+
+  private override init() {
+    super.init()
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(applicationDidBecomeActive),
+                                           name: UIApplication.didBecomeActiveNotification,
+                                           object: nil)
+  }
   private var searchService: CarPlaySearchService?
   private var router: CarPlayRouter?
   private var window: CPWindow?
@@ -26,6 +57,42 @@ final class CarPlayService: NSObject {
   private var carplayVC: CarPlayMapViewController? {
     return window?.rootViewController as? CarPlayMapViewController
   }
+  /// Where the single shared map view (EAGLView) is currently parented.
+  private enum MapHost {
+    case none
+    case phone
+    case carplay
+    case dashboard
+  }
+  private var mapHost: MapHost = .none
+
+  private var rootTemplateDidAppear = false
+  private var panningInterfaceState = CarPlayPanningInterfaceState()
+  private var hasEngagedInitialCarFollow = false
+  private var isInitialCarHeadingModeDisabled = false
+  private func resetCarSessionDefaults() {
+    hasEngagedInitialCarFollow = false
+    isInitialCarHeadingModeDisabled = false
+    isCarMapViewportReady = false
+    isWaitingForCarMapViewport = false
+    carMapViewportReadinessAttempts = 0
+    hasLoggedViewportExhaustion = false
+    needsBaseMapNorthUp = false
+    needsRecenterOnViewportReady = false
+  }
+  private weak var dashboardWindow: UIWindow?
+  private var isDashboardActive = false
+  private var dashboardVC: CarPlayDashboardMapViewController? {
+    return dashboardWindow?.rootViewController as? CarPlayDashboardMapViewController
+  }
+
+  private var isPhoneModeRequested: Bool {
+    return !isCarplayActivated && savedInterfaceController != nil
+  }
+
+  @objc var isHostingMapOnCarScreen: Bool {
+    return mapHost == .carplay || mapHost == .dashboard
+  }
   private var rootMapTemplate: CPMapTemplate? {
     return interfaceController?.rootTemplate as? CPMapTemplate
   }
@@ -33,56 +100,75 @@ final class CarPlayService: NSObject {
   var isUserPanMap: Bool = false
   private var searchText = ""
 
+  private var pendingDashboardBookmark: MWMCarPlayBookmarkObject?
+  private var pendingDashboardNavigationTrip: CPTrip?
+
   @objc func setup(window: CPWindow, interfaceController: CPInterfaceController) {
-    LOG(.info, "Settting up service...")
+    if pendingTeardown != nil {
+      LOG(.info, "\(CarPlayLogging.carPlay) teardown cancelled reason=reconnect \(diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s")
+    }
+    diagnosticConnectionGeneration += 1
+    diagnosticActivation += 1
+    LOG(.info, "\(CarPlayLogging.carPlay) setup begin")
+    pendingTeardown?.cancel()
+    pendingTeardown = nil
+    endTeardownBackgroundTask()
+    let isRebind = isCarplayActivated && router != nil
     isCarplayActivated = true
     self.window = window
     self.interfaceController = interfaceController
     self.interfaceController?.delegate = self
     let configuration = CPSessionConfiguration(delegate: self)
     sessionConfiguration = configuration
-    searchService = CarPlaySearchService()
-    let router = CarPlayRouter(displayScale: interfaceController.carTraitCollection.displayScale)
-    router.addListener(self)
-    router.subscribeToEvents()
-    router.setupCarPlaySpeedCameraMode()
-    self.router = router
-    MWMRouter.unsubscribeFromEvents()
+    if isRebind {
+      LOG(.info, "\(CarPlayLogging.carPlay) setup begin mode=rebind \(diagnosticConnectionContext)")
+    } else {
+      searchService = CarPlaySearchService()
+      let router = CarPlayRouter(displayScale: interfaceController.carTraitCollection.displayScale)
+      router.addListener(self)
+      router.subscribeToEvents()
+      router.setupCarPlaySpeedCameraMode()
+      self.router = router
+      MWMRouter.unsubscribeFromEvents()
+    }
+    startObservingTTS()
     applyRootViewController()
-    if let sessionData = router.restoredNavigationSession() {
+    if let sessionData = router?.restoredNavigationSession() {
+      router?.cancelNavigationSession()
       applyNavigationRootTemplate(trip: sessionData.0, routeInfo: sessionData.1)
     } else {
       applyBaseRootTemplate()
-      router.restoreTripPreviewOnCarplay(beforeRootTemplateDidAppear: true)
+      router?.restoreTripPreviewOnCarplay(beforeRootTemplateDidAppear: true)
     }
     updateContentStyle(configuration.contentStyle)
-    FrameworkHelper.updatePositionArrowOffset(false, offset: 120)
-
-    CarPlayWindowScaleAdjuster.updateAppearance(
-      fromWindow: MapsAppDelegate.theApp().window,
-      toWindow: window,
-      isCarplayActivated: true
-    )
-      
-    FrameworkHelper.setCarScreenMode(true)
+    applyHostAppearanceIfActive()
+    if let bookmark = pendingDashboardBookmark {
+      LOG(.info, "\(CarPlayLogging.carPlay) dashboardNavigation begin reason=setupReady")
+      pendingDashboardBookmark = nil
+      navigateToBookmarkFromDashboard(bookmark: bookmark)
+    }
+    logStateSnapshot("setup completed")
   }
 
   private var savedInterfaceController: CPInterfaceController?
+  private var isObservingTTS = false
 
   func showOnPhone() {
-    LOG(.info, "Show on the Phone screen")
+    defer { logStateSnapshot("showOnPhone completed") }
+    LOG(.info, "\(CarPlayLogging.carPlay) showOnPhone begin")
     savedInterfaceController = interfaceController
     switchScreenToPhone()
     showPhoneModeAlert()
   }
 
   private func showOnCarplay() {
-    LOG(.info, "Show on the Car screen")
+    LOG(.info, "\(CarPlayLogging.carPlay) showOnCarplay begin")
     guard let window, let savedInterfaceController else {
-      LOG(.warning, "Failed to show on carplay: the `window` is \(String(describing: window)), the `savedInterfaceController` is \(String(describing: savedInterfaceController))")
+      LOG(.warning, "\(CarPlayLogging.carPlay) showOnCarplay failed window=\(CarPlayLogging.diagnosticIdentity(window)) savedController=\(CarPlayLogging.diagnosticIdentity(savedInterfaceController))")
       return
     }
     setup(window: window, interfaceController: savedInterfaceController)
+    LOG(.info, "\(CarPlayLogging.carPlay) showOnCarplay completed \(diagnosticConnectionContext)")
   }
 
   private func showPhoneModeAlert() {
@@ -103,13 +189,7 @@ final class CarPlayService: NSObject {
   }
 
   private func switchScreenToPhone() {
-    if let carplayVC = carplayVC {
-      carplayVC.removeMapView()
-    }
-    if let mvc = MapViewController.shared() {
-      mvc.disableCarPlayRepresentation()
-      mvc.remove(self)
-    }
+    defer { logStateSnapshot("switchScreenToPhone completed") }
     router?.removeListener(self)
     router?.unsubscribeFromEvents()
     router?.setupInitialSpeedCameraMode()
@@ -123,26 +203,114 @@ final class CarPlayService: NSObject {
     router?.cancelNavigationSession()
     searchService = nil
     router = nil
+    stopObservingTTS()
     sessionConfiguration = nil
     interfaceController = nil
+    pendingDashboardBookmark = nil
+    pendingDashboardNavigationTrip = nil
+    // Apply the visual-scale change (and its GPU context reset) before the theme switch,
+    // so the context teardown doesn't race with an in-flight route recache from the style change.
+    updateMapHost()
     ThemeManager.invalidate()
-    FrameworkHelper.updatePositionArrowOffset(true, offset: 0)
+  }
 
-    if let window {
-      CarPlayWindowScaleAdjuster.updateAppearance(
-        fromWindow: window,
-        toWindow: MapsAppDelegate.theApp().window,
-        isCarplayActivated: false
-      )
+  private var pendingTeardown: DispatchWorkItem?
+  private var teardownBackgroundTask: UIBackgroundTaskIdentifier = .invalid
+  private static let kTeardownGracePeriod: TimeInterval = 2.0
+
+  private enum TeardownTrigger {
+    case gracePeriodElapsed(requestedConnection: Int)
+    case expired
+  }
+
+  private func teardownIfDisconnected(_ trigger: TeardownTrigger) {
+    // Flaky USB, wireless CarPlay connections, and quick scene changes that pass
+    // the drape engine between map hosts can cause crashes and UI issues
+    // Use a 2 second grace period to avoid this
+    // Once multiple drape engines are supported, this whole CarPlay implementation should be simplified
+    
+    if case .gracePeriodElapsed = trigger {
+      pendingTeardown = nil
     }
-    FrameworkHelper.setCarScreenMode(false)
+    guard interfaceController == nil else {
+      if case .gracePeriodElapsed(let requestedConnection) = trigger {
+        LOG(.info, "\(CarPlayLogging.carPlay) teardown cancelled reason=controllerAvailable requestedConnection=\(requestedConnection) \(diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s")
+      }
+      endTeardownBackgroundTask()
+      return
+    }
+
+    let reason: String
+    switch trigger {
+    case .gracePeriodElapsed(let requestedConnection):
+      LOG(.info, "\(CarPlayLogging.carPlay) teardown executed requestedConnection=\(requestedConnection) \(diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s")
+      reason = "gracePeriodElapsed"
+    case .expired:
+      LOG(.warning, "\(CarPlayLogging.carPlay) teardown expired \(diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s; tearing down immediately")
+      pendingTeardown?.cancel()
+      pendingTeardown = nil
+      reason = "expired"
+    }
+    destroy()
+    window = nil
+    logStateSnapshot("teardown completed reason=\(reason)")
+  }
+
+  private func beginTeardownBackgroundTask() {
+    endTeardownBackgroundTask()
+    teardownBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: "CarPlay scene teardown") { [weak self] in
+      self?.teardownIfDisconnected(.expired)
+    }
+  }
+
+  private func endTeardownBackgroundTask() {
+    guard teardownBackgroundTask != .invalid else { return }
+    let task = teardownBackgroundTask
+    teardownBackgroundTask = .invalid
+    UIApplication.shared.endBackgroundTask(task)
+  }
+
+  func appSceneDidDisconnect() {
+    diagnosticActivation += 1
+    defer { logStateSnapshot("appSceneDidDisconnect completed") }
+    diagnosticAppScene = nil
+    interfaceController?.delegate = nil
+    interfaceController = nil
+    sessionConfiguration = nil
+    if isDashboardActive {
+      updateMapHost()
+    }
+    beginTeardownBackgroundTask()
+    let disconnectedConnection = diagnosticConnectionGeneration
+    let teardown = DispatchWorkItem { [weak self] in
+      self?.teardownIfDisconnected(.gracePeriodElapsed(requestedConnection: disconnectedConnection))
+    }
+    if pendingTeardown != nil {
+      LOG(.info, "\(CarPlayLogging.carPlay) teardown cancelled reason=rescheduled \(diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s")
+    }
+    pendingTeardown?.cancel()
+    pendingTeardown = teardown
+    LOG(.info, "\(CarPlayLogging.carPlay) teardown scheduled \(diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s")
+    DispatchQueue.main.asyncAfter(deadline: .now() + Self.kTeardownGracePeriod, execute: teardown)
   }
 
   @objc func destroy() {
+    diagnosticActivation += 1
+    defer { logStateSnapshot("destroy completed") }
+    if pendingTeardown != nil {
+      LOG(.info, "\(CarPlayLogging.carPlay) teardown cancelled reason=destroy \(diagnosticConnectionContext) gracePeriod=\(Self.kTeardownGracePeriod)s")
+    }
+    panningInterfaceState.reset()
+    pendingTeardown?.cancel()
+    pendingTeardown = nil
+    endTeardownBackgroundTask()
+    pendingDashboardNavigationTrip = nil
     if isCarplayActivated {
       switchScreenToPhone()
     }
     savedInterfaceController = nil
+    resetCarSessionDefaults()
+    LocationManager.refreshBackgroundLocationPolicy()
   }
 
   @objc func interfaceStyle() -> UIUserInterfaceStyle {
@@ -166,31 +334,477 @@ final class CarPlayService: NSObject {
     }
   }
 
-  private func applyRootViewController() {
-    guard let window = window else { return }
-    let carplaySotyboard = UIStoryboard.instance(.carPlay)
-    let carplayVC = carplaySotyboard.instantiateInitialViewController() as! CarPlayMapViewController
-    window.rootViewController = carplayVC
-    if let mapVC = MapViewController.shared() {
-      currentPositionMode = mapVC.currentPositionMode
-      mapVC.enableCarPlayRepresentation()
-      carplayVC.addMapView(mapVC.mapView, mapButtonSafeAreaLayoutGuide: window.mapButtonSafeAreaLayoutGuide)
-      mapVC.add(self)
+  // MARK: - Diagnostics
+
+  private var diagnosticConnectionGeneration = 0
+  private var diagnosticRootRequest = 0
+  private var diagnosticActivation = 0
+  weak var diagnosticAppScene: CPTemplateApplicationScene?
+
+  var diagnosticConnectionContext: String {
+    "connection=\(diagnosticConnectionGeneration) controller=\(CarPlayLogging.diagnosticIdentity(interfaceController))"
+  }
+
+  @objc(logSceneEvent:scene:controller:window:)
+  func logSceneEvent(_ event: String, scene: UIScene, controller: AnyObject? = nil, window: UIWindow? = nil) {
+    guard Logger.canLog(.info) else { return }
+    assert(Thread.isMainThread)
+    let matchesController = (controller as? CPInterfaceController).map { $0 === interfaceController }
+    LOG(.info, "\(CarPlayLogging.scene) \(event) received: id=\(scene.session.persistentIdentifier) scene=\(CarPlayLogging.diagnosticIdentity(scene)) role=\(CarPlayLogging.sceneRole(scene.session.role)) state=\(CarPlayLogging.sceneState(scene.activationState)) callbackController=\(CarPlayLogging.diagnosticIdentity(controller)) callbackWindow=\(CarPlayLogging.diagnosticIdentity(window)) matchesCurrentController=\(String(describing: matchesController)) \(diagnosticConnectionContext)")
+  }
+
+  func scheduleDiagnosticSnapshots(for scene: UIScene) {
+    diagnosticActivation += 1
+    guard Logger.canLog(.info) else { return }
+    let activation = diagnosticActivation
+    let connection = diagnosticConnectionGeneration
+    for delay in [0.3, 1.0, 3.0] {
+      DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self, weak scene] in
+        guard let self, let scene,
+              self.diagnosticActivation == activation,
+              self.diagnosticConnectionGeneration == connection,
+              scene.activationState == .foregroundActive,
+              self.diagnosticAppScene === scene,
+              self.interfaceController != nil else { return }
+        self.logStateSnapshot("activation checkpoint delay=\(delay)s")
+      }
     }
   }
 
-  private func applyBaseRootTemplate() {
+  private func logTemplateEvent(_ event: String, template: CPTemplate, animated: Bool) {
+    LOG(.info, "\(CarPlayLogging.carPlay) \(event) received callbackTemplate=\(CarPlayLogging.diagnosticTemplate(template)) isRoot=\(template === interfaceController?.rootTemplate) animated=\(animated) \(diagnosticConnectionContext)")
+  }
+
+  func logStateSnapshot(_ reason: @autoclosure () -> String, level: LogLevel = .info) {
+    guard Logger.canLog(level) else { return }
+    assert(Thread.isMainThread)
+    var hosting = "mapHost=\(mapHost) mapViewLoaded=false"
+    if let mapVC = MapViewController.shared(), mapVC.isViewLoaded {
+      hosting = "mapHost=\(mapHost) mapViewLoaded=true mapView=\(CarPlayLogging.diagnosticIdentity(mapVC.mapView)) parent=\(CarPlayLogging.diagnosticIdentity(mapVC.mapView.superview)) attachedWindow=\(CarPlayLogging.diagnosticIdentity(mapVC.mapView.window))"
+    }
+    let scenes = UIApplication.shared.connectedScenes
+      .map { "\(CarPlayLogging.sceneRole($0.session.role)):\(CarPlayLogging.sceneState($0.activationState)):\($0.session.persistentIdentifier)" }
+      .sorted()
+      .joined(separator: " ")
+    let state = [
+      diagnosticConnectionContext,
+      "activation=\(diagnosticActivation)",
+      "latestRequest=\(diagnosticRootRequest)",
+      "activated=\(isCarplayActivated)",
+      "phoneModeRequested=\(isPhoneModeRequested)",
+      "dashboardActive=\(isDashboardActive)",
+      "savedController=\(CarPlayLogging.diagnosticIdentity(savedInterfaceController))",
+      "delegate=\(CarPlayLogging.diagnosticIdentity(interfaceController?.delegate))",
+      "rootTemplate=\(CarPlayLogging.diagnosticTemplate(interfaceController?.rootTemplate))",
+      "rootDidAppear=\(rootTemplateDidAppear)",
+      "topTemplate=\(CarPlayLogging.diagnosticTemplate(interfaceController?.topTemplate))",
+      "presentedTemplate=\(CarPlayLogging.diagnosticTemplate(interfaceController?.presentedTemplate))",
+      "carWindow=\(CarPlayLogging.diagnosticIdentity(window))",
+      "carScene=\(diagnosticAppScene?.session.persistentIdentifier ?? "nil")",
+      "rootVC=\(CarPlayLogging.diagnosticIdentity(window?.rootViewController))",
+      "dashboardWindow=\(CarPlayLogging.diagnosticIdentity(dashboardWindow))",
+      "trip=\(CarPlayLogging.diagnosticIdentity(router?.currentTrip))",
+      "preview=\(CarPlayLogging.diagnosticIdentity(router?.previewTrip))",
+      "navigation={\(router?.diagnosticNavigationContext ?? "session=nil origin=none")}",
+      "pendingTeardown=\(pendingTeardown != nil)",
+      "teardownBackgroundTask=\(teardownBackgroundTask != .invalid)",
+      "pendingDashboardBookmark=\(pendingDashboardBookmark != nil)",
+      "pendingDashboardTrip=\(CarPlayLogging.diagnosticIdentity(pendingDashboardNavigationTrip))",
+      "preparedPreviewCount=\(preparedToPreviewTrips.count)",
+      "appearanceDeferred=\(needsHostAppearanceRefresh)",
+      "viewportReady=\(isCarMapViewportReady)",
+      "viewportWaiting=\(isWaitingForCarMapViewport)",
+      "viewportAttempts=\(carMapViewportReadinessAttempts)",
+      "pendingRecenter=\(needsRecenterOnViewportReady)",
+      "pendingNorthUp=\(needsBaseMapNorthUp)"
+    ].joined(separator: " ")
+    LOG(level, "\(CarPlayLogging.carPlay) \(reason()): \(hosting) appState=\(CarPlayLogging.appState(UIApplication.shared.applicationState)) scenes=[\(scenes)] \(state)")
+  }
+
+  private func setRootTemplate(_ template: CPMapTemplate, reason: String) {
+    rootTemplateDidAppear = false
+    panningInterfaceState.reset()
+    diagnosticRootRequest += 1
+    let request = diagnosticRootRequest
+    let connection = diagnosticConnectionGeneration
+    let controller = interfaceController
+    let requestedController = CarPlayLogging.diagnosticIdentity(controller)
+    let requestedTemplate = CarPlayLogging.diagnosticTemplate(template)
+    let started = ProcessInfo.processInfo.systemUptime
+    logStateSnapshot("setRootTemplate begin request=\(request) requestedConnection=\(connection) reason=\(reason) requestedTemplate=\(requestedTemplate)")
+    if controller == nil {
+      logStateSnapshot("setRootTemplate failed request=\(request) reason=missingController", level: .warning)
+    }
+    controller?.setRootTemplate(template, animated: false) { [weak controller] success, error in
+      let level: LogLevel = success ? .info : .warning
+      guard Logger.canLog(level) else { return }
+      let elapsed = ProcessInfo.processInfo.systemUptime - started
+      let logCompletion = { [weak controller] in
+        let matchesCurrentController = controller != nil && controller === self.interfaceController
+        let isCurrentConnection = connection == self.diagnosticConnectionGeneration && matchesCurrentController
+        self.logStateSnapshot("setRootTemplate \(success ? "completed" : "failed") request=\(request) requestedConnection=\(connection) currentConnection=\(self.diagnosticConnectionGeneration) requestedController=\(requestedController) requestedTemplate=\(requestedTemplate) reason=\(reason) elapsed=\(elapsed)s matchesCurrentController=\(matchesCurrentController) isLatestRequest=\(request == self.diagnosticRootRequest) stale=\(!isCurrentConnection || request != self.diagnosticRootRequest) success=\(success) error=\(String(describing: error))", level: level)
+      }
+      if Thread.isMainThread {
+        logCompletion()
+      } else {
+        DispatchQueue.main.async(execute: logCompletion)
+      }
+    }
+  }
+
+  func appSceneDidBecomeActive() {
+    defer { logStateSnapshot("appSceneDidBecomeActive completed") }
+    reconcileMapHostIfOrphaned()
+    resumeLocationForActiveCarSceneIfNeeded()
+    engageCarFollowIfNeeded(currentPositionMode, allowReengagement: true)
+    guard isCarplayActivated, let controller = interfaceController else { return }
+    if rootTemplateDidAppear {
+      return
+    }
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+      guard let self,
+        self.isCarplayActivated,
+        self.interfaceController === controller,
+        !self.rootTemplateDidAppear else { return }
+      self.reconcileUnpresentedRootTemplate()
+    }
+  }
+
+  private func reconcileUnpresentedRootTemplate() {
+    guard let router else { return }
+    LOG(.warning, "\(CarPlayLogging.carPlay) rootPresentation failed reason=missingAppearance; recovery begin")
+    defer { logStateSnapshot("rootPresentation recovery handling completed") }
+    if let sessionData = router.restoredNavigationSession() {
+      router.cancelNavigationSession()
+      applyNavigationRootTemplate(trip: sessionData.0, routeInfo: sessionData.1)
+    } else {
+      applyBaseRootTemplate()
+    }
+  }
+
+  private func applyRootViewController() {
+    guard let window = window else { return }
+    let wasHostingMapOnCarScreen = isHostingMapOnCarScreen
+    let carplaySotyboard = UIStoryboard.instance(.carPlay)
+    let carplayVC = carplaySotyboard.instantiateInitialViewController() as! CarPlayMapViewController
+    window.rootViewController = carplayVC
+    if mapHost == .carplay {
+      mapHost = .none
+    }
+    updateMapHost()
+    refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "applyRootViewController")
+  }
+
+  @objc func attachMapIfNeeded() {
+    updateMapHost()
+  }
+
+  // MARK: - Map host management
+
+  private static let kCarPositionArrowOffset: Int32 = 120
+
+  private func updateMapHost() {
+    let wasHostingMapOnCarScreen = isHostingMapOnCarScreen
+    var desired: MapHost
+    if isDashboardActive, dashboardVC != nil, !isPhoneModeRequested {
+      desired = .dashboard
+    } else if isCarplayActivated, window != nil, carplayVC != nil {
+      desired = .carplay
+    } else if MapsAppDelegate.theApp().window != nil {
+      desired = .phone
+    } else if mapHost == .carplay || mapHost == .dashboard {
+      desired = .none
+    } else {
+      return
+    }
+    guard desired != mapHost else { return }
+    isCarMapViewportReady = false
+    isWaitingForCarMapViewport = false
+    carMapViewportReadinessAttempts = 0
+    hasLoggedViewportExhaustion = false
+
+    MapsAppDelegate.theApp().ensureMapNavigationController()
+    guard let mapVC = MapViewController.shared() else {
+      LOG(.warning, "\(CarPlayLogging.carPlay) mapHost failed requestedHost=\(desired) reason=missingMapViewController")
+      return
+    }
+
+    var attachToCarScreen: (() -> Void)?
+    switch desired {
+    case .carplay:
+      if let window, let carplayVC {
+        attachToCarScreen = { [self] in
+          attachMapToCarScreen(mapVC) {
+            carplayVC.addMapView(mapVC.mapView, mapButtonSafeAreaLayoutGuide: window.mapButtonSafeAreaLayoutGuide)
+          }
+        }
+      }
+    case .dashboard:
+      if let dashboardWindow, let dashboardVC {
+        attachToCarScreen = { [self] in
+          attachMapToCarScreen(mapVC) {
+            dashboardVC.addMapView(mapVC.mapView)
+          }
+        }
+      }
+    case .phone, .none:
+      break
+    }
+    if attachToCarScreen == nil, desired == .carplay || desired == .dashboard {
+      LOG(.warning, "\(CarPlayLogging.carPlay) mapHost failed requestedHost=\(desired) reason=hostVanished; fallback begin")
+      desired = MapsAppDelegate.theApp().window != nil ? .phone : .none
+      guard desired != mapHost else { return }
+    }
+    LOG(.info, "\(CarPlayLogging.carPlay) mapHost begin from=\(mapHost) to=\(desired) \(diagnosticConnectionContext)")
+
+    switch mapHost {
+    case .carplay:
+      carplayVC?.removeMapView()
+    case .dashboard:
+      dashboardVC?.removeMapView()
+    case .phone, .none:
+      break
+    }
+
+    var appearanceChanged = true
+    if let attachToCarScreen {
+      attachToCarScreen()
+    } else {
+      let wasHostedElsewhere = mapHost != .none || (mapVC.isViewLoaded && mapVC.mapView.superview == nil)
+      if wasHostedElsewhere {
+        mapVC.disableCarPlayRepresentation()
+        mapVC.remove(self)
+      } else {
+        appearanceChanged = false
+      }
+    }
+    mapHost = desired
+    if appearanceChanged {
+      applyHostAppearanceIfActive()
+    }
+    if desired == .phone || desired == .none {
+      resetCarSessionDefaults()
+    }
+    engageCarFollowIfNeeded(currentPositionMode)
+    logStateSnapshot("mapHost completed")
+    refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "updateMapHost")
+  }
+
+  private func reconcileMapHostIfOrphaned() {
+    guard let mapVC = MapViewController.shared(),
+          mapVC.isViewLoaded,
+          mapVC.mapView.window == nil,
+          mapHost != .none else { return }
+    let wasHostingMapOnCarScreen = isHostingMapOnCarScreen
+    LOG(.warning, "\(CarPlayLogging.carPlay) mapHost failed host=\(mapHost) reason=missingWindow; recovery begin")
+    mapHost = .none
+    updateMapHost()
+    refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "reconcileMapHostIfOrphaned")
+  }
+
+  private func refreshLocationPolicyIfHostingChanged(from wasHostingMapOnCarScreen: Bool, reason: String) {
+    guard wasHostingMapOnCarScreen != isHostingMapOnCarScreen else { return }
+    LOG(.info, "\(CarPlayLogging.carPlay) locationPolicy begin carHosting=\(wasHostingMapOnCarScreen)->\(isHostingMapOnCarScreen) reason=\(reason)")
+    LocationManager.refreshBackgroundLocationPolicy()
+  }
+
+  private func resumeLocationForActiveCarSceneIfNeeded() {
+    guard LocationManager.shouldKeepRunningInBackground() else {
+      LocationManager.refreshBackgroundLocationPolicy()
+      return
+    }
+    LocationManager.applicationDidBecomeActive()
+  }
+
+  private func attachMapToCarScreen(_ mapVC: MapViewController, addMapView: () -> Void) {
+    currentPositionMode = mapVC.currentPositionMode
+    mapVC.enableCarPlayRepresentation()
+    addMapView()
+    mapVC.add(self)
+    refreshMyPositionModeButton()
+  }
+
+  private var needsHostAppearanceRefresh = false
+
+  private func applyHostAppearanceIfActive() {
+    guard UIApplication.shared.applicationState != .background else {
+      if !needsHostAppearanceRefresh {
+        LOG(.info, "\(CarPlayLogging.carPlay) hostAppearance deferred host=\(mapHost) reason=appBackgrounded")
+      }
+      needsHostAppearanceRefresh = true
+      return
+    }
+    let wasDeferred = needsHostAppearanceRefresh
+    needsHostAppearanceRefresh = false
+    defer {
+      if wasDeferred { logStateSnapshot("hostAppearance completed reason=appActive") }
+    }
+    switch mapHost {
+    case .carplay, .dashboard:
+      FrameworkHelper.setCarScreenMode(true)
+      FrameworkHelper.updatePositionArrowOffset(false, offset: Self.kCarPositionArrowOffset)
+      if let carWindow = mapHost == .carplay ? window : dashboardWindow {
+        CarPlayWindowScaleAdjuster.updateAppearance(toWindow: carWindow, isCarplayActivated: true)
+      }
+    case .phone, .none:
+      FrameworkHelper.updatePositionArrowOffset(true, offset: 0)
+      FrameworkHelper.setCarScreenMode(false)
+      CarPlayWindowScaleAdjuster.updateAppearance(toWindow: nil, isCarplayActivated: false)
+    }
+  }
+
+  @objc private func applicationDidBecomeActive() {
+    guard needsHostAppearanceRefresh else { return }
+    DispatchQueue.main.async { [weak self] in
+      guard let self, self.needsHostAppearanceRefresh else { return }
+      LOG(.info, "\(CarPlayLogging.carPlay) hostAppearance begin host=\(self.mapHost) reason=appActive")
+      self.applyHostAppearanceIfActive()
+    }
+  }
+
+  /// Re-sync the car map button glyph after re-attach so it doesn't show a stale position mode
+  private func refreshMyPositionModeButton() {
+    guard let rootMapTemplate else { return }
+    MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
+  }
+
+  private var isCarMapViewportReady = false
+  private var isWaitingForCarMapViewport = false
+  private var carMapViewportReadinessAttempts = 0
+  private var hasLoggedViewportExhaustion = false
+  private var needsBaseMapNorthUp = false
+  private var needsRecenterOnViewportReady = false
+
+  private func engageCarFollowIfNeeded(_ mode: MWMMyPositionMode, allowReengagement: Bool = false) {
+    guard (!hasEngagedInitialCarFollow || allowReengagement),
+          mapHost == .carplay || mapHost == .dashboard,
+          !MWMRouter.isRoutingActive(),
+          !panningInterfaceState.isPresented
+    else { return }
+    guard isCarMapViewportReady else {
+      if allowReengagement {
+        needsRecenterOnViewportReady = true
+      }
+      return
+    }
+    switch mode {
+    case .notFollow:
+      FrameworkHelper.switchMyPositionMode()
+    case .follow:
+      hasEngagedInitialCarFollow = true
+      if !isInitialCarHeadingModeDisabled {
+        FrameworkHelper.switchMyPositionMode()
+      }
+    case .followAndRotate:
+      hasEngagedInitialCarFollow = true
+    case .pendingPosition, .notFollowNoPosition:
+      if mode == .notFollowNoPosition {
+        FrameworkHelper.switchMyPositionMode()
+      }
+    }
+  }
+
+  func mapViewportDidBecomeReady(_ mapView: EAGLView) {
+    guard !MapsAppDelegate.isTestsEnvironment() else { return }
+    guard isHostingMapOnCarScreen,
+          mapView === MapViewController.shared()?.mapView,
+          mapView.window != nil else {
+      isWaitingForCarMapViewport = false
+      return
+    }
+    guard mapView.graphicContextInitialized else {
+      guard !isWaitingForCarMapViewport else { return }
+      guard carMapViewportReadinessAttempts < 100 else {
+        if !hasLoggedViewportExhaustion {
+          hasLoggedViewportExhaustion = true
+          logStateSnapshot("viewport failed reason=graphicsContextTimeout; map defaults deferred until next layout", level: .warning)
+        }
+        return
+      }
+      carMapViewportReadinessAttempts += 1
+      isWaitingForCarMapViewport = true
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { [weak self, weak mapView] in
+        guard let self, let mapView else { return }
+        self.isWaitingForCarMapViewport = false
+        self.mapViewportDidBecomeReady(mapView)
+      }
+      return
+    }
+
+    isWaitingForCarMapViewport = false
+    carMapViewportReadinessAttempts = 0
+    hasLoggedViewportExhaustion = false
+    let becameReady = !isCarMapViewportReady
+    isCarMapViewportReady = true
+    defer {
+      if becameReady { logStateSnapshot("viewport completed") }
+    }
+    if needsBaseMapNorthUp {
+      needsBaseMapNorthUp = false
+      FrameworkHelper.rotateMap(0.0, animated: false)
+    }
+    let allowReengagement = needsRecenterOnViewportReady
+    needsRecenterOnViewportReady = false
+    engageCarFollowIfNeeded(currentPositionMode, allowReengagement: allowReengagement)
+  }
+
+  func switchMyPositionModeFromCarPlayControl() {
+    isInitialCarHeadingModeDisabled = true
+    FrameworkHelper.switchMyPositionMode()
+  }
+
+  // MARK: - Dashboard scene
+
+  @objc func dashboardConnected(window: UIWindow) {
+    defer { logStateSnapshot("dashboardConnected completed") }
+    dashboardWindow = window
+    window.rootViewController = CarPlayDashboardMapViewController()
+  }
+
+  @objc func dashboardDisconnected() {
+    defer { logStateSnapshot("dashboardDisconnected completed") }
+    let wasHostingMapOnCarScreen = isHostingMapOnCarScreen
+    if mapHost == .dashboard {
+      dashboardVC?.removeMapView()
+      mapHost = .none
+    }
+    dashboardWindow = nil
+    isDashboardActive = false
+    updateMapHost()
+    refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "dashboardDisconnected")
+  }
+
+  @objc func dashboardDidBecomeActive() {
+    defer { logStateSnapshot("dashboardDidBecomeActive completed") }
+    isDashboardActive = true
+    reconcileMapHostIfOrphaned()
+    updateMapHost()
+    resumeLocationForActiveCarSceneIfNeeded()
+    engageCarFollowIfNeeded(currentPositionMode, allowReengagement: true)
+  }
+
+  @objc func dashboardDidResignActive() {
+    defer { logStateSnapshot("dashboardDidResignActive completed") }
+    isDashboardActive = false
+    updateMapHost()
+  }
+
+  private func applyBaseRootTemplate(reason: String = #function) {
     let mapTemplate = MapTemplateBuilder.buildBaseTemplate(positionMode: currentPositionMode)
     mapTemplate.mapDelegate = self
     mapTemplate.tripEstimateStyle = rootTemplateStyle
-    interfaceController?.setRootTemplate(mapTemplate, animated: true)
-    FrameworkHelper.rotateMap(0.0, animated: false)
+    setRootTemplate(mapTemplate, reason: reason)
+    needsBaseMapNorthUp = true
+    if let mapView = MapViewController.shared()?.mapView {
+      mapViewportDidBecomeReady(mapView)
+    }
   }
 
-  private func applyNavigationRootTemplate(trip: CPTrip, routeInfo: RouteInfo) {
+  private func applyNavigationRootTemplate(trip: CPTrip, routeInfo: RouteInfo, reason: String = #function) {
     let mapTemplate = MapTemplateBuilder.buildNavigationTemplate()
+    needsBaseMapNorthUp = false
     mapTemplate.mapDelegate = self
-    interfaceController?.setRootTemplate(mapTemplate, animated: true)
+    setRootTemplate(mapTemplate, reason: reason)
     router?.startNavigationSession(forTrip: trip, template: mapTemplate)
     if let estimates = createEstimates(routeInfo: routeInfo) {
       mapTemplate.tripEstimateStyle = rootTemplateStyle
@@ -201,6 +815,36 @@ final class CarPlayService: NSObject {
       carplayVC.updateCurrentSpeed(routeInfo.speedMps, speedLimitMps: routeInfo.speedLimitMps)
       carplayVC.showSpeedControl()
     }
+  }
+
+  func navigateToBookmarkFromDashboard(bookmark: MWMCarPlayBookmarkObject) {
+    defer { logStateSnapshot("dashboardNavigation handling completed") }
+    LOG(.info, "\(CarPlayLogging.carPlay) dashboardNavigation received bookmark=\(bookmark.bookmarkId) router=\(router != nil) interfaceController=\(interfaceController != nil)")
+    guard let router = router, interfaceController != nil else {
+      if !isPhoneModeRequested {
+        LOG(.info, "\(CarPlayLogging.carPlay) dashboardNavigation deferred reason=appSceneNotReady")
+        pendingDashboardBookmark = bookmark
+      } else {
+        LOG(.info, "\(CarPlayLogging.carPlay) dashboardNavigation cancelled reason=phoneModeRequested")
+      }
+      return
+    }
+    guard let startPoint = MWMRoutePoint(lastLocationAndType: .start, intermediateIndex: 0),
+          let endPoint = MWMRoutePoint(cgPoint: bookmark.mercatorPoint,
+                                       title: bookmark.prefferedName,
+                                       subtitle: bookmark.address,
+                                       type: .finish,
+                                       intermediateIndex: 0) else {
+      LOG(.warning, "\(CarPlayLogging.carPlay) dashboardNavigation failed reason=noPositionFix")
+      return
+    }
+    if router.currentTrip != nil {
+      cancelCurrentTrip()
+    }
+    let trip = router.createTrip(startPoint: startPoint, endPoint: endPoint)
+    pendingDashboardNavigationTrip = trip
+    LOG(.info, "\(CarPlayLogging.carPlay) dashboardNavigation begin bookmark=\(bookmark.bookmarkId)")
+    router.buildRoute(trip: trip)
   }
 
   func pushTemplate(_ templateToPush: CPTemplate, animated: Bool) {
@@ -229,7 +873,9 @@ final class CarPlayService: NSObject {
   }
 
   func cancelCurrentTrip() {
-    LOG(.info, "Cancel current trip")
+    defer { logStateSnapshot("cancelCurrentTrip completed") }
+    LOG(.info, "\(CarPlayLogging.carPlay) cancelCurrentTrip begin")
+    pendingDashboardNavigationTrip = nil
     router?.cancelTrip()
     if let carplayVC = carplayVC {
       carplayVC.hideSpeedControl()
@@ -241,6 +887,27 @@ final class CarPlayService: NSObject {
     if let carplayVC = carplayVC {
       carplayVC.updateCameraInfo(isCameraOnRoute: isCameraOnRoute, speedLimitMps: limit)
     }
+  }
+
+  private func startObservingTTS() {
+    guard !isObservingTTS else { return }
+    isObservingTTS = true
+    MWMTextToSpeech.add(self)
+  }
+
+  private func stopObservingTTS() {
+    guard isObservingTTS else { return }
+    isObservingTTS = false
+    MWMTextToSpeech.remove(self)
+  }
+
+  private func refreshNavigationSoundButton() {
+    guard let rootMapTemplate,
+          let info = rootMapTemplate.userInfo as? MapInfo,
+          info.type == CPConstants.TemplateType.navigation,
+          !panningInterfaceState.isPresented
+    else { return }
+    MapTemplateBuilder.updateNavigationSoundButton(mapTemplate: rootMapTemplate)
   }
 
   func updateMapTemplateUIToBase() {
@@ -263,9 +930,8 @@ final class CarPlayService: NSObject {
     guard let mapTemplate = rootMapTemplate else {
         return
     }
-    mapTemplate.leadingNavigationBarButtons = []
-    mapTemplate.trailingNavigationBarButtons = []
-    mapTemplate.mapButtons = []
+    LOG(.info, "\(CarPlayLogging.carPlay) arrivalPresentation begin appState=\(CarPlayLogging.appState(UIApplication.shared.applicationState))")
+    updateMapTemplateUIToBase()
     let doneAction = CPAlertAction(title: L("done"), style: .default) { [unowned self] _ in
       self.updateMapTemplateUIToBase()
     }
@@ -321,6 +987,8 @@ final class CarPlayService: NSObject {
 // MARK: - CPInterfaceControllerDelegate implementation
 extension CarPlayService: CPInterfaceControllerDelegate {
   func templateWillAppear(_ aTemplate: CPTemplate, animated: Bool) {
+    logTemplateEvent("templateWillAppear", template: aTemplate, animated: animated)
+    defer { logStateSnapshot("templateWillAppear completed callbackTemplate=\(CarPlayLogging.diagnosticTemplate(aTemplate))") }
     guard let info = aTemplate.userInfo as? MapInfo else {
         return
     }
@@ -339,13 +1007,26 @@ extension CarPlayService: CPInterfaceControllerDelegate {
   }
 
   func templateDidAppear(_ aTemplate: CPTemplate, animated: Bool) {
+    logTemplateEvent("templateDidAppear", template: aTemplate, animated: animated)
+    defer { logStateSnapshot("templateDidAppear completed callbackTemplate=\(CarPlayLogging.diagnosticTemplate(aTemplate))") }
     guard let mapTemplate = aTemplate as? CPMapTemplate,
       let info = aTemplate.userInfo as? MapInfo else {
         return
     }
+    if mapTemplate === rootMapTemplate {
+      rootTemplateDidAppear = true
+    }
     if !preparedToPreviewTrips.isEmpty && info.type == CPConstants.TemplateType.main {
       preparePreview(trips: preparedToPreviewTrips)
       preparedToPreviewTrips = []
+      return
+    }
+
+    if info.type == CPConstants.TemplateType.main,
+      router?.currentTrip == nil,
+      mapTemplate.mapButtons.isEmpty {
+      LOG(.warning, "\(CarPlayLogging.carPlay) templateUI failed reason=missingMapButtons; recovery begin")
+      updateMapTemplateUIToBase()
       return
     }
 
@@ -355,6 +1036,8 @@ extension CarPlayService: CPInterfaceControllerDelegate {
   }
 
   func templateWillDisappear(_ aTemplate: CPTemplate, animated: Bool) {
+    logTemplateEvent("templateWillDisappear", template: aTemplate, animated: animated)
+    defer { logStateSnapshot("templateWillDisappear completed callbackTemplate=\(CarPlayLogging.diagnosticTemplate(aTemplate))") }
     guard let info = aTemplate.userInfo as? MapInfo else {
         return
     }
@@ -364,6 +1047,8 @@ extension CarPlayService: CPInterfaceControllerDelegate {
   }
 
   func templateDidDisappear(_ aTemplate: CPTemplate, animated: Bool) {
+    logTemplateEvent("templateDidDisappear", template: aTemplate, animated: animated)
+    defer { logStateSnapshot("templateDidDisappear completed callbackTemplate=\(CarPlayLogging.diagnosticTemplate(aTemplate))") }
     guard !preparedToPreviewTrips.isEmpty,
       let info = aTemplate.userInfo as? [String: String],
       let alertType = info[CPConstants.TemplateKey.alert],
@@ -399,19 +1084,24 @@ extension CarPlayService: CPMapTemplateDelegate {
   }
 
   public func mapTemplateDidShowPanningInterface(_ mapTemplate: CPMapTemplate) {
+    guard mapTemplate === rootMapTemplate else { return }
+    panningInterfaceState.didShow(mapTemplate)
     isUserPanMap = false
+    isInitialCarHeadingModeDisabled = true
     MapTemplateBuilder.configurePanUI(mapTemplate: mapTemplate)
     FrameworkHelper.stopLocationFollow()
   }
 
   public func mapTemplateDidDismissPanningInterface(_ mapTemplate: CPMapTemplate) {
+    guard mapTemplate === rootMapTemplate,
+          panningInterfaceState.didDismiss(mapTemplate) else { return }
     if let info = mapTemplate.userInfo as? MapInfo,
       info.type == CPConstants.TemplateType.navigation {
       MapTemplateBuilder.configureNavigationUI(mapTemplate: mapTemplate)
     } else {
       MapTemplateBuilder.configureBaseUI(mapTemplate: mapTemplate)
     }
-    FrameworkHelper.switchMyPositionMode()
+    switchMyPositionModeFromCarPlayControl()
   }
 
   @objc(mapTemplate:panEndedWithDirection:)
@@ -457,12 +1147,18 @@ extension CarPlayService: CPMapTemplateDelegate {
     }
     mapTemplate.userInfo = MapInfo(type: CPConstants.TemplateType.previewAccepted)
     mapTemplate.hideTripPreviews()
+    startNavigation(trip: trip, routeInfo: info)
+  }
 
+  private func startNavigation(trip: CPTrip, routeInfo info: RouteInfo) {
     guard let router = router,
       let interfaceController = interfaceController,
       let rootMapTemplate = rootMapTemplate else {
+        LOG(.warning, "\(CarPlayLogging.carPlay) startNavigation failed router=\(router != nil) interfaceController=\(interfaceController != nil) rootMapTemplate=\(rootMapTemplate != nil)")
         return
     }
+    LOG(.info, "\(CarPlayLogging.carPlay) startNavigation begin")
+    defer { logStateSnapshot("startNavigation handling completed") }
 
     MapTemplateBuilder.configureNavigationUI(mapTemplate: rootMapTemplate)
 
@@ -598,6 +1294,12 @@ extension CarPlayService: CPSearchTemplateDelegate {
 // MARK: - CarPlayRouterListener implementation
 extension CarPlayService: CarPlayRouterListener {
   func didCreateRoute(routeInfo: RouteInfo, trip: CPTrip) {
+    if pendingDashboardNavigationTrip === trip {
+      LOG(.info, "\(CarPlayLogging.carPlay) dashboardRoute completed; startNavigation begin")
+      pendingDashboardNavigationTrip = nil
+      startNavigation(trip: trip, routeInfo: routeInfo)
+      return
+    }
     guard let currentTemplate = interfaceController?.topTemplate as? CPMapTemplate,
       let info = currentTemplate.userInfo as? MapInfo,
       info.type == CPConstants.TemplateType.preview else {
@@ -624,12 +1326,20 @@ extension CarPlayService: CarPlayRouterListener {
   }
 
   func didFailureBuildRoute(forTrip trip: CPTrip, code: RouterResultCode, countries: [String]) {
+    if pendingDashboardNavigationTrip === trip {
+      LOG(.warning, "\(CarPlayLogging.carPlay) dashboardRoute failed code=\(code.rawValue)")
+      pendingDashboardNavigationTrip = nil
+      defer { logStateSnapshot("dashboardRoute failure handling completed") }
+      showErrorAlert(code: code, countries: countries)
+      return
+    }
     guard let template = interfaceController?.topTemplate as? CPMapTemplate else { return }
     trip.routeChoices.first?.userInfo = [CPConstants.Trip.errorCode: code, CPConstants.Trip.missedCountries: countries]
     applyUndefinedEstimates(template: template, trip: trip)
   }
 
   func routeDidFinish(_ trip: CPTrip) {
+    pendingDashboardNavigationTrip = nil
     if router?.currentTrip == nil { return }
     router?.finishTrip()
     if let carplayVC = carplayVC {
@@ -643,7 +1353,8 @@ extension CarPlayService: CarPlayRouterListener {
 extension CarPlayService: LocationModeListener {
   func processMyPositionStateModeEvent(_ mode: MWMMyPositionMode) {
     currentPositionMode = mode
-    
+    engageCarFollowIfNeeded(mode)
+
     // make sure we have a rootMapTemplate
     guard let rootMapTemplate = rootMapTemplate else {
       return
@@ -657,12 +1368,12 @@ extension CarPlayService: LocationModeListener {
     }
     switch mode {
     case .follow, .followAndRotate:
-      if !rootMapTemplate.isPanningInterfaceVisible {
+      if !panningInterfaceState.isPresented {
         MapTemplateBuilder.setupDestinationButton(mapTemplate: rootMapTemplate)
         MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
       }
     case .notFollow:
-      if !rootMapTemplate.isPanningInterfaceVisible {
+      if !panningInterfaceState.isPresented {
         MapTemplateBuilder.setupRecenterButton(mapTemplate: rootMapTemplate)
         MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
       }
@@ -670,6 +1381,13 @@ extension CarPlayService: LocationModeListener {
       rootMapTemplate.leadingNavigationBarButtons = []
       MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
     }
+  }
+}
+
+// MARK: - MWMTextToSpeechObserver implementation
+extension CarPlayService: MWMTextToSpeechObserver {
+  func onTTSStatusUpdated() {
+    refreshNavigationSoundButton()
   }
 }
 

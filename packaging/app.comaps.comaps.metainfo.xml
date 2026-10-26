@@ -131,8 +131,16 @@
 
 
   <releases>
+    <release version="2026.10.05" date="2026-10-05">
+	    <url type="details">https://comaps.app/latest</url>
+     <description><ul>
+<li>Add link to add new reviews on place page</li>
+<li>Added tool hire shops and tool libraries, Romania and Morocco road shields and fixed Germany Augsburg and Cyprus A-road ones</li>
+<li>OpenStreetMap data as of October 4 and further weekly updates</li>
+     </ul></description>
+    </release>
     <release version="2026.08.31" date="2026-08-31">
-     <url type="details">https://comaps.app/latest/</url>
+     <url type="details">https://codeberg.org/comaps/comaps/releases/tag/v2026.08.31-14</url>
      <description><ul>
 <li>Switching between transport-specific map styles</li>
 <li>Display favorite names on the map (opt out in settings)</li>

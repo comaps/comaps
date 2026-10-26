@@ -25,8 +25,8 @@ public class Track extends MapObject
 
   Track(long trackId, long categoryId, String name, Distance length, int color)
   {
-    super(FeatureId.EMPTY, TRACK, name, "", "", "", 0, 0, "", null, OPENING_MODE_PREVIEW_PLUS, null, null, 0, "", "",
-          RoadWarningMarkType.UNKNOWN.ordinal(), null);
+    super(FeatureId.EMPTY, TRACK, name, "", "", "", 0, 0, "", null, OPENING_MODE_PREVIEW_PLUS, null, null, 0, null, "", "",
+        RoadWarningMarkType.UNKNOWN.ordinal(), null);
     mTrackId = trackId;
     mCategoryId = categoryId;
     mName = name;
@@ -38,12 +38,12 @@ public class Track extends MapObject
   Track(@NonNull FeatureId featureId, @IntRange(from = 0) long categoryId, @IntRange(from = 0) long trackId,
         String title, @Nullable String secondaryTitle, @Nullable String subtitle, @Nullable String address,
         @Nullable RoutePointInfo routePointInfo, @OpeningMode int openingMode, @NonNull Popularity popularity,
-        @Nullable Float starRating, @IntRange(from = 0) int reviewCount,
+        @Nullable Float starRating, @IntRange(from = 0) int reviewCount, @Nullable String reviewEditorAppName,
         @NonNull String wikiArticle, @NonNull String osmDescription, @Nullable String[] rawTypes, int color,
         Distance length, double lat, double lon)
   {
     super(featureId, TRACK, title, secondaryTitle, subtitle, address, lat, lon, "", routePointInfo, openingMode,
-        popularity, starRating, reviewCount, wikiArticle, osmDescription, RoadWarningMarkType.UNKNOWN.ordinal(), rawTypes);
+        popularity, starRating, reviewCount, reviewEditorAppName, wikiArticle, osmDescription, RoadWarningMarkType.UNKNOWN.ordinal(), rawTypes);
     mTrackId = trackId;
     mCategoryId = categoryId;
     mColor = color;

@@ -91,5 +91,74 @@
     },
     "cuisine-vegan|@cuisine_all_vegetarian": {
         "defaultMessage": "Veganiška virtuvė"
+    },
+    "@category_eat": {
+        "defaultMessage": "Kur pavalgyti"
+    },
+    "@category_food": {
+        "defaultMessage": "Maisto prekės"
+    },
+    "@category_transport": {
+        "defaultMessage": "Viešasis transportas"
+    },
+    "@category_fuel": {
+        "defaultMessage": "Degalinė"
+    },
+    "@category_parking": {
+        "defaultMessage": "Parkavimas"
+    },
+    "@category_shopping": {
+        "defaultMessage": "Apsipirkimas"
+    },
+    "@category_secondhand": {
+        "defaultMessage": "Naudotos prekės"
+    },
+    "@category_hotel": {
+        "defaultMessage": "Viešbutis"
+    },
+    "@category_tourism": {
+        "defaultMessage": "Lankytina vieta"
+    },
+    "@category_entertainment": {
+        "defaultMessage": "Pramogos"
+    },
+    "@category_atm": {
+        "defaultMessage": "Bankomatas"
+    },
+    "@category_nightlife": {
+        "defaultMessage": "Naktinis gyvenimas"
+    },
+    "@category_children": {
+        "defaultMessage": "Šeimos atostogos"
+    },
+    "@category_bank": {
+        "defaultMessage": "Bankas"
+    },
+    "@category_pharmacy": {
+        "defaultMessage": "Vaistinė"
+    },
+    "@category_hospital": {
+        "defaultMessage": "Ligoninė"
+    },
+    "@category_toilet": {
+        "defaultMessage": "Tualetas"
+    },
+    "@category_post": {
+        "defaultMessage": "Paštas"
+    },
+    "@category_police": {
+        "defaultMessage": "Policija"
+    },
+    "@category_wifi": {
+        "defaultMessage": "Belaidis ryšys"
+    },
+    "@category_recycling": {
+        "defaultMessage": "Antrinės žaliavos"
+    },
+    "@category_water": {
+        "defaultMessage": "Vanduo"
+    },
+    "@category_rv": {
+        "defaultMessage": "Kemperių aptarnavimas"
     }
 }

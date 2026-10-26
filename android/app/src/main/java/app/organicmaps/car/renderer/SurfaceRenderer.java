@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.car.app.CarContext;
 import androidx.lifecycle.LifecycleOwner;
+import android.view.View;
 import app.organicmaps.sdk.MapController;
 import app.organicmaps.sdk.MapView;
 import app.organicmaps.sdk.display.DisplayManager;
 import app.organicmaps.sdk.display.DisplayType;
 import app.organicmaps.sdk.location.LocationHelper;
+import app.organicmaps.widget.CurrentSpeedView;
 
 @RequiresApi(23)
 class SurfaceRenderer extends Renderer
@@ -54,6 +56,24 @@ class SurfaceRenderer extends Renderer
   @Override
   public void setSpeedLimit(int speedLimit, boolean speedLimitExceeded)
   {
-    mSurfaceCallback.getSpeedLimitView().setSpeedLimit(speedLimit, speedLimitExceeded);
+    mSurfaceCallback.getSpeedLimitView().setSpeedLimit(speedLimit, false);
+    mSurfaceCallback.getCurrentSpeedView().setAlert(speedLimitExceeded);
+    mSurfaceCallback.updatePillVisibility();
+  }
+
+  @Override
+  public void setCurrentSpeed(double speedMps)
+  {
+    final CurrentSpeedView view = mSurfaceCallback.getCurrentSpeedView();
+    view.setCurrentSpeed(speedMps);
+    view.setVisibility(View.VISIBLE);
+    mSurfaceCallback.updatePillVisibility();
+  }
+
+  @Override
+  public void hideCurrentSpeed()
+  {
+    mSurfaceCallback.getCurrentSpeedView().setVisibility(View.GONE);
+    mSurfaceCallback.updatePillVisibility();
   }
 }

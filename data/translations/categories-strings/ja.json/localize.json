@@ -894,7 +894,7 @@
         "defaultMessage": "海"
     },
     "@category_wifi": {
-        "defaultMessage": "無線LAN"
+        "defaultMessage": "WiFi|無線LAN"
     },
     "internet_access|internet_access-wlan|@category_wifi": {
         "defaultMessage": "3インターネット|WiFi|3Internet"
@@ -1468,5 +1468,8 @@
     },
     "cuisine-vegan|@cuisine_all_vegetarian": {
         "defaultMessage": "ビーガン料理"
+    },
+    "amenity-studio": {
+        "defaultMessage": "5メディアスタジオ|スタジオ"
     }
 }

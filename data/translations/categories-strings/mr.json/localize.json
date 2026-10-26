@@ -864,7 +864,7 @@
         "defaultMessage": "महासागर"
     },
     "@category_wifi": {
-        "defaultMessage": "WiFi|Wi-Fi"
+        "defaultMessage": "वायफाय इंटरनेट|WiFi|Wi-Fi"
     },
     "internet_access|internet_access-wlan|@category_wifi": {
         "defaultMessage": "इंटरनेट|आंतरजाल"

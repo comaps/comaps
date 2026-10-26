@@ -1,11 +1,7 @@
-• Affiche les noms des favoris sur la carte
-• Affiche les avis sur les lieux
-• Paramétrage de la taille de police
-• Compatibilité TalkBack de la carte
-• Démarrage des enregistrements pendant la navigation
-• Affichage de « Ouvre demain à … »
-• Correction de la recherche en langues étrangères
-• Logos de routes au Kirghizistan, Ouzbékistan, Tadjikistan, Kazakhstan et Géorgie
-• Mise en avant des arrêts de bus en mode métro
+• Ajout d'un lien pour mettre de nouvelles notes sur un lieu
+• Affichage de la vitesse dans Android Auto
+• Afficher les notes des lieux dans les résultats de recherche
+• Affichage des étoiles des hôtels/restaurants comme du texte
+• Ajout des magasins de location et de prêt d'outils, des panneaux routiers de Roumanie et du Maroc, et correction des panneaux routiers de Chypre et Augsburg.
 
-Plus de détails à comaps.app/latest
+Plus de détails sur comaps.app/latest

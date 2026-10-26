@@ -16,7 +16,8 @@ TransitCircle transit_circle.vsh.glsl transit_circle.fsh.glsl
 DashedLine dashed_line.vsh.glsl dashed_line.fsh.glsl
 PathSymbol path_symbol.vsh.glsl texturing.fsh.glsl
 TransparentArea area.vsh.glsl solid_color.fsh.glsl
-CapJoin circle.vsh.glsl circle.fsh.glsl
+LineCap circle.vsh.glsl circle.fsh.glsl
+LineJoin circle_arc.vsh.glsl circle_arc.fsh.glsl
 HatchingArea hatching_area.vsh.glsl hatching_area.fsh.glsl
 TexturingGui texturing_gui.vsh.glsl texturing_gui.fsh.glsl
 Ruler ruler.vsh.glsl ruler.fsh.glsl

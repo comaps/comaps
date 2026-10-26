@@ -1,5 +1,5 @@
 layout (location = 0) in vec3 a_position;
-layout (location = 1) in vec3 a_normal;
+layout (location = 1) in vec2 a_pxOffset;
 layout (location = 2) in vec2 a_colorTexCoords;
 
 #ifdef ENABLE_VTF
@@ -7,7 +7,7 @@ layout (location = 0) out LOW_P vec4 v_color;
 #else
 layout (location = 1) out vec2 v_colorTexCoords;
 #endif
-layout (location = 2) out vec3 v_radius;
+layout (location = 2) out vec2 v_uv;
 
 layout (binding = 0) uniform UBO
 {
@@ -28,12 +28,14 @@ layout (binding = 1) uniform sampler2D u_colorTex;
 void main()
 {
   vec4 p = vec4(a_position, 1) * u_modelView;
-  vec4 pos = vec4(a_normal.xy, 0, 0) + p;
+  vec2 poffset = (vec4(a_position.xy + a_pxOffset, 0.0, 1) * u_modelView).xy;
+  vec2 off = length(a_pxOffset) * normalize(poffset - p.xy);
+  vec4 pos = vec4(a_pxOffset, 0, 0) + p;
   gl_Position = applyPivotTransform(pos * u_projection, u_pivotTransform, 0.0);
 #ifdef ENABLE_VTF
   v_color = texture(u_colorTex, a_colorTexCoords);
 #else
   v_colorTexCoords = a_colorTexCoords;
 #endif
-  v_radius = a_normal;
+  v_uv = 2.0 * normalize(off); // `2 *` to have incircle with radius 1
 }

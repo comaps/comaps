@@ -39,8 +39,8 @@ struct GenerateInfo
 
   std::string m_cacheDir;
 
-  // External folders with additional preprocessed data (isolines, addresses).
-  std::string m_isolinesDir, m_addressesDir;
+  // External folders and files with additional preprocessed data (isolines, addresses, reviews).
+  std::string m_isolinesDir, m_addressesDir, m_reviewsFile;
 
   // Current generated file name if --output option is defined.
   std::string m_fileName;

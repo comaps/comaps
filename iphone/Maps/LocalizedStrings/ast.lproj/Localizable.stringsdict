@@ -1,27 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>bookmarks_places</key>
-	<dict>
-		<key>nevertranslate</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>lld</string>
-			<key>zero</key>
-			<string>Ensin marcadores</string>
-			<key>one</key>
-			<string>%lld marcador</string>
-			<key>other</key>
-			<string>%lld marcadores</string>
-		</dict>
-	</dict>
-	<key>bookmarks_detect_message</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@nevertranslate@</string>
-	</dict>
-</dict>
+<dict/>
 </plist>

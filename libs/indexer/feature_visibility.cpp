@@ -160,6 +160,7 @@ bool TypeAlwaysExists(uint32_t type, GeomType geomType = GeomType::Undefined)
       static uint32_t const arrTypes[] = {
           cl.GetTypeByPath({"organic"}),
           cl.GetTypeByPath({"wheelchair"}),
+          cl.GetTypeByPath({"second_hand"}),
       };
       if (base::IsExist(arrTypes, type))
         return true;

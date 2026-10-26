@@ -702,7 +702,7 @@
  "languages": ["en", "ss"]
 },
 "Sweden": {
- "languages": ["fi", "yi", "sv"]
+ "languages": ["sv", "fi", "yi"]
 },
 "Switzerland": {
  "languages": ["fr", "de", "it", "rm"]

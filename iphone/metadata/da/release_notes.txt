@@ -1,13 +1,6 @@
-• Brugergrænseflade med transportmodusafhængige kortstile
-• Vis favoritnavne på kortet (slå fra i indstillingerne)
-• Indstilling for tekststørrelse på kortet
-• Tilføjet vejskilte for Kirgisistan, Usbekistan, Tadsjikistan, Kasakhstan og Georgien
-• Mørke og lyse varianter af svingbilleder i CarPlay
-• OSM-editor: tilføjet flere kategorier (prison, dojo, bowling_alley, lounger, shop=craft, golf_course, miniature_golf og attraktioner (roller_coaster, carousel...) og samlingspunkter)
-• Rettet mulighed for at søge på alle brugerindstillede kortsprog (ikke kun engelsk og lokalt sprog)
-• Brug vognbaner uden restriktioner for vognbanevejledning i fortsæt ligeud-instruktioner
-• Fortolk ikke fee=donation som betalt
-• Stemmevejledning på makedonsk aktiveret
-• Rettet forespørgsel om placering før beskyttede data er tilgængelige
-• Rettet problem med, at knappen til rutevisning forsvandt
-• OpenStreetMap-data pr. 30. august og yderligere ugentlige opdateringer
+• Tilføjet understøttelse for CarPlay dashboard
+• Tilføjet indstilling for URL for brugerdefineret kortserver
+• Gjort transportmodusvælger tilgængelig og ekstra muligheder vises nu også ved andet tryk, ud over ved et langt tryk
+• Vis stjerner for hoteller/restauranter som tekst
+• Tilføjet værktøjsudlejningssteder og værktøjsbiblioteker, vejskilte tilføjet i Rumænien og Marokko og rettet for Augsburg og A-veje i Cypern
+• OpenStreetMap-data pr. 4. oktober og yderligere ugentlige opdateringer

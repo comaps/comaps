@@ -79,6 +79,7 @@ import app.organicmaps.util.bottomsheet.MenuBottomSheetFragment;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetItem;
 import app.organicmaps.widget.ArrowView;
 import app.organicmaps.widget.StarRatingView;
+import app.organicmaps.widget.placepage.sections.PlacePageAddReviewFragment;
 import app.organicmaps.widget.placepage.sections.PlacePageBookmarkFragment;
 import app.organicmaps.widget.placepage.sections.PlacePageChargeSocketsFragment;
 import app.organicmaps.widget.placepage.sections.PlacePageLinksFragment;
@@ -104,6 +105,7 @@ public class PlacePageView extends Fragment
 
 {
   private static final String PREF_COORDINATES_FORMAT = "coordinates_format";
+  private static final String ADD_REVIEW_FRAGMENT_TAG = "ADD_REVIEW_FRAGMENT_TAG";
   private static final String BOOKMARK_FRAGMENT_TAG = "BOOKMARK_FRAGMENT_TAG";
   private static final String TRACK_FRAGMENT_TAG = "TRACK_FRAGMENT_TAG";
   private static final String WIKIPEDIA_FRAGMENT_TAG = "WIKIPEDIA_FRAGMENT_TAG";
@@ -396,7 +398,7 @@ public class PlacePageView extends Fragment
     ArrayList<Review> reviews = mMapObject.getReviews();
     if (!reviews.isEmpty())
     {
-      ReviewListActivity.start(requireContext(), mMapObject.getTitle(), reviews);
+      ReviewListActivity.start(requireContext(), mMapObject.getTitle(), reviews, mMapObject.getReviewEditorAppName(), mMapObject.getFeatureId());
     }
   }
 
@@ -501,6 +503,12 @@ public class PlacePageView extends Fragment
                        mMapObject.isTrack());
   }
 
+  private void updateAddReviewView()
+  {
+    updateViewFragment(PlacePageAddReviewFragment.class, ADD_REVIEW_FRAGMENT_TAG, R.id.place_page_add_review_fragment,
+        true /* the fragment manages visibility on its own */);
+  }
+
   private boolean hasWikipediaEntry()
   {
     final String wikipediaLink = mMapObject.getMetadata(Metadata.MetadataType.FMD_WIKIPEDIA);
@@ -512,24 +520,6 @@ public class PlacePageView extends Fragment
   {
     updateViewFragment(PlacePageWikipediaFragment.class, WIKIPEDIA_FRAGMENT_TAG, R.id.place_page_wikipedia_fragment,
                        hasWikipediaEntry());
-  }
-
-  private void setTextAndColorizeSubtitle()
-  {
-    String text = mMapObject.getSubtitle();
-    UiUtils.setTextAndHideIfEmpty(mTvSubtitle, text);
-    if (!TextUtils.isEmpty(text))
-    {
-      SpannableStringBuilder sb = new SpannableStringBuilder(text);
-      int start = text.indexOf("★");
-      int end = text.lastIndexOf("★") + 1;
-      if (start > -1)
-      {
-        sb.setSpan(new ForegroundColorSpan(ContextCompat.getColor(requireContext(), R.color.base_yellow)), start, end,
-                   Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-      }
-      mTvSubtitle.setText(sb);
-    }
   }
 
   private void refreshPreview()
@@ -551,7 +541,7 @@ public class PlacePageView extends Fragment
 
     if (mToolbar != null)
       mToolbar.setTitle(mMapObject.getTitle());
-    setTextAndColorizeSubtitle();
+    UiUtils.setTextAndHideIfEmpty(mTvSubtitle, mMapObject.getSubtitle());
     UiUtils.setTextAndHideIfEmpty(mTvAddress, mMapObject.getAddress());
 
     refreshCategoryPreview();
@@ -904,6 +894,7 @@ public class PlacePageView extends Fragment
     updateChargeSocketsView();
     updatePhoneView();
     updateTrackView();
+    updateAddReviewView();
   }
 
   private void refreshWiFi()

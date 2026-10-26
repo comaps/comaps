@@ -1,7 +1,7 @@
 # Reviews
 
-This file documents how place reviews are handled in CoMaps. It contains both the ops instructions and pointers
-to the relevant parts of the codebase. If you're primarily interested in generating MWM files with reviews, see
+This file documents how place reviews are handled in CoMaps. It contains both the ops instructions and pointers to the
+relevant parts of the codebase. If you're primarily interested in generating MWM files with reviews, see
 the [Operation](#operation) section. If you'd like to make changes to where the reviews are sourced, how they are stored
 or displayed, head to [Development](#development).
 
@@ -13,22 +13,22 @@ git repository.
 ### Overview
 
 ```
-                   [mangrove dump]
-                          |
-                          V
-                 <mangrove-osm-coder>
-                          |
-                          V
-                    [reviews.json]
-                          |
-                          V
-<maps_generator>: ... |Reviews| ... -> [region.mwm]
+                        [mangrove dump]
+                               |
+                               V
+                      <mangrove-osm-coder>
+                               |
+                               V
+                         [reviews.json]
+                               |
+                               V
+<maps_generator>: ... |Features|Reviews| ... -> [region.mwm]
 ```
 
 The review pipeline: a mangrove.reviews [JSON dump](https://docs.mangrove.reviews/#tag/Dump) is processed
 by [mangrove-osm-coder](https://codeberg.org/mmakowski/mangrove-osm-coder) which produces a [
 `reviews.json` file](https://codeberg.org/mmakowski/mangrove-osm-coder/src/branch/main/README.md#reviews-.son). That
-file is then read by the `Reviews` stage of the [maps_generator](../tools/python/maps_generator/README.md).
+file is then read by the `Features` and `Reviews` stages of the [maps_generator](../tools/python/maps_generator/README.md).
 
 ### Running in Codeberg
 
@@ -50,11 +50,13 @@ See the [manual end-to-end testing section](#manual-end-to-end-testing).
 
 The code to support reviews is split into three categories:
 
-1. the core library with the model and serialisation/deserialisation logic;
+1. the core library with the model, serialisation/deserialisation and editor logic;
 2. the map generator stage;
 3. the app code that reads and displays the reviews.
 
 ### The Library
+
+#### Indexer
 
 The `libs/indexer/reviews_*` files contain:
 
@@ -72,10 +74,17 @@ tools/unix/build_omim.sh -d indexer_tests && \
   popd
 ```
 
+#### Editor
+
+The `libs/editor/review.*` files define what online review editors to use for different feature types. For some editors,
+constructing the URL requires first resolving the OSM id of the feature being reviewed, and that involves a network call
+to the OSM API.
+
 ### Map Generator
 
-The generator processes a single region MWM file at the time. It parses the reviews JSON file, identifies the reviews
-which correspond to features in the current region and uses the library to write a `reviews` section to the MWM file.
+The generator processes a single region MWM file at the time. It parses the reviews JSON file, identifies the reviews which correspond to features in the
+current region and uses the library to write a `reviews` section to the MWM file. The average ratings are also stored in the feature metadata for easy access
+during search.
 
 To test the generation run in the root of the project:
 
@@ -95,18 +104,21 @@ depends on [`libs/indexer`](#the-library) for loading the review data.
 
 #### Android
 
-The review information is stored in `MapObject`, which is populated through JNI in `UserMarkHelper.cpp`. The information from `MapObject` is then displayed in
-the place info panel (`place_page_preview.xml`) and a review list (`item_review.xml`). These layouts use a custom `StarRatingView` widget to display the
-ratings.
+The review information is stored in `MapObject`, which is populated through JNI in `UserMarkHelper.cpp`. The information
+from `MapObject` is then displayed in the place info panel (`place_page_preview.xml`) and a review list
+(`item_review.xml`). These layouts use a custom `StarRatingView` widget to display the ratings. For editor linking, the
+app uses `ReviewEditor` that provides an interface to the C++ core logic that constructs the review editor links. The
+"Add Review" link UI logic is encapsulated in `AddReviewController` that is used from both the place info panel and the
+review list.
 
 #### iOS
 
-TODO
+Reviews are not yet supported by the iOS app.
 
 #### Qt
 
 The review summaries are displayed in `PlacePageDialogUser` and `PlacePageDialogDeveloper`. They use a custom
-`qt::StarRatingWidget` to render the star rating.
+`qt::StarRatingWidget` to render the star rating. These dialogs also provide links to the online review editors.
 
 ### Manual End-to-End Testing
 
@@ -123,7 +135,7 @@ The review summaries are displayed in `PlacePageDialogUser` and `PlacePageDialog
     ```
 3. configure the generator by following the instructions
    in [tools/python/maps_generator/README.md](../tools/python/maps_generator/README.md), with the following change:
-   1. in the `map_generator.ini`, set:
+    1. in the `map_generator.ini`, set:
         1. `PLANET_URL: https://download.geofabrik.de/europe/poland/mazowieckie-latest.osm.pbf` to use a region with
            reviewed features;
         2. `REVIEWS_PATH: ${Main:MAIN_OUT_PATH}/reviews/reviews.json`
@@ -144,9 +156,9 @@ The review summaries are displayed in `PlacePageDialogUser` and `PlacePageDialog
     1. `readlink -f data/World.mwm` --- make note of the `<yymmdd>` (for example `.../world_mwm/260421/World.mwm`)
        directory name;
     2. symlink the output directory of the generator as `data/<yyyymmdd>`, for example:
-       `ln -s /home/me/Projects/OSS/comaps/maps_build/2026_05_01__10_04_46/260501 data/260421`; whatever map was used
-       by the generator, the date in `data` must be on or before the one used by `World.mwm`, otherwise the app won't
-       pick up the map.
+       `ln -s /home/me/Projects/OSS/comaps/maps_build/2026_05_01__10_04_46/260501 data/260421`; whatever map was used by
+       the generator, the date in `data` must be on or before the one used by `World.mwm`, otherwise the app won't pick
+       up the map.
 7. start the app: `../omim-build-debug/CoMaps`, then search for `Tekla`; the top result should be a café with at least
    one review.
 
@@ -202,7 +214,7 @@ MAPS_BUILD="$BASE/maps_build/$TS/"
 ```
 
 This is more direct, but also more sensitive to changes in the `generator_tool` command line interface, so if you
-struggle to get that to work using the python `maps_generator` tool is a safer option.
+struggle to get that to work, using the python `maps_generator` tool is a safer option.
 
 #### Qt App
 

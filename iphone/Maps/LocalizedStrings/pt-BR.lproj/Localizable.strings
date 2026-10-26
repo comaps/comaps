@@ -875,7 +875,7 @@
 "pref_custom_button_type" = "Botão personalizável";
 "osm" = "OpenStreetMap";
 "mode" = "Modo";
-"mode_walking" = "Caminhar";
+"mode_walking" = "A pé";
 "mode_cycling" = "Bicicleta";
 "mode_driving" = "Carro";
 "mode_public-transport" = "Transporte público";
@@ -883,7 +883,7 @@
 "mode_option_transitlines" = "Mostrar linhas de transporte público";
 "mode_option_comingsoon" = "Opções disponíveis em breve";
 "layers" = "Camadas";
-"layers_option_contour-lines" = "Linhas de contorno";
+"layers_option_contour-lines" = "Curvas de nível";
 "layers_option_outdoor" = "Ar livre";
 "layers_option_buildings-3d" = "Edifícios em 3D";
 "layers_power-saving" = "Atualmente, essa camada está desativada automaticamente devido à sua configuração do modo de economia de energia";
@@ -898,3 +898,14 @@
 "bookmarks_text_placement_title" = "Mostrar nomes dos favoritos no mapa";
 "pref_font_size" = "Tamanho da fonte para rótulos do mapa";
 "font_size" = "Tamanho da fonte";
+"mode_options_accessibility_hint" = "Exibe opções para este modo";
+"stars_5" = "5 estrelas";
+"custom_map_server_error_scheme" = "O URL deve começar com http:// ou https://";
+"stars_4" = "4 estrelas";
+"stars_2" = "2 estrelas";
+"custom_map_server_map_series" = "Esta versão do CoMaps está usando a série de mapas %@.";
+"not_set" = "Não definido";
+"custom_map_server" = "Servidor de mapas personalizado";
+"stars_3" = "3 estrelas";
+"stars_1" = "1 estrela";
+"custom_map_server_message" = "Substitua o servidor padrão usado para baixar mapas. Deixe em branco para usar o servidor de mapas padrão do CoMaps.";

@@ -42,7 +42,7 @@ set(SRC
   relation_tags_tests.cpp
   restriction_collector_test.cpp
   restriction_test.cpp
-  reviews_section_builder_tests.cpp
+  reviews_tests.cpp
   road_access_test.cpp
   source_data.cpp
   source_data.hpp

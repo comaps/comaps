@@ -47,6 +47,9 @@
     "@category_secondhand": {
         "defaultMessage": "4Second Hand|second-hand|vintage|5Vintage shop|4Thrift store|5Resale shop|6Opportunity shop|4Used-goods|thrift|thrifting"
     },
+    "second_hand-yes|second_hand-only|@category_secondhand": {
+        "defaultMessage": ""
+    },
     "amenity-bank|@category_bank": {
         "defaultMessage": "money|U+1F3E6|U+1F4B0|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"
     },
@@ -187,6 +190,9 @@
     },
     "shop-laundry": {
         "defaultMessage": "4Laundry|Laundrette|laundromat|5washateria|coin laundry"
+    },
+    "shop-tool_hire|@shop": {
+        "defaultMessage": "Tool Hire|tools|U+1F529|U+1F528"
     },
     "shop-toys|@category_children|@shop": {
         "defaultMessage": "Toy|toyshop|kids|toys|kids toys"
@@ -623,6 +629,9 @@
     "amenity-toilets|toilets-yes|@category_toilet": {
         "defaultMessage": "wc|4Bathroom|loo|lavatory|5washroom|U+1F6BD|U+1F6BE|U+1F4A9|U+1F6BB|U+1F6B9|U+1F6BA"
     },
+    "amenity-tool_library": {
+        "defaultMessage": "Tool Library|Tool Hire|tools|U+1F529|U+1F528"
+    },
     "amenity-university": {
         "defaultMessage": "4University|U+1F393|Uni"
     },
@@ -847,6 +856,9 @@
     },
     "building": {
         "defaultMessage": "Building|U+1F3E0|U+1F3E1|U+1F3E2"
+    },
+    "building-abandoned": {
+        "defaultMessage": "Abandoned Building|abandoned"
     },
     "building-address": {
         "defaultMessage": "Address"
@@ -1080,7 +1092,7 @@
         "defaultMessage": "4Animal Boarding|3Pet Boarding|pet hotel"
     },
     "@charging_station": {
-        "defaultMessage": "4Charging Station|charging|charger"
+        "defaultMessage": "4Charging Station|charging|charger|2EV Charging Station|EV charging|EV charger"
     },
     "amenity-charging_station|@charging_station": {
         "defaultMessage": ""
@@ -1099,6 +1111,9 @@
     },
     "amenity-bicycle_parking": {
         "defaultMessage": "4Bicycle Parking|4Bike Parking"
+    },
+    "amenity-bicycle_parking-covered": {
+        "defaultMessage": "4Covered Bicycle Parking|Covered Bike Parking"
     },
     "amenity-waste_basket": {
         "defaultMessage": "4Trash Bin|4litter bin|5waste basket|bin|5dustbin"

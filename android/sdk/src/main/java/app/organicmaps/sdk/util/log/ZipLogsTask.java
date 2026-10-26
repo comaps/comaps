@@ -49,7 +49,7 @@ class ZipLogsTask implements Runnable
     try (FileOutputStream dest = new FileOutputStream(toLocation, false);
          ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(dest)))
     {
-      zipSubFolder(out, sourceFile, sourceFile.getPath().length());
+      zipSubFolder(out, sourceFile, sourceFile.getPath().length() + 1);
     }
     catch (Exception e)
     {

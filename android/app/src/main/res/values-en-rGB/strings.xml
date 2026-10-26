@@ -149,4 +149,7 @@
     <string name="prefs_group_data_management_summary">Map storage, backup favourites</string>
     <string name="bookmarks_text_placement_title">Show names of favourites on map</string>
     <string name="sort_categories">Sort Favourite Lists</string>
+    <string name="pref_use_google_play">A proprietary service that combines GPS, Wi-Fi, cellular networks etc. to determine your location more accurately. It may connect to Google servers.</string>
+    <string name="search_without_internet_advertisement">To start searching and creating routes, please download the map. After that you will no longer need an internet connection.</string>
+    <string name="editor_category_unsuitable_text">CoMaps is only able to add simple point categories, it isn\'t able to add towns, roads, lakes, building outlines, etc. Please add such categories directly to <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Check our <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> for detailed step-by-step instructions.</string>
 </resources>

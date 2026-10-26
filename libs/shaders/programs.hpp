@@ -28,7 +28,8 @@ enum class Program
   DashedLine,
   PathSymbol,
   TransparentArea,
-  CapJoin,
+  LineCap,
+  LineJoin,
   HatchingArea,
   TexturingGui,
   Ruler,
@@ -88,7 +89,8 @@ inline std::string DebugPrint(Program p)
   case Program::Area3d: return "Area3d";
   case Program::Area3dOutline: return "Area3dOutline";
   case Program::Line: return "Line";
-  case Program::CapJoin: return "CapJoin";
+  case Program::LineCap: return "LineCap";
+  case Program::LineJoin: return "LineJoin";
   case Program::TransitCircle: return "TransitCircle";
   case Program::DashedLine: return "DashedLine";
   case Program::PathSymbol: return "PathSymbol";

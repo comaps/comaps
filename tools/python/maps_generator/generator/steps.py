@@ -38,8 +38,6 @@ def multithread_run_if_one_country(func):
             kwargs.update({"threads_count": settings.THREADS_COUNT})
         # Otherwise index stage of Taiwan_* mwms continues to run after all other mwms have finished:
         elif country == 'Taiwan_North':
-            kwargs.update({"threads_count": 5})
-        elif country == 'Taiwan_South':
             kwargs.update({"threads_count": 2})
         func(env, country, **kwargs)
 
@@ -140,32 +138,11 @@ def step_features(env: Env, **kwargs):
         node_storage=env.node_storage,
         user_resource_path=env.paths.user_resource_path,
         cities_boundaries_data=env.paths.cities_boundaries_path,
+        reviews_path=env.paths.reviews_path,
         generate_features=True,
         threads_count=settings.THREADS_COUNT_FEATURES_STAGE,
         **kwargs,
     )
-
-
-def run_gen_tool_with_recovery_country(env: Env, *args, **kwargs):
-    if "data_path" not in kwargs or "output" not in kwargs:
-        logger.warning("The call run_gen_tool() will be without recovery.")
-        run_gen_tool(*args, **kwargs)
-
-    prev_data_path = kwargs["data_path"]
-    mwm = f"{kwargs['output']}.mwm"
-    osm2ft = f"{mwm}.osm2ft"
-    kwargs["data_path"] = env.paths.draft_path
-    make_symlink(
-        os.path.join(prev_data_path, osm2ft), os.path.join(env.paths.draft_path, osm2ft)
-    )
-    shutil.copy(
-        os.path.join(prev_data_path, mwm), os.path.join(env.paths.draft_path, mwm)
-    )
-    run_gen_tool(*args, **kwargs)
-    shutil.move(
-        os.path.join(env.paths.draft_path, mwm), os.path.join(prev_data_path, mwm)
-    )
-    kwargs["data_path"] = prev_data_path
 
 
 @multithread_run_if_one_country
@@ -199,8 +176,7 @@ def step_index_world(env: Env, country: AnyStr, **kwargs):
 
 
 def step_cities_ids_world(env: Env, country: AnyStr, **kwargs):
-    run_gen_tool_with_recovery_country(
-        env,
+    run_gen_tool(
         env.gen_tool,
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),
@@ -273,8 +249,7 @@ def step_prepare_routing_world(env: Env, country: AnyStr, logger, **kwargs):
 
 
 def step_routing_world(env: Env, country: AnyStr, **kwargs):
-    run_gen_tool_with_recovery_country(
-        env,
+    run_gen_tool(
         env.gen_tool,
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),
@@ -295,8 +270,7 @@ def step_coastline_index(env: Env, country: AnyStr, **kwargs):
 
 
 def step_ugc(env: Env, country: AnyStr, **kwargs):
-    run_gen_tool_with_recovery_country(
-        env,
+    run_gen_tool(
         env.gen_tool,
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),
@@ -311,8 +285,7 @@ def step_ugc(env: Env, country: AnyStr, **kwargs):
 
 
 def step_popularity(env: Env, country: AnyStr, **kwargs):
-    run_gen_tool_with_recovery_country(
-        env,
+    run_gen_tool(
         env.gen_tool,
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),
@@ -327,8 +300,7 @@ def step_popularity(env: Env, country: AnyStr, **kwargs):
 
 
 def step_popularity_world(env: Env, country: AnyStr, **kwargs):
-    run_gen_tool_with_recovery_country(
-        env,
+    run_gen_tool(
         env.gen_tool,
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),
@@ -343,8 +315,7 @@ def step_popularity_world(env: Env, country: AnyStr, **kwargs):
 
 
 def step_srtm(env: Env, country: AnyStr, **kwargs):
-    run_gen_tool_with_recovery_country(
-        env,
+    run_gen_tool(
         env.gen_tool,
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),
@@ -359,8 +330,7 @@ def step_srtm(env: Env, country: AnyStr, **kwargs):
 
 
 def step_isolines_info(env: Env, country: AnyStr, **kwargs):
-    run_gen_tool_with_recovery_country(
-        env,
+    run_gen_tool(
         env.gen_tool,
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),
@@ -376,21 +346,20 @@ def step_isolines_info(env: Env, country: AnyStr, **kwargs):
 
 
 def step_reviews(env: Env, country: AnyStr, **kwargs):
-    run_gen_tool_with_recovery_country(
-        env,
+    run_gen_tool(
         env.gen_tool,
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),
         data_path=env.paths.mwm_path,
         reviews_path=env.paths.reviews_path,
         output=country,
+        generate_reviews=True,
         **kwargs,
     )
 
 
 def step_description(env: Env, country: AnyStr, **kwargs):
-    run_gen_tool_with_recovery_country(
-        env,
+    run_gen_tool(
         env.gen_tool,
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),
@@ -404,8 +373,7 @@ def step_description(env: Env, country: AnyStr, **kwargs):
 
 
 def step_routing(env: Env, country: AnyStr, **kwargs):
-    run_gen_tool_with_recovery_country(
-        env,
+    run_gen_tool(
         env.gen_tool,
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),
@@ -425,8 +393,7 @@ def step_routing(env: Env, country: AnyStr, **kwargs):
 
 
 def step_routing_transit(env: Env, country: AnyStr, **kwargs):
-    run_gen_tool_with_recovery_country(
-        env,
+    run_gen_tool(
         env.gen_tool,
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),
@@ -444,8 +411,7 @@ def step_routing_transit(env: Env, country: AnyStr, **kwargs):
 
 
 def step_statistics(env: Env, country: AnyStr, **kwargs):
-    run_gen_tool_with_recovery_country(
-        env,
+    run_gen_tool(
         env.gen_tool,
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),

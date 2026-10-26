@@ -6,13 +6,13 @@
         "defaultMessage": "Cửa hàng tạp hóa|ẩm thực"
     },
     "@category_transport": {
-        "defaultMessage": "Giao thông"
+        "defaultMessage": "Phương tiện công cộng|Giao thông"
     },
     "@category_fuel": {
-        "defaultMessage": "Khí đốt"
+        "defaultMessage": "Xăng dầu|Khí đốt"
     },
     "@category_parking": {
-        "defaultMessage": "đỗ xe"
+        "defaultMessage": "Nơi đỗ xe|đỗ xe"
     },
     "@category_shopping": {
         "defaultMessage": "Đi mua sắm"
@@ -21,7 +21,7 @@
         "defaultMessage": "Khách sạn"
     },
     "@category_tourism": {
-        "defaultMessage": "Diểm tham quan"
+        "defaultMessage": "Điểm tham quan|Diểm tham quan"
     },
     "@category_entertainment": {
         "defaultMessage": "Giải trí"
@@ -36,7 +36,7 @@
         "defaultMessage": "ATM"
     },
     "@category_rv": {
-        "defaultMessage": "Đối với RV"
+        "defaultMessage": "Dịch vụ hỗ trợ xe RV|Đối với RV"
     },
     "amenity-atm|@category_atm": {
         "defaultMessage": "2Máy atm|tiền"

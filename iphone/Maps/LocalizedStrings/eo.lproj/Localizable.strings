@@ -111,7 +111,7 @@
 /* message title of loading file */
 "load_kmz_title" = "Ŝargado de favoratoj";
 /* Kmz file successful loading */
-"load_kmz_successful" = "Ŝargado de favoratoj sukcesis! Vi povas trovi ĝin sur la mapo aŭ en la fenestro de favoratoj.";
+"load_kmz_successful" = "Ŝargado de favoratoj sukcesis! Vi povas trovi ilin sur la mapo aŭ en la fenestro de favoratoj.";
 /* Kml file loading failed */
 "load_kmz_failed" = "Malsukcesis ŝargi favoratojn. La dosiero eble estas difektita.";
 /* resource for context menu */
@@ -140,7 +140,7 @@
 "tracks_title" = "Trakoj";
 /* Length of track in cell that describes route */
 "length" = "Longo";
-"share_my_location" = "Kunhavigi Mian Lokon";
+"share_my_location" = "Kunhavigi mian lokon";
 "prefs_group_route" = "Navigado";
 "pref_zoom_title" = "Zoom-butonoj";
 /* Settings «Map» category: «Map Language» title */
@@ -897,3 +897,14 @@
 "bookmarks_text_placement_title" = "Show names of favorites on map";
 "pref_font_size" = "Font size for map labels";
 "font_size" = "Font size";
+"mode_options_accessibility_hint" = "Shows options for this mode";
+"stars_5" = "5-star";
+"custom_map_server_error_scheme" = "The URL must start with http:// or https://";
+"stars_4" = "4-star";
+"stars_2" = "2-star";
+"custom_map_server_map_series" = "This version of CoMaps is using map series %@.";
+"not_set" = "Not set";
+"custom_map_server" = "Custom Map Server";
+"stars_3" = "3-star";
+"stars_1" = "1-star";
+"custom_map_server_message" = "Override the default map download server used for map downloads. Leave empty to use the default CoMaps map server.";

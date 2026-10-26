@@ -44,6 +44,9 @@ std::string ToJavaRoadShieldTypeName(ftypes::RoadShieldType roadShieldType)
   case Bolivia_Fundamental: return "GenericBlue";
   case Brazil_National: return "GenericWhite";
   case Brazil_State: return "GenericWhite";
+  case Romania_National: return "GenericRed";
+  case Romania_County: return "GenericBlue";
+  case Romania_Local: return "GenericOrange";
   default: UNREACHABLE();
   }
 }

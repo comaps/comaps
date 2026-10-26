@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+  <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/tv__add_review"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:text="@string/add_review"
+      android:textAppearance="@style/MwmTextAppearance.PlacePage.Accent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      tools:text="Add a Review via EditorApp" />
+
+  <com.google.android.material.progressindicator.CircularProgressIndicator
+      android:id="@+id/pi__opening_indicator"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:layout_marginStart="@dimen/margin_base"
+      android:indeterminate="true"
+      android:visibility="invisible"
+      app:indicatorColor="?colorSecondary"
+      app:indicatorSize="@dimen/text_size_body_3"
+      app:layout_constraintStart_toEndOf="@id/tv__add_review"
+      app:layout_constraintTop_toTopOf="@id/tv__add_review"
+      app:layout_constraintBottom_toBottomOf="@id/tv__add_review"
+      app:trackColor="?dividerHorizontal"
+      app:trackThickness="@dimen/margin_eighth" />
+
+</merge>

@@ -1799,6 +1799,37 @@ UNIT_CLASS_TEST(ProcessorTest, OrganicTest)
   TEST_EQUAL(GetResultsNumber("органическая обувь", "ru"), 0, ());
 }
 
+UNIT_CLASS_TEST(ProcessorTest, SecondHandTest)
+{
+  TestPOI clothes(m2::PointD(1.0, 1.0), "Una nueva vida", "es");
+  clothes.SetTypes({{"shop", "clothes"}, {"second_hand", "only"}});
+
+  TestPOI car(m2::PointD(1.0, 1.0), "Everything Repair", "en");
+  car.SetTypes({{"shop", "car"}, {"second_hand", "yes"}});
+
+  auto countryId = BuildCountry("Wonderland", [&](TestMwmBuilder & builder)
+  {
+    builder.Add(clothes);
+    builder.Add(car);
+  });
+
+  SetViewport(m2::RectD(-1, -1, 1, 1));
+
+  {
+    Rules rules{ExactMatch(countryId, clothes), ExactMatch(countryId, car)};
+    TEST(ResultsMatch("segunda mano ", rules, "es"), ());
+  }
+  {
+    Rules rules{ExactMatch(countryId, clothes)};
+    TEST(ResultsMatch("segunda mano moda", rules, "es"), ());
+  }
+  {
+    Rules rules{ExactMatch(countryId, car)};
+    TEST(ResultsMatch("segunda mano coches", rules, "es"), ());
+  }
+  TEST_EQUAL(GetResultsNumber("segunda mano rinoceronte", "es"), 0, ());
+}
+
 UNIT_CLASS_TEST(ProcessorTest, RecyclingTest)
 {
   TestPOI paper(m2::PointD(1.0, 1.0), "Макулатура", "ru");

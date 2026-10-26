@@ -15,7 +15,7 @@
         "defaultMessage": "پارکینگ"
     },
     "@category_shopping": {
-        "defaultMessage": "فروشگاه|خرید کردن"
+        "defaultMessage": "خرید|فروشگاه|خرید کردن"
     },
     "@category_hotel": {
         "defaultMessage": "هتل|هتل ها"
@@ -36,7 +36,7 @@
         "defaultMessage": "خود‌پرداز"
     },
     "@category_rv": {
-        "defaultMessage": "امکانات ماشین کاروان"
+        "defaultMessage": "RV برای|امکانات ماشین کاروان"
     },
     "amenity-atm|@category_atm": {
         "defaultMessage": "دستگاه خودپرداز|خودپرداز"
@@ -465,7 +465,7 @@
         "defaultMessage": "داروخانه"
     },
     "@category_post": {
-        "defaultMessage": "پست"
+        "defaultMessage": "صندوق پست|پست"
     },
     "amenity-post_box|@category_post": {
         "defaultMessage": "صندوق پست"
@@ -738,7 +738,7 @@
         "defaultMessage": "خلیج"
     },
     "@category_water": {
-        "defaultMessage": "اب"
+        "defaultMessage": "آب|اب"
     },
     "amenity-drinking_water|drinking_water-yes|@category_water": {
         "defaultMessage": "اب اشامیدنی"
@@ -876,7 +876,7 @@
         "defaultMessage": "اقیانوس"
     },
     "@category_wifi": {
-        "defaultMessage": "وای فای"
+        "defaultMessage": "وای‌فای|وای فای"
     },
     "internet_access|internet_access-wlan|@category_wifi": {
         "defaultMessage": "اینترنت"

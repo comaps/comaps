@@ -28,6 +28,7 @@ from maps_generator.generator.env import Env
 from maps_generator.generator.env import PathProvider
 from maps_generator.generator.env import WORLD_COASTS_NAME
 from maps_generator.generator.env import WORLD_NAME
+from maps_generator.generator.env import BORDERS_DIR
 from maps_generator.generator.env import create_if_not_exist_path
 from maps_generator.generator.exceptions import BadExitStatusError
 from maps_generator.generator.exceptions import SigningError
@@ -203,16 +204,15 @@ class StageMwm(Stage):
             logger.info(f'Number of feature data .mwm.tmp country files to process: {len(tmp_mwm_names)}')
 
             if env.publish_path:
-                # TODO: remove old structure compat-publishing when migration is finished
-                symlink_path = os.path.join(env.publish_path, env.mwm_version)
-                make_symlink(env.paths.mwm_path, symlink_path)
-                logger.info(f'Compat-publishing generated maps to: {symlink_path}')
+                symlink_path = env.publish_path
                 if env.min_compat_app_v:
-                    symlink_path = os.path.join(env.publish_path, env.min_compat_app_v)
+                    symlink_path = os.path.join(symlink_path, env.min_compat_app_v)
                     create_if_not_exist_path(symlink_path)
-                    symlink_path = os.path.join(symlink_path, env.mwm_version)
-                    make_symlink(env.paths.mwm_path, symlink_path)
-                    logger.info(f'Publishing generated maps to: {symlink_path}')
+                else:
+                    logger.warning(f'Map series is not set, hence omitting map series dir for publishing.')
+                symlink_path = os.path.join(symlink_path, env.mwm_version)
+                make_symlink(env.paths.output_path, symlink_path)
+                logger.info(f'Publishing generated maps to: {symlink_path}')
 
             with ThreadPoolExecutor(settings.THREADS_COUNT) as pool:
                 pool.map(
@@ -258,8 +258,11 @@ class StageMwm(Stage):
             logger.info(f'{country} mwm stage {stage.__name__}: start...')
             stage(country=country)(env)
 
+        # TODO: move mwm diffs to the output dir too
+        mwm = f'{country}.mwm'
+        shutil.move(os.path.join(env.paths.mwm_path, mwm), os.path.join(env.paths.output_path, mwm))
         env.finish_mwm(country)
-        logger.info(f'Finished mwm generation for {country}')
+        logger.info(f'Finished {country} generation')
 
 
 @country_stage
@@ -393,7 +396,7 @@ class StageCountriesTxt(Stage):
             env.paths.borders_to_osm_path,
             env.paths.countries_synonyms_path,
             env.paths.hierarchy_path,
-            env.paths.mwm_path,
+            env.paths.output_path,
             env.paths.mwm_version,
             env.min_compat_app_v,
         )
@@ -402,7 +405,7 @@ class StageCountriesTxt(Stage):
                 countries,
                 env.paths.promo_catalog_cities_path,
                 env.paths.promo_catalog_countries_path,
-                env.paths.mwm_path,
+                env.paths.output_path,
                 env.paths.types_path,
                 env.paths.mwm_path,
             )
@@ -455,6 +458,16 @@ class StageCleanup(Stage):
             if os.path.isfile(p) and x.endswith(".mwm.osm2ft"):
                 shutil.move(p, os.path.join(env.paths.osm2ft_path, x))
 
-        logger.info(f"{env.paths.draft_path} will be removed.")
-        shutil.rmtree(env.paths.draft_path)
-
+        p = os.path.join(env.paths.mwm_path, BORDERS_DIR)
+        logger.info(f"Removing {p}")
+        os.remove(p)
+        clean = True
+        for x in os.listdir(env.paths.mwm_path):
+            p = os.path.join(env.paths.mwm_path, x)
+            logger.warning(f"Orphane file left in staging dir: {p}")
+            clean = False
+        if clean:
+            logger.info(f"Removing {env.paths.mwm_path}")
+            shutil.rmtree(env.paths.mwm_path)
+        else:
+            logger.warning(f"Skip removing non-empty {env.paths.mwm_path}")

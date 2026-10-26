@@ -24,7 +24,13 @@ final class InfoItemView: UIView {
   var iconButtonTapHandler: TapHandler?
   var accessoryImageTapHandler: TapHandler?
 
+  var iconButtonWidth: CGFloat {
+    get { iconButtonWidthConstraint.constant }
+    set { iconButtonWidthConstraint.constant = newValue }
+  }
+
   private var style: Style = .regular
+  private lazy var iconButtonWidthConstraint = iconButton.widthAnchor.constraint(equalToConstant: Constants.iconButtonSize)
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -65,7 +71,7 @@ final class InfoItemView: UIView {
     NSLayoutConstraint.activate([
       iconButton.leadingAnchor.constraint(equalTo: leadingAnchor),
       iconButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-      iconButton.widthAnchor.constraint(equalToConstant: Constants.iconButtonSize),
+      iconButtonWidthConstraint,
       iconButton.topAnchor.constraint(equalTo: topAnchor),
       iconButton.bottomAnchor.constraint(equalTo: bottomAnchor),
 

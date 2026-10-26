@@ -10,7 +10,7 @@ NS_SWIFT_NAME(RoutingManagerListener)
 @protocol MWMRoutingManagerListener <NSObject>
 - (void)processRouteBuilderEventWithCode:(MWMRouterResultCode)code
                                countries:(NSArray<NSString *> *)absentCountries;
-- (void)didLocationUpdate:(NSArray<NSString *> *)notifications;
+- (void)didLocationUpdate:(NSArray<NSString *> *)routeNotifications;
 - (void)updateCameraInfo:(BOOL)isCameraOnRoute speedLimitMps:(double)limit NS_SWIFT_NAME(updateCameraInfo(isCameraOnRoute:speedLimitMps:));
 @end
 

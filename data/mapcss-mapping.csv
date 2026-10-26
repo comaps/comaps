@@ -659,11 +659,11 @@ amenity|toilets|private;[amenity=toilets][access=private],[amenity=toilets][acce
 amenity|toilets|customers;[amenity=toilets][access=customers],[amenity=toilets][toilets:access=customers];;;;527;
 highway|primary_link|tunnel;[highway=primary_link][tunnel?];;name;int_name;528;
 deprecated:highway|footway|alpine_hiking:04.2024;[highway=footway][sac_scale=alpine_hiking];x;name;int_name;529;highway|path|expert
-deprecated|deprecated;530;x
+building|abandoned;[building][abandoned=yes],[building][disused=yes],[abandoned:building],[disused:building];;;;530;
 sport|pickleball;531;
-deprecated|deprecated;532;x
-deprecated:leisure|landscape_reserve:01.2024;533;leisure|nature_reserve
-deprecated|deprecated;534;x
+amenity|tool_library;532;
+shop|tool_hire;533;
+amenity|parking|customers;[amenity=parking][access=customers];;;;534;
 deprecated|deprecated;535;x
 deprecated:boundary|administrative|state:04.2024;[boundary=administrative][border_type=state];x;name;int_name;536;
 deprecated|deprecated;537;x
@@ -816,8 +816,8 @@ deprecated|deprecated;683;x
 deprecated|deprecated;684;x
 deprecated|deprecated;685;x
 natural|vineyard;686;landuse|vineyard
-deprecated|deprecated;687;x
-deprecated|deprecated;688;x
+barrier|bus_trap;687;
+barrier|sump_buster;688;
 deprecated|deprecated;689;x
 deprecated|deprecated;690;x
 deprecated:boundary|administrative|country:04.2024;[boundary=administrative][border_type=country];x;name;int_name;691;
@@ -1005,8 +1005,8 @@ junction|circular;867;
 area:highway|residential;868;
 area:highway|secondary;869;
 area:highway|tertiary;870;
-deprecated|deprecated;871;x
-deprecated|deprecated;872;x
+second_hand|yes;871;
+second_hand|only;872;
 area:highway|pedestrian;873;
 area:highway|unclassified;874;
 highway|pedestrian|square;[highway=pedestrian][place=square];;;;875;

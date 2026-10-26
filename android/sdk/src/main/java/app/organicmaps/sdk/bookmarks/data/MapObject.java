@@ -91,6 +91,11 @@ public class MapObject implements PlacePageData
    */
   @NonNull
   private ArrayList<Review> mReviews;
+  /**
+   * The name of the app used to add/edit reviews.
+   */
+  @Nullable
+  private final String mReviewEditorAppName;
   @NonNull
   private String mWikiArticle;
   @NonNull
@@ -102,18 +107,19 @@ public class MapObject implements PlacePageData
                    @Nullable String secondaryTitle, String subtitle, String address, double lat, double lon,
                    String apiId, @Nullable RoutePointInfo routePointInfo, @OpeningMode int openingMode,
                    Popularity popularity, @Nullable Float starRating,
-                   int reviewCount, @NonNull String wikiArticle, @NonNull String osmDescription,
+                   int reviewCount, @Nullable String reviewEditorAppName, @NonNull String wikiArticle, @NonNull String osmDescription,
                    int roadWarningType, @Nullable String[] rawTypes)
   {
     this(featureId, mapObjectType, title, secondaryTitle, subtitle, address, lat, lon, new Metadata(), apiId,
-        routePointInfo, openingMode, popularity, starRating, reviewCount, wikiArticle, osmDescription, roadWarningType, rawTypes);
+        routePointInfo, openingMode, popularity, starRating, reviewCount, reviewEditorAppName, wikiArticle, osmDescription, roadWarningType, rawTypes);
   }
 
   public MapObject(@NonNull FeatureId featureId, @MapObjectType int mapObjectType, String title,
                    @Nullable String secondaryTitle, String subtitle, String address, double lat, double lon,
                    Metadata metadata, String apiId, @Nullable RoutePointInfo routePointInfo,
                    @OpeningMode int openingMode, Popularity popularity, @Nullable Float starRating,
-                   int reviewCount, @NonNull String wikiArticle, @NonNull String osmDescription, int roadWarningType, @Nullable String[] rawTypes)
+                   int reviewCount, @Nullable String reviewEditorAppName, @NonNull String wikiArticle, @NonNull String osmDescription, int roadWarningType,
+                   @Nullable String[] rawTypes)
   {
     mFeatureId = featureId;
     mMapObjectType = mapObjectType;
@@ -130,6 +136,7 @@ public class MapObject implements PlacePageData
     // mPopularity = popularity;
     mStarRating = starRating;
     mReviewCount = reviewCount;
+    mReviewEditorAppName = reviewEditorAppName;
     mReviews = new ArrayList<>();
     mWikiArticle = wikiArticle;
     mOsmDescription = osmDescription;
@@ -158,6 +165,7 @@ public class MapObject implements PlacePageData
             ParcelCompat.readParcelable(source, Popularity.class.getClassLoader(), Popularity.class)),
         (Float) source.readValue(Float.class.getClassLoader()), // mStarRating
         source.readInt(), // mReviewCount
+        source.readString(), // mReviewEditorAppName
         Objects.requireNonNull(source.readString()),
         source.readString(),
         source.readInt(),
@@ -181,7 +189,7 @@ public class MapObject implements PlacePageData
                                           @NonNull String title, @NonNull String subtitle, double lat, double lon)
   {
     return new MapObject(featureId, mapObjectType, title, "", subtitle, "", lat, lon, null, "", null,
-        OPENING_MODE_PREVIEW, Popularity.defaultInstance(), null, 0, "", null,
+        OPENING_MODE_PREVIEW, Popularity.defaultInstance(), null, 0, null, "", null,
         RoadWarningMarkType.UNKNOWN.ordinal(), new String[0]);
   }
 
@@ -290,6 +298,12 @@ public class MapObject implements PlacePageData
   public ArrayList<Review> getReviews()
   {
     return mReviews;
+  }
+
+  @Nullable
+  public String getReviewEditorAppName()
+  {
+    return mReviewEditorAppName;
   }
 
   @NonNull
@@ -473,6 +487,7 @@ public class MapObject implements PlacePageData
     // dest.writeParcelable(mPopularity, 0);
     dest.writeValue(mStarRating);
     dest.writeInt(mReviewCount);
+    dest.writeString(mReviewEditorAppName);
     dest.writeString(mWikiArticle);
     dest.writeString(mOsmDescription);
     dest.writeInt(getRoadWarningMarkType().ordinal());

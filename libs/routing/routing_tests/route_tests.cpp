@@ -284,7 +284,9 @@ UNIT_TEST(NextTurnsTest)
     size_t const currentTurnIndex = 2;  // Turn with m_index == 1 is None.
     size_t const nextTurnIndex = 3;
     TEST(route.GetNextTurns(turnsDist), ());
-    TEST_EQUAL(turnsDist.size(), 2, ());
+    // The look ahead stops at ReachedYourDestination.
+    TEST_EQUAL(turnsDist.size(), 3, ());
+    TEST_EQUAL(turnsDist[2].m_turnItem, kTestTurns[4], ());
     double const firstSegLenM = mercator::DistanceOnEarth(pos, kTestGeometry[currentTurnIndex]);
     double const secondSegLenM =
         mercator::DistanceOnEarth(kTestGeometry[currentTurnIndex], kTestGeometry[nextTurnIndex]);
@@ -301,7 +303,9 @@ UNIT_TEST(NextTurnsTest)
     size_t const currentTurnIndex = 2;
     size_t const nextTurnIndex = 3;
     TEST(route.GetNextTurns(turnsDist), ());
-    TEST_EQUAL(turnsDist.size(), 2, ());
+    // The look ahead stops at ReachedYourDestination.
+    TEST_EQUAL(turnsDist.size(), 3, ());
+    TEST_EQUAL(turnsDist[2].m_turnItem, kTestTurns[4], ());
     double const firstSegLenM = mercator::DistanceOnEarth(pos, kTestGeometry[currentTurnIndex]);
     double const secondSegLenM =
         mercator::DistanceOnEarth(kTestGeometry[currentTurnIndex], kTestGeometry[nextTurnIndex]);
@@ -318,6 +322,7 @@ UNIT_TEST(NextTurnsTest)
     size_t const currentTurnIndex = 3;
     size_t const nextTurnIndex = 5;  // Turn with m_index == 4 is None.
     TEST(route.GetNextTurns(turnsDist), ());
+    // Only ReachedYourDestination follows, so the look ahead stops there.
     TEST_EQUAL(turnsDist.size(), 2, ());
     double const firstSegLenM = mercator::DistanceOnEarth(pos, kTestGeometry[currentTurnIndex]);
     double const secondSegLenM =
@@ -333,8 +338,9 @@ UNIT_TEST(NextTurnsTest)
     route.MoveIterator(GetGps(pos.x, pos.y));
 
     size_t const currentTurnIndex = 5;  // Turn with m_index == 4 is None.
-    // nextTurn is absent.
+    // Standing on ReachedYourDestination: nothing follows it.
     TEST(route.GetNextTurns(turnsDist), ());
+    TEST_EQUAL(turnsDist.size(), 1, ());
     double const firstSegLenM = mercator::DistanceOnEarth(pos, kTestGeometry[currentTurnIndex]);
     TEST_EQUAL(turnsDist[0].m_turnItem, kTestTurns[currentTurnIndex - 1], ());
     TEST_ALMOST_EQUAL_ABS(turnsDist[0].m_distMeters, firstSegLenM, 0.1, ());

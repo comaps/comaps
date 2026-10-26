@@ -6,10 +6,10 @@ import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 
+import java.util.Objects;
+
 // Used by JNI.
 @Keep
-/// @todo Review using of this class, because seems like it has no any useful purpose.
-/// Just creating in JNI and assigning ..
 public class FeatureId implements Parcelable
 {
   public static final Creator<FeatureId> CREATOR = new Creator<>() {
@@ -34,19 +34,6 @@ public class FeatureId implements Parcelable
   private final long mMwmVersion;
   private final int mFeatureIndex;
 
-  @NonNull
-  public static FeatureId fromFeatureIdString(@NonNull String id)
-  {
-    if (TextUtils.isEmpty(id))
-      throw new AssertionError("Feature id string is empty");
-
-    String[] parts = id.split(":");
-    if (parts.length != 3)
-      throw new AssertionError("Wrong feature id string format");
-
-    return new FeatureId(parts[1], Long.parseLong(parts[0]), Integer.parseInt(parts[2]));
-  }
-
   public FeatureId(@NonNull String mwmName, long mwmVersion, int featureIndex)
   {
     mMwmName = mwmName;
@@ -56,7 +43,7 @@ public class FeatureId implements Parcelable
 
   private FeatureId(Parcel in)
   {
-    mMwmName = in.readString();
+    mMwmName = Objects.requireNonNull(in.readString());
     mMwmVersion = in.readLong();
     mFeatureIndex = in.readInt();
   }
@@ -79,16 +66,6 @@ public class FeatureId implements Parcelable
   public String getMwmName()
   {
     return mMwmName;
-  }
-
-  public long getMwmVersion()
-  {
-    return mMwmVersion;
-  }
-
-  public int getFeatureIndex()
-  {
-    return mFeatureIndex;
   }
 
   public boolean isRealId()
@@ -117,11 +94,12 @@ public class FeatureId implements Parcelable
   public int hashCode()
   {
     int result = mMwmName.hashCode();
-    result = 31 * result + (int) (mMwmVersion ^ (mMwmVersion >>> 32));
+    result = 31 * result + Long.hashCode(mMwmVersion);
     result = 31 * result + mFeatureIndex;
     return result;
   }
 
+  @NonNull
   @Override
   public String toString()
   {

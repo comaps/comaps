@@ -68,3 +68,13 @@ It will output the filename and line number of the crash. If the output is not u
    target symbols add -s liborganicmaps.so app/build/intermediates/merged_native_libs/webDebug/mergeWebDebugNativeLibs/out/lib/arm64-v8a/liborganicmaps.so
    b MyClass::MyMethod # or you can use filename:lineno format
    ```
+
+## Common crashes
+
+### UnsatisfiedLinkError: libclang_rt.hwasan-aarch64-android.so
+
+<details>
+Simple fix: just add `-PdisableHWAsan` to the Gradle build command. HWAsan is supposed to be supported on all devices running Android 10 or higher but many are missing the required libraries by default. See the [Android docs](https://developer.android.com/ndk/guides/hwasan#setup) for instructions to enable HWAsan on Pixels running Android 10-13.
+
+By disabling HWAsan, you will be at higher risk of undetected memory safety issues. Be careful if you are working with C++ code!
+</details>

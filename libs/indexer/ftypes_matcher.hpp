@@ -535,6 +535,14 @@ public:
   DECLARE_CHECKER_INSTANCE(IsOrganicChecker);
 };
 
+class IsSecondHandChecker : public BaseChecker
+{
+  IsSecondHandChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsSecondHandChecker);
+};
+
 class IsChristmasChecker : public BaseChecker
 {
   IsChristmasChecker();

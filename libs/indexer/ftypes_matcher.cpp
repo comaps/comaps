@@ -214,6 +214,7 @@ IsNeverMainTypeChecker::IsNeverMainTypeChecker()
   m_types.push_back(c.GetTypeByPath({"organic"}));
   m_types.push_back(c.GetTypeByPath({"wheelchair"}));
   m_types.push_back(c.GetTypeByPath({"building", "has_parts"}));
+  m_types.push_back(c.GetTypeByPath({"second_hand"}));
   for (auto const subtype : ftypes::Subtypes::Instance().AllSubtypes())
     m_types.push_back(subtype);
 }
@@ -548,6 +549,7 @@ IsPartOfTourismAttractionsChecker::IsPartOfTourismAttractionsChecker() : BaseChe
       {"amenity", "grave_yard"},
       {"amenity", "fountain"},
       {"amenity", "place_of_worship"},
+      {"amenity", "planetarium"},
       {"amenity", "theatre"},
       {"amenity", "townhall"},
       {"amenity", "university"},
@@ -786,6 +788,12 @@ IsOrganicChecker::IsOrganicChecker() : BaseChecker(1 /* level */)
 {
   Classificator const & c = classif();
   m_types.push_back(c.GetTypeByPath({"organic"}));
+}
+
+IsSecondHandChecker::IsSecondHandChecker() : BaseChecker(1 /* level */)
+{
+  Classificator const & c = classif();
+  m_types.push_back(c.GetTypeByPath({"second_hand"}));
 }
 
 IsChristmasChecker::IsChristmasChecker()

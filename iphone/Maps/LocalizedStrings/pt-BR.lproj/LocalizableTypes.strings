@@ -1537,3 +1537,13 @@
 "type.amenity.toilets.customers" = "Acesso para clientes";
 "type.amenity.toilets.private" = "Acesso privado";
 "type.amenity.planetarium" = "Planetário";
+"type.landuse.military.danger_area" = "Área de perigo militar";
+"type.railway.subway_entrance.boston" = "Entrada do metrô";
+"type.railway.station.subway.boston" = "Estação de metrô";
+"type.railway.subway_entrance.qingdao" = "Entrada de metrô";
+"type.building.abandoned" = "Edifício abandonado";
+"type.shop.tool_hire" = "Aluguel de ferramentas";
+"type.amenity.tool_library" = "Biblioteca de ferramentas";
+"type.amenity.parking.customers" = "Estacionamento para clientes";
+"type.barrier.bus_trap" = "Barreira seletiva para ônibus";
+"type.barrier.sump_buster" = "Lombada seletiva";

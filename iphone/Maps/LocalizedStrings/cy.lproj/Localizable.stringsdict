@@ -26,16 +26,6 @@
 			<string>%lld nod tudalen</string>
 		</dict>
 	</dict>
-	<key>bookmarks_detect_message</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@nevertranslate@</string>
-	</dict>
-	<key>tracks</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@nevertranslate@</string>
-	</dict>
 	<key>population</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>

@@ -155,6 +155,7 @@
 # amenity-car_pooling                               # area z15- (also has icon z16-, caption(optional) z18-)
 # amenity-motorcycle_parking                        # area z15- (also has icon z17-, caption(optional) z17-)
 # amenity-parking                                   # area z15- (also has icon z16-, caption(optional) z18-)
+# amenity-parking-customers                         # area z15- (also has icon z16-, caption(optional) z18-)
 # amenity-parking-fee                               # area z15- (also has icon z16-, caption(optional) z18-)
 # amenity-parking-lane                              # area z17- (also has icon z18-, caption(optional) z18-)
 # amenity-parking-lane-fee                          # area z17- (also has icon z18-, caption(optional) z18-)

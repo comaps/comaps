@@ -91,6 +91,8 @@ TagMapping const kCarBarriersTagMapping = {
     {OsmElement::Tag("barrier", "gate"), RoadAccess::Type::Private},
     {OsmElement::Tag("barrier", "lift_gate"), RoadAccess::Type::Private},
     {OsmElement::Tag("barrier", "swing_gate"), RoadAccess::Type::Private},
+    {OsmElement::Tag("barrier", "sump_buster"), RoadAccess::Type::No},
+    {OsmElement::Tag("barrier", "bus_trap"), RoadAccess::Type::No},
 
     // TODO (@gmoryes) The types below should be added.
     //  {OsmElement::Tag("barrier", "log"), RoadAccess::Type::No},

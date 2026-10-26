@@ -741,9 +741,9 @@
 "downloader_updating_ios" = "Uuendamine";
 "downloader_loading_ios" = "Allalaadimisel";
 /* Autoupdate dialog on start */
-"whats_new_auto_update_title" = "Värskenda oma allalaaditud kaarte";
+"whats_new_auto_update_title" = "Uuenda oma allalaaditud kaarte";
 /* Autoupdate dialog on start */
-"whats_new_auto_update_message" = "Kaartide värskendamine hoiab objektide info ajakohasena";
+"whats_new_auto_update_message" = "Kaartide uuendamine hoiab objektide teabe ajakohasena";
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_size" = "Uuenda (%@)";
 /* Autoupdate dialog on start */
@@ -895,5 +895,16 @@
 "record_track" = "Salvesta rada";
 "recording_track" = "Rada on salvestamisel";
 "bookmarks_text_placement_title" = "Näita kaardil lemmikute nimesid";
-"pref_font_size" = "Font size for map labels";
-"font_size" = "Font size";
+"pref_font_size" = "Kirjasuurus kaardisiltidel";
+"font_size" = "Kirjatüübi suurus";
+"mode_options_accessibility_hint" = "Näitab selle režiimi valikuid";
+"stars_5" = "5 tärni";
+"custom_map_server_error_scheme" = "Võrguaadressi alguses peab olema http:// või https://";
+"stars_4" = "4 tärni";
+"stars_2" = "2 tärni";
+"custom_map_server_map_series" = "See CoMapsi versioon kasutab kaarti tunnusega %@.";
+"not_set" = "Pole määratud";
+"custom_map_server" = "Sinu oma kaardiserver";
+"stars_3" = "3 tärni";
+"stars_1" = "1 tärn";
+"custom_map_server_message" = "Kui tahad kasutada oma kaardiserverit, siis lisa ta siia. CoMapsi vaikimisi serveri kasutamiseks jäta tühjaks.";

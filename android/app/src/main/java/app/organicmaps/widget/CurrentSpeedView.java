@@ -12,6 +12,7 @@ public class CurrentSpeedView extends BaseSignView
 {
   private double mSpeedMps = -1.0;
   private String mSpeedStr = "--";
+  private boolean mAlert = false;
 
   public CurrentSpeedView(Context ctx, @Nullable AttributeSet attrs)
   {
@@ -26,7 +27,7 @@ public class CurrentSpeedView extends BaseSignView
       int bg = a.getColor(R.styleable.CurrentSpeedView_currentSpeedBackgroundColor, DefaultValues.BACKGROUND_COLOR);
       int bd = a.getColor(R.styleable.CurrentSpeedView_currentSpeedBorderColor, DefaultValues.BORDER_COLOR);
       int tc = a.getColor(R.styleable.CurrentSpeedView_currentSpeedTextColor, DefaultValues.TEXT_COLOR);
-      setColors(bg, bd, 0, tc, 0);
+      setColors(bg, bd, DefaultValues.ALERT_COLOR, tc, DefaultValues.TEXT_ALERT_COLOR);
 
       if (isInEditMode())
       {
@@ -53,6 +54,30 @@ public class CurrentSpeedView extends BaseSignView
     invalidate();
   }
 
+  public void setAlert(boolean alert)
+  {
+    if (mAlert == alert)
+      return;
+    mAlert = alert;
+    invalidate();
+  }
+
+  public void setTextColor(int color)
+  {
+    if (mTextColor == color)
+      return;
+    mTextColor = color;
+    invalidate();
+  }
+
+  public void setAlertTextColor(int color)
+  {
+    if (mTextAlertColor == color)
+      return;
+    mTextAlertColor = color;
+    invalidate();
+  }
+
   @Nullable
   @Override
   protected String getValueString()
@@ -63,13 +88,15 @@ public class CurrentSpeedView extends BaseSignView
   @Override
   protected boolean isAlert()
   {
-    return false;
+    return mAlert;
   }
 
   private interface DefaultValues
   {
     int BACKGROUND_COLOR = 0xFFFFFFFF;
     int BORDER_COLOR = 0xFF000000;
+    int ALERT_COLOR = 0xFFFF0000;
     int TEXT_COLOR = 0xFF000000;
+    int TEXT_ALERT_COLOR = 0xFFFF0000;
   }
 }

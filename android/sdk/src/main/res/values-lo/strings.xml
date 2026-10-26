@@ -1,3 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="mb">MB</string>
+    <string name="gb">GB</string>
+    <string name="core_my_position">ຕຳແໜ່ງຂອງຂ້ອຍ</string>
+    <string name="core_my_places">ສະຖານທີ່ຂອງຂ້ອຍ</string>
+    <string name="maps_storage_internal">ບ່ອນຈັດເກັບຂໍ້ມູນພາຍໃນສ່ວນຕົວ</string>
+    <string name="maps_storage_shared">ບ່ອນຈັດເກັບຂໍ້ມູນພາຍໃນທີ່ໃຊ້ຮ່ວມກັນ</string>
+    <string name="maps_storage_removable">SD ກາດ</string>
+    <string name="maps_storage_external">ບ່ອນຈັດເກັບຂໍ້ມູນພາຍນອກທີ່ໃຊ້ຮ່ວມກັນ</string>
+    <string name="category_wifi">WiFi</string>
+    <string name="postal_code">ລະຫັດໄປສະນີ</string>
+    <string name="core_placepage_unknown_place">ຈຸດເທິງແຜນທີ່</string>
+    <string name="m">ມ</string>
+    <string name="km">ກມ</string>
+    <string name="mi">ໄມລ໌</string>
+    <string name="ft">ຟຸດ</string>
+    <string name="core_exit">ທາງອອກ</string>
+    <string name="core_entrance">ທາງເຂົ້າ</string>
+    <string name="subway_data_unavailable">ບໍ່ມີແຜນທີ່ລົດໄຟໃຕ້ດິນ</string>
+    <string name="public_access">ການເຂົ້າເຖິງສາທາລະນະ</string>
+    <string name="limited_access">ຈຳກັດການເຂົ້າເຖິງ</string>
+    <string name="not_shared">ສ່ວນຕົວ</string>
+    <string name="access_rules_author_only">ການແກ້ໄຂແບບອອນລາຍ</string>
+    <string name="today">ມື້ນີ້</string>
+    <string name="yesterday">ມື້ວານນີ້</string>
+    <string name="days_ago">%s ມື້ກ່ອນ</string>
+    <string name="week_ago">%s ອາທິດກ່ອນ</string>
+    <string name="weeks_ago">%s ອາທິດກ່ອນ</string>
+    <string name="month_ago">%s ເດືອນກ່ອນ</string>
+    <string name="months_ago">%s ເດືອນກ່ອນ</string>
+    <string name="year_ago">%s ປີກ່ອນ</string>
+    <string name="years_ago">%s ປີກ່ອນ</string>
+    <string name="accessibility_map_content_description_collapsed">ແຜນທີ່. ປັດຂຶ້ນ ຫຼື ລົງດ້ວຍໜຶ່ງນິ້ວມື ແລະ ຂະຫຍາຍອອກເພື່ອສຳຫຼວດໂດຍການສຳຜັດ.</string>
+    <string name="accessibility_map_content_description_expanded">ແຜນທີ່. ແຕະຄ້າງໄວ້ເພື່ອສຳຫຼວດໂດຍການສຳຜັດ. ສະຖານທີ່ຈະຖືກອ່ານອອກສຽງເມື່ອນິ້ວມືຂອງທ່ານໄປຮອດ. ເພື່ອຢຸດ, ປັດຂຶ້ນ ຫຼື ລົງດ້ວຍໜຶ່ງນິ້ວມື ແລະ ປິດອອກ.</string>
+    <string name="accessibility_map_action_expand_label">ສຳຫຼວດໂດຍການສຳຜັດ</string>
+    <string name="accessibility_map_action_collapse_label">ສິ້ນສຸດການສຳຫຼວດໂດຍການສຳຜັດ</string>
 </resources>

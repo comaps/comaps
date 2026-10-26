@@ -137,17 +137,25 @@ class StipplePenTexture : public DynamicTexture<StipplePenIndex, StipplePenKey, 
   using TBase = DynamicTexture<StipplePenIndex, StipplePenKey, Texture::ResourceType::StipplePen>;
 
 public:
-  StipplePenTexture(m2::PointU const & size, ref_ptr<HWTextureAllocator> allocator) : m_index(size)
+  StipplePenTexture(m2::PointU const & size, ref_ptr<HWTextureAllocator> allocator)
+    : m_index(make_unique_dp<StipplePenIndex>(size))
   {
     TBase::DynamicTextureParams params{size, TextureFormat::Red, TextureFilter::Nearest, false /* m_usePixelBuffer */};
-    TBase::Init(allocator, make_ref(&m_index), params);
+    TBase::Init(allocator, make_ref(m_index), params);
   }
 
   ~StipplePenTexture() override { TBase::Reset(); }
 
+  void Invalidate(m2::PointU const & size, std::vector<drape_ptr<HWTexture>> * texturesToCleanup)
+  {
+    m_index = make_unique_dp<StipplePenIndex>(size);
+    TBase::DynamicTextureParams params{size, TextureFormat::Red, TextureFilter::Nearest, false /* m_usePixelBuffer */};
+    TBase::Invalidate(make_ref(m_index), params, texturesToCleanup);
+  }
+
   void ReservePattern(PenPatternT const & pattern);
 
 private:
-  StipplePenIndex m_index;
+  drape_ptr<StipplePenIndex> m_index;
 };
 }  // namespace dp

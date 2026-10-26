@@ -3,6 +3,7 @@
 #include "search/reverse_geocoder.hpp"
 
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QVBoxLayout>
 
 namespace place_page
 {
@@ -16,4 +17,7 @@ class PlacePageDialogUser : public QDialog
 public:
   PlacePageDialogUser(QWidget * parent, place_page::Info const & info,
                       search::ReverseGeocoder::Address const & address);
+
+private:
+  void AddReviewsFragment(place_page::Info const & info, QVBoxLayout * header);
 };

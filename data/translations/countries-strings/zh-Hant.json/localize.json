@@ -3186,7 +3186,7 @@
         "defaultMessage": "肯塔基州 - 西部"
     },
     "US_Louisiana_Central": {
-        "defaultMessage": "路易斯安那州 - 西部"
+        "defaultMessage": "路易斯安那州 - 中部"
     },
     "US_Louisiana_New Orleans": {
         "defaultMessage": "新奧爾良"
@@ -3198,7 +3198,7 @@
         "defaultMessage": "巴爾的摩"
     },
     "US_Maryland_and_DC": {
-        "defaultMessage": "華盛頓特區西部"
+        "defaultMessage": "華盛頓特區與西部"
     },
     "US_Massachusetts_Boston": {
         "defaultMessage": "波士頓"
@@ -3384,7 +3384,7 @@
         "defaultMessage": "韋科"
     },
     "US_Texas_West": {
-        "defaultMessage": "敖德薩"
+        "defaultMessage": "艾爾帕索"
     },
     "US_United States Minor Outlying Islands": {
         "defaultMessage": "美國本土外小島嶼"
@@ -3423,7 +3423,7 @@
         "defaultMessage": "密爾沃基"
     },
     "US_Wisconsin_North": {
-        "defaultMessage": "北威斯康星州"
+        "defaultMessage": "威斯康星州-北部"
     },
     "US_Wyoming": {
         "defaultMessage": "懷俄明州"
@@ -6870,22 +6870,22 @@
         "defaultMessage": "Cardiff, Swansea, Newport"
     },
     "US_Alabama_Birmingham Description": {
-        "defaultMessage": "Warrior, Vestavia Hills, Scottsboro"
+        "defaultMessage": "亨次維、迪凱特、弗洛倫斯"
     },
     "US_Alabama_Montgomery Description": {
-        "defaultMessage": "Creola, Centreville, Valley"
+        "defaultMessage": "莫比爾、塔斯卡盧薩、多森"
     },
     "US_Alaska Description": {
-        "defaultMessage": "Scammon Bay, McGrath, Fort Wainright"
+        "defaultMessage": "安克拉治、費爾班克斯、朱諾"
     },
     "US_Arizona_Flagstaff Description": {
-        "defaultMessage": "Cottonwood, Holbrook, Show Low"
+        "defaultMessage": "哈瓦蘇湖城、普雷斯科特、布爾黑德城"
     },
     "US_Arizona_Phoenix Description": {
-        "defaultMessage": "Phoenix, Mesa, Mesa"
+        "defaultMessage": "瑟普賴斯、尤馬、巴克艾"
     },
     "US_Arizona_Tucson Description": {
-        "defaultMessage": "Tucson, South Tucson, Bisbee"
+        "defaultMessage": "謝拉維斯塔、馬拉納、諾加萊斯"
     },
     "US_Arkansas_North Description": {
         "defaultMessage": "Ward, Cabot, Des Arc"
@@ -7624,5 +7624,41 @@
     },
     "Switzerland_Espace Mittelland_East Short": {
         "defaultMessage": "中央地帶"
+    },
+    "France_Auvergne-Rhone-Alpes": {
+        "defaultMessage": "奧弗涅-隆-阿爾卑斯大區"
+    },
+    "France_Bourgogne-Franche-Comte": {
+        "defaultMessage": "勃艮第-法蘭琪-康堤大區"
+    },
+    "France_Grand_Est": {
+        "defaultMessage": "大東部大區"
+    },
+    "France_Hauts-de-France": {
+        "defaultMessage": "上法蘭西大區"
+    },
+    "France_Normandy": {
+        "defaultMessage": "諾曼地大區"
+    },
+    "France_Nouvelle-Aquitaine": {
+        "defaultMessage": "新亞奎丹大區"
+    },
+    "France_Occitania": {
+        "defaultMessage": "奧克西塔尼亞"
+    },
+    "Germany_Brandenburg": {
+        "defaultMessage": "布蘭登堡"
+    },
+    "Germany_Rhineland-Palatinate": {
+        "defaultMessage": "萊茵蘭-伐爾茲"
+    },
+    "Germany_Saxony": {
+        "defaultMessage": "薩克森"
+    },
+    "World": {
+        "defaultMessage": "全球地圖總覽"
+    },
+    "WorldCoasts": {
+        "defaultMessage": "全球地圖總覽 (海岸線)"
     }
 }

@@ -32,7 +32,7 @@
 "type.amenity.bicycle_repair_station" = "Fietsreparatie";
 "type.amenity.biergarten" = "Biergarten";
 "type.amenity.brothel" = "Bordeel";
-"type.amenity.love_hotel" = "Love Hotel";
+"type.amenity.love_hotel" = "Liefdeshotel";
 "type.amenity.bureau_de_change" = "Wisselkantoor";
 "type.amenity.bus_station" = "Busstation";
 "type.amenity.cafe" = "Café";
@@ -59,7 +59,7 @@
 "type.amenity.cinema" = "Bioscoop";
 "type.leisure.bowling_alley" = "Bowlingbaan";
 "type.amenity.clinic" = "Kliniek";
-"type.amenity.college" = "College";
+"type.amenity.college" = "Hogeschool";
 "type.amenity.community_centre" = "Gemeenschapscentrum";
 "type.amenity.community_centre.youth_centre" = "Jeugdcentrum";
 "type.amenity.compressed_air" = "Perslucht";
@@ -80,7 +80,7 @@
 "type.office.diplomatic" = "Ambassade";
 "type.office.security" = "Beveiligingskantoor";
 "type.building.guardhouse" = "Beveiligingsloket";
-"type.power.portal" = "Verdeelstation";
+"type.power.portal" = "Portaalmast";
 "type.amenity.fast_food" = "Fastfood";
 "type.amenity.ferry_terminal" = "Veerterminal";
 "type.amenity.fire_station" = "Brandweer";
@@ -123,7 +123,7 @@
 "type.amenity.parking.lane.fee" = "Parkeerstrook";
 "type.amenity.parking.lane.private" = "Privéparkeerstrook";
 "type.amenity.parking_entrance" = "Parkeeringang";
-"type.amenity.parking_entrance.private" = "Eigen parkeerplaats ingang";
+"type.amenity.parking_entrance.private" = "Privéparkeerplaatsingang";
 "type.amenity.parking_entrance.permissive" = "Parkeeringang";
 "type.amenity.parking_space" = "Parkeerplek";
 "type.amenity.parking_space.permissive" = "Parkeerplek";
@@ -151,7 +151,7 @@
 "type.amenity.prison" = "Gevangenis";
 "type.amenity.pub" = "Kroeg";
 "type.amenity.public_bookcase" = "Mini-bieb";
-"type.amenity.recycling.centre" = "Recyclestation|Millieustraat";
+"type.amenity.recycling.centre" = "Milieustraat";
 "type.amenity.recycling.container" = "Recyclingcontainer";
 "type.recycling.batteries" = "Batterijen";
 "type.recycling.clothes" = "Kleding";
@@ -164,8 +164,8 @@
 "type.recycling.cardboard" = "Karton";
 "type.recycling.cans" = "Blikjes";
 "type.recycling.shoes" = "Schoenen";
-"type.recycling.green_waste" = "GFTE afval";
-"type.recycling.cartons" = "Drankverpakkingen";
+"type.recycling.green_waste" = "GFTE/organisch afval";
+"type.recycling.cartons" = "Drankkartons";
 "type.amenity.restaurant" = "Restaurant";
 "type.amenity.sanitary_dump_station" = "Camperverzorgingsplaats";
 "type.amenity.school" = "School";
@@ -183,7 +183,7 @@
 "type.amenity.taxi" = "Taxistandplaats";
 "type.amenity.telephone" = "Telefoon";
 "type.amenity.theatre" = "Theater";
-"type.amenity.toilets" = "Toiletten";
+"type.amenity.toilets" = "Toilet";
 "type.toilets.yes" = "Toiletten";
 "type.amenity.townhall" = "Gemeentehuis";
 "type.amenity.university" = "Universiteit";
@@ -207,7 +207,7 @@
 "type.amenity.waste_disposal" = "Afvalcontainer";
 "type.amenity.waste_transfer_station" = "Afvaloverslagstation";
 "type.amenity.water_point" = "Waterpunt";
-"type.amenity.water_point.drinking_water_no" = "Waterpunt";
+"type.amenity.water_point.drinking_water_no" = "Watervulpunt";
 "type.barrier" = "Barrière";
 "type.barrier.yes" = "Barrière";
 "type.barrier.block" = "Blok";
@@ -269,20 +269,20 @@
 "type.craft.electrician" = "Elektricien";
 "type.craft.electronics_repair" = "Elektronica-reparatie";
 "type.craft.gardener" = "Tuinarchitect";
-"type.craft.grinding_mill" = "Malende molen";
+"type.craft.grinding_mill" = "Maalderij";
 "type.craft.handicraft" = "Handwerk";
 /* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "Airconditioning";
 "type.craft.key_cutter" = "Sleutelmaker";
 "type.craft.locksmith" = "Slotenmaker";
 "type.craft.metal_construction" = "Metaalarbeider";
-"type.craft.painter" = "Schilder";
+"type.craft.painter" = "Huisschilder";
 "type.craft.photographer" = "Fotograaf";
 "type.shop.camera" = "Camerawinkel";
 "type.craft.plumber" = "Loodgieter";
 "type.craft.sawmill" = "Zagerij";
 "type.craft.shoemaker" = "Schoenmaker";
-"type.craft.winery" = "Wijnhandel";
+"type.craft.winery" = "Wijnmakerij";
 "type.craft.tailor" = "Kleermaker";
 "type.cuisine.african" = "Afrikaans";
 "type.cuisine.american" = "Amerikaans";
@@ -298,14 +298,14 @@
 "type.cuisine.brazilian" = "Braziliaans";
 "type.cuisine.breakfast" = "Ontbijt";
 "type.cuisine.bubble_tea" = "Bubbelthee";
-"type.cuisine.burger" = "Hamburgers";
-"type.cuisine.buschenschank" = "Buschenschank";
+"type.cuisine.burger" = "Hamburger";
+"type.cuisine.buschenschank" = "Taverna";
 "type.cuisine.cake" = "Taart";
 "type.cuisine.caribbean" = "Caraïbisch";
 "type.cuisine.chicken" = "Kip";
 "type.cuisine.chinese" = "Chinees";
 "type.cuisine.coffee_shop" = "Koffie";
-"type.cuisine.crepe" = "Pannenkoek";
+"type.cuisine.crepe" = "Flensje";
 "type.cuisine.croatian" = "Kroatisch";
 "type.cuisine.curry" = "Curry";
 "type.cuisine.deli" = "Delicatessen";
@@ -358,7 +358,7 @@
 "type.cuisine.sausage" = "Worst";
 "type.cuisine.savory_pancakes" = "Hartige pannenkoeken";
 "type.cuisine.seafood" = "Vis en zeevruchten";
-"type.cuisine.soba" = "Soba";
+"type.cuisine.soba" = "Sobanoedels";
 "type.cuisine.spanish" = "Spaans";
 "type.cuisine.steak_house" = "Steakhouse";
 "type.cuisine.sushi" = "Sushi";
@@ -411,8 +411,8 @@
 "type.lateral.port" = "Bakboord";
 "type.lateral.starboard" = "Stuurboord";
 "type.cardinal.east" = "Oost";
-"type.cardinal.north" = "Noorden";
-"type.cardinal.south" = "Zuiden";
+"type.cardinal.north" = "Noord";
+"type.cardinal.south" = "Zuid";
 "type.cardinal.west" = "West";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "Bergreddingstation";
@@ -420,8 +420,8 @@
 "type.entrance" = "Ingang";
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Hoofdingang";
-"type.entrance.house" = "Huis entree";
-"type.entrance.garage" = "Garage entree";
+"type.entrance.house" = "Huisingang";
+"type.entrance.garage" = "Garage-ingang";
 "type.entrance.service" = "Dienstingang";
 "type.entrance.entry" = "Ingang (alleen ingang)";
 "type.entrance.exit" = "Uitgang (alleen uitgang)";
@@ -438,7 +438,7 @@
 "type.healthcare.psychotherapist" = "Psychotherapie";
 "type.healthcare.sample_collection" = "Bemonstering";
 "type.healthcare.speech_therapist" = "Logopedie";
-"type.highway" = "Straat";
+"type.highway" = "Weg";
 "type.highway.bridleway" = "Ruiterpad";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "Brug";
@@ -484,7 +484,7 @@
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "Voetgangerstunnel";
 "type.highway.ford" = "Voorde";
-"type.highway.living_street" = "Woonerf";
+"type.highway.living_street" = "Straat";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "Brug";
 /* These translations are used for all type.highway.*.tunnel. */
@@ -536,8 +536,8 @@
 "type.highway.residential.bridge" = "Brug";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "Tunnel";
-"type.highway.rest_area" = "Parkeerplaats";
-"type.highway.road" = "Straat";
+"type.highway.rest_area" = "Verzorgingsplaats";
+"type.highway.road" = "Weg";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "Brug";
 /* A bridge structure outline. */
@@ -554,15 +554,15 @@
 "type.highway.secondary_link.bridge" = "Brug";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "Tunnel";
-"type.highway.service" = "Straat";
-"type.highway.service.area" = "Straat";
+"type.highway.service" = "Toegangsweg";
+"type.highway.service.area" = "Toegangsweg";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "Brug";
-"type.highway.service.driveway" = "Straat";
-"type.highway.service.parking_aisle" = "Straat";
+"type.highway.service.driveway" = "Oprijlaan";
+"type.highway.service.parking_aisle" = "Parkeerweg";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "Tunnel";
-"type.highway.services" = "Servicegebied";
+"type.highway.services" = "Verzorgingsplaats";
 "type.highway.speed_camera" = "Flitspaal";
 "type.highway.steps" = "Trap";
 "type.highway.ladder" = "Ladder";
@@ -607,7 +607,7 @@
 "type.highway.unclassified.tunnel" = "Tunnel";
 "type.area_highway.cycleway" = "Fietspad";
 "type.area_highway.footway" = "Voetpad";
-"type.area_highway.living_street" = "Straat";
+"type.area_highway.living_street" = "Woonerf";
 "type.area_highway.motorway" = "Snelweg";
 "type.area_highway.path" = "Pad";
 "type.area_highway.pedestrian" = "Voetgangersgebied";
@@ -671,13 +671,13 @@
 "type.junction.roundabout" = "Rotonde";
 "type.landuse" = "Landgebruik";
 "type.landuse.allotments" = "Volkstuinen";
-"type.landuse.basin" = "Waterbassin";
+"type.landuse.basin" = "Waterbekken";
 "type.landuse.brownfield" = "Braakliggend terrein";
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "Begraafplaats";
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "Christelijke begraafplaats";
-"type.landuse.religious" = "Religieus Land";
+"type.landuse.religious" = "Religieus terrein";
 "type.landuse.commercial" = "Commercieel gebied";
 "type.landuse.construction" = "Bouwplaats";
 "type.landuse.education" = "Onderwijsgebied";
@@ -694,7 +694,7 @@
 "type.landuse.greenfield" = "Bouwgrond";
 "type.landuse.greenhouse_horticulture" = "Kas";
 "type.landuse.industrial" = "Industrieterrein";
-"type.landuse.landfill" = "Stortplaats";
+"type.landuse.landfill" = "Vuilnisbelt";
 "type.landuse.meadow" = "Weiland";
 "type.landuse.military" = "Militair terrein";
 "type.landuse.orchard" = "Boomgaard";
@@ -844,7 +844,7 @@
 "type.natural.water.lock" = "Schutkolk";
 "type.natural.water.pond" = "Vijver";
 "type.natural.water.reservoir" = "Reservoir";
-"type.natural.water.basin" = "Waterbassin";
+"type.natural.water.basin" = "Waterbekken";
 "type.natural.water.river" = "Rivier";
 "type.natural.land" = "Land";
 "type.natural.meadow" = "Weiland";
@@ -861,10 +861,10 @@
 "type.natural.vineyard" = "Wijngaard";
 "type.natural.volcano" = "Vulkaan";
 "type.natural.water" = "Waterlichaam";
-"type.natural.wetland" = "Moerasland";
-"type.natural.wetland.bog" = "Moeras";
+"type.natural.wetland" = "Drasland";
+"type.natural.wetland.bog" = "Hoogveen";
 "type.natural.wetland.marsh" = "Moeras";
-"type.natural.wetland.saltmarsh" = "Zoutmoeras";
+"type.natural.wetland.saltmarsh" = "Kwelder";
 "type.natural.wetland.saltmarsh.tidal" = "Kwelder";
 "type.natural.wetland.fen" = "Laagveen";
 "type.natural.wetland.reedbed" = "Rietland";
@@ -1401,9 +1401,9 @@
 "type.sport.swimming" = "Zwemmen";
 "type.sport.table_tennis" = "Tafeltennis";
 "type.sport.tennis" = "Tennis";
-"type.sport.volleyball" = "Volleyball";
+"type.sport.volleyball" = "Volleybal";
 "type.sport.yoga" = "Yoga";
-"type.tourism" = "Tourisme";
+"type.tourism" = "Toerisme";
 "type.tourism.aquarium" = "Aquarium";
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "Berghut";
@@ -1537,3 +1537,13 @@
 "type.amenity.toilets.customers" = "Klanttoegang";
 "type.amenity.toilets.private" = "Privétoegang";
 "type.amenity.planetarium" = "Planetarium";
+"type.landuse.military.danger_area" = "Militair gevarengebied";
+"type.railway.subway_entrance.boston" = "Metro-ingang";
+"type.railway.station.subway.boston" = "Metrostation";
+"type.railway.subway_entrance.qingdao" = "Metro-ingang";
+"type.building.abandoned" = "Verlaten gebouw";
+"type.shop.tool_hire" = "Gereedschapsverhuur";
+"type.amenity.tool_library" = "Gereedschapsbibliotheek";
+"type.amenity.parking.customers" = "Parkeerplaats voor klanten";
+"type.barrier.bus_trap" = "Bussluis";
+"type.barrier.sump_buster" = "Carterbreker";

@@ -123,7 +123,7 @@
         "defaultMessage": "4Elektronicawinkel"
     },
     "shop-hardware|shop-doityourself|@shop": {
-        "defaultMessage": "6Gereedschap|4Klussen|Bouwmarkt|DHZ|3doe het zelf|doe-het-zelf|5IJzerwaren"
+        "defaultMessage": "6Gereedschap|4Klussen|4Bouwmarkt|DHZ|3doe het zelf|doe-het-zelf|5IJzerwaren|5IJzerwarenwinkel"
     },
     "shop-houseware|@shop": {
         "defaultMessage": "4Huishouden"
@@ -294,7 +294,7 @@
         "defaultMessage": "Herdenkingskruis"
     },
     "historic-memorial-plaque": {
-        "defaultMessage": "Gedenkplaat"
+        "defaultMessage": "Herdenkingsplaat|Historische plaat|Herdenkingsplaquette|Historische plaquette"
     },
     "historic-memorial-sculpture|@category_tourism": {
         "defaultMessage": "5Sculptuur"
@@ -420,13 +420,13 @@
         "defaultMessage": "4Ziekenhuis|4hospitaal"
     },
     "amenity-hospital|@category_hospital": {
-        "defaultMessage": "kliniek|hospitaal|3dokter|3eerste hulp"
+        "defaultMessage": "4Ziekenhuis|kliniek|hospitaal|3dokter|3eerste hulp"
     },
     "amenity-clinic|@category_hospital": {
         "defaultMessage": "4Kliniek|ziekenhuis|hospitaal"
     },
     "amenity-doctors|@category_hospital": {
-        "defaultMessage": "Huisartsenpost|Kliniek|huisarts|ziekenhuis|dokter"
+        "defaultMessage": "Huisartsenpost|Kliniek|huisarts|dokter"
     },
     "amenity-dentist": {
         "defaultMessage": "Tandarts"
@@ -471,10 +471,10 @@
         "defaultMessage": "4Parkeren|parkeerplaats|parking"
     },
     "@category_pharmacy": {
-        "defaultMessage": "3Apotheek"
+        "defaultMessage": "3Apotheek|4Medicatie"
     },
     "amenity-pharmacy|@category_pharmacy": {
-        "defaultMessage": "Apotheek|drogist"
+        "defaultMessage": "3Apotheek|4Medicatie"
     },
     "@category_post": {
         "defaultMessage": "3Post"
@@ -492,7 +492,7 @@
         "defaultMessage": "4Afvalcontainer|afval|prullenbak|vuilnis"
     },
     "amenity-recycling-centre|@category_recycling": {
-        "defaultMessage": "Milieustraat|recycling centrum|milieupark|gemeentewerf"
+        "defaultMessage": "5Milieustraat|4Recyclecentrum|Milieupark|Gemeentewerf|3Stort"
     },
     "amenity-recycling-container|@category_recycling": {
         "defaultMessage": "4Recyclingcontainer"
@@ -672,7 +672,7 @@
         "defaultMessage": "Atletiek"
     },
     "sport-australian_football": {
-        "defaultMessage": "Australian football"
+        "defaultMessage": "Australisch voetbal"
     },
     "sport-baseball": {
         "defaultMessage": "Basketbal|Honkbal"
@@ -879,7 +879,7 @@
         "defaultMessage": "6Schoenmaker|schoenmakerij"
     },
     "craft-winery": {
-        "defaultMessage": "4Wijnhandel|Wijn"
+        "defaultMessage": "4Wijnmakerij|Wijn"
     },
     "craft-tailor": {
         "defaultMessage": "4Kleermaker|kledingreparatie"
@@ -948,7 +948,7 @@
         "defaultMessage": "4Dierenarts|3Veterinair|3veearts"
     },
     "@charging_station": {
-        "defaultMessage": "4Laadstation|opladen|lader"
+        "defaultMessage": "4Laadstation|Opladen|Laden|EV laadstation|EV opladen|EV laden|Lader|4Laadpaal"
     },
     "amenity-charging_station-bicycle|@charging_station": {
         "defaultMessage": "Fiets-laadstation|Fiets opladen"
@@ -975,7 +975,7 @@
         "defaultMessage": "Bandenreparatie"
     },
     "shop-chemist|@shop": {
-        "defaultMessage": "4Drogisterij|Apotheek"
+        "defaultMessage": "4Drogisterij"
     },
     "shop-pet|@shop": {
         "defaultMessage": "Dierenwinkel"
@@ -1407,7 +1407,7 @@
         "defaultMessage": "4Recycling van schoenen|Schoenenrecycling|Schoendonatie|schoenen"
     },
     "highway-elevator": {
-        "defaultMessage": "Lift|Elevator"
+        "defaultMessage": "3Lift"
     },
     "natural-saddle|mountain_pass": {
         "defaultMessage": "4Doorgang|Pas"
@@ -1476,7 +1476,7 @@
         "defaultMessage": "5Nagelsalon|nagelverzorging|vingernagels|teennagels|nagels"
     },
     "amenity-mobile_money_agent": {
-        "defaultMessage": "6Mobiel geldkantoor|mobiel geld"
+        "defaultMessage": "6Mobile Money-handelaar|mobiel geld"
     },
     "shop-caravan|@category_rv|@shop": {
         "defaultMessage": "6Camperdealer|campers|5Caravandealer|caravans"
@@ -1545,7 +1545,7 @@
         "defaultMessage": "5Reddingsboei|5drijflichaam"
     },
     "amenity-hydrant": {
-        "defaultMessage": "Watertappunt|waterkraan"
+        "defaultMessage": "Wateraansluiting|waterkraan"
     },
     "shop-beauty-day_spa": {
         "defaultMessage": "4Dagspa|spa|4wellness"
@@ -1557,7 +1557,7 @@
         "defaultMessage": "6Telecommunicatiezaak|Telecommunicatie|telecom"
     },
     "leisure-bandstand": {
-        "defaultMessage": "3Podium|muziekpaviljoen"
+        "defaultMessage": "3Podium|6Muziekkoepel|Muziekpaviljoen"
     },
     "social_facility-soup_kitchen": {
         "defaultMessage": "4Gaarkeuken|Voedsel"
@@ -1716,7 +1716,7 @@
         "defaultMessage": "4Drinkwater|Flessenwater"
     },
     "cuisine-bubble_tea": {
-        "defaultMessage": "Bubble tea|boba tea"
+        "defaultMessage": "Bubbelthee"
     },
     "@cuisine_all_asian": {
         "defaultMessage": "5Aziatisch voedsel|5Aziatische keuken"
@@ -1864,5 +1864,17 @@
     },
     "amenity-planetarium|@category_tourism": {
         "defaultMessage": "5Planetarium|5astronomie"
+    },
+    "building-abandoned": {
+        "defaultMessage": "Verlaten gebouw|verlaten"
+    },
+    "shop-tool_hire|@shop": {
+        "defaultMessage": "Gereedschapsverhuur|Gereedschap"
+    },
+    "amenity-tool_library": {
+        "defaultMessage": "Gereedschapsbibliotheek|Gereedschap"
+    },
+    "amenity-bicycle_parking-covered": {
+        "defaultMessage": "7Overdekte fietsenstalling|5Ondergrondse fietsenstalling"
     }
 }

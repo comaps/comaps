@@ -12,9 +12,10 @@ set(CMAKE_C_VISIBILITY_PRESET hidden)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN ON)
 
-# Disable build-id generation to make builds reproducible.
+# Set build-id explicitly to ensure build reproducibility,
+# depends on path prefixes stripping set later.
 if (NOT APPLE)
-  add_link_options("LINKER:--build-id=none")
+  add_link_options("LINKER:--build-id=sha1")
 endif()
 
 # Fixes warning ld: warning: ignoring duplicate libraries on Mac and Windows.
@@ -86,6 +87,9 @@ if (MSVC)
   add_link_options(/INCREMENTAL:NO)
 else()
   add_compile_options(-ffast-math $<$<CXX_COMPILER_ID:GNU>:-Wno-psabi>)
+  # Strip path prefixes to ensure reproducibility.
+  add_compile_options(-ffile-prefix-map=${CMAKE_SOURCE_DIR}=.)
+  add_compile_options(-ffile-prefix-map=${CMAKE_BINARY_DIR}=.)
 endif()
 
 if (PLATFORM_WIN)
@@ -218,7 +222,7 @@ elseif(EXISTS "${OMIM_ROOT}/.venv")
 endif()
 
 execute_process(
-    COMMAND ${Python3_EXECUTABLE} -c "import google.protobuf; 
+    COMMAND ${Python3_EXECUTABLE} -c "import google.protobuf;
 print(google.protobuf.__version__)"
     RESULT_VARIABLE PROTOBUF_CHECK
     OUTPUT_VARIABLE PROTOBUF_VERSION

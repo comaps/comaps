@@ -106,7 +106,7 @@
     <string name="maps_storage">মানচিত্রগুলি রাখার যায়গা বেছে নিন</string>
     <string name="maps_storage_summary">ফোল্ডার বেছে মানচিত্রগুলি ডাউনলোড করুন</string>
     <string name="share_bookmarks_email_subject">আমার CoMaps-এর প্রিয় তালিকা</string>
-    <string name="share_bookmarks_email_body">নমস্কার!\n\nআমি আমার CoMaps-এর প্রিয় তালিকা এখানে সংযোজন করলাম। যদি এটি আপনার কাছে ইনস্টল না করা থাকে, তাহলে আপনি এখান থেকে ডাউনলোড করতে পারেন: https://www.comaps.app/download/\n\nCoMaps-এর সঙ্গে ভ্রমণ উপভোগ করুন!</string>
+    <string name="share_bookmarks_email_body">হ্যালো!\n\nআমি আমার CoMaps-এর প্রিয় তালিকা এখানে সংযোজন করলাম। যদি এটি আপনার কাছে ইনস্টল না করা থাকে, তাহলে আপনি এখান থেকে ডাউনলোড করতে পারেন: https://www.comaps.app/download/\n\nCoMaps-এর সঙ্গে ভ্রমণ উপভোগ করুন!</string>
     <string name="my_position_share_sms">আমার বর্তমান অবস্থানটি CoMaps-এ দেখুন! %1$s বা %2$s আপনার কাছে অফলাইন মানচিত্র নেই? এইখান থেকে ডাউনলোড করুন: https://www.comaps.app/download/</string>
     <string name="cant_change_this_setting">ক্ষমা করুন, মানচিত্র রাখার সেটিংগুলি আপাতত বন্ধ রাখা আছে</string>
     <string name="settings">সেটিংস</string>
@@ -427,4 +427,19 @@
     <string name="connection_failure">সংযোগ ব্যার্থ হয়েছে</string>
     <string name="continue_recording">রেকর্ড করে যান</string>
     <string name="bookmarks_create_new_group">একটি নতুন তালিকা তৈরি করুন</string>
+    <string name="pref_about_summary">সমস্যা রিপোর্ট করুন, সাহায্য পান, দান করুন\nসংস্করণ: v%1$s</string>
+    <string name="prefs_group_map_appearance_summary">মানচিত্রের ভাষা, লেবেলের আকার, 2D/3D স্থাপনা</string>
+    <string name="prefs_group_interface">ইন্টারফেস</string>
+    <string name="prefs_group_interface_summary">রাতের মোড, বোতামগুলো, ভাষা</string>
+    <string name="prefs_group_data_management">ডেটা ব্যবস্থাপনা</string>
+    <string name="prefs_group_data_management_summary">মানচিত্রের স্টোরেজ, পছন্দগুলোর ব্যাকআপ</string>
+    <string name="prefs_group_advanced">উন্নত সেটিংস</string>
+    <string name="prefs_group_advanced_summary">লগ সংরক্ষণ চালু করুন</string>
+    <string name="download_resources_custom_url_title">কাস্টম মানচিত্র সার্ভার</string>
+    <string name="download_resources_custom_url_message">মানচিত্র ডাউনলোডের জন্য ব্যবহৃত ডিফল্ট সার্ভার পরিবর্তন করুন। CoMaps এর ডিফল্ট সার্ভার ব্যবহার করতে ঘরটি খালি রাখুন।</string>
+    <string name="download_resources_custom_url_summary_none">সেট করা হয়নি</string>
+    <string name="download_resources_custom_url_error_scheme">দায়া করে একটি URL প্রদান করুন যা http:// বা https:// দিয়ে শুরু হয়</string>
+    <string name="tts_toggle_enable">কণ্ঠ নির্দেশনা চালু করুন</string>
+    <string name="tts_toggle_disable">কণ্ঠ নির্দেশনা বন্ধ করুন</string>
+    <string name="enable_long_tap_fullscreen">ইউজার ইন্টারফেস লুকাতে দীর্ঘক্ষণ চাপুন</string>
 </resources>

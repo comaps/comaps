@@ -233,4 +233,10 @@ public final class OsmOAuth
     mPrefs.edit().putInt(PREF_OSM_CHANGESETS_COUNT, editsCount[0]).apply();
     return editsCount[0];
   }
+
+  public static boolean isDev()
+  {
+    return nativeGetOAuth2Url().contains("dev.openstreetmap.org");
+  }
+
 }

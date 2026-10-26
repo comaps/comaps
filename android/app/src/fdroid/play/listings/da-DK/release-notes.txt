@@ -1,11 +1,8 @@
-• Vis favoritnavne på kortet (slå fra i indstillingerne)
-• Vis Mangrove-brugeranmeldelser i POI-info
-• Indstilling for tekststørrelse på kortet
-• Mulighed for kortlæsning med TalkBack
-• Mulighed for at starte optagelse af spor under navigation
-• Vis "Åbner i morgen kl. ..." i POI-info
-• Rettet mulighed for at søge på alle indstillede sprog
-• Vejskilte i Kirgisistan, Usbekistan, Tadsjikistan, Kasakhstan og Georgien
-• Vis busstoppesteder tidligere i metrolag
+• Tilføjet link for at tilføje anmeldelser til POI-info
+• Vis nuværende hastighed i Android Auto
+• Vis anmeldelsesvurderinger i søgeresultater
+• Vis stjerner for hoteller/restauranter som tekst
+• Tilføjet værktøjsudlejningssteder og værktøjsbiblioteker, vejskilte tilføjet i Rumænien og Marokko og rettet for Augsburg og A-veje i Cypern
+• Erstattet knapper Forhåndsvisning og Gem med ikoner på ruteplanlægningsskærmen
 
 Flere detaljer på comaps.app/latest

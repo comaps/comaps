@@ -1254,7 +1254,7 @@
     <string name="type.power.minor_line">Elledning</string>
     <string name="type.railway.narrow_gauge.bridge">Smalspårig järnvägsbro</string>
     <string name="type.railway.preserved">Museijärnväg</string>
-    <string name="type.aeroway.gate">Gate</string>
+    <string name="type.aeroway.gate">Grind</string>
     <string name="type.landuse.allotments">Koloniträgdårdar</string>
     <string name="type.aeroway.taxiway">Taxibana</string>
     <string name="type.barrier.fence">Staket</string>

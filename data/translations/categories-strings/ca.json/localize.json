@@ -21,7 +21,7 @@
         "defaultMessage": "Hotel|Hotels"
     },
     "@category_tourism": {
-        "defaultMessage": "Turisme|Atracció turística"
+        "defaultMessage": "Atraccions turístiques|Turisme|Atracció turística"
     },
     "@category_entertainment": {
         "defaultMessage": "Entreteniment"
@@ -778,5 +778,8 @@
     },
     "amenity-bicycle_parking": {
         "defaultMessage": "4Aparcament de bicicletes|Aparcament de bicis|4Pàrquing de bicicletes|Pàrquing de bicis"
+    },
+    "@category_wifi": {
+        "defaultMessage": "WiFi"
     }
 }

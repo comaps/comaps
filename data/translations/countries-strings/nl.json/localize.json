@@ -72,7 +72,7 @@
         "defaultMessage": "Melbourne"
     },
     "Australia_New South Wales": {
-        "defaultMessage": "Nieuw-Zuid-Wales"
+        "defaultMessage": "New South Wales"
     },
     "Australia_Northern Territory": {
         "defaultMessage": "Noordelijk Territorium"
@@ -105,7 +105,7 @@
         "defaultMessage": "Neder-Oostenrijk — West"
     },
     "Austria_Lower Austria_Wien": {
-        "defaultMessage": "Wenen en Neder-Oostenrijk - Oost"
+        "defaultMessage": "Wenen en Neder-Oostenrijk — Oost"
     },
     "Austria_Salzburg": {
         "defaultMessage": "Salzburg"
@@ -165,19 +165,19 @@
         "defaultMessage": "Provincie Antwerpen"
     },
     "Belgium_East Flanders": {
-        "defaultMessage": "Oost-Vlaanderen"
+        "defaultMessage": "Provincie Oost-Vlaanderen"
     },
     "Belgium_Flemish Brabant": {
-        "defaultMessage": "Vlaams-Brabant"
+        "defaultMessage": "Provincie Vlaams-Brabant"
     },
     "Belgium_Hainaut": {
-        "defaultMessage": "Henegouwen"
+        "defaultMessage": "Provincie Henegouwen"
     },
     "Belgium_Liege": {
         "defaultMessage": "Provincie Luik"
     },
     "Belgium_Limburg": {
-        "defaultMessage": "Limburg"
+        "defaultMessage": "Provincie Limburg"
     },
     "Belgium_Luxembourg": {
         "defaultMessage": "Provincie Luxemburg"
@@ -186,10 +186,10 @@
         "defaultMessage": "Provincie Namen"
     },
     "Belgium_Walloon Brabant": {
-        "defaultMessage": "Waals-Brabant"
+        "defaultMessage": "Provincie Waals-Brabant"
     },
     "Belgium_West Flanders": {
-        "defaultMessage": "West-Vlaanderen"
+        "defaultMessage": "Provincie West-Vlaanderen"
     },
     "Belize": {
         "defaultMessage": "Belize"
@@ -1119,7 +1119,7 @@
         "defaultMessage": "Savoie"
     },
     "France_Southern Islands": {
-        "defaultMessage": "Franse Zuidelijke en Antarctische Gebieden"
+        "defaultMessage": "Franse Zuidelijke Gebieden"
     },
     "France_Upper Normandy": {
         "defaultMessage": "Haute-Normandie"
@@ -2085,13 +2085,13 @@
         "defaultMessage": "Flevoland"
     },
     "Netherlands_Friesland": {
-        "defaultMessage": "Friesland"
+        "defaultMessage": "Fryslân"
     },
     "Netherlands_Gelderland_Nijmegen": {
-        "defaultMessage": "Gelderland — Nijmegen"
+        "defaultMessage": "Gelderland — Rivierengebied"
     },
     "Netherlands_Gelderland_North": {
-        "defaultMessage": "Gelderland — Apeldoorn"
+        "defaultMessage": "Gelderland — Veluwe"
     },
     "Netherlands_Gelderland_Zutphen": {
         "defaultMessage": "Gelderland — Achterhoek"
@@ -2121,7 +2121,7 @@
         "defaultMessage": "Noord-Holland — Amsterdam"
     },
     "Netherlands_North Holland_Zaandam": {
-        "defaultMessage": "Noord-Holland — Zaanstad"
+        "defaultMessage": "Noord-Holland — Zaanstreek"
     },
     "Netherlands_Overijssel_Enschede": {
         "defaultMessage": "Overijssel — Twente"
@@ -3021,7 +3021,7 @@
         "defaultMessage": "West Midlands"
     },
     "UK_England_Yorkshire and the Humber": {
-        "defaultMessage": "Yorkshire en de Humber"
+        "defaultMessage": "Yorkshire and the Humber"
     },
     "UK_Northern Ireland": {
         "defaultMessage": "Noord-Ierland"
@@ -3579,7 +3579,7 @@
         "defaultMessage": "Opper-Oostenrijk — Wels"
     },
     "Brazil_Goias_Brasilia": {
-        "defaultMessage": "Goiás — Brasilia"
+        "defaultMessage": "Goiás — Brasília"
     },
     "Brazil_Goias_North": {
         "defaultMessage": "Goiás — Noord"
@@ -4008,13 +4008,13 @@
         "defaultMessage": "Norfolk"
     },
     "Abkhazia Description": {
-        "defaultMessage": "Soechoemi"
+        "defaultMessage": "Pitsoenda, Goedaoeta, Soechoemi"
     },
     "Afghanistan Description": {
         "defaultMessage": "Kaboel"
     },
     "Albania Description": {
-        "defaultMessage": "Shkodër"
+        "defaultMessage": "Tirana, Kavajë, Shkodër"
     },
     "Algeria_Central Description": {
         "defaultMessage": "Batna, Djelfa, Biskra"
@@ -4026,7 +4026,7 @@
         "defaultMessage": "Andorra"
     },
     "Angola Description": {
-        "defaultMessage": "Luanda"
+        "defaultMessage": "Luanda, Lobito, Namibe"
     },
     "Anguilla Description": {
         "defaultMessage": "The Valley, George Hill, Stoney Ground"
@@ -4134,7 +4134,7 @@
         "defaultMessage": "Baku, Sumgayit, Ganja"
     },
     "Bahrain Description": {
-        "defaultMessage": "Manamah"
+        "defaultMessage": "Manama, Riffa, Muharraq"
     },
     "Bangladesh Description": {
         "defaultMessage": "Sylhet, Dhaka, Comilla"
@@ -4218,7 +4218,7 @@
         "defaultMessage": "Banja Luka, Bijeljina, Derventa"
     },
     "Botswana Description": {
-        "defaultMessage": "Gaborone"
+        "defaultMessage": "Gaborone, Tsabong, Mochudi"
     },
     "Brazil_Bahia Description": {
         "defaultMessage": "Salvador, Feira de Santana, Vitória da Conquista"
@@ -4740,7 +4740,7 @@
         "defaultMessage": "Addis Abeba, Asella, Bahir Dar"
     },
     "Falkland Islands Description": {
-        "defaultMessage": "Stanley, Falkland Islands, Dunnose Head, Port Edgar"
+        "defaultMessage": "Stanley, Falklandeilanden, Dunnose Head, Port Edgar"
     },
     "Faroe Islands Description": {
         "defaultMessage": "Tórshavn, Klaksvík, Norðdepil"
@@ -4872,7 +4872,7 @@
         "defaultMessage": "Boulogne-Billancourt, Nanterre, Courbevoie"
     },
     "France_Ile-de-France_Paris Description": {
-        "defaultMessage": "Parijs"
+        "defaultMessage": "Parijs, Campagne à Paris"
     },
     "France_Ile-de-France_Seine-Saint-Denis Description": {
         "defaultMessage": "Saint-Denis, Montreuil, Aubervilliers"
@@ -4956,13 +4956,13 @@
         "defaultMessage": "Poindimié, Nouméa, Ponérihouen"
     },
     "France_Nord-Pas-de-Calais_Lille Description": {
-        "defaultMessage": "Rijsel, Roubaix, Toerkonje"
+        "defaultMessage": "Rijsel, Roubaix, Tourcoing"
     },
     "France_Nord-Pas-de-Calais_Nord Description": {
-        "defaultMessage": "Valencijn, Dowaai, Cambrai"
+        "defaultMessage": "Valenciennes, Douai, Cambrai"
     },
     "France_Nord-Pas-de-Calais_Pas-de-Calais Description": {
-        "defaultMessage": "Calais, Boulogne-sur-Mer, Atrecht"
+        "defaultMessage": "Calais, Boulogne-sur-Mer, Arras"
     },
     "France_Pays de la Loire_Loire-Atlantique_Nantes Description": {
         "defaultMessage": "Nantes, Saint-Herblain, Rezé"
@@ -5214,7 +5214,7 @@
         "defaultMessage": "Kos, Parikia, Naoussa"
     },
     "Greece_Decentralized Administration of Attica Description": {
-        "defaultMessage": "Athene"
+        "defaultMessage": "Athene, Egaleo, Kamatero"
     },
     "Greece_Decentralized Administration of Crete Description": {
         "defaultMessage": "Heraklion, Elounda, Chania"
@@ -5232,7 +5232,7 @@
         "defaultMessage": "Patras, Lefkada, Kalamáta"
     },
     "Greenland Description": {
-        "defaultMessage": "Kangaatsiaq, Qaqortoq, Paamiut"
+        "defaultMessage": "Nuuk, Qaqortoq, Paamiut"
     },
     "Grenada Description": {
         "defaultMessage": "St. George's, Gouyave, Calivigny"
@@ -5565,7 +5565,7 @@
         "defaultMessage": "Palermo, Catania, Messina"
     },
     "Italy_Trentino-Alto Adige Sudtirol Description": {
-        "defaultMessage": "Trente, Bozen, Rovereto"
+        "defaultMessage": "Trente, Bolzano, Rovereto"
     },
     "Italy_Tuscany_Grosseto Description": {
         "defaultMessage": "Arezzo, Grosseto, Siena"
@@ -6246,7 +6246,7 @@
         "defaultMessage": "Ivanovo, Kinesjma, Sjoeja"
     },
     "Russia_Jewish Autonomous Oblast Description": {
-        "defaultMessage": "Birobidzhan, Obloetsje, Nikolajevka"
+        "defaultMessage": "Birobidzjan, Obloetsje, Nikolajevka"
     },
     "Russia_Kabardino-Balkaria Description": {
         "defaultMessage": "Naltsjik, Prochladny, Baksan"
@@ -7140,7 +7140,7 @@
         "defaultMessage": "Long Island, Yonkers, White Plains"
     },
     "US_New York_New York Description": {
-        "defaultMessage": "All five boroughs of New York City"
+        "defaultMessage": "Alle vijf stadsdelen van New York City"
     },
     "US_New York_North Description": {
         "defaultMessage": "Albany, Utica, Watertown"

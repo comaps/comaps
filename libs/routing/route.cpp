@@ -357,9 +357,29 @@ bool Route::GetNextTurns(vector<TurnItemDist> & turns) const
   turns.clear();
   turns.emplace_back(std::move(currentTurn));
 
-  TurnItemDist nextTurn;
-  if (GetNextTurn(nextTurn.m_distMeters, nextTurn.m_turnItem))
-    turns.emplace_back(std::move(nextTurn));
+  // Turn notifications chain a roundabout onto the turn before it, and announce it by its exit
+  // ("Then. At the roundabout. Take the second exit."). That needs the exit turn as well as the
+  // entrance, and for two roundabouts in a row it needs both pairs, so look ahead up to four turns.
+  size_t constexpr kMaxTurns = 4;
+
+  size_t lastTurnIdx = turns.back().m_turnItem.m_index;
+  while (turns.size() < kMaxTurns && lastTurnIdx < m_routeSegments.size())
+  {
+    // GetClosestTurnAfterIdx() asserts that a route ends with ReachedYourDestination, so there is
+    // nothing to look for past it.
+    if (turns.back().m_turnItem.IsTurnReachedYourDestination())
+      break;
+
+    TurnItem nextTurn;
+    GetClosestTurnAfterIdx(lastTurnIdx, nextTurn);
+    if (nextTurn.m_index <= lastTurnIdx)
+      break;
+
+    double const distMeters = m_poly.GetDistanceM(m_poly.GetCurrentIter(), m_poly.GetIterToIndex(nextTurn.m_index));
+    lastTurnIdx = nextTurn.m_index;
+    turns.emplace_back(TurnItemDist{nextTurn, distMeters});
+  }
+
   return true;
 }
 
