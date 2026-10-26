@@ -767,7 +767,7 @@ highway|tertiary_link|tunnel;[highway=tertiary_link][tunnel?];;name;int_name;634
 railway|miniature;635;
 railway|miniature|bridge;[railway=miniature][bridge?];;name;int_name;636;
 railway|miniature|tunnel;[railway=miniature][tunnel?];;name;int_name;637;
-deprecated|deprecated;638;x
+boundary|hazard;638;
 deprecated|deprecated;639;x
 club|freemasonry;640;
 club|game;641;

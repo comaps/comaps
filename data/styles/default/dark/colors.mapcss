@@ -115,6 +115,7 @@
 @playground: #2E2E20;
 @parking: #1E1F1F;
 @military: #B71C1C;
+@hazard: #B71C1C;
 @prison: #7f7f7f;
 @farmland: #1D1C12;
 @farmyard: #2E2B23;

@@ -3231,4 +3231,16 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_MultipleComplexTypesSmoke)
   }
 }
 
+UNIT_CLASS_TEST(TestWithClassificator, OsmType_BoundaryHazard)
+{
+  Tags const tags = {
+      {"boundary", "hazard"},
+  };
+
+  auto const params = GetFeatureBuilderParams(tags);
+
+  TEST_EQUAL(params.m_types.size(), 1, (params));
+  TEST(params.IsTypeExist(GetType({"boundary", "hazard"})), (params));
+}
+
 }  // namespace osm_type_test
