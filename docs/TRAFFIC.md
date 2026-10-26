@@ -10,9 +10,31 @@ This solution required minimal processing on the app side, at the expense of req
 
 The server is no longer available (the code appears to have been proprietary anyway), and traffic functionality has been disabled in code, but, as of the CoMaps fork, almost all functionality (save for parts of the iOS UI) was still there and in principle working. Rolling back a few commits and generating fake server responses showed that the code was still workable.
 
-CoMaps Traffic reuses many of these concepts, with only minimal changes: The rendering and routing engines still consume MWM coloring information in much the same form as MapsWithMe did. On the other hand, the way traffic information is acquired (and processed into MWM coloring) has been changed fundamentally – see **Functionality**.
+CoMaps Traffic reuses many of these concepts, with only minimal changes: The rendering and routing engines still consume MWM coloring information in much the same form as MapsWithMe did. On the other hand, the way traffic information is acquired (and processed into MWM coloring) has been changed fundamentally – see **Design**.
 
 ## Functionality
+
+Traffic data can be retrieved from two kinds of sources:
+* from a network server
+* from a companion app (Android only); this also makes it possible to receive TMC data with a hardware receiver and thus get traffic data without a network connection
+
+The data covers various kinds of events which can have an impact of travel times:
+* current speed and volume of moving traffic
+* temporary restrictions, such as speed limits
+* roadworks and other events with a likely impact on travel times
+* closures
+
+This covers the current traffic situation as well as planned events in the future. Coverage in terms of events, time frame for future events and parts of the road network vary between upstream sources.
+
+If enabled in the app, traffic information is displayed on the map. Routing in car mode considers the traffic information and avoids stretches of road that are closed, or if a faster route is available. Routing for other modes of transportation does not consider the traffic situation at the moment.
+
+Traffic messages with a set start and/or end time are displayed on the map only while they are valid. The router determines whether the message is going to be active when the location is reached, and bases its decision on that. This can lead to routes avoiding a road despite no disruption being shown on the map, or routes using stretches of road that are shown as congested or even closed on the map: the map shows the current traffic situation, whereas the router uses the traffic situation expected at the time it expects to reach the location in question.
+
+Use of traffic information can be enabled or disabled in the UI. In addition, traffic sources can be enabled or disabled individually. Traffic messages, once retrieved, are cached and remain available even after closing and restarting CoMaps, until they are updated or expire. If traffic is enabled but all sources are disabled, CoMaps will still use any traffic information it may have in its cache.
+
+TraFF has been designed to minimize the amount of personal information it transfers across the network. See **Privacy annd security concerns** for details.
+
+## Design
 
 The goal was to keep traffic information in a format that is independent from a particular map version, or even map format, allowing it to be used with any MWM version or even by other navigation apps. This is being achieved by relying on the TraFF data format and API (http://traffxml.org) for acquiring data.
 
