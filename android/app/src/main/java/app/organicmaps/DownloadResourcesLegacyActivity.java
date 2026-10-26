@@ -34,8 +34,10 @@ import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.downloader.CountryItem;
 import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.location.LocationListener;
+import app.organicmaps.sdk.location.LocationHelper;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.ConnectionState;
+import app.organicmaps.sdk.util.LocationUtils;
 import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
@@ -235,9 +237,18 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
   @Override
   protected void onResume()
   {
-    super.onResume();
-    if (!isFinishing())
-      MwmApplication.from(this).getLocationHelper().addListener(mLocationListener);
+  super.onResume();
+  if (isFinishing())
+    return;
+
+  final LocationHelper helper = MwmApplication.from(this).getLocationHelper();
+  if (!helper.isActive() && LocationUtils.checkLocationPermission(this))
+  {
+    if (!helper.isInFirstRun())
+      helper.onEnteredIntoFirstRun();
+    helper.start();
+  }
+  helper.addListener(mLocationListener);
   }
 
   @Override
