@@ -178,7 +178,7 @@ protected:
    * to find a route with the existing maps, or exit without finding a route. When snapping
    * endpoints to edges, it considers all edges within the given radius, fenced off or not.
    */
-  virtual Mode GetMode() { return Mode::Navigation; }
+  virtual Mode GetMode() const { return Mode::Navigation; }
 
   /**
    * @brief Returns current routing options.
@@ -186,7 +186,7 @@ protected:
    * In this class, the routing options are the one set in the GUI. Subclasses may override this
    * method to provide different routing options.
    */
-  virtual RoutingOptions GetRoutingOptions();
+  virtual RoutingOptions GetRoutingOptions() const;
 
   /**
    * @brief Whether to constrain point projections to segment endpoints.
@@ -199,7 +199,7 @@ protected:
    * The `IndexRouter` always returns `false`, subclasses can override this method and return
    * `true` at their discretion.
    */
-  virtual bool IsSnapToEndsActive() { return false; }
+  virtual bool IsSnapToEndsActive() const { return false; }
 
 private:
   RouterResultCode CalculateSubrouteJointsMode(IndexGraphStarter & starter, RouterDelegate const & delegate,

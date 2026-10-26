@@ -17,7 +17,7 @@ SpeedGroup GetSpeedGroupByPercentage(double p)
   return res;
 }
 
-SpeedGroup MergeSpeedGroups(SpeedGroup lhs, SpeedGroup rhs)
+SpeedGroup MergeSpeedGroups(SpeedGroup const & lhs, SpeedGroup const & rhs)
 {
   if ((lhs == SpeedGroup::TempBlock) || (rhs == SpeedGroup::TempBlock))
     return SpeedGroup::TempBlock;

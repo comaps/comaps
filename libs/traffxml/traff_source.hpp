@@ -50,7 +50,7 @@ public:
    *
    * @param feed The traffic feed.
    */
-  virtual void ReceiveFeed(traffxml::TraffFeed feed) = 0;
+  virtual void ReceiveFeed(traffxml::TraffFeed const & feed) = 0;
 
   /**
    * @brief Registers a `TraffSource`.
@@ -192,7 +192,7 @@ public:
    *
    * @param mwms The new set of MWMs for which data is needed.
    */
-  virtual void SubscribeOrChangeSubscription(std::set<MwmSet::MwmId> & mwms);
+  virtual void SubscribeOrChangeSubscription(std::set<MwmSet::MwmId> const & mwms);
 
   /**
    * @brief Whether this source should be polled.
@@ -247,7 +247,7 @@ protected:
    * @param mwms The MWMs for which a filter list is to be created.
    * @return A `filter_list` in XML format.
    */
-  static std::string GetMwmFilters(std::set<MwmSet::MwmId> & mwms);
+  static std::string GetMwmFilters(std::set<MwmSet::MwmId> const & mwms);
 
   /**
    * @brief Subscribes to a traffic service.
@@ -258,7 +258,7 @@ protected:
    *
    * @param mwms The MWMs for which data is needed.
    */
-  virtual void Subscribe(std::set<MwmSet::MwmId> & mwms) = 0;
+  virtual void Subscribe(std::set<MwmSet::MwmId> const & mwms) = 0;
 
   /**
    * @brief Changes an existing traffic subscription.
@@ -274,7 +274,7 @@ protected:
    *
    * @param mwms The new set of MWMs for which data is needed.
    */
-  virtual void ChangeSubscription(std::set<MwmSet::MwmId> & mwms) = 0;
+  virtual void ChangeSubscription(std::set<MwmSet::MwmId> const & mwms) = 0;
 
   /**
    * @brief Whether we are currently subscribed to a traffic service.
@@ -385,14 +385,14 @@ public:
    *
    * @param mwms The MWMs for which data is needed.
    */
-  virtual void Subscribe(std::set<MwmSet::MwmId> & mwms) override;
+  virtual void Subscribe(std::set<MwmSet::MwmId> const & mwms) override;
 
   /**
    * @brief Changes an existing traffic subscription.
    *
    * @param mwms The new set of MWMs for which data is needed.
    */
-  virtual void ChangeSubscription(std::set<MwmSet::MwmId> & mwms) override;
+  virtual void ChangeSubscription(std::set<MwmSet::MwmId> const & mwms) override;
 
   /**
    * @brief Unsubscribes from a traffic service we are subscribed to.
@@ -460,14 +460,14 @@ public:
    *
    * @param mwms The MWMs for which data is needed.
    */
-  virtual void Subscribe(std::set<MwmSet::MwmId> & mwms) override;
+  virtual void Subscribe(std::set<MwmSet::MwmId> const & mwms) override;
 
   /**
    * @brief Changes an existing traffic subscription.
    *
    * @param mwms The new set of MWMs for which data is needed.
    */
-  virtual void ChangeSubscription(std::set<MwmSet::MwmId> & mwms) override;
+  virtual void ChangeSubscription(std::set<MwmSet::MwmId> const & mwms) override;
 
   /**
    * @brief Unsubscribes from a traffic service we are subscribed to.
@@ -507,31 +507,31 @@ private:
    * @brief Processes a TraFF feed.
    * @param feed The feed.
    */
-  void OnFeedReceived(TraffFeed & feed);
+  void OnFeedReceived(TraffFeed const & feed);
 
   /**
    * @brief Processes the response to a subscribe request.
    * @param response The response to the subscribe operation.
    */
-  void OnSubscribeResponse(TraffResponse & response);
+  void OnSubscribeResponse(TraffResponse const & response);
 
   /**
    * @brief Processes the response to a change subscription request.
    * @param response The response to the change subscription operation.
    */
-  void OnChangeSubscriptionResponse(TraffResponse & response);
+  void OnChangeSubscriptionResponse(TraffResponse const & response);
 
   /**
    * @brief Processes the response to an unsubscribe request.
    * @param response The response to the unsubscribe operation.
    */
-  void OnUnsubscribeResponse(TraffResponse & response);
+  void OnUnsubscribeResponse(TraffResponse const & response);
 
   /**
    * @brief Processes the response to a poll request.
    * @param response The response to the poll operation.
    */
-  void OnPollResponse(TraffResponse & response);
+  void OnPollResponse(TraffResponse const & response);
 
   /**
    * @brief The update interval, 5 minutes.

@@ -196,7 +196,7 @@ public:
    *
    * The return value is used to control certain router behavior, such as which penalties to apply.
    */
-  virtual Mode GetMode() { return Mode::Navigation; }
+  virtual Mode GetMode() const { return Mode::Navigation; }
 
   /**
    * @brief Whether access restrictions are ignored.

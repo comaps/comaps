@@ -26,7 +26,7 @@ namespace traffxml
  */
 template <typename L, typename R>
 boost::bimap<L, R>
-MakeBimap(std::initializer_list<typename boost::bimap<L, R>::value_type> list)
+MakeBimap(std::initializer_list<typename boost::bimap<L, R>::value_type> const & list)
 {
   return boost::bimap<L, R>(list.begin(), list.end());
 }
@@ -443,7 +443,8 @@ std::optional<Value> OptionalEnumFromXml(pugi::xml_attribute const & attribute,
  * @param map A map between strings and their respective enum values.
  */
 template <typename Value>
-void EnumToXml(Value const & value, std::string name, pugi::xml_node & node, boost::bimap<std::string, Value> const & map)
+void EnumToXml(Value const & value, std::string const & name, pugi::xml_node & node,
+               boost::bimap<std::string, Value> const & map)
 {
   auto it = map.right.find(value);
   if (it != map.right.end())
@@ -556,7 +557,7 @@ std::optional<Point> OptionalPointFromXml(pugi::xml_node const & node)
  * @param name The name of the node to store the TraFF point in.
  * @param parentNode The parent node to which the new node will be added (`location`).
  */
-void PointToXml(Point const & point, std::string name, pugi::xml_node & parentNode)
+void PointToXml(Point const & point, std::string const & name, pugi::xml_node & parentNode)
 {
   auto node = parentNode.append_child(name);
   if (point.m_distance)
@@ -932,7 +933,7 @@ bool ColoringFromXml(pugi::xml_node const & node, DataSource const & dataSource,
  */
 void ColoringToXml(MwmSet::MwmId const & mwmId,
                    std::map<traffic::TrafficInfo::RoadSegmentId, traffic::SpeedGroup> const & coloring,
-                   pugi::xml_node node)
+                   pugi::xml_node & node)
 {
   node.append_attribute("country_name").set_value(mwmId.GetInfo()->GetCountryName());
   node.append_attribute("version").set_value(mwmId.GetInfo()->GetVersion());
@@ -957,7 +958,7 @@ void ColoringToXml(MwmSet::MwmId const & mwmId,
  * @param decoded Receives the decoded global coloring.
  */
 void AllMwmColoringFromXml(pugi::xml_node const & node,
-                           std::optional<std::reference_wrapper<const DataSource>> dataSource,
+                           std::optional<std::reference_wrapper<const DataSource>> const & dataSource,
                            GlobalSimpleColoring & decoded)
 {
   if (!node)
@@ -993,7 +994,7 @@ void AllMwmColoringFromXml(pugi::xml_node const & node,
  * @return `true` on success, `false` if the node does not exist or does not contain valid message data.
  */
 bool MessageFromXml(pugi::xml_node const & node,
-                    std::optional<std::reference_wrapper<const DataSource>> dataSource,
+                    std::optional<std::reference_wrapper<const DataSource>> const & dataSource,
                     TraffMessage & message)
 {
   if (!StringFromXml(node.attribute("id"), message.m_id))
@@ -1057,7 +1058,7 @@ bool MessageFromXml(pugi::xml_node const & node,
  * @param message The TraFF message.
  * @param node The `message` node to store the message in.
  */
-void MessageToXml(TraffMessage const & message, pugi::xml_node node)
+void MessageToXml(TraffMessage const & message, pugi::xml_node & node)
 {
   node.append_attribute("id").set_value(message.m_id);
   node.append_attribute("receive_time").set_value(message.m_receiveTime.ToString());
@@ -1118,7 +1119,7 @@ void MessageToXml(TraffMessage const & message, pugi::xml_node node)
  * @return `true` on success, `false` if the node does not exist or does not contain valid message data.
  */
 bool FeedFromXml(pugi::xml_node const & node,
-                    std::optional<std::reference_wrapper<const DataSource>> dataSource,
+                    std::optional<std::reference_wrapper<const DataSource>> const & dataSource,
                     TraffFeed & feed)
 {
   bool result = false;
@@ -1146,7 +1147,7 @@ bool FeedFromXml(pugi::xml_node const & node,
 }
 
 bool ParseTraff(pugi::xml_document const & document,
-                std::optional<std::reference_wrapper<const DataSource>> dataSource,
+                std::optional<std::reference_wrapper<const DataSource>> const & dataSource,
                 TraffFeed & feed)
 {
   return FeedFromXml(document.document_element(), dataSource, feed);
@@ -1173,7 +1174,7 @@ void GenerateTraff(std::map<std::string, traffxml::TraffMessage> const & message
   }
 }
 
-std::string FiltersToXml(std::vector<m2::RectD> & bboxRects)
+std::string FiltersToXml(std::vector<m2::RectD> const & bboxRects)
 {
   std::ostringstream os;
   for (auto rect : bboxRects)

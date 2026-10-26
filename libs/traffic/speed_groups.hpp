@@ -71,7 +71,7 @@ SpeedGroup GetSpeedGroupByPercentage(double p);
  *
  * @return the more restrictive of `lhs` and `rhs`
  */
-SpeedGroup MergeSpeedGroups(SpeedGroup lhs, SpeedGroup rhs);
+SpeedGroup MergeSpeedGroups(SpeedGroup const & lhs, SpeedGroup const & rhs);
 
 std::string DebugPrint(SpeedGroup const & group);
 }  // namespace traffic

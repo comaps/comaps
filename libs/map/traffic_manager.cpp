@@ -63,8 +63,8 @@ auto constexpr kTrafficXMLFileName = "traffic.xml";
 auto constexpr kPositionThreshold = 1000.0;
 }  // namespace
 
-TrafficManager::TrafficManager(DataSource & dataSource, CountryInfoGetterFn countryInfoGetter,
-                               const CountryParentNameGetterFn &countryParentNameGetter,
+TrafficManager::TrafficManager(DataSource & dataSource, CountryInfoGetterFn const & countryInfoGetter,
+                               CountryParentNameGetterFn const & countryParentNameGetter,
                                GetMwmsByRectFn const & getMwmsByRectFn, size_t maxCacheSizeBytes,
                                routing::RoutingSession & routingSession)
   : m_dataSource(dataSource)
@@ -520,7 +520,7 @@ void TrafficManager::Poll()
       source->Poll();
 }
 
-void TrafficManager::ReceiveFeed(traffxml::TraffFeed feed)
+void TrafficManager::ReceiveFeed(traffxml::TraffFeed const & feed)
 {
   {
     std::lock_guard<std::mutex> lock(m_mutex);
@@ -1087,7 +1087,7 @@ bool TrafficManager::IsEnabled() const
   return m_state != TrafficState::Disabled;
 }
 
-void TrafficManager::SetHttpTraffSource(bool enabled, std::string url)
+void TrafficManager::SetHttpTraffSource(bool enabled, std::string const & url)
 {
   if (IsTestMode())
     return;

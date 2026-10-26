@@ -1118,7 +1118,7 @@ RouterResultCode IndexRouter::AdjustRoute(Checkpoints const & checkpoints, m2::P
   return RouterResultCode::NoError;
 }
 
-RoutingOptions IndexRouter::GetRoutingOptions()
+RoutingOptions IndexRouter::GetRoutingOptions() const
 {
   return RoutingOptions::LoadOptionsFromSettings(m_vehicleType);
 }

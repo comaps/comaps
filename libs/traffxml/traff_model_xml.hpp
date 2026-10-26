@@ -56,7 +56,7 @@ namespace traffxml
  * @return `true` on success, `false` on failure.
  */
 bool ParseTraff(pugi::xml_document const & document,
-                std::optional<std::reference_wrapper<const DataSource>> dataSource,
+                std::optional<std::reference_wrapper<const DataSource>> const & dataSource,
                 TraffFeed & feed);
 
 /**
@@ -106,7 +106,7 @@ void GenerateTraff(std::map<std::string, traffxml::TraffMessage> const & message
  * @param bboxRects The rectangles, each of which represents a bounding box.
  * @return A string of XML `filter` elements.
  */
-std::string FiltersToXml(std::vector<m2::RectD> & bboxRects);
+std::string FiltersToXml(std::vector<m2::RectD> const & bboxRects);
 
 /**
  * @brief Parses the response to a TraFF request.

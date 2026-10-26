@@ -235,8 +235,8 @@ private:
    * @param seg The segment for which to retrieve the speed group.
    * @return The most restrictive speed group that applies at the moment, or `SpeedGroup::Unknown`.
    */
-  traffic::SpeedGroup GetSpeedGroup(traffic::TrafficInfo::Coloring const & coloring,
-                                    traffic::TrafficInfo::RoadSegmentId const & seg);
+  static traffic::SpeedGroup GetSpeedGroup(traffic::TrafficInfo::Coloring const & coloring,
+                                           traffic::TrafficInfo::RoadSegmentId const & seg);
 
   void GenerateSegmentsGeometry(ref_ptr<dp::GraphicsContext> context, MwmSet::MwmId const & mwmId,
                                 TileKey const & tileKey, TrafficSegmentsGeometryValue const & geometry,

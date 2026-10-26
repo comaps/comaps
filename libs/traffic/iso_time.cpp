@@ -15,7 +15,7 @@
 
 namespace traffic
 {
-  std::optional<IsoTime> IsoTime::ParseIsoTime(std::string timeString)
+  std::optional<IsoTime> IsoTime::ParseIsoTime(std::string const & timeString)
   {
     /*
      * TODO this is ugly because we need to work around some compiler deficiencies.
@@ -105,12 +105,12 @@ namespace traffic
     : m_tp(tp)
   {}
 
-  bool IsoTime::IsPast()
+  bool IsoTime::IsPast() const
   {
     return m_tp < std::chrono::system_clock::now();
   }
 
-  void IsoTime::Shift(IsoTime nowRef)
+  void IsoTime::Shift(IsoTime const & nowRef)
   {
     auto const offset = std::chrono::system_clock::now() - nowRef.m_tp;
     m_tp += offset;
@@ -153,7 +153,7 @@ namespace traffic
     return m_tp >= rhs.m_tp;
   }
 
-  std::string DebugPrint(IsoTime time)
+  std::string DebugPrint(IsoTime const & time)
   {
     std::ostringstream os;
     //os << std::put_time(&time.m_tm, "%Y-%m-%d %H:%M:%S %z");

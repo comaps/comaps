@@ -373,7 +373,7 @@ struct TraffMessage
    *
    * @return The effective expiration time for the message.
    */
-  traffic::IsoTime GetEffectiveExpirationTime();
+  traffic::IsoTime GetEffectiveExpirationTime() const;
 
   /**
    * @brief Returns the condition for the message.
@@ -394,7 +394,7 @@ struct TraffMessage
    * @param now The reference time to compare to (usually current time)
    * @return True if the message has expired, false if not.
    */
-  bool IsExpired(traffic::IsoTime now);
+  bool IsExpired(traffic::IsoTime const & now) const;
 
   /**
    * @brief Retrieves the traffic impact of all events.
@@ -408,7 +408,7 @@ struct TraffMessage
    *
    * @return The aggregated traffic impact, or `std::nullopt` if the message has no events with traffic impact.
    */
-  std::optional<TrafficImpact> GetTrafficImpact();
+  std::optional<TrafficImpact> GetTrafficImpact() const;
 
   /**
    * @brief Shifts timestamps to the present.
@@ -508,7 +508,8 @@ struct TraffResponse
  * @param condition The condition for the entries in `delta`, empty for unconditional messages
  * @param target Receives the added entries.
  */
-void MergeGlobalSimpleColoring(const GlobalSimpleColoring & delta, std::optional<traffic::Condition> condition,
+void MergeGlobalSimpleColoring(GlobalSimpleColoring const & delta,
+                               std::optional<traffic::Condition> const & condition,
                                traffic::TrafficInfo::GlobalColoring & target);
 
 std::string DebugPrint(Directionality directionality);
@@ -518,9 +519,9 @@ std::string DebugPrint(EventClass eventClass);
 std::string DebugPrint(EventType eventType);
 std::string DebugPrint(ResponseStatus status);
 std::string DebugPrint(TrafficImpact impact);
-std::string DebugPrint(Point point);
-std::string DebugPrint(TraffLocation location);
-std::string DebugPrint(TraffEvent event);
-std::string DebugPrint(TraffMessage message);
-std::string DebugPrint(TraffFeed feed);
+std::string DebugPrint(Point const & point);
+std::string DebugPrint(TraffLocation const & location);
+std::string DebugPrint(TraffEvent const & event);
+std::string DebugPrint(TraffMessage const & message);
+std::string DebugPrint(TraffFeed const & feed);
 }  // namespace traffxml

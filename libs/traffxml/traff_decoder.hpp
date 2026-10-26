@@ -52,8 +52,8 @@ public:
   using CountryInfoGetterFn = std::function<storage::CountryInfoGetter const &()>;
   using CountryParentNameGetterFn = std::function<std::string(std::string const &)>;
 
-  TraffDecoder(DataSource & dataSource, CountryInfoGetterFn countryInfoGetter,
-               const CountryParentNameGetterFn & countryParentNameGetter,
+  TraffDecoder(DataSource & dataSource, CountryInfoGetterFn const & countryInfoGetter,
+               CountryParentNameGetterFn const & countryParentNameGetter,
                std::map<std::string, traffxml::TraffMessage> & messageCache);
 
   virtual ~TraffDecoder() {}
@@ -79,7 +79,7 @@ protected:
    * @param message The message to decode.
    * @param decoded Receives the decoded segments. The speed group will be `Unknown`.
    */
-  virtual void DecodeLocation(traffxml::TraffMessage & message, traffxml::GlobalSimpleColoring & decoded) = 0;
+  virtual void DecodeLocation(traffxml::TraffMessage const & message, traffxml::GlobalSimpleColoring & decoded) = 0;
 
   /**
    * @brief Applies traffic impact to a decoded TraFF location.
@@ -89,7 +89,7 @@ protected:
    * @param impact The traffic impact to apply.
    * @param decoded The decoded segments.
    */
-  void ApplyTrafficImpact(traffxml::TrafficImpact & impact, traffxml::GlobalSimpleColoring & decoded);
+  void ApplyTrafficImpact(traffxml::TrafficImpact const & impact, traffxml::GlobalSimpleColoring & decoded) const;
 
   DataSource & m_dataSource;
   CountryInfoGetterFn m_countryInfoGetterFn;
@@ -118,8 +118,8 @@ private:
 class OpenLrV3TraffDecoder : public TraffDecoder
 {
 public:
-  OpenLrV3TraffDecoder(DataSource & dataSource, CountryInfoGetterFn countryInfoGetter,
-                       const CountryParentNameGetterFn & countryParentNameGetter,
+  OpenLrV3TraffDecoder(DataSource & dataSource, CountryInfoGetterFn const & countryInfoGetter,
+                       CountryParentNameGetterFn const & countryParentNameGetter,
                        std::map<std::string, traffxml::TraffMessage> & messageCache);
 
 protected:
@@ -129,7 +129,7 @@ protected:
    * @param message The message to decode.
    * @param decoded Receives the decoded segments. The speed group will be `Unknown`.
    */
-  void DecodeLocation(traffxml::TraffMessage & message, traffxml::GlobalSimpleColoring & decoded) override;
+  void DecodeLocation(traffxml::TraffMessage const & message, traffxml::GlobalSimpleColoring & decoded) override;
 
 private:
   /**
@@ -138,7 +138,7 @@ private:
    * @param roadClass The TraFF road class.
    * @return The FRC.
    */
-  static openlr::FunctionalRoadClass GetRoadClassFrc(std::optional<RoadClass> & roadClass);
+  static openlr::FunctionalRoadClass GetRoadClassFrc(std::optional<RoadClass> const & roadClass);
 
   /**
    * @brief Guess the distance between two points.
@@ -155,7 +155,7 @@ private:
    * @param p2 The second point.
    * @return The approximate distance on the ground, in meters.
    */
-  static uint32_t GuessDnp(Point & p1, Point & p2);
+  static uint32_t GuessDnp(Point const & p1, Point const & p2);
 
   /**
    * @brief Converts a TraFF point to an OpenLR location reference point.
@@ -165,7 +165,7 @@ private:
    * @param point The point
    * @return An OpenLR LRP with the coordinates of the point.
    */
-  static openlr::LocationReferencePoint PointToLrp(Point & point);
+  static openlr::LocationReferencePoint PointToLrp(Point const & point);
 
   /**
    * @brief Converts a TraFF location to an OpenLR linear location reference.
@@ -175,7 +175,7 @@ private:
    * with the order of points reversed.
    * @return An OpenLR linear location reference which corresponds to the location.
    */
-  static openlr::LinearLocationReference TraffLocationToLinearLocationReference(TraffLocation & location, bool backwards);
+  static openlr::LinearLocationReference TraffLocationToLinearLocationReference(TraffLocation const & location, bool backwards);
 
   /**
    * @brief Converts a TraFF location to a vector of OpenLR segments.
@@ -188,7 +188,7 @@ private:
    * @param messageId The message ID
    * @return A vector holding the resulting OpenLR segments.
    */
-  static std::vector<openlr::LinearSegment> TraffLocationToOpenLrSegments(TraffLocation & location, std::string & messageId);
+  static std::vector<openlr::LinearSegment> TraffLocationToOpenLrSegments(TraffLocation const & location, std::string & messageId);
 
   /**
    * @brief The OpenLR decoder instance.
@@ -262,14 +262,14 @@ public:
      * but tries to find a route with the existing maps, or exits without a route. When snapping
      * endpoints to edges, it considers all edges within the given radius, fenced off or not.
      */
-    IndexRouter::Mode GetMode() override { return IndexRouter::Mode::Decoding; }
+    IndexRouter::Mode GetMode() const override { return IndexRouter::Mode::Decoding; }
 
     /**
      * @brief Returns current routing options.
      *
      * For traffic decoding purposes, all roads are allowed.
      */
-    routing::RoutingOptions GetRoutingOptions() override;
+    routing::RoutingOptions GetRoutingOptions() const override;
 
     /**
      * @brief Whether to constrain point projections to segment endpoints.
@@ -290,7 +290,7 @@ public:
      * prohibiting partial segments can result in incorrectly decoded locations. Hence `false` is
      * returned for such locations.
      */
-    bool IsSnapToEndsActive() override { return m_snapToEnds; }
+    bool IsSnapToEndsActive() const override { return m_snapToEnds; }
 
   private:
     /**
@@ -373,7 +373,7 @@ public:
      *
      * The return value is used to control certain router behavior, such as which penalties to apply.
      */
-    EdgeEstimator::Mode GetMode() override { return EdgeEstimator::Mode::Decoding; }
+    EdgeEstimator::Mode GetMode() const override { return EdgeEstimator::Mode::Decoding; }
 
     /**
      * @brief Whether access restrictions are ignored.
@@ -441,8 +441,8 @@ public:
     std::vector<double> m_distances;
   };
 
-  RoutingTraffDecoder(DataSource & dataSource, CountryInfoGetterFn countryInfoGetter,
-                      const CountryParentNameGetterFn & countryParentNameGetter,
+  RoutingTraffDecoder(DataSource & dataSource, CountryInfoGetterFn const & countryInfoGetter,
+                      CountryParentNameGetterFn const & countryParentNameGetter,
                       std::map<std::string, traffxml::TraffMessage> & messageCache);
 
   /**
@@ -475,7 +475,7 @@ public:
    * @param segment The segment for which to retrieve data.
    * @return The `FeatureInfo` structure, or `std::nullopt` if the segment is not found.
    */
-  std::optional<FeatureInfo> GetFeatureInfo(routing::Segment const & segment);
+  std::optional<FeatureInfo> GetFeatureInfo(routing::Segment const & segment) const;
 
   /**
    * @brief Determines the penalty factor bases on how highway attributes match.
@@ -519,7 +519,7 @@ public:
    * for a mismatch (refs are assumed to refer to different objects) or`kReducedAttributePenalty` for
    * a partial match (unclear whether both refs refer to the same object).
    */
-  double GetRoadRefPenalty(std::vector<std::string> & refs) const;
+  double GetRoadRefPenalty(std::vector<std::string> const & refs) const;
 
   /**
    * @brief Determines the penalty factor based on how two reference numbers match.
@@ -565,7 +565,7 @@ protected:
    * @param decoded The decoded segments.
    * @param segment The segment to add.
    */
-  void AddDecodedSegment(traffxml::GlobalSimpleColoring & decoded, routing::Segment & segment);
+  void AddDecodedSegment(traffxml::GlobalSimpleColoring & decoded, routing::Segment const & segment);
 
   /**
    * @brief Decodes one direction of a TraFF location.
@@ -574,7 +574,7 @@ protected:
    * @param decoded Receives the decoded segments. The speed group will be `Unknown`.
    * @param backwards If true, decode the backward direction, else the forward direction.
    */
-  void DecodeLocationDirection(traffxml::TraffMessage & message,
+  void DecodeLocationDirection(traffxml::TraffMessage const & message,
                                traffxml::GlobalSimpleColoring & decoded, bool backwards);
 
   /**
@@ -583,7 +583,7 @@ protected:
    * @param message The message to decode.
    * @param decoded Receives the decoded segments. The speed group will be `Unknown`.
    */
-  void DecodeLocation(traffxml::TraffMessage & message, traffxml::GlobalSimpleColoring & decoded) override;
+  void DecodeLocation(traffxml::TraffMessage const & message, traffxml::GlobalSimpleColoring & decoded) override;
 
   /**
    * @brief Retrieves a point of a segment from the map.
@@ -591,7 +591,7 @@ protected:
    * @param segment The segment
    * @param last If true, retrieve the last point of the segment, else the first point
    */
-  m2::PointD GetPointFromSegment(const routing::Segment & segment, bool last);
+  m2::PointD GetPointFromSegment(routing::Segment const & segment, bool last) const;
 
 
   /**
@@ -627,7 +627,7 @@ protected:
    * @param backwards True when decoding the backward direction, false when decoding the forward direction.
    */
   void TruncateHiResRoute(std::vector<routing::RouteSegment> & rsegments,
-                     routing::Checkpoints const & checkpoints);
+                     routing::Checkpoints const & checkpoints) const;
 
   /**
    * @brief Truncates the route for a low-res location so its endpoints best match the reference points.
@@ -654,7 +654,7 @@ protected:
    * @param backwards True when decoding the backward direction, false when decoding the forward direction.
    */
   void TruncateLowResRoute(std::vector<routing::RouteSegment> & rsegments,
-                           routing::Checkpoints const & checkpoints, bool backwards);
+                           routing::Checkpoints const & checkpoints, bool backwards) const;
 
   /**
    * @brief Truncates the route to its ramp segments.
@@ -669,7 +669,7 @@ protected:
    * @param rsegments The segments of the route
    * @param ramps The ramps attribute of the location
    */
-  void TruncateRouteToRamps(std::vector<routing::RouteSegment> & rsegments, Ramps ramps);
+  void TruncateRouteToRamps(std::vector<routing::RouteSegment> & rsegments, Ramps ramps) const;
 
 private:
   static void LogCode(routing::RouterResultCode code, double const elapsedSec);

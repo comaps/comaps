@@ -39,7 +39,7 @@ void AndroidTraffSourceV0_7::Close()
   Unsubscribe();
 }
 
-void AndroidTraffSourceV0_7::Subscribe(std::set<MwmSet::MwmId> & mwms)
+void AndroidTraffSourceV0_7::Subscribe(std::set<MwmSet::MwmId> const & mwms)
 {
   jni::GetEnv()->CallVoidMethod(m_implObject, m_subscribeImpl, nullptr);
 }
@@ -88,7 +88,7 @@ void AndroidTraffSourceV0_8::Close()
   Unsubscribe();
 }
 
-void AndroidTraffSourceV0_8::Subscribe(std::set<MwmSet::MwmId> & mwms)
+void AndroidTraffSourceV0_8::Subscribe(std::set<MwmSet::MwmId> const & mwms)
 {
   JNIEnv * env = jni::GetEnv();
   std::string data = "<filter_list>\n"
@@ -98,7 +98,7 @@ void AndroidTraffSourceV0_8::Subscribe(std::set<MwmSet::MwmId> & mwms)
   env->CallVoidMethod(m_implObject, m_subscribeImpl, jni::ToJavaString(env, data));
 }
 
-void AndroidTraffSourceV0_8::ChangeSubscription(std::set<MwmSet::MwmId> & mwms)
+void AndroidTraffSourceV0_8::ChangeSubscription(std::set<MwmSet::MwmId> const & mwms)
 {
   JNIEnv * env = jni::GetEnv();
   std::string data = "<filter_list>\n"

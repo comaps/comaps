@@ -127,8 +127,8 @@ auto constexpr kTurnPenaltyFullAngle = 90.0;
  */
 uint32_t constexpr kInvalidFeatureId = std::numeric_limits<uint32_t>::max();
 
-TraffDecoder::TraffDecoder(DataSource & dataSource, CountryInfoGetterFn countryInfoGetter,
-                           const CountryParentNameGetterFn & countryParentNameGetter,
+TraffDecoder::TraffDecoder(DataSource & dataSource, CountryInfoGetterFn const & countryInfoGetter,
+                           CountryParentNameGetterFn const & countryParentNameGetter,
                            std::map<std::string, TraffMessage> & messageCache)
   : m_dataSource(dataSource)
   , m_countryInfoGetterFn(countryInfoGetter)
@@ -136,7 +136,7 @@ TraffDecoder::TraffDecoder(DataSource & dataSource, CountryInfoGetterFn countryI
   , m_messageCache(messageCache)
 {}
 
-void TraffDecoder::ApplyTrafficImpact(traffxml::TrafficImpact & impact, traffxml::GlobalSimpleColoring & decoded)
+void TraffDecoder::ApplyTrafficImpact(traffxml::TrafficImpact const & impact, traffxml::GlobalSimpleColoring & decoded) const
 {
   traffic::SpeedGroup fromDelay = traffic::SpeedGroup::Unknown;
 
@@ -308,14 +308,14 @@ void TraffDecoder::DecodeMessage(traffxml::TraffMessage & message)
 
 // Disabled for now, as the OpenLR-based decoder is slow, buggy and not well suited to the task.
 #if 0
-OpenLrV3TraffDecoder::OpenLrV3TraffDecoder(DataSource & dataSource, CountryInfoGetterFn countryInfoGetter,
-                                           const CountryParentNameGetterFn & countryParentNameGetter,
+OpenLrV3TraffDecoder::OpenLrV3TraffDecoder(DataSource & dataSource, CountryInfoGetterFn const & countryInfoGetter,
+                                           CountryParentNameGetterFn const & countryParentNameGetter,
                                            std::map<std::string, TraffMessage> & messageCache)
   : TraffDecoder(dataSource, countryInfoGetter, countryParentNameGetter, messageCache)
   , m_openLrDecoder(dataSource, countryParentNameGetter)
 {}
 
-openlr::FunctionalRoadClass OpenLrV3TraffDecoder::GetRoadClassFrc(std::optional<RoadClass> & roadClass)
+openlr::FunctionalRoadClass OpenLrV3TraffDecoder::GetRoadClassFrc(std::optional<RoadClass> const & roadClass)
 {
   if (!roadClass)
     return openlr::FunctionalRoadClass::NotAValue;
@@ -339,7 +339,7 @@ openlr::FunctionalRoadClass OpenLrV3TraffDecoder::GetRoadClassFrc(std::optional<
 }
 
 // TODO tweak formula based on FRC, FOW and direct distance (lower FRC roads may have more and sharper turns)
-uint32_t OpenLrV3TraffDecoder::GuessDnp(Point & p1, Point & p2)
+uint32_t OpenLrV3TraffDecoder::GuessDnp(Point const & p1, Point const & p2)
 {
   // direct distance
   double doe = mercator::DistanceOnEarth(mercator::FromLatLon(p1.m_coordinates),
@@ -396,14 +396,14 @@ uint32_t OpenLrV3TraffDecoder::GuessDnp(Point & p1, Point & p2)
   return dist + 0.5f;
 }
 
-openlr::LocationReferencePoint OpenLrV3TraffDecoder::PointToLrp(Point & point)
+openlr::LocationReferencePoint OpenLrV3TraffDecoder::PointToLrp(Point const & point)
 {
   openlr::LocationReferencePoint result;
   result.m_latLon = ms::LatLon(point.m_coordinates.m_lat, point.m_coordinates.m_lon);
   return result;
 }
 
-openlr::LinearLocationReference OpenLrV3TraffDecoder::TraffLocationToLinearLocationReference(TraffLocation & location, bool backwards)
+openlr::LinearLocationReference OpenLrV3TraffDecoder::TraffLocationToLinearLocationReference(TraffLocation const & location, bool backwards)
 {
   openlr::LinearLocationReference locationReference;
   locationReference.m_points.clear();
@@ -443,7 +443,7 @@ openlr::LinearLocationReference OpenLrV3TraffDecoder::TraffLocationToLinearLocat
 }
 
 // TODO make segment ID in OpenLR a string value, and store messageId
-std::vector<openlr::LinearSegment> OpenLrV3TraffDecoder::TraffLocationToOpenLrSegments(TraffLocation & location, std::string & messageId)
+std::vector<openlr::LinearSegment> OpenLrV3TraffDecoder::TraffLocationToOpenLrSegments(TraffLocation const & location, std::string & messageId)
 {
   // Convert the location to a format understood by the OpenLR decoder.
   std::vector<openlr::LinearSegment> segments;
@@ -484,7 +484,7 @@ std::vector<openlr::LinearSegment> OpenLrV3TraffDecoder::TraffLocationToOpenLrSe
  * structures to accept a TraFF message ID (string) rather than an integer, or derive
  * [partner] segment IDs from TraFF message IDs.
  */
-void OpenLrV3TraffDecoder::DecodeLocation(traffxml::TraffMessage & message, traffxml::GlobalSimpleColoring & decoded)
+void OpenLrV3TraffDecoder::DecodeLocation(traffxml::TraffMessage const & message, traffxml::GlobalSimpleColoring & decoded)
 {
   ASSERT(message.m_location, ("Message has no location"));
   decoded.clear();
@@ -841,13 +841,13 @@ RoutingTraffDecoder::DecoderRouter::DecoderRouter(CountryParentNameGetterFn cons
   //, m_directionsEngine(CreateDirectionsEngine(m_vehicleType, m_numMwmIds, m_dataSource)) // TODO we don’t need directions, can we disable that?
 {}
 
-routing::RoutingOptions RoutingTraffDecoder::DecoderRouter::GetRoutingOptions()
+routing::RoutingOptions RoutingTraffDecoder::DecoderRouter::GetRoutingOptions() const
 {
   return routing::RoutingOptions();
 }
 
-RoutingTraffDecoder::RoutingTraffDecoder(DataSource & dataSource, CountryInfoGetterFn countryInfoGetter,
-                                         const CountryParentNameGetterFn & countryParentNameGetter,
+RoutingTraffDecoder::RoutingTraffDecoder(DataSource & dataSource, CountryInfoGetterFn const & countryInfoGetter,
+                                         CountryParentNameGetterFn const & countryParentNameGetter,
                                          std::map<std::string, TraffMessage> & messageCache)
   : TraffDecoder(dataSource, countryInfoGetter, countryParentNameGetter, messageCache)
 {
@@ -971,7 +971,7 @@ RoutingTraffDecoder::FeatureInfo & RoutingTraffDecoder::GetFeatureInfo(routing::
   return it->second;
 }
 
-std::optional<RoutingTraffDecoder::FeatureInfo> RoutingTraffDecoder::GetFeatureInfo(routing::Segment const & segment)
+std::optional<RoutingTraffDecoder::FeatureInfo> RoutingTraffDecoder::GetFeatureInfo(routing::Segment const & segment) const
 {
   auto it = m_featureInfoMap.find({segment.GetMwmId(), segment.GetFeatureId()});
   if (it != m_featureInfoMap.end())
@@ -1006,7 +1006,7 @@ double RoutingTraffDecoder::GetHighwayTypePenalty(std::optional<routing::Highway
   return result;
 }
 
-double RoutingTraffDecoder::GetRoadRefPenalty(std::vector<std::string> & refs) const
+double RoutingTraffDecoder::GetRoadRefPenalty(std::vector<std::string> const & refs) const
 {
   double result = decoder_model::kAttributePenalty;
 
@@ -1205,7 +1205,7 @@ void RoutingTraffDecoder::LogCode(routing::RouterResultCode code, double const e
   }
 }
 
-void RoutingTraffDecoder::AddDecodedSegment(traffxml::GlobalSimpleColoring & decoded, routing::Segment & segment)
+void RoutingTraffDecoder::AddDecodedSegment(traffxml::GlobalSimpleColoring & decoded, routing::Segment const & segment)
 {
   auto const countryFile = m_numMwmIds->GetFile(segment.GetMwmId());
   MwmSet::MwmId mwmId = m_dataSource.GetMwmIdByCountryFile(countryFile);
@@ -1219,7 +1219,7 @@ void RoutingTraffDecoder::AddDecodedSegment(traffxml::GlobalSimpleColoring & dec
   decoded[mwmId][traffic::TrafficInfo::RoadSegmentId(fid, sid, direction)] = traffic::SpeedGroup::Unknown;
 }
 
-m2::PointD RoutingTraffDecoder::GetPointFromSegment(const routing::Segment & segment, bool last)
+m2::PointD RoutingTraffDecoder::GetPointFromSegment(routing::Segment const & segment, bool last) const
 {
   auto const countryFile = m_numMwmIds->GetFile(segment.GetMwmId());
   auto const mwmId = m_dataSource.GetMwmIdByCountryFile(countryFile);
@@ -1236,7 +1236,7 @@ m2::PointD RoutingTraffDecoder::GetPointFromSegment(const routing::Segment & seg
 
 
 void RoutingTraffDecoder::TruncateHiResRoute(std::vector<routing::RouteSegment> & rsegments,
-                                        routing::Checkpoints const & checkpoints)
+                                        routing::Checkpoints const & checkpoints) const
 {
   // prune fake segments
   std::erase_if(rsegments, [](routing::RouteSegment & rsegment) {
@@ -1353,7 +1353,7 @@ void RoutingTraffDecoder::TruncateHiResRoute(std::vector<routing::RouteSegment> 
 }
 
 void RoutingTraffDecoder::TruncateLowResRoute(std::vector<routing::RouteSegment> & rsegments,
-                                              routing::Checkpoints const & checkpoints, bool backwards)
+                                              routing::Checkpoints const & checkpoints, bool backwards) const
 {
   double startWeight = 0;
   double const endWeight = rsegments.back().GetTimeFromBeginningSec();
@@ -1418,7 +1418,7 @@ void RoutingTraffDecoder::TruncateLowResRoute(std::vector<routing::RouteSegment>
   }
 }
 
-void RoutingTraffDecoder::TruncateRouteToRamps(std::vector<routing::RouteSegment> & rsegments, Ramps ramps)
+void RoutingTraffDecoder::TruncateRouteToRamps(std::vector<routing::RouteSegment> & rsegments, Ramps ramps) const
 {
   if (rsegments.empty())
     return;
@@ -1460,7 +1460,7 @@ void RoutingTraffDecoder::TruncateRouteToRamps(std::vector<routing::RouteSegment
     rsegments.erase(rsegments.begin(), rsegments.begin() + firstRamp);
 }
 
-void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & message,
+void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage const & message,
                                                   traffxml::GlobalSimpleColoring & decoded, bool backwards)
 {
   bool adjustToPrevRoute = false; // calculate a fresh route, no adjustments to previous one
@@ -1699,7 +1699,7 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage & messa
   }
 }
 
-void RoutingTraffDecoder::DecodeLocation(traffxml::TraffMessage & message, traffxml::GlobalSimpleColoring & decoded)
+void RoutingTraffDecoder::DecodeLocation(traffxml::TraffMessage const & message, traffxml::GlobalSimpleColoring & decoded)
 {
   ASSERT(message.m_location, ("Message has no location"));
   decoded.clear();

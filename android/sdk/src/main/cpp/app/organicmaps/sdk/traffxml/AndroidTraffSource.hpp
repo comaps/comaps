@@ -39,7 +39,7 @@ public:
    *
    * @param mwms The MWMs for which data is needed (not used by this implementation).
    */
-  virtual void Subscribe(std::set<MwmSet::MwmId> & mwms) override;
+  virtual void Subscribe(std::set<MwmSet::MwmId> const & mwms) override;
 
   /**
    * @brief Changes an existing traffic subscription.
@@ -48,7 +48,7 @@ public:
    *
    * @param mwms The new set of MWMs for which data is needed.
    */
-  virtual void ChangeSubscription(std::set<MwmSet::MwmId> & mwms) override {};
+  virtual void ChangeSubscription(std::set<MwmSet::MwmId> const & mwms) override {};
 
   /**
    * @brief Unsubscribes from a traffic service we are subscribed to.
@@ -136,14 +136,14 @@ public:
    *
    * @param mwms The MWMs for which data is needed.
    */
-  virtual void Subscribe(std::set<MwmSet::MwmId> & mwms) override;
+  virtual void Subscribe(std::set<MwmSet::MwmId> const & mwms) override;
 
   /**
    * @brief Changes an existing traffic subscription.
    *
    * @param mwms The new set of MWMs for which data is needed.
    */
-  virtual void ChangeSubscription(std::set<MwmSet::MwmId> & mwms) override;
+  virtual void ChangeSubscription(std::set<MwmSet::MwmId> const & mwms) override;
 
   /**
    * @brief Unsubscribes from a traffic service we are subscribed to.

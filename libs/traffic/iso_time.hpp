@@ -35,7 +35,7 @@ namespace traffic
      * @param timeString Time in ISO8601 format
      * @return An `IsoTime` instance corresponding to `timeString`, or `std::nullopt` if `timeString` is not a valid ISO8601 time string.
      */
-    static std::optional<IsoTime> ParseIsoTime(std::string timeString);
+    static std::optional<IsoTime> ParseIsoTime(std::string const & timeString);
 
     /**
      * @brief Returns an `IsoTime` corresponding to current wall clock time.
@@ -59,7 +59,7 @@ namespace traffic
      *
      * @return true if in the past, false of not.
      */
-    bool IsPast();
+    bool IsPast() const;
 
     /**
      * @brief Shifts time to the present.
@@ -70,7 +70,7 @@ namespace traffic
      *
      * @param nowRef
      */
-    void Shift(IsoTime nowRef);
+    void Shift(IsoTime const & nowRef);
 
     /**
      * @brief Returns a string representation of the instance.
@@ -84,12 +84,12 @@ namespace traffic
     bool operator> (const IsoTime & rhs) const;
     bool operator>= (const IsoTime & rhs) const;
   private:
-    friend std::string DebugPrint(IsoTime time);
+    friend std::string DebugPrint(IsoTime const & time);
 
     IsoTime(std::chrono::time_point<std::chrono::system_clock> tp);
 
     std::chrono::time_point<std::chrono::system_clock> m_tp;
   };
 
-std::string DebugPrint(IsoTime time);
+std::string DebugPrint(IsoTime const & time);
 }  // namespace traffic

@@ -101,7 +101,7 @@ bool operator==(TraffLocation const & lhs, TraffLocation const & rhs)
       && (lhs.m_to == rhs.m_to);
 }
 
-traffic::IsoTime TraffMessage::GetEffectiveExpirationTime()
+traffic::IsoTime TraffMessage::GetEffectiveExpirationTime() const
 {
   traffic::IsoTime result = m_expirationTime;
   if (m_startTime && m_startTime.value() > result)
@@ -119,12 +119,12 @@ std::optional<traffic::Condition> TraffMessage::GetCondition() const
     return std::nullopt;
 }
 
-bool TraffMessage::IsExpired(traffic::IsoTime now)
+bool TraffMessage::IsExpired(traffic::IsoTime const & now) const
 {
   return GetEffectiveExpirationTime() < now;
 }
 
-std::optional<TrafficImpact> TraffMessage::GetTrafficImpact()
+std::optional<TrafficImpact> TraffMessage::GetTrafficImpact() const
 {
   // no events, no impact
   if (m_events.empty())
@@ -203,8 +203,8 @@ void TraffMessage::ShiftTimestamps()
     m_endTime.value().Shift(nowRef);
 }
 
-void MergeGlobalSimpleColoring(const GlobalSimpleColoring & delta,
-                               std::optional<traffic::Condition> condition,
+void MergeGlobalSimpleColoring(GlobalSimpleColoring const & delta,
+                               std::optional<traffic::Condition> const & condition,
                                traffic::TrafficInfo::GlobalColoring & target)
 {
   // for each mwm in delta
@@ -394,7 +394,7 @@ std::string DebugPrint(TrafficImpact impact)
   return os.str();
 }
 
-std::string DebugPrint(Point point)
+std::string DebugPrint(Point const & point)
 {
   std::ostringstream os;
   os << "Point { ";
@@ -406,7 +406,7 @@ std::string DebugPrint(Point point)
   return os.str();
 }
 
-std::string DebugPrint(TraffLocation location)
+std::string DebugPrint(TraffLocation const & location)
 {
   std::ostringstream os;
   os << "TraffLocation { ";
@@ -431,7 +431,7 @@ std::string DebugPrint(TraffLocation location)
   return os.str();
 }
 
-std::string DebugPrint(TraffEvent event)
+std::string DebugPrint(TraffEvent const & event)
 {
   std::ostringstream os;
   os << "TraffEvent { ";
@@ -453,7 +453,7 @@ std::string DebugPrint(TraffEvent event)
   return os.str();
 }
 
-std::string DebugPrint(TraffMessage message)
+std::string DebugPrint(TraffMessage const & message)
 {
   std::string sep;
   std::ostringstream os;
@@ -492,7 +492,7 @@ std::string DebugPrint(TraffMessage message)
   return os.str();
 }
 
-std::string DebugPrint(TraffFeed feed)
+std::string DebugPrint(TraffFeed const & feed)
 {
   std::string sep;
   std::ostringstream os;

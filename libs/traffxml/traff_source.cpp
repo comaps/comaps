@@ -16,7 +16,7 @@ TraffSource::TraffSource(TraffSourceManager & manager)
   : m_manager(manager)
 {}
 
-void TraffSource::SubscribeOrChangeSubscription(std::set<MwmSet::MwmId> & mwms)
+void TraffSource::SubscribeOrChangeSubscription(std::set<MwmSet::MwmId> const & mwms)
 {
   std::lock_guard<std::mutex> lock(m_mutex);
   if (!IsSubscribed())
@@ -25,7 +25,7 @@ void TraffSource::SubscribeOrChangeSubscription(std::set<MwmSet::MwmId> & mwms)
     ChangeSubscription(mwms);
 }
 
-std::string TraffSource::GetMwmFilters(std::set<MwmSet::MwmId> & mwms)
+std::string TraffSource::GetMwmFilters(std::set<MwmSet::MwmId> const & mwms)
 {
   std::vector<m2::RectD> rects;
   for (auto mwmId : mwms)
@@ -43,7 +43,7 @@ MockTraffSource::MockTraffSource(TraffSourceManager & manager)
   : TraffSource(manager)
 {}
 
-void MockTraffSource::Subscribe(std::set<MwmSet::MwmId> & mwms)
+void MockTraffSource::Subscribe(std::set<MwmSet::MwmId> const & mwms)
 {
   std::string filterList = GetMwmFilters(mwms);
   LOG(LINFO, ("Would subscribe to:\n", filterList));
@@ -51,7 +51,7 @@ void MockTraffSource::Subscribe(std::set<MwmSet::MwmId> & mwms)
   m_nextRequestTime = std::chrono::steady_clock::now(); // would be in the future if we got a feed here
 }
 
-void MockTraffSource::ChangeSubscription(std::set<MwmSet::MwmId> & mwms)
+void MockTraffSource::ChangeSubscription(std::set<MwmSet::MwmId> const & mwms)
 {
   if (!IsSubscribed())
     return;
@@ -157,7 +157,7 @@ void HttpTraffSource::Close()
   thread.detach();
 }
 
-void HttpTraffSource::Subscribe(std::set<MwmSet::MwmId> & mwms)
+void HttpTraffSource::Subscribe(std::set<MwmSet::MwmId> const & mwms)
 {
   std::string data = "<request operation=\"SUBSCRIBE\">\n<filter_list>\n"
       + GetMwmFilters(mwms)
@@ -174,7 +174,7 @@ void HttpTraffSource::Subscribe(std::set<MwmSet::MwmId> & mwms)
   thread.detach();
 }
 
-void HttpTraffSource::OnFeedReceived(TraffFeed & feed)
+void HttpTraffSource::OnFeedReceived(TraffFeed const & feed)
 {
   m_lastResponseTime = std::chrono::steady_clock::now();
   m_nextRequestTime = std::chrono::steady_clock::now() + m_updateInterval;
@@ -182,7 +182,7 @@ void HttpTraffSource::OnFeedReceived(TraffFeed & feed)
   m_manager.ReceiveFeed(feed);
 }
 
-void HttpTraffSource::OnSubscribeResponse(TraffResponse & response)
+void HttpTraffSource::OnSubscribeResponse(TraffResponse const & response)
 {
   if (response.m_status == ResponseStatus::Ok
       || response.m_status == ResponseStatus::PartiallyCovered)
@@ -206,7 +206,7 @@ void HttpTraffSource::OnSubscribeResponse(TraffResponse & response)
     LOG(LWARNING, ("Subscribe request failed:", response.m_status));
 }
 
-void HttpTraffSource::ChangeSubscription(std::set<MwmSet::MwmId> & mwms)
+void HttpTraffSource::ChangeSubscription(std::set<MwmSet::MwmId> const & mwms)
 {
   std::string data = "<request operation=\"SUBSCRIPTION_CHANGE\" subscription_id=\"" + m_subscriptionId + "\">\n"
       + "<filter_list>\n"
@@ -223,7 +223,7 @@ void HttpTraffSource::ChangeSubscription(std::set<MwmSet::MwmId> & mwms)
   thread.detach();
 }
 
-void HttpTraffSource::OnChangeSubscriptionResponse(TraffResponse & response)
+void HttpTraffSource::OnChangeSubscriptionResponse(TraffResponse const & response)
 {
   if (response.m_status == ResponseStatus::Ok
       || response.m_status == ResponseStatus::PartiallyCovered)
@@ -266,7 +266,7 @@ void HttpTraffSource::Unsubscribe()
   thread.detach();
 }
 
-void HttpTraffSource::OnUnsubscribeResponse(TraffResponse & response)
+void HttpTraffSource::OnUnsubscribeResponse(TraffResponse const & response)
 {
   if (response.m_status != ResponseStatus::Ok
       && response.m_status != ResponseStatus::SubscriptionUnknown)
@@ -307,7 +307,7 @@ void HttpTraffSource::Poll()
   thread.detach();
 }
 
-void HttpTraffSource::OnPollResponse(TraffResponse & response)
+void HttpTraffSource::OnPollResponse(TraffResponse const & response)
 {
   if (response.m_status == ResponseStatus::Ok)
   {

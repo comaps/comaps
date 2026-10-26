@@ -118,7 +118,7 @@ public:
   using GetMwmsByRectFn = std::function<std::vector<MwmSet::MwmId>(m2::RectD const &)>;
 
   TrafficManager(DataSource & dataSource,
-                 CountryInfoGetterFn countryInfoGetter,
+                 CountryInfoGetterFn const & countryInfoGetter,
                  CountryParentNameGetterFn const & countryParentNameGetter,
                  GetMwmsByRectFn const & getMwmsByRectFn, size_t maxCacheSizeBytes,
                  routing::RoutingSession & routingSession);
@@ -192,7 +192,7 @@ public:
    * @param enabled Whether the HTTP TraFF source is enabled.
    * @param url The URL for the TraFF API.
    */
-  void SetHttpTraffSource(bool enabled, std::string url);
+  void SetHttpTraffSource(bool enabled, std::string const & url);
 
   /**
    * @brief Removes all `TraffSource` instances which satisfy a predicate.
@@ -247,7 +247,7 @@ public:
   /**
    * @brief Whether the traffic manager is operating in test mode.
    */
-  bool IsTestMode() { return m_mode != Mode::Normal; }
+  bool IsTestMode() const { return m_mode != Mode::Normal; }
 
   /**
    * @brief Switches the traffic manager into test mode.
@@ -273,7 +273,7 @@ public:
    *
    * @param feed The traffic feed.
    */
-  virtual void ReceiveFeed(traffxml::TraffFeed feed) override;
+  virtual void ReceiveFeed(traffxml::TraffFeed const & feed) override;
 
   /**
    * @brief Registers a `TraffSource`.
