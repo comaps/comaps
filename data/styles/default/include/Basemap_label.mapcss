@@ -22,6 +22,7 @@
   7.5 Pedestrian areas
   7.6 Military
   7.7 Commercial
+  7.8 Hazard
 8.BUILDINGS
   8.1 Pier
   8.2 Building
@@ -647,6 +648,11 @@ node|z17-[landuse=military],
 area|z16-[landuse=retail],
 area|z16-[landuse=commercial],
 {text: name;font-size: 10;text-color: @poi_label;text-position: center;}
+
+/* 	7.8 Hazard */
+
+node|z17-[boundary=hazard],
+{icon-image: skull-m.svg;text-offset: 1;text: name;font-size: 10;text-color: @poi_label;}
 
 /* 8.BUILDINGS */
 

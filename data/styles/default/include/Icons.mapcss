@@ -8,6 +8,7 @@
  3.5 Ferry terminal & seamarks
  3.6 Airport
  3.7 Aerialway
+ 3.8 Hazard
 4.TOURISM
  4.1 Main POI
  4.2 Apartament
@@ -554,6 +555,11 @@ node|z15-[railway=station][station=funicular],
 {icon-image: funicular-m.svg;text-offset: 1;font-size: 10;}
 node|z17-[aerialway=station],
 {font-size: 12;}
+
+/* 3.8 Hazard */
+
+node|z17-[hazard=animal_crossing],[hazard=dangerous_junction],[hazard=falling_rocks],[hazard=ice],[hazard=landslide],[hazard=collapse],
+{icon-image: hazard-traffic-m.svg;text-offset: 1;text: name;font-size: 10;text-color: @poi_label;}
 
 /* 4.TOURISM */
 

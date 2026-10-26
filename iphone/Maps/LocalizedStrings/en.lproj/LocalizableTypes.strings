@@ -252,6 +252,7 @@
 "type.boundary.administrative.3" = "Regional Boundary";
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "Regional Boundary";
+"type.boundary.hazard" = "Hazardous Area";
 "type.boundary.national_park" = "National Park";
 "type.boundary.aboriginal_lands" = "Indigenous Lands";
 "type.boundary.protected_area" = "Protected Area";
@@ -440,6 +441,8 @@
 "type.entrance.emergency" = "Emergency Exit";
 "type.fee.yes" = "$";
 "type.fee.no" = "Free";
+"type.hazard.traffic" = "Traffic Hazard";
+"type.hazard.water" = "Water Hazard";
 "type.healthcare.laboratory" = "Medical Laboratory";
 "type.healthcare.physiotherapist" = "Physiotherapist";
 "type.healthcare.alternative" = "Alternative Medicine";

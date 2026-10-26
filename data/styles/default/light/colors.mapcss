@@ -113,6 +113,7 @@
 @playground: #E4E7A2;
 @parking: #EBF0EF;
 @military: #DE2D28;
+@hazard: #DE2D28;
 @prison: #727272;
 @farmland: #E3DEAC;
 @farmyard: #E6D6AF;

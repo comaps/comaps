@@ -767,8 +767,8 @@ highway|tertiary_link|tunnel;[highway=tertiary_link][tunnel?];;name;int_name;634
 railway|miniature;635;
 railway|miniature|bridge;[railway=miniature][bridge?];;name;int_name;636;
 railway|miniature|tunnel;[railway=miniature][tunnel?];;name;int_name;637;
-deprecated|deprecated;638;x
-deprecated|deprecated;639;x
+boundary|hazard;638;
+hazard|traffic;[hazard=animal_crossing],[hazard=dangerous_junction],[hazard=falling_rocks],[hazard=ice],[hazard=landslide],[hazard=collapse];;name;int_name;639;
 deprecated|deprecated;640;x
 deprecated|deprecated;641;x
 deprecated|deprecated;642;x
