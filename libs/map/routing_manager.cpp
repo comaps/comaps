@@ -58,6 +58,8 @@
 
 #include <map>
 
+#include "cppjansson/cppjansson.hpp"
+
 using namespace routing;
 using namespace std;
 
