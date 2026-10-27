@@ -3,6 +3,8 @@
 #include "platform/measurement_utils.hpp"
 #include "routing/route_step.hpp"
 
+#include "indexer/road_shields_parser.hpp"
+
 #include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 #include "geometry/rect2d.hpp"
@@ -403,6 +405,11 @@ void Route::SetRouteSegments(vector<RouteSegment> && routeSegments)
   }
 
   m_poly.SetFakeSegmentIndexes(std::move(fakeSegmentIndexes));
+
+  m_stepSegIdxs.clear();
+  for (size_t i = 0; i < m_routeSegments.size(); ++i)
+    if (IsDisplayableTurn(i))
+      m_stepSegIdxs.push_back(i);
 }
 
 bool Route::MoveIterator(location::GpsInfo const & info)
@@ -594,15 +601,11 @@ std::vector<RouteStepInfo> Route::GetTurnsForDisplay(std::string const & locale)
   getTtsText.SetLocale(locale);
 
   double totalDistance = 0.0;
-  int seq = 0;
-  for (size_t i = 0; i < m_routeSegments.size(); ++i)
+  for (size_t k = 0; k < m_stepSegIdxs.size(); ++k)
   {
+    size_t const i = m_stepSegIdxs[k];
     auto const & segment = m_routeSegments[i];
     auto const & turn = segment.GetTurn();
-    if (turn.IsTurnNone())
-      continue;
-    if (turn.m_turn == CarDirection::EnterRoundAbout)
-      continue;
 
     double distance = segment.GetDistFromBeginningMeters() - totalDistance;
 
@@ -611,17 +614,18 @@ std::vector<RouteStepInfo> Route::GetTurnsForDisplay(std::string const & locale)
 
     RouteStepInfo step;
     step.m_index = i;
-    step.m_sequence = ++seq;
+    step.m_sequence = k + 1;
     step.m_turn = segment.GetTurn().m_turn;
     step.m_pedestrianTurn = segment.GetTurn().m_pedestrianTurn;
     step.m_exitNum = segment.GetTurn().m_exitNum;
     step.m_distMeters = distance;
     step.m_fromStreetName = segment.GetRoadNameInfo().m_name;
-    step.m_toStreetName = rni.m_name;
+    step.m_toRoad = GetRoadInfo(rni);
+    step.m_lanes = GetStepLanes(i);
     step.m_formattedDistance = platform::Distance::CreateFormatted(step.m_distMeters);
 
     sound::Notification notification(0, step.m_exitNum, false, true, true, step.m_turn, step.m_pedestrianTurn,
-                                     measurement_utils::Units::Metric, step.m_toStreetName);
+                                     measurement_utils::Units::Metric, step.m_toRoad.m_name);
     step.m_textualInstruction = getTtsText.GetTurnNotification(notification);
 
     totalDistance += step.m_distMeters;
@@ -629,6 +633,79 @@ std::vector<RouteStepInfo> Route::GetTurnsForDisplay(std::string const & locale)
   }
 
   return steps;
+}
+
+bool Route::IsDisplayableTurn(size_t segIdx) const
+{
+  auto const & turn = m_routeSegments[segIdx].GetTurn();
+  if (turn.IsTurnNone())
+    return false;
+  // Only include EnterRoundAbout step if there's no matching LeaveRoundAbout instruction
+  if (turn.m_turn == CarDirection::EnterRoundAbout)
+  {
+    auto const nextTurn = std::find_if(m_routeSegments.cbegin() + segIdx + 1, m_routeSegments.cend(),
+                                       [](RouteSegment const & s) { return IsNormalTurn(s.GetTurn()); });
+    if (nextTurn != m_routeSegments.cend() && nextTurn->GetTurn().m_turn == CarDirection::LeaveRoundAbout)
+      return false;
+  }
+  return true;
+}
+
+turns::lanes::LanesInfo const & Route::GetStepLanes(size_t segIdx) const
+{
+  auto const & turn = m_routeSegments[segIdx].GetTurn();
+  if (turn.m_turn != CarDirection::LeaveRoundAbout)
+    return turn.m_lanes;
+
+  for (size_t i = segIdx; i > 0; --i)
+  {
+    auto const & prevTurn = m_routeSegments[i - 1].GetTurn();
+    if (!IsNormalTurn(prevTurn))
+      continue;
+    if (prevTurn.m_turn == CarDirection::EnterRoundAbout && !prevTurn.m_lanes.empty())
+      return prevTurn.m_lanes;
+    break;
+  }
+  return turn.m_lanes;
+}
+
+std::optional<size_t> Route::GetStepSegIdx(uint32_t sequence) const
+{
+  if (sequence == 0 || sequence > m_stepSegIdxs.size())
+    return {};
+  return m_stepSegIdxs[sequence - 1];
+}
+
+std::optional<uint32_t> Route::GetStepSequenceForTurn(uint32_t turnIndex) const
+{
+  auto const it = std::lower_bound(m_stepSegIdxs.cbegin(), m_stepSegIdxs.cend(), turnIndex,
+                                   [this](size_t segIdx, uint32_t index)
+  { return m_routeSegments[segIdx].GetTurn().m_index < index; });
+  if (it == m_stepSegIdxs.cend())
+    return {};
+  return static_cast<uint32_t>(std::distance(m_stepSegIdxs.cbegin(), it) + 1);
+}
+
+std::optional<uint32_t> Route::GetNextStepSequence(uint32_t sequence, double maxDistM) const
+{
+  auto const segIdx = GetStepSegIdx(sequence);
+  auto const nextSegIdx = GetStepSegIdx(sequence + 1);
+  if (!segIdx || !nextSegIdx)
+    return {};
+
+  double const distM = m_routeSegments[*nextSegIdx].GetDistFromBeginningMeters() -
+                       m_routeSegments[*segIdx].GetDistFromBeginningMeters();
+  if (distM > maxDistM)
+    return {};
+  return sequence + 1;
+}
+
+std::optional<uint32_t> Route::GetTurnIndexForStepSequence(uint32_t sequence) const
+{
+  auto const segIdx = GetStepSegIdx(sequence);
+  if (!segIdx)
+    return {};
+  return m_routeSegments[*segIdx].GetTurn().m_index;
 }
 
 m2::PointD Route::GetJunctionPointForTurn(uint32_t segmentIndex) const
@@ -669,6 +746,91 @@ bool IsNormalTurn(TurnItem const & turn)
   CHECK_NOT_EQUAL(turn.m_pedestrianTurn, PedestrianDirection::Count, ());
 
   return !turn.IsTurnNone();
+}
+
+namespace
+{
+void GetRoadShieldsInfo(RouteSegment::RoadNameInfo const & road, RoadShieldInfo & info)
+{
+  std::string const & mwmName = road.m_mwmId.GetMwmName();
+  if (road.HasExitInfo())
+  {
+    info.m_targetRoadShields =
+        ftypes::GetRoadShields(mwmName, road.m_destination_ref, ftypes::HighwayClass::Undefined);
+    info.m_junctionRoadShields =
+        ftypes::GetRoadShields(mwmName, road.m_junction_ref, ftypes::HighwayClass::Undefined);
+  }
+  else
+  {
+    info.m_targetRoadShields = ftypes::GetRoadShields(mwmName, road.m_ref, road.m_highwayClass);
+  }
+}
+
+std::string GetRoadShieldsText(ftypes::RoadShieldsSetT const & roadShields, bool const withBraces = true)
+{
+  std::string text;
+  for (size_t i = 0; i < roadShields.size(); ++i)
+  {
+    text += (withBraces ? "[" : "") + roadShields[i].m_name + (withBraces ? "]" : "");
+    if (i < roadShields.size() - 1)
+      text += " ";
+  }
+  return text;
+}
+}  // namespace
+
+// For next street returns "[ref] name" .
+// For highway exits (or main roads with exit info) returns "[junction:ref]: [target:ref] > target".
+// If no |target| - it will be replaced by |name| of next street.
+// If no |target:ref| - it will be replaced by |ref| of next road.
+// So if link has no info at all, "[ref] name" of next will be returned (as for next street).
+void GetFullRoadName(RouteSegment::RoadNameInfo const & road, RoadShieldInfo & roadShields,
+                     std::string & name)
+{
+  GetRoadShieldsInfo(road, roadShields);
+
+  name.clear();
+  if (road.HasExitInfo())
+  {
+    if (!roadShields.m_junctionRoadShields.empty())
+      name += GetRoadShieldsText(roadShields.m_junctionRoadShields, /* withBraces */ false);
+
+    if (!roadShields.m_targetRoadShields.empty())
+    {
+      std::string const & shieldsText = GetRoadShieldsText(roadShields.m_targetRoadShields);
+      if (!name.empty())
+        name += " : ";
+      name += shieldsText;
+    }
+
+    if (!road.m_destination.empty())
+      name += std::string(name.empty() ? "" : " ") + "> " + road.m_destination;
+    else if (!road.m_name.empty())
+      name += (roadShields.m_targetRoadShields.empty() ? std::string(name.empty() ? "" : " ") : " : ") + road.m_name;
+  }
+  else
+  {
+    if (!roadShields.m_targetRoadShields.empty())
+      name = GetRoadShieldsText(roadShields.m_targetRoadShields);
+    if (!road.m_name.empty())
+      name += (name.empty() ? "" : " ") + road.m_name;
+  }
+}
+
+RoadInfo GetRoadInfo(RouteSegment::RoadNameInfo const & road)
+{
+  RoadInfo info;
+  GetFullRoadName(road, info.m_shields, info.m_formattedName);
+  if (road.m_isLink && !road.HasExitTextInfo())
+    info.m_shields.m_targetRoadShields =
+        ftypes::GetRoadShields(road.m_mwmId.GetMwmName(), road.m_ref, road.m_highwayClass);
+  info.m_name = road.m_name;
+  info.m_ref = ftypes::GetRoadShieldDisplayRef(road.m_ref);
+  info.m_junctionRef = road.m_junction_ref;
+  info.m_destinationRef = ftypes::GetRoadShieldDisplayRef(road.m_destination_ref);
+  info.m_destination = road.m_destination;
+  info.m_isLink = road.m_isLink;
+  return info;
 }
 
 string DebugPrint(Route const & r)
