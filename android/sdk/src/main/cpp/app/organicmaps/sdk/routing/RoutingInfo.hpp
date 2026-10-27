@@ -72,12 +72,12 @@ jobject CreateRoutingInfo(JNIEnv * env, routing::FollowingInfo const & info, Rou
                                          info.m_indexOfNextStop,
                                          ToJavaDistance(env, info.m_distToNextStop),
                                          static_cast<jint>(info.m_timeToNextStop),
-                                         jni::ToJavaString(env, info.m_nextName),
-                                         jni::ToJavaString(env, info.m_nextRef),
-                                         jni::ToJavaString(env, info.m_nextJunctionRef),
-                                         jni::ToJavaString(env, info.m_nextDestinationRef),
-                                         jni::ToJavaString(env, info.m_nextDestination),
-                                         static_cast<jboolean>(info.m_nextIsLink),
+                                         jni::ToJavaString(env, info.m_nextRoadInfo.m_name),
+                                         jni::ToJavaString(env, info.m_nextRoadInfo.m_ref),
+                                         jni::ToJavaString(env, info.m_nextRoadInfo.m_junctionRef),
+                                         jni::ToJavaString(env, info.m_nextRoadInfo.m_destinationRef),
+                                         jni::ToJavaString(env, info.m_nextRoadInfo.m_destination),
+                                         static_cast<jboolean>(info.m_nextRoadInfo.m_isLink),
                                          static_cast<jboolean>(info.m_isLeftHandTraffic));
   ASSERT(result, (jni::DescribeException()));
   return result;

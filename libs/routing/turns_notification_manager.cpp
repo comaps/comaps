@@ -17,10 +17,6 @@ namespace sound
 
 namespace
 {
-// If the distance between two sequential turns is less than kSecondTurnThresholdDistM
-// the information about the second turn will be shown or pronounced
-// when the user is approaching to the first one with "Then,".
-double constexpr kSecondTurnThresholdDistM = 400.0;
 // If the distance between two sequential turns is less than kDistanceNotifyThresholdM
 // the notification will *not* append second distance, (like "In 500 meters. Turn left. Then. Turn right.")
 double constexpr kDistanceNotifyThresholdM = 80.0;
@@ -478,6 +474,20 @@ void NotificationManager::Reset()
   m_turnNotificationWithThen = false;
   m_secondTurnNotification = CarDirection::None;
   m_secondTurnNotificationIndex = 0;
+}
+
+uint32_t NotificationManager::GetFirstNotificationDistM() const
+{
+  if (!m_settings.IsValid())
+    return 0;
+  return m_settings.ComputeTurnDistanceM(m_speedMetersPerSecond) + GetSecondNotificationDistM();
+}
+
+uint32_t NotificationManager::GetSecondNotificationDistM() const
+{
+  if (!m_settings.IsValid())
+    return 0;
+  return m_settings.ComputeDistToPronounceDistM(m_speedMetersPerSecond, false /* pedestrian */);
 }
 
 void NotificationManager::FastForwardFirstTurnNotification()

@@ -23,7 +23,7 @@ jobject ToJavaRouteStepInfo(JNIEnv * env, routing::RouteStepInfo const & step)
                    static_cast<jint>(step.m_turn),
                    static_cast<jint>(step.m_pedestrianTurn),
                    jni::ToJavaString(env, step.m_fromStreetName),
-                   jni::ToJavaString(env, step.m_toStreetName),
+                   jni::ToJavaString(env, step.m_toRoad.m_name),
                    static_cast<jint>(step.m_exitNum),
                    static_cast<jdouble>(step.m_distMeters),
                    ToJavaDistance(env, step.m_formattedDistance),
