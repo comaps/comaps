@@ -16,7 +16,7 @@
   5.3 Tunnels
   5.4 Piste
   5.5 Transport
- 6.LABELS COLORS
+6.LABELS COLORS
   6.1 Main labels
   6.2 Natural labels
   6.3 Place labels
@@ -26,8 +26,8 @@
 
 /* 1.BASEMAP */
 
-@background0: #181715;
-@background1: #181715;
+@background0: #000000;
+@background1: #000000;
 
 /* 2.BOUNDARY */
 
@@ -39,7 +39,7 @@
 /* 3.1 Main natural */
 
 @glacier: #333333;
-@water: #344E54;
+@water: #304054;
 @water_bad: #364D4F;
 @wetland_tidal: #3C5053;
 @wetland_tidal_saltmarsh: #3D5350;
@@ -54,7 +54,7 @@
 @sand: #312d24;
 @barerock: #2B2A26;
 @scree: #292825;
-@desert: #312E28;
+@desert: #211E18;
 
 /*3.2 Vegetation*/
 
@@ -95,7 +95,7 @@
 @woods_11: #1F2211;
 @woods_10: #1F2311;
 
-@protected_nature: #191D0B;
+@protected_nature: #705020;
 
 
 /* 4.LANDUSE */
@@ -106,8 +106,9 @@
 @railway_platform: #232220;
 @university: #1D1A16;
 @hospital: #1E1A19;
-@industrial: #1C1C1C;
-@construction_area: #1C1C1C;
+@industrial: #101010;
+@construction_area: #101010;
+/* TODO: Sport varibles need to be renamed according to purpose */
 @sport0: #31302A;
 @sport1: #2E2E27;
 @sport2: #2A2E1E;
@@ -115,7 +116,7 @@
 @parking: #1E1F1F;
 @military: #B71C1C;
 @prison: #7f7f7f;
-@farmland: #2D2C22;
+@farmland: #1D1C12;
 @farmyard: #2E2B23;
 
 /*4.2 Aerodrome*/
@@ -143,19 +144,19 @@
 /* 5.ROADS */
 /* 5.1 All roads */
 
-@motorway0: #7A4006;
-@motorway1: #784606;
-@trunk0: #794D11;
-@trunk1: #79511D;
-@primary0: #7A5C2A;
-@primary1: #7C5E24;
-@primary2: #7C622F;
-@secondary0: #7F6730;
-@secondary1: #7F6B3C;
-@tertiary: #4C4B4B;
-@residential: #4C4C4C;
-@pedestrian: #4C4B4B;
-@footway: #4C4B4B;
+@motorway0: #9C622C;
+@motorway1: #9C622C;
+@trunk0: #966832;
+@trunk1: #966832;
+@primary0: #906E30;
+@primary1: #906E30;
+@primary2: #906E30;
+@secondary0: #8A7440;
+@secondary1: #8A7440;
+@tertiary: #7A7A7A;
+@residential: #7A7A7A;
+@pedestrian: #7A7A7A;
+@footway: #7A7A7A;
 @cycleway: #48477F;
 @construction: #5A5D65;
 @track: #5F532D;
@@ -216,15 +217,15 @@
 /* 6.LABELS COLORS */
 /* 6.1 Main labels */
 
-@label_dark: #888888;
-@label_medium: #777777;
-@label_light: #666666;
+@label_dark: #BBBBBB;
+@label_medium: #AAAAAA;
+@label_light: #999999;
 @label_halo_medium: #111100;
 @label_halo_light: #060600;
 
 /* 6.2 Natural labels */
 
-@park_label: #4A6141;
+@park_label: #6C8363;
 @halo_park_label: #111;
 
 /* 6.3 Place labels */
@@ -232,7 +233,7 @@
 @city_label: #999999;
 @country_label: #555555;
 @state_label: #555555;
-@district_label: #7A7A7A;
+@district_label: #999999;
 @housenumber: #747474;
 @building_label: #767676;
 @poi_label: #8C8C8C;
@@ -246,8 +247,8 @@
 @hotel_label: #614A43;
 @sport_label: #2B5C4B;
 @nature_label: #3C612E;
-@water_label: #0A6074;
-@water_light_label: #0A6074;
+@water_label: #2A8094;
+@water_light_label: #2A8094;
 @neutral_label: #51585E;
 @healthcare_label: #983E44;
 @public_transport_label: #2F6499;
