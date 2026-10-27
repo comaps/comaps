@@ -40,6 +40,7 @@ public class CategoriesScreen extends BaseMapScreen
   public CategoriesScreen(@NonNull CarContext carContext, @NonNull Renderer surfaceRenderer)
   {
     super(carContext, surfaceRenderer);
+
     final ConstraintManager constraintManager = getCarContext().getCarService(ConstraintManager.class);
     MAX_CATEGORIES_SIZE = constraintManager.getContentLimit(ConstraintManager.CONTENT_LIMIT_TYPE_LIST);
   }

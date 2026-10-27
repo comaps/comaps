@@ -809,6 +809,11 @@ void Framework::UpdateMyPositionRoutingOffset(int offsetY)
   NativeFramework()->UpdateMyPositionRoutingOffset(false, offsetY);
 }
 
+void Framework::SetCarNavigationView (bool enabled)
+{
+  NativeFramework()->SetCarNavigationView(enabled);
+}
+
 void Framework::ApplyWidgets()
 {
   gui::TWidgetsLayoutInfo layout;
@@ -1358,6 +1363,17 @@ JNIEXPORT jobject JNICALL Java_app_organicmaps_sdk_Framework_nativeGetRouteFollo
     return nullptr;
 
   return CreateRoutingInfo(env, info, rm);
+}
+
+JNIEXPORT jdouble JNICALL Java_app_organicmaps_sdk_Framework_nativeGetRoadSpeedLimit(JNIEnv *, jclass, jdouble lat,
+                                                                                    jdouble lon, jdouble bearingDeg)
+{
+  return frm()->GetRoutingManager().GetRoadSpeedLimitMps(lat, lon, bearingDeg);
+}
+
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeResetRoadSpeedLimit(JNIEnv *, jclass)
+{
+  frm()->GetRoutingManager().ResetRoadSpeedLimitCache();
 }
 
 JNIEXPORT jobjectArray JNICALL Java_app_organicmaps_sdk_Framework_nativeGetRouteJunctionPoints(JNIEnv * env, jclass,

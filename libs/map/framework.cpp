@@ -1664,6 +1664,11 @@ void Framework::UpdateMyPositionRoutingOffset(bool useDefault, int offsetY)
     m_drapeEngine->UpdateMyPositionRoutingOffset(useDefault, offsetY);
 }
 
+void Framework::SetCarNavigationView(bool enabled)
+{
+  ScreenBase::SetCarNavigationView(enabled);
+}
+
 ref_ptr<df::DrapeEngine> Framework::GetDrapeEngine()
 {
   return make_ref(m_drapeEngine);

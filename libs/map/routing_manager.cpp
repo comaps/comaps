@@ -10,8 +10,11 @@
 #include "routing/absent_regions_finder.hpp"
 #include "routing/checkpoint_predictor.hpp"
 #include "routing/checkpoints.hpp"
+#include "routing/data_source.hpp"
+#include "routing/features_road_graph.hpp"
 #include "routing/following_info.hpp"
 #include "routing/index_router.hpp"
+#include "routing/maxspeeds.hpp"
 #include "routing/route.hpp"
 #include "routing/routing_callbacks.hpp"
 #include "routing/routing_settings.hpp"
@@ -28,6 +31,7 @@
 #include "drape_frontend/route_shape.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
+#include "routing_common/car_model.hpp"
 
 #include "indexer/data_source.hpp"
 #include "indexer/feature_algo.hpp"
@@ -56,8 +60,11 @@
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
+#include <cmath>
 #include <ios>
+#include <limits>
 #include <map>
+#include <numbers>
 
 #include "cppjansson/cppjansson.hpp"
 
@@ -66,6 +73,7 @@ using namespace std;
 
 namespace
 {
+
 char constexpr kRouterTypeKey[] = "router";
 
 double constexpr kRouteScaleMultiplier = 1.5;
@@ -327,6 +335,87 @@ drape_ptr<df::Subroute> CreateDrapeSubroute(vector<RouteSegment> const & segment
   return subroute;
 }
 }  // namespace
+
+struct RoutingManager::RoadSpeedLimitState
+{
+  RoadSpeedLimitState(DataSource & ds, routing::CountryParentNameGetterFn const & parentGetter)
+    : m_dataSource(ds, nullptr /* numMwmIds */)
+    , m_graph(m_dataSource, routing::IRoadGraph::Mode::ObeyOnewayTag,
+              std::make_shared<routing::CarModelFactory>(parentGetter))
+  {}
+
+  routing::Maxspeeds const * GetMaxspeeds(MwmSet::MwmId const & mwmId)
+  {
+    if (mwmId != m_mwmId)
+    {
+      m_maxspeeds.reset();
+      m_mwmId = mwmId;
+      try { m_maxspeeds = routing::LoadMaxspeeds(m_dataSource.GetHandle(mwmId)); }
+      catch (RootException const &) {}  // GetHandle throws if the mwm can't be loaded
+    }
+    return m_maxspeeds.get();
+  }
+
+  routing::MwmDataSource m_dataSource;   // declared before m_graph: the graph holds a reference
+  routing::FeaturesRoadGraphBase m_graph;
+  MwmSet::MwmId m_mwmId;
+  std::unique_ptr<routing::Maxspeeds> m_maxspeeds;
+};
+
+double RoutingManager::GetRoadSpeedLimitMps(double lat, double lon, double bearingDeg)
+{
+  double constexpr kMatchRadiusM = 25.0;  // tune on-device
+
+  if (!m_roadSpeedLimit)
+    m_roadSpeedLimit = std::make_unique<RoadSpeedLimitState>(m_callbacks.m_dataSourceGetter(),
+                                                             m_callbacks.m_countryParentNameGetterFn);
+  auto & s = *m_roadSpeedLimit;
+
+  m2::PointD const point = mercator::FromLatLon(lat, lon);
+  double const rad = bearingDeg * std::numbers::pi / 180.0;  // bearing: clockwise from north
+  m2::PointD const direction(std::sin(rad), std::cos(rad));
+
+  std::vector<std::pair<routing::Edge, geometry::PointWithAltitude>> candidates;
+  s.m_graph.FindClosestEdges(mercator::RectByCenterXYAndSizeInMeters(point, kMatchRadiusM), 4, candidates);
+
+  // Same selection as IndexRouter::PointsOnEdgesSnapping::FindClosestCodirectionalEdge (private there).
+  routing::IndexRouter::BestEdgeComparator cmp(point, direction);
+  routing::Edge const * best = nullptr;
+  double bestDist = std::numeric_limits<double>::max();
+  for (auto const & c : candidates)
+  {
+    if (!cmp.IsAlmostCodirectional(c.first))
+      continue;
+    double const d = cmp.GetSquaredDist(c.first);
+    if (d < bestDist)
+    {
+      bestDist = d;
+      best = &c.first;
+    }
+  }
+  if (!best)
+    return -1;
+
+  FeatureID const & fid = best->GetFeatureId();
+  auto const * maxspeeds = s.GetMaxspeeds(fid.m_mwmId);
+  if (!maxspeeds)
+    return -1;
+
+  auto const ms = maxspeeds->GetMaxspeed(fid.m_index);
+  routing::SpeedInUnits const limit(ms.GetSpeedInUnits(best->IsForward()), ms.GetUnits());
+
+  // Same mapping as RoutingSession::GetCurrentSpeedLimit.
+  if (limit.IsNumeric())
+    return measurement_utils::KmphToMps(limit.GetSpeedKmPH());
+  if (limit.GetSpeed() == routing::kNoneMaxSpeed)
+    return 0;
+  return -1;
+}
+
+void RoutingManager::ResetRoadSpeedLimitCache()
+{
+  m_roadSpeedLimit.reset();
+}
 
 RoutingManager::RoutingManager(Callbacks && callbacks, Delegate & delegate)
   : m_callbacks(std::move(callbacks))

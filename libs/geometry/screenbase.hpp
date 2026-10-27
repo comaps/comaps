@@ -121,6 +121,8 @@ public:
 
   static double CalculateAutoPerspectiveAngle(double scale);
   static double GetStartPerspectiveScale();
+  static void SetCarNavigationView(bool enabled);
+  static bool IsCarNavigationView();
 
   /// Compute arbitrary pixel transformation, that translates the (oldPt1, oldPt2) -> (newPt1,
   /// newPt2)

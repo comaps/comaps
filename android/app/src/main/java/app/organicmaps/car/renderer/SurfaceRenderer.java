@@ -31,6 +31,7 @@ class SurfaceRenderer extends Renderer
     mLifecycleOwner.getLifecycle().addObserver(mMapController);
     mSurfaceCallback = new SurfaceCallback(mCarContext, mMapController);
     setSurfaceCallback(mSurfaceCallback);
+    mMapController.setCarNavigationView(true);
   }
 
   @Override
@@ -38,6 +39,7 @@ class SurfaceRenderer extends Renderer
   {
     super.enable();
 
+    mMapController.setCarNavigationView(true);
     mMapController.onStart(mLifecycleOwner);
     mMapController.updateMyPositionRoutingOffset(0);
     mSurfaceCallback.startPresenting();
@@ -48,6 +50,7 @@ class SurfaceRenderer extends Renderer
   {
     super.disable();
 
+    mMapController.setCarNavigationView(false);
     mMapController.onPause(mLifecycleOwner);
     mSurfaceCallback.stopPresenting();
     mMapController.onStop(mLifecycleOwner);

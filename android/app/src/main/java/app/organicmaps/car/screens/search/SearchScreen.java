@@ -18,6 +18,7 @@ import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.car.renderer.Renderer;
 import app.organicmaps.car.screens.base.BaseMapScreen;
+import app.organicmaps.car.screens.CategoriesScreen;
 import app.organicmaps.sdk.bookmarks.data.MapObject;
 import app.organicmaps.sdk.search.SearchEngine;
 import app.organicmaps.sdk.search.SearchListener;
@@ -167,12 +168,13 @@ public class SearchScreen extends BaseMapScreen implements SearchTemplate.Search
   private boolean loadRecents()
   {
     final CarIcon iconRecent =
-        new CarIcon.Builder(IconCompat.createWithResource(getCarContext(), R.drawable.ic_search_recent)).build();
+            new CarIcon.Builder(IconCompat.createWithResource(getCarContext(), R.drawable.ic_search_recent)).build();
 
     final ItemList.Builder builder = new ItemList.Builder();
     builder.setNoItemsMessage(getCarContext().getString(R.string.search_history_text));
+    builder.addItem(createCategoriesItem());
     SearchRecents.refresh();
-    final int recentsSize = Math.min(SearchRecents.getSize(), MAX_RESULTS_SIZE);
+    final int recentsSize = Math.min(SearchRecents.getSize(), MAX_RESULTS_SIZE - 1);
     for (int i = 0; i < recentsSize; ++i)
     {
       final Row.Builder itemBuilder = new Row.Builder();
@@ -183,8 +185,21 @@ public class SearchScreen extends BaseMapScreen implements SearchTemplate.Search
       builder.addItem(itemBuilder.build());
     }
     mResults = builder.build();
-
+    
     return recentsSize != 0;
+  }
+
+  @NonNull
+  private Row createCategoriesItem()
+  {
+    final Row.Builder builder = new Row.Builder();
+    builder.setTitle(getCarContext().getString(R.string.categories));
+    builder.setImage(
+            new CarIcon.Builder(IconCompat.createWithResource(getCarContext(), R.drawable.ic_address)).build());
+    builder.setBrowsable(true);
+    builder.setOnClickListener(
+            () -> getScreenManager().push(new CategoriesScreen(getCarContext(), getSurfaceRenderer())));
+    return builder.build();
   }
 
   @NonNull

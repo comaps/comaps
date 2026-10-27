@@ -211,6 +211,7 @@ public:
   ChoosePositionMode GetChoosePositionMode();
 
   void UpdateMyPositionRoutingOffset(int offsetY);
+  void SetCarNavigationView (bool enabled);
   void SetupWidget(gui::EWidget widget, float x, float y, dp::Anchor anchor);
   void ApplyWidgets();
   void CleanWidgets();
