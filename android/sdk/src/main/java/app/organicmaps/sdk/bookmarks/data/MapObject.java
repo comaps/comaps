@@ -102,6 +102,10 @@ public class MapObject implements PlacePageData
   private final String mOsmDescription;
   @Nullable
   private List<String> mRawTypes;
+  @NonNull
+  private String mTitleWithoutBranch = "";
+  @NonNull
+  private String mBranch = "";
 
   public MapObject(@NonNull FeatureId featureId, @MapObjectType int mapObjectType, String title,
                    @Nullable String secondaryTitle, String subtitle, String address, double lat, double lon,
@@ -172,6 +176,8 @@ public class MapObject implements PlacePageData
         null // mRawTypes
     );
 
+    mTitleWithoutBranch = Objects.requireNonNull(source.readString());
+    mBranch = Objects.requireNonNull(source.readString());
     mRawTypes = readRawTypes(source);
     mReviews = readReviews(source);
   }
@@ -324,6 +330,18 @@ public class MapObject implements PlacePageData
   }
 
   @NonNull
+  public String getTitleWithoutBranch()
+  {
+    return mTitleWithoutBranch;
+  }
+
+  @NonNull
+  public String getBranch()
+  {
+    return mBranch;
+  }
+
+  @NonNull
   public RoadWarningMarkType getRoadWarningMarkType()
   {
     return mRoadWarningMarkType;
@@ -371,6 +389,14 @@ public class MapObject implements PlacePageData
   public void addMetadata(int type, String value)
   {
     mMetadata.addMetadata(type, value);
+  }
+
+  @Keep
+  @SuppressWarnings("unused")
+  public void setTitleAndBranch(@NonNull String titleWithoutBranch, @NonNull String branch)
+  {
+    mTitleWithoutBranch = titleWithoutBranch;
+    mBranch = branch;
   }
 
   // Called from JNI.
@@ -496,6 +522,8 @@ public class MapObject implements PlacePageData
     dest.writeString(mWikiArticle);
     dest.writeString(mOsmDescription);
     dest.writeInt(getRoadWarningMarkType().ordinal());
+    dest.writeString(mTitleWithoutBranch);
+    dest.writeString(mBranch);
     // All collections are deserialized AFTER non-collection and primitive type objects,
     // so collections must be always serialized at the end.
     dest.writeStringList(mRawTypes);

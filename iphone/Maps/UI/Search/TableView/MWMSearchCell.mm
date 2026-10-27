@@ -10,7 +10,7 @@
 @implementation MWMSearchCell
 
 - (void)configureWith:(SearchResult * _Nonnull)result isPartialMatching:(BOOL)isPartialMatching {
-  NSString * title = result.titleText;
+  NSString * title = result.titleWithoutBranch.length > 0 ? result.titleWithoutBranch : result.titleText;
 
   if (title.length == 0)
   {
@@ -18,7 +18,7 @@
     return;
   }
 
-  bool hasBranchName = (result.branchText && result.branchText.length > 0 && ![title containsString:result.branchText]);
+  bool hasBranchName = (result.branchText && result.branchText.length > 0);
 
   NSDictionary * selectedTitleAttributes = [self selectedTitleAttributes];
   NSDictionary * unselectedTitleAttributes = [self unselectedTitleAttributes];

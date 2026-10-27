@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly, nullable) NSString *title;
 @property(nonatomic, readonly, nullable) NSString *secondaryTitle;
 @property(nonatomic, readonly, nullable) NSString *subtitle;
+@property(nonatomic, readonly, nullable) NSString *titleWithoutBranch;
 @property(nonatomic, readonly, nullable) NSString *branch;
 @property(nonatomic, readonly, nullable) NSString *coordinates;
 @property(nonatomic, readonly, nullable) NSString *secondarySubtitle;

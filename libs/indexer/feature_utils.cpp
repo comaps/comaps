@@ -382,4 +382,17 @@ YesNoUnknown YesNoUnknownFromString(std::string_view str)
     return YesNoUnknown::Unknown;
 }
 
+TitleAndBranch SplitTitleAndBranch(string const & title, string_view branch)
+{
+  if (title.empty() || branch.empty())
+    return {title, {}};
+  if (!title.ends_with(branch))
+    return {title, string(branch)};
+
+  size_t const pos = title.size() - branch.size();
+  if (pos > 1 && title[pos - 1] == ' ')
+    return {title.substr(0, pos - 1), string(branch)};
+  return {title, {}};
+}
+
 }  // namespace feature
