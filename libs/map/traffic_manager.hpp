@@ -210,12 +210,6 @@ public:
    */
   void RemoveTraffSourceIf(const std::function<bool(traffxml::TraffSource*)>& pred);
 
-  /**
-   * @brief Starts the traffic manager.
-   *
-   */
-  void Start();
-
   void UpdateViewport(ScreenBase const & screen);
   void UpdateMyPosition(MyPosition const & myPosition);
 
