@@ -323,7 +323,7 @@
     "zh",
     "en"
   ],
-  "timezone": "Asia/Shanghai"
+  "timezone": "Asia/Hong_Kong"
 },
 "Hungary": {
  "languages": ["hu"]
@@ -464,7 +464,7 @@
     "zh",
     "pt"
   ],
-  "timezone": "Asia/Shanghai"
+  "timezone": "Asia/Macau"
 },
 "Macedonia": {
  "languages": ["mk"]
