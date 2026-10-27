@@ -18,11 +18,14 @@ public class DirectionsStepViewAdapter extends RecyclerView.Adapter<DirectionsSt
 {
     private final Context mContext;
     private final RouteStepInfo[] mItems;
+    private final OnDirectionStepClickListener mClickListener;
 
-    public DirectionsStepViewAdapter(Context context, RouteStepInfo[] routeStepInfo)
+    public DirectionsStepViewAdapter(Context context, RouteStepInfo[] routeStepInfo,
+                                     OnDirectionStepClickListener clickListener)
     {
         mContext = context;
         mItems = routeStepInfo == null ? new RouteStepInfo[0] : routeStepInfo;
+        mClickListener = clickListener;
     }
 
     @NonNull
@@ -46,10 +49,16 @@ public class DirectionsStepViewAdapter extends RecyclerView.Adapter<DirectionsSt
 
         holder.mTitle.setText(info.formattedDistance.toString(mContext));
         holder.mSubtitle.setText(info.textualInstruction);
+        holder.itemView.setOnClickListener(v -> mClickListener.onDirectionStepClick(info.index));
     }
 
     @Override
     public int getItemCount() { return mItems.length; }
+
+    public interface OnDirectionStepClickListener
+    {
+      void onDirectionStepClick(int segmentIndex);
+    }
 
     static class DirectionsStepViewHolder extends RecyclerView.ViewHolder
     {
@@ -64,6 +73,4 @@ public class DirectionsStepViewAdapter extends RecyclerView.Adapter<DirectionsSt
             mSubtitle = itemView.findViewById(R.id.step_subtitle);
         }
     }
-
 }
-

@@ -10,4 +10,10 @@ public interface RoutingListener
   @SuppressWarnings("unused")
   @MainThread
   void onRoutingEvent(int resultCode, String[] missingMaps);
+
+  @Keep
+  @SuppressWarnings("unused")
+  @MainThread
+  default void onTurnPreviewChanged(boolean isPreviewing, int segmentIndex)
+  {}
 }

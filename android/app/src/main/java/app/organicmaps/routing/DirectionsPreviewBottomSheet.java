@@ -7,20 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.google.android.material.divider.MaterialDividerItemDecoration;
-
 import app.organicmaps.R;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.util.Utils;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class DirectionsPreviewBottomSheet
         extends BottomSheetDialogFragment implements View.OnClickListener
@@ -37,7 +33,11 @@ public class DirectionsPreviewBottomSheet
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         directionsStepList.setLayoutManager(layoutManager);
 
-        mDirectionsStepViewAdapter = new DirectionsStepViewAdapter(getContext(), Framework.nativeGetRouteSteps(Utils.getLanguageCode()));
+        mDirectionsStepViewAdapter = new DirectionsStepViewAdapter(
+            getContext(), Framework.nativeGetRouteSteps(Utils.getLanguageCode()), segmentIndex -> {
+              Framework.nativePreviewTurn(segmentIndex);
+              dismiss();
+            });
 
         directionsStepList.setAdapter(mDirectionsStepViewAdapter);
 

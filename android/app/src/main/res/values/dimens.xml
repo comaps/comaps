@@ -93,6 +93,7 @@
   <dimen name="routing_transit_step_min_height">20dp</dimen>
   <dimen name="routing_transit_setp_min_acceptable_with">104dp</dimen>
   <dimen name="track_recorder_status_top_margin">64dp</dimen>
+  <dimen name="route_preview_bottom_margin">40dp</dimen>
 
   <!-- Bottom menu -->
   <dimen name="menu_line_height">48dp</dimen>

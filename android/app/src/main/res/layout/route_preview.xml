@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/route_preview_frame"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/route_preview_toolbar"
+            style="@style/MwmWidget.ToolbarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="0dp"
+            android:theme="@style/MwmWidget.ToolbarTheme">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/route_preview_back"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_alignParentStart="true"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/abc_action_bar_up_description"
+                    android:scaleType="center"
+                    app:srcCompat="?homeAsUpIndicator" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/planning_route_preview"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="@dimen/text_size_title" />
+            </RelativeLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/route_preview_instruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?drivingOptionsViewBg"
+        android:foreground="@drawable/shadow_top"
+        tools:visibility="visible">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/route_preview_instruction_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_half_plus"
+            android:layout_marginBottom="@dimen/margin_half_plus"
+            android:gravity="center"
+            android:textColor="@color/white_primary"
+            android:textSize="@dimen/text_size_body_0"
+            tools:text="Turn left onto Infinite Loop" />
+    </FrameLayout>
+</LinearLayout>
