@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20261101T233314Z",
+    "data_updated": "20261103T200418Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -215,14 +215,75 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
-            "description": "amenity=charging_station + bicycle?=*",
+            "description": "amenity=charging_station + bicycle=*",
             "key": "amenity",
             "value": "charging_station",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
-            "description": "amenity=charging_station + bicycle?=*",
-            "key": "bicycle?",
+            "description": "amenity=charging_station + bicycle=*",
+            "key": "bicycle",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar=*",
+            "key": "amenity",
+            "value": "charging_station",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar=*",
+            "key": "motorcar",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar=* + capacity=*",
+            "key": "amenity",
+            "value": "charging_station",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar=* + capacity=*",
+            "key": "capacity",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar=* + capacity=*",
+            "key": "motorcar",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar=* + capacity=1",
+            "key": "amenity",
+            "value": "charging_station",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar=* + capacity=1",
+            "key": "capacity",
+            "value": "1",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar=* + capacity=1",
+            "key": "motorcar",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar=* + capacity=2",
+            "key": "amenity",
+            "value": "charging_station",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar=* + capacity=2",
+            "key": "capacity",
+            "value": "2",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar=* + capacity=2",
+            "key": "motorcar",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
@@ -238,75 +299,14 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
-            "description": "amenity=charging_station + motorcar?=*",
+            "description": "amenity=charging_station + motorcycle=*",
             "key": "amenity",
             "value": "charging_station",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
-            "description": "amenity=charging_station + motorcar?=*",
-            "key": "motorcar?",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
-        },
-        {
-            "description": "amenity=charging_station + motorcar?=* + capacity=1",
-            "key": "amenity",
-            "value": "charging_station",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
-        },
-        {
-            "description": "amenity=charging_station + motorcar?=* + capacity=1",
-            "key": "capacity",
-            "value": "1",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
-        },
-        {
-            "description": "amenity=charging_station + motorcar?=* + capacity=1",
-            "key": "motorcar?",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
-        },
-        {
-            "description": "amenity=charging_station + motorcar?=* + capacity=2",
-            "key": "amenity",
-            "value": "charging_station",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
-        },
-        {
-            "description": "amenity=charging_station + motorcar?=* + capacity=2",
-            "key": "capacity",
-            "value": "2",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
-        },
-        {
-            "description": "amenity=charging_station + motorcar?=* + capacity=2",
-            "key": "motorcar?",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
-        },
-        {
-            "description": "amenity=charging_station + motorcar?=* + capacity?=*",
-            "key": "amenity",
-            "value": "charging_station",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-m.svg"
-        },
-        {
-            "description": "amenity=charging_station + motorcar?=* + capacity?=*",
-            "key": "capacity?",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-m.svg"
-        },
-        {
-            "description": "amenity=charging_station + motorcar?=* + capacity?=*",
-            "key": "motorcar?",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-m.svg"
-        },
-        {
-            "description": "amenity=charging_station + motorcycle?=*",
-            "key": "amenity",
-            "value": "charging_station",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
-        },
-        {
-            "description": "amenity=charging_station + motorcycle?=*",
-            "key": "motorcycle?",
+            "description": "amenity=charging_station + motorcycle=*",
+            "key": "motorcycle",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
@@ -616,14 +616,14 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_private-m.svg"
         },
         {
-            "description": "amenity=parking + fee?=*",
+            "description": "amenity=parking + fee=*",
             "key": "amenity",
             "value": "parking",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_pay-m.svg"
         },
         {
-            "description": "amenity=parking + fee?=*",
-            "key": "fee?",
+            "description": "amenity=parking + fee=*",
+            "key": "fee",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_pay-m.svg"
         },
         {
@@ -657,18 +657,18 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_underground_private-m.svg"
         },
         {
-            "description": "amenity=parking + location=underground + fee?=*",
+            "description": "amenity=parking + location=underground + fee=*",
             "key": "amenity",
             "value": "parking",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_underground_pay-m.svg"
         },
         {
-            "description": "amenity=parking + location=underground + fee?=*",
-            "key": "fee?",
+            "description": "amenity=parking + location=underground + fee=*",
+            "key": "fee",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_underground_pay-m.svg"
         },
         {
-            "description": "amenity=parking + location=underground + fee?=*",
+            "description": "amenity=parking + location=underground + fee=*",
             "key": "location",
             "value": "underground",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_underground_pay-m.svg"
@@ -704,18 +704,18 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_private-s.svg"
         },
         {
-            "description": "amenity=parking + parking=lane + fee?=*",
+            "description": "amenity=parking + parking=lane + fee=*",
             "key": "amenity",
             "value": "parking",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_pay-s.svg"
         },
         {
-            "description": "amenity=parking + parking=lane + fee?=*",
-            "key": "fee?",
+            "description": "amenity=parking + parking=lane + fee=*",
+            "key": "fee",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_pay-s.svg"
         },
         {
-            "description": "amenity=parking + parking=lane + fee?=*",
+            "description": "amenity=parking + parking=lane + fee=*",
             "key": "parking",
             "value": "lane",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_pay-s.svg"
@@ -751,18 +751,18 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_private-s.svg"
         },
         {
-            "description": "amenity=parking + parking=street_side + fee?=*",
+            "description": "amenity=parking + parking=street_side + fee=*",
             "key": "amenity",
             "value": "parking",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_pay-s.svg"
         },
         {
-            "description": "amenity=parking + parking=street_side + fee?=*",
-            "key": "fee?",
+            "description": "amenity=parking + parking=street_side + fee=*",
+            "key": "fee",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_pay-s.svg"
         },
         {
-            "description": "amenity=parking + parking=street_side + fee?=*",
+            "description": "amenity=parking + parking=street_side + fee=*",
             "key": "parking",
             "value": "street_side",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_pay-s.svg"
@@ -3169,13 +3169,7 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/mail-m.svg"
         },
         {
-            "description": "power=generator + generator:source!=solar",
-            "key": "generator:source!",
-            "value": "solar",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/power-m.svg"
-        },
-        {
-            "description": "power=generator + generator:source!=solar",
+            "description": "power=generator",
             "key": "power",
             "value": "generator",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/power-m.svg"
@@ -5323,13 +5317,13 @@
             "value": "car_wash"
         },
         {
-            "description": "amenity=charging_station + motorcar?=* | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "description": "amenity=charging_station + motorcar=* | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
             "key": "amenity",
             "value": "charging_station"
         },
         {
-            "description": "amenity=charging_station + motorcar?=* | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
-            "key": "motorcar?"
+            "description": "amenity=charging_station + motorcar=* | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "motorcar"
         },
         {
             "description": "amenity=charging_station | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
@@ -5367,7 +5361,7 @@
             "value": "fire_station"
         },
         {
-            "description": "amenity=fountain | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "description": "amenity=fountain | fill-color: (light): #89CDDC, fill-color: (dark): #304054",
             "key": "amenity",
             "value": "fountain"
         },
@@ -5482,7 +5476,7 @@
             "value": "vehicle_inspection"
         },
         {
-            "description": "amenity=waste_transfer_station | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "description": "amenity=waste_transfer_station | fill-color: (light): #E8E8E8, fill-color: (dark): #050505",
             "key": "amenity",
             "value": "waste_transfer_station"
         },
@@ -5577,32 +5571,32 @@
             "value": "administrative"
         },
         {
-            "description": "boundary=national_park | color: (light): #7B8F35, color: (dark): #191D0B",
+            "description": "boundary=national_park | color: (light): #7B8F35, color: (dark): #705020",
             "key": "boundary",
             "value": "national_park"
         },
         {
-            "description": "boundary=national_park | fill-color: (light): #7B8F35, fill-color: (dark): #191D0B",
+            "description": "boundary=national_park | fill-color: (light): #7B8F35, fill-color: (dark): #705020",
             "key": "boundary",
             "value": "national_park"
         },
         {
-            "description": "boundary=protected_area + protect_class=1 | color: (light): #7B8F35, color: (dark): #191D0B",
+            "description": "boundary=protected_area + protect_class=1 | color: (light): #7B8F35, color: (dark): #705020",
             "key": "boundary",
             "value": "protected_area"
         },
         {
-            "description": "boundary=protected_area + protect_class=1 | color: (light): #7B8F35, color: (dark): #191D0B",
+            "description": "boundary=protected_area + protect_class=1 | color: (light): #7B8F35, color: (dark): #705020",
             "key": "protect_class",
             "value": "1"
         },
         {
-            "description": "boundary=protected_area + protect_class=1 | fill-color: (light): #7B8F35, fill-color: (dark): #191D0B",
+            "description": "boundary=protected_area + protect_class=1 | fill-color: (light): #7B8F35, fill-color: (dark): #705020",
             "key": "boundary",
             "value": "protected_area"
         },
         {
-            "description": "boundary=protected_area + protect_class=1 | fill-color: (light): #7B8F35, fill-color: (dark): #191D0B",
+            "description": "boundary=protected_area + protect_class=1 | fill-color: (light): #7B8F35, fill-color: (dark): #705020",
             "key": "protect_class",
             "value": "1"
         },
@@ -5632,20 +5626,20 @@
             "value": "mountain_rescue"
         },
         {
-            "description": "highway=footway + area?=* | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
-            "key": "area?"
+            "description": "highway=footway + area=* | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
+            "key": "area"
         },
         {
-            "description": "highway=footway + area?=* | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
+            "description": "highway=footway + area=* | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
             "key": "highway",
             "value": "footway"
         },
         {
-            "description": "highway=pedestrian + area?=* | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
-            "key": "area?"
+            "description": "highway=pedestrian + area=* | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
+            "key": "area"
         },
         {
-            "description": "highway=pedestrian + area?=* | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
+            "description": "highway=pedestrian + area=* | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
             "key": "highway",
             "value": "pedestrian"
         },
@@ -5690,7 +5684,7 @@
             "value": "allotments"
         },
         {
-            "description": "landuse=basin | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "description": "landuse=basin | fill-color: (light): #89CDDC, fill-color: (dark): #304054",
             "key": "landuse",
             "value": "basin"
         },
@@ -5720,7 +5714,7 @@
             "value": "cemetery"
         },
         {
-            "description": "landuse=construction | fill-color: (light): #E4E3E6, fill-color: (dark): #1C1C1C",
+            "description": "landuse=construction | fill-color: (light): #E4E3E6, fill-color: (dark): #050505",
             "key": "landuse",
             "value": "construction"
         },
@@ -5730,7 +5724,7 @@
             "value": "education"
         },
         {
-            "description": "landuse=farmland | fill-color: (light): #E3DEAC, fill-color: (dark): #2D2C22",
+            "description": "landuse=farmland | fill-color: (light): #E3DEAC, fill-color: (dark): #1D1C12",
             "key": "landuse",
             "value": "farmland"
         },
@@ -5795,12 +5789,12 @@
             "value": "grass"
         },
         {
-            "description": "landuse=industrial | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "description": "landuse=industrial | fill-color: (light): #E8E8E8, fill-color: (dark): #050505",
             "key": "landuse",
             "value": "industrial"
         },
         {
-            "description": "landuse=landfill | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "description": "landuse=landfill | fill-color: (light): #E8E8E8, fill-color: (dark): #050505",
             "key": "landuse",
             "value": "landfill"
         },
@@ -5870,12 +5864,12 @@
             "value": "plant_nursery"
         },
         {
-            "description": "landuse=quarry | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "description": "landuse=quarry | fill-color: (light): #E8E8E8, fill-color: (dark): #050505",
             "key": "landuse",
             "value": "quarry"
         },
         {
-            "description": "landuse=railway | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "description": "landuse=railway | fill-color: (light): #E8E8E8, fill-color: (dark): #050505",
             "key": "landuse",
             "value": "railway"
         },
@@ -5900,7 +5894,7 @@
             "value": "religious"
         },
         {
-            "description": "landuse=reservoir | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "description": "landuse=reservoir | fill-color: (light): #89CDDC, fill-color: (dark): #304054",
             "key": "landuse",
             "value": "reservoir"
         },
@@ -5910,7 +5904,7 @@
             "value": "retail"
         },
         {
-            "description": "landuse=salt_pond | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "description": "landuse=salt_pond | fill-color: (light): #89CDDC, fill-color: (dark): #304054",
             "key": "landuse",
             "value": "salt_pond"
         },
@@ -6040,7 +6034,7 @@
             "value": "miniature_golf"
         },
         {
-            "description": "leisure=nature_reserve | fill-color: (light): #7B8F35, fill-color: (dark): #191D0B",
+            "description": "leisure=nature_reserve | fill-color: (light): #7B8F35, fill-color: (dark): #705020",
             "key": "leisure",
             "value": "nature_reserve"
         },
@@ -6095,16 +6089,16 @@
             "value": "stadium"
         },
         {
-            "description": "leisure=swimming_pool | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "description": "leisure=swimming_pool | fill-color: (light): #89CDDC, fill-color: (dark): #304054",
             "key": "leisure",
             "value": "swimming_pool"
         },
         {
-            "description": "leisure=track + area?=* | fill-color: (light): #D4E796, fill-color: (dark): #2A2E1E",
-            "key": "area?"
+            "description": "leisure=track + area=* | fill-color: (light): #D4E796, fill-color: (dark): #2A2E1E",
+            "key": "area"
         },
         {
-            "description": "leisure=track + area?=* | fill-color: (light): #D4E796, fill-color: (dark): #2A2E1E",
+            "description": "leisure=track + area=* | fill-color: (light): #D4E796, fill-color: (dark): #2A2E1E",
             "key": "leisure",
             "value": "track"
         },
@@ -6114,22 +6108,22 @@
             "value": "water_park"
         },
         {
-            "description": "man_made=breakwater | color: (light): #F5E8D6, color: (dark): #181715",
+            "description": "man_made=breakwater | color: (light): #F5E8D6, color: (dark): #101010",
             "key": "man_made",
             "value": "breakwater"
         },
         {
-            "description": "man_made=breakwater | color: (light): #F5EADA, color: (dark): #181715",
+            "description": "man_made=breakwater | color: (light): #F5EADA, color: (dark): #101010",
             "key": "man_made",
             "value": "breakwater"
         },
         {
-            "description": "man_made=breakwater | fill-color: (light): #F5E8D6, fill-color: (dark): #181715",
+            "description": "man_made=breakwater | fill-color: (light): #F5E8D6, fill-color: (dark): #101010",
             "key": "man_made",
             "value": "breakwater"
         },
         {
-            "description": "man_made=breakwater | fill-color: (light): #F5EADA, fill-color: (dark): #181715",
+            "description": "man_made=breakwater | fill-color: (light): #F5EADA, fill-color: (dark): #101010",
             "key": "man_made",
             "value": "breakwater"
         },
@@ -6149,32 +6143,32 @@
             "value": "embankment"
         },
         {
-            "description": "man_made=pier | color: (light): #F5E8D6, color: (dark): #181715",
+            "description": "man_made=pier | color: (light): #F5E8D6, color: (dark): #101010",
             "key": "man_made",
             "value": "pier"
         },
         {
-            "description": "man_made=pier | color: (light): #F5EADA, color: (dark): #181715",
+            "description": "man_made=pier | color: (light): #F5EADA, color: (dark): #101010",
             "key": "man_made",
             "value": "pier"
         },
         {
-            "description": "man_made=pier | fill-color: (light): #F5E8D6, fill-color: (dark): #181715",
+            "description": "man_made=pier | fill-color: (light): #F5E8D6, fill-color: (dark): #101010",
             "key": "man_made",
             "value": "pier"
         },
         {
-            "description": "man_made=pier | fill-color: (light): #F5EADA, fill-color: (dark): #181715",
+            "description": "man_made=pier | fill-color: (light): #F5EADA, fill-color: (dark): #101010",
             "key": "man_made",
             "value": "pier"
         },
         {
-            "description": "man_made=wastewater_plant | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "description": "man_made=wastewater_plant | fill-color: (light): #E8E8E8, fill-color: (dark): #050505",
             "key": "man_made",
             "value": "wastewater_plant"
         },
         {
-            "description": "man_made=works | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "description": "man_made=works | fill-color: (light): #E8E8E8, fill-color: (dark): #050505",
             "key": "man_made",
             "value": "works"
         },
@@ -6194,12 +6188,12 @@
             "value": "cliff"
         },
         {
-            "description": "natural=coastline | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "description": "natural=coastline | fill-color: (light): #89CDDC, fill-color: (dark): #304054",
             "key": "natural",
             "value": "coastline"
         },
         {
-            "description": "natural=desert | fill-color: (light): #F4E5C8, fill-color: (dark): #312E28",
+            "description": "natural=desert | fill-color: (light): #F4E5C8, fill-color: (dark): #211E18",
             "key": "natural",
             "value": "desert"
         },
@@ -6254,17 +6248,17 @@
             "value": "heath"
         },
         {
-            "description": "natural=land | fill-color: (light): #F5E8D6, fill-color: (dark): #181715",
+            "description": "natural=land | fill-color: (light): #F5E8D6, fill-color: (dark): #101010",
             "key": "natural",
             "value": "land"
         },
         {
-            "description": "natural=land | fill-color: (light): #F5EADA, fill-color: (dark): #181715",
+            "description": "natural=land | fill-color: (light): #F5EADA, fill-color: (dark): #101010",
             "key": "natural",
             "value": "land"
         },
         {
-            "description": "natural=sand | fill-color: (light): #F4E5C8, fill-color: (dark): #312E28",
+            "description": "natural=sand | fill-color: (light): #F4E5C8, fill-color: (dark): #211E18",
             "key": "natural",
             "value": "sand"
         },
@@ -6304,7 +6298,7 @@
             "value": "shingle"
         },
         {
-            "description": "natural=strait | color: (light): #89CDDC, color: (dark): #344E54",
+            "description": "natural=strait | color: (light): #89CDDC, color: (dark): #304054",
             "key": "natural",
             "value": "strait"
         },
@@ -6314,12 +6308,12 @@
             "value": "tree_row"
         },
         {
-            "description": "natural=water + tunnel=* | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "description": "natural=water + tunnel=* | fill-color: (light): #89CDDC, fill-color: (dark): #304054",
             "key": "natural",
             "value": "water"
         },
         {
-            "description": "natural=water + tunnel=* | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "description": "natural=water + tunnel=* | fill-color: (light): #89CDDC, fill-color: (dark): #304054",
             "key": "tunnel"
         },
         {
@@ -6353,7 +6347,7 @@
             "value": "wastewater"
         },
         {
-            "description": "natural=water | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "description": "natural=water | fill-color: (light): #89CDDC, fill-color: (dark): #304054",
             "key": "natural",
             "value": "water"
         },
@@ -6468,27 +6462,27 @@
             "value": "snow_park"
         },
         {
-            "description": "place=islet | fill-color: (light): #F5E8D6, fill-color: (dark): #181715",
+            "description": "place=islet | fill-color: (light): #F5E8D6, fill-color: (dark): #101010",
             "key": "place",
             "value": "islet"
         },
         {
-            "description": "place=islet | fill-color: (light): #F5EADA, fill-color: (dark): #181715",
+            "description": "place=islet | fill-color: (light): #F5EADA, fill-color: (dark): #101010",
             "key": "place",
             "value": "islet"
         },
         {
-            "description": "power=generator | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "description": "power=generator | fill-color: (light): #E8E8E8, fill-color: (dark): #050505",
             "key": "power",
             "value": "generator"
         },
         {
-            "description": "power=plant | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "description": "power=plant | fill-color: (light): #E8E8E8, fill-color: (dark): #050505",
             "key": "power",
             "value": "plant"
         },
         {
-            "description": "power=substation | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "description": "power=substation | fill-color: (light): #E8E8E8, fill-color: (dark): #050505",
             "key": "power",
             "value": "substation"
         },
@@ -6528,7 +6522,7 @@
             "value": "information"
         },
         {
-            "description": "waterway=canal | color: (light): #89CDDC, color: (dark): #344E54",
+            "description": "waterway=canal | color: (light): #89CDDC, color: (dark): #304054",
             "key": "waterway",
             "value": "canal"
         },
@@ -6558,7 +6552,7 @@
             "value": "ditch"
         },
         {
-            "description": "waterway=dock | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "description": "waterway=dock | fill-color: (light): #89CDDC, fill-color: (dark): #304054",
             "key": "waterway",
             "value": "dock"
         },
@@ -6568,17 +6562,17 @@
             "value": "drain"
         },
         {
-            "description": "waterway=fish_pass | color: (light): #89CDDC, color: (dark): #344E54",
+            "description": "waterway=fish_pass | color: (light): #89CDDC, color: (dark): #304054",
             "key": "waterway",
             "value": "fish_pass"
         },
         {
-            "description": "waterway=river | color: (light): #89CDDC, color: (dark): #344E54",
+            "description": "waterway=river | color: (light): #89CDDC, color: (dark): #304054",
             "key": "waterway",
             "value": "river"
         },
         {
-            "description": "waterway=stream | color: (light): #89CDDC, color: (dark): #344E54",
+            "description": "waterway=stream | color: (light): #89CDDC, color: (dark): #304054",
             "key": "waterway",
             "value": "stream"
         },
@@ -6763,9 +6757,6 @@
             "description": "Swimming Pool",
             "key": "amenity",
             "value": "swimming_pool"
-        },
-        {
-            "key": "area"
         },
         {
             "key": "area:highway",
@@ -8197,9 +8188,6 @@
         {
             "key": "military",
             "value": "cordon"
-        },
-        {
-            "key": "motorcycle"
         },
         {
             "key": "motorcycle:rental",

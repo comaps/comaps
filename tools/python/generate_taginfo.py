@@ -128,8 +128,9 @@ def parse_mapcss(text: str, colors: dict[str, dict] = {}) -> list[dict[str, any]
             for sqb in square_brackets:
                 key, sep, value = sqb.partition("=")
                 key = key.strip()
-                if key.startswith("!"):
+                if key.startswith("!") or key.endswith("!"):
                     continue  # skip negated keys
+                key = key.rstrip("?")
                 value = value.strip() if sep else None
                 pairs.append((key, value))
 
