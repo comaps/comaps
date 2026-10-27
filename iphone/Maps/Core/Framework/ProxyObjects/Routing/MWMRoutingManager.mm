@@ -4,6 +4,7 @@
 #import "MWMFrameworkListener.h"
 #import "MWMFrameworkObservers.h"
 #import "MWMCoreRouterType.h"
+#import "MWMLaneInfo+CPP.h"
 #import "MWMRoutePoint+CPP.h"
 #import "MWMRoadShieldInfo+CPP.h"
 #import "MWMCoreUnits.h"
@@ -100,15 +101,7 @@
   }
   auto const & nextRoad = info.m_nextRoadInfo;
 
-  NSMutableArray<MWMLaneInfo *> *lanes = [NSMutableArray arrayWithCapacity:info.m_lanes.size()];
-  for (auto const & lane : info.m_lanes) {
-    auto const activeWays = lane.laneWays.GetActiveLaneWays();
-    NSMutableArray<NSNumber *> *laneWays = [NSMutableArray arrayWithCapacity:activeWays.size()];
-    for (auto const way : activeWays)
-      [laneWays addObject:@(static_cast<uint8_t>(way))];
-    [lanes addObject:[[MWMLaneInfo alloc] initWithLaneWays:laneWays
-                                            recommendedWay:static_cast<uint8_t>(lane.recommendedWay)]];
-  }
+  NSArray<MWMLaneInfo *> *lanes = MWMBuildLaneInfos(info.m_lanes);
 
   MWMRouteInfo *objCInfo = [[MWMRouteInfo alloc] initWithTimeToTarget:info.m_time
                                                      targetDistance: info.m_distToTarget.GetDistance()
