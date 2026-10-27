@@ -33,8 +33,7 @@ IsHatchingTerritoryChecker::IsHatchingTerritoryChecker()
 
   base::StringIL const arr2[] = {
       {"boundary", "aboriginal_lands"}, {"leisure", "nature_reserve"}, {"boundary", "national_park"},
-      {"landuse", "military"},          {"amenity", "prison"},
-  };
+      {"landuse", "military"},          {"amenity", "prison"},         {"boundary", "hazard"}};
   for (auto const & sl : arr2)
     m_types.push_back(c.GetTypeByPath(sl));
 }
