@@ -1424,7 +1424,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Kasvis keittiö"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "Vegaani keittiö"
     }
 }

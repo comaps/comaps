@@ -1628,7 +1628,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Вегетарианская кухня"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "Веганская кухня"
     },
     "shop-water|@category_water|@category_food|@shop": {

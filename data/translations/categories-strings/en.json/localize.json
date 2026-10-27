@@ -1772,11 +1772,17 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "4Vegetarian|11Vegetarian Food|12Vegetarian Cuisine"
     },
-    "cuisine-vegetarian|@cuisine_all_vegetarian": {
+    "cuisine-vegetarian|cuisine-vegetarian_only|@cuisine_all_vegetarian": {
         "defaultMessage": ""
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "4Vegan|6Vegan Food|7Vegan Cuisine|veg cafe"
+    },
+    "cuisine-vegetarian_only|cuisine-vegan_only": {
+        "defaultMessage": "4Vegetarian Only"
+    },
+    "cuisine-vegan_only": {
+        "defaultMessage": "4Vegan Only"
     },
     "@cuisine_all_asian": {
         "defaultMessage": "5Asian Food|7Asian Cuisine"

@@ -1448,7 +1448,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Sukaldaritza begetarianoa"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "Sukaldaritza beganoa"
     },
     "amenity-studio": {

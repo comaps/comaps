@@ -383,8 +383,10 @@
     <string name="type.cuisine.tea">Tea</string>
     <string name="type.cuisine.thai">Thai</string>
     <string name="type.cuisine.turkish">Turkish</string>
-    <string name="type.cuisine.vegan">Vegan</string>
-    <string name="type.cuisine.vegetarian">Vegetarian</string>
+    <string name="type.cuisine.vegan">Vegan options</string>
+    <string name="type.cuisine.vegan_only">Vegan only</string>
+    <string name="type.cuisine.vegetarian">Vegetarian options</string>
+    <string name="type.cuisine.vegetarian_only">Vegetarian only</string>
     <string name="type.cuisine.vietnamese">Vietnamese</string>
     <string name="type.emergency">Emergency</string>
     <string name="type.emergency.access_point">Emergency Rescue Point</string>

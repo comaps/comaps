@@ -1502,7 +1502,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Вегетаріанська кухня"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "Веганська кухня"
     }
 }

@@ -1709,7 +1709,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "4Vegetarisch|12Vegetarisches Essen|13Vegetarische Küche"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "4Vegan|6Veganes Essen|7Vegane Küche"
     },
     "@cuisine_all_asian": {

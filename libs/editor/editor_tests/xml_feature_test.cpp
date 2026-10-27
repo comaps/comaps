@@ -467,6 +467,22 @@ UNIT_TEST(XMLFeature_Diet)
   ft.SetCuisine("vegan");
   TEST_EQUAL(ft.GetCuisine(), "vegan", ());
 
+  ft.SetCuisine("vegan_only;pasta;vegetarian");
+  TEST_EQUAL(ft.GetTagValue("diet:vegan"), "only", ());
+  TEST_EQUAL(ft.GetTagValue("diet:vegetarian"), "yes", ());
+  TEST_EQUAL(ft.GetTagValue("cuisine"), "pasta", ());
+  TEST_EQUAL(ft.GetCuisine(), "pasta;vegan_only;vegetarian", ());
+
+  ft.SetCuisine("vegetarian_only");
+  TEST_EQUAL(ft.GetTagValue("diet:vegetarian"), "only", ());
+  TEST(!ft.HasTag("diet:vegan"), ());
+  TEST(!ft.HasTag("cuisine"), ());
+  TEST_EQUAL(ft.GetCuisine(), "vegetarian_only", ());
+
+  ft.SetCuisine("vegetarian;vegetarian_only");
+  TEST_EQUAL(ft.GetTagValue("diet:vegetarian"), "only", ());
+  TEST_EQUAL(ft.GetCuisine(), "vegetarian_only", ());
+
   ft.SetCuisine("");
   TEST_EQUAL(ft.GetCuisine(), "", ());
 }

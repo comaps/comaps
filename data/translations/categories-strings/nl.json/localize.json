@@ -1709,7 +1709,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Vegetarisch"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "Veganistisch"
     },
     "shop-water|@category_water|@category_food|@shop": {
@@ -1844,7 +1844,7 @@
     "cuisine-african": {
         "defaultMessage": "9Afrikaans voedsel|9Afrikaanse keuken"
     },
-    "cuisine-vegetarian|@cuisine_all_vegetarian": {
+    "cuisine-vegetarian|cuisine-vegetarian_only|@cuisine_all_vegetarian": {
         "defaultMessage": "11Vegetarisch voedsel|11Vegetarische keuken"
     },
     "cuisine-asian|@cuisine_all_asian": {
