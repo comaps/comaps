@@ -98,6 +98,7 @@
       info.m_turn == routing::turns::CarDirection::LeaveRoundAbout) {
     roundExitNumber = info.m_exitNum;
   }
+  auto const & nextRoad = info.m_nextRoadInfo;
 
   NSMutableArray<MWMLaneInfo *> *lanes = [NSMutableArray arrayWithCapacity:info.m_lanes.size()];
   for (auto const & lane : info.m_lanes) {
@@ -120,13 +121,13 @@
                                                         speedLimitMps:info.m_speedLimitMps
                                                       roundExitNumber:roundExitNumber
                                                                 lanes:lanes
-                                                             roadName:@(info.m_nextName.c_str())
-                                                              roadRef:@(info.m_nextRef.c_str())
-                                                          junctionRef:@(info.m_nextJunctionRef.c_str())
-                                                       destinationRef:@(info.m_nextDestinationRef.c_str())
-                                                              destination:@(info.m_nextDestination.c_str())
-                                                               isLink:info.m_nextIsLink
-                                                           roadShields:MWMBuildRoadShieldInfo(info.m_nextStreetShields)
+                                                             roadName:@(nextRoad.m_name.c_str())
+                                                              roadRef:@(nextRoad.m_ref.c_str())
+                                                          junctionRef:@(nextRoad.m_junctionRef.c_str())
+                                                       destinationRef:@(nextRoad.m_destinationRef.c_str())
+                                                              destination:@(nextRoad.m_destination.c_str())
+                                                               isLink:nextRoad.m_isLink
+                                                           roadShields:MWMBuildRoadShieldInfo(nextRoad.m_shields)
                                                       currentRoadName:@(info.m_currentStreetName.c_str())
                                                     carDirectionIndex:static_cast<UInt8>(info.m_turn)
                                                     isLeftHandTraffic:info.m_isLeftHandTraffic];

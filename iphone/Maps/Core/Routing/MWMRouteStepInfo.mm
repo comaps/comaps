@@ -15,7 +15,7 @@
     _distMeters = step.m_distMeters;
     _formattedDistance = @(step.m_formattedDistance.ToString().c_str());
     _fromStreetName = step.m_fromStreetName.empty() ? nil : @(step.m_fromStreetName.c_str());
-    _toStreetName = step.m_toStreetName.empty() ? nil : @(step.m_toStreetName.c_str());
+    _toStreetName = step.m_toRoad.m_name.empty() ? nil : @(step.m_toRoad.m_name.c_str());
     _textualInstruction = @(step.m_textualInstruction.c_str());
   }
   return self;
