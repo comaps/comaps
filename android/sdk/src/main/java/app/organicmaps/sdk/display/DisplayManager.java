@@ -5,7 +5,6 @@ import android.os.Looper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.organicmaps.sdk.util.log.Logger;
-import java.util.Objects;
 
 public class DisplayManager
 {
@@ -67,7 +66,7 @@ public class DisplayManager
       mDevice.notify = true;
       mDevice.listener = listener;
     }
-    else if (displayType == DisplayType.Car && mCar == null)
+    else if (displayType == DisplayType.Car)
     {
       mCar = new DisplayHolder();
       mCar.notify = true;
@@ -78,23 +77,22 @@ public class DisplayManager
       mCurrentDisplayType = displayType;
   }
 
-  public void removeListener(@NonNull final DisplayType displayType)
+  public void removeListener(@NonNull final DisplayType displayType, @NonNull final DisplayChangedListener listener)
   {
     Logger.d(TAG, "displayType = " + displayType);
 
-    if (displayType == DisplayType.Device && mDevice != null)
+    if (displayType == DisplayType.Device && mDevice != null && listener == mDevice.listener)
     {
       mDevice.destroy();
       mDevice = null;
       if (isCarConnected() && !isCarDisplayUsed())
         changeDisplay(DisplayType.Car);
     }
-    else if (displayType == DisplayType.Car && mCar != null)
+    else if (displayType == DisplayType.Car && mCar != null && listener == mCar.listener)
     {
       mCar.destroy();
       mCar = null;
-      if (isDeviceConnected() && !isDeviceDisplayUsed())
-        changeDisplay(DisplayType.Device);
+      changeDisplay(DisplayType.Device);
     }
   }
 
@@ -139,7 +137,8 @@ public class DisplayManager
       mDevice.notify = false;
     }
 
-    postTask(Objects.requireNonNull(firstTask), secondTask);
+    if (firstTask != null)
+      postTask(firstTask, secondTask);
   }
 
   private void onDisplayTypeChangedToCar()
@@ -163,7 +162,8 @@ public class DisplayManager
       mCar.notify = false;
     }
 
-    postTask(Objects.requireNonNull(firstTask), secondTask);
+    if (firstTask != null)
+      postTask(firstTask, secondTask);
   }
 
   private void postTask(@NonNull TaskWithCallback firstTask, @Nullable TaskWithCallback secondTask)

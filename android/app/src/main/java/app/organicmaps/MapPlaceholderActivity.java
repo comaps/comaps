@@ -28,12 +28,25 @@ public class MapPlaceholderActivity extends BaseMwmFragmentActivity implements D
     findViewById(R.id.btn_continue).setOnClickListener((unused) -> mDisplayManager.changeDisplay(DisplayType.Device));
   }
 
+  private void switchToMwmActivity()
+  {
+    if (mDisplayManager.isCarConnected())
+      mRemoveDisplayListener = false;
+
+    startActivity(new Intent(this, MwmActivity.class).putExtra(MwmActivity.EXTRA_UPDATE_THEME, true));
+    finish();
+  }
+
   @Override
   public void onDisplayChangedToDevice(@NonNull Runnable onTaskFinishedCallback)
   {
-    mRemoveDisplayListener = false;
-    startActivity(new Intent(this, MwmActivity.class).putExtra(MwmActivity.EXTRA_UPDATE_THEME, true));
-    finish();
+    switchToMwmActivity();
+    onTaskFinishedCallback.run();
+  }
+
+  @Override
+  public void onDisplayChangedToCar(@NonNull Runnable onTaskFinishedCallback)
+  {
     onTaskFinishedCallback.run();
   }
 
@@ -42,6 +55,15 @@ public class MapPlaceholderActivity extends BaseMwmFragmentActivity implements D
   {
     super.onSafeDestroy();
     if (mRemoveDisplayListener)
-      mDisplayManager.removeListener(DisplayType.Device);
+      mDisplayManager.removeListener(DisplayType.Device, this);
+  }
+
+  @Override
+  protected void onStart()
+  {
+    super.onStart();
+
+    if (!mDisplayManager.isCarDisplayUsed())
+      switchToMwmActivity();
   }
 }

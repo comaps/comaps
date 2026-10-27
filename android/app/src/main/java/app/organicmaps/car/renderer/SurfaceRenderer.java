@@ -76,4 +76,11 @@ class SurfaceRenderer extends Renderer
     mSurfaceCallback.getCurrentSpeedView().setVisibility(View.GONE);
     mSurfaceCallback.updatePillVisibility();
   }
+
+  @Override
+  public void onDestroy(@NonNull LifecycleOwner owner)
+  {
+    super.onDestroy(owner);
+    mSurfaceCallback.releaseDisplayAndPresentation();
+  }
 }
