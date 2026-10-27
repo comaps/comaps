@@ -124,6 +124,7 @@ final class CarPlayService: NSObject {
 
   private var pendingDashboardBookmark: MWMCarPlayBookmarkObject?
   private var pendingDashboardNavigationTrip: CPTrip?
+  private var lastTripEstimates: CarPlayEstimatesSnapshot?
 
   @objc func setup(window: CPWindow, interfaceController: CPInterfaceController) {
     if pendingTeardown != nil {
@@ -844,7 +845,9 @@ final class CarPlayService: NSObject {
     needsBaseMapNorthUp = false
     mapTemplate.mapDelegate = self
     setRootTemplate(mapTemplate, reason: reason)
-    router?.startNavigationSession(forTrip: trip, template: mapTemplate)
+    router?.startNavigationSession(forTrip: trip,
+                                   template: mapTemplate,
+                                   initialRouteInfo: routeInfo)
     if let estimates = createEstimates(routeInfo: routeInfo) {
       mapTemplate.tripEstimateStyle = rootTemplateStyle
       mapTemplate.updateEstimates(estimates, for: trip)
@@ -1222,7 +1225,9 @@ extension CarPlayService: CPMapTemplateDelegate {
     if interfaceController.templates.count > 1 {
       interfaceController.popToRootTemplate(animated: false)
     }
-    router.startNavigationSession(forTrip: trip, template: rootMapTemplate)
+    router.startNavigationSession(forTrip: trip,
+                                  template: rootMapTemplate,
+                                  initialRouteInfo: info)
     router.startRoute()
     if let estimates = createEstimates(routeInfo: info) {
       rootMapTemplate.updateEstimates(estimates, for: trip)
@@ -1239,7 +1244,6 @@ extension CarPlayService: CPMapTemplateDelegate {
     if let type = maneuver.userInfo as? String {
       switch type {
       case CPConstants.Maneuvers.lanes: return .symbolOnly
-      case CPConstants.Maneuvers.secondary: return .trailingSymbol
       default: break
       }
     }
@@ -1370,13 +1374,15 @@ extension CarPlayService: CarPlayRouterListener {
     if let carplayVC = carplayVC {
       carplayVC.updateCurrentSpeed(routeInfo.speedMps, speedLimitMps: routeInfo.speedLimitMps)
     }
-    guard let router = router,
-      let template = rootMapTemplate else {
-        return
+    guard let template = rootMapTemplate else {
+      return
     }
-    router.updateEstimates()
     if let estimates = createEstimates(routeInfo: routeInfo) {
-      template.updateEstimates(estimates, for: trip)
+      let snapshot = CarPlayEstimatesSnapshot(targets: [template, trip], estimates: estimates)
+      if snapshot != lastTripEstimates {
+        template.updateEstimates(estimates, for: trip)
+        lastTripEstimates = snapshot
+      }
     }
     trip.routeChoices.first?.userInfo = routeInfo
   }
@@ -1520,6 +1526,7 @@ extension CarPlayService {
     let estimates = CPTravelEstimates(distanceRemaining: measurement,
                                       timeRemaining: -1)
     template.updateEstimates(estimates, for: trip)
+    lastTripEstimates = nil
   }
 
   func showRerouteAlert(trips: [CPTrip]) {
