@@ -58,7 +58,7 @@ void GetTtsText::ForTestingSetLocaleWithJson(std::string const & jsonBuffer, std
 }
 
 /**
- * @brief Modified version of GetFullRoadName in routing_session.cpp.
+ * @brief Modified version of GetFullRoadName in route.cpp.
  * For next street returns "ref; name" .
  * For highway exits (or main roads with exit info) returns "junction:ref; target:ref; target".
  * If no |target| - it will be replaced by |name| of next street.
