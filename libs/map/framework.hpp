@@ -86,7 +86,7 @@ struct ViewportSearchParams;
 
 namespace storage
 {
-class CountryInfoGetter;
+class CountryInfoReader;
 struct DownloaderSearchParams;
 }  // namespace storage
 
@@ -195,7 +195,7 @@ protected:
   // The order matters here: storage::CountryInfoGetter and
   // m_FeaturesFetcher must be initialized before
   // search::Engine and, therefore, destroyed after search::Engine.
-  std::unique_ptr<storage::CountryInfoGetter> m_infoGetter;
+  std::unique_ptr<storage::CountryInfoReader> m_infoGetter;
 
   std::unique_ptr<SearchAPI> m_searchAPI;
 
@@ -340,7 +340,9 @@ public:
 
   void InvalidateRect(m2::RectD const & rect);
 
-  std::string GetCountryName(m2::PointD const & pt) const;
+  /// @return 0 if there is no country under point or country is not loaded.
+  int64_t GetMwmVersion(m2::PointD const & pt) const;
+  bool NeedUpdateForRoutes() const;
 
   enum class DoAfterUpdate
   {
@@ -354,7 +356,7 @@ public:
   storage::Storage & GetStorage() { return m_storage; }
   storage::Storage const & GetStorage() const { return m_storage; }
   search::DisplayedCategories const & GetDisplayedCategories();
-  storage::CountryInfoGetter const & GetCountryInfoGetter() { return *m_infoGetter; }
+  storage::CountryInfoReader const & GetCountryInfoGetter() { return *m_infoGetter; }
   StorageDownloadingPolicy & GetDownloadingPolicy() { return m_storageDownloadingPolicy; }
 
   DataSource const & GetDataSource() const { return m_featuresFetcher.GetDataSource(); }
@@ -448,8 +450,6 @@ public:
 
   std::vector<std::string> GetRegionsCountryIdByRect(m2::RectD const & rect, bool rough) const;
   std::vector<MwmSet::MwmId> GetMwmsByRect(m2::RectD const & rect, bool rough) const;
-
-  void ReadFeatures(std::function<void(FeatureType &)> const & reader, std::vector<FeatureID> const & features);
 
 private:
   std::optional<place_page::Info> m_currentPlacePageInfo;
@@ -835,7 +835,7 @@ public:
 protected:
   /// RoutingManager::Delegate
   void OnRouteFollow(routing::RouterType type) override;
-  void RegisterCountryFilesOnRoute(std::shared_ptr<routing::NumMwmIds> ptr) const override;
+  void InitRouting();
 
 public:
   /// @returns false in case when coordinate is in the ocean or mwm is not downloaded.

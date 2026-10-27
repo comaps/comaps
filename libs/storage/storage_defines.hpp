@@ -4,7 +4,6 @@
 
 #include "base/geo_object_id.hpp"
 
-#include <cstdint>
 #include <functional>
 #include <map>
 #include <memory>
@@ -23,7 +22,7 @@ using CountriesVec = std::vector<CountryId>;
 using LocalFilePtr = std::shared_ptr<platform::LocalCountryFile>;
 using OldMwmMapping = std::map<CountryId, CountriesSet>;
 /// Map from key affiliation words into CountryIds.
-using Affiliations = ankerl::unordered_dense::map<std::string, std::vector<CountryId>>;
+using Affiliations = ankerl::unordered_dense::map<std::string, CountriesVec>;
 /// Map from country name synonyms and old names into CountryId.
 using CountryNameSynonyms = ankerl::unordered_dense::map<std::string, CountryId>;
 /// Map from CountryId into city GeoObject id.

@@ -11,7 +11,8 @@
 
 #include "base/cache.hpp"
 
-#include <map>
+#include <algorithm>
+#include <limits>
 #include <memory>
 #include <mutex>
 #include <string>
@@ -31,6 +32,7 @@ public:
   // Identifier of a region (index in m_countries array).
   using RegionId = size_t;
   using RegionIdVec = std::vector<RegionId>;
+  static RegionId constexpr kInvalidId = std::numeric_limits<RegionId>::max();
 
   virtual ~CountryInfoGetterBase() = default;
 
@@ -48,14 +50,16 @@ public:
 
   std::vector<CountryDef> const & GetCountries() const { return m_countries; }
 
+  RegionId GetRegionId(CountryId const & countryId) const;
+
 protected:
   // Returns identifier of the first country containing |pt| or |kInvalidId| if there is none.
   RegionId FindFirstCountry(m2::PointD const & pt) const;
 
   // Returns true when |pt| belongs to the country identified by |id|.
-  virtual bool BelongsToRegion(m2::PointD const & pt, size_t id) const = 0;
+  virtual bool BelongsToRegion(m2::PointD const & pt, RegionId id) const = 0;
 
-  // List of all known countries.
+  // List of all known countries. Index in this vector is a RegionId.
   std::vector<CountryDef> m_countries;
 };
 
@@ -107,26 +111,23 @@ protected:
   CountryInfoGetter() = default;
 
   // Invokes |toDo| on each country whose name starts with |prefix|.
-  template <typename ToDo>
+  template <class ToDo>
   void ForEachCountry(std::string const & prefix, ToDo && toDo) const;
 
   // Clears regions cache.
   virtual void ClearCachesImpl() const = 0;
 
   // Returns true when |rect| intersects a country identified by |id|.
-  virtual bool IsIntersectedByRegion(m2::RectD const & rect, size_t id) const = 0;
+  virtual bool IsIntersectedByRegion(m2::RectD const & rect, RegionId id) const = 0;
 
   // Returns true when the distance from |pt| to country identified by |id| is less than |distance|.
-  virtual bool IsCloseEnough(size_t id, m2::PointD const & pt, double distance) const = 0;
+  virtual bool IsCloseEnough(RegionId id, m2::PointD const & pt, double distance) const = 0;
 
   // @TODO(bykoianko): consider getting rid of m_countryIndex.
   // Maps all leaf country id (file names) to their indices in m_countries.
   ankerl::unordered_dense::map<CountryId, RegionId> m_countryIndex;
 
   Affiliations const * m_affiliations = nullptr;
-
-  // Maps country file name without extension to a country info.
-  std::map<std::string, CountryInfo> m_idToInfo;
 };
 
 // This class reads info about countries from polygons file and
@@ -139,19 +140,19 @@ public:
   static std::unique_ptr<CountryInfoGetter> CreateCountryInfoGetter(Platform const & platform);
 
   // Loads all regions for country number |id| from |m_reader|.
-  void LoadRegionsFromDisk(size_t id, std::vector<m2::RegionD> & regions) const;
+  std::vector<m2::RegionD> LoadRegionsFromDisk(RegionId id) const;
 
 protected:
-  CountryInfoReader(ModelReaderPtr polyR, ModelReaderPtr countryR);
+  CountryInfoReader(ModelReaderPtr polyR);
 
   // CountryInfoGetter overrides:
   void ClearCachesImpl() const override;
-  bool BelongsToRegion(m2::PointD const & pt, size_t id) const override;
-  bool IsIntersectedByRegion(m2::RectD const & rect, size_t id) const override;
-  bool IsCloseEnough(size_t id, m2::PointD const & pt, double distance) const override;
+  bool BelongsToRegion(m2::PointD const & pt, RegionId id) const override;
+  bool IsIntersectedByRegion(m2::RectD const & rect, RegionId id) const override;
+  bool IsCloseEnough(RegionId id, m2::PointD const & pt, double distance) const override;
 
-  template <typename Fn>
-  std::invoke_result_t<Fn, std::vector<m2::RegionD>> WithRegion(size_t id, Fn && fn) const;
+  template <class Fn>
+  auto WithRegion(RegionId id, Fn && fn) const;
 
   FilesContainerR m_reader;
   mutable base::Cache<uint32_t, std::vector<m2::RegionD>> m_cache;
@@ -175,8 +176,8 @@ public:
 protected:
   // CountryInfoGetter overrides:
   void ClearCachesImpl() const override;
-  bool BelongsToRegion(m2::PointD const & pt, size_t id) const override;
-  bool IsIntersectedByRegion(m2::RectD const & rect, size_t id) const override;
-  bool IsCloseEnough(size_t id, m2::PointD const & pt, double distance) const override;
+  bool BelongsToRegion(m2::PointD const & pt, RegionId id) const override;
+  bool IsIntersectedByRegion(m2::RectD const & rect, RegionId id) const override;
+  bool IsCloseEnough(RegionId id, m2::PointD const & pt, double distance) const override;
 };
 }  // namespace storage

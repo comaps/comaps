@@ -28,6 +28,7 @@
 #include "storage/country.hpp"
 #include "storage/country_decl.hpp"
 #include "storage/country_info_getter.hpp"
+#include "storage/routing_helpers.hpp"
 #include "storage/storage.hpp"
 #include "storage/storage_helpers.hpp"
 
@@ -176,7 +177,8 @@ pair<MwmSet::MwmId, MwmSet::RegResult> Framework::RegisterMap(LocalCountryFile c
   {
     auto const & id = res.first;
     ASSERT(id.IsAlive(), ());
-    LOG(LINFO, ("Loaded", file.GetCountryName(), "map, of version", id.GetInfo()->GetVersion()));
+    LOG(LINFO, ("Loaded", file.GetCountryName(), "map version", id.GetInfo()->GetVersion(),
+                m_storage.IsDeprecated(file.GetCountryName()) ? "(deprecated)" : ""));
   }
 
   return res;
@@ -399,8 +401,6 @@ Framework::Framework(FrameworkParams const & params, bool loadMaps)
   m_storage.SetDownloadingPolicy(&m_storageDownloadingPolicy);
   m_storage.SetStartDownloadingCallback([this]() { UpdatePlacePageInfoForCurrentSelection(); });
 
-  m_routingManager.SetRouterImpl(RouterType::Vehicle);
-
   UpdateMinBuildingsTapZoom();
 
   LOG(LINFO, ("System languages:", languages::GetPreferred()));
@@ -546,14 +546,15 @@ void Framework::LoadMapsSync()
   m_featuresFetcher.GetDataSource().AddObserver(editor);
   LOG(LDEBUG, ("Editor initialized"));
 
+  InitRouting();
+
   GetStorage().RestoreDownloadQueue();
 }
 
 // Small copy-paste with LoadMapsSync, but I don't have a better solution.
 void Framework::LoadMapsAsync(std::function<void()> && callback)
 {
-  osm::Editor & editor = osm::Editor::Instance();
-  threads::SimpleThread([this, &editor, callback = std::move(callback)]()
+  threads::SimpleThread([this, callback = std::move(callback)]()
   {
     RegisterAllMaps();
     LOG(LDEBUG, ("Maps initialized"));
@@ -561,16 +562,20 @@ void Framework::LoadMapsAsync(std::function<void()> && callback)
     GetSearchAPI().InitAfterWorldLoaded();
     LOG(LDEBUG, ("Search API initialized, part 2, after World was loaded"));
 
-    GetPlatform().RunTask(Platform::Thread::Gui, [this, &editor, callback = std::move(callback)]()
-    {
-      editor.LoadEdits();
-      m_featuresFetcher.GetDataSource().AddObserver(editor);
-      LOG(LDEBUG, ("Editor initialized"));
+    osm::Editor & editor = osm::Editor::Instance();
+    editor.LoadEdits();
+    m_featuresFetcher.GetDataSource().AddObserver(editor);
+    LOG(LDEBUG, ("Editor initialized"));
 
-      GetStorage().RestoreDownloadQueue();
+    GetPlatform().RunTask(Platform::Thread::Gui, [this, callback = std::move(callback)]()
+    {
+      /// @todo Investigate if we can call it async after "Editor initialized".
+      InitRouting();
 
       callback();
     });
+
+    LOG(LINFO, ("Finished async loading"));
   }).detach();
 }
 
@@ -798,10 +803,10 @@ void Framework::FillInfoFromFeatureType(FeatureType & ft, place_page::Info & inf
   bool const isState = ftypes::IsStateChecker::Instance()(types);
   if (isState || ftypes::IsCountryChecker::Instance()(types))
   {
-    size_t const level = isState ? 1 : 0;
-    CountriesVec countries;
+    // countryId may be empty after all
     CountryId countryId = m_infoGetter->GetRegionCountryId(info.GetMercator());
-    GetStorage().GetTopmostNodesFor(countryId, countries, level);
+    CountriesVec countries;
+    GetStorage().GetTopmostNodesFor(countryId, countries, isState ? 1 : 0 /* level */);
     if (countries.size() == 1)
       countryId = countries.front();
 
@@ -1290,7 +1295,7 @@ void Framework::InitCountryInfoGetter()
   ASSERT(!m_infoGetter.get(), ("InitCountryInfoGetter() must be called only once."));
 
   auto const & platform = GetPlatform();
-  m_infoGetter = CountryInfoReader::CreateCountryInfoGetter(platform);
+  m_infoGetter = CountryInfoReader::CreateCountryInfoReader(platform);
 
   // Storage::GetAffiliations() pointer never changed.
   m_infoGetter->SetAffiliations(m_storage.GetAffiliations());
@@ -1319,11 +1324,16 @@ void Framework::InitTransliteration()
     Transliteration::Instance().SetMode(Transliteration::Mode::Disabled);
 }
 
-string Framework::GetCountryName(m2::PointD const & pt) const
+int64_t Framework::GetMwmVersion(m2::PointD const & pt) const
 {
-  storage::CountryInfo info;
-  m_infoGetter->GetRegionInfo(pt, info);
-  return info.m_name;
+  auto name = m_infoGetter->GetRegionCountryId(pt);
+  return (name != storage::kInvalidCountryId) ? m_featuresFetcher.GetMwmVersion(std::move(name)) : 0;
+}
+
+bool Framework::NeedUpdateForRoutes() const
+{
+  auto const version = GetMwmVersion(GetViewportCenter());
+  return version > 0 && version < 250801;
 }
 
 /*
@@ -3583,11 +3593,6 @@ vector<MwmSet::MwmId> Framework::GetMwmsByRect(m2::RectD const & rect, bool roug
   return result;
 }
 
-void Framework::ReadFeatures(function<void(FeatureType &)> const & reader, vector<FeatureID> const & features)
-{
-  m_featuresFetcher.ReadFeatures(reader, features);
-}
-
 // RoutingManager::Delegate
 void Framework::OnRouteFollow(routing::RouterType type)
 {
@@ -3612,21 +3617,24 @@ void Framework::OnRouteFollow(routing::RouterType type)
 }
 
 // RoutingManager::Delegate
-void Framework::RegisterCountryFilesOnRoute(shared_ptr<routing::NumMwmIds> ptr) const
+void Framework::InitRouting()
 {
-  m_storage.ForEachCountry([&ptr](storage::Country const & country) { ptr->RegisterFile(country.GetFile()); });
+  m_routingManager.Init(routing::CreateNumMwmIds(m_storage));
+
+  LOG(LDEBUG, ("Routing initialized"));
 }
 
 void Framework::SetPlacePageLocation(place_page::Info & info)
 {
   ASSERT(m_infoGetter, ());
 
+  // countryId may be empty after all
   if (info.GetCountryId().empty())
     info.SetCountryId(m_infoGetter->GetRegionCountryId(info.GetMercator()));
 
-  CountriesVec countries;
   if (info.GetTopmostCountryIds().empty())
   {
+    CountriesVec countries;
     GetStorage().GetTopmostNodesFor(info.GetCountryId(), countries);
     info.SetTopmostCountryIds(std::move(countries));
   }

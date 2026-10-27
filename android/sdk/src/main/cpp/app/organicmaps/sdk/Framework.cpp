@@ -21,6 +21,7 @@
 #include "map/everywhere_search_params.hpp"
 #include "map/user_mark.hpp"
 
+#include "storage/country_info_getter.hpp"
 #include "storage/storage_defines.hpp"
 #include "storage/storage_helpers.hpp"
 
@@ -1219,6 +1220,11 @@ JNIEXPORT jdoubleArray JNICALL Java_app_organicmaps_sdk_Framework_nativeGetScree
   env->SetDoubleArrayRegion(jLatLon, 0, 2, latlon);
 
   return jLatLon;
+}
+
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeRestoreDownloadQueue(JNIEnv * env, jclass)
+{
+  frm()->GetStorage().RestoreDownloadQueue();
 }
 
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeShowTrackRect(JNIEnv * env, jclass, jlong track)
