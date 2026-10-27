@@ -63,6 +63,7 @@ IndexGraphStarter::IndexGraphStarter(FakeEnding const & startEnding, FakeEnding 
 void IndexGraphStarter::Append(FakeEdgesContainer const & container)
 {
   m_finish = container.m_finish;
+  m_changesAllowedValid = false;
   m_fake.Append(container.m_fake);
 
   // It's important to calculate distance after m_fake.Append() because
@@ -81,6 +82,7 @@ void IndexGraphStarter::SetGuides(GuidesGraph const & guides)
 void IndexGraphStarter::SetRegionsGraphMode(std::shared_ptr<RegionsSparseGraph> regionsSparseGraph)
 {
   m_regionsGraph = std::move(regionsSparseGraph);
+  m_changesAllowedValid = false;
   m_graph.SetRegionsGraphMode(true);
 }
 
@@ -172,10 +174,15 @@ bool IndexGraphStarter::CheckLength(RouteWeight const & weight)
   /// This additional penalty will be included in RouteWeight::GetIntegratedWeight().
   /// @see RussiaMoscowNotCrossingTollRoadTest
 
-  int8_t const changesAllowed =
-      2 + (HasNoPassThroughAllowed(m_start) ? 1 : 0) + (HasNoPassThroughAllowed(m_finish) ? 1 : 0);
+  if (!m_changesAllowedValid)
+  {
+    m_changesAllowed =
+        2 + (HasNoPassThroughAllowed(m_start) ? 1 : 0) + (HasNoPassThroughAllowed(m_finish) ? 1 : 0);
+    m_changesAllowedValid = true;
+  }
 
-  return weight.GetNumPassThroughChanges() <= changesAllowed && m_graph.CheckLength(weight, m_startToFinishDistanceM);
+  return weight.GetNumPassThroughChanges() <= m_changesAllowed &&
+         m_graph.CheckLength(weight, m_startToFinishDistanceM);
 }
 
 void IndexGraphStarter::GetEdgesList(astar::VertexData<Vertex, Weight> const & vertexData, bool isOutgoing,
