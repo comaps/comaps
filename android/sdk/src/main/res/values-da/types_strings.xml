@@ -638,7 +638,7 @@
     <string name="type.office.ngo">NGO-kontor</string>
     <string name="type.office.telecommunication">Telekommunikationsfirma</string>
     <string name="type.place.city">By</string>
-    <string name="type.place.city.capital">Kapital</string>
+    <string name="type.place.city.capital">Hovedstad</string>
     <string name="type.place.city.capital.10">By</string>
     <string name="type.place.city.capital.11">By</string>
     <string name="type.place.city.capital.2">Hovedstad</string>
@@ -1529,7 +1529,7 @@
     <string name="type.leisure.sports_centre.sport.volleyball">Idrætscenter</string>
     <string name="type.leisure.sports_centre.sport.yoga">Idrætscenter</string>
     <string name="type.sport.four_square">Four Square</string>
-    <string name="type.amenity.mobile_money_agent">Mobilpengeagent</string>
+    <string name="type.amenity.mobile_money_agent">Mobile Money Agent</string>
     <string name="type.amenity.stage">Scene</string>
     <string name="type.amenity.planetarium">Planetarium</string>
     <string name="type.amenity.toilets.customers">Kundeadgang</string>
@@ -1545,4 +1545,11 @@
     <string name="type.amenity.parking.customers">Parkering for kunder</string>
     <string name="type.barrier.bus_trap">Bussluse</string>
     <string name="type.barrier.sump_buster">Bundkarsknuser</string>
+    <string name="type.shop.games">Spilbutik</string>
+    <string name="type.second_hand.only">Kun brugt</string>
+    <string name="type.second_hand.yes">Brugte valgmuligheder</string>
+    <string name="type.second_hand.no">Ingen brugte valgmuligheder</string>
+    <string name="type.amenity.fast_food.cafeteria">Cafeteria</string>
+    <string name="type.shop.swimming_pool">Svømmebassinbutik</string>
+    <string name="type.amenity.music_venue">Spillested</string>
 </resources>

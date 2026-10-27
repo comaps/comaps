@@ -201,7 +201,7 @@
         "defaultMessage": "Lavabos"
     },
     "amenity-toilets|toilets-yes|@category_toilet": {
-        "defaultMessage": "Lavabos|Vàter"
+        "defaultMessage": "Lavabos|Vàter|serveis|servicis|banys"
     },
     "leisure-park": {
         "defaultMessage": "Parc"

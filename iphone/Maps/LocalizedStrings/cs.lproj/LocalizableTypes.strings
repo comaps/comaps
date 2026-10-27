@@ -1545,5 +1545,12 @@
 "type.shop.tool_hire" = "Půjčovna nářadí";
 "type.amenity.tool_library" = "Knihovna nářadí";
 "type.amenity.parking.customers" = "Parkoviště pro zákazníky";
-"type.barrier.bus_trap" = "Bus Trap";
-"type.barrier.sump_buster" = "Sump Buster";
+"type.barrier.bus_trap" = "Zábrana průjezdná pouze autobusem";
+"type.barrier.sump_buster" = "Zábrana k zastavení aut";
+"type.second_hand.no" = "Žádné možnosti second-handu";
+"type.second_hand.yes" = "Možnosti second-handu";
+"type.second_hand.only" = "Pouze second-hand";
+"type.shop.games" = "Obchod s hrami";
+"type.amenity.fast_food.cafeteria" = "Bufet";
+"type.shop.swimming_pool" = "Obchod s bazény";
+"type.amenity.music_venue" = "Koncertní sál";

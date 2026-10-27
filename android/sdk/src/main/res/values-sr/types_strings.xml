@@ -30,7 +30,7 @@
     <string name="type.amenity.bicycle_parking">Паркинг за бицикле</string>
     <string name="type.amenity.bicycle_rental">Изнајмљивање бицикала</string>
     <string name="type.amenity.bicycle_repair_station">Станица за поравку бицикала</string>
-    <string name="type.amenity.biergarten">Пивска башта / Пивница</string>
+    <string name="type.amenity.biergarten">Пивска башта</string>
     <string name="type.amenity.brothel">Јавна кућа</string>
     <string name="type.amenity.bureau_de_change">Мењачница</string>
     <string name="type.amenity.bus_station">Аутобуска станица</string>
@@ -1550,4 +1550,7 @@
     <string name="type.barrier.bus_trap">Аутобуска замка</string>
     <string name="type.barrier.sump_buster">Разбијач картера</string>
     <string name="type.shop.tool_hire">Изнајмљивање алата</string>
+    <string name="type.second_hand.only">Само половно</string>
+    <string name="type.second_hand.yes">Има и половно</string>
+    <string name="type.second_hand.no">Нема половно</string>
 </resources>

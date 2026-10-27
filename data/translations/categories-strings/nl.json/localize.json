@@ -6,10 +6,10 @@
         "defaultMessage": "Boodschappen|Kruidenier|Eten"
     },
     "@category_transport": {
-        "defaultMessage": "5Transport"
+        "defaultMessage": "5Transport|4Openbaar vervoer|4Vervoer"
     },
     "@category_fuel": {
-        "defaultMessage": "4Benzine|4Diesel|5Brandstof|4Tankstation"
+        "defaultMessage": "4Benzine|4Diesel|5Brandstof|4Tankstation|4Tanken"
     },
     "@category_parking": {
         "defaultMessage": "4Parkeerplaats"
@@ -18,7 +18,7 @@
         "defaultMessage": "4Winkelen|winkels"
     },
     "@category_hotel": {
-        "defaultMessage": "3Hotel|hotels|4Accomodatie|5overnachten"
+        "defaultMessage": "3Hotel|hotels|4Accomodatie|4Accomodaties|5overnachten"
     },
     "@category_tourism": {
         "defaultMessage": "5Bezienswaardigheden|4Toerisme"
@@ -60,10 +60,10 @@
         "defaultMessage": "2Bar|2pub|kroeg|bier|drinken"
     },
     "amenity-cafe|@category_eat": {
-        "defaultMessage": "3Café|koffie|thee|cafeteria"
+        "defaultMessage": "3Café|koffie|thee"
     },
     "amenity-fast_food|@category_eat": {
-        "defaultMessage": "4Fastfood|4Snackbar|4afhalen|4afhaaleten|afhaalvoedsel"
+        "defaultMessage": "4Fastfood|4Snackbar|4Afhalen|4Afhaaleten|Afhaalvoedsel|Cafetaria"
     },
     "amenity-restaurant|@category_eat": {
         "defaultMessage": "4Restaurant"
@@ -87,10 +87,10 @@
         "defaultMessage": "4Buurtwinkel|4Gemakswinkel|kruidenier|supermarktje"
     },
     "shop-deli|@category_food|@shop": {
-        "defaultMessage": "Delicatessenwinkel"
+        "defaultMessage": "4Delicatessenwinkel"
     },
     "shop-garden_centre|@shop": {
-        "defaultMessage": "Tuincentrum"
+        "defaultMessage": "4Tuincentrum"
     },
     "shop-hearing_aids|@shop": {
         "defaultMessage": "4Hoortoestellen|6Gehoortoestellen"
@@ -99,25 +99,25 @@
         "defaultMessage": "4Mobiele-telefoonwinkel|elektronicawinkel"
     },
     "shop-florist|@shop": {
-        "defaultMessage": "Bloemist|bloemenwinkel"
+        "defaultMessage": "5Bloemist|5Bloemenwinkel"
     },
     "shop-butcher|@category_food|@shop": {
-        "defaultMessage": "4Slager|beenhouwer|vlees"
+        "defaultMessage": "4Slagerij|Slager|beenhouwer|vlees"
     },
     "shop-furniture|@shop": {
-        "defaultMessage": "4Meubelzaak|4Meubelwinkel"
+        "defaultMessage": "4Meubelzaak|4Meubelwinkel|Meubelwarenhuis"
     },
     "shop-kitchen|@shop": {
-        "defaultMessage": "4Keuken|keukenattributen"
+        "defaultMessage": "4Keuken|Keukengerei"
     },
     "shop-alcohol|@category_food|@shop": {
         "defaultMessage": "Slijterij|drankhandel"
     },
     "shop-books|@shop": {
-        "defaultMessage": "Boeken|Boekenwinkel|boekwinkel|boekhandel"
+        "defaultMessage": "Boeken|Boekenwinkel|4Boekwinkel|4Boekhandel"
     },
     "shop-shoes|@category_shopping|@shop": {
-        "defaultMessage": "Schoenenwinkel|schoenwinkel"
+        "defaultMessage": "5Schoenenwinkel|5Schoenwinkel"
     },
     "shop-electronics|@shop": {
         "defaultMessage": "4Elektronicawinkel"
@@ -126,22 +126,22 @@
         "defaultMessage": "6Gereedschap|4Klussen|4Bouwmarkt|DHZ|3doe het zelf|doe-het-zelf|5IJzerwaren|5IJzerwarenwinkel"
     },
     "shop-houseware|@shop": {
-        "defaultMessage": "4Huishouden"
+        "defaultMessage": "4Huishoudwinkel|Huishouden"
     },
     "shop-jewelry|@category_shopping|@shop": {
-        "defaultMessage": "4Juwelier|sieraden|juwelen"
+        "defaultMessage": "4Juwelier|4Sieraden|Juwelen|4Diamant"
     },
     "shop-optician|@shop": {
         "defaultMessage": "4Opticien|4brillen|5zonnebrillen"
     },
     "shop-gift|@category_shopping|@shop": {
-        "defaultMessage": "5Geschenken|4souvenir|souvenirs|geschenk|6cadeaus|5Souvenir shop"
+        "defaultMessage": "6Cadeauwinkel|5Geschenken|4Souvenirs|6Cadeaus"
     },
     "shop-beauty": {
-        "defaultMessage": "5Schoonheidssalon|schoonheidsspecialiste|schoonheidssalon|4haarkleuring|permanent"
+        "defaultMessage": "5Schoonheidssalon|Schoonheidsspecialiste|4Haarkleuring|Permanent"
     },
     "shop-greengrocer|@category_food|@shop": {
-        "defaultMessage": "Groentenwinkel|groenteboer"
+        "defaultMessage": "5Groentenwinkel|5Groenteboer"
     },
     "shop-sports|@category_shopping|@shop": {
         "defaultMessage": "4Sportartikelen|4Sportwinkel"
@@ -150,25 +150,25 @@
         "defaultMessage": "3Supermarkt"
     },
     "shop-mall|@category_shopping|@shop": {
-        "defaultMessage": "6Winkelcentrum|Gallerij|winkelgalerij|winkels"
+        "defaultMessage": "6Winkelcentrum|Winkelgalerij|Winkelpassage"
     },
     "shop-department_store|@category_shopping|@shop": {
         "defaultMessage": "5Warenhuis"
     },
     "shop-beverages|@category_food|@shop": {
-        "defaultMessage": "Drank|slijterij"
+        "defaultMessage": "Drinken|Frisdrank|Dranken"
     },
     "shop-computer|@shop": {
-        "defaultMessage": "4Computerzaak|computer|computers"
+        "defaultMessage": "4Computerwinkel"
     },
     "shop-confectionery|craft-confectionery|@category_food|@shop": {
-        "defaultMessage": "Banketbakker|snoepwinkel|snoep|snoepjes|zoetigheden"
+        "defaultMessage": "5Snoepwinkel|Snoep|Snoepjes|Zoetigheden|Suikerwaren|Zoetwaren|Suikergoed"
     },
     "shop-laundry": {
-        "defaultMessage": "4Wasserette"
+        "defaultMessage": "4Wasserette|Wassalon"
     },
     "shop-toys|@category_children|@shop": {
-        "defaultMessage": "Speelgoed|Speelgoedwinkel|kinderen"
+        "defaultMessage": "Speelgoed|5Speelgoedwinkel|Kinderen"
     },
     "amenity-marketplace|@category_food": {
         "defaultMessage": "3Markt"
@@ -177,40 +177,40 @@
         "defaultMessage": "4Overschrijving|4Geld overmaken"
     },
     "shop-clothes|@category_shopping|@shop": {
-        "defaultMessage": "4Kleding|kleding|mode|kledingstukken"
+        "defaultMessage": "4Kledingwinkel|4Kleding|Mode|Kledingstukken"
     },
     "shop-car|@shop": {
-        "defaultMessage": "4Autohandelaar|Autodealer|autos"
+        "defaultMessage": "4Autohandelaar|4Autodealer|autos"
     },
     "shop-bicycle|@shop": {
-        "defaultMessage": "5Fietsenwinkel|fiets|fietsen"
+        "defaultMessage": "5Fietsenwinkel|Fiets|Fietsen|5Fietsenmaker"
     },
     "shop-kiosk": {
         "defaultMessage": "3Kiosk"
     },
     "highway-bus_stop|@category_transport": {
-        "defaultMessage": "3Bushalte|bus|halte"
+        "defaultMessage": "3Bushalte|Bus|Halte"
     },
     "railway-tram_stop|@category_transport": {
-        "defaultMessage": "3Tramhalte|tram|halte"
+        "defaultMessage": "3Tramhalte|Tram|Halte"
     },
     "amenity-bus_station|@category_transport": {
-        "defaultMessage": "Busstation|2bus|station"
+        "defaultMessage": "3Busstation|2Bus"
     },
     "railway-station|railway-halt|building-train_station|@category_transport": {
-        "defaultMessage": "4Station|4spoorwegen|spoor|3trein|halte"
+        "defaultMessage": "4Station|4Spoorwegen|Spoor|3Trein|5Treinstation"
     },
     "railway-station-funicular": {
-        "defaultMessage": "4Funicular|Kabelspoorweg"
+        "defaultMessage": "5Kabelspoorweg"
     },
     "railway-station-subway|@category_transport": {
-        "defaultMessage": "4Metrosation|5ondergrondse|metro"
+        "defaultMessage": "4Metrostation|5Ondergrondse|Metro"
     },
     "amenity-ferry_terminal|@category_transport": {
-        "defaultMessage": "3Veerpont|veerboot|veer|pont|overzetboot"
+        "defaultMessage": "3Veerpont|Veerboot|Veer|Pont|Overzetboot|4Veerstoep|3Veerterminal"
     },
     "amenity-taxi|@category_transport": {
-        "defaultMessage": "3Taxi|Taxistandplaats"
+        "defaultMessage": "3Taxi|3Taxistandplaats"
     },
     "amenity-townhall": {
         "defaultMessage": "3Gemeentehuis|4Stadhuis"
@@ -219,10 +219,10 @@
         "defaultMessage": "3Attractie|3toerisme"
     },
     "tourism-artwork": {
-        "defaultMessage": "3Kunstwerk"
+        "defaultMessage": "5Kunstwerk"
     },
     "tourism-viewpoint|@category_tourism": {
-        "defaultMessage": "4Uitzicht|panorama|Uitkijkpunt"
+        "defaultMessage": "4Uitzichtpunt|Panorama|4Uitkijkpunt"
     },
     "tourism-information": {
         "defaultMessage": "4Toeristische informatie|3VVV|4informatie"
@@ -231,37 +231,37 @@
         "defaultMessage": "4Picknickplaats|picknickweide|picknicktafel|4barbecue"
     },
     "amenity-place_of_worship": {
-        "defaultMessage": "5Gebedshuis|5gebedsplaats|3tempel"
+        "defaultMessage": "5Gebedshuis|5Gebedsplaats|3Tempel"
     },
     "amenity-place_of_worship-christian": {
-        "defaultMessage": "Kerk|5gebedshuis|3tempel|4cathedraal|4basiliek|6christendom"
+        "defaultMessage": "3Kerk|5Gebedshuis|5Gebedsplaats|3Tempel|4Cathedraal|4Basiliek|6Christendom|3Dom"
     },
     "amenity-place_of_worship-muslim": {
-        "defaultMessage": "4Moskee|3tempel|5gebedsplaats|gebedshuis|3islam"
+        "defaultMessage": "4Moskee|3Tempel|5Gebedsplaats|5Gebedshuis|3Islam"
     },
     "amenity-place_of_worship-buddhist": {
-        "defaultMessage": "3Tempel|5gebedshuis|4boeddhistische tempel|4boeddhisme|"
+        "defaultMessage": "3Tempel|5Gebedshuis|4Boeddhistische tempel|4Boeddhisme|5Gebedsplaats"
     },
     "amenity-place_of_worship-hindu": {
-        "defaultMessage": "3Tempel|5gebedshuis|4hindoetempel|4hindoeïsme"
+        "defaultMessage": "3Tempel|5Gebedshuis|5Gebedsplaats|4Hindoetempel|4Hindoeïsme"
     },
     "amenity-place_of_worship-shinto": {
-        "defaultMessage": "6Heiligdom|5gebedshuis|3tempel|4shinto tempel|4shinto"
+        "defaultMessage": "6Heiligdom|5Gebedshuis|5Gebedsplaats|3Tempel|4Shinto tempel|4Shinto"
     },
     "amenity-place_of_worship-jewish": {
-        "defaultMessage": "4Synagoge|5gebedshuis|3tempel|3jodendom"
+        "defaultMessage": "4Synagoge|5Gebedshuis|5Gebedsplaats|3Tempel|3Jodendom"
     },
     "amenity-place_of_worship-taoist": {
-        "defaultMessage": "3Tempel|5gebedshuis|3taoïstische tempel|3taoïsme"
+        "defaultMessage": "3Tempel|5Gebedshuis|5Gebedsplaats|3Taoïstische tempel|3Taoïsme"
     },
     "tourism-museum|@category_tourism": {
-        "defaultMessage": "2Museum|attractie"
+        "defaultMessage": "2Museum"
     },
     "waterway-waterfall|@category_tourism": {
-        "defaultMessage": "2Watervallen|waterval"
+        "defaultMessage": "2Waterval|2Watervallen"
     },
     "historic-archaeological_site|@category_tourism": {
-        "defaultMessage": "4Archeologische vindplaats|opgravingen|attractie"
+        "defaultMessage": "4Archeologische vindplaats|Opgravingen"
     },
     "historic-battlefield": {
         "defaultMessage": "Slagveld"
@@ -273,7 +273,7 @@
         "defaultMessage": "5Grenssteen"
     },
     "historic-castle|@category_tourism": {
-        "defaultMessage": "4Kasteel|burcht|Vesting|Heuvelfort|Kremlin|Landhuis|Paleis"
+        "defaultMessage": "4Kasteel|Burcht|Vesting|Heuvelfort|Kremlin|Landhuis|Paleis"
     },
     "historic-city_gate|@category_tourism": {
         "defaultMessage": "5Stadspoort"
@@ -1011,7 +1011,7 @@
         "defaultMessage": "4Parkeerautomaat|Betaalautomaat parkeergarage"
     },
     "amenity-vending_machine-public_transport_tickets|@category_transport": {
-        "defaultMessage": "6Kaartjesautomaat voor openbaar vervoer|2OV-kaartjes|7Vervoersbewijzen|Kaartjes|5Betaalautomaat|3Buskaartjes|5Treinkaartjes|Verkoopautomaat"
+        "defaultMessage": "5Kaartautomaat voor openbaar vervoer|2OV-kaartjes|7Vervoersbewijzen|Kaartjes|5Betaalautomaat|3Buskaartjes|5Treinkaartjes|Verkoopautomaat|2OV-kaartautomaat"
     },
     "shop-outpost": {
         "defaultMessage": "Afhaalpunt"
@@ -1470,7 +1470,7 @@
         "defaultMessage": "5Kruidenier|5Kruidenierswinkel"
     },
     "shop-health_food|@category_food|@shop": {
-        "defaultMessage": "6Gezondheidsvoeding|6Gezonde voeding|6healthfood|3organisch|3ecologisch"
+        "defaultMessage": "6Gezondheidsvoeding|6Gezonde voeding|3Biologisch|6Natuurvoedingswinkel"
     },
     "shop-beauty-nails": {
         "defaultMessage": "5Nagelsalon|nagelverzorging|vingernagels|teennagels|nagels"
@@ -1575,7 +1575,7 @@
         "defaultMessage": "3Ambacht|5Kunstmaterialen"
     },
     "shop-farm|@category_food|@shop": {
-        "defaultMessage": "Boerderijvoedsel|Boerderijwinkel"
+        "defaultMessage": "Boerderijvoedsel|4Boerderijwinkel"
     },
     "man_made-cross": {
         "defaultMessage": "Kruis"
@@ -1587,10 +1587,10 @@
         "defaultMessage": "Sculptuur|Beeldhouwwerk|Kunstwerk"
     },
     "tourism-artwork-statue": {
-        "defaultMessage": "Standbeeld|Kunstwerk"
+        "defaultMessage": "5Standbeeld|Kunstwerk"
     },
     "tourism-artwork-painting": {
-        "defaultMessage": "Schilderij|Kunstwerk"
+        "defaultMessage": "5Schilderij|Kunstwerk"
     },
     "amenity-charging_station-motorcycle|@charging_station": {
         "defaultMessage": "Motorfiets-laadstation|Motorfiets opladen"
@@ -1863,18 +1863,30 @@
         "defaultMessage": "4Dierenpension"
     },
     "amenity-planetarium|@category_tourism": {
-        "defaultMessage": "5Planetarium|5astronomie"
+        "defaultMessage": "5Planetarium|5Astronomie|4Sterrenkunde"
     },
     "building-abandoned": {
         "defaultMessage": "Verlaten gebouw|verlaten"
     },
     "shop-tool_hire|@shop": {
-        "defaultMessage": "Gereedschapsverhuur|Gereedschap"
+        "defaultMessage": "7Gereedschapsverhuur|Gereedschap"
     },
     "amenity-tool_library": {
         "defaultMessage": "Gereedschapsbibliotheek|Gereedschap"
     },
     "amenity-bicycle_parking-covered": {
         "defaultMessage": "7Overdekte fietsenstalling|5Ondergrondse fietsenstalling"
+    },
+    "shop-games|@shop": {
+        "defaultMessage": "4Spellenwinkel|4Spelletjeswinkel|5Bordspellen|5Bordspellenwinkel|4Spellen|4Spelletjes|6Kaartspellen|5Gezelschapsspellen"
+    },
+    "amenity-music_venue|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "6Muziekpodium|Muziekhal|Muziekzaal"
+    },
+    "amenity-fast_food-cafeteria|@category_eat": {
+        "defaultMessage": "4Kantine"
+    },
+    "shop-swimming_pool|@shop": {
+        "defaultMessage": "7Zwembadwinkel|Zwembadbenodigdheden"
     }
 }

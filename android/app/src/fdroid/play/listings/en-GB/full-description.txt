@@ -6,8 +6,8 @@ Join the community there and help make the best maps app
 • Give feedback and report issues
 • Update map data in the app or on the OpenStreetMap website
 
-‣ <b>Offline-focused</b>: Plan and navigate your trip abroad without the need for cellular service, search waypoints while on a distant hike, etc. All app functions are designed to work offline.
-‣ <b>Respecting Privacy</b>: The app is designed with privacy in mind - does not identify people, does not track, and does not collect personal information. Ads-free.
+‣ <b>Offline-focused</b>: Plan and navigate your trip abroad without the need for mobile service, search waypoints while on a distant hike, etc. All app functions are designed to work offline.
+‣ <b>Respecting Privacy</b>: The app is designed with privacy in mind - does not identify people, does not track, and does not collect personal information. Ad-free.
 ‣ <b>Simple and Polished</b>: essential easy to use features that just work.
 ‣ <b>Saves Your Battery and Space</b>: Doesn’t drain your battery like other navigation apps. Compact maps save precious space on your phone.
 ‣ <b>Free and Built by the Community</b>: People like you helped build the app by adding places to OpenStreetMap, testing and giving feedback on features and contributing their development skills and money.

@@ -82,7 +82,7 @@
 "type.building.guardhouse" = "Cabine de Segurança";
 "type.power.portal" = "Portal de Energia";
 "type.amenity.fast_food" = "Comida rápida";
-"type.amenity.ferry_terminal" = "Termina de ferry";
+"type.amenity.ferry_terminal" = "Terminal de ferry";
 "type.amenity.fire_station" = "Quartel de bombeiros";
 "type.amenity.food_court" = "Praça de alimentação";
 "type.amenity.fountain" = "Fonte decorativa";
@@ -1547,3 +1547,10 @@
 "type.amenity.parking.customers" = "Customer Parking";
 "type.barrier.bus_trap" = "Bus Trap";
 "type.barrier.sump_buster" = "Sump Buster";
+"type.second_hand.no" = "No second-hand options";
+"type.second_hand.yes" = "Second-hand options";
+"type.second_hand.only" = "Second-hand only";
+"type.shop.games" = "Game Shop";
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.shop.swimming_pool" = "Swimming Pool Shop";
+"type.amenity.music_venue" = "Music Venue";

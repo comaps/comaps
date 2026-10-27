@@ -316,5 +316,140 @@
     },
     "unknown_camera": {
         "defaultMessage": "Sebességkamera következik"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Több, mint három kilométer után"
+    },
+    "at_the_end_of_the_road": {
+        "defaultMessage": "Az út végén"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "%1$s van az útvonaltól"
+    },
+    "from_50_meters": {
+        "defaultMessage": "Ötven méterre"
+    },
+    "from_100_meters": {
+        "defaultMessage": "Száz méterre"
+    },
+    "from_200_meters": {
+        "defaultMessage": "Kétszáz méterre"
+    },
+    "from_250_meters": {
+        "defaultMessage": "Kétszázötven méterre"
+    },
+    "from_300_meters": {
+        "defaultMessage": "Háromszáz méterre"
+    },
+    "from_400_meters": {
+        "defaultMessage": "Négyszáz méterre"
+    },
+    "from_500_meters": {
+        "defaultMessage": "Ötszáz méterre"
+    },
+    "from_600_meters": {
+        "defaultMessage": "Hatszáz méterre"
+    },
+    "from_700_meters": {
+        "defaultMessage": "Hétszáz méterre"
+    },
+    "from_750_meters": {
+        "defaultMessage": "Hétszázötven méterre"
+    },
+    "from_800_meters": {
+        "defaultMessage": "Nyolcszáz méterre"
+    },
+    "from_900_meters": {
+        "defaultMessage": "Kilencszáz méterre"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "Egy kilométerre"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "Másfél kilométerre"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "Két kilométerre"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "Két és fél kilométerre"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "Három kilométerre"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "Több, mint három kilométerre"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "Több, mint két mérföld után"
+    },
+    "from_50_feet": {
+        "defaultMessage": "Ötven lábra"
+    },
+    "from_100_feet": {
+        "defaultMessage": "Száz lábra"
+    },
+    "from_200_feet": {
+        "defaultMessage": "Kétszáz lábra"
+    },
+    "from_300_feet": {
+        "defaultMessage": "Háromszáz lábra"
+    },
+    "from_400_feet": {
+        "defaultMessage": "Négyszáz lábra"
+    },
+    "from_500_feet": {
+        "defaultMessage": "Ötszáz lábra"
+    },
+    "from_600_feet": {
+        "defaultMessage": "Hatszáz lábra"
+    },
+    "from_700_feet": {
+        "defaultMessage": "Hétszáz lábra"
+    },
+    "from_800_feet": {
+        "defaultMessage": "Nyolcszáz lábra"
+    },
+    "from_900_feet": {
+        "defaultMessage": "Kilencszáz lábra"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "Ezer lábra"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "Ezerötszáz lábra"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "Kétezer lábra"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "Kétezer-ötszáz lábra"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "Háromezer lábra"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "Háromezer-ötszáz lábra"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "Négyezer lábra"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "Négyezer-ötszáz lábra"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "Ötezer lábra"
+    },
+    "from_1_mile": {
+        "defaultMessage": "Egy mérföldre"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "Másfél mérföldre"
+    },
+    "from_2_miles": {
+        "defaultMessage": "Két mérföldre"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "Több, mint két mérföldre"
     }
 }

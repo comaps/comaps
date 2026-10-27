@@ -1540,4 +1540,15 @@
     <string name="type.amenity.stage">Scena</string>
     <string name="type.amenity.mobile_money_agent">Agencja płatności mobilnych</string>
     <string name="type.emergency.access_point.address">Adres ratownictwa medycznego</string>
+    <string name="type.amenity.parking.customers">Parking dla klientów</string>
+    <string name="type.amenity.tool_library">Wypożyczalnia narzędzi</string>
+    <string name="type.building.abandoned">Opuszczony budynek</string>
+    <string name="type.landuse.military.danger_area">Wojskowa strefa niebezpieczna</string>
+    <string name="type.second_hand.only">Tylko rzeczy używane</string>
+    <string name="type.second_hand.yes">Oferuje rzeczy używane</string>
+    <string name="type.second_hand.no">Nie oferuje rzeczy używanych</string>
+    <string name="type.railway.station.subway.boston">Stacja metra</string>
+    <string name="type.railway.subway_entrance.boston">Wejście do metra</string>
+    <string name="type.railway.subway_entrance.qingdao">Wejście do metra</string>
+    <string name="type.shop.tool_hire">Wypożyczalnia narzędzi</string>
 </resources>

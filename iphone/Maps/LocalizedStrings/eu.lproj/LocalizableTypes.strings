@@ -1306,7 +1306,7 @@
 "type.shop.motorcycle" = "Moto denda";
 "type.shop.motorcycle_repair" = "Moto-konponketa";
 "type.shop.music" = "Disko-denda";
-"type.shop.musical_instrument" = "Musika Tresnen Denda";
+"type.shop.musical_instrument" = "Musika tresnen denda";
 "type.shop.newsagent" = "Kioskoa";
 "type.shop.optician" = "Optika";
 "type.shop.outdoor" = "Ekipamendua";
@@ -1332,7 +1332,7 @@
 "type.shop.toys" = "Jostailu denda";
 "type.shop.travel_agency" = "Bidai agentzia";
 "type.shop.tyres" = "Pneumatikoen denda";
-"type.shop.variety_store" = "Barietate Denda";
+"type.shop.variety_store" = "Bazarra (askotariko denda)";
 "type.shop.video" = "Bideo-denda";
 "type.shop.video_games" = "Bideo-jokoen denda";
 "type.shop.wine" = "Ardotegia";
@@ -1547,3 +1547,10 @@
 "type.amenity.parking.customers" = "Customer Parking";
 "type.barrier.bus_trap" = "Bus Trap";
 "type.barrier.sump_buster" = "Sump Buster";
+"type.second_hand.no" = "No second-hand options";
+"type.second_hand.yes" = "Second-hand options";
+"type.second_hand.only" = "Second-hand only";
+"type.shop.games" = "Game Shop";
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.shop.swimming_pool" = "Swimming Pool Shop";
+"type.amenity.music_venue" = "Music Venue";

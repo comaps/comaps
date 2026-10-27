@@ -1550,4 +1550,11 @@
     <string name="type.barrier.bus_trap">Fosse anti-voiture</string>
     <string name="type.barrier.sump_buster">Plot filtrant</string>
     <string name="type.shop.tool_hire">Location d\'outils</string>
+    <string name="type.amenity.fast_food.cafeteria">Cafétéria</string>
+    <string name="type.second_hand.only">Uniquement d\'occasion</string>
+    <string name="type.second_hand.yes">Options d\'occasion</string>
+    <string name="type.second_hand.no">Pas d\'options d\'occasion</string>
+    <string name="type.shop.games">Boutique de jeux</string>
+    <string name="type.shop.swimming_pool">Magasin de matériel de piscine</string>
+    <string name="type.amenity.music_venue">Salle de concert</string>
 </resources>

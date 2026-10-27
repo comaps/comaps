@@ -80,10 +80,66 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
+			<key>zero</key>
+			<string>%lld værelser</string>
 			<key>one</key>
 			<string>%lld værelse</string>
 			<key>other</key>
 			<string>%lld værelser</string>
+		</dict>
+	</dict>
+	<key>capacity_disabled</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Ingen reserverede parkeringspladser til handicappede</string>
+			<key>one</key>
+			<string>%lld reserveret parkeringsplads for handicappede</string>
+			<key>other</key>
+			<string>%lld reserverede parkeringspladser til handicappede</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Ingen pladser med ladere</string>
+			<key>one</key>
+			<string>%lld plads med lader</string>
+			<key>other</key>
+			<string>%lld pladser med ladere</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld pladser</string>
+			<key>one</key>
+			<string>%lld plads</string>
+			<key>other</key>
+			<string>%lld pladser</string>
 		</dict>
 	</dict>
 </dict>

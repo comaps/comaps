@@ -99,7 +99,7 @@
 "type.amenity.library" = "Biblioteca";
 "type.amenity.loading_dock" = "Moll de càrrega";
 "type.amenity.lounger" = "Hamaca";
-"type.amenity.luggage_locker" = "Taquilla d'equipatge";
+"type.amenity.luggage_locker" = "Armariet d'equipatge";
 "type.amenity.marketplace" = "Mercat";
 "type.amenity.mobile_money_agent" = "Agència d'efectiu mòbil";
 "type.amenity.motorcycle_parking" = "Aparcament de motocicletes";
@@ -180,7 +180,7 @@
 "type.amenity.public_bath" = "Bany públic";
 "type.amenity.shower" = "Dutxa";
 "type.amenity.stripclub" = "Club de striptease";
-"type.amenity.taxi" = "Desocupada de taxis";
+"type.amenity.taxi" = "Parada de taxis";
 "type.amenity.telephone" = "Telèfon";
 "type.amenity.theatre" = "Teatre";
 "type.amenity.toilets" = "Lavabos";
@@ -1319,7 +1319,7 @@
 "type.shop.photo" = "Botiga d'articles de fotografia";
 "type.shop.rental" = "Botiga de lloguer";
 "type.shop.rental.bicycle" = "Botiga de lloguer de bicicletes";
-"type.shop.seafood" = "Pescateria";
+"type.shop.seafood" = "Peixateria";
 "type.shop.second_hand" = "Botiga de segona mà";
 "type.shop.shoes" = "Botiga de sabates";
 "type.shop.sports" = "Botiga esportiva";
@@ -1526,7 +1526,7 @@
 "type.leisure.sports_centre.sport.four_square" = "Sports Centre";
 "type.sport.four_square" = "Four Square";
 "type.sport.boules" = "Esport de boles";
-"type.leisure.sports_centre.sport.boules" = "Sports Centre";
+"type.leisure.sports_centre.sport.boules" = "Centre d'esports";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Centre esportiu";
 "type.organic.no" = "Sense opcions orgàniques";
@@ -1546,3 +1546,10 @@
 "type.amenity.parking.customers" = "Aparcament per a clients";
 "type.barrier.bus_trap" = "Trampa d'autobusos";
 "type.barrier.sump_buster" = "Sump Buster";
+"type.second_hand.no" = "No second-hand options";
+"type.second_hand.yes" = "Second-hand options";
+"type.second_hand.only" = "Second-hand only";
+"type.shop.games" = "Game Shop";
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.shop.swimming_pool" = "Swimming Pool Shop";
+"type.amenity.music_venue" = "Music Venue";

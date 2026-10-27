@@ -195,7 +195,7 @@
 "type.amenity.vending_machine.food" = "Etenswarenautomaat";
 "type.amenity.vending_machine.newspapers" = "Krantenautomaat";
 "type.amenity.vending_machine.parking_tickets" = "Parkeerautomaat";
-"type.amenity.vending_machine.public_transport_tickets" = "Kaartjesautomaat voor openbaar vervoer";
+"type.amenity.vending_machine.public_transport_tickets" = "OV-kaartautomaat";
 "type.amenity.vending_machine.sweets" = "Snoepautomaat";
 "type.amenity.vending_machine.excrement_bags" = "Hondenpoepzakjesdispenser";
 "type.amenity.parcel_locker" = "Pakketjeskluis";
@@ -898,11 +898,11 @@
 "type.place.country" = "Land";
 "type.place.county" = "Graafschap";
 "type.place.farm" = "Boerderij";
-"type.place.hamlet" = "Gehucht";
+"type.place.hamlet" = "Gehucht/buurtschap";
 "type.place.island" = "Eiland";
 "type.place.islet" = "Eilandje";
-"type.place.isolated_dwelling" = "Geïsoleerde woning";
-"type.place.locality" = "Plaats";
+"type.place.isolated_dwelling" = "Afgelegen woning(en)";
+"type.place.locality" = "Plek";
 /* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
 "type.place.quarter" = "Wijk";
 /* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
@@ -915,7 +915,7 @@
 "type.place.state.USA" = "Staat";
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Buitenwijk";
-"type.place.town" = "Stad";
+"type.place.town" = "Plaats";
 "type.place.village" = "Dorp";
 "type.power" = "Elektriciteit";
 "type.power.generator" = "Generator";
@@ -1252,7 +1252,7 @@
 "type.shop.bicycle" = "Fietsenwinkel";
 "type.shop.bookmaker" = "Wedkantoor";
 "type.shop.books" = "Boekwinkel";
-"type.shop.butcher" = "Slager";
+"type.shop.butcher" = "Slagerij";
 "type.shop.cannabis" = "Coffeeshop";
 "type.shop.car" = "Autodealer";
 "type.shop.car_parts" = "Auto-onderdelenwinkel";
@@ -1299,7 +1299,7 @@
 "type.shop.kitchen" = "Keukenwinkel";
 "type.shop.laundry" = "Wasserette";
 "type.shop.mall" = "Winkelcentrum";
-"type.shop.beauty.day_spa" = "Schoonheidssalon";
+"type.shop.beauty.day_spa" = "Dagspa";
 "type.shop.massage" = "Massagesalon";
 "type.shop.mobile_phone" = "Mobiele-telefoonwinkel";
 "type.shop.money_lender" = "Geldschieter";
@@ -1547,3 +1547,10 @@
 "type.amenity.parking.customers" = "Parkeerplaats voor klanten";
 "type.barrier.bus_trap" = "Bussluis";
 "type.barrier.sump_buster" = "Carterbreker";
+"type.second_hand.no" = "Geen tweedehands";
+"type.second_hand.yes" = "Tweedehands verkrijgbaar";
+"type.second_hand.only" = "Alleen tweedehands";
+"type.shop.games" = "Spellenwinkel";
+"type.amenity.fast_food.cafeteria" = "Kantine";
+"type.shop.swimming_pool" = "Zwembadwinkel";
+"type.amenity.music_venue" = "Muziekpodium";

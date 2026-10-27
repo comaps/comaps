@@ -479,7 +479,7 @@
     <string name="editor_operator">Operadorea</string>
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operadorea: %s</string>
-    <string name="editor_category_unsuitable_title">Ezin duzu kategoria egokirik aurkitu?</string>
+    <string name="editor_category_unsuitable_title">Ez duzu kategoria egokirik aurkitu?</string>
     <string name="editor_category_unsuitable_text">CoMaps-ek puntu kategoria soilak gehitzeko aukera ematen du, hau da, ez da herririk, errepiderik, lakurik, eraikinen eskemarik, etab. Gehitu kategoria horiek zuzenean <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Begiratu gure <a href="https://www.comaps.app/support/advanced-map-editing/">gida</a> urratsez urrats argibide zehatzak lortzeko.</string>
     <string name="downloader_no_downloaded_maps_title">Ez duzu maparik deskargatu</string>
     <string name="downloader_no_downloaded_maps_message">Deskargatu mapak kokapena aurkitzeko eta lineaz kanpo nabigatzeko</string>

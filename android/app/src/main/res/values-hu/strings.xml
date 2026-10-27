@@ -503,13 +503,13 @@
     <string name="accept">Elfogadás</string>
     <!-- For the first routing -->
     <string name="decline">Elutasítás</string>
-    <string name="mobile_data_dialog">Mobiladat-forgalom használata a részletes információk megjelenítéséhez?</string>
+    <string name="mobile_data_dialog">Mobiladat-forgalom használata?</string>
     <string name="mobile_data_option_always">Mindig használja</string>
     <string name="mobile_data_option_today">Csak ma</string>
     <string name="mobile_data_option_not_today">Ma ne használja</string>
     <string name="mobile_data">Mobiladat-forgalom</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">A térképfrissítési értesítésekhez és a szerkesztések feltöltéséhez internetkapcsolatra van szükség</string>
+    <string name="mobile_data_description">A térképfrissítési értesítésekhez, a szerkesztések feltöltéséhez, és a véleménynyilvánító weboldalakra való átirányításhoz internetkapcsolatra van szükség</string>
     <string name="mobile_data_option_never">Soha ne használja</string>
     <string name="mobile_data_option_ask">Mindig kérdezzen rá</string>
     <string name="traffic_update_maps_text">A forgalmi adatok megjelenítéséhez frissíteni kell a térképeket</string>
@@ -874,7 +874,7 @@
     <string name="error_invalid_number">Érvénytelen szám</string>
     <string name="offline_explanation_title">Offline térképek</string>
     <string name="offline_explanation_text">A terület megtekintéséhez és az azon való navigálásához egy térképet kell letölteni.\nTöltsön le térképeket azokra a területekre, ahová utazni szeretne.</string>
-    <string name="prefs_group_route_summary">Hangutasítások, útvonaltervezési beállítások</string>
+    <string name="prefs_group_route_summary">Mértékegységek, hangutasítások, útvonaltervezési beállítások</string>
     <string name="tts_toggle_enable">Hangutasítások engedélyezése</string>
     <string name="tts_toggle_disable">Hangutasítások letiltása</string>
     <string name="enable_long_tap_fullscreen">Érintse meg hosszan a felület elrejtéséhez</string>
@@ -905,9 +905,9 @@
     <string name="place_page_app_too_old_description">A jelenlegi térkép nagyon régi, frissítse a CoMaps alkalmazást.</string>
     <string name="place_page_update_too_old_map">Térképterület frissítése</string>
     <string name="place_page_too_old_to_edit">Az OpenStreetMap szerkesztése le van tiltva, mert a térképadatok túl régiek.</string>
-    <string name="prefs_group_privacy_summary">Google Play szolgáltatások, keresési előzmények</string>
+    <string name="prefs_group_privacy_summary">Keresési előzmények</string>
     <string name="power_management">Energiagazdálkodás</string>
-    <string name="prefs_group_power_summary">Térképstílus, képernyő időtúllépése</string>
+    <string name="prefs_group_power_summary">Képernyő időtúllépése, mobiladat-forgalom</string>
     <string name="population">Népesség: %s</string>
     <string name="sort_categories">Kedvenclisták rendezése</string>
     <string name="setting_value_system_default">Rendszer alapértelmezése</string>
@@ -960,4 +960,32 @@
     <string name="capacity_charging_no">Nincs hely töltővel</string>
     <string name="permission_read_navigation_label">CoMaps navigáció adatok olvasása</string>
     <string name="permission_read_navigation_description">élő navigációs információk felolvasása, mint a következő kanyarok, vagy a jelenleg használt út neve</string>
+    <string name="pref_about_summary">Hibák jelentése, segítség kérése, adományozás\nVerzió: v%1$s</string>
+    <string name="prefs_group_map_appearance">Térkép megjelenése</string>
+    <string name="prefs_group_map_appearance_summary">Térkép nyelve, szöveg mérete, 2D/3D-s épületek</string>
+    <string name="prefs_group_interface">Alkalmazás megjelenése</string>
+    <string name="prefs_group_interface_summary">Éjszakai mód, gombok, nyelv</string>
+    <string name="prefs_group_data_management">Adatok kezelése</string>
+    <string name="prefs_group_data_management_summary">Térkép mentési helye, kedvencek biztonsági mentése</string>
+    <string name="prefs_group_advanced_summary">Naplózás engedélyezése</string>
+    <string name="pref_font_size">Betűméret a térképen</string>
+    <string name="decrease_font_size">Betűméret csökkentése a térképen</string>
+    <string name="planning_route_preview">Előnézet</string>
+    <string name="bookmarks_text_placement_title">Kedvencek neveinek megjelenítése a térképen</string>
+    <string name="search_in_all_lists">Keresés minden listában</string>
+    <string name="pref_enable_auto_reroute_title">Automatikus újratervezés</string>
+    <string name="pref_enable_auto_reroute_description">Ha be van kapcsolva, az útvonal automatikusan újra lesz tervezve ha letér az eredeti útvonalról.</string>
+    <string name="recalculate_route">Az útvonal újraszámítása</string>
+    <string name="off_route">Letért az útvonalról</string>
+    <string name="rating_stars_description">csillagok: %.1f</string>
+    <string name="reviews_by_mangrove">Vélemények Mangrove-ról</string>
+    <string name="add_review">Vélemény hozzáadása %1$s használatával</string>
+    <string name="add_review_url_resolution_failed">Ez a hely nem található meg a legfrissebb OpenStreetMap adatok között.</string>
+    <string name="add_review_url_resolution_failed_dev">Ez a hely nem található meg a DEV OpenStreetMap adatok között.</string>
+    <string name="internet_unavailable">Nincs internetkapcsolat</string>
+    <string name="stars_1">1 csillagos</string>
+    <string name="stars_2">2 csillagos</string>
+    <string name="stars_3">3 csillagos</string>
+    <string name="stars_4">4 csillagos</string>
+    <string name="stars_5">5 csillagos</string>
 </resources>

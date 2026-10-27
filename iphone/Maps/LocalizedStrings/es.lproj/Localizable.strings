@@ -902,8 +902,8 @@
 "custom_map_server_error_scheme" = "El URL debe comenzar con http:// or https://";
 "stars_4" = "4-estrellas";
 "stars_2" = "2-estrellas";
-"custom_map_server_map_series" = "This version of CoMaps is using map series %@.";
-"not_set" = "Not set";
+"custom_map_server_map_series" = "Esta versión de CoMaps emplea mapas de %@";
+"not_set" = "No establecido";
 "custom_map_server" = "Servidor de mapas personalizado";
 "stars_3" = "3-estrellas";
 "stars_1" = "1-estrella";

@@ -38,13 +38,13 @@
     <!-- Text in About screen -->
     <string name="about_headline">Open project gedreven door de community</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_1">• Gebruiksvriendelijk en afgewerkt</string>
+    <string name="about_proposition_1">• Gebruiksvriendelijk en elegant</string>
     <!-- Text in About screen -->
     <string name="about_proposition_2">• Privacygericht en reclamevrij</string>
     <!-- Text in About screen -->
     <string name="about_proposition_3">• Offline, snel en compact</string>
     <!-- Text in About screen -->
-    <string name="about_developed_by_enthusiasts">Volledig open source, non-profit, met transparante besluitvorming en financiën.</string>
+    <string name="about_developed_by_enthusiasts">Volledig open source en non-profit, met transparante besluitvorming en financiën.</string>
     <!-- The button that opens system location settings -->
     <string name="location_settings">Locatie-instellingen</string>
     <string name="close">Sluiten</string>
@@ -64,7 +64,7 @@
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
     <string name="continue_button">Doorgaan</string>
     <!-- Show popup notification on top of the map when country download has failed. -->
-    <string name="download_country_failed">%s download is mislukt</string>
+    <string name="download_country_failed">Downloaden van %s mislukt</string>
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Nieuwe lijst toevoegen</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
@@ -105,7 +105,7 @@
     <!-- Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! -->
     <string name="category_food">Boodschappen</string>
     <!-- Search category for public transport; any changes should be duplicated in categories.txt @category_transport! -->
-    <string name="category_transport">Transport</string>
+    <string name="category_transport">Vervoer</string>
     <!-- Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! -->
     <string name="category_fuel">Tankstation</string>
     <!-- Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! -->
@@ -115,7 +115,7 @@
     <!-- Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! -->
     <string name="category_secondhand">Tweedehands</string>
     <!-- Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! -->
-    <string name="category_hotel">Hotel</string>
+    <string name="category_hotel">Accomodaties</string>
     <!-- Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! -->
     <string name="category_tourism">Bezienswaardigheden</string>
     <!-- Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! -->
@@ -292,7 +292,7 @@
     <!-- Text for routing error dialog -->
     <string name="routing_not_enough_space">Niet genoeg opslagruimte</string>
     <!-- location service disabled -->
-    <string name="enable_location_services">Locatiediensten inschakelen</string>
+    <string name="enable_location_services">Schakel locatiediensten in</string>
     <string name="save">Opslaan</string>
     <string name="create">Aanmaken</string>
     <!-- red color -->
@@ -318,7 +318,7 @@
     <!-- cyan color -->
     <string name="cyan">Cyaan</string>
     <!-- teal color -->
-    <string name="teal">Blauwgroen</string>
+    <string name="teal">Groenblauw</string>
     <!-- lime color -->
     <string name="lime">Limoengroen</string>
     <!-- deep orange color -->
@@ -342,10 +342,10 @@
     <string name="dialog_routing_unable_locate_route">Route kan niet worden gevonden</string>
     <string name="dialog_routing_cant_build_route">Route samenstellen mislukt</string>
     <string name="dialog_routing_change_start_or_end">Pas het vertrekpunt of de bestemming aan.</string>
-    <string name="dialog_routing_change_start">Startpunt aanpassen</string>
+    <string name="dialog_routing_change_start">Pas startpunt aan</string>
     <string name="dialog_routing_start_not_determined">Route samenstellen mislukt. Startpunt kan niet worden gevonden.</string>
     <string name="dialog_routing_select_closer_start">Kies een startpunt dat dichter bij een weg ligt.</string>
-    <string name="dialog_routing_change_end">Bestemming aanpassen</string>
+    <string name="dialog_routing_change_end">Pas bestemming aan</string>
     <string name="dialog_routing_end_not_determined">Route samenstellen mislukt. Bestemming kan niet worden gevonden.</string>
     <string name="dialog_routing_select_closer_end">Kies een bestemming die dichter bij een weg ligt</string>
     <string name="dialog_routing_change_intermediate">Kan de tussenstop niet vinden</string>
@@ -759,7 +759,7 @@
     <!-- The text in the activity for location permission request. -->
     <string name="aa_request_permission_activity_text">CoMaps in Android Auto heeft locatietoestemming nodig om effectief te werken</string>
     <!-- Grant Permissions button. -->
-    <string name="aa_grant_permissions">Geef toestemming</string>
+    <string name="aa_grant_permissions">Toestemming geven</string>
     <!-- Outdoors/hiking map style (activity) name in the Styles and Layers dialog -->
     <string name="button_layer_outdoor">Wandelen</string>
     <!-- Text displayed when a webview or a browser are disabled, and external links can't be opened. -->
@@ -798,7 +798,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Opname voortzetten</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Opslaan naar Favorieten?</string>
+    <string name="track_recording_alert_title">Opslaan in Favorieten?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Geen route - niets op te slaan</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -837,7 +837,7 @@
     <string name="pref_backup_title">Back-ups maken van Favorieten</string>
     <string name="pref_backup_summary">Automatisch back-ups maken naar een map op je apparaat</string>
     <string name="pref_backup_now_title">Nu back-up maken</string>
-    <string name="pref_backup_now_summary">Onmiddellijk een back-up maken</string>
+    <string name="pref_backup_now_summary">Direct een back-up maken</string>
     <string name="pref_backup_now_summary_progress">Bezig met back-up maken…</string>
     <string name="pref_backup_now_summary_ok">Back-up voltooid</string>
     <string name="pref_backup_now_summary_empty_lists">Geen Favorieten voor een back-up</string>
@@ -855,7 +855,7 @@
     <string name="open_now">Nu open</string>
     <string name="closed_now">Nu gesloten</string>
     <string name="at">om %s</string>
-    <string name="dialog_report_error_with_logs">Stuur ons een foutrapport:\n - stel \"Logboekregistratie inschakelen\" in bij de Instellingen\n - reproduceer het probleem\n - druk in het scherm \"Over &amp; Hulp\" op de knop \"Meld een fout\" en verzend via e-mail of chat\n - logboek uitschakelen</string>
+    <string name="dialog_report_error_with_logs">Stuur ons een foutrapport:\n - Ga naar Instellingen en kies vervolgens Geavanceerd\n - \"Logboekregistratie inschakelen\" \n - reproduceer het probleem\n - druk in het scherm \"Over &amp; Hulp\" op de knop \"Meld een fout\" en verzend via e-mail of chat\n - logboek uitschakelen</string>
     <string name="osm_note_toast">Opmerking wordt verzonden naar OpenStreetMap</string>
     <string name="osm_note_hint">Of laat een opmerking achter voor de OpenStreetMap-gemeenschap, zodat iemand anders hier een plaats kan toevoegen of verbeteren.</string>
     <string name="share_track">Route delen</string>
@@ -893,8 +893,8 @@
     <string name="opens_at">Opent om %s</string>
     <string name="closes_at">Sluit om %s</string>
     <string name="opens_tomorrow_at">Opent morgen om %s</string>
-    <string name="opens_day_at">Opent op %1$s om %2$s</string>
-    <string name="closes_day_at">Sluit op %1$s om %2$s</string>
+    <string name="opens_day_at">Opent %1$s om %2$s</string>
+    <string name="closes_day_at">Sluit %1$s om %2$s</string>
     <string name="editor_submit">Indienen</string>
     <string name="editor_business_vacant_button">Bedrijfsruimte is leeg</string>
     <string name="editor_mark_business_vacant_title">Bedrijfsruimte als leeg markeren</string>
@@ -962,10 +962,10 @@
     <string name="capacity_charging">Plaatsen met laders: %s</string>
     <string name="capacity_charging_yes">Heeft plaatsen met laders</string>
     <string name="capacity_charging_no">Geen plaatsen met laders</string>
-    <string name="prefs_group_route_summary">Eenheden, gesproken aanwijzingen, route-opties</string>
+    <string name="prefs_group_route_summary">Eenheden, gesproken aanwijzingen, route-instellingen</string>
     <string name="prefs_group_privacy_summary">Zoekgeschiedenis</string>
     <string name="prefs_group_power_summary">Scherm-time-out, mobiele gegevens</string>
-    <string name="permission_read_navigation_label">CoMaps navigatiegegevens lezen</string>
+    <string name="permission_read_navigation_label">CoMaps-navigatiegegevens lezen</string>
     <string name="permission_read_navigation_description">lees live navigatie-informatie, zoals aankomende bochten of de naam van de weg waarop je je bevindt</string>
     <string name="prefs_group_map_appearance">Kaartuiterlijk</string>
     <string name="prefs_group_map_appearance_summary">Kaarttaal, labelgrootte, 2D/3D-gebouwen</string>
@@ -975,7 +975,7 @@
     <string name="prefs_group_data_management">Gegevensbeheer</string>
     <string name="prefs_group_advanced_summary">Logboekregistratie inschakelen</string>
     <string name="recalculate_route">Herberekenen</string>
-    <string name="pref_about_summary">Meld problemen, krijg hulp, doneer\nVersie: v%1$s</string>
+    <string name="pref_about_summary">Meld problemen, ondersteuning, doneer\nVersie: v%1$s</string>
     <string name="prefs_group_interface_summary">Nachtmodus, knoppen, taal</string>
     <string name="prefs_group_data_management_summary">Kaartopslag, back-ups maken van favorieten</string>
     <string name="pref_enable_auto_reroute_title">Route automatisch herberekenen</string>

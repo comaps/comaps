@@ -917,7 +917,7 @@
     <string name="change_app_locale">Appens språk</string>
     <string name="pref_backup_status_summary_success">Senaste lyckade säkerhetskopieringen</string>
     <string name="pref_backup_history_title">Antal säkerhetskopior att spara</string>
-    <string name="dialog_report_error_with_logs">Skicka oss en felrapport:\n - \"Aktivera loggning\" i inställningarna\n - återskapa problemet\n - Öppna skärmen ”Om och Hjälp”, tryck på ”Rapportera en bugg” och skicka rapporten via e-post eller chatt.\n - inaktivera loggning</string>
+    <string name="dialog_report_error_with_logs">Skicka oss en felrapport:\n - \"Aktivera loggning\" i inställningarna\n - återskapa problemet\n - Öppna skärmen ”Om och Hjälp”, tryck på ”Rapportera en bugg” och skicka rapporten via e-post eller chatt.\n - inaktivera loggning</string>
     <string name="destination">Destination</string>
     <string name="pref_tts_no_system_tts_short">Ingen text till tal-motor hittades. Kontrollera appinställningarna</string>
     <string name="navigation_start_tts_message">"Börjar navigering, röstanvisningsspråk: "</string>

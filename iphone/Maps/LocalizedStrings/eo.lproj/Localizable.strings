@@ -8,7 +8,7 @@
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "Elŝutado…";
 /* Title of offline maps explanation */
-"offline_explanation_title" = "Eksterretaj Mapoj";
+"offline_explanation_title" = "Eksterretaj mapoj";
 /* Text of offline maps explanation */
 "offline_explanation_text" = "Vi devas elŝuti mapon por vidi kaj navigi la lokon.\nElŝutu mapojn de lokoj vi volas vojaĝi.";
 /* Choose measurement on first launch alert - choose metric system button */
@@ -42,7 +42,7 @@
 "close" = "Fermi";
 "download" = "Elŝuti";
 /* REMOVE THIS STRING AFTER REFACTORING */
-"continue_button" = "Daŭri";
+"continue_button" = "Daŭrigi";
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "Aldoni nova listo";
 /* Add Bookmark list dialog - hint when the list name is empty */
@@ -60,13 +60,13 @@
 /* Settings button in system menu */
 "settings" = "Agordoj";
 /* Measurement units title in settings activity */
-"measurement_units" = "Mezurunuo";
+"measurement_units" = "Mezurunuoj";
 /* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
 "category_eat" = "Kie por manĝi";
 /* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
 "category_food" = "Manĝvendejoj";
 /* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
-"category_transport" = "Transito";
+"category_transport" = "Transporto";
 /* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
 "category_fuel" = "Benzinejoj";
 /* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
@@ -74,15 +74,15 @@
 /* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
 "category_shopping" = "Vendejoj";
 /* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
-"category_secondhand" = "Revendejoj";
+"category_secondhand" = "Brokantvendejoj";
 /* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
 "category_hotel" = "Hoteloj";
 /* Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! */
-"category_tourism" = "Turistaj allogaĵoj";
+"category_tourism" = "Vidindaĵoj";
 /* Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! */
 "category_entertainment" = "Amuzejoj";
 /* Search category for ATMs; any changes should be duplicated in categories.txt @category_atm! */
-"category_atm" = "Monaŭtomatoj";
+"category_atm" = "Bankaŭtomatoj";
 /* Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! */
 "category_nightlife" = "Noktokluboj";
 /* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! */
@@ -94,7 +94,7 @@
 /* Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital! */
 "category_hospital" = "Malsanulejoj";
 /* Search category for toilets; any changes should be duplicated in categories.txt @category_toilet! */
-"category_toilet" = "Necesejoj";
+"category_toilet" = "Tualetoj";
 /* Search category for post offices; any changes should be duplicated in categories.txt @category_post! */
 "category_post" = "Poŝtejoj";
 /* Search category for police; any changes should be duplicated in categories.txt @category_police! */
@@ -109,7 +109,7 @@
 "category_rv" = "Lokoj por loĝaŭtoj";
 "share_bookmarks_email_body" = "Hello!\n\nAttached are my saved places; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
 /* message title of loading file */
-"load_kmz_title" = "Ŝargado de favoratoj";
+"load_kmz_title" = "Ŝargante favoratojn";
 /* Kmz file successful loading */
 "load_kmz_successful" = "Ŝargado de favoratoj sukcesis! Vi povas trovi ilin sur la mapo aŭ en la fenestro de favoratoj.";
 /* Kml file loading failed */
@@ -131,7 +131,7 @@
 /* place preview title */
 "info" = "Info";
 /* Used for bookmark editing */
-"done" = "Finita";
+"done" = "Farite";
 /* Prints version number in About dialog */
 "version" = "CoMaps version: %@";
 "version %@ (%@)" = "Version %@ (%@)";
@@ -146,7 +146,7 @@
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Map Language";
 /* Settings «Map» category: «Map Language» local value */
-"pref_maplanguage_local" = "Local Language";
+"pref_maplanguage_local" = "Loka lingvo";
 /* Settings «Map» category: «Map Appearance» title */
 "pref_mapappearance_title" = "Map Appearance";
 /* Settings «Map» category: «Appearance» title */
@@ -176,18 +176,18 @@
 /* Settings «Route» category: «Tts announce street names» description */
 "pref_tts_street_names_description" = "When enabled, the name of the street or exit to turn onto will be spoken aloud.";
 /* Settings «Route» category: «Tts language» title */
-"pref_tts_language_title" = "Voice Language";
+"pref_tts_language_title" = "Voĉa lingvo";
 /* Settings «Route» category: «Test Voice Directions» title */
-"pref_tts_test_voice_title" = "Test Voice Directions";
+"pref_tts_test_voice_title" = "Testi voĉaj instrukcioj";
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "Other";
 "pref_map_auto_zoom" = "Auto zoom";
-"placepage_distance" = "Distance";
-"search_show_on_map" = "View on map";
+"placepage_distance" = "Distanco";
+"search_show_on_map" = "Montri sur la mapo";
 /* Text in menu */
-"website" = "Website";
+"website" = "Retejo";
 /* Text in About menu, opens CoMaps news website */
-"news" = "News";
+"news" = "Novaĵoj";
 /* Text in the about screen */
 "social_codeberg" = "Codeberg";
 "social_mastodon" = "Mastodon";
@@ -215,17 +215,17 @@
 /* Text in menu */
 "panoramax_picture" = "Panoramax Picture";
 /* Text in menu */
-"rate_the_app" = "Rate the app";
+"rate_the_app" = "Taksu la apon";
 /* Text in menu */
-"help" = "Help";
+"help" = "Helpo";
 /* Button in the main Help dialog */
-"faq" = "Frequently Asked Questions";
+"faq" = "Oftaj demandoj";
 /* Button in the main menu */
-"donate" = "Donate";
+"donate" = "Donaci";
 /* Button in the main Help dialog */
-"copyright" = "Copyright";
+"copyright" = "Kopirajto";
 /* Text in menu + Button in the main Help dialog */
-"report_a_bug" = "Report a bug";
+"report_a_bug" = "Raporti cimon";
 /* Button in the About screen */
 "report_incorrect_map_bug" = "Report or fix incorrect map data";
 /* Button in the About screen */
@@ -239,18 +239,18 @@
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Long-tap on the map again to see the interface";
 /* Update all button text */
-"downloader_update_all_button" = "Update All";
+"downloader_update_all_button" = "Ĝisdatigi ĉion";
 /* Downloaded maps list header */
-"downloader_downloaded_subtitle" = "Downloaded";
+"downloader_downloaded_subtitle" = "Elŝutitaj";
 /* Downloaded maps category */
 "downloader_available_maps" = "Available";
 /* Country queued for download */
 "downloader_queued" = "Queued";
-"downloader_near_me_subtitle" = "Near me";
+"downloader_near_me_subtitle" = "Proksime de mi";
 /* In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" */
-"downloader_status_maps" = "Maps";
-"downloader_download_all_button" = "Download All";
-"downloader_downloading" = "Downloading:";
+"downloader_status_maps" = "Mapoj";
+"downloader_download_all_button" = "Elŝuti ĉion";
+"downloader_downloading" = "Elŝutante:";
 "downloader_search_results" = "Found";
 /* Status of outdated country in the list */
 "downloader_status_outdated" = "Update";
@@ -261,60 +261,60 @@
 /* PointsInDifferentMWM */
 "routing_failed_cross_mwm_building" = "Routes can only be created that are fully contained within a map of a single region.";
 /* Context menu item for downloader. */
-"downloader_download_map" = "Download map";
+"downloader_download_map" = "Elŝuti mapon";
 /* Item status in downloader. */
-"downloader_retry" = "Retry";
+"downloader_retry" = "Reprovi";
 /* Item in context menu. */
-"downloader_delete_map" = "Delete Map";
+"downloader_delete_map" = "Forigi mapon";
 /* Text for routing error dialog */
 "routing_download_maps_along" = "Elŝutu ĉiujn mapojn laŭlonge de via itinero";
 /* Text for routing error dialog */
 "routing_requires_all_map" = "In order to create a route, we need to download and update all the maps from your location to your destination.";
 /* bookmark button text */
 "bookmark" = "place";
-"save" = "Save";
+"save" = "Konservi";
 "create" = "create";
 /* red color */
-"red" = "Red";
+"red" = "Ruĝa";
 /* yellow color */
-"yellow" = "Yellow";
+"yellow" = "Flava";
 /* blue color */
-"blue" = "Blue";
+"blue" = "Blua";
 /* green color */
-"green" = "Green";
+"green" = "Verda";
 /* purple color */
-"purple" = "Purple";
+"purple" = "Viola";
 /* orange color */
-"orange" = "Orange";
+"orange" = "Oranĝa";
 /* brown color */
-"brown" = "Brown";
+"brown" = "Bruna";
 /* pink color */
-"pink" = "Pink";
+"pink" = "Roza";
 /* deep purple color */
-"deep_purple" = "Deep Purple";
+"deep_purple" = "Malhelviola";
 /* light blue color */
-"light_blue" = "Light Blue";
+"light_blue" = "Helblua";
 /* cyan color */
-"cyan" = "Cyan";
+"cyan" = "Cejana";
 /* teal color */
-"teal" = "Teal";
+"teal" = "Verdblua";
 /* lime color */
-"lime" = "Lime-koloro";
+"lime" = "Limea";
 /* deep orange color */
-"deep_orange" = "Malluma oranĝkoloro";
+"deep_orange" = "Malheloranĝa";
 /* gray color */
-"gray" = "Grizo";
+"gray" = "Griza";
 /* blue gray color */
-"blue_gray" = "Blua grizo";
+"blue_gray" = "Blugriza";
 "dialog_routing_disclaimer_title" = "When following the route, please keep in mind:";
 "dialog_routing_disclaimer_priority" = "— Road conditions, traffic laws, and road signs always take priority over navigation hints;";
 "dialog_routing_disclaimer_precision" = "— The map might be inaccurate, and the suggested route might not always be the most optimal way to reach the destination;";
 "dialog_routing_disclaimer_recommendations" = "— Suggested routes should only be understood as recommendations;";
 "dialog_routing_disclaimer_borders" = "— Exercise caution with routes in border zones: the routes created by our app may sometimes cross country borders in unauthorized places.";
 "dialog_routing_disclaimer_beware" = "Please stay alert and safe on the roads!";
-"dialog_routing_check_gps" = "Check GPS signal";
+"dialog_routing_check_gps" = "Kontrolu GPS-signalon";
 "dialog_routing_error_location_not_found" = "Ne povas krei vojon. Viaj nunaj koordinatoj ne troviĝis per GPS.";
-"dialog_routing_location_turn_wifi" = "Please check your GPS signal. Enabling Wi-Fi will improve your location accuracy.";
+"dialog_routing_location_turn_wifi" = "Bonvolu kontroli vian GPS-signalon. Kun Wi-Fi ŝaltita, via loko estas pli preciza.";
 "dialog_routing_location_turn_on" = "Enable location services";
 "dialog_routing_location_unknown_turn_on" = "Ne povas trovi viajn nunajn koordinatojn per GPS. Enŝaltu poziciajn servojn por krei vojon.";
 "dialog_routing_download_files" = "Download required files";
@@ -329,56 +329,56 @@
 "dialog_routing_select_closer_end" = "Please select a destination point located closer to a road.";
 "dialog_routing_change_intermediate" = "Unable to locate the intermediate point.";
 "dialog_routing_intermediate_not_determined" = "Please adjust your intermediate point.";
-"dialog_routing_system_error" = "System error";
+"dialog_routing_system_error" = "Sistema eraro";
 "dialog_routing_application_error" = "Unable to create route due to an application error.";
 "dialog_routing_try_again" = "Please try again";
 "dialog_routing_download_and_build_cross_route" = "Would you like to download the map and create a more optimal route spanning more than one map?";
 "dialog_routing_download_cross_route" = "Download additional maps to create a better route that crosses the boundaries of this map.";
 /* «Show» context menu */
-"show" = "Show";
+"show" = "Montri";
 /* «Hide» context menu */
-"hide" = "Hide";
+"hide" = "Kaŝi";
 /* Failed planning route message in navigation view */
 "routing_planning_error" = "Route Planning Failed";
 /* Arrive routing message in navigation view */
 "routing_arrive" = "Arrival at %@";
 /* Text for routing::RouterResultCode::FileTooOld dialog. */
 "dialog_routing_download_and_update_maps" = "Download and update all map along the projected path to calculate route.";
-"categories" = "Categories";
-"history" = "History";
+"categories" = "Kategorioj";
+"history" = "Historio";
 "search_not_found" = "Oops, no results found.";
 /* The message when user did not find anything in the search. */
 "search_not_found_query" = "Download the region where you are searching or try adding a nearby town/village name.";
-"search_history_title" = "Search History";
+"search_history_title" = "Serĉhistorio";
 "search_history_text" = "View your recent searches.";
-"clear_search" = "Clear Search History";
+"clear_search" = "Forigi serĉhistorion";
 /* Place Page link to Wikipedia article (if map object has it). */
-"read_in_wikipedia" = "Wikipedia";
+"read_in_wikipedia" = "Vikipedio";
 /* Place Page link to Wikimedia Commons. */
-"wikimedia_commons" = "Wikimedia Commons";
-"p2p_your_location" = "Your Location";
+"wikimedia_commons" = "Vikimedia Komunejo";
+"p2p_your_location" = "Via loko";
 "p2p_start" = "Start";
-"p2p_from_here" = "Route from";
-"p2p_to_here" = "Route to";
+"p2p_from_here" = "Itinero de";
+"p2p_to_here" = "Itinero al";
 "p2p_only_from_current" = "Navigation is only available from your current location.";
 "p2p_reroute_from_current" = "Do you want to plan a route from your current location?";
-"editor_time_add" = "Add Schedule";
-"editor_time_delete" = "Delete Schedule";
+"editor_time_add" = "Aldoni horaron";
+"editor_time_delete" = "Forigi horaron";
 /* Text for allday switch. */
-"editor_time_allday" = "All Day (24 hours)";
-"editor_time_open" = "Open";
-"editor_time_close" = "Closed";
+"editor_time_allday" = "Tuta tago (24 horoj)";
+"editor_time_open" = "Malfermita";
+"editor_time_close" = "Fermita";
 "editor_time_add_closed" = "Add Non-Business Hours";
-"editor_time_title" = "Business Hours";
-"editor_time_advanced" = "Advanced Mode";
-"editor_time_simple" = "Simple Mode";
+"editor_time_title" = "Malfermaj horoj";
+"editor_time_advanced" = "Altnivela reĝimo";
+"editor_time_simple" = "Simpla reĝimo";
 "editor_hours_closed" = "Non-Business Hours";
 "editor_example_values" = "Example Values";
-"editor_add_select_location" = "Select Location";
+"editor_add_select_location" = "Elektu lokon";
 "editor_done_dialog_1" = "You’ve changed the world map! Don't keep it to yourself; tell your friends and edit it together.";
 "share_with_friends" = "Share with friends";
 "editor_report_problem_send_button" = "Sendi";
-"autodownload" = "Auto-download maps";
+"autodownload" = "Aŭtomate elŝuti mapojn";
 /* Voice */
 "voice" = "Voice";
 "voice_explanation" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Read & Speak*, *Voices*.";
@@ -388,12 +388,12 @@
 "existence_confirmed_time_ago" = "Existence confirmed %@";
 "hours_confirmed_time_ago" = "Confirmed %@";
 /* Place Page opening hours text */
-"closed_now" = "Closed now";
+"closed_now" = "Fermita nun";
 /* Place Page opening hours text */
-"daily" = "Daily";
+"daily" = "Ĉiutage";
 "twentyfour_seven" = "24/7";
-"day_off_today" = "Closed today";
-"day_off" = "Closed";
+"day_off_today" = "Hodiaŭ fermita";
+"day_off" = "Fermita";
 "today" = "Hodiaŭ";
 "opens_tomorrow_at" = "Opens tomorrow at %@";
 "opens_dayoftheweek_at" = "Opens %1$@ at %2$@";
@@ -401,7 +401,7 @@
 "opens_in" = "Opens in %@";
 "closes_at" = "Closes at %@";
 "closes_in" = "Closes in %@";
-"closed" = "Closed";
+"closed" = "Fermita";
 "add_opening_hours" = "Add opening hours";
 /* OpenStreetMap */
 "osm_mapdata" = "Map data from OpenStreetMap";
@@ -427,26 +427,26 @@
 /* Information text: "Last upload 11.01.2016" */
 "last_upload" = "Last upload";
 "thank_you" = "Thank You";
-"edit_place" = "Edit Place";
+"edit_place" = "Redakti lokon";
 "place_name" = "Place Name";
-"add_language" = "Add a language";
+"add_language" = "Aldoni lingvon";
 /* Editable House Number text field (in address block). */
 "house_number" = "Building number";
-"details" = "Details";
+"details" = "Detaloj";
 /* Text field to enter non-existing street name, below list of known streets around */
-"add_street" = "Add a street";
-"choose_language" = "Choose a language";
-"choose_street" = "Choose a street";
+"add_street" = "Aldoni straton";
+"choose_language" = "Elektu lingvon";
+"choose_street" = "Elektu straton";
 "postal_code" = "Poŝtkodo";
-"cuisine" = "Cuisine";
-"select_cuisine" = "Select cuisine";
+"cuisine" = "Kuirarto";
+"select_cuisine" = "Elektu kuirarto";
 /* login text field */
 "email_or_username" = "Email or username";
 "phone" = "Phone";
-"level" = "Floor";
+"level" = "Etaĝo";
 "please_note" = "Please note";
 "downloader_delete_map_dialog" = "All of your map edits will be deleted with the map.";
-"downloader_update_maps" = "Update Maps";
+"downloader_update_maps" = "Ĝisdatigi mapojn";
 "downloader_search_field_hint" = "Find map";
 "migration_download_error_dialog" = "Download error";
 "common_check_internet_connection_dialog" = "Please make sure your device is connected to the Internet.";
@@ -456,7 +456,7 @@
 "editor_focus_map_on_location" = "Drag the map to place the cross at the location of the place or business.";
 "editor_add_select_category" = "Select category";
 "editor_add_select_category_popular_subtitle" = "Popular";
-"editor_add_select_category_all_subtitle" = "All Categories";
+"editor_add_select_category_all_subtitle" = "Ĉiuj kategorioj";
 "editor_edit_place_title" = "Editing";
 "editor_add_place_title" = "Adding";
 "editor_edit_place_name_hint" = "Name of the place";
@@ -528,8 +528,8 @@
 "placepage_delete_bookmark_button" = "Delete Place";
 "editor_edits_sent_message" = "Your note will be sent to OpenStreetMap";
 "editor_comment_hint" = "Comment…";
-"editor_reset_edits_message" = "Discard all local changes?";
-"editor_reset_edits_button" = "Discard changes";
+"editor_reset_edits_message" = "Forĵeti ĉiujn lokajn ŝanĝojn?";
+"editor_reset_edits_button" = "Forĵeti ŝanĝojn";
 "editor_remove_place_message" = "Delete added place?";
 "editor_remove_place_button" = "Delete";
 "editor_place_doesnt_exist" = "Place does not exist";
@@ -574,7 +574,7 @@
 "traffic_data_unavailable" = "Traffic data is not available";
 "enable_logging" = "Aktivigi protokoladon";
 "log_file_size" = "Log file size: %@";
-"pref_alt_map_lang_handling" = "Alternative Map Languages";
+"pref_alt_map_lang_handling" = "Alternativaj maplingvoj";
 "pref_alt_map_lang_handling_ignore_alternatives" = "Ne uzi aliajn lingvojn";
 "pref_alt_map_lang_handling_system_order" = "Use in system order";
 "pref_alt_map_lang_handling_local_only" = "Preferi sisteman lingvon, kiu estas loka";
@@ -640,27 +640,27 @@
 "pref_tts_speedcams_never" = "Never warn";
 "power_managment_title" = "Energiŝpara reĝimo";
 "power_managment_description" = "Try to reduce power usage at the expense of some functionality.";
-"power_managment_setting_never" = "Never";
+"power_managment_setting_never" = "Neniam";
 "power_managment_setting_auto" = "When battery is low";
-"power_managment_setting_manual_max" = "Always";
+"power_managment_setting_manual_max" = "Ĉiam";
 "enable_logging_warning_message" = "Enable this option temporarily to record and manually send detailed diagnostic logs about your issue to us using \"Report a bug\" in the Help dialog. Logs may include location info.";
 "driving_options_title" = "Routing options";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_tolls" = "Avoid tolls";
+"avoid_tolls" = "Eviti pagvojojn";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_unpaved" = "Avoid unpaved roads";
-"avoid_paved" = "Avoid paved roads";
+"avoid_unpaved" = "Eviti nepavimitajn vojojn";
+"avoid_paved" = "Eviti pavimitajn vojojn";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_steps" = "Avoid stairs";
-"avoid_ferry" = "Avoid ferries";
-"avoid_motorways" = "Avoid freeways";
+"avoid_steps" = "Eviti ŝtuparojn";
+"avoid_ferry" = "Eviti pramojn";
+"avoid_motorways" = "Eviti aŭtovojojn";
 "unable_to_calc_alert_title" = "Unable to calculate route";
 "unable_to_calc_alert_subtitle" = "A route could not be found. This may be caused by your routing options or incomplete OpenStreetMap data. Please change your routing options and retry.";
 "define_to_avoid_btn" = "Define roads to avoid";
 "change_driving_options_btn" = "Routing options enabled";
-"toll_road" = "Toll road";
-"unpaved_road" = "Unpaved road";
-"ferry_crossing" = "Ferry crossing";
+"toll_road" = "Pagvojo";
+"unpaved_road" = "Nepavimita vojo";
+"ferry_crossing" = "Prama transiro";
 "trip_start" = "Let's go";
 "pick_destination" = "Destination";
 "follow_my_position" = "Re-center";
@@ -668,13 +668,13 @@
 "then_turn" = "Then";
 "redirect_route_alert" = "Do you want to rebuild the route?";
 /* A generic "Yes" button in dialogs */
-"yes" = "Yes";
+"yes" = "Jes";
 /* A generic "No" button in dialogs */
-"no" = "No";
+"no" = "Ne";
 /* E.g. "WiFi:Yes" */
-"yes_available" = "Yes";
+"yes_available" = "Jes";
 /* E.g. "WiFi:No" */
-"no_available" = "No";
+"no_available" = "Ne";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Network: %@";
 "trip_finished" = "You have arrived!";
@@ -695,7 +695,7 @@
 "download_map_carplay" = "Please download maps in the app on your mobile device";
 "carplay_roundabout_exit" = "%@ exit";
 /* max. 10 symbols, both iOS and Android */
-"sort" = "Sort…";
+"sort" = "Ordigi…";
 /* iOS */
 "sort_default" = "Sort by default";
 "sort_type" = "Sort by type";
@@ -706,24 +706,24 @@
 "month_ago_sorttype" = "A month ago";
 "moremonth_ago_sorttype" = "More than a month ago";
 "moreyear_ago_sorttype" = "More than a year ago";
-"near_me_sorttype" = "Near me";
+"near_me_sorttype" = "Proksime de mi";
 "others_sorttype" = "Others";
-"food_places" = "Food";
+"food_places" = "Manĝaĵo";
 "tourist_places" = "Sights";
-"museums" = "Museums";
-"parks" = "Parks";
+"museums" = "Muzeoj";
+"parks" = "Parkoj";
 "swim_places" = "Swim";
-"mountains" = "Mountains";
-"animals" = "Animals";
-"hotels" = "Hotels";
-"buildings" = "Buildings";
-"money" = "Money";
-"shops" = "Shops";
-"parkings" = "Parking";
-"fuel_places" = "Gas Stations";
+"mountains" = "Montoj";
+"animals" = "Bestoj";
+"hotels" = "Hoteloj";
+"buildings" = "Konstruaĵoj";
+"money" = "Mono";
+"shops" = "Vendejoj";
+"parkings" = "Parkejoj";
+"fuel_places" = "Benzinejoj";
 "medicine" = "Medicine";
-"search_in_the_list" = "Search in the list";
-"religious_places" = "Religious places";
+"search_in_the_list" = "Serĉi en la listo";
+"religious_places" = "Religiaj lokoj";
 "transit_not_found" = "Subway navigation in this region is not available yet";
 "dialog_pedestrian_route_is_long_header" = "No subway route found";
 "dialog_pedestrian_route_is_long_message" = "Please choose a start or end point closer to a subway station";
@@ -804,7 +804,7 @@
 /* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "Enable iCloud Synchronization";
 /* Message for the "Enable iCloud Synchronization" alert. */
-"enable_icloud_synchronization_message" = "Sinkronigo per iCloud estas nova aldonaĵo kiu ankoraŭ estas disvolvata. Kontrolu ke vi havas savkopio de via favorataj lokoj kaj trakoj.";
+"enable_icloud_synchronization_message" = "Sinkronigo per iCloud estas nova aldonaĵo kiu ankoraŭ estas disvolvata. Kontrolu ke vi havas sekurkopio de via favorataj lokoj kaj trakoj.";
 /* Title for the "iCloud Is Disabled" alert. */
 "icloud_disabled_title" = "iCloud Is Disabled";
 /* Message for the "iCloud is Disabled" alert. */
@@ -822,7 +822,7 @@
 /* iCloud error message: iCloud is not available */
 "icloud_synchronization_error_cloud_is_unavailable" = "Error: iCloud is not available";
 /* Title for the "Open in Another App" button on the PlacePage. */
-"open_in_app" = "Open in Another App";
+"open_in_app" = "Malfermi en alia aplikaĵo";
 /* To indicate if the place proposed self service... */
 "self_service" = "Self-service";
 /* To indicate if restaurant or other place has outdoor seating */
@@ -862,7 +862,7 @@
 "downloader_check_updates_eol" = "Map-aktualigaĵojn ne plu disponigas por tiu ĉi versio de la apo. Bonvolu aktualigi la apon!";
 "downloader_check_updates_error" = "Eraro okazis dum eltrovado de aktualigaĵoj";
 "editor_add_select_category_recent_subtitle" = "Recently Used";
-"oh_unknown" = "Opening hours unknown";
+"oh_unknown" = "Malfermaj horoj nekonataj";
 "carplay_highway_exit" = "Exit %@";
 "capacity_disabled_yes" = "Has dedicated disabled spaces";
 "capacity_disabled_no" = "No dedicated disabled spaces";
@@ -870,7 +870,7 @@
 "capacity_charging_no" = "No spaces with chargers";
 "planning_route_preview" = "Preview";
 "planning_route_preview_sheet_title" = "Route Preview";
-"discard" = "Discard";
+"discard" = "Forĵeti";
 "pref_custom_button_type" = "Customizable Button";
 "osm" = "OpenStreetMap";
 "mode" = "Mode";

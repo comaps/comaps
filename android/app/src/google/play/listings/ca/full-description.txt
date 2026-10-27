@@ -22,7 +22,7 @@ Uneix-te a la comunitat i ajuda a crear la millor aplicació de mapes.
 • Cerques per nom, adreça o categoria de punt d'interès
 • Navegació amb indicacions per veu mentre camines, vas amb bicicleta o condueixes
 • Adreces d'interès perquè desis els teus llocs preferits amb un toc
-• Articles de Wikipedia sense connexió
+• Articles de Viquipèdia sense connexió
 • Capa de línies de metro amb direccions
 • Enregistrament d'itineraris
 • Exportació i importació d'adreces d'interès i itineraris en els formats KML, KMZ i GPX

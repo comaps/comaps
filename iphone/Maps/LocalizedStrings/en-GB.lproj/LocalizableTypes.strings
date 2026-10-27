@@ -216,7 +216,7 @@
 "type.barrier.chain" = "Chain";
 "type.barrier.city_wall" = "City Wall";
 "type.barrier.cycle_barrier" = "Cycle Barrier";
-"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.bus_trap" = "Car Trap";
 "type.barrier.sump_buster" = "Sump Buster";
 "type.waterway.ditch" = "Drainage Ditch";
 "type.natural.water.moat" = "Moat";
@@ -1547,3 +1547,10 @@
 "type.shop.tool_hire" = "Tool Hire";
 "type.amenity.tool_library" = "Tool Library";
 "type.amenity.parking.customers" = "Customer Parking";
+"type.second_hand.no" = "No second-hand options";
+"type.second_hand.yes" = "Second-hand options";
+"type.second_hand.only" = "Second-hand only";
+"type.shop.games" = "Games Shop";
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.shop.swimming_pool" = "Swimming Pool Shop";
+"type.amenity.music_venue" = "Music Venue";

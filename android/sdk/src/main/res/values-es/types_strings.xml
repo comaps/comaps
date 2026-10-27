@@ -66,7 +66,7 @@
     <string name="type.amenity.language_school">Escuela de idiomas</string>
     <string name="type.office.diplomatic">Embajada</string>
     <string name="type.amenity.fast_food">Comida rápida</string>
-    <string name="type.amenity.ferry_terminal">Transbordador de ferry</string>
+    <string name="type.amenity.ferry_terminal">Terminal de ferri</string>
     <string name="type.amenity.fire_station">Estación de bomberos</string>
     <string name="type.amenity.food_court">Plaza de comidas</string>
     <string name="type.amenity.fountain">Fuente</string>
@@ -1104,7 +1104,7 @@
     <string name="type.railway.tram.tunnel">Túnel de línea de tranvía</string>
     <string name="type.railway.tram_stop">Parada de tranvía</string>
     <string name="type.route">Ruta</string>
-    <string name="type.route.ferry">Ferry|Transbordador|Barco de pasaje|Barco de pasajeros|Barco de línea|Barco de travesía|Transbordador de pasajeros|Lancha de pasaje|Barco de cabotaje|Transbordador de travesía</string>
+    <string name="type.route.ferry">Ferri</string>
     <string name="type.shop">Tienda</string>
     <string name="type.shop.alcohol">Licorería</string>
     <string name="type.shop.bakery">Panadería</string>
@@ -1551,4 +1551,8 @@
     <string name="type.amenity.parking.customers">Aparcamiento para clientes</string>
     <string name="type.barrier.bus_trap">Filtro de autobuses</string>
     <string name="type.barrier.sump_buster">Filtro de autobuses</string>
+    <string name="type.shop.games">Tienda de juegos</string>
+    <string name="type.second_hand.only">Únicamente segunda mano</string>
+    <string name="type.second_hand.yes">Opciones de segunda mano</string>
+    <string name="type.second_hand.no">Sin opción de segunda mano</string>
 </resources>

@@ -159,7 +159,7 @@
     <string name="type.amenity.public_bath">Bany públic</string>
     <string name="type.amenity.shower">Dutxa</string>
     <string name="type.amenity.stripclub">Club de striptease</string>
-    <string name="type.amenity.taxi">Desocupada de taxis</string>
+    <string name="type.amenity.taxi">Parada de taxis</string>
     <string name="type.amenity.telephone">Telèfon</string>
     <string name="type.amenity.theatre">Teatre</string>
     <string name="type.amenity.toilets">Lavabos</string>
@@ -982,7 +982,7 @@
     <string name="type.leisure.hackerspace">Hacklab</string>
     <string name="type.amenity.bicycle_parking.covered">Aparcament de bicicletes cobert</string>
     <string name="type.power.portal">Torre d\'alta tensió</string>
-    <string name="type.amenity.luggage_locker">Taquilla d\'equipatge</string>
+    <string name="type.amenity.luggage_locker">Armariet d\'equipatge</string>
     <string name="type.amenity.animal_shelter">Refugi d\'animals</string>
     <string name="type.barrier.swing_gate">Barrera abatible</string>
     <string name="type.craft.brewery">Cerveseria artesana</string>
@@ -1290,7 +1290,7 @@
     <string name="type.place.locality">Localitat</string>
     <string name="type.shop.garden_centre">Centre de jardineria</string>
     <string name="type.tourism.information.guidepost">Post de direccions</string>
-    <string name="type.leisure.sports_centre.sport.boules">Poliesportiu</string>
+    <string name="type.leisure.sports_centre.sport.boules">Centre d\'esports</string>
     <string name="type.leisure.sports_centre.sport.four_square">Poliesportiu</string>
     <string name="type.leisure.sports_centre.sport.pickleball">Centre esportiu</string>
     <string name="type.leisure.sports_centre.sport.table_tennis">Centre esportiu</string>
@@ -1395,7 +1395,7 @@
     <string name="type.shop.music">Botiga de discos</string>
     <string name="type.shop.newsagent">Punt de venda de periòdics</string>
     <string name="type.shop.outdoor">Botiga d\'equipament d\'oci a l\'aire lliure</string>
-    <string name="type.shop.seafood">Pescateria</string>
+    <string name="type.shop.seafood">Peixateria</string>
     <string name="type.shop.sports">Botiga esportiva</string>
     <string name="type.shop.tea">Botiga de te</string>
     <string name="type.shop.telecommunication">Botiga de telecomunicacions</string>
@@ -1457,4 +1457,5 @@
     <string name="type.amenity.tool_library">Biblioteca d\'eines</string>
     <string name="type.barrier.bus_trap">Trampa d\'autobusos</string>
     <string name="type.shop.tool_hire">Lloguer d\'eines i maquinària</string>
+    <string name="type.amenity.fast_food.cafeteria">Cafeteria</string>
 </resources>

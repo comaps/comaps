@@ -19,7 +19,7 @@
 "type.aeroway.terminal" = "Flugstacio";
 "type.amenity" = "Oportunaĵo";
 "type.amenity.arts_centre" = "Artejo";
-"type.amenity.atm" = "Monaŭtomato";
+"type.amenity.atm" = "Bankaŭtomato";
 "type.amenity.bank" = "Banko";
 "type.amenity.bar" = "Drinkejo";
 "type.amenity.bbq" = "Kradrostilo";
@@ -899,9 +899,9 @@
 "type.place.town" = "Town";
 "type.place.village" = "Village";
 "type.power" = "Power";
-"type.power.generator" = "Power Generator";
-"type.power.generator.solar" = "Solar Generator";
-"type.power.generator.wind" = "Wind Generator";
+"type.power.generator" = "Generatoro";
+"type.power.generator.solar" = "Suna generatoro";
+"type.power.generator.wind" = "Ventoturbino";
 "type.power.generator.gas" = "Gas Turbine Power Plant";
 "type.power.generator.hydro" = "Hydroelectric Power Plant";
 "type.power.line" = "Power Line";
@@ -1301,7 +1301,7 @@
 "type.shop.rental" = "Luejo";
 "type.shop.rental.bicycle" = "Luejo de bicikloj";
 "type.shop.seafood" = "Fiŝvendejo";
-"type.shop.second_hand" = "Brokantejo";
+"type.shop.second_hand" = "Brokantvendejo";
 "type.shop.shoes" = "Ŝuvendejo";
 "type.shop.sports" = "Sportvendejo";
 "type.shop.stationery" = "Skribilarvendejo";
@@ -1535,7 +1535,7 @@
 "type.highway.construction.road" = "Konstruata vojo";
 "type.highway.construction.track" = "Konstruata vojo";
 "type.amenity.pub" = "Drinkejo";
-"type.power.portal" = "Power Portal";
+"type.power.portal" = "Elektroportalo";
 "type.post_office.post_partner" = "Poŝta agentejo";
 "type.landuse.military.danger_area" = "Military Danger Area";
 "type.railway.subway_entrance.boston" = "Metrostacia enirejo";
@@ -1547,3 +1547,10 @@
 "type.amenity.parking.customers" = "Customer Parking";
 "type.barrier.bus_trap" = "Bus Trap";
 "type.barrier.sump_buster" = "Sump Buster";
+"type.second_hand.no" = "No second-hand options";
+"type.second_hand.yes" = "Second-hand options";
+"type.second_hand.only" = "Second-hand only";
+"type.shop.games" = "Ludvendejo";
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.shop.swimming_pool" = "Swimming Pool Shop";
+"type.amenity.music_venue" = "Muzikejo";

@@ -12,7 +12,7 @@
         "defaultMessage": "3Gasolinera|Gasolinería|3Estación de servicio|3Bencinera|grifo|servicentro|gasolinería|gasetería|gasoil|diésel|nafta|combustible|carburante|bencina|gasolina|gasóleo|surtidor|4bomba de gasolina|Dispensador de gasolina|Carga de combustible"
     },
     "@category_parking": {
-        "defaultMessage": "5Aparcamiento|aparcamientos|5Estacionamiento|Estacionamientos|Aparcar|Estacionar|Parquear|4Parking|Aparcadero|Parqueadero|Parqueo|Parqueadero|Parqueaderos|Plaza de aparcamiento|Cochera|Playas de estacionamiento|Zonas de aparcar|Disuasorio"
+        "defaultMessage": "5Aparcamiento|aparcamientos|5Estacionamiento|Estacionamientos|Aparcar|Estacionar|Parquear|4Parking|Aparcadero|Parqueadero|Parqueo|Parqueadero|Parqueaderos|Plaza de aparcamiento|Cochera|Plazas de estacionamiento|Zonas de aparcar|Disuasorio"
     },
     "@category_shopping": {
         "defaultMessage": "4Compras|Tiendas|Tienda|Comercios|Negocios|Establecimientos"
@@ -39,7 +39,7 @@
         "defaultMessage": "Instalaciones para autocaravanas|5Caravanas|5Autocaravanas|5Motorhome|camper|campervan|camper van"
     },
     "amenity-atm|@category_atm": {
-        "defaultMessage": "dinero|efectivo|5minibank|6mini-bank|6mini bank"
+        "defaultMessage": "dinero|efectivo|plata|5cajero|6cajero automático|6minibanco|mini banco|ATM|U+1F3E7|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"
     },
     "@category_bank": {
         "defaultMessage": "3Banco|4Sucursal bancaria|banca|entidad bancaria|Caja de ahorros|Entidad financiera|Institución financiera|Servicios financieros|Servicios bancarios)"
@@ -219,7 +219,7 @@
         "defaultMessage": "3Metro|3Subte|Subterráneo|3Estación de metro"
     },
     "amenity-ferry_terminal|@category_transport": {
-        "defaultMessage": "3Transbordador|terminal|ferry|4Terminal de ferry|puerto de ferry"
+        "defaultMessage": "3Ferry|Transbordador|Barco de pasaje|Barco de pasajeros|Barco de línea|Barco de travesía|Transbordador de pasajeros|Lancha de pasaje|Barco de cabotaje|Transbordador de travesía"
     },
     "amenity-taxi|@category_transport": {
         "defaultMessage": "Taxi|3Parada de taxis|Parada de taxis|taxi|U+1F695|U+1F696"

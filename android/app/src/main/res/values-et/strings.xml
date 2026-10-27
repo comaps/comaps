@@ -839,7 +839,7 @@
     <string name="pref_backup_now_summary_empty_lists">Pole lemmikuid, mida varundada</string>
     <string name="pref_backup_now_summary_failed">Varundamine ei õnnestunud</string>
     <string name="backup_interval_manual_only">Pole kasutusel (vaid käsitsi varundus)</string>
-    <string name="dialog_report_error_with_logs">Palun saada meile veateade, selleks:\n - Vali seadistustest „Lülita logimine sisse“\n - korda probleemi\n - Vaatest „Rakenduse teave ja abiteave“ klõpsi „Teata veast“ nuppu ja saada veateade e-kirjaga või vestluses\n - lülita logimine välja</string>
+    <string name="dialog_report_error_with_logs">Palun saada meile veakirjeldus, selleks:\n- Ava „Seadistused“ → „Täiendavad seadistused“ → \n - Vali sealt „Lülita logimine sisse“\n - korda probleemi\n - Vaatest „Rakenduse teave ja abiteave“ klõpsi „Teata veast“ nuppu ja saada veateade e-kirjaga või vestluses\n - lülita logimine välja</string>
     <string name="pref_backup_now_summary_folder_unavailable">Varukoopia kaust pole saadaval</string>
     <string name="pref_backup_status_summary_success">Viimane õnnestunud varundus</string>
     <string name="pref_backup_location_summary_initial">Palun esmalt vali kaust ja siis anna selle jaoks õigused</string>

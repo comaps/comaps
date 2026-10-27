@@ -908,4 +908,4 @@
 "custom_map_server" = "Servidor de mapas personalizado";
 "stars_3" = "3 estrelas";
 "stars_1" = "1 estrela";
-"custom_map_server_message" = "Substitua o servidor padrão usado para baixar mapas. Deixe em branco para usar o servidor de mapas padrão do CoMaps.";
+"custom_map_server_message" = "Substitua o servidor padrão usado para baixar mapas. Deixe em branco para usar o servidor padrão do CoMaps.";

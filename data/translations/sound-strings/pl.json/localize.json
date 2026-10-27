@@ -403,5 +403,53 @@
     },
     "from_600_feet": {
         "defaultMessage": "sześćset stóp"
+    },
+    "from_700_feet": {
+        "defaultMessage": "siedemset stóp"
+    },
+    "from_800_feet": {
+        "defaultMessage": "osiemset stóp"
+    },
+    "from_900_feet": {
+        "defaultMessage": "dziewięćset stóp"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "tysiąc stóp"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "tysiąc pięćset stóp"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "dwa tysiące stóp"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "dwa tysiące pięćset stóp"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "trzy tysiące stóp"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "trzy tysiące pięćset stóp"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "cztery tysiące stóp"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "cztery tysiące pięćset stóp"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "pięć tysięcy stóp"
+    },
+    "from_1_mile": {
+        "defaultMessage": "jedna mila"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "półtorej mili"
+    },
+    "from_2_miles": {
+        "defaultMessage": "dwie mile"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "ponad dwie mile"
     }
 }

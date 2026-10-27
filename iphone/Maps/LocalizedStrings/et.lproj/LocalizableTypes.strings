@@ -1547,3 +1547,10 @@
 "type.amenity.parking.customers" = "Kliendiparkla";
 "type.barrier.bus_trap" = "Läbipääs vaid bussidele";
 "type.barrier.sump_buster" = "Väikeautode tõke";
+"type.second_hand.no" = "Kasutatud kaupade võimalus puudub";
+"type.second_hand.yes" = "Kasutatud kaupade võimalus";
+"type.second_hand.only" = "Vaid kasutatud kaubad";
+"type.shop.games" = "Mängude pood";
+"type.amenity.fast_food.cafeteria" = "Selvekohvik/puhvet";
+"type.shop.swimming_pool" = "Ujumisbasseinide pood";
+"type.amenity.music_venue" = "Kontserdisaal";

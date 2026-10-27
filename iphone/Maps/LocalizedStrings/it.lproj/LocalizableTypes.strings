@@ -92,7 +92,7 @@
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard.christian" = "Cimitero cristiano";
 "type.amenity.hospital" = "Ospedale";
-"type.amenity.hunting_stand" = "Torre di caccio";
+"type.amenity.hunting_stand" = "Torre di caccia";
 "type.amenity.ice_cream" = "Gelateria";
 "type.amenity.internet_cafe" = "Cybercaffè";
 "type.amenity.kindergarten" = "Scuola materna";
@@ -1265,7 +1265,7 @@
 "type.shop.clothes" = "Negozio di abbigliamento";
 "type.shop.coffee" = "Negozio di caffè";
 "type.shop.computer" = "Negozio di computer";
-"type.shop.confectionery" = "Pasticceria";
+"type.shop.confectionery" = "Negozio di dolciumi";
 "type.shop.convenience" = "Minimarket";
 "type.shop.copyshop" = "Copisteria";
 "type.shop.cosmetics" = "Cosmetici";
@@ -1311,7 +1311,7 @@
 "type.shop.outdoor" = "Attrezzatura sportiva";
 "type.shop.outpost" = "Punto di raccolta";
 "type.shop.pasta" = "Negozio di pasta";
-"type.shop.pastry" = "Pasticcino";
+"type.shop.pastry" = "Pasticceria";
 "type.shop.pawnbroker" = "Pegni";
 "type.shop.pet" = "Negozio di animali";
 "type.shop.pet_grooming" = "Toelettatura per animali domestici";
@@ -1538,12 +1538,19 @@
 "type.amenity.planetarium" = "Planetario";
 "type.shop.beauty.day_spa" = "Centro benessere";
 "type.landuse.military.danger_area" = "Military Danger Area";
-"type.railway.subway_entrance.boston" = "Subway Entrance";
+"type.railway.subway_entrance.boston" = "Stazione metropolitana";
 "type.railway.station.subway.boston" = "Stazione della metropolitana";
-"type.railway.subway_entrance.qingdao" = "Subway Entrance";
+"type.railway.subway_entrance.qingdao" = "Stazione metropolitana";
 "type.building.abandoned" = "Edificio abbandonato";
 "type.shop.tool_hire" = "Tool Hire";
 "type.amenity.tool_library" = "Tool Library";
-"type.amenity.parking.customers" = "Customer Parking";
+"type.amenity.parking.customers" = "Parcheggio per i clienti";
 "type.barrier.bus_trap" = "Bus Trap";
 "type.barrier.sump_buster" = "Sump Buster";
+"type.second_hand.no" = "No second-hand options";
+"type.second_hand.yes" = "Second-hand options";
+"type.second_hand.only" = "Second-hand only";
+"type.shop.games" = "Game Shop";
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.shop.swimming_pool" = "Swimming Pool Shop";
+"type.amenity.music_venue" = "Music Venue";

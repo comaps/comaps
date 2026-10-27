@@ -314,4 +314,13 @@
     <string name="type.railway.subway_entrance.qingdao">Metro Entrance</string>
     <string name="type.railway.subway_entrance.boston">Metro Entrance</string>
     <string name="type.railway.station.subway.boston">Metro Station</string>
+    <string name="type.shop.swimming_pool">Swimming Pool Shop</string>
+    <string name="type.amenity.fast_food.cafeteria">Cafeteria</string>
+    <string name="type.shop.games">Games Shop</string>
+    <string name="type.amenity.music_venue">Music Venue</string>
+    <string name="type.second_hand.no">No second-hand options</string>
+    <string name="type.second_hand.yes">Second-hand options</string>
+    <string name="type.second_hand.only">Second-hand only</string>
+    <string name="type.barrier.sump_buster">Sump Buster</string>
+    <string name="type.barrier.bus_trap">Car Trap</string>
 </resources>

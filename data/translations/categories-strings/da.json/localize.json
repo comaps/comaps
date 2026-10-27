@@ -1867,5 +1867,20 @@
     },
     "amenity-prep_school": {
         "defaultMessage": "6Forberedende skole"
+    },
+    "amenity-hydrant": {
+        "defaultMessage": "Kunstvandingshane"
+    },
+    "shop-games|@shop": {
+        "defaultMessage": "4Spilbutik|4Brætspil|4Kortspil|Spil"
+    },
+    "amenity-fast_food-cafeteria|@category_eat": {
+        "defaultMessage": "4Cafeteria"
+    },
+    "shop-swimming_pool|@shop": {
+        "defaultMessage": "9Svømmebassinbutik"
+    },
+    "amenity-music_venue|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "6Spillested"
     }
 }

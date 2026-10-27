@@ -1547,3 +1547,10 @@
 "type.amenity.parking.customers" = "Parking réservé aux clients";
 "type.barrier.bus_trap" = "Fosse anti-voiture";
 "type.barrier.sump_buster" = "Plot filtrant";
+"type.second_hand.no" = "Pas d'options d'occasion";
+"type.second_hand.yes" = "Options d'occasion";
+"type.second_hand.only" = "Uniquement d'occasion";
+"type.shop.games" = "Boutique de jeux";
+"type.amenity.fast_food.cafeteria" = "Cafétéria";
+"type.shop.swimming_pool" = "Magasin de matériel de piscine";
+"type.amenity.music_venue" = "Salle de concert";

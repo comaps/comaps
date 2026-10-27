@@ -1550,4 +1550,11 @@
     <string name="type.barrier.bus_trap">Läbipääs vaid bussidele</string>
     <string name="type.barrier.sump_buster">Väikeautode tõke</string>
     <string name="type.shop.tool_hire">Tööriistarent</string>
+    <string name="type.second_hand.only">Vaid kasutatud kaubad</string>
+    <string name="type.second_hand.yes">Kasutatud kaupade võimalus</string>
+    <string name="type.second_hand.no">Kasutatud kaupade võimalus puudub</string>
+    <string name="type.shop.games">Mängude pood</string>
+    <string name="type.amenity.fast_food.cafeteria">Selvekohvik/puhvet</string>
+    <string name="type.shop.swimming_pool">Ujumisbasseinide pood</string>
+    <string name="type.amenity.music_venue">Kontserdisaal</string>
 </resources>

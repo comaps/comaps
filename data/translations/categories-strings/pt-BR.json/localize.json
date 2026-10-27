@@ -198,7 +198,7 @@
         "defaultMessage": "Estação do metrô|3Mêtro|Entrada de estação do metrô"
     },
     "amenity-ferry_terminal|@category_transport": {
-        "defaultMessage": "2Estação de barcas|balsa"
+        "defaultMessage": "2Estação de barcas|2Estação de balsa|2Estação de ferry|Ferry|Balsa|Barca"
     },
     "amenity-taxi|@category_transport": {
         "defaultMessage": "2Táxi"
@@ -318,7 +318,7 @@
         "defaultMessage": "3Boate|3discoteca|4casa noturna|3dançar"
     },
     "amenity-brothel": {
-        "defaultMessage": "Bordel"
+        "defaultMessage": "Bordel|prostíbulo|cabaré|Casa de prostituição|puteiro|zona|lupanar"
     },
     "amenity-casino|@category_entertainment|@category_nightlife|@gambling": {
         "defaultMessage": "Cassino"
@@ -1113,7 +1113,7 @@
         "defaultMessage": "Suplementos nutricionais"
     },
     "shop-paint|@shop": {
-        "defaultMessage": "Tintas"
+        "defaultMessage": "Loja de tintas|Tintas|Pintura|Pinturas"
     },
     "shop-perfumery|@category_shopping|@shop": {
         "defaultMessage": "Perfumaria"
@@ -1330,5 +1330,20 @@
     },
     "cuisine-vegan|@cuisine_all_vegetarian": {
         "defaultMessage": "Vegana"
+    },
+    "shop-games|@shop": {
+        "defaultMessage": "Loja de jogos de tabuleiro|tabuleiro|cartas|puzzles|role play|roleplay|role playing|roleplaying"
+    },
+    "amenity-fast_food-cafeteria|@category_eat": {
+        "defaultMessage": "Cantina|Cafeteria|12Restaurante Universitário|RU|Bandejão|Bandeco|Refeitório|Comedoria"
+    },
+    "shop-swimming_pool|@shop": {
+        "defaultMessage": "Piscina|produtos de piscina|banheira|sauna|hidromassagem"
+    },
+    "amenity-music_venue|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "4Casa de show|casa de espetáculo|casa de evento|música ao vivo|music hall"
+    },
+    "amenity-love_hotel": {
+        "defaultMessage": "Motel|Pé quebrado|Treme-treme|Casa da Barbie|Alcovita|Chupadouro"
     }
 }

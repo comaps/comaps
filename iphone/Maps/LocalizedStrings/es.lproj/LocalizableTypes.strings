@@ -82,7 +82,7 @@
 "type.building.guardhouse" = "Garita de seguridad";
 "type.power.portal" = "Torre de alta tensión";
 "type.amenity.fast_food" = "Comida rápida";
-"type.amenity.ferry_terminal" = "Transbordador de ferry";
+"type.amenity.ferry_terminal" = "Terminal de ferri";
 "type.amenity.fire_station" = "Estación de bomberos";
 "type.amenity.food_court" = "Plaza de comidas";
 "type.amenity.fountain" = "Fuente";
@@ -1241,7 +1241,7 @@
 "type.railway.tram.tunnel" = "Túnel de línea de tranvía";
 "type.railway.tram_stop" = "Parada de tranvía";
 "type.route" = "Ruta";
-"type.route.ferry" = "Ferry|Transbordador|Barco de pasaje|Barco de pasajeros|Barco de línea|Barco de travesía|Transbordador de pasajeros|Lancha de pasaje|Barco de cabotaje|Transbordador de travesía";
+"type.route.ferry" = "Ferri";
 "type.shop" = "Tienda";
 "type.shop.alcohol" = "Licorería";
 "type.shop.bakery" = "Panadería";
@@ -1547,3 +1547,10 @@
 "type.amenity.parking.customers" = "Aparcamiento para clientes";
 "type.barrier.bus_trap" = "Filtro de autobuses";
 "type.barrier.sump_buster" = "Filtro de autobuses";
+"type.second_hand.no" = "Sin opción de segunda mano";
+"type.second_hand.yes" = "Opciones de segunda mano";
+"type.second_hand.only" = "Únicamente segunda mano";
+"type.shop.games" = "Tienda de juegos";
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.shop.swimming_pool" = "Swimming Pool Shop";
+"type.amenity.music_venue" = "Music Venue";

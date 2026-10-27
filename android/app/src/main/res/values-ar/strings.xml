@@ -825,7 +825,7 @@
     <string name="delete_track_dialog_title">احذف %s؟</string>
     <string name="pref_left_button_disable">عطِّل</string>
     <string name="about_help">عن و المساعدة</string>
-    <string name="dialog_report_error_with_logs">يًرجى إرسال تقرير خطأ إلينا:\n - \"فعِّل التسجيل\" في الإعدادات\n - أعد إنتاج المشكلة\n - في شاشة \"عن و المساعدة\" اضغط على زر \"بلِّغ عن علة\" وأرسل عبر البريد الإلكتروني أو الدردشة\n - تعطيل التسجيل</string>
+    <string name="dialog_report_error_with_logs">يًرجى إرسال تقرير خطأ إلينا:\n - انتقل إلى «الإعدادات»، ثم اختر «متقدم»\n - \"فعِّل التسجيل\" \n - أعد إنتاج المشكلة\n - في شاشة \"عن و المساعدة\" اضغط على زر \"بلِّغ عن علة\" وأرسل عبر البريد الإلكتروني أو الدردشة\n - تعطيل التسجيل</string>
     <string name="place_page_update_too_old_map">حدِّث منطقة الخريطة</string>
     <string name="list_description_empty">حرِّر القائمة لإضافة وصف</string>
     <string name="editor_socket">حرِّر المقبس</string>

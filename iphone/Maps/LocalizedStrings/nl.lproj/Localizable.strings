@@ -66,7 +66,7 @@
 /* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
 "category_food" = "Boodschappen";
 /* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
-"category_transport" = "Transport";
+"category_transport" = "Vervoer";
 /* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
 "category_fuel" = "Tankstation";
 /* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
@@ -76,7 +76,7 @@
 /* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
 "category_secondhand" = "Tweedehands";
 /* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
-"category_hotel" = "Hotel";
+"category_hotel" = "Accomodaties";
 /* Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! */
 "category_tourism" = "Bezienswaardigheden";
 /* Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! */
@@ -297,7 +297,7 @@
 /* cyan color */
 "cyan" = "Cyaan";
 /* teal color */
-"teal" = "Blauwgroen";
+"teal" = "Groenblauw";
 /* lime color */
 "lime" = "Limoengroen";
 /* deep orange color */
@@ -321,10 +321,10 @@
 "dialog_routing_download_and_update_all" = "Download of update alle kaarten op de ingestelde route om een route te berekenen.";
 "dialog_routing_unable_locate_route" = "Route kan niet worden gevonden";
 "dialog_routing_change_start_or_end" = "Pas het vertrekpunt of de bestemming aan.";
-"dialog_routing_change_start" = "Startpunt aanpassen";
+"dialog_routing_change_start" = "Pas startpunt aan";
 "dialog_routing_start_not_determined" = "Route samenstellen mislukt. Startpunt kan niet worden gevonden.";
 "dialog_routing_select_closer_start" = "Kies een startpunt dat dichter bij een weg ligt.";
-"dialog_routing_change_end" = "Bestemming aanpassen";
+"dialog_routing_change_end" = "Pas bestemming aan";
 "dialog_routing_end_not_determined" = "Route samenstellen mislukt. Bestemming kan niet worden gevonden.";
 "dialog_routing_select_closer_end" = "Kies een bestemming die dichter bij een weg ligt.";
 "dialog_routing_change_intermediate" = "Kan de tussenstop niet vinden.";
@@ -693,7 +693,7 @@
 "speedcams_alert_title_carplay_1" = "Snelheidscamera's";
 "speedcams_alert_title_carplay_2" = "Over snelheidscamera's";
 "download_map_carplay" = "Download kaarten in de CoMaps-app op je apparaat";
-"carplay_roundabout_exit" = "Afrit nr. %@";
+"carplay_roundabout_exit" = "%@ afslag";
 /* max. 10 symbols, both iOS and Android */
 "sort" = "Sorteren…";
 /* iOS */
@@ -870,7 +870,7 @@
 "capacity_charging_no" = "Geen plaatsen met laders";
 "planning_route_preview" = "Voorbeeld";
 "planning_route_preview_sheet_title" = "Routevoorbeeld";
-"discard" = "Negeren";
+"discard" = "Verwerpen";
 "pref_custom_button_type" = "Aanpasbare knop";
 "osm" = "OpenStreetMap";
 "mode" = "Transportmodus";

@@ -30,7 +30,7 @@
 "type.amenity.boat_rental" = "Изнајмљивање чамаца";
 "type.amenity.bicycle_rental" = "Изнајмљивање бицикала";
 "type.amenity.bicycle_repair_station" = "Станица за поравку бицикала";
-"type.amenity.biergarten" = "Пивска башта / Пивница";
+"type.amenity.biergarten" = "Пивска башта";
 "type.amenity.brothel" = "Јавна кућа";
 "type.amenity.love_hotel" = "Љубавни хотел";
 "type.amenity.bureau_de_change" = "Мењачница";
@@ -1547,3 +1547,10 @@
 "type.amenity.parking.customers" = "Паркинг за муштерије";
 "type.barrier.bus_trap" = "Аутобуска замка";
 "type.barrier.sump_buster" = "Разбијач картера";
+"type.second_hand.no" = "Нема половно";
+"type.second_hand.yes" = "Има и половно";
+"type.second_hand.only" = "Само половно";
+"type.shop.games" = "Game Shop";
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.shop.swimming_pool" = "Swimming Pool Shop";
+"type.amenity.music_venue" = "Music Venue";

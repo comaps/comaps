@@ -101,7 +101,7 @@
 "type.amenity.lounger" = "Solseng";
 "type.amenity.luggage_locker" = "Bagageskab";
 "type.amenity.marketplace" = "Markedsplads";
-"type.amenity.mobile_money_agent" = "Mobilpengeagent";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.motorcycle_parking" = "Motorcykelparkering";
 "type.amenity.nightclub" = "Natklub";
 "type.amenity.nursing_home" = "Plejehjem";
@@ -883,7 +883,7 @@
 "type.organic.only" = "Kun økologisk";
 "type.organic.yes" = "Økologiske valgmuligheder";
 "type.place.city" = "By";
-"type.place.city.capital" = "Kapital";
+"type.place.city.capital" = "Hovedstad";
 "type.place.city.capital.10" = "By";
 "type.place.city.capital.11" = "By";
 "type.place.city.capital.2" = "Hovedstad";
@@ -1547,3 +1547,10 @@
 "type.amenity.parking.customers" = "Parkering for kunder";
 "type.barrier.bus_trap" = "Bussluse";
 "type.barrier.sump_buster" = "Bundkarsknuser";
+"type.second_hand.no" = "Ingen brugte valgmuligheder";
+"type.second_hand.yes" = "Brugte valgmuligheder";
+"type.second_hand.only" = "Kun brugt";
+"type.shop.games" = "Spilbutik";
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.shop.swimming_pool" = "Svømmebassinbutik";
+"type.amenity.music_venue" = "Spillested";

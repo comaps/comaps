@@ -29,7 +29,7 @@
     <string name="type.aeroway.terminal">Flugstacio</string>
     <string name="type.amenity">Oportunaĵo</string>
     <string name="type.amenity.arts_centre">Artejo</string>
-    <string name="type.amenity.atm">Monaŭtomato</string>
+    <string name="type.amenity.atm">Bankaŭtomato</string>
     <string name="type.amenity.bar">Drinkejo</string>
     <string name="type.amenity.bbq">Kradrostilo</string>
     <string name="type.amenity.bench">Benko</string>
@@ -481,7 +481,7 @@
     <string name="type.shop.rental.bicycle">Luejo de bicikloj</string>
     <string name="type.shop.rental">Luejo</string>
     <string name="type.shop.seafood">Fiŝvendejo</string>
-    <string name="type.shop.second_hand">Brokantejo</string>
+    <string name="type.shop.second_hand">Brokantvendejo</string>
     <string name="type.shop.shoes">Ŝuvendejo</string>
     <string name="type.shop.sports">Sportvendejo</string>
     <string name="type.shop.stationery">Skribilarvendejo</string>
@@ -1117,4 +1117,10 @@
     <string name="type.amenity.sanitary_dump_station">Stacio de forigo de fekaĵoj</string>
     <string name="type.amenity.shelter.lean_to">Duon-ferma ŝirmejo</string>
     <string name="type.amenity.vending_machine.coffee">Kafvendilo</string>
+    <string name="type.shop.games">Ludvendejo</string>
+    <string name="type.amenity.music_venue">Muzikejo</string>
+    <string name="type.power.portal">Elektroportalo</string>
+    <string name="type.power.generator">Generatoro</string>
+    <string name="type.power.generator.solar">Suna generatoro</string>
+    <string name="type.power.generator.wind">Ventoturbino</string>
 </resources>

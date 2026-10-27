@@ -171,7 +171,7 @@
     <string name="type.amenity.vending_machine.food">Etenswarenautomaat</string>
     <string name="type.amenity.vending_machine.newspapers">Krantenautomaat</string>
     <string name="type.amenity.vending_machine.parking_tickets">Parkeerautomaat</string>
-    <string name="type.amenity.vending_machine.public_transport_tickets">Kaartjesautomaat voor openbaar vervoer</string>
+    <string name="type.amenity.vending_machine.public_transport_tickets">OV-kaartautomaat</string>
     <string name="type.amenity.vending_machine.sweets">Snoepautomaat</string>
     <string name="type.amenity.vending_machine.excrement_bags">Hondenpoepzakjesdispenser</string>
     <string name="type.amenity.parcel_locker">Pakketjeskluis</string>
@@ -773,11 +773,11 @@
     <string name="type.place.country">Land</string>
     <string name="type.place.county">Graafschap</string>
     <string name="type.place.farm">Boerderij</string>
-    <string name="type.place.hamlet">Gehucht</string>
+    <string name="type.place.hamlet">Gehucht/buurtschap</string>
     <string name="type.place.island">Eiland</string>
     <string name="type.place.islet">Eilandje</string>
-    <string name="type.place.isolated_dwelling">Geïsoleerde woning</string>
-    <string name="type.place.locality">Plaats</string>
+    <string name="type.place.isolated_dwelling">Afgelegen woning(en)</string>
+    <string name="type.place.locality">Plek</string>
     <!-- Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) -->
     <string name="type.place.quarter">Wijk</string>
     <!-- Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) -->
@@ -790,7 +790,7 @@
     <string name="type.place.state.USA">Staat</string>
     <!-- Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) -->
     <string name="type.place.suburb">Buitenwijk</string>
-    <string name="type.place.town">Stad</string>
+    <string name="type.place.town">Plaats</string>
     <string name="type.place.village">Dorp</string>
     <string name="type.power">Elektriciteit</string>
     <string name="type.power.generator.solar">Zonne-generator</string>
@@ -1114,7 +1114,7 @@
     <string name="type.shop.bicycle">Fietsenwinkel</string>
     <string name="type.shop.bookmaker">Wedkantoor</string>
     <string name="type.shop.books">Boekwinkel</string>
-    <string name="type.shop.butcher">Slager</string>
+    <string name="type.shop.butcher">Slagerij</string>
     <string name="type.shop.cannabis">Coffeeshop</string>
     <string name="type.shop.car">Autodealer</string>
     <string name="type.shop.car_parts">Auto-onderdelenwinkel</string>
@@ -1503,7 +1503,7 @@
     <string name="type.entrance.entry">Ingang (alleen ingang)</string>
     <string name="type.entrance.emergency">Nooduitgang</string>
     <string name="type.xmas.tree">Kerstboom</string>
-    <string name="type.shop.beauty.day_spa">Schoonheidssalon</string>
+    <string name="type.shop.beauty.day_spa">Dagspa</string>
     <string name="type.man_made.mast.communication">Telecommunicatiemast</string>
     <string name="type.amenity.mobile_money_agent">Mobiel geldkantoor</string>
     <string name="type.beacon.isolated_danger">Geïsoleerd gevaarsbaken</string>
@@ -1550,4 +1550,11 @@
     <string name="type.amenity.parking.customers">Parkeerplaats voor klanten</string>
     <string name="type.barrier.bus_trap">Bussluis</string>
     <string name="type.barrier.sump_buster">Carterbreker</string>
+    <string name="type.second_hand.only">Alleen tweedehands</string>
+    <string name="type.second_hand.yes">Tweedehands verkrijgbaar</string>
+    <string name="type.second_hand.no">Geen tweedehands</string>
+    <string name="type.shop.games">Spellenwinkel</string>
+    <string name="type.amenity.fast_food.cafeteria">Kantine</string>
+    <string name="type.shop.swimming_pool">Zwembadwinkel</string>
+    <string name="type.amenity.music_venue">Muziekpodium</string>
 </resources>

@@ -828,7 +828,7 @@
     <string name="backup_interval_every_week">Semanalmente</string>
     <string name="backup_interval_manual_only">Desligado (apenas manual)</string>
     <string name="dialog_report_error_missing_folder">A localização de backup selecionada está indisponível ou não permite escrita. Por favor, selecione outra localização.</string>
-    <string name="dialog_report_error_with_logs">Por favor, nos envie um relatório de erro:\n - Habilite \"Ativar registros de execução\" nas configurações\n - reproduza o problema\n - na tela \"Sobre &amp; Ajuda\", pressione o botão \"Relatar um problema\" e envie via email ou chat\n - desative os registros de execução</string>
+    <string name="dialog_report_error_with_logs">Por favor, nos envie um relatório de erro:\n - vá para as Configurações, e então Avançado\n - habilite \"Ativar registros de execução\"\n - reproduza o problema\n - na tela \"Sobre &amp; Ajuda\", pressione o botão \"Relatar um problema\" e envie via email ou chat\n - desative os registros de execução</string>
     <string name="panoramax">Imagem do Panoramax</string>
     <string name="open_now">Aberto agora</string>
     <string name="closed_now">Fechado agora</string>

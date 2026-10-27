@@ -1547,3 +1547,10 @@
 "type.amenity.parking.customers" = "Kundenparkplätze";
 "type.barrier.bus_trap" = "Busschleuse";
 "type.barrier.sump_buster" = "Ölwannenbrecher";
+"type.second_hand.no" = "No second-hand options";
+"type.second_hand.yes" = "Second-hand options";
+"type.second_hand.only" = "Second-hand only";
+"type.shop.games" = "Game Shop";
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.shop.swimming_pool" = "Swimming Pool Shop";
+"type.amenity.music_venue" = "Music Venue";

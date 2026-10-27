@@ -693,7 +693,7 @@
         "defaultMessage": "4Sportplatz|4Feld|3Sport|4Platz|U+1F3BE|U+1F3C0|U+1F3C8|U+1F3C9|U+1F3C3"
     },
     "leisure-swimming_pool": {
-        "defaultMessage": "4Schwimmbecken|4Schwimmen|4Schwimmbad|3Swimmingpool|3Bassin|5Sport|U+1F3CA"
+        "defaultMessage": "4Schwimmbecken|4Schwimmen|3Swimmingpool|3Bassin|5Sport|U+1F3CA"
     },
     "sport-american_football": {
         "defaultMessage": "4Amerikanischer Fußball|3Football|4American Football|3Sport"
@@ -1864,5 +1864,11 @@
     },
     "amenity-bicycle_parking-covered": {
         "defaultMessage": "Überdachter Fahrradparkplatz|Überdachter Fahrradständer|Überdachter Fahrradstellplatz|Überdachter Radparkplatz|Überdachter Radstellplatz"
+    },
+    "shop-tool_hire|@shop": {
+        "defaultMessage": "Werkzeugverleih|Werkzeugvermietung|Maschinenverleih|Maschinenvermietung|Geräteverleih|Gerätevermietung"
+    },
+    "amenity-tool_library": {
+        "defaultMessage": "Werkzeugbibliothek"
     }
 }

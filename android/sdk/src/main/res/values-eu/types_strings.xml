@@ -1080,7 +1080,7 @@
     <string name="type.shop.motorcycle">Moto denda</string>
     <string name="type.shop.motorcycle_repair">Moto-konponketa</string>
     <string name="type.shop.music">Disko-denda</string>
-    <string name="type.shop.musical_instrument">Musika Tresnen Denda</string>
+    <string name="type.shop.musical_instrument">Musika tresnen denda</string>
     <string name="type.shop.newsagent">Kioskoa</string>
     <string name="type.shop.optician">Optika</string>
     <string name="type.shop.outdoor">Ekipamendua</string>
@@ -1105,7 +1105,7 @@
     <string name="type.shop.toys">Jostailu denda</string>
     <string name="type.shop.travel_agency">Bidai agentzia</string>
     <string name="type.shop.tyres">Pneumatikoen denda</string>
-    <string name="type.shop.variety_store">Barietate Denda</string>
+    <string name="type.shop.variety_store">Bazarra (askotariko denda)</string>
     <string name="type.shop.video">Bideo-denda</string>
     <string name="type.shop.video_games">Bideo-jokoen denda</string>
     <string name="type.shop.wine">Ardotegia</string>

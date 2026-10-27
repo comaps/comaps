@@ -259,7 +259,7 @@
 "type.building.train_station" = "Edifício da estação";
 "type.building.warehouse" = "Armazém";
 "type.cemetery.grave" = "Túmulo";
-"type.craft" = "Artesanato";
+"type.craft" = "Ofício";
 "type.craft.beekeeper" = "Apicultor";
 "type.craft.blacksmith" = "Ferreiro";
 "type.craft.brewery" = "Cervejaria artesanal";
@@ -1356,11 +1356,11 @@
 "type.shop.lottery" = "Lotérica";
 "type.shop.medical_supply" = "Suprimentos médicos";
 "type.shop.nutrition_supplements" = "Suplementos nutricionais";
-"type.shop.paint" = "Tintas";
+"type.shop.paint" = "Loja de tintas";
 "type.shop.perfumery" = "Perfumaria";
 "type.shop.sewing" = "Materiais de costura";
 "type.shop.storage_rental" = "Aluguel de armazenamento";
-"type.shop.tobacco" = "Tabaco";
+"type.shop.tobacco" = "Tabacaria";
 "type.shop.trade" = "Comércio de suprimentos";
 "type.shop.watches" = "Relógios";
 "type.shop.wholesale" = "Loja de atacado";
@@ -1547,3 +1547,10 @@
 "type.amenity.parking.customers" = "Estacionamento para clientes";
 "type.barrier.bus_trap" = "Barreira seletiva para ônibus";
 "type.barrier.sump_buster" = "Lombada seletiva";
+"type.second_hand.no" = "Sem opções de segunda mão";
+"type.second_hand.yes" = "Opções de segunda mão";
+"type.second_hand.only" = "Somente segunda mão";
+"type.shop.games" = "Loja de jogos de tabuleiro";
+"type.amenity.fast_food.cafeteria" = "Cantina";
+"type.shop.swimming_pool" = "Loja de produtos para piscinas";
+"type.amenity.music_venue" = "Casa de show";

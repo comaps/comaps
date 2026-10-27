@@ -299,7 +299,7 @@
 /* teal color */
 "teal" = "Szmaragdowy";
 /* lime color */
-"lime" = "Lima";
+"lime" = "Limonkowy";
 /* deep orange color */
 "deep_orange" = "Ciemnopomarańczowy";
 /* gray color */
@@ -733,8 +733,8 @@
 "elevation_profile_diff_level_easy" = "Łatwy";
 "elevation_profile_diff_level_moderate" = "Umiarkowany";
 "elevation_profile_diff_level_hard" = "Skomplikowany";
-"elevation_profile_ascent" = "Wejście";
-"elevation_profile_descent" = "Zejście";
+"elevation_profile_ascent" = "Wznios";
+"elevation_profile_descent" = "Spadek";
 "elevation_profile_min_elevation" = "Min. wysokość";
 "elevation_profile_max_elevation" = "Maks. wysokość";
 "isolines_toast_zooms_1_10" = "Powiększ mapę, aby zobaczyć poziomice";
@@ -895,7 +895,7 @@
 "record_track" = "Nagraj trasę";
 "recording_track" = "Nagrywanie trasy";
 "bookmarks_text_placement_title" = "Pokaż nazwy ulubionych na mapie";
-"pref_font_size" = "Rozmiar czcionki etyket na mapie";
+"pref_font_size" = "Rozmiar czcionki etykiet mapy";
 "font_size" = "Rozmiar czcionki";
 "mode_options_accessibility_hint" = "Pokaż opcje dla tego trybu";
 "stars_1" = "1 gwiazdka";
@@ -906,5 +906,5 @@
 "custom_map_server_error_scheme" = "The URL must start with http:// or https://";
 "custom_map_server_map_series" = "This version of CoMaps is using map series %@.";
 "not_set" = "Not set";
-"custom_map_server" = "Custom Map Server";
+"custom_map_server" = "Własny serwer map";
 "custom_map_server_message" = "Override the default map download server used for map downloads. Leave empty to use the default CoMaps map server.";

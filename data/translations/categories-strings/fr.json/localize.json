@@ -1284,7 +1284,7 @@
         "defaultMessage": "Ski|Piste de ski"
     },
     "amenity-events_venue": {
-        "defaultMessage": "Lieu des événements"
+        "defaultMessage": "Lieu des événements|Lieu événementiel"
     },
     "shop-chocolate|@category_food|@shop": {
         "defaultMessage": "Chocolatier"

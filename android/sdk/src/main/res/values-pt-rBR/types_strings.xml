@@ -1031,11 +1031,11 @@
     <string name="type.shop.lottery">Lotérica</string>
     <string name="type.shop.medical_supply">Suprimentos médicos</string>
     <string name="type.shop.nutrition_supplements">Suplementos nutricionais</string>
-    <string name="type.shop.paint">Tintas</string>
+    <string name="type.shop.paint">Loja de tintas</string>
     <string name="type.shop.perfumery">Perfumaria</string>
     <string name="type.shop.sewing">Materiais de costura</string>
     <string name="type.shop.storage_rental">Aluguel de armazenamento</string>
-    <string name="type.shop.tobacco">Tabaco</string>
+    <string name="type.shop.tobacco">Tabacaria</string>
     <string name="type.shop.trade">Comércio de suprimentos</string>
     <string name="type.shop.watches">Relógios</string>
     <string name="type.shop.wholesale">Loja de atacado</string>
@@ -1185,7 +1185,7 @@
     <string name="type.craft.tailor">Alfaiate</string>
     <string name="type.amenity.parking">Estacionamento</string>
     <string name="type.barrier.chain">Corrente</string>
-    <string name="type.craft">Artesanato</string>
+    <string name="type.craft">Ofício</string>
     <string name="type.craft.blacksmith">Ferreiro</string>
     <string name="type.craft.metal_construction">Serralheiro (metal)</string>
     <string name="type.fee.yes">$</string>
@@ -1539,4 +1539,11 @@
     <string name="type.barrier.bus_trap">Barreira seletiva para ônibus</string>
     <string name="type.barrier.sump_buster">Lombada seletiva</string>
     <string name="type.shop.tool_hire">Aluguel de ferramentas</string>
+    <string name="type.shop.games">Loja de jogos de tabuleiro</string>
+    <string name="type.second_hand.no">Sem opções de segunda mão</string>
+    <string name="type.second_hand.yes">Opções de segunda mão</string>
+    <string name="type.second_hand.only">Somente segunda mão</string>
+    <string name="type.amenity.fast_food.cafeteria">Cantina</string>
+    <string name="type.shop.swimming_pool">Loja de produtos para piscinas</string>
+    <string name="type.amenity.music_venue">Casa de show</string>
 </resources>

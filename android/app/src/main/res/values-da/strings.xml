@@ -587,7 +587,7 @@
     <!-- this text will be shown in application notification preferences opposite checkbox which enable/disable downloader notifications. Devices on Android 8+ are affected. -->
     <string name="notification_channel_downloader">Kort-downloader</string>
     <!-- "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit -->
-    <string name="pref_tts_speedcams_auto">Advar om for høj hastighed</string>
+    <string name="pref_tts_speedcams_auto">Advar ved for høj hastighed</string>
     <!-- Speed camera settings menu option - Always warn (about speedcams) -->
     <string name="pref_tts_speedcams_always">Advar altid</string>
     <!-- Speed camera settings menu option - Never warn (about speedcams) -->
@@ -822,7 +822,7 @@
     <string name="backup_interval_every_week">Ugentligt</string>
     <string name="backup_interval_manual_only">Fra (kun manuelt)</string>
     <string name="dialog_report_error_missing_folder">Den valgte sikkerhedskopi-placering er ikke tilgængelig eller skrivbar. Vælg en anden placering.</string>
-    <string name="dialog_report_error_with_logs">Send os en fejlrapport:\n - \"Aktivér logning\" i indstillingerne\n - genskab problemet\n - Tryk på knappen \"Rapporter en fejl\" i skærmbilledet \"Om og hjælp\" og send via e-mail eller chat.\n - deaktiver logning</string>
+    <string name="dialog_report_error_with_logs">Send os en fejlrapport:\n - Gå til indstillingerne, så vælg Avanceret\n - \"Aktivér logning\"\n - genskab problemet\n - Tryk på knappen \"Rapporter en fejl\" i skærmbilledet \"Om og hjælp\" og send via e-mail eller chat.\n - deaktiver logning</string>
     <string name="editor_building_levels">Etager (inkl. stueetage, ekskl. tag)</string>
     <string name="error_enter_correct_level">Indtast et gyldigt etagenummer</string>
     <string name="pref_left_button_title">Indstilling af venstre knap</string>

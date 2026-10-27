@@ -862,7 +862,7 @@
     <string name="pref_backup_summary">Enregistrement automatique dans un dossier de votre appareil</string>
     <string name="about_help">À propos &amp; aide</string>
     <string name="dialog_report_error_missing_folder">L’emplacement pour enregistrer choisi n’est pas disponible ou accessible en écriture. Veuillez sélectionner un autre emplacement.</string>
-    <string name="dialog_report_error_with_logs">Veuillez nous envoyer un rapport d’erreur :\n - « Activer la journalisation » dans les paramètres\n - reproduire le problème\n - dans l’écran « À propos &amp; aide », appuyez sur le bouton « Signaler un bogue » et envoyez-le par courriel ou par chat\n - désactiver la journalisation</string>
+    <string name="dialog_report_error_with_logs">Veuillez nous envoyer un rapport d’erreur :\n - « Activer la journalisation » dans les paramètres\n - reproduire le problème\n - dans l’écran « À propos &amp; aide », appuyez sur le bouton « Signaler un bogue » et envoyez-le par courriel ou par chat\n - désactiver la journalisation</string>
     <string name="pref_backup_now_summary">Créer un enregistrement immédiatement</string>
     <string name="at">à %s</string>
     <string name="osm_note_hint">Sinon, laissez une note à la communauté OpenStreetMap pour que quelqu’un d’autre puisse ajouter ou corriger ce lieu.</string>
