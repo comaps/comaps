@@ -123,6 +123,7 @@ bool RouteWeight::operator<(RouteWeight const & rhs) const
   return m_transitTime > rhs.m_transitTime;
 }
 
+// Keep the zero-penalty fast path in operator< in sync when adding a penalty here.
 double RouteWeight::GetIntegratedWeight() const
 {
   double res = m_weight;
