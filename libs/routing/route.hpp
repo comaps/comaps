@@ -452,6 +452,7 @@ public:
 
   void GetTurnsForTesting(std::vector<turns::TurnItem> & turns) const;
   bool IsRouteId(uint64_t routeId) const { return routeId == m_routeId; }
+  uint64_t GetRouteId() const { return m_routeId; }
 
   /// \returns Length of the route segment with |segIdx| in meters.
   double GetSegLenMeters(size_t segIdx) const;
@@ -470,6 +471,9 @@ public:
 
   /// \returns list of turns intended for display to the user
   std::vector<RouteStepInfo> GetTurnsForDisplay(std::string const & locale) const;
+  std::optional<uint32_t> GetStepSequenceForTurn(uint32_t turnIndex) const;
+  std::optional<uint32_t> GetNextStepSequence(uint32_t sequence, double maxDistM) const;
+  std::optional<uint32_t> GetTurnIndexForStepSequence(uint32_t sequence) const;
   /// \returns the point for at a specific turn index along the route
   m2::PointD GetJunctionPointForTurn(uint32_t segmentIndex) const;
   /// \returns the approach direction for the turn
@@ -480,6 +484,9 @@ private:
 
   double GetPolySegAngle(size_t ind) const;
   void GetClosestTurnAfterIdx(size_t segIdx, turns::TurnItem & turn) const;
+  bool IsDisplayableTurn(size_t segIdx) const;
+  turns::lanes::LanesInfo const & GetStepLanes(size_t segIdx) const;
+  std::optional<size_t> GetStepSegIdx(uint32_t sequence) const;
 
   /// \returns Estimated time from the beginning.
   double GetCurrentTimeFromBeginSec() const;
@@ -491,6 +498,7 @@ private:
   FollowedPolyline m_poly;
 
   std::vector<RouteSegment> m_routeSegments;
+  std::vector<size_t> m_stepSegIdxs;
   // |m_haveAltitudes| is true if and only if all route points have altitude information.
   bool m_haveAltitudes = false;
 
@@ -508,4 +516,7 @@ private:
 /// \returns true if |turn| is not equal to turns::CarDirection::None or
 /// |turns::PedestrianDirection::None|.
 bool IsNormalTurn(turns::TurnItem const & turn);
+
+void GetFullRoadName(RouteSegment::RoadNameInfo const & road, RoadShieldInfo & roadShields, std::string & name);
+RoadInfo GetRoadInfo(RouteSegment::RoadNameInfo const & road);
 }  // namespace routing

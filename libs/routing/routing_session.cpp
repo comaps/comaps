@@ -17,8 +17,6 @@
 #include "geometry/angles.hpp"
 #include "geometry/mercator.hpp"
 
-#include "indexer/road_shields_parser.hpp"
-
 #include "base/assert.hpp"
 #include "base/logging.hpp"
 #include "base/math.hpp"
@@ -356,72 +354,6 @@ SessionState RoutingSession::OnLocationPositionChanged(GpsInfo const & info)
   return m_state;
 }
 
-void GetRoadShieldsInfo(RouteSegment::RoadNameInfo const & road, FollowingInfo::RoadShieldInfo & info)
-{
-  std::string const & mwmName = road.m_mwmId.GetMwmName();
-  if (road.HasExitInfo())
-  {
-    info.m_targetRoadShields =
-        ftypes::GetRoadShields(mwmName, road.m_destination_ref, ftypes::HighwayClass::Undefined);
-    info.m_junctionRoadShields =
-        ftypes::GetRoadShields(mwmName, road.m_junction_ref, ftypes::HighwayClass::Undefined);
-  }
-  else
-  {
-    info.m_targetRoadShields = ftypes::GetRoadShields(mwmName, road.m_ref, road.m_highwayClass);
-  }
-}
-
-std::string GetRoadShieldsText(ftypes::RoadShieldsSetT const & roadShields, bool const withBraces = true)
-{
-  std::string text;
-  for (size_t i = 0; i < roadShields.size(); ++i)
-  {
-    text += (withBraces ? "[" : "") + roadShields[i].m_name + (withBraces ? "]" : "");
-    if (i < roadShields.size() - 1)
-      text += " ";
-  }
-  return text;
-}
-
-// For next street returns "[ref] name" .
-// For highway exits (or main roads with exit info) returns "[junction:ref]: [target:ref] > target".
-// If no |target| - it will be replaced by |name| of next street.
-// If no |target:ref| - it will be replaced by |ref| of next road.
-// So if link has no info at all, "[ref] name" of next will be returned (as for next street).
-void GetFullRoadName(RouteSegment::RoadNameInfo const & road, FollowingInfo::RoadShieldInfo & roadShields,
-                     std::string & name)
-{
-  GetRoadShieldsInfo(road, roadShields);
-
-  name.clear();
-  if (road.HasExitInfo())
-  {
-    if (!roadShields.m_junctionRoadShields.empty())
-      name += GetRoadShieldsText(roadShields.m_junctionRoadShields, /* withBraces */ false);
-
-    if (!roadShields.m_targetRoadShields.empty())
-    {
-      std::string const & shieldsText = GetRoadShieldsText(roadShields.m_targetRoadShields);
-      if (!name.empty())
-        name += " : ";
-      name += shieldsText;
-    }
-
-    if (!road.m_destination.empty())
-      name += std::string(name.empty() ? "" : " ") + "> " + road.m_destination;
-    else if (!road.m_name.empty())
-      name += (roadShields.m_targetRoadShields.empty() ? std::string(name.empty() ? "" : " ") : " : ") + road.m_name;
-  }
-  else
-  {
-    if (!roadShields.m_targetRoadShields.empty())
-      name = GetRoadShieldsText(roadShields.m_targetRoadShields);
-    if (!road.m_name.empty())
-      name += (name.empty() ? "" : " ") + road.m_name;
-  }
-}
-
 double RoutingSession::GetDistanceToNextTurn() const
 {
   if (!m_route->IsValid())
@@ -479,6 +411,14 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
   turns::TurnItem turn;
   m_route->GetNearestTurn(distanceToTurnMeters, turn);
   info.m_distToTurn = platform::Distance::CreateFormatted(distanceToTurnMeters);
+  info.m_routeId = m_route->GetRouteId();
+  info.m_turnIndex = turn.m_index;
+  info.m_currentStep = m_route->GetStepSequenceForTurn(turn.m_index);
+  // Provide next step, m_nextTurn comes from the TTS engine only when you are close to the turn
+  if (info.m_currentStep)
+    info.m_nextStep = m_route->GetNextStepSequence(*info.m_currentStep, turns::sound::kSecondTurnThresholdDistM);
+  info.m_firstNotificationDistM = m_turnNotificationsMgr.GetFirstNotificationDistM();
+  info.m_secondNotificationDistM = m_turnNotificationsMgr.GetSecondNotificationDistM();
   info.m_turn = turn.m_turn;
 
   info.m_speedLimitMps = GetCurrentSpeedLimit();
@@ -495,23 +435,23 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
   RouteSegment::RoadNameInfo currentRoadNameInfo;
   m_route->GetCurrentStreetName(currentRoadNameInfo);
   GetFullRoadName(currentRoadNameInfo, info.m_currentStreetShields, info.m_currentStreetName);
-  // Carry the structured components so platform UIs can build their own instruction variants
   RouteSegment::RoadNameInfo nextRoadNameInfo;
   m_route->GetNextTurnStreetName(nextRoadNameInfo);
-  GetFullRoadName(nextRoadNameInfo, info.m_nextStreetShields, info.m_nextStreetName);
-  if (nextRoadNameInfo.m_isLink && !nextRoadNameInfo.HasExitTextInfo())
+  RoadInfo const nextRoadInfo = GetRoadInfo(nextRoadNameInfo);
+  info.m_nextStreetName = nextRoadInfo.m_formattedName;
+  info.m_nextStreetShields = nextRoadInfo.m_shields;
+  // Carry the structured components so platform UIs can build their own instruction variants
+  info.m_nextRoadInfo = nextRoadInfo;
+  if (info.m_currentStep)
   {
-    info.m_nextStreetShields.m_targetRoadShields =
-        ftypes::GetRoadShields(nextRoadNameInfo.m_mwmId.GetMwmName(), nextRoadNameInfo.m_ref,
-                               nextRoadNameInfo.m_highwayClass);
+    auto const stepTurnIndex = m_route->GetTurnIndexForStepSequence(*info.m_currentStep);
+    if (stepTurnIndex && *stepTurnIndex != turn.m_index)
+    {
+      RouteSegment::RoadNameInfo stepRoadNameInfo;
+      m_route->GetClosestStreetNameAfterIdx(*stepTurnIndex, stepRoadNameInfo);
+      info.m_nextRoadInfo = GetRoadInfo(stepRoadNameInfo);
+    }
   }
-  info.m_nextName = nextRoadNameInfo.m_name;
-  info.m_nextRef = ftypes::GetRoadShieldDisplayRef(nextRoadNameInfo.m_ref);
-  info.m_nextJunctionRef = nextRoadNameInfo.m_junction_ref;
-  info.m_nextDestinationRef = ftypes::GetRoadShieldDisplayRef(nextRoadNameInfo.m_destination_ref);
-  info.m_nextDestination = nextRoadNameInfo.m_destination;
-  info.m_nextIsLink = nextRoadNameInfo.m_isLink;
-  info.m_nextHighwayClass = nextRoadNameInfo.m_highwayClass;
 
   RouteSegment::RoadNameInfo nextNextRoadNameInfo;
   m_route->GetNextNextTurnStreetName(nextNextRoadNameInfo);
