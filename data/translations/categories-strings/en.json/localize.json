@@ -479,6 +479,9 @@
     "amenity-college": {
         "defaultMessage": "4College|U+1F3EB"
     },
+    "amenity-research_institute": {
+        "defaultMessage": "4Research institute|research centre|research center|4laboratory|lab|U+1F52C|U+1F9EA"
+    },
     "amenity-fire_station": {
         "defaultMessage": "4Fire Station|U+1F692"
     },

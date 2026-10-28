@@ -60,6 +60,7 @@
 "type.leisure.bowling_alley" = "Bowling Alley";
 "type.amenity.clinic" = "Clinic";
 "type.amenity.college" = "College";
+"type.amenity.research_institute" = "Research Institute";
 "type.amenity.community_centre" = "Community Centre";
 "type.amenity.community_centre.youth_centre" = "Youth Centre";
 "type.amenity.compressed_air" = "Compressed Air";

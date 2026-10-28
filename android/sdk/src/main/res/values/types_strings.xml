@@ -63,6 +63,7 @@
     <string name="type.leisure.bowling_alley">Bowling Alley</string>
     <string name="type.amenity.clinic">Clinic</string>
     <string name="type.amenity.college">College</string>
+    <string name="type.amenity.research_institute">Research Institute</string>
     <string name="type.amenity.community_centre">Community Centre</string>
     <string name="type.amenity.community_centre.youth_centre">Youth Centre</string>
     <string name="type.amenity.compressed_air">Compressed Air</string>

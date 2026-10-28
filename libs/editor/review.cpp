@@ -124,6 +124,7 @@ std::map<std::string, ReviewEditorSpec> const reviewEditorConfigs = {
     {"amenity-cinema", kMapCompleteCinemas},
     {"amenity-clinic", kMapCompleteHealthcare},
     {"amenity-college", kMangrove},
+    {"amenity-research_institute", kMangrove},
     {"amenity-community_centre", kMangrove},
     {"amenity-community_centre-youth_centre", kMangrove},
     {"amenity-conference_centre", kMangrove},

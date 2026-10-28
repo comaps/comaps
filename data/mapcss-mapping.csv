@@ -667,7 +667,7 @@ amenity|parking|customers;[amenity=parking][access=customers];;;;534;
 amenity|fast_food|cafeteria;[amenity=fast_food][fast_food=cafeteria],[amenity=canteen];;;;535;
 deprecated:boundary|administrative|state:04.2024;[boundary=administrative][border_type=state];x;name;int_name;536;
 amenity|music_venue;537;
-deprecated|deprecated;538;x
+amenity|research_institute;538;
 railway|funicular|tunnel;[railway=funicular][tunnel?];;name;int_name;539;
 barrier|cycle_barrier;540;
 addr:interpolation;[addr:interpolation];;addr:housenumber;name;541;
