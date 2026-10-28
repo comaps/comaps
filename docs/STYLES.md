@@ -33,10 +33,11 @@ If you use WSL on Windows 10 you might need to run [X Server](INSTALL.md#windows
 
 Map styles are defined in text files located in `data/styles/`:
 
-**There are 3 subdirectories**:
+**The main subdirectories**:
 * `default`: the default style
 * `outdoors`: the outdoors specific style, which inherits from `default` ( outdoors style files include default style files, then add their own rules )
 * `vehicle`: specific to the navigation mode
+* `walking`, `cycling`, `driving`, `public-transport` and their `_outdoor` variants: map mode styles, which build on `default` and adjust it for each mode (priorities, roads, icons..)
 
 Each style directory has again 3 parts:
 * `light`:  entry point style.mapcss and colors definitions for the "light mode", which is the default
@@ -49,6 +50,7 @@ Each style directory has again 3 parts:
 * Roads, bridges, foot and bicycle paths, etc. [`Roads.mapcss`](../data/styles/default/include/Roads.mapcss)
 * Their text labels [`Roads_label.mapcss`](../data/styles/default/include/Roads_label.mapcss)
 * Icons for POIs and other features [`Icons.mapcss`](../data/styles/default/include/Icons.mapcss)
+* POI label colours by category (food, shops, entertainment..) [`Icons_Label_Colors.mapcss`](../data/styles/default/include/Icons_Label_Colors.mapcss)
 * City-specific subway networks [`Subways.mapcss`](../data/styles/default/include/Subways.mapcss)
 
 **Priorities files**:   
@@ -69,21 +71,31 @@ preferably look for icons in [collections CoMaps uses already](../data/copyright
 2. Add icon rendering/visibility rules into `data/styles/default/include/Icons.mapcss` and to "navigation style" `data/styles/vehicle/include/Icons.mapcss`
 3. Rebuild the app
     * Or run `tools/unix/generate_symbols.sh` to add new icons into skin files and `tools/unix/generate_drules.sh` to generate drawing rules for the new icons
-5. [Test](#testing-your-changes) your changes
+4. [Test](#testing-your-changes) your changes
 
 ## How to add a new map feature / POI type
 
-1. Add it into `data/mapcss-mapping.csv` (or better replace existing `deprecated` line) to make CoMaps import it from OSM
+1. Add it into `data/mapcss-mapping.csv` (or better replace an existing `deprecated` line) to make CoMaps import it from OSM
+Check `main` and open pull requests first, so you don't pick a `deprecated` line someone else is already using. Rather than taking the first free one, pick one at random from the middle of the list. Only plain `deprecated|deprecated;N;x` lines are free; dated ones shouldn't be reused for about a year
 2. If necessary merge similar tags in via `data/replaced_tags.txt`
 3. Define a priority for the new feature type in e.g. [`priorities_4_overlays.prio.txt`](../data/styles/default/include/priorities_4_overlays.prio.txt) and/or other priorities files
-4. Add a new icon (see [above](#how-to-add-a-new-icon)) and/or other styling (area, line..)
+`generate_drules.sh` then re-sorts the priorities files of the other styles, commit those changes too
+4. Add a new icon (see [above](#how-to-add-a-new-icon)) and/or other styling (area, line..), and add the type to its group in `Icons_Label_Colors.mapcss` so the label gets the right colour
+Note that a type without any drawing rules is dropped from the maps, unless it's listed in `GetNondrawableStandaloneIndexScale()` in `libs/indexer/feature_visibility.cpp`
 5. If a new POI should be OSM-addable/editable then add it to `data/editor.config`
-6. Add the English string (and optionally translations e.g. for your native language) into iOS and Android type strings
-e strings
-7. Add search keywords into `data/categories.txt`
-8. Add new or fix current classifier tests at `generator/generator_tests/osm_type_test.cpp` if you can
-9. [Test](#testing-your-changes) your changes
-10. Relax and wait for the next maps update :)
+6. Add the English string into `android/sdk/src/main/res/values/types_strings.xml` and `iphone/Maps/LocalizedStrings/en.lproj/LocalizableTypes.strings`. Please don't add translations, even for your native language, as that can break our translation tooling. The English strings show up on [Weblate](https://translate.codeberg.org/projects/comaps/) for translation once the PR is merged
+7. Add search keywords into `data/translations/categories-strings/en.json/localize.json` (`data/categories.txt` is generated from it)
+8. If it makes sense, also add the type to:
+    * `libs/editor/review.cpp`: where the "Add review" link goes (Mangrove or a MapComplete theme)
+    * `libs/map/bookmark_helpers.cpp`: the bookmark icon used when saving the place
+    * `libs/search/ranking_info.cpp`: amenities that get a search ranking boost
+    * `libs/map/search_mark.cpp`: a dedicated search result pin
+    * `libs/indexer/ftypes_matcher.cpp`: tourist attraction checks, and `TwoLevelPOIChecker` for POI types under non-POI keys (`natural`, `man_made`, `highway`..), otherwise unnamed ones aren't searchable
+9. Add new or fix current classifier tests at `generator/generator_tests/osm_type_test.cpp` if you can
+10. [Test](#testing-your-changes) your changes
+11. Relax and wait for the next maps update :)
+
+Generated files like `data/types.txt`, `data/classificator.txt`, `data/drules_proto*`, `data/categories.txt` and the symbol skins aren't committed. Do NOT add your type to `data/taginfo.json` either, as it's updated by a script at release time.
 
 ## Testing your changes
 
@@ -125,5 +137,4 @@ Those binary files, are generated by a Python Serialize operation applied on pyt
 For each feature type, and for each acceptable zoom level , they contain the styles to apply.      
 ( looks like: `array[feature-type][zoom] ==> style` )
 
-
-The `tools/unix/generate_symbols.sh` script assembles all icons into skin files in various resolutions (`data/resources-*/symbols.png` and `symbols.sdf`).
+The `tools/unix/generate_symbols.sh` script assembles all icons into skin files in various resolutions (`data/symbols/<resolution>/<light|dark>/symbols.png` and `symbols.sdf`).
