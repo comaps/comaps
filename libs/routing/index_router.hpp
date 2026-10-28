@@ -66,6 +66,24 @@ public:
     m2::PointD const m_direction;
   };
 
+  /**
+   * @brief Creates a new `IndexRouter` instance.
+   *
+   * This is the constructor intended for normal routing. It requires a `TrafficCache` argument,
+   * from which it may create a traffic stash so the traffic situation can be considered for the
+   * route, depending on the vehicle type.
+   *
+   * @param vehicleType The vehichle type
+   * @param loadAltitudes Whether to load altitudes
+   * @param countryParentNameGetterFn Function which converts a country name into the name of its parent country)
+   * @param countryFileFn Function which converts a pointer to its country name
+   * @param countryRectFn Function which returns the rect for a country
+   * @param numMwmIds MWMs to use for route calculation (this should include all MWMs, whether or
+   * not we have the file locally, but not World or WorldCoasts)
+   * @param numMwmTree
+   * @param trafficCache The traffic cache (used only if `vehicleType` is `VehicleType::Car`)
+   * @param dataSource The MWM data source
+   */
   IndexRouter(VehicleType vehicleType, bool loadAltitudes, CountryParentNameGetterFn const & countryParentNameGetterFn,
               TCountryFileFn const & countryFileFn, CountryRectFn const & countryRectFn,
               std::shared_ptr<NumMwmIds> numMwmIds, std::shared_ptr<m4::Tree<NumMwmId>> numMwmTree,

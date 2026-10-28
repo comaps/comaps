@@ -13,53 +13,88 @@
 
 namespace platform
 {
-// This class represents a path to disk files corresponding to some
-// country region.
-//
-// This class also wraps World.mwm and WorldCoasts.mwm
-// files from resource bundle, when they can't be found in a data
-// directory. In this exceptional case, directory will be empty and
-// SyncWithDisk()/DeleteFromDisk()/GetPath()/GetSize() will return
-// incorrect results.
-//
-// In any case, when you're going to read a file LocalCountryFile points to,
-// use platform::GetCountryReader().
+/**
+ * @brief Represents a path to disk files corresponding to some country region.
+ *
+ * This class also wraps World.mwm and WorldCoasts.mwm files from resource bundle, when they can't
+ * be found in a data directory. In this exceptional case, directory will be empty and
+ * `SyncWithDisk()`/`DeleteFromDisk()`/`GetPath()`/`GetSize()` will return incorrect results.
+ *
+ * In any case, when you're going to read a file LocalCountryFile points to, use
+ * `platform::GetCountryReader()`.
+ */
 class LocalCountryFile
 {
 public:
   LocalCountryFile();
 
-  // Creates an instance holding a path to countryFile's in a
-  // directory. Note that no disk operations are not performed until
-  // SyncWithDisk() is called.
-  // The directory must contain a full path to the country file.
+  /**
+   * @brief Creates an instance holding a path to countryFile's in a directory.
+   *
+   * Note that no disk operations are performed until `SyncWithDisk()` is called.
+   *
+   * @param directory full path to the country file
+   * @param countryFile
+   * @param version
+   */
   LocalCountryFile(std::string directory, CountryFile countryFile, int64_t version);
 
-  // Syncs internal state like availability of files, their sizes etc. with disk.
-  // Generality speaking it's not always true. To know it for sure it's necessary to read a mwm in
-  // this method but it's not implemented by performance reasons. This check is done on
-  // building routes stage.
+  /**
+   * @brief Syncs internal state like availability of files, their sizes etc. with disk.
+   *
+   * Generality speaking it's not always true. To know it for sure it's necessary to read a mwm in
+   * this method but it's not implemented by performance reasons. This check is done on
+   * building routes stage.
+   */
   void SyncWithDisk();
 
-  // Removes specified file from disk if it is known for LocalCountryFile, i.e.
-  // it was found by a previous SyncWithDisk() call.
+  /**
+   * @brief Deletes a file from disk.
+   *
+   * Removes the specified file from disk for `LocalCountryFile`, if it is known, i.e. it was found
+   * by a previous SyncWithDisk() call.
+   * @param type
+   */
   void DeleteFromDisk(MapFileType type) const;
 
-  // Returns path to a file.
-  // Return value may be empty until SyncWithDisk() is called.
+  /**
+   * @brief Returns the path to a file.
+   *
+   * Return value may be empty until SyncWithDisk() is called.
+   *
+   * @param type
+   * @return
+   */
   std::string GetPath(MapFileType type) const;
   std::string GetFileName(MapFileType type) const;
 
-  // Returns size of a file.
-  // Return value may be zero until SyncWithDisk() is called.
+  /**
+   * @brief Returns the size of a file.
+   *
+   * Return value may be zero until SyncWithDisk() is called.
+   *
+   * @param type
+   * @return
+   */
   uint64_t GetSize(MapFileType type) const;
 
-  // Returns true when some files are found during SyncWithDisk.
-  // Return value is false until SyncWithDisk() is called.
+  /**
+   * @brief Returns true when files are found during `SyncWithDisk()`.
+   *
+   * Return value is false until `SyncWithDisk()` is called.
+   *
+   * @return true if files were found, false if no files were found, or before the first call to `SyncWithDisk()`
+   */
   bool HasFiles() const;
 
-  // Checks whether files specified in filesMask are on disk.
-  // Return value will be false until SyncWithDisk() is called.
+  /**
+   * @brief Checks whether files specified in filesMask are on disk.
+   *
+   * Return value will be false until SyncWithDisk() is called.
+   *
+   * @param type
+   * @return
+   */
   bool OnDisk(MapFileType type) const;
 
   bool IsInBundle() const { return m_directory.empty(); }
@@ -74,8 +109,16 @@ public:
 
   bool ValidateIntegrity() const;
 
-  // Creates LocalCountryFile for test purposes, for a country region
-  // with countryFileName (without any extensions). Automatically performs sync with disk.
+  /**
+   * @brief Creates a `LocalCountryFile` for test purposes.
+   *
+   * Creates a `LocalCountryFile` for test purposes, for a country region with `countryFileName`.
+   * Automatically performs sync with disk.
+   *
+   * @param countryFileName The filename, without any extension.
+   * @param version The data version.
+   * @return
+   */
   static LocalCountryFile MakeForTesting(std::string countryFileName, int64_t version = 0);
 
   // Used in generator only to simplify getting instance from path.

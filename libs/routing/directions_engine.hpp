@@ -30,9 +30,18 @@ public:
 
   // @TODO(bykoianko) Method Generate() should fill
   // vector<RouteSegment> instead of corresponding arguments.
-  /// \brief Generates all args which are passed by reference.
-  /// \param path is points of the route. It should not be empty.
-  /// \returns true if fields passed by reference are filled correctly and false otherwise.
+  /**
+   * @brief Calculates segments from a path on a route graph.
+   *
+   * Segments are calculated from `graph` (the route graph) and `path` (points on the route); each
+   * pair of consecutive points becomes a segment.
+   *
+   * @param graph The route graph
+   * @param path The route path, an ordered list of points on the route
+   * @param cancellable
+   * @param routeSegments Receives the list of segments
+   * @return true on successful completion, false if cancelled or an error occurred
+   */
   bool Generate(IndexRoadGraph const & graph, std::vector<geometry::PointWithAltitude> const & path,
                 base::Cancellable const & cancellable, std::vector<RouteSegment> & routeSegments);
   void Clear();

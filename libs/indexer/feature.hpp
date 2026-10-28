@@ -82,6 +82,18 @@ public:
   // (number of points in inner triangle-strips).
   using PointsBufferT = buffer_vector<m2::PointD, 32>;
 
+  /**
+   * @brief Retrieves the points of the feature.
+   *
+   * Depending on `scale`, the geometry may be simplified by reducing groups of nearby points to
+   * one point. If `scale` equals `FeatureType::BEST_GEOMETRY`, no such simplification takes place.
+   *
+   * Points are cached between calls and `scale` may not be honored if cached points are returned.
+   * To reliably enforce `scale`, call `ResetGeometry()` immediately prior to `GetPoints()`.
+   *
+   * @param scale The map scale
+   * @return The points of the feature, simplified according to `scale`.
+   */
   PointsBufferT const & GetPoints(int scale);
   PointsBufferT const & GetTrianglesAsPoints(int scale);
 
@@ -91,6 +103,13 @@ public:
   void ParseHeader2();
   void ParseRelations();
   void ParseAllBeforeGeometry() { ParseRelations(); }
+
+  /**
+   * @brief Resets the geometry.
+   *
+   * This discards any cached points, resulting in points being re-fetched the next time
+   * `GetPoints()` or `GetTrianglesAsPoints()` is called.
+   */
   void ResetGeometry();
   void ParseGeometry(int scale);
   void ParseTriangles(int scale);

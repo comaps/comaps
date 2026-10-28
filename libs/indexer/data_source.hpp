@@ -26,20 +26,31 @@ public:
   /// Registers a new map.
   std::pair<MwmId, RegResult> RegisterMap(platform::LocalCountryFile const & localFile);
 
-  /// Deregisters a map from internal records.
-  ///
-  /// \param countryFile A countryFile denoting a map to be deregistered.
-  /// \return True if the map was successfully deregistered. If map is locked
-  ///         now, returns false.
+  /**
+   * @brief Deregisters a map from internal records.
+   * @param countryFile A `CountryFile` denoting a map to be deregistered.
+   * @return True if the map was successfully deregistered, false if the map is locked now.
+   */
   bool DeregisterMap(platform::CountryFile const & countryFile);
 
   void ForEachFeatureIDInRect(FeatureIdCallback const & f, m2::RectD const & rect, int scale,
                               covering::CoveringMode mode = covering::ViewportWithLowLevels) const;
   void ForEachInRect(FeatureCallback const & f, m2::RectD const & rect, int scale) const;
-  // Calls |f| for features closest to |center| until |stopCallback| returns true or distance
-  // |sizeM| from has been reached. Then for EditableDataSource calls |f| for each edited feature
-  // inside square with center |center| and side |2 * sizeM|. Edited features are not in the same
-  // hierarchy and there is no fast way to merge frozen and edited features.
+
+  /**
+   * @brief Iterates over features within a given distance of a center point.
+   *
+   * Calls `f` for features closest to `center` until `stopCallback` returns true or distance
+   * `sizeM` from has been reached. Then for EditableDataSource calls `f` for each edited feature
+   * inside square with center `center` and side `2 * sizeM`. Edited features are not in the same
+   * hierarchy and there is no fast way to merge frozen and edited features.
+   *
+   * @param f Callback function that is called on each feature.
+   * @param stopCallback Callback function which decides whether to continue searching or stop.
+   * @param center The center of the search area.
+   * @param sizeM The size of the search area, as a distance from the center point.
+   * @param scale
+   */
   void ForClosestToPoint(FeatureCallback const & f, StopSearchCallback const & stopCallback, m2::PointD const & center,
                          double sizeM, int scale) const;
   void ForEachInScale(FeatureCallback const & f, int scale) const;
@@ -73,18 +84,24 @@ private:
   std::unique_ptr<FeatureSourceFactory> m_factory;
 };
 
-// DataSource which operates with features from mwm file and does not support features creation
-// deletion or modification.
+/**
+ * @brief A `DataSource` which operates with features from an MWM file and does not support
+ * creation, deletion or modification of features.
+ */
 class FrozenDataSource : public DataSource
 {
 public:
   FrozenDataSource() : DataSource(std::make_unique<FeatureSourceFactory>()) {}
 };
 
-/// Guard for loading features from particular MWM by demand.
-/// @note If you need to work with FeatureType from different threads you need to use
-/// a unique FeaturesLoaderGuard instance for every thread.
-/// For an example of concurrent extracting feature details please see ConcurrentFeatureParsingTest.
+/**
+ * @brief Guard for loading features from particular MWM by demand.
+ *
+ * @note If you need to work with `FeatureType` from different threads, you need to use
+ * a unique `FeaturesLoaderGuard` instance for every thread.
+ * For an example of concurrent extracting feature details please see `ConcurrentFeatureParsingTest`
+ * in `routing/routing_integration_tests`.
+ */
 class FeaturesLoaderGuard
 {
 public:

@@ -63,6 +63,26 @@ bool IsRoad(Types const & types)
 
 void FillSegmentInfo(std::vector<double> const & times, std::vector<RouteSegment> & routeSegments);
 
+/**
+ * @brief Constructs or reconstructs a route.
+ *
+ * This function populates `route` with segments and geometry. Segments are calculated from `graph`
+ * (the route graph) and `path` (points on the route); each pair of consecutive points becomes a
+ * segment. The actual calculation is delegated to `engine` and can be influenced by passing a
+ * different directions engine. Segment information is then enriched with the length of each segment
+ * (calculated directly) and the estimated travel time specified in `times`. Geometry is calculated
+ * from `path` by extracting latitude and longitude from each item.
+ *
+ * The number of items in `times` must be equal to the number of segments, or the number of items in
+ * `points` minus 1. The items of `times` are travel times from start, therefore no value can be
+ * less than the previous one.
+ *
+ * @param engine The directions engine
+ * @param graph The route graph
+ * @param path The route path, an ordered list of points on the route
+ * @param times Travel times (from start) for each segment
+ * @param route The route
+ */
 void ReconstructRoute(DirectionsEngine & engine, IndexRoadGraph const & graph, base::Cancellable const & cancellable,
                       std::vector<geometry::PointWithAltitude> const & path, std::vector<double> const & times,
                       Route & route);

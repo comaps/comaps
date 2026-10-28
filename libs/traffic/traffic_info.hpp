@@ -15,23 +15,43 @@ class HttpClient;
 
 namespace traffic
 {
-// This class is responsible for providing the real-time
-// information about road traffic for one mwm file.
+/**
+ * @brief The `TrafficInfo` class is responsible for providing the real-time information about road
+ * traffic for one MWM.
+ */
 class TrafficInfo
 {
 public:
   static uint8_t const kLatestKeysVersion;
   static uint8_t const kLatestValuesVersion;
 
+  /**
+   * @brief Whether traffic data is available in this `TrafficInfo` instance.
+   */
   enum class Availability
   {
+    /** This `TrafficInfo` instance has data available. */
     IsAvailable,
+    /** No traffic data is available (file not found on the server, or server returned invalid data). */
     NoData,
+    /** Traffic data could not be retrieved because the map data is outdated. */
     ExpiredData,
+    /** Traffic data could not be retrieved because the app version is outdated. */
     ExpiredApp,
+    /** No traffic data is available because the server responded with an error (other than “not found”), or no request was made yet. */
     Unknown
   };
 
+  /**
+   * @brief The RoadSegmentId struct models a segment of a road.
+   *
+   * A road segment is the link between two consecutive points of an OSM way. The way must be
+   * tagged with a valid `highway` tag. A segment refers to a single direction.
+   *
+   * Therefore, an OSM way with `n` points has `n - 1` segments if tagged as one-way, `2 (n - 1)`
+   * otherwise (as each pair of adjacent points is connected by two segments, one in each
+   * direction.)
+   */
   struct RoadSegmentId
   {
     // m_dir can be kForwardDirection or kReverseDirection.
@@ -68,6 +88,9 @@ public:
     uint8_t m_dir : 1;
   };
 
+  /**
+   * @brief Mapping from feature segments to speed groups (see `speed_groups.hpp`), for one MWM.
+   */
   // todo(@m) unordered_map?
   using Coloring = std::map<RoadSegmentId, SpeedGroup>;
 
@@ -75,6 +98,11 @@ public:
 
   TrafficInfo(MwmSet::MwmId const & mwmId, int64_t currentDataVersion);
 
+  /**
+   * @brief Returns a `TrafficInfo` instance with pre-populated traffic information.
+   * @param coloring The traffic information (road segments and their speed group)
+   * @return The new `TrafficInfo` instance
+   */
   static TrafficInfo BuildForTesting(Coloring && coloring);
   void SetTrafficKeysForTesting(std::vector<RoadSegmentId> const & keys);
 
@@ -86,19 +114,38 @@ public:
   // *NOTE* This method must not be called on the UI thread.
   bool ReceiveTrafficData(std::string & etag);
 
-  // Returns the latest known speed group by a feature segment's id
-  // or SpeedGroup::Unknown if there is no information about the segment.
+  /**
+   * @brief Returns the latest known speed group by a feature segment's ID.
+   * @param id The road segment ID.
+   * @return The speed group, or `SpeedGroup::Unknown` if no information is available.
+   */
   SpeedGroup GetSpeedGroup(RoadSegmentId const & id) const;
 
   MwmSet::MwmId const & GetMwmId() const { return m_mwmId; }
   Coloring const & GetColoring() const { return m_coloring; }
   Availability GetAvailability() const { return m_availability; }
 
-  // Extracts RoadSegmentIds from mwm and stores them in a sorted order.
+  /**
+   * @brief Extracts RoadSegmentIds from an MWM and stores them in a sorted order.
+   * @param mwmPath Path to the MWM file
+   */
   static void ExtractTrafficKeys(std::string const & mwmPath, std::vector<RoadSegmentId> & result);
 
-  // Adds the unknown values to the partially known coloring map |knownColors|
-  // so that the keys of the resulting map are exactly |keys|.
+  /**
+   * @brief Adds unknown values to a partially known coloring map.
+   *
+   * After this method returns, the keys of `result` will be exactly `keys`. The speed group
+   * associated with each key will be the same as in `knownColors`, or `SpeedGroup::Unknown` for
+   * keys which are not found in `knownColors`.
+   *
+   * Keys in `knownColors` which are not in `keys` will be ignored.
+   *
+   * If `result` contains mappings prior to this method being called, they will be deleted.
+   *
+   * @param keys The keys for the result map.
+   * @param knownColors The map containing the updates.
+   * @param result The map to be updated.
+   */
   static void CombineColorings(std::vector<TrafficInfo::RoadSegmentId> const & keys,
                                TrafficInfo::Coloring const & knownColors, TrafficInfo::Coloring & result);
 
@@ -115,11 +162,18 @@ public:
   static void DeserializeTrafficValues(std::vector<uint8_t> const & data, std::vector<SpeedGroup> & result);
 
 private:
+  /**
+   * @brief Result of the last request to the server.
+   */
   enum class ServerDataStatus
   {
+    /** New data was returned. */
     New,
+    /** Data has not changed since the last request. */
     NotChanged,
+    /** The URL was not found on the server. */
     NotFound,
+    /** An error prevented data from being requested, or the server responded with an error. */
     Error,
   };
 
@@ -139,13 +193,14 @@ private:
 
   ServerDataStatus ProcessFailure(platform::HttpClient const & request, int64_t const mwmVersion);
 
-  // The mapping from feature segments to speed groups (see speed_groups.hpp).
+  /** @brief The mapping from feature segments to speed groups (see speed_groups.hpp). */
   Coloring m_coloring;
 
-  // The keys of the coloring map. The values are downloaded periodically
-  // and combined with the keys to form m_coloring.
-  // *NOTE* The values must be received in the exact same order that the
-  // keys are saved in.
+  /**
+   * @brief The keys of the coloring map. The values are downloaded periodically
+   * and combined with the keys to form `m_coloring`.
+   * *NOTE* The values must be received in the exact same order that the keys are saved in.
+   */
   std::vector<RoadSegmentId> m_keys;
 
   MwmSet::MwmId m_mwmId;

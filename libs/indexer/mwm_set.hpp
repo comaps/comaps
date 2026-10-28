@@ -153,8 +153,10 @@ public:
   explicit MwmSet(size_t cacheSize = 64) : m_cacheSize(cacheSize) {}
   virtual ~MwmSet() = default;
 
-  // Mwm handle, which is used to refer to mwm and prevent it from
-  // deletion when its FileContainer is used.
+  /**
+   * @brief Mwm handle, which is used to refer to mwm and prevent it from deletion when its
+   * FileContainer is used.
+   */
   class MwmHandle
   {
   public:
@@ -239,19 +241,26 @@ public:
     BadFile
   };
 
-  // An Observer interface to MwmSet. Note that these functions can
-  // be called from *ANY* thread because most signals are sent when
-  // some thread releases its MwmHandle, so overrides must be as fast
-  // as possible and non-blocking when it's possible.
+  /**
+   * @brief An Observer interface to `MwmSet`.
+   *
+   * Note that these functions can be called from *ANY* thread because most signals are sent when
+   * some thread releases its MwmHandle, so overrides must be as fast as possible and non-blocking
+   * when it's possible.
+   */
   class Observer
   {
   public:
     virtual ~Observer() = default;
 
-    // Called when a map is registered for the first time and can be used.
+    /**
+     * @brief Called when a map is registered for the first time and can be used.
+     */
     virtual void OnMapRegistered(platform::LocalCountryFile const & /* localFile */) {}
 
-    // Called when a map is deregistered and can no longer be used.
+    /**
+     * @brief Called when a map is deregistered and can no longer be used.
+     */
     virtual void OnMapDeregistered(platform::LocalCountryFile const & /* localFile */) {}
   };
 
@@ -305,7 +314,14 @@ public:
   /// @todo In fact, std::shared_ptr<MwmInfo> is a MwmId. Seems like better to make vector<MwmId> interface.
   void GetMwmsInfo(std::vector<std::shared_ptr<MwmInfo>> & info) const;
 
-  // Clears caches and mwm's registry. All known mwms won't be marked as DEREGISTERED.
+  /**
+   * @brief Clears caches and mwm's registry.
+   *
+   * All known mwms won't be marked as DEREGISTERED.
+   *
+   * @todo what does “all won’t be marked” mean? Not all will be marked/some might not be marked?
+   * Or all will be unmarked?
+   */
   void Clear();
 
   void ClearCache();
@@ -346,10 +362,18 @@ private:
     ProcessEventList(events);
   }
 
-  // Sets |status| in |info|, adds corresponding event to |event|.
+  /**
+   * @brief Sets `status` in `info`, adds corresponding event to `event`.
+   * @param info
+   * @param status
+   * @param events
+   */
   void SetStatus(MwmInfo & info, MwmInfo::Status status, EventList & events);
 
-  // Triggers observers on each event in |events|.
+  /**
+   * @brief Triggers observers on each event in `events`.
+   * @param events
+   */
   void ProcessEventList(EventList & events);
 
   /// @precondition This function is always called under mutex m_lock.

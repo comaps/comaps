@@ -5,6 +5,15 @@
 
 namespace traffic
 {
+/**
+ * A bucket for the ratio of the speed of moving traffic to the posted speed limit.
+ *
+ * Let Vmax be the posted speed limit and Vreal the speed at which traffic is currently flowing
+ * or expected to flow. The possible ratios (Vreal/Vmax) are grouped into buckets and, from then
+ * on, only the bucket number is used.
+ *
+ * The threshold ratios for the individual values are defined in `kSpeedGroupThresholdPercentage`.
+ */
 enum class SpeedGroup : uint8_t
 {
   G0 = 0,
@@ -20,24 +29,33 @@ enum class SpeedGroup : uint8_t
 
 static_assert(static_cast<uint8_t>(SpeedGroup::Count) <= 8, "");
 
-// Let M be the maximal speed that is possible on a free road
-// and let V be the maximal speed that is possible on this road when
-// taking the traffic data into account.
-// We group all possible ratios (V/M) into a small number of
-// buckets and only use the number of a bucket everywhere.
-// That is, we forget the specific values of V when transmitting and
-// displaying traffic information. The value M of a road is known at the
-// stage of building the mwm containing this road.
-//
-// kSpeedGroupThresholdPercentage[g] denotes the maximal value of (V/M)
-// that is possible for group |g|. Values falling on a border of two groups
-// may belong to either group.
-//
-// The threshold percentage is defined to be 100 for the
-// special groups where V is unknown or not defined.
+/**
+ * Threshold ratios for the individual values of `SpeedGroup`.
+ *
+ * Let Vmax be the posted speed limit and Vreal the speed at which traffic is currently flowing
+ * or expected to flow. The possible ratios (Vreal/Vmax) are grouped into buckets and, from then
+ * on, only the bucket number is used.
+ *
+ * `kSpeedGroupThresholdPercentage[g]` is the maximum percentage of Vreal/Vmax for group g. Values
+ * falling on the border of two groups may belong to either group.
+ *
+ * For special groups, where Vreal/Vmax is unknown or undefined, the threshold is 100%.
+ */
 extern uint32_t const kSpeedGroupThresholdPercentage[static_cast<size_t>(SpeedGroup::Count)];
 
-/// \note This method is used in traffic jam generation.
+/**
+ * Converts the ratio between speed of flowing traffic and the posted limit to a `SpeedGroup`.
+ *
+ * This method is used in traffic jam generation: Let Vmax be the posted speed limit and Vreal the
+ * speed at which traffic is currently flowing or expected to flow. The possible ratios
+ * (Vreal/Vmax) are grouped into buckets and, from then on, only the bucket number is used.
+ *
+ * This method performs the conversion from the ratio to a `SpeedGroup` bucket.
+ *
+ * @param p Vreal / Vmax * 100% (ratio expressed in percent)
+ *
+ * @return the `SpeedGroup` value which corresponds to `p`
+ */
 SpeedGroup GetSpeedGroupByPercentage(double p);
 
 std::string DebugPrint(SpeedGroup const & group);

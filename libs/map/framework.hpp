@@ -113,6 +113,12 @@ class Loader;
 /// build version for screenshots.
 // #define FIXED_LOCATION
 
+/**
+ * @brief Initialization parameters for the framework.
+ *
+ * `FrameworkParams` is intended for parameters which are hardcoded rather than read from a
+ * configuration. It allows test cases to run on a tailored configuration.
+ */
 struct FrameworkParams
 {
   bool m_enableDiffs = true;
@@ -320,7 +326,34 @@ public:
   /// \note It works for group and leaf node.
   bool HasUnsavedEdits(storage::CountryId const & countryId);
 
+  /**
+   * @brief Loads maps synchronously.
+   *
+   * Maps are loaded on the calling thread.
+   *
+   * This function also performs certain initialization operations which depend on map data being
+   * available, such as search, traffic and the download queue.
+   *
+   * @note This function is not suitable for use on platforms which enforce restrictions on
+   * time-consuming or potentially blocking operations on the UI thread (as Android does). On such
+   * platforms, `LoadMapsAsync()` should be used instead.
+   */
   void LoadMapsSync();
+
+  /**
+   * @brief Loads maps asynchronously.
+   *
+   * Maps are loaded on a new thread. Some operations are executed as part of a separate task which
+   * is posted to the GUI thread.
+   *
+   * This function also performs certain initialization operations which depend on map data being
+   * available, such as search, traffic and the download queue.
+   *
+   * After finishing initialization, the caller-supplied callback function is called. This function
+   * also runs on the GUI thread and should therefore not perform any time-consuming operations.
+   *
+   * @param callback A callback function to run at the end of initialization.
+   */
   void LoadMapsAsync(std::function<void()> && callback);
 
   /// Registers all local map files in internal indexes.
@@ -581,11 +614,18 @@ private:
   std::unique_ptr<descriptions::Loader> m_descriptionsLoader;
 
 public:
-  // Moves viewport to the search result and taps on it.
+  /**
+   * @brief Moves viewport to the search result and taps on it.
+   * @param res
+   * @param animation
+   */
   void SelectSearchResult(search::Result const & res, bool animation);
 
-  // Cancels all searches, stops location follow and then selects
-  // search result.
+  /**
+   * @brief Cancels all searches, stops location follow and then selects search result.
+   * @param res
+   * @param animation
+   */
   void ShowSearchResult(search::Result const & res, bool animation = true);
 
   void UpdateViewport(search::Results const & results);

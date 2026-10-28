@@ -37,9 +37,12 @@ namespace routing
 {
 class FollowingInfo;
 
-/// \breaf This class is responsible for the route built in the program.
-/// \note All method of this class should be called from ui thread if there's no
-/// a special note near a method.
+/**
+ * @brief This class is responsible for the route built in the program.
+ *
+ * @note Methods of this class may only be called from the UI thread, unless the method
+ * documentation states otherwise.
+ */
 class RoutingSession
   : public traffic::TrafficObserver
   , public traffic::TrafficCache
@@ -63,24 +66,105 @@ public:
   m2::PointD GetStartPoint() const;
   m2::PointD GetEndPoint() const;
 
+  /**
+   * @brief Whether routing is currently active.
+   *
+   * A route is considered active if a destination has been entered and the route has ben built or
+   * is currently being built or rebuilt, even if the user is not currently following it.
+   *
+   * @return True if active, false if not
+   */
   bool IsActive() const;
+
+  /**
+   * @brief Whether the route is currently navigable.
+   *
+   * The route is considered navigable if it has been built and following mode is enabled, and the
+   * user either has not yet started following the route, is currently following it or has reached
+   * their destination but not yet closed the session. The route is no longer navigable if the user
+   * leaves it.
+   *
+   * @return True if navigable, false if not.
+   */
   bool IsNavigable() const;
+
+  /**
+   * @brief Whether a built route exists.
+   *
+   * A route is considered built if it is navigable (see `IsNavigable()`), but retains that state
+   * even if the user leaves the route.
+   *
+   * @return True if built, false if not.
+   */
   bool IsBuilt() const;
-  /// \returns true if a new route is in process of building rebuilding or
-  /// if a route is being rebuilt in case the user left the route, and false otherwise.
+
+  /**
+   * @brief Whether a route is currently being built or rebuilt.
+   *
+   * This is the case if a new route is in process of building, rebuilding, or if a route is being
+   * rebuilt after the user has left the route.
+   *
+   * @return True if building or rebuilding, false otherwise.
+   */
   bool IsBuilding() const;
+
+  /**
+   * @brief Whether the route is currently being built from scratch.
+   *
+   * This is the case if a new route is currently being built, but not if an already existing route
+   * is being rebuilt.
+   *
+   * @return True if building, false otherwise (also if rebuilding).
+   */
   bool IsBuildingOnly() const;
+
+  /**
+   * @brief Whether the route is currently being rebuilt.
+   *
+   * This is the case if an already existing route is being rebuilt, but not if a new route is
+   * currently being built.
+   *
+   * @return True if rebuilding, false otherwise (also if building from scratch).
+   */
   bool IsRebuildingOnly() const;
+
+  /**
+   * @brief Whether the route is finished.
+   *
+   * The route is considered finished if the destination point has been reached but the session has
+   * not been closed.
+   *
+   * @return True if finished, false otherwise.
+   */
   bool IsFinished() const;
+
+  /**
+   * @brief Whether a route has been built while following mode is disabled.
+   *
+   * @return True if a route has been built and following mode disabled, false otherwise.
+   */
   bool IsNoFollowing() const;
+
+  /**
+   * @brief Whether the user is currently following a previously built route.
+   *
+   * This is the case if the route has been built, route following is enabled, the user has started
+   * following the route and not left it.
+   *
+   * @return True if the user is following the route, false otherwise.
+   */
   bool IsOnRoute() const;
+
   bool IsFollowing() const;
   void Reset();
 
   void SetState(SessionState state);
 
-  /// \returns true if altitude information along |m_route| is available and
-  /// false otherwise.
+  /**
+   * @brief Whether altitude information along the route is available.
+   *
+   * @return True if altitude information along `m_route` is available, false otherwise.
+   */
   bool HasRouteAltitude() const;
   bool IsRouteId(uint64_t routeId) const;
   bool IsRouteValid() const;

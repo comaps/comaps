@@ -43,10 +43,17 @@ public:
 
   OpenLRDecoder(std::vector<FrozenDataSource> & dataSources, CountryParentNameGetter const & countryParentNameGetter);
 
-  // Maps partner segments to mwm paths. |segments| should be sorted by partner id.
+  /**
+   * Maps partner segments to mwm paths.
+   *
+   * `segments` should be sorted by partner id.
+   */
   void DecodeV2(std::vector<LinearSegment> const & segments, uint32_t const numThreads,
                 std::vector<DecodedPath> & paths);
 
+  /**
+   * Maps partner segments to mwm paths.
+   */
   void DecodeV3(std::vector<LinearSegment> const & segments, uint32_t numThreads, std::vector<DecodedPath> & paths);
 
 private:

@@ -30,16 +30,26 @@ public:
 
   Graph(DataSource & dataSource, std::shared_ptr<routing::CarModelFactory> carModelFactory);
 
-  // Appends edges such as that edge.GetStartJunction() == junction to the |edges|.
+  /**
+   * Appends edges to `edges` such as that `edge.GetStartJunction() == junction`.
+   */
   void GetOutgoingEdges(geometry::PointWithAltitude const & junction, EdgeListT & edges);
-  // Appends edges such as that edge.GetEndJunction() == junction to the |edges|.
+
+  /**
+   * Appends edges to `edges` such as that `edge.GetEndJunction() == junction`.
+   */
   void GetIngoingEdges(geometry::PointWithAltitude const & junction, EdgeListT & edges);
 
-  // Appends edges such as that edge.GetStartJunction() == junction and edge.IsFake() == false
-  // to the |edges|.
+  /**
+   * Appends edges to `edges` such as that `edge.GetStartJunction() == junction` and
+   * `edge.IsFake() == false`.
+   */
   void GetRegularOutgoingEdges(Junction const & junction, EdgeListT & edges);
-  // Appends edges such as that edge.GetEndJunction() == junction and edge.IsFale() == false
-  // to the |edges|.
+
+  /**
+   * Appends edges to `edges` such as that `edge.GetEndJunction() == junction` and
+   * `edge.IsFake() == false`.
+   */
   void GetRegularIngoingEdges(Junction const & junction, EdgeListT & edges);
 
   void FindClosestEdges(m2::PointD const & point, uint32_t const count,

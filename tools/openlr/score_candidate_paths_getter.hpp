@@ -56,8 +56,10 @@ private:
     Graph::Edge const m_edge;
     double const m_distanceM;
     Score const m_pointScore;
-    // Minimum score of segments of the path going along |m_parent| based on functional road class
-    // and form of way.
+    /**
+     * Minimum score of segments of the path going along `m_parent` based on functional road class
+     * and form of way.
+     */
     Score const m_minRoadScore;
   };
 
@@ -94,9 +96,12 @@ private:
   // distance-to-next point is taken from point 3. You can learn more in
   // TomTom OpenLR spec.
 
-  /// \brief Fills |allPaths| with paths near start or finish point starting from |startLines|.
-  /// To extract a path from |allPaths| a item from |allPaths| should be taken,
-  /// then should be taken the member |m_parent| of the item and so on till the beginning.
+  /**
+   * @brief Fills `allPaths` with paths near start or finish point starting from `startLines`.
+   *
+   * To extract a path from `allPaths` a item from `allPaths` should be taken,
+   * then should be taken the member `m_parent` of the item and so on till the beginning.
+   */
   void GetAllSuitablePaths(ScoreEdgeVec const & startLines, LinearSegmentSource source, bool isLastPoint,
                            double bearDistM, FunctionalRoadClass functionalRoadClass, FormOfWay formOfWay,
                            double distanceToNextPointM, std::vector<std::shared_ptr<Link>> & allPaths);

@@ -218,19 +218,55 @@ public:
   MaxspeedType GetForward() const { return m_forward; }
   MaxspeedType GetBackward() const { return m_backward; }
 
+  /**
+   * @brief Whether the maxspeed is valid for the forward direction.
+   *
+   * Valid maxspeeds include numeric values as well as `kNoneMaxSpeed` and `kWalkMaxSpeed`.
+   *
+   * Only the forward direction is evaluated, maxspeed for the backward direction may still be invalid.
+   * To check for valid maxspeed in both directions, use `IsBidirectional()`.
+   *
+   * @return true if valid, false if not.
+   */
   bool IsValid() const { return m_forward != kInvalidSpeed; }
-  /// \returns true if Maxspeed is considered as Bidirectional(). It means different
-  /// speed is set for forward and backward direction. Otherwise returns false. It means
-  /// |m_forward| speed should be used for the both directions.
+
+  /**
+   * @brief Whether different maxspeeds apply to the forward and backward direction.
+   *
+   * A return value of `true` indicates that `GetBackward()` should be used to retrieve the maxspeed
+   * for the backward direction, though it does not necessarily guarantee that speeds actually differ
+   * between directions (both might be set to the same value).
+   *
+   * A return value of `false` indicates that `GetForward()` should be used to retrieve the maxspeed
+   * for either direction (`GetBackward()` will return an `kInvalidSpeed` in this case).
+   *
+   * @return true if explicit speeds are set for both directions, false if the forward speed applies
+   * to both directions.
+   */
   bool IsBidirectional() const { return IsValid() && m_backward != kInvalidSpeed; }
 
-  /// \brief returns speed according to |m_units|. |kInvalidSpeed|, |kNoneMaxSpeed| or
-  /// |kWalkMaxSpeed| may be returned.
+  /**
+   * @brief Returns maxspeed in native units.
+   *
+   * Native units are the units returned by `GetUnits()`.
+   *
+   * @param forward Whether to return maxspeed for the forward or backward direction.
+   *
+   * @return Speed in native units, or `kInvalidSpeed`, `kNoneMaxSpeed` or `kWalkMaxSpeed`.
+   */
   MaxspeedType GetSpeedInUnits(bool forward) const;
 
-  /// \brief returns speed in km per hour. If it's not valid |kInvalidSpeed| is
-  /// returned. Otherwise forward or backward speed in km per hour is returned. |kNoneMaxSpeed| and
-  /// |kWalkMaxSpeed| are converted to some numbers.
+  /**
+   * @brief Returns maxspeed in km per hour.
+   *
+   * If the maxspeed is not valid `kInvalidSpeed` is returned. Otherwise forward or backward speed
+   * in km per hour is returned. `kNoneMaxSpeed` and `kWalkMaxSpeed` are converted to actual speeds
+   * which can be used directly.
+   *
+   * @param forward Whether to return maxspeed for the forward or backward direction.
+   *
+   * @return Speed in km/h, or `kInvalidSpeed`.
+   */
   MaxspeedType GetSpeedKmPH(bool forward) const;
 
 private:

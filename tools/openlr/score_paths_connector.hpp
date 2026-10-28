@@ -17,9 +17,12 @@ class ScorePathsConnector
 public:
   ScorePathsConnector(Graph & graph, RoadInfoGetter & infoGetter, v2::Stats & stat);
 
-  /// \brief Connects |lineCandidates| and fills |resultPath| with the path with maximum score
-  /// if there's a good enough.
-  /// \returns true if the best path is found and false otherwise.
+  /**
+   * @brief Connects `lineCandidates` and fills `resultPath` with the path with maximum score
+   * if there's a good enough one.
+   *
+   * @return true if the best path is found and false otherwise.
+   */
   bool FindBestPath(std::vector<LocationReferencePoint> const & points,
                     std::vector<std::vector<ScorePath>> const & lineCandidates, LinearSegmentSource source,
                     std::vector<Graph::EdgeVector> & resultPath);

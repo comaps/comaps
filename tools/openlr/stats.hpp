@@ -41,7 +41,9 @@ struct alignas(kCacheLineSize) Stats
   uint32_t m_noShortestPathFound = 0;
   uint32_t m_notEnoughScore = 0;
   uint32_t m_wrongOffsets = 0;
-  // Number of zeroed distance-to-next point values in the input.
+  /**
+   * Number of zeroed distance-to-next point values in the input.
+   */
   uint32_t m_zeroDistToNextPointCount = 0;
 };
 }  // namespace v2

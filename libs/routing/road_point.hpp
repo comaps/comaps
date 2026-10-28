@@ -9,10 +9,11 @@
 
 namespace routing
 {
-// RoadPoint is a unique identifier for any road point in mwm file.
-//
-// Contains feature id and point id.
-// Point id is the ordinal number of the point in the road.
+/**
+ * @brief A unique identifier for any point on a road in an mwm file.
+ *
+ * It contains a feature id and point id. The point id is the ordinal number of the point in the road.
+ */
 class RoadPoint final
 {
 public:

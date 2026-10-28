@@ -22,11 +22,15 @@ namespace routing
 {
 class AbsentRegionsFinder;
 
-/// Dispatches a route calculation on a worker thread
+/**
+ * @brief The AsyncRouter class is a wrapper class to run routing routines in a different thread.
+ *
+ * It encapsulates an `IRouter` (or subclass) instance, set with `SetRouter()`, and runs it in a
+ * separate worker thread to calculate the route.
+ */
 class AsyncRouter final
 {
 public:
-  /// AsyncRouter is a wrapper class to run routing routines in the different thread
   AsyncRouter(PointCheckCallback const & pointCheckCallback);
   ~AsyncRouter();
 

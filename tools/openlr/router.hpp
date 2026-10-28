@@ -34,20 +34,30 @@ private:
     class Score final
     {
     public:
-      // A weight for total length of true fake edges.
+      /**
+       * A weight for total length of true fake edges.
+       */
       static int const kTrueFakeCoeff = 10;
 
-      // A weight for total length of fake edges that are parts of some
-      // real edges.
+      /**
+       * A weight for total length of fake edges that are parts of some
+       * real edges.
+       */
       static constexpr double kFakeCoeff = 0.001;
 
-      // A weight for passing too far from pivot points.
+      /**
+       * A weight for passing too far from pivot points.
+       */
       static int const kIntermediateErrorCoeff = 3;
 
-      // A weight for excess of distance limit.
+      /**
+       * A weight for excess of distance limit.
+       */
       static int const kDistanceErrorCoeff = 3;
 
-      // A weight for deviation from bearing.
+      /**
+       * A weight for deviation from bearing.
+       */
       static int const kBearingErrorCoeff = 5;
 
       void AddDistance(double p) { m_distance += p; }
@@ -66,7 +76,9 @@ private:
       bool operator!=(Score const & rhs) const { return !(*this == rhs); }
 
     private:
-      // Reduced length of path in meters.
+      /**
+       * Reduced length of path in meters.
+       */
       double m_distance = 0.0;
 
       double m_penalty = 0.0;
@@ -142,21 +154,31 @@ private:
   bool Init(std::vector<WayPoint> const & points, double positiveOffsetM, double negativeOffsetM);
   bool FindPath(Path & path);
 
-  // Returns true if the bearing should be checked for |u|, if the
-  // real passed distance from the source vertex is |distanceM|.
+  /**
+   * Returns true if the bearing should be checked for `u`, if the
+   * real passed distance from the source vertex is `distanceM`.
+   */
   bool NeedToCheckBearing(Vertex const & u, double distanceM) const;
 
   double GetPotential(Vertex const & u) const;
 
-  // Returns true if |u| is located near portal to the next stage.
-  // |pi| is the potential of |u|.
+  /**
+   * Returns true if `u` is located near portal to the next stage.
+   *
+   * @param pi potential of `u`.
+   */
   bool NearNextStage(Vertex const & u, double pi) const;
 
-  // Returns true if it's possible to move to the next stage from |u|.
-  // |pi| is the potential of |u|.
+  /**
+   * Returns true if it's possible to move to the next stage from `u`.
+   *
+   * @param pi potential of `u`.
+   */
   bool MayMoveToNextStage(Vertex const & u, double pi) const;
 
-  // Returns true if |u| is a final vertex and the router may stop now.
+  /**
+   * Returns true if `u` is a final vertex and the router may stop now.
+   */
   bool IsFinalVertex(Vertex const & u) const { return u.m_stage == m_pivots.size(); }
 
   double GetWeight(routing::Edge const & e) const
@@ -187,20 +209,26 @@ private:
   template <typename It>
   size_t FindPrefixLengthToConsume(It b, It const e, double lengthM);
 
-  // Finds all edges that are on (u, v) and have the same direction as
-  // (u, v).  Then, computes the fraction of the union of these edges
-  // to the total length of (u, v).
+  /**
+   * Finds all edges that are on (u, v) and have the same direction as
+   * (u, v).  Then, computes the fraction of the union of these edges
+   * to the total length of (u, v).
+   */
   template <typename It>
   double GetCoverage(m2::PointD const & u, m2::PointD const & v, It b, It e);
 
-  // Finds the longest prefix of [b, e) that covers edge (u, v).
-  // Returns the fraction of the coverage to the length of the (u, v).
+  /**
+   * Finds the longest prefix of [b, e) that covers edge (u, v).
+   * Returns the fraction of the coverage to the length of the (u, v).
+   */
   template <typename It>
   double GetMatchingScore(m2::PointD const & u, m2::PointD const & v, It b, It e);
 
-  // Finds the longest prefix of fake edges of [b, e) that have the
-  // same stage as |stage|. If the prefix exists, passes its bounding
-  // iterator to |fn|.
+  /**
+   * Finds the longest prefix of fake edges of [b, e) that have the
+   * same stage as `stage`. If the prefix exists, passes its bounding
+   * iterator to `fn`.
+   */
   template <typename It, typename Fn>
   void ForStagePrefix(It b, It e, size_t stage, Fn && fn);
 

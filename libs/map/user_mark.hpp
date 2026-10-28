@@ -42,20 +42,37 @@ public:
     TrafficLight,
   };
 
+  /**
+   * @brief User mark types.
+   *
+   * `UserMark` subclasses are assigned a value from this enum.
+   */
   enum Type : uint32_t
   {
+    /** `Bookmark` */
     BOOKMARK,  // Should always be the first one
+    /** `ApiMarkPoint` */
     API,
+    /** `SearchMarkPoint` */
     SEARCH,
+    /** `StaticMarkPoint` */
     STATIC,
+    /** `RouteMarkPoint` */
     ROUTING,
+    /** `SpeedCameraMark` */
     SPEED_CAM,
+    /** `RoadWarningMark` */
     ROAD_WARNING,
+    /** `TransitMark` */
     TRANSIT,
     LOCAL_ADS,
+    /** `TrackInfoMark` */
     TRACK_INFO,
+    /** `TrackSelectionMark` */
     TRACK_SELECTION,
+    /** `DebugMarkPoint` */
     DEBUG_MARK,  // Plain "DEBUG" results in a name collision.
+    /** `ColoredMarkPoint` */
     COLORED,
     TRAFFIC_LIGHT,
     USER_MARK_TYPES_COUNT,
@@ -140,6 +157,9 @@ private:
   bool m_hasPosition = false;
 };
 
+/**
+ * @brief A mark in the shape of a dot.
+ */
 class DebugMarkPoint : public UserMark
 {
 public:
@@ -148,6 +168,9 @@ public:
   drape_ptr<SymbolNameZoomInfo> GetSymbolNames() const override;
 };
 
+/**
+ * @brief A mark in the shape of a dot, of caller-defined color and radius.
+ */
 class ColoredMarkPoint : public UserMark
 {
 public:

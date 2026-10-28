@@ -159,14 +159,15 @@ struct NodeStatuses
   bool m_groupNode;
 };
 
-// This class is used for downloading, updating and deleting maps.
-// Storage manages a queue of mwms to be downloaded.
-// Every operation with this queue must be executed
-// on the storage thread. In the current implementation, the storage
-// thread coincides with the main (UI) thread.
-// Downloading of only one mwm at a time is supported, so while the
-// mwm at the top of the queue is being downloaded (or updated by
-// applying a diff file) all other mwms have to wait.
+/**
+ * @brief The Storage class is used for downloading, updating and deleting maps.
+ *
+ * Storage manages a queue of mwms to be downloaded. Every operation with this queue must be
+ * executed on the storage thread. In the current implementation, the storage thread coincides with
+ * the main (UI) thread. Downloading of only one mwm at a time is supported, so while the mwm at the
+ * top of the queue is being downloaded (or updated by applying a diff file) all other mwms have to
+ * wait.
+ */
 class Storage final : public QueuedCountry::Subscriber
 {
 public:

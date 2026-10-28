@@ -15,11 +15,21 @@ using NumMwmId = std::uint16_t;
 NumMwmId constexpr kFakeNumMwmId = std::numeric_limits<NumMwmId>::max();
 NumMwmId constexpr kGeneratorMwmId = 0;
 
+/**
+ * @brief A numbered list of country files.
+ */
 class NumMwmIds final
 {
 public:
   bool IsEmpty() const { return m_idToFile.empty(); }
 
+  /**
+   * @brief Registers a file, i.e. adds it to the instance.
+   *
+   * If the instance already contains the file, this is a no-op.
+   *
+   * @param file
+   */
   void RegisterFile(platform::CountryFile const & file)
   {
     if (ContainsFile(file))
@@ -32,16 +42,36 @@ public:
     // LOG(LDEBUG, ("MWM:", file.GetName(), "=", id));
   }
 
+  /**
+   * @brief Whether this instance contains a given file.
+   * @param file
+   * @return
+   */
   bool ContainsFile(platform::CountryFile const & file) const { return m_fileToId.find(file) != m_fileToId.cend(); }
 
+  /**
+   * @brief Whether this instance contains a file at a given index.
+   * @param mwmId The index.
+   * @return
+   */
   bool ContainsFileForMwm(NumMwmId mwmId) const { return mwmId < m_idToFile.size(); }
 
+  /**
+   * @brief Returns a file by index.
+   * @param mwmId The index.
+   * @return
+   */
   platform::CountryFile const & GetFile(NumMwmId mwmId) const
   {
     ASSERT_LESS(mwmId, m_idToFile.size(), ());
     return m_idToFile[mwmId];
   }
 
+  /**
+   * @brief Returns the index for a given file.
+   * @param file
+   * @return
+   */
   NumMwmId GetId(platform::CountryFile const & file) const
   {
     auto const it = m_fileToId.find(file);

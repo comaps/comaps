@@ -44,8 +44,21 @@ namespace routing
 using SubrouteUid = uint64_t;
 SubrouteUid constexpr kInvalidSubrouteId = std::numeric_limits<uint64_t>::max();
 
-/// \brief The route is composed of one or several subroutes. Every subroute is composed of segments.
-/// For every Segment is kept some attributes in the structure SegmentInfo.
+/**
+ * @brief A segment of the route.
+ *
+ * The route is composed of one or several subroutes. Every subroute is composed of segments.
+ *
+ * For every Segment, some attributes are kept in the `SegmentInfo` structure.
+ *
+ * @todo the statement regarding `SegmentInfo` seems to be outdated, is `SegmentInfo` a prececessor
+ * of `RouteSegment`?
+ *
+ * Segment data which is actually related to a point, such as junction, distance and time, refer to
+ * the end which is closer to the end of the route. For the first segment, distance and time are the
+ * length and travel time of the segment itself. For the last segment, distance and time are the
+ * length and travel time of the entore route, and the junction is the finish point.
+ */
 class RouteSegment final
 {
 public:
@@ -74,17 +87,38 @@ public:
     uint8_t m_maxSpeedKmPH = 0;
   };
 
+  /**
+   * @brief Holds structured information about a road.
+   *
+   * `m_ref` and `m_name` refer to the road itself.
+   *
+   * This structure is only populated for the first segment of a feature (segment index is either 0,
+   * or one less than the segment count of the feature, or the segment is the first segment of the
+   * subroute which is not a fake segment). For subsequent segments of the same feature, it is empty.
+   */
   struct RoadNameInfo
   {
     FeatureID m_mwmId;
-    // This is for street/road. |m_ref| |m_name|.
-    std::string m_name;             // E.g "Johnson Ave.".
-    std::string m_destination_ref;  // Number of next road, e.g. "CA 85", Sometimes "CA 85 South". Usually match |m_ref|
-                                    // of next main road.
-    // This is for 1st segment of link after junction. Exit |junction_ref| to |m_destination_ref| for |m_destination|.
-    std::string m_junction_ref;  // Number of junction e.g. "398B".
-    std::string m_destination;   // E.g. "Cupertino".
-    std::string m_ref;           // Number of street/road e.g. "CA 85".
+    /** @brief The name of the road, e.g. “Johnson Ave”. */
+    std::string m_name;
+    /**
+     * @brief The number of the next road.
+     *
+     * This usually matches `m_ref` of the naxt main road, e.g. “CA 85”, sometimes “CA 85 South”.
+     */
+    std::string m_destination_ref;
+    /**
+     * @brief The junction number, e.g. “398B”.
+     *
+     * This is used for the first link segment after a junction (exit `junction_ref` to
+     * `m_destination_ref` for `m_destination`).
+     */
+    std::string m_junction_ref;
+    /** @brief The destination of the road, e.g. “Cupertino”. */
+    std::string m_destination;
+    /** @brief The number of the road, e.g. “CA85”. */
+    std::string m_ref;
+    /** @brief Whether the road is of a link type.*/
     bool m_isLink = false;
     ftypes::HighwayClass m_highwayClass = ftypes::HighwayClass::Undefined;
 
@@ -165,8 +199,23 @@ public:
   turns::TurnItem const & GetTurn() const { return m_turn; }
   void ClearTurnLanes() { m_turn.m_lanes.clear(); }
 
+  /**
+   * @brief Returns distance from the beginning of the route in meters.
+   *
+   * Distance is measured up to the end of the current segment, i.e. including the segment. For the
+   * first segment, this is identical to the length of the segment; for the last segment, it is
+   * identical to the length of the entire route.
+   */
   double GetDistFromBeginningMeters() const { return m_distFromBeginningMeters; }
   double GetDistFromBeginningMerc() const { return m_distFromBeginningMerc; }
+
+  /**
+   * @brief Returns travel time from the beginning of the route.
+   *
+   * Travel time is the ETA from the beginning of the route to the end of the current segment, i.e.
+   * including the segment. For the first segment, this is identical to the travel time along the
+   * segment; for the last segment, it is identical to the travel time along the entire route.
+   */
   double GetTimeFromBeginningSec() const { return m_timeFromBeginningS; }
 
   bool HasTransitInfo() const { return m_transitInfo.HasTransitInfo(); }
