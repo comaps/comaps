@@ -6,6 +6,8 @@ colors
   MyPositionAccuracy-opacity: 0.06;
   Selection-color: #FFFFFF;
   Selection-opacity: 0.64;
+  NonDownloadedOverlay-color: @region_non_downloaded_overlay;
+  NonDownloadedOverlay-opacity: @region_non_downloaded_overlay_opacity;
   Route-color: #0087FF;
   RouteOutline-color: #055FCD;
   RouteTrafficG0-color: #5E0F0D;

@@ -14,6 +14,7 @@
 #include "drape_frontend/gui/scale_fps_helper.hpp"
 #include "drape_frontend/message.hpp"
 #include "drape_frontend/message_subclasses.hpp"
+#include "drape_frontend/non_downloaded_overlay.hpp"
 #include "drape_frontend/overlay_batcher.hpp"
 #include "drape_frontend/overlay_id.hpp"
 #include "drape_frontend/postprocess_renderer.hpp"
@@ -82,7 +83,13 @@ double constexpr kVSyncInterval = 0.06;
 // Metal/Vulkan rendering is fast, so we can decrease sync inverval.
 double constexpr kVSyncIntervalMetalVulkan = 0.03;
 
+// Stencil references for region overlay
+uint32_t constexpr kStencilRefNone = 0;
+uint32_t constexpr kStencilRefMask = 1;
+uint32_t constexpr kStencilRefOverlay = 2;
+
 std::string const kTransitBackgroundColor = "TransitBackground";
+std::string const kNonDownloadedOverlay = "NonDownloadedOverlay";
 
 bool IsTextUserMarkState(dp::RenderState const & state)
 {
@@ -215,6 +222,8 @@ FrontendRenderer::FrontendRenderer(Params && params)
   ASSERT(m_modelViewChangedHandler, ());
   ASSERT(m_tapEventInfoHandler, ());
   ASSERT(m_userPositionChangedHandler, ());
+
+  g_nonDownloadedMaskEnabled.store(params.m_showNonDownloaded);
 
   m_gpsTrackRenderer = make_unique_dp<GpsTrackRenderer>([this](uint32_t pointsCount, uint8_t subID)
   {
@@ -880,6 +889,7 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
   case Message::Type::SetSimplifiedTrafficColors:
   case Message::Type::UpdateMetalines:
   case Message::Type::EnableIsolines:
+  case Message::Type::EnableNonDownloaded:
   {
     m_forceUpdateScene = true;
     break;
@@ -1436,15 +1446,17 @@ void FrontendRenderer::RenderScene(ScreenBase const & modelView, bool activeFram
     RefreshBgColor();
 
     uint32_t clearBits = dp::ClearBits::ColorBit | dp::ClearBits::DepthBit;
-    if (m_apiVersion == dp::ApiVersion::OpenGLES3)
-      clearBits |= dp::ClearBits::StencilBit;
-
     uint32_t storeBits = dp::ClearBits::ColorBit;
+    if (g_nonDownloadedMaskEnabled.load() || m_apiVersion == dp::ApiVersion::OpenGLES3)
+      clearBits |= dp::ClearBits::StencilBit;
+    if (g_nonDownloadedMaskEnabled.load())
+      storeBits |= dp::ClearBits::StencilBit;
+
     if (m_postprocessRenderer->IsEffectEnabled(PostprocessRenderer::Effect::Antialiasing))
     {
       clearBits |= dp::ClearBits::StencilBit;
       storeBits |= dp::ClearBits::StencilBit;
-      m_context->SetStencilReferenceValue(2 /* write this value to the stencil buffer */);
+      m_context->SetStencilReferenceValue(kStencilRefOverlay /* write this value to the stencil buffer */);
     }
 
     m_context->Clear(clearBits, storeBits);
@@ -1467,10 +1479,12 @@ void FrontendRenderer::RenderScene(ScreenBase const & modelView, bool activeFram
     else
     {
       Render3dLayer(modelView);
+
       RenderTrafficLayer(modelView);
       if (!hasTransitRouteData)
         RenderRouteLayer(modelView);
     }
+    RenderMwmBorderLayer(modelView);
 
     m_context->Clear(dp::ClearBits::DepthBit, dp::kClearBitsStoreAll);
 
@@ -1705,6 +1719,66 @@ void FrontendRenderer::RenderRouteLayer(ScreenBase const & modelView)
     m_routeRenderer->RenderRoute(m_context, make_ref(m_gpuProgramManager), modelView,
                                  m_trafficRenderer->HasRenderData(), m_frameValues);
   }
+}
+
+void FrontendRenderer::RenderMwmBorderLayer(ScreenBase const & modelView)
+{
+  TRACE_SECTION("[drape] RenderMwmBorderLayer");
+  // skip if groups exist but no render buckets (may occur during zoom transitions)
+  auto const & groups = m_layers[static_cast<size_t>(DepthLayer::MwmBorderLayer)].m_renderGroups;
+  if (std::none_of(groups.begin(), groups.end(), [](drape_ptr<RenderGroup> const & g) { return !g->IsEmpty(); }))
+    return;
+
+  CHECK(m_context != nullptr, ("Graphics context not initalized"));
+  if (g_nonDownloadedMaskEnabled.load())
+  {
+    DEBUG_LABEL(m_context, "Non-Downloaded Tint Layer");
+
+    // Reuse stencil buffer to mark the downloaded regions, to invert tint below.
+    m_context->Clear(dp::ClearBits::DepthBit, dp::kClearBitsStoreAll);
+
+    // Render invisible stencil mask of value 1 on downloaded regions
+    RenderMwmBorderMask(modelView, kStencilRefMask);
+
+    // Draw full-screen tint where stencil is NOT equal to 1 (i.e. non-downloaded regions)
+    dp::TextureManager::ColorRegion region;
+    m_texMng->GetColorRegion(GetColorConstant(kNonDownloadedOverlay), region);
+    CHECK(region.GetTexture() != nullptr, ("Texture manager is not initialized"));
+    m_screenQuadRenderer->SetTextureRect(m_context, region.GetTexRect());
+    m_context->SetStencilFunction(dp::StencilFace::FrontAndBack, dp::TestFunction::NotEqual);
+    m_context->SetStencilActions(dp::StencilFace::FrontAndBack, dp::StencilAction::Keep, dp::StencilAction::Keep,
+                                 dp::StencilAction::Keep);
+    m_screenQuadRenderer->RenderTexture(m_context, make_ref(m_gpuProgramManager), region.GetTexture(), 1.0f,
+                                        false /* invertV */);
+
+    // Reset stencil mask and reference to leave clear state for SMAA
+    RenderMwmBorderMask(modelView, kStencilRefNone);
+    if (m_postprocessRenderer->IsEffectEnabled(PostprocessRenderer::Effect::Antialiasing))
+      m_context->SetStencilReferenceValue(kStencilRefOverlay);
+    m_context->SetStencilTestEnabled(false);
+    return;
+  }
+
+  DEBUG_LABEL(m_context, "Downloaded Tint Layer");
+  m_context->Clear(dp::ClearBits::DepthBit, dp::kClearBitsStoreAll);
+  RenderBorderLayerGroups(modelView);
+}
+
+void FrontendRenderer::RenderBorderLayerGroups(ScreenBase const & modelView)
+{
+  auto & renderGroups = m_layers[static_cast<size_t>(DepthLayer::MwmBorderLayer)].m_renderGroups;
+  for (drape_ptr<RenderGroup> & group : renderGroups)
+    RenderSingleGroup(m_context, modelView, make_ref(group));
+}
+
+void FrontendRenderer::RenderMwmBorderMask(ScreenBase const & modelView, uint32_t referenceValue)
+{
+  m_context->SetStencilTestEnabled(true);
+  m_context->SetStencilFunction(dp::StencilFace::FrontAndBack, dp::TestFunction::Always);
+  m_context->SetStencilActions(dp::StencilFace::FrontAndBack, dp::StencilAction::Keep, dp::StencilAction::Keep,
+                               dp::StencilAction::Replace);
+  m_context->SetStencilReferenceValue(referenceValue);
+  RenderBorderLayerGroups(modelView);
 }
 
 void FrontendRenderer::RenderUserMarksLayer(ScreenBase const & modelView, DepthLayer layerId)

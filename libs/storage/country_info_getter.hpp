@@ -19,6 +19,7 @@
 #include <type_traits>
 #include <vector>
 
+
 #include "3party/ankerl/unordered_dense.h"
 
 class Platform;
@@ -51,6 +52,14 @@ public:
   std::vector<CountryDef> const & GetCountries() const { return m_countries; }
 
   RegionId GetRegionId(CountryId const & countryId) const;
+
+  template <class FnT>
+  void ForEachRegionId(std::vector<CountryId> const & countries, FnT && fn) const
+  {
+    for (RegionId id = 0; id < m_countries.size(); ++id)
+      if (std::binary_search(countries.begin(), countries.end(), m_countries[id].m_countryId))
+        fn(id);
+  }
 
 protected:
   // Returns identifier of the first country containing |pt| or |kInvalidId| if there is none.
@@ -142,6 +151,9 @@ public:
   // Loads all regions for country number |id| from |m_reader|.
   std::vector<m2::RegionD> LoadRegionsFromDisk(RegionId id) const;
 
+  // Loads triangles for country number |id| from |m_reader| (for mwm borders rendering).
+  std::vector<m2::PointD> const & GetTriangles(RegionId id) const;
+
 protected:
   CountryInfoReader(ModelReaderPtr polyR);
 
@@ -155,8 +167,10 @@ protected:
   auto WithRegion(RegionId id, Fn && fn) const;
 
   FilesContainerR m_reader;
-  mutable base::Cache<uint32_t, std::vector<m2::RegionD>> m_cache;
-  mutable std::mutex m_cacheMutex;
+
+  mutable base::Cache<uint32_t, std::vector<m2::RegionD>> m_polyCache;
+  mutable base::Cache<uint32_t, std::vector<m2::PointD>> m_trgCache;
+  mutable std::mutex m_polyMutex, m_trgMutex;
 };
 
 // This class allows users to get info about very simply rectangular

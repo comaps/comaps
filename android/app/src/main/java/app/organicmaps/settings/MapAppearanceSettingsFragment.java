@@ -36,6 +36,7 @@ public class MapAppearanceSettingsFragment extends BaseXmlSettingsFragment imple
     super.onViewCreated(view, savedInstanceState);
 
     init3dModePrefsCallbacks();
+    initRegionOverlayModeCallbacks();
     initLargeFontSizePrefsCallbacks();
     initTransliterationPrefsCallbacks();
     initAlternativeMapLanguageHandlingCallbacks();
@@ -112,6 +113,19 @@ public class MapAppearanceSettingsFragment extends BaseXmlSettingsFragment imple
       preference.setSummary(pref.getEntries()[alternativeMapLanguageHandling]);
       return true;
     });
+  }
+
+  private void initRegionOverlayModeCallbacks()
+  {
+    final ListPreference pref = getPreference(getString(R.string.pref_region_overlay_mode_key));
+    pref.setValue(String.valueOf(Framework.nativeGetRegionOverlayMode()));
+    pref.setSummary(pref.getEntry());
+    pref.setOnPreferenceChangeListener(((preference, newValue) -> {
+      final int regionOverlayMode = Integer.parseInt((String) newValue);
+      Framework.nativeSetRegionOverlayMode(regionOverlayMode);
+      pref.setSummary(pref.getEntries()[regionOverlayMode]);
+      return true;
+    }));
   }
 
   private void initBookmarksTextPlacementPrefsCallbacks()

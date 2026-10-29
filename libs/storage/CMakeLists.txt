@@ -72,13 +72,9 @@ target_link_libraries(${PROJECT_NAME}
     mwm_diff
     platform
     routing_common
+    monocypher
   PRIVATE
     cppjansson
-)
-
-target_link_libraries(${PROJECT_NAME}
-  PUBLIC
-    monocypher
 )
 
 omim_add_test_subdirectory(storage_tests)

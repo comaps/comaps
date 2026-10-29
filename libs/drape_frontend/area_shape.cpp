@@ -1,4 +1,5 @@
 #include "drape_frontend/area_shape.hpp"
+#include "drape_frontend/non_downloaded_overlay.hpp"
 #include "drape_frontend/render_state_extension.hpp"
 
 #include "shaders/programs.hpp"
@@ -32,8 +33,10 @@ AreaShape::AreaShape(std::vector<m2::PointD> triangleList, BuildingOutline && bu
 void AreaShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batcher> batcher,
                      ref_ptr<dp::TextureManager> textures) const
 {
+  bool const maskOnly =
+      m_params.m_depthLayer == DepthLayer::MwmBorderLayer && g_nonDownloadedMaskEnabled.load();
   dp::TextureManager::ColorRegion region;
-  textures->GetColorRegion(m_params.m_color, region);
+  textures->GetColorRegion(maskOnly ? dp::Color::Transparent() : m_params.m_color, region);
   m2::PointD const colorUv(region.GetTexRect().Center());
   m2::PointD outlineUv(0.0, 0.0);
   if (m_buildingOutline.m_generateOutline)
@@ -44,7 +47,9 @@ void AreaShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batcher> 
     outlineUv = outlineRegion.GetTexRect().Center();
   }
 
-  if (m_params.m_is3D)
+  if (m_params.m_depthLayer == DepthLayer::MwmBorderLayer)
+    DrawMwmBorderArea(context, batcher, colorUv, region.GetTexture());
+  else if (m_params.m_is3D)
     DrawArea3D(context, batcher, colorUv, outlineUv, region.GetTexture());
   else if (m_params.m_hatching)
     DrawHatchingArea(context, batcher, colorUv, region.GetTexture(), textures->GetHatchingTexture());
@@ -90,6 +95,26 @@ void AreaShape::DrawArea(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batch
     outlineProvider.InitStream(0, gpu::AreaVertex::GetBindingInfo(), make_ref(vertices.data()));
     batcher->InsertLineRaw(context, outlineState, make_ref(&outlineProvider), m_buildingOutline.m_indices);
   }
+}
+
+void AreaShape::DrawMwmBorderArea(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batcher> batcher,
+                                  m2::PointD const & colorUv, ref_ptr<dp::Texture> texture) const
+{
+  glsl::vec2 const uv = glsl::ToVec2(colorUv);
+
+  gpu::VBReservedSizeT<gpu::AreaVertex> vertexes;
+  vertexes.reserve(m_vertexes.size());
+  for (m2::PointD const & vertex : m_vertexes)
+    vertexes.emplace_back(ToShapeVertex3(vertex), uv);
+
+  auto state = CreateRenderState(gpu::Program::TransparentArea, DepthLayer::MwmBorderLayer);
+  state.SetDepthTestEnabled(true);
+  state.SetDepthFunction(dp::TestFunction::Less);
+  state.SetColorTexture(texture);
+
+  dp::AttributeProvider provider(1, static_cast<uint32_t>(vertexes.size()));
+  provider.InitStream(0, gpu::AreaVertex::GetBindingInfo(), make_ref(vertexes.data()));
+  batcher->InsertTriangleList(context, state, make_ref(&provider));
 }
 
 void AreaShape::DrawHatchingArea(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batcher> batcher,

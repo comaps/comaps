@@ -135,6 +135,7 @@ std::string_view constexpr kLargeFontsSize = "LargeFontsSize";
 std::string_view constexpr kFontScaleFactor = "FontScaleFactor";
 std::string_view constexpr kPreferredGraphicsAPI = "PreferredGraphicsAPI";
 std::string_view constexpr kShowDebugInfo = "DebugInfo";
+std::string_view constexpr kRegionOverlayMode = "RegionOverlayMode";
 std::string_view constexpr kScreenViewport = "ScreenClipRect";
 
 // Old (pre-modes) settings keys, kept for backward-compatible fallback reads.
@@ -169,6 +170,26 @@ bool ParseSetGpsTrackMinAccuracyCommand(string const & query)
   return true;
 }
 }  // namespace
+
+std::string DebugPrint(Framework::RegionOverlayMode mode)
+{
+  switch (mode)
+  {
+  case Framework::RegionOverlayMode::Off: return "off";
+  case Framework::RegionOverlayMode::Downloaded: return "downloaded";
+  case Framework::RegionOverlayMode::NonDownloaded: return "non-downloaded";
+  }
+  UNREACHABLE();
+}
+
+Framework::RegionOverlayMode RegionOverlayModeFromString(std::string const & s)
+{
+  if (s == "downloaded")
+    return Framework::RegionOverlayMode::Downloaded;
+  if (s == "non-downloaded")
+    return Framework::RegionOverlayMode::NonDownloaded;
+  return Framework::RegionOverlayMode::Off;
+}
 
 pair<MwmSet::MwmId, MwmSet::RegResult> Framework::RegisterMap(LocalCountryFile const & file)
 {
@@ -424,6 +445,10 @@ Framework::Framework(FrameworkParams const & params, bool loadMaps)
 
   if (loadMaps)
     LoadMapsSync();
+
+  std::string regionOverlayMode;
+  if (settings::Get(kRegionOverlayMode, regionOverlayMode))
+    m_regionOverlayMode = RegionOverlayModeFromString(regionOverlayMode);
 }
 
 Framework::~Framework()
@@ -1556,11 +1581,36 @@ bool Framework::GetDistanceAndAzimut(m2::PointD const & point, double lat, doubl
 
 void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFactory, DrapeCreationParams && params)
 {
-  auto idReadFn = [this](df::MapDataProvider::TReadCallback<FeatureID const> const & fn, m2::RectD const & r,
-                         int scale) -> void { m_featuresFetcher.ForEachFeatureID(r, fn, scale); };
+  auto idReadFn = [this](auto const & fn, m2::RectD const & r, int scale)
+  {
+    m_featuresFetcher.ForEachFeatureID(r, fn, scale);
 
-  auto featureReadFn = [this](df::MapDataProvider::TReadCallback<FeatureType> const & fn,
-                              vector<FeatureID> const & ids) -> void { m_featuresFetcher.ReadFeatures(fn, ids); };
+    if (m_regionOverlayMode != Framework::RegionOverlayMode::Off && scale <= 7)
+    {
+      auto names = m_featuresFetcher.GetDataSource().GetLoadedCountryNames(r);
+      ASSERT(base::IsSortedAndUnique(names), ());
+      m_infoGetter->ForEachRegionId(names, [&fn](size_t id) { fn(FeatureID({}, id)); });
+    }
+  };
+
+  uint32_t const borderType = classif().GetTypeByPath({"comapsapp", "mwm_border"});
+  auto featureReadFn = [this, borderType](auto const & fn, vector<FeatureID> const & ids)
+  {
+    m_featuresFetcher.ReadFeatures(fn, ids);
+
+    ASSERT(base::IsSortedAndUnique(ids), ());
+    ASSERT(std::is_partitioned(ids.begin(), ids.end(),
+                               [](FeatureID const & id) { return id.IsSynthetic(); }), ());
+
+    auto const firstReal = std::partition_point(ids.begin(), ids.end(),
+                                                [](FeatureID const & id) { return id.IsSynthetic(); });
+    for (auto it = ids.begin(); it != firstReal; ++it)
+    {
+      FeatureType ft(*it, borderType);
+      ft.SetTriangles(m_infoGetter->GetTriangles(it->m_index));
+      fn(ft);
+    }
+  };
 
   auto myPositionModeChangedFn = [this](location::EMyPositionMode mode, bool routingActive)
   {
@@ -1607,7 +1657,8 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
                           std::move(updateCurrentCountryFn)),
       params.m_hints, params.m_visualScale, fontsScaleFactor, std::move(params.m_widgetsInitInfo),
       std::move(myPositionModeChangedFn), allow3dBuildings, hasTraffic, hasContourLines, params.m_isChoosePositionMode,
-      params.m_isChoosePositionMode, GetSelectedFeatureTriangles(),
+      params.m_isChoosePositionMode,
+      m_regionOverlayMode == Framework::RegionOverlayMode::NonDownloaded, GetSelectedFeatureTriangles(),
       m_routingManager.IsRoutingActive() && m_routingManager.IsRoutingFollowing(), isAutozoomEnabled,
       simplifiedTrafficColors, std::nullopt /* arrow3dCustomDecl */, std::move(overlaysShowStatsFn),
       std::move(onGraphicsContextInitialized), std::move(params.m_renderInjectionHandler));
@@ -1647,9 +1698,8 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   m_transitManager.EnableTransitSchemeMode(CurrentMapModeHasTransitLines());
 
   // Show debug info if it's enabled in the config.
-  bool showDebugInfo;
-  if (!settings::Get(kShowDebugInfo, showDebugInfo))
-    showDebugInfo = false;
+  bool showDebugInfo = false;
+  UNUSED_VALUE(settings::Get(kShowDebugInfo, showDebugInfo));
   if (showDebugInfo)
     m_drapeEngine->ShowDebugInfo(showDebugInfo);
 
@@ -2925,6 +2975,19 @@ void Framework::SetBuildings3d(bool const hasBuildings3d)
   Allow3dMode(allow3d, allow3dBuildings);
 }
 
+Framework::RegionOverlayMode Framework::GetRegionOverlayMode() const
+{
+  return m_regionOverlayMode;
+}
+
+void Framework::SetRegionOverlayMode(Framework::RegionOverlayMode const mode)
+{
+  m_regionOverlayMode = mode;
+  settings::Set(kRegionOverlayMode, DebugPrint(mode));
+  if (m_drapeEngine != nullptr)
+    m_drapeEngine->EnableNonDownloaded(mode == Framework::RegionOverlayMode::NonDownloaded);
+}
+
 bool Framework::IsUsingVehicleStyle()
 {
   MapStyle const mapStyle = GetMapStyle();
@@ -3078,6 +3141,22 @@ bool Framework::ParseDrapeDebugCommand(string const & query)
     m_drapeEngine->EnableDebugRectRendering(false /* shown */);
     return true;
   }
+  if (query == "?regions:downloaded")
+  {
+    SetRegionOverlayMode(RegionOverlayMode::Downloaded);
+    return true;
+  }
+  if (query == "?regions:non-downloaded")
+  {
+    SetRegionOverlayMode(RegionOverlayMode::NonDownloaded);
+    return true;
+  }
+  if (query == "?regions:off")
+  {
+    SetRegionOverlayMode(RegionOverlayMode::Off);
+    return true;
+  }
+
 #if defined(OMIM_METAL_AVAILABLE)
   if (query == "?metal")
   {

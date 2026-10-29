@@ -7,6 +7,13 @@
     android:title="@string/pref_map_3d_buildings_title"
     android:widgetLayout="@layout/preference_switch"
     app:singleLineTitle="false" />
+  <ListPreference
+      android:defaultValue="1"
+      android:entries="@array/pref_region_overlay_mode_options"
+      android:entryValues="@array/pref_region_overlay_mode_options_values"
+      android:key="@string/pref_region_overlay_mode_key"
+      android:title="@string/pref_region_overlay_mode"
+      app:singleLineTitle="false" />
   <SeekBarPreference
     android:defaultValue="1.0"
     android:key="@string/pref_font_scale_factor"

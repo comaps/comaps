@@ -107,7 +107,7 @@ class NetworkPolicy;
 namespace descriptions
 {
 class Loader;
-}
+}  // namespace descriptions
 
 /// Uncomment line to make fixed position settings and
 /// build version for screenshots.
@@ -176,6 +176,14 @@ class Framework
 
   } m_fixedPos;
 #endif
+
+public:
+  enum class RegionOverlayMode
+  {
+    Off,
+    Downloaded,
+    NonDownloaded
+  };
 
 private:
   // Must be first member in Framework and must be destroyed first in Framework destructor.
@@ -302,11 +310,17 @@ public:
   /// Set if the map has contour lines
   void SetContourLinesLayer(bool const hasContourLinesLayer);
 
-  /// Set if the map has 3D buildings
+  /// If the map has 3D buildings
   bool HasBuildings3d();
 
   /// Set if the map has 3D buildings
   void SetBuildings3d(bool const hasBuildings3d);
+
+  /// Get downloaded region overlay mode
+  RegionOverlayMode GetRegionOverlayMode() const;
+
+  /// Set downloaded region overlay mode
+  void SetRegionOverlayMode(RegionOverlayMode mode);
 
   /// If the vehicle style is being used
   bool IsUsingVehicleStyle();
@@ -857,6 +871,8 @@ public:
 private:
   settings::UsageStats m_usageStats;
 
+  RegionOverlayMode m_regionOverlayMode = RegionOverlayMode::Downloaded;
+
 public:
   power_management::PowerManager & GetPowerManager() { return m_powerManager; }
 
@@ -876,3 +892,6 @@ private:
   void Refresh3dMode();
   bool m_wasRoutingActive = false;
 };
+
+std::string DebugPrint(Framework::RegionOverlayMode mode);
+Framework::RegionOverlayMode RegionOverlayModeFromString(std::string const & s);
