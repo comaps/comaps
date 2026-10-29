@@ -665,7 +665,7 @@ line|z19-[highway=track],
 line|z16-[highway=track][tunnel?],
 {width: 0;}
 
-/* Escape lanes 14-22 ZOOM */
+/* Emergency escape lanes 14-22 ZOOM */
 
 line|z14-[highway=escape],
 {color: @escape; opacity: 1;}
