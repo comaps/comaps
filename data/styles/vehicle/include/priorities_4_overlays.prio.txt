@@ -309,6 +309,7 @@ highway-living_street-bridge                        # pathtext z14- (also has li
 highway-living_street-tunnel                        # pathtext z14- (also has line z12-, line(casing) z16-)
 === 2350
 
+highway-escape                                      # pathtext z16- (also has line z14-)
 highway-service                                     # pathtext z16- (also has line z14-)
 highway-service-area                                # pathtext z16- (also has line z14-)
 highway-service-bridge                              # pathtext z16- (also has line z14-)

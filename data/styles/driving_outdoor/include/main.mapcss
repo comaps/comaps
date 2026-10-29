@@ -16,6 +16,7 @@
 @import("../../outdoors/include/Basemap_label.mapcss");
 
 @import("../../default/include/Roads.mapcss");
+@import("../../driving/include/Roads.mapcss");
 @import("../../outdoors/include/Roads.mapcss");
 
 @import("../../default/include/Roads_label.mapcss");

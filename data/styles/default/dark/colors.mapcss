@@ -162,6 +162,7 @@
 @path: #944A12;
 @path_expert: #523E33;
 @bridleway: #2B2827;
+@escape: #983E44;
 @motorway1_border: #784606;
 @trunk1_border: #79511D;
 @primary1_border: #7C5E24;

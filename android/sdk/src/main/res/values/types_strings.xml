@@ -525,6 +525,7 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.cycleway.tunnel">Tunnel</string>
     <string name="type.highway.elevator">Elevator</string>
+    <string name="type.highway.escape">Emergency Escape Lane</string>
     <string name="type.highway.footway">Foot Path</string>
     <string name="type.highway.footway.sidewalk">Sidewalk</string>
     <string name="type.highway.footway.crossing">Pedestrian Crossing</string>

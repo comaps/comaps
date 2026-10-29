@@ -112,6 +112,7 @@
 @track: #5F532D;
 @path: #944A12;
 @bridleway: #2B2827;
+@escape: #983E44;
 
 /* 5.2 Bridges */
 

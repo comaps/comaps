@@ -665,6 +665,23 @@ line|z19-[highway=track],
 line|z16-[highway=track][tunnel?],
 {width: 0;}
 
+/* Escape lanes 14-22 ZOOM */
+
+line|z14-[highway=escape],
+{color: @escape; opacity: 1;}
+line|z14[highway=escape],
+{width: 2; dashes: 1.5,1.3;}
+line|z15[highway=escape],
+{width: 2.4; dashes: 1.5,1.3;}
+line|z16[highway=escape],
+{width: 4; dashes: 1.8,1.6;}
+line|z17[highway=escape],
+{width: 6; dashes: 2.5,2.2;}
+line|z18[highway=escape],
+{width: 8; dashes: 3.2,2.8;}
+line|z19-[highway=escape],
+{width: 10; dashes: 4,3.5;}
+
 line|z17-[highway=path],
 {color: @path; opacity: 0.6; width: 0.9; dashes: 3.5,2;}
 line|z18[highway=path],

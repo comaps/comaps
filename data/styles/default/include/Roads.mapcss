@@ -794,6 +794,8 @@ line|z16-[highway=footway],
 line|z15-[highway=ladder],
 line|z15-[highway=steps],
 {color: @residential;opacity: 1;}
+line|z15-[highway=escape],
+{color: @escape;opacity: 1;}
 line|z15-[highway=path],
 {color: @path;opacity: 0.6;}
 line|z15-[highway=path][_path_grade=expert],
@@ -1108,18 +1110,23 @@ line|z17-[highway=footway][bridge?]::bridgeblack
 
 line|z15[highway=ladder],
 line|z15[highway=steps],
+line|z15[highway=escape],
 {width: 2.4; dashes: 1.5,1.3;}
 line|z16[highway=ladder],
 line|z16[highway=steps],
+line|z16[highway=escape],
 {width: 4; dashes: 1.8,1.6;}
 line|z17-[highway=ladder],
 line|z17-[highway=steps],
+line|z17-[highway=escape],
 {width: 6; dashes: 2.5,2.2; opacity: 1;}
 line|z18[highway=ladder],
 line|z18[highway=steps],
+line|z18[highway=escape],
 {width: 8; dashes: 3.2,2.8;}
 line|z19-[highway=ladder],
 line|z19-[highway=steps],
+line|z19-[highway=escape],
 {width: 10; dashes: 4,3.5;}
 
 line|z17-[highway=steps][tunnel?]::tunnelBackground
@@ -1249,6 +1256,7 @@ line|z14-[highway=ford]::border,
 line|z15-[highway=footway]::border,
 line|z15-[highway=ladder]::border,
 line|z15-[highway=steps]::border,
+line|z15-[highway=escape]::border,
 {color: @minor_road_border; opacity: 0.1;}
 
 line|z11-[highway=tertiary][bridge?]::border,
@@ -1355,18 +1363,23 @@ line|z15[highway=footway][footway=crossing]::border,
 
 line|z15[highway=ladder]::border,
 line|z15[highway=steps]::border,
+line|z15[highway=escape]::border,
 {width: 3.4; dashes: 1.5,1.3;}
 line|z16[highway=ladder]::border,
 line|z16[highway=steps]::border,
+line|z16[highway=escape]::border,
 {width: 5; dashes: 1.8,1.6;}
 line|z17-[highway=ladder]::border,
 line|z17-[highway=steps]::border,
+line|z17-[highway=escape]::border,
 {width: 7; dashes: 2.5,2.2;}
 line|z18[highway=ladder]::border,
 line|z18[highway=steps]::border,
+line|z18[highway=escape]::border,
 {width: 9; dashes: 3.2,2.8;}
 line|z19-[highway=ladder]::border,
 line|z19-[highway=steps]::border,
+line|z19-[highway=escape]::border,
 {width: 11; dashes: 4,3.5;}
 
 

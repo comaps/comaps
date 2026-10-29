@@ -518,6 +518,7 @@
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "Tunnel";
 "type.highway.elevator" = "Elevator";
+"type.highway.escape" = "Emergency Escape Lane";
 "type.highway.footway" = "Foot Path";
 "type.highway.footway.sidewalk" = "Sidewalk";
 "type.highway.footway.crossing" = "Pedestrian Crossing";
