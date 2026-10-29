@@ -279,8 +279,8 @@
     <string name="type.cuisine.tea">Te</string>
     <string name="type.cuisine.thai">Thailandsk</string>
     <string name="type.cuisine.turkish">Tyrkisk</string>
-    <string name="type.cuisine.vegan">Vegansk</string>
-    <string name="type.cuisine.vegetarian">Vegetarisk</string>
+    <string name="type.cuisine.vegan">Veganske valgmuligheder</string>
+    <string name="type.cuisine.vegetarian">Vegetariske valgmuligheder</string>
     <string name="type.cuisine.vietnamese">Vietnamesisk</string>
     <string name="type.emergency.assembly_point">Samlingspunkt ved nødsitiuationer</string>
     <string name="type.emergency.defibrillator">Hjertestarter</string>
@@ -305,7 +305,7 @@
     <string name="type.healthcare.podiatrist">Fodterapi</string>
     <string name="type.healthcare.psychotherapist">Psykoterapi</string>
     <string name="type.healthcare.sample_collection">Prøvetagning</string>
-    <string name="type.healthcare.speech_therapist">Tale terapi</string>
+    <string name="type.healthcare.speech_therapist">Taleterapi</string>
     <!-- SECTION: Types: Roads -->
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.bridleway.bridge">Bro</string>
@@ -1431,7 +1431,7 @@
     <string name="type.amenity.sailing_school">Sejlerskole</string>
     <string name="type.amenity.flight_school">Flyveskole</string>
     <string name="type.power.portal">Elportal</string>
-    <string name="type.emergency.access_point">Samlingspunkt</string>
+    <string name="type.emergency.access_point">Redningspunkt</string>
     <string name="type.emergency.life_ring">Redningskrans</string>
     <string name="type.beacon.cardinal.east">Kompasafmærkningsbåke</string>
     <string name="type.beacon.cardinal.north">Kompasafmærkningsbåke</string>
@@ -1552,4 +1552,35 @@
     <string name="type.amenity.fast_food.cafeteria">Cafeteria</string>
     <string name="type.shop.swimming_pool">Svømmebassinbutik</string>
     <string name="type.amenity.music_venue">Spillested</string>
+    <string name="type.amenity.research_institute">Forskningsinstitut</string>
+    <string name="type.cuisine.vegan_only">Helt vegansk</string>
+    <string name="type.cuisine.vegetarian_only">Helt vegetarisk</string>
+    <string name="type.club">Klub</string>
+    <string name="type.club.allotments">Kolonihaveforening</string>
+    <string name="type.club.amateur_radio">Amatørradioklub</string>
+    <string name="type.club.art">Kunstforening</string>
+    <string name="type.club.automobile">Motorklub</string>
+    <string name="type.club.board_games">Brætspilsklub</string>
+    <string name="type.club.cadet">Kadetklub</string>
+    <string name="type.club.computer">Computerklub</string>
+    <string name="type.club.culture">Kulturklub</string>
+    <string name="type.club.dog">Hundeklub</string>
+    <string name="type.club.fraternity">Broderskab</string>
+    <string name="type.club.freemasonry">Frimurerloge</string>
+    <string name="type.club.game">Gamingklub</string>
+    <string name="type.club.gardening">Haveklub</string>
+    <string name="type.club.history">Historieklub</string>
+    <string name="type.club.hunting">Jagtklub</string>
+    <string name="type.club.model_railway">Modeljernbaneklub</string>
+    <string name="type.club.motorcycle">Motorcykelklub</string>
+    <string name="type.club.music">Musikforening</string>
+    <string name="type.club.religion">Religiøs forening</string>
+    <string name="type.club.scout">Spejderforening</string>
+    <string name="type.club.social">Social klub</string>
+    <string name="type.club.student">Studenterforening</string>
+    <string name="type.club.surf_life_saving">Surf Life Saving</string>
+    <string name="type.club.theatre">Teaterforening</string>
+    <string name="type.club.veterans">Veteranforening</string>
+    <string name="type.club.youth">Ungdomsklub</string>
+    <string name="type.club.youth_movement">Ungdomsbevægelse</string>
 </resources>

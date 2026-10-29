@@ -297,8 +297,8 @@
     <string name="type.cuisine.tea">Τσάι</string>
     <string name="type.cuisine.thai">Ταϊλανδική</string>
     <string name="type.cuisine.turkish">Τουρκική</string>
-    <string name="type.cuisine.vegan">Βίγκαν</string>
-    <string name="type.cuisine.vegetarian">Χορτοφαγική</string>
+    <string name="type.cuisine.vegan">Βίγκαν επιλογές</string>
+    <string name="type.cuisine.vegetarian">Χορτοφαγικές επιλογές</string>
     <string name="type.cuisine.vietnamese">Βιετναμέζικη</string>
     <string name="type.emergency.assembly_point">Σημείο Συγκέντρωσης Έκτακτης Ανάγκης</string>
     <string name="type.emergency.defibrillator">Απινιδωτής</string>
@@ -1545,4 +1545,10 @@
     <string name="type.building.abandoned">Εγκαταλελειμμένο κτίριο</string>
     <string name="type.shop.tool_hire">Ενοικίαση εργαλείων</string>
     <string name="type.amenity.parking.customers">Χώρος στάθμευσης πελατών</string>
+    <string name="type.amenity.fast_food.cafeteria">Καφετέρια</string>
+    <string name="type.cuisine.vegetarian_only">Μόνο για χορτοφάγους</string>
+    <string name="type.second_hand.only">Μόνο μεταχειρισμένα</string>
+    <string name="type.cuisine.vegan_only">Μόνο για βίγκαν</string>
+    <string name="type.second_hand.yes">Επιλογές για μεταχειρισμένα</string>
+    <string name="type.second_hand.no">Καμία επιλογή για μεταχειρισμένα</string>
 </resources>

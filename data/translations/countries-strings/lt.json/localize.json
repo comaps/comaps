@@ -7651,5 +7651,14 @@
     },
     "Nepal_Purwanchal Description": {
         "defaultMessage": "Sarang Pada, Kampa Bazaras, Kerka Bazaras"
+    },
+    "France_Nouvelle-Aquitaine": {
+        "defaultMessage": "Nouvelle-Aquitaine"
+    },
+    "World": {
+        "defaultMessage": "World Overview"
+    },
+    "WorldCoasts": {
+        "defaultMessage": "World Overview (Coastlines)"
     }
 }

@@ -7630,5 +7630,35 @@
     },
     "Germany_Brandenburg": {
         "defaultMessage": "Bandenbursko"
+    },
+    "France_Nouvelle-Aquitaine": {
+        "defaultMessage": "Nouvelle-Aquitaine"
+    },
+    "France_Occitania": {
+        "defaultMessage": "Occitania"
+    },
+    "France_Auvergne-Rhone-Alpes": {
+        "defaultMessage": "Auvergne-Rhône-Alpes"
+    },
+    "World": {
+        "defaultMessage": "World Overview"
+    },
+    "France_Bourgogne-Franche-Comte": {
+        "defaultMessage": "Bourgogne-Franche-Comté"
+    },
+    "WorldCoasts": {
+        "defaultMessage": "World Overview (Coastlines)"
+    },
+    "Germany_Saxony": {
+        "defaultMessage": "Saxony"
+    },
+    "France_Grand_Est": {
+        "defaultMessage": "Grand Est"
+    },
+    "France_Hauts-de-France": {
+        "defaultMessage": "Hauts-de-France"
+    },
+    "Germany_Rhineland-Palatinate": {
+        "defaultMessage": "Rhineland-Palatinate"
     }
 }

@@ -174,9 +174,9 @@
     <string name="type.amenity.vending_machine.public_transport_tickets">OV-kaartautomaat</string>
     <string name="type.amenity.vending_machine.sweets">Snoepautomaat</string>
     <string name="type.amenity.vending_machine.excrement_bags">Hondenpoepzakjesdispenser</string>
-    <string name="type.amenity.parcel_locker">Pakketjeskluis</string>
+    <string name="type.amenity.parcel_locker">Pakketautomaat</string>
     <string name="type.amenity.vehicle_inspection">Voertuiginspectie</string>
-    <string name="type.amenity.vending_machine.fuel">Tankautomaat</string>
+    <string name="type.amenity.vending_machine.fuel">Brandstofpomp</string>
     <string name="type.amenity.veterinary">Dierenarts</string>
     <string name="type.amenity.waste_basket">Vuilnisbak</string>
     <string name="type.amenity.waste_disposal">Afvalcontainer</string>
@@ -190,7 +190,7 @@
     <string name="type.barrier.border_control">Grenscontrole</string>
     <string name="type.barrier.chain">Ketting</string>
     <string name="type.barrier.city_wall">Stadsmuur</string>
-    <string name="type.barrier.cycle_barrier">Fietsbarrière</string>
+    <string name="type.barrier.cycle_barrier">Slingerhek</string>
     <string name="type.waterway.ditch">Sloot</string>
     <string name="type.natural.water.moat">Gracht</string>
     <string name="type.natural.water.wastewater">Afvalwater</string>
@@ -201,7 +201,7 @@
     <string name="type.barrier.kissing_gate">Voetgangershek</string>
     <string name="type.barrier.lift_gate">Slagboom</string>
     <string name="type.barrier.retaining_wall">Keermuur</string>
-    <string name="type.barrier.stile">Tourniquet</string>
+    <string name="type.barrier.stile">Stegel</string>
     <string name="type.barrier.turnstile">Tourniquet</string>
     <string name="type.barrier.swing_gate">Slagboom</string>
     <string name="type.barrier.toll_booth">Tolpoort</string>
@@ -243,9 +243,9 @@
     <string name="type.craft.electronics_repair">Elektronica-reparatie</string>
     <string name="type.craft.gardener">Tuinarchitect</string>
     <string name="type.craft.grinding_mill">Maalderij</string>
-    <string name="type.craft.handicraft">Handwerk</string>
+    <string name="type.craft.handicraft">Handvaardigheidswerkplaats</string>
     <!-- Heating, Ventilation, and Air Conditioning -->
-    <string name="type.craft.hvac">Airconditioning</string>
+    <string name="type.craft.hvac">Airconditioning-werkplaats</string>
     <string name="type.craft.key_cutter">Sleutelmaker</string>
     <string name="type.craft.locksmith">Slotenmaker</string>
     <string name="type.craft.metal_construction">Metaalarbeider</string>
@@ -337,8 +337,8 @@
     <string name="type.cuisine.tea">Thee</string>
     <string name="type.cuisine.thai">Thais</string>
     <string name="type.cuisine.turkish">Turks</string>
-    <string name="type.cuisine.vegan">Veganistisch</string>
-    <string name="type.cuisine.vegetarian">Vegetarisch</string>
+    <string name="type.cuisine.vegan">Vegan opties</string>
+    <string name="type.cuisine.vegetarian">Vegetarische opties</string>
     <string name="type.cuisine.vietnamese">Vietnamees</string>
     <string name="type.emergency">Noodgeval</string>
     <string name="type.emergency.assembly_point">Verzamelpunt voor noodgevallen</string>
@@ -360,10 +360,10 @@
     <string name="type.healthcare.alternative">Alternatieve geneeskunde</string>
     <string name="type.healthcare.audiologist">Audiologie</string>
     <string name="type.healthcare.blood_donation">Bloeddonatiecentrum</string>
-    <string name="type.healthcare.optometrist">Optometrie</string>
+    <string name="type.healthcare.optometrist">Optometrist</string>
     <string name="type.healthcare.podiatrist">Podologie</string>
     <string name="type.healthcare.psychotherapist">Psychotherapie</string>
-    <string name="type.healthcare.sample_collection">Bemonstering</string>
+    <string name="type.healthcare.sample_collection">Monsterafnamecentrum</string>
     <string name="type.healthcare.speech_therapist">Logopedie</string>
     <!-- SECTION: Types: Roads -->
     <string name="type.highway">Weg</string>
@@ -413,7 +413,7 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.footway.tunnel">Voetgangerstunnel</string>
     <string name="type.highway.ford">Voorde</string>
-    <string name="type.highway.living_street">Straat</string>
+    <string name="type.highway.living_street">(Woon)erf</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.living_street.bridge">Brug</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
@@ -550,10 +550,10 @@
     <string name="type.area_highway.unclassified">Weg</string>
     <!-- SECTION: Types: Historic -->
     <string name="type.historic">Historisch object</string>
-    <string name="type.historic.aircraft">Historische vliegtuigen</string>
+    <string name="type.historic.aircraft">Historisch vliegtuig</string>
     <string name="type.historic.anchor">Historisch anker</string>
     <string name="type.historic.archaeological_site">Archeologische vindplaats</string>
-    <string name="type.historic.battlefield">Slagveld</string>
+    <string name="type.historic.battlefield">Historisch slagveld</string>
     <string name="type.historic.boundary_stone">Grenssteen</string>
     <string name="type.historic.cannon">Kanon</string>
     <string name="type.historic.castle">Kasteel</string>
@@ -800,7 +800,7 @@
     <string name="type.power.line">Hoogspanningsleiding</string>
     <string name="type.power.line.underground">Ondergrondse hoogspanningsleiding</string>
     <string name="type.power.minor_line">Laag-/middelspanningsleiding</string>
-    <string name="type.power.plant">Energiecentrale</string>
+    <string name="type.power.plant">Elektriciteitscentrale</string>
     <string name="type.power.plant.coal">Kolencentrale</string>
     <string name="type.power.plant.gas">Gascentrale</string>
     <string name="type.power.plant.hydro">Waterkrachtcentrale</string>
@@ -1108,7 +1108,7 @@
     <string name="type.shop">Winkel</string>
     <string name="type.shop.alcohol">Slijterij</string>
     <string name="type.shop.bakery">Bakkerij</string>
-    <string name="type.shop.bathroom_furnishing">Badkamerinrichting</string>
+    <string name="type.shop.bathroom_furnishing">Badkamerinrichtingswinkel</string>
     <string name="type.shop.beauty">Schoonheidssalon</string>
     <string name="type.shop.beverages">Drankenwinkel</string>
     <string name="type.shop.bicycle">Fietsenwinkel</string>
@@ -1457,7 +1457,7 @@
     <string name="type.disusedbusiness">Leegstaand bedrijfspand</string>
     <string name="type.social_facility.soup_kitchen">Gaarkeuken</string>
     <string name="type.social_facility.food_bank">Voedselbank</string>
-    <string name="type.emergency.access_point">Verzamelpunt</string>
+    <string name="type.emergency.access_point">Reddingspunt</string>
     <string name="type.leisure.fitness_centre.sport.yoga">Yogastudio</string>
     <string name="type.amenity.lounger">Ligbed</string>
     <string name="type.amenity.payment_centre">Betaalkantoor</string>
@@ -1538,7 +1538,7 @@
     <string name="type.amenity.stage">Podium</string>
     <string name="type.amenity.animal_boarding">Dierenpension</string>
     <string name="type.amenity.planetarium">Planetarium</string>
-    <string name="type.amenity.toilets.customers">Klanttoegang</string>
+    <string name="type.amenity.toilets.customers">Toegang voor klanten</string>
     <string name="type.amenity.toilets.private">Privétoegang</string>
     <string name="type.landuse.military.danger_area">Militair gevarengebied</string>
     <string name="type.railway.station.subway.boston">Metrostation</string>
@@ -1557,4 +1557,35 @@
     <string name="type.amenity.fast_food.cafeteria">Kantine</string>
     <string name="type.shop.swimming_pool">Zwembadwinkel</string>
     <string name="type.amenity.music_venue">Muziekpodium</string>
+    <string name="type.cuisine.vegan_only">Volledig vegan</string>
+    <string name="type.cuisine.vegetarian_only">Volledig vegetarisch</string>
+    <string name="type.amenity.research_institute">Onderzoeksinstituut</string>
+    <string name="type.club">Club</string>
+    <string name="type.club.allotments">Tuinvereniging</string>
+    <string name="type.club.amateur_radio">Amateurradiovereniging</string>
+    <string name="type.club.art">Kunstclub</string>
+    <string name="type.club.automobile">Autoclub</string>
+    <string name="type.club.board_games">Spelletjesclub</string>
+    <string name="type.club.cadet">Cadettenclub</string>
+    <string name="type.club.computer">Computerclub</string>
+    <string name="type.club.culture">Cultuurvereniging</string>
+    <string name="type.club.dog">Hondenclub</string>
+    <string name="type.club.fraternity">Broederschap</string>
+    <string name="type.club.freemasonry">Vrijmetselaarsloge</string>
+    <string name="type.club.game">Gameclub</string>
+    <string name="type.club.gardening">Tuiniervereniging</string>
+    <string name="type.club.history">Geschiedenisclub</string>
+    <string name="type.club.hunting">Jachtclub</string>
+    <string name="type.club.model_railway">Modelspoorclub</string>
+    <string name="type.club.motorcycle">Motorclub</string>
+    <string name="type.club.music">Muziekvereniging</string>
+    <string name="type.club.religion">Religieuze vereniging</string>
+    <string name="type.club.scout">Scouting</string>
+    <string name="type.club.social">Sociale vereniging</string>
+    <string name="type.club.student">Studentenvereniging</string>
+    <string name="type.club.surf_life_saving">Surf Life Saving</string>
+    <string name="type.club.theatre">Theatervereniging</string>
+    <string name="type.club.veterans">Veteranenvereniging</string>
+    <string name="type.club.youth">Jongerenclub</string>
+    <string name="type.club.youth_movement">Jeugdbeweging</string>
 </resources>

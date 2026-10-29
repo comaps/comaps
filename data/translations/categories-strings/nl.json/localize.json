@@ -1710,7 +1710,7 @@
         "defaultMessage": "Vegetarisch"
     },
     "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
-        "defaultMessage": "Veganistisch"
+        "defaultMessage": "3Vegan|5Veganistisch|Veganistisch eten"
     },
     "shop-water|@category_water|@category_food|@shop": {
         "defaultMessage": "4Drinkwater|Flessenwater"
@@ -1888,5 +1888,98 @@
     },
     "shop-swimming_pool|@shop": {
         "defaultMessage": "7Zwembadwinkel|Zwembadbenodigdheden"
+    },
+    "amenity-research_institute": {
+        "defaultMessage": "5Onderzoeksinstituut|Onderzoekscentrum|Laboratorium"
+    },
+    "cuisine-vegetarian_only|cuisine-vegan_only": {
+        "defaultMessage": "4Volledig vegetarisch|3Vegetarisch|3Vega"
+    },
+    "cuisine-vegan_only": {
+        "defaultMessage": "4Volledig vegan|4Volledig veganistisch|3Vegan|5Veganistisch"
+    },
+    "@club": {
+        "defaultMessage": "Club|Clubs|Vereniging|Verenigingen"
+    },
+    "club-allotments|@club": {
+        "defaultMessage": "4Tuinvereniging|Tuinclub"
+    },
+    "club-amateur_radio|@club": {
+        "defaultMessage": "4Amateurradioclub|Amateurradiovereniging"
+    },
+    "club-art|@club": {
+        "defaultMessage": "Kunstclub|Kunstvereniging"
+    },
+    "club-automobile|@club": {
+        "defaultMessage": "Autoclub|Autovereniging"
+    },
+    "club-board_games|@club": {
+        "defaultMessage": "5Spelletjesclub|Spelletjesvereniging|Bordspellenclub"
+    },
+    "club-cadet|@club": {
+        "defaultMessage": "5Cadettenclub|Cadettenvereniging"
+    },
+    "club-computer|@club": {
+        "defaultMessage": "8Computerclub|Computervereniging"
+    },
+    "club-culture|@club": {
+        "defaultMessage": "6Culturele vereniging|Culturele club"
+    },
+    "club-dog|@club": {
+        "defaultMessage": "4Hondenclub|Hondenvereniging"
+    },
+    "club-fraternity|@club": {
+        "defaultMessage": "5Broederschap"
+    },
+    "club-freemasonry|@club": {
+        "defaultMessage": "Vrijmetselaarsloge"
+    },
+    "club-game|@club": {
+        "defaultMessage": "4Gameclub|Gamevereniging"
+    },
+    "club-gardening|@club": {
+        "defaultMessage": "Tuinierclub|Tuiniervereniging"
+    },
+    "club-history|@club": {
+        "defaultMessage": "Geschiedenisclub|Geschiedenisvereniging"
+    },
+    "club-hunting|@club": {
+        "defaultMessage": "Jachtclub|Jachtvereniging"
+    },
+    "club-model_railway|@club": {
+        "defaultMessage": "Modelspoorclub|Modelspoorvereniging"
+    },
+    "club-motorcycle|@club": {
+        "defaultMessage": "Motorclub|Motorvereniging"
+    },
+    "club-music|@club": {
+        "defaultMessage": "Muziekvereniging|Muziekclub"
+    },
+    "club-religion|@club": {
+        "defaultMessage": "Religieuze vereniging|Religieuze club"
+    },
+    "club-scout|@club": {
+        "defaultMessage": "5Scouting|Scoutingclub|Scoutingvereniging"
+    },
+    "club-social|@club": {
+        "defaultMessage": "5Sociale club|5Sociale vereniging"
+    },
+    "club-student|@club": {
+        "defaultMessage": "7Studentenvereniging"
+    },
+    "club-surf_life_saving|@club": {
+        "defaultMessage": "4Surf Life Saving"
+    },
+    "club-theatre|@club": {
+        "defaultMessage": "Theatervereniging|Theaterclub|Dramavereniging|Dramaclub"
+    },
+    "club-veterans|@club": {
+        "defaultMessage": "Veteranenclub|Veteranenvereniging"
+    },
+    "club-youth|@club": {
+        "defaultMessage": "Jongerenclub|Jongerenvereniging"
+    },
+    "club-youth_movement|@club": {
+        "defaultMessage": "Jeugdbeweging"
     }
 }

@@ -172,7 +172,7 @@
     <string name="type.barrier.entrance">Entrada</string>
     <string name="type.barrier.fence">Cerca</string>
     <string name="type.barrier.gate">Portão</string>
-    <string name="type.barrier.hedge">Sebe</string>
+    <string name="type.barrier.hedge">Cerca-viva</string>
     <string name="type.barrier.kissing_gate">Quebra-corpo</string>
     <string name="type.barrier.lift_gate">Cancela</string>
     <string name="type.barrier.retaining_wall">Muro de retenção</string>
@@ -296,8 +296,8 @@
     <string name="type.cuisine.tea">Chás</string>
     <string name="type.cuisine.thai">Cozinha tailandesa</string>
     <string name="type.cuisine.turkish">Cozinha turca</string>
-    <string name="type.cuisine.vegan">Cozinha vegana</string>
-    <string name="type.cuisine.vegetarian">Cozinha vegetariana</string>
+    <string name="type.cuisine.vegan">Opções veganas</string>
+    <string name="type.cuisine.vegetarian">Opções vegetarianas</string>
     <string name="type.cuisine.vietnamese">Cozinha vietnamita</string>
     <string name="type.emergency">Emergência</string>
     <string name="type.emergency.defibrillator">Desfibrilador</string>
@@ -1546,4 +1546,7 @@
     <string name="type.amenity.fast_food.cafeteria">Cantina</string>
     <string name="type.shop.swimming_pool">Loja de produtos para piscinas</string>
     <string name="type.amenity.music_venue">Casa de show</string>
+    <string name="type.amenity.research_institute">Centro de pesquisa</string>
+    <string name="type.cuisine.vegan_only">Somente vegana</string>
+    <string name="type.cuisine.vegetarian_only">Só vegetariana</string>
 </resources>

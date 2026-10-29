@@ -7630,5 +7630,35 @@
     },
     "Germany_Brandenburg": {
         "defaultMessage": "ברנדנבורג"
+    },
+    "France_Nouvelle-Aquitaine": {
+        "defaultMessage": "Nouvelle-Aquitaine"
+    },
+    "Denmark_North Denmark Region": {
+        "defaultMessage": "North Denmark Region"
+    },
+    "France_Occitania": {
+        "defaultMessage": "Occitania"
+    },
+    "France_Auvergne-Rhone-Alpes": {
+        "defaultMessage": "Auvergne-Rhône-Alpes"
+    },
+    "World": {
+        "defaultMessage": "World Overview"
+    },
+    "France_Bourgogne-Franche-Comte": {
+        "defaultMessage": "Bourgogne-Franche-Comté"
+    },
+    "WorldCoasts": {
+        "defaultMessage": "World Overview (Coastlines)"
+    },
+    "France_Grand_Est": {
+        "defaultMessage": "Grand Est"
+    },
+    "France_Hauts-de-France": {
+        "defaultMessage": "Hauts-de-France"
+    },
+    "Germany_Rhineland-Palatinate": {
+        "defaultMessage": "Rhineland-Palatinate"
     }
 }

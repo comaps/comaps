@@ -7630,5 +7630,35 @@
     },
     "WorldCoasts": {
         "defaultMessage": "全球概览（海岸线）"
+    },
+    "France_Nouvelle-Aquitaine": {
+        "defaultMessage": "Nouvelle-Aquitaine"
+    },
+    "France_Occitania": {
+        "defaultMessage": "Occitania"
+    },
+    "France_Auvergne-Rhone-Alpes": {
+        "defaultMessage": "Auvergne-Rhône-Alpes"
+    },
+    "Germany_Brandenburg": {
+        "defaultMessage": "Brandenburg"
+    },
+    "France_Bourgogne-Franche-Comte": {
+        "defaultMessage": "Bourgogne-Franche-Comté"
+    },
+    "Germany_Saxony": {
+        "defaultMessage": "Saxony"
+    },
+    "France_Grand_Est": {
+        "defaultMessage": "Grand Est"
+    },
+    "France_Hauts-de-France": {
+        "defaultMessage": "Hauts-de-France"
+    },
+    "Germany_Rhineland-Palatinate": {
+        "defaultMessage": "Rhineland-Palatinate"
+    },
+    "France_Normandy": {
+        "defaultMessage": "Normandy"
     }
 }

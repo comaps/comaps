@@ -718,4 +718,20 @@
     <string name="prefs_group_advanced_summary">Activar rexistros</string>
     <string name="prefs_group_privacy_summary">Historial de procuras</string>
     <string name="pref_alt_map_lang_handling_local_only">Preferir e só usar cando sexa na lingua nativa</string>
+    <string name="pref_font_size">Tamaño da fonte para as etiquetas do mapa</string>
+    <string name="decrease_font_size">Reducir a fonte das etiquetas do mapa</string>
+    <string name="bookmarks_text_placement_title">Amosar nomes dos favoritos no mapa</string>
+    <string name="place_reviews_title">Valoracións</string>
+    <string name="place_reviews">%1$s Valoracións</string>
+    <string name="rating_stars_description">estrelas: %.1f</string>
+    <string name="reviews_by_mangrove">Valoracións de Mangrove</string>
+    <string name="add_review">Engade unha Valoración a través de %1$s</string>
+    <string name="add_review_url_resolution_failed">Lugar non atopado na última versión de OpenStreetMap.</string>
+    <string name="add_review_url_resolution_failed_dev">Lugar non atopado na versión DEV de OpenStreetMap.</string>
+    <string name="internet_unavailable">Sen conexión a Internet</string>
+    <string name="stars_1">1 Estrela</string>
+    <string name="stars_2">2 Estrelas</string>
+    <string name="stars_3">3 Estrelas</string>
+    <string name="stars_4">4 Estrelas</string>
+    <string name="stars_5">5 Estrelas</string>
 </resources>

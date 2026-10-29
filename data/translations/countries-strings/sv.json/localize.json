@@ -15,7 +15,7 @@
         "defaultMessage": "Algeriet"
     },
     "Algeria_Central": {
-        "defaultMessage": "Algeriet — Central"
+        "defaultMessage": "Centrala Algeriet"
     },
     "Algeria_Coast": {
         "defaultMessage": "Algeriet — Nord"
@@ -39,10 +39,10 @@
         "defaultMessage": "Argentina"
     },
     "Argentina_Buenos Aires_North": {
-        "defaultMessage": "Buenos Aires — Nord"
+        "defaultMessage": "Provinsen Buenos Aires — Nord"
     },
     "Argentina_Buenos Aires_South": {
-        "defaultMessage": "Buenos Aires — Syd"
+        "defaultMessage": "Provinsen Buenos Aires — Syd"
     },
     "Argentina_Cuyo": {
         "defaultMessage": "Cuyo"
@@ -51,7 +51,7 @@
         "defaultMessage": "Mesopotamien"
     },
     "Argentina_Northwest": {
-        "defaultMessage": "Argentina nordväst"
+        "defaultMessage": "Nordvästra Argentina"
     },
     "Argentina_Pampas": {
         "defaultMessage": "Pampas"
@@ -105,7 +105,7 @@
         "defaultMessage": "Niederösterreich — Väst"
     },
     "Austria_Lower Austria_Wien": {
-        "defaultMessage": "Wien"
+        "defaultMessage": "Wien och Niederösterreich — Öst"
     },
     "Austria_Salzburg": {
         "defaultMessage": "Salzburg"
@@ -138,7 +138,7 @@
         "defaultMessage": "Barbados"
     },
     "Belarus": {
-        "defaultMessage": "Vitryssland"
+        "defaultMessage": "Belarus"
     },
     "Belarus_Brest Region": {
         "defaultMessage": "Brests voblast"
@@ -162,34 +162,34 @@
         "defaultMessage": "Belgien"
     },
     "Belgium_Antwerp": {
-        "defaultMessage": "Antwerpen"
+        "defaultMessage": "Provinsen Antwerpen"
     },
     "Belgium_East Flanders": {
-        "defaultMessage": "Östflandern"
+        "defaultMessage": "Provinsen Östflandern"
     },
     "Belgium_Flemish Brabant": {
-        "defaultMessage": "Flamländska Brabant"
+        "defaultMessage": "Provinsen Flamländska Brabant"
     },
     "Belgium_Hainaut": {
-        "defaultMessage": "Hainaut"
+        "defaultMessage": "Provinsen Hainaut"
     },
     "Belgium_Liege": {
-        "defaultMessage": "Liège"
+        "defaultMessage": "Provinsen Liège"
     },
     "Belgium_Limburg": {
-        "defaultMessage": "Limburg"
+        "defaultMessage": "Provinsen Limburg"
     },
     "Belgium_Luxembourg": {
-        "defaultMessage": "Luxemburg"
+        "defaultMessage": "Provinsen Luxemburg"
     },
     "Belgium_Namur": {
-        "defaultMessage": "Namur"
+        "defaultMessage": "Provinsen Namur"
     },
     "Belgium_Walloon Brabant": {
-        "defaultMessage": "Vallonska Brabant"
+        "defaultMessage": "Provinsen Vallonska Brabant"
     },
     "Belgium_West Flanders": {
-        "defaultMessage": "Västflandern"
+        "defaultMessage": "Provinsen Västflandern"
     },
     "Belize": {
         "defaultMessage": "Belize"
@@ -207,16 +207,16 @@
         "defaultMessage": "Bolivia"
     },
     "Bolivia_North": {
-        "defaultMessage": "Bolivia – Nord"
+        "defaultMessage": "Bolivia — Nord"
     },
     "Bolivia_South": {
-        "defaultMessage": "Bolivia – Söder"
+        "defaultMessage": "Bolivia — Syd"
     },
     "Bosnia and Herzegovina": {
         "defaultMessage": "Bosnien och Hercegovina"
     },
     "Bosnia and Herzegovina_Brcko district of Bosnia and Herzegowina": {
-        "defaultMessage": "Brčko"
+        "defaultMessage": "Brčko-distriktet"
     },
     "Bosnia and Herzegovina_Entity Federation of Bosnia and Herzegovina": {
         "defaultMessage": "Federationen Bosnien och Hercegovina"
@@ -279,7 +279,7 @@
         "defaultMessage": "São Paulo — Campinas"
     },
     "Brazil_Southeast Region_Sao Paulo_City": {
-        "defaultMessage": "São Paulo — Santos, São Paulo"
+        "defaultMessage": "São Paulo — Santos"
     },
     "Brazil_Southeast Region_Sao Paulo_West": {
         "defaultMessage": "São Paulo — Ribeirão Preto"
@@ -312,7 +312,7 @@
         "defaultMessage": "Kamerun"
     },
     "Cameroon_Central": {
-        "defaultMessage": "Kamerun — Central"
+        "defaultMessage": "Centrala Kamerun"
     },
     "Cameroon_West": {
         "defaultMessage": "Kamerun — Väst"
@@ -339,7 +339,7 @@
         "defaultMessage": "British Columbia"
     },
     "Canada_British Columbia_Central": {
-        "defaultMessage": "British Columbia — Central"
+        "defaultMessage": "Centrala British Columbia"
     },
     "Canada_British Columbia_Far_North": {
         "defaultMessage": "British Columbia — Öst"
@@ -480,7 +480,7 @@
         "defaultMessage": "Québec"
     },
     "Canada_Quebec_Quebec": {
-        "defaultMessage": "Québec"
+        "defaultMessage": "Québec (staden)"
     },
     "Canada_Quebek_Far North": {
         "defaultMessage": "Québec — Nord"
@@ -801,22 +801,22 @@
         "defaultMessage": "Finland"
     },
     "Finland_Eastern Finland": {
-        "defaultMessage": "Östra Finlands län"
+        "defaultMessage": "Östra Finland"
     },
     "Finland_Northern Finland": {
         "defaultMessage": "Norra Finland"
     },
     "Finland_Southern Finland_Helsinki": {
-        "defaultMessage": "Södra Finlands län — Helsingfors"
+        "defaultMessage": "Södra Finland — Helsingfors"
     },
     "Finland_Southern Finland_Lappeenranta": {
-        "defaultMessage": "Södra Finlands län — Villmanstrand"
+        "defaultMessage": "Södra Finland — Villmanstrand"
     },
     "Finland_Southern Finland_West": {
         "defaultMessage": "Egentliga Finland"
     },
     "Finland_Western Finland": {
-        "defaultMessage": "Västra Finlands län"
+        "defaultMessage": "Västra Finland"
     },
     "Florida": {
         "defaultMessage": "Florida"
@@ -888,7 +888,7 @@
         "defaultMessage": "Yonne"
     },
     "France_Centre-Val de Loire": {
-        "defaultMessage": "Centre"
+        "defaultMessage": "Centre-Val de Loire"
     },
     "France_Centre-Val de Loire_Cher": {
         "defaultMessage": "Cher"
@@ -1152,7 +1152,7 @@
         "defaultMessage": "Stuttgartregionen — Heilbronn"
     },
     "Germany_Baden-Wurttemberg_Regierungsbezirk Stuttgart_Stuttgart": {
-        "defaultMessage": "Stuttgartregiionen — Stuttgart"
+        "defaultMessage": "Stuttgartregionen — Stuttgart"
     },
     "Germany_Baden-Wurttemberg_Regierungsbezirk Tubingen": {
         "defaultMessage": "Tübingen"
@@ -1161,10 +1161,10 @@
         "defaultMessage": "Berlin"
     },
     "Germany_Brandenburg_North": {
-        "defaultMessage": "Brandenburg — Nord"
+        "defaultMessage": "Potsdam"
     },
     "Germany_Brandenburg_South": {
-        "defaultMessage": "Brandenburg — Syd"
+        "defaultMessage": "Cottbus"
     },
     "Germany_Free State of Bavaria": {
         "defaultMessage": "Bayern"
@@ -1299,7 +1299,7 @@
         "defaultMessage": "Egeiska havsregionen"
     },
     "Greece_Decentralized Administration of Attica": {
-        "defaultMessage": "Attica-regionen"
+        "defaultMessage": "Attika"
     },
     "Greece_Decentralized Administration of Crete": {
         "defaultMessage": "Kretaregionen"
@@ -1314,7 +1314,7 @@
         "defaultMessage": "Thessalien och centrala Grekland"
     },
     "Greece_Decentralized Administration of West Greece": {
-        "defaultMessage": "Peloponnesos-regionen"
+        "defaultMessage": "Peloponnesos, Västra Grekland och Joniska öarna"
     },
     "Greenland": {
         "defaultMessage": "Grönland"
@@ -1437,7 +1437,7 @@
         "defaultMessage": "Nagaland"
     },
     "India_Odisha": {
-        "defaultMessage": "Orissa"
+        "defaultMessage": "Odisha"
     },
     "India_Punjab": {
         "defaultMessage": "Punjab"
@@ -1524,7 +1524,7 @@
         "defaultMessage": "Ulster"
     },
     "Isle of Man": {
-        "defaultMessage": "Mani saar"
+        "defaultMessage": "Isle of Man"
     },
     "Israel": {
         "defaultMessage": "Israel"
@@ -1557,46 +1557,46 @@
         "defaultMessage": "Emilia-Romagna"
     },
     "Italy_Emilia-Romagna_Bologna": {
-        "defaultMessage": "Bologna"
+        "defaultMessage": "Provinsen Bologna"
     },
     "Italy_Emilia-Romagna_Ferrara": {
-        "defaultMessage": "Ferrara"
+        "defaultMessage": "Provinsen Ferrara"
     },
     "Italy_Emilia-Romagna_Forli-Cesena": {
-        "defaultMessage": "Forlì-Cesena"
+        "defaultMessage": "Provinsen Forlì-Cesena"
     },
     "Italy_Emilia-Romagna_Modena": {
-        "defaultMessage": "Modena"
+        "defaultMessage": "Provinsen Modena"
     },
     "Italy_Emilia-Romagna_Parma": {
-        "defaultMessage": "Parma"
+        "defaultMessage": "Provinsen Parma"
     },
     "Italy_Emilia-Romagna_Piacenza": {
-        "defaultMessage": "Piacenza"
+        "defaultMessage": "Provinsen Piacenza"
     },
     "Italy_Emilia-Romagna_Ravenna": {
-        "defaultMessage": "Ravenna"
+        "defaultMessage": "Provinsen Ravenna"
     },
     "Italy_Emilia-Romagna_Reggio Emilia": {
-        "defaultMessage": "Reggio Emilia"
+        "defaultMessage": "Provinsen Reggio Emilia"
     },
     "Italy_Emilia-Romagna_Rimini": {
-        "defaultMessage": "Rimini"
+        "defaultMessage": "Provinsen Rimini"
     },
     "Italy_Friuli": {
         "defaultMessage": "Friuli-Venezia Giulia"
     },
     "Italy_Friuli-Venezia Giulia_Gorizia": {
-        "defaultMessage": "Gorizia"
+        "defaultMessage": "Provinsen Gorizia"
     },
     "Italy_Friuli-Venezia Giulia_Pordenone": {
-        "defaultMessage": "Pordenone"
+        "defaultMessage": "Provinsen Pordenone"
     },
     "Italy_Friuli-Venezia Giulia_Trieste": {
-        "defaultMessage": "Trieste"
+        "defaultMessage": "Provinsen Trieste"
     },
     "Italy_Friuli-Venezia Giulia_Udine": {
-        "defaultMessage": "Udine"
+        "defaultMessage": "Provinsen Udine"
     },
     "Italy_Lazio": {
         "defaultMessage": "Lazio"
@@ -1608,40 +1608,40 @@
         "defaultMessage": "Lombardiet"
     },
     "Italy_Lombardy_Bergamo": {
-        "defaultMessage": "Bergamo"
+        "defaultMessage": "Provinsen Bergamo"
     },
     "Italy_Lombardy_Brescia": {
-        "defaultMessage": "Brescia"
+        "defaultMessage": "Provinsen Brescia"
     },
     "Italy_Lombardy_Como": {
-        "defaultMessage": "Como"
+        "defaultMessage": "Provinsen Como"
     },
     "Italy_Lombardy_Cremona": {
-        "defaultMessage": "Cremona"
+        "defaultMessage": "Provinsen Cremona"
     },
     "Italy_Lombardy_Lecco": {
-        "defaultMessage": "Lecco"
+        "defaultMessage": "Provinsen Lecco"
     },
     "Italy_Lombardy_Lodi": {
-        "defaultMessage": "Lodi"
+        "defaultMessage": "Provinsen Lodi"
     },
     "Italy_Lombardy_Mantua": {
-        "defaultMessage": "Mantova"
+        "defaultMessage": "Provinsen Mantova"
     },
     "Italy_Lombardy_Milan": {
-        "defaultMessage": "Milano"
+        "defaultMessage": "Provinsen Milano"
     },
     "Italy_Lombardy_Monza and Brianza": {
-        "defaultMessage": "Monza e Brianza"
+        "defaultMessage": "Provinsen Monza e Brianza"
     },
     "Italy_Lombardy_Pavia": {
-        "defaultMessage": "Pavia"
+        "defaultMessage": "Provinsen Pavia"
     },
     "Italy_Lombardy_Sondrio": {
-        "defaultMessage": "Sondrio"
+        "defaultMessage": "Provinsen Sondrio"
     },
     "Italy_Lombardy_Varese": {
-        "defaultMessage": "Varese"
+        "defaultMessage": "Provinsen Varese"
     },
     "Italy_Marche": {
         "defaultMessage": "Marche"
@@ -1653,28 +1653,28 @@
         "defaultMessage": "Piemonte"
     },
     "Italy_Piemont_Alessandria": {
-        "defaultMessage": "Alessandria"
+        "defaultMessage": "Provinsen Alessandria"
     },
     "Italy_Piemont_Asti": {
-        "defaultMessage": "Asti"
+        "defaultMessage": "Provinsen Asti"
     },
     "Italy_Piemont_Biella": {
-        "defaultMessage": "Biella"
+        "defaultMessage": "Provinsen Biella"
     },
     "Italy_Piemont_Cuneo": {
-        "defaultMessage": "Cuneo"
+        "defaultMessage": "Provinsen Cuneo"
     },
     "Italy_Piemont_Novara": {
-        "defaultMessage": "Novara"
+        "defaultMessage": "Provinsen Novara"
     },
     "Italy_Piemont_Torino": {
-        "defaultMessage": "Torino"
+        "defaultMessage": "Provinsen Turin"
     },
     "Italy_Piemont_Verbano-Cusio-Ossola": {
-        "defaultMessage": "Verbano Cusio Ossola"
+        "defaultMessage": "Verbano-Cusio-Ossola"
     },
     "Italy_Piemont_Vercelli": {
-        "defaultMessage": "Vercelli"
+        "defaultMessage": "Provinsen Vercelli"
     },
     "Italy_Sardinia": {
         "defaultMessage": "Sardinien"
@@ -1689,7 +1689,7 @@
         "defaultMessage": "Toscana — Sydost"
     },
     "Italy_Tuscany_Massa e Carrara": {
-        "defaultMessage": "Toscana — Nordost"
+        "defaultMessage": "Toscana — Nordväst"
     },
     "Italy_Umbria": {
         "defaultMessage": "Umbrien"
@@ -1698,25 +1698,25 @@
         "defaultMessage": "Veneto"
     },
     "Italy_Veneto_Belluno": {
-        "defaultMessage": "Belluno"
+        "defaultMessage": "Provinsen Belluno"
     },
     "Italy_Veneto_Padova": {
-        "defaultMessage": "Padova"
+        "defaultMessage": "Provinsen Padua"
     },
     "Italy_Veneto_Rovigo": {
-        "defaultMessage": "Rovigo"
+        "defaultMessage": "Provinsen Rovigo"
     },
     "Italy_Veneto_Treviso": {
-        "defaultMessage": "Treviso"
+        "defaultMessage": "Provinsen Treviso"
     },
     "Italy_Veneto_Venezia": {
-        "defaultMessage": "Venedig"
+        "defaultMessage": "Provinsen Venedig"
     },
     "Italy_Veneto_Verona": {
-        "defaultMessage": "Verona"
+        "defaultMessage": "Provinsen Verona"
     },
     "Italy_Veneto_Vicenza": {
-        "defaultMessage": "Vicenza"
+        "defaultMessage": "Provinsen Vicenza"
     },
     "Jamaica": {
         "defaultMessage": "Jamaica"
@@ -1878,10 +1878,10 @@
         "defaultMessage": "Aomori prefektur"
     },
     "Japan_Tohoku_Fukushima": {
-        "defaultMessage": "Fukushima-prefekturen"
+        "defaultMessage": "Fukushima prefektur"
     },
     "Japan_Tohoku_Iwate": {
-        "defaultMessage": "Iwate"
+        "defaultMessage": "Iwate prefektur"
     },
     "Japan_Tohoku_Miyagi": {
         "defaultMessage": "Miyagi prefektur"
@@ -2166,10 +2166,10 @@
         "defaultMessage": "Nord — Wellington"
     },
     "New Zealand South_Canterbury": {
-        "defaultMessage": "Syd — Canterbury, Nya Zeeland"
+        "defaultMessage": "Syd — Canterburyregionen"
     },
     "New Zealand South_Southland": {
-        "defaultMessage": "Syd — Southland"
+        "defaultMessage": "Syd — Southlandregionen"
     },
     "Nicaragua": {
         "defaultMessage": "Nicaragua"
@@ -2364,7 +2364,7 @@
         "defaultMessage": "Rumänien"
     },
     "Romania_Centre": {
-        "defaultMessage": "Central"
+        "defaultMessage": "Centrala regionen"
     },
     "Romania_North_East": {
         "defaultMessage": "Nordost"
@@ -2394,7 +2394,7 @@
         "defaultMessage": "Amur oblast"
     },
     "Russia_Arkhangelsk Oblast_Central": {
-        "defaultMessage": "Archangelsk oblast — Central"
+        "defaultMessage": "Centrala Archangelsk oblast"
     },
     "Russia_Arkhangelsk Oblast_North": {
         "defaultMessage": "Archangelsk oblast — Nord"
@@ -2877,13 +2877,13 @@
         "defaultMessage": "Norra Sverige"
     },
     "Sweden_Ostra Gotaland": {
-        "defaultMessage": "Östergötland"
+        "defaultMessage": "Östra Götaland"
     },
     "Sweden_Sodra Gotaland": {
         "defaultMessage": "Södra Götaland"
     },
     "Sweden_Vastra Gotaland": {
-        "defaultMessage": "Västergötland"
+        "defaultMessage": "Västra Götaland"
     },
     "Switzerland": {
         "defaultMessage": "Schweiz"
@@ -2895,7 +2895,7 @@
         "defaultMessage": "Östra Schweiz"
     },
     "Switzerland_Espace Mittelland": {
-        "defaultMessage": "Schweizer Mittelland"
+        "defaultMessage": "Espace Mittelland"
     },
     "Switzerland_Lake Geneva region": {
         "defaultMessage": "Genèvesjöregionen"
@@ -2907,7 +2907,7 @@
         "defaultMessage": "Ticino"
     },
     "Switzerland_Zurich": {
-        "defaultMessage": "Zürich storstadsområde"
+        "defaultMessage": "Zürich"
     },
     "Syria": {
         "defaultMessage": "Syrien"
@@ -3186,7 +3186,7 @@
         "defaultMessage": "Kentucky — Väst"
     },
     "US_Louisiana_Central": {
-        "defaultMessage": "Louisiana — Väst"
+        "defaultMessage": "Centrala Louisiana"
     },
     "US_Louisiana_New Orleans": {
         "defaultMessage": "New Orleans"
@@ -3384,7 +3384,7 @@
         "defaultMessage": "Waco, Texas"
     },
     "US_Texas_West": {
-        "defaultMessage": "Odessa, Texas"
+        "defaultMessage": "El Paso"
     },
     "US_United States Minor Outlying Islands": {
         "defaultMessage": "Förenta staternas mindre öar i Oceanien och Västindien"
@@ -3465,7 +3465,7 @@
         "defaultMessage": "Kirovohrad oblast"
     },
     "Ukraine_Kyiv Oblast": {
-        "defaultMessage": "Kiev oblast"
+        "defaultMessage": "Kyjiv oblast"
     },
     "Ukraine_Luhansk Oblast": {
         "defaultMessage": "Luhansk oblast"
@@ -3477,7 +3477,7 @@
         "defaultMessage": "Mykolajiv oblast"
     },
     "Ukraine_Odessa Oblast": {
-        "defaultMessage": "Odessa oblast"
+        "defaultMessage": "Odesa oblast"
     },
     "Ukraine_Poltava Oblast": {
         "defaultMessage": "Poltava oblast"
@@ -3492,7 +3492,7 @@
         "defaultMessage": "Ternopil oblast"
     },
     "Ukraine_Vinnytsia Oblast": {
-        "defaultMessage": "Vinnytsia oblast"
+        "defaultMessage": "Vinnytsja oblast"
     },
     "Ukraine_Volyn Oblast": {
         "defaultMessage": "Volyn oblast"
@@ -3558,7 +3558,7 @@
         "defaultMessage": "Zimbabwe"
     },
     "Argentina_Santa Fe": {
-        "defaultMessage": "Santa Fe"
+        "defaultMessage": "Provinsen Santa Fe"
     },
     "Australia_Brisbane": {
         "defaultMessage": "Brisbane"
@@ -3615,7 +3615,7 @@
         "defaultMessage": "Bulgarien — Väst"
     },
     "Chile_Central": {
-        "defaultMessage": "Chile — Central"
+        "defaultMessage": "Centrala Chile"
     },
     "Congo-Kinshasa_Kivu": {
         "defaultMessage": "Kivu"
@@ -3624,7 +3624,7 @@
         "defaultMessage": "Kongo-Kinshasa — Väst"
     },
     "Croatia_Central": {
-        "defaultMessage": "Kroatien — Central"
+        "defaultMessage": "Centrala Kroatien"
     },
     "Croatia_West": {
         "defaultMessage": "Kroatien — Väst"
@@ -3636,16 +3636,16 @@
         "defaultMessage": "Ecuador — Väst"
     },
     "Finland_Eastern Finland_North": {
-        "defaultMessage": "Östra Finlands län — Nord"
+        "defaultMessage": "Östra Finland — Nord"
     },
     "Finland_Eastern Finland_South": {
-        "defaultMessage": "Östra Finlands län — Syd"
+        "defaultMessage": "Östra Finland — Syd"
     },
     "Finland_Western Finland_Jyvaskyla": {
-        "defaultMessage": "Västra Finlands län — Jyväskylä"
+        "defaultMessage": "Västra Finland — Jyväskylä"
     },
     "Finland_Western Finland_Tampere": {
-        "defaultMessage": "Västra Finlands län — Tammerfors"
+        "defaultMessage": "Västra Finland — Tammerfors"
     },
     "France_Free County_North": {
         "defaultMessage": "Franche-Comté — Nord"
@@ -3828,7 +3828,7 @@
         "defaultMessage": "Espace Mittelland — Bern"
     },
     "Switzerland_Espace Mittelland_East": {
-        "defaultMessage": "Espace Mittelland — Östra"
+        "defaultMessage": "Espace Mittelland — Öst"
     },
     "Taiwan_North": {
         "defaultMessage": "Taiwan — Nord"
@@ -3837,7 +3837,7 @@
         "defaultMessage": "Taiwan — Syd"
     },
     "Thailand_Central": {
-        "defaultMessage": "Thailand — Central"
+        "defaultMessage": "Centrala Thailand"
     },
     "Turkey_Central Anatolia Region_Ankara": {
         "defaultMessage": "Centrala Anatolien — Ankara"
@@ -4011,7 +4011,7 @@
         "defaultMessage": "Pitsunda, Gudauta, Sukhum"
     },
     "Afghanistan Description": {
-        "defaultMessage": "Kabul"
+        "defaultMessage": "Kabul, Kandahar, Tokzar"
     },
     "Albania Description": {
         "defaultMessage": "Tiranë, Kavaje, Shkoder"
@@ -4020,25 +4020,25 @@
         "defaultMessage": "Batna, Djelfa, Biskra"
     },
     "Algeria_Coast Description": {
-        "defaultMessage": "Alger"
+        "defaultMessage": "Alger, Oran, Constantine"
     },
     "Andorra Description": {
-        "defaultMessage": "Andorra la Vella"
+        "defaultMessage": "Andorra la Vella, La Massana, Ordino"
     },
     "Angola Description": {
-        "defaultMessage": "Luanda"
+        "defaultMessage": "Luanda, Lobito, Namibe"
     },
     "Anguilla Description": {
         "defaultMessage": "The Valley, George Hill, Stoney Ground"
     },
     "Antarctica Description": {
-        "defaultMessage": "McMurdo Station, Chilean research station „Villa Las Estrellas”, Rocky Cove"
+        "defaultMessage": "McMurdo-stationen, den chilenska forskningsstationen ”Villa Las Estrellas”, Rocky Cove"
     },
     "Antigua and Barbuda Description": {
         "defaultMessage": "St. John's, English Harbour, Freetown"
     },
     "Argentina_Buenos Aires_Buenos Aires Description": {
-        "defaultMessage": "Buenos Aires"
+        "defaultMessage": "Buenos Aires, José C. Paz, González Catán"
     },
     "Argentina_Buenos Aires_North Description": {
         "defaultMessage": "Dolores, Pinamar, Villa Gesell"
@@ -4065,13 +4065,13 @@
         "defaultMessage": "Rosario, Santa Fe, Las Parejas"
     },
     "Armenia Description": {
-        "defaultMessage": "Jerevan"
+        "defaultMessage": "Jerevan, Ashtarak, Gyumri"
     },
     "Australia_Brisbane Description": {
-        "defaultMessage": "Brisbane"
+        "defaultMessage": "Brisbane, Redcliffe, Gold Coast"
     },
     "Australia_Melbourne Description": {
-        "defaultMessage": "Melbourne"
+        "defaultMessage": "Melbourne, Geelong, Yering"
     },
     "Australia_New South Wales Description": {
         "defaultMessage": "Barham, Tuncurry, Tocumwal"
@@ -4083,19 +4083,19 @@
         "defaultMessage": "Charleville, Winton, Townsville"
     },
     "Australia_South Australia Description": {
-        "defaultMessage": "Adelaide"
+        "defaultMessage": "Adelaide, Port Lincoln, Murray Bridge"
     },
     "Australia_Sydney Description": {
-        "defaultMessage": "Sydney, Canberra"
+        "defaultMessage": "Sydney, Canberra, Newcastle"
     },
     "Australia_Tasmania Description": {
-        "defaultMessage": "Hobart"
+        "defaultMessage": "Hobart, Strahan, Huonville"
     },
     "Australia_Victoria Description": {
         "defaultMessage": "Wangaratta, Bendigo, Ballarat"
     },
     "Australia_Western Australia Description": {
-        "defaultMessage": "Perth"
+        "defaultMessage": "Perth, Joondalup, Kalgoorlie"
     },
     "Austria_Burgenland Description": {
         "defaultMessage": "Oberpullendorf, Eisenstadt, Mattersburg"
@@ -4107,7 +4107,7 @@
         "defaultMessage": "Mostviertel, Waldviertel"
     },
     "Austria_Lower Austria_Wien Description": {
-        "defaultMessage": "Wien"
+        "defaultMessage": "Wien, Industrieviertel, Weinviertel"
     },
     "Austria_Salzburg Description": {
         "defaultMessage": "Salzburg, Oberndorf bei Salzburg, Abtenau"
@@ -4137,7 +4137,7 @@
         "defaultMessage": "Manama, Riffa, Muharraq"
     },
     "Bangladesh Description": {
-        "defaultMessage": "Dhaka"
+        "defaultMessage": "Sylhet, Dhaka, Comilla"
     },
     "Barbados Description": {
         "defaultMessage": "Bridgetown, Oistins, Speightstown"
@@ -4155,19 +4155,19 @@
         "defaultMessage": "Mahilyow, Babruysk, Čerykaŭ"
     },
     "Belarus_Minsk Region Description": {
-        "defaultMessage": "Minsk"
+        "defaultMessage": "Minsk, Barysaw, Soligorsk"
     },
     "Belarus_Vitebsk Region Description": {
         "defaultMessage": "Vitebsk, Orsha, Navapolatsk"
     },
     "Belgium_Antwerp Description": {
-        "defaultMessage": "Antwerp, Zwijndrecht, Berchem"
+        "defaultMessage": "Antwerpen, Zwijndrecht, Berchem"
     },
     "Belgium_East Flanders Description": {
-        "defaultMessage": "Ghent, Deinze, Sint-Martens-Latem"
+        "defaultMessage": "Gent, Deinze, Sint-Martens-Latem"
     },
     "Belgium_Flemish Brabant Description": {
-        "defaultMessage": "Bryssel"
+        "defaultMessage": "Bryssel, Schaerbeek - Schaarbeek, Anderlecht"
     },
     "Belgium_Hainaut Description": {
         "defaultMessage": "Mons, Charleroi, La Louvière"
@@ -4188,10 +4188,10 @@
         "defaultMessage": "Braine-l'Alleud, Wavre, Ottignies-Louvain-la-Neuve"
     },
     "Belgium_West Flanders Description": {
-        "defaultMessage": "Brygge"
+        "defaultMessage": "Brygge, Koksijde, Nieuwpoort"
     },
     "Belize Description": {
-        "defaultMessage": "Belmopan"
+        "defaultMessage": "Benque Viejo del Carmen, Belize City, Belmopan"
     },
     "Benin Description": {
         "defaultMessage": "Natitingou, Abomey, Djougou"
@@ -4203,10 +4203,10 @@
         "defaultMessage": "Thimphu, Ha, Mongar"
     },
     "Bolivia_North Description": {
-        "defaultMessage": "La Paz"
+        "defaultMessage": "La Paz, Santa Cruz de la Sierra, El Alto"
     },
     "Bolivia_South Description": {
-        "defaultMessage": "Sucre"
+        "defaultMessage": "Sucre, Cochabamba, Tupiza"
     },
     "Bosnia and Herzegovina_Brcko district of Bosnia and Herzegowina Description": {
         "defaultMessage": "Brčko, Dubrave, Rašljani"
@@ -4218,13 +4218,13 @@
         "defaultMessage": "Banja Luka, Bijeljina, Derventa"
     },
     "Botswana Description": {
-        "defaultMessage": "Gaborone"
+        "defaultMessage": "Gaborone, Tsabong, Mochudi"
     },
     "Brazil_Bahia Description": {
         "defaultMessage": "Salvador, Feira de Santana, Vitória da Conquista"
     },
     "Brazil_Goias_Brasilia Description": {
-        "defaultMessage": "Brasília"
+        "defaultMessage": "Brasília, Goiânia, Aparecida de Goiânia"
     },
     "Brazil_Goias_North Description": {
         "defaultMessage": "Goianésia, Jaraguá, Porangatu"
@@ -4278,7 +4278,7 @@
         "defaultMessage": "Uberlandia, Montes Claros, Uberaba"
     },
     "Brazil_Southeast Region_Rio de Janeiro Description": {
-        "defaultMessage": "Rio de Janeiro"
+        "defaultMessage": "Rio de Janeiro, São Gonçalo, Duque de Caxias"
     },
     "Brazil_Southeast Region_Sao Paulo_Campinas Description": {
         "defaultMessage": "Campinas, Sorocaba, Jundiaí"
@@ -4296,25 +4296,25 @@
         "defaultMessage": "Spanish Town, Road Town, East End"
     },
     "Brunei Description": {
-        "defaultMessage": "Bandar Seri Begawan"
+        "defaultMessage": "Bandar Seri Begawan, Muara, Seria"
     },
     "Bulgaria_East Description": {
         "defaultMessage": "Varna, Burgas, Dobrich"
     },
     "Bulgaria_West Description": {
-        "defaultMessage": "Sofia, Plovdiv"
+        "defaultMessage": "Sofia, Plovdiv, Pleven"
     },
     "Burkina Faso Description": {
-        "defaultMessage": "Ouagadougou"
+        "defaultMessage": "Ouagadougou, Bobo-Dioulasso"
     },
     "Burundi Description": {
-        "defaultMessage": "Bujumbura"
+        "defaultMessage": "Bujumbura, Bubanza, Cibitoke"
     },
     "Cambodia Description": {
-        "defaultMessage": "Phnom Penh"
+        "defaultMessage": "Phnom Penh, Kampong Speu, Takeo"
     },
     "Cameroon_Central Description": {
-        "defaultMessage": "Yaoundé"
+        "defaultMessage": "Yaoundé, Kousséri, Kribi"
     },
     "Cameroon_West Description": {
         "defaultMessage": "Douala, Buea, Bamenda"
@@ -4410,7 +4410,7 @@
         "defaultMessage": "Barrie, Wasaga Beach, Deep River"
     },
     "Canada_Ontario_Kingston Description": {
-        "defaultMessage": "Ottawa"
+        "defaultMessage": "Ottawa, Belleville, Peterborough"
     },
     "Canada_Ontario_London Description": {
         "defaultMessage": "London, Welland, Woodstock"
@@ -4488,22 +4488,22 @@
         "defaultMessage": "Watson Lake, Whitehorse, Haines Junction"
     },
     "Cape Verde Description": {
-        "defaultMessage": "Praia"
+        "defaultMessage": "Praia, Ribeira Grande, Cidade de Espargos"
     },
     "Caribisch Nederland Description": {
         "defaultMessage": "San Nicolaas, Willemstad, Oranjestad"
     },
     "Cayman Islands Description": {
-        "defaultMessage": "George Town, Caymanöarna"
+        "defaultMessage": "George Town, West Bay, West End"
     },
     "Central African Republic Description": {
-        "defaultMessage": "Bangui"
+        "defaultMessage": "Bangui, Bouar, Baoro"
     },
     "Chad Description": {
-        "defaultMessage": "N’Djamena"
+        "defaultMessage": "N’Djamena, Mao, Bol"
     },
     "Chile_Central Description": {
-        "defaultMessage": "Santiago"
+        "defaultMessage": "Santiago, Pichilemu, San Antonio"
     },
     "Chile_North Description": {
         "defaultMessage": "Hanga Roa, Iquique, Coquimbo"
@@ -4533,7 +4533,7 @@
         "defaultMessage": "Guiyang, Liupanshui, Weining"
     },
     "China_Hebei Description": {
-        "defaultMessage": "Beijing"
+        "defaultMessage": "Beijing, Tianjin, Shijiazhuang"
     },
     "China_Heilongjiang Description": {
         "defaultMessage": "Harbin, Jixi, Ning'an"
@@ -4542,7 +4542,7 @@
         "defaultMessage": "Zhengzhou, Wugang"
     },
     "China_Hubei Description": {
-        "defaultMessage": "Wuhan, Jīngzhōu City, Dangyang"
+        "defaultMessage": "Wuhan, Jingzhou, Dangyang"
     },
     "China_Hunan Description": {
         "defaultMessage": "Changsha, Lianyuan, Liling"
@@ -4575,7 +4575,7 @@
         "defaultMessage": "Jinan, Tai'an, Zibo"
     },
     "China_Shanghai Description": {
-        "defaultMessage": "Shanghai"
+        "defaultMessage": "Shanghai, Jinshan, Putuo"
     },
     "China_Shanxi Description": {
         "defaultMessage": "Taiyuan, Changzhi, Huozhou"
@@ -4602,40 +4602,40 @@
         "defaultMessage": "Cúcuta, Medellín, Cartagena"
     },
     "Colombia_West Description": {
-        "defaultMessage": "Bogotá"
+        "defaultMessage": "Bogotá, Cali, Soacha"
     },
     "Comoros Description": {
-        "defaultMessage": "Moroni"
+        "defaultMessage": "Moroni, Mutsamudu, Bazimini"
     },
     "Congo-Brazzaville Description": {
-        "defaultMessage": "Brazzaville"
+        "defaultMessage": "Brazzaville, Pointe-Noire, Impfondo"
     },
     "Congo-Kinshasa_Kivu Description": {
         "defaultMessage": "Bukavu, Beni, Goma"
     },
     "Congo-Kinshasa_West Description": {
-        "defaultMessage": "Kinshasa"
+        "defaultMessage": "Kinshasa, Mbuji-Mayi, Lubumbashi"
     },
     "Cook Islands Description": {
         "defaultMessage": "Rarotonga Muri, Avarua, Kimiangatau"
     },
     "Costa Rica Description": {
-        "defaultMessage": "San José, Costa Rica"
+        "defaultMessage": "San José, Palmira, Alajuela"
     },
     "Cote dIvoire Description": {
-        "defaultMessage": "Abidjan"
+        "defaultMessage": "Abidjan, Abobo, Yopougon"
     },
     "Crimea Description": {
-        "defaultMessage": "Kertj"
+        "defaultMessage": "Sevastopol, Simferopol, Kertj"
     },
     "Croatia_Central Description": {
-        "defaultMessage": "Zagreb"
+        "defaultMessage": "Zagreb, Osijek, Ozalj"
     },
     "Croatia_West Description": {
         "defaultMessage": "Split, Rijeka, Opatija"
     },
     "Cuba Description": {
-        "defaultMessage": "Havanna"
+        "defaultMessage": "Havanna, Santiago de Cuba, Cienfuegos"
     },
     "Cyprus Description": {
         "defaultMessage": "Nicosia, Limassol, Larnaca, Paphos"
@@ -4686,13 +4686,13 @@
         "defaultMessage": "Zlín, Kroměříž, Vsetín"
     },
     "Denmark_Capital Region of Denmark Description": {
-        "defaultMessage": "Köpenhamn"
+        "defaultMessage": "Köpenhamn, Skovlunde, Virum"
     },
     "Denmark_Central Denmark Region Description": {
-        "defaultMessage": "Århus"
+        "defaultMessage": "Århus, Juelsminde, Brabrand"
     },
     "Denmark_North Denmark Region Description": {
-        "defaultMessage": "Ålborg, Hjörring, Fredrikshamn, Danmark"
+        "defaultMessage": "Ålborg, Hjørring, Fredrikshamn"
     },
     "Denmark_Region Zealand Description": {
         "defaultMessage": "Roskilde, Næstved, Greve Strand"
@@ -4701,7 +4701,7 @@
         "defaultMessage": "Odense, Morud, Korup"
     },
     "Djibouti Description": {
-        "defaultMessage": "Djibouti"
+        "defaultMessage": "Djibouti, Randa, Yoboki"
     },
     "Dominica Description": {
         "defaultMessage": "Roseau, Salisbury, Grand Bay"
@@ -4713,61 +4713,61 @@
         "defaultMessage": "Dili, Pante Macassar, Viqueque"
     },
     "Ecuador_East Description": {
-        "defaultMessage": "Quito"
+        "defaultMessage": "Quito, Cuenca, Tena"
     },
     "Ecuador_West Description": {
         "defaultMessage": "Guayaquil, Manta, Machala"
     },
     "Egypt Description": {
-        "defaultMessage": "Kairo"
+        "defaultMessage": "Kairo, Alexandria, Giza"
     },
     "El Salvador Description": {
-        "defaultMessage": "San Salvador"
+        "defaultMessage": "San Salvador, Ahuachapan, Sonsonate"
     },
     "Equatorial Guinea Description": {
-        "defaultMessage": "Malabo"
+        "defaultMessage": "Malabo, Mongomo, Bata"
     },
     "Eritrea Description": {
-        "defaultMessage": "Asmara"
+        "defaultMessage": "Asmara, Keren, Omhajer"
     },
     "Estonia_East Description": {
         "defaultMessage": "Põltsamaa linn, Võru, Tartu"
     },
     "Estonia_West Description": {
-        "defaultMessage": "Tallinn"
+        "defaultMessage": "Tallinn, Pärnu, Maardu"
     },
     "Ethiopia Description": {
-        "defaultMessage": "Addis Abeba"
+        "defaultMessage": "Addis Abeba, Asella, Bahir Dar"
     },
     "Falkland Islands Description": {
         "defaultMessage": "Stanley, Falkland Islands, Dunnose Head, Port Edgar"
     },
     "Faroe Islands Description": {
-        "defaultMessage": "Torshamn"
+        "defaultMessage": "Torshamn, Klaksvík, Norðdepil"
     },
     "Federated States of Micronesia Description": {
-        "defaultMessage": "Palikir"
+        "defaultMessage": "Palikir, Colonia, Tamworohi"
     },
     "Fiji Description": {
         "defaultMessage": "Suva, Nasinu, Nadi"
     },
     "Finland_Eastern Finland_North Description": {
-        "defaultMessage": "Kajana"
+        "defaultMessage": "Alapitkä, Koli, Kajana"
     },
     "Finland_Eastern Finland_South Description": {
-        "defaultMessage": "S:t Michel"
+        "defaultMessage": "Kuopio, Joensuu, S:t Michel"
     },
     "Finland_Northern Finland Description": {
-        "defaultMessage": "Uleåborg, Karleby"
+        "defaultMessage": "Uleåborg, Rovaniemi, Karleby"
     },
     "Finland_Southern Finland_Helsinki Description": {
         "defaultMessage": "Helsingfors, Esbo, Vanda"
     },
     "Finland_Southern Finland_Lappeenranta Description": {
-        "defaultMessage": "Villmanstrand"
+        "defaultMessage": "Kouvola, Villmanstrand, Kotka"
     },
     "Finland_Southern Finland_West Description": {
-        "defaultMessage": "Åbo, Tavastehus"
+        "defaultMessage": "Åbo, Tavastehus, Salo"
     },
     "Finland_Western Finland_Jyvaskyla Description": {
         "defaultMessage": "Jyväskylä, Lehtimäki, Kuorevesi"
@@ -4863,7 +4863,7 @@
         "defaultMessage": "Pontarlier, Lons-le-Saunier, Saint-Claude"
     },
     "France_French Guiana Description": {
-        "defaultMessage": "Cayenne"
+        "defaultMessage": "Cayenne, Saint-Laurent-du-Maroni, Matoury"
     },
     "France_Ile-de-France_Essonne Description": {
         "defaultMessage": "Évry, Corbeil-Essonnes, Massy"
@@ -4872,7 +4872,7 @@
         "defaultMessage": "Boulogne-Billancourt, Nanterre, Courbevoie"
     },
     "France_Ile-de-France_Paris Description": {
-        "defaultMessage": "Paris"
+        "defaultMessage": "Paris, Campagne à Paris"
     },
     "France_Ile-de-France_Seine-Saint-Denis Description": {
         "defaultMessage": "Saint-Denis, Montreuil, Aubervilliers"
@@ -4953,7 +4953,7 @@
         "defaultMessage": "Montauban, Castelsarrasin, Moissac"
     },
     "France_New Caledonia Description": {
-        "defaultMessage": "Nouméa"
+        "defaultMessage": "Poindimié, Nouméa, Ponérihouen"
     },
     "France_Nord-Pas-de-Calais_Lille Description": {
         "defaultMessage": "Lille, Roubaix, Tourcoing"
@@ -5046,7 +5046,7 @@
         "defaultMessage": "Chambéry, Aix-les-Bains, Albertville"
     },
     "France_Southern Islands Description": {
-        "defaultMessage": "Saint-Denis"
+        "defaultMessage": "Le Port, Saint-Denis, Coconi"
     },
     "France_Upper Normandy Description": {
         "defaultMessage": "Le Havre, Rouen, Évreux"
@@ -5055,16 +5055,16 @@
         "defaultMessage": "Vaitape, Vaitahu, Tiputa"
     },
     "Gabon Description": {
-        "defaultMessage": "Libreville"
+        "defaultMessage": "Libreville, Port-Gentil, Sangala"
     },
     "Georgia Description": {
-        "defaultMessage": "Tbilisi"
+        "defaultMessage": "Tbilisi, Kutaisi, Batumi"
     },
     "Germany_Baden-Wurttemberg_Regierungsbezirk Freiburg Description": {
-        "defaultMessage": "Freiburg im Breisgau"
+        "defaultMessage": "Freiburg im Breisgau, Villingen-Schwenningen, Konstanz"
     },
     "Germany_Baden-Wurttemberg_Regierungsbezirk Karlsruhe Description": {
-        "defaultMessage": "Karlsruhe"
+        "defaultMessage": "Mannheim, Karlsruhe, Heidelberg"
     },
     "Germany_Baden-Wurttemberg_Regierungsbezirk Stuttgart_Heilbronn Description": {
         "defaultMessage": "Heilbronn, Schwäbisch Hall, Crailsheim"
@@ -5076,13 +5076,13 @@
         "defaultMessage": "Ulm, Reutlingen, Tübingen"
     },
     "Germany_Berlin Description": {
-        "defaultMessage": "Berlin"
+        "defaultMessage": "Berlin, Falkenberg, Siedlung Grüneck"
     },
     "Germany_Brandenburg_North Description": {
-        "defaultMessage": "Brandenburg an der Havel, Potsdam, Panketal"
+        "defaultMessage": "Potsdam, Brandenburg an der Havel, Oranienburg"
     },
     "Germany_Brandenburg_South Description": {
-        "defaultMessage": "Frankfurt (Oder), Cottbus, Cottbus"
+        "defaultMessage": "Cottbus, Frankfurt (Oder), Königs Wusterhausen"
     },
     "Germany_Free State of Bavaria_Lower Bavaria Description": {
         "defaultMessage": "Landshut, Passau, Straubing"
@@ -5091,7 +5091,7 @@
         "defaultMessage": "Würzburg, Aschaffenburg, Schweinfurt"
     },
     "Germany_Free State of Bavaria_Middle Franconia Description": {
-        "defaultMessage": "Nuremberg, Fürth, Erlangen"
+        "defaultMessage": "Nürnberg, Fürth, Erlangen"
     },
     "Germany_Free State of Bavaria_Swabia Description": {
         "defaultMessage": "Augsburg, Kempten (Allgäu), Neu-Ulm"
@@ -5103,7 +5103,7 @@
         "defaultMessage": "Ingolstadt, Freising, Neuburg an der Donau"
     },
     "Germany_Free State of Bavaria_Upper Bavaria_Munchen Description": {
-        "defaultMessage": "Munich, Dachau"
+        "defaultMessage": "München, Dachau"
     },
     "Germany_Free State of Bavaria_Upper Bavaria_South Description": {
         "defaultMessage": "Pfistern, Schongau, Hohenpeißenberg"
@@ -5115,7 +5115,7 @@
         "defaultMessage": "Regensburg, Amberg, Weiden in der Oberpfalz"
     },
     "Germany_Hamburg_main Description": {
-        "defaultMessage": "Hamburg"
+        "defaultMessage": "Hamburg, Nettelnburg, Fünfhausen"
     },
     "Germany_Hesse_Regierungsbezirk Darmstadt Description": {
         "defaultMessage": "Frankfurt am Main, Wiesbaden, Darmstadt"
@@ -5127,7 +5127,7 @@
         "defaultMessage": "Kassel, Fulda, Vöhl"
     },
     "Germany_Lower Saxony_Braunschweig Description": {
-        "defaultMessage": "Brunswick, Göttingen, Wolfsburg"
+        "defaultMessage": "Braunschweig, Göttingen, Wolfsburg"
     },
     "Germany_Lower Saxony_Bremen_Bremen Description": {
         "defaultMessage": "Bremen, Bremerhaven, Uchte"
@@ -5136,7 +5136,7 @@
         "defaultMessage": "Rotenburg (Wümme), Winsen (Luhe), Buxtehude"
     },
     "Germany_Lower Saxony_Hannover Description": {
-        "defaultMessage": "Hanover, Hildesheim, Bad Nenndorf"
+        "defaultMessage": "Hannover, Hildesheim, Bad Nenndorf"
     },
     "Germany_Lower Saxony_Oldenburg Description": {
         "defaultMessage": "Osnabrück, Oldenburg, Nordhorn"
@@ -5166,7 +5166,7 @@
         "defaultMessage": "Aachen, Düren, Simmerath"
     },
     "Germany_North Rhine-Westphalia_Regierungsbezirk Koln_Koln Description": {
-        "defaultMessage": "Köln"
+        "defaultMessage": "Köln, Bonn, Leverkusen"
     },
     "Germany_North Rhine-Westphalia_Regierungsbezirk Munster_Munster Description": {
         "defaultMessage": "Münster, Rheine, Ahlen"
@@ -5181,7 +5181,7 @@
         "defaultMessage": "Mainz, Ludwigshafen am Rhein, Kaiserslautern"
     },
     "Germany_Saarland Description": {
-        "defaultMessage": "Saarbruecken, Neunkirchen (Saar), Homburg"
+        "defaultMessage": "Saarbrücken, Neunkirchen (Saar), Homburg"
     },
     "Germany_Saxony-Anhalt_Halle Description": {
         "defaultMessage": "Halle (Saale), Dessau-Roßlau, Zerbst/Anhalt"
@@ -5205,7 +5205,7 @@
         "defaultMessage": "Erfurt, Jena, Gera"
     },
     "Ghana Description": {
-        "defaultMessage": "Accra"
+        "defaultMessage": "Accra, Kumasi, Wechiau"
     },
     "Gibraltar Description": {
         "defaultMessage": "Gibraltar, Catalan Bay"
@@ -5214,10 +5214,10 @@
         "defaultMessage": "Kos, Parikia, Naoussa"
     },
     "Greece_Decentralized Administration of Attica Description": {
-        "defaultMessage": "Aten"
+        "defaultMessage": "Aten, Egaleo, Kamatero"
     },
     "Greece_Decentralized Administration of Crete Description": {
-        "defaultMessage": "Heraklion"
+        "defaultMessage": "Heraklion, Elounda, Chania"
     },
     "Greece_Decentralized Administration of Epirus - Western Macedonia Description": {
         "defaultMessage": "Eani, Ioannina, Galatini"
@@ -5235,34 +5235,34 @@
         "defaultMessage": "Kangaatsiaq, Qaqortoq, Paamiut"
     },
     "Grenada Description": {
-        "defaultMessage": "Saint George's"
+        "defaultMessage": "Saint George's, Gouyave, Calivigny"
     },
     "Guadeloupe Description": {
         "defaultMessage": "Les Abymes, Baie-Mahault, Le Gosier"
     },
     "Guatemala Description": {
-        "defaultMessage": "Guatemala City"
+        "defaultMessage": "Guatemala City, Quetzaltenango (Xela), Santo Tomas De Castilla"
     },
     "Guernsey Description": {
         "defaultMessage": "Saint Peter Port, St Anne, The Bridge"
     },
     "Guinea Description": {
-        "defaultMessage": "Conakry"
+        "defaultMessage": "Conakry, Coyah, Nzérékoré"
     },
     "Guinea-Bissau Description": {
-        "defaultMessage": "BIssau"
+        "defaultMessage": "Bissau, Mansôa, Bubaque"
     },
     "Guyana Description": {
-        "defaultMessage": "Georgetown, Guyana"
+        "defaultMessage": "Georgetown, New Amsterdam, Port Kaituma"
     },
     "Haiti Description": {
-        "defaultMessage": "Port-au-Prince"
+        "defaultMessage": "Port-au-Prince, Carrefour, Tabarre"
     },
     "Honduras Description": {
-        "defaultMessage": "Tegucigalpa"
+        "defaultMessage": "Tegucigalpa, San Pedro Sula, Santa Barbara"
     },
     "Hungary_Kozep-Magyarorszag Description": {
-        "defaultMessage": "Budapest"
+        "defaultMessage": "Budapest, Érd, Dunakeszi"
     },
     "Hungary_Northern Great Plain Description": {
         "defaultMessage": "Debrecen, Szeged, Miskolc"
@@ -5295,7 +5295,7 @@
         "defaultMessage": "Bilaspur, Ambikapur, Bhilai"
     },
     "India_Delhi Description": {
-        "defaultMessage": "New Delhi"
+        "defaultMessage": "Delhi, New Delhi, Nankheri"
     },
     "India_Goa Description": {
         "defaultMessage": "Panaji, Margao, Bicholim"
@@ -5325,7 +5325,7 @@
         "defaultMessage": "Thiruvananthapuram, Ernakulam, Thrissur"
     },
     "India_Lakshadweep Description": {
-        "defaultMessage": "Kavaratti, Minicoy, agatti village center"
+        "defaultMessage": "Kavaratti, Minicoy, Agatti"
     },
     "India_Madhya Pradesh Description": {
         "defaultMessage": "Indore, Bhopal, Gwalior"
@@ -5382,7 +5382,7 @@
         "defaultMessage": "Sorong, Timika, Manokwari"
     },
     "Indonesia_Jawa Barat Description": {
-        "defaultMessage": "Jakarta"
+        "defaultMessage": "Jakarta, Bandung, Tangerang Selatan"
     },
     "Indonesia_Jawa Tengah Description": {
         "defaultMessage": "Semarang, Yogyakarta, Surakarta"
@@ -5394,13 +5394,13 @@
         "defaultMessage": "Denpasar, Semarapura, Tambolaka"
     },
     "Indonesia_West Description": {
-        "defaultMessage": "Medan, SIak Sri Indrapura, Lampung Town"
+        "defaultMessage": "Medan, Siak Sri Indrapura, Lampung"
     },
     "Iran_East Description": {
-        "defaultMessage": "Mashhad, Yazd"
+        "defaultMessage": "Mashhad, Zahedan, Yazd"
     },
     "Iran_North Description": {
-        "defaultMessage": "Teheran"
+        "defaultMessage": "Teheran, Karaj, Tabriz"
     },
     "Iran_South Description": {
         "defaultMessage": "Isfahan, Shiraz, Ahvaz"
@@ -5412,10 +5412,10 @@
         "defaultMessage": "Bagdad, Basra, Hillah, Ramadi"
     },
     "Ireland_Connacht Description": {
-        "defaultMessage": "Galway City, Swinford, Mohill"
+        "defaultMessage": "Galway, Swinford, Mohill"
     },
     "Ireland_Leinster Description": {
-        "defaultMessage": "Dublin"
+        "defaultMessage": "Dublin, Durrow, Prosperous"
     },
     "Ireland_Munster Description": {
         "defaultMessage": "Cork, Caherciveen"
@@ -5433,7 +5433,7 @@
         "defaultMessage": "Pescara, Rosciolo, Pineto"
     },
     "Italy_Aosta Valley Description": {
-        "defaultMessage": "Quart, Aosta, Aosta"
+        "defaultMessage": "Quart, Aosta"
     },
     "Italy_Apulia Description": {
         "defaultMessage": "Bari, Taranto, Foggia"
@@ -5445,7 +5445,7 @@
         "defaultMessage": "Reggio di Calabria, Catanzaro, Cosenza"
     },
     "Italy_Campania Description": {
-        "defaultMessage": "Neapel"
+        "defaultMessage": "Neapel, Salerno, Torre del Greco"
     },
     "Italy_Emilia-Romagna_Bologna Description": {
         "defaultMessage": "Bologna, Imola, Casalecchio di Reno"
@@ -5487,10 +5487,10 @@
         "defaultMessage": "Udine, Codroipo, Cervignano del Friuli"
     },
     "Italy_Lazio Description": {
-        "defaultMessage": "Rom"
+        "defaultMessage": "Rom, Latina, Fiumicino"
     },
     "Italy_Liguria Description": {
-        "defaultMessage": "Genua"
+        "defaultMessage": "Genua, La Spezia, La Spezia"
     },
     "Italy_Lombardy_Bergamo Description": {
         "defaultMessage": "Bergamo, Tagliuno, Treviglio"
@@ -5499,10 +5499,10 @@
         "defaultMessage": "Brescia, Bossotti, Lumezzane"
     },
     "Italy_Lombardy_Como Description": {
-        "defaultMessage": "Como, Como, Cantù"
+        "defaultMessage": "Como, Cantù"
     },
     "Italy_Lombardy_Cremona Description": {
-        "defaultMessage": "Cremona, Cremona, Trescore Cremasco"
+        "defaultMessage": "Cremona, Trescore Cremasco"
     },
     "Italy_Lombardy_Lecco Description": {
         "defaultMessage": "Lecco, Merate, Calolziocorte"
@@ -5511,10 +5511,10 @@
         "defaultMessage": "Lodi, Codogno, Casalpusterlengo"
     },
     "Italy_Lombardy_Mantua Description": {
-        "defaultMessage": "Mantua, Mantua, Suzzara"
+        "defaultMessage": "Mantua, Suzzara"
     },
     "Italy_Lombardy_Milan Description": {
-        "defaultMessage": "Milan, Sesto San Giovanni, Cinisello Balsamo"
+        "defaultMessage": "Milano, Sesto San Giovanni, Cinisello Balsamo"
     },
     "Italy_Lombardy_Monza and Brianza Description": {
         "defaultMessage": "Monza, Besana in Brianza, Seregno"
@@ -5523,7 +5523,7 @@
         "defaultMessage": "Pavia, Vigevano, Buscarella"
     },
     "Italy_Lombardy_Sondrio Description": {
-        "defaultMessage": "Sondrio, Sondrio, Morbegno"
+        "defaultMessage": "Sondrio, Morbegno"
     },
     "Italy_Lombardy_Varese Description": {
         "defaultMessage": "Busto Arsizio, Varese, Gallarate"
@@ -5541,7 +5541,7 @@
         "defaultMessage": "Asti, Canelli, Nizza Monferrato"
     },
     "Italy_Piemont_Biella Description": {
-        "defaultMessage": "Biella, Biella, Cossato"
+        "defaultMessage": "Biella, Cossato"
     },
     "Italy_Piemont_Cuneo Description": {
         "defaultMessage": "Cuneo, Verduno, Bergolo"
@@ -5550,7 +5550,7 @@
         "defaultMessage": "Novara, Borgomanero, Trecate"
     },
     "Italy_Piemont_Torino Description": {
-        "defaultMessage": "Turin"
+        "defaultMessage": "Turin, Moncalieri, Rivoli"
     },
     "Italy_Piemont_Verbano-Cusio-Ossola Description": {
         "defaultMessage": "Verbania, Domodossola, Omegna"
@@ -5568,10 +5568,10 @@
         "defaultMessage": "Trento, Bolzano, Rovereto"
     },
     "Italy_Tuscany_Grosseto Description": {
-        "defaultMessage": "Arezzo, Monteriggioni, Grosseto"
+        "defaultMessage": "Arezzo, Grosseto, Siena"
     },
     "Italy_Tuscany_Massa e Carrara Description": {
-        "defaultMessage": "Florens"
+        "defaultMessage": "Florens, Livorno, Lucca, Pisa, Prato, Pistoia, Carrara, Massa"
     },
     "Italy_Umbria Description": {
         "defaultMessage": "Perugia, Terni, Foligno"
@@ -5580,7 +5580,7 @@
         "defaultMessage": "Belluno, Feltre, Sedico"
     },
     "Italy_Veneto_Padova Description": {
-        "defaultMessage": "Padua"
+        "defaultMessage": "Padua, Cittadella, Selvazzano Dentro"
     },
     "Italy_Veneto_Rovigo Description": {
         "defaultMessage": "Rovigo, Badia Polesine, Adria"
@@ -5589,7 +5589,7 @@
         "defaultMessage": "Treviso, Conegliano, Castelfranco Veneto"
     },
     "Italy_Veneto_Venezia Description": {
-        "defaultMessage": "Venedig"
+        "defaultMessage": "Venedig, Mestre, Chioggia"
     },
     "Italy_Veneto_Verona Description": {
         "defaultMessage": "Verona, Villafranca di Verona, Legnago"
@@ -5598,10 +5598,10 @@
         "defaultMessage": "Vicenza, Bassano del Grappa, Schio"
     },
     "Jamaica Description": {
-        "defaultMessage": "Kingston"
+        "defaultMessage": "Kingston, Montego Bay, Spanish Town"
     },
     "Japan_Chubu Region_Aichi_Nagoya Description": {
-        "defaultMessage": "Nagoya"
+        "defaultMessage": "Nagoya, Tsushima, Kiyosu"
     },
     "Japan_Chubu Region_Aichi_Toyohashi Description": {
         "defaultMessage": "Tahara, Gamagori, Nishio"
@@ -5619,7 +5619,7 @@
         "defaultMessage": "Okaya, Omachi, Nagano"
     },
     "Japan_Chubu Region_Niigata Description": {
-        "defaultMessage": "Niigata"
+        "defaultMessage": "Niigata, Myoko, Sado"
     },
     "Japan_Chubu Region_Shizuoka Description": {
         "defaultMessage": "Hamamatsu, Kosai, Fukuroi"
@@ -5631,7 +5631,7 @@
         "defaultMessage": "Hokuto, Kofu, Nirasaki"
     },
     "Japan_Chugoku Region_Hiroshima Description": {
-        "defaultMessage": "Hiroshima"
+        "defaultMessage": "Hiroshima, Ōtake, Kure"
     },
     "Japan_Chugoku Region_Okayama Description": {
         "defaultMessage": "Okayama, Niimi, Kasaoka"
@@ -5652,7 +5652,7 @@
         "defaultMessage": "Asahikawa, Furano, Shibetsu"
     },
     "Japan_Hokkaido Region_Sapporo Description": {
-        "defaultMessage": "Sapporo"
+        "defaultMessage": "Sapporo, Ishikari, Iwamizawa"
     },
     "Japan_Hokkaido Region_West Description": {
         "defaultMessage": "Hokuto, Date, Noboribetsu"
@@ -5670,13 +5670,13 @@
         "defaultMessage": "Yokohama, Sagamihara, Fujisawa"
     },
     "Japan_Kanto_Saitama Description": {
-        "defaultMessage": "Saitama"
+        "defaultMessage": "Saitama, Kawaguchi, Hannō"
     },
     "Japan_Kanto_Tochigi Description": {
         "defaultMessage": "Ashikaga, Kanuma, Sano"
     },
     "Japan_Kanto_Tokyo Description": {
-        "defaultMessage": "Tokyo, Setagaya"
+        "defaultMessage": "Tokyo, Setagaya, Hachiōji"
     },
     "Japan_Kinki Region_Mie Description": {
         "defaultMessage": "Kumano, Tsu, Kameyama"
@@ -5685,7 +5685,7 @@
         "defaultMessage": "Nara, Kashihara, Ikoma"
     },
     "Japan_Kinki Region_Osaka_Osaka Description": {
-        "defaultMessage": "Osaka"
+        "defaultMessage": "Osaka, Ashiya, Sennan"
     },
     "Japan_Kinki Region_Osaka_West Description": {
         "defaultMessage": "Kobe, Himeji, Ako"
@@ -5697,7 +5697,7 @@
         "defaultMessage": "Fukuoka, Kitakyūshū, Itoshima"
     },
     "Japan_Kyushu Region_Kagoshima Description": {
-        "defaultMessage": "Kagoshima"
+        "defaultMessage": "Kagoshima, Satsumasendai, Minamisatsuma"
     },
     "Japan_Kyushu Region_Kumamoto Description": {
         "defaultMessage": "Kumamoto, Amakusa, Kamiamakusa"
@@ -5706,7 +5706,7 @@
         "defaultMessage": "Ebino, Kushima, Miyakonojo"
     },
     "Japan_Kyushu Region_Nagasaki Description": {
-        "defaultMessage": "Nagasaki"
+        "defaultMessage": "Nagasaki, Goshima, Hirado"
     },
     "Japan_Kyushu Region_Oita Description": {
         "defaultMessage": "Ōita, Yufu, Taketa"
@@ -5727,7 +5727,7 @@
         "defaultMessage": "Sukumo, Shimanto, Tosa-Shimizu"
     },
     "Japan_Shikoku Region_Kyoto Description": {
-        "defaultMessage": "Kyoto"
+        "defaultMessage": "Kyoto, Kyotango, Fukuchiyama"
     },
     "Japan_Shikoku Region_Tokushima Description": {
         "defaultMessage": "Miyoshi, Awa, Yoshinogawa"
@@ -5745,7 +5745,7 @@
         "defaultMessage": "Morioka, Hachimantai, Ninohe"
     },
     "Japan_Tohoku_Miyagi Description": {
-        "defaultMessage": "Sendai"
+        "defaultMessage": "Sendai, Higashimatsushima, Tome"
     },
     "Japan_Tohoku_Yamagata Description": {
         "defaultMessage": "Nanyo, Higashine, Obanazawa"
@@ -5754,64 +5754,64 @@
         "defaultMessage": "Saint Helier, St. Saviour, St. John"
     },
     "Jerusalem Description": {
-        "defaultMessage": "Jerusalem"
+        "defaultMessage": "Jerusalem, 'Anata, Al-Walaja"
     },
     "Jordan Description": {
-        "defaultMessage": "Amman"
+        "defaultMessage": "Amman, Zarqa, Irbid"
     },
     "Kazakhstan_North Description": {
-        "defaultMessage": "Pavlodar"
+        "defaultMessage": "Astana, Karaganda, Pavlodar"
     },
     "Kazakhstan_South Description": {
         "defaultMessage": "Almaty, Shymkent, Aktobe"
     },
     "Kenya Description": {
-        "defaultMessage": "Nairobi"
+        "defaultMessage": "Nairobi, Kisumu, Kitale"
     },
     "Kingdom of Lesotho Description": {
-        "defaultMessage": "Maseru"
+        "defaultMessage": "Maseru, Butha-Buthe, Mohale's Hoek"
     },
     "Kiribati Description": {
         "defaultMessage": "Betio, Kabuna, Bairiki"
     },
     "Kuwait Description": {
-        "defaultMessage": "Kuwait City"
+        "defaultMessage": "Kuwait City, Al Ahmadi, Jahra"
     },
     "Kyrgyzstan Description": {
-        "defaultMessage": "Bisjkek"
+        "defaultMessage": "Bisjkek, Osh, Balykchy"
     },
     "Laos Description": {
-        "defaultMessage": "Vientiane"
+        "defaultMessage": "Vientiane, Pakxan, Oudomxay"
     },
     "Latvia Description": {
-        "defaultMessage": "Riga"
+        "defaultMessage": "Riga, Daugavpils, Liepāja"
     },
     "Lebanon Description": {
-        "defaultMessage": "Beirut"
+        "defaultMessage": "Beirut, Zahle, Sidon"
     },
     "Liberia Description": {
-        "defaultMessage": "Monrovia"
+        "defaultMessage": "Monrovia, Sanniquellie, Fish Town City"
     },
     "Libya Description": {
-        "defaultMessage": "Tripoli"
+        "defaultMessage": "Tripoli, Benghazi, Misrata"
     },
     "Liechtenstein Description": {
         "defaultMessage": "Vaduz, Schaan, Triesen"
     },
     "Lithuania_East Description": {
-        "defaultMessage": "Vilnius"
+        "defaultMessage": "Vilnius, Kaunas, Alytus"
     },
     "Lithuania_West Description": {
         "defaultMessage": "Klaipėda, Šiauliai, Panevėžys"
     },
     "Luxembourg Description": {
-        "defaultMessage": "Luxemburg"
+        "defaultMessage": "Luxemburg, Mondorf-les-Bains, Esch-sur-Alzette"
     },
     "Macedonia Description": {
-        "defaultMessage": "Skopje"
+        "defaultMessage": "Skopje, Ohrid, Kavadarci"
     },
     "Madagascar Description": {
-        "defaultMessage": "Antananarivo"
+        "defaultMessage": "Antananarivo, Toamasina, Fianarantsoa"
     },
     "Malawi Description": {
         "defaultMessage": "Lilongwe, Blantyre, Mzuzu"
@@ -5823,22 +5823,22 @@
         "defaultMessage": "Feridhoo, Malé, Dhiggiri"
     },
     "Mali Description": {
-        "defaultMessage": "Bamako"
+        "defaultMessage": "Bamako, Koulikoro, Ségou"
     },
     "Malta Description": {
-        "defaultMessage": "Valletta"
+        "defaultMessage": "Valletta, Victoria, Zebbug"
     },
     "Marshall Islands Description": {
-        "defaultMessage": "Majuro"
+        "defaultMessage": "Majuro, Jelter, Ebeye"
     },
     "Martinique Description": {
         "defaultMessage": "Fort-de-France, Saint-Esprit, Schœlcher"
     },
     "Mauritania Description": {
-        "defaultMessage": "Nouakchott"
+        "defaultMessage": "Nouakchott, Aleg, Ayoun el Atrous"
     },
     "Mauritius Description": {
-        "defaultMessage": "Port Louis"
+        "defaultMessage": "Port Louis, Flic en Flac, Rose Hill"
     },
     "Mexico_California Description": {
         "defaultMessage": "Tijuana, Mexicali, La Paz"
@@ -5856,7 +5856,7 @@
         "defaultMessage": "Mérida, Villahermosa, Cancún"
     },
     "Mexico_Mexico Description": {
-        "defaultMessage": "Mexico City"
+        "defaultMessage": "Mexico City, Puebla, Cuautitlán Izcalli"
     },
     "Mexico_Sonora Description": {
         "defaultMessage": "Hermosillo, Ciudad Obregon, Heroica Nogales"
@@ -5865,16 +5865,16 @@
         "defaultMessage": "León, Querétaro, Acapulco"
     },
     "Moldova Description": {
-        "defaultMessage": "Chisinau"
+        "defaultMessage": "Chișinău, Tiraspol, Bălți"
     },
     "Monaco Description": {
         "defaultMessage": "Monaco, Monaco"
     },
     "Mongolia Description": {
-        "defaultMessage": "Ulaanbaatar"
+        "defaultMessage": "Ulaanbaatar, Khovd, Erdenet"
     },
     "Montenegro Description": {
-        "defaultMessage": "Podgorica"
+        "defaultMessage": "Podgorica, Niksic, Tuzi"
     },
     "Montserrat Description": {
         "defaultMessage": "Brades, Salem"
@@ -5883,7 +5883,7 @@
         "defaultMessage": "Casablanca, Marrakesh, Safi"
     },
     "Morocco_Rabat-Sale-Zemmour-Zaer Description": {
-        "defaultMessage": "Rabat"
+        "defaultMessage": "Fez, Rabat, Salé"
     },
     "Morocco_Southern Description": {
         "defaultMessage": "Meknès, Agadir, Oujda"
@@ -5892,31 +5892,31 @@
         "defaultMessage": "Laayoune, Guelmim, Assa"
     },
     "Mozambique Description": {
-        "defaultMessage": "Maputo"
+        "defaultMessage": "Maputo, Matola, Praia de Bilene"
     },
     "Myanmar Description": {
-        "defaultMessage": "Naypyidaw"
+        "defaultMessage": "Yangon, Naypyidaw, Mandalay"
     },
     "Nagorno-Karabakh Description": {
         "defaultMessage": "Khankendi, Shusha, Lachin"
     },
     "Namibia Description": {
-        "defaultMessage": "Windhoek"
+        "defaultMessage": "Windhoek, Opuwo, Eenhana"
     },
     "Nauru Description": {
         "defaultMessage": "Yaren, Buada, Orro"
     },
     "Nepal_Kathmandu Description": {
-        "defaultMessage": "Katmandu, Katmandu"
+        "defaultMessage": "Katmandu, Patan"
     },
     "Nepal_Madhyamanchal Description": {
         "defaultMessage": "Bharatpur, Birganj"
     },
     "Nepal_Purwanchal Description": {
-        "defaultMessage": "Sarang pada, Campa bazzar, Kerkha bajar"
+        "defaultMessage": "Sarang Pada, Campa Bazzar, Kerkha Bazar"
     },
     "Nepal_West Description": {
-        "defaultMessage": "Butwal, Pokhara, Nepalgunj Sub Metropolitan City"
+        "defaultMessage": "Butwal, Pokhara, Nepalgunj"
     },
     "Netherlands_Drenthe Description": {
         "defaultMessage": "Assen, Emmen, Hoogeveen"
@@ -5958,7 +5958,7 @@
         "defaultMessage": "Alkmaar, Hoorn, Den Helder"
     },
     "Netherlands_North Holland_Amsterdam Description": {
-        "defaultMessage": "Amsterdam"
+        "defaultMessage": "Amsterdam, Haarlem, Hilversum"
     },
     "Netherlands_North Holland_Zaandam Description": {
         "defaultMessage": "Purmerend, Zaandam, Beverwijk"
@@ -5973,7 +5973,7 @@
         "defaultMessage": "Spijkenisse, Hellevoetsluis, Oud-Beijerland"
     },
     "Netherlands_South Holland_Den Haag Description": {
-        "defaultMessage": "The Hague, Zoetermeer, Delft"
+        "defaultMessage": "Haag, Zoetermeer, Delft"
     },
     "Netherlands_South Holland_Leiden Description": {
         "defaultMessage": "Leiden, Alphen aan den Rijn, Leiderdorp"
@@ -5994,7 +5994,7 @@
         "defaultMessage": "Auckland, Hamilton, Tauranga"
     },
     "New Zealand North_Wellington Description": {
-        "defaultMessage": "Wellington"
+        "defaultMessage": "Wellington, Lower Hutt, Palmerston North"
     },
     "New Zealand South_Canterbury Description": {
         "defaultMessage": "Christchurch, Nelson, Waimate"
@@ -6003,25 +6003,25 @@
         "defaultMessage": "Dunedin, Invercargill, Tuatapere"
     },
     "Nicaragua Description": {
-        "defaultMessage": "Managua"
+        "defaultMessage": "Managua, Matagalpa, Bluefields"
     },
     "Niger Description": {
-        "defaultMessage": "Niamey"
+        "defaultMessage": "Niamey, Maradi, Zinder"
     },
     "Nigeria_North Description": {
         "defaultMessage": "Kano, Maiduguri, Sokoto"
     },
     "Nigeria_South Description": {
-        "defaultMessage": "Abuja"
+        "defaultMessage": "Lagos, Ibadan, Abuja"
     },
     "Niue Description": {
-        "defaultMessage": "Alofi"
+        "defaultMessage": "Alofi, Liku, Lakepa"
     },
     "North Korea Description": {
-        "defaultMessage": "Pyongyang"
+        "defaultMessage": "Pyongyang, Hamhung, Nampo"
     },
     "Norway_Central Description": {
-        "defaultMessage": "Oslo"
+        "defaultMessage": "Oslo, Sandvika, Drammen"
     },
     "Norway_Hedmark Description": {
         "defaultMessage": "Brumunddal, Hamar, Elverum"
@@ -6030,7 +6030,7 @@
         "defaultMessage": "Bergen, Leirvik, Vossevangen"
     },
     "Norway_Jan Mayen Description": {
-        "defaultMessage": "Olonkin City"
+        "defaultMessage": "Olonkinbyen"
     },
     "Norway_Nordland Description": {
         "defaultMessage": "Bodø, Brønnøysund, Mosjøen"
@@ -6048,7 +6048,7 @@
         "defaultMessage": "Stavanger, Sandnes, Haugesund"
     },
     "Norway_South Trondelag Description": {
-        "defaultMessage": "Röros"
+        "defaultMessage": "Trondheim, Røros, Titran"
     },
     "Norway_Southern Description": {
         "defaultMessage": "Fredrikstad, Kristiansand, Sarpsborg"
@@ -6060,28 +6060,28 @@
         "defaultMessage": "Ålesund, Molde"
     },
     "Oman Description": {
-        "defaultMessage": "Muskat"
+        "defaultMessage": "Muskat, Al Khasal, As Suwaiq"
     },
     "Pakistan Description": {
         "defaultMessage": "Karachi, Lahore, Faisalabad"
     },
     "Palau Description": {
-        "defaultMessage": "Melekeok"
+        "defaultMessage": "Melekeok, Palau, Koror"
     },
     "Palestine Description": {
         "defaultMessage": "Gaza, Modi'in Illit, Nablus"
     },
     "Panama Description": {
-        "defaultMessage": "Panama City"
+        "defaultMessage": "Panama City, Santiago de Veraguas, Colón"
     },
     "Papua New Guinea Description": {
-        "defaultMessage": "Port Moresby"
+        "defaultMessage": "Port Moresby, Lae, Vanimo"
     },
     "Paraguay Description": {
-        "defaultMessage": "Asunción"
+        "defaultMessage": "Asunción, San Lorenzo, Ciudad del Este"
     },
     "Peru_Lima Description": {
-        "defaultMessage": "Lima"
+        "defaultMessage": "Lima, Ica, Nazca"
     },
     "Peru_North Description": {
         "defaultMessage": "Chiclayo, Iquitos, Piura"
@@ -6090,7 +6090,7 @@
         "defaultMessage": "Arequipa, Abancay, Moquegua"
     },
     "Philippines_Luzon_Manila Description": {
-        "defaultMessage": "Manila"
+        "defaultMessage": "Manila, Quezon City, Pasig"
     },
     "Philippines_Luzon_North Description": {
         "defaultMessage": "Angeles, Palayan, Malolos"
@@ -6102,13 +6102,13 @@
         "defaultMessage": "Zamboanga City, General Santos, Koronadal"
     },
     "Philippines_Visayas Description": {
-        "defaultMessage": "Bacolod City"
+        "defaultMessage": "Bacolod, Cebu City, Tagbilaran"
     },
     "Pitcairn Islands Description": {
         "defaultMessage": "Adamstown"
     },
     "Poland_Greater Poland Voivodeship Description": {
-        "defaultMessage": "Poznan, Kalisz, Piła, Konin"
+        "defaultMessage": "Poznań, Kalisz, Piła, Konin"
     },
     "Poland_Kuyavian-Pomeranian Voivodeship Description": {
         "defaultMessage": "Bydgoszcz, Toruń, Włocławek, Grudziądz"
@@ -6129,7 +6129,7 @@
         "defaultMessage": "Gorzów Wielkopolski, Zielona Góra, Lubniewice"
     },
     "Poland_Masovian Voivodeship Description": {
-        "defaultMessage": "Warszawa"
+        "defaultMessage": "Warszawa, Radom, Płock"
     },
     "Poland_Opole Voivodeship Description": {
         "defaultMessage": "Opole, Kędzierzyn-Kożle, Nysa, Brzeg"
@@ -6150,7 +6150,7 @@
         "defaultMessage": "Kielce, Ostrowiec Świętokrzyski, Starachowice"
     },
     "Poland_Warmian-Masurian Voivodeship Description": {
-        "defaultMessage": "Olsztyn, Elbląg, Elk"
+        "defaultMessage": "Olsztyn, Elbląg, Ełk"
     },
     "Poland_West Pomeranian Voivodeship Description": {
         "defaultMessage": "Szczecin, Koszalin, Redło"
@@ -6162,19 +6162,19 @@
         "defaultMessage": "Vila Nova de Gaia, Porto, Braga"
     },
     "Portugal_South Description": {
-        "defaultMessage": "Lissabon"
+        "defaultMessage": "Lissabon, Odivelas, Setúbal"
     },
     "Portugal_Viseu Description": {
         "defaultMessage": "Viseu, Santo Adrião de Vizela, Felgueiras"
     },
     "Qatar Description": {
-        "defaultMessage": "Doha"
+        "defaultMessage": "Doha, Al-Rayyan, Barwa City"
     },
     "Republic of Kosovo Description": {
         "defaultMessage": "Pristina, Mitrovica e Veriut, Ferizaj"
     },
     "Romania_Centre Description": {
-        "defaultMessage": "Târgu Mureş"
+        "defaultMessage": "Brașov, Sibiu, Târgu Mureș"
     },
     "Romania_North_East Description": {
         "defaultMessage": "Iași, Bacău, Botoșani"
@@ -6183,10 +6183,10 @@
         "defaultMessage": "Cluj-Napoca, Dej, Oradea"
     },
     "Romania_South Description": {
-        "defaultMessage": "Bukarest"
+        "defaultMessage": "Bukarest, Ploiești, Pitești"
     },
     "Romania_South_East Description": {
-        "defaultMessage": "Galaţi"
+        "defaultMessage": "Constanța, Galați, Brăila"
     },
     "Romania_South_West Description": {
         "defaultMessage": "Craiova, Slatina, Râmnicu Vâlcea"
@@ -6195,280 +6195,280 @@
         "defaultMessage": "Timișoara, Arad, Reșița"
     },
     "Russia_Altai Krai Description": {
-        "defaultMessage": "Barnaul, Biysk, Rubtsovsk"
+        "defaultMessage": "Barnaul, Bijsk, Rubtsovsk"
     },
     "Russia_Altai Republic Description": {
-        "defaultMessage": "Gorno-Altaysk, Mayma, Kosh-Agach"
+        "defaultMessage": "Gorno-Altajsk, Majma, Kosj-Agatj"
     },
     "Russia_Amur Oblast Description": {
-        "defaultMessage": "Blagoveshchensk, Belogorsk, Svobodny"
+        "defaultMessage": "Blagovesjtjensk, Belogorsk, Svobodnyj"
     },
     "Russia_Arkhangelsk Oblast_Central Description": {
-        "defaultMessage": "Arkhangelsk, Severodvinsk, Novodvinsk"
+        "defaultMessage": "Archangelsk, Severodvinsk, Novodvinsk"
     },
     "Russia_Arkhangelsk Oblast_North Description": {
-        "defaultMessage": "Kotlas, Koryazhma, Vychegodskiy"
+        "defaultMessage": "Kotlas, Korjazjma, Vytjegodskij"
     },
     "Russia_Astrakhan Oblast Description": {
-        "defaultMessage": "Astrachan"
+        "defaultMessage": "Astrachan, Gospitomnika, Achtubinsk"
     },
     "Russia_Bashkortostan Description": {
         "defaultMessage": "Ufa, Sterlitamak, Salavat"
     },
     "Russia_Belgorod Oblast Description": {
-        "defaultMessage": "Belgorod, Stary Oskol, Gubkin"
+        "defaultMessage": "Belgorod, Staryj Oskol, Gubkin"
     },
     "Russia_Bryansk Oblast Description": {
-        "defaultMessage": "Bryansk, Novozybkov, Клинцы"
+        "defaultMessage": "Brjansk, Novozybkov, Klintsy"
     },
     "Russia_Buryatia Description": {
-        "defaultMessage": "Ulan-Ude, Selenduma, Джида"
+        "defaultMessage": "Ulan-Ude, Selenduma, Dzjida"
     },
     "Russia_Chechen Republic Description": {
-        "defaultMessage": "Groznyj, Urus-Martan"
+        "defaultMessage": "Groznyj, Urus-Martan, Sjali"
     },
     "Russia_Chelyabinsk Oblast Description": {
-        "defaultMessage": "Tjeljabinsk"
+        "defaultMessage": "Tjeljabinsk, Magnitogorsk, Zlatoust"
     },
     "Russia_Chukotka Autonomous Okrug Description": {
-        "defaultMessage": "Anadyr"
+        "defaultMessage": "Anadyr, Bilibino, Pevek"
     },
     "Russia_Chuvashia Description": {
-        "defaultMessage": "Cheboksary, Novocheboksarsk, Kanash"
+        "defaultMessage": "Tjeboksary, Novotjeboksarsk, Kanasj"
     },
     "Russia_Ingushetia Description": {
-        "defaultMessage": "Nazran, Ordzhonikidzevskaya, Karabulak"
+        "defaultMessage": "Nazran, Ordzjonikidzevskaja, Karabulak"
     },
     "Russia_Irkutsk Oblast Description": {
         "defaultMessage": "Irkutsk, Bratsk, Angarsk"
     },
     "Russia_Ivanovo Oblast Description": {
-        "defaultMessage": "Ivanovo, Kineshma, Shuya"
+        "defaultMessage": "Ivanovo, Kineshma, Sjuja"
     },
     "Russia_Jewish Autonomous Oblast Description": {
-        "defaultMessage": "Birobidzjan"
+        "defaultMessage": "Birobidzjan, Oblutje, Nikolajevka"
     },
     "Russia_Kabardino-Balkaria Description": {
-        "defaultMessage": "Nalchik, Prokhladny, Baksan"
+        "defaultMessage": "Naltjik, Prochladnyj, Baksan"
     },
     "Russia_Kaliningrad Oblast Description": {
-        "defaultMessage": "Kaliningrad, Sovetsk, Chernyakhovsk"
+        "defaultMessage": "Kaliningrad, Sovetsk, Tjernjachovsk"
     },
     "Russia_Kaluga Oblast Description": {
-        "defaultMessage": "Obninsk"
+        "defaultMessage": "Kaluga, Obninsk, Babynino"
     },
     "Russia_Kamchatka Krai Description": {
-        "defaultMessage": "Petropavlovsk-Kamtjatskij"
+        "defaultMessage": "Petropavlovsk-Kamtjatskij, Jelizovo, Viljutjinsk"
     },
     "Russia_Karachay-Cherkessia Description": {
-        "defaultMessage": "Cherkessk, Pregradnaya, Ust-Dzheguta"
+        "defaultMessage": "Tjerkessk, Pregradnaja, Ust-Dzjeguta"
     },
     "Russia_Kemerov Oblast Description": {
-        "defaultMessage": "Kemerovo, Novokuznetsk, Prokopyevsk"
+        "defaultMessage": "Kemerovo, Novokuznetsk, Prokopjevsk"
     },
     "Russia_Khabarovsk Krai Description": {
-        "defaultMessage": "Khabarovsk, Komsomolsk-on-Amur, Amursk"
+        "defaultMessage": "Chabarovsk, Komsomolsk-na-Amure, Amursk"
     },
     "Russia_Khakassia Description": {
-        "defaultMessage": "Abakan"
+        "defaultMessage": "Abakan, Tjernogorsk, Sajanogorsk"
     },
     "Russia_Kirov Oblast Description": {
-        "defaultMessage": "Kirov, Kirovo-Chepetsk, Slobodskoy"
+        "defaultMessage": "Kirov, Kirovo-Tjepetsk, Slobodskoj"
     },
     "Russia_Komi Republic Description": {
-        "defaultMessage": "Syktyvkar, Ukhta, Vorkuta"
+        "defaultMessage": "Syktyvkar, Uchta, Vorkuta"
     },
     "Russia_Kostroma Oblast Description": {
-        "defaultMessage": "Kostroma, Buy, Sharya"
+        "defaultMessage": "Kostroma, Buj, Sjarja"
     },
     "Russia_Krasnodar Krai Description": {
-        "defaultMessage": "Krasnodar, Novorossiysk, Armavir"
+        "defaultMessage": "Krasnodar, Novorossijsk, Armavir"
     },
     "Russia_Krasnodar Krai_Adygeya Description": {
-        "defaultMessage": "Sotji"
+        "defaultMessage": "Sotji, Majkop, Gelendzjik"
     },
     "Russia_Krasnoyarsk Krai_North Description": {
-        "defaultMessage": "Norilsk, Dudinka, Северо-Енисейский"
+        "defaultMessage": "Norilsk, Dudinka, Severo-Jenisejskij"
     },
     "Russia_Krasnoyarsk Krai_South Description": {
-        "defaultMessage": "Krasnoyarsk, Achinsk, Kansk"
+        "defaultMessage": "Krasnojarsk, Atjinsk, Kansk"
     },
     "Russia_Kurgan Oblast Description": {
-        "defaultMessage": "Kurgan, Shadrinsk, Варгаши"
+        "defaultMessage": "Kurgan, Sjadrinsk, Vargasji"
     },
     "Russia_Kursk Oblast Description": {
-        "defaultMessage": "Kursk, Железногорск, Kurchatov"
+        "defaultMessage": "Kursk, Zjeleznogorsk, Kurtjatov"
     },
     "Russia_Leningradskaya Oblast_Karelsky Description": {
-        "defaultMessage": "Viborg"
+        "defaultMessage": "Viborg, Vsevolozjsk, Sertolovo"
     },
     "Russia_Leningradskaya Oblast_Southeast Description": {
-        "defaultMessage": "Gatchina, Sosnoviy Bor, Tikhvin"
+        "defaultMessage": "Gattjina, Sosnovyj Bor, Tichvin"
     },
     "Russia_Lipetsk Oblast Description": {
-        "defaultMessage": "Lipetsk, Yelets, Gryazi"
+        "defaultMessage": "Lipetsk, Jelets, Grjazi"
     },
     "Russia_Magadan Oblast Description": {
         "defaultMessage": "Magadan, Ola, Susuman"
     },
     "Russia_Mari El Description": {
-        "defaultMessage": "Yoshkar-Ola, Volzhsk, Kozmodemyansk"
+        "defaultMessage": "Josjkar-Ola, Volzjsk, Kozmodemjansk"
     },
     "Russia_Moscow Description": {
-        "defaultMessage": "Moskva, Chimki"
+        "defaultMessage": "Moskva, Chimki, Troitsk"
     },
     "Russia_Moscow Oblast_East Description": {
-        "defaultMessage": "Podolsk"
+        "defaultMessage": "Balasjicha, Podolsk, Koroljov"
     },
     "Russia_Moscow Oblast_West Description": {
-        "defaultMessage": "Odintsovo, Krasnogorsk"
+        "defaultMessage": "Zelenograd, Odintsovo, Krasnogorsk"
     },
     "Russia_Murmansk Oblast Description": {
         "defaultMessage": "Murmansk, Apatity, Severomorsk"
     },
     "Russia_Nenets Autonomous Okrug Description": {
-        "defaultMessage": "Красное, Nar'yan-Mar, Искателей"
+        "defaultMessage": "Krasnoje, Narjan-Mar, Iskatelej"
     },
     "Russia_Nizhny Novgorod Oblast Description": {
-        "defaultMessage": "Nizhny Novgorod, Dzerzhinsk, Arzamas"
+        "defaultMessage": "Nizjnij Novgorod, Dzerzjinsk, Arzamas"
     },
     "Russia_North Ossetia-Alania Description": {
-        "defaultMessage": "Beslan"
+        "defaultMessage": "Vladikavkaz, Mozdok, Beslan"
     },
     "Russia_Novgorod Oblast Description": {
-        "defaultMessage": "Veliky Novgorod, Borovichi, Staraya Russa"
+        "defaultMessage": "Velikij Novgorod, Borovitji, Staraja Russa"
     },
     "Russia_Novosibirsk Oblast Description": {
         "defaultMessage": "Novosibirsk, Berdsk, Iskitim"
     },
     "Russia_Omsk Oblast Description": {
-        "defaultMessage": "Omsk, Tara, Исилькуль"
+        "defaultMessage": "Omsk, Tara, Isilkul"
     },
     "Russia_Orenburg Oblast Description": {
         "defaultMessage": "Orenburg, Orsk, Novotroitsk"
     },
     "Russia_Oryol Oblast Description": {
-        "defaultMessage": "Oryol, Livny, Mtsensk"
+        "defaultMessage": "Orjol, Livny, Mtsensk"
     },
     "Russia_Penza Oblast Description": {
-        "defaultMessage": "Penza, Kuznetsk, Zarecnyy"
+        "defaultMessage": "Penza, Kuznetsk, Zaretjnyj"
     },
     "Russia_Perm Krai_North Description": {
-        "defaultMessage": "Berezniki"
+        "defaultMessage": "Berezniki, Solikamsk, Lysva"
     },
     "Russia_Perm Krai_South Description": {
-        "defaultMessage": "Perm, Chaikovsky, Kungur"
+        "defaultMessage": "Perm, Tjajkovskij, Kungur"
     },
     "Russia_Primorsky Krai Description": {
-        "defaultMessage": "Vladivostok"
+        "defaultMessage": "Vladivostok, Ussurijsk, Nachodka"
     },
     "Russia_Pskov Oblast Description": {
-        "defaultMessage": "Pskov, Velikiye Luki, Ostrov"
+        "defaultMessage": "Pskov, Velikije Luki, Ostrov"
     },
     "Russia_Republic of Dagestan Description": {
-        "defaultMessage": "Machatjkala, Derbent"
+        "defaultMessage": "Machatjkala, Chasavjurt, Derbent"
     },
     "Russia_Republic of Kalmykia Description": {
         "defaultMessage": "Elista, Lagan, Tsagan Aman"
     },
     "Russia_Republic of Karelia_North Description": {
-        "defaultMessage": "Kostomuksja, Kem"
+        "defaultMessage": "Kostomuksja, Segezja, Kem"
     },
     "Russia_Republic of Karelia_South Description": {
         "defaultMessage": "Petrozavodsk, Kondopoga, Sordavala"
     },
     "Russia_Republic of Mordovia Description": {
-        "defaultMessage": "Saransk, Рузаевка, Kovylkino"
+        "defaultMessage": "Saransk, Ruzajevka, Kovylkino"
     },
     "Russia_Rostov Oblast Description": {
-        "defaultMessage": "Rostov-on-Don, Taganrog, Shakhty"
+        "defaultMessage": "Rostov-na-Donu, Taganrog, Sjachty"
     },
     "Russia_Ryazan Oblast Description": {
-        "defaultMessage": "Rjazan"
+        "defaultMessage": "Rjazan, Kasimov, Skopin"
     },
     "Russia_Saint Petersburg Description": {
-        "defaultMessage": "Sankt Petersburg"
+        "defaultMessage": "Sankt Petersburg, Kolpino, Pusjkin"
     },
     "Russia_Sakha Republic Description": {
-        "defaultMessage": "Jakutsk"
+        "defaultMessage": "Jakutsk, Nerjungri, Mirnyj"
     },
     "Russia_Sakhalin Oblast Description": {
-        "defaultMessage": "Yuzhno-Sakhalinsk, Korsakov, Kholmsk"
+        "defaultMessage": "Juzjno-Sachalinsk, Korsakov, Cholmsk"
     },
     "Russia_Samara Oblast Description": {
-        "defaultMessage": "Samara, Tolyatti, Syzran"
+        "defaultMessage": "Samara, Toljatti, Syzran"
     },
     "Russia_Saratov Oblast Description": {
         "defaultMessage": "Saratov, Engels, Balakovo"
     },
     "Russia_Smolensk Oblast Description": {
-        "defaultMessage": "Smolensk, Вязьма, Roslavl"
+        "defaultMessage": "Smolensk, Vjazma, Roslavl"
     },
     "Russia_Stavropol Krai Description": {
-        "defaultMessage": "Stavropol, Pyatigorsk, Kislovodsk"
+        "defaultMessage": "Stavropol, Pjatigorsk, Kislovodsk"
     },
     "Russia_Sverdlovsk Oblast_Ekaterinburg Description": {
-        "defaultMessage": "Yekaterinburg, Kamensk-Uralsky, Pervouralsk"
+        "defaultMessage": "Jekaterinburg, Kamensk-Uralskij, Pervouralsk"
     },
     "Russia_Sverdlovsk Oblast_North Description": {
-        "defaultMessage": "Nizhny Tagil, Serov, Novouralsk"
+        "defaultMessage": "Nizjnij Tagil, Serov, Novouralsk"
     },
     "Russia_Tambov Oblast Description": {
-        "defaultMessage": "Tambov, Michurinsk, Rasskazovo"
+        "defaultMessage": "Tambov, Mitjurinsk, Rasskazovo"
     },
     "Russia_Tatarstan Description": {
-        "defaultMessage": "Naberezjnyje Tjelny"
+        "defaultMessage": "Kazan, Naberezjnyje Tjelny, Nizjnekamsk"
     },
     "Russia_Tomsk Oblast Description": {
-        "defaultMessage": "Tomsk, Seversk"
+        "defaultMessage": "Tomsk, Seversk, Strezjevoj"
     },
     "Russia_Tula Oblast Description": {
-        "defaultMessage": "Novomoskovsk"
+        "defaultMessage": "Tula, Novomoskovsk, Donskoj"
     },
     "Russia_Tuva Description": {
         "defaultMessage": "Kyzyl, Kaa-Khem, Ak-Dovurak"
     },
     "Russia_Tver Oblast Description": {
-        "defaultMessage": "Tver, Rzhev, Vysnij Volocek"
+        "defaultMessage": "Tver, Rzjev, Vysjnij Volotjok"
     },
     "Russia_Tyumen Oblast Description": {
-        "defaultMessage": "Tyumen, Tobolsk, Ishim"
+        "defaultMessage": "Tiumen, Tobolsk, Isjim"
     },
     "Russia_Udmurt Republic Description": {
-        "defaultMessage": "Izhevsk, Sarapul, Votkinsk"
+        "defaultMessage": "Izjevsk, Sarapul, Votkinsk"
     },
     "Russia_Ulyanovsk Oblast Description": {
-        "defaultMessage": "Ulyanovsk, Dimitrovgrad, Inza"
+        "defaultMessage": "Uljanovsk, Dimitrovgrad, Inza"
     },
     "Russia_Vladimir Oblast Description": {
-        "defaultMessage": "Vladimir"
+        "defaultMessage": "Vladimir, Kovrov, Murom"
     },
     "Russia_Volgograd Oblast Description": {
-        "defaultMessage": "Kamysjin"
+        "defaultMessage": "Volgograd, Volzjskij, Kamysjin"
     },
     "Russia_Vologda Oblast Description": {
-        "defaultMessage": "Vologda, Cherepovets, Сокол"
+        "defaultMessage": "Vologda, Tjerepovets, Sokol"
     },
     "Russia_Voronezh Oblast Description": {
-        "defaultMessage": "Voronezj"
+        "defaultMessage": "Voronezj, Borisoglebsk, Rossosj"
     },
     "Russia_Yamalo-Nenets Autonomous Okrug Description": {
-        "defaultMessage": "Novy Urengoy, Noyabrsk, Salekhard"
+        "defaultMessage": "Novyj Urengoj, Nojabrsk, Salekhard"
     },
     "Russia_Yaroslavl Oblast Description": {
-        "defaultMessage": "Yaroslavl, Rybinsk, Pereslavl-Zalessky"
+        "defaultMessage": "Jaroslavl, Rybinsk, Pereslavl-Zalesskij"
     },
     "Russia_Yugra_Khanty Description": {
-        "defaultMessage": "Khanty-Mansiysk, Nyagan, Uray"
+        "defaultMessage": "Chanty-Mansijsk, Njagan, Uraj"
     },
     "Russia_Yugra_Surgut Description": {
-        "defaultMessage": "Surgut, Nizhnevartovsk, Nefteyugansk"
+        "defaultMessage": "Surgut, Nizjnevartovsk, Neftejugansk"
     },
     "Russia_Zabaykalsky Krai Description": {
-        "defaultMessage": "Chita, Krasnokamensk, Borzya"
+        "defaultMessage": "Tjita, Krasnokamensk, Borzja"
     },
     "Rwanda Description": {
-        "defaultMessage": "Kigali"
+        "defaultMessage": "Kigali, Gisenyi, Huye"
     },
     "Sahrawi Arab Democratic Republic Description": {
         "defaultMessage": "Lagouira, Tifariti, Mijik"
@@ -6480,10 +6480,10 @@
         "defaultMessage": "Jamestown, Half Tree Hollow, Georgetown"
     },
     "Saint Kitts and Nevis Description": {
-        "defaultMessage": "Basseterre"
+        "defaultMessage": "Basseterre, Charlestown, Newcastle"
     },
     "Saint Lucia Description": {
-        "defaultMessage": "Castries, Castries"
+        "defaultMessage": "Castries, Castries, Soufriere"
     },
     "Saint Martin Description": {
         "defaultMessage": "Philipsburg, Cul-de-Sac, Cole Bay"
@@ -6495,40 +6495,40 @@
         "defaultMessage": "Āpia, Sālelologa, Asau"
     },
     "San Marino Description": {
-        "defaultMessage": "San Marino"
+        "defaultMessage": "Staden San Marino, Serravalle, Borgo Maggiore"
     },
     "Sao Tome and Principe Description": {
-        "defaultMessage": "São Tomé"
+        "defaultMessage": "São Tomé, Neves, São João dos Angolares"
     },
     "Saudi Arabia_North Description": {
-        "defaultMessage": "Jeddah, Mecca, Medina"
+        "defaultMessage": "Jeddah, Mecka, Medina"
     },
     "Saudi Arabia_South Description": {
-        "defaultMessage": "Riyadh"
+        "defaultMessage": "Riyadh, Hofuf, Dammam"
     },
     "Senegal Description": {
-        "defaultMessage": "Dakar"
+        "defaultMessage": "Dakar, Pikine, Fatick"
     },
     "Serbia Description": {
-        "defaultMessage": "Belgrad"
+        "defaultMessage": "Belgrad, Novi Sad, Niš"
     },
     "Seychelles Description": {
-        "defaultMessage": "Victoria, Seychellerna"
+        "defaultMessage": "Victoria, Port Launay, Bel Ombre"
     },
     "Sierra Leone Description": {
-        "defaultMessage": "Freetown"
+        "defaultMessage": "Freetown, Bo, Kambia"
     },
     "Singapore Description": {
-        "defaultMessage": "Singapore"
+        "defaultMessage": "Singapore, Ladang, Rocky Hill"
     },
     "Slovakia_Region of Banska Bystrica Description": {
         "defaultMessage": "Banská Bystrica, Zvolen, Lučenec"
     },
     "Slovakia_Region of Bratislava Description": {
-        "defaultMessage": "Bratislava"
+        "defaultMessage": "Bratislava, Petržalka, Ružinov"
     },
     "Slovakia_Region of Kosice Description": {
-        "defaultMessage": "Košice, gelnica, Michalovce"
+        "defaultMessage": "Košice, Gelnica, Michalovce"
     },
     "Slovakia_Region of Nitra Description": {
         "defaultMessage": "Nitra, Nové Zámky"
@@ -6549,13 +6549,13 @@
         "defaultMessage": "Maribor, Dobova, Kisovec"
     },
     "Slovenia_West Description": {
-        "defaultMessage": "Ljubljana"
+        "defaultMessage": "Ljubljana, Jagodje, Naklo"
     },
     "Solomon Islands Description": {
         "defaultMessage": "Buala, Lata, Honiara"
     },
     "Somalia Description": {
-        "defaultMessage": "Mogadishu"
+        "defaultMessage": "Mogadishu, Baardheere, Baidoa"
     },
     "South Africa_Eastern Cape Description": {
         "defaultMessage": "Port Elizabeth, Grahamstown, Mthatha"
@@ -6564,7 +6564,7 @@
         "defaultMessage": "Botshabelo, Thaba Nchu, Welkom"
     },
     "South Africa_Gauteng Description": {
-        "defaultMessage": "Pretoria"
+        "defaultMessage": "Johannesburg, Pretoria, Soweto"
     },
     "South Africa_KwaZulu-Natal Description": {
         "defaultMessage": "Durban, Ladysmith, Pietermaritzburg"
@@ -6582,16 +6582,16 @@
         "defaultMessage": "Upington, Kimberley, Pofadder"
     },
     "South Africa_Western Cape Description": {
-        "defaultMessage": "Kapstaden"
+        "defaultMessage": "Kapstaden, Mitchells Plain, Khayelitsha"
     },
     "South Georgia and the South Sandwich Islands Description": {
         "defaultMessage": "Husvik, King Edward Point, Grytviken"
     },
     "South Korea_North Description": {
-        "defaultMessage": "Seoul, Daejeon"
+        "defaultMessage": "Seoul, Incheon, Daejeon"
     },
     "South Korea_South Description": {
-        "defaultMessage": "Pusan, Daegu"
+        "defaultMessage": "Busan, Daegu, Changwon"
     },
     "South Ossetia Description": {
         "defaultMessage": "Tskhinval, Khumisarta, Chitiani"
@@ -6600,10 +6600,10 @@
         "defaultMessage": "Juba, Yambio, Leer"
     },
     "Spain_Andalusia_Granada Description": {
-        "defaultMessage": "Granada, Almeria, Jaén"
+        "defaultMessage": "Granada, Almería, Jaén"
     },
     "Spain_Andalusia_Sevilla Description": {
-        "defaultMessage": "Málaga, Seville, Córdoba, Huelva, Cádiz"
+        "defaultMessage": "Málaga, Sevilla, Córdoba, Huelva, Cádiz"
     },
     "Spain_Aragon Description": {
         "defaultMessage": "Zaragoza, Teruel, Huesca"
@@ -6675,58 +6675,58 @@
         "defaultMessage": "Valencia, Alicante, Castellón de la Plana"
     },
     "Sri Lanka Description": {
-        "defaultMessage": "Colombo"
+        "defaultMessage": "Colombo, Kandy, Rambukkana"
     },
     "Sudan_East Description": {
         "defaultMessage": "Port Sudan, Kassala, El Hawata"
     },
     "Sudan_West Description": {
-        "defaultMessage": "Khartoum"
+        "defaultMessage": "Khartoum, Omdurman, Nyala"
     },
     "Suriname Description": {
-        "defaultMessage": "Paramaribo"
+        "defaultMessage": "Paramaribo, Groningen, Brokopondo"
     },
     "Swaziland Description": {
-        "defaultMessage": "Mbabane"
+        "defaultMessage": "Mbabane, Sidvokodvo, Bulembu"
     },
     "Sweden_Bergslagen Description": {
-        "defaultMessage": "Örebro"
+        "defaultMessage": "Örebro, Gävle, Karlstad"
     },
     "Sweden_Malardalen Description": {
-        "defaultMessage": "Västerås"
+        "defaultMessage": "Uppsala, Västerås, Eskilstuna"
     },
     "Sweden_Mellannorrland Description": {
-        "defaultMessage": "Östersund"
+        "defaultMessage": "Sundsvall, Östersund, Örnsköldsvik"
     },
     "Sweden_Norra Sverige Description": {
         "defaultMessage": "Umeå, Luleå, Piteå"
     },
     "Sweden_Ostra Gotaland Description": {
-        "defaultMessage": "Norrköping"
+        "defaultMessage": "Linköping, Norrköping, Jönköping"
     },
     "Sweden_Sodra Gotaland Description": {
         "defaultMessage": "Malmö, Helsingborg, Lund"
     },
     "Sweden_Stockholm Description": {
-        "defaultMessage": "Stockholm"
+        "defaultMessage": "Stockholm, Huddinge, Nacka"
     },
     "Sweden_Vastra Gotaland Description": {
-        "defaultMessage": "Göteborg"
+        "defaultMessage": "Göteborg, Borås, Mölndal"
     },
     "Switzerland_Central Description": {
-        "defaultMessage": "Lucerne, Zug, Sarnen, Stans, Altdorf, Schwyz"
+        "defaultMessage": "Luzern, Zug, Sarnen, Stans, Altdorf, Schwyz"
     },
     "Switzerland_Eastern Description": {
         "defaultMessage": "Chur, St. Gallen, Herisau, Appenzell, Frauenfeld, Glarus, Schaffhausen"
     },
     "Switzerland_Espace Mittelland_Bern Description": {
-        "defaultMessage": "Bern"
+        "defaultMessage": "Bern, Freiburg, Solothurn, Neuenburg, Delsberg, Biel, Olten"
     },
     "Switzerland_Espace Mittelland_East Description": {
         "defaultMessage": "Thun, Interlaken, Langenthal"
     },
     "Switzerland_Lake Geneva region Description": {
-        "defaultMessage": "Geneva, Lausanne, Sion"
+        "defaultMessage": "Genève, Lausanne, Sion"
     },
     "Switzerland_Northwestern Description": {
         "defaultMessage": "Basel, Liestal, Aarau"
@@ -6735,52 +6735,52 @@
         "defaultMessage": "Bellinzona, Lugano, Locarno"
     },
     "Switzerland_Zurich Description": {
-        "defaultMessage": "Zürich"
+        "defaultMessage": "Zürich, Winterthur"
     },
     "Syria Description": {
         "defaultMessage": "Damaskus, Aleppo, Homs"
     },
     "Taiwan_North Description": {
-        "defaultMessage": "Taipei"
+        "defaultMessage": "Taipei, Taoyuan-distriktet, Taichung"
     },
     "Taiwan_South Description": {
-        "defaultMessage": "Kaohsiung City, Tainan City, Chiayi City"
+        "defaultMessage": "Kaohsiung, Tainan, Chiayi"
     },
     "Tajikistan Description": {
-        "defaultMessage": "Dusjanbe, Chudzjand"
+        "defaultMessage": "Dusjanbe, Chudzjand, Shahrinav"
     },
     "Tanzania Description": {
-        "defaultMessage": "Dodoma"
+        "defaultMessage": "Dar es Salaam, Dodoma, Kigoma"
     },
     "Thailand_Central Description": {
         "defaultMessage": "Nam Som, Nakhon Ratchasima, Udon Thani"
     },
     "Thailand_North Description": {
-        "defaultMessage": "Chiang Mai, Santi Suk District, Mae Ai"
+        "defaultMessage": "Chiang Mai, Santi Suk-distriktet, Mae Ai"
     },
     "Thailand_South Description": {
-        "defaultMessage": "Bangkok"
+        "defaultMessage": "Bangkok, Nonthaburi, Chaophraya Surasak"
     },
     "The Bahamas Description": {
-        "defaultMessage": "Nassau"
+        "defaultMessage": "Nassau, Freeport, Tarpum Bay"
     },
     "The Gambia Description": {
-        "defaultMessage": "Banjul"
+        "defaultMessage": "Banjul, Serrekunda, Wassu"
     },
     "Togo Description": {
-        "defaultMessage": "Lomé"
+        "defaultMessage": "Lomé, Dapaong, Niamtougou"
     },
     "Tokelau Description": {
         "defaultMessage": "Tokelau"
     },
     "Tonga Description": {
-        "defaultMessage": "Nuku'alofa"
+        "defaultMessage": "Nuku'alofa, Ma'ufanga, Neiafu"
     },
     "Trinidad and Tobago Description": {
         "defaultMessage": "Port of Spain, San Fernando, Chaguanas"
     },
     "Tunisia Description": {
-        "defaultMessage": "Tunis"
+        "defaultMessage": "Tunis, Sfax, Ariana"
     },
     "Turkey_Aegean Region Description": {
         "defaultMessage": "Izmir, Denizli, Muğla"
@@ -6789,7 +6789,7 @@
         "defaultMessage": "Bolu, Samsun, Trabzon"
     },
     "Turkey_Central Anatolia Region_Ankara Description": {
-        "defaultMessage": "Ankara"
+        "defaultMessage": "Ankara, Eskişehir, Konya"
     },
     "Turkey_Central Anatolia Region_Kayseri Description": {
         "defaultMessage": "Kırşehir, Sivas, Nevşehir"
@@ -6801,7 +6801,7 @@
         "defaultMessage": "Bursa, Çanakkale, Yalova"
     },
     "Turkey_Marmara Region_Istanbul Description": {
-        "defaultMessage": "Istanbul"
+        "defaultMessage": "Istanbul, Edirne, Tekirdağ"
     },
     "Turkey_Mediterranean Region Description": {
         "defaultMessage": "Antalya, Burdur, Antakya"
@@ -6810,7 +6810,7 @@
         "defaultMessage": "Gaziantep, Şanlıurfa, Adıyaman"
     },
     "Turkmenistan Description": {
-        "defaultMessage": "Asjchabad"
+        "defaultMessage": "Asjchabad, Dashoguz, Türkmenabat"
     },
     "Turks and Caicos Islands Description": {
         "defaultMessage": "Cockburn Town, Providenciales, Cockburn Harbor"
@@ -6828,7 +6828,7 @@
         "defaultMessage": "Norwich, Peterborough, Cambridge"
     },
     "UK_England_Greater London Description": {
-        "defaultMessage": "London"
+        "defaultMessage": "London, Croydon, Ilford"
     },
     "UK_England_North East England Description": {
         "defaultMessage": "Sunderland, Newcastle upon Tyne"
@@ -6846,7 +6846,7 @@
         "defaultMessage": "Southampton, Milton Keynes, Portsmouth"
     },
     "UK_England_South West England_Bristol Description": {
-        "defaultMessage": "Bristol, City of Bath, Bournemouth"
+        "defaultMessage": "Bristol, Bath, Bournemouth"
     },
     "UK_England_South West England_Cornwall Description": {
         "defaultMessage": "Plymouth, Exeter, St Ives"
@@ -6858,568 +6858,568 @@
         "defaultMessage": "Sheffield, Wakefield, Bradford"
     },
     "UK_Northern Ireland Description": {
-        "defaultMessage": "Belfast"
+        "defaultMessage": "Newry, Belfast, Londonderry/Derry"
     },
     "UK_Scotland_North Description": {
         "defaultMessage": "Aberdeen, Dundee, Tobermory"
     },
     "UK_Scotland_South Description": {
-        "defaultMessage": "Edinburgh"
+        "defaultMessage": "Glasgow, Edinburgh, Millport"
     },
     "UK_Wales Description": {
-        "defaultMessage": "Cardiff"
+        "defaultMessage": "Cardiff, Swansea, Newport"
     },
     "US_Alabama_Birmingham Description": {
-        "defaultMessage": "Warrior, Vestavia Hills, Scottsboro"
+        "defaultMessage": "Huntsville, Decatur, Florence"
     },
     "US_Alabama_Montgomery Description": {
-        "defaultMessage": "Creola, Centreville, Valley"
+        "defaultMessage": "Mobile, Tuscaloosa, Dothan"
     },
     "US_Alaska Description": {
-        "defaultMessage": "Scammon Bay, McGrath, Fort Wainright"
+        "defaultMessage": "Anchorage, Fairbanks, Juneau"
     },
     "US_Arizona_Flagstaff Description": {
-        "defaultMessage": "Cottonwood, Holbrook, Show Low"
+        "defaultMessage": "Lake Havasu City, Prescott, Bullhead City"
     },
     "US_Arizona_Phoenix Description": {
-        "defaultMessage": "Phoenix, Mesa, Mesa"
+        "defaultMessage": "Surprise, Yuma, Buckeye"
     },
     "US_Arizona_Tucson Description": {
-        "defaultMessage": "Tucson, South Tucson, Bisbee"
+        "defaultMessage": "Sierra Vista, Marana, Nogales"
     },
     "US_Arkansas_North Description": {
-        "defaultMessage": "Ward, Cabot, Des Arc"
+        "defaultMessage": "Fort Smith, Fayetteville, Jonesboro"
     },
     "US_Arkansas_South Description": {
-        "defaultMessage": "Stamps, Rockport"
+        "defaultMessage": "Little Rock, Pine Bluff, Texarkana"
     },
     "US_California_Bakersfield_Bakersfield Description": {
-        "defaultMessage": "Arroyo Grande, Pismo Beach, Maricopa"
+        "defaultMessage": "Santa Maria, Delano, San Luis Obispo"
     },
     "US_California_Bakersfield_Lancaster Description": {
-        "defaultMessage": "Hesperia, Big Bear Lake, Holtville"
+        "defaultMessage": "Victorville, El Centro, Joshua Tree"
     },
     "US_California_Chico Description": {
-        "defaultMessage": "Tehama, Cloverdale, Cloverdale"
+        "defaultMessage": "Oroville, Paradise, Susanville"
     },
     "US_California_LA Description": {
-        "defaultMessage": "Los Angeles, Long Beach, Rosemead"
+        "defaultMessage": "Long Beach, Santa Ana, Riverside"
     },
     "US_California_LA North Description": {
-        "defaultMessage": "Santa Barbara, Ojai, Avalon"
+        "defaultMessage": "Oxnard, Santa Clarita, Thousand Oaks"
     },
     "US_California_Redding Description": {
-        "defaultMessage": "Ferndale, Rio Dell, Arcata"
+        "defaultMessage": "Eureka, Red Bluff, Crescent City"
     },
     "US_California_Sacramento_Fresno Description": {
-        "defaultMessage": "Fresno, Selma, Bishop"
+        "defaultMessage": "Visalia, Porterville, Hanford"
     },
     "US_California_Sacramento_Sacramento Description": {
-        "defaultMessage": "Sacramento, West Sacramento, Placerville"
+        "defaultMessage": "Yuba City, Rocklin, Auburn"
     },
     "US_California_Sacramento_Stockton Description": {
-        "defaultMessage": "Ceres, Ione, Tracy"
+        "defaultMessage": "Modesto, Merced, Madera"
     },
     "US_California_San Diego Description": {
-        "defaultMessage": "San Diego, San Marcos, Banning"
+        "defaultMessage": "Oceanside, Murrieta, Indio"
     },
     "US_California_Santa_Clara_Palo Alto Description": {
-        "defaultMessage": "San José, San Francisco, Los Altos"
+        "defaultMessage": "San José, Oakland, Santa Rosa"
     },
     "US_California_Santa_Clara_Santa Cruz Description": {
-        "defaultMessage": "Seaside, Gonzales, Gonzales"
+        "defaultMessage": "Salinas, Gilroy, Monterey"
     },
     "US_Colorado_Aspen Description": {
-        "defaultMessage": "Central City, Black Hawk, Woodland Park"
+        "defaultMessage": "Grand Junction, Glenwood Springs, Steamboat Springs"
     },
     "US_Colorado_Denver Description": {
-        "defaultMessage": "Denver, Colorado Springs, Commerce City"
+        "defaultMessage": "Colorado Springs, Fort Collins, Boulder"
     },
     "US_Colorado_South Description": {
-        "defaultMessage": "Salida, Walsenburg, Las Animas"
+        "defaultMessage": "Pueblo, Telluride, Trinidad"
     },
     "US_Connecticut Description": {
-        "defaultMessage": "East Haven, Groton, Thomaston"
+        "defaultMessage": "Hartford, New Haven, Stamford"
     },
     "US_Delaware Description": {
-        "defaultMessage": "City of Seaford, Rehoboth Beach, Milford"
+        "defaultMessage": "Wilmington, Dover, Milford"
     },
     "US_Florida_Gainesville Description": {
-        "defaultMessage": "Gainesville, Palm Bay, Melbourne"
+        "defaultMessage": "Ocala, Daytona Beach, Melbourne"
     },
     "US_Florida_Jacksonville Description": {
-        "defaultMessage": "Jacksonville, Panama City Beach, Lynn Haven"
+        "defaultMessage": "Tallahassee, Pensacola, Panama City"
     },
     "US_Florida_Miami Description": {
-        "defaultMessage": "Miami, Marco Island, Fort Lauderdale"
+        "defaultMessage": "Fort Lauderdale, West Palm Beach, Key West"
     },
     "US_Florida_Orlando Description": {
-        "defaultMessage": "Orlando, Deltona, Kissimmee"
+        "defaultMessage": "Kissimmee, Deltona, Winter Garden"
     },
     "US_Florida_Tampa Description": {
-        "defaultMessage": "Oldsmar, Tampa, Saint Petersburg"
+        "defaultMessage": "Port St. Lucie, Sarasota, Lakeland"
     },
     "US_Georgia_Atlanta Description": {
-        "defaultMessage": "Atlanta, Chamblee, Walnut Grove"
+        "defaultMessage": "Sandy Springs, Marietta, Roswell"
     },
     "US_Georgia_Macon Description": {
-        "defaultMessage": "Grovetown, Perry, Byron"
+        "defaultMessage": "Augusta, Athens, Columbus"
     },
     "US_Georgia_North Description": {
-        "defaultMessage": "Emerson, Jefferson, Cartersville"
+        "defaultMessage": "Rome, Dalton, Gainesville"
     },
     "US_Georgia_South Description": {
-        "defaultMessage": "De Soto, Santa Claus, Pearson"
+        "defaultMessage": "Savannah, Albany, Valdosta"
     },
     "US_Guam Description": {
-        "defaultMessage": "Dededo Flea (Market), Tumon Golf Driving Range, San José"
+        "defaultMessage": "Dededo, Tamuning, Hagåtña"
     },
     "US_Hawaii Description": {
-        "defaultMessage": "Hilo, Kailua-Kona, Kahului"
+        "defaultMessage": "Honolulu, Hilo, Kahului"
     },
     "US_Idaho_North Description": {
-        "defaultMessage": "Huetter, Peck, Hayden"
+        "defaultMessage": "Coeur d'Alene, Sandpoint, Lewiston"
     },
     "US_Idaho_South Description": {
-        "defaultMessage": "Arco, Middleton, Greenleaf"
+        "defaultMessage": "Boise, Idaho Falls, Pocatello"
     },
     "US_Illinois_Chickago Description": {
-        "defaultMessage": "Chicago, Palos Hills, Park City"
+        "defaultMessage": "Waukegan, Arlington Heights, Downers Grove"
     },
     "US_Illinois_Elgin Description": {
-        "defaultMessage": "Geneva, Country Club Hills, Wheaton"
+        "defaultMessage": "Aurora, Joliet, Chicago Heights"
     },
     "US_Illinois_Rockford Description": {
-        "defaultMessage": "Princeton, Prophetstown, Moline"
+        "defaultMessage": "DeKalb, Moline, Freeport"
     },
     "US_Illinois_South Description": {
-        "defaultMessage": "Casey, Wamac, Mount Vernon"
+        "defaultMessage": "Belleville, Marion, East St. Louis"
     },
     "US_Illinois_Springfield Description": {
-        "defaultMessage": "Mount Pulaski, Lacon, Kewanee"
+        "defaultMessage": "Peoria, Champaign, Bloomington"
     },
     "US_Indiana_Evansville Description": {
-        "defaultMessage": "Rockport, New Albany, Princeton"
+        "defaultMessage": "Bloomington, Jeffersonville, Columbus"
     },
     "US_Indiana_Indianapolis Description": {
-        "defaultMessage": "Indianapolis"
+        "defaultMessage": "Terre Haute, Noblesville, Richmond"
     },
     "US_Indiana_North Description": {
-        "defaultMessage": "Elwood, Kokomo, Whiting"
+        "defaultMessage": "Fort Wayne, South Bend, Hammond"
     },
     "US_Iowa_Des Moines Description": {
-        "defaultMessage": "Indianola, Slater, Martensdale"
+        "defaultMessage": "Davenport, Iowa City, Burlington"
     },
     "US_Iowa_Waterloo Description": {
-        "defaultMessage": "Dixon, Floyd, Elma"
+        "defaultMessage": "Cedar Rapids, Ames, Dubuque"
     },
     "US_Iowa_West Description": {
-        "defaultMessage": "Churdan, Orange City, Paton"
+        "defaultMessage": "Sioux City, Council Bluffs, Fort Dodge"
     },
     "US_Kansas_East Description": {
-        "defaultMessage": "Benedict, Coffeyville, Severance"
+        "defaultMessage": "Overland Park, Topeka, Lawrence"
     },
     "US_Kansas_West Description": {
-        "defaultMessage": "Burr Oak, Hunter, Randolph"
+        "defaultMessage": "Manhattan, Salina, Colby"
     },
     "US_Kansas_Wichita Description": {
-        "defaultMessage": "Whitewater, Cedar Point, Sublette"
+        "defaultMessage": "Hutchinson, Dodge City, Garden City"
     },
     "US_Kentucky_East Description": {
-        "defaultMessage": "Hyden, Stanton, Pineville"
+        "defaultMessage": "Lexington, Frankfort, Covington"
     },
     "US_Kentucky_Louisville Description": {
-        "defaultMessage": "Louisville, Fordsville, Meadowview Estates"
+        "defaultMessage": "Shelbyville, La Grange, Radcliff"
     },
     "US_Kentucky_West Description": {
-        "defaultMessage": "Marion, Corydon, Barlow"
+        "defaultMessage": "Bowling Green, Owensboro, Paducah"
     },
     "US_Louisiana_Central Description": {
-        "defaultMessage": "Pineville, Marksville, Bunkie"
+        "defaultMessage": "Lake Charles, Lafayette, Shreveport"
     },
     "US_Louisiana_New Orleans Description": {
-        "defaultMessage": "Bogalusa, Gonzales, Plaquemine"
+        "defaultMessage": "Baton Rouge, Houma, Slidell"
     },
     "US_Maine Description": {
-        "defaultMessage": "Westbrook, Brewer, South Portland"
+        "defaultMessage": "Portland, Bangor, Augusta"
     },
     "US_Maryland_Baltimore Description": {
-        "defaultMessage": "Baltimore, Pocomoke City, Crisfield"
+        "defaultMessage": "Annapolis, Salisbury, Bel Air"
     },
     "US_Maryland_and_DC Description": {
-        "defaultMessage": "Washington D.C."
+        "defaultMessage": "Washington, D.C., Frederick, Hagerstown"
     },
     "US_Massachusetts_Boston Description": {
-        "defaultMessage": "Boston, Lowell, Cambridge"
+        "defaultMessage": "Lowell, Salem, Gloucester"
     },
     "US_Massachusetts_Central Description": {
-        "defaultMessage": "Fitchburg, Southbridge, Leominster"
+        "defaultMessage": "Fitchburg, Sturbridge, Marlborough"
     },
     "US_Massachusetts_Plymouth Description": {
-        "defaultMessage": "Brockton, New Bedford, Fall River"
+        "defaultMessage": "New Bedford, Brockton, Fall River"
     },
     "US_Massachusetts_Southeastern Description": {
-        "defaultMessage": "Barnstable, Falmouth, Yarmouth"
+        "defaultMessage": "Nantucket, Provincetown, Falmouth"
     },
     "US_Massachusetts_West Description": {
-        "defaultMessage": "Greenfield, Springfield"
+        "defaultMessage": "Pittsfield, Greenfield, Northampton"
     },
     "US_Michigan_Detroit Description": {
-        "defaultMessage": "Detroit, Hamtramck, Keego Harbor"
+        "defaultMessage": "Ann Arbor, Pontiac, Monroe"
     },
     "US_Michigan_Grand Rapids Description": {
-        "defaultMessage": "Manton, Whitehall, Muskegon"
+        "defaultMessage": "Kalamazoo, Battle Creek, Muskegon"
     },
     "US_Michigan_Lansing Description": {
-        "defaultMessage": "City of Burton, Lapeer, Tawas City"
+        "defaultMessage": "Flint, Saginaw, Midland"
     },
     "US_Michigan_North Description": {
-        "defaultMessage": "Caspian, Iron Mountain, Gaastra"
+        "defaultMessage": "Marquette, Escanaba, Sault Ste. Marie"
     },
     "US_Minnesota_Minneapolis Description": {
-        "defaultMessage": "Lindstrom, Forest Lake, Greenfield"
+        "defaultMessage": "Saint Paul, Bloomington, Brooklyn Park"
     },
     "US_Minnesota_North Description": {
-        "defaultMessage": "Erskine, Gully, Hackensack"
+        "defaultMessage": "Duluth, Hibbing, Crookston"
     },
     "US_Minnesota_Rochester Description": {
-        "defaultMessage": "Arco, New Auburn, Welcome"
+        "defaultMessage": "Mankato, Marshall, Owatonna"
     },
     "US_Minnesota_Saint Cloud Description": {
-        "defaultMessage": "Brooten, St. Rosa, Genola"
+        "defaultMessage": "Moorhead, Alexandria, Willmar"
     },
     "US_Mississippi_Gulfport Description": {
-        "defaultMessage": "D'Iberville, Ocean Springs, Lucedale"
+        "defaultMessage": "Hattiesburg, Pascagoula, Biloxi"
     },
     "US_Mississippi_North Description": {
-        "defaultMessage": "Rolling Fork, Leland, Collins"
+        "defaultMessage": "Jackson, Southaven, Meridian"
     },
     "US_Missouri_East Description": {
-        "defaultMessage": "Scott City, Ellington, Viburnum"
+        "defaultMessage": "Cape Girardeau, Poplar Bluff, Farmington"
     },
     "US_Missouri_Kansas Description": {
-        "defaultMessage": "Kansas City, Belton, Gallatin"
+        "defaultMessage": "St. Joseph, Sedalia, Chillicothe"
     },
     "US_Missouri_Springfield Description": {
-        "defaultMessage": "Conway, Osceola, Battlefield"
+        "defaultMessage": "Joplin, Branson, Lake of the Ozarks"
     },
     "US_Missouri_St Louis Description": {
-        "defaultMessage": "Queen City, La Grange, Fulton"
+        "defaultMessage": "Columbia, Jefferson City, Hannibal"
     },
     "US_Montana_East Description": {
-        "defaultMessage": "Harlem, Hobson, Colstrip"
+        "defaultMessage": "Billings, Bozeman, Miles City"
     },
     "US_Montana_West Description": {
-        "defaultMessage": "Cut Bank, Kalispell, Shelby"
+        "defaultMessage": "Missoula, Great Falls, Helena"
     },
     "US_Nebraska_East Description": {
-        "defaultMessage": "Omaha, Stanton, Pawnee City"
+        "defaultMessage": "Omaha, Lincoln, Columbus"
     },
     "US_Nebraska_West Description": {
-        "defaultMessage": "Bassett, Long Pine, Bloomfield"
+        "defaultMessage": "Grand Island, North Platte, Scottsbluff"
     },
     "US_Nevada Description": {
-        "defaultMessage": "Las Vegas, Winnemucca, Caliente"
+        "defaultMessage": "Las Vegas, Reno, Carson City"
     },
     "US_New Hampshire Description": {
-        "defaultMessage": "Somersworth, Laconia, Franklin"
+        "defaultMessage": "Manchester, Nashua, Concord"
     },
     "US_New Jersey_North Description": {
-        "defaultMessage": "Hackensack, Garfield, Lambertville"
+        "defaultMessage": "Newark, Paterson, Jersey City"
     },
     "US_New Jersey_South Description": {
-        "defaultMessage": "Absecon, Long Branch, Margate City"
+        "defaultMessage": "Trenton, Camden, Atlantic City"
     },
     "US_New Mexico_Albuquerque Description": {
-        "defaultMessage": "Albuquerque, Raton, Bloomfield"
+        "defaultMessage": "Santa Fe, Farmington, Gallup"
     },
     "US_New Mexico_Roswell Description": {
-        "defaultMessage": "Eunice, Socorro, Jal"
+        "defaultMessage": "Las Cruces, Carlsbad, Clovis"
     },
     "US_New York_East Description": {
-        "defaultMessage": "Brookhaven, New Rochelle, Mount Vernon"
+        "defaultMessage": "Long Island, Yonkers, White Plains"
     },
     "US_New York_New York Description": {
-        "defaultMessage": "New York, New York City, Inwood"
+        "defaultMessage": "Alla fem stadsdelar i New York City"
     },
     "US_New York_North Description": {
-        "defaultMessage": "City of Cohoes, City of Schenectady, Beacon"
+        "defaultMessage": "Albany, Utica, Watertown"
     },
     "US_New York_West Description": {
-        "defaultMessage": "Oswego, Jamestown, North Tonawanda"
+        "defaultMessage": "Buffalo, Rochester, Syracuse"
     },
     "US_North Carolina_Asheville Description": {
-        "defaultMessage": "Morganton, Brevard, Marion"
+        "defaultMessage": "Morganton, Hendersonville, Waynesville"
     },
     "US_North Carolina_Charlotte Description": {
-        "defaultMessage": "Charlotte, Shelby, Statesville"
+        "defaultMessage": "Concord, Hickory, Monroe"
     },
     "US_North Carolina_Greensboro Description": {
-        "defaultMessage": "Thomasville, Hamlet, Albemarle"
+        "defaultMessage": "Winston-Salem, High Point, Salisbury"
     },
     "US_North Carolina_Raleigh Description": {
-        "defaultMessage": "Raleigh, Roxboro, Graham"
+        "defaultMessage": "Durham, Chapel Hill, Burlington"
     },
     "US_North Carolina_Wilmington Description": {
-        "defaultMessage": "Clinton, Boiling Spring Lakes, Laurinburg"
+        "defaultMessage": "Fayetteville, Jacksonville, Lumberton"
     },
     "US_North Carolina_Wilson Description": {
-        "defaultMessage": "New Bern, Havelock, Elizabeth City"
+        "defaultMessage": "Greenville, New Bern, Rocky Mount"
     },
     "US_North Dakota_Bismarck Description": {
-        "defaultMessage": "Zap, Reeder, Stanton"
+        "defaultMessage": "Dickinson, Mandan, Watford City"
     },
     "US_North Dakota_East Description": {
-        "defaultMessage": "Harwood, Cavalier, Lakota"
+        "defaultMessage": "Grand Forks, Jamestown, Devils Lake"
     },
     "US_North Dakota_Minot Description": {
-        "defaultMessage": "Makoti, Bowdon, Kramer"
+        "defaultMessage": "Williston, Rugby, New Town"
     },
     "US_Ohio_Cincinnati Description": {
-        "defaultMessage": "St. Bernard, Centerville, Madeira"
+        "defaultMessage": "Dayton, Springfield, Hamilton"
     },
     "US_Ohio_Cleveland Description": {
-        "defaultMessage": "Streetsboro, Willoughby Hills, Avon Lake"
+        "defaultMessage": "Akron, Canton, Youngstown"
     },
     "US_Ohio_Columbus Description": {
-        "defaultMessage": "Columbus, Pickerington, Reynoldsburg"
+        "defaultMessage": "Newark, Lancaster, Zanesville"
     },
     "US_Ohio_Toledo Description": {
-        "defaultMessage": "Bucyrus, Crestline, Maumee"
+        "defaultMessage": "Marion, Findlay, Sandusky"
     },
     "US_Oklahoma_East Description": {
-        "defaultMessage": "Ada, Coalgate, Konawa"
+        "defaultMessage": "Ada, McAlester, Durant"
     },
     "US_Oklahoma_Oklahoma Description": {
-        "defaultMessage": "Oklahoma City, Noble, Del City"
+        "defaultMessage": "Lawton, Ardmore, Elk City"
     },
     "US_Oklahoma_Tulsa Description": {
-        "defaultMessage": "Shidler, Prague, Beggs"
+        "defaultMessage": "Muskogee, Stillwater, Bartlesville"
     },
     "US_Oklahoma_West Description": {
-        "defaultMessage": "Cherokee, Thomas, Perry"
+        "defaultMessage": "Enid, Woodward, Guymon"
     },
     "US_Oregon_Eugene Description": {
-        "defaultMessage": "Albany, Medford, Coos Bay"
+        "defaultMessage": "Medford, Corvallis, Roseburg"
     },
     "US_Oregon_Portland Description": {
-        "defaultMessage": "Salem, Newport, Government Camp"
+        "defaultMessage": "Salem, Astoria, Newport"
     },
     "US_Oregon_West Description": {
-        "defaultMessage": "Bend, The Dalles, Klamath Falls"
+        "defaultMessage": "Bend, Klamath Falls, Pendleton"
     },
     "US_Pennsylvania_Central Description": {
-        "defaultMessage": "DuBois, St. Marys, Latrobe"
+        "defaultMessage": "State College, York, Johnstown"
     },
     "US_Pennsylvania_Pittsburgh Description": {
-        "defaultMessage": "New Kensington, Uniontown, Monongahela"
+        "defaultMessage": "Erie, New Castle, Butler"
     },
     "US_Pennsylvania_Reading Description": {
-        "defaultMessage": "Philadelphia, Coatesville, Reading"
+        "defaultMessage": "Philadelphia, Lancaster, Pottstown"
     },
     "US_Pennsylvania_Scranton Description": {
-        "defaultMessage": "Carbondale, Pittston, Williamsport"
+        "defaultMessage": "Allentown, Harrisburg, Wilkes-Barre"
     },
     "US_Puerto Rico Description": {
         "defaultMessage": "San Juan, Mayaguez, Ponce"
     },
     "US_Rhode Island Description": {
-        "defaultMessage": "Narragansett, Providence, Warwick"
+        "defaultMessage": "Providence, Warwick, Newport"
     },
     "US_South Carolina_Charleston Description": {
-        "defaultMessage": "Barnwell, Goose Creek, Folly Beach"
+        "defaultMessage": "Summerville, Hilton Head Island, Orangeburg"
     },
     "US_South Carolina_Columbia Description": {
-        "defaultMessage": "Belton, Travelers Rest, Walhalla"
+        "defaultMessage": "Greenville, Spartanburg, Anderson"
     },
     "US_South Carolina_Florence Description": {
-        "defaultMessage": "Tega Cay, Bishopville, Johnsonville"
+        "defaultMessage": "Myrtle Beach, Rock Hill, Sumter"
     },
     "US_South Dakota Description": {
-        "defaultMessage": "Irene, Centerville, Baltic"
+        "defaultMessage": "Sioux Falls, Rapid City, Pierre"
     },
     "US_Tennessee_East Description": {
-        "defaultMessage": "Pigeon Forge, Celina, Friendsville"
+        "defaultMessage": "Knoxville, Chattanooga, Murfreesboro"
     },
     "US_Tennessee_West Description": {
-        "defaultMessage": "Memphis, Nashville, Medina"
+        "defaultMessage": "Memphis, Nashville, Jackson"
     },
     "US_Texas_Amarillo Description": {
-        "defaultMessage": "Pampa, Jolly, Howardwick"
+        "defaultMessage": "Wichita Falls, Pampa, Borger"
     },
     "US_Texas_Austin Description": {
-        "defaultMessage": "Austin, Hutto, Belton"
+        "defaultMessage": "Killeen, New Braunfels, Temple"
     },
     "US_Texas_Dallas Description": {
-        "defaultMessage": "Dallas, Fort Worth, Rowlett"
+        "defaultMessage": "Fort Worth, Weatherford, Sherman"
     },
     "US_Texas_Houston Description": {
-        "defaultMessage": "Houston, Seabrook, Plum Grove"
+        "defaultMessage": "Sugar Land, Galveston, Beaumont"
     },
     "US_Texas_Lubbock Description": {
-        "defaultMessage": "Sudan, Ralls, Goree"
+        "defaultMessage": "Plainview, Levelland, Snyder"
     },
     "US_Texas_San Antonio Description": {
-        "defaultMessage": "San Antonio, Rockport, Mathis"
+        "defaultMessage": "Corpus Christi, Brownsville, Kingsville"
     },
     "US_Texas_Southwest Description": {
-        "defaultMessage": "Leakey, Camp Wood, Carrizo Springs"
+        "defaultMessage": "Del Rio, Eagle Pass, Uvalde"
     },
     "US_Texas_Tyler Description": {
-        "defaultMessage": "Troup, Cottonwood, Fate"
+        "defaultMessage": "Longview, Texarkana, Rockwall"
     },
     "US_Texas_Victoria Description": {
-        "defaultMessage": "Niederwald, Lockhart, Palacios"
+        "defaultMessage": "Port Lavaca, Cuero, Gonzales"
     },
     "US_Texas_Wako Description": {
-        "defaultMessage": "Calvert, Golinda, Bruceville-Eddy"
+        "defaultMessage": "College Station, Conroe, Huntsville"
     },
     "US_Texas_West Description": {
-        "defaultMessage": "El Paso, Westbrook, Stanton"
+        "defaultMessage": "Odessa, Midland, Abilene"
     },
     "US_United States Minor Outlying Islands Description": {
         "defaultMessage": "Lulu Town, Millersville"
     },
     "US_Utah_North Description": {
-        "defaultMessage": "Holladay, South Ogden, Murray"
+        "defaultMessage": "Salt Lake City, Ogden, Provo"
     },
     "US_Utah_South Description": {
-        "defaultMessage": "Parowan, Hildale, Enoch"
+        "defaultMessage": "St. George, Cedar City, Moab"
     },
     "US_Vermont Description": {
-        "defaultMessage": "Saint Albans, Barre, South Burlington"
+        "defaultMessage": "Burlington, Montpelier, Rutland"
     },
     "US_Virginia_Alexandria Description": {
-        "defaultMessage": "Fairfax, Fredericksburg, Falls Church"
+        "defaultMessage": "Leesburg, Manassas, Fredericksburg"
     },
     "US_Virginia_Lynchburg Description": {
-        "defaultMessage": "Lynchburg City, Bedford, Staunton"
+        "defaultMessage": "Harrisonburg, Charlottesville, Danville"
     },
     "US_Virginia_Norfolk Description": {
-        "defaultMessage": "Virginia Beach, Poquoson City, Franklin City"
+        "defaultMessage": "Virginia Beach, Chesapeake, Newport News"
     },
     "US_Virginia_Richmond Description": {
-        "defaultMessage": "Emporia, Colonial Heights, Richmond"
+        "defaultMessage": "Petersburg, Hopewell, Colonial Heights"
     },
     "US_Virginia_Roanoke Description": {
-        "defaultMessage": "Galax, Norton, Radford City"
+        "defaultMessage": "Blacksburg, Christiansburg, Radford"
     },
     "US_Washington_Coast Description": {
-        "defaultMessage": "Raymond, Camas, Port Townsend"
+        "defaultMessage": "Vancouver, Bellingham, Olympia"
     },
     "US_Washington_Seattle Description": {
-        "defaultMessage": "Seattle, Edmonds, Sultan"
+        "defaultMessage": "Everett, Bellevue, Federal Way"
     },
     "US_Washington_Yakima Description": {
-        "defaultMessage": "Pullman, Grand Coulee, White Salmon"
+        "defaultMessage": "Spokane, Kennewick, Walla Walla"
     },
     "US_West Virginia Description": {
-        "defaultMessage": "Stonewood, Bluefield, Mullens"
+        "defaultMessage": "Charleston, Huntington, Morgantown"
     },
     "US_Wisconsin_Eau Claire Description": {
-        "defaultMessage": "Durand, Fountain City, River Falls"
+        "defaultMessage": "Wausau, Stevens Point, Marshfield"
     },
     "US_Wisconsin_Madison Description": {
-        "defaultMessage": "Edgerton, Mineral Point, Brodhead"
+        "defaultMessage": "Janesville, La Crosse, Beloit"
     },
     "US_Wisconsin_Milwaukee Description": {
-        "defaultMessage": "Milwaukee, Lake Mills, Brillion"
+        "defaultMessage": "Green Bay, Kenosha, Appleton"
     },
     "US_Wisconsin_North Description": {
-        "defaultMessage": "Montreal, Tomahawk, Marinette"
+        "defaultMessage": "Superior, Rhinelander, Marinette"
     },
     "US_Wyoming Description": {
-        "defaultMessage": "Worland, Rawlins, Kemmerer"
+        "defaultMessage": "Cheyenne, Casper, Gillette"
     },
     "Uganda Description": {
-        "defaultMessage": "Kampala"
+        "defaultMessage": "Kampala, Yumbe, Kanoni"
     },
     "Ukraine_Cherkasy Oblast Description": {
-        "defaultMessage": "Cherkasy, Uman, Smila"
+        "defaultMessage": "Tjerkasy, Uman, Smila"
     },
     "Ukraine_Chernihiv Oblast Description": {
-        "defaultMessage": "Chernihiv, Nizhyn, Pryluky"
+        "defaultMessage": "Tjernihiv, Nizjyn, Pryluky"
     },
     "Ukraine_Chernivtsi Oblast Description": {
-        "defaultMessage": "Chernivtsi, Storozhynets, Zastavna"
+        "defaultMessage": "Tjernivtsi, Storozjynets, Zastavna"
     },
     "Ukraine_Dnipropetrovsk Oblast Description": {
-        "defaultMessage": "Dnipro, Krivoy Rog, Kamyanske"
+        "defaultMessage": "Dnipro, Kryvyj Rih, Kamjanske"
     },
     "Ukraine_Donetsk Oblast Description": {
         "defaultMessage": "Donetsk, Mariupol, Makijivka"
     },
     "Ukraine_Ivano-Frankivsk Oblast Description": {
-        "defaultMessage": "Ivano-Frankivsk"
+        "defaultMessage": "Ivano-Frankivsk, Kalusj, Kolomyja"
     },
     "Ukraine_Kharkiv Oblast Description": {
-        "defaultMessage": "Charkiv"
+        "defaultMessage": "Charkiv, Lozova, Kupjansk"
     },
     "Ukraine_Kherson Oblast Description": {
-        "defaultMessage": "Kherson, Nova Kakhovka, Наддніпрянське"
+        "defaultMessage": "Cherson, Nova Kachovka, Naddniprjanske"
     },
     "Ukraine_Khmelnytskyi Oblast Description": {
-        "defaultMessage": "Chmelnytskyj"
+        "defaultMessage": "Chmelnytskyj, Kamjanets-Podilskyj, Sjepetivka"
     },
     "Ukraine_Kirovohrad Oblast Description": {
-        "defaultMessage": "Kropyvnytskyi, Oleksandriia, Svitlovodsk"
+        "defaultMessage": "Kropyvnytskyj, Oleksandrija, Svitlovodsk"
     },
     "Ukraine_Kyiv Oblast Description": {
-        "defaultMessage": "Kiev"
+        "defaultMessage": "Kyjiv, Bila Tserkva, Brovary"
     },
     "Ukraine_Luhansk Oblast Description": {
-        "defaultMessage": "Luhansk"
+        "defaultMessage": "Luhansk, Altjevsk, Sjevjerodonetsk"
     },
     "Ukraine_Lviv Oblast Description": {
-        "defaultMessage": "Lviv, Sambir City Council, Drohobych"
+        "defaultMessage": "Lviv, Sambirs stadsråd, Drohobytj"
     },
     "Ukraine_Mykolaiv Oblast Description": {
-        "defaultMessage": "Mykolaiv, Pervomaisk, Yuzhnoukrainsk"
+        "defaultMessage": "Mykolajiv, Pervomajsk, Juzjnoukrajinsk"
     },
     "Ukraine_Odessa Oblast Description": {
-        "defaultMessage": "Odessa, Izmail, Chornomorsk"
+        "defaultMessage": "Odesa, Izmajil, Tjornomorsk"
     },
     "Ukraine_Poltava Oblast Description": {
-        "defaultMessage": "Krementjuk"
+        "defaultMessage": "Poltava, Krementjuk, Komsomolsk"
     },
     "Ukraine_Rivne Oblast Description": {
-        "defaultMessage": "Rivne, Varash (Kuznetsovsk), Dubno"
+        "defaultMessage": "Rivne, Varasj (Kuznetsovsk), Dubno"
     },
     "Ukraine_Sumy Oblast Description": {
-        "defaultMessage": "Sumy, Konotop, Shostka"
+        "defaultMessage": "Sumy, Konotop, Sjostka"
     },
     "Ukraine_Ternopil Oblast Description": {
-        "defaultMessage": "Ternopil, Chortkiv, Kremenets"
+        "defaultMessage": "Ternopil, Tjortkiv, Kremenets"
     },
     "Ukraine_Vinnytsia Oblast Description": {
-        "defaultMessage": "Vinnytsia, Ворошиловка, Zhmerynka"
+        "defaultMessage": "Vinnytsja, Vorosjylivka, Zjmerynka"
     },
     "Ukraine_Volyn Oblast Description": {
         "defaultMessage": "Lutsk, Kovel, Novovolynsk"
     },
     "Ukraine_Zakarpattia Oblast Description": {
-        "defaultMessage": "Uzjhorod"
+        "defaultMessage": "Uzjhorod, Mukatjeve, Chust"
     },
     "Ukraine_Zaporizhia Oblast Description": {
-        "defaultMessage": "Zaporizhzhia, Melitopol, Berdiansk"
+        "defaultMessage": "Zaporizjzja, Melitopol, Berdjansk"
     },
     "Ukraine_Zhytomyr Oblast Description": {
-        "defaultMessage": "Zhytomyr, Berdychiv, Korosten"
+        "defaultMessage": "Zjytomyr, Berdytjiv, Korosten"
     },
     "United Arab Emirates Description": {
-        "defaultMessage": "Abu Dhabi"
+        "defaultMessage": "Abu Dhabi, Dubai, Ajman"
     },
     "United States Virgin Islands Description": {
-        "defaultMessage": "Frederiksted, Christiansted, Christiansted"
+        "defaultMessage": "Frederiksted, Christiansted"
     },
     "Uruguay Description": {
-        "defaultMessage": "Montevideo"
+        "defaultMessage": "Montevideo, Ciudad de la Costa, Salto"
     },
     "Uzbekistan Description": {
-        "defaultMessage": "Tasjkent"
+        "defaultMessage": "Tasjkent, Kokand, Namangan"
     },
     "Vanuatu Description": {
-        "defaultMessage": "Port Vila"
+        "defaultMessage": "Port Vila, Vao Mainland, Saratamata"
     },
     "Venezuela_North Description": {
         "defaultMessage": "Valencia, Barquisimeto, Maracay"
@@ -7428,19 +7428,19 @@
         "defaultMessage": "Maracaibo, Ciudad Guayana, San Cristóbal"
     },
     "Vietnam Description": {
-        "defaultMessage": "Hanoi, Ho Chi Minh-staden"
+        "defaultMessage": "Hanoi, Ho Chi Minh-staden, Vung Tau"
     },
     "Wallis and Futuna Description": {
         "defaultMessage": "Mata-Utu, Fiua, Tavai"
     },
     "Yemen Description": {
-        "defaultMessage": "Sana"
+        "defaultMessage": "Sana, Aden"
     },
     "Zambia Description": {
-        "defaultMessage": "Lusaka"
+        "defaultMessage": "Lusaka, Kitwe, Ndola"
     },
     "Zimbabwe Description": {
-        "defaultMessage": "Harare"
+        "defaultMessage": "Harare, Hwange, Masvingo"
     },
     "United States of America Short": {
         "defaultMessage": "USA"
@@ -7566,10 +7566,10 @@
         "defaultMessage": "Kongo-Kinshasa"
     },
     "Finland_Eastern Finland_North Short": {
-        "defaultMessage": "Östra Finlands län"
+        "defaultMessage": "Östra Finland"
     },
     "Finland_Eastern Finland_South Short": {
-        "defaultMessage": "Östra Finlands län"
+        "defaultMessage": "Östra Finland"
     },
     "France_Free County_North Short": {
         "defaultMessage": "Franche-Comté"
@@ -7624,5 +7624,41 @@
     },
     "Switzerland_Espace Mittelland_East Short": {
         "defaultMessage": "Espace Mittelland"
+    },
+    "France_Nouvelle-Aquitaine": {
+        "defaultMessage": "Nouvelle-Aquitaine"
+    },
+    "France_Occitania": {
+        "defaultMessage": "Occitanie"
+    },
+    "France_Auvergne-Rhone-Alpes": {
+        "defaultMessage": "Auvergne-Rhône-Alpes"
+    },
+    "Germany_Brandenburg": {
+        "defaultMessage": "Brandenburg"
+    },
+    "World": {
+        "defaultMessage": "Världsöversikt"
+    },
+    "France_Bourgogne-Franche-Comte": {
+        "defaultMessage": "Bourgogne-Franche-Comté"
+    },
+    "WorldCoasts": {
+        "defaultMessage": "Världsöversikt (kustlinjer)"
+    },
+    "Germany_Saxony": {
+        "defaultMessage": "Sachsen"
+    },
+    "France_Grand_Est": {
+        "defaultMessage": "Grand Est"
+    },
+    "France_Hauts-de-France": {
+        "defaultMessage": "Hauts-de-France"
+    },
+    "Germany_Rhineland-Palatinate": {
+        "defaultMessage": "Rheinland-Pfalz"
+    },
+    "France_Normandy": {
+        "defaultMessage": "Normandie"
     }
 }

@@ -7654,5 +7654,11 @@
     },
     "France_Nouvelle-Aquitaine": {
         "defaultMessage": "Новая Аквитания"
+    },
+    "World": {
+        "defaultMessage": "World Overview"
+    },
+    "WorldCoasts": {
+        "defaultMessage": "World Overview (Coastlines)"
     }
 }
