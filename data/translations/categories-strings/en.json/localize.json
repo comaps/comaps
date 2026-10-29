@@ -1915,5 +1915,92 @@
     },
     "cuisine-african": {
         "defaultMessage": "7African Food|9African Cuisine"
+    },
+    "@club": {
+        "defaultMessage": "Club|clubs"
+    },
+    "club|@club": {
+        "defaultMessage": ""
+    },
+    "club-allotments|@club": {
+        "defaultMessage": "9Allotment Association|allotments club|allotment"
+    },
+    "club-amateur_radio|@club": {
+        "defaultMessage": "4Amateur Radio Club|ham radio|radio club"
+    },
+    "club-art|@club": {
+        "defaultMessage": "Art Club|art society"
+    },
+    "club-automobile|@club": {
+        "defaultMessage": "Automobile Club|car club|motoring club"
+    },
+    "club-board_games|@club": {
+        "defaultMessage": "5Board Games Club|board games|card games|boardgame|board game|cardgame|tabletop|tabletop games|games"
+    },
+    "club-cadet|@club": {
+        "defaultMessage": "5Cadet Club|cadets"
+    },
+    "club-computer|@club": {
+        "defaultMessage": "8Computer Club|computers club"
+    },
+    "club-culture|@club": {
+        "defaultMessage": "8Cultural Association|cultural club"
+    },
+    "club-dog|@club": {
+        "defaultMessage": "3Dog Club|dogs club|kennel club"
+    },
+    "club-fraternity|@club": {
+        "defaultMessage": "4Fraternity|sorority|frat"
+    },
+    "club-freemasonry|@club": {
+        "defaultMessage": "Masonic Lodge|freemasonry|freemasonry lodge|freemasons|masons"
+    },
+    "club-game|@club": {
+        "defaultMessage": "6Gaming Club|game club|video games|videogames|videogame"
+    },
+    "club-gardening|@club": {
+        "defaultMessage": "Gardening Club|gardening|garden club|horticultural society"
+    },
+    "club-history|@club": {
+        "defaultMessage": "History Club|historical society|heritage society"
+    },
+    "club-hunting|@club": {
+        "defaultMessage": "Hunting Club|hunting|hunters"
+    },
+    "club-model_railway|@club": {
+        "defaultMessage": "Model Railway Club|model railway|miniature railway|miniature trains"
+    },
+    "club-motorcycle|@club": {
+        "defaultMessage": "Motorcycle Club|motoclub|motorbike club|biker club"
+    },
+    "club-music|@club": {
+        "defaultMessage": "Music Club|music society"
+    },
+    "club-religion|@club": {
+        "defaultMessage": "Religious Club"
+    },
+    "club-scout|@club": {
+        "defaultMessage": "Scout Club|scout|scouts|scouting|scout group|scout hut|girl guides"
+    },
+    "club-social|@club": {
+        "defaultMessage": "6Social Club|Ethnic Club"
+    },
+    "club-student|@club": {
+        "defaultMessage": "Student Club|student society|student association"
+    },
+    "club-surf_life_saving|@club": {
+        "defaultMessage": "4Surf Life Saving|lifesaving club|surf lifesaving|life saving club"
+    },
+    "club-theatre|@club": {
+        "defaultMessage": "Theatre Club|drama club|amateur theatre|theatre group"
+    },
+    "club-veterans|@club": {
+        "defaultMessage": "Veterans Club|veterans association"
+    },
+    "club-youth|@club": {
+        "defaultMessage": "Youth Club"
+    },
+    "club-youth_movement|@club": {
+        "defaultMessage": "Youth Movement|youth movement club|youth organisation"
     }
 }
