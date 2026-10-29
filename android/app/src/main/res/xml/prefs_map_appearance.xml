@@ -8,7 +8,7 @@
     android:widgetLayout="@layout/preference_switch"
     app:singleLineTitle="false" />
   <ListPreference
-      android:defaultValue="2"
+      android:defaultValue="1"
       android:entries="@array/pref_region_overlay_mode_options"
       android:entryValues="@array/pref_region_overlay_mode_options_values"
       android:key="@string/pref_region_overlay_mode_key"

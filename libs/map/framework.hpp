@@ -867,7 +867,7 @@ public:
 private:
   settings::UsageStats m_usageStats;
 
-  RegionOverlayMode m_regionOverlayMode = RegionOverlayMode::NonDownloaded;
+  RegionOverlayMode m_regionOverlayMode = RegionOverlayMode::Downloaded;
 
 public:
   power_management::PowerManager & GetPowerManager() { return m_powerManager; }

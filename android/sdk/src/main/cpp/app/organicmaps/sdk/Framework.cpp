@@ -1637,7 +1637,7 @@ JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_Framework_nativeGetRegionOverlay
   if (g_framework)
     return static_cast<jint>(frm()->GetRegionOverlayMode());
   else
-    return static_cast<jint>(::Framework::RegionOverlayMode::NonDownloaded);
+    return static_cast<jint>(::Framework::RegionOverlayMode::Downloaded);
 }
 
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetRegionOverlayMode(JNIEnv * env, jclass, jint mode)
