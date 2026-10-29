@@ -1882,5 +1882,17 @@
     },
     "amenity-music_venue|@category_entertainment|@category_nightlife": {
         "defaultMessage": "6Spillested"
+    },
+    "amenity-research_institute": {
+        "defaultMessage": "5Forskningsinstitut|5Forskningscenter|4Laboratorium"
+    },
+    "cuisine-vegetarian_only|cuisine-vegan_only": {
+        "defaultMessage": "4Helt vegetarisk|3Kun vegetarisk|3Vegetarisk"
+    },
+    "cuisine-vegan_only": {
+        "defaultMessage": "4Helt vegansk|3Kun vegansk|3Vegansk"
+    },
+    "@club": {
+        "defaultMessage": "Klub|Klubber|Forening|Foreninger"
     }
 }

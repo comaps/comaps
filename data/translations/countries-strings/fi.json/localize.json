@@ -7648,5 +7648,17 @@
     },
     "Germany_Saxony": {
         "defaultMessage": "Saksi"
+    },
+    "Germany_Brandenburg": {
+        "defaultMessage": "Brandenburg"
+    },
+    "World": {
+        "defaultMessage": "World Overview"
+    },
+    "WorldCoasts": {
+        "defaultMessage": "World Overview (Coastlines)"
+    },
+    "Germany_Rhineland-Palatinate": {
+        "defaultMessage": "Rhineland-Palatinate"
     }
 }

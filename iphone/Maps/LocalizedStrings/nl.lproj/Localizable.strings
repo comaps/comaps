@@ -663,7 +663,7 @@
 "ferry_crossing" = "Veerboot";
 "trip_start" = "Laten we gaan";
 "pick_destination" = "Bestemming";
-"follow_my_position" = "Centreer";
+"follow_my_position" = "Centreren";
 "search_results" = "Zoekresultaten";
 "then_turn" = "Dan";
 "redirect_route_alert" = "Wil je de route opnieuw plannen?";

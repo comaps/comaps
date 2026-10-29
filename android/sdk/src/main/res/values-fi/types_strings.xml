@@ -1515,4 +1515,7 @@
     <string name="type.amenity.food_sharing">Yhteisöjääkaappi</string>
     <string name="type.amenity.animal_boarding">Lemmikkihotelli</string>
     <string name="type.amenity.car_pooling">Autojen yhteiskäyttö</string>
+    <string name="type.building.abandoned">Hylätty rakennus</string>
+    <string name="type.shop.games">Pelikauppa</string>
+    <string name="type.railway.station.subway.boston">Metroasema</string>
 </resources>

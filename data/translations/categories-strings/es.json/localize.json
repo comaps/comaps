@@ -3,7 +3,7 @@
         "defaultMessage": "Comer|Comida|Gastronomía|Dónde comer"
     },
     "@category_food": {
-        "defaultMessage": "Provisiones|Víveres|4Alimentos|4Alimentación|Abasto|Despensa|Abarrotes|Comestibles"
+        "defaultMessage": "Provisiones|Víveres|Alimentos|4Alimentación|Abasto|Despensa|Abarrotes|Comestibles"
     },
     "@category_transport": {
         "defaultMessage": "5Transporte"
@@ -36,7 +36,7 @@
         "defaultMessage": "4Cajero automático|cajeros automáticos|cajero|cajeros|dispensador de efectivo|dispensador de dinero|sacar dinero|sacar efectivo|sacar plata|retirar dinero|retirar efectivo"
     },
     "@category_rv": {
-        "defaultMessage": "Instalaciones para autocaravanas|5Caravanas|5Autocaravanas|5Motorhome|camper|campervan|camper van"
+        "defaultMessage": "5Caravanas|5Autocaravanas|Área de autocaravanas|Zona de caravanas|RV|Camper"
     },
     "amenity-atm|@category_atm": {
         "defaultMessage": "dinero|efectivo|plata|5cajero|6cajero automático|6minibanco|mini banco|ATM|U+1F3E7|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"
@@ -45,10 +45,10 @@
         "defaultMessage": "3Banco|4Sucursal bancaria|banca|entidad bancaria|Caja de ahorros|Entidad financiera|Institución financiera|Servicios financieros|Servicios bancarios)"
     },
     "@category_secondhand": {
-        "defaultMessage": "4Segunda mano"
+        "defaultMessage": "4Segunda mano|usado|vintage|5Tienda vintage"
     },
     "amenity-bank|@category_bank": {
-        "defaultMessage": "dinero|plata|efectivo"
+        "defaultMessage": "dinero|plata|efectivo|U+1F3E6|U+1F4B0|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7"
     },
     "@category_recycling": {
         "defaultMessage": "4Reciclaje|Reciclaje de residuos|Eliminación de residuos|Materiales reciclables|Recogida selectiva de basura|Clasificación de residuos|Reutilización|Valorización de residuos"
@@ -1650,7 +1650,7 @@
         "defaultMessage": "Cena"
     },
     "cuisine-donut": {
-        "defaultMessage": "Rosquillas"
+        "defaultMessage": "Dónuts|Donas|Rosquillas|Rosquitas"
     },
     "cuisine-fish_and_chips": {
         "defaultMessage": "Pescado rebozado con patatas"
@@ -1870,5 +1870,20 @@
     },
     "amenity-bicycle_parking-covered": {
         "defaultMessage": "4parking de bicicleta cubierto|parking para bicicletas cubierto|estacionamiento de bicicletas cubierto|estacionamiento para bicicletas cubierto"
+    },
+    "amenity-fast_food-cafeteria|@category_eat": {
+        "defaultMessage": "Cantina|Comedor"
+    },
+    "shop-games|@shop": {
+        "defaultMessage": "4Tienda de juegos|juegos de mesa|tienda de juegos de mesa|juegos de mesa|juegos de cartas|juegos|cartas coleccionables|U+1F3B2|U+1F3B4"
+    },
+    "cuisine-vegetarian_only|cuisine-vegan_only": {
+        "defaultMessage": "4Vegetariano|Solo vegetariano"
+    },
+    "cuisine-vegan_only": {
+        "defaultMessage": "4Vegano|Solo vegano"
+    },
+    "@club": {
+        "defaultMessage": "club|clubes"
     }
 }

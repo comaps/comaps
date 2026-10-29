@@ -15,13 +15,13 @@
         "defaultMessage": "NULL"
     },
     "make_a_sharp_right_turn": {
-        "defaultMessage": "Skarpt höger."
+        "defaultMessage": "Sväng skarpt höger."
     },
     "make_a_sharp_right_turn_street": {
         "defaultMessage": "NULL"
     },
     "enter_the_roundabout": {
-        "defaultMessage": "Kör in i rondellen."
+        "defaultMessage": "Vid rondellen."
     },
     "enter_the_roundabout_street": {
         "defaultMessage": "NULL"
@@ -30,7 +30,7 @@
         "defaultMessage": "NULL"
     },
     "leave_the_roundabout": {
-        "defaultMessage": "Lämna rondellen."
+        "defaultMessage": "Kör ut ur rondellen."
     },
     "leave_the_roundabout_street": {
         "defaultMessage": "NULL"
@@ -54,7 +54,7 @@
         "defaultMessage": "NULL"
     },
     "make_a_sharp_left_turn": {
-        "defaultMessage": "Skarpt vänster."
+        "defaultMessage": "Sväng skarpt vänster."
     },
     "make_a_sharp_left_turn_street": {
         "defaultMessage": "NULL"
@@ -69,64 +69,64 @@
         "defaultMessage": "NULL"
     },
     "go_straight": {
-        "defaultMessage": "Åk rakt framåt."
+        "defaultMessage": "Fortsätt rakt fram."
     },
     "exit": {
-        "defaultMessage": "Utgång."
+        "defaultMessage": "Ta avfarten."
     },
     "onto": {
         "defaultMessage": "in på"
     },
     "take_exit_number": {
-        "defaultMessage": "Utgång in på"
+        "defaultMessage": "Ta avfart"
     },
     "take_exit_number_street_verb": {
         "defaultMessage": "NULL"
     },
     "route_recalculating": {
-        "defaultMessage": "Omberäkning av rutten"
+        "defaultMessage": "Beräknar om rutten"
     },
     "destination": {
-        "defaultMessage": "Är du framme."
+        "defaultMessage": "är du framme vid målet."
     },
     "you_have_reached_the_destination": {
-        "defaultMessage": "Du har anlänt."
+        "defaultMessage": "Du är framme vid målet."
     },
     "in_50_meters": {
         "defaultMessage": "Om femtio meter"
     },
     "in_100_meters": {
-        "defaultMessage": "Om ett hundra meter"
+        "defaultMessage": "Om hundra meter"
     },
     "in_200_meters": {
-        "defaultMessage": "Om två hundra meter"
+        "defaultMessage": "Om tvåhundra meter"
     },
     "in_250_meters": {
-        "defaultMessage": "Om två hundra femtio meter"
+        "defaultMessage": "Om tvåhundrafemtio meter"
     },
     "in_300_meters": {
-        "defaultMessage": "Om tre hundra meter"
+        "defaultMessage": "Om trehundra meter"
     },
     "in_400_meters": {
-        "defaultMessage": "Om fyra hundra meter"
+        "defaultMessage": "Om fyrahundra meter"
     },
     "in_500_meters": {
-        "defaultMessage": "Om fem hundra meter"
+        "defaultMessage": "Om femhundra meter"
     },
     "in_600_meters": {
-        "defaultMessage": "Om sex hundra meter"
+        "defaultMessage": "Om sexhundra meter"
     },
     "in_700_meters": {
-        "defaultMessage": "Om sju hundra meter"
+        "defaultMessage": "Om sjuhundra meter"
     },
     "in_750_meters": {
-        "defaultMessage": "Om sju hundra femtio meter"
+        "defaultMessage": "Om sjuhundrafemtio meter"
     },
     "in_800_meters": {
-        "defaultMessage": "Om åtta hundra meter"
+        "defaultMessage": "Om åttahundra meter"
     },
     "in_900_meters": {
-        "defaultMessage": "Om nio hundra meter"
+        "defaultMessage": "Om niohundra meter"
     },
     "in_1_kilometer": {
         "defaultMessage": "Om en kilometer"
@@ -144,7 +144,7 @@
         "defaultMessage": "Om tre kilometer"
     },
     "then": {
-        "defaultMessage": "Efter det"
+        "defaultMessage": "Därefter"
     },
     "dist_direction_onto_street": {
         "defaultMessage": "%1$s %2$s %3$s %4$s"
@@ -252,69 +252,69 @@
         "defaultMessage": "Om femtio fot"
     },
     "in_100_feet": {
-        "defaultMessage": "Om ett hundra fot"
+        "defaultMessage": "Om hundra fot"
     },
     "in_200_feet": {
-        "defaultMessage": "Om två hundra fot"
+        "defaultMessage": "Om tvåhundra fot"
     },
     "in_300_feet": {
-        "defaultMessage": "Om tre hundra fot"
+        "defaultMessage": "Om trehundra fot"
     },
     "in_400_feet": {
-        "defaultMessage": "Om fyra hundra fot"
+        "defaultMessage": "Om fyrahundra fot"
     },
     "in_500_feet": {
-        "defaultMessage": "Om fem hundra fot"
+        "defaultMessage": "Om femhundra fot"
     },
     "in_600_feet": {
-        "defaultMessage": "Om sex hundra fot"
+        "defaultMessage": "Om sexhundra fot"
     },
     "in_700_feet": {
-        "defaultMessage": "Om sju hundra fot"
+        "defaultMessage": "Om sjuhundra fot"
     },
     "in_800_feet": {
-        "defaultMessage": "Om åtta hundra fot"
+        "defaultMessage": "Om åttahundra fot"
     },
     "in_900_feet": {
-        "defaultMessage": "Om nio hundra fot"
+        "defaultMessage": "Om niohundra fot"
     },
     "in_1000_feet": {
-        "defaultMessage": "Om ett tusen fot"
+        "defaultMessage": "Om tusen fot"
     },
     "in_1500_feet": {
-        "defaultMessage": "Om ett tusen fem hundra fot"
+        "defaultMessage": "Om tusenfemhundra fot"
     },
     "in_2000_feet": {
-        "defaultMessage": "Om två tusen fot"
+        "defaultMessage": "Om tvåtusen fot"
     },
     "in_2500_feet": {
-        "defaultMessage": "Om två tusen fem hundra fot"
+        "defaultMessage": "Om tvåtusenfemhundra fot"
     },
     "in_3000_feet": {
-        "defaultMessage": "Om tre tusen fot"
+        "defaultMessage": "Om tretusen fot"
     },
     "in_3500_feet": {
-        "defaultMessage": "Om tre tusen fem hundra fot"
+        "defaultMessage": "Om tretusenfemhundra fot"
     },
     "in_4000_feet": {
-        "defaultMessage": "Om fyra tusen fot"
+        "defaultMessage": "Om fyratusen fot"
     },
     "in_4500_feet": {
-        "defaultMessage": "Om fyra tusen fem hundra fot"
+        "defaultMessage": "Om fyratusenfemhundra fot"
     },
     "in_5000_feet": {
-        "defaultMessage": "Om fem tusen fot"
+        "defaultMessage": "Om femtusen fot"
     },
     "in_1_mile": {
-        "defaultMessage": "Om en mile"
+        "defaultMessage": "Om en engelsk mil"
     },
     "in_1_5_miles": {
-        "defaultMessage": "Om en och en halv mile"
+        "defaultMessage": "Om en och en halv engelsk mil"
     },
     "in_2_miles": {
-        "defaultMessage": "Om två mile"
+        "defaultMessage": "Om två engelska mil"
     },
     "unknown_camera": {
-        "defaultMessage": "Kamera framför"
+        "defaultMessage": "Fartkamera längre fram"
     }
 }

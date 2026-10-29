@@ -106,15 +106,15 @@
 "type.amenity.nursing_home" = "Maljunulejo";
 "type.amenity.parking" = "Parkejo";
 "type.amenity.parking.fee" = "Parkejo";
-"type.amenity.parking.multi.storey" = "Pluretaĝa parkado";
-"type.amenity.parking.multi.storey.fee" = "Pluretaĝa parkado";
+"type.amenity.parking.multi.storey" = "Pluretaĝa parkumejo";
+"type.amenity.parking.multi.storey.fee" = "Pluretaĝa parkumejo";
 "type.amenity.parking.no.access" = "Privata parkejo";
 "type.amenity.parking.permissive" = "Privata parkejo";
 "type.amenity.parking.private" = "Privata parkejo";
 "type.amenity.parking.park_and_ride" = "Parku kaj veturu parkado";
-"type.amenity.parking.underground" = "Subtera parkado";
-"type.amenity.parking.underground.fee" = "Subtera parkado";
-"type.amenity.parking.underground.private" = "Privata subtera parkejo";
+"type.amenity.parking.underground" = "Subtera parkumejo";
+"type.amenity.parking.underground.fee" = "Subtera parkumejo";
+"type.amenity.parking.underground.private" = "Privata subtera parkumejo";
 "type.amenity.parking.street_side" = "Parkado ĉe la strato";
 "type.amenity.parking.street_side.fee" = "Parkado ĉe la strato";
 "type.amenity.parking.street_side.private" = "Privata parkado ĉe la strato";
@@ -171,7 +171,7 @@
 /* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "Ŝirmejo";
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
-"type.amenity.shelter.basic_hut" = "Bivouac Hut";
+"type.amenity.shelter.basic_hut" = "Kabano";
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "Duon-ferma ŝirmejo";
 "type.amenity.public_bath" = "Banejo";
@@ -185,61 +185,61 @@
 "type.amenity.townhall" = "Urbodomo";
 "type.amenity.university" = "Universitato";
 "type.amenity.vending_machine" = "Vendaŭtomato";
-"type.amenity.vending_machine.cigarettes" = "Cigarette Dispenser";
+"type.amenity.vending_machine.cigarettes" = "Vendilo de cigaredoj";
 "type.amenity.vending_machine.coffee" = "Kafvendilo";
-"type.amenity.vending_machine.condoms" = "Condoms Dispenser";
+"type.amenity.vending_machine.condoms" = "Vendilo de kondomoj";
 "type.amenity.vending_machine.drinks" = "Trinkaĵaŭtomato";
-"type.amenity.vending_machine.food" = "Food Dispenser";
-"type.amenity.vending_machine.newspapers" = "Newspaper Dispenser";
-"type.amenity.vending_machine.parking_tickets" = "Parking Meter";
-"type.amenity.vending_machine.public_transport_tickets" = "Public Transport Ticket Machine";
-"type.amenity.vending_machine.sweets" = "Sweets Dispenser";
-"type.amenity.vending_machine.excrement_bags" = "Excrement Bags Dispenser";
-"type.amenity.parcel_locker" = "Parcel Locker";
-"type.amenity.vehicle_inspection" = "Vehicle Inspection";
-"type.amenity.vending_machine.fuel" = "Fuel Pump";
+"type.amenity.vending_machine.food" = "Vendilo de manĝaĵo";
+"type.amenity.vending_machine.newspapers" = "Vendilo de gazetoj";
+"type.amenity.vending_machine.parking_tickets" = "Vendilo de parkumbiletoj";
+"type.amenity.vending_machine.public_transport_tickets" = "Vendilo de biletoj publikaj transportaj";
+"type.amenity.vending_machine.sweets" = "Vendilo de dolĉaĵoj";
+"type.amenity.vending_machine.excrement_bags" = "Vendilo de saketoj por fekaĵoj";
+"type.amenity.parcel_locker" = "Poŝtaŭtomato";
+"type.amenity.vehicle_inspection" = "Aŭtomobilkontrolejo";
+"type.amenity.vending_machine.fuel" = "Fuelpumpilo";
 "type.amenity.veterinary" = "Veterinaro";
 "type.amenity.animal_shelter" = "Ŝirmejo por bestoj";
 "type.amenity.waste_basket" = "Rubujo";
-"type.amenity.waste_disposal" = "Dumpster";
-"type.amenity.waste_transfer_station" = "Waste Transfer Station";
-"type.amenity.water_point" = "Water Tank Refill Point";
+"type.amenity.waste_disposal" = "Rubujego";
+"type.amenity.waste_transfer_station" = "Stacio de rubmastrumado";
+"type.amenity.water_point" = "Trinkakvejo";
 "type.amenity.water_point.drinking_water_no" = "Water Tank Refill Point";
 "type.barrier" = "Bariero";
 "type.barrier.yes" = "Bariero";
-"type.barrier.block" = "Block";
-"type.barrier.bollard" = "Bollard";
-"type.barrier.border_control" = "Border Control";
-"type.barrier.chain" = "Chain";
-"type.barrier.city_wall" = "City Wall";
-"type.barrier.cycle_barrier" = "Cycle Barrier";
-"type.waterway.ditch" = "Drainage Ditch";
+"type.barrier.block" = "Bloko";
+"type.barrier.bollard" = "Paliso";
+"type.barrier.border_control" = "Lima kontrolejo";
+"type.barrier.chain" = "Ĉeno";
+"type.barrier.city_wall" = "Urbomurego";
+"type.barrier.cycle_barrier" = "Barilo kontraŭbicikla";
+"type.waterway.ditch" = "Fosaĵo";
 "type.natural.water.moat" = "Ĉirkaŭfosaĵo";
-"type.natural.water.wastewater" = "Wastewater";
+"type.natural.water.wastewater" = "Forĵetakvo";
 "type.barrier.entrance" = "Enirejo";
 "type.barrier.fence" = "Barilo";
-"type.barrier.guard_rail" = "Guard Rail";
+"type.barrier.guard_rail" = "Ŝirmrelo";
 "type.barrier.gate" = "Pordego";
 "type.barrier.hedge" = "Heĝo";
-"type.barrier.kissing_gate" = "Kissing Gate";
+"type.barrier.kissing_gate" = "Nurhoma pordego";
 "type.barrier.lift_gate" = "Levbariero";
-"type.barrier.retaining_wall" = "Retaining Wall";
-"type.barrier.stile" = "Stile";
+"type.barrier.retaining_wall" = "Subtenmuro";
+"type.barrier.stile" = "Transbarilejo";
 "type.barrier.turnstile" = "Turnstile";
 "type.barrier.wicket_gate" = "Wicket Gate";
-"type.barrier.swing_gate" = "Swing Gate";
+"type.barrier.swing_gate" = "Bariero (turnebla)";
 "type.barrier.toll_booth" = "Vojimposta pagejo";
 "type.barrier.wall" = "Muro";
 "type.boundary" = "Limo";
-"type.boundary.administrative" = "Administrative Boundary";
+"type.boundary.administrative" = "Administra limo";
 /* Borders between countries. */
 "type.boundary.administrative.2" = "Landlimo";
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
-"type.boundary.administrative.3" = "Regional Boundary";
+"type.boundary.administrative.3" = "Regiona limo";
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
-"type.boundary.administrative.4" = "Regional Boundary";
+"type.boundary.administrative.4" = "Regiona limo";
 "type.boundary.national_park" = "Nacia parko";
-"type.boundary.aboriginal_lands" = "Indigenous Lands";
+"type.boundary.aboriginal_lands" = "Indiĝenaj teritorioj";
 "type.boundary.protected_area" = "Protektita areo";
 "type.boundary.protected_area.1" = "Protektita areo";
 "type.boundary.protected_area.2" = "Protektita areo";
@@ -260,24 +260,24 @@
 "type.craft.beekeeper" = "Abelisto";
 "type.craft.blacksmith" = "Forĝisto";
 "type.craft.brewery" = "Bierfarejo";
-"type.craft.caterer" = "Caterer";
+"type.craft.caterer" = "Oficejo de manĝprovizisto";
 "type.craft.carpenter" = "Ĉarpentisto";
-"type.craft.confectionery" = "Confectioner";
+"type.craft.confectionery" = "Sukeraĵejo";
 "type.craft.electrician" = "Elektristo";
 "type.craft.electronics_repair" = "Elektronikriparejo";
 "type.craft.gardener" = "Ĝardenisto";
-"type.craft.grinding_mill" = "Grinding Mill";
-"type.craft.handicraft" = "Handicraft";
+"type.craft.grinding_mill" = "Muelejo";
+"type.craft.handicraft" = "Manmetia laborejo";
 /* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "HVAC";
-"type.craft.key_cutter" = "Key Cutting";
-"type.craft.locksmith" = "Locksmith";
-"type.craft.metal_construction" = "Metal Worker";
+"type.craft.key_cutter" = "Ŝlosilkopiejo";
+"type.craft.locksmith" = "Seruristo";
+"type.craft.metal_construction" = "Metalkonstruaĵisto";
 "type.craft.painter" = "Farbisto";
 "type.craft.photographer" = "Fotisto";
 "type.shop.camera" = "Fotilvendejo";
 "type.craft.plumber" = "Tubisto";
-"type.craft.sawmill" = "Sawmill";
+"type.craft.sawmill" = "Segejo";
 "type.craft.shoemaker" = "Ŝuisto";
 "type.craft.winery" = "Vinbieno";
 "type.craft.tailor" = "Tajloro";
@@ -363,19 +363,19 @@
 "type.cuisine.tea" = "Teo";
 "type.cuisine.thai" = "Taja";
 "type.cuisine.turkish" = "Turka";
-"type.cuisine.vegan" = "Vegana";
-"type.cuisine.vegetarian" = "Vegetara";
+"type.cuisine.vegan" = "Vegana opcioj";
+"type.cuisine.vegetarian" = "Vegetara opcioj";
 "type.cuisine.vietnamese" = "Vjetnama";
-"type.emergency" = "Emergency";
-"type.emergency.access_point" = "Emergency Rescue Point";
+"type.emergency" = "Urĝa kazo";
+"type.emergency.access_point" = "Savpunkto";
 "type.emergency.access_point.address" = "Emergency Rescue Address";
-"type.emergency.assembly_point" = "Emergency Assembly Point";
+"type.emergency.assembly_point" = "Renkontejo post evakuo";
 "type.emergency.disaster_help_point" = "Emergency Disaster Help Point";
 "type.emergency.life_ring" = "Savoringo";
 "type.emergency.defibrillator" = "Defibrilatoro";
 "type.emergency.fire_hydrant" = "Hidranto";
 "type.amenity.hydrant" = "Irrigation Hydrant";
-"type.emergency.phone" = "Emergency Phone";
+"type.emergency.phone" = "Alarma telefono";
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "Akva savisto";
 "type.beacon.cardinal.east" = "Cardinal Beacon";
@@ -405,44 +405,44 @@
 "type.spherical_buoy.lateral.starboard" = "Spherical Lateral Buoy";
 "type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
 "type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
-"type.lateral.port" = "Port";
-"type.lateral.starboard" = "Starboard";
-"type.cardinal.east" = "East";
-"type.cardinal.north" = "North";
-"type.cardinal.south" = "South";
-"type.cardinal.west" = "West";
+"type.lateral.port" = "Babordo";
+"type.lateral.starboard" = "Tribordo";
+"type.cardinal.east" = "Oriento";
+"type.cardinal.north" = "Nordo";
+"type.cardinal.south" = "Sudo";
+"type.cardinal.west" = "Okcidento";
 /* A mountain rescue base for search and rescue activities. */
-"type.emergency.mountain_rescue" = "Mountain Rescue Station";
+"type.emergency.mountain_rescue" = "Stacio de montara savservo";
 /* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "Enirejo";
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
-"type.entrance.main" = "Main Entrance";
-"type.entrance.house" = "House Entrance";
-"type.entrance.garage" = "Garage Entrance";
-"type.entrance.service" = "Service Entrance";
-"type.entrance.entry" = "Entry (Only)";
-"type.entrance.exit" = "Exit (Only)";
-"type.entrance.emergency" = "Emergency Exit";
+"type.entrance.main" = "Ĉefa enirejo";
+"type.entrance.house" = "Doma enirejo";
+"type.entrance.garage" = "Garaĝa enirejo";
+"type.entrance.service" = "Serva enirejo";
+"type.entrance.entry" = "Enirejo (nur)";
+"type.entrance.exit" = "Elirejo (nur)";
+"type.entrance.emergency" = "Danĝerelirejo";
 "type.fee.yes" = "$";
 "type.fee.no" = "Senpage";
-"type.healthcare.laboratory" = "Medical Laboratory";
-"type.healthcare.physiotherapist" = "Physiotherapist";
-"type.healthcare.alternative" = "Alternative Medicine";
-"type.healthcare.audiologist" = "Audiologist";
+"type.healthcare.laboratory" = "Medicina laboratorio";
+"type.healthcare.physiotherapist" = "Fizioterapiisto";
+"type.healthcare.alternative" = "Alternativa medicino";
+"type.healthcare.audiologist" = "Aŭdologiisto";
 "type.healthcare.blood_donation" = "Blood Donation Center";
-"type.healthcare.optometrist" = "Optometrist";
-"type.healthcare.podiatrist" = "Podiatrist";
-"type.healthcare.psychotherapist" = "Psychotherapist";
-"type.healthcare.sample_collection" = "Sample Collection Centre";
-"type.healthcare.speech_therapist" = "Logopedics";
+"type.healthcare.optometrist" = "Optometriisto";
+"type.healthcare.podiatrist" = "Piedkuracisto";
+"type.healthcare.psychotherapist" = "Psiĥoterapiisto";
+"type.healthcare.sample_collection" = "Prenejo de medicinaj specimenoj";
+"type.healthcare.speech_therapist" = "Logopediisto";
 "type.highway" = "Vojo";
-"type.highway.bridleway" = "Bridle Path";
+"type.highway.bridleway" = "Ĉevalvojo";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "Ponto";
-"type.highway.bridleway.permissive" = "Bridle Path";
+"type.highway.bridleway.permissive" = "Ĉevalvojo";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "Tunelo";
-"type.highway.busway" = "Dedicated Bus Road";
+"type.highway.busway" = "Buskoridoro";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.busway.bridge" = "Ponto";
 /* These translations are used for all type.highway.*.tunnel. */
@@ -456,27 +456,27 @@
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "Biciklotunelo";
 "type.highway.elevator" = "Lifto";
-"type.highway.footway" = "Foot Path";
+"type.highway.footway" = "Trotuaro";
 "type.highway.footway.sidewalk" = "Trotuaro";
 "type.highway.footway.crossing" = "Piedira transirejo";
-"type.highway.footway.area" = "Pedestrian Area";
+"type.highway.footway.area" = "Areo de trotuaro";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.footway.bridge" = "Ponto por piedirantoj";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "Tunelo por piedirantoj";
 "type.highway.ford" = "Vadejo";
-"type.highway.living_street" = "Living Street";
+"type.highway.living_street" = "Ĉedoma strato";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "Ponto";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "Tunelo";
 "type.highway.motorway" = "Aŭtovojo";
 /* These translations are used for all type.highway.*.bridge. */
-"type.highway.motorway.bridge" = "Motorway Bridge";
+"type.highway.motorway.bridge" = "Aŭtovojponto";
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.motorway.tunnel" = "Motorway Tunnel";
+"type.highway.motorway.tunnel" = "Aŭtovojtunelo";
 "type.highway.motorway_junction" = "Road Exit";
-"type.highway.motorway_link" = "Motorway Ramp";
+"type.highway.motorway_link" = "Aŭtovoja ligilo";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "Ponto";
 /* These translations are used for all type.highway.*.tunnel. */
@@ -486,11 +486,11 @@
 "type.highway.path.difficult" = "Difficult or Indistinct Trail";
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "Expert or Indiscernible Trail";
-"type.highway.path.bicycle" = "Cycle & Foot Path";
-"type.highway.footway.bicycle" = "Cycle & Foot Path";
+"type.highway.path.bicycle" = "Cikla & piedira vojo";
+"type.highway.footway.bicycle" = "Piedira & cikla vojo";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "Ponto";
-"type.highway.path.horse" = "Bridle Path";
+"type.highway.path.horse" = "Ĉevalvojo";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "Tunelo";
 "type.highway.pedestrian" = "Piedira zono";
@@ -505,14 +505,14 @@
 "type.highway.primary.bridge" = "Ponto";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "Tunelo";
-"type.highway.primary_link" = "Primary Road Ramp";
+"type.highway.primary_link" = "Unua-rang-voja ligilo";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "Ponto";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "Tunelo";
-"type.highway.raceway" = "Racetrack";
-"type.highway.residential" = "Residential Street";
-"type.highway.residential.area" = "Residential Street";
+"type.highway.raceway" = "Dromo";
+"type.highway.residential" = "Loka vojo";
+"type.highway.residential.area" = "Loka vojo";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.residential.bridge" = "Ponto";
 /* These translations are used for all type.highway.*.tunnel. */
@@ -530,21 +530,21 @@
 "type.highway.secondary.bridge" = "Ponto";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "Tunelo";
-"type.highway.secondary_link" = "Secondary Road Ramp";
+"type.highway.secondary_link" = "Dua-rang-voja ligilo";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "Ponto";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "Tunelo";
-"type.highway.service" = "Service Road";
-"type.highway.service.area" = "Service Road";
+"type.highway.service" = "Alira vojo";
+"type.highway.service.area" = "Alira vojo";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "Ponto";
 "type.highway.service.driveway" = "Alveturaleo";
-"type.highway.service.parking_aisle" = "Parking Aisle";
+"type.highway.service.parking_aisle" = "Parkumeja strateto";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "Tunelo";
 "type.highway.services" = "Servejo de vojaĝantoj";
-"type.highway.speed_camera" = "Speed Camera";
+"type.highway.speed_camera" = "Rapidkontrolilo";
 "type.highway.steps" = "Ŝtuparo";
 "type.highway.ladder" = "Ŝtupetaro";
 /* These translations are used for all type.highway.*.bridge. */
@@ -556,101 +556,101 @@
 "type.highway.tertiary.bridge" = "Ponto";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "Tunelo";
-"type.highway.tertiary_link" = "Tertiary Road Ramp";
+"type.highway.tertiary_link" = "Tria-rang-voja ligilo";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "Ponto";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "Tunelo";
-"type.highway.track" = "Track";
-"type.highway.track.area" = "Track";
+"type.highway.track" = "Arbara/kampa vojo";
+"type.highway.track.area" = "Arbara/kampa vojo";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.track.bridge" = "Ponto";
-"type.highway.track.grade1" = "Track";
-"type.highway.track.no.access" = "Track";
+"type.highway.track.grade1" = "Arbara/kampa vojo";
+"type.highway.track.no.access" = "Arbara/kampa vojo";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "Tunelo";
 "type.highway.traffic_signals" = "Trafiklumoj";
-"type.highway.trunk" = "Vojo ekspresa";
+"type.highway.trunk" = "Ekspresvojo";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "Ponto";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "Tunelo";
-"type.highway.trunk_link" = "Trunk Road Ramp";
+"type.highway.trunk_link" = "Ekspresvoja ligilo";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "Ponto";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "Tunelo";
-"type.highway.unclassified" = "Minor Road";
-"type.highway.unclassified.area" = "Minor Road";
+"type.highway.unclassified" = "Vojo";
+"type.highway.unclassified.area" = "Vojo";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "Ponto";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "Tunelo";
 "type.area_highway.cycleway" = "Biciklovojo";
-"type.area_highway.footway" = "Foot Path";
-"type.area_highway.living_street" = "Living Street";
+"type.area_highway.footway" = "Trotuaro";
+"type.area_highway.living_street" = "Ĉedoma strato";
 "type.area_highway.motorway" = "Aŭtovojo";
-"type.area_highway.path" = "Path";
+"type.area_highway.path" = "Pado";
 "type.area_highway.pedestrian" = "Piedira zono";
 "type.area_highway.primary" = "Vojo unua-ranga";
-"type.area_highway.residential" = "Residential Street";
+"type.area_highway.residential" = "Loka vojo";
 "type.area_highway.secondary" = "Vojo dua-ranga";
-"type.area_highway.service" = "Service Road";
+"type.area_highway.service" = "Alira vojo";
 "type.area_highway.tertiary" = "Vojo tria-ranga";
 "type.area_highway.steps" = "Ŝtuparo";
-"type.area_highway.track" = "Track";
+"type.area_highway.track" = "Arbara/kampa vojo";
 "type.area_highway.trunk" = "Vojo ekspresa";
-"type.area_highway.unclassified" = "Minor Road";
-"type.historic" = "Historic Object";
-"type.historic.aircraft" = "Historic Aircraft";
-"type.historic.anchor" = "Historic Anchor";
-"type.historic.archaeological_site" = "Archaeological Site";
-"type.historic.battlefield" = "Historic Battlefield";
-"type.historic.boundary_stone" = "Boundary Stone";
-"type.historic.cannon" = "Cannon";
+"type.area_highway.unclassified" = "Vojo";
+"type.historic" = "Historia objekto";
+"type.historic.aircraft" = "Historia aeroplano";
+"type.historic.anchor" = "Historia ankro";
+"type.historic.archaeological_site" = "Arkeologia loko";
+"type.historic.battlefield" = "Historia batalkampo";
+"type.historic.boundary_stone" = "Limŝtono";
+"type.historic.cannon" = "Kanono";
 "type.historic.castle" = "Kastelo";
-"type.historic.castle.castrum" = "Roman Fort";
-"type.historic.castle.defensive" = "Stronghold Castle";
-"type.historic.castle.fortified_church" = "Fortified Church";
-"type.historic.castle.fortress" = "Fortress";
-"type.historic.castle.hillfort" = "Hillfort";
+"type.historic.castle.castrum" = "Castrum";
+"type.historic.castle.defensive" = "Burgo";
+"type.historic.castle.fortified_church" = "Defendpreĝejo";
+"type.historic.castle.fortress" = "Fortikaĵo";
+"type.historic.castle.hillfort" = "Remparburgo";
 "type.historic.castle.kremlin" = "Kremlo";
 "type.historic.castle.manor" = "Manor House";
 "type.historic.castle.palace" = "Palaco";
 "type.historic.castle.shiro" = "Japana kastelo";
 "type.historic.castle.stately" = "Stately Castle";
-"type.historic.city_gate" = "City Gate";
-"type.historic.citywalls" = "City Wall";
-"type.historic.fort" = "Fort";
-"type.historic.gallows" = "Gallows";
-"type.historic.locomotive" = "Historic Locomotive";
+"type.historic.city_gate" = "Urbopordego";
+"type.historic.citywalls" = "Urbomurego";
+"type.historic.fort" = "Burgo";
+"type.historic.gallows" = "Pendumiloj";
+"type.historic.locomotive" = "Historia lokomotivo";
 "type.historic.memorial" = "Memorial";
 "type.historic.memorial.cross" = "Memorial Cross";
 "type.historic.memorial.plaque" = "Commemorative Plaque";
 "type.historic.memorial.sculpture" = "Skulptarto";
 "type.historic.memorial.statue" = "Statuo";
 "type.historic.memorial.stolperstein" = "Stumbliga ŝtoneto";
-"type.historic.stone" = "Historic Stone";
+"type.historic.stone" = "Historia ŝtono";
 "type.historic.memorial.war_memorial" = "War Memorial";
-"type.historic.mine" = "Historic Mine";
-"type.historic.monument" = "Monument";
-"type.historic.pillory" = "Pillory";
+"type.historic.mine" = "Historia minejo";
+"type.historic.monument" = "Monumento";
+"type.historic.pillory" = "Punpilorio";
 "type.historic.ruins" = "Historia ruino";
 "type.historic.ship" = "Historia ŝipo";
 "type.historic.tank" = "Historia tanko";
-"type.historic.tomb" = "Tomb";
+"type.historic.tomb" = "Tombo";
 /* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
-"type.man_made.cross" = "Cross";
+"type.man_made.cross" = "Kruco";
 /* Usually a Christian historical cross placed along a road. */
-"type.historic.wayside_cross" = "Wayside Cross";
-"type.historic.wayside_shrine" = "Wayside Shrine";
+"type.historic.wayside_cross" = "Vojkruco";
+"type.historic.wayside_shrine" = "Adorejo apudvoja";
 "type.historic.wreck" = "Ŝipvrako";
 "type.internet_access" = "Interreto";
-"type.internet_access.wlan" = "Internet";
+"type.internet_access.wlan" = "Interreto";
 "type.junction" = "Vojkruciĝo";
 "type.junction.circular" = "Trafikcirklo";
 "type.junction.roundabout" = "Trafikcirklo";
-"type.landuse" = "Landuse";
+"type.landuse" = "Teruzado";
 "type.landuse.allotments" = "Familiaj ĝardenoj";
 "type.landuse.basin" = "Baseno";
 "type.landuse.brownfield" = "Bruna kampo";
@@ -658,13 +658,13 @@
 "type.landuse.cemetery" = "Tombejo";
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "Kristana tombejo";
-"type.landuse.religious" = "Religious Land";
-"type.landuse.commercial" = "Commercial Area";
-"type.landuse.construction" = "Construction Area";
-"type.landuse.education" = "Educational Facility";
-"type.landuse.farmland" = "Farmland";
-"type.landuse.farmyard" = "Farmyard";
-"type.landuse.field" = "Field";
+"type.landuse.religious" = "Religia tereno";
+"type.landuse.commercial" = "Komerca tereno";
+"type.landuse.construction" = "Konstruejo";
+"type.landuse.education" = "Eduka tereno";
+"type.landuse.farmland" = "Kampo";
+"type.landuse.farmyard" = "Farmkorto";
+"type.landuse.field" = "Kampo";
 "type.landuse.flowerbed" = "Flowerbed";
 "type.landuse.forest" = "Arbaro";
 "type.landuse.forest.coniferous" = "Pingloarbaro";
@@ -690,7 +690,7 @@
 "type.landuse.vineyard" = "Vitejo";
 "type.landuse.plant_nursery" = "Arbokultivejo";
 "type.leisure" = "Ripozo";
-"type.leisure.bandstand" = "Bandstand";
+"type.leisure.bandstand" = "Orkestrejeto";
 "type.leisure.common" = "Public Land";
 "type.leisure.dog_park" = "Dog Park";
 "type.leisure.escape_game" = "Eskapĉambro";
@@ -702,12 +702,12 @@
 "type.leisure.golf_course" = "Golfejo";
 "type.leisure.miniature_golf" = "Lengolfo";
 "type.leisure.hackerspace" = "Hackerspace";
-"type.leisure.ice_rink" = "Ice Rink";
+"type.leisure.ice_rink" = "Glitkurejo";
 "type.leisure.indoor_play" = "Indoor Play Centre";
 "type.leisure.marina" = "Jaĥthaveno";
 "type.leisure.nature_reserve" = "Naturrezervejo";
 "type.leisure.outdoor_seating" = "Outdoor Seating";
-"type.leisure.firepit" = "Firepit";
+"type.leisure.firepit" = "Fajrejo";
 "type.leisure.park" = "Parko";
 "type.leisure.park.no.access" = "Privata parko";
 "type.leisure.park.permissive" = "Parko";
@@ -799,7 +799,7 @@
 "type.mountain_pass" = "Montpasejo";
 "type.natural" = "Naturo";
 /* A rocky land cover. */
-"type.natural.bare_rock" = "Bare Rock";
+"type.natural.bare_rock" = "Roko";
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "Ŝtonetoj";
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
@@ -847,7 +847,7 @@
 "type.natural.wetland.marsh" = "Marĉo";
 "type.natural.wetland.saltmarsh" = "Salmarĉo";
 "type.natural.wetland.saltmarsh.tidal" = "Salmarĉo";
-"type.natural.wetland.fen" = "Fen";
+"type.natural.wetland.fen" = "Marĉo malalta";
 "type.natural.wetland.reedbed" = "Kareksejo";
 "type.natural.wetland.swamp" = "Marĉo";
 "type.natural.wetland.mangrove" = "Mangrovo";
@@ -861,65 +861,65 @@
 "type.office.lawyer" = "Oficejo de leĝisto";
 "type.office.ngo" = "Oficejo de ne-registara organizaĵo";
 "type.office.telecommunication" = "Oficejo de telekomunikado";
-"type.organic.only" = "Organic";
-"type.organic.yes" = "Organic";
-"type.place.city" = "City";
-"type.place.city.capital" = "Capital";
-"type.place.city.capital.10" = "City";
-"type.place.city.capital.11" = "City";
-"type.place.city.capital.2" = "Capital";
-"type.place.city.capital.3" = "City";
-"type.place.city.capital.4" = "City";
-"type.place.city.capital.5" = "City";
-"type.place.city.capital.6" = "City";
-"type.place.city.capital.7" = "City";
-"type.place.city.capital.8" = "City";
-"type.place.city.capital.9" = "City";
-"type.place.continent" = "Continent";
-"type.place.country" = "Country";
+"type.organic.only" = "Nur ekologia";
+"type.organic.yes" = "Ekologiaj opcioj";
+"type.place.city" = "Urbo";
+"type.place.city.capital" = "Ĉefurbo";
+"type.place.city.capital.10" = "Urbo";
+"type.place.city.capital.11" = "Urbo";
+"type.place.city.capital.2" = "Ĉefurbo";
+"type.place.city.capital.3" = "Urbo";
+"type.place.city.capital.4" = "Urbo";
+"type.place.city.capital.5" = "Urbo";
+"type.place.city.capital.6" = "Urbo";
+"type.place.city.capital.7" = "Urbo";
+"type.place.city.capital.8" = "Urbo";
+"type.place.city.capital.9" = "Urbo";
+"type.place.continent" = "Kontinento";
+"type.place.country" = "Lando";
 "type.place.county" = "County";
-"type.place.farm" = "Farm";
-"type.place.hamlet" = "Hamlet";
-"type.place.island" = "Island";
-"type.place.islet" = "Islet";
-"type.place.isolated_dwelling" = "Isolated Dwelling";
+"type.place.farm" = "Bieno";
+"type.place.hamlet" = "Domaro";
+"type.place.island" = "Insulo";
+"type.place.islet" = "Insuleto";
+"type.place.isolated_dwelling" = "Solstaranta domo";
 "type.place.locality" = "Locality";
 /* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
-"type.place.quarter" = "Quarter";
+"type.place.quarter" = "Urboparto";
 /* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
-"type.place.neighbourhood" = "Neighbourhood";
-"type.place.ocean" = "Ocean";
-"type.place.region" = "Region";
-"type.place.sea" = "Sea";
-"type.place.square" = "Square";
-"type.place.state" = "State";
-"type.place.state.USA" = "State";
+"type.place.neighbourhood" = "Kvartalo";
+"type.place.ocean" = "Oceano";
+"type.place.region" = "Regiono";
+"type.place.sea" = "Maro";
+"type.place.square" = "Placo";
+"type.place.state" = "Subŝtato";
+"type.place.state.USA" = "Subŝtato";
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
-"type.place.suburb" = "Suburb";
-"type.place.town" = "Town";
-"type.place.village" = "Village";
-"type.power" = "Power";
+"type.place.suburb" = "Antaŭurbo";
+"type.place.town" = "Urbeto";
+"type.place.village" = "Vilaĝo";
+"type.power" = "Elektro";
 "type.power.generator" = "Generatoro";
 "type.power.generator.solar" = "Suna generatoro";
 "type.power.generator.wind" = "Ventoturbino";
-"type.power.generator.gas" = "Gas Turbine Power Plant";
-"type.power.generator.hydro" = "Hydroelectric Power Plant";
-"type.power.line" = "Power Line";
-"type.power.line.underground" = "Underground Power Line";
-"type.power.minor_line" = "Minor Power Line";
-"type.power.plant" = "Power Plant";
-"type.power.plant.coal" = "Coal Power Plant";
-"type.power.plant.gas" = "Gas Turbine Power Plant";
-"type.power.plant.hydro" = "Hydroelectric Power Plant";
-"type.power.plant.solar" = "Solar Power Plant";
-"type.power.plant.wind" = "Wind Power Plant";
-"type.power.substation" = "Substation";
+"type.power.generator.gas" = "Gaselektrejo";
+"type.power.generator.hydro" = "Hidroelektra centralo";
+"type.power.line" = "Elektrodukto";
+"type.power.line.underground" = "Subtera elektrodukto";
+"type.power.minor_line" = "Malgranda elektrodukto";
+"type.power.plant" = "Elektrejo";
+"type.power.plant.coal" = "Karbelektrejo";
+"type.power.plant.gas" = "Gaselektrejo";
+"type.power.plant.hydro" = "Hidroelektra centralo";
+"type.power.plant.solar" = "Suncentralo";
+"type.power.plant.wind" = "Ventocentralo";
+"type.power.substation" = "Transformatorejo";
 /* A tower or pylon carrying high voltage electricity cables. */
-"type.power.tower" = "Power Tower";
+"type.power.tower" = "Elektroturo";
 /* A single pole supporting minor power lines. */
-"type.power.pole" = "Power Pole";
+"type.power.pole" = "Elektrofosto";
 /* A single pole supporting various public utilities, such as lighting or telephony. */
-"type.man_made.utility_pole" = "Utility Pole";
+"type.man_made.utility_pole" = "Fosto";
 "type.public_transport" = "Publika transporto";
 "type.public_transport.platform" = "Kajo";
 "type.railway" = "Fervojo";
@@ -1221,14 +1221,14 @@
 "type.railway.tram.bridge" = "Tramponto";
 "type.railway.tram.tunnel" = "Tramtunelo";
 "type.railway.tram_stop" = "Trama haltejo";
-"type.route" = "Route";
-"type.route.ferry" = "Ferry";
+"type.route" = "Itinero";
+"type.route.ferry" = "Pramŝipo";
 "type.shop" = "Vendejo";
 "type.shop.alcohol" = "Alkoholvendejo";
 "type.shop.bakery" = "Bakejo";
-"type.shop.bathroom_furnishing" = "Bathroom Furnishings";
+"type.shop.bathroom_furnishing" = "Banĉambra ekipaĵvendejo";
 "type.shop.beauty" = "Belecsalono";
-"type.shop.beauty.nails" = "Nail Salon";
+"type.shop.beauty.nails" = "Ungosalono";
 "type.shop.beverages" = "Trinkaĵvendejo";
 "type.shop.bicycle" = "Biciklovendejo";
 "type.shop.bookmaker" = "Bookmaker";
@@ -1512,11 +1512,11 @@
 "type.leisure.sports_centre.sport.boules" = "Sportejo";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Sportejo";
-"type.organic.no" = "No organic options";
+"type.organic.no" = "Neniuj ekologiaj opcioj";
 "type.amenity.stage" = "Scenejo";
-"type.amenity.animal_boarding" = "Animal Boarding";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
+"type.amenity.animal_boarding" = "Hotelo por hejmbestoj";
+"type.amenity.toilets.customers" = "Aliro de klientoj";
+"type.amenity.toilets.private" = "Privata aliro";
 "type.amenity.planetarium" = "Planetario";
 "type.highway.construction.motorway" = "Konstruata vojo";
 "type.highway.construction.motorway_link" = "Konstruata vojo";
@@ -1543,14 +1543,45 @@
 "type.railway.subway_entrance.qingdao" = "Metrostacia enirejo";
 "type.building.abandoned" = "Forlasita konstruaĵo";
 "type.shop.tool_hire" = "Luejo de laboriloj";
-"type.amenity.tool_library" = "Tool Library";
-"type.amenity.parking.customers" = "Customer Parking";
-"type.barrier.bus_trap" = "Bus Trap";
+"type.amenity.tool_library" = "Ilbiblioteko";
+"type.amenity.parking.customers" = "Klienta parkejo";
+"type.barrier.bus_trap" = "Busa kluzo";
 "type.barrier.sump_buster" = "Sump Buster";
-"type.second_hand.no" = "No second-hand options";
-"type.second_hand.yes" = "Second-hand options";
-"type.second_hand.only" = "Second-hand only";
+"type.second_hand.no" = "Neniuj brokantaĵaj opcioj";
+"type.second_hand.yes" = "Brokantaĵaj opcioj";
+"type.second_hand.only" = "Nur brokantaĵoj";
 "type.shop.games" = "Ludvendejo";
-"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.amenity.fast_food.cafeteria" = "Kantino";
 "type.shop.swimming_pool" = "Swimming Pool Shop";
 "type.amenity.music_venue" = "Muzikejo";
+"type.cuisine.vegetarian_only" = "Nur vegetara";
+"type.amenity.research_institute" = "Esplorinstituto";
+"type.cuisine.vegan_only" = "Nur vegana";
+"type.club.history" = "History Club";
+"type.club.model_railway" = "Model Railway Club";
+"type.club.youth" = "Youth Club";
+"type.club.art" = "Art Club";
+"type.club.computer" = "Computer Club";
+"type.club.culture" = "Cultural Association";
+"type.club.youth_movement" = "Youth Movement";
+"type.club.cadet" = "Cadet Club";
+"type.club.theatre" = "Theatre Club";
+"type.club.music" = "Music Club";
+"type.club.scout" = "Scout Club";
+"type.club.dog" = "Dog Club";
+"type.club.social" = "Social Club";
+"type.club.surf_life_saving" = "Surf Life Saving";
+"type.club.hunting" = "Hunting Club";
+"type.club.fraternity" = "Fraternity";
+"type.club.motorcycle" = "Motorcycle Club";
+"type.club.freemasonry" = "Masonic Lodge";
+"type.club.religion" = "Religious Club";
+"type.club.board_games" = "Board Games Club";
+"type.club.veterans" = "Veterans Club";
+"type.club.allotments" = "Allotment Association";
+"type.club.gardening" = "Gardening Club";
+"type.club.student" = "Student Club";
+"type.club.game" = "Gaming Club";
+"type.club.amateur_radio" = "Amateur Radio Club";
+"type.club" = "Club";
+"type.club.automobile" = "Automobile Club";

@@ -1345,5 +1345,8 @@
     },
     "amenity-love_hotel": {
         "defaultMessage": "Motel|Pé quebrado|Treme-treme|Casa da Barbie|Alcovita|Chupadouro"
+    },
+    "amenity-research_institute": {
+        "defaultMessage": "Centro de pesquisa|Instituto de pesquisa|Pesquisa|4Laboratório|U+1F52C|U+1F9EA"
     }
 }
