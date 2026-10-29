@@ -625,6 +625,7 @@
 # === 3100
 
 # amenity-water_point                               # icon z17- (also has caption(optional) z18-)
+# highway-escape                                    # pathtext z16- (also has line z14-, line::border z14-)
 # highway-raceway                                   # pathtext z16- (also has line z14-)
 # historic-aircraft                                 # icon z16- (also has caption(optional) z16-)
 # historic-locomotive                               # icon z16- (also has caption(optional) z16-)
