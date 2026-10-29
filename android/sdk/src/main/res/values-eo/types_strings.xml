@@ -1291,7 +1291,6 @@
     <string name="type.historic.pillory">Punpilorio</string>
     <string name="type.historic.tomb">Tombo</string>
     <string name="type.man_made.cross">Kruco</string>
-    <string name="type.amenity.research_institute">Esplorinstituto</string>
     <string name="type.cuisine.vegan_only">Nur vegana</string>
     <string name="type.cuisine.vegetarian_only">Nur vegetara</string>
     <string name="type.historic.wayside_cross">Vojkruco</string>

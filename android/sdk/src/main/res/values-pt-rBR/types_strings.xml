@@ -1546,7 +1546,6 @@
     <string name="type.amenity.fast_food.cafeteria">Cantina</string>
     <string name="type.shop.swimming_pool">Loja de produtos para piscinas</string>
     <string name="type.amenity.music_venue">Casa de show</string>
-    <string name="type.amenity.research_institute">Centro de pesquisa</string>
     <string name="type.cuisine.vegan_only">Somente vegana</string>
     <string name="type.cuisine.vegetarian_only">Só vegetariana</string>
 </resources>
