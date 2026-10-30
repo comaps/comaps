@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20261006T173232Z",
+    "data_updated": "20261101T233314Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -562,6 +562,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/music_school-m.svg"
         },
         {
+            "description": "amenity=music_venue",
+            "key": "amenity",
+            "value": "music_venue",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/music_venue-m.svg"
+        },
+        {
             "description": "amenity=nightclub",
             "key": "amenity",
             "value": "nightclub",
@@ -1014,6 +1020,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/recycling-centre-m.svg"
         },
         {
+            "description": "amenity=research_institute",
+            "key": "amenity",
+            "value": "research_institute",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/research_institute-m.svg"
+        },
+        {
             "description": "amenity=restaurant",
             "key": "amenity",
             "value": "restaurant",
@@ -1447,6 +1459,41 @@
             "key": "building",
             "value": "train_station",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/train_building-m.svg"
+        },
+        {
+            "description": "club=*",
+            "key": "club",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/club-m.svg"
+        },
+        {
+            "description": "club=allotments",
+            "key": "club",
+            "value": "allotments",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/club-m.svg"
+        },
+        {
+            "description": "club=freemasonry",
+            "key": "club",
+            "value": "freemasonry",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/club-m.svg"
+        },
+        {
+            "description": "club=hunting",
+            "key": "club",
+            "value": "hunting",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/club-m.svg"
+        },
+        {
+            "description": "club=social",
+            "key": "club",
+            "value": "social",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/club-m.svg"
+        },
+        {
+            "description": "club=surf_life_saving",
+            "key": "club",
+            "value": "surf_life_saving",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/club-m.svg"
         },
         {
             "description": "craft=*",
@@ -4588,6 +4635,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/supermarket-m.svg"
         },
         {
+            "description": "shop=swimming_pool",
+            "key": "shop",
+            "value": "swimming_pool",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/shop-m.svg"
+        },
+        {
             "description": "shop=tattoo",
             "key": "shop",
             "value": "tattoo",
@@ -4610,12 +4663,6 @@
             "key": "shop",
             "value": "tobacco",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/tobacco-m.svg"
-        },
-        {
-            "description": "shop=swimming_pool",
-            "key": "shop",
-            "value": "swimming_pool",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/shop-m.svg"
         },
         {
             "description": "shop=tool_hire",
@@ -6539,6 +6586,4797 @@
             "description": "waterway=weir | color: (light): #D0D1CC, color: (dark): #2A2A29",
             "key": "waterway",
             "value": "weir"
+        },
+        {
+            "key": "abandoned",
+            "value": "yes"
+        },
+        {
+            "description": "Abandoned Building",
+            "key": "abandoned:building"
+        },
+        {
+            "key": "addr:country",
+            "value": "US"
+        },
+        {
+            "key": "addr:interpolation"
+        },
+        {
+            "key": "addr:interpolation",
+            "value": "even"
+        },
+        {
+            "key": "addr:interpolation",
+            "value": "odd"
+        },
+        {
+            "key": "admin_level",
+            "value": "10"
+        },
+        {
+            "key": "admin_level",
+            "value": "11"
+        },
+        {
+            "key": "admin_level",
+            "value": "2"
+        },
+        {
+            "key": "admin_level",
+            "value": "5"
+        },
+        {
+            "key": "admin_level",
+            "value": "6"
+        },
+        {
+            "key": "admin_level",
+            "value": "7"
+        },
+        {
+            "key": "admin_level",
+            "value": "8"
+        },
+        {
+            "key": "admin_level",
+            "value": "9"
+        },
+        {
+            "description": "Cable Car",
+            "key": "aerialway",
+            "value": "cable_car"
+        },
+        {
+            "description": "Chair Lift",
+            "key": "aerialway",
+            "value": "chair_lift"
+        },
+        {
+            "description": "Drag Lift",
+            "key": "aerialway",
+            "value": "drag_lift"
+        },
+        {
+            "description": "Gondola",
+            "key": "aerialway",
+            "value": "gondola"
+        },
+        {
+            "key": "aerialway",
+            "value": "j-bar"
+        },
+        {
+            "description": "Magic Carpet",
+            "key": "aerialway",
+            "value": "magic_carpet"
+        },
+        {
+            "description": "Mixed Lift",
+            "key": "aerialway",
+            "value": "mixed_lift"
+        },
+        {
+            "description": "Platter Lift",
+            "key": "aerialway",
+            "value": "platter"
+        },
+        {
+            "description": "Rope Tow",
+            "key": "aerialway",
+            "value": "rope_tow"
+        },
+        {
+            "key": "aerialway",
+            "value": "t-bar"
+        },
+        {
+            "key": "aerodrome:type",
+            "value": "international"
+        },
+        {
+            "description": "Apron",
+            "key": "aeroway",
+            "value": "apron"
+        },
+        {
+            "description": "Runway",
+            "key": "aeroway",
+            "value": "runway"
+        },
+        {
+            "description": "Taxiway",
+            "key": "aeroway",
+            "value": "taxiway"
+        },
+        {
+            "description": "Cafeteria",
+            "key": "amenity",
+            "value": "canteen"
+        },
+        {
+            "description": "Security Booth",
+            "key": "amenity",
+            "value": "checkpoint"
+        },
+        {
+            "description": "Dance Hall",
+            "key": "amenity",
+            "value": "dancing_school"
+        },
+        {
+            "description": "Garage",
+            "key": "amenity",
+            "value": "garage"
+        },
+        {
+            "description": "Garage",
+            "key": "amenity",
+            "value": "garages"
+        },
+        {
+            "description": "Fitness Centre",
+            "key": "amenity",
+            "value": "gym"
+        },
+        {
+            "description": "Loading Dock",
+            "key": "amenity",
+            "value": "loading_dock"
+        },
+        {
+            "description": "Sauna",
+            "key": "amenity",
+            "value": "sauna"
+        },
+        {
+            "description": "Motorcycle Rental",
+            "key": "amenity",
+            "value": "scooter_rental"
+        },
+        {
+            "description": "Security Booth",
+            "key": "amenity",
+            "value": "security_booth"
+        },
+        {
+            "description": "Swimming Pool",
+            "key": "amenity",
+            "value": "swimming_pool"
+        },
+        {
+            "key": "area"
+        },
+        {
+            "key": "area:highway",
+            "value": "cycleway"
+        },
+        {
+            "key": "area:highway",
+            "value": "motorway"
+        },
+        {
+            "key": "area:highway",
+            "value": "path"
+        },
+        {
+            "key": "area:highway",
+            "value": "primary"
+        },
+        {
+            "key": "area:highway",
+            "value": "residential"
+        },
+        {
+            "key": "area:highway",
+            "value": "secondary"
+        },
+        {
+            "key": "area:highway",
+            "value": "service"
+        },
+        {
+            "key": "area:highway",
+            "value": "steps"
+        },
+        {
+            "key": "area:highway",
+            "value": "tertiary"
+        },
+        {
+            "key": "area:highway",
+            "value": "track"
+        },
+        {
+            "key": "area:highway",
+            "value": "trunk"
+        },
+        {
+            "key": "area:highway",
+            "value": "unclassified"
+        },
+        {
+            "key": "artwork_type",
+            "value": "architecture"
+        },
+        {
+            "key": "artwork_type",
+            "value": "painting"
+        },
+        {
+            "key": "artwork_type",
+            "value": "sculpture"
+        },
+        {
+            "description": "Amusement Ride",
+            "key": "attraction",
+            "value": "amusement_ride"
+        },
+        {
+            "description": "Big Wheel",
+            "key": "attraction",
+            "value": "big_wheel"
+        },
+        {
+            "description": "Bumper Car",
+            "key": "attraction",
+            "value": "bumper_car"
+        },
+        {
+            "description": "Carousel",
+            "key": "attraction",
+            "value": "carousel"
+        },
+        {
+            "description": "Maze",
+            "key": "attraction",
+            "value": "maze"
+        },
+        {
+            "description": "Roller Coaster",
+            "key": "attraction",
+            "value": "roller_coaster"
+        },
+        {
+            "key": "barrier",
+            "value": "cattle_grid"
+        },
+        {
+            "key": "bridge"
+        },
+        {
+            "description": "Garage",
+            "key": "building",
+            "value": "garage"
+        },
+        {
+            "description": "Garage",
+            "key": "building",
+            "value": "garages"
+        },
+        {
+            "description": "Building",
+            "key": "building",
+            "value": "has_parts"
+        },
+        {
+            "key": "building",
+            "value": "yes"
+        },
+        {
+            "key": "bus",
+            "value": "yes"
+        },
+        {
+            "key": "capital"
+        },
+        {
+            "key": "capital",
+            "value": "10"
+        },
+        {
+            "key": "capital",
+            "value": "11"
+        },
+        {
+            "key": "capital",
+            "value": "2"
+        },
+        {
+            "key": "capital",
+            "value": "3"
+        },
+        {
+            "key": "capital",
+            "value": "4"
+        },
+        {
+            "key": "capital",
+            "value": "5"
+        },
+        {
+            "key": "capital",
+            "value": "6"
+        },
+        {
+            "key": "capital",
+            "value": "7"
+        },
+        {
+            "key": "capital",
+            "value": "8"
+        },
+        {
+            "key": "capital",
+            "value": "9"
+        },
+        {
+            "key": "caravans",
+            "value": "yes"
+        },
+        {
+            "key": "castle_type",
+            "value": "manor"
+        },
+        {
+            "key": "castle_type",
+            "value": "palace"
+        },
+        {
+            "key": "castle_type",
+            "value": "stately"
+        },
+        {
+            "description": "Grave",
+            "key": "cemetery",
+            "value": "grave"
+        },
+        {
+            "description": "Amateur Radio Club",
+            "key": "club",
+            "value": "amateur_radio"
+        },
+        {
+            "description": "Art Club",
+            "key": "club",
+            "value": "art"
+        },
+        {
+            "description": "Automobile Club",
+            "key": "club",
+            "value": "automobile"
+        },
+        {
+            "description": "Board Games Club",
+            "key": "club",
+            "value": "board_games"
+        },
+        {
+            "description": "Cadet Club",
+            "key": "club",
+            "value": "cadet"
+        },
+        {
+            "description": "Computer Club",
+            "key": "club",
+            "value": "computer"
+        },
+        {
+            "description": "Cultural Association",
+            "key": "club",
+            "value": "culture"
+        },
+        {
+            "description": "Dog Club",
+            "key": "club",
+            "value": "dog"
+        },
+        {
+            "description": "Social Club",
+            "key": "club",
+            "value": "ethnic"
+        },
+        {
+            "description": "Fraternity",
+            "key": "club",
+            "value": "fraternity"
+        },
+        {
+            "description": "Gaming Club",
+            "key": "club",
+            "value": "game"
+        },
+        {
+            "description": "Gardening Club",
+            "key": "club",
+            "value": "gardening"
+        },
+        {
+            "description": "History Club",
+            "key": "club",
+            "value": "history"
+        },
+        {
+            "description": "Computer Club",
+            "key": "club",
+            "value": "linux"
+        },
+        {
+            "description": "Model Railway Club",
+            "key": "club",
+            "value": "model_railway"
+        },
+        {
+            "description": "Motorcycle Club",
+            "key": "club",
+            "value": "motorcycle"
+        },
+        {
+            "description": "Music Club",
+            "key": "club",
+            "value": "music"
+        },
+        {
+            "description": "Religious Club",
+            "key": "club",
+            "value": "religion"
+        },
+        {
+            "description": "Scout Club",
+            "key": "club",
+            "value": "scout"
+        },
+        {
+            "description": "Student Club",
+            "key": "club",
+            "value": "student"
+        },
+        {
+            "description": "Theatre Club",
+            "key": "club",
+            "value": "theatre"
+        },
+        {
+            "description": "Veterans Club",
+            "key": "club",
+            "value": "veterans"
+        },
+        {
+            "description": "Youth Club",
+            "key": "club",
+            "value": "youth"
+        },
+        {
+            "description": "Youth Movement",
+            "key": "club",
+            "value": "youth_movement"
+        },
+        {
+            "key": "community_centre",
+            "value": "youth_centre"
+        },
+        {
+            "key": "construction",
+            "value": "living_street"
+        },
+        {
+            "key": "construction",
+            "value": "motorway"
+        },
+        {
+            "key": "construction",
+            "value": "motorway_link"
+        },
+        {
+            "key": "construction",
+            "value": "primary"
+        },
+        {
+            "key": "construction",
+            "value": "primary_link"
+        },
+        {
+            "key": "construction",
+            "value": "residential"
+        },
+        {
+            "key": "construction",
+            "value": "road"
+        },
+        {
+            "key": "construction",
+            "value": "secondary"
+        },
+        {
+            "key": "construction",
+            "value": "secondary_link"
+        },
+        {
+            "key": "construction",
+            "value": "service"
+        },
+        {
+            "key": "construction",
+            "value": "tertiary"
+        },
+        {
+            "key": "construction",
+            "value": "tertiary_link"
+        },
+        {
+            "key": "construction",
+            "value": "track"
+        },
+        {
+            "key": "construction",
+            "value": "trunk"
+        },
+        {
+            "key": "construction",
+            "value": "trunk_link"
+        },
+        {
+            "key": "construction",
+            "value": "unclassified"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "african"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "american"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "arab"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "argentinian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "asian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "austrian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "bagel"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "balkan"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "barbecue"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "bavarian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "beef_bowl"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "brazilian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "breakfast"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "bubble_tea"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "burger"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "buschenschank"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "cake"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "caribbean"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "chicken"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "chinese"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "coffee_shop"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "crepe"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "croatian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "curry"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "deli"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "diner"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "donut"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "ethiopian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "filipino"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "fine_dining"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "fish"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "fish_and_chips"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "french"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "friture"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "georgian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "german"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "greek"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "grill"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "heuriger"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "hotdog"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "hungarian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "ice_cream"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "indian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "indonesian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "international"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "irish"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "italian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "japanese"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "kebab"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "korean"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "lao"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "lebanese"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "local"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "malagasy"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "malaysian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "mediterranean"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "mexican"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "moroccan"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "noodles"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "oriental"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "pancake"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "pasta"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "persian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "peruvian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "pizza"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "polish"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "portuguese"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "ramen"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "regional"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "russian"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "sandwich"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "sausage"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "savory_pancakes"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "seafood"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "soba"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "spanish"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "steak_house"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "sushi"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "tapas"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "tea"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "thai"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "turkish"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "cuisine",
+            "value": "vietnamese"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "diet:vegan",
+            "value": "only"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "diet:vegan",
+            "value": "yes"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "diet:vegetarian",
+            "value": "only"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "diet:vegetarian",
+            "value": "yes"
+        },
+        {
+            "key": "disused",
+            "value": "yes"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "bank"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "bar"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "bureau_de_change"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "cafe"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "car_rental"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "casino"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "fast_food"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "gambling"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "ice_cream"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "internet_cafe"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "motorcycle_rental"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "pharmacy"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "post_office"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "pub"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:amenity",
+            "value": "restaurant"
+        },
+        {
+            "description": "Abandoned Building",
+            "key": "disused:building"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:craft",
+            "value": "confectionery"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:craft",
+            "value": "electronics_repair"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:craft",
+            "value": "key_cutter"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:craft",
+            "value": "locksmith"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:craft",
+            "value": "shoemaker"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:craft",
+            "value": "tailor"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:office",
+            "value": "estate_agent"
+        },
+        {
+            "description": "Vacant Business",
+            "key": "disused:office",
+            "value": "insurance"
+        },
+        {
+            "description": "Drinking Water",
+            "key": "drinking_water",
+            "value": "treated"
+        },
+        {
+            "description": "Drinking Water",
+            "key": "drinking_water",
+            "value": "yes"
+        },
+        {
+            "key": "drinking_water:legal",
+            "value": "no"
+        },
+        {
+            "description": "Drinking Water",
+            "key": "drinking_water:refill",
+            "value": "yes"
+        },
+        {
+            "key": "earthquake:damage",
+            "value": "spontaneous_camp"
+        },
+        {
+            "description": "College",
+            "key": "education",
+            "value": "college"
+        },
+        {
+            "description": "Driving School",
+            "key": "education",
+            "value": "driving_school"
+        },
+        {
+            "description": "Flight School",
+            "key": "education",
+            "value": "flight_school"
+        },
+        {
+            "description": "Language School",
+            "key": "education",
+            "value": "language_school"
+        },
+        {
+            "description": "Music School",
+            "key": "education",
+            "value": "music_school"
+        },
+        {
+            "description": "Tutorial School",
+            "key": "education",
+            "value": "prep_school"
+        },
+        {
+            "description": "Sailing School",
+            "key": "education",
+            "value": "sailing_school"
+        },
+        {
+            "description": "School",
+            "key": "education",
+            "value": "school"
+        },
+        {
+            "description": "University",
+            "key": "education",
+            "value": "university"
+        },
+        {
+            "description": "Emergency Ward Entrance",
+            "key": "emergency",
+            "value": "emergency_ward_entrance"
+        },
+        {
+            "key": "entrance"
+        },
+        {
+            "key": "entrance",
+            "value": "emergency"
+        },
+        {
+            "key": "entrance",
+            "value": "entrance"
+        },
+        {
+            "key": "entrance",
+            "value": "exit"
+        },
+        {
+            "key": "entrance",
+            "value": "garage"
+        },
+        {
+            "key": "entrance",
+            "value": "home"
+        },
+        {
+            "key": "entrance",
+            "value": "main"
+        },
+        {
+            "key": "entrance",
+            "value": "service"
+        },
+        {
+            "key": "entrance",
+            "value": "staircase"
+        },
+        {
+            "key": "exit",
+            "value": "emergency"
+        },
+        {
+            "key": "fast_food",
+            "value": "cafeteria"
+        },
+        {
+            "description": "Free",
+            "key": "fee",
+            "value": "donation"
+        },
+        {
+            "description": "Free",
+            "key": "fee",
+            "value": "no"
+        },
+        {
+            "description": "$",
+            "key": "fee",
+            "value": "yes"
+        },
+        {
+            "key": "footway",
+            "value": "crossing"
+        },
+        {
+            "key": "footway",
+            "value": "sidewalk"
+        },
+        {
+            "key": "garage"
+        },
+        {
+            "key": "generator:source",
+            "value": "gas"
+        },
+        {
+            "key": "generator:source",
+            "value": "hydro"
+        },
+        {
+            "key": "generator:source",
+            "value": "solar"
+        },
+        {
+            "description": "Clinic",
+            "key": "healthcare",
+            "value": "clinic"
+        },
+        {
+            "description": "Dentist",
+            "key": "healthcare",
+            "value": "dentist"
+        },
+        {
+            "description": "Doctor",
+            "key": "healthcare",
+            "value": "doctor"
+        },
+        {
+            "description": "Hospital",
+            "key": "healthcare",
+            "value": "hospital"
+        },
+        {
+            "description": "Pharmacy",
+            "key": "healthcare",
+            "value": "pharmacy"
+        },
+        {
+            "key": "highspeed"
+        },
+        {
+            "description": "Bridle Path",
+            "key": "highway",
+            "value": "bridleway"
+        },
+        {
+            "description": "Dedicated Bus Road",
+            "key": "highway",
+            "value": "busway"
+        },
+        {
+            "description": "Road Under Construction",
+            "key": "highway",
+            "value": "construction"
+        },
+        {
+            "description": "Cycle Path",
+            "key": "highway",
+            "value": "cycleway"
+        },
+        {
+            "description": "Living Street",
+            "key": "highway",
+            "value": "living_street"
+        },
+        {
+            "description": "Motorway",
+            "key": "highway",
+            "value": "motorway"
+        },
+        {
+            "description": "Road Exit",
+            "key": "highway",
+            "value": "motorway_junction"
+        },
+        {
+            "description": "Motorway Ramp",
+            "key": "highway",
+            "value": "motorway_link"
+        },
+        {
+            "description": "Path",
+            "key": "highway",
+            "value": "path"
+        },
+        {
+            "description": "Primary Road",
+            "key": "highway",
+            "value": "primary"
+        },
+        {
+            "description": "Primary Road Ramp",
+            "key": "highway",
+            "value": "primary_link"
+        },
+        {
+            "description": "Racetrack",
+            "key": "highway",
+            "value": "raceway"
+        },
+        {
+            "description": "Residential Street",
+            "key": "highway",
+            "value": "residential"
+        },
+        {
+            "description": "Road",
+            "key": "highway",
+            "value": "road"
+        },
+        {
+            "description": "Secondary Road",
+            "key": "highway",
+            "value": "secondary"
+        },
+        {
+            "description": "Secondary Road Ramp",
+            "key": "highway",
+            "value": "secondary_link"
+        },
+        {
+            "description": "Service Road",
+            "key": "highway",
+            "value": "service"
+        },
+        {
+            "description": "Speed Camera",
+            "key": "highway",
+            "value": "speed_camera"
+        },
+        {
+            "description": "Stairs",
+            "key": "highway",
+            "value": "steps"
+        },
+        {
+            "description": "Tertiary Road",
+            "key": "highway",
+            "value": "tertiary"
+        },
+        {
+            "description": "Tertiary Road Ramp",
+            "key": "highway",
+            "value": "tertiary_link"
+        },
+        {
+            "description": "Track",
+            "key": "highway",
+            "value": "track"
+        },
+        {
+            "description": "Trunk Road",
+            "key": "highway",
+            "value": "trunk"
+        },
+        {
+            "description": "Trunk Road Ramp",
+            "key": "highway",
+            "value": "trunk_link"
+        },
+        {
+            "description": "Minor Road",
+            "key": "highway",
+            "value": "unclassified"
+        },
+        {
+            "key": "highway",
+            "value": "world_level"
+        },
+        {
+            "key": "highway",
+            "value": "world_towns_level"
+        },
+        {
+            "description": "Fortress",
+            "key": "historic",
+            "value": "fortress"
+        },
+        {
+            "description": "Manor House",
+            "key": "historic",
+            "value": "manor"
+        },
+        {
+            "key": "horse"
+        },
+        {
+            "description": "Hotel",
+            "key": "hotel",
+            "value": "yes"
+        },
+        {
+            "key": "intermittent",
+            "value": "ephemeral"
+        },
+        {
+            "key": "intermittent",
+            "value": "yes"
+        },
+        {
+            "description": "Internet",
+            "key": "internet_access"
+        },
+        {
+            "description": "Internet",
+            "key": "internet_access",
+            "value": "wlan"
+        },
+        {
+            "key": "is_in",
+            "value": "USA"
+        },
+        {
+            "key": "is_in:country",
+            "value": "USA"
+        },
+        {
+            "key": "is_in:country_code",
+            "value": "us"
+        },
+        {
+            "description": "Junction",
+            "key": "junction"
+        },
+        {
+            "description": "Roundabout",
+            "key": "junction",
+            "value": "circular"
+        },
+        {
+            "description": "Roundabout",
+            "key": "junction",
+            "value": "roundabout"
+        },
+        {
+            "description": "Brownfield",
+            "key": "landuse",
+            "value": "brownfield"
+        },
+        {
+            "description": "Commercial Area",
+            "key": "landuse",
+            "value": "commercial"
+        },
+        {
+            "description": "Greenfield",
+            "key": "landuse",
+            "value": "greenfield"
+        },
+        {
+            "description": "Greenhouse",
+            "key": "landuse",
+            "value": "greenhouse_horticulture"
+        },
+        {
+            "description": "Residential Area",
+            "key": "landuse",
+            "value": "residential"
+        },
+        {
+            "key": "leaf_cycle",
+            "value": "deciduous"
+        },
+        {
+            "key": "leaf_cycle",
+            "value": "mixed"
+        },
+        {
+            "key": "leaf_type",
+            "value": "coniferous"
+        },
+        {
+            "key": "leaf_type",
+            "value": "deciduous"
+        },
+        {
+            "key": "leaf_type",
+            "value": "mixed"
+        },
+        {
+            "description": "Public Land",
+            "key": "leisure",
+            "value": "common"
+        },
+        {
+            "description": "Recreation Ground",
+            "key": "leisure",
+            "value": "recreation_ground"
+        },
+        {
+            "description": "Resort",
+            "key": "leisure",
+            "value": "summer_camp"
+        },
+        {
+            "description": "Oil or Gas Well",
+            "key": "man_made",
+            "value": "gas_well"
+        },
+        {
+            "description": "Monument",
+            "key": "man_made",
+            "value": "obelisk"
+        },
+        {
+            "key": "man_made",
+            "value": "pipeline"
+        },
+        {
+            "description": "Surveillance Camera",
+            "key": "man_made",
+            "value": "surveillance"
+        },
+        {
+            "description": "Utility Pole",
+            "key": "man_made",
+            "value": "utility_pole"
+        },
+        {
+            "key": "memorial",
+            "value": "sculpture"
+        },
+        {
+            "key": "memorial",
+            "value": "statue"
+        },
+        {
+            "key": "memorial",
+            "value": "war_memorial"
+        },
+        {
+            "key": "memorial:type",
+            "value": "plaque"
+        },
+        {
+            "key": "memorial:type",
+            "value": "sculpture"
+        },
+        {
+            "key": "memorial:type",
+            "value": "statue"
+        },
+        {
+            "key": "memorial:type",
+            "value": "stolperstein"
+        },
+        {
+            "key": "memorial:type",
+            "value": "war_memorial"
+        },
+        {
+            "description": "Bunker",
+            "key": "military",
+            "value": "bunker"
+        },
+        {
+            "key": "military",
+            "value": "cordon"
+        },
+        {
+            "key": "motorcycle"
+        },
+        {
+            "key": "motorcycle:rental",
+            "value": "yes"
+        },
+        {
+            "key": "motorhome",
+            "value": "yes"
+        },
+        {
+            "description": "Bay",
+            "key": "natural",
+            "value": "bay"
+        },
+        {
+            "description": "Cape",
+            "key": "natural",
+            "value": "cape"
+        },
+        {
+            "description": "Cave Entrance",
+            "key": "natural",
+            "value": "cave"
+        },
+        {
+            "description": "Rock",
+            "key": "natural",
+            "value": "stone"
+        },
+        {
+            "description": "Forest",
+            "key": "natural",
+            "value": "wood"
+        },
+        {
+            "description": "Dead End",
+            "key": "noexit"
+        },
+        {
+            "description": "Company Office",
+            "key": "office",
+            "value": "company"
+        },
+        {
+            "description": "Estate Agent",
+            "key": "office",
+            "value": "estate_agent"
+        },
+        {
+            "description": "Government Office",
+            "key": "office",
+            "value": "government"
+        },
+        {
+            "description": "Insurance Office",
+            "key": "office",
+            "value": "insurance"
+        },
+        {
+            "description": "Non-Governmental Organization",
+            "key": "office",
+            "value": "ngo"
+        },
+        {
+            "description": "Telecom Company",
+            "key": "office",
+            "value": "telecommunication"
+        },
+        {
+            "description": "Travel Agency",
+            "key": "office",
+            "value": "travel_agent"
+        },
+        {
+            "description": "No organic options",
+            "key": "organic",
+            "value": "no"
+        },
+        {
+            "description": "Organic only",
+            "key": "organic",
+            "value": "only"
+        },
+        {
+            "description": "Organic options",
+            "key": "organic",
+            "value": "yes"
+        },
+        {
+            "key": "parking",
+            "value": "multi-storey"
+        },
+        {
+            "key": "parking",
+            "value": "park_and_ride"
+        },
+        {
+            "key": "parking",
+            "value": "underground"
+        },
+        {
+            "key": "piste:difficulty",
+            "value": "advanced"
+        },
+        {
+            "key": "piste:difficulty",
+            "value": "easy"
+        },
+        {
+            "key": "piste:difficulty",
+            "value": "expert"
+        },
+        {
+            "key": "piste:difficulty",
+            "value": "freeride"
+        },
+        {
+            "key": "piste:difficulty",
+            "value": "intermediate"
+        },
+        {
+            "key": "piste:difficulty",
+            "value": "novice"
+        },
+        {
+            "key": "piste:grooming",
+            "value": "backcountry"
+        },
+        {
+            "key": "piste:type",
+            "value": "connection"
+        },
+        {
+            "key": "piste:type",
+            "value": "downhill"
+        },
+        {
+            "key": "piste:type",
+            "value": "hike"
+        },
+        {
+            "key": "piste:type",
+            "value": "nordic"
+        },
+        {
+            "key": "piste:type",
+            "value": "skitour"
+        },
+        {
+            "key": "piste:type",
+            "value": "sled"
+        },
+        {
+            "description": "City",
+            "key": "place",
+            "value": "city"
+        },
+        {
+            "description": "Continent",
+            "key": "place",
+            "value": "continent"
+        },
+        {
+            "description": "Country",
+            "key": "place",
+            "value": "country"
+        },
+        {
+            "description": "County",
+            "key": "place",
+            "value": "county"
+        },
+        {
+            "description": "Farm",
+            "key": "place",
+            "value": "farm"
+        },
+        {
+            "description": "Hamlet",
+            "key": "place",
+            "value": "hamlet"
+        },
+        {
+            "description": "Island",
+            "key": "place",
+            "value": "island"
+        },
+        {
+            "description": "Isolated Dwelling",
+            "key": "place",
+            "value": "isolated_dwelling"
+        },
+        {
+            "description": "Locality",
+            "key": "place",
+            "value": "locality"
+        },
+        {
+            "description": "Neighbourhood",
+            "key": "place",
+            "value": "neighbourhood"
+        },
+        {
+            "description": "Ocean",
+            "key": "place",
+            "value": "ocean"
+        },
+        {
+            "description": "Quarter",
+            "key": "place",
+            "value": "quarter"
+        },
+        {
+            "description": "Region",
+            "key": "place",
+            "value": "region"
+        },
+        {
+            "description": "Sea",
+            "key": "place",
+            "value": "sea"
+        },
+        {
+            "description": "State",
+            "key": "place",
+            "value": "state"
+        },
+        {
+            "description": "Suburb",
+            "key": "place",
+            "value": "suburb"
+        },
+        {
+            "description": "Town",
+            "key": "place",
+            "value": "town"
+        },
+        {
+            "description": "Village",
+            "key": "place",
+            "value": "village"
+        },
+        {
+            "key": "plant:source",
+            "value": "coal"
+        },
+        {
+            "key": "plant:source",
+            "value": "gas"
+        },
+        {
+            "key": "plant:source",
+            "value": "hydro"
+        },
+        {
+            "key": "plant:source",
+            "value": "solar"
+        },
+        {
+            "key": "power",
+            "value": "line"
+        },
+        {
+            "key": "power",
+            "value": "minor_line"
+        },
+        {
+            "description": "Power Pole",
+            "key": "power",
+            "value": "pole"
+        },
+        {
+            "key": "protect_class",
+            "value": "1a"
+        },
+        {
+            "key": "protect_class",
+            "value": "1b"
+        },
+        {
+            "key": "protect_class",
+            "value": "2"
+        },
+        {
+            "key": "protect_class",
+            "value": "3"
+        },
+        {
+            "key": "protect_class",
+            "value": "4"
+        },
+        {
+            "key": "protect_class",
+            "value": "5"
+        },
+        {
+            "key": "protect_class",
+            "value": "6"
+        },
+        {
+            "description": "Abandoned Railway",
+            "key": "railway",
+            "value": "abandoned"
+        },
+        {
+            "description": "Railway Construction",
+            "key": "railway",
+            "value": "construction"
+        },
+        {
+            "description": "Railway Crossing",
+            "key": "railway",
+            "value": "crossing"
+        },
+        {
+            "description": "Disused Railway",
+            "key": "railway",
+            "value": "disused"
+        },
+        {
+            "description": "Funicular",
+            "key": "railway",
+            "value": "funicular"
+        },
+        {
+            "description": "Light Rail",
+            "key": "railway",
+            "value": "light_rail"
+        },
+        {
+            "description": "Miniature Railway",
+            "key": "railway",
+            "value": "miniature"
+        },
+        {
+            "description": "Monorail",
+            "key": "railway",
+            "value": "monorail"
+        },
+        {
+            "description": "Narrow Gauge Rail",
+            "key": "railway",
+            "value": "narrow_gauge"
+        },
+        {
+            "description": "Preserved Rail",
+            "key": "railway",
+            "value": "preserved"
+        },
+        {
+            "description": "Railway",
+            "key": "railway",
+            "value": "rail"
+        },
+        {
+            "description": "Subway Line",
+            "key": "railway",
+            "value": "subway"
+        },
+        {
+            "description": "Subway Entrance",
+            "key": "railway",
+            "value": "subway_entrance"
+        },
+        {
+            "description": "Tram Line",
+            "key": "railway",
+            "value": "tram"
+        },
+        {
+            "description": "Railway Turntable",
+            "key": "railway",
+            "value": "turntable"
+        },
+        {
+            "description": "Batteries",
+            "key": "recycling:batteries",
+            "value": "yes"
+        },
+        {
+            "description": "Cans",
+            "key": "recycling:cans",
+            "value": "yes"
+        },
+        {
+            "description": "Cardboard",
+            "key": "recycling:cardboard",
+            "value": "yes"
+        },
+        {
+            "description": "Cartons",
+            "key": "recycling:cartons",
+            "value": "yes"
+        },
+        {
+            "description": "Clothes",
+            "key": "recycling:clothes",
+            "value": "yes"
+        },
+        {
+            "description": "Glass Bottles",
+            "key": "recycling:glass_bottles",
+            "value": "yes"
+        },
+        {
+            "description": "Green/Organic Waste",
+            "key": "recycling:green_waste",
+            "value": "yes"
+        },
+        {
+            "description": "Paper",
+            "key": "recycling:paper",
+            "value": "yes"
+        },
+        {
+            "description": "Plastic",
+            "key": "recycling:plastic",
+            "value": "yes"
+        },
+        {
+            "description": "Plastic Bottles",
+            "key": "recycling:plastic_bottles",
+            "value": "yes"
+        },
+        {
+            "description": "Scrap Metal",
+            "key": "recycling:scrap_metal",
+            "value": "yes"
+        },
+        {
+            "description": "Shoes",
+            "key": "recycling:shoes",
+            "value": "yes"
+        },
+        {
+            "description": "Electronic Waste",
+            "key": "recycling:small_appliances",
+            "value": "yes"
+        },
+        {
+            "key": "recycling_type",
+            "value": "container"
+        },
+        {
+            "key": "rental",
+            "value": "yes"
+        },
+        {
+            "description": "Ferry",
+            "key": "route",
+            "value": "ferry"
+        },
+        {
+            "key": "route",
+            "value": "train"
+        },
+        {
+            "description": "Second-hand only",
+            "key": "second_hand",
+            "value": "only"
+        },
+        {
+            "description": "Second-hand options",
+            "key": "second_hand",
+            "value": "yes"
+        },
+        {
+            "key": "service",
+            "value": "bus"
+        },
+        {
+            "key": "service",
+            "value": "busway"
+        },
+        {
+            "key": "service",
+            "value": "driveway"
+        },
+        {
+            "key": "service",
+            "value": "service"
+        },
+        {
+            "key": "service",
+            "value": "spur"
+        },
+        {
+            "description": "Appliance Shop",
+            "key": "shop",
+            "value": "appliance"
+        },
+        {
+            "description": "Baby Goods Shop",
+            "key": "shop",
+            "value": "baby_goods"
+        },
+        {
+            "description": "Bag Shop",
+            "key": "shop",
+            "value": "bag"
+        },
+        {
+            "description": "Bathroom Furnishings",
+            "key": "shop",
+            "value": "bathroom_furnishing"
+        },
+        {
+            "description": "Bed Shop",
+            "key": "shop",
+            "value": "bed"
+        },
+        {
+            "description": "Boutique",
+            "key": "shop",
+            "value": "boutique"
+        },
+        {
+            "description": "Cannabis Shop",
+            "key": "shop",
+            "value": "cannabis"
+        },
+        {
+            "description": "Carpet Shop",
+            "key": "shop",
+            "value": "carpet"
+        },
+        {
+            "description": "Coffee Retailer",
+            "key": "shop",
+            "value": "coffee"
+        },
+        {
+            "description": "Craft Supplies Store",
+            "key": "shop",
+            "value": "craft"
+        },
+        {
+            "description": "Curtain Shop",
+            "key": "shop",
+            "value": "curtain"
+        },
+        {
+            "description": "Dairy Shop",
+            "key": "shop",
+            "value": "dairy"
+        },
+        {
+            "description": "Electrical Supplies Store",
+            "key": "shop",
+            "value": "electrical"
+        },
+        {
+            "description": "Estate Agent",
+            "key": "shop",
+            "value": "estate_agent"
+        },
+        {
+            "description": "Clothes Shop",
+            "key": "shop",
+            "value": "fashion"
+        },
+        {
+            "description": "Fashion Accessories",
+            "key": "shop",
+            "value": "fashion_accessories"
+        },
+        {
+            "description": "Fishing Store",
+            "key": "shop",
+            "value": "fishing"
+        },
+        {
+            "description": "Herbalist",
+            "key": "shop",
+            "value": "herbalist"
+        },
+        {
+            "description": "HiFi Audio Shop",
+            "key": "shop",
+            "value": "hifi"
+        },
+        {
+            "description": "Medical Supplies Store",
+            "key": "shop",
+            "value": "medical_supply"
+        },
+        {
+            "description": "Nutrition Supplement Store",
+            "key": "shop",
+            "value": "nutrition_supplements"
+        },
+        {
+            "description": "Pickup Point",
+            "key": "shop",
+            "value": "outpost"
+        },
+        {
+            "description": "Paint Shop",
+            "key": "shop",
+            "value": "paint"
+        },
+        {
+            "description": "Perfume Shop",
+            "key": "shop",
+            "value": "perfumery"
+        },
+        {
+            "description": "Pet Grooming",
+            "key": "shop",
+            "value": "pet_grooming"
+        },
+        {
+            "description": "Storage Rental",
+            "key": "shop",
+            "value": "storage_rental"
+        },
+        {
+            "description": "Tailor",
+            "key": "shop",
+            "value": "tailor"
+        },
+        {
+            "description": "Tea Shop",
+            "key": "shop",
+            "value": "tea"
+        },
+        {
+            "description": "Travel Agency",
+            "key": "shop",
+            "value": "travel_agency"
+        },
+        {
+            "description": "Watch Store",
+            "key": "shop",
+            "value": "watches"
+        },
+        {
+            "key": "shuttle"
+        },
+        {
+            "description": "High Diving",
+            "key": "sport",
+            "value": "diving"
+        },
+        {
+            "key": "sport",
+            "value": "fitness"
+        },
+        {
+            "description": "Golf",
+            "key": "sport",
+            "value": "miniature_golf"
+        },
+        {
+            "key": "station",
+            "value": "monorail"
+        },
+        {
+            "key": "station",
+            "value": "subway"
+        },
+        {
+            "key": "surface",
+            "value": "gravel"
+        },
+        {
+            "key": "surface",
+            "value": "sand"
+        },
+        {
+            "description": "Toilet",
+            "key": "toilets",
+            "value": "yes"
+        },
+        {
+            "key": "toilets:access",
+            "value": "customers"
+        },
+        {
+            "description": "Resort",
+            "key": "tourism",
+            "value": "resort"
+        },
+        {
+            "description": "Traffic Bump",
+            "key": "traffic_calming",
+            "value": "bump"
+        },
+        {
+            "description": "Traffic Hump",
+            "key": "traffic_calming",
+            "value": "hump"
+        },
+        {
+            "key": "transport",
+            "value": "light_rail"
+        },
+        {
+            "key": "transport",
+            "value": "monorail"
+        },
+        {
+            "key": "transport",
+            "value": "subway"
+        },
+        {
+            "key": "type",
+            "value": "architecture"
+        },
+        {
+            "key": "type",
+            "value": "painting"
+        },
+        {
+            "key": "type",
+            "value": "sculpture"
+        },
+        {
+            "key": "type",
+            "value": "statue"
+        },
+        {
+            "key": "usage",
+            "value": "branch"
+        },
+        {
+            "key": "usage",
+            "value": "main"
+        },
+        {
+            "key": "usage",
+            "value": "tourism"
+        },
+        {
+            "key": "usage",
+            "value": "utility"
+        },
+        {
+            "key": "vending",
+            "value": "cigarettes"
+        },
+        {
+            "key": "vending",
+            "value": "coffee"
+        },
+        {
+            "key": "vending",
+            "value": "condoms"
+        },
+        {
+            "key": "vending",
+            "value": "drinks"
+        },
+        {
+            "key": "vending",
+            "value": "food"
+        },
+        {
+            "key": "vending",
+            "value": "newspapers"
+        },
+        {
+            "key": "vending",
+            "value": "sweets"
+        },
+        {
+            "key": "water",
+            "value": "basin"
+        },
+        {
+            "key": "water",
+            "value": "lake"
+        },
+        {
+            "key": "water",
+            "value": "lock"
+        },
+        {
+            "key": "water",
+            "value": "moat"
+        },
+        {
+            "key": "water",
+            "value": "pond"
+        },
+        {
+            "key": "water",
+            "value": "reservoir"
+        },
+        {
+            "key": "water",
+            "value": "river"
+        },
+        {
+            "description": "Lock Gate",
+            "key": "waterway",
+            "value": "lock_gate"
+        },
+        {
+            "key": "wetland",
+            "value": "dambo"
+        },
+        {
+            "key": "wetland",
+            "value": "string_bog"
+        },
+        {
+            "key": "wetland",
+            "value": "wet_meadow"
+        },
+        {
+            "description": "Limited Wheelchair Access",
+            "key": "wheelchair",
+            "value": "limited"
+        },
+        {
+            "description": "No Wheelchair Access",
+            "key": "wheelchair",
+            "value": "no"
+        },
+        {
+            "description": "Full Wheelchair Access",
+            "key": "wheelchair",
+            "value": "yes"
+        },
+        {
+            "key": "wood",
+            "value": "coniferous"
+        },
+        {
+            "key": "wood",
+            "value": "deciduous"
+        },
+        {
+            "key": "wood",
+            "value": "mixed"
+        },
+        {
+            "description": "Treated as leisure=dance",
+            "key": "amenity",
+            "value": "dancing_school"
+        },
+        {
+            "description": "Treated as amenity=luggage_locker",
+            "key": "amenity",
+            "value": "left_luggage"
+        },
+        {
+            "description": "Treated as amenity=place_of_worship",
+            "key": "amenity",
+            "value": "monastery"
+        },
+        {
+            "description": "Treated as artwork_type=statue",
+            "key": "artwork_type",
+            "value": "bust"
+        },
+        {
+            "description": "Treated as artwork_type=painting",
+            "key": "artwork_type",
+            "value": "graffiti"
+        },
+        {
+            "description": "Treated as artwork_type=sculpture",
+            "key": "artwork_type",
+            "value": "installation"
+        },
+        {
+            "description": "Treated as artwork_type=painting",
+            "key": "artwork_type",
+            "value": "mural"
+        },
+        {
+            "description": "Treated as artwork_type=painting",
+            "key": "artwork_type",
+            "value": "mural_painting"
+        },
+        {
+            "description": "Treated as artwork_type=sculpture",
+            "key": "artwork_type",
+            "value": "stone"
+        },
+        {
+            "description": "Treated as amenity=atm",
+            "key": "atm",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as attraction=amusement_ride",
+            "key": "attraction",
+            "value": "dark_ride"
+        },
+        {
+            "description": "Treated as attraction=amusement_ride",
+            "key": "attraction",
+            "value": "drop_tower"
+        },
+        {
+            "description": "Treated as attraction=amusement_ride",
+            "key": "attraction",
+            "value": "swing_carousel"
+        },
+        {
+            "description": "Treated as attraction=amusement_ride",
+            "key": "attraction",
+            "value": "train"
+        },
+        {
+            "description": "Treated as barrier=block",
+            "key": "barrier",
+            "value": "jersey_barrier"
+        },
+        {
+            "description": "Treated as barrier=gate",
+            "key": "barrier",
+            "value": "sliding_gate"
+        },
+        {
+            "description": "Treated as amenity=bench",
+            "key": "bench",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as entrance=yes",
+            "key": "building",
+            "value": "entrance"
+        },
+        {
+            "description": "Treated as natural=cliff",
+            "key": "cliff",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as amenity=compressed_air",
+            "key": "compressed_air",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as craft=tailor",
+            "key": "craft",
+            "value": "dressmaker"
+        },
+        {
+            "description": "Treated as cuisine=pizza",
+            "key": "cuisine",
+            "value": "italian_pizza"
+        },
+        {
+            "description": "Treated as oneway:bicycle=no",
+            "key": "cycleway",
+            "value": "opposite_lane"
+        },
+        {
+            "description": "Treated as denomination=mormon",
+            "key": "denomination",
+            "value": "latter_day_saints"
+        },
+        {
+            "description": "Treated as drinking_water=yes",
+            "key": "drinkable",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as highway=ford",
+            "key": "ford",
+            "value": "boat"
+        },
+        {
+            "description": "Treated as highway=ford",
+            "key": "ford",
+            "value": "intermittent"
+        },
+        {
+            "description": "Treated as highway=ford",
+            "key": "ford",
+            "value": "seasonal"
+        },
+        {
+            "description": "Treated as highway=ford",
+            "key": "ford",
+            "value": "stepping_stones"
+        },
+        {
+            "description": "Treated as highway=ford",
+            "key": "ford",
+            "value": "stream"
+        },
+        {
+            "description": "Treated as highway=ford",
+            "key": "ford",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as emergency=access_point",
+            "key": "highway",
+            "value": "emergency_access_point"
+        },
+        {
+            "description": "Treated as highway=pedestrian",
+            "key": "highway",
+            "value": "platform"
+        },
+        {
+            "description": "Treated as highway=mini_roundabout",
+            "key": "highway",
+            "value": "turning_loop"
+        },
+        {
+            "description": "Treated as historic=aircraft",
+            "key": "historic",
+            "value": "aircraft_wreck"
+        },
+        {
+            "description": "Treated as amenity=fountain",
+            "key": "historic",
+            "value": "fountain"
+        },
+        {
+            "description": "Treated as historic=stone",
+            "key": "historic",
+            "value": "milestone"
+        },
+        {
+            "description": "Treated as historic=stone",
+            "key": "historic",
+            "value": "ogham_stone"
+        },
+        {
+            "description": "Treated as historic=stone",
+            "key": "historic",
+            "value": "rune_stone"
+        },
+        {
+            "description": "Treated as historic=memorial",
+            "key": "historic",
+            "value": "shield"
+        },
+        {
+            "description": "Treated as historic=stone",
+            "key": "historic",
+            "value": "standing_stone"
+        },
+        {
+            "description": "Treated as historic=memorial",
+            "key": "historic",
+            "value": "technical_monument"
+        },
+        {
+            "description": "Treated as man_made=windmill",
+            "key": "historic",
+            "value": "windmill"
+        },
+        {
+            "description": "Treated as amenity=ice_cream",
+            "key": "ice_cream",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as highway=ice_road",
+            "key": "ice_road",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as man_made=pier",
+            "key": "man_made",
+            "value": "quay"
+        },
+        {
+            "description": "Treated as memorial=plaque",
+            "key": "memorial",
+            "value": "blue_plaque"
+        },
+        {
+            "description": "Treated as memorial=statue",
+            "key": "memorial",
+            "value": "bust"
+        },
+        {
+            "description": "Treated as memorial=sculpture",
+            "key": "memorial",
+            "value": "obelisk"
+        },
+        {
+            "description": "Treated as memorial=statue",
+            "key": "memorial",
+            "value": "person"
+        },
+        {
+            "description": "Treated as memorial=sculpture",
+            "key": "memorial",
+            "value": "stele"
+        },
+        {
+            "description": "Treated as memorial=sculpture",
+            "key": "memorial",
+            "value": "stone"
+        },
+        {
+            "description": "Treated as memorial:type=plaque",
+            "key": "memorial:type",
+            "value": "plate"
+        },
+        {
+            "description": "Treated as natural=wood",
+            "key": "natural",
+            "value": "forest"
+        },
+        {
+            "description": "Treated as natural=scrub",
+            "key": "natural",
+            "value": "shrubbery"
+        },
+        {
+            "description": "Treated as waterway=waterfall",
+            "key": "natural",
+            "value": "waterfall"
+        },
+        {
+            "description": "Treated as office=government",
+            "key": "office",
+            "value": "administrative"
+        },
+        {
+            "description": "Treated as office=lawyer",
+            "key": "office",
+            "value": "notary"
+        },
+        {
+            "description": "Treated as organic=yes",
+            "key": "organic",
+            "value": "limited"
+        },
+        {
+            "description": "Treated as aerialway=j-bar",
+            "key": "piste:lift",
+            "value": "j-bar"
+        },
+        {
+            "description": "Treated as aerialway=magic_carpet",
+            "key": "piste:lift",
+            "value": "magic_carpet"
+        },
+        {
+            "description": "Treated as aerialway=platter",
+            "key": "piste:lift",
+            "value": "platter"
+        },
+        {
+            "description": "Treated as aerialway=rope_tow",
+            "key": "piste:lift",
+            "value": "rope_tow"
+        },
+        {
+            "description": "Treated as aerialway=t-bar",
+            "key": "piste:lift",
+            "value": "t-bar"
+        },
+        {
+            "description": "Treated as place=neighbourhood",
+            "key": "place",
+            "value": "allotments"
+        },
+        {
+            "description": "Treated as power=substation",
+            "key": "power",
+            "value": "transformer"
+        },
+        {
+            "description": "Treated as recycling:plastic_bottles=yes",
+            "key": "recycling:PET",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:scrap_metal=yes",
+            "key": "recycling:aluminium",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:cartons=yes",
+            "key": "recycling:beverage_cartons",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:small_appliances=yes",
+            "key": "recycling:electrical_appliances",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:small_appliances=yes",
+            "key": "recycling:electrical_items",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:green_waste=yes",
+            "key": "recycling:food_waste",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:green_waste=yes",
+            "key": "recycling:garden_waste",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:glass_bottles=yes",
+            "key": "recycling:glass",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:paper=yes",
+            "key": "recycling:magazines",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:scrap_metal=yes",
+            "key": "recycling:metal",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:paper=yes",
+            "key": "recycling:newspaper",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:green_waste=yes",
+            "key": "recycling:organic",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:paper=yes",
+            "key": "recycling:paper_packaging",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:plastic=yes",
+            "key": "recycling:plastic_packaging",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:scrap_metal=yes",
+            "key": "recycling:sheet_metal",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as recycling:small_appliances=yes",
+            "key": "recycling:small_electrical_appliances",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as rental=bike",
+            "key": "rental",
+            "value": "cargo_bike"
+        },
+        {
+            "description": "Treated as rental=bike",
+            "key": "rental",
+            "value": "city_bike"
+        },
+        {
+            "description": "Treated as rental=bike",
+            "key": "rental",
+            "value": "city_bike;ebike"
+        },
+        {
+            "description": "Treated as rental=bike",
+            "key": "rental",
+            "value": "e-bike"
+        },
+        {
+            "description": "Treated as rental=bike",
+            "key": "rental",
+            "value": "ebike"
+        },
+        {
+            "description": "Treated as amenity=restaurant",
+            "key": "restaurant",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as historic=ruins",
+            "key": "ruins",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as amenity=sanitary_dump_station",
+            "key": "sanitary_dump_station",
+            "value": "customers"
+        },
+        {
+            "description": "Treated as amenity=sanitary_dump_station",
+            "key": "sanitary_dump_station",
+            "value": "public"
+        },
+        {
+            "description": "Treated as amenity=sanitary_dump_station",
+            "key": "sanitary_dump_station",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as leisure=sauna",
+            "key": "sauna",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as service=service",
+            "key": "service",
+            "value": "crossover"
+        },
+        {
+            "description": "Treated as service=service",
+            "key": "service",
+            "value": "siding"
+        },
+        {
+            "description": "Treated as service=service",
+            "key": "service",
+            "value": "yard"
+        },
+        {
+            "description": "Treated as amenity=shelter",
+            "key": "shelter",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as shop=auction",
+            "key": "shop",
+            "value": "auction_house"
+        },
+        {
+            "description": "Treated as shop=tobacco",
+            "key": "shop",
+            "value": "e-cigarette"
+        },
+        {
+            "description": "Treated as office=estate_agent",
+            "key": "shop",
+            "value": "estate_agent"
+        },
+        {
+            "description": "Treated as shop=convenience",
+            "key": "shop",
+            "value": "food"
+        },
+        {
+            "description": "Treated as shop=convenience",
+            "key": "shop",
+            "value": "general"
+        },
+        {
+            "description": "Treated as shop=sewing",
+            "key": "shop",
+            "value": "haberdashery"
+        },
+        {
+            "description": "Treated as amenity=ice_cream",
+            "key": "shop",
+            "value": "ice_cream"
+        },
+        {
+            "description": "Treated as craft=locksmith",
+            "key": "shop",
+            "value": "locksmith"
+        },
+        {
+            "description": "Treated as amenity=money_transfer",
+            "key": "shop",
+            "value": "money_transfer"
+        },
+        {
+            "description": "Treated as disused:shop=yes",
+            "key": "shop",
+            "value": "vacant"
+        },
+        {
+            "description": "Treated as usage=utility",
+            "key": "usage",
+            "value": "freight"
+        },
+        {
+            "description": "Treated as usage=utility",
+            "key": "usage",
+            "value": "industrial"
+        },
+        {
+            "description": "Treated as usage=utility",
+            "key": "usage",
+            "value": "military"
+        },
+        {
+            "description": "Treated as usage=utility",
+            "key": "usage",
+            "value": "science"
+        },
+        {
+            "description": "Treated as usage=utility",
+            "key": "usage",
+            "value": "test"
+        },
+        {
+            "description": "Treated as vending=food",
+            "key": "vending",
+            "value": "bread"
+        },
+        {
+            "description": "Treated as vending=drinks",
+            "key": "vending",
+            "value": "milk"
+        },
+        {
+            "description": "Treated as amenity=parcel_locker",
+            "key": "vending",
+            "value": "parcel_pickup"
+        },
+        {
+            "description": "Treated as amenity=parcel_locker",
+            "key": "vending",
+            "value": "parcel_pickup;parcel_mail_in"
+        },
+        {
+            "description": "Treated as vending=drinks",
+            "key": "vending",
+            "value": "water"
+        },
+        {
+            "description": "Treated as amenity=water_point",
+            "key": "water_point",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as amenity=sanitary_dump_station",
+            "key": "waterway",
+            "value": "sanitary_dump_station"
+        },
+        {
+            "description": "Treated as amenity=water_point",
+            "key": "waterway",
+            "value": "water_point"
+        },
+        {
+            "description": "Treated as internet_access=wlan",
+            "key": "wifi",
+            "value": "free"
+        },
+        {
+            "description": "Treated as internet_access=no",
+            "key": "wifi",
+            "value": "no"
+        },
+        {
+            "description": "Treated as internet_access=wlan",
+            "key": "wifi",
+            "value": "yes"
+        },
+        {
+            "description": "Treated as highway=ice_road",
+            "key": "winter_road",
+            "value": "yes"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "addr:housename"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "addr:housenumber"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "addr:postcode"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "addr:street"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "contact:bluesky"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "contact:facebook"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "contact:instagram"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "contact:line"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "contact:mastodon"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "contact:twitter"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "contact:vk"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "cuisine"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "drive_through"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "email"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "height"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "internet_access"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "level"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "name"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "opening_hours"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "operator"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "outdoor_seating"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "phone"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "self_service"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "socket:type1"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "socket:type1:output"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "socket:type2"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "socket:type2:output"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "website"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "website:menu"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "addr:flats"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "addr:postcode"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "award:michelin"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "branch"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "brand"
+        },
+        {
+            "description": "Used to draw 3D buildings",
+            "key": "building:height"
+        },
+        {
+            "description": "Used to draw 3D buildings",
+            "key": "building:levels"
+        },
+        {
+            "description": "Used to draw 3D buildings",
+            "key": "building:min_level"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "capacity"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "capacity:charging"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "capacity:disabled"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "charge"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "check_date"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "check_date:opening_hours"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "contact:bluesky"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "contact:email"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "contact:facebook"
+        },
+        {
+            "key": "contact:fax"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "contact:instagram"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "contact:line"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "contact:mastodon"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "contact:mobile"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "contact:phone"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "contact:twitter"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "contact:vk"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "contact:website"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "contact:website:menu"
+        },
+        {
+            "key": "denomination"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "destination"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "destination:ref"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "drive_through"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "duration"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "ele"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "email"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "facebook"
+        },
+        {
+            "key": "fax"
+        },
+        {
+            "description": "Used to draw 3D buildings",
+            "key": "height"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "heritage:website"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "iata"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "indoor:level"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "instagram"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "internet"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "internet_access"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "junction:ref"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "level"
+        },
+        {
+            "description": "Used to draw 3D buildings",
+            "key": "levels"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "local_ref"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "logainm:url"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "memorial:website"
+        },
+        {
+            "description": "Used to draw 3D buildings",
+            "key": "min_height"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "mobile"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "network"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "opening_hours"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "operator"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "outdoor_seating"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "panoramax"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "panoramax:view"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "phone"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "population"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "rooms"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "self_service"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "stars"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "subject:wikipedia"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "turn:lanes"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "turn:lanes:backward"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "turn:lanes:forward"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "twitter"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "url"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "vk"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "website"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "website:menu"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "wifi"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "wikimedia_commons"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "wikipedia"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "xmas:opening_hours"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "xmas:url"
+        },
+        {
+            "description": "Used for search",
+            "key": "alt_name"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "int_name"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:af"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:am"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:ar"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:be"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:bg"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:ca"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:cs"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:cy"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:da"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:de"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:el"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:en"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:es"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:et"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:eu"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:fa"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:fi"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:fr"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:ga"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:he"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:hi"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:hr"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:hu"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:hy"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:id"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:it"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:ja"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:ja_kana"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:ja_rm"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:ka"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:kk"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:ko"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:ko_rm"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:ku"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:lt"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:lv"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:mk"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:mn"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:mr"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:nl"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:no"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:pl"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:pt"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:ro"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:ru"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:sk"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:sl"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:sq"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:sr"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:sv"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:th"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:tr"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:uk"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:vi"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:zh"
+        },
+        {
+            "description": "Used as the name on the map, in place/POI details and in search",
+            "key": "name:zh_pinyin"
+        },
+        {
+            "description": "Used for search",
+            "key": "old_name"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "access",
+            "value": "agricultural"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "access",
+            "value": "destination"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "access",
+            "value": "emergency"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "access",
+            "value": "forestry"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "access",
+            "value": "military"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "access",
+            "value": "no"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "access",
+            "value": "permissive"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "access",
+            "value": "private"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "access",
+            "value": "yes"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "amenity",
+            "value": "parking_entrance"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "block"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "bollard"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "bus_trap"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "chain"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "cycle_barrier"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "gate"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "kissing_gate"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "lift_gate"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "log"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "motorcycle_barrier"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "sump_buster"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "swing_gate"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "yes"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "bicycle",
+            "value": "designated"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "bicycle",
+            "value": "destination"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "bicycle",
+            "value": "no"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "bicycle",
+            "value": "permissive"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "bicycle",
+            "value": "private"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "bicycle",
+            "value": "yes"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "foot",
+            "value": "designated"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "foot",
+            "value": "destination"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "foot",
+            "value": "no"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "foot",
+            "value": "permissive"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "foot",
+            "value": "private"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "foot",
+            "value": "yes"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "ice_road",
+            "value": "yes"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "locked",
+            "value": "yes"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motor_vehicle",
+            "value": "designated"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motor_vehicle",
+            "value": "destination"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motor_vehicle",
+            "value": "no"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motor_vehicle",
+            "value": "permissive"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motor_vehicle",
+            "value": "permit"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motor_vehicle",
+            "value": "private"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motor_vehicle",
+            "value": "yes"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motorcar",
+            "value": "designated"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motorcar",
+            "value": "destination"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motorcar",
+            "value": "no"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motorcar",
+            "value": "permissive"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motorcar",
+            "value": "permit"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motorcar",
+            "value": "private"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motorcar",
+            "value": "yes"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "service",
+            "value": "parking_aisle"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "vehicle",
+            "value": "designated"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "vehicle",
+            "value": "destination"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "vehicle",
+            "value": "no"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "vehicle",
+            "value": "permissive"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "vehicle",
+            "value": "permit"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "vehicle",
+            "value": "private"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "vehicle",
+            "value": "yes"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "winter_road",
+            "value": "yes"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "access:conditional"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "bicycle:conditional"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "foot:conditional"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "locked:conditional"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motor_vehicle:conditional"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motorcar:conditional"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "vehicle:conditional"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "barrier",
+            "value": "toll_booth"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "crossing",
+            "value": "marked"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "crossing",
+            "value": "uncontrolled"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "crossing",
+            "value": "unmarked"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "give_way"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "stop"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "traffic_signals"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "railway",
+            "value": "crossing"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "railway",
+            "value": "level_crossing"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "traffic_calming",
+            "value": "bump"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "traffic_calming",
+            "value": "chicane"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "traffic_calming",
+            "value": "choker"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "traffic_calming",
+            "value": "cushion"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "traffic_calming",
+            "value": "hump"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "traffic_calming",
+            "value": "island"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "traffic_calming",
+            "value": "rumble_strip"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "traffic_calming",
+            "value": "table"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "restriction",
+            "value": "no_entry"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "restriction",
+            "value": "no_exit"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "restriction",
+            "value": "no_left_turn"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "restriction",
+            "value": "no_right_turn"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "restriction",
+            "value": "no_straight_on"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "restriction",
+            "value": "no_u_turn"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "restriction",
+            "value": "only_left_turn"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "restriction",
+            "value": "only_right_turn"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "restriction",
+            "value": "only_straight_on"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "restriction",
+            "value": "only_u_turn"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "access"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "addr:city"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "addr:conscriptionnumber"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "addr:housename"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "addr:housenumber"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "addr:place"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "addr:provisionalnumber"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "addr:street"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "addr:streetnumber"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "addr:suburb"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "bicycle"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "bicycle_road"
+        },
+        {
+            "key": "bridge",
+            "value": "yes"
+        },
+        {
+            "key": "capital",
+            "value": "yes"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "contact:housenumber"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "contact:postcode"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "contact:street"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "cyclestreet"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "cycleway"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "cycleway",
+            "value": "opposite"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "cycleway:both"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "cycleway:left"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "cycleway:right"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "ferry",
+            "value": "footway"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "ferry",
+            "value": "path"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "ferry",
+            "value": "pedestrian"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "ferry",
+            "value": "primary"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "ferry",
+            "value": "residential"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "ferry",
+            "value": "secondary"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "ferry",
+            "value": "service"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "ferry",
+            "value": "tertiary"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "ferry",
+            "value": "track"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "ferry",
+            "value": "trunk"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "ferry",
+            "value": "unclassified"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "foot"
+        },
+        {
+            "key": "funicular",
+            "value": "yes"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "junction",
+            "value": "circular"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "junction",
+            "value": "roundabout"
+        },
+        {
+            "key": "layer"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "lit"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motor_vehicle"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motor_vehicle:backward",
+            "value": "no"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motor_vehicle:forward",
+            "value": "no"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "motorcar"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "network",
+            "value": "ATAC"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "network",
+            "value": "London Underground"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "network",
+            "value": "Metro de Barcelona"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "network",
+            "value": "Metro de Madrid"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "network",
+            "value": "Metropolitana di Roma"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "network",
+            "value": "New York City Subway"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "network",
+            "value": "RATP"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "network",
+            "value": "Verkehrsverbund Berlin-Brandenburg"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "network",
+            "value": "Київський метрополітен"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "network",
+            "value": "Минский метрополитен"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "network",
+            "value": "Московский метрополитен"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "network",
+            "value": "Петербургский метрополитен"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "oneway"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "oneway",
+            "value": "-1"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "oneway",
+            "value": "1"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "oneway",
+            "value": "yes"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "oneway:bicycle"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "operator",
+            "value": "Metro de Madrid"
+        },
+        {
+            "description": "Used to choose the metro icon",
+            "key": "operator",
+            "value": "КП «Київський метрополітен»"
+        },
+        {
+            "key": "piste:name"
+        },
+        {
+            "key": "piste:ref"
+        },
+        {
+            "description": "Used for addresses and address search",
+            "key": "postal_code"
+        },
+        {
+            "key": "public_transport",
+            "value": "stop_position"
+        },
+        {
+            "key": "ref"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "sidewalk"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "sidewalk:both"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "sidewalk:left"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "sidewalk:right"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "toll"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "traffic_signals:direction",
+            "value": "backward"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "traffic_signals:direction",
+            "value": "forward"
+        },
+        {
+            "key": "tram",
+            "value": "yes"
+        },
+        {
+            "key": "trolleybus",
+            "value": "yes"
+        },
+        {
+            "key": "tunnel",
+            "value": "yes"
+        },
+        {
+            "key": "type",
+            "value": "multipolygon"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "vehicle:backward",
+            "value": "no"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "vehicle:forward",
+            "value": "no"
+        },
+        {
+            "key": "wheelchair",
+            "value": "designated"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "bridleway"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "cycleway"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "footway"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "ladder"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "living_street"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "motorway"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "motorway_link"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "path"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "pedestrian"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "primary"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "primary_link"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "residential"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "road"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "secondary"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "secondary_link"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "service"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "steps"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "tertiary"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "tertiary_link"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "track"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "trunk"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "trunk_link"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "unclassified"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "man_made",
+            "value": "pier"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "route",
+            "value": "ferry"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "route",
+            "value": "shuttle_train"
+        },
+        {
+            "description": "Taken into account for routing (choosing which boundary represents a settlement)",
+            "key": "admin_level"
+        },
+        {
+            "description": "Editable in the app's map editor",
+            "key": "building:levels"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "de:place"
+        },
+        {
+            "description": "Used instead of place=* for the map feature type",
+            "key": "de:place"
+        },
+        {
+            "description": "Shown as place/POI details",
+            "key": "description"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "highway",
+            "value": "construction"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "informal"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "maxspeed"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "maxspeed:advisory"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "maxspeed:backward"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "maxspeed:forward"
+        },
+        {
+            "description": "On roads, shown instead of name when it equals name:prefix followed by name",
+            "key": "name:full"
+        },
+        {
+            "description": "On roads, used to check whether name:full can be shown instead of name",
+            "key": "name:prefix"
+        },
+        {
+            "description": "Taken into account for routing (different speeds within vs. outside settlements)",
+            "key": "place"
+        },
+        {
+            "description": "Taken into account for routing (used to estimate boundaries if they are not mapped)",
+            "key": "population"
+        },
+        {
+            "description": "Used for city label visibility on the map and for search ranking",
+            "key": "population"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "restriction"
+        },
+        {
+            "description": "Shown as path difficulty on the map",
+            "key": "sac_scale"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "sac_scale"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "segregated"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "smoothness"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "surface:grade"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "tracktype"
+        },
+        {
+            "description": "Shown as path difficulty on the map",
+            "key": "trail_visibility"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "trail_visibility"
+        },
+        {
+            "description": "Taken into account for routing",
+            "key": "type",
+            "value": "restriction"
+        },
+        {
+            "description": "Used to find the Wikipedia article shown in place/POI details",
+            "key": "wikidata"
         }
     ]
 }
