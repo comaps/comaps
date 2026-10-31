@@ -370,10 +370,10 @@ private:
 // - both amenity-charging_station-motorcar and amenity-charging_station-bicycle are left;
 void LeaveLongestTypes(std::vector<generator::TypeStrings> & matchedTypes)
 {
-  // Prevents types, that either have subtypes or are subtypes, from being removed
+  // Prevents a type with subtypes and its own subtype from removing each other
   auto subtypes = ftypes::Subtypes::Instance();
-  auto const areSubtypeRelatedTypes = [subtypes](auto const & lhs, auto const & rhs)
-  { return subtypes.IsTypeWithSubtypesOrSubtype(lhs) && subtypes.IsTypeWithSubtypesOrSubtype(rhs); };
+  auto const areParentAndSubtype = [subtypes](auto const & lhs, auto const & rhs)
+  { return subtypes.IsSubtypeOfParentType(lhs, rhs) || subtypes.IsSubtypeOfParentType(rhs, lhs); };
   auto const isBetterBecauseOfSubtypeRelation = [subtypes](auto const & lhs, auto const & rhs) -> std::optional<bool>
   {
     bool const lhsIsTypeWithSubtypesOrSubtype = subtypes.IsTypeWithSubtypesOrSubtype(lhs);
@@ -408,22 +408,21 @@ void LeaveLongestTypes(std::vector<generator::TypeStrings> & matchedTypes)
     return lhs < rhs;
   };
 
-  // `true` means the second one will be removed, because being equal means it isn't unique and the first one is more
-  // important
-  auto const isEqual = [&equalPrefix, &areSubtypeRelatedTypes](auto const & lhs, auto const & rhs)
+  // Compares every pair because the subtype ordering above can separate types with the same prefix
+  auto const isShorterDuplicate = [&](auto const & type)
   {
-    if (equalPrefix(lhs, rhs))
-    {
-      // Keep longest type only
-      if (lhs.size() != rhs.size())
-        return !areSubtypeRelatedTypes(lhs, rhs);
-
-      return lhs == rhs;
-    }
-    return false;
+    return std::ranges::any_of(matchedTypes, [&](auto const & other)
+    { return other.size() > type.size() && equalPrefix(type, other) && !areParentAndSubtype(type, other); });
   };
 
-  base::SortUnique(matchedTypes, isBetter, isEqual);
+  std::sort(matchedTypes.begin(), matchedTypes.end(), isBetter);
+  matchedTypes.erase(std::unique(matchedTypes.begin(), matchedTypes.end()), matchedTypes.end());
+
+  std::vector<generator::TypeStrings> longestTypes;
+  for (auto const & type : matchedTypes)
+    if (!isShorterDuplicate(type))
+      longestTypes.push_back(type);
+  matchedTypes = std::move(longestTypes);
 }
 
 void MatchTypes(OsmElement * p, FeatureBuilderParams & params, TypesFilterFnT const & filterType)

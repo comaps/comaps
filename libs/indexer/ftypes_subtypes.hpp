@@ -143,6 +143,24 @@ public:
     return {};
   }
 
+  /**
+   * Checks if the given type path belongs to a subtype of a given parent type path
+   * @param typePath The type path to check
+   * @param parentTypePath The possible parent type path
+   * @return `true` if it is a subtype of the parent type, otherwise `false`
+   */
+  bool IsSubtypeOfParentType(vector<string> const & typePath, vector<string> const & parentTypePath) const
+  {
+    auto const & classificator = classif();
+    uint32_t const type = classificator.GetTypeByPathSafe(vector<string_view>(typePath.begin(), typePath.end()));
+    uint32_t const parentType =
+        classificator.GetTypeByPathSafe(vector<string_view>(parentTypePath.begin(), parentTypePath.end()));
+    if (type != IndexAndTypeMapping::INVALID_TYPE && parentType != IndexAndTypeMapping::INVALID_TYPE)
+      return IsSubtypeOfParentType(type, parentType);
+
+    return false;
+  }
+
 private:
   /// Constructor
   Subtypes();

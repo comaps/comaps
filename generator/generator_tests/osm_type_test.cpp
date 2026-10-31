@@ -1673,8 +1673,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_Recycling)
 
     auto const params = GetFeatureBuilderParams(tags);
 
-    TEST_EQUAL(params.m_types.size(), 4, (params));
-    TEST(params.IsTypeExist(GetType({"amenity"})), (params));
+    TEST_EQUAL(params.m_types.size(), 3, (params));
     TEST(params.IsTypeExist(GetType({"amenity", "recycling", "container"})), (params));
     TEST(params.IsTypeExist(GetType({"recycling", "glass_bottles"})), (params));
     TEST(params.IsTypeExist(GetType({"recycling", "green_waste"})), (params));
@@ -1688,8 +1687,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_Recycling)
 
     auto const params = GetFeatureBuilderParams(tags);
 
-    TEST_EQUAL(params.m_types.size(), 3, (params));
-    TEST(params.IsTypeExist(GetType({"amenity"})), (params));
+    TEST_EQUAL(params.m_types.size(), 2, (params));
     TEST(params.IsTypeExist(GetType({"amenity", "recycling", "centre"})), (params));
     TEST(params.IsTypeExist(GetType({"recycling", "glass_bottles"})), (params));
   }
@@ -1704,8 +1702,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_Recycling)
 
     auto const params = GetFeatureBuilderParams(tags);
 
-    TEST_EQUAL(params.m_types.size(), 4, (params));
-    TEST(params.IsTypeExist(GetType({"amenity"})), (params));
+    TEST_EQUAL(params.m_types.size(), 3, (params));
     TEST(params.IsTypeExist(GetType({"amenity", "recycling", "container"})), (params));
     TEST(params.IsTypeExist(GetType({"recycling", "scrap_metal"})), (params));
     TEST(params.IsTypeExist(GetType({"recycling", "batteries"})), (params));
@@ -2027,6 +2024,51 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_Toilets)
 
     TEST_EQUAL(params.m_types.size(), 1, (params));
     TEST(params.IsTypeExist(GetType({"amenity", "toilets"})), (params));
+  }
+}
+
+UNIT_CLASS_TEST(TestWithClassificator, OsmType_FastFoodCafeteria)
+{
+  {
+    Tags const tags = {
+        {"amenity", "fast_food"},
+        {"fast_food", "cafeteria"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 1, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "fast_food", "cafeteria"})), (params));
+  }
+
+  {
+    // A cuisine subtype must not keep the less specific amenity types alive.
+    Tags const tags = {
+        {"amenity", "fast_food"},
+        {"fast_food", "cafeteria"},
+        {"cuisine", "georgian"},
+        {"name", "Degusto"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 2, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "fast_food", "cafeteria"})), (params));
+    TEST(params.IsTypeExist(GetType({"cuisine", "georgian"})), (params));
+  }
+
+  {
+    Tags const tags = {
+        {"amenity", "restaurant"},
+        {"cuisine", "pizza"},
+        {"name", "Pizzeria"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 2, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "restaurant"})), (params));
+    TEST(params.IsTypeExist(GetType({"cuisine", "pizza"})), (params));
   }
 }
 
