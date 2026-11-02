@@ -64,7 +64,7 @@ public:
   /**
    * @brief Async file download as string buffer from a server suggested by meta-server (for small files only).
    * Fetches server list from the metaserver for the current data version first.
-   * Callback will be skipped on download error.
+   * Tries the servers in order until one succeeds, the callback gets an empty buffer if all of them fail.
    * @param[in]  url        Final url part like "maps/2026.04.14/260420/countries.txt".
    * @param[in]  forceReset True - force reset current request, if any.
    */
@@ -108,6 +108,10 @@ private:
 
   /// @param[in]  callback  Called in main thread (@see GetMetaConfig).
   void RunMetaConfigAsync(std::function<void()> && callback);
+
+  /// Downloads urls[urlIndex] and falls back to the next url on failure.
+  void DownloadAsStringFromUrls(std::vector<std::string> urls, size_t urlIndex,
+                                std::function<bool(std::string const &)> callback);
 
   /// Current file downloading request for DownloadAsString.
   using RequestT = downloader::HttpRequest;

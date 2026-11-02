@@ -664,6 +664,69 @@ UNIT_TEST(StorageTest_FailedDownloading)
   TEST(Platform::IsFileExistsByFullPath(downloadPath + RESUME_FILE_EXTENSION), ());
 }
 
+UNIT_TEST(MapFilesDownloader_DownloadAsStringFallsBackToNextServer)
+{
+  TestMapFilesDownloader downloader;
+  downloader.SetServersList({"http://localhost:34568/missing/", "http://localhost:34568/unit_tests/"});
+
+  string result;
+  size_t calls = 0;
+  downloader.DownloadAsString("1.txt", [&](string const & buffer)
+  {
+    result = buffer;
+    ++calls;
+    testing::StopEventLoop();
+    return false;
+  });
+  testing::RunEventLoop();
+
+  TEST_EQUAL(calls, 1, ());
+  TEST_EQUAL(result, "Test1", ());
+}
+
+UNIT_TEST(MapFilesDownloader_DownloadAsStringStartsNextDownloadFromCallback)
+{
+  TestMapFilesDownloader downloader;
+  downloader.SetServersList({"http://localhost:34568/missing/", "http://localhost:34568/unit_tests/"});
+
+  // Mirrors the countries.txt download starting the signature download from its callback.
+  vector<string> results;
+  downloader.DownloadAsString("1.txt", [&](string const & buffer)
+  {
+    results.push_back(buffer);
+    downloader.DownloadAsString("1.txt", [&](string const & buffer)
+    {
+      results.push_back(buffer);
+      testing::StopEventLoop();
+      return false;
+    }, true /* forceReset */);
+    return true;
+  });
+  testing::RunEventLoop();
+
+  TEST_EQUAL(results, vector<string>({"Test1", "Test1"}), ());
+}
+
+UNIT_TEST(MapFilesDownloader_DownloadAsStringFailsWhenAllServersFail)
+{
+  TestMapFilesDownloader downloader;
+  downloader.SetServersList({"http://localhost:34568/missing/", "http://localhost:34568/also_missing/"});
+
+  string result = "not called";
+  size_t calls = 0;
+  downloader.DownloadAsString("1.txt", [&](string const & buffer)
+  {
+    result = buffer;
+    ++calls;
+    testing::StopEventLoop();
+    return false;
+  });
+  testing::RunEventLoop();
+
+  TEST_EQUAL(calls, 1, ());
+  TEST(result.empty(), (result));
+}
+
 UNIT_TEST(StorageTest_ObsoleteMapsRemoval)
 {
   Platform::ThreadRunner m_runner;

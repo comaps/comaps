@@ -112,23 +112,36 @@ void MapFilesDownloader::DownloadAsString(std::string url, std::function<bool(st
     if ((m_fileRequest && !forceReset) || m_serversList.empty())
       return;
 
-    /// @todo(pastk): try to download from several servers - similar to map files
     // Servers are sorted from best to worst.
-    m_fileRequest.reset(RequestT::Get(url::Join(m_serversList.front(), url),
-                                      [this, callback = std::move(callback)](RequestT & request)
-    {
-      bool deleteRequest = true;
-      auto const & buffer = request.GetData();
-
-      LOG(LDEBUG, ("DownloadAsString: status=", request.GetStatus(), "bytes=", buffer.size()));
-
-      // Update deleteRequest flag if new download was requested in callback.
-      deleteRequest = !callback(buffer);
-
-      if (deleteRequest)
-        m_fileRequest.reset();
-    }));
+    DownloadAsStringFromUrls(MakeUrlList(url), 0, std::move(callback));
   });
+}
+
+void MapFilesDownloader::DownloadAsStringFromUrls(std::vector<std::string> urls, size_t urlIndex,
+                                                  std::function<bool(std::string const &)> callback)
+{
+  std::string const url = urls[urlIndex];
+  m_fileRequest.reset(RequestT::Get(
+      url, [this, urls = std::move(urls), urlIndex, callback = std::move(callback)](RequestT & request) mutable
+  {
+    auto const & buffer = request.GetData();
+
+    LOG(LDEBUG, ("DownloadAsString: status=", request.GetStatus(), "bytes=", buffer.size(), "url=", urls[urlIndex]));
+
+    // Handle failure by trying the next URL in the list
+    if (request.GetStatus() != downloader::DownloadStatus::Completed && urlIndex + 1 < urls.size())
+    {
+      LOG(LWARNING, ("DownloadAsString: failed to download", urls[urlIndex], "trying", urls[urlIndex + 1]));
+      DownloadAsStringFromUrls(std::move(urls), urlIndex + 1, std::move(callback));
+      return;
+    }
+
+    // Update deleteRequest flag if new download was requested in callback.
+    bool const deleteRequest = !callback(buffer);
+
+    if (deleteRequest)
+      m_fileRequest.reset();
+  }));
 }
 
 void MapFilesDownloader::EnsureMetaConfigReady(std::function<void()> && callback)
