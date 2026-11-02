@@ -15,7 +15,9 @@ using namespace std::chrono;
 
 namespace
 {
+/** Poll interval for traffic data */
 auto constexpr kUpdateInterval = minutes(1);
+
 auto constexpr kOutdatedDataTimeout = minutes(5) + kUpdateInterval;
 auto constexpr kNetworkErrorTimeout = minutes(20);
 

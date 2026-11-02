@@ -35,15 +35,26 @@ class DrapeEngine;
 class TrafficManager final
 {
 public:
+  /**
+   * @brief Global state of traffic information.
+   */
   enum class TrafficState
   {
+    /** Traffic is disabled, no traffic data will be retrieved or considered for routing. */
     Disabled,
+    /** Traffic is enabled and working normally (the first request may not have been scheduled yet). */
     Enabled,
+    /** At least one request is currently pending. */
     WaitingData,
+    /** At least one MWM has stale traffic data. */
     Outdated,
+    /** Traffic data for at least one MWM was invalid or not found on the server. */
     NoData,
+    /** At least one request failed or timed out. */
     NetworkError,
+    /** Traffic data could not be retrieved because the map data is outdated. */
     ExpiredData,
+    /** Traffic data could not be retrieved because the app version is outdated. */
     ExpiredApp
   };
 
@@ -69,6 +80,9 @@ public:
   void SetStateListener(TrafficStateChangedFn const & onStateChangedFn);
 
   void SetDrapeEngine(ref_ptr<df::DrapeEngine> engine);
+  /**
+   * @brief Sets the version of the MWM used locally.
+   */
   void SetCurrentDataVersion(int64_t dataVersion);
 
   void SetEnabled(bool enabled);

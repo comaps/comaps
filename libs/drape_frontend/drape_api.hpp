@@ -17,6 +17,9 @@ namespace df
 {
 class DrapeEngine;
 
+/**
+ * @brief Geometry and style for a line rendered with Drape.
+ */
 struct DrapeApiLineData
 {
   DrapeApiLineData() = default;
@@ -24,6 +27,14 @@ struct DrapeApiLineData
   DrapeApiLineData(std::vector<m2::PointD> const & points, dp::Color const & color) : m_points(points), m_color(color)
   {}
 
+  /**
+   * @brief Enables showing the points of the line.
+   *
+   * Calling this method will set the internal showPoints attribute to true (causing the points of
+   * the line to be shown as dots) and the markPoints attribute to the value supplied.
+   *
+   * @param markPoints Whether to mark the points.
+   */
   DrapeApiLineData & ShowPoints(bool markPoints)
   {
     m_showPoints = true;
@@ -31,6 +42,9 @@ struct DrapeApiLineData
     return *this;
   }
 
+  /**
+   * @brief Sets the width for the line in pixels.
+   */
   DrapeApiLineData & Width(float width)
   {
     m_width = width;
@@ -61,8 +75,25 @@ public:
 
   void SetDrapeEngine(ref_ptr<DrapeEngine> engine);
 
+  /**
+   * @brief Adds a new line.
+   *
+   * @param id A unique identifier for the line. If a line with the same identifier exists, it will
+   * be replaced by the new line.
+   * @param data The data (geometry and style) for the new line.
+   */
   void AddLine(std::string const & id, DrapeApiLineData const & data);
+
+  /**
+   * @brief Removes a line.
+   *
+   * @param id The id of the line to remove.
+   */
   void RemoveLine(std::string const & id);
+
+  /**
+   * @brief Removes all lines added with AddLine.
+   */
   void Clear();
   void Invalidate();
 

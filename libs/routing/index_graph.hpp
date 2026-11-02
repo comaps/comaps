@@ -24,6 +24,20 @@
 
 namespace routing
 {
+/**
+ * @brief Whether a maneuver between two segments is a U turn.
+ *
+ * A maneuver between two segments `u` and `v` is a U turn if, and only if, both segments differ in
+ * direction but are otherwise identical.
+ *
+ * For U turns on multiple-carriageway roads, i.e. from one carriageway onto a crossing road (or
+ * connecting cariageway) and further to the opposite cariageway, this function returns false.
+ *
+ * @param u The first segment
+ * @param v The second segment
+ *
+ * @return True if the maneuver is a U turn on the same segment, false otherwise.
+ */
 class RouteWeight;
 
 using NumMwmId = std::uint16_t;

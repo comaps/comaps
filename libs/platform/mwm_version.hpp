@@ -13,6 +13,20 @@ DECLARE_EXCEPTION(CorruptedMwmFile, RootException);
 
 namespace version
 {
+/**
+ * @brief The MWM format version.
+ *
+ * This is the global versioning for the MWM format. Some structures in the MWM file may have their
+ * own versioning in addition to the MWM format version.
+ *
+ * When a new version is introduced, add a new member to this `enum` and bump `lastFormat` to the
+ * new version.
+ *
+ * @todo Document where checks for the format version happen, and criteria for adding or not adding
+ * a new version when changes to the format are made. See #4414.
+ *
+ * Versions up to v11 were introduced by Maps.me; v10 and earlier were deprecated by OrganicMaps.
+ */
 enum class Format
 {
   unknownFormat = -1,
