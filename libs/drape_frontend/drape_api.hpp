@@ -31,7 +31,7 @@ struct DrapeApiLineData
    * @brief Enables showing the points of the line.
    *
    * Calling this method will set the internal showPoints attribute to true (causing the points of
-   * the line to be shown as dots) and the markPoints attribite to the value supplied.
+   * the line to be shown as dots) and the markPoints attribute to the value supplied.
    *
    * @param markPoints Whether to mark the points.
    */

@@ -137,7 +137,7 @@ public:
    * @param segment The segment.
    * @param road The road geometry (speed, restrictions, points) for the road which the segment is a part of.
    * @param purpose The purpose for which the result is to be used.
-   * @prarm weightToSegment The time needed to reach `segment`, can be used if travel time along the segment
+   * @param weightToSegment The time needed to reach `segment`, can be used if travel time along the segment
    * depends on when it is reached.
    * @return Travel time in seconds.
    */

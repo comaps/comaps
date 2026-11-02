@@ -527,7 +527,7 @@ private:
    * @brief Initializes the traffic manager.
    *
    * This enables the traffic manager if defined in settings. If the traffic manager is not in test
-   * mode, all cunfigured sources are also added here.
+   * mode, all configured sources are also added here.
    *
    * Maps must be loaded prior to calling this method.
    */
