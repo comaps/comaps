@@ -2217,6 +2217,8 @@ node|z16[shop=rental],
 {icon-image: rental-m.svg;}
 node|z16[shop=rental][rental=bike],
 {icon-image: shop-rental-bicycle-m.svg;}
+node|z18-[shop=storage_rental],
+{icon-image: rental-m.svg;}
 
 node|z17-[shop=agrarian],
 node|z17-[shop=trade],
