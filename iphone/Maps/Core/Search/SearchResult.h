@@ -9,6 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) NSUInteger index;
 @property (nonatomic, readonly) NSString * titleText;
+@property (nonatomic, readonly, nullable) NSString * titleWithoutBranch;
 @property (nonatomic, readonly, nullable) NSString * branchText;
 @property (nonatomic, readonly) NSString * iconImageName;
 @property (nonatomic, readonly) NSString * addressText;

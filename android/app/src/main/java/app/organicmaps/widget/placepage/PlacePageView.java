@@ -15,6 +15,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.TypefaceSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -528,7 +529,18 @@ public class PlacePageView extends Fragment
 
   private void refreshPreview()
   {
-    UiUtils.setTextAndHideIfEmpty(mTvTitle, mMapObject.getTitle());
+    final String branch = mMapObject.getBranch();
+    if (!branch.isEmpty())
+    {
+      final SpannableStringBuilder title = new SpannableStringBuilder(mMapObject.getTitleWithoutBranch()).append(' ');
+      final int branchStart = title.length();
+      title.append(branch);
+      title.setSpan(new TypefaceSpan(getString(R.string.robotoRegular)), branchStart, title.length(),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+      UiUtils.setTextAndHideIfEmpty(mTvTitle, title);
+    }
+    else
+      UiUtils.setTextAndHideIfEmpty(mTvTitle, mMapObject.getTitle());
 
     if (mMapObject.getStarRating() != null)
     {

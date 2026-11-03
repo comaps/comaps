@@ -103,7 +103,7 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, place_page::Info cons
                                          search::ReverseGeocoder::Address const & address)
   : QDialog(parent)
 {
-  auto const & title = info.GetTitle();
+  auto const [title, branch] = info.GetTitleAndBranch();
 
   QVBoxLayout * layout = new QVBoxLayout();
   {
@@ -111,7 +111,11 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, place_page::Info cons
 
     if (!title.empty())
     {
-      QLabel * titleLabel = new QLabel(QString::fromStdString("<h1>" + title + "</h1>"));
+      std::string titleHtml = "<h1>" + title;
+      if (!branch.empty())
+        titleHtml += " <span style=\"font-weight:normal\">" + branch + "</span>";
+      titleHtml += "</h1>";
+      QLabel * titleLabel = new QLabel(QString::fromStdString(titleHtml));
       titleLabel->setWordWrap(true);
       header->addWidget(titleLabel);
     }

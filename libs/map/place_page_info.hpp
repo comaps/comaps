@@ -126,6 +126,7 @@ public:
   /// For showing in UI
   std::string const & GetTitle() const { return m_uiTitle; }
   std::string const & GetBranch() const { return m_uiBranch; }
+  feature::TitleAndBranch GetTitleAndBranch() const { return feature::SplitTitleAndBranch(m_uiTitle, m_uiBranch); }
   /// Convenient wrapper for secondary feature name.
   std::string const & GetSecondaryTitle() const { return m_uiSecondaryTitle; }
   /// Convenient wrapper for type, cuisines, elevation, stars, wifi etc.

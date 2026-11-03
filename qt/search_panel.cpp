@@ -142,7 +142,8 @@ void SearchPanel::OnSearchResults(uint64_t timestamp, search::Results results)
 
   for (auto const & res : m_results)
   {
-    QString const name = QString::fromStdString(res.GetString());
+    auto const [title, branch] = res.GetTitleAndBranch();
+    QString const name = QString::fromStdString(branch.empty() ? title : title + " " + branch);
     QString strHigh;
     int pos = 0;
     for (size_t r = 0; r < res.GetHighlightRangesCount(); ++r)
