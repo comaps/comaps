@@ -868,7 +868,9 @@
 # leisure-bowling_alley                             # icon z17- (also has caption(optional) z17-)
 # leisure-garden                                    # icon z16- (also has caption(optional) z16-, area z12-)
 # leisure-swimming_pool                             # icon z17- (also has caption(optional) z17-, area z13-)
-# office-diplomatic                                 # icon z17- (also has caption(optional) z17-, area z15-)
+# office-diplomatic-consulate                       # icon z17- (also has caption(optional) z17-, area z15-)
+# office-diplomatic-embassy                         # icon z17- (also has caption(optional) z17-, area z15-)
+# office-diplomatic-liaison                         # icon z17- (also has caption(optional) z17-, area z15-)
 # tourism-zoo-petting                               # icon z15- (also has caption(optional) z15-)
 # === 2450
 
@@ -2022,7 +2024,9 @@
 # leisure-bowling_alley                             # caption(optional) z17- (also has icon z17-)
 # leisure-garden                                    # caption(optional) z16- (also has icon z16-, area z12-)
 # leisure-swimming_pool                             # caption(optional) z17- (also has icon z17-, area z13-)
-# office-diplomatic                                 # caption(optional) z17- (also has icon z17-, area z15-)
+# office-diplomatic-consulate                       # caption(optional) z17- (also has icon z17-, area z15-)
+# office-diplomatic-embassy                         # caption(optional) z17- (also has icon z17-, area z15-)
+# office-diplomatic-liaison                         # caption(optional) z17- (also has icon z17-, area z15-)
 # tourism-zoo-petting                               # caption(optional) z15- (also has icon z15-)
 # === -7550
 
