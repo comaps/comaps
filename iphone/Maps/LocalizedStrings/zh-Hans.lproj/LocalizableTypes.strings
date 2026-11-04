@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "飞行学校";
 "type.amenity.prep_school" = "补习学校";
 "type.amenity.language_school" = "语言学校";
-"type.office.diplomatic" = "大使馆";
+"type.office.diplomatic.embassy" = "大使馆";
 "type.office.security" = "保安室";
 "type.building.guardhouse" = "保安亭";
 "type.power.portal" = "能源站";

@@ -74,7 +74,7 @@
     <string name="type.amenity.driving_school">ஓட்டுநர் பள்ளி</string>
     <string name="type.amenity.exhibition_centre">கண்காட்சி மையம்</string>
     <string name="type.amenity.money_transfer">பணமாற்றல்</string>
-    <string name="type.office.diplomatic">தூதரகம்</string>
+    <string name="type.office.diplomatic.embassy">தூதரகம்</string>
     <string name="type.office.security">பாதுகாப்பு காவலர் அலுவலகம்</string>
     <string name="type.building.guardhouse">பாதுகாப்பு சாவடி</string>
     <string name="type.power.portal">மின் கம்பம்</string>

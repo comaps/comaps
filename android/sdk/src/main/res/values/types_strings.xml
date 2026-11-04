@@ -82,7 +82,9 @@
     <string name="type.amenity.flight_school">Flight School</string>
     <string name="type.amenity.prep_school">Tutorial School</string>
     <string name="type.amenity.language_school">Language School</string>
-    <string name="type.office.diplomatic">Embassy</string>
+    <string name="type.office.diplomatic.embassy">Embassy</string>
+    <string name="type.office.diplomatic.consulate">Consulate</string>
+    <string name="type.office.diplomatic.liaison">Liaison Office</string>
     <string name="type.office.security">Security Guards Office</string>
     <string name="type.building.guardhouse">Security Booth</string>
     <string name="type.power.portal">Power Portal</string>

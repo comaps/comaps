@@ -49,7 +49,7 @@
     <string name="type.amenity.money_transfer">Pengeoverførsel</string>
     <string name="type.amenity.music_school">Musikskole</string>
     <string name="type.amenity.language_school">Sprogskole</string>
-    <string name="type.office.diplomatic">Ambassade</string>
+    <string name="type.office.diplomatic.embassy">Ambassade</string>
     <string name="type.amenity.fast_food">Hurtigmad</string>
     <string name="type.amenity.ferry_terminal">Færge</string>
     <string name="type.amenity.fire_station">Brandstation</string>

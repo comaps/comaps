@@ -788,8 +788,11 @@
     "@category_police": {
         "defaultMessage": "4Policía"
     },
-    "office-diplomatic": {
-        "defaultMessage": "4Embajada|4Consulado"
+    "office-diplomatic-embassy": {
+        "defaultMessage": "4Embajada"
+    },
+    "office-diplomatic-consulate": {
+        "defaultMessage": "4Consulado"
     },
     "natural-bay": {
         "defaultMessage": "Bahía"

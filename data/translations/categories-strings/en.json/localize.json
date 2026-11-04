@@ -884,8 +884,14 @@
     "amenity-police|@category_police": {
         "defaultMessage": "Police station|U+1F693|U+1F46E|U+1F694|U+1F482|U+1F6A8"
     },
-    "office-diplomatic": {
-        "defaultMessage": "4Embassy|5Consulate"
+    "office-diplomatic-embassy": {
+        "defaultMessage": "4Embassy|diplomatic mission|diplomatic office"
+    },
+    "office-diplomatic-consulate": {
+        "defaultMessage": "5Consulate|consulate general|honorary consul|consular agency|consular office|diplomatic mission|diplomatic office"
+    },
+    "office-diplomatic-liaison": {
+        "defaultMessage": "Liaison Office|representative office|diplomatic mission|diplomatic office"
     },
     "natural-bay": {
         "defaultMessage": "Bay"

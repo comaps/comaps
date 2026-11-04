@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Abiazio eskola";
 "type.amenity.prep_school" = "Tutoretza-eskola";
 "type.amenity.language_school" = "Hizkuntza Eskola";
-"type.office.diplomatic" = "Enbaxada";
+"type.office.diplomatic.embassy" = "Enbaxada";
 "type.office.security" = "Segurtasun zaindarien bulegoa";
 "type.building.guardhouse" = "Segurtasun kabina";
 "type.power.portal" = "Goi-tentsioko dorrea";

@@ -51,7 +51,7 @@
     <string name="type.amenity.music_school">Skol-ilowek</string>
     <string name="type.amenity.flight_school">Skol Ayr</string>
     <string name="type.amenity.language_school">Skol Yeth</string>
-    <string name="type.office.diplomatic">Kanatti</string>
+    <string name="type.office.diplomatic.embassy">Kanatti</string>
     <string name="type.office.security">Buro Gwithyas Diogeledh</string>
     <string name="type.building.guardhouse">Borth Gwithyas Diogeledh</string>
     <string name="type.power.portal">Portal Tredan</string>

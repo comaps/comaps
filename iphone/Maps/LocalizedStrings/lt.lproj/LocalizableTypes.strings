@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Aviacijos mokykla";
 "type.amenity.prep_school" = "Parengiamoji mokykla";
 "type.amenity.language_school" = "Kalbų mokykla";
-"type.office.diplomatic" = "Ambasada";
+"type.office.diplomatic.embassy" = "Ambasada";
 "type.office.security" = "Saugos tarnyba";
 "type.building.guardhouse" = "Apsaugos postas";
 "type.power.portal" = "Portalinė atrama";

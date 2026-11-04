@@ -635,8 +635,11 @@
     "amenity-police|@category_police": {
         "defaultMessage": "5Полицијска станица|Полиција|5Policijska stanica|Policija"
     },
-    "office-diplomatic": {
-        "defaultMessage": "Амбасада|Конзулат|Ambasada|Konzulat"
+    "office-diplomatic-embassy": {
+        "defaultMessage": "Амбасада|Ambasada"
+    },
+    "office-diplomatic-consulate": {
+        "defaultMessage": "Конзулат|Konzulat"
     },
     "natural-bay": {
         "defaultMessage": "Залив|Zaliv"

@@ -61,7 +61,7 @@
     <string name="type.amenity.money_transfer">Rahansiirto</string>
     <string name="type.amenity.music_school">Musiikkikoulu</string>
     <string name="type.amenity.language_school">Kielikoulu</string>
-    <string name="type.office.diplomatic">Suurlähetystö</string>
+    <string name="type.office.diplomatic.embassy">Suurlähetystö</string>
     <string name="type.amenity.fast_food">Pikaruokala</string>
     <string name="type.amenity.ferry_terminal">Lauttaterminaali</string>
     <string name="type.amenity.fire_station">Paloasema</string>

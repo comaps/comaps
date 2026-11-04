@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "ໂຮງຮຽນສອນການບິນ";
 "type.amenity.prep_school" = "ໂຮງຮຽນສອນເພີ່ມ";
 "type.amenity.language_school" = "ໂຮງຮຽນສອນພາສາ";
-"type.office.diplomatic" = "ສະຖານທູດ";
+"type.office.diplomatic.embassy" = "ສະຖານທູດ";
 "type.office.security" = "ຫ້ອງການພະນັກງານປ້ອງກັນຄວາມສະຫງົບ";
 "type.building.guardhouse" = "ປ້ອມຍາມ";
 "type.power.portal" = "ປະຕູພະລັງງານ";

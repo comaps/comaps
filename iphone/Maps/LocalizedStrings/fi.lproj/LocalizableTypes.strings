@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Lentokoulu";
 "type.amenity.prep_school" = "Valmennuskoulu";
 "type.amenity.language_school" = "Kielikoulu";
-"type.office.diplomatic" = "Suurlähetystö";
+"type.office.diplomatic.embassy" = "Suurlähetystö";
 "type.office.security" = "Vartijoiden toimisto";
 "type.building.guardhouse" = "Vartijankoppi";
 "type.power.portal" = "Sähköportaali";

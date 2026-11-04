@@ -728,7 +728,7 @@
     "amenity-police|@category_police": {
         "defaultMessage": "Αστυνομία"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "Πρεσβεία"
     },
     "natural-bay": {

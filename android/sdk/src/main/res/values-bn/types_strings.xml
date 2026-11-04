@@ -37,7 +37,7 @@
     <string name="type.aeroway.aerodrome">বিমানবন্দর</string>
     <string name="type.aeroway.aerodrome.international">আন্তর্জাতিক বিমানবন্দর</string>
     <string name="type.amenity.drinking_water">পানীয় জল</string>
-    <string name="type.office.diplomatic">দূতাবাস</string>
+    <string name="type.office.diplomatic.embassy">দূতাবাস</string>
     <string name="type.natural.water.river">নদী</string>
     <string name="type.natural.tree">গাছ</string>
     <string name="type.natural.water.pond">পুকুর</string>

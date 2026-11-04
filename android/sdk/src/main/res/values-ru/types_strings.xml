@@ -64,7 +64,7 @@
     <string name="type.amenity.money_transfer">Денежные переводы</string>
     <string name="type.amenity.music_school">Музыкальная школа</string>
     <string name="type.amenity.language_school">Языковая школа</string>
-    <string name="type.office.diplomatic">Посольство</string>
+    <string name="type.office.diplomatic.embassy">Посольство</string>
     <string name="type.amenity.fast_food">Фастфуд</string>
     <string name="type.amenity.ferry_terminal">Паром</string>
     <string name="type.amenity.fire_station">Пожарная часть</string>

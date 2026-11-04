@@ -746,7 +746,7 @@
     "amenity-police|@category_police": {
         "defaultMessage": "1屯所|ポリス|交番|お巡りさん|おまわりさん|通報"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "1大使館"
     },
     "natural-bay": {

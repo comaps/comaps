@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Repülőiskola";
 "type.amenity.prep_school" = "Oktatóiskola";
 "type.amenity.language_school" = "Nyelviskola";
-"type.office.diplomatic" = "Nagykövetség";
+"type.office.diplomatic.embassy" = "Nagykövetség";
 "type.office.security" = "Biztonsági őr irodája";
 "type.building.guardhouse" = "Biztonsági fülke";
 "type.power.portal" = "Villanytorony (Portál)";

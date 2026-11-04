@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Lennukool";
 "type.amenity.prep_school" = "Tugiõpe";
 "type.amenity.language_school" = "Keeltekool";
-"type.office.diplomatic" = "Saatkond";
+"type.office.diplomatic.embassy" = "Saatkond";
 "type.office.security" = "Turvafirma kontor";
 "type.building.guardhouse" = "Valvuriputka";
 "type.power.portal" = "Õhuliini värava-tüüpi mast";

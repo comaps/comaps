@@ -725,7 +725,7 @@
     "@category_police": {
         "defaultMessage": "पोलीस"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "दूतावास"
     },
     "natural-bay": {

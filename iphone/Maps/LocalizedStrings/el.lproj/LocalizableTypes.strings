@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Σχολή πιλότων";
 "type.amenity.prep_school" = "Φροντιστήριο";
 "type.amenity.language_school" = "Σχολή Γλωσσών";
-"type.office.diplomatic" = "Πρεσβεία";
+"type.office.diplomatic.embassy" = "Πρεσβεία";
 "type.office.security" = "Γραφείο Φρουρών Ασφαλείας";
 "type.building.guardhouse" = "Θάλαμος Ασφαλείας";
 "type.power.portal" = "Πύλη Ισχύος";

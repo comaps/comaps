@@ -47,7 +47,7 @@
     <string name="type.amenity.money_transfer">Transfer uang</string>
     <string name="type.amenity.music_school">Sekolah musik</string>
     <string name="type.amenity.language_school">Sekolah bahasa</string>
-    <string name="type.office.diplomatic">Kedutaan</string>
+    <string name="type.office.diplomatic.embassy">Kedutaan</string>
     <string name="type.amenity.fast_food">Cepat saji</string>
     <string name="type.amenity.ferry_terminal">Terminal</string>
     <string name="type.amenity.fire_station">Kantor pemadam kebakaran</string>

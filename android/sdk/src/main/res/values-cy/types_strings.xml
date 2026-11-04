@@ -7,7 +7,7 @@
     <string name="type.amenity.courthouse">Llys</string>
     <string name="type.amenity.dentist">Deintydd</string>
     <string name="type.amenity.doctors">Meddyg</string>
-    <string name="type.office.diplomatic">Llysgenhadaeth</string>
+    <string name="type.office.diplomatic.embassy">Llysgenhadaeth</string>
     <string name="type.amenity.fountain">Ffynnon</string>
     <string name="type.amenity.grave_yard">Mynwent</string>
     <string name="type.amenity.hospital">Ysbyty</string>

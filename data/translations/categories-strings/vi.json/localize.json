@@ -710,7 +710,7 @@
     "@category_police": {
         "defaultMessage": "Cảnh sát"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "Đại sứ quán"
     },
     "natural-bay": {

@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Școală de zbor";
 "type.amenity.prep_school" = "Școală de Tutoriale";
 "type.amenity.language_school" = "Școala de limbi străine";
-"type.office.diplomatic" = "Ambasadă";
+"type.office.diplomatic.embassy" = "Ambasadă";
 "type.office.security" = "Firmă de pază";
 "type.building.guardhouse" = "Cabină de pază";
 "type.power.portal" = "Stație de distribuție";

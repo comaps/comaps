@@ -73,7 +73,7 @@
     <string name="type.amenity.exhibition_centre">Messezentrum</string>
     <string name="type.amenity.money_transfer">Geldtransfer</string>
     <string name="type.amenity.music_school">Musigschuel</string>
-    <string name="type.office.diplomatic">Botschaft</string>
+    <string name="type.office.diplomatic.embassy">Botschaft</string>
     <string name="type.amenity.fast_food">Fast-Food</string>
     <string name="type.amenity.ferry_terminal">Fähraaleger</string>
     <string name="type.amenity.fire_station">Füürwehr</string>

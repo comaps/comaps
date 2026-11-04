@@ -79,7 +79,7 @@
     <string name="type.amenity.flight_school">ໂຮງຮຽນສອນການບິນ</string>
     <string name="type.amenity.prep_school">ໂຮງຮຽນສອນເພີ່ມ</string>
     <string name="type.amenity.language_school">ໂຮງຮຽນສອນພາສາ</string>
-    <string name="type.office.diplomatic">ສະຖານທູດ</string>
+    <string name="type.office.diplomatic.embassy">ສະຖານທູດ</string>
     <string name="type.office.security">ຫ້ອງການພະນັກງານປ້ອງກັນຄວາມສະຫງົບ</string>
     <string name="type.building.guardhouse">ປ້ອມຍາມ</string>
     <string name="type.power.portal">ປະຕູພະລັງງານ</string>

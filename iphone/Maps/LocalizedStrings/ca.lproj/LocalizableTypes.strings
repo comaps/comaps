@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Escola de Vol";
 "type.amenity.prep_school" = "Escola Preparatòria";
 "type.amenity.language_school" = "Escola d’idiomes";
-"type.office.diplomatic" = "Ambaixada";
+"type.office.diplomatic.embassy" = "Ambaixada";
 "type.office.security" = "Oficina de Guàrdies de Seguretat";
 "type.building.guardhouse" = "Cabina de Seguretat";
 "type.power.portal" = "Torre d'alta tensió";

@@ -42,7 +42,7 @@
     <string name="type.amenity.sailing_school">ملاحی ایل کننگ نه جاه</string>
     <string name="type.amenity.flight_school">بالی گری ایل کننگ نه جاه</string>
     <string name="type.amenity.language_school">بوله ایل کننگ نه جاه</string>
-    <string name="type.office.diplomatic">سفارت خانه</string>
+    <string name="type.office.diplomatic.embassy">سفارت خانه</string>
     <string name="type.amenity.fast_food">فاسٹ فوڈ</string>
     <string name="type.amenity.ferry_terminal">فیری</string>
     <string name="type.amenity.fire_station">خاخر خلوکآته اڈه</string>

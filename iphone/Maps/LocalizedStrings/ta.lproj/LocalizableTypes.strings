@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "விமானப் பள்ளி";
 "type.amenity.prep_school" = "பயிற்சி பள்ளி";
 "type.amenity.language_school" = "மொழி பள்ளிக்கூடம்";
-"type.office.diplomatic" = "தூதரகம்";
+"type.office.diplomatic.embassy" = "தூதரகம்";
 "type.office.security" = "பாதுகாப்பு காவலர் அலுவலகம்";
 "type.building.guardhouse" = "பாதுகாப்பு சாவடி";
 "type.power.portal" = "மின் கம்பம்";

@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Trường dạy lái máy bay";
 "type.amenity.prep_school" = "Trường dạy thêm";
 "type.amenity.language_school" = "Trường ngoại ngữ";
-"type.office.diplomatic" = "Đại sứ quán";
+"type.office.diplomatic.embassy" = "Đại sứ quán";
 "type.office.security" = "Văn phòng đội bảo vệ";
 "type.building.guardhouse" = "Bốt bảo vệ";
 "type.power.portal" = "Điểm sạc thiết bị";

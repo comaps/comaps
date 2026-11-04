@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Uçuş Okulu";
 "type.amenity.prep_school" = "Özel Ders Okulu";
 "type.amenity.language_school" = "Dil Okulu";
-"type.office.diplomatic" = "Büyükelçilik";
+"type.office.diplomatic.embassy" = "Büyükelçilik";
 "type.office.security" = "Güvenlik Görevlisi Ofisi";
 "type.building.guardhouse" = "Güvenlik Kulübesi";
 "type.power.portal" = "Elektrik Portalı";

@@ -53,7 +53,7 @@
     <string name="type.addr_interpolation">Address/Block</string>
     <string name="type.addr_interpolation.even">Address/Block</string>
     <string name="type.amenity.cinema">Movie Theatre</string>
-    <string name="type.office.diplomatic">Embassy</string>
+    <string name="type.office.diplomatic.embassy">Embassy</string>
     <string name="type.aeroway.taxiway">Taxiway</string>
     <string name="type.aeroway.terminal">Terminal</string>
     <string name="type.amenity">Amenity</string>

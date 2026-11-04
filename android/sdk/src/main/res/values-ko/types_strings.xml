@@ -51,7 +51,7 @@
     <string name="type.amenity.money_transfer">송금</string>
     <string name="type.amenity.music_school">음악 학교</string>
     <string name="type.amenity.language_school">언어 학교</string>
-    <string name="type.office.diplomatic">대사관</string>
+    <string name="type.office.diplomatic.embassy">대사관</string>
     <string name="type.amenity.fast_food">패스트 푸드</string>
     <string name="type.amenity.ferry_terminal">페리</string>
     <string name="type.amenity.fire_station">소방서</string>

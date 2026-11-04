@@ -51,7 +51,7 @@
     <string name="type.amenity.money_transfer">Chuyển tiền</string>
     <string name="type.amenity.music_school">Trường âm nhạc</string>
     <string name="type.amenity.language_school">Trường ngoại ngữ</string>
-    <string name="type.office.diplomatic">Đại sứ quán</string>
+    <string name="type.office.diplomatic.embassy">Đại sứ quán</string>
     <string name="type.amenity.fast_food">Thức ăn nhanh</string>
     <string name="type.amenity.ferry_terminal">Phà</string>
     <string name="type.amenity.fire_station">Trạm cứu hỏa</string>

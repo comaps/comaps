@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Flugadlernejo";
 "type.amenity.prep_school" = "Alilernejo";
 "type.amenity.language_school" = "Lingvolernejo";
-"type.office.diplomatic" = "Ambasadejo";
+"type.office.diplomatic.embassy" = "Ambasadejo";
 "type.office.security" = "Oficejo de gardistoj";
 "type.building.guardhouse" = "Gardistejo";
 "type.amenity.fast_food" = "Rapidmanĝejo";

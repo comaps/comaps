@@ -64,7 +64,7 @@
     <string name="type.amenity.money_transfer">Transferència de diners</string>
     <string name="type.amenity.music_school">Escola de música</string>
     <string name="type.amenity.language_school">Escola d’idiomes</string>
-    <string name="type.office.diplomatic">Ambaixada</string>
+    <string name="type.office.diplomatic.embassy">Ambaixada</string>
     <string name="type.amenity.fast_food">Menjar ràpid</string>
     <string name="type.amenity.ferry_terminal">Transbordador</string>
     <string name="type.amenity.fire_station">Parc de bombers</string>

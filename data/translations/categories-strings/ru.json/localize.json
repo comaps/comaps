@@ -779,7 +779,7 @@
     "@category_police": {
         "defaultMessage": "4Полиция|милиция"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "4Посольство"
     },
     "natural-bay": {

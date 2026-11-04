@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Flight School";
 "type.amenity.prep_school" = "টিউশন";
 "type.amenity.language_school" = "Language School";
-"type.office.diplomatic" = "দূতাবাস";
+"type.office.diplomatic.embassy" = "দূতাবাস";
 "type.office.security" = "সিকিউরিটি গার্ড অফিস";
 "type.building.guardhouse" = "সিকিউরিটি বুথ";
 "type.power.portal" = "পাওয়ার পোর্টাল";

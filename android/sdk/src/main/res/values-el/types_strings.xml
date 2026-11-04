@@ -56,7 +56,7 @@
     <string name="type.amenity.money_transfer">Μεταφορά χρημάτων</string>
     <string name="type.amenity.music_school">Μουσική Σχολή</string>
     <string name="type.amenity.language_school">Σχολή Γλωσσών</string>
-    <string name="type.office.diplomatic">Πρεσβεία</string>
+    <string name="type.office.diplomatic.embassy">Πρεσβεία</string>
     <string name="type.amenity.fast_food">Ταχυφαγίο</string>
     <string name="type.amenity.ferry_terminal">Πορθμείο</string>
     <string name="type.amenity.fire_station">Σταθμός πυρόσβεσης</string>

@@ -710,7 +710,7 @@
     "@category_police": {
         "defaultMessage": "4ตำรวจ"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "4สถานทูต"
     },
     "natural-bay": {

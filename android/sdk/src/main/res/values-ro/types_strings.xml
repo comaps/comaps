@@ -46,7 +46,7 @@
     <string name="type.amenity.money_transfer">Transfer de bani</string>
     <string name="type.amenity.music_school">Scoala de Muzica</string>
     <string name="type.amenity.language_school">Școala de limbi străine</string>
-    <string name="type.office.diplomatic">Ambasadă</string>
+    <string name="type.office.diplomatic.embassy">Ambasadă</string>
     <string name="type.amenity.fast_food">Fast food</string>
     <string name="type.amenity.ferry_terminal">Feribot</string>
     <string name="type.amenity.fire_station">Unitate de pompieri</string>

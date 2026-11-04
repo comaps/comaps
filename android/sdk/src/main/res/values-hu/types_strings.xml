@@ -51,7 +51,7 @@
     <string name="type.amenity.money_transfer">Pénzküldés</string>
     <string name="type.amenity.music_school">Zeneiskola</string>
     <string name="type.amenity.language_school">Nyelviskola</string>
-    <string name="type.office.diplomatic">Nagykövetség</string>
+    <string name="type.office.diplomatic.embassy">Nagykövetség</string>
     <string name="type.amenity.fast_food">Büfé, gyorsétterem</string>
     <string name="type.amenity.ferry_terminal">Komp</string>
     <string name="type.amenity.fire_station">Tűzoltóság</string>

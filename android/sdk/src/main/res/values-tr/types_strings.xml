@@ -64,7 +64,7 @@
     <string name="type.amenity.money_transfer">Para Aktarımı</string>
     <string name="type.amenity.music_school">Müzik Okulu</string>
     <string name="type.amenity.language_school">Dil Okulu</string>
-    <string name="type.office.diplomatic">Büyükelçilik</string>
+    <string name="type.office.diplomatic.embassy">Büyükelçilik</string>
     <string name="type.amenity.fast_food">Hazır Yemek</string>
     <string name="type.amenity.ferry_terminal">Feribot</string>
     <string name="type.amenity.fire_station">İtfaiye</string>

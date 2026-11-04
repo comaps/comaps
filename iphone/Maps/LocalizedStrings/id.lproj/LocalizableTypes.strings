@@ -69,7 +69,7 @@
 "type.amenity.music_school" = "Sekolah musik";
 "type.amenity.flight_school" = "Sekolah Penerbangan";
 "type.amenity.language_school" = "Sekolah bahasa";
-"type.office.diplomatic" = "Kedutaan";
+"type.office.diplomatic.embassy" = "Kedutaan";
 "type.office.security" = "Kantor Satpam";
 "type.building.guardhouse" = "Pos Satpam";
 "type.power.portal" = "Tempat Pengisian Listrik";

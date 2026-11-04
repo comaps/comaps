@@ -60,7 +60,7 @@
     <string name="type.amenity.money_transfer">Geldoordrag</string>
     <string name="type.amenity.music_school">Musiekskool</string>
     <string name="type.amenity.language_school">Taalskool</string>
-    <string name="type.office.diplomatic">Ambassade</string>
+    <string name="type.office.diplomatic.embassy">Ambassade</string>
     <string name="type.amenity.fast_food">Kitskos</string>
     <string name="type.amenity.ferry_terminal">Veerpont</string>
     <string name="type.amenity.fire_station">Brandweerstasie</string>

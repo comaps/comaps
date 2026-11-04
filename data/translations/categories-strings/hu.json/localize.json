@@ -728,7 +728,7 @@
     "@category_police": {
         "defaultMessage": "4Rendőrség|Rendőr"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "4Nagykövetség|Külképviselet"
     },
     "natural-bay": {

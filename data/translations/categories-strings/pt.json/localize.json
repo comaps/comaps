@@ -746,8 +746,11 @@
     "amenity-police|@category_police": {
         "defaultMessage": "4Polícia|2Guarda Nacional Republicana|2GNR|2PSP|4Seccional"
     },
-    "office-diplomatic": {
-        "defaultMessage": "4Embaixada|3Consulado"
+    "office-diplomatic-embassy": {
+        "defaultMessage": "4Embaixada"
+    },
+    "office-diplomatic-consulate": {
+        "defaultMessage": "3Consulado"
     },
     "natural-bay": {
         "defaultMessage": "Baía"

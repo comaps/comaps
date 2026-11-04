@@ -737,7 +737,7 @@
     "@category_police": {
         "defaultMessage": "警察局"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "使馆"
     },
     "@category_water": {

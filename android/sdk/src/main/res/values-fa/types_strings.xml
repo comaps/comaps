@@ -50,7 +50,7 @@
     <string name="type.amenity.money_transfer">انتقال پول</string>
     <string name="type.amenity.music_school">آموزشگاه هونا</string>
     <string name="type.amenity.language_school">آموزشگاه زبان</string>
-    <string name="type.office.diplomatic">سفارت</string>
+    <string name="type.office.diplomatic.embassy">سفارت</string>
     <string name="type.amenity.fast_food">فست فود</string>
     <string name="type.amenity.ferry_terminal">فرابَری</string>
     <string name="type.amenity.fire_station">ایستگاه آتش‌نشانی</string>

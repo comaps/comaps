@@ -743,7 +743,7 @@
     "amenity-police|@category_police": {
         "defaultMessage": "الشرطة|البوليس"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "سفارة"
     },
     "natural-bay": {
