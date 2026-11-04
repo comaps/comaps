@@ -57,7 +57,7 @@
     <string name="type.drinking_water.yes">Água potável</string>
     <string name="type.amenity.driving_school">Autoescola</string>
     <string name="type.amenity.money_transfer">Transferência de dinheiro</string>
-    <string name="type.office.diplomatic">Embaixada ou consulado</string>
+    <string name="type.office.diplomatic.embassy">Embaixada ou consulado</string>
     <string name="type.amenity.fast_food">Lanchonete</string>
     <string name="type.amenity.ferry_terminal">Estação de barcas</string>
     <string name="type.amenity.fire_station">Posto de bombeiros</string>

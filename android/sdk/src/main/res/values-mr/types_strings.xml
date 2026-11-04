@@ -57,7 +57,7 @@
     <string name="type.amenity.driving_school">वाहनचालक शाळा</string>
     <string name="type.amenity.exhibition_centre">प्रदर्शन केंद्र</string>
     <string name="type.amenity.money_transfer">पैसे हस्तांतरण</string>
-    <string name="type.office.diplomatic">दूतावास</string>
+    <string name="type.office.diplomatic.embassy">दूतावास</string>
     <string name="type.amenity.fast_food">फास्ट फूड</string>
     <string name="type.amenity.ferry_terminal">होडी</string>
     <string name="type.amenity.fire_station">अग्निशमन केंद्र</string>

@@ -725,7 +725,7 @@
     "amenity-police|@category_police": {
         "defaultMessage": "보안대|경찰"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "대사관"
     },
     "natural-bay": {

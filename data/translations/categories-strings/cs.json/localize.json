@@ -725,7 +725,7 @@
     "amenity-police|@category_police": {
         "defaultMessage": "4bezpečnost"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "4Velvyslanectví|4ambasáda"
     },
     "natural-bay": {

@@ -728,7 +728,7 @@
     "@category_police": {
         "defaultMessage": "Polizia|4Poliziak"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "4Enbaxada"
     },
     "natural-bay": {

@@ -157,7 +157,7 @@
     <string name="type.amenity.flight_school">Aviacijos mokykla</string>
     <string name="type.amenity.prep_school">Parengiamoji mokykla</string>
     <string name="type.amenity.language_school">Kalbų mokykla</string>
-    <string name="type.office.diplomatic">Ambasada</string>
+    <string name="type.office.diplomatic.embassy">Ambasada</string>
     <string name="type.office.security">Saugos tarnyba</string>
     <string name="type.building.guardhouse">Apsaugos postas</string>
     <string name="type.power.portal">Portalinė atrama</string>

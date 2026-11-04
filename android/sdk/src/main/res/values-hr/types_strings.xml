@@ -77,7 +77,7 @@
     <string name="type.amenity.flight_school">Škola letenja</string>
     <string name="type.amenity.prep_school">Škola za podučavanje</string>
     <string name="type.amenity.language_school">Škola stranih jezika</string>
-    <string name="type.office.diplomatic">Veleposlanstvo</string>
+    <string name="type.office.diplomatic.embassy">Veleposlanstvo</string>
     <string name="type.office.security">Ured zaštitara</string>
     <string name="type.building.guardhouse">Zaštitarska kabina</string>
     <string name="type.drinking_water.yes">Pitka voda</string>

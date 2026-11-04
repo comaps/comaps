@@ -62,7 +62,7 @@
     <string name="type.amenity.money_transfer">Diru transferentzia</string>
     <string name="type.amenity.music_school">Musika Eskola</string>
     <string name="type.amenity.language_school">Hizkuntza Eskola</string>
-    <string name="type.office.diplomatic">Enbaxada</string>
+    <string name="type.office.diplomatic.embassy">Enbaxada</string>
     <string name="type.amenity.fast_food">Janari azkarra</string>
     <string name="type.amenity.ferry_terminal">Ferry-a</string>
     <string name="type.amenity.fire_station">Suhiltzaileen parkea</string>

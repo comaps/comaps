@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Zápasnícka škola";
 "type.amenity.prep_school" = "Prípravná škola";
 "type.amenity.language_school" = "Jazyková škola";
-"type.office.diplomatic" = "Veľvyslanectvo";
+"type.office.diplomatic.embassy" = "Veľvyslanectvo";
 "type.office.security" = "Kancelária ostrahy";
 "type.building.guardhouse" = "Strážnica";
 "type.power.portal" = "Power Portal";

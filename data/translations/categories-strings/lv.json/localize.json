@@ -758,7 +758,7 @@
     "amenity-police|@category_police": {
         "defaultMessage": "U+1F693|U+1F46E|U+1F694|U+1F482|U+1F6A8"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "Vēstniecība"
     },
     "natural-bay": {

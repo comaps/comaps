@@ -764,7 +764,7 @@
     "@category_police": {
         "defaultMessage": "4Поліція|4Міліція"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "4Посольство"
     },
     "natural-bay": {

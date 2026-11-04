@@ -164,7 +164,7 @@
     <string name="type.amenity.compressed_air">Stisnjeni zrak</string>
     <string name="type.amenity.conference_centre">Središče za srečanja</string>
     <string name="type.amenity.courthouse">Sodišče</string>
-    <string name="type.office.diplomatic">Veleposlaništvo</string>
+    <string name="type.office.diplomatic.embassy">Veleposlaništvo</string>
     <string name="type.office.security">Pisarna varnostnikov</string>
     <string name="type.building.guardhouse">Vratarnica</string>
     <string name="type.power.portal">Portal daljnovoda</string>

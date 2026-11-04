@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Vliegschool";
 "type.amenity.prep_school" = "Bijscholing";
 "type.amenity.language_school" = "Taalschool";
-"type.office.diplomatic" = "Ambassade";
+"type.office.diplomatic.embassy" = "Ambassade";
 "type.office.security" = "Beveiligingskantoor";
 "type.building.guardhouse" = "Beveiligingsloket";
 "type.power.portal" = "Portaalmast";

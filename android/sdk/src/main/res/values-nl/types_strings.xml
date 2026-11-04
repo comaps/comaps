@@ -64,7 +64,7 @@
     <string name="type.amenity.money_transfer">Overschrijving</string>
     <string name="type.amenity.music_school">Muziekschool</string>
     <string name="type.amenity.language_school">Taalschool</string>
-    <string name="type.office.diplomatic">Ambassade</string>
+    <string name="type.office.diplomatic.embassy">Ambassade</string>
     <string name="type.amenity.fast_food">Fastfood</string>
     <string name="type.amenity.ferry_terminal">Veerterminal</string>
     <string name="type.amenity.fire_station">Brandweer</string>

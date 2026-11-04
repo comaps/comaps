@@ -145,7 +145,7 @@
 "type.waterway.lock_gate" = "Lock Gate";
 "type.railway.station.subway.manila" = "Metro Station";
 "type.shop.camera" = "Camera Shop";
-"type.office.diplomatic" = "Embassy";
+"type.office.diplomatic.embassy" = "Embassy";
 "type.tourism.information.board" = "Information Board";
 "type.amenity.place_of_worship.taoist" = "Taoist Temple";
 "type.amenity.shelter.lean_to" = "Lean-to Sleep Shelter";

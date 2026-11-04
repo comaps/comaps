@@ -565,7 +565,7 @@
     <string name="type.amenity.dentist">Зъболекар</string>
     <string name="type.amenity.doctors">Лекар</string>
     <string name="type.amenity.drinking_water">Питейна вода</string>
-    <string name="type.office.diplomatic">Посолство</string>
+    <string name="type.office.diplomatic.embassy">Посолство</string>
     <string name="type.amenity.fast_food">Бързо хранене</string>
     <string name="type.amenity.ferry_terminal">Ферибот</string>
     <string name="type.amenity.fire_station">Пожарна</string>

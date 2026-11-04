@@ -644,7 +644,7 @@
     "amenity-police|@category_police": {
         "defaultMessage": "Polícia"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "4Embaixada"
     },
     "natural-bay": {

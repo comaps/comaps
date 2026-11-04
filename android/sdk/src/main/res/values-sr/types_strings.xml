@@ -63,7 +63,7 @@
     <string name="type.amenity.money_transfer">Трансфер новца</string>
     <string name="type.amenity.music_school">Музичка школа</string>
     <string name="type.amenity.language_school">Школа страних језика</string>
-    <string name="type.office.diplomatic">Амбасада</string>
+    <string name="type.office.diplomatic.embassy">Амбасада</string>
     <string name="type.amenity.fast_food">Брза храна</string>
     <string name="type.amenity.ferry_terminal">Трајект</string>
     <string name="type.amenity.fire_station">Ватрогасна станица</string>

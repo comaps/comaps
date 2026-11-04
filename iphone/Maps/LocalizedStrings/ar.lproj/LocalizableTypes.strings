@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "مدرسة الطيران";
 "type.amenity.prep_school" = "مدرسة الدروس الخصوصية";
 "type.amenity.language_school" = "مدرسة لغات";
-"type.office.diplomatic" = "سفارة";
+"type.office.diplomatic.embassy" = "سفارة";
 "type.office.security" = "مكتب حراس الأمن";
 "type.building.guardhouse" = "كشك الأمن";
 "type.power.portal" = "بوابة كهرباء";

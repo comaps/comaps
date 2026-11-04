@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Льотна школа";
 "type.amenity.prep_school" = "Репетиторська школа";
 "type.amenity.language_school" = "Мовна школа";
-"type.office.diplomatic" = "Посольство";
+"type.office.diplomatic.embassy" = "Посольство";
 "type.office.security" = "Офіс охорони";
 "type.building.guardhouse" = "Пост охорони";
 "type.power.portal" = "Портальна опора";

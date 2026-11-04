@@ -776,7 +776,7 @@
     "amenity-police|@category_police": {
         "defaultMessage": "Poste de police|Commissariat|bureau de police"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "4Ambassade"
     },
     "natural-bay": {

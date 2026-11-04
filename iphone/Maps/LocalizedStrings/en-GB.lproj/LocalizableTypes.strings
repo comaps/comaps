@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Flight School";
 "type.amenity.prep_school" = "Prep School";
 "type.amenity.language_school" = "Language School";
-"type.office.diplomatic" = "Embassy";
+"type.office.diplomatic.embassy" = "Embassy";
 "type.office.security" = "Security Guards Office";
 "type.power.portal" = "Power Portal";
 "type.amenity.fast_food" = "Fast Food";

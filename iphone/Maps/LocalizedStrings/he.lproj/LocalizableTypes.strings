@@ -73,7 +73,7 @@
 "type.amenity.flight_school" = "בית ספר לתעופה";
 "type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "בית ספר לשפות";
-"type.office.diplomatic" = "שגרירות";
+"type.office.diplomatic.embassy" = "שגרירות";
 "type.office.security" = "Security Guards Office";
 "type.building.guardhouse" = "תא אבטחה";
 "type.power.portal" = "Power Portal";

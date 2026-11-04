@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Škola letenja";
 "type.amenity.prep_school" = "Škola za podučavanje";
 "type.amenity.language_school" = "Škola stranih jezika";
-"type.office.diplomatic" = "Veleposlanstvo";
+"type.office.diplomatic.embassy" = "Veleposlanstvo";
 "type.office.security" = "Ured zaštitara";
 "type.building.guardhouse" = "Zaštitarska kabina";
 "type.power.portal" = "Portalni stup (elektroenergetski)";

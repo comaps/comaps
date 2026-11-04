@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Escola de Aviação";
 "type.amenity.prep_school" = "Centro de Explicações";
 "type.amenity.language_school" = "Escola de idiomas";
-"type.office.diplomatic" = "Embaixada ou consulado";
+"type.office.diplomatic.embassy" = "Embaixada ou consulado";
 "type.office.security" = "Escritório dos Guardas de Segurança";
 "type.building.guardhouse" = "Cabine de Segurança";
 "type.power.portal" = "Portal de Energia";

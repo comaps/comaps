@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Flugschuel";
 "type.amenity.prep_school" = "Nachhilfsschuel";
 "type.amenity.language_school" = "Spraachschuel";
-"type.office.diplomatic" = "Botschaft";
+"type.office.diplomatic.embassy" = "Botschaft";
 "type.office.security" = "Sicherheitsdienst";
 "type.building.guardhouse" = "Pförtnerhüüsli";
 "type.power.portal" = "Abspannportal";

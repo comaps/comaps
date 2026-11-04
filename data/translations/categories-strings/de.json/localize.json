@@ -788,8 +788,14 @@
     "amenity-police|@category_police": {
         "defaultMessage": "4Polizeiwache|4Polizeistation|4Polizeirevier|4Polizei|4Polizeidienststelle|4Polizeiinspektion|4Kommisariat|U+1F693|U+1F46E|U+1F694|U+1F482|U+1F6A8"
     },
-    "office-diplomatic": {
-        "defaultMessage": "4Botschaft|4Konsulat|4Verbindungsbüro|4diplomatische Vertretung|5konsularische Vertretung|4Verbindungsbüro|5ständige Vertretung|4Auslandsvertretung|4Diplomatische Vertretung|U+1F3E2|U+1F3DB"
+    "office-diplomatic-embassy": {
+        "defaultMessage": "4Botschaft|4diplomatische Vertretung|5ständige Vertretung|4Auslandsvertretung"
+    },
+    "office-diplomatic-consulate": {
+        "defaultMessage": "4Konsulat|5konsularische Vertretung|4diplomatische Vertretung|4Auslandsvertretung"
+    },
+    "office-diplomatic-liaison": {
+        "defaultMessage": "4Verbindungsbüro|4diplomatische Vertretung|4Auslandsvertretung"
     },
     "natural-bay": {
         "defaultMessage": "3Bucht|5Meerbusen|3Förde|3Fjärd|3Fjord|4Golf|4Meeresgolf|3Creek|2Ria|3Bodden|4Meeresarm"

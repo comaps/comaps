@@ -737,7 +737,7 @@
     "amenity-police|@category_police": {
         "defaultMessage": "6Commissariato|5Questura|4Caserma|4Guardia|5Carabinieri"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "4Ambasciata"
     },
     "natural-bay": {

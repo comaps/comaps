@@ -63,7 +63,7 @@
     <string name="type.amenity.money_transfer">送金</string>
     <string name="type.amenity.music_school">音楽学校</string>
     <string name="type.amenity.language_school">語学学校</string>
-    <string name="type.office.diplomatic">大使館</string>
+    <string name="type.office.diplomatic.embassy">大使館</string>
     <string name="type.amenity.fast_food">ファストフード</string>
     <string name="type.amenity.ferry_terminal">フェリー</string>
     <string name="type.amenity.fire_station">消防署</string>

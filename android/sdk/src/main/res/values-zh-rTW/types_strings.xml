@@ -221,7 +221,7 @@
     <string name="type.amenity.money_transfer">匯款</string>
     <string name="type.amenity.music_school">音樂學校</string>
     <string name="type.amenity.language_school">語言學校</string>
-    <string name="type.office.diplomatic">大使館</string>
+    <string name="type.office.diplomatic.embassy">大使館</string>
     <string name="type.amenity.fast_food">速食餐廳</string>
     <string name="type.amenity.ferry_terminal">渡輪</string>
     <string name="type.amenity.fire_station">消防隊</string>

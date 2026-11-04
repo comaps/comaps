@@ -64,7 +64,7 @@
     <string name="type.amenity.money_transfer">Rahaülekandeteenus</string>
     <string name="type.amenity.music_school">Muusikakool</string>
     <string name="type.amenity.language_school">Keeltekool</string>
-    <string name="type.office.diplomatic">Saatkond</string>
+    <string name="type.office.diplomatic.embassy">Saatkond</string>
     <string name="type.amenity.fast_food">Kiirtoidukoht</string>
     <string name="type.amenity.ferry_terminal">Praam</string>
     <string name="type.amenity.fire_station">Päästedepoo</string>

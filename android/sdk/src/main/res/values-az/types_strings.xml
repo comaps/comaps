@@ -64,7 +64,7 @@
     <string name="type.amenity.money_transfer">Pul köçürməsi</string>
     <string name="type.amenity.music_school">Musiqi məktəbi</string>
     <string name="type.amenity.language_school">Dil Məktəbi</string>
-    <string name="type.office.diplomatic">Səfirlik</string>
+    <string name="type.office.diplomatic.embassy">Səfirlik</string>
     <string name="type.amenity.fast_food">Rahat yemək</string>
     <string name="type.amenity.ferry_terminal">Bərə</string>
     <string name="type.amenity.fire_station">Yanğın İdarəsi</string>

@@ -62,7 +62,7 @@
     <string name="type.amenity.money_transfer">העברת כספים</string>
     <string name="type.amenity.music_school">בית ספר למוזיקה</string>
     <string name="type.amenity.language_school">בית ספר לשפות</string>
-    <string name="type.office.diplomatic">שגרירות</string>
+    <string name="type.office.diplomatic.embassy">שגרירות</string>
     <string name="type.amenity.fast_food">מזון מהיר</string>
     <string name="type.amenity.ferry_terminal">מסוף מעבורות</string>
     <string name="type.amenity.fire_station">תחנת כיבוי אש</string>

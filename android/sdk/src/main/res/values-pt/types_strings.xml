@@ -64,7 +64,7 @@
     <string name="type.amenity.money_transfer">Transferência de dinheiro</string>
     <string name="type.amenity.music_school">Escola de música</string>
     <string name="type.amenity.language_school">Escola de idiomas</string>
-    <string name="type.office.diplomatic">Embaixada ou consulado</string>
+    <string name="type.office.diplomatic.embassy">Embaixada ou consulado</string>
     <string name="type.amenity.fast_food">Comida rápida</string>
     <string name="type.amenity.ferry_terminal">Terminal de ferry</string>
     <string name="type.amenity.fire_station">Quartel de bombeiros</string>

@@ -692,8 +692,11 @@
     "amenity-police|@category_police": {
         "defaultMessage": "милиция"
     },
-    "office-diplomatic": {
-        "defaultMessage": "4Посолство|Консолство"
+    "office-diplomatic-embassy": {
+        "defaultMessage": "4Посолство"
+    },
+    "office-diplomatic-consulate": {
+        "defaultMessage": "Консолство"
     },
     "natural-bay": {
         "defaultMessage": "залив"

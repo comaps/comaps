@@ -63,7 +63,7 @@
     <string name="type.amenity.money_transfer">تحويل المال</string>
     <string name="type.amenity.music_school">مدرسة موسيقى</string>
     <string name="type.amenity.language_school">مدرسة لغات</string>
-    <string name="type.office.diplomatic">سفارة</string>
+    <string name="type.office.diplomatic.embassy">سفارة</string>
     <string name="type.amenity.fast_food">وجبات سريعة</string>
     <string name="type.amenity.ferry_terminal">محطة عبّارات</string>
     <string name="type.amenity.fire_station">محطة إطفاء</string>

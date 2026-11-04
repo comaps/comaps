@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Flyskole";
 "type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "Språkskole";
-"type.office.diplomatic" = "Ambassade";
+"type.office.diplomatic.embassy" = "Ambassade";
 "type.office.security" = "Security Guards Office";
 "type.building.guardhouse" = "Vakthus";
 "type.power.portal" = "Power Portal";

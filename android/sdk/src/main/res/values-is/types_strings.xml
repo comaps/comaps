@@ -16,7 +16,7 @@
     <string name="type.amenity.money_transfer">Greiðslumiðlun</string>
     <string name="type.amenity.music_school">Tónlistarskóli</string>
     <string name="type.amenity.language_school">Tungumálaskóli</string>
-    <string name="type.office.diplomatic">Sendiráð</string>
+    <string name="type.office.diplomatic.embassy">Sendiráð</string>
     <string name="type.amenity.fast_food">Skyndibitastaður</string>
     <string name="type.amenity.grave_yard">Grafreitur</string>
     <string name="type.amenity.grave_yard.christian">Kristinn grafreitur</string>

@@ -49,7 +49,7 @@
     <string name="type.amenity.money_transfer">Převod peněz</string>
     <string name="type.amenity.music_school">Hudební škola</string>
     <string name="type.amenity.language_school">Jazyková škola</string>
-    <string name="type.office.diplomatic">Velvyslanectví</string>
+    <string name="type.office.diplomatic.embassy">Velvyslanectví</string>
     <string name="type.amenity.fast_food">Rychlé občerstvení</string>
     <string name="type.amenity.ferry_terminal">Trajekt</string>
     <string name="type.amenity.fire_station">Hasiči</string>

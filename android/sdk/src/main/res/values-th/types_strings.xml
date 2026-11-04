@@ -52,7 +52,7 @@
     <string name="type.amenity.money_transfer">การโอนเงิน</string>
     <string name="type.amenity.music_school">โรงเรียนดนตรี</string>
     <string name="type.amenity.language_school">โรงเรียนภาษา</string>
-    <string name="type.office.diplomatic">สถานทูต</string>
+    <string name="type.office.diplomatic.embassy">สถานทูต</string>
     <string name="type.amenity.fast_food">อาหารจานด่วน</string>
     <string name="type.amenity.ferry_terminal">เฟอร์รี่</string>
     <string name="type.amenity.fire_station">สถานีดับเพลิง</string>

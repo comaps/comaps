@@ -77,7 +77,7 @@
 "type.amenity.flight_school" = "Flight School";
 "type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "Language School";
-"type.office.diplomatic" = "Embassy";
+"type.office.diplomatic.embassy" = "Embassy";
 "type.office.security" = "Uffiċċju tal-gwardji tas-sigurtà";
 "type.building.guardhouse" = "Kabina tas-Sigurtà";
 "type.power.portal" = "Portal tal-Enerġija";

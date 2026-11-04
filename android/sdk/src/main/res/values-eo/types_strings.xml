@@ -90,7 +90,7 @@
     <string name="type.amenity.flight_school">Flugada lernejo</string>
     <string name="type.amenity.prep_school">Alilernejo</string>
     <string name="type.amenity.language_school">Lernejo de lingvo</string>
-    <string name="type.office.diplomatic">Ambasadejo</string>
+    <string name="type.office.diplomatic.embassy">Ambasadejo</string>
     <string name="type.office.security">Oficejo de gardistoj</string>
     <string name="type.building.guardhouse">Gardistejo</string>
     <string name="type.amenity.fast_food">Rapidmanĝejo</string>

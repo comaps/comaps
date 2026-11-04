@@ -746,8 +746,11 @@
     "@category_police": {
         "defaultMessage": "4Politie"
     },
-    "office-diplomatic": {
-        "defaultMessage": "4Ambassade|5Consulaat"
+    "office-diplomatic-embassy": {
+        "defaultMessage": "4Ambassade"
+    },
+    "office-diplomatic-consulate": {
+        "defaultMessage": "5Consulaat"
     },
     "natural-bay": {
         "defaultMessage": "Baai"

@@ -14,7 +14,7 @@
     <string name="type.shop.mall">Centru comercial</string>
     <string name="type.wheelchair">Siella de ruedes</string>
     <string name="type.amenity.compressed_air">Aire comprimío</string>
-    <string name="type.office.diplomatic">Embaxada</string>
+    <string name="type.office.diplomatic.embassy">Embaxada</string>
     <string name="type.amenity.parking.fee">Aparcaderu</string>
     <string name="type.amenity.school">Escuela</string>
     <string name="type.amenity.shelter">Refuxu</string>

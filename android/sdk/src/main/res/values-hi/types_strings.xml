@@ -40,7 +40,7 @@
     <string name="type.amenity.driving_school">ड्राइविंग स्कूल</string>
     <string name="type.amenity.music_school">संगीत विद्यालय</string>
     <string name="type.amenity.language_school">भाषा का स्कूल</string>
-    <string name="type.office.diplomatic">दूतावास</string>
+    <string name="type.office.diplomatic.embassy">दूतावास</string>
     <string name="type.amenity.fast_food">फास्ट फूड</string>
     <string name="type.amenity.ferry_terminal">नौका टर्मिनल</string>
     <string name="type.amenity.fire_station">दमकल केंद्र</string>

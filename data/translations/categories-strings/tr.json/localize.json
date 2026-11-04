@@ -785,7 +785,7 @@
     "amenity-police|@category_police": {
         "defaultMessage": "Polis"
     },
-    "office-diplomatic": {
+    "office-diplomatic-embassy": {
         "defaultMessage": "4Elçilik"
     },
     "natural-bay": {

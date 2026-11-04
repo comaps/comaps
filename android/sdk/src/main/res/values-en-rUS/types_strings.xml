@@ -120,7 +120,7 @@
     <string name="type.amenity.drinking_water">Drinking Water</string>
     <string name="type.drinking_water.yes">Drinking Water</string>
     <string name="type.amenity.flight_school">Flight School</string>
-    <string name="type.office.diplomatic">Embassy</string>
+    <string name="type.office.diplomatic.embassy">Embassy</string>
     <string name="type.amenity.fast_food">Fast Food</string>
     <string name="type.amenity.ferry_terminal">Ferry</string>
     <string name="type.amenity.fire_station">Fire Station</string>
