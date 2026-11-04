@@ -2562,7 +2562,6 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SimpleTypesSmoke)
       {"natural", "water"},
       {"natural", "wetland"},
       {"office", "company"},
-      {"office", "diplomatic"},
       {"office", "estate_agent"},
       {"office", "government"},
       {"office", "insurance"},

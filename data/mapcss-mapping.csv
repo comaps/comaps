@@ -831,14 +831,14 @@ deprecated|deprecated;698;x
 deprecated|deprecated;699;x
 deprecated|deprecated;700;x
 deprecated|deprecated;701;x
-office|diplomatic;702;
+office|diplomatic|embassy;[office=diplomatic][diplomatic=embassy],[office=diplomatic][!diplomatic];;;;702;
 railway|station|subway;[railway=station][transport=subway],[railway=station][station=subway];;name;int_name;703;
 amenity|police;704;
 amenity|car_rental;705;
 amenity|taxi;706;
 amenity|marketplace;707;
 amenity|nightclub;708;
-amenity|embassy;709;office|diplomatic
+amenity|embassy;709;office|diplomatic|embassy
 amenity|townhall;710;
 barrier|gate;711;
 barrier|lift_gate;712;
@@ -943,7 +943,7 @@ deprecated|deprecated;807;x
 deprecated|deprecated;808;x
 deprecated|deprecated;809;x
 deprecated|deprecated;810;x
-deprecated|deprecated;811;x
+office|diplomatic|consulate;[office=diplomatic][diplomatic=consulate];;;;811;
 deprecated|deprecated;812;x
 deprecated|deprecated;813;x
 deprecated|deprecated;814;x
@@ -951,7 +951,7 @@ deprecated|deprecated;815;x
 deprecated|deprecated;816;x
 deprecated|deprecated;817;x
 deprecated|deprecated;818;x
-deprecated|deprecated;819;x
+office|diplomatic|liaison;[office=diplomatic][diplomatic=liaison];;;;819;
 deprecated|deprecated;820;x
 # =not is required, check file header for info
 highway|track|grade3|no-access;[highway=track][tracktype=grade3][access=not],[highway=track][tracktype=grade3][access=no];x;name;int_name;821;highway|track
