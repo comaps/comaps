@@ -2576,6 +2576,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SimpleTypesSmoke)
       {"aerialway", "platter"},
       {"aerialway", "rope_tow"},
       {"aerialway", "t-bar"},
+      {"aerialway", "zip_line"},
       {"piste:type", "downhill"},
       {"piste:type", "nordic"},
       {"piste:type", "sled"},
