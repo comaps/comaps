@@ -1545,6 +1545,7 @@
 "type.aerialway.platter" = "Platter Lift";
 "type.aerialway.rope_tow" = "Rope Tow";
 "type.aerialway.t.bar" = "T-bar Lift";
+"type.aerialway.zip_line" = "Zip Line";
 "type.piste_type.downhill" = "Downhill Ski Run";
 "type.piste_type.downhill.area" = "Downhill Ski Run";
 "type.piste_type.downhill.advanced" = "Advanced Downhill Ski Run";

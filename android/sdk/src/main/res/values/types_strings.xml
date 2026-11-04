@@ -1555,6 +1555,7 @@
     <string name="type.aerialway.platter">Platter Lift</string>
     <string name="type.aerialway.rope_tow">Rope Tow</string>
     <string name="type.aerialway.t.bar">T-bar Lift</string>
+    <string name="type.aerialway.zip_line">Zip Line</string>
     <string name="type.piste_type.downhill">Downhill Ski Run</string>
     <string name="type.piste_type.downhill.area">Downhill Ski Run</string>
     <string name="type.piste_type.downhill.advanced">Advanced Downhill Ski Run</string>

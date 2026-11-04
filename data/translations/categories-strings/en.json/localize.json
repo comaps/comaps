@@ -1271,6 +1271,9 @@
     "aerialway-station": {
         "defaultMessage": "Aerialway Station|5Cable car station"
     },
+    "aerialway-zip_line": {
+        "defaultMessage": "3Zip Line|zipline|zip wire|flying fox"
+    },
     "aeroway-helipad": {
         "defaultMessage": "4Helipad"
     },
