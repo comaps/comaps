@@ -224,7 +224,6 @@ std::map<std::string, ReviewEditorSpec> const reviewEditorConfigs = {
     {"leisure-water_park", kMangrove},
     {"natural-beach", kMangrove},
     {"office-company", kMangrove},
-    {"office-diplomatic", kMangrove},
     {"office-estate_agent", kMangrove},
     {"office-government", kMangrove},
     {"office-insurance", kMangrove},
