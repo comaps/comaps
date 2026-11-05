@@ -417,7 +417,7 @@ node|z17-[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=east][seama
 {icon-image: buoy-spherical-cardinal-east-m.svg;}
 node|z17-[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=west][seamark:buoy_cardinal:shape=spherical],
 {icon-image: buoy-spherical-cardinal-west-m.svg;}
-node|z17-[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=south[seamark:buoy_cardinal:shape=spherical],
+node|z17-[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=south][seamark:buoy_cardinal:shape=spherical],
 {icon-image: buoy-spherical-cardinal-south-m.svg;}
 node|z17-[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=north][seamark:buoy_cardinal:shape=spherical],
 {icon-image: buoy-spherical-cardinal-north-m.svg;}

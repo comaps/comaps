@@ -70,8 +70,8 @@ node|z15-[railway=station][station=light_rail]::int_name,
 node|z15-[railway=station][station=monorail]::int_name,
 {font-size: 10;}
 node|z16-[railway=station][transport=subway]::int_name,
-node|z16-[railway=station][station=light_rail]::int_name
-node|z16-[railway=station][station=monorail]::int_name
+node|z16-[railway=station][station=light_rail]::int_name,
+node|z16-[railway=station][station=monorail]::int_name,
 {font-size: 11}
 node|z17-[railway=station][transport=subway]::int_name,
 node|z17-[railway=station][station=light_rail]::int_name,

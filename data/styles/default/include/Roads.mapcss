@@ -504,11 +504,11 @@ line|z16-[highway=unclassified],
 {opacity: 0.9;}
 
 line|z14-[highway=tertiary][bridge?]::bridgewhite,
-line|z14-[highway=tertiary_link][bridge?]::bridgewhite
+line|z14-[highway=tertiary_link][bridge?]::bridgewhite,
 line|z14-[highway=unclassified][bridge?]::bridgewhite,
 {casing-linecap: butt;casing-color:@bridge_background;casing-opacity: 0.8;}
 line|z14-[highway=tertiary][bridge?]::bridgeblack,
-line|z14-[highway=tertiary_link][bridge?]::bridgeblack
+line|z14-[highway=tertiary_link][bridge?]::bridgeblack,
 line|z14-[highway=unclassified][bridge?]::bridgeblack,
 {casing-linecap: butt;casing-color:@bridge_casing;casing-opacity: 0.7;}
 
