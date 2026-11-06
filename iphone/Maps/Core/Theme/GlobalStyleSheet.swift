@@ -30,7 +30,6 @@ enum GlobalStyleSheet: String, CaseIterable {
   case presentationBackground = "PresentationBackground"
   case clearBackground = "ClearBackground"
   case border = "Border"
-  case tabView = "TabView"
   case dialogView = "DialogView"
   case alertView = "AlertView"
   case alertViewTextFieldContainer = "AlertViewTextFieldContainer"
@@ -58,10 +57,7 @@ enum GlobalStyleSheet: String, CaseIterable {
   case separator = "MWMSeparator"
   case white = "MWMWhite"
   case datePickerView = "DatePickerView"
-  case valueStepperView = "ValueStepperView"
-  case grabber
   case modalSheetBackground
-  case modalSheetContent
   case toastBackground
   case toastLabel
 }
@@ -231,15 +227,6 @@ extension GlobalStyleSheet: IStyleSheet {
     case .border:
       return .add { s in
         s.backgroundColor = colors.border
-      }
-    case .tabView:
-      return .add { s in
-        s.backgroundColor = colors.white
-        s.barTintColor = colors.white
-        s.tintColor = colors.linkBlue
-        s.fontColor = colors.blackSecondaryText
-        s.fontColorHighlighted = colors.linkBlue
-        s.font = fonts.medium14
       }
     case .dialogView:
       return .add { s in
@@ -434,16 +421,6 @@ extension GlobalStyleSheet: IStyleSheet {
         s.backgroundColorHighlighted = colors.linkBlueHighlighted
         s.fontColorDisabled = colors.blackSecondaryText
       }
-    case .valueStepperView:
-      return .add { s in
-        s.font = fonts.regular16
-        s.fontColor = colors.blackPrimaryText
-        s.coloring = MWMButtonColoring.blue
-      }
-    case .grabber:
-      return .addFrom(Self.background) { s in
-        s.cornerRadius = .grabber
-      }
     case .modalSheetBackground:
       return .add { s in
         s.backgroundColor = colors.white
@@ -454,11 +431,6 @@ extension GlobalStyleSheet: IStyleSheet {
         s.cornerRadius = .modalSheet
         s.clip = false
         s.maskedCorners = isiPad ? [] : [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-      }
-    case .modalSheetContent:
-      return .addFrom(Self.modalSheetBackground) { s in
-        s.backgroundColor = colors.clear
-        s.clip = true
       }
     case .toastBackground:
       return .add { s in

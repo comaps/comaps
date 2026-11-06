@@ -111,9 +111,6 @@ void InitLocalizedStrings() {
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  [NSUserDefaults.standardUserDefaults setBool:false forKey:@"IsSearchPresented"];
-  [NSUserDefaults.standardUserDefaults setDouble:0 forKey:@"SearchAdjustment"];
-  
   NSLog(@"application:didFinishLaunchingWithOptions: %@", launchOptions);
 
   [HttpThreadImpl setDownloadIndicatorProtocol:self];
