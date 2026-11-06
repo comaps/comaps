@@ -197,6 +197,10 @@ static NSString *const kAlertControllerNibIdentifier = @"MWMAlertViewController"
                                    rightButtonAction:action]];
 }
 
+- (BOOL)isPresentedOverOwner {
+  return self.parentViewController == nil && self.presentingViewController != nil;
+}
+
 - (void)displayAlert:(MWMAlert *)alert {
   UIViewController *ownerVC = self.ownerViewController;
   if (ownerVC.navigationController != nil) {
@@ -226,16 +230,27 @@ static NSString *const kAlertControllerNibIdentifier = @"MWMAlertViewController"
                    }
                    completion:nil];
 
-  [self willMoveToParentViewController:NULL];
-  [self.view removeFromSuperview];
-  [self removeFromParentViewController];
-  
   alert.alertController = self;
-  
-  [ownerVC addChildViewController:self];
-  self.view.frame = CGRectMake(0, 0, ownerVC.view.frame.size.width, ownerVC.view.frame.size.height);
-  [ownerVC.view addSubview:self.view];
-  [self didMoveToParentViewController:ownerVC];
+
+  if (!self.isPresentedOverOwner) {
+    [self willMoveToParentViewController:NULL];
+    [self.view removeFromSuperview];
+    [self removeFromParentViewController];
+    // TODO: Remove after migration to UIAlertController
+    UIViewController *topVC = ownerVC;
+    while (topVC.presentedViewController != nil && !topVC.presentedViewController.isBeingDismissed)
+      topVC = topVC.presentedViewController;
+
+    if (topVC == ownerVC) {
+      [ownerVC addChildViewController:self];
+      self.view.frame = CGRectMake(0, 0, ownerVC.view.frame.size.width, ownerVC.view.frame.size.height);
+      [ownerVC.view addSubview:self.view];
+      [self didMoveToParentViewController:ownerVC];
+    } else {
+      self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+      [topVC presentViewController:self animated:NO completion:nil];
+    }
+  }
   
   alert.alpha = 0.;
   [self.view addSubview:alert];
@@ -267,8 +282,12 @@ static NSString *const kAlertControllerNibIdentifier = @"MWMAlertViewController"
     completion:^(BOOL finished) {
       [closeAlert removeFromSuperview];
       if (!showAlert) {
-        [self.view removeFromSuperview];
-        [self removeFromParentViewController];
+        if (self.isPresentedOverOwner) {
+          [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+        } else {
+          [self.view removeFromSuperview];
+          [self removeFromParentViewController];
+        }
       }
       if (completion)
         completion();

@@ -633,6 +633,19 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 }
 
 #pragma mark - Open controllers
+// Present from the top, such that new views go above e.g., search sheet
+- (void)presentViewController:(UIViewController *)viewControllerToPresent
+                     animated:(BOOL)flag
+                   completion:(void (^)(void))completion {
+  UIViewController *presenter = self;
+  while (presenter.presentedViewController != nil && !presenter.presentedViewController.isBeingDismissed)
+    presenter = presenter.presentedViewController;
+  if (presenter == self)
+    [super presentViewController:viewControllerToPresent animated:flag completion:completion];
+  else
+    [presenter presentViewController:viewControllerToPresent animated:flag completion:completion];
+}
+
 - (void)openSettings {
   [NSNotificationCenter.defaultCenter postNotificationName:MapControls.presentSettingsNotificationName object:nil];
 }
