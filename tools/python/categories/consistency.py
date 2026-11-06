@@ -3,6 +3,7 @@ import sys
 import os
 import re
 import json
+from pathlib import Path
 from string import digits
 
 CONTENT_REGEX = re.compile(r'/\*.*?\*/', re.DOTALL)
@@ -10,13 +11,16 @@ CAT_ENTRIES_REGEX = re.compile(r'"(category_.*?)"\s*=\s*"(.*?)"')
 TYPE_ENTRIES_REGEX = re.compile(r'"(.*?)"\s*=\s*"(.*?)"')
 SINGLE_REPLACE = False
 
+CATEGORIES_ROOT = "data/translations/categories-strings/"
+IOS_TYPES_STRINGS_ROOT = "iphone/Maps/LocalizedStrings/"
+
 def fix_predefined_categories(lang):
-    strings_file_path = os.path.join('iphone', 'Maps', 'LocalizedStrings', f'{lang}.lproj', 'Localizable.strings')
+    strings_file_path = os.path.join(IOS_TYPES_STRINGS_ROOT, f'{lang}.lproj', 'Localizable.strings')
     if not os.path.isfile(strings_file_path):
         print(f'{strings_file_path} doesn\'t exist')
         return
 
-    json_file_path = os.path.join('data', 'translations', 'categories-strings', f'{lang}.json', 'localize.json')
+    json_file_path = os.path.join(CATEGORIES_ROOT, f'{lang}.json', 'localize.json')
     if not os.path.isfile(json_file_path):
         print(f'{json_file_path} doesn\'t exist')
         return
@@ -69,8 +73,8 @@ def fix_predefined_categories(lang):
 
 
 def main(lang, data_en):
-    strings_file_path = os.path.join('iphone', 'Maps', 'LocalizedStrings', f'{lang}.lproj', 'LocalizableTypes.strings')
-    json_file_path = os.path.join('data', 'translations', 'categories-strings', f'{lang}.json', 'localize.json')
+    strings_file_path = os.path.join(IOS_TYPES_STRINGS_ROOT, f'{lang}.lproj', 'LocalizableTypes.strings')
+    json_file_path = os.path.join(CATEGORIES_ROOT, f'{lang}.json', 'localize.json')
 
     with open(strings_file_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -148,17 +152,33 @@ def main(lang, data_en):
         f.write(res)
 
 
+def getAllLangs():
+    catsRoot = Path(CATEGORIES_ROOT)
+    langs = sorted(
+        path.stem.removesuffix(".json")
+        for path in catsRoot.glob("*.json")
+        if path.is_dir()
+    )
+    print(f"Languages found in {CATEGORIES_ROOT}:")
+    print(", ".join(langs))
+    return langs
+
+
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         print(f"Usage: {sys.argv[0]} [-c] [-r] <language_codes>")
+        print(f"If no languages are specified then processes all found in {CATEGORIES_ROOT}")
         sys.exit(1)
 
+    langs = []
     if sys.argv[1] == '-c':
         del sys.argv[1]
         if len(sys.argv) < 2:
-            print("No languages specified")
-            sys.exit(1)
-        for lang in sys.argv[1:]:
+            print("No languages specified, processing all")
+            langs = getAllLangs()
+        else:
+            langs = sys.argv[1:]
+        for lang in langs:
             print(f'{lang}:')
             fix_predefined_categories(lang)
             print('\n')
