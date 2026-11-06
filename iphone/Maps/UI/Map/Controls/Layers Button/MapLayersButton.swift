@@ -51,40 +51,27 @@ struct MapLayersButton: View {
             .accessibilityHint(isPresentingLayers ? Text("hide") : Text("show"))
             .background {
                 GeometryReader { geometry in
-                    if #available(iOS 16.0, *) {
-                        Color.clear
-                            .onAppear {
-                                if isHorizontal {
-                                    height = geometry.size.width
-                                    width = geometry.size.height
-                                } else {
-                                    height = geometry.size.height
-                                    width = geometry.size.width
-                                }
+                    Color.clear
+                        .onAppear {
+                            if isHorizontal {
+                                height = geometry.size.width
+                                width = geometry.size.height
+                            } else {
+                                height = geometry.size.height
+                                width = geometry.size.width
                             }
-                            .onGeometryChange(for: CGRect.self) { changedGeometry in
-                                changedGeometry.frame(in: .global)
-                            } action: { _ in
-                                if isHorizontal {
-                                    height = geometry.size.width
-                                    width = geometry.size.height
-                                } else {
-                                    height = geometry.size.height
-                                    width = geometry.size.width
-                                }
+                        }
+                        .onGeometryChange(for: CGRect.self) { changedGeometry in
+                            changedGeometry.frame(in: .global)
+                        } action: { _ in
+                            if isHorizontal {
+                                height = geometry.size.width
+                                width = geometry.size.height
+                            } else {
+                                height = geometry.size.height
+                                width = geometry.size.width
                             }
-                    } else {
-                        Color.clear
-                            .onAppear {
-                                if isHorizontal {
-                                    height = geometry.size.width
-                                    width = geometry.size.height
-                                } else {
-                                    height = geometry.size.height
-                                    width = geometry.size.width
-                                }
-                            }
-                    }
+                        }
                 }
             }
         }
@@ -179,12 +166,7 @@ struct MapLayersButton: View {
         let changedOptionsHeight = layerOptionsExtent
 
 
-        if #available(iOS 16.0,*) {
-            withAnimation(.spring.speed(4)) {
-                optionsHeightForAnimations = isVisible ? changedOptionsHeight : 0
-            }
-        } else {
-            // This animation doesn't work properly on ios 15
+        withAnimation(.spring.speed(4)) {
             optionsHeightForAnimations = isVisible ? changedOptionsHeight : 0
         }
         

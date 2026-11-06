@@ -107,14 +107,9 @@ NSString * const kToEditorSegue = @"CategorySelectorToEditorSegue";
   if (error) {
     LOG(LERROR, ("Error parsing HTML:", error.localizedDescription));
   } else {
-    UIColor * textColor;
-    if (@available(iOS 13.0, *)) {
-      textColor = [[UIColor alloc] initWithDynamicProvider:^UIColor * (UITraitCollection * traitCollection) {
-        return traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ? UIColor.whitePrimaryText : UIColor.blackPrimaryText;
-      }];
-    } else {
-      textColor = UIColor.blackPrimaryText;
-    }
+    UIColor * textColor = [[UIColor alloc] initWithDynamicProvider:^UIColor * (UITraitCollection * traitCollection) {
+      return traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ? UIColor.whitePrimaryText : UIColor.blackPrimaryText;
+    }];
     NSMutableAttributedString *mutableAttributedText = [[NSMutableAttributedString alloc] initWithAttributedString:attributedText];
     [mutableAttributedText addAttributes:@{ NSForegroundColorAttributeName: textColor,
                                             NSFontAttributeName: UIFont.regular14}
