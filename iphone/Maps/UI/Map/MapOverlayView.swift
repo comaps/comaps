@@ -134,30 +134,19 @@ struct MapOverlayView: View {
                 }
                 .background {
                     GeometryReader { topControlsGeometry in
-                        if #available(iOS 16.0, *) {
-                            Color.black
-                                .hidden()
-                                .onAppear {
-                                    topControlsHeight = topControlsGeometry.size.height
-                                }
-                                .onGeometryChange(for: CGRect.self) { changedTopControlsGeometry in
-                                    changedTopControlsGeometry.frame(in: .global)
-                                } action: { _ in
-                                    topControlsHeight = topControlsGeometry.size.height
-                                }
-                                .onReceive(userDefaultsDidChangeNotificationPublisher) { _ in
-                                    topControlsHeight = topControlsGeometry.size.height
-                                }
-                        } else {
-                            Color.black
-                                .hidden()
-                                .onAppear {
-                                    topControlsHeight = topControlsGeometry.size.height
-                                }
-                                .onReceive(userDefaultsDidChangeNotificationPublisher) { _ in
-                                    topControlsHeight = topControlsGeometry.size.height
-                                }
-                        }
+                        Color.black
+                            .hidden()
+                            .onAppear {
+                                topControlsHeight = topControlsGeometry.size.height
+                            }
+                            .onGeometryChange(for: CGRect.self) { changedTopControlsGeometry in
+                                changedTopControlsGeometry.frame(in: .global)
+                            } action: { _ in
+                                topControlsHeight = topControlsGeometry.size.height
+                            }
+                            .onReceive(userDefaultsDidChangeNotificationPublisher) { _ in
+                                topControlsHeight = topControlsGeometry.size.height
+                            }
                     }
                 }
                 
@@ -185,30 +174,19 @@ struct MapOverlayView: View {
                 }
                 .background {
                     GeometryReader { bottomControlsGeometry in
-                        if #available(iOS 16.0, *) {
-                            Color.black
-                                .hidden()
-                                .onAppear {
-                                    bottomControlsHeight = bottomControlsGeometry.size.height
-                                }
-                                .onGeometryChange(for: CGRect.self) { changedBottomControlsGeometry in
-                                    changedBottomControlsGeometry.frame(in: .global)
-                                } action: { _ in
-                                    bottomControlsHeight = bottomControlsGeometry.size.height
-                                }
-                                .onReceive(userDefaultsDidChangeNotificationPublisher) { _ in
-                                    bottomControlsHeight = bottomControlsGeometry.size.height
-                                }
-                        } else {
-                            Color.black
-                                .hidden()
-                                .onAppear {
-                                    bottomControlsHeight = bottomControlsGeometry.size.height
-                                }
-                                .onReceive(userDefaultsDidChangeNotificationPublisher) { _ in
-                                    bottomControlsHeight = bottomControlsGeometry.size.height
-                                }
-                        }
+                        Color.black
+                            .hidden()
+                            .onAppear {
+                                bottomControlsHeight = bottomControlsGeometry.size.height
+                            }
+                            .onGeometryChange(for: CGRect.self) { changedBottomControlsGeometry in
+                                changedBottomControlsGeometry.frame(in: .global)
+                            } action: { _ in
+                                bottomControlsHeight = bottomControlsGeometry.size.height
+                            }
+                            .onReceive(userDefaultsDidChangeNotificationPublisher) { _ in
+                                bottomControlsHeight = bottomControlsGeometry.size.height
+                            }
                     }
                 }
             }
@@ -247,15 +225,13 @@ struct MapOverlayView: View {
                 isKeyboardPresented = false
             }
             .background {
-                if #available(iOS 16.0, *) {
-                    Color.black
-                        .hidden()
-                        .onGeometryChange(for: CGRect.self) { changedGeometry in
-                            changedGeometry.frame(in: .global)
-                        } action: { _ in
-                            updatePadding(with: geometry)
-                        }
-                }
+                Color.black
+                    .hidden()
+                    .onGeometryChange(for: CGRect.self) { changedGeometry in
+                        changedGeometry.frame(in: .global)
+                    } action: { _ in
+                        updatePadding(with: geometry)
+                    }
                 
                 Image(systemName: "circle")
                     .font(.title2)
@@ -264,24 +240,16 @@ struct MapOverlayView: View {
                     .hidden()
                     .background {
                         GeometryReader { controlGeometry in
-                            if #available(iOS 16.0, *) {
-                                Color.black
-                                    .hidden()
-                                    .onAppear {
-                                        controlHeight = controlGeometry.size.height
-                                    }
-                                    .onGeometryChange(for: CGRect.self) { changedControlGeometry in
-                                        changedControlGeometry.frame(in: .global)
-                                    } action: { _ in
-                                        controlHeight = controlGeometry.size.height
-                                    }
-                            } else {
-                                Color.black
-                                    .hidden()
-                                    .onAppear {
-                                        controlHeight = controlGeometry.size.height
-                                    }
-                            }
+                            Color.black
+                                .hidden()
+                                .onAppear {
+                                    controlHeight = controlGeometry.size.height
+                                }
+                                .onGeometryChange(for: CGRect.self) { changedControlGeometry in
+                                    changedControlGeometry.frame(in: .global)
+                                } action: { _ in
+                                    controlHeight = controlGeometry.size.height
+                                }
                         }
                     }
             }

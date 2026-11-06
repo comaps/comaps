@@ -14,7 +14,6 @@ extension FileType {
 
 // MARK: - FileType + UTType
 extension FileType {
-  @available(iOS 14.0, *)
   var utType: UTType {
     UTType(filenameExtension: fileExtension)!
   }

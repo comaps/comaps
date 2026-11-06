@@ -10,7 +10,6 @@ protocol TrackRecordingActivityManager {
   func stop()
 }
 
-@available(iOS 16.2, *)
 final class TrackRecordingLiveActivityManager {
 
   static let shared = TrackRecordingLiveActivityManager()
@@ -22,7 +21,6 @@ final class TrackRecordingLiveActivityManager {
 
 // MARK: - TrackRecordingActivityManager
 
-@available(iOS 16.2, *)
 extension TrackRecordingLiveActivityManager: TrackRecordingActivityManager {
 
   func start(with info: TrackInfo) throws {

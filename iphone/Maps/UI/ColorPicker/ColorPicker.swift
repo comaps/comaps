@@ -33,7 +33,6 @@ final class ColorPicker: NSObject {
   }
 
   // MARK: - Private
-  @available(iOS 14.0, *)
   private func defaultColorPickerViewController(with selectedColor: UIColor) -> UIViewController {
     let colorPickerController = UIColorPickerViewController()
     colorPickerController.supportsAlpha = false
@@ -62,14 +61,12 @@ extension ColorPicker: BookmarkColorViewControllerDelegate {
 
 // MARK: - UIColorPickerViewControllerDelegate
 extension ColorPicker: UIColorPickerViewControllerDelegate {
-  @available(iOS 14.0, *)
   func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
     onUpdateColorHandler?(viewController.selectedColor.sRGBColor)
     onUpdateColorHandler = nil
     viewController.dismiss(animated: true, completion: nil)
   }
 
-  @available(iOS 14.0, *)
   func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
     onUpdateColorHandler?(viewController.selectedColor.sRGBColor)
   }
