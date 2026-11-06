@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Nil if launched directly into CarPlay
 @property(nonatomic, readonly, nullable) UIWindow * window;
 @property(nonatomic, weak, nullable) SceneDelegate * activeSceneDelegate;
-@property(nonatomic, readonly) MWMCarPlayService *carplayService API_AVAILABLE(ios(12.0));
+@property(nonatomic, readonly) MWMCarPlayService *carplayService;
 @property(nonatomic, readonly, nullable) MWMNavigationController * mapNavigationController;
 @property(nonatomic, readonly, nullable) MapViewController * mapViewController;
 @property(nonatomic, readonly) BOOL isDrapeEngineCreated;

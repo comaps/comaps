@@ -121,7 +121,6 @@ enum CarDirection: UInt8 {
   }
 
   /// CarPlay maneuver type for the instrument cluster / HUD.
-  @available(iOS 17.4, *)
   var cpManeuverType: CPManeuverType {
     switch self {
     case .none, .goStraight: return .straightAhead
@@ -141,7 +140,6 @@ enum CarDirection: UInt8 {
     }
   }
 
-  @available(iOS 17.4, *)
   func cpManeuverType(exitNumber: Int) -> CPManeuverType {
     guard isRoundabout, (1...19).contains(exitNumber),
           let type = CPManeuverType(rawValue: CPManeuverType.roundaboutExit1.rawValue + UInt(exitNumber - 1)) else {
@@ -151,7 +149,6 @@ enum CarDirection: UInt8 {
   }
 
   /// CarPlay junction type for the instrument cluster / HUD.
-  @available(iOS 17.4, *)
   var cpJunctionType: CPJunctionType {
     return isRoundabout ? .roundabout : .intersection
   }

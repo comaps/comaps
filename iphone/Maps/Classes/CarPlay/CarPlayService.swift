@@ -344,7 +344,6 @@ final class CarPlayService: NSObject {
     return .unspecified
   }
 
-  @available(iOS 13.0, *)
   private func updateContentStyle(_ contentStyle: CPContentStyle) {
     rootTemplateStyle = contentStyle == .dark ? .dark : .light
     // Update the current map style in accordance with the CarPLay content theme.
@@ -1127,7 +1126,6 @@ extension CarPlayService: CPSessionConfigurationDelegate {
                                          categoryId: context.categoryId,
                                          isListLimited: listsLimited)
   }
-  @available(iOS 13.0, *)
   func sessionConfiguration(_ sessionConfiguration: CPSessionConfiguration,
                             contentStyleChanged contentStyle: CPContentStyle) {
     // Handle the CarPlay content style changing triggered by the 'Always Show Dark Maps' toggle.
@@ -1138,7 +1136,6 @@ extension CarPlayService: CPSessionConfigurationDelegate {
 // MARK: - CPMapTemplateDelegate implementation
 extension CarPlayService: CPMapTemplateDelegate {
   // Instrument cluster maneuver display
-  @available(iOS 17.4, *)
   public func mapTemplateShouldProvideNavigationMetadata(_ mapTemplate: CPMapTemplate) -> Bool {
     return true
   }
