@@ -104,7 +104,7 @@ NSString * httpGe0Url(NSString * shortUrl)
   return [self subjectDefault];
 }
 
-- (LPLinkMetadata *)activityViewControllerLinkMetadata:(UIActivityViewController *)activityViewController API_AVAILABLE(ios(13.0))
+- (LPLinkMetadata *)activityViewControllerLinkMetadata:(UIActivityViewController *)activityViewController
 {
   LPLinkMetadata * metadata = [[LPLinkMetadata alloc] init];
   metadata.originalURL = [NSURL URLWithString:httpGe0Url([self url:NO])];

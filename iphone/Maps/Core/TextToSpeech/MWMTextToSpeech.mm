@@ -285,11 +285,9 @@ using Observers = NSHashTable<Observer>;
 
   AVSpeechSynthesisVoice * voice = nil;
   for (NSString * loc in candidateLocales) {
-    if (@available(iOS 16.0, *)) {
-      for (AVSpeechSynthesisVoice * aVoice in [AVSpeechSynthesisVoice speechVoices]) {
-        if (voice == nil && aVoice.language == loc && aVoice.quality == AVSpeechSynthesisVoiceQualityPremium) {
-          voice = aVoice;
-        }
+    for (AVSpeechSynthesisVoice * aVoice in [AVSpeechSynthesisVoice speechVoices]) {
+      if (voice == nil && aVoice.language == loc && aVoice.quality == AVSpeechSynthesisVoiceQualityPremium) {
+        voice = aVoice;
       }
     }
     for (AVSpeechSynthesisVoice * aVoice in [AVSpeechSynthesisVoice speechVoices]) {

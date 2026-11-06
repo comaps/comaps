@@ -121,13 +121,7 @@ class PlacePageInfoViewController: UIViewController {
     }
 
     if let secondHand = placePageInfoData.secondHand {
-      let iconName: String
-      if #available(iOS 18.0, *) {
-        iconName = "arrow.trianglehead.2.clockwise"
-      } else {
-        iconName = "arrow.3.trianglepath"
-      }
-      secondHandView = createInfoItem(secondHand, icon: UIImage(systemName: iconName))
+      secondHandView = createInfoItem(secondHand, icon: UIImage(systemName: "arrow.trianglehead.2.clockwise"))
     }
 
     /// @todo Entrance is missing compared with Android. It's shown in title, but anyway ..

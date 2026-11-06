@@ -235,9 +235,7 @@ BOOL defaultOrientation(CGSize const &size) {
     self.searchButtonsViewHeight.constant =
       defaultView ? kSearchButtonsViewHeightPortrait : kSearchButtonsViewHeightLandscape;
     self.searchButtonsView.layer.cornerRadius = (!UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation) ? kSearchButtonsViewHeightPortrait : kSearchButtonsViewHeightLandscape) / 2;
-    if (@available(iOS 13.0, *)) {
-      self.searchButtonsView.layer.cornerCurve = kCACornerCurveContinuous;
-    }
+    self.searchButtonsView.layer.cornerCurve = kCACornerCurveContinuous;
   }
   for (UIButton *searchButton in self.searchButtons)
     searchButton.alpha = alpha;
@@ -385,9 +383,7 @@ BOOL defaultOrientation(CGSize const &size) {
         (!UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation) ? kSearchButtonsViewHeightPortrait
                                                 : kSearchButtonsViewHeightLandscape) /
         2;
-      if (@available(iOS 13.0, *)) {
-        self.searchButtonsView.layer.cornerCurve = kCACornerCurveContinuous;
-      }
+      self.searchButtonsView.layer.cornerCurve = kCACornerCurveContinuous;
       self.streetNameTopOffsetConstraint.constant = self.additionalStreetNameTopOffset;
       self.streetNameTrailingOffsetConstraint.constant = (-availableArea.size.width/2) -100;
     }];

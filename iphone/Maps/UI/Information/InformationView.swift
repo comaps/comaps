@@ -63,13 +63,9 @@ struct InformationView: View {
         NavigationView {
             List {
                 Section {
-                    if #available(iOS 16, *) {
-                        AboutCoMapsView()
-                        .alignmentGuide(.listRowSeparatorLeading) { _ in
-                            return 0
-                        }
-                    } else {
-                        AboutCoMapsView()
+                    AboutCoMapsView()
+                    .alignmentGuide(.listRowSeparatorLeading) { _ in
+                        return 0
                     }
                     
                     NavigationLink(isActive: $showFaq) {
@@ -110,23 +106,15 @@ struct InformationView: View {
                 }
                 
                 Section {
-                    if #available(iOS 16, *) {
-                        ApoutOpenStreetMapView()
-                        .alignmentGuide(.listRowSeparatorLeading) { _ in
-                            return 0
-                        }
-                    } else {
-                        ApoutOpenStreetMapView()
+                    ApoutOpenStreetMapView()
+                    .alignmentGuide(.listRowSeparatorLeading) { _ in
+                        return 0
                     }
                     
                     Button {
                         openUrl(URL(string: "https://www.openstreetmap.org/fixthemap")!)
                     } label: {
-                        if #available(iOS 17.0, *) {
-                            Label("report_incorrect_map_bug", systemImage: "exclamationmark.magnifyingglass")
-                        } else {
-                            Label("report_incorrect_map_bug", systemImage: "exclamationmark.bubble")
-                        }
+                        Label("report_incorrect_map_bug", systemImage: "exclamationmark.magnifyingglass")
                     }
                     .tint(.alternativeAccent)
                 }

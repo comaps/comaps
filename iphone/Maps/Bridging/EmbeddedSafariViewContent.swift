@@ -40,9 +40,7 @@ struct EmbeddedSafariViewContent: UIViewRepresentable {
         uiView.scrollView.showsHorizontalScrollIndicator = false
         uiView.allowsBackForwardNavigationGestures = false
         uiView.allowsLinkPreview = false
-        if #available(iOS 16.0, *) {
-            uiView.isFindInteractionEnabled = false
-        }
+        uiView.isFindInteractionEnabled = false
         uiView.isOpaque = false
         uiView.backgroundColor = .clear
         uiView.underPageBackgroundColor = .clear

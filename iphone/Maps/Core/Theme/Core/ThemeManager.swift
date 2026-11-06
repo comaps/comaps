@@ -71,7 +71,6 @@ final class ThemeManager: NSObject {
     instance.update(theme: SettingsBridge.theme())
   }
 
-  @available(iOS 13.0, *)
   private func updateSystemUserInterfaceStyle(_ theme: MWMTheme) {
     let userInterfaceStyle: UIUserInterfaceStyle = { theme in
       switch theme {

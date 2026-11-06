@@ -188,7 +188,6 @@ struct CarPlayLaneManeuverContent: Hashable {
   }
 }
 
-@available(iOS 18.0, *)
 enum CarPlayLaneMetadata {
   static func lane(for laneInfo: LaneInfo) -> CPLane {
     let angles = uniqueAngles(for: laneInfo.laneWays)
@@ -267,7 +266,6 @@ struct CarPlayManeuverDescription {
   }
 }
 
-@available(iOS 17.4, *)
 enum CarPlayInstrumentClusterMetadata {
   static func apply(to maneuver: CPManeuver, description: CarPlayManeuverDescription) {
     maneuver.maneuverType = description.carDirection.cpManeuverType(exitNumber: description.exitNumber)
@@ -488,9 +486,8 @@ final class CarPlayRouter: NSObject {
   private var decoratedPrimaryIdentities = Set<CarPlayPrimaryManeuverIdentity>()
   private var unplannedPrimaryManeuvers: [CarPlayPrimaryManeuverIdentity: CPManeuver] = [:]
   private var laneSymbolManeuvers: [CarPlayLaneSymbolKey: CPManeuver] = [:]
-  /// Typed `AnyObject` until we target iOS 18
-  private var plannedLaneGuidances: [UInt32: AnyObject] = [:]
-  private var liveLaneGuidances: [CarPlayLaneSymbolKey: AnyObject] = [:]
+  private var plannedLaneGuidances: [UInt32: CPLaneGuidance] = [:]
+  private var liveLaneGuidances: [CarPlayLaneSymbolKey: CPLaneGuidance] = [:]
   private var lastObservedIdentity: CarPlayPrimaryManeuverIdentity?
   private var lastObservedDirection: CarDirection?
   private var lastObservedDistanceMeters: Double?
@@ -780,7 +777,7 @@ extension CarPlayRouter {
 
     let metricUnits = routeInfo.turnUnits == .meters || routeInfo.turnUnits == .kilometers
     var maneuvers = [CPManeuver]()
-    var laneGuidances = [AnyObject]()
+    var laneGuidances = [CPLaneGuidance]()
     for step in plan.steps {
       let maneuver = createManeuver(
         description: CarPlayManeuverDescription(step: step, isLeftHandTraffic: routeInfo.isLeftHandTraffic),
@@ -789,7 +786,7 @@ extension CarPlayRouter {
         estimates: CPTravelEstimates(distanceRemaining: displayDistance(meters: step.distanceFromPreviousMeters,
                                                                         metric: metricUnits),
                                      timeRemaining: 0.0))
-      if #available(iOS 18.0, *), !step.lanes.isEmpty {
+      if !step.lanes.isEmpty {
         let guidance = laneGuidance(lanes: step.lanes,
                                     description: CarPlayManeuverDescription(step: step,
                                                                             isLeftHandTraffic: routeInfo.isLeftHandTraffic))
@@ -800,17 +797,14 @@ extension CarPlayRouter {
       plannedManeuvers[step.sequence] = maneuver
       maneuvers.append(maneuver)
     }
-    if #available(iOS 17.4, *) {
-      let guidances = laneGuidances as? [CPLaneGuidance] ?? []
-      if isReroute, !maneuvers.isEmpty {
-        resumeRerouted(routeSession, plan: plan, maneuvers: maneuvers, laneGuidances: guidances, routeInfo: routeInfo)
-      } else {
-        if #available(iOS 18.0, *), !guidances.isEmpty {
-          routeSession.add(guidances)
-        }
-        if !maneuvers.isEmpty {
-          routeSession.add(maneuvers)
-        }
+    if isReroute, !maneuvers.isEmpty {
+      resumeRerouted(routeSession, plan: plan, maneuvers: maneuvers, laneGuidances: laneGuidances, routeInfo: routeInfo)
+    } else {
+      if !laneGuidances.isEmpty {
+        routeSession.add(laneGuidances)
+      }
+      if !maneuvers.isEmpty {
+        routeSession.add(maneuvers)
       }
     }
     let stepList = plan.steps.map { "\($0.sequence):\($0.carDirection.diagnosticName)" }.joined(separator: ",")
@@ -821,7 +815,6 @@ extension CarPlayRouter {
     }
   }
 
-  @available(iOS 17.4, *)
   private func resumeRerouted(_ routeSession: CPNavigationSession,
                               plan: CarPlayRoutePlan,
                               maneuvers: [CPManeuver],
@@ -832,7 +825,7 @@ extension CarPlayRouter {
       ?? maneuvers[0]
     let currentLaneGuidance: CPLaneGuidance
     if content.isPlannedPrimary,
-       let planned = plannedLaneGuidances[content.primaryIdentity.step] as? CPLaneGuidance {
+       let planned = plannedLaneGuidances[content.primaryIdentity.step] {
       currentLaneGuidance = planned
     } else {
       currentLaneGuidance = CPLaneGuidance()
@@ -895,9 +888,7 @@ extension CarPlayRouter {
       maneuvers.append(secondaryManeuver)
     }
     routeSession.upcomingManeuvers = maneuvers
-    if #available(iOS 17.4, *) {
-      routeSession.currentLaneGuidance = currentLaneGuidance(for: routeInfo, content: content) as? CPLaneGuidance
-    }
+    routeSession.currentLaneGuidance = currentLaneGuidance(for: routeInfo, content: content)
     maneuverRefreshState.didDisplay(content)
     if previousContent?.primaryIdentity != content.primaryIdentity {
       lastManeuverPhase = nil
@@ -906,9 +897,7 @@ extension CarPlayRouter {
 
     LOG(.info,
         "\(CarPlayLogging.guidance) maneuvers_published reason=\(reason.rawValue) previous=\(identityDescription(previousContent?.primaryIdentity)) turn=\(routeInfo.turnIndex) step=\(identityDescription(content.primaryIdentity)) planned=\(content.isPlannedPrimary) direction=\(routeInfo.carDirection.diagnosticName) lanes=\(previousContent?.lanes.count ?? 0)->\(content.lanes.count) secondary=\(previousContent?.secondaryStep.map { String($0) } ?? "none")->\(content.secondaryStep.map { String($0) } ?? "none") \(secondaryDescription(content)) count=\(maneuvers.count) \(roadDescription(routeInfo))")
-    if #available(iOS 18.0, *) {
-      logLaneGuidanceTransition(from: previousContent, to: content)
-    }
+    logLaneGuidanceTransition(from: previousContent, to: content)
     if routeSession.upcomingManeuvers.first == nil {
       LOG(.warning, "\(CarPlayLogging.guidance) invariant_failed missing_primary snapshot=\(identityDescription(content.primaryIdentity))")
     }
@@ -935,9 +924,7 @@ extension CarPlayRouter {
                                   shields: routeInfo.roadShields,
                                   estimates: createEstimates(routeInfo))
     unplannedPrimaryManeuvers[identity] = maneuver
-    if #available(iOS 17.4, *) {
-      routeSession?.add([maneuver])
-    }
+    routeSession?.add([maneuver])
     return maneuver
   }
 
@@ -956,14 +943,12 @@ extension CarPlayRouter {
     laneManeuver.instructionVariants = []
     laneManeuver.symbolSet = laneImages
     laneSymbolManeuvers[key] = laneManeuver
-    if #available(iOS 17.4, *) {
-      routeSession?.add([laneManeuver])
-    }
+    routeSession?.add([laneManeuver])
     return laneManeuver
   }
 
-  private func currentLaneGuidance(for routeInfo: RouteInfo, content: CarPlayManeuverContent) -> AnyObject? {
-    guard #available(iOS 18.0, *), !content.lanes.isEmpty else { return nil }
+  private func currentLaneGuidance(for routeInfo: RouteInfo, content: CarPlayManeuverContent) -> CPLaneGuidance? {
+    guard !content.lanes.isEmpty else { return nil }
     if content.isPlannedPrimary,
        let step = routePlan?.step(withSequence: content.primaryIdentity.step),
        step.laneContent == content.lanes,
@@ -1009,25 +994,23 @@ extension CarPlayRouter {
       lastManeuverEstimates = snapshot
     }
 
-    if #available(iOS 17.4, *) {
-      let phase = maneuverPhase(for: routeInfo)
-      if phase != lastManeuverPhase {
-        switch phase {
-        case .execute: routeSession.maneuverState = .execute
-        case .prepare: routeSession.maneuverState = .prepare
-        case .initial: routeSession.maneuverState = .initial
-        case .continue: routeSession.maneuverState = .continue
-        }
-        LOG(.info,
-            "\(CarPlayLogging.guidance) maneuver_state_changed from=\(lastManeuverPhase?.rawValue ?? "none") to=\(phase.rawValue) snapshot=\(identityDescription(routeIdentity(routeInfo))) direction=\(routeInfo.carDirection.diagnosticName) distanceM=\(formattedDistanceMeters(routeInfo)) \(roadDescription(routeInfo))")
-        lastManeuverPhase = phase
+    let phase = maneuverPhase(for: routeInfo)
+    if phase != lastManeuverPhase {
+      switch phase {
+      case .execute: routeSession.maneuverState = .execute
+      case .prepare: routeSession.maneuverState = .prepare
+      case .initial: routeSession.maneuverState = .initial
+      case .continue: routeSession.maneuverState = .continue
       }
-      let roadName = routeInfo.currentRoadName.trimmingCharacters(in: .whitespacesAndNewlines)
-      let roadNameVariants = roadName.isEmpty ? [] : [roadName]
-      if roadNameVariants != lastRoadNameVariants {
-        routeSession.currentRoadNameVariants = roadNameVariants
-        lastRoadNameVariants = roadNameVariants
-      }
+      LOG(.info,
+          "\(CarPlayLogging.guidance) maneuver_state_changed from=\(lastManeuverPhase?.rawValue ?? "none") to=\(phase.rawValue) snapshot=\(identityDescription(routeIdentity(routeInfo))) direction=\(routeInfo.carDirection.diagnosticName) distanceM=\(formattedDistanceMeters(routeInfo)) \(roadDescription(routeInfo))")
+      lastManeuverPhase = phase
+    }
+    let roadName = routeInfo.currentRoadName.trimmingCharacters(in: .whitespacesAndNewlines)
+    let roadNameVariants = roadName.isEmpty ? [] : [roadName]
+    if roadNameVariants != lastRoadNameVariants {
+      routeSession.currentRoadNameVariants = roadNameVariants
+      lastRoadNameVariants = roadNameVariants
     }
   }
 
@@ -1183,13 +1166,10 @@ extension CarPlayRouter {
       maneuver.initialTravelEstimates = estimates
     }
     // Structured metadata for the instrument cluster / HUD on supported vehicles.
-    if #available(iOS 17.4, *) {
-      CarPlayInstrumentClusterMetadata.apply(to: maneuver, description: description)
-    }
+    CarPlayInstrumentClusterMetadata.apply(to: maneuver, description: description)
     return maneuver
   }
 
-  @available(iOS 18.0, *)
   private func laneGuidance(lanes: [LaneInfo], description: CarPlayManeuverDescription) -> CPLaneGuidance {
     let guidance = CPLaneGuidance()
     guidance.lanes = lanes.map { CarPlayLaneMetadata.lane(for: $0) }

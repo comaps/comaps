@@ -104,44 +104,40 @@ static BOOL _fileLoggingEnabled = NO;
     return [self getZippedLogFile:kLogFilePath];
   } else {
     // Fetch logs from the OSLog store.
-    if (@available(iOS 15.0, *)) {
-      NSError * error;
-      OSLogStore * store = [OSLogStore storeWithScope:OSLogStoreCurrentProcessIdentifier error:&error];
+    NSError * error;
+    OSLogStore * store = [OSLogStore storeWithScope:OSLogStoreCurrentProcessIdentifier error:&error];
 
-      if (error) {
-        LOG(LERROR, (error.localizedDescription.UTF8String));
-        return nil;
-      }
-
-      NSPredicate * predicate = [NSPredicate predicateWithFormat:@"subsystem == %@", kLoggerSubsystem];
-      OSLogEnumerator * enumerator = [store entriesEnumeratorWithOptions:{} position:nil predicate:predicate error:&error];
-
-      if (error) {
-        LOG(LERROR, (error.localizedDescription.UTF8String));
-        return nil;
-      }
-
-      NSMutableString * logString = [NSMutableString string];
-      NSString * kNewLineStr = @"\n";
-
-      id object;
-      while (object = [enumerator nextObject]) {
-        if ([object isMemberOfClass:[OSLogEntryLog class]]) {
-          [logString appendString:[object composedMessage]];
-          [logString appendString:kNewLineStr];
-        }
-      }
-
-      if (logString.length == 0) {
-        LOG(LINFO, ("OSLog entry is empty."));
-        return nil;
-      }
-
-      [NSFileManager.defaultManager createFileAtPath:kLogFilePath contents:[logString dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
-      return [self getZippedLogFile:kLogFilePath];
-    } else {
+    if (error) {
+      LOG(LERROR, (error.localizedDescription.UTF8String));
       return nil;
     }
+
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"subsystem == %@", kLoggerSubsystem];
+    OSLogEnumerator * enumerator = [store entriesEnumeratorWithOptions:{} position:nil predicate:predicate error:&error];
+
+    if (error) {
+      LOG(LERROR, (error.localizedDescription.UTF8String));
+      return nil;
+    }
+
+    NSMutableString * logString = [NSMutableString string];
+    NSString * kNewLineStr = @"\n";
+
+    id object;
+    while (object = [enumerator nextObject]) {
+      if ([object isMemberOfClass:[OSLogEntryLog class]]) {
+        [logString appendString:[object composedMessage]];
+        [logString appendString:kNewLineStr];
+      }
+    }
+
+    if (logString.length == 0) {
+      LOG(LINFO, ("OSLog entry is empty."));
+      return nil;
+    }
+
+    [NSFileManager.defaultManager createFileAtPath:kLogFilePath contents:[logString dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+    return [self getZippedLogFile:kLogFilePath];
   }
 }
 
