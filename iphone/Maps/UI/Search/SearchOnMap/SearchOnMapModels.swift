@@ -14,6 +14,11 @@ final class SearchQuery: NSObject {
 }
 
 enum SearchOnMap {
+  enum Layout {
+    case sheet
+    case panel
+  }
+
   struct ViewModel: Equatable {
     enum Content: Equatable {
       case historyAndCategory
@@ -49,9 +54,9 @@ enum SearchOnMap {
     case openSearch
     case hideSearch
     case closeSearch
-    case didStartDraggingSearch
     case didStartDraggingMap
     case didStartTyping
+    case didEndTyping
     case didType(SearchQuery)
     case didSelect(SearchQuery)
     case didSelectResult(SearchResult, withQuery: SearchQuery)

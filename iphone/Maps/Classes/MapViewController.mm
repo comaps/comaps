@@ -110,6 +110,7 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 
 @property(nonatomic) NSLayoutConstraint *placePageWidthConstraint;
 @property(nonatomic) NSLayoutConstraint *placePageLeadingConstraint;
+@property(nonatomic) CGFloat searchPanelInset;
 @property(nonatomic) NSLayoutConstraint *placePageTrailingConstraint;
 
 @end
@@ -158,8 +159,6 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
   [self.view bringSubviewToFront:self.placePageContainer];
 
   self.placePageLeadingConstraint = [self.placePageContainer.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:kPlacePageLeadingOffset];
-  if (IPAD)
-    self.placePageLeadingConstraint.priority = UILayoutPriorityDefaultLow;
 
   self.placePageWidthConstraint = [self.placePageContainer.widthAnchor constraintEqualToConstant:kPlacePageCompactWidth];
   self.placePageTrailingConstraint = [self.placePageContainer.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor];
@@ -186,24 +185,15 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
   [self updatePlacePageContainerConstraints];
 }
 
-- (void)setupSearchContainer {
-  if (self.searchContainer != nil)
-    return;
-  self.searchContainer = [[TouchTransparentView alloc] initWithFrame:self.view.bounds];
-  [self.view addSubview:self.searchContainer];
-  [self.view bringSubviewToFront:self.searchContainer];
-  self.searchContainer.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+- (void)setSearchPanelInset:(CGFloat)searchPanelInset {
+  _searchPanelInset = searchPanelInset;
+  [self updatePlacePageContainerConstraints];
 }
 
 - (void)updatePlacePageContainerConstraints {
-  const BOOL isLimitedWidth = IPAD || self.traitCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact;
+  const BOOL isLimitedWidth = self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular || self.searchPanelInset > 0 || self.traitCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact;
 
-  if (IPAD && self.searchViewAvailableArea != nil) {
-    NSLayoutConstraint * leadingToSearchConstraint = [self.placePageContainer.leadingAnchor constraintEqualToAnchor:self.searchViewAvailableArea.trailingAnchor constant:kPlacePageLeadingOffset];
-    leadingToSearchConstraint.priority = UILayoutPriorityDefaultHigh;
-    leadingToSearchConstraint.active = isLimitedWidth;
-  }
-
+  self.placePageLeadingConstraint.constant = kPlacePageLeadingOffset + self.searchPanelInset;
   [self.placePageWidthConstraint setActive:isLimitedWidth];
   [self.placePageTrailingConstraint setActive:!isLimitedWidth];
   [self.view layoutIfNeeded];
@@ -292,8 +282,7 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
   UITouch *touch = [allTouches objectAtIndex:0];
   CGPoint const pt = [touch locationInView:v];
 
-  // Check if the tap is inside searchView)
-  if (self.searchManager.isSearching && type == df::TouchEvent::TOUCH_MOVE && !CGRectContainsPoint(self.searchViewAvailableArea.frame, pt))
+  if (self.searchManager.isSearching && type == df::TouchEvent::TOUCH_MOVE)
     [self.searchManager setMapIsDragging];
 
   e.SetTouchType(type);
@@ -352,7 +341,8 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
   [super traitCollectionDidChange:previousTraitCollection];
-  if (self.traitCollection.verticalSizeClass != previousTraitCollection.verticalSizeClass)
+  if (self.traitCollection.verticalSizeClass != previousTraitCollection.verticalSizeClass ||
+      self.traitCollection.horizontalSizeClass != previousTraitCollection.horizontalSizeClass)
     [self updatePlacePageContainerConstraints];
 }
 
@@ -389,7 +379,6 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 - (void)viewDidLoad {
   [super viewDidLoad];
   [self setupPlacePageContainer];
-  [self setupSearchContainer];
 
   [self setupTrackPadGestureRecognizers];
 
@@ -445,6 +434,7 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
+  [self.searchManager setMapCovered:NO];
   // Cold start deep links should be handled when the map is initialized.
   // Otherwise PP container view is nil, or there is no animation/selection of the point.
   if (DeepLinkHandler.shared.hasPendingDeepLink)
@@ -500,6 +490,8 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 
 - (void)viewWillDisappear:(BOOL)animated {
   [super viewWillDisappear:animated];
+  if (self.navigationController.topViewController != self)
+    [self.searchManager setMapCovered:YES];
 
   MapControls.areMapControlsHidden = true;
   
@@ -788,10 +780,6 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
   return _trackRecordingManager;
 }
 
-- (UIView * _Nullable)searchViewAvailableArea {
-  return self.searchManager.viewController.availableAreaView;
-}
-
 - (BOOL)hasNavigationBar {
   return NO;
 }
@@ -840,6 +828,7 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 }
 
 - (void)enableCarPlayRepresentation {
+  [self.searchManager close];
   UIViewController *presentedController = self.presentedViewController;
   if (presentedController != nil) {
     [presentedController dismissViewControllerAnimated:NO completion:nil];

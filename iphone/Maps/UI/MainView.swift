@@ -23,6 +23,7 @@ struct MainView: View {
     /// The actual view
     var body: some View {
         MapView(isPresentingSettings: $isPresentingSettings, isPresentingInformation: $isPresentingInformation)
+            .searchPresentation(isSuspended: isPresentingSettings || isPresentingInformation)
             .sheet(isPresented: $isPresentingSettings) {
                 SettingsView()
             }
