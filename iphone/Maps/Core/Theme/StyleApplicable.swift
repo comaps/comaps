@@ -36,13 +36,11 @@ extension StyleApplicable {
   func setStyle(_ style: PlacePageStyleSheet) { setStyle(style) }
   func setStyle(_ style: MapStyleSheet) { setStyle(style) }
   func setStyle(_ style: BookmarksStyleSheet) { setStyle(style) }
-  func setStyle(_ style: SearchStyleSheet) { setStyle(style) }
 
   func setStyleAndApply(_ style: GlobalStyleSheet) { setStyleAndApply(style) }
   func setStyleAndApply(_ style: PlacePageStyleSheet) { setStyleAndApply(style) }
   func setStyleAndApply(_ style: MapStyleSheet) { setStyleAndApply(style) }
   func setStyleAndApply(_ style: BookmarksStyleSheet) { setStyleAndApply(style) }
-  func setStyleAndApply(_ style: SearchStyleSheet) { setStyleAndApply(style) }
 
   func setStyles(_ styles: [GlobalStyleSheet]) { styleName = styles.joinedStyle }
 }

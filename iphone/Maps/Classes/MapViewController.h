@@ -36,6 +36,7 @@
 - (void)openDrivingOptions;
 - (void)showTrackRecordingPlacePage;
 - (void)setPlacePageTopBound:(CGFloat)bound;
+- (void)setSearchPanelInset:(CGFloat)inset;
 
 + (void)setViewport:(double)lat lon:(double)lon zoomLevel:(int)zoomlevel;
 
@@ -54,7 +55,6 @@
 @property(strong, nonatomic) IBOutlet EAGLView * _Nonnull mapView;
 @property(strong, nonatomic) IBOutlet UIView * _Nonnull mainView;
 @property(strong, nonatomic) IBOutlet UIView * _Nonnull controlsView;
-@property(nonatomic) UIView * _Nonnull searchContainer;
 
 @property (weak, nonatomic) IBOutlet SideButtonsArea * sideButtonsArea;
 @property (weak, nonatomic) IBOutlet WidgetsArea * widgetsArea;

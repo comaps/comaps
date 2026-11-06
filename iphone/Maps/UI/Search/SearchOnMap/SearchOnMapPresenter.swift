@@ -1,3 +1,9 @@
+protocol SearchOnMapView: AnyObject {
+  func render(_ viewModel: SearchOnMap.ViewModel)
+  func show()
+  func close()
+}
+
 final class SearchOnMapPresenter {
   typealias Response = SearchOnMap.Response
   typealias ViewModel = SearchOnMap.ViewModel
@@ -11,7 +17,7 @@ final class SearchOnMapPresenter {
     }
   }
 
-  private var viewModel: ViewModel = .initial
+  private(set) var viewModel: ViewModel = .initial
   private var isRouting: Bool
   private var didChangeState: ((SearchOnMapState) -> Void)?
 
@@ -69,12 +75,6 @@ final class SearchOnMapPresenter {
       viewModel.isTyping = true
       viewModel.contentState = .historyAndCategory
       viewModel.presentationStep = .fullScreen
-      UserDefaults.standard.set(true, forKey: "IsSearchPresented")
-      if UIDevice.current.userInterfaceIdiom == .pad {
-        UserDefaults.standard.set(360, forKey: "SearchAdjustment")
-      } else {
-        UserDefaults.standard.set(0, forKey: "SearchAdjustment")
-      }
     case .showResults(var searchResults, let isSearchCompleted):
       if (viewModel.skipSuggestions) {
         searchResults.skipSuggestions()
@@ -107,7 +107,7 @@ final class SearchOnMapPresenter {
       viewModel.isTyping = false
       viewModel.presentationStep = .compact
     case .updatePresentationStep(let step):
-      if step == .hidden {
+      if step == .hidden || step == .compact {
         viewModel.isTyping = false
       }
       viewModel.presentationStep = step

@@ -24,6 +24,7 @@ final class SearchOnMapTests: XCTestCase {
     interactor = nil
     view = nil
     searchManager.results = .empty
+    searchManager.setSearchMode(.everywhere)
     searchManager = nil
     super.tearDown()
   }
@@ -103,9 +104,25 @@ final class SearchOnMapTests: XCTestCase {
     XCTAssertEqual(view.viewModel.isTyping, false)
   }
 
-  func test_GivenSearchIsOpened_WhenMapIsDragged_ThenCollapseSearchScreen() {
+  func test_GivenSearchIsOpenedWithoutQuery_WhenMapIsDragged_ThenCloseSearch() {
     interactor.handle(.openSearch)
     XCTAssertEqual(view.viewModel.presentationStep, .fullScreen)
+
+    interactor.handle(.didStartDraggingMap)
+    XCTAssertEqual(currentState, .closed)
+  }
+
+  func test_GivenSearchHasQuery_WhenMapIsDragged_ThenCollapseSearchScreen() {
+    interactor.handle(.openSearch)
+    interactor.handle(.didType(SearchQuery("cafe", source: .typedText)))
+
+    interactor.handle(.didStartDraggingMap)
+    XCTAssertEqual(view.viewModel.presentationStep, .compact)
+  }
+
+  func test_GivenPanelWithoutQuery_WhenMapIsDragged_ThenCollapseSearchScreen() {
+    interactor.layout = .panel
+    interactor.handle(.openSearch)
 
     interactor.handle(.didStartDraggingMap)
     XCTAssertEqual(view.viewModel.presentationStep, .compact)
@@ -119,7 +136,16 @@ final class SearchOnMapTests: XCTestCase {
     XCTAssertEqual(view.viewModel.isTyping, false)
   }
 
-  func test_GivenResultsOnScreen_WhenSelectResult_ThenHideSearch() {
+  func test_GivenResultsOnScreen_WhenSelectResult_ThenHideSearch_Sheet() {
+    check_GivenResultsOnScreen_WhenSelectResult_ThenHideSearch()
+  }
+
+  func test_GivenResultsOnScreen_WhenSelectResult_ThenHideSearch_Panel() {
+    interactor.layout = .panel
+    check_GivenResultsOnScreen_WhenSelectResult_ThenHideSearch()
+  }
+
+  private func check_GivenResultsOnScreen_WhenSelectResult_ThenHideSearch() {
     interactor.handle(.openSearch)
     XCTAssertEqual(view.viewModel.isTyping, true)
 
@@ -130,7 +156,7 @@ final class SearchOnMapTests: XCTestCase {
     searchManager.results = results
 
     interactor.handle(.didSelectResult(results[0], withQuery: query))
-    if isiPad {
+    if interactor.layout == .panel {
       XCTAssertEqual(currentState, .searching)
       XCTAssertEqual(view.viewModel.presentationStep, .fullScreen)
     } else {
@@ -139,20 +165,38 @@ final class SearchOnMapTests: XCTestCase {
     }
   }
 
-  func test_GivenSearchIsActive_WhenSelectPlaceOnMap_ThenHideSearch() {
+  func test_GivenSearchIsActive_WhenSelectPlaceOnMap_ThenHideSearch_Sheet() {
+    check_GivenSearchIsActive_WhenSelectPlaceOnMap_ThenHideSearch()
+  }
+
+  func test_GivenSearchIsActive_WhenSelectPlaceOnMap_ThenHideSearch_Panel() {
+    interactor.layout = .panel
+    check_GivenSearchIsActive_WhenSelectPlaceOnMap_ThenHideSearch()
+  }
+
+  private func check_GivenSearchIsActive_WhenSelectPlaceOnMap_ThenHideSearch() {
     interactor.handle(.openSearch)
     XCTAssertEqual(view.viewModel.presentationStep, .fullScreen)
 
     interactor.handle(.didSelectPlaceOnMap)
 
-    if isiPad {
+    if interactor.layout == .panel {
       XCTAssertNotEqual(view.viewModel.presentationStep, .hidden)
     } else {
       XCTAssertEqual(view.viewModel.presentationStep, .hidden)
     }
   }
 
-  func test_GivenSearchIsHidden_WhenPPDeselected_ThenShowSearch() {
+  func test_GivenSearchIsHidden_WhenPPDeselected_ThenShowSearch_Sheet() {
+    check_GivenSearchIsHidden_WhenPPDeselected_ThenShowSearch()
+  }
+
+  func test_GivenSearchIsHidden_WhenPPDeselected_ThenShowSearch_Panel() {
+    interactor.layout = .panel
+    check_GivenSearchIsHidden_WhenPPDeselected_ThenShowSearch()
+  }
+
+  private func check_GivenSearchIsHidden_WhenPPDeselected_ThenShowSearch() {
     interactor.handle(.openSearch)
     XCTAssertEqual(view.viewModel.isTyping, true)
 
@@ -163,7 +207,7 @@ final class SearchOnMapTests: XCTestCase {
     searchManager.results = results
 
     interactor.handle(.didSelectResult(results[0], withQuery: query))
-    if isiPad {
+    if interactor.layout == .panel {
       XCTAssertEqual(currentState, .searching)
       XCTAssertEqual(view.viewModel.presentationStep, .fullScreen)
     } else {
@@ -240,9 +284,18 @@ final class SearchOnMapTests: XCTestCase {
     XCTAssertEqual(view.viewModel.isTyping, false) // No typing when deeplink is used
   }
 
-  func test_GivenSearchIsActive_WhenPresentationStepUpdate_ThenUpdateSearchMode() {
+  func test_GivenSearchIsActive_WhenPresentationStepUpdate_ThenUpdateSearchMode_Sheet() {
+    check_GivenSearchIsActive_WhenPresentationStepUpdate_ThenUpdateSearchMode()
+  }
+
+  func test_GivenSearchIsActive_WhenPresentationStepUpdate_ThenUpdateSearchMode_Panel() {
+    interactor.layout = .panel
+    check_GivenSearchIsActive_WhenPresentationStepUpdate_ThenUpdateSearchMode()
+  }
+
+  private func check_GivenSearchIsActive_WhenPresentationStepUpdate_ThenUpdateSearchMode() {
     interactor.handle(.openSearch)
-    XCTAssertEqual(searchManager.searchMode(), isiPad ? .everywhereAndViewport : .everywhere)
+    XCTAssertEqual(searchManager.searchMode(), interactor.layout == .panel ? .everywhereAndViewport : .everywhere)
 
     interactor.handle(.didUpdatePresentationStep(.halfScreen))
     XCTAssertEqual(searchManager.searchMode(), .everywhereAndViewport)
@@ -254,7 +307,7 @@ final class SearchOnMapTests: XCTestCase {
     XCTAssertEqual(searchManager.searchMode(), .viewport)
 
     interactor.handle(.didUpdatePresentationStep(.fullScreen))
-    XCTAssertEqual(searchManager.searchMode(), isiPad ? .everywhereAndViewport : .everywhere)
+    XCTAssertEqual(searchManager.searchMode(), interactor.layout == .panel ? .everywhereAndViewport : .everywhere)
   }
 }
 
@@ -262,7 +315,6 @@ final class SearchOnMapTests: XCTestCase {
 
 private class SearchOnMapViewMock: SearchOnMapView {
   var viewModel: SearchOnMap.ViewModel = .initial
-  var scrollViewDelegate: (any SearchOnMapScrollViewDelegate)?
   func render(_ viewModel: SearchOnMap.ViewModel) {
     self.viewModel = viewModel
   }

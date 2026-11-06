@@ -73,7 +73,5 @@
 #import "UIViewController+Navigation.h"
 #import "WebViewController.h"
 #import "MWMMapViewControlsCommon.h"
-#import "MWMSearchCommonCell.h"
-#import "MWMSearchSuggestionCell.h"
 #import "MWMSearch.h"
 #import "SearchResult.h"

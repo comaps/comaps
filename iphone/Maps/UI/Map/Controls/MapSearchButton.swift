@@ -33,17 +33,13 @@ struct MapSearchButton: View {
             .padding(4)
             .accessibilityHidden(true)
             .overlay {
-                Button {
-                    NotificationCenter.default.post(Notification(name: MapControls.presentSearchNotificationName))
-                } label: {
-                    Label("search", systemImage: "magnifyingglass")
-                        .foregroundStyle(.secondary)
-                        .padding(.leading)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                        .compositingGroup()
-                        .background(.white.opacity(0.01))
+                if #available(iOS 17.0, *) {
+                    CollapsedSearchField {
+                        searchButton
+                    }
+                } else {
+                    searchButton
                 }
-                .buttonStyle(.plain)
             }
             .background {
                 if #unavailable(iOS 27, macOS 27) {
@@ -72,6 +68,96 @@ struct MapSearchButton: View {
             .padding(.leading, verticalSizeClass == .compact ? (controlHeight + 24) : 0)
             
             Spacer(minLength: 0)
+        }
+    }
+    
+    
+    private var searchButton: some View {
+        Button {
+            NotificationCenter.default.post(Notification(name: MapControls.presentSearchNotificationName))
+        } label: {
+            Label("search", systemImage: "magnifyingglass")
+                .foregroundStyle(.secondary)
+                .padding(.leading)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                .compositingGroup()
+                .background(.white.opacity(0.01))
+        }
+        .buttonStyle(.plain)
+        .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+        .accessibilityShowsLargeContentViewer()
+    }
+}
+
+
+@available(iOS 17.0, *)
+private struct CollapsedSearchField<Fallback: View>: View {
+    @Environment(SearchModel.self) private var model: SearchModel?
+    @ViewBuilder let fallback: () -> Fallback
+    
+    
+    var body: some View {
+        if let model, model.isCollapsed {
+            HStack(spacing: 0) {
+                Button(action: model.expand) {
+                    Label {
+                        if model.text.isEmpty {
+                            Text("search")
+                                .foregroundStyle(.secondary)
+                        } else {
+                            Text(verbatim: model.text)
+                                .foregroundStyle(.primary)
+                        }
+                    } icon: {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundStyle(.secondary)
+                    }
+                    .lineLimit(1)
+                    .padding(.leading)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(Text("search"))
+                .accessibilityValue(model.text)
+                .accessibilityActions {
+                    if !model.text.isEmpty {
+                        Button(L("search_results")) {
+                            model.didSelectStep(.halfScreen)
+                        }
+                    }
+                }
+                .accessibilityShowsLargeContentViewer()
+                
+                Button(action: model.didTapClose) {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(.secondary)
+                        .padding(.horizontal)
+                        .frame(maxHeight: .infinity)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(L("close"))
+                .accessibilityShowsLargeContentViewer()
+            }
+            .overlay(alignment: .top) {
+                Capsule()
+                    .fill(.secondary)
+                    .frame(width: 36, height: 5)
+                    .padding(.top, 5)
+                    .accessibilityHidden(true)
+            }
+            .highPriorityGesture(
+                DragGesture(minimumDistance: 10)
+                    .onEnded { value in
+                        if value.translation.height < -30 || value.predictedEndTranslation.height < -80 {
+                            model.didSelectStep(.halfScreen)
+                        }
+                    }
+            )
+            .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+        } else {
+            fallback()
         }
     }
 }

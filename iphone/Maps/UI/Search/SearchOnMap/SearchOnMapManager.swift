@@ -19,26 +19,32 @@ protocol SearchOnMapManagerObserver: AnyObject {
 
 @objcMembers
 final class SearchOnMapManager: NSObject {
-  private var interactor: SearchOnMapInteractor? { viewController?.interactor }
+  private var interactor: SearchOnMapInteractor?
   private let observers = ListenerContainer<SearchOnMapManagerObserver>()
 
-  weak var viewController: SearchOnMapViewController?
-  var isSearching: Bool { viewController != nil }
+  var isSearching: Bool { interactor != nil }
 
   override init() {
     super.init()
   }
 
   // MARK: - Public methods
+  @MainActor
   func startSearching(isRouting: Bool) {
-    if viewController != nil {
-      interactor?.handle(.openSearch)
+    guard #available(iOS 17.0, *) else { return }
+    if let interactor {
+      interactor.handle(.openSearch)
       return
     }
     FrameworkHelper.deactivateMapSelection()
-    let viewController = SearchOnMapViewControllerBuilder.build(isRouting: isRouting,
-                                                                didChangeState: notifyObservers)
-    self.viewController = viewController
+    let model = SearchModel.shared
+    let presenter = SearchOnMapPresenter(isRouting: isRouting) { [weak self] state in
+      self?.didChangeState(state)
+    }
+    let interactor = SearchOnMapInteractor(presenter: presenter, layout: model.layout)
+    presenter.view = model
+    self.interactor = interactor
+    model.open(with: interactor)
   }
 
   func hide() {
@@ -61,6 +67,12 @@ final class SearchOnMapManager: NSObject {
     interactor?.handle(.didStartDraggingMap)
   }
 
+  @MainActor
+  func setMapCovered(_ isCovered: Bool) {
+    guard #available(iOS 17.0, *) else { return }
+    SearchModel.shared.isMapCovered = isCovered
+  }
+
   func searchText(_ searchText: SearchQuery) {
     interactor?.autoSelectFirstResult = searchText.autoSelectFirstResult
     interactor?.handle(.didSelect(searchText))
@@ -74,20 +86,10 @@ final class SearchOnMapManager: NSObject {
     observers.removeListener(observer)
   }
 
-  private func notifyObservers(_ state: SearchOnMapState) {
+  private func didChangeState(_ state: SearchOnMapState) {
+    if state == .closed {
+      interactor = nil
+    }
     observers.forEach { observer in observer.searchManager(didChangeState: state) }
-  }
-}
-
-private struct SearchOnMapViewControllerBuilder {
-  static func build(isRouting: Bool, didChangeState: @escaping ((SearchOnMapState) -> Void)) -> SearchOnMapViewController {
-    let viewController = SearchOnMapViewController()
-    let presenter = SearchOnMapPresenter(isRouting: isRouting,
-                                         didChangeState: didChangeState)
-    let interactor = SearchOnMapInteractor(presenter: presenter)
-    presenter.view = viewController
-    viewController.interactor = interactor
-    viewController.show()
-    return viewController
   }
 }

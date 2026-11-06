@@ -82,11 +82,11 @@ struct MapOverlayView: View {
     
     
     /// If the search is being presented externally
-    @AppStorage("IsSearchPresented") private var isSearchPresented: Bool = false
-    
-    
+    @Environment(\.isSearchPresented) private var isSearchPresented
+
+
     /// A necessary adjusmented need for the externally presented search
-    @AppStorage("SearchAdjustment") private var searchAdjustment: Double = 0
+    @Environment(\.searchPanelInset) private var searchAdjustment
     
     
     /// If the keyboard is being presented externally
@@ -238,6 +238,12 @@ struct MapOverlayView: View {
                 updatePadding(with: geometry)
             }
             .onReceive(userDefaultsDidChangeNotificationPublisher) { _ in
+                updateControlVisbility(with: geometry)
+            }
+            .onChange(of: isSearchPresented) { _ in
+                updateControlVisbility(with: geometry)
+            }
+            .onChange(of: searchAdjustment) { _ in
                 updateControlVisbility(with: geometry)
             }
             .onReceive(keyboardWillShowNotificationPublisher) { _ in

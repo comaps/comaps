@@ -5,13 +5,16 @@ final class SearchOnMapInteractor: NSObject {
   private let routeManager: MWMRouter.Type
   private var isUpdatesDisabled = false
   var autoSelectFirstResult = false
+  var layout: SearchOnMap.Layout
 
   var routingTooltipSearch: SearchOnMapRoutingTooltipSearch = .none
 
   init(presenter: SearchOnMapPresenter,
+       layout: SearchOnMap.Layout = .sheet,
        searchManager: SearchManager.Type = Search.self,
        routeManager: MWMRouter.Type = MWMRouter.self) {
     self.presenter = presenter
+    self.layout = layout
     self.searchManager = searchManager
     self.routeManager = routeManager
     super.init()
@@ -23,13 +26,19 @@ final class SearchOnMapInteractor: NSObject {
   }
 
   func handle(_ event: SearchOnMap.Request) {
+    let previousStep = presenter.viewModel.presentationStep
     let response = resolve(event)
     presenter.process(response)
+    let step = presenter.viewModel.presentationStep
+    if step != previousStep {
+      searchManager.setSearchMode(searchModeForPresentationStep(step))
+    }
   }
 
   private func resolve(_ event: SearchOnMap.Request) -> SearchOnMap.Response {
     switch event {
     case .openSearch:
+      searchManager.setSearchMode(searchModeForPresentationStep(.fullScreen))
       return .showHistoryAndCategory
 
     case .hideSearch:
@@ -40,6 +49,9 @@ final class SearchOnMapInteractor: NSObject {
 
     case .didStartTyping:
       return .setIsTyping(true)
+
+    case .didEndTyping:
+      return .setIsTyping(false)
 
     case .didType(let searchText):
       return processTypedText(searchText)
@@ -57,12 +69,15 @@ final class SearchOnMapInteractor: NSObject {
       return processSelectedResult(result, query: query)
 
     case .didSelectPlaceOnMap:
-      return isiPad ? .none : .setSearchScreenHidden(true)
+      return layout == .panel ? .none : .setSearchScreenHidden(true)
 
     case .didDeselectPlaceOnMap:
       return deselectPlaceOnMap()
 
     case .didStartDraggingMap:
+      if layout == .sheet && presenter.viewModel.contentState == .historyAndCategory {
+        return closeSearch()
+      }
       return .setSearchScreenCompact
 
     case .didUpdatePresentationStep(let step):
@@ -124,7 +139,7 @@ final class SearchOnMapInteractor: NSObject {
       @unknown default:
         fatalError("Unsupported routingTooltipSearch")
       }
-      return isiPad ? .none : .setSearchScreenHidden(true)
+      return layout == .panel ? .none : .setSearchScreenHidden(true)
     case .suggestion:
       let suggestionQuery = SearchQuery(result.suggestion,
                                         locale: query.locale,
@@ -145,15 +160,13 @@ final class SearchOnMapInteractor: NSObject {
     routingTooltipSearch = .none
     isUpdatesDisabled = true
     searchManager.clear()
-    UserDefaults.standard.set(false, forKey: "IsSearchPresented")
-    UserDefaults.standard.set(0, forKey: "SearchAdjustment")
     return .close
   }
 
   private func searchModeForPresentationStep(_ step: ModalPresentationStep) -> SearchMode {
     switch step {
     case .fullScreen:
-      return isiPad ? .everywhereAndViewport : .everywhere
+      return layout == .panel ? .everywhereAndViewport : .everywhere
     case .halfScreen, .compact:
       return  .everywhereAndViewport
     case .hidden:
