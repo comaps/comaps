@@ -1,6 +1,13 @@
-• Obsługa CarPlay dashboard
-• Konfigurowalny URL serwera map
-• Ułatwienia dostępu w wyborze trybu transportu, dodatkowe opcje aktywowane zarówno przytrzymaniem jak i drugim dotknięciem
-• Gwiazdki hoteli i restauracji wyświetlane jako tekst
-• Dodane wypożyczalnie narzędzi, symbole dróg dodane w Rumunii i Maroku oraz naprawione na drogach A w Niemczech (Augsburg) i na Cyprze
-• Dane OpenStreetMap z 4 października, potem cotygodniowe aktualizacje
+• Poprawione błędy informacji o skrętach w CarPlay: opóźnione instrukcje, nieprawidłowy wyświetlany kierunek następny skrętu, następny skręt działający tylko przy włączonej nawigacji głosowej
+• Naprawione wywalanie się aplikacji w wynikach wyszukiwania w CarPlay
+• Obsługa samochodów, które ograniczają wyświetlanie list w CarPlay podczas jazdy
+• Naprawiona niewidoczna ikona ustawień w iOS 27 w CarPlay
+• Naprawione pozycjonowanie strzałki gdy nawigacja jest uruchomiona z dashboard a potem przeniesiona do głównego widoku
+• Poprawiony kontrast w trybie nocnym: bardziej czytelny tekst i drogi
+• Dodane strefy zagrożenia
+• Odróżnianie wegetriańskich "opcji" od "wyłącznie"
+• Usunięta instrukcja "jedź prosto" podczas przecinania głównych dróg
+• Rozdzielenie map Tanzanii, Wietnamu, Malezji i chińskiej prowincji Guangdong na mniejsze regiony
+• “?reviews” w wyszukiwaniu pokazuje miejsca z recenzjami
+• Pokazywanie informacji o dostępności produktów używanych w sklepach; dodane lokale muzyczne, stołówki i inne
+• Dane OpenStreetMap z 5 listopada a później cotygodniowe aktualizacje

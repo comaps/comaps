@@ -1,6 +1,13 @@
-• Ondersteuning voor CarPlay dashboard toegevoegd
-• Instelling voor URL voor aangepaste kaartserver
-• Transportmoduskiezer toegankelijk gemaakt en extra opties worden nu ook getoond bij een tweede tik, in aanvulling op lang indrukken
-• Tonen van sterren van hotels/restaurants als tekst
-• Gereedschapsverhuurlocaties en gereedschapsbibliotheken toegevoegd, weglabels toegevoegd voor Roemenië en Marokko en gecorrigeerd voor Augsburg en A-wegen in Cyprus
-• OpenStreetMap-gegevens per 4 oktober, verder wekelijkse updates
+• CarPlay-routebegeleiding herschreven: Verschillende bugs opgelost, zoals: vertraging van de instructies, volgende bocht die verkeerde richting toont, volgende bocht werkt alleen met TTS aan
+• Crash in CarPlay zoekresultaten verholpen
+• Omgaan met auto’s die tijdens het rijden de weergave van lijsten in CarPlay beperken
+• Onzichtbaar instellingenpictogram in CarPlay op iOS 27 verholpen
+• Positie van de pijl bij het starten van een route op het dashboard en overgaan naar hoofdweergave gecorrigeerd
+• Verbeterd contrast in donkere modus: beter zichtbare text en wegen
+• Gevaarlijke gebieden toegevoegd
+• Onderscheid tussen volledig vegetarish en vegetarische opties en volledig vegan en vegan opties
+• “Ga rechtdoor”-instructie verwijderd bij oversteken grote wegen
+• Tanzania, Vietnam, Maleisië en China Guangdong uitgesplitst naar kleinere kaarten
+• Zoeksleutelwoord “?reviews” toegevoegd om plaatsen met recenties te vinden
+• Vestiging en tweedehands-informatie toegevoegd aan interessepunten, muziekpodia, kantines en meer toegevoegd
+• OpenStreetMap-gegevens per 5 november, verder weekelijkse updates

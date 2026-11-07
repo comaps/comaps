@@ -1,8 +1,10 @@
-• Add link to add new reviews on place page
-• Show current speed in Android Auto
-• Show review ratings in search results
-• Display hotel/restaurant stars as text
-• Added tool hire shops and tool libraries, Romania and Morocco road shields and fixed Germany Augsburg and Cyprus A-road ones
-• Change preview and save button to icons in route planning screen
+• Improve dark mode contrast: more legible text and roads
+• Add Hazardous Areas
+• Distinguish Vegetarian "options" vs "only"
+• Stop saying "go straight" when crossing large roads
+• Add route preview mode (click a step during route planning)
+• Improve Android Auto UI and car/phone switching
+• Show POI branch names and second-hand information, added music venues, cafeterias and more
+• OpenStreetMap data as of November 5 and further weekly updates
 
 More details on comaps.app/latest

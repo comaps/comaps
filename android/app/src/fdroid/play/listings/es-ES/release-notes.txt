@@ -1,8 +1,9 @@
-• Añadido enlace para publicar nuevas reseñas
-• Mostrar velocidad en Android Auto
-• Mostrar valoraciones en resultados de búsqueda
-• Mostrar estrellas de hoteles y restaurantes como texto
-• Añadidas tiendas de alquiler de herramientas, bibliotecas de herramientas, señales de carretera de Rumanía y Marruecos, y corregidas las de carreteras A de Augsburgo y Chipre
-• Cambiados botones de vista previa y guardar por iconos en planificación de ruta
+• Mejora del contraste en modo oscuro: texto y carreteras más legibles
+• Inclusión de zonas peligrosas
+• Distinción entre opciones vegetarianas y solo vegetariano
+• Eliminada indicación «siga recto» al cruzar carreteras grandes
+• Modo de vista previa de la ruta (haz clic en un paso durante planificación de ruta)
+• Mejorada interfaz de Android Auto
+• Inclusión de nombres de sucursales en PDIs, info de segunda mano, locales de música...
 
-Más detalles en comaps.app/latest
+Más info en comaps.app/latest

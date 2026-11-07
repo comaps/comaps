@@ -1,8 +1,9 @@
-• Link do dodania recenzji w panelu szczegółów miejsca
-• Aktualna prędkośc w Android Auto
-• Oceny z recenzji w wynikach wyszukiwania
-• Gwiazdki hoteli i restauracji wyświetlane jako tekst
-• Dodane wypożyczalnie narzędzi, symbole dróg dodane w Rumunii i Maroku oraz naprawione na drogach A w Niemczech (Augsburg) i na Cyprze
-• Dodane przyciski podglądu i zapisu na ekranie planowania trasy
+• Poprawiony kontrast w trybie nocnym: bardziej czytelny tekst i drogi
+• Dodane strefy zagrożenia
+• Odróżnianie wegetariańskich "opcji" od "wyłącznie"
+• Usunięta instrukcja "jedź prosto" podczas przecinania głównych dróg
+• Podgląd trasy (kliknij etap podczas planowania trasy)
+• Poprawiony interfejs Android Auto i przełączanie między samochodem a telefonem
+• POI: pokazywanie do jakiej sieci należy miejsce, informacja o produktach używanych
 
-Szczegóły na comaps.app/latest
+Więcej na comaps.app/latest
