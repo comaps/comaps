@@ -1554,7 +1554,7 @@
 "type.shop.swimming_pool" = "Swimming Pool Shop";
 "type.amenity.music_venue" = "Music Venue";
 "type.cuisine.vegetarian_only" = "Μόνο για χορτοφάγους";
-"type.amenity.research_institute" = "Research Institute";
+"type.amenity.research_institute" = "Ερευνητικό ινστιτούτο";
 "type.cuisine.vegan_only" = "Μόνο για βίγκαν";
 "type.club.history" = "History Club";
 "type.club.model_railway" = "Model Railway Club";
@@ -1584,3 +1584,5 @@
 "type.club.amateur_radio" = "Amateur Radio Club";
 "type.club" = "Club";
 "type.club.automobile" = "Automobile Club";
+"type.shop.games" = "Game Shop";
+"type.boundary.hazard" = "Hazardous Area";

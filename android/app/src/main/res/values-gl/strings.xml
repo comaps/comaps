@@ -734,4 +734,8 @@
     <string name="stars_3">3 Estrelas</string>
     <string name="stars_4">4 Estrelas</string>
     <string name="stars_5">5 Estrelas</string>
+    <string name="route_preview_previous_turn">Xiro anterior</string>
+    <string name="route_preview_next_turn">Xiro seguinte</string>
+    <string name="route_preview_cancel">Pechar a vista previa da ruta</string>
+    <string name="route_preview_turn_position">%1$d de %2$d</string>
 </resources>

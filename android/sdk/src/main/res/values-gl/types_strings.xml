@@ -1485,4 +1485,8 @@
     <string name="type.shop.games">Tenda de Xogos</string>
     <string name="type.shop.tool_hire">Aluguer de Ferramentas</string>
     <string name="type.shop.swimming_pool">Tenda de Piscinas</string>
+    <string name="type.amenity.tool_library">Biblioteca de ferramentas</string>
+    <string name="type.club.model_railway">Club de modelismo ferroviario</string>
+    <string name="type.club.social">Club social</string>
+    <string name="type.barrier.bus_trap">Trampa para coches</string>
 </resources>

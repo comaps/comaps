@@ -333,7 +333,7 @@
 "dialog_routing_application_error" = "Kan ikke oprette rute på grund af en applikationsfejl.";
 "dialog_routing_try_again" = "Prøv venligst igen";
 "dialog_routing_download_and_build_cross_route" = "Ønsker du at downloade kortet og planlægge en mere optimal rute, der strækker sig over mere end ét kort?";
-"dialog_routing_download_cross_route" = "Download yderligere kort for at planlægge en mere optimal rute, der strækker sig ud over dette korts grænser.";
+"dialog_routing_download_cross_route" = "Download yderligere kort for at planlægge en bedre rute, der krydser dette korts grænser.";
 /* «Show» context menu */
 "show" = "Vis";
 /* «Hide» context menu */
@@ -468,7 +468,7 @@
 "message_invalid_feature_position" = "Et objekt kan ikke placeres her";
 /* Error dialog no space */
 "migration_no_space_message" = "For at opdatere app'en skal du bruge mere plads. Slet unødvendig data.";
-"editor_sharing_title" = "Jeg forbedrede CoMaps kortene";
+"editor_sharing_title" = "Jeg forbedrede CoMaps-kortene";
 /* Downloaded 10 **of** 20 <- it is that "of" */
 "downloader_of" = "%1$d af %2$d";
 "download_over_mobile_header" = "Download ved brug af mobilnetværksforbindelse?";
@@ -516,7 +516,7 @@
 /* A unit of measure */
 "ft" = "fod";
 "miles_per_hour" = "mph";
-"hour" = "time";
+"hour" = "t";
 "minute" = "min";
 "day" = "d";
 "placepage_more_button" = "Mere";
@@ -614,7 +614,7 @@
 "bookmarks_error_title_list_name_already_taken" = "Dette navn er allerede taget";
 "bookmarks_error_title_list_name_too_long" = "Dette navn er for langt";
 "profile" = "OpenStreetMap-profil";
-"bookmarks_detect_title" = "Nye filer registreret";
+"bookmarks_detect_title" = "Nye filer detekteret";
 "button_convert" = "Konvertere";
 "bookmarks_convert_error_title" = "Fejl";
 "bookmarks_convert_error_message" = "Nogle filer blev ikke konverteret.";
@@ -681,18 +681,18 @@
 "keyboard_availability_alert" = "Keyboard er ikke tilgængelig under kørsel";
 "dialog_routing_change_start_carplay" = "Det er ikke muligt at beregne rute fra din nuværende placering";
 "dialog_routing_change_end_carplay" = "Det er ikke muligt at beregne rute til din destination. Vælg en anden destination";
-"dialog_routing_check_gps_carplay" = "Intet GPS signal. Flyt til et område med dækning";
+"dialog_routing_check_gps_carplay" = "Intet GPS signal. Flyt til et åbent område";
 "dialog_routing_unable_locate_route_carplay" = "Kan ikke oprette en rute. Angiv andre rutepunkter";
 "dialog_routing_download_files_carplay" = "For at oprette en rute skal du downloade manglende kort på din enhed";
-"dialog_routing_system_error_carplay" = "Der opstod en fejl. Genstart programmet";
+"dialog_routing_system_error_carplay" = "Der opstod en fejl. Genstart appen";
 "dialog_routing_rebuild_from_current_location_carplay" = "Ruten vil blive beregnet igen, ud fra din nuværende placering";
 "dialog_routing_rebuild_for_vehicle_carplay" = "Ruten vil blive ændret til en bilrute";
-"not_all_shown_bookmarks_carplay" = "Ikke alle bogmærker vises";
-"switch_to_phone_bookmarks_carplay" = "Skift til telefonen for at se alle bogmærker";
+"not_all_shown_bookmarks_carplay" = "Ikke alle favoriter vises";
+"switch_to_phone_bookmarks_carplay" = "Skift til telefonen for at se alle favoriter";
 "ok" = "Ok";
 "speedcams_alert_title_carplay_1" = "Radarkontrol";
 "speedcams_alert_title_carplay_2" = "Radar advarsel";
-"download_map_carplay" = "Download kort i CoMaps appen, på din enhed";
+"download_map_carplay" = "Download kort i CoMaps appen, på din mobil enhed";
 "carplay_roundabout_exit" = "%@ afkørsel";
 /* max. 10 symbols, both iOS and Android */
 "sort" = "Sorter…";
@@ -800,7 +800,7 @@
 /* Message for the bug report alert. */
 "bugreport_alert_message" = "Vil du gerne sende en fejlrapport til udviklerne?\nVi er afhængige af vores brugere, da CoMaps ikke indsamler nogen fejloplysninger automatisk. Tak på forhånd for at støtte CoMaps!";
 /* Title for the iCloud synchronization setting */
-"icloud_sync" = "iCloud-synkronisering (Beta)";
+"icloud_sync" = "iCloud-synkronisering (beta)";
 /* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "Aktivér iCloud-synkronisering";
 /* Message for the "Enable iCloud Synchronization" alert. */
@@ -897,7 +897,7 @@
 "bookmarks_text_placement_title" = "Vis navnene af favoritterne på kortet";
 "pref_font_size" = "Tekststørrelse på kortet";
 "font_size" = "Tekststørrelse";
-"mode_options_accessibility_hint" = "Vis indstillinger for denne modus";
+"mode_options_accessibility_hint" = "Viser indstillinger for denne modus";
 "stars_5" = "5-stjernet";
 "custom_map_server_error_scheme" = "URL’en skal begynde med http:// eller https://";
 "stars_4" = "4-stjernet";

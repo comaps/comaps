@@ -1543,9 +1543,9 @@
 "type.railway.subway_entrance.qingdao" = "Entrada ao Metro";
 "type.building.abandoned" = "Edificio Abandonado";
 "type.shop.tool_hire" = "Aluguer de Ferramentas";
-"type.amenity.tool_library" = "Tool Library";
+"type.amenity.tool_library" = "Biblioteca de ferramentas";
 "type.amenity.parking.customers" = "Estacionamento para Clientes";
-"type.barrier.bus_trap" = "Bus Trap";
+"type.barrier.bus_trap" = "Trampa para coches";
 "type.barrier.sump_buster" = "Sump Buster";
 "type.second_hand.no" = "Sen opcións de segunda man";
 "type.second_hand.yes" = "Opcións de segunda man";
@@ -1558,7 +1558,7 @@
 "type.amenity.research_institute" = "Centro de Investigación";
 "type.cuisine.vegan_only" = "Só Vegana";
 "type.club.history" = "Club de Historia";
-"type.club.model_railway" = "Model Railway Club";
+"type.club.model_railway" = "Club de modelismo ferroviario";
 "type.club.youth" = "Club da Xuventude";
 "type.club.art" = "Club de Arte";
 "type.club.computer" = "Club de Ordenadores";
@@ -1569,7 +1569,7 @@
 "type.club.music" = "Club de Música";
 "type.club.scout" = "Scout Club";
 "type.club.dog" = "Club de Cans";
-"type.club.social" = "Social Club";
+"type.club.social" = "Club social";
 "type.club.surf_life_saving" = "Surf Life Saving";
 "type.club.hunting" = "Club de Caza";
 "type.club.fraternity" = "Fraternidade";
@@ -1585,3 +1585,4 @@
 "type.club.amateur_radio" = "Club de Radio de Afeccionados";
 "type.club" = "Club";
 "type.club.automobile" = "Club do Automóbil";
+"type.boundary.hazard" = "Hazardous Area";

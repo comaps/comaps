@@ -1551,4 +1551,5 @@
     <string name="type.cuisine.vegan_only">Μόνο για βίγκαν</string>
     <string name="type.second_hand.yes">Επιλογές για μεταχειρισμένα</string>
     <string name="type.second_hand.no">Καμία επιλογή για μεταχειρισμένα</string>
+    <string name="type.amenity.research_institute">Ερευνητικό ινστιτούτο</string>
 </resources>

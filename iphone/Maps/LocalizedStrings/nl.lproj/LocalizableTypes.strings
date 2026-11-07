@@ -2,7 +2,7 @@
 "type.addr_interpolation.even" = "Adres/blok";
 "type.addr_interpolation.odd" = "Adres/blok";
 "type.aerialway" = "Kabelbaan";
-"type.aerialway.cable_car" = "Cabinelift";
+"type.aerialway.cable_car" = "Pendelende kabelbaan";
 "type.aerialway.chair_lift" = "Stoeltjeslift";
 "type.aerialway.drag_lift" = "Sleeplift";
 "type.aerialway.gondola" = "Gondelbaan";
@@ -10,10 +10,10 @@
 "type.aerialway.station" = "Kabelbaanstation";
 "type.aeroway" = "Luchtvaartinfrastructuur";
 "type.aeroway.aerodrome" = "Vliegveld";
-"type.aeroway.aerodrome.international" = "Vliegveld";
+"type.aeroway.aerodrome.international" = "Internationale luchthaven";
 "type.aeroway.apron" = "Platform";
 "type.aeroway.gate" = "Gate";
-"type.aeroway.helipad" = "Heliplatform";
+"type.aeroway.helipad" = "Helikopterplatform";
 "type.aeroway.runway" = "Startbaan";
 "type.aeroway.taxiway" = "Taxibaan";
 "type.aeroway.terminal" = "Luchthaventerminal";
@@ -57,7 +57,7 @@
 "type.amenity.charging_station.small" = "Beperkte capaciteit";
 "type.amenity.childcare" = "Crèche";
 "type.amenity.cinema" = "Bioscoop";
-"type.leisure.bowling_alley" = "Bowlingbaan";
+"type.leisure.bowling_alley" = "Bowlingcentrum";
 "type.amenity.clinic" = "Kliniek";
 "type.amenity.college" = "Hogeschool";
 "type.amenity.community_centre" = "Gemeenschapscentrum";
@@ -272,7 +272,7 @@
 "type.craft.grinding_mill" = "Maalderij";
 "type.craft.handicraft" = "Handvaardigheidswerkplaats";
 /* Heating, Ventilation, and Air Conditioning */
-"type.craft.hvac" = "Airconditioning-werkplaats";
+"type.craft.hvac" = "Verwarming- en airconditioninginstallateur";
 "type.craft.key_cutter" = "Sleutelmaker";
 "type.craft.locksmith" = "Slotenmaker";
 "type.craft.metal_construction" = "Metaalarbeider";
@@ -388,7 +388,7 @@
 "type.beacon.isolated_danger" = "Geïsoleerd gevaarsbaken";
 "type.beacon.lateral.port" = "Lateraal baken";
 "type.beacon.lateral.starboard" = "Lateraal baken";
-"type.beacon.safe_water" = "Scheidingsbaken";
+"type.beacon.safe_water" = "Midvaarwaterbaken";
 "type.beacon.special_purpose" = "Speciaal baken";
 "type.buoy.cardinal.east" = "Kardinale boei";
 "type.buoy.cardinal.north" = "Kardinale boei";
@@ -399,15 +399,15 @@
 "type.buoy.lateral.starboard" = "Laterale boei";
 "type.buoy.safe_water" = "Scheidingsboei";
 "type.buoy.special_purpose" = "Speciale boei";
-"type.spherical_buoy.cardinal.east" = "Sferische kardinale boei";
-"type.spherical_buoy.cardinal.north" = "Sferische kardinale boei";
-"type.spherical_buoy.cardinal.south" = "Sferische kardinale boei";
-"type.spherical_buoy.cardinal.west" = "Sferische kardinale boei";
-"type.spherical_buoy.isolated_danger" = "Sferische geïsoleerde gevaarsboei";
-"type.spherical_buoy.lateral.port" = "Sferische laterale boei";
-"type.spherical_buoy.lateral.starboard" = "Sferische laterale boei";
-"type.spherical_buoy.safe_water" = "Sferische scheidingsboei";
-"type.spherical_buoy.special_purpose" = "Sferische speciale boei";
+"type.spherical_buoy.cardinal.east" = "Bolvormige kardinale boei";
+"type.spherical_buoy.cardinal.north" = "Bolvormige kardinale boei";
+"type.spherical_buoy.cardinal.south" = "Bolvormige kardinale boei";
+"type.spherical_buoy.cardinal.west" = "Bolvormige kardinale boei";
+"type.spherical_buoy.isolated_danger" = "Bolvormige geïsoleerde gevaarsboei";
+"type.spherical_buoy.lateral.port" = "Bolvormige laterale boei";
+"type.spherical_buoy.lateral.starboard" = "Bolvormige laterale boei";
+"type.spherical_buoy.safe_water" = "Bolvormige scheidingsboei";
+"type.spherical_buoy.special_purpose" = "Bolvormige speciale boei";
 "type.lateral.port" = "Bakboord";
 "type.lateral.starboard" = "Stuurboord";
 "type.cardinal.east" = "Oost";
@@ -703,7 +703,7 @@
 "type.landuse.recreation_ground" = "Recreatiezone";
 "type.landuse.reservoir" = "Reservoir";
 "type.landuse.residential" = "Woonwijk";
-"type.landuse.retail" = "Detailhandelsgebied";
+"type.landuse.retail" = "Winkelgebied";
 "type.landuse.salt_pond" = "Zoutpan";
 "type.landuse.village_green" = "Dorpspark";
 "type.landuse.vineyard" = "Wijngaard";
@@ -711,7 +711,7 @@
 "type.leisure" = "Recreatie";
 "type.leisure.bandstand" = "Muziekkoepel";
 "type.leisure.common" = "Openbare grond";
-"type.leisure.dog_park" = "Hondenuitlaatplek";
+"type.leisure.dog_park" = "Hondenlosloopgebied";
 "type.leisure.escape_game" = "Escaperoom";
 "type.leisure.fitness_centre" = "Sportschool";
 "type.leisure.fitness_station" = "Fitness-station";
@@ -783,7 +783,7 @@
 "type.man_made.cairn" = "Steenmannetje";
 "type.man_made.chimney" = "Fabrieksschoorsteen";
 "type.man_made.cutline" = "Brandtra";
-"type.man_made.survey_point" = "Meetpunt";
+"type.man_made.survey_point" = "Landmeetpunt";
 "type.man_made.flagpole" = "Vlaggenmast";
 "type.man_made.lighthouse" = "Vuurtoren";
 "type.man_made.mast" = "Mast";
@@ -1569,7 +1569,7 @@
 "type.club.music" = "Muziekvereniging";
 "type.club.scout" = "Scouting";
 "type.club.dog" = "Hondenclub";
-"type.club.social" = "Sociale vereniging";
+"type.club.social" = "Gezelligheidsvereniging";
 "type.club.surf_life_saving" = "Surf Life Saving";
 "type.club.hunting" = "Jachtclub";
 "type.club.fraternity" = "Broederschap";
@@ -1585,3 +1585,4 @@
 "type.club.amateur_radio" = "Amateurradiovereniging";
 "type.club" = "Club";
 "type.club.automobile" = "Autoclub";
+"type.boundary.hazard" = "Gevaarlijk gebied";

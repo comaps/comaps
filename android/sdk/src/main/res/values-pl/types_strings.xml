@@ -338,8 +338,8 @@
     <string name="type.cuisine.tea">Herbata</string>
     <string name="type.cuisine.thai">Kuchnia tajska</string>
     <string name="type.cuisine.turkish">Kuchnia turecka</string>
-    <string name="type.cuisine.vegan">Kuchnia wegańska</string>
-    <string name="type.cuisine.vegetarian">Kuchnia wegetariańska</string>
+    <string name="type.cuisine.vegan">Oferuje opcje wegańskie</string>
+    <string name="type.cuisine.vegetarian">Oferuje opcje wegetariańskie</string>
     <string name="type.cuisine.vietnamese">Kuchnia wietnamska</string>
     <string name="type.emergency">Ratunkowe</string>
     <string name="type.emergency.assembly_point">Miejsce zbiórki do ewakuacji</string>
@@ -419,13 +419,13 @@
     <string name="type.highway.living_street.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.living_street.tunnel">Tunel ulicy</string>
-    <string name="type.highway.motorway">Ulica</string>
+    <string name="type.highway.motorway">Droga autostradowa</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.motorway.bridge">Most drogowy</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.motorway.tunnel">Tunel drogowy</string>
-    <string name="type.highway.motorway_junction">Wyjazd</string>
-    <string name="type.highway.motorway_link">Ulica</string>
+    <string name="type.highway.motorway_junction">Węzeł autostradowy</string>
+    <string name="type.highway.motorway_link">Łącznik drogi autostradowej</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.motorway_link.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
@@ -449,12 +449,12 @@
     <string name="type.highway.pedestrian.square">Plac</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">Tunel dla pieszych</string>
-    <string name="type.highway.primary">Ulica</string>
+    <string name="type.highway.primary">Droga pierwszorzędna</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.primary.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.primary.tunnel">Tunel drogowy</string>
-    <string name="type.highway.primary_link">Ulica</string>
+    <string name="type.highway.primary_link">Łącznik drogi pierwszorzędnej</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.primary_link.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
@@ -467,19 +467,19 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.residential.tunnel">Tunel</string>
     <string name="type.highway.rest_area">Miejsce wypoczynku</string>
-    <string name="type.highway.road">Ulica</string>
+    <string name="type.highway.road">Droga</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.road.bridge">Most</string>
     <!-- A bridge structure outline. -->
     <string name="type.man_made.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.road.tunnel">Tunel</string>
-    <string name="type.highway.secondary">Ulica</string>
+    <string name="type.highway.secondary">Droga drugorzędna</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.secondary.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.secondary.tunnel">Tunel drogowy</string>
-    <string name="type.highway.secondary_link">Ulica</string>
+    <string name="type.highway.secondary_link">Łącznik drogi drugorzędnej</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.secondary_link.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
@@ -499,12 +499,12 @@
     <string name="type.highway.steps.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.steps.tunnel">Tunel</string>
-    <string name="type.highway.tertiary">Ulica</string>
+    <string name="type.highway.tertiary">Droga trzeciorzędna</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.tertiary.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.tertiary.tunnel">Tunel drogowy</string>
-    <string name="type.highway.tertiary_link">Ulica</string>
+    <string name="type.highway.tertiary_link">Łącznik drogi trzeciorzędnej</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.tertiary_link.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
@@ -518,18 +518,18 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.track.tunnel">Tunel drogowy</string>
     <string name="type.highway.traffic_signals">Sygnalizacja świetlna</string>
-    <string name="type.highway.trunk">Ulica</string>
+    <string name="type.highway.trunk">Droga główna</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.trunk.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.trunk.tunnel">Tunel</string>
-    <string name="type.highway.trunk_link">Ulica</string>
+    <string name="type.highway.trunk_link">Łącznik drogi głównej</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.trunk_link.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.trunk_link.tunnel">Tunel</string>
-    <string name="type.highway.unclassified">Ulica</string>
-    <string name="type.highway.unclassified.area">Ulica</string>
+    <string name="type.highway.unclassified">Droga czwartorzędna</string>
+    <string name="type.highway.unclassified.area">Droga czwartorzędna</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.unclassified.bridge">Most</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
@@ -537,18 +537,18 @@
     <string name="type.area_highway.cycleway">Droga rowerowa</string>
     <string name="type.area_highway.footway">Droga piesza</string>
     <string name="type.area_highway.living_street">Ulica w strefie zamieszkania</string>
-    <string name="type.area_highway.motorway">Ulica</string>
+    <string name="type.area_highway.motorway">Droga autostradowa</string>
     <string name="type.area_highway.path">Ścieżka</string>
     <string name="type.area_highway.pedestrian">Deptak</string>
-    <string name="type.area_highway.primary">Ulica</string>
+    <string name="type.area_highway.primary">Droga pierwszorzędna</string>
     <string name="type.area_highway.residential">Droga lokalna</string>
-    <string name="type.area_highway.secondary">Ulica</string>
+    <string name="type.area_highway.secondary">Droga drugorzędna</string>
     <string name="type.area_highway.service">Droga dojazdowa</string>
-    <string name="type.area_highway.tertiary">Ulica</string>
+    <string name="type.area_highway.tertiary">Droga trzeciorzędna</string>
     <string name="type.area_highway.steps">Schody</string>
     <string name="type.area_highway.track">Droga na pola lub do lasu</string>
-    <string name="type.area_highway.trunk">Ulica</string>
-    <string name="type.area_highway.unclassified">Ulica</string>
+    <string name="type.area_highway.trunk">Droga główna</string>
+    <string name="type.area_highway.unclassified">Droga czwartorzędna</string>
     <!-- SECTION: Types: Historic -->
     <string name="type.historic">Obiekt historyczny</string>
     <string name="type.historic.aircraft">Historyczny samolot</string>
@@ -1551,4 +1551,27 @@
     <string name="type.railway.subway_entrance.boston">Wejście do metra</string>
     <string name="type.railway.subway_entrance.qingdao">Wejście do metra</string>
     <string name="type.shop.tool_hire">Wypożyczalnia narzędzi</string>
+    <string name="type.amenity.research_institute">Instytut badawczy</string>
+    <string name="type.amenity.fast_food.cafeteria">Kafeteria</string>
+    <string name="type.boundary.hazard">Obszar niebezpieczny</string>
+    <string name="type.club">Klub</string>
+    <string name="type.club.allotments">Związek działkowców</string>
+    <string name="type.club.amateur_radio">Amatorski klub radiowy</string>
+    <string name="type.club.art">Klub artystyczny</string>
+    <string name="type.club.automobile">Automobilklub</string>
+    <string name="type.club.board_games">Klub gier planszowych</string>
+    <string name="type.club.cadet">Klub klasy Cadet</string>
+    <string name="type.club.computer">Klub komputerowy</string>
+    <string name="type.club.culture">Stowarzyszenie kulturowe</string>
+    <string name="type.club.freemasonry">Loża masońska</string>
+    <string name="type.club.gardening">Klub ogrodniczy</string>
+    <string name="type.club.history">Klub historyczny</string>
+    <string name="type.club.hunting">Klub łowiecki</string>
+    <string name="type.club.student">Klub studencki</string>
+    <string name="type.club.scout">Klub harcerski</string>
+    <string name="type.club.religion">Klub religijny</string>
+    <string name="type.club.music">Klub muzyczny</string>
+    <string name="type.cuisine.vegan_only">Tylko produkty wegańskie</string>
+    <string name="type.cuisine.vegetarian_only">Tylko produkty wegetariańskie</string>
+    <string name="type.shop.games">Sklep z grami planszowymi</string>
 </resources>

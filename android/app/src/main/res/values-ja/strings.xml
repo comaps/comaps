@@ -858,4 +858,6 @@
     <string name="existence_confirmed_time_ago">%sに存在を確認済み</string>
     <string name="prefs_group_advanced_summary">ログを有効化</string>
     <string name="download_resources_custom_url_summary_none">未設定</string>
+    <string name="closes_at">%sに閉店</string>
+    <string name="opens_at">%sに開店</string>
 </resources>

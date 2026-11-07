@@ -23,11 +23,11 @@
     <!-- Search box placeholder text; Used when searching on the map itself, not when searching for a map -->
     <string name="search_map">Auf der Karte suchen</string>
     <!-- Location services are disabled by user alert - message -->
-    <string name="location_is_disabled_long_text">Standortdienste sind für dieses Gerät oder diese App deaktiviert. Bitte aktiviere diese in den Einstellungen.</string>
+    <string name="location_is_disabled_long_text">Standortdienste sind für dieses Gerät oder diese App deaktiviert. Bitte aktiviere diese in den Geräte-Einstellungen.</string>
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">Eingeschränkte Genauigkeit</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">Um eine genaue Navigation zu gewährleisten, aktiviere „Genauer Standort“ in den Einstellungen</string>
+    <string name="precise_location_is_disabled_long_text">Um eine genauere Navigation zu gewährleisten, aktiviere „Genauer Standort“ in den Geräte-Einstellungen</string>
     <!-- View and button titles for accessibility -->
     <string name="zoom_to_country">Auf der Karte anzeigen</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
@@ -53,7 +53,7 @@
     <!-- Used in DownloadResources startup screen -->
     <string name="disconnect_usb_cable">Bitte USB-Kabel entfernen oder Speicherkarte einsetzen, um CoMaps zu verwenden</string>
     <!-- Used in DownloadResources startup screen -->
-    <string name="not_enough_free_space_on_sdcard">Bitte zuerst den Speicherplatz auf der SD-Karte/USB-Speicher freigeben, um die Anwendung nutzen zu können</string>
+    <string name="not_enough_free_space_on_sdcard">Bitte zuerst den Speicherplatz auf der SD-Karte oder dem USB-Speicher freigeben, um die Anwendung nutzen zu können</string>
     <string name="download_resources">Bevor du die App verwendest, lade bitte die weltweite Übersichtskarte herunter. \nEs werden %s des Speicherplatzes benötigt.</string>
     <string name="download_resources_continue">Zur Karte</string>
     <string name="downloading_country_can_proceed">%1$s (%2$s) wird heruntergeladen. \nDu kannst jetzt zur Karte weitergehen.</string>
@@ -335,11 +335,11 @@
     <string name="dialog_routing_disclaimer_borders">— Bitte sei vorsichtig bei Routen in Grenzgebieten: die Routen, die unsere App erstellt, können manchmal Landesgrenzen in gesperrten Gebieten überschreiten.</string>
     <string name="dialog_routing_disclaimer_beware">Bitte fahre aufmerksam und sicher!</string>
     <string name="dialog_routing_check_gps">GPS-Signal prüfen</string>
-    <string name="dialog_routing_error_location_not_found">Route kann nicht erstellt werden. Aktuelle GPS-Koordinaten konnten nicht ermittelt werden.</string>
+    <string name="dialog_routing_error_location_not_found">Route konnte nicht erstellt werden. Aktuelle GPS-Koordinaten konnten nicht ermittelt werden.</string>
     <string name="dialog_routing_location_turn_wifi">Bitte prüfe dein GPS-Signal. Aktiviertes W-LAN verbessert deine Standortgenauigkeit.</string>
     <string name="dialog_routing_location_turn_on">Standortdienste aktivieren</string>
-    <string name="dialog_routing_location_unknown_turn_on">Aktuelle GPS-Koordinaten können nicht ermittelt werden. Aktiviere die Standortdienste, um die Route zu berechnen.</string>
-    <string name="dialog_routing_unable_locate_route">Route kann nicht ermittelt werden</string>
+    <string name="dialog_routing_location_unknown_turn_on">Aktuelle GPS-Koordinaten konnten nicht ermittelt werden. Aktiviere die Standortdienste in den Geräte-Einstellungen, um die Route zu berechnen.</string>
+    <string name="dialog_routing_unable_locate_route">Route konnte nicht ermittelt werden</string>
     <string name="dialog_routing_cant_build_route">Route konnte nicht erstellt werden</string>
     <string name="dialog_routing_change_start_or_end">Bitte passe deinen Startpunkt oder Ziel an.</string>
     <string name="dialog_routing_change_start">Startpunkt anpassen</string>
@@ -801,7 +801,7 @@
     <!-- Title for the alert when saving a track recording. -->
     <string name="track_recording_alert_title">In Favoriten speichern?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
-    <string name="track_recording_toast_nothing_to_save">Route ist leer – nichts zu speichern</string>
+    <string name="track_recording_toast_nothing_to_save">Die Route ist leer – es gibt nichts zu speichern</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
     <string name="error_no_file_manager_app">Das Dialogfeld zur Ordnerauswahl kann nicht angezeigt werden, da keine geeignete App auf deinem Endgerät installiert ist. Bitte installiere eine Dateimanager-App und versuche es erneut.</string>
     <string name="choose_color">Farbe auswählen</string>
@@ -915,7 +915,7 @@
     <string name="pref_speedlimit_title">Tempolimits anzeigen</string>
     <string name="rooms">%s Räume</string>
     <string name="invalid_route">Ungültige Route</string>
-    <string name="building_route">Route erstellen…</string>
+    <string name="building_route">Route wird erstellt…</string>
     <string name="route_not_started">Route nicht gestartet</string>
     <string name="on_route">Unterwegs</string>
     <string name="route_needs_rebuild">Route muss neu berechnet werden</string>
@@ -932,7 +932,7 @@
     <string name="my_position_share_email">Klick einfach auf diesen Link %1$s oder kopiere diese Koordinaten %2$s in deine Karten-App, um meinen Standort zu sehen.</string>
     <string name="destination">Ziel</string>
     <string name="stop">Stopp</string>
-    <string name="route_recalculating">Neuberechnung der Route…</string>
+    <string name="route_recalculating">Route wird neu berechnet…</string>
     <string name="charge_socket_type1_combo">Typ 1 Combo</string>
     <string name="population">Einwohner: %s</string>
     <string name="setting_value_system_default">Systemstandard</string>
@@ -997,4 +997,8 @@
     <string name="stars_3">3-Sterne</string>
     <string name="stars_4">4-Sterne</string>
     <string name="stars_5">5-Sterne</string>
+    <string name="route_preview_turn_position">%1$d von %2$d</string>
+    <string name="route_preview_cancel">Routenvorschau schließen</string>
+    <string name="route_preview_previous_turn">Vorheriger Richtungswechsel</string>
+    <string name="route_preview_next_turn">Nächster Richtungswechsel</string>
 </resources>

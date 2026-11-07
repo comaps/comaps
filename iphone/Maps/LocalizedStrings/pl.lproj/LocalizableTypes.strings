@@ -366,8 +366,8 @@
 "type.cuisine.tea" = "Herbata";
 "type.cuisine.thai" = "Kuchnia tajska";
 "type.cuisine.turkish" = "Kuchnia turecka";
-"type.cuisine.vegan" = "Kuchnia wegańska";
-"type.cuisine.vegetarian" = "Kuchnia wegetariańska";
+"type.cuisine.vegan" = "Oferuje opcje wegańskie";
+"type.cuisine.vegetarian" = "Oferuje opcje wegetariańskie";
 "type.cuisine.vietnamese" = "Kuchnia wietnamska";
 "type.emergency" = "Ratunkowe";
 "type.emergency.access_point" = "Punkt ratunkowy";
@@ -489,13 +489,13 @@
 "type.highway.living_street.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "Tunel ulicy";
-"type.highway.motorway" = "Ulica";
+"type.highway.motorway" = "Droga autostradowa";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "Most drogowy";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "Tunel drogowy";
-"type.highway.motorway_junction" = "Wyjazd";
-"type.highway.motorway_link" = "Ulica";
+"type.highway.motorway_junction" = "Węzeł autostradowy";
+"type.highway.motorway_link" = "Łącznik drogi autostradowej";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
@@ -519,12 +519,12 @@
 "type.highway.pedestrian.square" = "Plac";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "Tunel dla pieszych";
-"type.highway.primary" = "Ulica";
+"type.highway.primary" = "Droga pierwszorzędna";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "Tunel drogowy";
-"type.highway.primary_link" = "Ulica";
+"type.highway.primary_link" = "Łącznik drogi pierwszorzędnej";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
@@ -537,19 +537,19 @@
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "Tunel";
 "type.highway.rest_area" = "Miejsce wypoczynku";
-"type.highway.road" = "Ulica";
+"type.highway.road" = "Droga";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "Most";
 /* A bridge structure outline. */
 "type.man_made.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "Tunel";
-"type.highway.secondary" = "Ulica";
+"type.highway.secondary" = "Droga drugorzędna";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "Tunel drogowy";
-"type.highway.secondary_link" = "Ulica";
+"type.highway.secondary_link" = "Łącznik drogi drugorzędnej";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
@@ -570,12 +570,12 @@
 "type.highway.steps.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "Tunel";
-"type.highway.tertiary" = "Ulica";
+"type.highway.tertiary" = "Droga trzeciorzędna";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "Tunel drogowy";
-"type.highway.tertiary_link" = "Ulica";
+"type.highway.tertiary_link" = "Łącznik drogi trzeciorzędnej";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
@@ -589,18 +589,18 @@
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "Tunel drogowy";
 "type.highway.traffic_signals" = "Sygnalizacja świetlna";
-"type.highway.trunk" = "Ulica";
+"type.highway.trunk" = "Droga główna";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "Tunel";
-"type.highway.trunk_link" = "Ulica";
+"type.highway.trunk_link" = "Łącznik drogi głównej";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "Tunel";
-"type.highway.unclassified" = "Ulica";
-"type.highway.unclassified.area" = "Ulica";
+"type.highway.unclassified" = "Droga czwartorzędna";
+"type.highway.unclassified.area" = "Droga czwartorzędna";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "Most";
 /* These translations are used for all type.highway.*.tunnel. */
@@ -608,18 +608,18 @@
 "type.area_highway.cycleway" = "Droga rowerowa";
 "type.area_highway.footway" = "Droga piesza";
 "type.area_highway.living_street" = "Ulica w strefie zamieszkania";
-"type.area_highway.motorway" = "Ulica";
+"type.area_highway.motorway" = "Droga autostradowa";
 "type.area_highway.path" = "Ścieżka";
 "type.area_highway.pedestrian" = "Deptak";
-"type.area_highway.primary" = "Ulica";
+"type.area_highway.primary" = "Droga pierwszorzędna";
 "type.area_highway.residential" = "Droga lokalna";
-"type.area_highway.secondary" = "Ulica";
+"type.area_highway.secondary" = "Droga drugorzędna";
 "type.area_highway.service" = "Droga dojazdowa";
-"type.area_highway.tertiary" = "Ulica";
+"type.area_highway.tertiary" = "Droga trzeciorzędna";
 "type.area_highway.steps" = "Schody";
 "type.area_highway.track" = "Droga na pola lub do lasu";
-"type.area_highway.trunk" = "Ulica";
-"type.area_highway.unclassified" = "Ulica";
+"type.area_highway.trunk" = "Droga główna";
+"type.area_highway.unclassified" = "Droga czwartorzędna";
 "type.historic" = "Obiekt historyczny";
 "type.historic.aircraft" = "Historyczny samolot";
 "type.historic.anchor" = "Historyczna kotwica";
@@ -1550,38 +1550,39 @@
 "type.second_hand.no" = "Nie oferuje rzeczy używanych";
 "type.second_hand.yes" = "Oferuje rzeczy używane";
 "type.second_hand.only" = "Tylko rzeczy używane";
-"type.shop.games" = "Game Shop";
-"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.shop.games" = "Sklep z grami planszowymi";
+"type.amenity.fast_food.cafeteria" = "Kafeteria";
 "type.shop.swimming_pool" = "Swimming Pool Shop";
 "type.amenity.music_venue" = "Music Venue";
-"type.cuisine.vegetarian_only" = "Vegetarian Only";
-"type.amenity.research_institute" = "Research Institute";
-"type.cuisine.vegan_only" = "Vegan Only";
-"type.club.history" = "History Club";
+"type.cuisine.vegetarian_only" = "Tylko produkty wegetariańskie";
+"type.amenity.research_institute" = "Instytut badawczy";
+"type.cuisine.vegan_only" = "Tylko produkty wegańskie";
+"type.club.history" = "Klub historyczny";
 "type.club.model_railway" = "Model Railway Club";
 "type.club.youth" = "Youth Club";
-"type.club.art" = "Art Club";
-"type.club.computer" = "Computer Club";
-"type.club.culture" = "Cultural Association";
+"type.club.art" = "Klub artystyczny";
+"type.club.computer" = "Klub komputerowy";
+"type.club.culture" = "Stowarzyszenie kulturowe";
 "type.club.youth_movement" = "Youth Movement";
-"type.club.cadet" = "Cadet Club";
+"type.club.cadet" = "Klub klasy Cadet";
 "type.club.theatre" = "Theatre Club";
-"type.club.music" = "Music Club";
-"type.club.scout" = "Scout Club";
+"type.club.music" = "Klub muzyczny";
+"type.club.scout" = "Klub harcerski";
 "type.club.dog" = "Dog Club";
 "type.club.social" = "Social Club";
 "type.club.surf_life_saving" = "Surf Life Saving";
-"type.club.hunting" = "Hunting Club";
+"type.club.hunting" = "Klub łowiecki";
 "type.club.fraternity" = "Fraternity";
 "type.club.motorcycle" = "Motorcycle Club";
-"type.club.freemasonry" = "Masonic Lodge";
-"type.club.religion" = "Religious Club";
-"type.club.board_games" = "Board Games Club";
+"type.club.freemasonry" = "Loża masońska";
+"type.club.religion" = "Klub religijny";
+"type.club.board_games" = "Klub gier planszowych";
 "type.club.veterans" = "Veterans Club";
-"type.club.allotments" = "Allotment Association";
-"type.club.gardening" = "Gardening Club";
-"type.club.student" = "Student Club";
+"type.club.allotments" = "Związek działkowców";
+"type.club.gardening" = "Klub ogrodniczy";
+"type.club.student" = "Klub studencki";
 "type.club.game" = "Gaming Club";
-"type.club.amateur_radio" = "Amateur Radio Club";
-"type.club" = "Club";
-"type.club.automobile" = "Automobile Club";
+"type.club.amateur_radio" = "Amatorski klub radiowy";
+"type.club" = "Klub";
+"type.club.automobile" = "Automobilklub";
+"type.boundary.hazard" = "Obszar niebezpieczny";

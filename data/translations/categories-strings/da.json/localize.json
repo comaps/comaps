@@ -1887,12 +1887,93 @@
         "defaultMessage": "5Forskningsinstitut|5Forskningscenter|4Laboratorium"
     },
     "cuisine-vegetarian_only|cuisine-vegan_only": {
-        "defaultMessage": "4Helt vegetarisk|3Kun vegetarisk|3Vegetarisk"
+        "defaultMessage": "4Helt vegetarisk|3Kun vegetarisk"
     },
     "cuisine-vegan_only": {
-        "defaultMessage": "4Helt vegansk|3Kun vegansk|3Vegansk"
+        "defaultMessage": "4Helt vegansk|3Kun vegansk"
     },
     "@club": {
         "defaultMessage": "Klub|Klubber|Forening|Foreninger"
+    },
+    "club-allotments|@club": {
+        "defaultMessage": "6Kolonihaveforening"
+    },
+    "club-amateur_radio|@club": {
+        "defaultMessage": "4Amatørradioklub"
+    },
+    "club-art|@club": {
+        "defaultMessage": "Kunstforening|Kunstklub"
+    },
+    "club-automobile|@club": {
+        "defaultMessage": "Motorklub|Automobilklub|Automobilforening"
+    },
+    "club-board_games|@club": {
+        "defaultMessage": "4Brætspilsklub|Brætspilsforening"
+    },
+    "club-cadet|@club": {
+        "defaultMessage": "Kadetklub|Kadetforening"
+    },
+    "club-computer|@club": {
+        "defaultMessage": "8Computerklub"
+    },
+    "club-culture|@club": {
+        "defaultMessage": "6Kulturforening|6Kulturklub"
+    },
+    "club-dog|@club": {
+        "defaultMessage": "5Hundeklub|Hundeforening"
+    },
+    "club-fraternity|@club": {
+        "defaultMessage": "6Broderskab"
+    },
+    "club-freemasonry|@club": {
+        "defaultMessage": "Frimurerloge"
+    },
+    "club-game|@club": {
+        "defaultMessage": "6Gamingklub"
+    },
+    "club-gardening|@club": {
+        "defaultMessage": "Haveklub"
+    },
+    "club-history|@club": {
+        "defaultMessage": "Historieklub|Historieforening"
+    },
+    "club-hunting|@club": {
+        "defaultMessage": "Jagtklub|Jagtforening"
+    },
+    "club-model_railway|@club": {
+        "defaultMessage": "Modeljernbaneklub|Modeljernbaneforening"
+    },
+    "club-motorcycle|@club": {
+        "defaultMessage": "Motorcykelklub|Motorcykelforening"
+    },
+    "club-music|@club": {
+        "defaultMessage": "Musikklub|Musikforening"
+    },
+    "club-religion|@club": {
+        "defaultMessage": "Religiøs forening|Religiøs klub"
+    },
+    "club-scout|@club": {
+        "defaultMessage": "Spejderforening|Spejderklub"
+    },
+    "club-social|@club": {
+        "defaultMessage": "Social klub|Social forening"
+    },
+    "club-student|@club": {
+        "defaultMessage": "7Studenterforening"
+    },
+    "club-surf_life_saving|@club": {
+        "defaultMessage": "4Surf Life Saving"
+    },
+    "club-theatre|@club": {
+        "defaultMessage": "Teaterklub|Teaterforening"
+    },
+    "club-veterans|@club": {
+        "defaultMessage": "Veteranforening|Veteranklub"
+    },
+    "club-youth|@club": {
+        "defaultMessage": "Ungdomsklub|Undomsforening"
+    },
+    "club-youth_movement|@club": {
+        "defaultMessage": "Ungdomsbevægelse"
     }
 }

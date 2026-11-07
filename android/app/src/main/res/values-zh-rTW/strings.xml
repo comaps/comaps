@@ -845,7 +845,7 @@
     <string name="pref_backup_summary">自動備份至您裝置上的資料夾</string>
     <string name="pref_backup_history_title">需要備份的數目</string>
     <string name="dialog_report_error_missing_folder">選擇的備份位置無法使用或是無法寫入，請選擇另外的位置。</string>
-    <string name="dialog_report_error_with_logs">請寄送錯誤報告：\n\n - 設定中\"啟動記錄\"\n\n - 重現問題\n\n - 在\"關於&amp;說明\"畫面按\"回報臭蟲\"按鈕以及透過電子郵件傳送或聊天\n\n - 關閉記錄</string>
+    <string name="dialog_report_error_with_logs">請寄送錯誤報告：\n\n - 到設定中然後選擇進階\n\n\"啟動記錄\"\n\n - 重現問題\n\n - 在\"關於&amp;說明\"畫面按\"回報臭蟲\"按鈕以及透過電子郵件傳送或聊天\n\n - 關閉記錄</string>
     <string name="pref_backup_now_title">立刻備份</string>
     <string name="pref_backup_now_summary">立即建立備份</string>
     <string name="pref_backup_now_summary_progress">備份中…</string>
@@ -999,4 +999,8 @@
     <string name="stars_3">3顆星</string>
     <string name="stars_4">4顆星</string>
     <string name="stars_5">5顆星</string>
+    <string name="route_preview_previous_turn">先前的轉彎</string>
+    <string name="route_preview_next_turn">之後的轉彎</string>
+    <string name="route_preview_turn_position">%1$d 的 %2$d</string>
+    <string name="route_preview_cancel">關閉導航預覽</string>
 </resources>

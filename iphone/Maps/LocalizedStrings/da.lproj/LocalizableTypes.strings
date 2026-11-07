@@ -670,7 +670,7 @@
 "type.junction.circular" = "Rundkørsel";
 "type.junction.roundabout" = "Rundkørsel";
 "type.landuse" = "Arealanvendelse";
-"type.landuse.allotments" = "Kolonihaveforening";
+"type.landuse.allotments" = "Kolonihave";
 "type.landuse.basin" = "Vandbassin";
 "type.landuse.brownfield" = "Forladt område";
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
@@ -1513,7 +1513,7 @@
 "type.self_service.partially" = "Delvis selvbetjening";
 "type.self_service.no" = "Ingen selvbetjening";
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
-"type.amenity.social_facility" = "Social facilitet";
+"type.amenity.social_facility" = "Socialinstitution";
 "type.social_facility.soup_kitchen" = "Suppekøkken";
 "type.social_facility.food_bank" = "Fødevarebank";
 "type.amenity.food_sharing" = "Fødevarepulje";
@@ -1551,11 +1551,11 @@
 "type.second_hand.yes" = "Brugte valgmuligheder";
 "type.second_hand.only" = "Kun brugt";
 "type.shop.games" = "Spilbutik";
-"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.amenity.fast_food.cafeteria" = "Kantine";
 "type.shop.swimming_pool" = "Svømmebassinbutik";
 "type.amenity.music_venue" = "Spillested";
 "type.cuisine.vegetarian_only" = "Helt vegetarisk";
-"type.amenity.research_institute" = "Forskningsinstitut";
+"type.amenity.research_institute" = "Forskningscenter";
 "type.cuisine.vegan_only" = "Helt vegansk";
 "type.club.history" = "Historieklub";
 "type.club.model_railway" = "Modeljernbaneklub";
@@ -1569,7 +1569,7 @@
 "type.club.music" = "Musikforening";
 "type.club.scout" = "Spejderforening";
 "type.club.dog" = "Hundeklub";
-"type.club.social" = "Social klub";
+"type.club.social" = "Socialklub";
 "type.club.surf_life_saving" = "Surf Life Saving";
 "type.club.hunting" = "Jagtklub";
 "type.club.fraternity" = "Broderskab";
@@ -1585,3 +1585,4 @@
 "type.club.amateur_radio" = "Amatørradioklub";
 "type.club" = "Klub";
 "type.club.automobile" = "Motorklub";
+"type.boundary.hazard" = "Farligt område";

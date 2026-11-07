@@ -54,7 +54,7 @@
 "type.amenity.charging_station.bicycle" = "Bicycles";
 "type.amenity.charging_station.small" = "Limited Capacity";
 "type.amenity.childcare" = "Nursery";
-"type.amenity.cinema" = "Cinema";
+"type.amenity.cinema" = "Movie Theatre";
 "type.leisure.bowling_alley" = "Bowling Alley";
 "type.amenity.clinic" = "Clinic";
 "type.amenity.college" = "College";
@@ -73,7 +73,7 @@
 "type.amenity.music_school" = "Music School";
 "type.amenity.sailing_school" = "Sailing School";
 "type.amenity.flight_school" = "Flight School";
-"type.amenity.prep_school" = "Tutorial School";
+"type.amenity.prep_school" = "Prep School";
 "type.amenity.language_school" = "Language School";
 "type.office.diplomatic" = "Embassy";
 "type.office.security" = "Security Guards Office";
@@ -1266,7 +1266,7 @@
 "type.shop.florist" = "Florist";
 "type.shop.funeral_directors" = "Funeral Directors";
 "type.shop.furniture" = "Furniture Store";
-"type.shop.garden_centre" = "Garden Center";
+"type.shop.garden_centre" = "Garden Centre";
 "type.shop.gas" = "Gas Store";
 "type.shop.gift" = "Gift Shop";
 "type.shop.greengrocer" = "Greengrocer";
@@ -1317,8 +1317,8 @@
 "type.shop.travel_agency" = "Travel Agency";
 "type.shop.tyres" = "Tyre Shop";
 "type.shop.variety_store" = "Variety Store";
-"type.shop.video" = "Video Shop";
-"type.shop.video_games" = "Video Game Shop";
+"type.shop.video" = "Video Store";
+"type.shop.video_games" = "Video Game Store";
 "type.shop.wine" = "Wine Shop";
 "type.shop.agrarian" = "Agricultural Shop";
 "type.shop.antiques" = "Antiques Shop";
@@ -1330,7 +1330,7 @@
 "type.shop.bag" = "Bag Shop";
 "type.shop.bed" = "Bed Shop";
 "type.shop.boutique" = "Boutique";
-"type.shop.charity" = "Charity Shop";
+"type.shop.charity" = "Charity Store";
 "type.shop.cheese" = "Cheese Shop";
 "type.shop.craft" = "Craft Supplies Store";
 "type.shop.dairy" = "Dairy Shop";
@@ -1550,9 +1550,9 @@
 "type.second_hand.no" = "No second-hand options";
 "type.second_hand.yes" = "Second-hand options";
 "type.second_hand.only" = "Second-hand only";
-"type.shop.games" = "Game Shop";
+"type.shop.games" = "Game Store";
 "type.amenity.fast_food.cafeteria" = "Cafeteria";
-"type.shop.swimming_pool" = "Swimming Pool Shop";
+"type.shop.swimming_pool" = "Swimming Pool Store";
 "type.amenity.music_venue" = "Music Venue";
 "type.cuisine.vegetarian_only" = "Vegetarian Only";
 "type.amenity.research_institute" = "Research Institute";
@@ -1585,3 +1585,4 @@
 "type.club.amateur_radio" = "Amateur Radio Club";
 "type.club" = "Club";
 "type.club.automobile" = "Automobile Club";
+"type.boundary.hazard" = "Hazardous Area";

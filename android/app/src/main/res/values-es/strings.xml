@@ -153,7 +153,7 @@
     <!-- message title of loading file -->
     <string name="load_kmz_title">Cargando favoritos</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">¡Los favoritos se han cargado con éxito! Puedes encontrarlos en el mapa o en la pantalla de Gestor de Favoritos.</string>
+    <string name="load_kmz_successful">¡Los favoritos se han cargado con éxito! Puedes encontrarlos en el mapa o en el gestor de favoritos.</string>
     <!-- Kml file loading failed -->
     <string name="load_kmz_failed">No se pudieron cargar los Favoritos. El archivo podría tener daños o defectos.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
@@ -255,7 +255,7 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Mueve el teléfono en forma de ocho para calibrar la brújula y fijar la dirección de la flecha en el mapa.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="enable_long_tap_fullscreen_description">Vuelva a pulsar prolongadamente sobre el mapa para ver la interfaz</string>
+    <string name="enable_long_tap_fullscreen_description">Mantén pulsado el mapa para ver la interfaz de nuevo</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Actualizar todos</string>
     <!-- Cancel all button text -->
@@ -993,7 +993,7 @@
     <string name="place_reviews">%1$s Reseñas</string>
     <string name="rating_stars_description">estrellas: %.1f</string>
     <string name="reviews_by_mangrove">Reseñas de Mangrove.</string>
-    <string name="pref_font_size">Tamaño de letra para etiquetas de mapas</string>
+    <string name="pref_font_size">Tamaño de fuente de las etiquetas del mapa</string>
     <string name="decrease_font_size">Reducir el tamaño de las etiquetas del mapa</string>
     <string name="internet_unavailable">Sin conexión a internet</string>
     <string name="add_review_url_resolution_failed_dev">Lugar no encontrado en el servidor DEV de OpenStreetMap.</string>
@@ -1004,4 +1004,8 @@
     <string name="stars_3">3-estrellas</string>
     <string name="stars_4">4-estrellas</string>
     <string name="stars_5">5-estrellas</string>
+    <string name="route_preview_previous_turn">Giro anterior</string>
+    <string name="route_preview_next_turn">Siguiente giro</string>
+    <string name="route_preview_cancel">Cerrar vista previa</string>
+    <string name="route_preview_turn_position">%1$d de %2$d</string>
 </resources>

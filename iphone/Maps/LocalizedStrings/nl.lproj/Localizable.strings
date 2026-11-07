@@ -235,7 +235,7 @@
 /* Alert text */
 "email_error_body" = "Het e-mailprogramma is niet ingesteld. Stel het in of neem contact met ons op via %@";
 /* Alert title */
-"email_error_title" = "E-mail verzendfout";
+"email_error_title" = "E-mailverzendfout";
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Houd de kaart nogmaals lang ingedrukt om de interface te tonen";
 /* Update all button text */
@@ -318,7 +318,7 @@
 "dialog_routing_location_turn_on" = "Schakel locatiediensten in";
 "dialog_routing_location_unknown_turn_on" = "Kan de huidige gps-coördinaten niet bepalen. Schakel locatiediensten in om de route te berekenen.";
 "dialog_routing_download_files" = "Download de vereiste bestanden";
-"dialog_routing_download_and_update_all" = "Download of update alle kaarten op de ingestelde route om een route te berekenen.";
+"dialog_routing_download_and_update_all" = "Download of update alle kaarten langs de voorgenomen route om een route te berekenen.";
 "dialog_routing_unable_locate_route" = "Route kan niet worden gevonden";
 "dialog_routing_change_start_or_end" = "Pas het vertrekpunt of de bestemming aan.";
 "dialog_routing_change_start" = "Pas startpunt aan";
@@ -343,7 +343,7 @@
 /* Arrive routing message in navigation view */
 "routing_arrive" = "Aankomst: %@";
 /* Text for routing::RouterResultCode::FileTooOld dialog. */
-"dialog_routing_download_and_update_maps" = "Download of update alle kaarten op de ingestelde route om een route te berekenen.";
+"dialog_routing_download_and_update_maps" = "Download of update alle kaarten langs de voorgenomen route om een route te berekenen.";
 "categories" = "Categorieën";
 "history" = "Geschiedenis";
 "search_not_found" = "Sorry, geen resultaten gevonden.";
@@ -452,7 +452,7 @@
 "common_check_internet_connection_dialog" = "Controleer je instellingen en zorg ervoor dat het apparaat verbonden is met het internet.";
 "downloader_no_space_title" = "Onvoldoende opslagruimte";
 "downloader_no_space_message" = "Verwijder overbodige gegevens";
-"editor_profile_changes" = "Gecontroleerde wijzigingen";
+"editor_profile_changes" = "Bevestigde wijzigingen";
 "editor_focus_map_on_location" = "Sleep de kaart om het kruis op de locatie van de plaats of het bedrijf te plaatsen.";
 "editor_add_select_category" = "Selecteer categorie";
 "editor_add_select_category_popular_subtitle" = "Populair";
@@ -496,7 +496,7 @@
 "current_location_unknown_error_title" = "Huidige locatie is onbekend.";
 "current_location_unknown_error_message" = "Er is een fout opgetreden tijdens het bepalen van je locatie. Controleer of je apparaat goed werkt en probeer het later opnieuw.";
 "location_services_disabled_header" = "Locatiediensten zijn uitgeschakeld";
-"location_services_disabled_message" = "Schakel de toegang tot geolocatie in in de instellingen van het apparaat";
+"location_services_disabled_message" = "Schakel toegang tot geolocatie in in de instellingen van het apparaat";
 "location_services_disabled_1" = "1. Instellingen openen";
 "location_services_disabled_2" = "2. Tik op locatie";
 /* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
@@ -548,7 +548,7 @@
 "editor_share_to_all_dialog_message_2" = "Vrijwilligers van OpenStreetMap zullen de wijzigingen controleren en contact met je opnemen als ze vragen hebben.";
 "navigation_stop_button" = "Stop";
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
-"recent_track_background_dialog_title" = "Vastleggen van je recent afgelegde route uitschakelen?";
+"recent_track_background_dialog_title" = "Opnemen van je recent afgelegde route uitschakelen?";
 "off_recent_track_background_button" = "Uitschakelen";
 /* For sharing via SMS and so on */
 "sharing_call_action_look" = "Bekijk";
@@ -565,7 +565,7 @@
 "mobile_data" = "Mobiel internet";
 /* NOTE to translators: please synchronize your translation with the English one. */
 "mobile_data_description" = "Internet is vereist voor notificaties over kaartupdates en voor het uploaden van bewerkingen.";
-"mobile_data_option_never" = "Gebruik nooit";
+"mobile_data_option_never" = "Nooit gebruiken";
 "mobile_data_option_ask" = "Vraag altijd";
 "traffic_update_maps_text" = "Om verkeersgegevens weer te geven, moeten de kaarten bijgewerkt worden.";
 /* "traffic" as in road congestion */
@@ -628,7 +628,7 @@
 "export_file_gpx" = "GPX exporteren";
 "delete_list" = "Verwijder lijst";
 "hide_from_map" = "Verbergen op kaart";
-"tags_loading_error_subtitle" = "Er is een fout opgetreden tijdens het laden van tags, probeer het opnieuw";
+"tags_loading_error_subtitle" = "Er is een fout opgetreden tijdens het laden van tags. Probeer het opnieuw";
 "download_button" = "Download";
 "speedcams_alert_title" = "Flitspalen";
 "place_description_title" = "Plaatsbeschrijving";
@@ -679,7 +679,7 @@
 "network" = "Netwerk: %@";
 "trip_finished" = "Bestemming bereikt!";
 "keyboard_availability_alert" = "Toetsenbord is niet beschikbaar tijdens het rijden";
-"dialog_routing_change_start_carplay" = "Kan route vanaf huidige positie niet opbouwen";
+"dialog_routing_change_start_carplay" = "Kan geen route samenstellen vanaf de huidige positie";
 "dialog_routing_change_end_carplay" = "Kan geen route naar de bestemming vinden. Kies een ander eindpunt";
 "dialog_routing_check_gps_carplay" = "Geen GPS-signaal. Ga naar een open omgeving";
 "dialog_routing_unable_locate_route_carplay" = "Kan route niet berekenen. Selecteer andere tussenpunten";
@@ -690,9 +690,9 @@
 "not_all_shown_bookmarks_carplay" = "Niet alle favorieten worden getoond";
 "switch_to_phone_bookmarks_carplay" = "Schakel over naar de telefoon om alle favorieten te zien";
 "ok" = "Oké";
-"speedcams_alert_title_carplay_1" = "Snelheidscamera's";
-"speedcams_alert_title_carplay_2" = "Over snelheidscamera's";
-"download_map_carplay" = "Download kaarten in de CoMaps-app op je apparaat";
+"speedcams_alert_title_carplay_1" = "Flitspalen";
+"speedcams_alert_title_carplay_2" = "Snelheidswaarschuwingen";
+"download_map_carplay" = "Download kaarten in de CoMaps-app op je mobiele apparaat";
 "carplay_roundabout_exit" = "%@ afslag";
 /* max. 10 symbols, both iOS and Android */
 "sort" = "Sorteren…";
@@ -775,7 +775,7 @@
 /* App tip #06 */
 "app_tip_06" = "Je kunt helpen onze app in jouw taal te vertalen.";
 /* App tip #07 */
-"app_tip_07" = "Onze app is ontwikkeld door een paar enthousiastelingen en de community.";
+"app_tip_07" = "Onze app wordt ontwikkeld door een paar enthousiastelingen en de community.";
 /* App tip #08 */
 "app_tip_08" = "Je kunt de kaartgegevens eenvoudig corrigeren en verbeteren.";
 /* App tip #09 */
@@ -791,7 +791,7 @@
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Alle Favorieten exporteren";
 /* Text for the editing the Track's color button. */
-"change_color" = "Verander kleur";
+"change_color" = "Wijzig kleur";
 /* Main screen title "Map" displayed in the navigation back button's menu. */
 "map" = "Kaart";
 "drive_through" = "Drive-though";
@@ -844,7 +844,7 @@
 /* Title for the alert when saving a track recording. */
 "track_recording_alert_title" = "Opslaan in Favorieten?";
 /* Message for the toast when saving the track recording is finished but nothing to save. */
-"track_recording_toast_nothing_to_save" = "Geen route - niets op te slaan";
+"track_recording_toast_nothing_to_save" = "Geen route – niets om op te slaan";
 "edit_track" = "Route bewerken";
 /* Title of the general section in settings */
 "general" = "Algemeen";
@@ -876,7 +876,7 @@
 "mode" = "Transportmodus";
 "mode_walking" = "Lopen";
 "mode_cycling" = "Fietsen";
-"mode_driving" = "Rijden";
+"mode_driving" = "Autorijden";
 "mode_public-transport" = "Openbaar vervoer";
 "mode_option_traffic" = "Verkeer tonen";
 "mode_option_transitlines" = "OV-lijnen tonen";

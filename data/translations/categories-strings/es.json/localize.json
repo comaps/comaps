@@ -54,10 +54,10 @@
         "defaultMessage": "4Reciclaje|Reciclaje de residuos|Eliminación de residuos|Materiales reciclables|Recogida selectiva de basura|Clasificación de residuos|Reutilización|Valorización de residuos"
     },
     "amenity-bureau_de_change": {
-        "defaultMessage": "3Cambio de divisas|dinero|Casa de cambio|Cambista"
+        "defaultMessage": "3Cambio de divisas|dinero|Casa de cambio|Cambista|Cambio de moneda|Cambio de dinero|cambio de efectivo|Caja de cambio|Agencia de cambio|Oficina de cambio|Money exchange|Remesas|Envío de dinero"
     },
     "amenity-studio": {
-        "defaultMessage": "Estudio de media|Estudio"
+        "defaultMessage": "Estudio|Estudio de grabación|Estudio de música|Estudio de televisión|Estudio de radio|Estudio cinematográfico|Productora|Productora audiovisual"
     },
     "amenity-bar|amenity-pub|@category_eat|@category_nightlife": {
         "defaultMessage": "2Bar|2pub|taberna|bebida|beber|4cerveza|cóctel"
@@ -705,7 +705,7 @@
         "defaultMessage": "4Piscina|deporte|pileta|natación"
     },
     "sport-american_football": {
-        "defaultMessage": "Fútbol americano"
+        "defaultMessage": "Fútbol americano|Fútbol gridiron"
     },
     "sport-archery": {
         "defaultMessage": "Tiro al arco|arquería|arco y flecha"
@@ -714,7 +714,7 @@
         "defaultMessage": "Atletismo"
     },
     "sport-australian_football": {
-        "defaultMessage": "Fútbol australiano"
+        "defaultMessage": "Fútbol australiano|Fútbol de reglas australianas"
     },
     "sport-baseball": {
         "defaultMessage": "Béisbol"
@@ -915,7 +915,7 @@
         "defaultMessage": "4Fontanería|4Plomería|Fontanero|Plomero|Sanitario"
     },
     "craft-sawmill": {
-        "defaultMessage": "5Serrería|5Aserradero"
+        "defaultMessage": "Serrería|Aserradero"
     },
     "craft-shoemaker": {
         "defaultMessage": "5Zapatero|zapatería|10reparación de calzado"
@@ -927,7 +927,7 @@
         "defaultMessage": "Sastre|4Sastrería|entalles|arreglo de ropa|arreglos de ropa|costurera|costurero"
     },
     "area:highway-footway|area:highway-pedestrian|area:highway-steps|place-square": {
-        "defaultMessage": "Plaza"
+        "defaultMessage": "Plaza|Zona peatonal|Calle peatonal|Escalinata"
     },
     "place-sea": {
         "defaultMessage": "Mar"
@@ -996,7 +996,7 @@
         "defaultMessage": "Refugio de animales|rescate de animales|protectora de animales|Perrera municipal|albergue de animales"
     },
     "@charging_station": {
-        "defaultMessage": "Estación de carga|punto de carga|punto de recarga|Cargador|recargar|cargar"
+        "defaultMessage": "4Estación de carga para vehículos eléctricos|4punto de carga de vehículos eléctricos|estación de carga|estación de recarga|punto de carga|punto de recarga|electrolinera|cargador|cargador eléctrico|cargador de coche eléctrico|cargador de vehículo eléctrico"
     },
     "amenity-charging_station-bicycle|@charging_station": {
         "defaultMessage": "4Carga de bicicletas|Carga de bicis|Bicicletas|Bicis|cargador de bicicletas|cargador de bicis|cargador"
@@ -1023,7 +1023,7 @@
         "defaultMessage": "10Reparación de neumáticos|4Gomería|4Vulcanizadora|4Cauchera|reparación de cauchos|reparación de llantas"
     },
     "shop-chemist|@shop": {
-        "defaultMessage": "4Droguería|4Parafamacia"
+        "defaultMessage": "4Droguería|4Parafamacia|Tienda de cosméticos|Cosmética"
     },
     "shop-pet|@shop": {
         "defaultMessage": "Tienda de mascotas|mascotas|tienda animal|tienda de animales"
@@ -1089,7 +1089,7 @@
         "defaultMessage": "Surtidor|Surtidor de combustible|Surtidor de gasolina"
     },
     "building-garage": {
-        "defaultMessage": "4Garaje"
+        "defaultMessage": "4Garaje|Cochera"
     },
     "highway-rest_area|highway-services": {
         "defaultMessage": "4Área de descanso|Área de servicio|Parada de descanso"
@@ -1296,7 +1296,7 @@
         "defaultMessage": "Glaciar"
     },
     "highway-ford": {
-        "defaultMessage": "Vado|3Cruce de río|3Paso"
+        "defaultMessage": "Vado|Paso de río|Cruce de río"
     },
     "leisure-marina": {
         "defaultMessage": "Puerto deportivo|3Marina|3Puerto|Amarradero|Embarcadero|Muelle"
@@ -1314,7 +1314,7 @@
         "defaultMessage": "Café|Tienda de café"
     },
     "shop-fabric|@shop": {
-        "defaultMessage": "Tienda textil|3Mercería|textil|tela|telas"
+        "defaultMessage": "Tienda textil|Tienda de textiles|Tienda de telas|Mercería|textil|textiles|tela|telas"
     },
     "shop-money_lender": {
         "defaultMessage": "Entidad de crédito|Entidad de préstamo|4Prestamista|Préstamo|Préstamos|Crédito"
@@ -1884,6 +1884,96 @@
         "defaultMessage": "4Vegano|Solo vegano"
     },
     "@club": {
-        "defaultMessage": "club|clubes"
+        "defaultMessage": "Club|Clubs|Asociación|Agrupación|Círculo|Centro|Sociedad|Sede|Local|Ateneo|Club deportivo|Club social|Casal|Peña|Casas|Sedes|Locales|Centros|Asociaciones"
+    },
+    "amenity-music_venue|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "4Sala de conciertos|4Conciertos|Local de conciertos|Música en vivo|Música en directo"
+    },
+    "shop-swimming_pool|@shop": {
+        "defaultMessage": "Tienda de piscinas|tienda de albercas|tienda de piletas|artículos para piscinas|artículos para albercas|artículos para piletas"
+    },
+    "amenity-research_institute": {
+        "defaultMessage": "4Instituto de investigación|Centro de investigación|Laboratorio|Lab|U+1F52C|U+1F9EA"
+    },
+    "club-allotments|@club": {
+        "defaultMessage": "9Asociación de huertos comunitarios|Asociación de huertos familiares|Asociación de huertos urbanos|Asociación de huertos|Huertos familiares|Huertos urbanos|Huertos comunitarios|Huerto familiar|Huerto urbano|Huerto comunitario|Huerta comunitaria|Huertas comunitarias|Huerto ecológico|Huertos ecológicos|Huerta urbana|Huertas urbanas"
+    },
+    "club-youth_movement|@club": {
+        "defaultMessage": "Movimiento Juvenil | Organización Juvenil | Asociación Juvenil | Grupo Juvenil | Club de Movimiento Juvenil | Agrupación Juvenil | Sede Juvenil | Local Juvenil | Centro Scout | Grupo Scout | Agrupación Scout | Club Scout | Movimiento de Jóvenes | Federación Juvenil | Colectivo Juvenil | Liga Juvenil | Juventudes"
+    },
+    "club-youth|@club": {
+        "defaultMessage": "Club Juvenil | Centro Juvenil | Espacio Joven | Casa de la Juventud | Asociación Juvenil | Agrupación Juvenil | Club de Jóvenes | Centro de Jóvenes | Espacio Juvenil | Club de Juventud | Ateneo Juvenil | Centro Cultural Juvenil | Casal de Joves | Centro de Ocio Juvenil | Círculo Juvenil"
+    },
+    "club-veterans|@club": {
+        "defaultMessage": "Asociación de Veteranos | Club de Veteranos | Hermandades de Veteranos | Hermandad de Veteranos | Centro de Veteranos | Círculo de Veteranos | Agrupación de Veteranos | Unión de Veteranos | Asociación de Excombatientes | Club de Excombatientes | Centro de Excombatientes | Asociación de Militares Retirados | Centro de Oficiales Retirados | Centro de Retirados | Veteranos de Guerra | Casa del Veterano | Hogar del Veterano | Asociación de Veteranos de Guerra"
+    },
+    "club-theatre|@club": {
+        "defaultMessage": "Grupo de Teatro | Compañía de Teatro | Club de Teatro | Taller de Teatro | Escuela de Teatro | Teatro Amateur | Teatro Aficionado | Teatro Vocacional | Grupo de Teatro Amateur | Grupo de Teatro Aficionado | Elenco de Teatro | Elenco Teatral | Agrupación Teatral | Asociación Teatral | Colectivo Teatral | Club de Drama | Grupo de Drama | Taller de Drama | Sala de Teatro | Teatro Comunitario | Grupo Teatral | Compañía Teatral"
+    },
+    "club-surf_life_saving|@club": {
+        "defaultMessage": "Salvamento y Socorrismo | Club de Salvamento y Socorrismo | Salvamento Acuático | Club de Salvamento Acuático | Socorrismo | Club de Socorrismo | Socorristas | Puesto de Socorrismo | Socorrismo de Playa | Guardavidas | Club de Guardavidas | Puesto de Guardavidas | Salvavidas | Club de Salvavidas | Puesto de Salvavidas | Cuerpo de Salvavidas | Escuela de Guardavidas | Escuela de Salvavidas | Rescate Acuático | Club de Rescate Acuático | Cuerpo de Rescate Acuático | Salvamento Marítimo | Club de Salvamento Marítimo | Socorrismo Marítimo | Surf Salvamento | Salvamento de Surf | Salvamento Deportivo | Club de Salvamento Deportivo"
+    },
+    "club-student|@club": {
+        "defaultMessage": "Asociación de estudiantes|Asociación de alumnos|Sociedad de alumnos|Centro de estudiantes|Club de estudiantes|Federación de estudiantes|Delegación de alumnos|Delegación de estudiantes|Consejo de estudiantes|Agrupación estudiantil|Colectivo estudiantil|Club estudiantil|Sociedad estudiantil|Centro de alumnos"
+    },
+    "club-social|@club": {
+        "defaultMessage": "Club social|Centro social|Círculo social|Sede social|Ateneo|Club de campo|Club privado|Centro de colectividades|Club étnico|Asociación de inmigrantes|Casal|Centro regional|Casa regional|Centro de residentes|Asociación cultural de residentes|Club social y deportivo|Centro comunitario"
+    },
+    "club-scout|@club": {
+        "defaultMessage": "Grupo scout|Asociación scout|Movimiento scout|Sede scout|Local scout|Base scout|Cabaña scout|Centro scout|Club scout|Scouts|Escultismo|Muchachas guías|Guías scouts|Asociación de guías|Grupo de guías|Local de scouts"
+    },
+    "club-religion|@club": {
+        "defaultMessage": "Asociación religiosa|Grupo de fe|Grupo de pastoral|Comunidad religiosa|Grupo de oración|Club religioso|Asociación confesional|Centro pastoral|Movimiento religioso|Cofradía|Hermandad religiosa|Agrupación religiosa|Sociedad religiosa|Círculo bíblico|Grupo juvenil parroquial|Pastoral universitaria"
+    },
+    "club-music|@club": {
+        "defaultMessage": "Club de música|Sociedad musical|Asociación musical|Sociedad filarmónica|Club musical|Agrupación musical|Círculo musical|Amigos de la música|Taller de música|Unión musical|Centro musical|Local de música|Sala de música|Colectivo musical|Coral|Banda de música"
+    },
+    "club-motorcycle|@club": {
+        "defaultMessage": "Club de moteros|Club de motos|Motoclub|Moto club|Club motociclista|Club de motociclismo|Asociación motera|Asociación de motociclistas|Agrupación motera|Peña motera|Club de motoqueros|Motoqueros|Biker club|MC|Motorcycle club|Club de velocidad|Club tuning motos"
+    },
+    "club-model_railway|@club": {
+        "defaultMessage": "Club de maquetismo ferroviario|Asociación de amigos del ferrocarril|Club de modelismo ferroviario|Asociación de modelismo ferroviario|Asociación de maquetismo ferroviario|Club de trenes en miniatura|Trenes en miniatura|Maquetas de trenes|Ferromodelismo|Club de ferromodelismo|Asociación de ferromodelismo|Trenes de jardín|Circuito de trenes en miniatura|Tren miniatura"
+    },
+    "club-hunting|@club": {
+        "defaultMessage": "Sociedad de cazadores|Club de caza|Club deportivo de caza|Asociación de cazadores|Coto de caza|Federación de caza|Círculo de cazadores|Agrupación de cazadores|Unión de cazadores|Campo de caza|Reserva de caza"
+    },
+    "club-history|@club": {
+        "defaultMessage": "Sociedad histórica|Club de historia|Asociación histórica|Sociedad del patrimonio|Asociación de patrimonio|Centro de estudios históricos|Círculo de historia|Instituto de investigaciones históricas|Amigos de la historia|Asociación para la preservación del patrimonio|Patrimonio histórico|Sociedad de historia local"
+    },
+    "club-gardening|@club": {
+        "defaultMessage": "Club de jardinería|Asociación de jardinería|Sociedad hortícola|Asociación hortícola|Club de jardín|Club de jardines|Sociedad de jardinería|Taller de jardinería|Amigos de la jardinería|Asociación de huertos urbanos|Club de horticultura|Sociedad de horticultura"
+    },
+    "club-game|@club": {
+        "defaultMessage": "Club de videojuegos|Club de gaming|Asociación de videojuegos|Sala de juegos|Local de videojuegos|Centro de gaming|Gaming center|Zona de juegos|Ciber café|Cybercafe|Club de esports|Club de deportes electrónicos|Asociación de esports|Arena de juego|Lounge de videojuegos"
+    },
+    "club-freemasonry|@club": {
+        "defaultMessage": "Logia masónica|Logia|Templo masónico|Respetable Logia|Masonería|Gran Logia|Gran Oriente|Casa masónica|Sede masónica|Asociación masónica|Taller masónico|Masones|Fraternidad masónica"
+    },
+    "club-fraternity|@club": {
+        "defaultMessage": "Hermandad universitaria|Fraternidad universitaria|Fraternidad|Colegio mayor|Residencia universitaria|Asociación de estudiantes|Hermandad de estudiantes|Fraternidad de estudiantes|Club universitario|Asociación de alumnos|Hermandad femenina|Sororidad universitaria|Casa de fraternidad"
+    },
+    "club-dog|@club": {
+        "defaultMessage": "Club canino|Asociación canina|Sociedad canina|Kennel club|Club de perros|Asociación cinológica|Club de agility|Club de agilidad canina|Centro de adiestramiento canino|Escuela canina|Club de criadores de perros|Federación canina|Grupo canino"
+    },
+    "club-culture|@club": {
+        "defaultMessage": "Asociación cultural|Club cultural|Centro cultural|Sociedad cultural|Agrupación cultural|Círculo cultural|Ateneo cultural|Colectivo cultural|Casal cultural|Casa de la cultura|Ateneo|Centro sociocultural|Asociación sociocultural"
+    },
+    "club-computer|@club": {
+        "defaultMessage": "Club de informática|Asociación de informática|Club tecnológico|Club de computación|Asociación de computación|Club de tecnología|Club de programación|Club de ordenadores|Club de computadoras|Taller de informática|Centro tecnológico|Aula de informática"
+    },
+    "club-cadet|@club": {
+        "defaultMessage": "Club de cadetes|Asociación de cadetes|Categoría cadete|Cadetes|División cadete|Equipo cadete|Club de aspirantes|Cuerpo de cadetes|Agrupación de cadetes|Liga de cadetes|Cadetes deportivos"
+    },
+    "club-board_games|@club": {
+        "defaultMessage": "Club de juegos de mesa|Asociación lúdica|Juegos de mesa|Club de juegos|Juegos de cartas|Club de rol|Club de cartas|Asociación de juegos de mesa|Club de juegos de tablero|Juegos de tablero|Juegos de estrategia|Club de wargames|Juegos de miniaturas|Ludoteca|Asociación de juegos"
+    },
+    "club-automobile|@club": {
+        "defaultMessage": "Automóvil Club|Automóvil club|Club de automovilistas|Club automovilístico|Asociación de automovilistas|Real Automóvil Club|Club de coches|Club de autos|Club de automóviles|Asociación automovilística|Club de mototurismo|Club tuning|Club de autos clásicos|Club de coches clásicos"
+    },
+    "club-art|@club": {
+        "defaultMessage": "Club de arte|Asociación de arte|Asociación artística|Sociedad de arte|Sociedad artística|Círculo de arte|Círculo de Bellas Artes|Taller de arte|Agrupación artística|Colectivo artístico|Club artístico|Centro de arte|Centro artístico|Ateneo artístico"
+    },
+    "club-amateur_radio|@club": {
+        "defaultMessage": "Club de radioaficionados|Asociación de radioaficionados|Radioaficionados|Radioafición|Radio club|Radioclub|Club de radio|Asociación de radio|Estación de radioaficionado|Estación de radioaficionados|Sede de radioaficionados|Unión de radioaficionados|Círculo de radioaficionados"
     }
 }

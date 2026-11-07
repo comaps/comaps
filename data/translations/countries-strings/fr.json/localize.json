@@ -51,7 +51,7 @@
         "defaultMessage": "Mésopotamie"
     },
     "Argentina_Northwest": {
-        "defaultMessage": "Nord-ouest argentin"
+        "defaultMessage": "Nord-Ouest argentin"
     },
     "Argentina_Pampas": {
         "defaultMessage": "Pampa"
@@ -7660,5 +7660,89 @@
     },
     "WorldCoasts": {
         "defaultMessage": "Aperçu mondial (lignes côtières)"
+    },
+    "Tanzania_Southern Highlands": {
+        "defaultMessage": "Tanzanie — Hauts Plateaux du Sud"
+    },
+    "Tanzania_Coastal": {
+        "defaultMessage": "Tanzanie — Côte"
+    },
+    "Malaysia_East": {
+        "defaultMessage": "Malaisie — Est"
+    },
+    "Malaysia_West": {
+        "defaultMessage": "Malaisie — Ouest"
+    },
+    "Tanzania_Coastal Description": {
+        "defaultMessage": "Morogoro, Dar es Salaam, Lindi, Mtwara, Kibaha"
+    },
+    "Tanzania_Western Description": {
+        "defaultMessage": "Kigoma, Mpanda"
+    },
+    "Tanzania_Northern Description": {
+        "defaultMessage": "Tanga, Babati, Arusha, Kilimanjaro, Moshi"
+    },
+    "Tanzania_Offshore Islands Description": {
+        "defaultMessage": "Zanzibar, Pemba, Mafia, Wete, Mikoani, Mkokotoni, Koani"
+    },
+    "Tanzania_Offshore Islands": {
+        "defaultMessage": "Tanzanie — Îles au Large des Côtes"
+    },
+    "China_Hainan Description": {
+        "defaultMessage": "Haikou, Sanya, Wanning"
+    },
+    "Malaysia_West Description": {
+        "defaultMessage": "Kuala Lumpur, Johor Bahru, George Town, Malacca, Ipoh"
+    },
+    "Tanzania_Lake": {
+        "defaultMessage": "Tanzanie — Lac"
+    },
+    "Macau Description": {
+        "defaultMessage": "Macao, Taipa, Coloane"
+    },
+    "Tanzania_Central": {
+        "defaultMessage": "Tanzanie — Centre"
+    },
+    "Tanzania_Western": {
+        "defaultMessage": "Tanzanie — Ouest"
+    },
+    "Vietnam_South": {
+        "defaultMessage": "Vietnam — Sud"
+    },
+    "Vietnam_North Description": {
+        "defaultMessage": "Hanoi, Hai Phong, Hue, Sa Pa"
+    },
+    "Tanzania_Lake Description": {
+        "defaultMessage": "Bukoba, Musoma, Mwanza, Shinyanga"
+    },
+    "Macau": {
+        "defaultMessage": "Macao"
+    },
+    "Tanzania_Central Description": {
+        "defaultMessage": "Tabora, Singida, Dodoma"
+    },
+    "Hong Kong": {
+        "defaultMessage": "Hong Kong"
+    },
+    "China_Hainan": {
+        "defaultMessage": "Hainan"
+    },
+    "Vietnam_South Description": {
+        "defaultMessage": "Hô Chi Minh-Ville, Da Nang, Can Tho, Nha Trang"
+    },
+    "Tanzania_Southern Highlands Description": {
+        "defaultMessage": "Songea, Iringa, Mbeya, Sumbawanga"
+    },
+    "Tanzania_Northern": {
+        "defaultMessage": "Tanzanie — Nord"
+    },
+    "Hong Kong Description": {
+        "defaultMessage": "Hong Kong, Kowloon, Tsuen Wan"
+    },
+    "Malaysia_East Description": {
+        "defaultMessage": "Kota Kinabalu, Kuching, Sandakan"
+    },
+    "Vietnam_North": {
+        "defaultMessage": "Vietnam — Nord"
     }
 }

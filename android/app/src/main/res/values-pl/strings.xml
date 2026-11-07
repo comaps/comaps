@@ -859,7 +859,7 @@
     <string name="pedestrian">Pieszy</string>
     <string name="editor_level">Piętro (0 to parter)</string>
     <string name="open_now">Teraz otwarte</string>
-    <string name="dialog_report_error_with_logs">Prosimy o przesłanie raportu błędu: \n- w ustawieniach włącz „Rejestrowanie” \n- odtwórz problem\n- na ekranie „O aplikacji i pomoc” naciśnij przycisk „Zgłoś błąd” i wyślij e-mailem lub przez czat\n- wyłącz rejestrowanie</string>
+    <string name="dialog_report_error_with_logs">Prosimy o przesłanie raportu błędu: \n- w ustawieniach wybnierz „Zaawansowane” \n- „Włącz zbieranie danych”\n- odtwórz problem\n- na ekranie „O aplikacji i pomoc” naciśnij przycisk „Zgłoś błąd” i wyślij e-mailem lub przez czat\n- wyłącz rejestrowanie</string>
     <string name="backup_interval_manual_only">Wyłączone (tylko ręcznie)</string>
     <string name="dialog_report_error_missing_folder">Wybrana lokalizacja kopii zapasowej jest niedostępna lub nie można do niej zapisywać. Proszę wybierz inną lokalizację.</string>
     <string name="closed_now">Zamknięte teraz</string>
@@ -1007,4 +1007,8 @@
     <string name="pref_font_size">Rozmiar czcionki etykiet mapy</string>
     <string name="decrease_font_size">Pomniejsz rozmiar czcionki na mapie</string>
     <string name="bookmarks_text_placement_title">Pokaż nazwy ulubionych na mapie</string>
+    <string name="route_preview_previous_turn">Poprzedni skręt</string>
+    <string name="route_preview_next_turn">Następny skręt</string>
+    <string name="route_preview_turn_position">%1$d z %2$d</string>
+    <string name="route_preview_cancel">Zamknij podgląd trasy</string>
 </resources>

@@ -1492,3 +1492,4 @@
 "type.club.amateur_radio" = "Amateur Radio Club";
 "type.club" = "Club";
 "type.club.automobile" = "Automobile Club";
+"type.boundary.hazard" = "Hazardous Area";

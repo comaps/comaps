@@ -31,4 +31,8 @@
     <string name="months_ago">%s mesecev nazaj</string>
     <string name="year_ago">%s leto nazaj</string>
     <string name="years_ago">%s let nazaj</string>
+    <string name="accessibility_map_content_description_collapsed">Zemljevid. Z enim prstom podrsajte gor ali dol in približajte z dvema prstoma, ter raziskujte z dotikom.</string>
+    <string name="accessibility_map_content_description_expanded">Zemljevid. Tapnite ali zadržite, da raziščete z dotikom. Kraji bodo prebrani, ko jih dosežete s prsti. Za zaustavitev z enim prstom podrsajte gor ali dol in opustite.</string>
+    <string name="accessibility_map_action_expand_label">raziskujte z dotikom</string>
+    <string name="accessibility_map_action_collapse_label">zaustavi raziskovanje z dotikom</string>
 </resources>

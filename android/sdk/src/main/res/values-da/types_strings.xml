@@ -1163,7 +1163,7 @@
     <string name="type.self_service.partially">Delvis selvbetjening</string>
     <string name="type.self_service.no">Ingen selvbetjening</string>
     <!-- https://wiki.openstreetmap.org/wiki/Key:social_facility -->
-    <string name="type.amenity.social_facility">Social facilitet</string>
+    <string name="type.amenity.social_facility">Socialinstitution</string>
     <!-- https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance -->
     <string name="type.emergency.emergency_ward_entrance">Indgang til akutafdeling</string>
     <!-- https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo -->
@@ -1242,7 +1242,7 @@
     <string name="type.junction.circular">Rundkørsel</string>
     <string name="type.junction.roundabout">Rundkørsel</string>
     <string name="type.landuse">Arealanvendelse</string>
-    <string name="type.landuse.allotments">Kolonihaveforening</string>
+    <string name="type.landuse.allotments">Kolonihave</string>
     <string name="type.landuse.brownfield">Forladt område</string>
     <string name="type.landuse.commercial">Erhvervsområde</string>
     <string name="type.landuse.construction">Byggeplads</string>
@@ -1549,10 +1549,10 @@
     <string name="type.second_hand.only">Kun brugt</string>
     <string name="type.second_hand.yes">Brugte valgmuligheder</string>
     <string name="type.second_hand.no">Ingen brugte valgmuligheder</string>
-    <string name="type.amenity.fast_food.cafeteria">Cafeteria</string>
+    <string name="type.amenity.fast_food.cafeteria">Kantine</string>
     <string name="type.shop.swimming_pool">Svømmebassinbutik</string>
     <string name="type.amenity.music_venue">Spillested</string>
-    <string name="type.amenity.research_institute">Forskningsinstitut</string>
+    <string name="type.amenity.research_institute">Forskningscenter</string>
     <string name="type.cuisine.vegan_only">Helt vegansk</string>
     <string name="type.cuisine.vegetarian_only">Helt vegetarisk</string>
     <string name="type.club">Klub</string>
@@ -1576,11 +1576,12 @@
     <string name="type.club.music">Musikforening</string>
     <string name="type.club.religion">Religiøs forening</string>
     <string name="type.club.scout">Spejderforening</string>
-    <string name="type.club.social">Social klub</string>
+    <string name="type.club.social">Socialklub</string>
     <string name="type.club.student">Studenterforening</string>
     <string name="type.club.surf_life_saving">Surf Life Saving</string>
     <string name="type.club.theatre">Teaterforening</string>
     <string name="type.club.veterans">Veteranforening</string>
     <string name="type.club.youth">Ungdomsklub</string>
     <string name="type.club.youth_movement">Ungdomsbevægelse</string>
+    <string name="type.boundary.hazard">Farligt område</string>
 </resources>

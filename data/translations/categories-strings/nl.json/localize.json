@@ -1844,9 +1844,6 @@
     "cuisine-african": {
         "defaultMessage": "9Afrikaans voedsel|9Afrikaanse keuken"
     },
-    "cuisine-vegetarian|cuisine-vegetarian_only|@cuisine_all_vegetarian": {
-        "defaultMessage": "11Vegetarisch voedsel|11Vegetarische keuken"
-    },
     "cuisine-asian|@cuisine_all_asian": {
         "defaultMessage": "9Aziatisch voedsel|9Aziatische keuken"
     },
@@ -1893,10 +1890,10 @@
         "defaultMessage": "5Onderzoeksinstituut|Onderzoekscentrum|Laboratorium"
     },
     "cuisine-vegetarian_only|cuisine-vegan_only": {
-        "defaultMessage": "4Volledig vegetarisch|3Vegetarisch|3Vega"
+        "defaultMessage": "4Volledig vegetarisch"
     },
     "cuisine-vegan_only": {
-        "defaultMessage": "4Volledig vegan|4Volledig veganistisch|3Vegan|5Veganistisch"
+        "defaultMessage": "4Volledig vegan|4Volledig veganistisch"
     },
     "@club": {
         "defaultMessage": "Club|Clubs|Vereniging|Verenigingen"
@@ -1962,7 +1959,7 @@
         "defaultMessage": "5Scouting|Scoutingclub|Scoutingvereniging"
     },
     "club-social|@club": {
-        "defaultMessage": "5Sociale club|5Sociale vereniging"
+        "defaultMessage": "5Gezelligheidsvereniging|Gezelligheidsclub"
     },
     "club-student|@club": {
         "defaultMessage": "7Studentenvereniging"

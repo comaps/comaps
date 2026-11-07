@@ -1590,4 +1590,5 @@
     <string name="type.club.social">Geselligkeitsverein</string>
     <string name="type.club.student">Studentenverein</string>
     <string name="type.club.surf_life_saving">Surf-Rettungsschwimmverein</string>
+    <string name="type.boundary.hazard">Gefahrenzone</string>
 </resources>

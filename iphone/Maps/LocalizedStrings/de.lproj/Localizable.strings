@@ -315,13 +315,13 @@
 "dialog_routing_disclaimer_borders" = "— Bitte sei vorsichtig bei Routen in Grenzgebieten: die Routen, die unsere App erstellt, können manchmal Landesgrenzen in gesperrten Gebieten überschreiten.";
 "dialog_routing_disclaimer_beware" = "Bitte fahre aufmerksam und sicher!";
 "dialog_routing_check_gps" = "GPS-Signal prüfen";
-"dialog_routing_error_location_not_found" = "Route kann nicht erstellt werden. Aktuelle GPS-Koordinaten konnten nicht ermittelt werden.";
+"dialog_routing_error_location_not_found" = "Route konnte nicht erstellt werden. Aktuelle GPS-Koordinaten konnten nicht ermittelt werden.";
 "dialog_routing_location_turn_wifi" = "Bitte prüfe dein GPS-Signal. Aktiviertes W-LAN verbessert deine Standortgenauigkeit.";
 "dialog_routing_location_turn_on" = "Standortdienste aktivieren";
-"dialog_routing_location_unknown_turn_on" = "Aktuelle GPS-Koordinaten können nicht ermittelt werden. Aktiviere die Standortdienste, um die Route zu berechnen.";
+"dialog_routing_location_unknown_turn_on" = "Aktuelle GPS-Koordinaten konnten nicht ermittelt werden. Aktiviere die Standortdienste in den Geräte-Einstellungen, um die Route zu berechnen.";
 "dialog_routing_download_files" = "Erforderliche Dateien herunterladen";
 "dialog_routing_download_and_update_all" = "Lade alle Karten- und Routeninformationen für den geplanten Weg herunter oder aktualisiere sie, um die Route zu berechnen.";
-"dialog_routing_unable_locate_route" = "Route kann nicht ermittelt werden";
+"dialog_routing_unable_locate_route" = "Route konnte nicht ermittelt werden";
 "dialog_routing_change_start_or_end" = "Bitte passe deinen Startpunkt oder Ziel an.";
 "dialog_routing_change_start" = "Startpunkt anpassen";
 "dialog_routing_start_not_determined" = "Route wurde nicht erstellt. Startpunkt konnte nicht gefunden werden.";
@@ -889,7 +889,7 @@
 /* Title for the alert when saving a track recording. */
 "track_recording_alert_title" = "In Favoriten speichern?";
 /* Message for the toast when saving the track recording is finished but nothing to save. */
-"track_recording_toast_nothing_to_save" = "Route ist leer – nichts zu speichern";
+"track_recording_toast_nothing_to_save" = "Die Route ist leer – es gibt nichts zu speichern";
 "edit_track" = "Track bearbeiten";
 /* Title of the general section in settings */
 "general" = "Allgemein";

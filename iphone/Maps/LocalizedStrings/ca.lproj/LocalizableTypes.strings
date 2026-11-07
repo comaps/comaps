@@ -47,7 +47,7 @@
 "type.man_made.observatory" = "Observatori";
 "type.amenity.casino" = "Casino";
 "type.amenity.gambling" = "Jocs d’aposta";
-"type.amenity.studio" = "Estudi de telecomunicacions";
+"type.amenity.studio" = "Estudi multimèdia";
 "type.leisure.adult_gaming_centre" = "Centre de joc per a adults";
 "type.leisure.amusement_arcade" = "Arcade";
 "type.amenity.charging_station" = "Estació de recàrrega";
@@ -589,12 +589,12 @@
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "Túnel";
 "type.highway.traffic_signals" = "Semàfor";
-"type.highway.trunk" = "Carretera nacional";
+"type.highway.trunk" = "Carretera principal";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "Pont";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "Túnel";
-"type.highway.trunk_link" = "Accés de carretera nacional";
+"type.highway.trunk_link" = "Accés de carretera principal";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "Pont";
 /* These translations are used for all type.highway.*.tunnel. */
@@ -618,7 +618,7 @@
 "type.area_highway.tertiary" = "Carretera terciària";
 "type.area_highway.steps" = "Escales";
 "type.area_highway.track" = "Pista";
-"type.area_highway.trunk" = "Carretera nacional";
+"type.area_highway.trunk" = "Carretera principal";
 "type.area_highway.unclassified" = "Carretera menor";
 "type.historic" = "Objecte històric";
 "type.historic.aircraft" = "Avions històrics";
@@ -1257,7 +1257,7 @@
 "type.shop.car" = "Concessionari de cotxes";
 "type.shop.car_parts" = "Botiga de peces de recanvi de cotxe";
 "type.shop.car_repair" = "Taller d'automòbils";
-"type.shop.car_repair.tyres" = "Tyre Repair";
+"type.shop.car_repair.tyres" = "Reparació de pneumàtics";
 "type.shop.caravan" = "Concessionari de caravanes";
 "type.shop.carpet" = "Catifes";
 "type.shop.chemist" = "Farmàcia";
@@ -1440,7 +1440,7 @@
 "type.tourism.information.tactile_map" = "Mapa tàctil";
 "type.tourism.information.office" = "Oficina de turisme";
 "type.tourism.information.visitor_centre" = "Centre de visitants";
-"type.amenity.ranger_station" = "Ranger Station";
+"type.amenity.ranger_station" = "Estació forestal";
 "type.tourism.motel" = "Motel";
 "type.tourism.museum" = "Museu";
 "type.tourism.picnic_site" = "Àrea de Pícnic";
@@ -1553,34 +1553,35 @@
 "type.amenity.fast_food.cafeteria" = "Cafeteria";
 "type.shop.swimming_pool" = "Swimming Pool Shop";
 "type.amenity.music_venue" = "Music Venue";
-"type.cuisine.vegetarian_only" = "Vegetarian Only";
-"type.amenity.research_institute" = "Research Institute";
-"type.cuisine.vegan_only" = "Vegan Only";
+"type.cuisine.vegetarian_only" = "Només vegetarià";
+"type.amenity.research_institute" = "Institut de recerca";
+"type.cuisine.vegan_only" = "Només vegà";
 "type.club.history" = "History Club";
 "type.club.model_railway" = "Model Railway Club";
 "type.club.youth" = "Youth Club";
 "type.club.art" = "Art Club";
-"type.club.computer" = "Computer Club";
-"type.club.culture" = "Cultural Association";
+"type.club.computer" = "Club d'Informàtica";
+"type.club.culture" = "Associació cultural";
 "type.club.youth_movement" = "Youth Movement";
 "type.club.cadet" = "Cadet Club";
 "type.club.theatre" = "Theatre Club";
 "type.club.music" = "Music Club";
-"type.club.scout" = "Scout Club";
-"type.club.dog" = "Dog Club";
-"type.club.social" = "Social Club";
+"type.club.scout" = "Club d'escoltes";
+"type.club.dog" = "Club caní";
+"type.club.social" = "Club social";
 "type.club.surf_life_saving" = "Surf Life Saving";
-"type.club.hunting" = "Hunting Club";
-"type.club.fraternity" = "Fraternity";
-"type.club.motorcycle" = "Motorcycle Club";
-"type.club.freemasonry" = "Masonic Lodge";
-"type.club.religion" = "Religious Club";
+"type.club.hunting" = "Club de caça";
+"type.club.fraternity" = "Fraternitat";
+"type.club.motorcycle" = "Club de motociclisme";
+"type.club.freemasonry" = "Lògia maçònica";
+"type.club.religion" = "Club religiós";
 "type.club.board_games" = "Board Games Club";
 "type.club.veterans" = "Veterans Club";
 "type.club.allotments" = "Allotment Association";
 "type.club.gardening" = "Gardening Club";
-"type.club.student" = "Student Club";
+"type.club.student" = "Club d'estudiants";
 "type.club.game" = "Gaming Club";
 "type.club.amateur_radio" = "Amateur Radio Club";
 "type.club" = "Club";
 "type.club.automobile" = "Automobile Club";
+"type.boundary.hazard" = "Hazardous Area";

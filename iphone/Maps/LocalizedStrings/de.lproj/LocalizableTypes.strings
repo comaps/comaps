@@ -1585,3 +1585,4 @@
 "type.club.amateur_radio" = "Amateurfunkverein";
 "type.club" = "Verein";
 "type.club.automobile" = "Automobilclub";
+"type.boundary.hazard" = "Gefahrenzone";

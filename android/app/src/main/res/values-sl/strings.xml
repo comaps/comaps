@@ -351,12 +351,12 @@
     <string name="track_recording">Snemam pot</string>
     <string name="accept">Potrdi</string>
     <string name="decline">Zavrni</string>
-    <string name="mobile_data_dialog">Naj pridobim podrobne podatke prek mobilnega omrežja?</string>
+    <string name="mobile_data_dialog">Naj se uporabijo mobilni podatki?</string>
     <string name="mobile_data_option_always">Uporabi vedno</string>
     <string name="mobile_data_option_today">Samo danes</string>
     <string name="mobile_data_option_not_today">Ne uporabi danes</string>
     <string name="mobile_data">Mobilno omrežje</string>
-    <string name="mobile_data_description">Mobilno omrežje je potrebno za obvestila o posodobitvah zemljevidov in za objavljanje urejanj</string>
+    <string name="mobile_data_description">Mobilno omrežje je potrebno za obvestila o posodobitvah zemljevidov, za objavljanje urejanj in za povezovanje s spletišči z ocenami</string>
     <string name="mobile_data_option_never">Nikoli ne uporabi</string>
     <string name="mobile_data_option_ask">Vedno vprašaj</string>
     <string name="traffic_update_maps_text">Za prikazovanje podatkov o prometu je treba posodobiti zemljevide</string>
@@ -596,7 +596,7 @@
     <string name="dialog_report_error_missing_folder">Izbrano mesto za varnostno kopijo ni na voljo ali vanjo ni mogoče pisati. Izberite drugo mesto.</string>
     <string name="backup_interval_every_day">Dnevno</string>
     <string name="backup_interval_every_week">Tedensko</string>
-    <string name="dialog_report_error_with_logs">Pošljite nam poročilo o napaki:\n - \"Omogoči beleženje\" v nastavitvah\n - poustvarite težavo\n - na zaslonu »O programu in Pomoč« pritisnite gumb »Prijavi napako« in jo pošljite po e-pošti ali klepetu\n - onemogočite beleženje</string>
+    <string name="dialog_report_error_with_logs">Pošljite nam poročilo o napaki:\n - Pojdite v Nastavitve in izberite Napredno\n - V nastavitvah izberite \"Omogoči beleženje\"\n - poustvarite težavo\n - na zaslonu »O programu in Pomoč« pritisnite gumb »Prijavi napako« in jo pošljite po e-pošti ali klepetu\n - onemogočite beleženje</string>
     <string name="route_type">Vrsta poti</string>
     <string name="vehicle">Vozilo</string>
     <string name="pedestrian">Za pešce</string>
@@ -726,4 +726,20 @@
     <string name="pref_about_summary">Prijava napak, pomoč, donacije\nVerzija: v%1$s</string>
     <string name="off_route">Zašli ste z načrtovane poti</string>
     <string name="recalculate_route">Ponovno izračunaj</string>
+    <string name="pref_font_size">Velikost pisave za napise zemljevida</string>
+    <string name="decrease_font_size">Zmanjšaj velikost napisov zemljevida</string>
+    <string name="bookmarks_text_placement_title">Pokaži imena priljubljenih na zemljevidu</string>
+    <string name="place_reviews_title">Ocene kraja</string>
+    <string name="place_reviews">%1$s ocen</string>
+    <string name="rating_stars_description">zvezdic: %.1f</string>
+    <string name="reviews_by_mangrove">Ocene od Mangrove</string>
+    <string name="add_review">Dodaj oceno preko %1$s</string>
+    <string name="add_review_url_resolution_failed">Kraj ni bil najden v zadnji različici OpenStreetMap.</string>
+    <string name="add_review_url_resolution_failed_dev">Kraj ni bil najden v zadnji DEV različici OpenStreetMap.</string>
+    <string name="internet_unavailable">Ni spletne povezave</string>
+    <string name="stars_1">1-zvezdično</string>
+    <string name="stars_2">2-zvezdično</string>
+    <string name="stars_3">3-zvezdično</string>
+    <string name="stars_4">4-zvezdično</string>
+    <string name="stars_5">5-zvezdično</string>
 </resources>

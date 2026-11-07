@@ -5,6 +5,6 @@
 /* Used in home screen quick actions. */
 "route" = "Itinero";
 /* Needed to explain why we always require access to GPS coordinates, and not only when the app is active. */
-NSLocationAlwaysUsageDescription = "Fona trovado de via pozicio necesas por provizi la funkciojn de la apo. Ĝi estas uzata por navigado, kaj la konservado de ĵusaj trakoj.";
+NSLocationAlwaysUsageDescription = "Detektado de loko en la fono estas necesa por plene utiligi la funkciojn de la aplikaĵo. Ĝi estas uzata por navigado, kaj la konservado de lastatempe trairita trako.";
 /* Needed to explain why we require access to GPS coordinates when the app is active. */
-NSLocationWhenInUseUsageDescription = "La trovado de via pozicio necesas por navigado kaj por konservado de viaj trakoj.";
+NSLocationWhenInUseUsageDescription = "Determini vian lokon estas necesa por navigado kaj por konservi vian lastatempe trairita trako.";
