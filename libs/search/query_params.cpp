@@ -5,8 +5,7 @@
 #include "indexer/search_string_utils.hpp"
 
 #include <sstream>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 namespace search
 {
@@ -17,7 +16,7 @@ namespace
 // All synonyms should be lowercase.
 
 /// @todo These should check the map language and use only the corresponding translation.
-ankerl::unordered_dense::map<string, vector<string>> const kSynonyms = {
+unordered_map<string, vector<string>> const kSynonyms = {
     /// @todo Should process synonyms with errors like "blvrd" -> "blvd".
     /// @see HouseOnStreetSynonymsWithMisprints test.
     {"10a", {"décima"}},

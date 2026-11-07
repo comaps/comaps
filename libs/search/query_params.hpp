@@ -5,9 +5,8 @@
 
 #include <algorithm>
 #include <string>
+#include <unordered_set>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace search
 {
@@ -18,7 +17,7 @@ class QueryParams
 public:
   using String = strings::UniString;
   using TypeIndices = std::vector<uint32_t>;
-  using Langs = ankerl::unordered_dense::set<int8_t>;
+  using Langs = std::unordered_set<int8_t>;
 
   class Token
   {

@@ -3,9 +3,8 @@
 #include "base/macros.hpp"
 
 #include <string>
+#include <unordered_set>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace editor
 {
@@ -52,7 +51,7 @@ private:
 
   TypeNames m_types;
   std::vector<CategoryData> m_categoriesData;
-  ankerl::unordered_dense::set<std::string> m_baseLangs;
+  std::unordered_set<std::string> m_baseLangs;
 
   DISALLOW_COPY(NewFeatureCategories);
 };

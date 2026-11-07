@@ -6,8 +6,7 @@
 #include "drape/shader.hpp"
 
 #include <string>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 namespace dp
 {
@@ -30,7 +29,7 @@ public:
     glConst m_type = gl_const::GLFloatType;
   };
 
-  using UniformsInfo = ankerl::unordered_dense::map<std::string, UniformInfo>;
+  using UniformsInfo = std::unordered_map<std::string, UniformInfo>;
   UniformsInfo const & GetUniformsInfo() const;
   uint32_t GetNumericUniformsCount() const { return m_numericUniformsCount; }
 
