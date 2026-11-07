@@ -29,8 +29,6 @@
 #include <map>
 #include <unordered_map>
 
-#include "3party/ankerl/unordered_dense.h"
-
 namespace routing
 {
 namespace
@@ -84,7 +82,7 @@ private:
   };
   std::unordered_map<NumMwmId, GraphAttrs> m_graphs;
 
-  ankerl::unordered_dense::map<NumMwmId, SpeedCamerasMapT> m_cachedCameras;
+  std::unordered_map<NumMwmId, SpeedCamerasMapT> m_cachedCameras;
   SpeedCamerasMapT const & ReceiveSpeedCamsFromMwm(NumMwmId numMwmId);
 
   RoutingOptions m_avoidRoutingOptions;

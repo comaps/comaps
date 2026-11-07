@@ -23,8 +23,7 @@
 
 #include <limits>
 #include <memory>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 namespace dp
 {
@@ -87,8 +86,8 @@ struct UserLineRenderParams
   std::vector<m2::SharedSpline> m_splines;
 };
 
-using UserMarksRenderCollection = ankerl::unordered_dense::map<kml::MarkId, drape_ptr<UserMarkRenderParams>>;
-using UserLinesRenderCollection = ankerl::unordered_dense::map<kml::MarkId, drape_ptr<UserLineRenderParams>>;
+using UserMarksRenderCollection = std::unordered_map<kml::MarkId, drape_ptr<UserMarkRenderParams>>;
+using UserLinesRenderCollection = std::unordered_map<kml::MarkId, drape_ptr<UserLineRenderParams>>;
 
 struct UserMarkRenderData
 {

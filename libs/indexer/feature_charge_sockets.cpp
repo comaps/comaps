@@ -9,9 +9,8 @@
 #include <iomanip>  // for formatting doubles
 #include <sstream>  // for std::to_string alternative
 #include <string_view>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 // helper to format doubles (avoids trailing zeros)
 inline std::string to_string_trimmed(double value, int precision = 2)
@@ -140,7 +139,7 @@ void ChargeSocketsHelper::AggregateChargeSocketKey(std::string const & k, std::s
   }
 
   // normalize type
-  static ankerl::unordered_dense::map<std::string_view, std::string_view> const kTypeMap = {
+  static std::unordered_map<std::string_view, std::string_view> const kTypeMap = {
       {"tesla_supercharger", "nacs"},
       {"tesla_destination", "nacs"},
       {"tesla_standard", "nacs"},
@@ -405,7 +404,7 @@ KeyValueDiffSet ChargeSocketsHelper::Diff(ChargeSocketDescriptors const & oldSoc
   auto oldKeys = ChargeSocketsHelper(oldSockets).GetOSMKeyValues();
   auto newKeys = GetOSMKeyValues();
 
-  ankerl::unordered_dense::map<std::string, std::string> oldMap, newMap;
+  std::unordered_map<std::string, std::string> oldMap, newMap;
 
   for (auto && [k, v] : oldKeys)
     oldMap.emplace(k, v);

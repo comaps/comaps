@@ -8,9 +8,8 @@
 #include <algorithm>
 #include <deque>
 #include <list>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace topography_generator
 {
@@ -25,7 +24,7 @@ public:
 
   template <typename ValueType>
   void GetContours(ValueType minValue, ValueType valueStep,
-                   ankerl::unordered_dense::map<ValueType, std::vector<Contour>> & contours)
+                   std::unordered_map<ValueType, std::vector<Contour>> & contours)
   {
     contours.clear();
     for (size_t i = 0; i < m_finalizedContours.size(); ++i)

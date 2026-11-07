@@ -9,8 +9,7 @@
 #include <functional>
 #include <memory>
 #include <string>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_set>
 
 namespace generator
 {
@@ -152,7 +151,7 @@ private:
 class ComplexFeaturesMixer
 {
 public:
-  explicit ComplexFeaturesMixer(ankerl::unordered_dense::set<CompositeId> const & hierarchyNodesSet);
+  explicit ComplexFeaturesMixer(std::unordered_set<CompositeId> const & hierarchyNodesSet);
 
   void Process(std::function<void(feature::FeatureBuilder &)> next,
                feature::FeatureBuilder const & fb);
@@ -163,7 +162,7 @@ private:
   feature::FeatureBuilder MakeComplexLineFrom(feature::FeatureBuilder const & fb);
   feature::FeatureBuilder MakeComplexAreaFrom(feature::FeatureBuilder const & fb);
 
-  ankerl::unordered_dense::set<CompositeId> const & m_hierarchyNodesSet;
+  std::unordered_set<CompositeId> const & m_hierarchyNodesSet;
   uint32_t const m_complexEntryType;
 };
 */

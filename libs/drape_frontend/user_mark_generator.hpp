@@ -12,9 +12,8 @@
 #include <map>
 #include <set>
 #include <string>
+#include <unordered_set>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace dp
 {
@@ -64,7 +63,7 @@ private:
                       MarksIDGroups const & indexesGroups, ref_ptr<dp::TextureManager> textures,
                       dp::Batcher & batcher) const;
 
-  ankerl::unordered_dense::set<kml::MarkGroupId> m_groupsVisibility;
+  std::unordered_set<kml::MarkGroupId> m_groupsVisibility;
   MarksIDGroups m_groups;
 
   UserMarksRenderCollection m_marks;

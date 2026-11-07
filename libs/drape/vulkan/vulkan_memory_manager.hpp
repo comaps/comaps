@@ -9,9 +9,8 @@
 #include <memory>
 #include <mutex>
 #include <optional>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace dp
 {
@@ -90,7 +89,7 @@ private:
   uint32_t m_totalAllocationCounter = 0;
 
   using MemoryBlocks = std::vector<drape_ptr<MemoryBlock>>;
-  std::array<ankerl::unordered_dense::map<uint64_t, MemoryBlocks>, kResourcesCount> m_memory;
+  std::array<std::unordered_map<uint64_t, MemoryBlocks>, kResourcesCount> m_memory;
   std::array<MemoryBlocks, kResourcesCount> m_freeBlocks;
   std::array<uint32_t, kResourcesCount> m_sizes = {};
 };

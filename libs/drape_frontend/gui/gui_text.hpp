@@ -19,8 +19,7 @@
 
 #include <functional>
 #include <string>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_set>
 
 namespace dp
 {
@@ -29,7 +28,7 @@ class GraphicsContext;
 
 namespace gui
 {
-using TAlphabet = ankerl::unordered_dense::set<strings::UniChar>;
+using TAlphabet = std::unordered_set<strings::UniChar>;
 
 class StaticLabel
 {
