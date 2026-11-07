@@ -19,8 +19,7 @@
 #include <algorithm>
 #include <fstream>
 #include <sstream>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_set>
 
 namespace routing_builder
 {
@@ -128,7 +127,7 @@ Joint::Id RestrictionCollector::GetFirstCommonJoint(uint32_t firstFeatureId, uin
   auto const firstRoad = m_indexGraph.GetRoad(firstFeatureId);
   auto const secondRoad = m_indexGraph.GetRoad(secondFeatureId);
 
-  ankerl::unordered_dense::set<Joint::Id> used;
+  std::unordered_set<Joint::Id> used;
   for (uint32_t i = 0; i < firstLen; ++i)
     if (firstRoad.GetJointId(i) != Joint::kInvalidId)
       used.emplace(firstRoad.GetJointId(i));

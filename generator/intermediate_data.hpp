@@ -22,8 +22,6 @@
 #include <unordered_map>
 #include <vector>
 
-#include "3party/ankerl/unordered_dense.h"
-
 // Classes for reading and writing any data in file with map of offsets for
 // fast searching in memory by some key.
 namespace generator
@@ -154,7 +152,7 @@ public:
 
 private:
   std::mutex m_mutex;
-  ankerl::unordered_dense::map<std::string, AllocatedObjects> m_objects;
+  std::unordered_map<std::string, AllocatedObjects> m_objects;
 };
 
 class OSMElementCacheReader : public OSMElementCacheReaderInterface

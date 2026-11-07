@@ -31,9 +31,8 @@
 #include <algorithm>
 #include <cstdint>
 #include <memory>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace index_graph_test
 {
@@ -519,7 +518,7 @@ UNIT_TEST(SerializeSimpleGraph)
         MakeJoint({{1, 1}, {2, 0}}),
     };
     graph.Import(joints);
-    ankerl::unordered_dense::map<uint32_t, VehicleMask> masks;
+    unordered_map<uint32_t, VehicleMask> masks;
     masks[0] = kPedestrianMask;
     masks[1] = kCarMask;
     masks[2] = kCarMask;

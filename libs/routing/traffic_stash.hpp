@@ -6,9 +6,8 @@
 #include "routing_common/num_mwm_id.hpp"
 
 #include <memory>
+#include <unordered_map>
 #include <utility>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace traffic
 {
@@ -54,6 +53,6 @@ private:
 
   traffic::TrafficCache const & m_source;
   std::shared_ptr<NumMwmIds> m_numMwmIds;
-  ankerl::unordered_dense::map<NumMwmId, std::shared_ptr<traffic::TrafficInfo::Coloring const>> m_mwmToTraffic;
+  std::unordered_map<NumMwmId, std::shared_ptr<traffic::TrafficInfo::Coloring const>> m_mwmToTraffic;
 };
 }  // namespace routing

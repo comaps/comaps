@@ -15,10 +15,9 @@
 #include <algorithm>
 #include <cstdint>
 #include <string>
+#include <unordered_map>
 #include <utility>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -125,7 +124,7 @@ struct RestrictionHeader
 
   uint16_t m_version;
   uint16_t m_reserved;
-  ankerl::unordered_dense::map<Restriction::Type, uint32_t> m_restrictionCount;
+  std::unordered_map<Restriction::Type, uint32_t> m_restrictionCount;
 };
 
 class RestrictionSerializer

@@ -18,6 +18,7 @@
 
 #include <functional>
 #include <memory>
+#include <unordered_map>
 #include <vector>
 
 namespace
@@ -53,7 +54,7 @@ jobject g_checkUpdatesListener = nullptr;
 jobject g_countryChangedListener = nullptr;
 
 DECLARE_THREAD_CHECKER(g_batchingThreadChecker);
-ankerl::unordered_dense::map<jobject, std::vector<TBatchedData>> g_batchedCallbackData;
+std::unordered_map<jobject, std::vector<TBatchedData>> g_batchedCallbackData;
 bool g_isBatched;
 
 storage::Storage & GetStorage()

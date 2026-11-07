@@ -6,8 +6,6 @@
 #include <map>
 #include <string>
 
-#include "3party/ankerl/unordered_dense.h"
-
 using namespace base;
 using namespace std;
 

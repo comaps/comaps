@@ -7,16 +7,15 @@
 #include "coding/traffic.hpp"
 
 #include <string>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace track_analyzing
 {
 using DataPoint = coding::TrafficGPSEncoder::DataPoint;
 using Track = std::vector<DataPoint>;
-using UserToTrack = ankerl::unordered_dense::map<std::string, Track>;
-using MwmToTracks = ankerl::unordered_dense::map<routing::NumMwmId, UserToTrack>;
+using UserToTrack = std::unordered_map<std::string, Track>;
+using MwmToTracks = std::unordered_map<routing::NumMwmId, UserToTrack>;
 
 class MatchedTrackPoint final
 {
@@ -35,8 +34,8 @@ private:
 };
 
 using MatchedTrack = std::vector<MatchedTrackPoint>;
-using UserToMatchedTracks = ankerl::unordered_dense::map<std::string, std::vector<MatchedTrack>>;
-using MwmToMatchedTracks = ankerl::unordered_dense::map<routing::NumMwmId, UserToMatchedTracks>;
+using UserToMatchedTracks = std::unordered_map<std::string, std::vector<MatchedTrack>>;
+using MwmToMatchedTracks = std::unordered_map<routing::NumMwmId, UserToMatchedTracks>;
 
 class TrackFilter final
 {

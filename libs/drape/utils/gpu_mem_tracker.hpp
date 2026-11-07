@@ -8,9 +8,8 @@
 #include <map>
 #include <mutex>
 #include <string>
+#include <unordered_map>
 #include <utility>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace dp
 {
@@ -39,7 +38,7 @@ public:
     uint32_t m_summaryAllocatedInMb = 0;
     uint32_t m_summaryUsedInMb = 0;
     std::map<std::string, TagMemorySnapshot> m_tagStats;
-    ankerl::unordered_dense::map<uint64_t, AverageAllocation> m_averageAllocations;
+    std::unordered_map<uint64_t, AverageAllocation> m_averageAllocations;
   };
 
   static GPUMemTracker & Inst();
@@ -58,7 +57,7 @@ private:
   using TAlocUsedMem = std::pair<uint32_t, uint32_t>;
   using TMemTag = std::pair<std::string, uint32_t>;
   std::map<TMemTag, TAlocUsedMem> m_memTracker;
-  ankerl::unordered_dense::map<uint64_t, AverageAllocation> m_averageAllocations;
+  std::unordered_map<uint64_t, AverageAllocation> m_averageAllocations;
 
   std::mutex m_mutex;
 

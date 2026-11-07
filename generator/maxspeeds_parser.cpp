@@ -5,14 +5,13 @@
 
 #include <cctype>
 #include <limits>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 namespace generator
 {
 using measurement_utils::Units;
 
-static ankerl::unordered_dense::map<std::string, routing::SpeedInUnits> const kRoadCategoryToSpeed = {
+static std::unordered_map<std::string, routing::SpeedInUnits> const kRoadCategoryToSpeed = {
     {"AR:motorway", {130, Units::Metric}},
     {"AR:rural", {110, Units::Metric}},
     {"AR:urban", {40, Units::Metric}},

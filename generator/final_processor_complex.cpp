@@ -77,7 +77,7 @@ void ComplexFinalProcessor::Process()
     // is contained in an object with tag 'building'. We will split data and work with
     // these cases separately. First of all let's remove objects with tag building:part is
     // contained in relations. We will add them back after data processing.
-    ankerl::unordered_dense::map<base::GeoObjectId, FeatureBuilder> relationBuildingParts;
+    std::unordered_map<base::GeoObjectId, FeatureBuilder> relationBuildingParts;
 
     auto fbs = ReadAllDatRawFormat<serialization_policy::MaxAccuracy>(path);
 
@@ -141,7 +141,7 @@ void ComplexFinalProcessor::Process()
   WriteLines(allLines);
 }
 
-ankerl::unordered_dense::map<base::GeoObjectId, FeatureBuilder> ComplexFinalProcessor::RemoveRelationBuildingParts(
+std::unordered_map<base::GeoObjectId, FeatureBuilder> ComplexFinalProcessor::RemoveRelationBuildingParts(
     std::vector<FeatureBuilder> & fbs)
 {
   CHECK(m_buildingToParts, ());
@@ -149,7 +149,7 @@ ankerl::unordered_dense::map<base::GeoObjectId, FeatureBuilder> ComplexFinalProc
   auto it = std::partition(std::begin(fbs), std::end(fbs), [&](auto const & fb)
   { return !m_buildingToParts->HasBuildingPart(fb.GetMostGenericOsmId()); });
 
-  ankerl::unordered_dense::map<base::GeoObjectId, FeatureBuilder> buildingParts;
+  std::unordered_map<base::GeoObjectId, FeatureBuilder> buildingParts;
   buildingParts.reserve(static_cast<size_t>(std::distance(it, std::end(fbs))));
 
   std::transform(it, std::end(fbs), std::inserter(buildingParts, std::begin(buildingParts)), [](auto && fb)

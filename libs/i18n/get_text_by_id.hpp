@@ -2,9 +2,8 @@
 
 #include <memory>
 #include <string>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace platform
 {
@@ -41,7 +40,7 @@ private:
   bool IsValid() const { return !m_localeTexts.empty(); }
 
   std::string m_locale;
-  ankerl::unordered_dense::map<std::string, std::string> m_localeTexts;
+  std::unordered_map<std::string, std::string> m_localeTexts;
 };
 
 /// Factories to create GetTextById instances.

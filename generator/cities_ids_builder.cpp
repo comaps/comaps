@@ -16,8 +16,7 @@
 #include "base/logging.hpp"
 
 #include <cstdint>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 #include "defines.hpp"
 
@@ -37,7 +36,7 @@ bool IsWorldMwm(std::string const & path)
 }
 
 void WriteCitiesIdsSectionToFile(std::string const & dataPath,
-                                 ankerl::unordered_dense::map<uint32_t, base::GeoObjectId> const & mapping)
+                                 std::unordered_map<uint32_t, base::GeoObjectId> const & mapping)
 {
   indexer::FeatureIdToGeoObjectIdBimapMem map;
   auto const localities = generator::GetLocalities(dataPath);
@@ -86,7 +85,7 @@ bool BuildCitiesIds(std::string const & dataPath, std::string const & osmToFeatu
 
   classificator::Load();
 
-  ankerl::unordered_dense::map<uint32_t, base::GeoObjectId> mapping;
+  std::unordered_map<uint32_t, base::GeoObjectId> mapping;
   if (!ParseFeatureIdToOsmIdMapping(osmToFeaturePath, mapping))
   {
     LOG(LERROR, ("Can't parse feature id to osm id mapping."));
@@ -101,11 +100,11 @@ bool BuildCitiesIdsForTesting(std::string const & dataPath)
 {
   CHECK(IsWorldMwm(dataPath), ());
 
-  ankerl::unordered_dense::map<uint32_t, uint64_t> mapping;
+  std::unordered_map<uint32_t, uint64_t> mapping;
   if (!ParseFeatureIdToTestIdMapping(dataPath, mapping))
     return false;
 
-  ankerl::unordered_dense::map<uint32_t, base::GeoObjectId> mappingToGeoObjects;
+  std::unordered_map<uint32_t, base::GeoObjectId> mappingToGeoObjects;
   for (auto const & entry : mapping)
   {
     // todo(@m) Make test ids a new source in base::GeoObjectId?

@@ -11,9 +11,8 @@
 #include <functional>
 #include <string>
 #include <tuple>
+#include <unordered_map>
 #include <utility>
-
-#include "3party/ankerl/unordered_dense.h"
 
 #include <QtCore/QDir>
 
@@ -84,9 +83,9 @@ std::string trim(std::string && s)
 
 namespace build_style
 {
-ankerl::unordered_dense::map<std::string, int> GetSkinSizes(QString const & file)
+std::unordered_map<std::string, int> GetSkinSizes(QString const & file)
 {
-  ankerl::unordered_dense::map<std::string, int> skinSizes;
+  std::unordered_map<std::string, int> skinSizes;
 
   for (SkinType s : g_skinTypes)
     skinSizes.insert(std::make_pair(SkinSuffix(s), SkinSize(s)));

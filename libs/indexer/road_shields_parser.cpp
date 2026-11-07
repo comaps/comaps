@@ -12,9 +12,8 @@
 #include <algorithm>
 #include <array>
 #include <cctype>
+#include <unordered_map>
 #include <utility>
-
-#include "3party/ankerl/unordered_dense.h"
 
 /*
  * TODO : why all this parsing happens in the run-time? The most of it should be moved to the generator.
@@ -55,7 +54,7 @@ std::array<std::string, 27> const kBrazilStatesCode = {{
 }};
 
 // Shields based on a network tag in a route=road relation.
-ankerl::unordered_dense::map<std::string, RoadShieldType> const kRoadNetworkShields = {
+std::unordered_map<std::string, RoadShieldType> const kRoadNetworkShields = {
     // International road networks.
     {"e-road", RoadShieldType::Generic_Green},  // E 105
     {"asianhighway", RoadShieldType::Hidden},   // AH8. Blue, but usually not posted.

@@ -18,9 +18,8 @@
 #include <map>
 #include <set>
 #include <string>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace dp
 {
@@ -126,7 +125,7 @@ struct StopNodeParamsPT
   std::map<::transit::TransitId, StopInfo> m_stopsInfo;
 };
 
-using IdToIdSet = ankerl::unordered_dense::map<::transit::TransitId, ::transit::IdSet>;
+using IdToIdSet = std::unordered_map<::transit::TransitId, ::transit::IdSet>;
 
 struct RouteSegment
 {

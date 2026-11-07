@@ -21,8 +21,6 @@
 #include <algorithm>
 #include <utility>
 
-#include "3party/ankerl/unordered_dense.h"
-
 namespace
 {
 using IdRelationVec = std::vector<std::pair<uint64_t, RelationElement>>;

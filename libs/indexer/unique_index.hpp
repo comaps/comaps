@@ -2,9 +2,8 @@
 
 #include "base/base.hpp"
 
+#include <unordered_set>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 class CheckUniqueIndexes
 {

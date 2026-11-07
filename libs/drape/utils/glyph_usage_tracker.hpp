@@ -9,8 +9,7 @@
 #include <mutex>
 #include <set>
 #include <string>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_set>
 
 namespace dp
 {
@@ -49,7 +48,7 @@ private:
 
 private:
   GlyphUsageStatistic m_glyphStat;
-  ankerl::unordered_dense::set<std::string> m_processedStrings;
+  std::unordered_set<std::string> m_processedStrings;
 
   std::mutex m_mutex;
 };

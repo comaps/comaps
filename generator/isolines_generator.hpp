@@ -4,8 +4,7 @@
 
 #include <functional>
 #include <string>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 namespace generator
 {
@@ -22,6 +21,6 @@ private:
   uint32_t GetIsolineType(int altitude) const;
 
   std::string m_isolinesDir;
-  ankerl::unordered_dense::map<int, uint32_t> m_altClassToType;
+  std::unordered_map<int, uint32_t> m_altClassToType;
 };
 }  // namespace generator

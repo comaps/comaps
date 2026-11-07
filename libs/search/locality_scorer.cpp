@@ -19,8 +19,7 @@
 
 #include <algorithm>
 #include <sstream>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_set>
 
 namespace search
 {
@@ -215,7 +214,7 @@ void LocalityScorer::LeaveTopLocalities(IdfMap & idfs, size_t limit, vector<Loca
   localities.clear();
   localities.reserve(els.size());
 
-  ankerl::unordered_dense::set<uint32_t> seen;
+  unordered_set<uint32_t> seen;
   for (auto it = els.begin(); it != els.end() && localities.size() < limit; ++it)
     if (seen.insert(it->GetId()).second)
       localities.push_back(std::move(it->m_locality));
@@ -238,7 +237,7 @@ void LocalityScorer::LeaveTopByExactMatchNormAndRank(size_t limitUniqueIds, vect
   // This logic with additional filtering set makes sense when _equal_ localities by GetId()
   // have _different_ primary compare params (m_exactMatch, m_queryNorm, m_rank).
   // It's possible when same locality was matched by different tokens.
-  ankerl::unordered_dense::set<uint32_t> seen;
+  unordered_set<uint32_t> seen;
   auto it = els.begin();
   for (; it != els.end() && seen.size() < limitUniqueIds; ++it)
     seen.insert(it->GetId());
