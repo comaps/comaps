@@ -21,7 +21,7 @@ body:
           required: true
         - label: I have signed off all my commits with the [Developers Certificate of Origin](https://codeberg.org/comaps/Governance/src/branch/main/DCO.md)
           required: true
-        - label: All communication (commit messages, pull request messages, documentation, and code comments) is human written and not authored by AI
+        - label: All communication (commit messages, pull request messages, documentation, and code comments) is human written and [not authored by AI](https://codeberg.org/comaps/Governance/src/branch/main/AI_USAGE.md#agreement)
           required: true
-        - label: I take full responsibility of all changes submitted in this pull request
-          required: true
+        - label: This PR contains AI authored code or assets
+        - label: I have read **and** understand the code I'm submitting
