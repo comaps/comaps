@@ -61,11 +61,7 @@ let alpha100: CGFloat = 1.0
   var ratingGreen: UIColor { get }
   var fadeBackground: UIColor { get }
   var blackStatusBarBackground: UIColor { get }
-  var elevationPreviewSelector: UIColor { get }
-  var elevationPreviewTint: UIColor { get }
   var shadow: UIColor { get }
-  var chartLine: UIColor { get }
-  var chartShadow: UIColor { get }
   var cityColor: UIColor { get }
   var outdoorColor: UIColor { get }
   var carplayPlaceholderBackground: UIColor { get }

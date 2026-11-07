@@ -268,6 +268,11 @@
 		F7F6279CF4D6CFBC08A93FAB /* PlacePageSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC8FED71BCC881FB07BD06 /* PlacePageSheet.swift */; };
 		2869A4461006444AB350AB8E /* PlacePageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8701685A34CCC81ECC4E09D /* PlacePageAction.swift */; };
 		12F798C7D4371F299AAA16E9 /* PlacePageElevationProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CDD3027857785E711297FB /* PlacePageElevationProfile.swift */; };
+		6253914EFC8121388E33EA8C /* ElevationStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1B11762C76E839B23DCE6C /* ElevationStat.swift */; };
+		89F645D1200E6BFDEAD92485 /* ElevationProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD5F68B60A0B3621FF8C171 /* ElevationProfile.swift */; };
+		EFDF5236E8531E448BE4D77B /* ElevationAltitudeAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ED9B5BB4F08C8D4EEE1A60 /* ElevationAltitudeAxis.swift */; };
+		DFFC35EED6223206A8CAF475 /* ElevationChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987B2921AE088ECCA6FAC6AD /* ElevationChart.swift */; };
+		C6328B011EAD28AE6916D48F /* ElevationSelectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1817DEDECE3B4945FF4285B7 /* ElevationSelectionInfo.swift */; };
 		7A55AE8E07535B8C253C74D2 /* MapPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB2619F290F92F11590248A /* MapPanel.swift */; };
 		40BD95A3D925F19D9EE08E3F /* MapPanelButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE5CC414CF1CECC30B75A6A /* MapPanelButtonLabel.swift */; };
 		BC2628913A5CA6CDCCC497B3 /* MapPanelCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D0457694B7F0A97F748C4 /* MapPanelCloseButton.swift */; };
@@ -310,7 +315,6 @@
 		47CA68F8250F8AB700671019 /* BookmarksListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CA68F7250F8AB600671019 /* BookmarksListSectionHeader.swift */; };
 		47CA68FA250F8AD100671019 /* BookmarksListSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47CA68F9250F8AD100671019 /* BookmarksListSectionHeader.xib */; };
 		47CA68FC250F99E500671019 /* BookmarksListCellStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CA68FB250F99E500671019 /* BookmarksListCellStrategy.swift */; };
-		47D48BF52432A7CA00FEFB1F /* ChartViewRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D48BF42432A7C900FEFB1F /* ChartViewRenderer.swift */; };
 		47DF72B922520CE20004AB10 /* MWMRoutingOptions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 474902D9224A54EC008D71E0 /* MWMRoutingOptions.mm */; };
 		47E3C7252111E41B008B3B27 /* DimmedModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E3C7242111E41B008B3B27 /* DimmedModalPresentationController.swift */; };
 		47E3C7272111E5A8008B3B27 /* AlertPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E3C7262111E5A8008B3B27 /* AlertPresentationController.swift */; };
@@ -509,7 +513,6 @@
 		ED9857082C4ED02D00694F6C /* MailComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9857072C4ED02D00694F6C /* MailComposer.swift */; };
 		ED9966802B94FBC20083CE55 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED99667D2B94FBC20083CE55 /* ColorPicker.swift */; };
 		ED9DDF9D2D6F6F7900645BC8 /* TrackRecordingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9DDF9B2D6F6DA300645BC8 /* TrackRecordingManagerTests.swift */; };
-		EDA1EAA42CC7ECAD00DBDCAA /* ElevationProfileFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA1EAA32CC7ECAD00DBDCAA /* ElevationProfileFormatter.swift */; };
 		EDB71D8C2D8474A0004A6A7F /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB71D8B2D8474A0004A6A7F /* CornerRadius.swift */; };
 		EDC3573B2B7B5029001AE9CA /* CALayer+SetCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC3573A2B7B5029001AE9CA /* CALayer+SetCorner.swift */; };
 		EDC4E34B2C5D1BEF009286A2 /* RecentlyDeletedCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC4E3472C5D1BEF009286A2 /* RecentlyDeletedCategoriesViewController.swift */; };
@@ -594,8 +597,6 @@
 		F6E2FEE81E097BA00083EBEC /* MWMSearchNoResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6E2FCFE1E097B9F0083EBEC /* MWMSearchNoResults.xib */; };
 		F6FEA82E1C58F108007223CC /* MWMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FEA82C1C58E89B007223CC /* MWMButton.m */; };
 		FA14E686276014C10066E453 /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA14E683276014C10066E453 /* libz.1.tbd */; };
-		FA456C3C26BDC6AD00B83C20 /* Chart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA456C3B26BDC6AD00B83C20 /* Chart.framework */; };
-		FA456C3D26BDC6BA00B83C20 /* Chart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA456C3B26BDC6AD00B83C20 /* Chart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA456C3E26BDC6C100B83C20 /* DatePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BDC26BC58570026D455 /* DatePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA456C3F26BDC6CF00B83C20 /* minizip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BBE26BC3B8A0026D455 /* minizip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA456C4F26BDCCCC00B83C20 /* shaders_metal.metallib in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA456C4B26BDCC8E00B83C20 /* shaders_metal.metallib */; };
@@ -693,7 +694,6 @@
 			files = (
 				FA456C3F26BDC6CF00B83C20 /* minizip.framework in Embed Frameworks */,
 				FA456C3E26BDC6C100B83C20 /* DatePicker.framework in Embed Frameworks */,
-				FA456C3D26BDC6BA00B83C20 /* Chart.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1147,6 +1147,11 @@
 		74EC8FED71BCC881FB07BD06 /* PlacePageSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePageSheet.swift; sourceTree = "<group>"; };
 		C8701685A34CCC81ECC4E09D /* PlacePageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePageAction.swift; sourceTree = "<group>"; };
 		C3CDD3027857785E711297FB /* PlacePageElevationProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePageElevationProfile.swift; sourceTree = "<group>"; };
+		CA1B11762C76E839B23DCE6C /* ElevationStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationStat.swift; sourceTree = "<group>"; };
+		6AD5F68B60A0B3621FF8C171 /* ElevationProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationProfile.swift; sourceTree = "<group>"; };
+		F4ED9B5BB4F08C8D4EEE1A60 /* ElevationAltitudeAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationAltitudeAxis.swift; sourceTree = "<group>"; };
+		987B2921AE088ECCA6FAC6AD /* ElevationChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationChart.swift; sourceTree = "<group>"; };
+		1817DEDECE3B4945FF4285B7 /* ElevationSelectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationSelectionInfo.swift; sourceTree = "<group>"; };
 		0EB2619F290F92F11590248A /* MapPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPanel.swift; sourceTree = "<group>"; };
 		2FE5CC414CF1CECC30B75A6A /* MapPanelButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPanelButtonLabel.swift; sourceTree = "<group>"; };
 		4A3D0457694B7F0A97F748C4 /* MapPanelCloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPanelCloseButton.swift; sourceTree = "<group>"; };
@@ -1198,7 +1203,6 @@
 		47CA68F7250F8AB600671019 /* BookmarksListSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksListSectionHeader.swift; sourceTree = "<group>"; };
 		47CA68F9250F8AD100671019 /* BookmarksListSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarksListSectionHeader.xib; sourceTree = "<group>"; };
 		47CA68FB250F99E500671019 /* BookmarksListCellStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksListCellStrategy.swift; sourceTree = "<group>"; };
-		47D48BF42432A7C900FEFB1F /* ChartViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewRenderer.swift; sourceTree = "<group>"; };
 		47E3C7242111E41B008B3B27 /* DimmedModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmedModalPresentationController.swift; sourceTree = "<group>"; };
 		47E3C7262111E5A8008B3B27 /* AlertPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentationController.swift; sourceTree = "<group>"; };
 		47E3C7282111E614008B3B27 /* FadeInAnimatedTransitioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInAnimatedTransitioning.swift; sourceTree = "<group>"; };
@@ -1517,7 +1521,6 @@
 		ED9857072C4ED02D00694F6C /* MailComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposer.swift; sourceTree = "<group>"; };
 		ED99667D2B94FBC20083CE55 /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		ED9DDF9B2D6F6DA300645BC8 /* TrackRecordingManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackRecordingManagerTests.swift; sourceTree = "<group>"; };
-		EDA1EAA32CC7ECAD00DBDCAA /* ElevationProfileFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationProfileFormatter.swift; sourceTree = "<group>"; };
 		EDB71D8B2D8474A0004A6A7F /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		EDC3573A2B7B5029001AE9CA /* CALayer+SetCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+SetCorner.swift"; sourceTree = "<group>"; };
 		EDC4E3402C5D1BD3009286A2 /* MockRecentlyDeletedCategoriesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRecentlyDeletedCategoriesManager.swift; sourceTree = "<group>"; };
@@ -1661,7 +1664,6 @@
 		FA3C4FE62D0DB7A700E6C03A /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA3C4FE72D0DB7A700E6C03A /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = sr; path = sr.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		FA439D842DF618670023C181 /* MountainElevationGenerator.hpp */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.cpp.h; path = MountainElevationGenerator.hpp; sourceTree = "<group>"; tabWidth = 2; };
-		FA456C3B26BDC6AD00B83C20 /* Chart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Chart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA456C4026BDCC8E00B83C20 /* shaders.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = shaders.xcodeproj; path = ../../xcode/shaders/shaders.xcodeproj; sourceTree = "<group>"; };
 		FA459EB314327AF700B5BB3C /* WorldCoasts.mwm */ = {isa = PBXFileReference; name = WorldCoasts.mwm; path = ../../data/WorldCoasts.mwm; sourceTree = "<group>"; };
 		FA46DA2B12D4166E00968C36 /* countries.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = countries.txt; path = ../../data/countries.txt; sourceTree = SOURCE_ROOT; };
@@ -1754,7 +1756,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF9DDA32A86DC54000D7037 /* libharfbuzz.a in Frameworks */,
-				FA456C3C26BDC6AD00B83C20 /* Chart.framework in Frameworks */,
 				FA853BF326BC5DE50026D455 /* libshaders.a in Frameworks */,
 				FA853BEF26BC5BA40026D455 /* libdescriptions.a in Frameworks */,
 				FA853BEB26BC5B9E0026D455 /* libbsdiff.a in Frameworks */,
@@ -2077,7 +2078,6 @@
 			children = (
 				CE8597432FC10A4500D250DC /* libi18n.a */,
 				FAF9DDA22A86DC54000D7037 /* libharfbuzz.a */,
-				FA456C3B26BDC6AD00B83C20 /* Chart.framework */,
 				FA853BF226BC5DE50026D455 /* libshaders.a */,
 				FA853BEE26BC5BA40026D455 /* libdescriptions.a */,
 				FA853BEA26BC5B9E0026D455 /* libbsdiff.a */,
@@ -2902,7 +2902,6 @@
 				993DF0ED23F6BDB100AC231A /* UITableViewCellRenderer.swift */,
 				993DF0EF23F6BDB100AC231A /* UIViewControllerRenderer.swift */,
 				993DF0F023F6BDB100AC231A /* UINavigationItemRenderer.swift */,
-				47D48BF42432A7C900FEFB1F /* ChartViewRenderer.swift */,
 				47A13CAC24BE9AA500027D4F /* DatePickerViewRenderer.swift */,
 			);
 			path = Renderers;
@@ -2994,7 +2993,11 @@
 			isa = PBXGroup;
 			children = (
 				C3CDD3027857785E711297FB /* PlacePageElevationProfile.swift */,
-				EDA1EAA32CC7ECAD00DBDCAA /* ElevationProfileFormatter.swift */,
+				CA1B11762C76E839B23DCE6C /* ElevationStat.swift */,
+				6AD5F68B60A0B3621FF8C171 /* ElevationProfile.swift */,
+				F4ED9B5BB4F08C8D4EEE1A60 /* ElevationAltitudeAxis.swift */,
+				987B2921AE088ECCA6FAC6AD /* ElevationChart.swift */,
+				1817DEDECE3B4945FF4285B7 /* ElevationSelectionInfo.swift */,
 			);
 			path = ElevationProfile;
 			sourceTree = "<group>";
@@ -4149,7 +4152,6 @@
 				BB8123D62130427E00ADE512 /* MetalContextFactory.mm in Sources */,
 				3467CEB2202C6EEE00D3C670 /* BMCNotificationsHeader.swift in Sources */,
 				34D3B0211E389D05004100F9 /* MWMEditorAddAdditionalNameTableViewCell.m in Sources */,
-				47D48BF52432A7CA00FEFB1F /* ChartViewRenderer.swift in Sources */,
 				CDCA273A2237FCFE00167D87 /* SearchTemplateBuilder.swift in Sources */,
 				993DF10B23F6BDB100AC231A /* CheckmarkRenderer.swift in Sources */,
 				34D3B01B1E389D05004100F9 /* MWMButtonCell.m in Sources */,
@@ -4346,7 +4348,6 @@
 				34D3B03C1E389D05004100F9 /* MWMEditorSwitchTableViewCell.m in Sources */,
 				EDCA7CDF2D317DF9003366CE /* StyleSheet.swift in Sources */,
 				34AB66411FC5AA330078E451 /* RouteManagerTransitioningManager.swift in Sources */,
-				EDA1EAA42CC7ECAD00DBDCAA /* ElevationProfileFormatter.swift in Sources */,
 				996D108A24E3DBF2002DD0E2 /* BookmarksCoordinator.swift in Sources */,
 				3454D7CE1E07F045004AF2AD /* UIFont+MapsMeFonts.m in Sources */,
 				2765D1D02E13F9C20005CA2B /* BridgeControllers.swift in Sources */,
@@ -4490,6 +4491,11 @@
 				F7F6279CF4D6CFBC08A93FAB /* PlacePageSheet.swift in Sources */,
 				2869A4461006444AB350AB8E /* PlacePageAction.swift in Sources */,
 				12F798C7D4371F299AAA16E9 /* PlacePageElevationProfile.swift in Sources */,
+				6253914EFC8121388E33EA8C /* ElevationStat.swift in Sources */,
+				89F645D1200E6BFDEAD92485 /* ElevationProfile.swift in Sources */,
+				EFDF5236E8531E448BE4D77B /* ElevationAltitudeAxis.swift in Sources */,
+				DFFC35EED6223206A8CAF475 /* ElevationChart.swift in Sources */,
+				C6328B011EAD28AE6916D48F /* ElevationSelectionInfo.swift in Sources */,
 				7A55AE8E07535B8C253C74D2 /* MapPanel.swift in Sources */,
 				40BD95A3D925F19D9EE08E3F /* MapPanelButtonLabel.swift in Sources */,
 				BC2628913A5CA6CDCCC497B3 /* MapPanelCloseButton.swift in Sources */,

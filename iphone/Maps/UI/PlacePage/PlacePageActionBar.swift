@@ -175,7 +175,7 @@ struct PlacePageActionBar: View {
     case .bookmark:
       PlacePageActionImage(name: content.bookmark != nil ? "ic_bookmarks_on" : "ic_bookmarks_off")
     case .deleteTrack:
-      PlacePageActionImage(name: "ic_route_manager_trash")
+      Image(systemName: "trash")
     case .saveTrackRecording:
       Image(systemName: "square.and.arrow.down")
     case .discardTrackRecording:

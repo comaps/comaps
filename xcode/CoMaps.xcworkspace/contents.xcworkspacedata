@@ -164,9 +164,6 @@
       location = "container:transit/transit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../iphone/Chart/Chart.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../iphone/CoreApi/CoreApi.xcodeproj">
    </FileRef>
    <FileRef

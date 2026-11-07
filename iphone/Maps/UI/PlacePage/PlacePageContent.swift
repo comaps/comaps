@@ -26,7 +26,7 @@ final class PlacePageContent {
   let isRoutePlanning = MWMNavigationDashboardManager.shared().state != .hidden
   let canAddStop = MWMRouter.canAddIntermediatePoint()
 
-  private(set) var revision = 0
+  private var revision = 0
   private(set) var downloadProgress: Double?
   private(set) var distance: String?
   private(set) var direction: Angle?
