@@ -28,13 +28,7 @@
 - (void)openBluesky:(PlacePageData *)data;
 - (void)openPanoramax:(PlacePageData *)data;
 - (void)call:(PlacePagePhone *)phone;
-- (void)showAllFacilities:(PlacePageData *)data;
 - (void)showPlaceDescription:(NSString *)htmlString;
-- (void)openMoreUrl:(PlacePageData *)data;
-- (void)openReviewUrl:(PlacePageData *)data;
-- (void)openDescriptionUrl:(PlacePageData *)data;
-- (void)openCatalogSingleItem:(PlacePageData *)data atIndex:(NSInteger)index;
-- (void)openCatalogMoreItems:(PlacePageData *)data;
 - (void)addBookmark:(PlacePageData *)data;
 - (void)updateBookmark:(PlacePageData *)data color:(MWMBookmarkColor)color category:(MWMMarkGroupID)category;
 - (void)removeBookmark:(PlacePageData *)data;
@@ -130,32 +124,8 @@
   [[MWMMapViewControlsManager manager].placePageManager call:phone];
 }
 
-+ (void)showAllFacilities:(PlacePageData *)data {
-  [[MWMMapViewControlsManager manager].placePageManager showAllFacilities:data];
-}
-
 + (void)showPlaceDescription:(NSString *)htmlString {
   [[MWMMapViewControlsManager manager].placePageManager showPlaceDescription:htmlString];
-}
-
-+ (void)openMoreUrl:(PlacePageData *)data {
-  [[MWMMapViewControlsManager manager].placePageManager openMoreUrl:data];
-}
-
-+ (void)openReviewUrl:(PlacePageData *)data {
-  [[MWMMapViewControlsManager manager].placePageManager openReviewUrl:data];
-}
-
-+ (void)openDescriptionUrl:(PlacePageData *)data {
-  [[MWMMapViewControlsManager manager].placePageManager openDescriptionUrl:data];
-}
-
-+ (void)openCatalogSingleItem:(PlacePageData *)data atIndex:(NSInteger)index {
-  [[MWMMapViewControlsManager manager].placePageManager openCatalogSingleItem:data atIndex:index];
-}
-
-+ (void)openCatalogMoreItems:(PlacePageData *)data {
-  [[MWMMapViewControlsManager manager].placePageManager openCatalogMoreItems:data];
 }
 
 + (void)addBookmark:(PlacePageData *)data {

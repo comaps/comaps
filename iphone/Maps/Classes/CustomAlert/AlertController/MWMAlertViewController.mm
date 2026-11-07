@@ -77,9 +77,6 @@ static NSString *const kAlertControllerNibIdentifier = @"MWMAlertViewController"
 - (void)presentNotEnoughSpaceAlert {
   [self displayAlert:[MWMAlert notEnoughSpaceAlert]];
 }
-- (void)presentInvalidUserNameOrPasswordAlert {
-  [self displayAlert:[MWMAlert invalidUserNameOrPasswordAlert]];
-}
 
 - (void)presentDownloaderAlertWithCountries:(storage::CountriesSet const &)countries
                                        code:(routing::RouterResultCode)code
@@ -168,17 +165,8 @@ static NSString *const kAlertControllerNibIdentifier = @"MWMAlertViewController"
   });
 }
 
-- (void)presentSpinnerAlertWithTitle:(nonnull NSString *)title cancel:(nullable MWMVoidBlock)cancel {
-  [self displayAlert:[MWMAlert spinnerAlertWithTitle:title cancel:cancel]];
-}
-
 - (void)presentBookmarkConversionErrorAlert {
   [self displayAlert:[MWMAlert bookmarkConversionErrorAlert]];
-}
-
-- (void)presentTagsLoadingErrorAlertWithOkBlock:(nonnull MWMVoidBlock)okBlock
-                                    cancelBlock:(nonnull MWMVoidBlock)cancelBlock {
-  [self displayAlert:[MWMAlert tagsLoadingErrorAlertWithOkBlock:okBlock cancelBlock:cancelBlock]];
 }
 
 - (void)presentBugReportAlertWithTitle:(nonnull NSString *)title {
