@@ -52,7 +52,6 @@ NSString *const kMapToCategorySelectorSegue = @"MapToCategorySelectorSegue";
     return nil;
   self.ownerController = controller;
   self.hidden = NO;
-  self.isDirectionViewHidden = YES;
   self.isAddingPlace = NO;
   self.searchManager = controller.searchManager;
   return self;
@@ -61,12 +60,10 @@ NSString *const kMapToCategorySelectorSegue = @"MapToCategorySelectorSegue";
 - (UIStatusBarStyle)preferredStatusBarStyle {
   BOOL const isNavigationUnderStatusBar = self.navigationManager.state != MWMNavigationDashboardStateHidden &&
                                           self.navigationManager.state != MWMNavigationDashboardStateNavigation;
-  BOOL const isDirectionViewUnderStatusBar = !self.isDirectionViewHidden;
   BOOL const isAddPlaceUnderStatusBar =
     [self.ownerController.view hasSubviewWithViewClass:[MWMAddPlaceNavigationBar class]];
   BOOL const isNightMode = [UIColor isNightMode];
   BOOL const isSomethingUnderStatusBar = isNavigationUnderStatusBar ||
-                                         isDirectionViewUnderStatusBar ||
                                          isAddPlaceUnderStatusBar;
 
   return isSomethingUnderStatusBar || isNightMode ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;

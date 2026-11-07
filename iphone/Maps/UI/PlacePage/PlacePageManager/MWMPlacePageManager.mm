@@ -339,20 +339,6 @@ using namespace storage;
   [MailComposer sendEmailWithSubject:nil body:nil toRecipients:@[data.infoData.email] attachmentFileURL:nil];
 }
 
-- (void)openElevationDifficultPopup:(PlacePageData *)data {
-  auto difficultyPopup = [ElevationDetailsBuilder buildWithData:data];
-  [[MapViewController sharedController] presentViewController:difficultyPopup animated:YES completion:nil];
-}
-
-#pragma mark - AvailableArea / PlacePageArea
-
-- (void)updateAvailableArea:(CGRect)frame
-{
-//  auto data = self.data;
-//  if (data)
-//    [self.layout updateAvailableArea:frame];
-}
-
 #pragma mark - MWMFeatureHolder
 
 - (FeatureID const &)featureId { return GetFramework().GetCurrentPlacePageInfo().GetID(); }

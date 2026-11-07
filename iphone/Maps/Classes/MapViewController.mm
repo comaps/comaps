@@ -30,9 +30,6 @@
 extern NSString *const kMap2FBLoginSegue = @"Map2FBLogin";
 extern NSString *const kMap2GoogleLoginSegue = @"Map2GoogleLogin";
 
-static CGFloat kPlacePageCompactWidth = 350;
-static CGFloat kPlacePageLeadingOffset = IPAD ? 20 : 0;
-
 typedef NS_ENUM(NSUInteger, UserTouchesAction) { UserTouchesActionNone, UserTouchesActionDrag, UserTouchesActionScale };
 
 namespace {
@@ -88,6 +85,7 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 @property(nonatomic) BOOL hasPointerLocation;
 @property(nonatomic) CGFloat previousPinchScale;
 @property(nonatomic) CGFloat currentRotation;
+@property(nonatomic) UIPanGestureRecognizer *touchPanRecognizer;
 
 @property(nonatomic, readwrite) MWMMapDownloadDialog *downloadDialog;
 
@@ -105,13 +103,6 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 
 @property(nonatomic) BOOL needDeferFocusNotification;
 @property(nonatomic) BOOL deferredFocusValue;
-@property(nonatomic) PlacePageViewController *placePageVC;
-@property(nonatomic) UIView *placePageContainer;
-
-@property(nonatomic) NSLayoutConstraint *placePageWidthConstraint;
-@property(nonatomic) NSLayoutConstraint *placePageLeadingConstraint;
-@property(nonatomic) CGFloat searchPanelInset;
-@property(nonatomic) NSLayoutConstraint *placePageTrailingConstraint;
 
 @end
 
@@ -128,75 +119,7 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
   if (self.searchManager.isSearching)
     [self.searchManager setPlaceOnMapSelected:YES];
 
-  if (self.placePageVC != nil) {
-    [PlacePageBuilder update:self.placePageVC with:data];
-    return;
-  }
-
-  [self showPlacePageFor:data];
-}
-
-- (void)showPlacePageFor:(PlacePageData *)data {
-  self.placePageContainer.hidden = NO;
-  self.placePageVC = [PlacePageBuilder buildFor:data];
-  [self.placePageContainer addSubview:self.placePageVC.view];
-  [self addChildViewController:self.placePageVC];
-  [self.placePageVC didMoveToParentViewController:self];
-  self.placePageVC.view.translatesAutoresizingMaskIntoConstraints = NO;
-  [NSLayoutConstraint activateConstraints:@[
-    [self.placePageVC.view.topAnchor constraintEqualToAnchor:self.placePageContainer.topAnchor],
-    [self.placePageVC.view.leadingAnchor constraintEqualToAnchor:self.placePageContainer.leadingAnchor],
-    [self.placePageVC.view.bottomAnchor constraintEqualToAnchor:self.placePageContainer.bottomAnchor],
-    [self.placePageVC.view.trailingAnchor constraintEqualToAnchor:self.placePageContainer.trailingAnchor]
-  ]];
-  [self updatePlacePageContainerConstraints];
-}
-
-- (void)setupPlacePageContainer {
-  self.placePageContainer = [[TouchTransparentView alloc] initWithFrame:self.view.bounds];
-  self.placePageContainer.translatesAutoresizingMaskIntoConstraints = NO;
-  [self.view addSubview:self.placePageContainer];
-  [self.view bringSubviewToFront:self.placePageContainer];
-
-  self.placePageLeadingConstraint = [self.placePageContainer.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:kPlacePageLeadingOffset];
-
-  self.placePageWidthConstraint = [self.placePageContainer.widthAnchor constraintEqualToConstant:kPlacePageCompactWidth];
-  self.placePageTrailingConstraint = [self.placePageContainer.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor];
-
-  NSLayoutConstraint * topConstraint;
-  NSLayoutConstraint * bottomConstraint;
-  if (IPAD)
-  {
-    topConstraint = [self.placePageContainer.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant: 60];
-    bottomConstraint = [self.placePageContainer.bottomAnchor constraintLessThanOrEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant: -60];
-  }
-  else
-  {
-    topConstraint = [self.placePageContainer.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor];
-    bottomConstraint = [self.placePageContainer.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor];
-  }
-
-  [NSLayoutConstraint activateConstraints:@[
-    self.placePageLeadingConstraint,
-    topConstraint,
-    bottomConstraint,
-  ]];
-
-  [self updatePlacePageContainerConstraints];
-}
-
-- (void)setSearchPanelInset:(CGFloat)searchPanelInset {
-  _searchPanelInset = searchPanelInset;
-  [self updatePlacePageContainerConstraints];
-}
-
-- (void)updatePlacePageContainerConstraints {
-  const BOOL isLimitedWidth = self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular || self.searchPanelInset > 0 || self.traitCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact;
-
-  self.placePageLeadingConstraint.constant = kPlacePageLeadingOffset + self.searchPanelInset;
-  [self.placePageWidthConstraint setActive:isLimitedWidth];
-  [self.placePageTrailingConstraint setActive:!isLimitedWidth];
-  [self.view layoutIfNeeded];
+  [PlacePageSheet show:data];
 }
 
 - (void)dismissPlacePage {
@@ -205,17 +128,11 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 
 - (void)hideRegularPlacePage {
   [self stopObservingTrackRecordingUpdates];
-  [self.placePageVC closeWithCompletion:^{
-    [self.placePageVC.view removeFromSuperview];
-    [self.placePageVC willMoveToParentViewController:nil];
-    [self.placePageVC removeFromParentViewController];
-    self.placePageVC = nil;
-    self.placePageContainer.hidden = YES;
-  }];
+  [PlacePageSheet close];
 }
 
 - (void)hidePlacePage {
-  if (self.placePageVC != nil) {
+  if (PlacePageSheet.isOpen) {
     [self hideRegularPlacePage];
   }
 }
@@ -244,7 +161,7 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
   if (!PlacePageData.hasData) {
     return;
   }
-  PlacePageData * data = [[PlacePageData alloc] initWithLocalizationProvider:[[OpeinigHoursLocalization alloc] init]];
+  PlacePageData * data = [[PlacePageData alloc] initWithLocalizationProvider:[[OpeningHoursLocalization alloc] init]];
   [self stopObservingTrackRecordingUpdates];
   [self showOrUpdatePlacePage:data];
 }
@@ -339,13 +256,6 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 
 #pragma mark - ViewController lifecycle
 
-- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
-  [super traitCollectionDidChange:previousTraitCollection];
-  if (self.traitCollection.verticalSizeClass != previousTraitCollection.verticalSizeClass ||
-      self.traitCollection.horizontalSizeClass != previousTraitCollection.horizontalSizeClass)
-    [self updatePlacePageContainerConstraints];
-}
-
 - (void)didReceiveMemoryWarning {
   GetFramework().MemoryWarning();
   [super didReceiveMemoryWarning];
@@ -378,9 +288,9 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self setupPlacePageContainer];
 
   [self setupTrackPadGestureRecognizers];
+  [self setupTouchPanGestureRecognizer];
 
   self.title = L(@"map");
 
@@ -435,6 +345,7 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
   [self.searchManager setMapCovered:NO];
+  [PlacePageSheet setMapCovered:NO];
   // Cold start deep links should be handled when the map is initialized.
   // Otherwise PP container view is nil, or there is no animation/selection of the point.
   if (DeepLinkHandler.shared.hasPendingDeepLink)
@@ -450,6 +361,15 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 - (void)applyTheme {
   [super applyTheme];
   [MapsAppDelegate customizeAppearance];
+}
+
+- (void)setupTouchPanGestureRecognizer {
+  self.touchPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:nil action:nil];
+  self.touchPanRecognizer.allowedTouchTypes = @[@(UITouchTypeDirect)];
+  self.touchPanRecognizer.cancelsTouchesInView = NO;
+  self.touchPanRecognizer.delaysTouchesEnded = NO;
+  self.touchPanRecognizer.delegate = self;
+  [self.view addGestureRecognizer:self.touchPanRecognizer];
 }
 
 - (void)setupTrackPadGestureRecognizers {
@@ -490,8 +410,10 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 
 - (void)viewWillDisappear:(BOOL)animated {
   [super viewWillDisappear:animated];
-  if (self.navigationController.topViewController != self)
+  if (self.navigationController.topViewController != self) {
     [self.searchManager setMapCovered:YES];
+    [PlacePageSheet setMapCovered:YES];
+  }
 
   MapControls.areMapControlsHidden = true;
   
@@ -1088,6 +1010,11 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
   return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+  return gestureRecognizer == self.touchPanRecognizer && otherGestureRecognizer.view == self.view.window &&
+         [otherGestureRecognizer isKindOfClass:UIPanGestureRecognizer.class];
 }
 
 @end

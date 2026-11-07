@@ -10,7 +10,6 @@
 
 @interface MWMPlacePageManager ()
 
-- (void)updateAvailableArea:(CGRect)frame;
 - (void)editPlace;
 - (void)addBusiness;
 - (void)addPlace:(CLLocationCoordinate2D)coordinate;
@@ -36,8 +35,6 @@
 - (void)removeTrack:(PlacePageData *)data;
 - (void)editBookmark:(PlacePageData *)data;
 - (void)editTrack:(PlacePageData *)data;
-- (void)searchBookingHotels:(PlacePageData *)data;
-- (void)book:(PlacePageData *)data;
 - (void)routeFrom:(PlacePageData *)data;
 - (void)routeTo:(PlacePageData *)data;
 - (void)routeAddStop:(PlacePageData *)data;
@@ -45,16 +42,10 @@
 - (void)avoidDirty;
 - (void)avoidFerry;
 - (void)avoidToll;
-- (void)openElevationDifficultPopup:(PlacePageData *)data;
 
 @end
 
 @implementation MWMPlacePageManagerHelper
-
-+ (void)updateAvailableArea:(CGRect)frame
-{
-  [[MWMMapViewControlsManager manager].placePageManager updateAvailableArea:frame];
-}
 
 + (void)editPlace {
   [[MWMMapViewControlsManager manager].placePageManager editPlace];
@@ -156,14 +147,6 @@
   [[MWMMapViewControlsManager manager].placePageManager editTrack:data];
 }
 
-+ (void)searchBookingHotels:(PlacePageData *)data {
-  [[MWMMapViewControlsManager manager].placePageManager searchBookingHotels:data];
-}
-
-+ (void)book:(PlacePageData *)data {
-  [[MWMMapViewControlsManager manager].placePageManager book:data];
-}
-
 + (void)routeFrom:(PlacePageData *)data {
   [[MWMMapViewControlsManager manager].placePageManager routeFrom:data];
 }
@@ -190,10 +173,6 @@
 
 + (void)avoidToll {
   [[MWMMapViewControlsManager manager].placePageManager avoidToll];
-}
-
-+ (void)openElevationDifficultPopup:(PlacePageData *)data {
-  [[MWMMapViewControlsManager manager].placePageManager openElevationDifficultPopup:data];
 }
 
 @end

@@ -5,21 +5,6 @@ extension EnvironmentValues {
   @Entry var searchPanelInset: CGFloat = 0
 }
 
-struct MapControlsFrames: Equatable {
-  var top: CGRect?
-  var bottom: CGRect?
-}
-
-struct MapControlsFramesKey: PreferenceKey {
-  static let defaultValue = MapControlsFrames()
-
-  static func reduce(value: inout MapControlsFrames, nextValue: () -> MapControlsFrames) {
-    let next = nextValue()
-    value.top = next.top ?? value.top
-    value.bottom = next.bottom ?? value.bottom
-  }
-}
-
 extension View {
   func searchPresentation(isSuspended: Bool) -> some View {
     modifier(SearchPresentation(isSuspended: isSuspended))
@@ -27,22 +12,12 @@ extension View {
 }
 
 private struct SearchPresentation: ViewModifier {
-  private enum Constants {
-    static let panelWidth: CGFloat = 350
-    static let panelMaxWidthFraction: CGFloat = 0.5
-    static let panelPadding: CGFloat = 8
-    static let panelCornerRadius: CGFloat = 16
-  }
-
   let isSuspended: Bool
 
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
   @Environment(\.verticalSizeClass) private var verticalSizeClass
-  @Environment(\.accessibilityReduceMotion) private var reduceMotion
-  @ScaledMetric(relativeTo: .body) private var preferredPanelWidth = Constants.panelWidth
-  @ScaledMetric(relativeTo: .body) private var fieldHeight = SearchHeader.controlHeight
+  @ScaledMetric(relativeTo: .body) private var preferredPanelWidth = MapPanelStyle.width
   @State private var containerWidth: CGFloat = 0
-  @State private var panelArea = CGRect.zero
 
   private let model = SearchModel.shared
 
@@ -51,22 +26,12 @@ private struct SearchPresentation: ViewModifier {
   }
 
   private var panelWidth: CGFloat {
-    guard containerWidth > 0 else { return Constants.panelWidth }
-    return min(preferredPanelWidth, containerWidth * Constants.panelMaxWidthFraction)
-  }
-
-  private func panelTopInset(alignedWith controlsFrames: MapControlsFrames) -> CGFloat {
-    guard let top = controlsFrames.top else { return Constants.panelPadding }
-    return max(0, top.midY - panelArea.minY - SearchHeader.panelTopPadding - fieldHeight / 2)
-  }
-
-  private func panelBottomInset(alignedWith controlsFrames: MapControlsFrames) -> CGFloat {
-    guard let bottom = controlsFrames.bottom else { return Constants.panelPadding }
-    return max(0, panelArea.maxY - bottom.maxY)
+    guard containerWidth > 0 else { return MapPanelStyle.width }
+    return min(preferredPanelWidth, containerWidth * MapPanelStyle.maxWidthFraction)
   }
 
   private var panelInset: CGFloat {
-    model.isPanelPresented ? panelWidth + 2 * Constants.panelPadding : 0
+    model.isPanelPresented ? panelWidth + 2 * MapPanelStyle.padding : 0
   }
 
   func body(content: Content) -> some View {
@@ -75,29 +40,21 @@ private struct SearchPresentation: ViewModifier {
       .environment(model)
       .environment(\.isSearchPresented, model.isOpen && !model.isCollapsed)
       .environment(\.searchPanelInset, panelInset)
+      .environment(\.mapPanelWidth, panelWidth)
       .onGeometryChange(for: CGFloat.self) { proxy in
         proxy.size.width
       } action: { width in
         containerWidth = width
       }
-      .overlayPreferenceValue(MapControlsFramesKey.self, alignment: .topLeading) { controlsFrames in
-        ZStack(alignment: .topLeading) {
-          if model.isPanelPresented {
-            panel(topInset: panelTopInset(alignedWith: controlsFrames),
-                  bottomInset: panelBottomInset(alignedWith: controlsFrames))
-              .transition(reduceMotion ? AnyTransition.opacity : .move(edge: .leading))
-          }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .onGeometryChange(for: CGRect.self) { proxy in
-          proxy.frame(in: .global)
-        } action: { frame in
-          panelArea = frame
-        }
+      .mapPanelOverlay(isPresented: model.isPanelPresented) {
+        SearchView(model: model, placement: .panel)
+          .frame(width: panelWidth)
       }
-      .animation(reduceMotion ? .default : .spring, value: model.isPanelPresented)
-      .sheet(isPresented: $model.isSheetPresented) {
+      .sheet(isPresented: $model.isSheetPresented, onDismiss: { model.isSheetOnScreen = false }) {
         SearchView(model: model, placement: .sheet)
+          .onAppear {
+            model.isSheetOnScreen = true
+          }
           .presentationDetents([.medium, .large], selection: $model.detent)
           .presentationBackgroundInteraction(.enabled(upThrough: .medium))
           .presentationDragIndicator(.visible)
@@ -108,35 +65,6 @@ private struct SearchPresentation: ViewModifier {
       .onChange(of: isSuspended, initial: true) {
         model.isSuspended = isSuspended
       }
-      .onChange(of: panelInset, initial: true) {
-        MapViewController.shared()?.setSearchPanelInset(panelInset)
-      }
-  }
-
-  private func panel(topInset: CGFloat, bottomInset: CGFloat) -> some View {
-    SearchView(model: model, placement: .panel)
-      .frame(width: panelWidth)
-      .clipShape(.rect(cornerRadius: Constants.panelCornerRadius))
-      .panelBackground(cornerRadius: Constants.panelCornerRadius)
-      .avoidingWindowControls(sizeToFit: true)
-      .padding(.horizontal, Constants.panelPadding)
-      .padding(.top, topInset)
-      .padding(.bottom, bottomInset)
-  }
-}
-
-private extension View {
-  @ViewBuilder
-  func panelBackground(cornerRadius: CGFloat) -> some View {
-    if #available(iOS 26.0, *) {
-      glassEffect(.regular, in: .rect(cornerRadius: cornerRadius))
-    } else {
-      background {
-        RoundedRectangle(cornerRadius: cornerRadius)
-          .fill(BackgroundStyle())
-          .shadow(color: .black.opacity(0.15), radius: 8)
-      }
-    }
   }
 }
 

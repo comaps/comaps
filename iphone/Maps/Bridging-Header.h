@@ -14,7 +14,6 @@
 #import "DeepLinkRouteStrategyAdapter.h"
 #import "EAGLView.h"
 #import "FirstSession.h"
-#import "MWMActionBarButton.h"
 #import "MWMActivityViewController.h"
 #import "MWMAvailableAreaAffectDirection.h"
 #import "MWMButtonCell.h"

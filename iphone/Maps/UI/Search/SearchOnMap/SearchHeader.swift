@@ -1,19 +1,16 @@
 import SwiftUI
 
 struct SearchHeader: View {
-  static let controlHeight: CGFloat = 44
-  static let panelTopPadding: CGFloat = 12
-
   let model: SearchModel
   let placement: SearchView.Placement
   let isFieldFocused: FocusState<Bool>.Binding
 
-  @ScaledMetric(relativeTo: .body) private var controlHeight = SearchHeader.controlHeight
+  @ScaledMetric(relativeTo: .body) private var controlHeight = MapPanelStyle.controlSize
 
   var body: some View {
     controls
       .padding(.horizontal, SearchView.horizontalMargin)
-      .padding(.top, placement == .sheet ? 20 : SearchHeader.panelTopPadding)
+      .padding(.top, placement == .sheet ? 20 : MapPanelStyle.headerTopPadding)
       .padding(.bottom, 12)
   }
 
@@ -31,7 +28,7 @@ struct SearchHeader: View {
   private var row: some View {
     HStack(spacing: 12) {
       SearchField(model: model, isFocused: isFieldFocused, height: controlHeight)
-      SearchCloseButton(size: controlHeight, action: model.didTapClose)
+      MapPanelCloseButton(action: model.didTapClose)
         .keyboardShortcut(.cancelAction)
     }
   }

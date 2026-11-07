@@ -1,10 +1,8 @@
 @class PlacePageData;
 @class PlacePagePhone;
-@class ElevationProfileData;
 
 @interface MWMPlacePageManagerHelper : NSObject
 
-+ (void)updateAvailableArea:(CGRect)frame;
 + (void)editPlace;
 + (void)addBusiness;
 + (void)addPlace:(CLLocationCoordinate2D)coordinate;
@@ -30,8 +28,6 @@
 + (void)removeTrack:(PlacePageData *)data;
 + (void)editBookmark:(PlacePageData *)data;
 + (void)editTrack:(PlacePageData *)data;
-+ (void)searchBookingHotels:(PlacePageData *)data;
-+ (void)book:(PlacePageData *)data;
 + (void)routeFrom:(PlacePageData *)data;
 + (void)routeTo:(PlacePageData *)data;
 + (void)routeAddStop:(PlacePageData *)data;
@@ -39,6 +35,5 @@
 + (void)avoidDirty;
 + (void)avoidFerry;
 + (void)avoidToll;
-+ (void)openElevationDifficultPopup:(PlacePageData *)data;
 
 @end

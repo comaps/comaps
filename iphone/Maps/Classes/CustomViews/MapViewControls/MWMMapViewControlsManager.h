@@ -11,7 +11,6 @@
 + (MWMMapViewControlsManager *)manager NS_SWIFT_NAME(manager());
 
 @property(nonatomic) BOOL hidden;
-@property(nonatomic) BOOL isDirectionViewHidden;
 
 - (instancetype)init __attribute__((unavailable("init is not available")));
 - (instancetype)initWithParentController:(MapViewController *)controller;

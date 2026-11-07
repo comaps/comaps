@@ -64,6 +64,10 @@
 "core_my_places" = "My Favorites";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Address";
+/* VoiceOver name of the coordinates row on the place page */
+"coordinates" = "Coordinates";
+/* VoiceOver name of the fee (charge) row on the place page */
+"fee" = "Fee";
 /* Settings button in system menu */
 "settings" = "Settings";
 /* Measurement units title in settings activity */

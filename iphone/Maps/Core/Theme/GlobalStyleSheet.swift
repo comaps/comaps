@@ -12,7 +12,6 @@ enum GlobalStyleSheet: String, CaseIterable {
   case `switch` = "Switch"
   case pageControl = "PageControl"
   case starRatingView = "StarRatingView"
-  case difficultyView = "DifficultyView"
   case divider = "Divider"
   case solidDivider = "SolidDivider"
   case background = "Background"
@@ -144,12 +143,6 @@ extension GlobalStyleSheet: IStyleSheet {
       return .add { s in
         s.onTintColor = colors.ratingYellow
         s.offTintColor = colors.blackDividers
-      }
-    case .difficultyView:
-      return .add { s in
-        s.colors = [colors.blackSecondaryText, colors.ratingGreen, colors.ratingYellow, colors.ratingRed]
-        s.offTintColor = colors.blackSecondaryText
-        s.backgroundColor = colors.clear
       }
     case .divider:
       return .add { s in

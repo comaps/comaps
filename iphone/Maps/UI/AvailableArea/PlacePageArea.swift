@@ -12,10 +12,6 @@ final class PlacePageArea: AvailableArea {
     let directions = ov.placePageAreaAffectDirections
     addConstraints(otherView: ov, directions: directions)
   }
-
-  override func notifyObserver() {
-    MWMPlacePageManagerHelper.updateAvailableArea(areaFrame)
-  }
 }
 
 extension UIView {

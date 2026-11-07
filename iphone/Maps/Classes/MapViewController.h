@@ -36,7 +36,6 @@
 - (void)openDrivingOptions;
 - (void)showTrackRecordingPlacePage;
 - (void)setPlacePageTopBound:(CGFloat)bound;
-- (void)setSearchPanelInset:(CGFloat)inset;
 
 + (void)setViewport:(double)lat lon:(double)lon zoomLevel:(int)zoomlevel;
 

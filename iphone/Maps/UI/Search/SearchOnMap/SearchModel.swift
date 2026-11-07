@@ -19,6 +19,7 @@ final class SearchModel {
   private(set) var categories: [String] = []
   var isMapCovered = false
   var isSuspended = false
+  var isSheetOnScreen = false
 
   var layout = SearchOnMap.Layout.sheet {
     didSet {
@@ -35,7 +36,10 @@ final class SearchModel {
   }
 
   var isSheetPresented: Bool {
-    get { layout == .sheet && isOpen && step != .hidden && step != .compact && !isMapCovered && !isSuspended }
+    get {
+      layout == .sheet && isOpen && step != .hidden && step != .compact && !isMapCovered && !isSuspended
+        && !PlacePageModel.shared.isSheetOnScreen
+    }
     set {
       if !newValue && isSheetPresented {
         if text.isEmpty {

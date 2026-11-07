@@ -6,7 +6,6 @@ enum Storyboard: Int {
   case sharing
   case categorySettings
   case carPlay
-  case placePage
 }
 
 extension UIStoryboard {
@@ -19,7 +18,6 @@ extension UIStoryboard {
     case .sharing: name = "BookmarksSharingFlow"
     case .categorySettings: name = "CategorySettings"
     case .carPlay: name = "CarPlayStoryboard"
-    case .placePage: name = "PlacePage"
     }
     return UIStoryboard(name: name, bundle: nil)
   }
