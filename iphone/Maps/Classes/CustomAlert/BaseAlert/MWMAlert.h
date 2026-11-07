@@ -14,7 +14,6 @@
 + (MWMAlert *)locationServiceNotSupportedAlert;
 + (MWMAlert *)incorrectFeaturePositionAlert;
 + (MWMAlert *)notEnoughSpaceAlert;
-+ (MWMAlert *)invalidUserNameOrPasswordAlert;
 + (MWMAlert *)point2PointAlertWithOkBlock:(MWMVoidBlock)okBlock needToRebuild:(BOOL)needToRebuild;
 + (MWMAlert *)downloaderNoConnectionAlertWithOkBlock:(MWMVoidBlock)okBlock cancelBlock:(MWMVoidBlock)cancelBlock;
 + (MWMAlert *)downloaderNotEnoughSpaceAlert;
@@ -28,9 +27,7 @@
 + (MWMAlert *)createBookmarkCategoryAlertWithMaxCharacterNum:(NSUInteger)max
                                              minCharacterNum:(NSUInteger)min
                                                     callback:(MWMCheckStringBlock)callback;
-+ (MWMAlert *)spinnerAlertWithTitle:(NSString *)title cancel:(MWMVoidBlock)cancel;
 + (MWMAlert *)bookmarkConversionErrorAlert;
-+ (MWMAlert *)tagsLoadingErrorAlertWithOkBlock:okBlock cancelBlock:cancelBlock;
 + (MWMAlert *)bugReportAlertWithTitle:(NSString *)title;
 
 + (MWMAlert *)defaultAlertWithTitle:(NSString *)title

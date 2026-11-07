@@ -21,7 +21,6 @@
 - (void)presentNoWiFiAlertWithOkBlock:(nullable MWMVoidBlock)okBlock andCancelBlock:(nullable MWMVoidBlock)cancelBlock;
 - (void)presentIncorrectFeauturePositionAlert;
 - (void)presentNotEnoughSpaceAlert;
-- (void)presentInvalidUserNameOrPasswordAlert;
 - (void)presentDownloaderNoConnectionAlertWithOkBlock:(nonnull MWMVoidBlock)okBlock
                                           cancelBlock:(nonnull MWMVoidBlock)cancelBlock;
 - (void)presentDownloaderNotEnoughSpaceAlert;

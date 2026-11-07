@@ -173,15 +173,6 @@ static NSString *const kDefaultAlertNibName = @"MWMDefaultAlert";
   return alert;
 }
 
-+ (instancetype)invalidUserNameOrPasswordAlert {
-  return [self defaultAlertWithTitle:L(@"invalid_username_or_password")
-                             message:nil
-                    rightButtonTitle:L(@"ok")
-                     leftButtonTitle:nil
-                   rightButtonAction:nil
-                     log:@"Invalid User Name or Password Alert"];
-}
-
 + (instancetype)noCurrentPositionAlert {
   NSString *message = [NSString stringWithFormat:@"%@\n\n%@", L(@"dialog_routing_error_location_not_found"),
                                                  L(@"dialog_routing_location_turn_wifi")];
@@ -318,15 +309,6 @@ static NSString *const kDefaultAlertNibName = @"MWMDefaultAlert";
                      log:@"Info Alert"];
 }
 
-+ (instancetype)convertBookmarksWithCount:(NSUInteger)count okBlock:(MWMVoidBlock)okBlock {
-  return [self defaultAlertWithTitle:L(@"bookmarks_detect_title")
-                             message:[NSString stringWithFormat:L(@"bookmarks_detect_message"), count]
-                    rightButtonTitle:L(@"button_convert")
-                     leftButtonTitle:L(@"cancel")
-                   rightButtonAction:okBlock
-                     log:nil];
-}
-
 + (instancetype)bookmarkConversionErrorAlert {
   return [self defaultAlertWithTitle:L(@"bookmarks_convert_error_title")
                              message:L(@"bookmarks_convert_error_message")
@@ -334,18 +316,6 @@ static NSString *const kDefaultAlertNibName = @"MWMDefaultAlert";
                      leftButtonTitle:nil
                    rightButtonAction:nil
                      log:nil];
-}
-
-+ (instancetype)tagsLoadingErrorAlertWithOkBlock:(MWMVoidBlock)okBlock cancelBlock:(MWMVoidBlock)cancelBlock {
-  MWMDefaultAlert *alert = [self defaultAlertWithTitle:L(@"title_error_downloading_bookmarks")
-                                               message:L(@"tags_loading_error_subtitle")
-                                      rightButtonTitle:L(@"downloader_retry")
-                                       leftButtonTitle:L(@"cancel")
-                                     rightButtonAction:okBlock
-                                       log:nil];
-  alert.leftButtonAction = cancelBlock;
-  [alert setNeedsCloseAlertAfterEnterBackground];
-  return alert;
 }
 
 + (instancetype)bugReportAlertWithTitle:(NSString *)title {

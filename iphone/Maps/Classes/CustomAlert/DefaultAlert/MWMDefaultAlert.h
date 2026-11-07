@@ -12,7 +12,6 @@
 + (instancetype)internalRoutingErrorAlert;
 + (instancetype)incorrectFeaturePositionAlert;
 + (instancetype)notEnoughSpaceAlert;
-+ (instancetype)invalidUserNameOrPasswordAlert;
 + (instancetype)noCurrentPositionAlert;
 + (instancetype)pointsInDifferentMWMAlert;
 + (instancetype)disabledLocationAlert;
@@ -30,9 +29,7 @@
 + (instancetype)personalInfoWarningAlertWithBlock:(MWMVoidBlock)block;
 + (instancetype)trackWarningAlertWithCancelBlock:(MWMVoidBlock)block;
 + (instancetype)infoAlert:(NSString *)title text:(NSString *)text;
-+ (instancetype)convertBookmarksWithCount:(NSUInteger)count okBlock:(MWMVoidBlock)okBlock;
 + (instancetype)bookmarkConversionErrorAlert;
-+ (instancetype)tagsLoadingErrorAlertWithOkBlock:(MWMVoidBlock)okBlock cancelBlock:(MWMVoidBlock)cancelBlock;
 + (instancetype)bugReportAlertWithTitle:(NSString *)title;
 
 + (instancetype)defaultAlertWithTitle:(NSString *)title
