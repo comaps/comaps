@@ -4,8 +4,7 @@
 
 #include <cstddef>
 #include <functional>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 #ifdef __clang__
 #pragma clang diagnostic push
@@ -16,7 +15,7 @@
 #pragma clang diagnostic pop
 #endif
 
-template <class Key, class Value, class HashContainer = ankerl::unordered_dense::map<Key, Value>>
+template <class Key, class Value, class HashContainer = std::unordered_map<Key, Value>>
 class FifoCache
 {
   template <typename K, typename V>

@@ -6,9 +6,8 @@
 #include <optional>
 #include <string>
 #include <tuple>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 template <typename T>
 class ReaderSource;
@@ -83,6 +82,6 @@ private:
   IDRInterfacePtr m_cache;
   std::vector<uint64_t> m_roadOsmIDs;
 
-  ankerl::unordered_dense::map<uint64_t, CameraInfo> m_speedCameras;
+  std::unordered_map<uint64_t, CameraInfo> m_speedCameras;
 };
 }  // namespace routing_builder

@@ -11,9 +11,8 @@
 
 #include <string>
 #include <unordered_map>
+#include <unordered_set>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 #define BORDERS_DIR       "borders/"
 #define BORDERS_EXTENSION ".poly"
@@ -113,7 +112,7 @@ public:
   template <typename ToDo>
   void ForEachCountryInRect(m2::RectD const & rect, ToDo && toDo) const
   {
-    ankerl::unordered_dense::set<CountryPolygons const *> uniq;
+    std::unordered_set<CountryPolygons const *> uniq;
     m_regionsTree.ForEachInRect(rect, [&](CountryPolygons const & cp)
     {
       if (uniq.insert(&cp).second)

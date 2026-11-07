@@ -6,8 +6,7 @@
 #include "platform/downloader_defines.hpp"
 
 #include <string>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_set>
 
 namespace
 {
@@ -141,7 +140,7 @@ using namespace storage;
 
 @interface MWMAutoupdateController () <MWMCircularProgressProtocol, MWMStorageObserver>
 {
-  ankerl::unordered_dense::set<CountryId> m_updatingCountries;
+  std::unordered_set<CountryId> m_updatingCountries;
 }
 
 @property(nonatomic) Framework::DoAfterUpdate todo;
@@ -285,7 +284,7 @@ using namespace storage;
     default: m_updatingCountries.insert(countryId.UTF8String);
     }
   }
-  
+
   if (self.progressFinished && m_updatingCountries.empty())
     [self dismiss];
   else

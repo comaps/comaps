@@ -3,13 +3,12 @@
 #include "platform/country_file.hpp"
 
 #include <algorithm>
+#include <unordered_set>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace
 {
-using CountrySetT = ankerl::unordered_dense::set<std::string_view>;
+using CountrySetT = std::unordered_set<std::string_view>;
 
 // List of country names where mwm should be generated without speed cameras.
 CountrySetT kSpeedCamerasProhibitedCountries = {

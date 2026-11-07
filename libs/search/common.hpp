@@ -5,7 +5,7 @@
 #include "base/buffer_vector.hpp"
 #include "base/string_utils.hpp"
 
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_set>
 
 namespace search
 {
@@ -14,7 +14,7 @@ namespace search
 //              the prefix and non-prefix tokens.
 using QueryTokens = buffer_vector<strings::UniString, 32>;
 
-using Locales = ankerl::unordered_dense::set<uint64_t>;
+using Locales = std::unordered_set<uint64_t>;
 
 /// Upper bound for max count of tokens for indexing and scoring.
 size_t constexpr kMaxNumTokens = 32;

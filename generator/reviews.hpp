@@ -1,6 +1,5 @@
 #pragma once
 
-#include "3party/ankerl/unordered_dense.h"
 #include "3party/jansson/jansson/src/jansson.h"
 
 #include "base/exception.hpp"
@@ -10,6 +9,7 @@
 
 #include <map>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 /// Common functionality for parsing reviews.
@@ -19,7 +19,7 @@ namespace generator::reviews
 // exposed for testing
 namespace internal
 {
-using OsmIdToFeatureIdMap = ankerl::unordered_dense::map<base::GeoObjectId, ::reviews::FeatureId>;
+using OsmIdToFeatureIdMap = std::unordered_map<base::GeoObjectId, ::reviews::FeatureId>;
 using FeatureReviewsMap = std::map<::reviews::FeatureId, ::reviews::FeatureReviews>;
 
 /*!
