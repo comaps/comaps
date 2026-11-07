@@ -17,6 +17,7 @@
 #include "defines.hpp"
 
 #include <initializer_list>
+#include <map>
 
 #include "3party/opening_hours/opening_hours.hpp"
 
@@ -46,7 +47,7 @@ vector<string> const kBycicleAccessConditionalTags = {"bicycle:conditional"};
 // For example if road is tagged as "winter_road = yes",
 // for routing it is like: "access:conditional = no @ (Feb - Dec)"
 // TODO: handle Southern Hemisphere
-std::pair<OsmElement::Tag, string> const kTagToAccessConditional[] = {
+std::map<OsmElement::Tag, string> kTagToAccessConditional = {
     {OsmElement::Tag("winter_road", "yes"), "no @ (Mar - Nov)"},
     {OsmElement::Tag("ice_road", "yes"), "no @ (Mar - Nov)"}};
 

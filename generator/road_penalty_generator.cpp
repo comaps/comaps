@@ -20,8 +20,8 @@
 #include "base/assert.hpp"
 #include "base/logging.hpp"
 
+#include <map>
 #include <optional>
-#include <unordered_map>
 
 namespace routing_builder
 {
@@ -33,7 +33,7 @@ using std::string, std::vector;
 namespace
 {
 // Unified penalty mapping for all OSM tags that create road penalties
-std::unordered_map<OsmElement::Tag, RoadPenalty::Type> const kUnifiedPenaltyMapping = {
+std::map<OsmElement::Tag, RoadPenalty::Type> const kUnifiedPenaltyMapping = {
     // Traffic calming measures
 
     {OsmElement::Tag("traffic_calming", "rumble_strip"), RoadPenalty::Type::SmallCalming},

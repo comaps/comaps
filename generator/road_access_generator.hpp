@@ -12,11 +12,11 @@
 #include "i18n/string_utf8_multilang.hpp"
 
 #include <array>
+#include <map>
 #include <memory>
 #include <optional>
 #include <set>
 #include <string>
-#include <unordered_map>
 #include <vector>
 
 namespace routing
@@ -95,7 +95,7 @@ void Load(Source & src, ConditionalRAVectorT & vec)
 class RoadAccessTagProcessor
 {
 public:
-  using TagMapping = std::unordered_map<OsmElement::Tag, RoadAccess::Type>;
+  using TagMapping = std::map<OsmElement::Tag, RoadAccess::Type>;
   using ConditionalTagsList = std::vector<std::string>;
 
   explicit RoadAccessTagProcessor(VehicleType vehicleType);
