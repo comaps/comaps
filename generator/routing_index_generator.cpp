@@ -45,8 +45,9 @@
 #include <algorithm>
 #include <map>
 #include <memory>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace routing_builder
 {
@@ -131,7 +132,7 @@ public:
     graph.Import(joints);
   }
 
-  std::unordered_map<uint32_t, VehicleMask> const & GetMasks() const { return m_masks; }
+  ankerl::unordered_dense::map<uint32_t, VehicleMask> const & GetMasks() const { return m_masks; }
 
 private:
   void ProcessFeature(FeatureType & f, uint32_t id)
@@ -151,8 +152,8 @@ private:
   }
 
   VehicleMaskBuilder const m_maskBuilder;
-  std::unordered_map<uint64_t, Joint> m_posToJoint;
-  std::unordered_map<uint32_t, VehicleMask> m_masks;
+  ankerl::unordered_dense::map<uint64_t, Joint> m_posToJoint;
+  ankerl::unordered_dense::map<uint32_t, VehicleMask> m_masks;
 };
 
 class IndexGraphWrapper final
@@ -495,7 +496,7 @@ void FillWeights(string const & path, string const & mwmFile, string const & cou
     DijkstraWrapperJoints wrapper(indexGraphWrapper, enter);
     Algorithm::Context context(wrapper);
 
-    std::unordered_map<uint32_t, vector<JointSegment>> visitedVertexes;
+    ankerl::unordered_dense::map<uint32_t, vector<JointSegment>> visitedVertexes;
     astar.PropagateWave(wrapper, wrapper.GetStartJoint(), [&](JointSegment const & vertex)
     {
       if (vertex.IsFake())
