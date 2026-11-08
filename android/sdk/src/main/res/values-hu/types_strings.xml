@@ -1534,4 +1534,19 @@
     <string name="type.social_facility.food_bank">Élelmiszerbank</string>
     <string name="type.amenity.animal_boarding">Állatpanzió</string>
     <string name="type.amenity.stage">Színpad</string>
+    <string name="type.amenity.planetarium">Planetárium</string>
+    <string name="type.building.abandoned">Elhagyatott Épület</string>
+    <string name="type.landuse.military.danger_area">Hadászati Okokból Veszélyes Terület</string>
+    <string name="type.railway.station.subway.boston">Metróállomás</string>
+    <string name="type.railway.subway_entrance.boston">Metrólejáró</string>
+    <string name="type.railway.subway_entrance.qingdao">Metrólejáró</string>
+    <string name="type.amenity.parking.customers">Vendég Parkoló</string>
+    <string name="type.amenity.toilets.customers">Vendég WC</string>
+    <string name="type.amenity.toilets.private">Személyzeti WC</string>
+    <string name="type.second_hand.only">Csak használt termék</string>
+    <string name="type.second_hand.yes">Használt termék kapható</string>
+    <string name="type.second_hand.no">Használt termék nem kapható</string>
+    <string name="type.shop.games">Társasjáték bolt</string>
+    <string name="type.barrier.bus_trap">Nyomtávkorlátozás süllyesztéssel</string>
+    <string name="type.barrier.sump_buster">Nyomtávkorlátozás kiemelkedéssel</string>
 </resources>

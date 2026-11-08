@@ -13,6 +13,7 @@ import app.organicmaps.sdk.util.Distance;
 public final class RouteStepInfo
 {
     public final int index;
+    public final int sequence;
     public final int turnDirection;
     public final int pedestrianDirection;
     @Nullable
@@ -24,11 +25,12 @@ public final class RouteStepInfo
     public final Distance formattedDistance;
     public final String textualInstruction;
 
-    private RouteStepInfo(int index, int turnDirection, int pedestrianDirection, @Nullable String fromStreetName,
-                          @Nullable String toStreetName, int exitNum, double distMeters, @Nullable Distance formattedDistance,
-                          String textualInstruction)
+    private RouteStepInfo(int index, int sequence, int turnDirection, int pedestrianDirection,
+                          @Nullable String fromStreetName, @Nullable String toStreetName, int exitNum,
+                          double distMeters, @Nullable Distance formattedDistance, String textualInstruction)
     {
         this.index = index;
+        this.sequence = sequence;
         this.turnDirection = turnDirection;
         this.pedestrianDirection = pedestrianDirection;
         this.fromStreetName = fromStreetName;

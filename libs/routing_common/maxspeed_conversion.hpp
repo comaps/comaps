@@ -231,15 +231,17 @@ public:
   bool IsValid() const { return m_forward != kInvalidSpeed; }
 
   /**
-   * @brief Whether the maxspeed is valid for both directions.
+   * @brief Whether different maxspeeds apply to the forward and backward direction.
    *
-   * @return true if valid for both directions, false if not.
+   * A return value of `true` indicates that `GetBackward()` should be used to retrieve the maxspeed
+   * for the backward direction, though it does not necessarily guarantee that speeds actually differ
+   * between directions (both might be set to the same value).
    *
-   * @todo The documentation previously stated:
-   * “[Returns] true if Maxspeed is considered as Bidirectional(). It means different speed is set
-   * for forward and backward direction. Otherwise returns false. It means `m_forward` speed should
-   * be used for the both directions.” However, this is at odds with the actual code, which just
-   * checks for validity, not identity.
+   * A return value of `false` indicates that `GetForward()` should be used to retrieve the maxspeed
+   * for either direction (`GetBackward()` will return an `kInvalidSpeed` in this case).
+   *
+   * @return true if explicit speeds are set for both directions, false if the forward speed applies
+   * to both directions.
    */
   bool IsBidirectional() const { return IsValid() && m_backward != kInvalidSpeed; }
 

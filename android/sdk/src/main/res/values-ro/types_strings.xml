@@ -1506,4 +1506,5 @@
     <string name="type.emergency.access_point">Punct de salvare de urgență</string>
     <string name="type.emergency.access_point.address">Adresă de salvare în caz de urgență</string>
     <string name="type.emergency.disaster_help_point">Punct de asistență în caz de dezastru</string>
+    <string name="type.amenity.parking.customers">Parcare pentru clienți</string>
 </resources>

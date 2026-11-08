@@ -22,6 +22,8 @@
 
 #include "geometry/mercator.hpp"
 
+#include <cmath>
+
 // If you have a "missing header error" here, then please run configure.sh script in the root repo
 // folder.
 #import "../../../private.h"
@@ -38,6 +40,11 @@ namespace {
 NSString *const kDownloaderSegue = @"Map2MapDownloaderSegue";
 NSString *const kEditorSegue = @"Map2EditorSegue";
 NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
+
+m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
+  CGFloat const scaleFactor = view.contentScaleFactor;
+  return m2::PointD(pt.x * scaleFactor, pt.y * scaleFactor);
+}
 }  // namespace
 
 @interface NSValueWrapper : NSObject
@@ -78,8 +85,9 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
 @property(nonatomic) BOOL disableStandbyOnLocationStateMode;
 
 @property(nonatomic) UserTouchesAction userTouchesAction;
-@property(nonatomic) CGPoint pointerLocation API_AVAILABLE(ios(14.0));
-@property(nonatomic) CGFloat currentScale;
+@property(nonatomic) CGPoint pointerLocation;
+@property(nonatomic) BOOL hasPointerLocation;
+@property(nonatomic) CGFloat previousPinchScale;
 @property(nonatomic) CGFloat currentRotation;
 
 @property(nonatomic, readwrite) MWMMapDownloadDialog *downloadDialog;
@@ -280,7 +288,6 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
     return;
 
   UIView *v = self.mapView;
-  CGFloat const scaleFactor = v.contentScaleFactor;
 
   df::TouchEvent e;
   UITouch *touch = [allTouches objectAtIndex:0];
@@ -293,7 +300,7 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
   e.SetTouchType(type);
 
   df::Touch t0;
-  t0.m_location = m2::PointD(pt.x * scaleFactor, pt.y * scaleFactor);
+  t0.m_location = ToPixelPoint(v, pt);
   t0.m_id = reinterpret_cast<int64_t>(touch);
   if ([self hasForceTouch])
     t0.m_force = touch.force / touch.maximumPossibleForce;
@@ -304,7 +311,7 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
     CGPoint const pt = [touch locationInView:v];
 
     df::Touch t1;
-    t1.m_location = m2::PointD(pt.x * scaleFactor, pt.y * scaleFactor);
+    t1.m_location = ToPixelPoint(v, pt);
     t1.m_id = reinterpret_cast<int64_t>(touch);
     if ([self hasForceTouch])
       t1.m_force = touch.force / touch.maximumPossibleForce;
@@ -391,8 +398,7 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
   [self setupPlacePageContainer];
   [self setupSearchContainer];
 
-  if (@available(iOS 14.0, *))
-    [self setupTrackPadGestureRecognizers];
+  [self setupTrackPadGestureRecognizers];
 
   self.title = L(@"map");
 
@@ -463,7 +469,7 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
   [MapsAppDelegate customizeAppearance];
 }
 
-- (void)setupTrackPadGestureRecognizers API_AVAILABLE(ios(14.0)) {
+- (void)setupTrackPadGestureRecognizers {
   // Mouse zoom
   UIPanGestureRecognizer * zoomPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleZoomPan:)];
   zoomPanRecognizer.allowedScrollTypesMask = UIScrollTypeMaskDiscrete;
@@ -944,7 +950,7 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
 
 // MARK: - Handle macOS trackpad gestures
 
-- (void)handlePan:(UIPanGestureRecognizer *)recognizer API_AVAILABLE(ios(14.0)) {
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer {
   switch (recognizer.state) {
     case UIGestureRecognizerStateBegan:
     case UIGestureRecognizerStateChanged:
@@ -959,7 +965,7 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
         self.userTouchesAction = UserTouchesActionScale;
         static const CGFloat kScaleFactor = 0.9;
         const CGFloat factor = translation.y > 0 ? kScaleFactor : 1 / kScaleFactor;
-        GetFramework().Scale(factor, [self getZoomPoint], false);
+        [self scaleMap:factor withRecognizer:recognizer];
       } else {
         self.userTouchesAction = UserTouchesActionDrag;
         CGPoint velocity = [recognizer velocityInView:self.view];
@@ -986,7 +992,7 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
   }
 }
 
-- (void)handleZoomPan:(UIPanGestureRecognizer *)recognizer API_AVAILABLE(ios(14.0)) {
+- (void)handleZoomPan:(UIPanGestureRecognizer *)recognizer {
   switch (recognizer.state) {
     case UIGestureRecognizerStateBegan:
     case UIGestureRecognizerStateChanged:
@@ -997,7 +1003,7 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
       self.userTouchesAction = UserTouchesActionScale;
       static const CGFloat kScaleFactor = 0.9;
       const CGFloat factor = translation.y > 0 ? 1 / kScaleFactor : kScaleFactor;
-      GetFramework().Scale(factor, [self getZoomPoint], false);
+      [self scaleMap:factor withRecognizer:recognizer];
       [recognizer setTranslation:CGPointZero inView:self.view];
       break;
     }
@@ -1009,18 +1015,23 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
   }
 }
 
-- (void)handlePinch:(UIPinchGestureRecognizer *)recognizer API_AVAILABLE(ios(14.0)) {
+- (void)handlePinch:(UIPinchGestureRecognizer *)recognizer {
   switch (recognizer.state) {
     case UIGestureRecognizerStateBegan:
-      self.currentScale = 1.0;
+      self.previousPinchScale = recognizer.scale;
+      break;
     case UIGestureRecognizerStateChanged:
     {
-      const CGFloat scale = [recognizer scale];
-      static const CGFloat kScaleDeltaMultiplier = 4.0; // map trackpad scale to the map scale
-      const CGFloat delta = scale - self.currentScale;
-      const CGFloat scaleFactor = 1 + delta * kScaleDeltaMultiplier;
-      GetFramework().Scale(scaleFactor, [self getZoomPoint], false);
-      self.currentScale = scale;
+      const CGFloat scale = recognizer.scale;
+      const CGFloat previousScale = self.previousPinchScale;
+      self.previousPinchScale = scale;
+      if (scale <= 0.0 || previousScale <= 0.0)
+        break;
+
+      static const CGFloat kPinchScaleExponent = 4.0;
+      self.userTouchesAction = UserTouchesActionScale;
+      [self scaleMap:std::pow(scale / previousScale, kPinchScaleExponent)
+        withRecognizer:recognizer];
       break;
     }
     case UIGestureRecognizerStateEnded:
@@ -1031,7 +1042,7 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
   }
 }
 
-- (void)handleRotation:(UIRotationGestureRecognizer *)recognizer API_AVAILABLE(ios(14.0)) {
+- (void)handleRotation:(UIRotationGestureRecognizer *)recognizer {
   switch (recognizer.state) {
     case UIGestureRecognizerStateBegan:
     case UIGestureRecognizerStateChanged:
@@ -1049,13 +1060,38 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
   }
 }
 
-- (void)handlePointerHover:(UIHoverGestureRecognizer *)recognizer API_AVAILABLE(ios(14.0)) {
-  self.pointerLocation = [recognizer locationInView:self.view];
+- (void)handlePointerHover:(UIHoverGestureRecognizer *)recognizer {
+  switch (recognizer.state) {
+    case UIGestureRecognizerStateBegan:
+    case UIGestureRecognizerStateChanged:
+      self.pointerLocation = [recognizer locationInView:self.mapView];
+      self.hasPointerLocation = YES;
+      break;
+    default:
+      self.hasPointerLocation = NO;
+      break;
+  }
 }
 
-- (m2::PointD)getZoomPoint API_AVAILABLE(ios(14.0)) {
-  const CGFloat scale = [UIScreen mainScreen].scale;
-  return m2::PointD(self.pointerLocation.x * scale, self.pointerLocation.y * scale);
+- (BOOL)zoomPoint:(m2::PointD &)outPoint forRecognizer:(UIGestureRecognizer *)recognizer {
+  UIView * const v = self.mapView;
+  CGPoint pt = [recognizer locationInView:v];
+  if (!CGRectContainsPoint(v.bounds, pt)) {
+    if (!self.hasPointerLocation || !CGRectContainsPoint(v.bounds, self.pointerLocation))
+      return NO;
+    pt = self.pointerLocation;
+  }
+
+  outPoint = ToPixelPoint(v, pt);
+  return YES;
+}
+
+- (void)scaleMap:(CGFloat)factor withRecognizer:(UIGestureRecognizer *)recognizer {
+  m2::PointD zoomPoint;
+  if ([self zoomPoint:zoomPoint forRecognizer:recognizer])
+    GetFramework().Scale(factor, zoomPoint, false);
+  else
+    GetFramework().Scale(factor, false);
 }
 
 // MARK: - UIGestureRecognizerDelegate

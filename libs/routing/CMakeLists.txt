@@ -128,6 +128,7 @@ set(SRC
   road_graph.hpp
   road_index.cpp
   road_index.hpp
+  road_info.hpp
   road_point.hpp
   route.cpp
   route.hpp

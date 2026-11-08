@@ -430,6 +430,14 @@ void EditableMapObject::SetCuisinesImpl(vector<T> const & cuisines)
   for (auto const & cuisine : cuisines)
     params.m_types.push_back(cl.GetTypeByPath({string_view("cuisine"), cuisine}));
 
+  // Instead of both "diet:vegetarian=yes" and "=only", delete "yes" (only already implies yes). Same for vegan
+  for (auto const & [diet, dietOnly] : {std::pair<string_view, string_view>{"vegetarian", "vegetarian_only"},
+                                        std::pair<string_view, string_view>{"vegan", "vegan_only"}})
+  {
+    if (base::IsExist(params.m_types, cl.GetTypeByPath({string_view("cuisine"), dietOnly})))
+      std::erase(params.m_types, cl.GetTypeByPath({string_view("cuisine"), diet}));
+  }
+
   // Move useless types to the end and resize to fit TypesHolder.
   params.FinishAddingTypes();
 
@@ -825,19 +833,43 @@ void EditableMapObject::ApplyJournalEntry(JournalEntry const & entry)
     {
       Classificator const & cl = classif();
       uint32_t const vegetarianType = cl.GetTypeByPath({string_view("cuisine"), "vegetarian"});
-      if (tagModData.new_value == "yes")
-        m_types.SafeAdd(vegetarianType);
-      else
+      uint32_t const vegetarianOnlyType = cl.GetTypeByPath({string_view("cuisine"), "vegetarian_only"});
+      if (tagModData.new_value == "only")
+      {
+        m_types.SafeAdd(vegetarianOnlyType);
         m_types.Remove(vegetarianType);
+      }
+      else if (tagModData.new_value == "yes")
+      {
+        m_types.SafeAdd(vegetarianType);
+        m_types.Remove(vegetarianOnlyType);
+      }
+      else
+      {
+        m_types.Remove(vegetarianType);
+        m_types.Remove(vegetarianOnlyType);
+      }
     }
     else if (tagModData.key == "diet:vegan")
     {
       Classificator const & cl = classif();
       uint32_t const veganType = cl.GetTypeByPath({string_view("cuisine"), "vegan"});
-      if (tagModData.new_value == "yes")
-        m_types.SafeAdd(veganType);
-      else
+      uint32_t const veganOnlyType = cl.GetTypeByPath({string_view("cuisine"), "vegan_only"});
+      if (tagModData.new_value == "only")
+      {
+        m_types.SafeAdd(veganOnlyType);
         m_types.Remove(veganType);
+      }
+      else if (tagModData.new_value == "yes")
+      {
+        m_types.SafeAdd(veganType);
+        m_types.Remove(veganOnlyType);
+      }
+      else
+      {
+        m_types.Remove(veganType);
+        m_types.Remove(veganOnlyType);
+      }
     }
     else
       LOG(LWARNING, ("OSM key \"", tagModData.key, "\" is unknown, skipped"));
@@ -916,24 +948,24 @@ void EditableMapObject::LogDiffInJournal(EditableMapObject const & unedited_emo)
   std::vector<std::string> new_cuisines = GetCuisines();
   std::vector<std::string> old_cuisines = unedited_emo.GetCuisines();
 
-  auto const findAndErase = [](std::vector<std::string> & cuisinesPtr, std::string_view s)
+  auto const findAndEraseDiet = [](std::vector<std::string> & cuisines, std::string_view base)
   {
-    auto it = std::find(cuisinesPtr.begin(), cuisinesPtr.end(), s);
-    if (it != cuisinesPtr.end())
-    {
-      cuisinesPtr.erase(it);
-      return "yes";
-    }
-    return "";
+    bool const hasOnly = std::erase(cuisines, std::string(base) + "_only") > 0;
+    bool const hasYes = std::erase(cuisines, std::string(base)) > 0;
+    if (hasOnly)
+      return std::string("only");
+    if (hasYes)
+      return std::string("yes");
+    return std::string();
   };
 
-  std::string new_vegetarian = findAndErase(new_cuisines, "vegetarian");
-  std::string old_vegetarian = findAndErase(old_cuisines, "vegetarian");
+  std::string new_vegetarian = findAndEraseDiet(new_cuisines, "vegetarian");
+  std::string old_vegetarian = findAndEraseDiet(old_cuisines, "vegetarian");
   if (new_vegetarian != old_vegetarian)
     m_journal.AddTagChange("diet:vegetarian", old_vegetarian, new_vegetarian);
 
-  std::string new_vegan = findAndErase(new_cuisines, "vegan");
-  std::string old_vegan = findAndErase(old_cuisines, "vegan");
+  std::string new_vegan = findAndEraseDiet(new_cuisines, "vegan");
+  std::string old_vegan = findAndEraseDiet(old_cuisines, "vegan");
   if (new_vegan != old_vegan)
     m_journal.AddTagChange("diet:vegan", old_vegan, new_vegan);
 

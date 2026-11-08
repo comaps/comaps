@@ -89,11 +89,4 @@ abstract class SurfaceCallbackBase implements SurfaceCallback
 
     Map.onScale(scaleFactor, x, y, animated);
   }
-
-  @Override
-  public void onClick(float x, float y)
-  {
-    Logger.d(TAG, "x: " + x + ", y: " + y);
-    Map.onClick(x, y);
-  }
 }

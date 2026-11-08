@@ -4314,7 +4314,7 @@
         "defaultMessage": "Phnom Penh, Kâmpóng Spœ, Takêv"
     },
     "Cameroon_Central Description": {
-        "defaultMessage": "Yaounde, Kousséri, Kribi"
+        "defaultMessage": "Yaoundé, Kousséri, Kribi"
     },
     "Cameroon_West Description": {
         "defaultMessage": "Douala, Buea, Bamenda"
@@ -4353,10 +4353,10 @@
         "defaultMessage": "Nain, Postville, Hopedale"
     },
     "Canada_Labrador_South Description": {
-        "defaultMessage": "L'Anse-au-Clair, L'Anse-au-Clair, Forteau"
+        "defaultMessage": "L'Anse-au-Clair, Forteau"
     },
     "Canada_Labrador_West Description": {
-        "defaultMessage": "Churchill Falls, Happy Valley-Goose Bay, Happy Valley - Goose Bay"
+        "defaultMessage": "Churchill Falls, Happy Valley-Goose Bay"
     },
     "Canada_Manitoba_Northeast Description": {
         "defaultMessage": "Caribou, Manigotagan, English Brook"
@@ -4404,7 +4404,7 @@
         "defaultMessage": "CFB Alert, Grise Fiord, Eureka"
     },
     "Canada_Nunavut_South Description": {
-        "defaultMessage": "Repulse Bay, Arctic Bay, Naujaat"
+        "defaultMessage": "Naujaat (Repulse Bay), Arctic Bay"
     },
     "Canada_Ontario_Bame Description": {
         "defaultMessage": "Barrie, Wasaga Beach, Deep River"
@@ -4488,7 +4488,7 @@
         "defaultMessage": "Watson Lake, Whitehorse, Haines Junction"
     },
     "Cape Verde Description": {
-        "defaultMessage": "Praia, Ribeira Grande, Cidade de Espargos"
+        "defaultMessage": "Praia, Ribeira Grande, Espargos"
     },
     "Caribisch Nederland Description": {
         "defaultMessage": "San Nicolaas, Willemstad, Oranjestad"
@@ -7660,5 +7660,89 @@
     },
     "WorldCoasts": {
         "defaultMessage": "Maailma üldandmed (rannajooned)"
+    },
+    "Tanzania_Southern Highlands": {
+        "defaultMessage": "Tanzania lõunaosa mägismaad"
+    },
+    "Tanzania_Coastal": {
+        "defaultMessage": "Tansaania rannik"
+    },
+    "Malaysia_East": {
+        "defaultMessage": "Malaisia idaosa"
+    },
+    "Malaysia_West": {
+        "defaultMessage": "Malaisia lääneosa"
+    },
+    "Tanzania_Coastal Description": {
+        "defaultMessage": "Morogoro, Dar es Salaam, Lindi, Mtwara, Kibaha"
+    },
+    "Tanzania_Western Description": {
+        "defaultMessage": "Kigoma, Mpanda"
+    },
+    "Tanzania_Northern Description": {
+        "defaultMessage": "Tanga, Babati, Arusha, Kilimanjaro, Moshi"
+    },
+    "Tanzania_Offshore Islands Description": {
+        "defaultMessage": "Sansibar, Pemba, Mafia, Wete, Mikoani, Mkokotoni, Koani"
+    },
+    "Tanzania_Offshore Islands": {
+        "defaultMessage": "Tansaania kaugemad saared"
+    },
+    "China_Hainan Description": {
+        "defaultMessage": "Haikou, Sanya, Wanning"
+    },
+    "Malaysia_West Description": {
+        "defaultMessage": "Kuala Lumpur, Johor Bahru, George Town, Malacca, Ipoh"
+    },
+    "Tanzania_Lake": {
+        "defaultMessage": "Tanzania järvede piirkond"
+    },
+    "Macau Description": {
+        "defaultMessage": "Macau, Taipa, Coloane"
+    },
+    "Tanzania_Central": {
+        "defaultMessage": "Tansaania keskosa"
+    },
+    "Tanzania_Western": {
+        "defaultMessage": "Tansaania lääneosa"
+    },
+    "Vietnam_South": {
+        "defaultMessage": "Vietnami lõunaosa"
+    },
+    "Vietnam_North Description": {
+        "defaultMessage": "Hanoi, Hải Phòng, Huế, Sa Pa"
+    },
+    "Tanzania_Lake Description": {
+        "defaultMessage": "Bukoba, Musoma, Mwanza, Shinyanga"
+    },
+    "Macau": {
+        "defaultMessage": "Macau"
+    },
+    "Tanzania_Central Description": {
+        "defaultMessage": "Tabora, Singida, Dodoma"
+    },
+    "Hong Kong": {
+        "defaultMessage": "Hongkong"
+    },
+    "China_Hainan": {
+        "defaultMessage": "Hainan"
+    },
+    "Vietnam_South Description": {
+        "defaultMessage": "Hồ Chí Minh, Da Nang, Can Tho, Nha Trang"
+    },
+    "Tanzania_Southern Highlands Description": {
+        "defaultMessage": "Songea, Iringa, Mbeya, Sumbawanga"
+    },
+    "Tanzania_Northern": {
+        "defaultMessage": "Tansaania põhjaosa"
+    },
+    "Hong Kong Description": {
+        "defaultMessage": "Hongkong, Kowloon, Tsuen Wan"
+    },
+    "Malaysia_East Description": {
+        "defaultMessage": "Kota Kinabalu, Kuching, Sandakan"
+    },
+    "Vietnam_North": {
+        "defaultMessage": "Vietnami põhjaosa"
     }
 }

@@ -4,8 +4,6 @@
 #include "routing/routing_helpers.hpp"
 #include "routing/turns.hpp"
 
-#include "routing/base/followed_polyline.hpp"
-
 #include "routing/routing_tests/tools.hpp"
 
 #include "platform/location.hpp"
@@ -14,7 +12,6 @@
 #include "geometry/point2d.hpp"
 #include "geometry/point_with_altitude.hpp"
 
-#include <set>
 #include <string>
 #include <vector>
 
@@ -68,20 +65,6 @@ vector<vector<Segment>> const GetSegments()
   vector<Segment> const segmentsFakeHeadAndTail = {
       {kFakeNumMwmId, 0, 0, true}, {0, 0, 1, true}, {0, 0, 2, true}, {0, 0, 3, true}, {kFakeNumMwmId, 0, 4, true}};
   return {segmentsAllReal, segmentsFakeHeadAndTail, segmentsAllFake};
-}
-
-UNIT_TEST(AddAbsentCountryToRouteTest)
-{
-  Route route("TestRouter", 0 /* route id */);
-  route.AddAbsentCountry("A");
-  route.AddAbsentCountry("A");
-  route.AddAbsentCountry("B");
-  route.AddAbsentCountry("C");
-  route.AddAbsentCountry("B");
-  set<string> const & absent = route.GetAbsentCountries();
-  TEST(absent.find("A") != absent.end(), ());
-  TEST(absent.find("B") != absent.end(), ());
-  TEST(absent.find("C") != absent.end(), ());
 }
 
 UNIT_TEST(FinshRouteOnSomeDistanceToTheFinishPointTest)
@@ -441,5 +424,74 @@ UNIT_TEST(RouteNameTest)
   route.MoveIterator(pos);
   route.GetCurrentStreetName(roadNameInfo);
   TEST_EQUAL(roadNameInfo.m_name, "Street2", (roadNameInfo.m_name));
+}
+
+UNIT_TEST(RouteStepsTest)
+{
+  lanes::LanesInfo const enterLanes = {{{lanes::LaneWay::Left}}, {{lanes::LaneWay::Through}}};
+  lanes::LanesInfo const leftLanes = {{{lanes::LaneWay::Left}}, {{lanes::LaneWay::Right}}};
+  vector<turns::TurnItem> testTurns = {turns::TurnItem(1, turns::CarDirection::None),
+                                       turns::TurnItem(2, turns::CarDirection::EnterRoundAbout, 2),
+                                       turns::TurnItem(3, turns::CarDirection::LeaveRoundAbout, 2),
+                                       turns::TurnItem(4, turns::CarDirection::TurnLeft),
+                                       turns::TurnItem(5, turns::CarDirection::ReachedYourDestination)};
+  testTurns[1].m_lanes = enterLanes;
+  testTurns[3].m_lanes = leftLanes;
+
+  Route route("TestRouter", 0 /* route id */);
+  route.SetGeometry(kTestGeometry.begin(), kTestGeometry.end());
+  vector<RouteSegment> routeSegments;
+  GetTestRouteSegments(kTestGeometry, testTurns, kTestNames, {}, routeSegments);
+  route.SetRouteSegments(std::move(routeSegments));
+
+  auto const steps = route.GetTurnsForDisplay("en");
+  TEST_EQUAL(steps.size(), 3, ());
+
+  TEST_EQUAL(steps[0].m_sequence, 1, ());
+  TEST_EQUAL(steps[0].m_index, 2, ());
+  TEST_EQUAL(steps[0].m_turn, turns::CarDirection::LeaveRoundAbout, ());
+  TEST_EQUAL(steps[0].m_lanes, enterLanes, ());
+
+  TEST_EQUAL(steps[1].m_sequence, 2, ());
+  TEST_EQUAL(steps[1].m_index, 3, ());
+  TEST_EQUAL(steps[1].m_lanes, leftLanes, ());
+
+  TEST_EQUAL(steps[2].m_sequence, 3, ());
+  TEST_EQUAL(steps[2].m_turn, turns::CarDirection::ReachedYourDestination, ());
+
+  TEST_EQUAL(route.GetStepSequenceForTurn(2), 1, ());
+  TEST_EQUAL(route.GetStepSequenceForTurn(3), 1, ());
+  TEST_EQUAL(route.GetStepSequenceForTurn(4), 2, ());
+  TEST_EQUAL(route.GetStepSequenceForTurn(5), 3, ());
+  TEST(!route.GetStepSequenceForTurn(6), ());
+
+  TEST_EQUAL(route.GetNextStepSequence(1, 1e7 /* maxDistM */), 2, ());
+  TEST(!route.GetNextStepSequence(1, 1.0 /* maxDistM */), ());
+  TEST(!route.GetNextStepSequence(3, 1e7 /* maxDistM */), ());
+}
+
+UNIT_TEST(RouteStepsUnfoldedRoundaboutTest)
+{
+  vector<turns::TurnItem> const testTurns = {turns::TurnItem(1, turns::CarDirection::None),
+                                             turns::TurnItem(2, turns::CarDirection::EnterRoundAbout, 2),
+                                             turns::TurnItem(3, turns::CarDirection::TurnLeft),
+                                             turns::TurnItem(4, turns::CarDirection::None),
+                                             turns::TurnItem(5, turns::CarDirection::ReachedYourDestination)};
+
+  Route route("TestRouter", 0 /* route id */);
+  route.SetGeometry(kTestGeometry.begin(), kTestGeometry.end());
+  vector<RouteSegment> routeSegments;
+  GetTestRouteSegments(kTestGeometry, testTurns, kTestNames, {}, routeSegments);
+  route.SetRouteSegments(std::move(routeSegments));
+
+  auto const steps = route.GetTurnsForDisplay("en");
+  TEST_EQUAL(steps.size(), 3, ());
+  TEST_EQUAL(steps[0].m_turn, turns::CarDirection::EnterRoundAbout, ());
+  TEST_EQUAL(steps[1].m_turn, turns::CarDirection::TurnLeft, ());
+  for (size_t i = 0; i < steps.size(); ++i)
+    TEST_EQUAL(steps[i].m_sequence, i + 1, ());
+
+  TEST_EQUAL(route.GetStepSequenceForTurn(2), 1, ());
+  TEST_EQUAL(route.GetStepSequenceForTurn(4), 3, ());
 }
 }  // namespace route_tests

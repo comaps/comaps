@@ -1409,7 +1409,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Vegetariánske jedlá"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "Vegánske jedlá"
     }
 }

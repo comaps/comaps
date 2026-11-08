@@ -18,8 +18,10 @@ JOBS=8
 echo "Starting..."
 # copy symlinks verbatim (they are all relative)
 find data/translations/ -type l -name 'localize.json' -exec bash -c '
-mkdir -p "$(dirname "$(echo "$1" | sed "s|^data/translations/|data/|")")"
-cp -d "$1" "$(echo "$1" | sed "s|^data/translations/|data/|")"
+dest="$(echo "$1" | sed "s|^data/translations/|data/|")"
+target="$(readlink "$1")"
+mkdir -p "$(dirname "$dest")"
+ln -sf "$target" "$dest"
 ' inline-shell '{}' \;
 # convert data
 find data/translations/ -type f -name 'localize.json' -print0 | xargs -P"${JOBS}" -0 -I'{}' bash -c '

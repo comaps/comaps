@@ -55,6 +55,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:textAppearance="@style/MwmTextAppearance.Body1"
+      android:textIsSelectable="true"
       tools:text="Very tasty, middle Eastern-influenced dishes served in a relaxed atmosphere. The portions are rather small, be prepared for long food wait times even if the restaurant doesn't appear very busy - they do lots of deliveries and takeaways." />
 
 </LinearLayout>

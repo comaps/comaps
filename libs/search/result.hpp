@@ -3,6 +3,7 @@
 #include "search/bookmarks/results.hpp"
 
 #include "indexer/feature_decl.hpp"
+#include "indexer/feature_utils.hpp"
 
 #include "editor/yes_no_unknown.hpp"
 
@@ -78,6 +79,7 @@ public:
   std::string const & GetAddress() const { return m_address; }
   std::string const & GetDescription() const { return m_details.m_description; }
   std::string const & GetBranch() const { return m_branch; }
+  feature::TitleAndBranch GetTitleAndBranch() const;
 
   osm::YesNoUnknown IsOpenNow() const { return m_details.m_isOpenNow; }
   uint16_t GetMinutesUntilOpen() const { return m_details.m_minutesUntilOpen; }

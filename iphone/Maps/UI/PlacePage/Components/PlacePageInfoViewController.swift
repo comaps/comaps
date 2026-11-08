@@ -53,6 +53,7 @@ class PlacePageInfoViewController: UIViewController {
   private var panoramaxView: InfoItemView?
   private var cuisineView: InfoItemView?
   private var organicView: InfoItemView?
+  private var secondHandView: InfoItemView?
   private var operatorView: InfoItemView?
   private var wifiView: InfoItemView?
   private var atmView: InfoItemView?
@@ -117,6 +118,16 @@ class PlacePageInfoViewController: UIViewController {
 	
 	if let organic = placePageInfoData.organic {
       organicView = createInfoItem(organic, icon: UIImage(systemName: "leaf.fill"))
+    }
+
+    if let secondHand = placePageInfoData.secondHand {
+      let iconName: String
+      if #available(iOS 18.0, *) {
+        iconName = "arrow.trianglehead.2.clockwise"
+      } else {
+        iconName = "arrow.3.trianglepath"
+      }
+      secondHandView = createInfoItem(secondHand, icon: UIImage(systemName: iconName))
     }
 
     /// @todo Entrance is missing compared with Android. It's shown in title, but anyway ..

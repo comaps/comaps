@@ -68,4 +68,16 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent" />
   </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <include
+      layout="@layout/map_buttons_route_preview"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_marginBottom="@dimen/route_preview_bottom_margin"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

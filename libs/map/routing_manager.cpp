@@ -1,5 +1,6 @@
 #include "routing_manager.hpp"
 
+#include "base/thread_checker.hpp"
 #include "drape_frontend/my_position_controller.hpp"
 #include "map/bookmark_manager.hpp"
 #include "map/chart_generator.hpp"
@@ -10,8 +11,11 @@
 #include "routing/absent_regions_finder.hpp"
 #include "routing/checkpoint_predictor.hpp"
 #include "routing/checkpoints.hpp"
+#include "routing/data_source.hpp"
+#include "routing/features_road_graph.hpp"
 #include "routing/following_info.hpp"
 #include "routing/index_router.hpp"
+#include "routing/maxspeeds.hpp"
 #include "routing/route.hpp"
 #include "routing/routing_callbacks.hpp"
 #include "routing/routing_settings.hpp"
@@ -28,6 +32,7 @@
 #include "drape_frontend/route_shape.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
+#include "routing_common/car_model.hpp"
 
 #include "indexer/data_source.hpp"
 #include "indexer/feature_algo.hpp"
@@ -56,8 +61,11 @@
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
-#include <ios>
+#include <cmath>
+#include <cstdint>
+#include <limits>
 #include <map>
+#include <numbers>
 
 #include "cppjansson/cppjansson.hpp"
 
@@ -66,7 +74,7 @@ using namespace std;
 
 namespace
 {
-char constexpr kRouterTypeKey[] = "router";
+std::string_view constexpr kRouterTypeKey = "router";
 
 double constexpr kRouteScaleMultiplier = 1.5;
 
@@ -328,6 +336,87 @@ drape_ptr<df::Subroute> CreateDrapeSubroute(vector<RouteSegment> const & segment
 }
 }  // namespace
 
+struct RoutingManager::RoadSpeedLimitState
+{
+  RoadSpeedLimitState(DataSource & ds, routing::CountryParentNameGetterFn const & parentGetter)
+    : m_dataSource(ds, nullptr /* numMwmIds */)
+    , m_graph(m_dataSource, routing::IRoadGraph::Mode::ObeyOnewayTag,
+              std::make_shared<routing::CarModelFactory>(parentGetter))
+  {}
+
+  routing::Maxspeeds const * GetMaxspeeds(MwmSet::MwmId const & mwmId)
+  {
+    if (mwmId != m_mwmId)
+    {
+      m_maxspeeds.reset();
+      m_mwmId = mwmId;
+      try { m_maxspeeds = routing::LoadMaxspeeds(m_dataSource.GetHandle(mwmId)); }
+      catch (RootException const &) {}  // GetHandle throws if the mwm can't be loaded
+    }
+    return m_maxspeeds.get();
+  }
+
+  routing::MwmDataSource m_dataSource;   // declared before m_graph: the graph holds a reference
+  routing::FeaturesRoadGraphBase m_graph;
+  MwmSet::MwmId m_mwmId;
+  std::unique_ptr<routing::Maxspeeds> m_maxspeeds;
+};
+
+double RoutingManager::GetRoadSpeedLimitMps(double lat, double lon, double bearingDeg)
+{
+  double constexpr kMatchRadiusM = 25.0;  // tune on-device
+
+  if (!m_roadSpeedLimit)
+    m_roadSpeedLimit = std::make_unique<RoadSpeedLimitState>(m_callbacks.m_dataSourceGetter(),
+                                                             m_callbacks.m_countryParentNameGetterFn);
+  auto & s = *m_roadSpeedLimit;
+
+  m2::PointD const point = mercator::FromLatLon(lat, lon);
+  double const rad = bearingDeg * std::numbers::pi / 180.0;  // bearing: clockwise from north
+  m2::PointD const direction(std::sin(rad), std::cos(rad));
+
+  std::vector<std::pair<routing::Edge, geometry::PointWithAltitude>> candidates;
+  s.m_graph.FindClosestEdges(mercator::RectByCenterXYAndSizeInMeters(point, kMatchRadiusM), 4, candidates);
+
+  // Same selection as IndexRouter::PointsOnEdgesSnapping::FindClosestCodirectionalEdge (private there).
+  routing::IndexRouter::BestEdgeComparator cmp(point, direction);
+  routing::Edge const * best = nullptr;
+  double bestDist = std::numeric_limits<double>::max();
+  for (auto const & c : candidates)
+  {
+    if (!cmp.IsAlmostCodirectional(c.first))
+      continue;
+    double const d = cmp.GetSquaredDist(c.first);
+    if (d < bestDist)
+    {
+      bestDist = d;
+      best = &c.first;
+    }
+  }
+  if (!best)
+    return -1;
+
+  FeatureID const & fid = best->GetFeatureId();
+  auto const * maxspeeds = s.GetMaxspeeds(fid.m_mwmId);
+  if (!maxspeeds)
+    return -1;
+
+  auto const ms = maxspeeds->GetMaxspeed(fid.m_index);
+  routing::SpeedInUnits const limit(ms.GetSpeedInUnits(best->IsForward()), ms.GetUnits());
+
+  // Same mapping as RoutingSession::GetCurrentSpeedLimit.
+  if (limit.IsNumeric())
+    return measurement_utils::KmphToMps(limit.GetSpeedKmPH());
+  if (limit.GetSpeed() == routing::kNoneMaxSpeed)
+    return 0;
+  return -1;
+}
+
+void RoutingManager::ResetRoadSpeedLimitCache()
+{
+  m_roadSpeedLimit.reset();
+}
+
 RoutingManager::RoutingManager(Callbacks && callbacks, Delegate & delegate)
   : m_callbacks(std::move(callbacks))
   , m_delegate(delegate)
@@ -515,54 +604,65 @@ RouterType routing::GetLastUsedRouter()
   }
 }
 
+void RoutingManager::Init(std::shared_ptr<routing::NumMwmIds> ptr)
+{
+  m_numMwmIDs = std::move(ptr);
+  m_numMwmTree = MakeNumMwmTree(*m_numMwmIDs, m_callbacks.m_countryInfoGetter());
+
+  SetRouterImpl(GetLastUsedRouter());
+}
+
 void RoutingManager::SetRouterImpl(RouterType type)
 {
-  auto const dataSourceGetterFn = m_callbacks.m_dataSourceGetter;
-  CHECK(dataSourceGetterFn, ("Type:", type));
-
   VehicleType const vehicleType = GetVehicleType(type);
 
   m_loadAltitudes = (vehicleType != VehicleType::Car) && (vehicleType != VehicleType::Decoder);
 
-  auto const countryFileGetter = [this](m2::PointD const & p) -> string
-  {
-    // TODO (@gorshenin): fix CountryInfoGetter to return CountryFile
-    // instances instead of plain strings.
-    return m_callbacks.m_countryInfoGetter().GetRegionCountryId(p);
-  };
-
-  auto numMwmIds = make_shared<NumMwmIds>();
-  m_delegate.RegisterCountryFilesOnRoute(numMwmIds);
-
-  auto & dataSource = m_callbacks.m_dataSourceGetter();
-
-  auto localFileChecker = [this](string const & countryFile) -> bool
-  {
-    MwmSet::MwmId const mwmId =
-        m_callbacks.m_dataSourceGetter().GetMwmIdByCountryFile(platform::CountryFile(countryFile));
-    return mwmId.IsAlive();
-  };
-
-  auto const getMwmRectByName = [this](string const & countryId) -> m2::RectD
-  { return m_callbacks.m_countryInfoGetter().GetLimitRectForLeaf(countryId); };
-
-  auto regionsFinder = make_unique<AbsentRegionsFinder>(countryFileGetter, localFileChecker, numMwmIds, dataSource);
-
   std::unique_ptr<IRouter> router;
+  std::unique_ptr<AbsentRegionsFinder> absentFinder;
+
   if (type == RouterType::Ruler)
     router = make_unique<RulerRouter>();
   else
-    router = make_unique<IndexRouter>(
-        vehicleType, m_loadAltitudes, m_callbacks.m_countryParentNameGetterFn, countryFileGetter, getMwmRectByName,
-        numMwmIds, MakeNumMwmTree(*numMwmIds, m_callbacks.m_countryInfoGetter()), m_routingSession, dataSource);
+  {
+    auto & dataSource = m_callbacks.m_dataSourceGetter();
+
+    auto const countryFileGetter = [this](m2::PointD const & p)
+    { return m_callbacks.m_countryInfoGetter().GetRegionCountryId(p); };
+
+    auto const localFileChecker = [this, &dataSource](string const & countryFile)
+    {
+      MwmSet::MwmId mwmId = dataSource.GetMwmIdByCountryFile(platform::CountryFile(countryFile));
+      if (!mwmId.IsAlive())
+      {
+        /// @todo Temporary hack, works only for splitted regions.
+        /// Should delegate "old" (outdated) countries check to the Framework.
+        platform::CountryFile parent(m_callbacks.m_countryParentNameGetterFn(countryFile));
+        if (!parent.IsEmpty())
+          mwmId = dataSource.GetMwmIdByCountryFile(parent);
+      }
+
+      return mwmId.IsAlive();
+    };
+
+    auto const getMwmRectByName = [this](string const & countryId)
+    { return m_callbacks.m_countryInfoGetter().GetLimitRectForLeaf(countryId); };
+
+    router = make_unique<IndexRouter>(vehicleType, m_loadAltitudes, m_callbacks.m_countryParentNameGetterFn,
+                                      countryFileGetter, getMwmRectByName, m_numMwmIDs, m_numMwmTree, m_routingSession,
+                                      dataSource);
+    absentFinder = make_unique<AbsentRegionsFinder>(countryFileGetter, localFileChecker, m_numMwmIDs, dataSource);
+  }
 
   m_routingSession.SetRoutingSettings(GetRoutingSettings(vehicleType));
-  m_routingSession.SetRouter(std::move(router), std::move(regionsFinder));
+  m_routingSession.SetRouter(std::move(router), std::move(absentFinder));
   m_currentRouterType = type;
 }
 
 void RoutingManager::RemoveRoute(bool deactivateFollowing)
 {
+  ClearPreviewedTurn();
+
   GetPlatform().RunTask(Platform::Thread::Gui, [this, deactivateFollowing]()
   {
     {
@@ -785,10 +885,8 @@ bool RoutingManager::InsertRoute(Route const & route)
   // TODO: Now we always update whole route, so we need to remove previous one.
   RemoveRoute(false /* deactivateFollowing */);
 
-  auto numMwmIds = make_shared<NumMwmIds>();
-  m_delegate.RegisterCountryFilesOnRoute(numMwmIds);
-  auto const getMwmId = [this, numMwmIds](routing::NumMwmId numMwmId)
-  { return m_callbacks.m_dataSourceGetter().GetMwmIdByCountryFile(numMwmIds->GetFile(numMwmId)); };
+  auto const getMwmId = [this](routing::NumMwmId numMwmId)
+  { return m_callbacks.m_dataSourceGetter().GetMwmIdByCountryFile(m_numMwmIDs->GetFile(numMwmId)); };
 
   RoadWarningsCollection roadWarnings;
   vector<std::pair<m2::PointD, FeatureID>> trafficLights;
@@ -910,6 +1008,8 @@ void RoutingManager::FollowRoute()
 {
   if (!m_routingSession.EnableFollowMode())
     return;
+
+  ClearPreviewedTurn();
 
   m_transitReadManager->BlockTransitSchemeMode(true /* isBlocked */);
 
@@ -1154,6 +1254,7 @@ void RoutingManager::GenerateNotifications(vector<string> & turnNotifications, b
 void RoutingManager::BuildRoute(uint32_t timeoutSec)
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ("BuildRoute"));
+  ClearPreviewedTurn();
 
   m_bmManager->GetEditSession().ClearGroup(UserMark::Type::TRANSIT);
 
@@ -1735,6 +1836,39 @@ void RoutingManager::CancelRecommendation(Recommendation recommendation)
     m_loadRoutePointsTimestamp = chrono::steady_clock::time_point();
 }
 
+void RoutingManager::SetPreviewedTurn(uint32_t segmentIndex)
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ("SetPreviewedTurn"));
+  if (m_currentPreviewedTurnIndex.has_value() && *m_currentPreviewedTurnIndex == segmentIndex)
+    return;
+
+  m_currentPreviewedTurnIndex = segmentIndex;
+  NotifyPreviewedTurnChanged();
+}
+
+void RoutingManager::ClearPreviewedTurn()
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ("ClearPreviewedTurn"));
+  if (!m_currentPreviewedTurnIndex.has_value())
+    return;
+
+  m_currentPreviewedTurnIndex.reset();
+  NotifyPreviewedTurnChanged();
+}
+
+void RoutingManager::SetPreviewedTurnChangedCallback(PreviewedTurnChangedCallback callback)
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ("SetPreviewedTurnChangedCallback"));
+  m_previewedTurnChangedCallback = std::move(callback);
+  NotifyPreviewedTurnChanged();
+}
+
+void RoutingManager::NotifyPreviewedTurnChanged() const
+{
+  if (m_previewedTurnChangedCallback)
+    m_previewedTurnChangedCallback(m_currentPreviewedTurnIndex.has_value(), m_currentPreviewedTurnIndex.value_or(0));
+}
+
 TransitRouteInfo RoutingManager::GetTransitRouteInfo() const
 {
   lock_guard<mutex> lock(m_drapeSubroutesMutex);
@@ -1760,4 +1894,14 @@ bool RoutingManager::IsSpeedCamLimitExceeded() const
 std::vector<routing::RouteStepInfo> RoutingManager::GetRouteTurnsForDisplay(std::string const & locale) const
 {
   return m_routingSession.GetRouteTurnsForDisplay(locale);
+}
+
+m2::PointD RoutingManager::GetJunctionPointForUpcomingTurn(uint32_t segmentIndex) const
+{
+  return m_routingSession.GetRouteForTests()->GetJunctionPointForTurn(segmentIndex);
+}
+
+double RoutingManager::GetDirectionForUpcomingTurn(uint32_t segmentIndex) const
+{
+  return m_routingSession.GetRouteForTests()->GetDirectionForTurn(segmentIndex);
 }

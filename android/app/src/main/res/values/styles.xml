@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
   <style name="MwmWidget"/>
 
@@ -341,16 +341,39 @@
     <item name="android:padding">@dimen/nav_frame_padding</item>
   </style>
 
-    <style name="ShapeAppearance.MapButton.Zoom.Plus" parent="">
-        <item name="cornerSizeTopLeft">10%</item>
-        <item name="cornerSizeTopRight">10%</item>
-        <item name="cornerSizeBottomRight">50%</item>
-        <item name="cornerSizeBottomLeft">50%</item>
-    </style>
-    <style name="ShapeAppearance.MapButton.Zoom.Minus" parent="">
-        <item name="cornerSizeBottomLeft">10%</item>
-        <item name="cornerSizeBottomRight">10%</item>
-        <item name="cornerSizeTopLeft">50%</item>
-        <item name="cornerSizeTopRight">50%</item>
-    </style>
+  <style name="ShapeAppearance.MapButton.Zoom.Plus" parent="">
+    <item name="cornerSizeTopLeft">10%</item>
+    <item name="cornerSizeTopRight">10%</item>
+    <item name="cornerSizeBottomRight">50%</item>
+    <item name="cornerSizeBottomLeft">50%</item>
+  </style>
+
+  <style name="ShapeAppearance.MapButton.Zoom.Minus" parent="">
+    <item name="cornerSizeBottomLeft">10%</item>
+    <item name="cornerSizeBottomRight">10%</item>
+    <item name="cornerSizeTopLeft">50%</item>
+    <item name="cornerSizeTopRight">50%</item>
+  </style>
+
+  <style name="ShapeAppearance.MapButton.RoutePreview.Previous" parent="">
+    <item name="cornerSizeTopLeft">50%</item>
+    <item name="cornerSizeTopRight">10%</item>
+    <item name="cornerSizeBottomRight">10%</item>
+    <item name="cornerSizeBottomLeft">50%</item>
+  </style>
+
+  <style name="ShapeAppearance.MapButton.RoutePreview.Text" parent="">
+    <item name="cornerSizeTopLeft">10%</item>
+    <item name="cornerSizeTopRight">10%</item>
+    <item name="cornerSizeBottomRight">10%</item>
+    <item name="cornerSizeBottomLeft">10%</item>
+    <item name="android:layout_width">96dp</item>
+  </style>
+
+  <style name="ShapeAppearance.MapButton.RoutePreview.Next" parent="">
+    <item name="cornerSizeBottomLeft">10%</item>
+    <item name="cornerSizeBottomRight">50%</item>
+    <item name="cornerSizeTopLeft">10%</item>
+    <item name="cornerSizeTopRight">50%</item>
+  </style>
 </resources>

@@ -56,6 +56,7 @@ void LocalCountryFile::DeleteFromDisk(MapFileType type) const
   if (IsInBundle())
     return;
 
+  LOG(LDEBUG, ("Deleting map file", *this));
   if (OnDisk(type) && !base::DeleteFileX(GetPath(type)))
     LOG(LERROR, (type, "from", *this, "wasn't deleted from disk."));
 }

@@ -66,6 +66,7 @@ std::map<std::string, BookmarkMatchInfo> const kFeatureTypeToBookmarkMatchInfo =
     {"amenity-place_of_worship-buddhist", {kml::BookmarkIcon::Buddhism, BookmarkBaseType::ReligiousPlace}},
 
     {"amenity-college", {kml::BookmarkIcon::Building, BookmarkBaseType::Building}},
+    {"amenity-research_institute", {kml::BookmarkIcon::Building, BookmarkBaseType::Building}},
     {"amenity-courthouse", {kml::BookmarkIcon::Building, BookmarkBaseType::Building}},
     {"amenity-kindergarten", {kml::BookmarkIcon::Building, BookmarkBaseType::Building}},
     {"amenity-library", {kml::BookmarkIcon::Building, BookmarkBaseType::Building}},
@@ -83,6 +84,7 @@ std::map<std::string, BookmarkMatchInfo> const kFeatureTypeToBookmarkMatchInfo =
 
     {"amenity-casino", {kml::BookmarkIcon::Entertainment, BookmarkBaseType::Entertainment}},
     {"amenity-cinema", {kml::BookmarkIcon::Entertainment, BookmarkBaseType::Entertainment}},
+    {"amenity-music_venue", {kml::BookmarkIcon::Entertainment, BookmarkBaseType::Entertainment}},
     {"amenity-nightclub", {kml::BookmarkIcon::Entertainment, BookmarkBaseType::Entertainment}},
     {"shop-bookmaker", {kml::BookmarkIcon::Entertainment, BookmarkBaseType::Entertainment}},
     {"tourism-theme_park", {kml::BookmarkIcon::Entertainment, BookmarkBaseType::Entertainment}},

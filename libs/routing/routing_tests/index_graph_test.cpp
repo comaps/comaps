@@ -637,7 +637,14 @@ UNIT_CLASS_TEST(RestrictionTest, LoopGraph)
                                          {kTestNumMwmId, 0, 7, false}, {kTestNumMwmId, 0, 6, false},
                                          {kTestNumMwmId, 2, 0, true}};
 
-  auto const expectedWeight = mercator::DistanceOnEarth({0.0002, 0.0}, {0.0002, 0.0001}) / KmphToMps(100.0) +
+  traffic::TrafficCache const trafficCache;
+  auto const & indexGraph = m_graph->GetIndexGraph(kTestNumMwmId);
+  auto const turnPenalty = CreateEstimatorForCar(trafficCache)
+                               ->GetTurnPenalty(EdgeEstimator::Purpose::Weight, 90.0, indexGraph.GetRoadGeometry(1),
+                                                indexGraph.GetRoadGeometry(0));
+
+  auto const expectedWeight = turnPenalty +
+                              mercator::DistanceOnEarth({0.0002, 0.0}, {0.0002, 0.0001}) / KmphToMps(100.0) +
                               mercator::DistanceOnEarth({0.0002, 0.0001}, {0.00015, 0.0001}) / KmphToMps(100.0) +
                               mercator::DistanceOnEarth({0.00015, 0.0001}, {0.0001, 0.0001}) / KmphToMps(100.0) +
                               mercator::DistanceOnEarth({0.0001, 0.0001}, {0.00005, 0.00015}) / KmphToMps(100.0) +

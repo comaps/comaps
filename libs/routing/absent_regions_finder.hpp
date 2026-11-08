@@ -1,6 +1,7 @@
 #pragma once
 
 #include "routing/regions_decl.hpp"
+#include "routing/routing_callbacks.hpp"
 
 #include "base/thread.hpp"
 
@@ -24,15 +25,25 @@ using LocalFileCheckerFn = std::function<bool(std::string const &)>;
 class AbsentRegionsFinder
 {
 public:
-  AbsentRegionsFinder(CountryFileGetterFn const & countryFileGetter, LocalFileCheckerFn const & localFileChecker,
+  AbsentRegionsFinder(CountryFileGetterFn countryFileGetter, LocalFileCheckerFn localFileChecker,
                       std::shared_ptr<NumMwmIds> numMwmIds, DataSource & dataSource);
 
   /**
-   * @brief Creates new thread `m_routerThread` and starts routing in it.
+   * @brief Prepares the set of absent regions (MWMs) for later retrieval.
+   *
+   * This determines the MWMs in which the checkpoints are located. If the checkpoints are located in
+   * different MWMs, it creates a new thread `m_routerThread` and starts routing in it.
+   *
+   * If any of `checkpoints` is located in a missing MWM, it is added to `m_absentRegions`.
+   *
    * @param checkpoints The checkpoints of the route (start, optional intermediate points, destination)
    * @param delegate
+   * @return A `RouterResultCode` returned by the router (`RouterResultCode::NoError` if the checkpoints
+   * are located in the same MWM)
    */
-  void GenerateAbsentRegions(Checkpoints const & checkpoints, RouterDelegate const & delegate);
+  RouterResultCode GenerateAbsentRegions(Checkpoints const & checkpoints, RouterDelegate const & delegate);
+
+  using RegionsSetT = std::set<std::string>;
 
   /**
    * @brief Retrieves the MWMs needed to build the route.
@@ -41,26 +52,27 @@ public:
    * routing thread `m_routerThread` to finish and returns results from it. Results are cached and
    * subsequent calls are served from the cache.
    *
-   * @param countries Receives the list of MWM names.
+   * @return the list of MWM names.
    */
-  void GetAllRegions(std::set<std::string> & countries);
+  RegionsSetT GetAllRegions();
 
   /**
    * @brief Retrieves the missing MWMs needed to build the route.
    *
    * This calls `GetAllRegions()` and strips from the result all regions already present on the
-   * device, leaving only the missing ones. If the call to `GetAllRegions()` is the first one after
+   * device, leaving only the missing ones. These are then enriched with the contents of
+   * `m_absentRegions`, the latter is cleared.  If the call to `GetAllRegions()` is the first one after
    * calling `GenerateAbsentRegions()`, this involves waiting for the router thread to finish.
    *
-   * @param absentCountries Receives the list of missing MWM names.
+   * @return the list of missing MWM names.
    */
-  void GetAbsentRegions(std::set<std::string> & absentCountries);
+  RegionsSetT GetAbsentRegions();
 
 private:
-  bool AreCheckpointsInSameMwm(Checkpoints const & checkpoints) const;
-
   CountryFileGetterFn const m_countryFileGetterFn;
   LocalFileCheckerFn const m_localFileCheckerFn;
+
+  RegionsSetT m_absentRegions;
 
   std::shared_ptr<NumMwmIds> m_numMwmIds;
   DataSource & m_dataSource;
@@ -80,6 +92,6 @@ private:
    *
    * This member is cleared by `GenerateAbsentRegions()` and populated by `GetAllRegions()`.
    */
-  std::set<std::string> m_regions;
+  RegionsSetT m_regions;
 };
 }  // namespace routing

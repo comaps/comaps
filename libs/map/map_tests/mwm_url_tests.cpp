@@ -350,14 +350,6 @@ UNIT_TEST(MapApiGe0)
     TEST_EQUAL(api.GetRequestType(), UrlType::Map, ());
   }
   {
-    ParsedMapApi api("http://cm.at/o4B4pYZsRs/Zoo_Zürich");
-    TEST_EQUAL(api.GetRequestType(), UrlType::Map, ());
-  }
-  {
-    ParsedMapApi api("https://cm.at/o4B4pYZsRs/Zoo_Zürich");
-    TEST_EQUAL(api.GetRequestType(), UrlType::Map, ());
-  }
-  {
     ParsedMapApi api("ge0://o4B4pYZsRs/Zoo_Zürich");
     TEST_EQUAL(api.GetRequestType(), UrlType::Map, ());
   }
@@ -461,14 +453,6 @@ UNIT_TEST(CrosshairApi)
   }
   {
     ParsedMapApi api("cm://crosshair?cll=47.3813,8.5889&appname=Google%20Maps");
-    TEST_EQUAL(api.GetRequestType(), UrlType::Crosshair, ());
-    ms::LatLon latlon = api.GetCenterLatLon();
-    TEST_ALMOST_EQUAL_ABS(latlon.m_lat, 47.3813, kEps, ());
-    TEST_ALMOST_EQUAL_ABS(latlon.m_lon, 8.5889, kEps, ());
-    TEST_EQUAL(api.GetAppName(), "Google Maps", ());
-  }
-  {
-    ParsedMapApi api("https://cm.at/crosshair?cll=47.3813,8.5889&appname=Google%20Maps");
     TEST_EQUAL(api.GetRequestType(), UrlType::Crosshair, ());
     ms::LatLon latlon = api.GetCenterLatLon();
     TEST_ALMOST_EQUAL_ABS(latlon.m_lat, 47.3813, kEps, ());

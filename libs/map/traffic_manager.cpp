@@ -21,15 +21,14 @@ using namespace std::chrono;
 
 namespace
 {
-/**
- * Poll interval for traffic data
- */
+/** Poll interval for traffic data */
 auto constexpr kUpdateInterval = minutes(1);
 
 /**
  * Purge interval for expired traffic messages
  */
 auto constexpr kPurgeInterval = minutes(1);
+
 
 auto constexpr kOutdatedDataTimeout = minutes(5) + kUpdateInterval;
 auto constexpr kNetworkErrorTimeout = minutes(20);

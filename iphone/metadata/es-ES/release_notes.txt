@@ -1,6 +1,13 @@
-• Añadida compatibilidad con el panel de CarPlay
-• Añadida opción para configurar la URL del servidor de descarga de mapas
-• Hacer accesible el selector de modos de transporte y activar opciones adicionales con un segundo toque, además de mantener pulsado
-• Mostrar estrellas de hoteles y restaurantes como texto
-• Añadidas tiendas de alquiler de herramientas, bibliotecas de herramientas, señales de carretera de Rumanía y Marruecos, y corregidas las de carreteras A de Augsburgo y Chipre
-• Datos de OpenStreetMap a 4 de octubre y actualizaciones semanales posteriores
+• Revisión de las indicaciones de giro en CarPlay: corregidos varios errores, como retrasos en las instrucciones, indicaciones de siguiente giro con dirección incorrecta, e indicaciones funcionando solo con la función de síntesis de voz (TTS) activada
+• Solucionado error que provocaba cierres inesperados en los resultados de búsqueda de CarPlay
+• Gestionar vehículos que limitan la visualización de listas en CarPlay durante la conducción
+• Corregidos iconos de configuración invisibles en iOS 27 en CarPlay
+• Corregida la posición de la flecha al iniciar la navegación desde el panel de control y al pasar a la vista principal
+• Mejora del contraste en modo oscuro: texto y carreteras más legibles
+• Inclusión de zonas peligrosas
+• Distinción entre opciones vegetarianas y solo vegetariano
+• Eliminada indicación «siga recto» al cruzar carreteras grandes
+• Divididos Tanzania, Vietnam, Malasia y Guangdong (China) en mapas más pequeños
+• Añadida palabra clave de búsqueda "?reviews" para encontrar lugares con reseñas
+• Mostrar información de segunda mano en la página del lugar, además de añadir locales de música, cafeterías y más
+• Datos de OpenStreetMap actualizados al 5 de noviembre y actualizaciones semanales posteriores

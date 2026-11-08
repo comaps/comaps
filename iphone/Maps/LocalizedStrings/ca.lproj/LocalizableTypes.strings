@@ -47,7 +47,7 @@
 "type.man_made.observatory" = "Observatori";
 "type.amenity.casino" = "Casino";
 "type.amenity.gambling" = "Jocs d’aposta";
-"type.amenity.studio" = "Estudi de telecomunicacions";
+"type.amenity.studio" = "Estudi multimèdia";
 "type.leisure.adult_gaming_centre" = "Centre de joc per a adults";
 "type.leisure.amusement_arcade" = "Arcade";
 "type.amenity.charging_station" = "Estació de recàrrega";
@@ -99,7 +99,7 @@
 "type.amenity.library" = "Biblioteca";
 "type.amenity.loading_dock" = "Moll de càrrega";
 "type.amenity.lounger" = "Hamaca";
-"type.amenity.luggage_locker" = "Taquilla d'equipatge";
+"type.amenity.luggage_locker" = "Armariet d'equipatge";
 "type.amenity.marketplace" = "Mercat";
 "type.amenity.mobile_money_agent" = "Agència d'efectiu mòbil";
 "type.amenity.motorcycle_parking" = "Aparcament de motocicletes";
@@ -180,10 +180,10 @@
 "type.amenity.public_bath" = "Bany públic";
 "type.amenity.shower" = "Dutxa";
 "type.amenity.stripclub" = "Club de striptease";
-"type.amenity.taxi" = "Desocupada de taxis";
+"type.amenity.taxi" = "Parada de taxis";
 "type.amenity.telephone" = "Telèfon";
 "type.amenity.theatre" = "Teatre";
-"type.amenity.toilets" = "Lavabo";
+"type.amenity.toilets" = "Lavabos";
 "type.toilets.yes" = "Lavabos";
 "type.amenity.townhall" = "Ajuntament";
 "type.amenity.university" = "Universitat";
@@ -589,12 +589,12 @@
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "Túnel";
 "type.highway.traffic_signals" = "Semàfor";
-"type.highway.trunk" = "Carretera nacional";
+"type.highway.trunk" = "Carretera principal";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "Pont";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "Túnel";
-"type.highway.trunk_link" = "Accés de carretera nacional";
+"type.highway.trunk_link" = "Accés de carretera principal";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "Pont";
 /* These translations are used for all type.highway.*.tunnel. */
@@ -618,7 +618,7 @@
 "type.area_highway.tertiary" = "Carretera terciària";
 "type.area_highway.steps" = "Escales";
 "type.area_highway.track" = "Pista";
-"type.area_highway.trunk" = "Carretera nacional";
+"type.area_highway.trunk" = "Carretera principal";
 "type.area_highway.unclassified" = "Carretera menor";
 "type.historic" = "Objecte històric";
 "type.historic.aircraft" = "Avions històrics";
@@ -1257,7 +1257,7 @@
 "type.shop.car" = "Concessionari de cotxes";
 "type.shop.car_parts" = "Botiga de peces de recanvi de cotxe";
 "type.shop.car_repair" = "Taller d'automòbils";
-"type.shop.car_repair.tyres" = "Tyre Repair";
+"type.shop.car_repair.tyres" = "Reparació de pneumàtics";
 "type.shop.caravan" = "Concessionari de caravanes";
 "type.shop.carpet" = "Catifes";
 "type.shop.chemist" = "Farmàcia";
@@ -1319,7 +1319,7 @@
 "type.shop.photo" = "Botiga d'articles de fotografia";
 "type.shop.rental" = "Botiga de lloguer";
 "type.shop.rental.bicycle" = "Botiga de lloguer de bicicletes";
-"type.shop.seafood" = "Pescateria";
+"type.shop.seafood" = "Peixateria";
 "type.shop.second_hand" = "Botiga de segona mà";
 "type.shop.shoes" = "Botiga de sabates";
 "type.shop.sports" = "Botiga esportiva";
@@ -1440,7 +1440,7 @@
 "type.tourism.information.tactile_map" = "Mapa tàctil";
 "type.tourism.information.office" = "Oficina de turisme";
 "type.tourism.information.visitor_centre" = "Centre de visitants";
-"type.amenity.ranger_station" = "Ranger Station";
+"type.amenity.ranger_station" = "Estació forestal";
 "type.tourism.motel" = "Motel";
 "type.tourism.museum" = "Museu";
 "type.tourism.picnic_site" = "Àrea de Pícnic";
@@ -1526,7 +1526,7 @@
 "type.leisure.sports_centre.sport.four_square" = "Sports Centre";
 "type.sport.four_square" = "Four Square";
 "type.sport.boules" = "Esport de boles";
-"type.leisure.sports_centre.sport.boules" = "Sports Centre";
+"type.leisure.sports_centre.sport.boules" = "Centre d'esports";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Centre esportiu";
 "type.organic.no" = "Sense opcions orgàniques";
@@ -1546,3 +1546,42 @@
 "type.amenity.parking.customers" = "Aparcament per a clients";
 "type.barrier.bus_trap" = "Trampa d'autobusos";
 "type.barrier.sump_buster" = "Sump Buster";
+"type.second_hand.no" = "No second-hand options";
+"type.second_hand.yes" = "Second-hand options";
+"type.second_hand.only" = "Second-hand only";
+"type.shop.games" = "Game Shop";
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.shop.swimming_pool" = "Swimming Pool Shop";
+"type.amenity.music_venue" = "Music Venue";
+"type.cuisine.vegetarian_only" = "Només vegetarià";
+"type.amenity.research_institute" = "Institut de recerca";
+"type.cuisine.vegan_only" = "Només vegà";
+"type.club.history" = "History Club";
+"type.club.model_railway" = "Model Railway Club";
+"type.club.youth" = "Youth Club";
+"type.club.art" = "Art Club";
+"type.club.computer" = "Club d'Informàtica";
+"type.club.culture" = "Associació cultural";
+"type.club.youth_movement" = "Youth Movement";
+"type.club.cadet" = "Cadet Club";
+"type.club.theatre" = "Theatre Club";
+"type.club.music" = "Music Club";
+"type.club.scout" = "Club d'escoltes";
+"type.club.dog" = "Club caní";
+"type.club.social" = "Club social";
+"type.club.surf_life_saving" = "Surf Life Saving";
+"type.club.hunting" = "Club de caça";
+"type.club.fraternity" = "Fraternitat";
+"type.club.motorcycle" = "Club de motociclisme";
+"type.club.freemasonry" = "Lògia maçònica";
+"type.club.religion" = "Club religiós";
+"type.club.board_games" = "Board Games Club";
+"type.club.veterans" = "Veterans Club";
+"type.club.allotments" = "Allotment Association";
+"type.club.gardening" = "Gardening Club";
+"type.club.student" = "Club d'estudiants";
+"type.club.game" = "Gaming Club";
+"type.club.amateur_radio" = "Amateur Radio Club";
+"type.club" = "Club";
+"type.club.automobile" = "Automobile Club";
+"type.boundary.hazard" = "Hazardous Area";

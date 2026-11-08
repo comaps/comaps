@@ -744,13 +744,11 @@ uint64_t GetPopulationByRadius(double r);
 /**
  * @brief Highway class.
  *
- * The order is important. The enum values follow from the biggest roads (Trunk) to the smallest ones (Service).
+ * The order is important. The enum values follow from the biggest roads (Motorway) to the smallest ones (Service).
  */
 enum class HighwayClass
 {
-  /**
-   * Used when there has not been any attempt of calculating HighwayClass.
-   */
+  /** Used when there has not been any attempt of calculating HighwayClass. */
   Undefined = 0,
   Motorway,
   Trunk,
@@ -765,21 +763,22 @@ enum class HighwayClass
    * Service, track, busway and `man_made=pier`.
    */
   Service,
-  // OSM highway=service type is widely used even for _significant_ roads.
-  // Adding a new type to distinguish mapped driveway or parking_aisle.
+  /**
+   * Minor service road.
+   *
+   * OSM `highway=service` type is widely used even for _significant_ roads.
+   * This type is used for e.g. `service=driveway` or `service=parking_aisle`,
+   * allowing them to be distinguished from more significant types.
+   */
   ServiceMinor,
   /**
    * Anything not intended for motorized traffic: pedestrian, footway, bridleway, steps, cycleway,
    * path and also `highway=construction`.
    */
   Pedestrian,
-  /**
-   * Vehicles are transported by train or ferry.
-   */
+  /** Vehicles are transported by train or ferry. */
   Transported,
-  /**
-   * This value is used for internals only.
-   */
+  /** This value is used for internals only. */
   Count
 };
 

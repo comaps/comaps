@@ -15,6 +15,11 @@ namespace turns
 {
 namespace sound
 {
+// If the distance between two sequential turns is less than kSecondTurnThresholdDistM
+// the information about the second turn will be shown or pronounced
+// when the user is approaching to the first one with "Then,".
+double constexpr kSecondTurnThresholdDistM = 400.0;
+
 /// \brief The PronouncedNotification enum represents which sound notifications
 /// for turns were heard.
 enum class PronouncedNotification
@@ -102,6 +107,9 @@ public:
   /// \note This method works independent from m_enabled value.
   /// So it works when the class enable and disable.
   CarDirection GetSecondTurnNotification() const { return m_secondTurnNotification; }
+
+  uint32_t GetFirstNotificationDistM() const;
+  uint32_t GetSecondNotificationDistM() const;
 
 private:
   std::string GenerateTurnText(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance,

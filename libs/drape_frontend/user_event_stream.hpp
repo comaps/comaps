@@ -166,6 +166,20 @@ public:
     : m_center(center)
     , m_zoom(zoom)
     , m_scaleFactor(0.0)
+    , m_angle(0.0)
+    , m_hasAngle(false)
+    , m_isAnim(isAnim)
+    , m_trackVisibleViewport(trackVisibleViewport)
+    , m_parallelAnimCreator(parallelAnimCreator)
+  {}
+
+  SetCenterEvent(m2::PointD const & center, int zoom, double angle, bool isAnim, bool trackVisibleViewport,
+                 TAnimationCreator const & parallelAnimCreator)
+    : m_center(center)
+    , m_zoom(zoom)
+    , m_scaleFactor(0.0)
+    , m_angle(angle)
+    , m_hasAngle(true)
     , m_isAnim(isAnim)
     , m_trackVisibleViewport(trackVisibleViewport)
     , m_parallelAnimCreator(parallelAnimCreator)
@@ -176,6 +190,8 @@ public:
     : m_center(center)
     , m_zoom(-1)
     , m_scaleFactor(scaleFactor)
+    , m_angle(0.0)
+    , m_hasAngle(false)
     , m_isAnim(isAnim)
     , m_trackVisibleViewport(trackVisibleViewport)
     , m_parallelAnimCreator(parallelAnimCreator)
@@ -186,6 +202,8 @@ public:
   m2::PointD const & GetCenter() const { return m_center; }
   int GetZoom() const { return m_zoom; }
   double GetScaleFactor() const { return m_scaleFactor; }
+  double GetAngle() const { return m_angle; }
+  bool HasAngle() const { return m_hasAngle; }
   bool IsAnim() const { return m_isAnim; }
   bool TrackVisibleViewport() const { return m_trackVisibleViewport; }
   TAnimationCreator const & GetParallelAnimCreator() const { return m_parallelAnimCreator; }
@@ -195,6 +213,8 @@ private:
   int m_zoom;            // if zoom == -1, then zoom level will not change
   double m_scaleFactor;  // this parameter is used when zoom == -1,
                          // if scaleFactor <= 0.0, then scale will not change
+  double m_angle;
+  bool m_hasAngle;
   bool m_isAnim;
   bool m_trackVisibleViewport;
   TAnimationCreator m_parallelAnimCreator;

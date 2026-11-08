@@ -348,7 +348,7 @@
     <string name="dialog_routing_try_again">Prøv venligst igen</string>
     <string name="not_now">Ikke nu</string>
     <string name="dialog_routing_download_and_build_cross_route">Ønsker du at downloade kortet og planlægge en mere optimal rute, der strækker sig over mere end ét kort?</string>
-    <string name="dialog_routing_download_cross_route">Download yderligere kort for at planlægge en mere optimal rute, der strækker sig ud over dette korts grænser.</string>
+    <string name="dialog_routing_download_cross_route">Download yderligere kort for at planlægge en bedre rute, der krydser dette korts grænser.</string>
     <!-- SECTION: Strings for downloading map from search -->
     <string name="search_without_internet_advertisement">For at komme i gang med at søge og oprette ruter skal du downloade kortet. Derefter har du ikke længere brug for en internetforbindelse.</string>
     <string name="search_select_map">Vælg kort</string>
@@ -477,7 +477,7 @@
     <!-- abbreviation for kilometers per hour -->
     <string name="kilometers_per_hour">km/t</string>
     <string name="miles_per_hour">mph</string>
-    <string name="hour">time</string>
+    <string name="hour">t</string>
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Mere</string>
@@ -587,7 +587,7 @@
     <!-- this text will be shown in application notification preferences opposite checkbox which enable/disable downloader notifications. Devices on Android 8+ are affected. -->
     <string name="notification_channel_downloader">Kort-downloader</string>
     <!-- "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit -->
-    <string name="pref_tts_speedcams_auto">Advar om for høj hastighed</string>
+    <string name="pref_tts_speedcams_auto">Advar ved for høj hastighed</string>
     <!-- Speed camera settings menu option - Always warn (about speedcams) -->
     <string name="pref_tts_speedcams_always">Advar altid</string>
     <!-- Speed camera settings menu option - Never warn (about speedcams) -->
@@ -822,7 +822,7 @@
     <string name="backup_interval_every_week">Ugentligt</string>
     <string name="backup_interval_manual_only">Fra (kun manuelt)</string>
     <string name="dialog_report_error_missing_folder">Den valgte sikkerhedskopi-placering er ikke tilgængelig eller skrivbar. Vælg en anden placering.</string>
-    <string name="dialog_report_error_with_logs">Send os en fejlrapport:\n - \"Aktivér logning\" i indstillingerne\n - genskab problemet\n - Tryk på knappen \"Rapporter en fejl\" i skærmbilledet \"Om og hjælp\" og send via e-mail eller chat.\n - deaktiver logning</string>
+    <string name="dialog_report_error_with_logs">Send os en fejlrapport:\n - Gå til indstillingerne, så vælg Avanceret\n - \"Aktivér logning\"\n - genskab problemet\n - Tryk på knappen \"Rapporter en fejl\" i skærmbilledet \"Om og hjælp\" og send via e-mail eller chat.\n - deaktiver logning</string>
     <string name="editor_building_levels">Etager (inkl. stueetage, ekskl. tag)</string>
     <string name="error_enter_correct_level">Indtast et gyldigt etagenummer</string>
     <string name="pref_left_button_title">Indstilling af venstre knap</string>
@@ -934,7 +934,7 @@
     <string name="tts_toggle_enable">Aktivér stemmevejledninger</string>
     <string name="tts_toggle_disable">Deaktivér stemmevejledninger</string>
     <string name="pref_aa_support_title">Android Auto</string>
-    <string name="pref_aa_support_summary_yes">Appen er installeret fra Google Play, du kan bruge den i din bil.</string>
+    <string name="pref_aa_support_summary_yes">Appen er installeret fra Google Play. Du kan bruge den i din bil.</string>
     <string name="pref_aa_support_summary_no">Appen er ikke installeret fra Google Play, du kan ikke bruge den i din bil. Tryk på indstillingen for flere oplysninger i vores FAQ.</string>
     <string name="oh_unknown">Åbningstider ukendt</string>
     <string name="editor_add_select_category_all_subtitle">Alle kategorier</string>
@@ -985,4 +985,8 @@
     <string name="stars_3">3-stjernet</string>
     <string name="stars_4">4-stjernet</string>
     <string name="stars_5">5-stjernet</string>
+    <string name="route_preview_turn_position">%1$d af %2$d</string>
+    <string name="route_preview_cancel">Luk ruteforhåndsvisning</string>
+    <string name="route_preview_previous_turn">Forrige sving</string>
+    <string name="route_preview_next_turn">Næste sving</string>
 </resources>

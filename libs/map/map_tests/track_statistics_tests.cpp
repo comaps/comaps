@@ -51,7 +51,7 @@ UNIT_TEST(TrackStatistics_FromMultiGeometry)
   double distance = 0;
   distance += mercator::DistanceOnEarth(point1, point2);
   distance += mercator::DistanceOnEarth(point2, point3);
-  TEST_EQUAL(ts.m_length, distance, ());
+  TEST_ALMOST_EQUAL_ULPS(ts.m_length, distance, ());
 }
 
 UNIT_TEST(TrackStatistics_NoAltitudeAndTimestampPoints)

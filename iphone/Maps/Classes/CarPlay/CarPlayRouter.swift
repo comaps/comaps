@@ -10,19 +10,35 @@ protocol CarPlayRouterListener: AnyObject {
   func routeDidFinish(_ trip: CPTrip)
 }
 
-enum CarPlayManeuverSymbol {
-  static func image(named name: String,
-                    exitNumber: Int? = nil,
-                    displayScale: CGFloat) -> UIImage? {
-    guard let base = UIImage(named: name) else { return nil }
+// MARK: - Maneuver symbols
 
-    let black = render(base, tint: .black, exitNumber: exitNumber, displayScale: displayScale)
-    let white = render(base, tint: .white, exitNumber: exitNumber, displayScale: displayScale)
+/// TODO: Create new turn image assets that fit the CarPlay UI. We have to zoom in to fill, as there's padding
+/// around the arrows in the PDF. Currently shared with the phone UI. After that, at least glyphBounds and render
+/// and so on can go
+enum CarPlayManeuverSymbol {
+  struct Images {
+    let card: UIImage
+    let adaptive: UIImage
+  }
+
+  static let canvasSize = CGSize(width: 50, height: 50)
+  static let glyphInset: CGFloat = 2
+  private static var glyphBoundsCache = [String: CGRect]()
+
+  static func images(named name: String,
+                     exitNumber: Int? = nil,
+                     displayScale: CGFloat) -> Images? {
+    guard let base = UIImage(named: name) else { return nil }
+    let bounds = glyphBounds(of: base, named: name)
+
+    let card = render(base, glyphBounds: bounds, tint: .white, exitNumber: exitNumber, displayScale: displayScale)
+    let black = render(base, glyphBounds: bounds, tint: .black, exitNumber: exitNumber, displayScale: displayScale)
+    let white = render(base, glyphBounds: bounds, tint: .white, exitNumber: exitNumber, displayScale: displayScale)
 
     let asset = UIImageAsset()
     asset.register(black, with: traits(for: .light, scale: displayScale))
     asset.register(white, with: traits(for: .dark, scale: displayScale))
-    return asset.image(with: traits(for: .light, scale: displayScale))
+    return Images(card: card, adaptive: asset.image(with: traits(for: .light, scale: displayScale)))
   }
 
   static func resolvedVariant(of image: UIImage, style: UIUserInterfaceStyle) -> UIImage {
@@ -37,15 +53,67 @@ enum CarPlayManeuverSymbol {
     ])
   }
 
+  private static func glyphBounds(of base: UIImage, named name: String) -> CGRect {
+    if let cached = glyphBoundsCache[name] {
+      return cached
+    }
+    let fullBounds = CGRect(origin: .zero, size: base.size)
+    let scale: CGFloat = 4
+    let width = Int(ceil(base.size.width * scale))
+    let height = Int(ceil(base.size.height * scale))
+    guard width > 0, height > 0,
+      let context = CGContext(data: nil,
+                              width: width,
+                              height: height,
+                              bitsPerComponent: 8,
+                              bytesPerRow: width * 4,
+                              space: CGColorSpaceCreateDeviceRGB(),
+                              bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else {
+      return fullBounds
+    }
+    context.translateBy(x: 0, y: CGFloat(height))
+    context.scaleBy(x: scale, y: -scale)
+    UIGraphicsPushContext(context)
+    base.draw(in: fullBounds)
+    UIGraphicsPopContext()
+
+    guard let data = context.data else { return fullBounds }
+    let pixels = data.bindMemory(to: UInt8.self, capacity: width * height * 4)
+    var minX = width, minY = height, maxX = -1, maxY = -1
+    for y in 0..<height {
+      for x in 0..<width where pixels[(y * width + x) * 4 + 3] > 25 {
+        minX = min(minX, x)
+        maxX = max(maxX, x)
+        minY = min(minY, y)
+        maxY = max(maxY, y)
+      }
+    }
+    guard maxX >= minX, maxY >= minY else { return fullBounds }
+    let bounds = CGRect(x: CGFloat(minX) / scale,
+                        y: CGFloat(minY) / scale,
+                        width: CGFloat(maxX - minX + 1) / scale,
+                        height: CGFloat(maxY - minY + 1) / scale)
+    glyphBoundsCache[name] = bounds
+    return bounds
+  }
+
   private static func render(_ base: UIImage,
+                             glyphBounds: CGRect,
                              tint: UIColor,
                              exitNumber: Int?,
                              displayScale: CGFloat) -> UIImage {
     let format = UIGraphicsImageRendererFormat()
     format.scale = displayScale
     format.opaque = false
-    let renderer = UIGraphicsImageRenderer(size: base.size, format: format)
-    let image = renderer.image { _ in
+    let target = CGRect(origin: .zero, size: canvasSize).insetBy(dx: glyphInset, dy: glyphInset)
+    let fit = min(target.width / glyphBounds.width, target.height / glyphBounds.height)
+    let renderer = UIGraphicsImageRenderer(size: canvasSize, format: format)
+    let image = renderer.image { context in
+      let cgContext = context.cgContext
+      cgContext.translateBy(x: target.midX, y: target.midY)
+      cgContext.scaleBy(x: fit, y: fit)
+      cgContext.translateBy(x: -glyphBounds.midX, y: -glyphBounds.midY)
+
       base.withRenderingMode(.alwaysTemplate)
         .withTintColor(tint, renderingMode: .alwaysOriginal)
         .draw(in: CGRect(origin: .zero, size: base.size))
@@ -108,6 +176,300 @@ enum CarPlayLaneSymbol {
   }
 }
 
+// MARK: - Lane metadata
+
+struct CarPlayLaneManeuverContent: Hashable {
+  let laneWays: [UInt8]
+  let recommendedWay: UInt8
+
+  init(_ lane: LaneInfo) {
+    laneWays = lane.laneWays
+    recommendedWay = lane.recommendedWay
+  }
+}
+
+@available(iOS 18.0, *)
+enum CarPlayLaneMetadata {
+  static func lane(for laneInfo: LaneInfo) -> CPLane {
+    let angles = uniqueAngles(for: laneInfo.laneWays)
+    if let recommended = LaneWay(rawValue: laneInfo.recommendedWay), recommended != .none {
+      let highlightedAngle = recommended.angle
+      let remainingAngles = angles.filter { $0 != highlightedAngle }
+      return CPLane(angles: remainingAngles,
+                    highlightedAngle: highlightedAngle,
+                    isPreferred: true)
+    }
+
+    let safeAngles = angles.isEmpty ? [LaneWay.through.angle] : angles
+    return CPLane(angles: safeAngles)
+  }
+
+  private static func uniqueAngles(for rawWays: [UInt8]) -> [Measurement<UnitAngle>] {
+    var seenDegrees = Set<Double>()
+    return rawWays.compactMap { rawWay in
+      guard let way = LaneWay(rawValue: rawWay), way != .none else { return nil }
+      let angle = way.angle
+      let degrees = angle.converted(to: .degrees).value
+      guard seenDegrees.insert(degrees).inserted else { return nil }
+      return angle
+    }
+  }
+}
+
+// MARK: - Maneuver description
+
+struct CarPlayPrimaryManeuverIdentity: Hashable {
+  let routeID: UInt64
+  let step: UInt32
+}
+
+struct CarPlayLaneSymbolKey: Hashable {
+  let identity: CarPlayPrimaryManeuverIdentity
+  let lanes: [CarPlayLaneManeuverContent]
+}
+
+struct CarPlayManeuverDescription {
+  let carDirection: CarDirection
+  let exitNumber: Int
+  let roadName: String
+  let roadRef: String
+  let junctionRef: String
+  let destinationRef: String
+  let destination: String
+  let isLeftHandTraffic: Bool
+
+  init(routeInfo: RouteInfo) {
+    carDirection = routeInfo.carDirection
+    exitNumber = routeInfo.roundExitNumber
+    roadName = routeInfo.roadName
+    roadRef = routeInfo.roadRef
+    junctionRef = routeInfo.junctionRef
+    destinationRef = routeInfo.destinationRef
+    destination = routeInfo.destination
+    isLeftHandTraffic = routeInfo.isLeftHandTraffic
+  }
+
+  init(step: CarPlayRouteStep, isLeftHandTraffic: Bool) {
+    carDirection = step.carDirection
+    exitNumber = step.carDirection.isRoundabout ? step.exitNumber : 0
+    roadName = step.roadName
+    roadRef = step.roadRef
+    junctionRef = step.junctionRef
+    destinationRef = step.destinationRef
+    destination = step.destination
+    self.isLeftHandTraffic = isLeftHandTraffic
+  }
+
+  func fallbackInstructionVariants(destinationName: String?) -> [String] {
+    guard carDirection == .reachedYourDestination else { return [""] }
+    let name = destinationName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+    return [name.isEmpty ? L("pick_destination") : name]
+  }
+}
+
+@available(iOS 17.4, *)
+enum CarPlayInstrumentClusterMetadata {
+  static func apply(to maneuver: CPManeuver, description: CarPlayManeuverDescription) {
+    maneuver.maneuverType = description.carDirection.cpManeuverType(exitNumber: description.exitNumber)
+    maneuver.junctionType = description.carDirection.cpJunctionType
+    maneuver.trafficSide = description.isLeftHandTraffic ? .left : .right
+
+    let roadFollowingVariants = NavigationInstructionFormatter.carPlayRoadFollowingManeuverVariants(
+      roadName: description.roadName,
+      roadRef: description.roadRef,
+      destinationRef: description.destinationRef,
+      destination: description.destination)
+    if !roadFollowingVariants.isEmpty {
+      maneuver.roadFollowingManeuverVariants = roadFollowingVariants
+    }
+    if let exitLabel = NavigationInstructionFormatter.carPlayHighwayExitLabel(
+      junctionRef: description.junctionRef) {
+      maneuver.highwayExitLabel = exitLabel
+    }
+  }
+}
+
+// MARK: - Route plan
+
+struct CarPlayRouteStep {
+  let sequence: UInt32
+  let carDirection: CarDirection
+  let exitNumber: Int
+  let distanceFromStartMeters: Double
+  let distanceFromPreviousMeters: Double
+  let roadName: String
+  let roadRef: String
+  let junctionRef: String
+  let destinationRef: String
+  let destination: String
+  let isLink: Bool
+  let lanes: [LaneInfo]
+
+  var laneContent: [CarPlayLaneManeuverContent] {
+    return lanes.map(CarPlayLaneManeuverContent.init)
+  }
+}
+
+struct CarPlayRoutePlan {
+  let routeID: UInt64
+  let steps: [CarPlayRouteStep]
+
+  init(routeID: UInt64, steps: [CarPlayRouteStep]) {
+    self.routeID = routeID
+    self.steps = steps
+  }
+
+  init(routeID: UInt64, stepInfos: [MWMRouteStepInfo]) {
+    // TODO: Retrieve from core in the future (route ID, steps, distance from start)
+    var distanceFromStart = 0.0
+    let steps: [CarPlayRouteStep] = stepInfos.compactMap { info in
+      distanceFromStart += info.distMeters
+      guard let direction = CarDirection(rawValue: UInt8(truncatingIfNeeded: info.carDirection)) else {
+        return nil
+      }
+      return CarPlayRouteStep(sequence: info.sequence,
+                              carDirection: direction,
+                              exitNumber: Int(info.exitNum),
+                              distanceFromStartMeters: distanceFromStart,
+                              distanceFromPreviousMeters: info.distMeters,
+                              roadName: info.toStreetName ?? "",
+                              roadRef: info.toRef,
+                              junctionRef: info.toJunctionRef,
+                              destinationRef: info.toDestinationRef,
+                              destination: info.toDestination,
+                              isLink: info.toIsLink,
+                              lanes: info.lanes.compactMap { $0 as? LaneInfo })
+    }
+    self.init(routeID: routeID, steps: steps)
+  }
+
+  func step(withSequence sequence: UInt32) -> CarPlayRouteStep? {
+    return steps.first { $0.sequence == sequence }
+  }
+}
+
+// MARK: - Maneuver refresh state
+
+struct CarPlayManeuverContent: Equatable {
+  let primaryIdentity: CarPlayPrimaryManeuverIdentity
+  let isPlannedPrimary: Bool
+  let secondaryStep: UInt32?
+  let lanes: [CarPlayLaneManeuverContent]
+
+  init(routeInfo: RouteInfo, plan: CarPlayRoutePlan?) {
+    lanes = routeInfo.lanes.map(CarPlayLaneManeuverContent.init)
+    primaryIdentity = CarPlayPrimaryManeuverIdentity(routeID: routeInfo.routeID, step: routeInfo.currentStep ?? 0)
+    if let plan, plan.routeID == routeInfo.routeID,
+       let currentStep = routeInfo.currentStep, plan.step(withSequence: currentStep) != nil {
+      isPlannedPrimary = true
+      secondaryStep = routeInfo.nextStep
+    } else {
+      isPlannedPrimary = false
+      secondaryStep = nil
+    }
+  }
+}
+
+enum CarPlayManeuverRefreshReason: String, Equatable {
+  case initial
+  case reroute
+  case routeChanged
+  case primaryAdvanced
+  case supplementaryChanged
+}
+
+enum CarPlayManeuverPhase: String, Equatable {
+  case execute
+  case prepare
+  case initial
+  case `continue`
+
+  static let executeDistanceMeters = 30.0
+  static let fallbackPrepareDistanceMeters = 150.0
+  static let fallbackInitialDistanceMeters = 400.0
+
+  static func phase(distanceMeters: Double,
+                    firstNotificationDistanceMeters: Double,
+                    secondNotificationDistanceMeters: Double,
+                    holdingExecute: Bool) -> CarPlayManeuverPhase {
+    if holdingExecute {
+      return .execute
+    }
+    let prepareDistance = secondNotificationDistanceMeters > 0 ? secondNotificationDistanceMeters
+                                                               : fallbackPrepareDistanceMeters
+    let initialDistance = firstNotificationDistanceMeters > 0 ? max(firstNotificationDistanceMeters, prepareDistance)
+                                                              : fallbackInitialDistanceMeters
+    let executeDistance = min(executeDistanceMeters, prepareDistance)
+    switch distanceMeters {
+    case ..<executeDistance: return .execute
+    case ..<prepareDistance: return .prepare
+    case ..<initialDistance: return .initial
+    default: return .continue
+    }
+  }
+}
+
+struct CarPlayEstimatesSnapshot: Equatable {
+  private struct WeakTarget {
+    weak var object: AnyObject?
+  }
+
+  static let timeBucketSeconds = 30.0
+
+  private let targets: [WeakTarget]
+  let distance: Double
+  let unit: UnitLength
+  let timeBucket: Int
+
+  init(targets: [AnyObject], estimates: CPTravelEstimates) {
+    self.targets = targets.map { WeakTarget(object: $0) }
+    distance = estimates.distanceRemaining.value
+    unit = estimates.distanceRemaining.unit
+    timeBucket = estimates.timeRemaining < 0 ? -1 : Int(estimates.timeRemaining / Self.timeBucketSeconds)
+  }
+
+  static func == (lhs: CarPlayEstimatesSnapshot, rhs: CarPlayEstimatesSnapshot) -> Bool {
+    guard lhs.distance == rhs.distance, lhs.unit == rhs.unit, lhs.timeBucket == rhs.timeBucket,
+          lhs.targets.count == rhs.targets.count else {
+      return false
+    }
+    return zip(lhs.targets, rhs.targets).allSatisfy { lhsTarget, rhsTarget in
+      guard let object = lhsTarget.object else { return false }
+      return object === rhsTarget.object
+    }
+  }
+}
+
+struct CarPlayManeuverRefreshState {
+  private(set) var displayedContent: CarPlayManeuverContent?
+
+  func reason(for content: CarPlayManeuverContent,
+              forcing forcedReason: CarPlayManeuverRefreshReason? = nil) -> CarPlayManeuverRefreshReason? {
+    if let forcedReason {
+      return forcedReason
+    }
+    guard let displayedContent else {
+      return .initial
+    }
+    guard displayedContent != content else { return nil }
+
+    if displayedContent.primaryIdentity == content.primaryIdentity {
+      return .supplementaryChanged
+    }
+    let sameRoute = displayedContent.primaryIdentity.routeID == content.primaryIdentity.routeID
+    return sameRoute ? .primaryAdvanced : .routeChanged
+  }
+
+  mutating func didDisplay(_ content: CarPlayManeuverContent) {
+    displayedContent = content
+  }
+
+  mutating func reset() {
+    self = CarPlayManeuverRefreshState()
+  }
+}
+
+// MARK: - CarPlayRouter
 
 @objc(MWMCarPlayRouter)
 final class CarPlayRouter: NSObject {
@@ -119,8 +481,23 @@ final class CarPlayRouter: NSObject {
     "session=\(CarPlayLogging.diagnosticIdentity(routeSession)) origin={\(diagnosticNavigationOrigin)}"
   }
   private var initialSpeedCamSettings: SpeedCameraManagerMode
-  /// Typed `AnyObject?` until we target iOS 18
-  private var activeLaneGuidance: AnyObject?
+  private var maneuverRefreshState = CarPlayManeuverRefreshState()
+  private var publishedPrimaryIdentity: CarPlayPrimaryManeuverIdentity?
+  private var routePlan: CarPlayRoutePlan?
+  private var plannedManeuvers: [UInt32: CPManeuver] = [:]
+  private var decoratedPrimaryIdentities = Set<CarPlayPrimaryManeuverIdentity>()
+  private var unplannedPrimaryManeuvers: [CarPlayPrimaryManeuverIdentity: CPManeuver] = [:]
+  private var laneSymbolManeuvers: [CarPlayLaneSymbolKey: CPManeuver] = [:]
+  /// Typed `AnyObject` until we target iOS 18
+  private var plannedLaneGuidances: [UInt32: AnyObject] = [:]
+  private var liveLaneGuidances: [CarPlayLaneSymbolKey: AnyObject] = [:]
+  private var lastObservedIdentity: CarPlayPrimaryManeuverIdentity?
+  private var lastObservedDirection: CarDirection?
+  private var lastObservedDistanceMeters: Double?
+  private var lastManeuverPhase: CarPlayManeuverPhase?
+  private var lastRoadNameVariants: [String]?
+  private var isMissingPrimaryWarningActive = false
+  private var lastManeuverEstimates: CarPlayEstimatesSnapshot?
   var currentTrip: CPTrip? {
     return routeSession?.trip
   }
@@ -151,6 +528,8 @@ final class CarPlayRouter: NSObject {
   func unsubscribeFromEvents() {
     RoutingManager.routingManager.remove(self)
   }
+
+  // MARK: - Route building
 
   func completeRouteAndRemovePoints() {
     let manager = RoutingManager.routingManager
@@ -241,6 +620,8 @@ final class CarPlayRouter: NSObject {
     manager.startRoute()
   }
 
+  // MARK: - Speed cameras
+
   func setupCarPlaySpeedCameraMode() {
     if case .auto = initialSpeedCamSettings {
       RoutingManager.routingManager.speedCameraMode = .always
@@ -255,6 +636,8 @@ final class CarPlayRouter: NSObject {
     initialSpeedCamSettings = mode
     RoutingManager.routingManager.speedCameraMode = mode
   }
+
+  // MARK: - Trip restore
 
   func restoreTripPreviewOnCarplay(beforeRootTemplateDidAppear: Bool) {
     guard MWMRouter.isRestoreProcessCompleted() else {
@@ -310,7 +693,9 @@ final class CarPlayRouter: NSObject {
 
 // MARK: - Navigation session management
 extension CarPlayRouter {
-  func startNavigationSession(forTrip trip: CPTrip, template: CPMapTemplate) {
+  func startNavigationSession(forTrip trip: CPTrip,
+                              template: CPMapTemplate,
+                              initialRouteInfo routeInfo: RouteInfo) {
     guard routeSession == nil else {
       let errorMessage = "Route session is already running."
       LOG(.error, "\(CarPlayLogging.carPlay) \(errorMessage)")
@@ -319,23 +704,26 @@ extension CarPlayRouter {
     }
     diagnosticNavigationOrigin = "\(CarPlayService.shared.diagnosticConnectionContext) template=\(CarPlayLogging.diagnosticIdentity(template))"
     LOG(.info, "\(CarPlayLogging.carPlay) navigationSession begin \(diagnosticNavigationContext)")
+    resetGuidanceState()
+    LOG(.info,
+        "\(CarPlayLogging.guidance) session_started initial=\(identityDescription(routeIdentity(routeInfo))) direction=\(routeInfo.carDirection.diagnosticName) distanceM=\(formattedDistanceMeters(routeInfo))")
     routeSession = template.startNavigationSession(for: trip)
     LOG(.info, "\(CarPlayLogging.carPlay) navigationSession completed \(diagnosticNavigationContext)")
-    routeSession?.pauseTrip(for: .loading, description: nil)
-    updateUpcomingManeuvers()
-    RoutingManager.routingManager.setOnNewTurnCallback { [weak self] in
-      self?.updateUpcomingManeuvers()
-    }
+    observeGuidance(routeInfo)
+    refreshUpcomingManeuvers(with: routeInfo)
+    updateDynamicNavigationState(with: routeInfo)
+    LOG(.info,
+        "\(CarPlayLogging.guidance) session_ready primary=\(identityDescription(publishedPrimaryIdentity)) direction=\(routeInfo.carDirection.diagnosticName) distanceM=\(formattedDistanceMeters(routeInfo)) maneuvers=\(routeSession?.upcomingManeuvers.count ?? 0)")
   }
 
   func cancelNavigationSession() {
     LOG(.info, "\(CarPlayLogging.carPlay) navigationSession cancel begin \(diagnosticNavigationContext)")
+    LOG(.info, "\(CarPlayLogging.guidance) session_cancelled last=\(identityDescription(publishedPrimaryIdentity))")
     routeSession?.cancelTrip()
     routeSession = nil
     LOG(.info, "\(CarPlayLogging.carPlay) navigationSession cancelled session=nil origin={\(diagnosticNavigationOrigin)}")
     diagnosticNavigationOrigin = "none"
-    activeLaneGuidance = nil
-    RoutingManager.routingManager.resetOnNewTurnCallback()
+    resetGuidanceState()
   }
 
   func cancelTrip() {
@@ -347,170 +735,474 @@ extension CarPlayRouter {
 
   func finishTrip() {
     LOG(.info, "\(CarPlayLogging.carPlay) navigationSession finish begin \(diagnosticNavigationContext)")
+    LOG(.info, "\(CarPlayLogging.guidance) session_finished last=\(identityDescription(publishedPrimaryIdentity))")
     routeSession?.finishTrip()
     routeSession = nil
     LOG(.info, "\(CarPlayLogging.carPlay) navigationSession finish completed session=nil origin={\(diagnosticNavigationOrigin)}")
     diagnosticNavigationOrigin = "none"
-    activeLaneGuidance = nil
+    resetGuidanceState()
     completeRouteAndRemovePoints()
-    RoutingManager.routingManager.resetOnNewTurnCallback()
   }
 
-  func updateUpcomingManeuvers() {
-    let maneuvers = createUpcomingManeuvers()
-    if #available(iOS 17.4, *) {
-      if let guidance = activeLaneGuidance as? CPLaneGuidance {
-        routeSession?.add([guidance])
+  private func resetGuidanceState() {
+    maneuverRefreshState.reset()
+    publishedPrimaryIdentity = nil
+    resetRoutePlan()
+    lastObservedIdentity = nil
+    lastObservedDirection = nil
+    lastObservedDistanceMeters = nil
+    lastManeuverPhase = nil
+    lastRoadNameVariants = nil
+    isMissingPrimaryWarningActive = false
+    lastManeuverEstimates = nil
+  }
+
+  // MARK: - Route plan installation
+
+  private func resetRoutePlan() {
+    routePlan = nil
+    plannedManeuvers = [:]
+    decoratedPrimaryIdentities = []
+    unplannedPrimaryManeuvers = [:]
+    laneSymbolManeuvers = [:]
+    plannedLaneGuidances = [:]
+    liveLaneGuidances = [:]
+  }
+
+  private func installRoutePlanIfNeeded(for routeInfo: RouteInfo) {
+    guard let routeSession, routePlan?.routeID != routeInfo.routeID else { return }
+    let isReroute = routePlan != nil
+    resetRoutePlan()
+    let locale = NSLocale.preferredLanguages.first ?? "en"
+    let plan = CarPlayRoutePlan(routeID: routeInfo.routeID,
+                                stepInfos: MWMRouter.routeSteps(forLocale: locale))
+    routePlan = plan
+
+    let metricUnits = routeInfo.turnUnits == .meters || routeInfo.turnUnits == .kilometers
+    var maneuvers = [CPManeuver]()
+    var laneGuidances = [AnyObject]()
+    for step in plan.steps {
+      let maneuver = createManeuver(
+        description: CarPlayManeuverDescription(step: step, isLeftHandTraffic: routeInfo.isLeftHandTraffic),
+        turnImageName: RoutingManager.turnImageName(carDirection: step.carDirection.rawValue, isPrimary: true),
+        shields: nil,
+        estimates: CPTravelEstimates(distanceRemaining: displayDistance(meters: step.distanceFromPreviousMeters,
+                                                                        metric: metricUnits),
+                                     timeRemaining: 0.0))
+      if #available(iOS 18.0, *), !step.lanes.isEmpty {
+        let guidance = laneGuidance(lanes: step.lanes,
+                                    description: CarPlayManeuverDescription(step: step,
+                                                                            isLeftHandTraffic: routeInfo.isLeftHandTraffic))
+        maneuver.linkedLaneGuidance = guidance
+        plannedLaneGuidances[step.sequence] = guidance
+        laneGuidances.append(guidance)
       }
-      routeSession?.add(maneuvers)
+      plannedManeuvers[step.sequence] = maneuver
+      maneuvers.append(maneuver)
     }
-    routeSession?.upcomingManeuvers = maneuvers
-    if #available(iOS 17.4, *), let routeInfo = RoutingManager.routingManager.routeInfo {
-      routeSession?.maneuverState = maneuverState(forDistanceToTurn: routeInfo.distanceToTurn,
-                                                  units: routeInfo.turnUnits)
-      routeSession?.currentLaneGuidance = activeLaneGuidance as? CPLaneGuidance
-      let roadName = routeInfo.currentRoadName.trimmingCharacters(in: .whitespacesAndNewlines)
-      routeSession?.currentRoadNameVariants = roadName.isEmpty ? [] : [roadName]
+    if #available(iOS 17.4, *) {
+      let guidances = laneGuidances as? [CPLaneGuidance] ?? []
+      if isReroute, !maneuvers.isEmpty {
+        resumeRerouted(routeSession, plan: plan, maneuvers: maneuvers, laneGuidances: guidances, routeInfo: routeInfo)
+      } else {
+        if #available(iOS 18.0, *), !guidances.isEmpty {
+          routeSession.add(guidances)
+        }
+        if !maneuvers.isEmpty {
+          routeSession.add(maneuvers)
+        }
+      }
+    }
+    let stepList = plan.steps.map { "\($0.sequence):\($0.carDirection.diagnosticName)" }.joined(separator: ",")
+    LOG(.info,
+        "\(CarPlayLogging.guidance) steps_installed route=\(plan.routeID) count=\(plan.steps.count) laneGuidances=\(laneGuidances.count) steps=[\(stepList)]")
+    if plan.steps.isEmpty {
+      LOG(.warning, "\(CarPlayLogging.guidance) invariant_failed no_steps route=\(plan.routeID)")
     }
   }
 
   @available(iOS 17.4, *)
-  private func maneuverState(forDistanceToTurn distance: Double, units: UnitLength) -> CPManeuverState {
-    let meters = Measurement(value: distance, unit: units).converted(to: .meters).value
-    switch meters {
-    case ..<30: return .execute
-    case ..<150: return .prepare
-    case ..<400: return .initial
-    default: return .continue
+  private func resumeRerouted(_ routeSession: CPNavigationSession,
+                              plan: CarPlayRoutePlan,
+                              maneuvers: [CPManeuver],
+                              laneGuidances: [CPLaneGuidance],
+                              routeInfo: RouteInfo) {
+    let content = CarPlayManeuverContent(routeInfo: routeInfo, plan: plan)
+    let currentManeuver = (content.isPlannedPrimary ? plannedManeuvers[content.primaryIdentity.step] : nil)
+      ?? maneuvers[0]
+    let currentLaneGuidance: CPLaneGuidance
+    if content.isPlannedPrimary,
+       let planned = plannedLaneGuidances[content.primaryIdentity.step] as? CPLaneGuidance {
+      currentLaneGuidance = planned
+    } else {
+      currentLaneGuidance = CPLaneGuidance()
+      currentLaneGuidance.lanes = []
+      currentLaneGuidance.instructionVariants = currentManeuver.instructionVariants
+    }
+    let tripEstimates = CPTravelEstimates(
+      distanceRemaining: Measurement(value: routeInfo.targetDistance, unit: routeInfo.targetUnits),
+      timeRemaining: routeInfo.timeToTarget)
+    let routeInformation = CPRouteInformation(maneuvers: maneuvers,
+                                              laneGuidances: laneGuidances,
+                                              currentManeuvers: [currentManeuver],
+                                              currentLaneGuidance: currentLaneGuidance,
+                                              trip: tripEstimates,
+                                              maneuverTravelEstimates: CPTravelEstimates(
+                                                distanceRemaining: Measurement(value: routeInfo.distanceToTurn,
+                                                                               unit: routeInfo.turnUnits),
+                                                timeRemaining: 0.0))
+    routeSession.pauseTrip(for: .rerouting, description: nil)
+    routeSession.resumeTrip(updatedRouteInformation: routeInformation)
+    LOG(.info,
+        "\(CarPlayLogging.guidance) route_resumed route=\(plan.routeID) maneuvers=\(maneuvers.count) laneGuidances=\(laneGuidances.count) current=\(identityDescription(content.primaryIdentity)) planned=\(content.isPlannedPrimary)")
+  }
+
+  // MARK: - Maneuver publishing
+
+  private func refreshUpcomingManeuvers(
+    with routeInfo: RouteInfo,
+    forcing forcedReason: CarPlayManeuverRefreshReason? = nil
+  ) {
+    guard routeSession != nil else { return }
+    installRoutePlanIfNeeded(for: routeInfo)
+    let content = CarPlayManeuverContent(routeInfo: routeInfo, plan: routePlan)
+    guard let reason = maneuverRefreshState.reason(for: content, forcing: forcedReason) else { return }
+    updateUpcomingManeuvers(with: routeInfo, content: content, reason: reason)
+  }
+
+  private func updateUpcomingManeuvers(with routeInfo: RouteInfo,
+                                       content: CarPlayManeuverContent,
+                                       reason: CarPlayManeuverRefreshReason) {
+    guard let routeSession else { return }
+    let previousContent = maneuverRefreshState.displayedContent
+
+    let primaryManeuver: CPManeuver
+    if content.isPlannedPrimary, let planned = plannedManeuvers[content.primaryIdentity.step] {
+      decoratePlannedPrimaryIfNeeded(planned, identity: content.primaryIdentity, routeInfo: routeInfo)
+      primaryManeuver = planned
+    } else {
+      LOG(.warning,
+          "\(CarPlayLogging.guidance) invariant_failed turn_without_step route=\(identityDescription(routeIdentity(routeInfo))) plan=\(routePlan.map { String($0.routeID) } ?? "none") steps=\(routePlan?.steps.count ?? 0)")
+      primaryManeuver = unplannedPrimaryManeuver(for: routeInfo, identity: content.primaryIdentity)
+    }
+
+    var maneuvers = [primaryManeuver]
+    if let laneManeuver = laneSymbolManeuver(for: routeInfo, identity: content.primaryIdentity) {
+      maneuvers.append(laneManeuver)
+    }
+    if let secondaryStep = content.secondaryStep,
+       let secondaryManeuver = plannedManeuvers[secondaryStep] {
+      maneuvers.append(secondaryManeuver)
+    }
+    routeSession.upcomingManeuvers = maneuvers
+    if #available(iOS 17.4, *) {
+      routeSession.currentLaneGuidance = currentLaneGuidance(for: routeInfo, content: content) as? CPLaneGuidance
+    }
+    maneuverRefreshState.didDisplay(content)
+    if previousContent?.primaryIdentity != content.primaryIdentity {
+      lastManeuverPhase = nil
+    }
+    publishedPrimaryIdentity = content.primaryIdentity
+
+    LOG(.info,
+        "\(CarPlayLogging.guidance) maneuvers_published reason=\(reason.rawValue) previous=\(identityDescription(previousContent?.primaryIdentity)) turn=\(routeInfo.turnIndex) step=\(identityDescription(content.primaryIdentity)) planned=\(content.isPlannedPrimary) direction=\(routeInfo.carDirection.diagnosticName) lanes=\(previousContent?.lanes.count ?? 0)->\(content.lanes.count) secondary=\(previousContent?.secondaryStep.map { String($0) } ?? "none")->\(content.secondaryStep.map { String($0) } ?? "none") \(secondaryDescription(content)) count=\(maneuvers.count) \(roadDescription(routeInfo))")
+    if #available(iOS 18.0, *) {
+      logLaneGuidanceTransition(from: previousContent, to: content)
+    }
+    if routeSession.upcomingManeuvers.first == nil {
+      LOG(.warning, "\(CarPlayLogging.guidance) invariant_failed missing_primary snapshot=\(identityDescription(content.primaryIdentity))")
     }
   }
 
-  func updateEstimates() {
-    guard let routeSession = routeSession,
-          let routeInfo = RoutingManager.routingManager.routeInfo,
-          let primaryManeuver = routeSession.upcomingManeuvers.first,
+  private func decoratePlannedPrimaryIfNeeded(_ maneuver: CPManeuver,
+                                              identity: CarPlayPrimaryManeuverIdentity,
+                                              routeInfo: RouteInfo) {
+    guard routeInfo.roadShields != nil, decoratedPrimaryIdentities.insert(identity).inserted else { return }
+    let attributed = instructionVariants(description: CarPlayManeuverDescription(routeInfo: routeInfo),
+                                         shields: routeInfo.roadShields).attributed
+    if !attributed.isEmpty {
+      maneuver.attributedInstructionVariants = attributed
+    }
+  }
+
+  private func unplannedPrimaryManeuver(for routeInfo: RouteInfo,
+                                        identity: CarPlayPrimaryManeuverIdentity) -> CPManeuver {
+    if let cached = unplannedPrimaryManeuvers[identity] {
+      return cached
+    }
+    let maneuver = createManeuver(description: CarPlayManeuverDescription(routeInfo: routeInfo),
+                                  turnImageName: routeInfo.turnImageName,
+                                  shields: routeInfo.roadShields,
+                                  estimates: createEstimates(routeInfo))
+    unplannedPrimaryManeuvers[identity] = maneuver
+    if #available(iOS 17.4, *) {
+      routeSession?.add([maneuver])
+    }
+    return maneuver
+  }
+
+  private func laneSymbolManeuver(for routeInfo: RouteInfo,
+                                  identity: CarPlayPrimaryManeuverIdentity) -> CPManeuver? {
+    guard !routeInfo.lanes.isEmpty else { return nil }
+    let key = CarPlayLaneSymbolKey(identity: identity, lanes: routeInfo.lanes.map(CarPlayLaneManeuverContent.init))
+    if let cached = laneSymbolManeuvers[key] {
+      return cached
+    }
+    guard let laneImages = CarPlayLaneSymbol.imageSet(for: routeInfo.lanes, displayScale: displayScale) else {
+      return nil
+    }
+    let laneManeuver = CPManeuver()
+    laneManeuver.userInfo = CPConstants.Maneuvers.lanes
+    laneManeuver.instructionVariants = []
+    laneManeuver.symbolSet = laneImages
+    laneSymbolManeuvers[key] = laneManeuver
+    if #available(iOS 17.4, *) {
+      routeSession?.add([laneManeuver])
+    }
+    return laneManeuver
+  }
+
+  private func currentLaneGuidance(for routeInfo: RouteInfo, content: CarPlayManeuverContent) -> AnyObject? {
+    guard #available(iOS 18.0, *), !content.lanes.isEmpty else { return nil }
+    if content.isPlannedPrimary,
+       let step = routePlan?.step(withSequence: content.primaryIdentity.step),
+       step.laneContent == content.lanes,
+       let planned = plannedLaneGuidances[step.sequence] {
+      return planned
+    }
+    let key = CarPlayLaneSymbolKey(identity: content.primaryIdentity, lanes: content.lanes)
+    if let cached = liveLaneGuidances[key] {
+      return cached
+    }
+    let guidance = laneGuidance(lanes: routeInfo.lanes, description: CarPlayManeuverDescription(routeInfo: routeInfo))
+    routeSession?.add([guidance])
+    liveLaneGuidances[key] = guidance
+    return guidance
+  }
+
+  // MARK: - Maneuver state
+
+  private func maneuverPhase(for routeInfo: RouteInfo) -> CarPlayManeuverPhase {
+    let holdingExecute = routeInfo.carDirection == .leaveRoundAbout && lastManeuverPhase == .execute
+    return CarPlayManeuverPhase.phase(
+      distanceMeters: distanceInMeters(routeInfo.distanceToTurn, units: routeInfo.turnUnits),
+      firstNotificationDistanceMeters: routeInfo.firstNotificationDistanceMeters,
+      secondNotificationDistanceMeters: routeInfo.secondNotificationDistanceMeters,
+      holdingExecute: holdingExecute)
+  }
+
+  private func updateDynamicNavigationState(with routeInfo: RouteInfo) {
+    guard let routeSession else { return }
+    guard let primaryManeuver = routeSession.upcomingManeuvers.first,
           let estimates = createEstimates(routeInfo) else {
+      if !isMissingPrimaryWarningActive {
+        LOG(.warning,
+            "\(CarPlayLogging.guidance) invariant_failed dynamic_update_without_primary snapshot=\(identityDescription(routeIdentity(routeInfo)))")
+        isMissingPrimaryWarningActive = true
+      }
       return
     }
-    routeSession.updateEstimates(estimates, for: primaryManeuver)
+    isMissingPrimaryWarningActive = false
+    let snapshot = CarPlayEstimatesSnapshot(targets: [routeSession, primaryManeuver], estimates: estimates)
+    if snapshot != lastManeuverEstimates {
+      routeSession.updateEstimates(estimates, for: primaryManeuver)
+      lastManeuverEstimates = snapshot
+    }
+
+    if #available(iOS 17.4, *) {
+      let phase = maneuverPhase(for: routeInfo)
+      if phase != lastManeuverPhase {
+        switch phase {
+        case .execute: routeSession.maneuverState = .execute
+        case .prepare: routeSession.maneuverState = .prepare
+        case .initial: routeSession.maneuverState = .initial
+        case .continue: routeSession.maneuverState = .continue
+        }
+        LOG(.info,
+            "\(CarPlayLogging.guidance) maneuver_state_changed from=\(lastManeuverPhase?.rawValue ?? "none") to=\(phase.rawValue) snapshot=\(identityDescription(routeIdentity(routeInfo))) direction=\(routeInfo.carDirection.diagnosticName) distanceM=\(formattedDistanceMeters(routeInfo)) \(roadDescription(routeInfo))")
+        lastManeuverPhase = phase
+      }
+      let roadName = routeInfo.currentRoadName.trimmingCharacters(in: .whitespacesAndNewlines)
+      let roadNameVariants = roadName.isEmpty ? [] : [roadName]
+      if roadNameVariants != lastRoadNameVariants {
+        routeSession.currentRoadNameVariants = roadNameVariants
+        lastRoadNameVariants = roadNameVariants
+      }
+    }
   }
+
+  private func observeGuidance(_ routeInfo: RouteInfo) {
+    let identity = routeIdentity(routeInfo)
+    let distanceMeters = distanceInMeters(routeInfo.distanceToTurn, units: routeInfo.turnUnits)
+    if let previousIdentity = lastObservedIdentity, previousIdentity != identity {
+      let sameRoute = previousIdentity.routeID == identity.routeID
+      let indexDelta = Int64(identity.step) - Int64(previousIdentity.step)
+      if sameRoute && indexDelta < 0 {
+        LOG(.warning,
+            "\(CarPlayLogging.guidance) invariant_failed turn_index_moved_backwards previous=\(identityDescription(previousIdentity)) current=\(identityDescription(identity))")
+      }
+      LOG(.info,
+          "\(CarPlayLogging.guidance) \(sameRoute ? "turn_advanced" : "route_changed") previous=\(identityDescription(previousIdentity)) current=\(identityDescription(identity)) previousDirection=\(lastObservedDirection?.diagnosticName ?? "none") currentDirection=\(routeInfo.carDirection.diagnosticName) indexDelta=\(indexDelta) previousLastDistanceM=\(formatMeters(lastObservedDistanceMeters)) currentDistanceM=\(formatMeters(distanceMeters)) \(roadDescription(routeInfo))")
+    } else if lastObservedIdentity == nil {
+      LOG(.info,
+          "\(CarPlayLogging.guidance) route_observed current=\(identityDescription(identity)) direction=\(routeInfo.carDirection.diagnosticName) distanceM=\(formatMeters(distanceMeters)) \(roadDescription(routeInfo))")
+    }
+    lastObservedIdentity = identity
+    lastObservedDirection = routeInfo.carDirection
+    lastObservedDistanceMeters = distanceMeters
+  }
+
+  private func routeIdentity(_ routeInfo: RouteInfo) -> CarPlayPrimaryManeuverIdentity {
+    return CarPlayPrimaryManeuverIdentity(routeID: routeInfo.routeID, step: routeInfo.currentStep ?? 0)
+  }
+
+  private func distanceInMeters(_ distance: Double, units: UnitLength) -> Double {
+    return Measurement(value: distance, unit: units).converted(to: .meters).value
+  }
+
+  private func displayDistance(meters: Double, metric: Bool) -> Measurement<UnitLength> {
+    let distance = Measurement(value: meters, unit: UnitLength.meters)
+    if metric {
+      return meters < 1000 ? distance : distance.converted(to: .kilometers)
+    }
+    let miles = distance.converted(to: .miles)
+    return miles.value < 0.1 ? distance.converted(to: .feet) : miles
+  }
+
+  // MARK: - Diagnostics
+
+  private func formattedDistanceMeters(_ routeInfo: RouteInfo) -> String {
+    return formatMeters(distanceInMeters(routeInfo.distanceToTurn, units: routeInfo.turnUnits))
+  }
+
+  private func formatMeters(_ meters: Double?) -> String {
+    guard let meters else { return "none" }
+    return String(format: "%.1f", meters)
+  }
+
+  private func identityDescription(_ identity: CarPlayPrimaryManeuverIdentity?) -> String {
+    guard let identity else { return "none" }
+    return "\(identity.routeID):\(identity.step)"
+  }
+
+  private func logValue(_ value: String) -> String {
+    let singleLine = value.replacingOccurrences(of: "\n", with: " ")
+      .replacingOccurrences(of: "\r", with: " ")
+    return "\"\(singleLine)\""
+  }
+
+  private func roadDescription(_ routeInfo: RouteInfo) -> String {
+    return "currentRoad=\(logValue(routeInfo.currentRoadName)) nextRoad=\(logValue(routeInfo.roadName)) roadRef=\(logValue(routeInfo.roadRef)) junction=\(logValue(routeInfo.junctionRef)) destinationRef=\(logValue(routeInfo.destinationRef)) destination=\(logValue(routeInfo.destination))"
+  }
+
+  private func secondaryDescription(_ content: CarPlayManeuverContent) -> String {
+    guard let plan = routePlan, content.isPlannedPrimary,
+          let primary = plan.step(withSequence: content.primaryIdentity.step) else {
+      return "secondaryGapM=none"
+    }
+    guard let secondaryStep = content.secondaryStep,
+          let secondary = plan.step(withSequence: secondaryStep) else {
+      let next = plan.steps.first { $0.sequence > primary.sequence }
+      let gap = next.map { formatMeters($0.distanceFromStartMeters - primary.distanceFromStartMeters) } ?? "none"
+      return "secondaryGapM=\(gap) secondaryDirection=none"
+    }
+    return "secondaryGapM=\(formatMeters(secondary.distanceFromStartMeters - primary.distanceFromStartMeters)) secondaryDirection=\(secondary.carDirection.diagnosticName)"
+  }
+
+  private func logLaneGuidanceTransition(from previousContent: CarPlayManeuverContent?,
+                                         to content: CarPlayManeuverContent) {
+    let action: String
+    if content.lanes.isEmpty {
+      guard previousContent?.lanes.isEmpty == false else { return }
+      action = "cleared"
+    } else if previousContent?.lanes.isEmpty ?? true {
+      action = "created"
+    } else if previousContent?.lanes != content.lanes {
+      action = "replaced"
+    } else {
+      return
+    }
+    LOG(.info,
+        "\(CarPlayLogging.guidance) lane_guidance_\(action) snapshot=\(identityDescription(content.primaryIdentity)) lanes=\(previousContent?.lanes.count ?? 0)->\(content.lanes.count)")
+  }
+
+  // MARK: - Maneuver building
 
   private func createEstimates(_ routeInfo: RouteInfo) -> CPTravelEstimates? {
     let measurement = Measurement(value: routeInfo.distanceToTurn, unit: routeInfo.turnUnits)
     return CPTravelEstimates(distanceRemaining: measurement, timeRemaining: 0.0)
   }
 
-  private func createUpcomingManeuvers() -> [CPManeuver] {
-    guard let routeInfo = RoutingManager.routingManager.routeInfo else {
-      return []
-    }
-    var maneuvers = [CPManeuver]()
-    let primaryManeuver = CPManeuver()
-    primaryManeuver.userInfo = CPConstants.Maneuvers.primary
+  private func instructionVariants(description: CarPlayManeuverDescription,
+                                   shields: RoadShieldInfo?) -> NavigationInstructionFormatter.CarPlayVariants {
     let formattedVariants = NavigationInstructionFormatter.carPlayInstructionVariants(
-      roadName: routeInfo.roadName,
-      roadRef: routeInfo.roadRef,
-      junctionRef: routeInfo.junctionRef,
-      destinationRef: routeInfo.destinationRef,
-      destination: routeInfo.destination,
-      isLeftHandTraffic: routeInfo.isLeftHandTraffic,
-      shields: routeInfo.roadShields)
-    var variants = formattedVariants.text
-    var attributedVariants = formattedVariants.attributed
+      roadName: description.roadName,
+      roadRef: description.roadRef,
+      junctionRef: description.junctionRef,
+      destinationRef: description.destinationRef,
+      destination: description.destination,
+      isLeftHandTraffic: description.isLeftHandTraffic,
+      shields: shields)
     // On a roundabout, prefix each variant with the exit to take, e.g. "3rd exit, Main Street"
     // (or "3rd exit" alone when there's no road name).
-    if routeInfo.roundExitNumber != 0 {
-      let ordinalExitNumber = NumberFormatter.localizedString(from: NSNumber(value: routeInfo.roundExitNumber),
-                                                              number: .ordinal)
-      let exitNumber = String(format: L("carplay_roundabout_exit"), arguments: [ordinalExitNumber])
-      let prefixed = NavigationInstructionFormatter.prefixCarPlayInstructionVariants(
-        .init(text: variants, attributed: attributedVariants), with: exitNumber)
-      variants = prefixed.text
-      attributedVariants = prefixed.attributed
-    }
+    guard description.exitNumber != 0 else { return formattedVariants }
+    let ordinalExitNumber = NumberFormatter.localizedString(from: NSNumber(value: description.exitNumber),
+                                                            number: .ordinal)
+    let exitNumber = String(format: L("carplay_roundabout_exit"), arguments: [ordinalExitNumber])
+    return NavigationInstructionFormatter.prefixCarPlayInstructionVariants(formattedVariants, with: exitNumber)
+  }
+
+  private var destinationName: String? {
+    return routeSession?.trip.destination.name
+  }
+
+  private func createManeuver(description: CarPlayManeuverDescription,
+                              turnImageName: String?,
+                              shields: RoadShieldInfo?,
+                              estimates: CPTravelEstimates?) -> CPManeuver {
+    let maneuver = CPManeuver()
+    maneuver.userInfo = CPConstants.Maneuvers.primary
+    let variants = instructionVariants(description: description, shields: shields)
     // CarPlay requires at least one variant; use "" when the turn has no road name.
-    primaryManeuver.instructionVariants = variants.isEmpty ? [""] : variants
-    if !attributedVariants.isEmpty {
-      primaryManeuver.attributedInstructionVariants = attributedVariants
+    maneuver.instructionVariants = variants.text.isEmpty
+      ? description.fallbackInstructionVariants(destinationName: destinationName)
+      : variants.text
+    if !variants.attributed.isEmpty {
+      maneuver.attributedInstructionVariants = variants.attributed
     }
-    if let imageName = routeInfo.turnImageName,
-      let symbol = CarPlayManeuverSymbol.image(
-        named: imageName,
-        exitNumber: routeInfo.roundExitNumber == 0 ? nil : routeInfo.roundExitNumber,
+    if let turnImageName,
+      let symbols = CarPlayManeuverSymbol.images(
+        named: turnImageName,
+        exitNumber: description.exitNumber == 0 ? nil : description.exitNumber,
         displayScale: displayScale) {
-      primaryManeuver.symbolImage = symbol
+      maneuver.symbolImage = symbols.card
+      maneuver.dashboardSymbolImage = symbols.adaptive
+      maneuver.notificationSymbolImage = symbols.adaptive
     }
-    if let estimates = createEstimates(routeInfo) {
-      primaryManeuver.initialTravelEstimates = estimates
-    }
-    // Lane guidance for the instrument cluster / any surface that consumes it (not the app screen).
-    if #available(iOS 18.0, *) {
-      if routeInfo.lanes.isEmpty {
-        activeLaneGuidance = nil
-      } else {
-        let guidance = laneGuidance(for: routeInfo)
-        activeLaneGuidance = guidance
-        primaryManeuver.linkedLaneGuidance = guidance
-      }
+    if let estimates {
+      maneuver.initialTravelEstimates = estimates
     }
     // Structured metadata for the instrument cluster / HUD on supported vehicles.
     if #available(iOS 17.4, *) {
-      primaryManeuver.maneuverType = routeInfo.carDirection.cpManeuverType
-      primaryManeuver.junctionType = routeInfo.carDirection.cpJunctionType
-      // Route-level driving side (from the route's start region)
-      primaryManeuver.trafficSide = routeInfo.isLeftHandTraffic ? .left : .right
-      if !routeInfo.junctionRef.isEmpty {
-        primaryManeuver.highwayExitLabel = routeInfo.junctionRef
-      }
+      CarPlayInstrumentClusterMetadata.apply(to: maneuver, description: description)
     }
-    maneuvers.append(primaryManeuver)
-    // Lanes must always be the second maneuver supplied to CarPlay, per Developer guidance 2026
-    // https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf
-    if !routeInfo.lanes.isEmpty,
-      let laneImages = CarPlayLaneSymbol.imageSet(for: routeInfo.lanes, displayScale: displayScale) {
-      let laneManeuver = CPManeuver()
-      laneManeuver.userInfo = CPConstants.Maneuvers.lanes
-      laneManeuver.instructionVariants = []
-      laneManeuver.symbolSet = laneImages
-      maneuvers.append(laneManeuver)
-    }
-    // Always provide the next upcoming turn, as you should provide as many meaneuvers as possible
-    if let imageName = routeInfo.nextTurnImageName,
-      let symbol = CarPlayManeuverSymbol.image(named: imageName, displayScale: displayScale) {
-      let secondaryManeuver = CPManeuver()
-      secondaryManeuver.userInfo = CPConstants.Maneuvers.secondary
-      secondaryManeuver.instructionVariants = [L("then_turn")]
-      secondaryManeuver.symbolImage = symbol
-      maneuvers.append(secondaryManeuver)
-    }
-    return maneuvers
-  }
-
-  /// Instruction strings for the upcoming maneuver
-  private func instructionVariants(for info: RouteInfo) -> [String] {
-    return NavigationInstructionFormatter.instructionVariants(roadName: info.roadName,
-                                                              roadRef: info.roadRef,
-                                                              junctionRef: info.junctionRef,
-                                                              destinationRef: info.destinationRef,
-                                                              destination: info.destination)
+    return maneuver
   }
 
   @available(iOS 18.0, *)
-  private func laneGuidance(for routeInfo: RouteInfo) -> CPLaneGuidance {
+  private func laneGuidance(lanes: [LaneInfo], description: CarPlayManeuverDescription) -> CPLaneGuidance {
     let guidance = CPLaneGuidance()
-    guidance.lanes = routeInfo.lanes.map { lane in
-      let angles = lane.laneWays.compactMap { LaneWay(rawValue: $0)?.angle }
-      // CPLane requires at least one angle; fall back to "straight" for unmarked lanes.
-      let safeAngles = angles.isEmpty ? [Measurement(value: 0, unit: UnitAngle.degrees)] : angles
-      if let recommended = LaneWay(rawValue: lane.recommendedWay), recommended != .none {
-        return CPLane(angles: safeAngles, highlightedAngle: recommended.angle, isPreferred: true)
-      }
-      return CPLane(angles: safeAngles)
-    }
-    let variants = instructionVariants(for: routeInfo)
+    guidance.lanes = lanes.map { CarPlayLaneMetadata.lane(for: $0) }
+    let variants = NavigationInstructionFormatter.instructionVariants(roadName: description.roadName,
+                                                                      roadRef: description.roadRef,
+                                                                      junctionRef: description.junctionRef,
+                                                                      destinationRef: description.destinationRef,
+                                                                      destination: description.destination)
     guidance.instructionVariants = variants.isEmpty ? [""] : variants
     return guidance
   }
+
+  // MARK: - Trip creation
 
   func createTrip(startPoint: MWMRoutePoint, endPoint: MWMRoutePoint, routeInfo: RouteInfo? = nil) -> CPTrip {
     let startPlacemark = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: startPoint.latitude,
@@ -552,16 +1244,20 @@ extension CarPlayRouter: RoutingManagerListener {
       }
       if let info = manager.routeInfo {
         previewTrip?.routeChoices.first?.userInfo = info
+        LOG(.info,
+            "\(CarPlayLogging.guidance) route_installed identity=\(identityDescription(routeIdentity(info))) direction=\(info.carDirection.diagnosticName) distanceM=\(formattedDistanceMeters(info)) \(roadDescription(info))")
         if routeSession == nil {
           listenerContainer.forEach({
             $0.didCreateRoute(routeInfo: info,
                               trip: trip)
           })
         } else {
+          observeGuidance(info)
+          refreshUpcomingManeuvers(with: info, forcing: .reroute)
+          updateDynamicNavigationState(with: info)
           listenerContainer.forEach({
             $0.didUpdateRouteInfo(info, forTrip: trip)
           })
-          updateUpcomingManeuvers()
         }
       }
     default:
@@ -571,7 +1267,14 @@ extension CarPlayRouter: RoutingManagerListener {
     }
   }
 
-  func didLocationUpdate(_ routeNotifications: [String]) {
+  func didPassTurn(_ routeInfo: RouteInfo) {
+    guard previewTrip != nil, RoutingManager.routingManager.isRoutingActive else { return }
+    observeGuidance(routeInfo)
+    refreshUpcomingManeuvers(with: routeInfo)
+    updateDynamicNavigationState(with: routeInfo)
+  }
+
+  func didLocationUpdate(_ routeNotifications: [String], routeInfo: RouteInfo?) {
     guard let trip = previewTrip else { return }
 
     let manager = RoutingManager.routingManager
@@ -582,8 +1285,11 @@ extension CarPlayRouter: RoutingManagerListener {
       return
     }
 
-    guard let routeInfo = manager.routeInfo,
+    guard let routeInfo,
       manager.isRoutingActive else { return }
+    observeGuidance(routeInfo)
+    refreshUpcomingManeuvers(with: routeInfo)
+    updateDynamicNavigationState(with: routeInfo)
     listenerContainer.forEach({
       $0.didUpdateRouteInfo(routeInfo, forTrip: trip)
     })

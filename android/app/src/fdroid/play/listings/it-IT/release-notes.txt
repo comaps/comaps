@@ -1,8 +1,9 @@
-• Aggiunto link per inserire recensioni nella pagina del luogo
-• Mostra la velocità attuale in Android Auto
-• Mostra le valutazioni delle recensioni nei risultati di ricerca
-• Mostra come testo le stelle di hotel e ristoranti
-• Aggiunta noleggio e prestito di attrezzi, cartelli stradali della Romania e del Marocco e correzione dei cartelli stradali di Cipro e Augsburg
-• Icone per l’anteprima e il salvataggio nella schermata di pianificazione del percorso
+• Migliorato il contrasto in modalità scura: testo e strade più leggibili
+• Aggiunte zone pericolose
+• Distinzione tra opzioni vegetariane e solo vegetariane
+• Rimossa l’indicazione «prosegui dritto» quando si attraversano strade principali
+• Aggiunta modalità anteprima del percorso (cliccando una tratta durante la pianificazione)
+• Interfaccia di Android Auto migliorata
+• Aggiunti i nomi delle filiali nei POI, info di seconda mano, locali di musica...
 
 Maggiori dettagli su comaps.app/latest

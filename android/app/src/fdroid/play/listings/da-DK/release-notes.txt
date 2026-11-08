@@ -1,8 +1,9 @@
-• Tilføjet link for at tilføje anmeldelser til POI-info
-• Vis nuværende hastighed i Android Auto
-• Vis anmeldelsesvurderinger i søgeresultater
-• Vis stjerner for hoteller/restauranter som tekst
-• Tilføjet værktøjsudlejningssteder og værktøjsbiblioteker, vejskilte tilføjet i Rumænien og Marokko og rettet for Augsburg og A-veje i Cypern
-• Erstattet knapper Forhåndsvisning og Gem med ikoner på ruteplanlægningsskærmen
+• Forbedret kontrast i mørk tilstand: bedre synlig tekst og veje
+• Tilføjet farlige områder
+• Skel mellem vegetariske/veganske valgmuligheder og helt vegetarisk/vegansk
+• Fjernet “Gå ligeud”-instruktion når man krydser store veje
+• Tilføjet ruteforhåndsvisningsmodus i ruteplanlægger
+• Forbedret Android Auto UI og skiftet mellem bil og telefon
+• Vis filial og information om brugte produkter for interessepunkter tilføjet spillesteder, kantiner og mere
 
 Flere detaljer på comaps.app/latest

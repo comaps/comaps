@@ -104,7 +104,7 @@ public:
    */
   IndexRouter(VehicleType vehicleType, bool loadAltitudes, CountryParentNameGetterFn const & countryParentNameGetterFn,
               TCountryFileFn const & countryFileFn, CountryRectFn const & countryRectFn,
-              std::shared_ptr<NumMwmIds> numMwmIds, std::unique_ptr<m4::Tree<NumMwmId>> numMwmTree,
+              std::shared_ptr<NumMwmIds> numMwmIds, std::shared_ptr<m4::Tree<NumMwmId>> numMwmTree,
               traffic::TrafficCache const & trafficCache, DataSource & dataSource);
   ~IndexRouter() override;
 
@@ -168,15 +168,15 @@ protected:
    * The `IndexRouter` always returns `Mode::Navigation`; subclasses may override this method and
    * return different values.
    *
-   * In navigation mode, the router may exit with `RouterResultCode::NeedMoreMaps` if it determines
-   * that a better route can be calculated with additional maps. When snapping endpoints to edges,
-   * it will consider only edges which are not “fenced off” by other edges, i.e. which can be
-   * reached from the endpoint without crossing other edges. This decreases the number of fake
-   * endings and thus speeds up routing, without any undesirable side effects for that use case.
+   * In navigation mode, the router will consider only edges which are not “fenced off” by other edges,
+   * i.e. which can be reached from the endpoint without crossing other edges, when snapping endpoints
+   * to edges. This decreases the number of fake endings and thus speeds up routing, without any
+   * undesirable side effects for that use case.
    *
-   * In decoding mode, the router will never exit with `RouterResultCode::NeedMoreMaps`: it will try
-   * to find a route with the existing maps, or exit without finding a route. When snapping
-   * endpoints to edges, it considers all edges within the given radius, fenced off or not.
+   * In decoding mode, the router considers all edges within the given radius, fenced off or not,
+   * when snapping endpoints to edges.
+   *
+   * Future versions may introduce additional behavior differences.
    */
   virtual Mode GetMode() const { return Mode::Navigation; }
 

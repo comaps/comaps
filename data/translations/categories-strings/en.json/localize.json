@@ -71,6 +71,9 @@
     "amenity-fast_food|@category_eat": {
         "defaultMessage": "4Fast Food|takeaway|U+1F354|U+1F355|U+1F35F|U+1F363|U+1F366|U+1F367|U+1F368|U+1F369|U+1F370|U+1F372|U+1F374|food to go|junk food"
     },
+    "amenity-fast_food-cafeteria|@category_eat": {
+        "defaultMessage": "4Cafeteria|Canteen"
+    },
     "amenity-restaurant|@category_eat": {
         "defaultMessage": "3Restaurant|U+1F356|U+1F357|U+1F35A|U+1F35B|U+1F35C|U+1F35D|U+1F363|U+1F366|U+1F367|U+1F368|U+1F369|U+1F370|U+1F372|U+1F374|U+1F377|U+1F60B"
     },
@@ -103,6 +106,9 @@
     },
     "shop-water|@category_water|@category_food|@shop": {
         "defaultMessage": "4Drinking Water|3Potable Water|4Bottled Water"
+    },
+    "shop-games|@shop": {
+        "defaultMessage": "4Game Shop|games shop|board game|board game shop|board games|board games shop|card games|boardgame|cardgame|role playing|roleplaying|games|trading card|U+1F3B2|U+1F3B4"
     },
     "shop-garden_centre|@shop": {
         "defaultMessage": "4Garden Centre|U+1F3E1"
@@ -190,6 +196,9 @@
     },
     "shop-laundry": {
         "defaultMessage": "4Laundry|Laundrette|laundromat|5washateria|coin laundry"
+    },
+    "shop-swimming_pool|@shop": {
+        "defaultMessage": "Swimming Pool|pool supplies|hot tub|sauna"
     },
     "shop-tool_hire|@shop": {
         "defaultMessage": "Tool Hire|tools|U+1F529|U+1F528"
@@ -443,6 +452,9 @@
     "amenity-nightclub|@category_entertainment|@category_nightlife": {
         "defaultMessage": "3Nightclub|night club|4disco|dance|U+1F378|U+1F379|U+1F46F|U+1F483|club|nightspot|night bar"
     },
+    "amenity-music_venue|@category_entertainment|@category_nightlife": {
+        "defaultMessage": "4Music venue|live music|4concert|concert hall|gig"
+    },
     "amenity-brothel": {
         "defaultMessage": "Brothel|whorehouse|bordello|U+1F3E9"
     },
@@ -466,6 +478,9 @@
     },
     "amenity-college": {
         "defaultMessage": "4College|U+1F3EB"
+    },
+    "amenity-research_institute": {
+        "defaultMessage": "4Research institute|research centre|research center|4laboratory|lab|U+1F52C|U+1F9EA"
     },
     "amenity-fire_station": {
         "defaultMessage": "4Fire Station|U+1F692"
@@ -1760,11 +1775,17 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "4Vegetarian|11Vegetarian Food|12Vegetarian Cuisine"
     },
-    "cuisine-vegetarian|@cuisine_all_vegetarian": {
+    "cuisine-vegetarian|cuisine-vegetarian_only|@cuisine_all_vegetarian": {
         "defaultMessage": ""
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "4Vegan|6Vegan Food|7Vegan Cuisine|veg cafe"
+    },
+    "cuisine-vegetarian_only|cuisine-vegan_only": {
+        "defaultMessage": "4Vegetarian Only"
+    },
+    "cuisine-vegan_only": {
+        "defaultMessage": "4Vegan Only"
     },
     "@cuisine_all_asian": {
         "defaultMessage": "5Asian Food|7Asian Cuisine"
@@ -1894,5 +1915,92 @@
     },
     "cuisine-african": {
         "defaultMessage": "7African Food|9African Cuisine"
+    },
+    "@club": {
+        "defaultMessage": "Club|clubs"
+    },
+    "club|@club": {
+        "defaultMessage": ""
+    },
+    "club-allotments|@club": {
+        "defaultMessage": "9Allotment Association|allotments club|allotment"
+    },
+    "club-amateur_radio|@club": {
+        "defaultMessage": "4Amateur Radio Club|ham radio|radio club"
+    },
+    "club-art|@club": {
+        "defaultMessage": "Art Club|art society"
+    },
+    "club-automobile|@club": {
+        "defaultMessage": "Automobile Club|car club|motoring club"
+    },
+    "club-board_games|@club": {
+        "defaultMessage": "5Board Games Club|board games|card games|boardgame|board game|cardgame|tabletop|tabletop games|games"
+    },
+    "club-cadet|@club": {
+        "defaultMessage": "5Cadet Club|cadets"
+    },
+    "club-computer|@club": {
+        "defaultMessage": "8Computer Club|computers club"
+    },
+    "club-culture|@club": {
+        "defaultMessage": "8Cultural Association|cultural club"
+    },
+    "club-dog|@club": {
+        "defaultMessage": "3Dog Club|dogs club|kennel club"
+    },
+    "club-fraternity|@club": {
+        "defaultMessage": "4Fraternity|sorority|frat"
+    },
+    "club-freemasonry|@club": {
+        "defaultMessage": "Masonic Lodge|freemasonry|freemasonry lodge|freemasons|masons"
+    },
+    "club-game|@club": {
+        "defaultMessage": "6Gaming Club|game club|video games|videogames|videogame"
+    },
+    "club-gardening|@club": {
+        "defaultMessage": "Gardening Club|gardening|garden club|horticultural society"
+    },
+    "club-history|@club": {
+        "defaultMessage": "History Club|historical society|heritage society"
+    },
+    "club-hunting|@club": {
+        "defaultMessage": "Hunting Club|hunting|hunters"
+    },
+    "club-model_railway|@club": {
+        "defaultMessage": "Model Railway Club|model railway|miniature railway|miniature trains"
+    },
+    "club-motorcycle|@club": {
+        "defaultMessage": "Motorcycle Club|motoclub|motorbike club|biker club"
+    },
+    "club-music|@club": {
+        "defaultMessage": "Music Club|music society"
+    },
+    "club-religion|@club": {
+        "defaultMessage": "Religious Club"
+    },
+    "club-scout|@club": {
+        "defaultMessage": "Scout Club|scout|scouts|scouting|scout group|scout hut|girl guides"
+    },
+    "club-social|@club": {
+        "defaultMessage": "6Social Club|Ethnic Club"
+    },
+    "club-student|@club": {
+        "defaultMessage": "Student Club|student society|student association"
+    },
+    "club-surf_life_saving|@club": {
+        "defaultMessage": "4Surf Life Saving|lifesaving club|surf lifesaving|life saving club"
+    },
+    "club-theatre|@club": {
+        "defaultMessage": "Theatre Club|drama club|amateur theatre|theatre group"
+    },
+    "club-veterans|@club": {
+        "defaultMessage": "Veterans Club|veterans association"
+    },
+    "club-youth|@club": {
+        "defaultMessage": "Youth Club"
+    },
+    "club-youth_movement|@club": {
+        "defaultMessage": "Youth Movement|youth movement club|youth organisation"
     }
 }

@@ -45,13 +45,18 @@ UNIT_TEST(Multi_KML_KMZ_UnzipTest)
 {
   std::string const kmzFile = GetPlatform().TestsDataPathForFile("test_data/kml/BACRNKMZ.kmz");
   auto const filePaths = GetKMLOrGPXFilesPathsToLoad(kmzFile);
+  SCOPE_GUARD(filesGuard, [&filePaths]
+  {
+    for (auto const & filePath : filePaths)
+      base::DeleteFileX(filePath);
+  });
   std::vector<std::string> expectedFileNames = {
-      "BACRNKMZfilesCampgrounds 26may2022 green and tree icon",
-      "BACRNKMZfilesIndoor Accommodations 26may2022 placemark purple and bed icon",
-      "BACRNKMZfilesRoute 1 Canada - West-East Daily Segments",
-      "BACRNKMZfilesRoute 2 Canada - West-East Daily Segments",
-      "BACRNKMZfilesRoute Connector Canada - West-East Daily Segments",
-      "BACRNKMZdoc"
+      "Campgrounds 26may2022 green and tree icon",
+      "Indoor Accommodations 26may2022 placemark purple and bed icon",
+      "Route 1 Canada - West-East Daily Segments",
+      "Route 2 Canada - West-East Daily Segments",
+      "Route Connector Canada - West-East Daily Segments",
+      "doc"
 
   };
   TEST_EQUAL(expectedFileNames.size(), filePaths.size(), ());

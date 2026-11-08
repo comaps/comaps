@@ -45,7 +45,10 @@ string_view constexpr kDietVegetarian = "diet:vegetarian";
 string_view constexpr kDietVegan = "diet:vegan";
 string_view constexpr kVegetarian = "vegetarian";
 string_view constexpr kVegan = "vegan";
+string_view constexpr kVegetarianOnly = "vegetarian_only";
+string_view constexpr kVeganOnly = "vegan_only";
 string_view constexpr kYes = "yes";
+string_view constexpr kOnly = "only";
 
 constexpr char const * kUnknownType = "unknown";
 constexpr char const * kNodeType = "node";
@@ -296,50 +299,57 @@ string XMLFeature::GetCuisine() const
     res += s;
   };
 
-  if (GetTagValue(kDietVegan) == kYes)
-    appendCuisine(kVegan);
-  if (GetTagValue(kDietVegetarian) == kYes)
-    appendCuisine(kVegetarian);
+  auto const appendDiet =
+      [this, &appendCuisine](std::string_view key, std::string_view yesValue, std::string_view onlyValue)
+  {
+    auto const value = GetTagValue(key);
+    if (value == kOnly)
+      appendCuisine(onlyValue);
+    else if (value == kYes)
+      appendCuisine(yesValue);
+  };
+
+  appendDiet(kDietVegan, kVegan, kVeganOnly);
+  appendDiet(kDietVegetarian, kVegetarian, kVegetarianOnly);
   return res;
 }
 
 void XMLFeature::SetCuisine(string cuisine)
 {
-  auto const findAndErase = [&cuisine](std::string_view s)
+  std::string_view vegan;
+  std::string_view vegetarian;
+  std::vector<std::string> others;
+  strings::Tokenize(cuisine, ";", [&](std::string_view token)
   {
-    size_t const i = cuisine.find(s);
-    if (i != std::string_view::npos)
+    if (token == kVeganOnly)
+      vegan = kOnly;
+    else if (token == kVegan)
     {
-      size_t from = 0;
-      size_t sz = s.size();
-      if (i > 0)
-      {
-        from = i - 1;
-        ASSERT_EQUAL(cuisine[from], ';', ());
-        ++sz;
-      }
-      else if (cuisine.size() > sz)
-      {
-        ASSERT_EQUAL(cuisine[sz], ';', ());
-        ++sz;
-      }
-
-      cuisine.erase(from, sz);
-      return true;
+      if (vegan != kOnly)
+        vegan = kYes;
     }
-    return false;
-  };
+    else if (token == kVegetarianOnly)
+      vegetarian = kOnly;
+    else if (token == kVegetarian)
+    {
+      if (vegetarian != kOnly)
+        vegetarian = kYes;
+    }
+    else
+      others.emplace_back(token);
+  });
 
-  if (findAndErase(kVegan))
-    SetTagValue(kDietVegan, kYes);
+  if (!vegan.empty())
+    SetTagValue(kDietVegan, vegan);
   else
     RemoveTag(kDietVegan);
 
-  if (findAndErase(kVegetarian))
-    SetTagValue(kDietVegetarian, kYes);
+  if (!vegetarian.empty())
+    SetTagValue(kDietVegetarian, vegetarian);
   else
     RemoveTag(kDietVegetarian);
 
+  cuisine = strings::JoinStrings(others, ";");
   if (!cuisine.empty())
     SetTagValue(kCuisine, cuisine);
   else

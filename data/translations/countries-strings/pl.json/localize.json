@@ -7086,46 +7086,46 @@
         "defaultMessage": "Mankato, Marshall, Owatonna"
     },
     "US_Minnesota_Saint Cloud Description": {
-        "defaultMessage": "Brooten, St. Rosa, Genola"
+        "defaultMessage": "Moorhead, Alexandria, Willmar"
     },
     "US_Mississippi_Gulfport Description": {
-        "defaultMessage": "D'Iberville, Ocean Springs, Lucedale"
+        "defaultMessage": "Hattiesburg, Pascagoula, Biloxi"
     },
     "US_Mississippi_North Description": {
-        "defaultMessage": "Rolling Fork, Leland, Collins"
+        "defaultMessage": "Jackson, Southaven, Meridian"
     },
     "US_Missouri_East Description": {
-        "defaultMessage": "Scott City, Ellington, Viburnum"
+        "defaultMessage": "Cape Girardeau, Poplar Bluff, Farmington"
     },
     "US_Missouri_Kansas Description": {
-        "defaultMessage": "Kansas City, Belton, Gallatin"
+        "defaultMessage": "St. Joseph, Sedalia, Chillicothe"
     },
     "US_Missouri_Springfield Description": {
-        "defaultMessage": "Conway, Osceola, Battlefield"
+        "defaultMessage": "Joplin, Branson, Lake of the Ozarks"
     },
     "US_Missouri_St Louis Description": {
-        "defaultMessage": "Queen City, La Grange, Fulton"
+        "defaultMessage": "Columbia, Jefferson City, Hannibal"
     },
     "US_Montana_East Description": {
-        "defaultMessage": "Harlem, Hobson, Colstrip"
+        "defaultMessage": "Billings, Bozeman, Miles City"
     },
     "US_Montana_West Description": {
-        "defaultMessage": "Cut Bank, Kalispell, Shelby"
+        "defaultMessage": "Missoula, Great Falls, Helena"
     },
     "US_Nebraska_East Description": {
-        "defaultMessage": "Omaha, Stanton, Pawnee City"
+        "defaultMessage": "Omaha, Lincoln, Columbus"
     },
     "US_Nebraska_West Description": {
-        "defaultMessage": "Bassett, Long Pine, Bloomfield"
+        "defaultMessage": "Grand Island, North Platte, Scottsbluff"
     },
     "US_Nevada Description": {
-        "defaultMessage": "Las Vegas, Winnemucca, Caliente"
+        "defaultMessage": "Las Vegas, Reno, Carson City"
     },
     "US_New Hampshire Description": {
-        "defaultMessage": "Somersworth, Laconia, Franklin"
+        "defaultMessage": "Manchester, Nashua, Concord"
     },
     "US_New Jersey_North Description": {
-        "defaultMessage": "Hackensack, Garfield, Lambertville"
+        "defaultMessage": "Newark, Paterson, Jersey City"
     },
     "US_New Jersey_South Description": {
         "defaultMessage": "Trenton, Camden, Atlantic City"
@@ -7660,5 +7660,89 @@
     },
     "WorldCoasts": {
         "defaultMessage": "Ogólna mapa świata (linie brzegowe)"
+    },
+    "Tanzania_Southern Highlands": {
+        "defaultMessage": "Tanzania — Południowe Highlandy"
+    },
+    "Tanzania_Coastal": {
+        "defaultMessage": "Tanzania — Wybrzeże"
+    },
+    "Malaysia_East": {
+        "defaultMessage": "Malezja — Wschód"
+    },
+    "Malaysia_West": {
+        "defaultMessage": "Malezja — Zachód"
+    },
+    "Tanzania_Coastal Description": {
+        "defaultMessage": "Morogoro, Dar es Salaam, Lindi, Mtwara, Kibaha"
+    },
+    "Tanzania_Western Description": {
+        "defaultMessage": "Kigoma, Mpanda"
+    },
+    "Tanzania_Northern Description": {
+        "defaultMessage": "Tanga, Babati, Arusha, Kilimanjaro, Moshi"
+    },
+    "Tanzania_Offshore Islands Description": {
+        "defaultMessage": "Zanzibar, Pemba, Mafia, Wete, Mikoani, Mkokotoni, Koani"
+    },
+    "Tanzania_Offshore Islands": {
+        "defaultMessage": "Tanzania — Wyspy przybrzeżne"
+    },
+    "China_Hainan Description": {
+        "defaultMessage": "Haikou, Sanya, Wanning"
+    },
+    "Malaysia_West Description": {
+        "defaultMessage": "Kuala Lumpur, Johor Bahru, George Town, Malacca, Ipoh"
+    },
+    "Tanzania_Lake": {
+        "defaultMessage": "Tanzania — Jezioro"
+    },
+    "Macau Description": {
+        "defaultMessage": "Makau, Taipa, Coloane"
+    },
+    "Tanzania_Central": {
+        "defaultMessage": "Tanzania — Centrum"
+    },
+    "Tanzania_Western": {
+        "defaultMessage": "Tanzania — Zachód"
+    },
+    "Vietnam_South": {
+        "defaultMessage": "Wietnam — Południe"
+    },
+    "Vietnam_North Description": {
+        "defaultMessage": "Hanoi, Hai Phong, Hue, Sa Pa"
+    },
+    "Tanzania_Lake Description": {
+        "defaultMessage": "Bukoba, Musoma, Mwanza, Shinyanga"
+    },
+    "Macau": {
+        "defaultMessage": "Makau"
+    },
+    "Tanzania_Central Description": {
+        "defaultMessage": "Tabora, Singida, Dodoma"
+    },
+    "Hong Kong": {
+        "defaultMessage": "Hong Kong"
+    },
+    "China_Hainan": {
+        "defaultMessage": "Hajnan"
+    },
+    "Vietnam_South Description": {
+        "defaultMessage": "Ho Chi Minh City, Da Nang, Can Tho, Nha Trang"
+    },
+    "Tanzania_Southern Highlands Description": {
+        "defaultMessage": "Songea, Iringa, Mbeya, Sumbawanga"
+    },
+    "Tanzania_Northern": {
+        "defaultMessage": "Tanzania — Północ"
+    },
+    "Hong Kong Description": {
+        "defaultMessage": "Hong Kong, Koulun, Tsuen Wan"
+    },
+    "Malaysia_East Description": {
+        "defaultMessage": "Kota Kinabalu, Kuching, Sandakan"
+    },
+    "Vietnam_North": {
+        "defaultMessage": "Wietnam — Północ"
     }
 }

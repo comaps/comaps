@@ -86,9 +86,7 @@ public:
   bool operator<(SegmentEdge const & edge) const;
 
 private:
-  /**
-   * @brief Vertex going to for outgoing edges, vertex going from for ingoing edges.
-   */
+  /** @brief Vertex going to for outgoing edges, vertex going from for ingoing edges. */
   Segment m_target;
   RouteWeight m_weight;
 };

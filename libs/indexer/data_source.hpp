@@ -45,11 +45,11 @@ public:
    * inside square with center `center` and side `2 * sizeM`. Edited features are not in the same
    * hierarchy and there is no fast way to merge frozen and edited features.
    *
-   * @brief f Callback function that is called on each feature.
-   * @brief stopCallback Callback function which decides whether to continue searching or stop.
-   * @brief center The center of the search area.
-   * @brief sizeM The size of the search area, as a distance from the center point.
-   * @brief scale
+   * @param f Callback function that is called on each feature.
+   * @param stopCallback Callback function which decides whether to continue searching or stop.
+   * @param center The center of the search area.
+   * @param sizeM The size of the search area, as a distance from the center point.
+   * @param scale
    */
   void ForClosestToPoint(FeatureCallback const & f, StopSearchCallback const & stopCallback, m2::PointD const & center,
                          double sizeM, int scale) const;

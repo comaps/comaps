@@ -147,6 +147,7 @@ public final class CarAppSession extends Session implements DefaultLifecycleObse
   public void onStop(@NonNull LifecycleOwner owner)
   {
     Logger.d(TAG);
+    ThemeUtils.cancelSunCheck();
     mSensorsManager.onStop();
     if (mDisplayManager.isCarDisplayUsed())
     {
@@ -159,7 +160,7 @@ public final class CarAppSession extends Session implements DefaultLifecycleObse
   @Override
   public void onDestroy(@NonNull LifecycleOwner owner)
   {
-    mDisplayManager.removeListener(DisplayType.Car);
+    mDisplayManager.removeListener(DisplayType.Car, this);
     Framework.nativeSetCarScreenMode(false);
   }
 

@@ -1421,7 +1421,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "채식주의자 음식"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "비건 음식"
     }
 }

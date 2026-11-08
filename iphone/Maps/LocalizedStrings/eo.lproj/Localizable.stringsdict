@@ -13,11 +13,11 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
 			<key>zero</key>
-			<string>Neniuj legosignoj</string>
+			<string>Neniuj lokoj</string>
 			<key>one</key>
-			<string>%lld legosigno</string>
+			<string>%lld loko</string>
 			<key>other</key>
-			<string>%lld legosigniloj</string>
+			<string>%lld lokoj</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
@@ -76,6 +76,8 @@
 	</dict>
 	<key>rooms</key>
 	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
 		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
@@ -89,8 +91,60 @@
 			<key>other</key>
 			<string>%lld ĉambroj</string>
 		</dict>
+	</dict>
+	<key>capacity_disabled</key>
+	<dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld parkumejoj por handikapuloj</string>
+			<key>one</key>
+			<string>%lld parkumejo por handikapuloj</string>
+			<key>other</key>
+			<string>%lld parkumejoj por handikapuloj</string>
+		</dict>
+	</dict>
+	<key>capacity_charging</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld parkumejoj kun ŝargiloj</string>
+			<key>one</key>
+			<string>%lld parkumejo kun ŝargilo</string>
+			<key>other</key>
+			<string>%lld parkumejoj kun ŝargiloj</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld parkumejoj</string>
+			<key>one</key>
+			<string>%lld parkumejo</string>
+			<key>other</key>
+			<string>%lld parkumejoj</string>
+		</dict>
 	</dict>
 </dict>
 </plist>

@@ -2,6 +2,7 @@
 
 #include "routing/routing_tests/tools.hpp"
 
+#include "routing/absent_regions_finder.hpp"
 #include "routing/async_router.hpp"
 #include "routing/router.hpp"
 #include "routing/routing_callbacks.hpp"
@@ -13,7 +14,6 @@
 #include "base/timer.hpp"
 
 #include <condition_variable>
-#include <cstdint>
 #include <memory>
 #include <mutex>
 #include <string>
@@ -28,10 +28,9 @@ using namespace std;
 class DummyRouter : public IRouter
 {
   RouterResultCode m_result;
-  set<string> m_absent;
 
 public:
-  DummyRouter(RouterResultCode code, set<string> const & absent) : m_result(code), m_absent(absent) {}
+  DummyRouter(RouterResultCode code, set<string> const & absent) : m_result(code) {}
 
   // IRouter overrides:
   string GetName() const override { return "Dummy"; }
@@ -39,11 +38,8 @@ public:
   RouterResultCode CalculateRoute(Checkpoints const & checkpoints, m2::PointD const & startDirection,
                                   bool adjustToPrevRoute, RouterDelegate const & delegate, Route & route) override
   {
-    route = Route("dummy", checkpoints.GetPoints().cbegin(), checkpoints.GetPoints().cend(), 0 /* route id */);
-
-    for (auto const & absent : m_absent)
-      route.AddAbsentCountry(absent);
-
+    auto const routeId = route.GetRouteId();
+    route = Route("dummy", checkpoints.GetPoints().cbegin(), checkpoints.GetPoints().cend(), routeId);
     return m_result;
   }
 
@@ -58,6 +54,7 @@ struct DummyRoutingCallbacks
 {
   vector<RouterResultCode> m_codes;
   vector<set<string>> m_absent;
+  vector<uint64_t> m_routeIds;
   condition_variable m_cv;
   mutex m_lock;
   uint32_t const m_expected;
@@ -70,7 +67,7 @@ struct DummyRoutingCallbacks
   {
     CHECK(route, ());
     m_codes.push_back(code);
-    m_absent.emplace_back(route->GetAbsentCountries());
+    m_routeIds.push_back(route->GetRouteId());
     TestAndNotifyReadyCallbacks();
   }
 
@@ -98,6 +95,32 @@ struct DummyRoutingCallbacks
     m_cv.notify_all();
   }
 };
+
+UNIT_CLASS_TEST(AsyncGuiThreadTest, RouteIdsAdvanceForEachBuild)
+{
+  auto router = make_unique<DummyRouter>(RouterResultCode::NoError, set<string>{});
+  AsyncRouter async(nullptr /* pointCheckCallback */);
+  async.SetRouter(std::move(router), nullptr /* absentRegionsFinder */);
+
+  auto const checkpoints = Checkpoints({1, 2} /* start */, {5, 6} /* finish */);
+  auto const calculate = [&async, &checkpoints](DummyRoutingCallbacks & callbacks)
+  {
+    async.CalculateRoute(checkpoints, {3, 4} /* direction */, false /* adjustToPrevRoute */,
+                         bind(ref(callbacks), _1, _2), nullptr /* needMoreMapsCallback */,
+                         nullptr /* removeRouteCallback */, nullptr /* progressCallback */);
+    callbacks.WaitFinish();
+  };
+
+  DummyRoutingCallbacks firstBuild(1 /* expectedCalls */);
+  calculate(firstBuild);
+  DummyRoutingCallbacks secondBuild(1 /* expectedCalls */);
+  calculate(secondBuild);
+
+  TEST_EQUAL(firstBuild.m_routeIds.size(), 1, ());
+  TEST_EQUAL(secondBuild.m_routeIds.size(), 1, ());
+  TEST_NOT_EQUAL(firstBuild.m_routeIds.front(), 0, ());
+  TEST_GREATER(secondBuild.m_routeIds.front(), firstBuild.m_routeIds.front(), ());
+}
 
 // TODO(o.khlopkova) Uncomment and update these tests.
 

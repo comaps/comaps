@@ -845,7 +845,7 @@
     <string name="backup_interval_manual_only">Искључено (само ручно)</string>
     <string name="pref_backup_summary">Аутоматски направити резервну копију у фолдеру на уређају</string>
     <string name="pref_backup_status_summary_success">Последња успешна резервна копија</string>
-    <string name="dialog_report_error_with_logs">Молимо вас, пошаљите нам поруку о грешци:\n- \"Омогући вођење дневника\" у подешавањима\n- репродукујте проблем\n- на екрану \"О програму и помоћ\" кликните на дугме \"Пријави грешку\" и пошаљите на е-маил или чат\n- онемогући вођење дневника</string>
+    <string name="dialog_report_error_with_logs">Молимо вас, пошаљите нам поруку о грешци:\n- идите на Подешавања и изаберите Напредно\n- укључите Снимање лог фајлова\n- репродукујте проблем\n- на екрану \"О програму и помоћ\" кликните на дугме \"Пријавите проблем\" и пошаљите на email или chat\n- искључите Снимање лог фајлова</string>
     <string name="dialog_report_error_missing_folder">Изабрана локација резервне копије није доступна за снимање. Молимо вас, одаберите друго место.</string>
     <string name="pref_backup_interval_title">Аутоматска резервна копија</string>
     <string name="pref_backup_now_summary_empty_lists">Нема маркера и путања за израду резервне копије</string>

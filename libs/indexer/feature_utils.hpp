@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <string_view>
 #include <vector>
 
 #include "indexer/ftraits.hpp"
@@ -95,5 +96,13 @@ std::string FormatRating(reviews::Rating rating);
 
 /// @returns formatted elevation with ▲ symbol and units.
 std::string FormatElevation(std::string_view elevation);
+
+struct TitleAndBranch
+{
+  std::string m_title;
+  std::string m_branch;
+};
+
+TitleAndBranch SplitTitleAndBranch(std::string const & title, std::string_view branch);
 
 }  // namespace feature

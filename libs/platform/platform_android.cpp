@@ -205,7 +205,8 @@ bool Platform::GetFileSizeByName(std::string const & fileName, uint64_t & size) 
 // static
 Platform::EError Platform::MkDir(std::string const & dirName)
 {
-  if (0 != mkdir(dirName.c_str(), 0755))
+  // Android needs group write enabled for map folders to allow uploading via adb
+  if (0 != mkdir(dirName.c_str(), 0775))
     return ErrnoToError();
   return Platform::ERR_OK;
 }

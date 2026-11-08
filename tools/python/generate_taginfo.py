@@ -1,5 +1,7 @@
 import re
 import json
+import xml.etree.ElementTree as ET
+from collections.abc import Callable
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -10,6 +12,62 @@ BASECSS_FILE: Path = SCRIPT_DIR / "../../data/styles/default/include/Basemap.map
 LIGHTSTYLE_COLORS_FILE: Path = SCRIPT_DIR / "../../data/styles/default/light/colors.mapcss"
 DARKSTYLE_COLORS_FILE: Path = SCRIPT_DIR / "../../data/styles/default/dark/colors.mapcss"
 
+MAPPING_FILE: Path = SCRIPT_DIR / "../../data/mapcss-mapping.csv"
+REPLACED_TAGS_FILE: Path = SCRIPT_DIR / "../../data/replaced_tags.txt"
+EXTENSION_FILE: Path = SCRIPT_DIR / "../../data/taginfo_extension.json"
+ROAD_ACCESS_FILE: Path = SCRIPT_DIR / "../../generator/road_access_generator.cpp"
+ROAD_PENALTY_FILE: Path = SCRIPT_DIR / "../../generator/road_penalty_generator.cpp"
+OSM2TYPE_FILE: Path = SCRIPT_DIR / "../../generator/osm2type.cpp"
+RESTRICTION_FILE: Path = SCRIPT_DIR / "../../generator/restriction_writer.cpp"
+METADATA_FILE: Path = SCRIPT_DIR / "../../libs/indexer/feature_meta.cpp"
+LANGUAGES_FILE: Path = SCRIPT_DIR / "../../libs/i18n/localisation.hpp"
+EDITOR_CONFIG_FILE: Path = SCRIPT_DIR / "../../data/editor.config"
+VEHICLE_MODEL_FILE: Path = SCRIPT_DIR / "../../libs/routing_common/vehicle_model.hpp"
+ROUTING_MODEL_FILES: list[Path] = [
+    SCRIPT_DIR / "../../libs/routing_common/car_model.cpp",
+    SCRIPT_DIR / "../../libs/routing_common/bicycle_model.cpp",
+    SCRIPT_DIR / "../../libs/routing_common/pedestrian_model.cpp",
+]
+
+TYPE_NAMES_FILE: Path = SCRIPT_DIR / "../../iphone/Maps/LocalizedStrings/en.lproj/LocalizableTypes.strings"
+INTERNAL_KEYS: set[str] = {"hwtag", "psurface", "_path_grade", "city", "dont", "isoline", "mapswithme", "complex_entry"}
+WILDCARD_VALUES: set[str] = {"*", "!", "~", "!r", "~r"}
+
+ROUTING_DESCRIPTION: str = "Taken into account for routing"
+DETAILS_DESCRIPTION: str = "Shown as place/POI details"
+ADDRESS_DESCRIPTION: str = "Used for addresses and address search"
+BUILDINGS_3D_DESCRIPTION: str = "Used to draw 3D buildings"
+EDITOR_DESCRIPTION: str = "Editable in the app's map editor"
+NAME_DESCRIPTION: str = "Used as the name on the map, in place/POI details and in search"
+SEARCH_DESCRIPTION: str = "Used for search"
+NAME_KEYS: dict[str, tuple[str, str]] = {
+    "default": ("name", NAME_DESCRIPTION),
+    "int_name": ("int_name", NAME_DESCRIPTION),
+    "alt_name": ("alt_name", SEARCH_DESCRIPTION),
+    "old_name": ("old_name", SEARCH_DESCRIPTION),
+}
+METADATA_DESCRIPTIONS: dict[str, str] = {
+    "FMD_HEIGHT": BUILDINGS_3D_DESCRIPTION,
+    "FMD_MIN_HEIGHT": BUILDINGS_3D_DESCRIPTION,
+    "FMD_BUILDING_LEVELS": BUILDINGS_3D_DESCRIPTION,
+    "FMD_BUILDING_MIN_LEVEL": BUILDINGS_3D_DESCRIPTION,
+    "FMD_DESTINATION": ROUTING_DESCRIPTION,
+    "FMD_DESTINATION_REF": ROUTING_DESCRIPTION,
+    "FMD_JUNCTION_REF": ROUTING_DESCRIPTION,
+    "FMD_TURN_LANES": ROUTING_DESCRIPTION,
+    "FMD_TURN_LANES_FORWARD": ROUTING_DESCRIPTION,
+    "FMD_TURN_LANES_BACKWARD": ROUTING_DESCRIPTION,
+    "FMD_DURATION": ROUTING_DESCRIPTION,
+    "FMD_POSTCODE": ADDRESS_DESCRIPTION,
+    "FMD_FAX_NUMBER": "",
+    "FMD_DENOMINATION": "",
+}
+RULE_BLOCK_DESCRIPTIONS: dict[str, str] = {
+    "oneway": ROUTING_DESCRIPTION,
+    "ferry": ROUTING_DESCRIPTION,
+    "traffic_signals:direction": ROUTING_DESCRIPTION,
+    "network": "Used to choose the metro icon",
+}
 
 TAGINFO_FILE: Path = SCRIPT_DIR / "../../data/taginfo.json"
 
@@ -70,8 +128,9 @@ def parse_mapcss(text: str, colors: dict[str, dict] = {}) -> list[dict[str, any]
             for sqb in square_brackets:
                 key, sep, value = sqb.partition("=")
                 key = key.strip()
-                if key.startswith("!"):
+                if key.startswith("!") or key.endswith("!"):
                     continue  # skip negated keys
+                key = key.rstrip("?")
                 value = value.strip() if sep else None
                 pairs.append((key, value))
 
@@ -124,10 +183,153 @@ def parse_mapcss(text: str, colors: dict[str, dict] = {}) -> list[dict[str, any]
     return sorted(tags.values(), key=lambda x: (x["description"], x["key"], x.get("value", "")))
 
 
+def parse_type_names(text: str) -> dict[str, str]:
+    return dict(re.findall(r'^"type\.([^"]+)" = "([^"]*)";', text, re.MULTILINE))
+
+
+def parse_mapping_csv(text: str, type_names: dict[str, str]) -> list[tuple[str, str | None, str]]:
+    found: list[tuple[str, str | None, str]] = []
+    for line in text.splitlines():
+        if not line or line.startswith("#"):
+            continue
+        fields: list[str] = line.split(";")
+        desc: str = type_names.get(fields[0].replace("|", "."), "")
+        if fields[0].startswith("cuisine|"):
+            desc = DETAILS_DESCRIPTION
+        if len(fields) == 3 and not fields[2]:
+            key, value = fields[0].split("|")
+            found.append((key, value, desc))
+        elif len(fields) == 7 and fields[2] != "x":
+            for selector in fields[1].split(","):
+                parts: list[str] = re.findall(r"\[([^\]]*)\]", selector)
+                for kv in parts:
+                    if kv.startswith("!"):
+                        continue
+                    key, sep, value = kv.partition("=")
+                    tag_value: str | None = ("no" if value == "not" else value) if sep else None
+                    found.append((key.rstrip("?"), tag_value, desc if len(parts) == 1 else ""))
+    described = [t for t in found if t[2]]
+    undescribed = [t for t in found if not t[2]]
+    return described + undescribed
+
+
+def parse_replaced_tags(text: str) -> list[tuple[str, str | None, str]]:
+    found: list[tuple[str, str | None, str]] = []
+    for line in text.splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        key, _, rest = line.partition("=")
+        value, _, replacement = rest.partition(":")
+        targets: str = ", ".join(t.strip() for t in replacement.split("|")[0].split(","))
+        found.append((key.strip(), value.strip(), f"Treated as {targets}"))
+    return found
+
+
+def scrape_tag_calls(text: str) -> list[tuple[str, str | None, str]]:
+    tags: list[tuple[str, str]] = re.findall(r'OsmElement::Tag\("([^"]+)",\s*"([^"]*)"\)', text)
+    return [(k, v, ROUTING_DESCRIPTION) for k, v in tags]
+
+
+def scrape_conditional_keys(text: str) -> list[tuple[str, str | None, str]]:
+    return [(k, None, ROUTING_DESCRIPTION) for k in re.findall(r'"([a-z_]+:conditional)"', text)]
+
+
+def scrape_tag_rules(text: str) -> list[tuple[str, str | None, str]]:
+    found: list[tuple[str, str | None, str]] = []
+    for block in text.split("ApplyRules")[1:]:
+        rules: list[tuple[str, str]] = re.findall(r'\{\s*"([^"]+)",\s*"([^"]*)",\s*\[', block.split("});")[0])
+        desc: str = next((d for marker, d in RULE_BLOCK_DESCRIPTIONS.items() if marker in {k for k, _ in rules}), "")
+        for k, v in rules:
+            address: bool = k.startswith(("addr:", "contact:")) or k == "postal_code"
+            found.append((k, None if v in WILDCARD_VALUES else v, ADDRESS_DESCRIPTION if address else desc))
+    return found
+
+
+def scrape_restrictions(text: str) -> list[tuple[str, str | None, str]]:
+    return [("restriction", v, ROUTING_DESCRIPTION) for v in re.findall(r'\{"([a-z_]+)",\s*Restriction::Type::', text)]
+
+
+def scrape_metadata_keys(text: str) -> list[tuple[str, str | None, str]]:
+    function: re.Match | None = re.search(r"bool Metadata::TypeFromString\(.*?\n}", text, re.DOTALL)
+    if not function:
+        return []
+    found: list[tuple[str, str | None, str]] = []
+    branches: list[str] = re.split(r"outType = Metadata::(?:EType::)?(FMD_\w+);", function.group(0))
+    for condition, metadata_type in zip(branches[0::2], branches[1::2]):
+        keys: list[str] = re.findall(r'k == "([^"]+)"', condition)
+        keys += re.findall(r'(?:starts_with\(|GetLanguageIndexForKey\(k, )"([^"]+)"\)', condition)
+        desc: str = METADATA_DESCRIPTIONS.get(metadata_type, DETAILS_DESCRIPTION)
+        found.extend((k, None, desc) for k in keys if not k.endswith(":"))
+    return found
+
+
+def scrape_road_types(text: str, mapping: str, models: list[str]) -> list[tuple[str, str | None, str]]:
+    if "enum class HighwayType" not in text:
+        return []
+    enum: str = text.split("enum class HighwayType")[1].split("};")[0]
+    indices: dict[str, int] = {name: int(index) for name, index in re.findall(r"(\w+) = (\d+),", enum)}
+    used: set[str] = {name for model in models for name in re.findall(r"HighwayType::(\w+)", model)}
+    selectors: dict[int, list[tuple[str, str | None]]] = {}
+    for line in mapping.splitlines():
+        if line.startswith("#"):
+            continue
+        fields: list[str] = line.split(";")
+        if len(fields) == 3:
+            selectors[int(fields[1])] = [tuple(fields[0].split("|"))]
+        elif len(fields) == 7:
+            parts: list[str] = re.findall(r"\[([^\]]*)\]", fields[1].split(",")[0])
+            pairs: list[tuple[str, str, str]] = [p.partition("=") for p in parts if not p.startswith("!")]
+            selectors[int(fields[5])] = [(k.rstrip("?"), v or None) for k, _, v in pairs]
+    return [(k, v, ROUTING_DESCRIPTION) for name in used for k, v in selectors[indices[name] + 1]]
+
+
+def parse_editor_config(text: str) -> list[tuple[str, str | None, str]]:
+    root: ET.Element = ET.fromstring(text)
+    included: set[str] = {e.get("field") for e in root.iter("include")}
+    included |= {e.get("name") for e in root.iter("field_ref")}
+    found: list[tuple[str, str | None, str]] = []
+    for field in root.iter("field"):
+        tag: ET.Element | None = field.find("tag")
+        if tag is not None and field.get("editable") != "no" and field.get("name") in included:
+            found.append((tag.get("k"), None, EDITOR_DESCRIPTION))
+    return found
+
+
+def scrape_name_languages(text: str) -> list[tuple[str, str | None, str]]:
+    table: re.Match | None = re.search(r"kLanguages = \{(.*?)\};", text, re.DOTALL)
+    if not table:
+        return []
+    found: list[tuple[str, str | None, str]] = []
+    for code in re.findall(r'^\s*\{+"([^"]+)", "', table.group(1), re.MULTILINE):
+        key, desc = NAME_KEYS.get(code, (f"name:{code}", NAME_DESCRIPTION))
+        found.append((key, None, desc))
+    return found
+
+
+def merge_tags(tags: list[dict[str, any]], extra: list[tuple[str, str | None, str]], by_description: bool) -> None:
+    seen: set[tuple] = {(t["key"], t.get("value"), t.get("description", "")) for t in tags}
+    seen_tags: set[tuple[str, str | None]] = {(t["key"], t.get("value")) for t in tags}
+    added: list[dict[str, any]] = []
+    for key, value, desc in extra:
+        if key in INTERNAL_KEYS or (key, value, desc) in seen:
+            continue
+        if (key, value) in seen_tags and not (by_description and desc):
+            continue
+        seen.add((key, value, desc))
+        seen_tags.add((key, value))
+        tag: dict[str, any] = {"description": desc, "key": key} if desc else {"key": key}
+        if value is not None:
+            tag["value"] = value
+        added.append(tag)
+    tags.extend(sorted(added, key=lambda x: (x["key"], x.get("value", ""))))
+
+
 def main() -> None:
     '''
-    Extract information from css files to create
-    taginfo.json to list CoMaps as a project
+    Creates data/taginfo.json by extracting information from style files, data files and generator source code
+    (see constants at the top of the file) and merging with data/taginfo_extension.json, a hand-maintained list of
+    tags not found automatically.
     '''
 
     # extract color definitons to put into taginfo descriptions
@@ -156,7 +358,36 @@ def main() -> None:
 
     basecss_tags:  list[dict[str, any]] = parse_mapcss(basecss, colors)
 
-    tags = list = mapcss_tags + basecss_tags
+    tags: list[dict[str, any]] = mapcss_tags + basecss_tags
+
+    type_names: dict[str, str] = parse_type_names(TYPE_NAMES_FILE.read_text(encoding="utf-8"))
+    mapping: str = MAPPING_FILE.read_text(encoding="utf-8")
+    models: list[str] = [path.read_text(encoding="utf-8") for path in ROUTING_MODEL_FILES]
+
+    sources: list[tuple[Path, Callable[[str], list[tuple[str, str | None, str]]]]] = [
+        (MAPPING_FILE, lambda text: parse_mapping_csv(text, type_names)),
+        (REPLACED_TAGS_FILE, parse_replaced_tags),
+        (EDITOR_CONFIG_FILE, parse_editor_config),
+        (METADATA_FILE, scrape_metadata_keys),
+        (LANGUAGES_FILE, scrape_name_languages),
+        (ROAD_ACCESS_FILE, scrape_tag_calls),
+        (ROAD_ACCESS_FILE, scrape_conditional_keys),
+        (ROAD_PENALTY_FILE, scrape_tag_calls),
+        (RESTRICTION_FILE, scrape_restrictions),
+        (OSM2TYPE_FILE, scrape_tag_rules),
+        (VEHICLE_MODEL_FILE, lambda text: scrape_road_types(text, mapping, models)),
+    ]
+    for path, parse in sources:
+        found: list[tuple[str, str | None, str]] = parse(path.read_text(encoding="utf-8"))
+        if not found:
+            # if any source yields no tags, stop the script
+            # this should catch cases where the C++ has changed and a regex needs updating
+            raise SystemExit(f"❌ No tags found in {path}")
+        merge_tags(tags, found, path != MAPPING_FILE)
+    with open(EXTENSION_FILE, "r", encoding="utf-8") as f:
+        merge_tags(tags, [(t["key"], t.get("value"), t.get("description", "")) for t in json.load(f)], True)
+    described: set[tuple[str, str | None]] = {(t["key"], t.get("value")) for t in tags if t.get("description")}
+    tags = [t for t in tags if t.get("description") or (t["key"], t.get("value")) not in described]
 
     data: dict[str, any] = {
         "data_format": 1,

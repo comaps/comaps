@@ -119,7 +119,7 @@ public class SettingsScreen extends BaseMapScreen
     final Row.Builder builder = new Row.Builder();
     builder.setTitle(getCarContext().getString(label));
     builder.setOnClickListener(
-        () -> Config.setFontScaleFactor(Math.min(Math.max(Config.getFontScaleFactor() + delta, 100), 400)));
+        () -> Config.setFontScaleFactor(Math.min(Math.max(Config.getFontScaleFactor() + delta, 1), 4)));
     return builder.build();
   }
 

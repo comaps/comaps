@@ -232,18 +232,6 @@ using namespace storage;
   return [result copy];
 }
 
-- (NSArray<NSString *> *)availableCountriesWithParent:(NSString *)countryId {
-  storage::CountriesVec downloadedChildren;
-  storage::CountriesVec availableChildren;
-  GetFramework().GetStorage().GetChildrenInGroups(countryId.UTF8String, downloadedChildren, availableChildren);
-
-  NSMutableArray *result = [NSMutableArray arrayWithCapacity:availableChildren.size()];
-  for (auto const &cid : availableChildren) {
-    [result addObject:@(cid.c_str())];
-  }
-  return [result copy];
-}
-
 - (NSArray<NSString *> *)downloadedCountries {
   NSString *rootId = @(GetFramework().GetStorage().GetRootId().c_str());
   return [self downloadedCountriesWithParent:rootId];
@@ -331,7 +319,7 @@ using namespace storage;
     GetFramework().GetStorage().SetCheckUpdatesListener(nullptr);
     return;
   }
-  
+
   GetFramework().GetStorage().SetCheckUpdatesListener([listener](storage::CheckUpdatesStatus const & status) {
     listener(static_cast<MWMCheckUpdatesStatus>(status));
   });

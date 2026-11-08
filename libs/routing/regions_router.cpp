@@ -141,15 +141,11 @@ void RegionsRouter::Do()
         if (name.empty() && !IndexGraphStarter::IsFakeSegment(s))
           name = m_numMwmIds->GetFile(s.GetMwmId()).GetName();
 
-        m_mwmNames.emplace(name);
+        if (!name.empty())
+          m_mwmNames.insert(std::move(name));
       }
     }
   }
-}
-
-ankerl::unordered_dense::set<std::string> const & RegionsRouter::GetMwmNames() const
-{
-  return m_mwmNames;
 }
 
 std::pair<m2::PointD, std::string> RegionsRouter::GetCheckpointRegion(size_t index) const

@@ -737,6 +737,7 @@ historic-archaeological_site                        # icon z17- (also has captio
 === 300
 
 amenity-fast_food                                   # icon z17- (also has caption(optional) z17-)
+amenity-fast_food-cafeteria                         # icon z17- (also has caption(optional) z17-)
 shop-convenience                                    # icon z17- (also has caption(optional) z18-)
 === 250
 
@@ -1249,6 +1250,7 @@ entrance-emergency                                  # icon z19- (also has captio
 # === -9700
 
 # amenity-fast_food                                 # caption(optional) z17- (also has icon z17-)
+# amenity-fast_food-cafeteria                       # caption(optional) z17- (also has icon z17-)
 # shop-convenience                                  # caption(optional) z18- (also has icon z17-)
 # === -9750
 

@@ -153,7 +153,7 @@
         "defaultMessage": "Слаткиши|Slatkiši"
     },
     "shop-laundry": {
-        "defaultMessage": "Прање веша|Pranje veša"
+        "defaultMessage": "4Прање веша|4Pranje veša"
     },
     "shop-toys|@category_children|@shop": {
         "defaultMessage": "Играчке|Igračke"
@@ -1367,7 +1367,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Вегетаријанска|Вегетаријанци|Vegetarijanska|Vegetarijanci"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "8Веганска храна|10Веганска кухиња|Вегани|8Veganska hrana|10Veganska kuhinja|Vegani"
     },
     "historic-stone": {
@@ -1850,7 +1850,7 @@
     "cuisine-african": {
         "defaultMessage": "7Афричка храна|9Афричка кухиња|7Afrička hrana|9Afrička kuhinja"
     },
-    "cuisine-vegetarian|@cuisine_all_vegetarian": {
+    "cuisine-vegetarian|cuisine-vegetarian_only|@cuisine_all_vegetarian": {
         "defaultMessage": "4Вегетаријанска храна|16Вегетаријанска кухиња|4Vegetarijanska kuhinja|16Vegetarijanska hrana"
     },
     "cuisine-asian|@cuisine_all_asian": {
@@ -1864,5 +1864,17 @@
     },
     "amenity-animal_boarding": {
         "defaultMessage": "5Хотел за љубимце|5Хотел за животиње|5Hotel za ljubimce|5Hotel za životinje"
+    },
+    "amenity-fast_food-cafeteria|@category_eat": {
+        "defaultMessage": "4Кафетерија|4Кантина|4Kafeterija|4Kantina"
+    },
+    "shop-games|@shop": {
+        "defaultMessage": "4Продавница игара|3игре|4друштвене игре|3игре са картама|4Prodavnica igara|3igre|4društvene igre|3igre sa kartama"
+    },
+    "shop-swimming_pool|@shop": {
+        "defaultMessage": "Базен|опрема за базен|сауна|Bazen|oprema za bazen|sauna"
+    },
+    "shop-tool_hire|@shop": {
+        "defaultMessage": "3Изнајмљивање алата|alat|3Iznajmljivanje alata|alat"
     }
 }

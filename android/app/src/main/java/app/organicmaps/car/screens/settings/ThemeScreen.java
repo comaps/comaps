@@ -58,6 +58,7 @@ public class ThemeScreen extends BaseMapScreen
     final ItemList.Builder builder = new ItemList.Builder();
     final ThemeUtils.ThemeMode currentThemeMode = ThemeUtils.getThemeMode(getCarContext());
     builder.addItem(createRadioButton(ThemeUtils.ThemeMode.AUTO, currentThemeMode));
+    builder.addItem(createRadioButton(ThemeUtils.ThemeMode.SUNRISE_SUNSET, currentThemeMode));
     builder.addItem(createRadioButton(ThemeUtils.ThemeMode.NIGHT, currentThemeMode));
     builder.addItem(createRadioButton(ThemeUtils.ThemeMode.LIGHT, currentThemeMode));
     return new ListTemplate.Builder().setHeader(createHeader()).setSingleList(builder.build()).build();

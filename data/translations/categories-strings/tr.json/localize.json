@@ -1601,7 +1601,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Vejetaryen mutfağı"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "Vegan mutfağı"
     },
     "shop-water|@category_water|@category_food|@shop": {

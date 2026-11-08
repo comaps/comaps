@@ -1,0 +1,34 @@
+:root {
+    --nav-background-color: #F8FAF8;
+    --memdecl-background-color: #F8FAF8;
+    --memdef-proto-background-color: #F8FAF8;
+    --header-background-color: #F8FAF8;
+    --index-odd-item-bg-color: #F8FAF8;
+    --icon-doc-fill-color: #e8f4e7;
+    --todo-color-bg: #e8f4e7;
+    --nav-breadcrumb-active-bg: #e8f4e7;
+    --nav-border-color: #CCDFCA;
+    --sync-icon-border-color: #CCDFCA;
+    --nav-menu-active-bg: #CCDFCA;
+    --sync-icon-selected-background-color: #CCDFCA;
+    --nav-splitbar-bg-color: #73a672;
+    --group-header-color: #73a672;
+    --sync-icon-color: #73a672;
+    --icon-background-color: #73a672;
+    --nav-splitbar-handle-color: #588157;
+    --todo-color-text: #588157;
+    --page-link-color: #588157;
+    --nav-arrow-color: #588157;
+    --nav-arrow-selected-color: #588157;
+    --memdef-border-color: #588157;
+    --todo-color-hl: #588157;
+    --title-separator-color: #588157;
+    --icon-doc-border-color: #588157;
+    --nav-menu-button-color: #588157;
+    --nav-text-normal-color: black;
+}
+
+#projectname {
+    font-weight: bold;
+    color: #588157;
+}

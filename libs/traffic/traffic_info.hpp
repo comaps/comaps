@@ -303,9 +303,7 @@ private:
     Error,
   };
 
-  /**
-   * @brief The mapping from feature segments to speed groups (see speed_groups.hpp).
-   */
+  /** @brief The mapping from feature segments to speed groups (see speed_groups.hpp). */
   Coloring m_coloring;
 
   /**

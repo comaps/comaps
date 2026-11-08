@@ -53,34 +53,22 @@ enum class SessionState
    */
   NoValidRoute,
 
-  /**
-   * We have requested a route and are waiting for it to be built. User may be following the previous route.
-   */
+  /** We have requested a route and are waiting for it to be built. User may be following the previous route. */
   RouteBuilding,
 
-  /**
-   * Route is built but the user isn't on it.
-   */
+  /** Route is built but the user isn't on it. */
   RouteNotStarted,
 
-  /**
-   * User is following the route.
-   */
+  /** User is following the route. */
   OnRoute,
 
-  /**
-   * User has left the route.
-   */
+  /** User has left the route. */
   RouteNeedsRebuild,
 
-  /**
-   * Destination point has been reached but the session isn’t closed yet.
-   */
+  /** Destination point has been reached but the session isn’t closed yet. */
   RouteFinished,
 
-  /**
-   * Route has been built but following mode has been disabled.
-   */
+  /** Route has been built but following mode has been disabled. */
   RouteNoFollowing,
 
   /**

@@ -1,32 +1,32 @@
-Komunum-gvidata senpaga kaj malfermkoda mapapliko bazita sur OpenStreetMap-datumoj kaj fortigita per komitado al transparencio, privateco kaj ne-lucro. CoMaps estas forko/spin-off de Organic Maps, kiu turne estas forko de Maps.ME.
+Komunum-gvidata senpaga kaj malfermkoda mapaplikaĵo bazita sur OpenStreetMap-datumoj kaj plifortigita per engaĝiĝo al travidebleco, privateco kaj neprofitcela funkciado. CoMaps estas forko/spin-off de Organic Maps, kiu siavice estas forko de Maps.ME.
 
 Legu plu pri la kialoj por la projekto kaj ĝia direkto ĉe <b><i>codeberg.org/comaps</i></b>.
-Aliĝu al la komunumo tie kaj helpu fari la plej bonan mapaplikon
-• Uzu la aplikon kaj disvastigu la vorton pri ĝi
+Aliĝu al la komunumo tie kaj helpu krei la plej bonan mapaplikaĵon
+• Uzu la aplikaĵon kaj diskonigu ĝin
 • Donu rimarkojn kaj raportu problemojn
-• Ĝisdatigu mapajn datumojn en la apliko aŭ sur la OpenStreetMap-retejo
+• Ĝisdatigu mapdatumojn en la aplikaĵon aŭ en la OpenStreetMap-retejo
 
-‣ <b>Senkonekta-fokusa</b>: Planu kaj navigu vian vojaĝon eksterlande sen bezono de ĉelulara servico, serĉu vojpunktojn dum malproksima promenado, ktp. Ĉiuj funkcioj de la apliko estas dezajnitaj por funkcii senkonekte.
-‣ <b>Rispektante Privatecon</b>: La apliko estas dezajnita kun privateco en menso — ne identigas homojn, ne sekvas, kaj ne kolektas personajn informojn. Sen reklamoj.
-‣ <b>Simpla kaj Perfekta</b>: esencaj, facile uzeblaj funkcioj kiuj simple funkcias.
-‣ <b>Konservas Vian Baterion kaj Spacon</b>: Ne elĉerpas vian baterion kiel aliaj navigaj aplikaĵoj. Kompaktaj mapoj konservas precian spacon sur via telefono.
-‣ <b>Sena kaj Konstruita de la Komunumo</b>: Homoj kiel vi helpis konstrui la aplikon per aldonado de lokoj al OpenStreetMap, testado kaj donado de rimarkoj pri funkcioj kaj kontribuado de siaj programadaj kapabloj kaj mono.
-‣ <b>Malferma kaj Transparenta Decidado kaj Financoj, Ne-lucra kaj Tute Malfermkoda.</b>
+‣ <b>Senreta-fokusa</b>: Planu kaj navigu vian vojaĝon eksterlande sen bezono de poŝtelefona konekto, serĉu vojpunktojn dum malproksima piedvojaĝo, ktp. Ĉiuj funkcioj de la aplikaĵo estas dezajnitaj por funkcii senrete.
+‣ <b>Respektante privatecon</b>: La aplikaĵo estas projektita konsiderante privatecon — ĝi ne identigas homojn, ne spuras uzantojn kaj ne kolektas personajn informojn. Sen reklamoj.
+‣ <b>Simpla kaj rafinita</b>: Esencaj, facile uzeblaj funkcioj kiuj simple funkcias.
+‣ <b>Ŝparas baterion kaj spacon</b>: Ne elĉerpas vian baterion kiel aliaj navigadaj aplikaĵoj. Kompaktaj mapoj ŝparas valoran spacon en via telefono.
+‣ <b>Senpaga kaj konstruita de la komunumo</b>: Homoj kiel vi helpis konstrui la aplikaĵon per aldono de lokoj al OpenStreetMap, testado de ĝi, donado de rimarkoj pri ĝiaj funkcioj kaj kontribuado per siaj programistaj kapabloj kaj mono.
+‣ <b>Malferma kaj travidebla decidofarado kaj financoj, neprofitcela kaj tute malfermkoda.</b>
 
-<b>Ĉefaj Funkcioj</b>:
-• Elŝuteblaj detalegaj mapoj kun lokoj kiuj ne estas disponeblaj per Google Maps
-• Eksteraj modo kun elstarigitaj promenaj vojoj, kampoj, akvofontoj, pintoj, konturlinioj, ktp
-• Promenaj vojoj kaj biciklaj vojoj
-• Interesaj punktoj kiel restoracioj, benzinstacioj, hoteloj, vendejoj, vidindaĵoj kaj multaj aliaj
-• Serĉo laŭ nomo aŭ adreso aŭ laŭ kategorio de interesaj punktoj
-• Navigado kun voĉaj anoncoj por promenado, biciklado aŭ veturado
-• Marku viajn favorajn lokojn per unu tuŝo
-• Senkonektaj Vikipedio-artikoloj
-• Metroa transporta tavolo kaj indikoj
-• Enregistraĵo de vojoj
-• Eksporto kaj importo de markiloj kaj vojoj en KML, KMZ, GPX formatoj
-• Malhela modo por uzi nokte
-• Plibonigu mapajn datumojn por ĉiuj uzante bazan enkonstruitan redaktilon
+<b>Ĉefaj funkcioj</b>:
+• Elŝuteblaj detalaj mapoj kun lokoj, kiuj ne disponeblas en Google Maps
+• Subĉiela reĝimo kun elstarigitaj migrovojoj, kampadejoj, akvofontoj, pintoj, nivellinioj ktp.
+• Piedvojoj kaj biciklovojoj
+• Interesaj lokoj kiel restoracioj, benzinejoj, hoteloj, vendejoj, vidindaĵoj kaj multe pli
+• Serĉu laŭ nomo, adreso aŭ kategorio de interesaj lokoj
+• Navigado kun voĉaj instrukcioj por piedirado, biciklado aŭ veturado
+• Marku viajn favorajn lokojn per unu frapeto
+• Senretaj Vikipedio-artikoloj
+• Metroa tavolo kaj itineroj
+• Registrado de trakoj
+• Eksporti kaj importi favoratojn kaj trakojn en formatoj KML, KMZ kaj GPX
+• Malhela reĝimo por uzi nokte
+• Plibonigu mapdatumojn por ĉiuj uzante bazan enkonstruitan redaktilon
 
-<b>Libereco Estas Ĉi Tie</b>
-Malkovru vian vojaĝon, navigu la mondon kun privateco kaj komunumo en la antaŭa plano!
+<b>Jen libereco</b>
+Malkovru vian vojaĝon, navigu la mondon kun privateco kaj komunumo ĉefloke!

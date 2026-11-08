@@ -7,6 +7,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.StyleSpan;
+import android.text.style.TypefaceSpan;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import app.organicmaps.sdk.bookmarks.data.FeatureId;
@@ -42,6 +43,8 @@ public class SearchResult
     public final Distance distance;
 
     public final String description;
+    public final String titleWithoutBranch;
+    public final String branch;
 
     public final int openNow;
     public final int minutesUntilOpen;
@@ -49,13 +52,16 @@ public class SearchResult
     public final boolean hasPopularityHigherPriority;
 
     public Description(FeatureId featureId, String featureType, String region, Distance distance, String description,
-                       int openNow, int minutesUntilOpen, int minutesUntilClosed, boolean hasPopularityHigherPriority)
+                       String titleWithoutBranch, String branch, int openNow, int minutesUntilOpen,
+                       int minutesUntilClosed, boolean hasPopularityHigherPriority)
     {
       this.featureId = featureId;
       this.localizedFeatureType = featureType;
       this.region = region;
       this.distance = distance;
       this.description = description;
+      this.titleWithoutBranch = titleWithoutBranch;
+      this.branch = branch;
       this.openNow = openNow;
       this.minutesUntilOpen = minutesUntilOpen;
       this.minutesUntilClosed = minutesUntilClosed;
@@ -130,6 +136,8 @@ public class SearchResult
       {
         final int start = ranges[index++];
         final int len = ranges[index++];
+        if (start + len > builder.length())
+          continue;
 
         builder.setSpan(new StyleSpan(Typeface.BOLD), start, start + len, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
       }
@@ -139,8 +147,17 @@ public class SearchResult
   @NonNull
   public Spannable getFormattedTitle(@NonNull Context context)
   {
-    final String title = getTitle(context);
+    final boolean hasDescription = description != null;
+    final String title = hasDescription && !TextUtils.isEmpty(description.titleWithoutBranch)
+                           ? description.titleWithoutBranch
+                           : getTitle(context);
     final SpannableStringBuilder builder = new SpannableStringBuilder(title);
+    if (hasDescription && !TextUtils.isEmpty(description.branch))
+    {
+      final int branchStart = builder.length() + 1;
+      builder.append(' ').append(description.branch);
+      builder.setSpan(new TypefaceSpan("sans-serif"), branchStart, builder.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    }
     formatText(builder, highlightRanges);
 
     return builder;

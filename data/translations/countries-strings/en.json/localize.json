@@ -572,6 +572,9 @@
     "China_Guizhou": {
         "defaultMessage": "Guizhou"
     },
+    "China_Hainan": {
+        "defaultMessage": "Hainan"
+    },
     "China_Hebei": {
         "defaultMessage": "Hebei"
     },
@@ -1388,6 +1391,9 @@
     "Honduras": {
         "defaultMessage": "Honduras"
     },
+    "Hong Kong": {
+        "defaultMessage": "Hong Kong"
+    },
     "Hungary": {
         "defaultMessage": "Hungary"
     },
@@ -1991,6 +1997,9 @@
     "Luxembourg": {
         "defaultMessage": "Luxembourg"
     },
+    "Macau": {
+        "defaultMessage": "Macau"
+    },
     "Macedonia": {
         "defaultMessage": "North Macedonia"
     },
@@ -2002,6 +2011,12 @@
     },
     "Malaysia": {
         "defaultMessage": "Malaysia"
+    },
+    "Malaysia_East": {
+        "defaultMessage": "Malaysia — East"
+    },
+    "Malaysia_West": {
+        "defaultMessage": "Malaysia — West"
     },
     "Maldives": {
         "defaultMessage": "Maldives"
@@ -2963,6 +2978,27 @@
     "Tanzania": {
         "defaultMessage": "Tanzania"
     },
+    "Tanzania_Central": {
+        "defaultMessage": "Tanzania — Centre"
+    },
+    "Tanzania_Coastal": {
+        "defaultMessage": "Tanzania — Coast"
+    },
+    "Tanzania_Northern": {
+        "defaultMessage": "Tanzania — North"
+    },
+    "Tanzania_Western": {
+        "defaultMessage": "Tanzania — West"
+    },
+    "Tanzania_Lake": {
+        "defaultMessage": "Tanzania — Lake"
+    },
+    "Tanzania_Southern Highlands": {
+        "defaultMessage": "Tanzania — Southern Highlands"
+    },
+    "Tanzania_Offshore Islands": {
+        "defaultMessage": "Tanzania — Offshore Islands"
+    },
     "Tennessee": {
         "defaultMessage": "Tennessee"
     },
@@ -3574,6 +3610,12 @@
     },
     "Vietnam": {
         "defaultMessage": "Vietnam"
+    },
+    "Vietnam_North": {
+        "defaultMessage": "Vietnam — North"
+    },
+    "Vietnam_South": {
+        "defaultMessage": "Vietnam — South"
     },
     "Virginia": {
         "defaultMessage": "Virginia"
@@ -4568,6 +4610,9 @@
     "China_Guizhou Description": {
         "defaultMessage": "Guiyang, Liupanshui, Weining"
     },
+    "China_Hainan Description": {
+        "defaultMessage": "Haikou, Sanya, Wanning"
+    },
     "China_Hebei Description": {
         "defaultMessage": "Beijing, Tianjin, Shijiazhuang"
     },
@@ -5297,6 +5342,9 @@
     "Honduras Description": {
         "defaultMessage": "Tegucigalpa, San Pedro Sula, Santa Barbara"
     },
+    "Hong Kong Description": {
+        "defaultMessage": "Hong Kong, Kowloon, Tsuen Wan"
+    },
     "Hungary_Kozep-Magyarorszag Description": {
         "defaultMessage": "Budapest, Érd, Dunakeszi"
     },
@@ -5843,6 +5891,9 @@
     "Luxembourg Description": {
         "defaultMessage": "Luxembourg, Mondorf-les-Bains, Esch-sur-Alzette"
     },
+    "Macau Description": {
+        "defaultMessage": "Macau, Taipa, Coloane"
+    },
     "Macedonia Description": {
         "defaultMessage": "Skopje, Ohrid, Kavadarci"
     },
@@ -5854,6 +5905,12 @@
     },
     "Malaysia Description": {
         "defaultMessage": "Kuala Lumpur, Petaling Jaya, Kota Kinabalu"
+    },
+    "Malaysia_East Description": {
+        "defaultMessage": "Kota Kinabalu, Kuching, Sandakan"
+    },
+    "Malaysia_West Description": {
+        "defaultMessage": "Kuala Lumpur, Johor Bahru, George Town, Malacca, Ipoh"
     },
     "Maldives Description": {
         "defaultMessage": "Feridhoo, Malé, Dhiggiri"
@@ -6788,6 +6845,27 @@
     "Tanzania Description": {
         "defaultMessage": "Dar es Salaam, Dodoma, Kigoma"
     },
+    "Tanzania_Central Description": {
+        "defaultMessage": "Tabora, Singida, Dodoma"
+    },
+    "Tanzania_Coastal Description": {
+        "defaultMessage": "Morogoro, Dar es Salaam, Lindi, Mtwara, Kibaha"
+    },
+    "Tanzania_Northern Description": {
+        "defaultMessage": "Tanga, Babati, Arusha, Kilimanjaro, Moshi"
+    },
+    "Tanzania_Western Description": {
+        "defaultMessage": "Kigoma, Mpanda"
+    },
+    "Tanzania_Southern Highlands Description": {
+        "defaultMessage": "Songea, Iringa, Mbeya, Sumbawanga"
+    },
+    "Tanzania_Lake Description": {
+        "defaultMessage": "Bukoba, Musoma, Mwanza, Shinyanga"
+    },
+    "Tanzania_Offshore Islands Description": {
+        "defaultMessage": "Zanzibar, Pemba, Mafia, Wete, Mikoani, Mkokotoni, Koani"
+    },
     "Thailand_Central Description": {
         "defaultMessage": "Nam Som, Nakhon Ratchasima, Udon Thani"
     },
@@ -7465,6 +7543,12 @@
     },
     "Vietnam Description": {
         "defaultMessage": "Hanoi, Ho Chi Minh City, Vung Tau"
+    },
+    "Vietnam_North Description": {
+        "defaultMessage": "Hanoi, Hai Phong, Hue, Sa Pa"
+    },
+    "Vietnam_South Description": {
+        "defaultMessage": "Ho Chi Minh City, Da Nang, Can Tho, Nha Trang"
     },
     "Wallis and Futuna Description": {
         "defaultMessage": "Mata-Utu, Fiua, Tavai"

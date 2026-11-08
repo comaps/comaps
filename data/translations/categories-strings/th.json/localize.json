@@ -1400,7 +1400,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "อาหารมังสวิรัติ"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "อาหารมังสวิรัติ"
     }
 }

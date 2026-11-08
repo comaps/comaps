@@ -63,6 +63,7 @@
     <string name="type.leisure.bowling_alley">Bowling Alley</string>
     <string name="type.amenity.clinic">Clinic</string>
     <string name="type.amenity.college">College</string>
+    <string name="type.amenity.research_institute">Research Institute</string>
     <string name="type.amenity.community_centre">Community Centre</string>
     <string name="type.amenity.community_centre.youth_centre">Youth Centre</string>
     <string name="type.amenity.compressed_air">Compressed Air</string>
@@ -76,6 +77,7 @@
     <string name="type.amenity.exhibition_centre">Exhibition Center</string>
     <string name="type.amenity.money_transfer">Money Transfer</string>
     <string name="type.amenity.music_school">Music School</string>
+    <string name="type.amenity.music_venue">Music Venue</string>
     <string name="type.amenity.sailing_school">Sailing School</string>
     <string name="type.amenity.flight_school">Flight School</string>
     <string name="type.amenity.prep_school">Tutorial School</string>
@@ -85,6 +87,8 @@
     <string name="type.building.guardhouse">Security Booth</string>
     <string name="type.power.portal">Power Portal</string>
     <string name="type.amenity.fast_food">Fast Food</string>
+    <!-- Cafeteria or canteen where you can quickly have a full meal without table service. -->
+    <string name="type.amenity.fast_food.cafeteria">Cafeteria</string>
     <string name="type.amenity.ferry_terminal">Ferry</string>
     <string name="type.amenity.fire_station">Fire Station</string>
     <string name="type.amenity.food_court">Food Court</string>
@@ -254,6 +258,7 @@
     <string name="type.boundary.administrative.3">Regional Boundary</string>
     <!-- Country's primary subdivision borders, e.g. between regions, provinces, states.. -->
     <string name="type.boundary.administrative.4">Regional Boundary</string>
+    <string name="type.boundary.hazard">Hazardous Area</string>
     <string name="type.boundary.national_park">National Park</string>
     <string name="type.boundary.aboriginal_lands">Indigenous Lands</string>
     <string name="type.boundary.protected_area">Protected Area</string>
@@ -273,6 +278,34 @@
     <string name="type.building.train_station">Station Building</string>
     <string name="type.building.warehouse">Warehouse</string>
     <string name="type.cemetery.grave">Grave</string>
+    <string name="type.club">Club</string>
+    <string name="type.club.allotments">Allotment Association</string>
+    <string name="type.club.amateur_radio">Amateur Radio Club</string>
+    <string name="type.club.art">Art Club</string>
+    <string name="type.club.automobile">Automobile Club</string>
+    <string name="type.club.board_games">Board Games Club</string>
+    <string name="type.club.cadet">Cadet Club</string>
+    <string name="type.club.computer">Computer Club</string>
+    <string name="type.club.culture">Cultural Association</string>
+    <string name="type.club.dog">Dog Club</string>
+    <string name="type.club.fraternity">Fraternity</string>
+    <string name="type.club.freemasonry">Masonic Lodge</string>
+    <string name="type.club.game">Gaming Club</string>
+    <string name="type.club.gardening">Gardening Club</string>
+    <string name="type.club.history">History Club</string>
+    <string name="type.club.hunting">Hunting Club</string>
+    <string name="type.club.model_railway">Model Railway Club</string>
+    <string name="type.club.motorcycle">Motorcycle Club</string>
+    <string name="type.club.music">Music Club</string>
+    <string name="type.club.religion">Religious Club</string>
+    <string name="type.club.scout">Scout Club</string>
+    <string name="type.club.social">Social Club</string>
+    <string name="type.club.student">Student Club</string>
+    <string name="type.club.surf_life_saving">Surf Life Saving</string>
+    <string name="type.club.theatre">Theatre Club</string>
+    <string name="type.club.veterans">Veterans Club</string>
+    <string name="type.club.youth">Youth Club</string>
+    <string name="type.club.youth_movement">Youth Movement</string>
     <string name="type.craft">Craft</string>
     <string name="type.craft.beekeeper">Beekeeper</string>
     <string name="type.craft.blacksmith">Blacksmith</string>
@@ -380,8 +413,10 @@
     <string name="type.cuisine.tea">Tea</string>
     <string name="type.cuisine.thai">Thai</string>
     <string name="type.cuisine.turkish">Turkish</string>
-    <string name="type.cuisine.vegan">Vegan</string>
-    <string name="type.cuisine.vegetarian">Vegetarian</string>
+    <string name="type.cuisine.vegan">Vegan Options</string>
+    <string name="type.cuisine.vegan_only">Vegan Only</string>
+    <string name="type.cuisine.vegetarian">Vegetarian Options</string>
+    <string name="type.cuisine.vegetarian_only">Vegetarian Only</string>
     <string name="type.cuisine.vietnamese">Vietnamese</string>
     <string name="type.emergency">Emergency</string>
     <string name="type.emergency.access_point">Emergency Rescue Point</string>
@@ -904,6 +939,9 @@
     <string name="type.organic.only">Organic only</string>
     <string name="type.organic.yes">Organic options</string>
     <string name="type.organic.no">No organic options</string>
+    <string name="type.second_hand.only">Second-hand only</string>
+    <string name="type.second_hand.yes">Second-hand options</string>
+    <string name="type.second_hand.no">No second-hand options</string>
     <string name="type.place.city">City</string>
     <string name="type.place.city.capital">Capital</string>
     <string name="type.place.city.capital.10">City</string>
@@ -1307,6 +1345,7 @@
     <string name="type.shop.florist">Florist</string>
     <string name="type.shop.funeral_directors">Funeral Directors</string>
     <string name="type.shop.furniture">Furniture Store</string>
+    <string name="type.shop.games">Game Shop</string>
     <string name="type.shop.garden_centre">Garden Center</string>
     <string name="type.shop.gas">Gas Store</string>
     <string name="type.shop.gift">Gift Shop</string>
@@ -1386,6 +1425,7 @@
     <string name="type.shop.perfumery">Perfume Shop</string>
     <string name="type.shop.sewing">Sewing Supplies Shop</string>
     <string name="type.shop.storage_rental">Storage Rental</string>
+    <string name="type.shop.swimming_pool">Swimming Pool Shop</string>
     <string name="type.shop.tobacco">Smoke Shop</string>
     <string name="type.shop.trade">Trade Supplies</string>
     <string name="type.shop.watches">Watch Store</string>
@@ -1414,7 +1454,7 @@
     <string name="type.sport.diving">High Diving</string>
     <string name="type.sport.equestrian">Equestrian Sports</string>
     <string name="type.sport.field_hockey">Field Hockey</string>
-    <string name="type.sport.four_square">Four Square</string>    
+    <string name="type.sport.four_square">Four Square</string>
     <string name="type.sport.futsal">Futsal</string>
     <string name="type.sport.golf">Golf</string>
     <string name="type.sport.gymnastics">Gymnastics</string>

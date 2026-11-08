@@ -10,6 +10,9 @@
 #include "i18n/localisation.hpp"
 #include "i18n/string_utf8_multilang.hpp"
 
+#include "base/stl_helpers.hpp"
+
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -328,6 +331,19 @@ void SetTypes(EditableMapObject & emo, std::initializer_list<base::StringIL> typ
     holder.Add(cl.GetTypeByPath(t));
   emo.SetTypes(holder);
 }
+
+std::optional<osm::TagModData> FindTagChange(osm::EditJournal const & journal, std::string const & key)
+{
+  for (auto const & entry : journal.GetJournal())
+  {
+    if (entry.journalEntryType != osm::JournalEntryType::TagModification)
+      continue;
+    auto const & data = std::get<osm::TagModData>(entry.data);
+    if (data.key == key)
+      return data;
+  }
+  return std::nullopt;
+}
 }  // namespace
 
 UNIT_TEST(EditableMapObject_SetInternet)
@@ -550,6 +566,72 @@ UNIT_TEST(EditableMapObject_GetLocalizedAllTypes)
     SetTypes(emo, {{"tourism", "artwork"}, {"amenity"}});
     TEST_EQUAL(emo.GetLocalizedAllTypes(true), "Artwork", ());
     TEST_EQUAL(emo.GetLocalizedAllTypes(false), "", ());
+  }
+}
+
+UNIT_TEST(EditableMapObject_DietOnly)
+{
+  classificator::Load();
+
+  auto const & cl = classif();
+  auto const vegetarianType = cl.GetTypeByPath({"cuisine", "vegetarian"});
+  auto const vegetarianOnlyType = cl.GetTypeByPath({"cuisine", "vegetarian_only"});
+
+  {
+    EditableMapObject oldEmo;
+    SetTypes(oldEmo, {{"amenity", "cafe"}, {"cuisine", "vegetarian_only"}});
+    oldEmo.SetHouseNumber("1");
+
+    EditableMapObject emo;
+    SetTypes(emo, {{"amenity", "cafe"}, {"cuisine", "vegetarian_only"}});
+    emo.SetHouseNumber("2");
+
+    emo.LogDiffInJournal(oldEmo);
+
+    TEST(!FindTagChange(emo.GetJournal(), "diet:vegetarian").has_value(), ());
+    TEST(!FindTagChange(emo.GetJournal(), "cuisine").has_value(), ());
+  }
+
+  {
+    EditableMapObject emo;
+    SetTypes(emo, {{"amenity", "restaurant"}});
+    emo.SetCuisines(std::vector<std::string>{"vegetarian", "italian", "vegetarian_only", "vegan", "vegan_only"});
+
+    auto const cuisines = emo.GetCuisines();
+    TEST(base::IsExist(cuisines, std::string("vegetarian_only")), (cuisines));
+    TEST(base::IsExist(cuisines, std::string("vegan_only")), (cuisines));
+    TEST(base::IsExist(cuisines, std::string("italian")), (cuisines));
+    TEST(!base::IsExist(cuisines, std::string("vegetarian")), (cuisines));
+    TEST(!base::IsExist(cuisines, std::string("vegan")), (cuisines));
+  }
+
+  {
+    EditableMapObject oldEmo;
+    SetTypes(oldEmo, {{"amenity", "cafe"}});
+
+    EditableMapObject emo;
+    SetTypes(emo, {{"amenity", "cafe"}, {"cuisine", "vegetarian"}, {"cuisine", "vegetarian_only"}});
+
+    emo.LogDiffInJournal(oldEmo);
+
+    auto const change = FindTagChange(emo.GetJournal(), "diet:vegetarian");
+    TEST(change.has_value(), ());
+    TEST_EQUAL(change->new_value, "only", ());
+    TEST(!FindTagChange(emo.GetJournal(), "cuisine").has_value(), ());
+  }
+
+  {
+    EditableMapObject emo;
+    SetTypes(emo, {{"amenity", "cafe"}, {"cuisine", "vegetarian"}});
+
+    osm::JournalEntry entry;
+    entry.journalEntryType = osm::JournalEntryType::TagModification;
+    entry.timestamp = 0;
+    entry.data = osm::TagModData{"diet:vegetarian", "yes", "only"};
+    emo.ApplyJournalEntry(entry);
+
+    TEST(emo.GetTypes().Has(vegetarianOnlyType), ());
+    TEST(!emo.GetTypes().Has(vegetarianType), ());
   }
 }
 

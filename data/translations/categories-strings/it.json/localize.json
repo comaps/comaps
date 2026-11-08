@@ -75,7 +75,7 @@
         "defaultMessage": "Negozio"
     },
     "shop-bakery|shop-pastry|@category_eat|@category_food|@shop": {
-        "defaultMessage": "3Panetteria|Panettiere|Panificio|Forno|Pasticcino"
+        "defaultMessage": "3Panetteria|Panettiere|Panificio|Forno|Pasticceria"
     },
     "shop-cosmetics|@category_shopping|@shop": {
         "defaultMessage": "4Cosmetici|Trucchi"
@@ -1472,7 +1472,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Cucina vegetariana"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "Cucina vegana"
     },
     "shop-water|@category_water|@category_food|@shop": {

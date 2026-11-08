@@ -604,7 +604,7 @@
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
     <string name="type.landuse.cemetery.christian">Hristiyan Mezarlığı</string>
     <string name="type.landuse.commercial">Ticari Alan</string>
-    <string name="type.landuse.construction">Yapı</string>
+    <string name="type.landuse.construction">İnşaat Alanı</string>
     <string name="type.landuse.farmland">Tarım Arazileri</string>
     <string name="type.landuse.farmyard">Çiftlik Bölgesi</string>
     <string name="type.landuse.flowerbed">Çiçeklik</string>
@@ -1540,4 +1540,11 @@
     <string name="type.social_facility.food_bank">Gıda Bankası</string>
     <string name="type.amenity.food_sharing">Yemek Paylaşım</string>
     <string name="type.amenity.give_box">Bağış Kutusu</string>
+    <string name="type.building.abandoned">Terk Edilmiş Bina</string>
+    <string name="type.amenity.parking.customers">Müşteri Otoparkı</string>
+    <string name="type.barrier.bus_trap">Otobüs Tuzağı</string>
+    <string name="type.landuse.military.danger_area">Askeri Tehlike Bölgesi</string>
+    <string name="type.railway.station.subway.boston">Metro İstasyonu</string>
+    <string name="type.railway.subway_entrance.boston">Metro Girişi</string>
+    <string name="type.shop.tool_hire">Alet Kiralama</string>
 </resources>

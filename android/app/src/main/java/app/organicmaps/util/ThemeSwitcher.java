@@ -99,7 +99,9 @@ public enum ThemeSwitcher
       mapAppearance = MapAppearance.Light;
     }
 
-    Framework.nativeSwitchToUsingVehicleStyle(RoutingController.get().isVehicleNavigation());
+    final boolean useVehicleStyle = RoutingController.get().isVehicleNavigation()
+                                    || MwmApplication.from(mContext).getDisplayManager().isCarDisplayUsed();
+    Framework.nativeSwitchToUsingVehicleStyle(useVehicleStyle);
 
     if (!theme.equals(oldTheme))
     {

@@ -25,6 +25,7 @@ final class CarPlayMapViewController: MWMViewController {
     if mapView?.drapeEngineCreated == false && !MapsAppDelegate.isTestsEnvironment() {
       mapView?.createDrapeEngine()
     }
+    mapView?.layoutIfNeeded()
     updateVisibleViewPortState(viewPortState)
   }
 

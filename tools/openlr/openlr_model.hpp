@@ -15,9 +15,7 @@ namespace openlr
  */
 enum class FormOfWay
 {
-  /**
-   * The physical road type is unknown.
-   */
+  /** The physical road type is unknown.*/
   Undefined,
   /**
    * A road permitted for motorized vehicles only in combination with a prescribed minimum speed.
@@ -29,34 +27,22 @@ enum class FormOfWay
    * If a road is also a motorway, it should be coded as such and not as a multiple carriageway.
    */
   MultipleCarriageway,
-  /**
-   * All roads without separate carriageways are considered as roads with a single carriageway.
-   */
+  /** All roads without separate carriageways are considered as roads with a single carriageway. */
   SingleCarriageway,
-  /**
-   * A road which forms a ring on which traffic traveling in only one direction is allowed.
-   */
+  /** A road which forms a ring on which traffic traveling in only one direction is allowed. */
   Roundabout,
   /**
    * An open area (partly) enclosed by roads which is used for non-traffic purposes
    * and which is not a Roundabout.
    */
   Trafficsquare,
-  /**
-   * A road especially designed to enter or leave a line.
-   */
+  /** A road especially designed to enter or leave a line. */
   Sliproad,
-  /**
-   * The physical road type is known, but does not fit into one of the other categories.
-   */
+  /** The physical road type is known, but does not fit into one of the other categories. */
   Other,
-  /**
-   * A path only allowed for bikes.
-   */
+  /** A path only allowed for bikes.*/
   BikePath,
-  /**
-   * A path only allowed for pedestrians.
-   */
+  /** A path only allowed for pedestrians. */
   Footpath,
   NotAValue
 };
@@ -67,13 +53,9 @@ enum class FormOfWay
  */
 enum class FunctionalRoadClass
 {
-  /**
-   * Main road, highest importance.
-   */
+  /** Main road, highest importance.*/
   FRC0,
-  /**
-   * First class road.
-   */
+  /** First class road. */
   FRC1,
 
   // Other road classes.
@@ -98,9 +80,7 @@ enum class LinearSegmentSource
 
 struct LocationReferencePoint
 {
-  /**
-   * Coordinates of the point of interest.
-   */
+  /** Coordinates of the point of interest. */
   ms::LatLon m_latLon = ms::LatLon::Zero();
 
   /**

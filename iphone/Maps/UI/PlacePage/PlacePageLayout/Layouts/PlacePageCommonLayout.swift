@@ -169,10 +169,11 @@ extension PlacePageCommonLayout {
       editBookmarkViewController.data = .bookmark(bookmarkData)
       isBookmark = true
     }
-    if let title = placePageData.previewData.title, let headerViewController = headerViewControllers.compactMap({ $0 as? PlacePageHeaderViewController }).first {
+    if let title = placePageData.previewData.titleWithoutBranch ?? placePageData.previewData.title, let headerViewController = headerViewControllers.compactMap({ $0 as? PlacePageHeaderViewController }).first {
       let secondaryTitle = placePageData.previewData.secondaryTitle
-      headerViewController.setTitle(title, secondaryTitle: secondaryTitle)
-      placePageNavigationViewController.setTitle(title, secondaryTitle: secondaryTitle)
+      let branch = placePageData.previewData.branch
+      headerViewController.setTitle(title, secondaryTitle: secondaryTitle, branch: branch)
+      placePageNavigationViewController.setTitle(title, secondaryTitle: secondaryTitle, branch: branch)
     }
     presenter?.layoutIfNeeded()
     UIView.animate(withDuration: kDefaultAnimationDuration) { [unowned self] in

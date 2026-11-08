@@ -172,15 +172,15 @@
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "தங்குமிடம்";
 /* A weather shelter by the public transport stop. */
-"type.amenity.shelter.public_transport" = "தங்குமிடம்";
+"type.amenity.shelter.public_transport" = "போக்குவரத்து தங்குமிடம்";
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Bivouac குடிசை";
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "சாய்ந்து உறங்கும் இடம்";
-"type.amenity.public_bath" = "பொது குளியல்";
-"type.amenity.shower" = "மழை";
-"type.amenity.stripclub" = "உரி கிளப்";
-"type.amenity.taxi" = "டாக்சி ச்டாண்ட்";
+"type.amenity.shelter.lean_to" = "3 சுவரகளுடன் தங்குமிடம்";
+"type.amenity.public_bath" = "கூட்டுடைமையான குளியல் தெட்டி";
+"type.amenity.shower" = "மழை (குளியல்)";
+"type.amenity.stripclub" = "துகிலுரி நடனமிடம்";
+"type.amenity.taxi" = "வாடகையுந்து நிருத்தம்";
 "type.amenity.telephone" = "தொலைபேசி";
 "type.amenity.theatre" = "தியேட்டர்";
 "type.amenity.toilets" = "கழிப்பறை";
@@ -1547,3 +1547,42 @@
 "type.amenity.parking.customers" = "Customer Parking";
 "type.barrier.bus_trap" = "Bus Trap";
 "type.barrier.sump_buster" = "Sump Buster";
+"type.second_hand.no" = "No second-hand options";
+"type.second_hand.yes" = "Second-hand options";
+"type.second_hand.only" = "Second-hand only";
+"type.shop.games" = "Game Shop";
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
+"type.shop.swimming_pool" = "Swimming Pool Shop";
+"type.amenity.music_venue" = "Music Venue";
+"type.cuisine.vegetarian_only" = "Vegetarian Only";
+"type.amenity.research_institute" = "Research Institute";
+"type.cuisine.vegan_only" = "Vegan Only";
+"type.club.history" = "History Club";
+"type.club.model_railway" = "Model Railway Club";
+"type.club.youth" = "Youth Club";
+"type.club.art" = "Art Club";
+"type.club.computer" = "Computer Club";
+"type.club.culture" = "Cultural Association";
+"type.club.youth_movement" = "Youth Movement";
+"type.club.cadet" = "Cadet Club";
+"type.club.theatre" = "Theatre Club";
+"type.club.music" = "Music Club";
+"type.club.scout" = "Scout Club";
+"type.club.dog" = "Dog Club";
+"type.club.social" = "Social Club";
+"type.club.surf_life_saving" = "Surf Life Saving";
+"type.club.hunting" = "Hunting Club";
+"type.club.fraternity" = "Fraternity";
+"type.club.motorcycle" = "Motorcycle Club";
+"type.club.freemasonry" = "Masonic Lodge";
+"type.club.religion" = "Religious Club";
+"type.club.board_games" = "Board Games Club";
+"type.club.veterans" = "Veterans Club";
+"type.club.allotments" = "Allotment Association";
+"type.club.gardening" = "Gardening Club";
+"type.club.student" = "Student Club";
+"type.club.game" = "Gaming Club";
+"type.club.amateur_radio" = "Amateur Radio Club";
+"type.club" = "Club";
+"type.club.automobile" = "Automobile Club";
+"type.boundary.hazard" = "Hazardous Area";

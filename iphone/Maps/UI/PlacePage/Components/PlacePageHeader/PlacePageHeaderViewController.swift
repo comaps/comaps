@@ -100,7 +100,7 @@ extension PlacePageHeaderViewController: PlacePageHeaderViewProtocol {
     let attributedText = NSMutableAttributedString(string: unwrappedTitle, attributes: titleAttributes)
     
     // Add branch with thinner font weight if present and not already in title
-    if let branch = branch, !branch.isEmpty, !unwrappedTitle.contains(branch) {
+    if let branch = branch, !branch.isEmpty {
       let branchAttributes: [NSAttributedString.Key: Any] = [
         .font: StyleManager.shared.theme!.fonts.regular20,
         .foregroundColor: UIColor.blackPrimaryText()

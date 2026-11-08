@@ -33,9 +33,7 @@ public:
    */
   enum class Purpose
   {
-    /**
-     * @brief Indicates that cost calculations are for the purpose of choosing the best route.
-     */
+    /** @brief Indicates that cost calculations are for the purpose of choosing the best route. */
     Weight,
     /**
      * @brief Indicates that cost calculations are for the purpose of calculating the estimated time
@@ -267,7 +265,7 @@ private:
   double ComputeDefaultLeapWeightSpeed() const;
 
   /**
-   * @brief Returns the deafult speed for leap (fake) segments for a given MWM.
+   * @brief Returns the default speed for leap (fake) segments for a given MWM.
    * @param mwmId
    * @return Speed in m/s.
    */

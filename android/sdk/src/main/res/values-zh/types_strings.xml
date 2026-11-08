@@ -359,7 +359,7 @@
     <string name="type.healthcare.laboratory">医学实验室</string>
     <string name="type.healthcare.physiotherapist">物理治疗师</string>
     <string name="type.healthcare.alternative">替代医学</string>
-    <string name="type.healthcare.audiologist">听力学家</string>
+    <string name="type.healthcare.audiologist">听力诊所</string>
     <string name="type.healthcare.blood_donation">献血中心</string>
     <string name="type.healthcare.optometrist">验光师</string>
     <string name="type.healthcare.podiatrist">足疗师</string>

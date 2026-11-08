@@ -4,6 +4,7 @@ import UIKit
 enum CarPlayLogging {
   static let carPlay = "[CarPlay]"
   static let scene = "[Scene]"
+  static let guidance = "[CarPlayGuidance]"
 
   static func diagnosticIdentity(_ object: AnyObject?) -> String {
     guard let object else { return "nil" }

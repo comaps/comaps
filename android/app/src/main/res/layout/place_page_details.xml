@@ -41,6 +41,8 @@
 
     <include layout="@layout/place_page_organic" />
 
+    <include layout="@layout/place_page_second_hand" />
+
     <include layout="@layout/place_page_entrance"/>
 
     <include layout="@layout/place_page_operator"/>

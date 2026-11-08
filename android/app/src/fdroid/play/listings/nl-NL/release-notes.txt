@@ -1,8 +1,9 @@
-• Link voor het toevoegen van recensies toegevoegd aan POI-info
-• Huidige snelheid tonen in Android Auto
-• Tonen van recensiebeoordelingen in zoekresultaten
-• Tonen van hotel-/restaurantssterren als tekst
-• Gereedschapsverhuurlocaties en gereedschapsbibliotheken toegevoegd, weglabels toegevoegd voor Roemenië en Marokko en gecorrigeerd voor Augsburg en A-wegen in Cyprus
-• In routeplanningsscherm de knoppen voor Voorbeeld en Opslaan vervangen door pictogrammen
+• Verbeterd contrast in donkere modus: beter zichtbare text en wegen
+• Gevaarlijke gebieden toegevoegd
+• Onderscheid tussen volledig vega(n) en vega(n) opties
+• “Ga rechtdoor”-instructie verwijderd bij oversteken grote wegen
+• Routevoorbeeldmodus toegevoegd in routeplanner
+• Android Auto: UI en wisselen tussen auto en telefoon verbeterd
+• Vestiging en tweedehands-informatie toegevoegd aan interessepunten, muziekpodia, kantines en meer toegevoegd
 
 Meer details op comaps.app/latest

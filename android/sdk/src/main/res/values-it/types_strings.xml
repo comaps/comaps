@@ -76,7 +76,7 @@
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
     <string name="type.amenity.grave_yard.christian">Cimitero cristiano</string>
     <string name="type.amenity.hospital">Ospedale</string>
-    <string name="type.amenity.hunting_stand">Torre di caccio</string>
+    <string name="type.amenity.hunting_stand">Torre di caccia</string>
     <string name="type.amenity.ice_cream">Gelateria</string>
     <string name="type.amenity.internet_cafe">Cybercaffè</string>
     <string name="type.amenity.kindergarten">Scuola materna</string>
@@ -1100,7 +1100,7 @@
     <string name="type.shop.clothes">Negozio di abbigliamento</string>
     <string name="type.shop.coffee">Negozio di caffè</string>
     <string name="type.shop.computer">Negozio di computer</string>
-    <string name="type.shop.confectionery">Pasticceria</string>
+    <string name="type.shop.confectionery">Negozio di dolciumi</string>
     <string name="type.shop.convenience">Minimarket</string>
     <string name="type.shop.copyshop">Copisteria</string>
     <string name="type.shop.cosmetics">Cosmetici</string>
@@ -1146,7 +1146,7 @@
     <string name="type.shop.outdoor">Attrezzatura sportiva</string>
     <string name="type.shop.outpost">Punto di raccolta</string>
     <string name="type.shop.pasta">Negozio di pasta</string>
-    <string name="type.shop.pastry">Pasticcino</string>
+    <string name="type.shop.pastry">Pasticceria</string>
     <string name="type.shop.pawnbroker">Pegni</string>
     <string name="type.shop.pet">Negozio di animali</string>
     <string name="type.shop.pet_grooming">Toelettatura per animali domestici</string>
@@ -1542,4 +1542,7 @@
     <string name="type.shop.beauty.day_spa">Centro benessere</string>
     <string name="type.building.abandoned">Edificio abbandonato</string>
     <string name="type.railway.station.subway.boston">Stazione della metropolitana</string>
+    <string name="type.amenity.parking.customers">Parcheggio per i clienti</string>
+    <string name="type.railway.subway_entrance.qingdao">Stazione metropolitana</string>
+    <string name="type.railway.subway_entrance.boston">Stazione metropolitana</string>
 </resources>

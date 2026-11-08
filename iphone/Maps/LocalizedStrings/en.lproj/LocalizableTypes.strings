@@ -60,6 +60,7 @@
 "type.leisure.bowling_alley" = "Bowling Alley";
 "type.amenity.clinic" = "Clinic";
 "type.amenity.college" = "College";
+"type.amenity.research_institute" = "Research Institute";
 "type.amenity.community_centre" = "Community Centre";
 "type.amenity.community_centre.youth_centre" = "Youth Centre";
 "type.amenity.compressed_air" = "Compressed Air";
@@ -73,6 +74,7 @@
 "type.amenity.exhibition_centre" = "Exhibition Center";
 "type.amenity.money_transfer" = "Money Transfer";
 "type.amenity.music_school" = "Music School";
+"type.amenity.music_venue" = "Music Venue";
 "type.amenity.sailing_school" = "Sailing School";
 "type.amenity.flight_school" = "Flight School";
 "type.amenity.prep_school" = "Tutorial School";
@@ -82,6 +84,8 @@
 "type.building.guardhouse" = "Security Booth";
 "type.power.portal" = "Power Portal";
 "type.amenity.fast_food" = "Fast Food";
+/* Cafeteria or canteen where you can quickly have a full meal without table service. */
+"type.amenity.fast_food.cafeteria" = "Cafeteria";
 "type.amenity.ferry_terminal" = "Ferry";
 "type.amenity.fire_station" = "Fire Station";
 "type.amenity.food_court" = "Food Court";
@@ -249,6 +253,7 @@
 "type.boundary.administrative.3" = "Regional Boundary";
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "Regional Boundary";
+"type.boundary.hazard" = "Hazardous Area";
 "type.boundary.national_park" = "National Park";
 "type.boundary.aboriginal_lands" = "Indigenous Lands";
 "type.boundary.protected_area" = "Protected Area";
@@ -268,6 +273,34 @@
 "type.building.train_station" = "Station Building";
 "type.building.warehouse" = "Warehouse";
 "type.cemetery.grave" = "Grave";
+"type.club" = "Club";
+"type.club.allotments" = "Allotment Association";
+"type.club.amateur_radio" = "Amateur Radio Club";
+"type.club.art" = "Art Club";
+"type.club.automobile" = "Automobile Club";
+"type.club.board_games" = "Board Games Club";
+"type.club.cadet" = "Cadet Club";
+"type.club.computer" = "Computer Club";
+"type.club.culture" = "Cultural Association";
+"type.club.dog" = "Dog Club";
+"type.club.fraternity" = "Fraternity";
+"type.club.freemasonry" = "Masonic Lodge";
+"type.club.game" = "Gaming Club";
+"type.club.gardening" = "Gardening Club";
+"type.club.history" = "History Club";
+"type.club.hunting" = "Hunting Club";
+"type.club.model_railway" = "Model Railway Club";
+"type.club.motorcycle" = "Motorcycle Club";
+"type.club.music" = "Music Club";
+"type.club.religion" = "Religious Club";
+"type.club.scout" = "Scout Club";
+"type.club.social" = "Social Club";
+"type.club.student" = "Student Club";
+"type.club.surf_life_saving" = "Surf Life Saving";
+"type.club.theatre" = "Theatre Club";
+"type.club.veterans" = "Veterans Club";
+"type.club.youth" = "Youth Club";
+"type.club.youth_movement" = "Youth Movement";
 "type.craft" = "Craft";
 "type.craft.beekeeper" = "Beekeeper";
 "type.craft.blacksmith" = "Blacksmith";
@@ -375,8 +408,10 @@
 "type.cuisine.tea" = "Tea";
 "type.cuisine.thai" = "Thai";
 "type.cuisine.turkish" = "Turkish";
-"type.cuisine.vegan" = "Vegan";
-"type.cuisine.vegetarian" = "Vegetarian";
+"type.cuisine.vegan" = "Vegan Options";
+"type.cuisine.vegan_only" = "Vegan Only";
+"type.cuisine.vegetarian" = "Vegetarian Options";
+"type.cuisine.vegetarian_only" = "Vegetarian Only";
 "type.cuisine.vietnamese" = "Vietnamese";
 "type.emergency" = "Emergency";
 "type.emergency.access_point" = "Emergency Rescue Point";
@@ -896,6 +931,9 @@
 "type.organic.only" = "Organic only";
 "type.organic.yes" = "Organic options";
 "type.organic.no" = "No organic options";
+"type.second_hand.only" = "Second-hand only";
+"type.second_hand.yes" = "Second-hand options";
+"type.second_hand.no" = "No second-hand options";
 "type.place.city" = "City";
 "type.place.city.capital" = "Capital";
 "type.place.city.capital.10" = "City";
@@ -1299,6 +1337,7 @@
 "type.shop.florist" = "Florist";
 "type.shop.funeral_directors" = "Funeral Directors";
 "type.shop.furniture" = "Furniture Store";
+"type.shop.games" = "Game Shop";
 "type.shop.garden_centre" = "Garden Center";
 "type.shop.gas" = "Gas Store";
 "type.shop.gift" = "Gift Shop";
@@ -1378,6 +1417,7 @@
 "type.shop.perfumery" = "Perfume Shop";
 "type.shop.sewing" = "Sewing Supplies Shop";
 "type.shop.storage_rental" = "Storage Rental";
+"type.shop.swimming_pool" = "Swimming Pool Shop";
 "type.shop.tobacco" = "Smoke Shop";
 "type.shop.trade" = "Trade Supplies";
 "type.shop.watches" = "Watch Store";

@@ -640,6 +640,12 @@ bool Processor::SearchDebug()
     return true;
   }
 
+  if (m_query.m_query == "?reviews")
+  {
+    EmitWithMetadata(feature::Metadata::FMD_RATINGS);
+    return true;
+  }
+
 #ifdef DEBUG
   SearchByFeatureId();
 

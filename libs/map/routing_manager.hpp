@@ -38,6 +38,7 @@
 #include <map>
 #include <memory>
 #include <mutex>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -90,11 +91,10 @@ public:
   {
   public:
     virtual void OnRouteFollow(routing::RouterType type) = 0;
-    virtual void RegisterCountryFilesOnRoute(std::shared_ptr<routing::NumMwmIds> ptr) const = 0;
-
     virtual ~Delegate() = default;
   };
 
+  /// @todo Refactor and replace with the single interface of multiple function-members.
   struct Callbacks
   {
     using DataSourceGetterFn = std::function<DataSource &()>;
@@ -140,6 +140,8 @@ public:
   RoutingManager(Callbacks && callbacks, Delegate & delegate);
   ~RoutingManager();
 
+  void Init(std::shared_ptr<routing::NumMwmIds> ptr);
+
   void SetBookmarkManager(BookmarkManager * bmManager);
   void SetTransitManager(TransitReadManager * transitManager);
 
@@ -157,7 +159,11 @@ public:
   bool IsRouteValid() const { return m_routingSession.IsRouteValid(); }
   void BuildRoute(uint32_t timeoutSec = routing::RouterDelegate::kNoTimeout);
   void SetUserCurrentPosition(m2::PointD const & position);
-  void ResetRoutingSession() { m_routingSession.Reset(); }
+  void ResetRoutingSession()
+  {
+    m_routingSession.Reset();
+    ClearPreviewedTurn();
+  }
   // FollowRoute has a bug where the router follows the route even if the method hads't been called.
   // This method was added because we do not want to break the behaviour that is familiar to our
   // users.
@@ -195,6 +201,11 @@ public:
   void FollowRoute();
   void CloseRouting(bool removeRoutePoints);
   void GetRouteFollowingInfo(routing::FollowingInfo & info) const;
+
+  // Speed limit of the road nearest to the position, matched against |bearingDeg|.
+  // @returns m/s, 0 for "no limit" (maxspeed=none), -1 if unknown.
+  double GetRoadSpeedLimitMps(double lat, double lon, double bearingDeg);
+  void ResetRoadSpeedLimitCache();
 
   TransitRouteInfo GetTransitRouteInfo() const;
 
@@ -251,7 +262,6 @@ public:
   bool CouldAddIntermediatePoint() const;
   bool IsMyPosition(RouteMarkType type, size_t intermediateIndex = 0);
 
-  void SetRouterImpl(routing::RouterType type);
   void RemoveRoute(bool deactivateFollowing);
 
   void CheckLocationForRouting(location::GpsInfo const & info);
@@ -329,16 +339,24 @@ public:
   void UpdatePreviewMode();
   void CancelPreviewMode();
 
+  void SetPreviewedTurn(uint32_t segmentIndex);
+  void ClearPreviewedTurn();
+  bool IsPreviewingTurn() const { return m_currentPreviewedTurnIndex.has_value(); }
+  std::optional<uint32_t> GetPreviewedTurnIndex() const { return m_currentPreviewedTurnIndex; }
+  using PreviewedTurnChangedCallback = std::function<void(bool isPreviewing, uint32_t segmentIndex)>;
+  void SetPreviewedTurnChangedCallback(PreviewedTurnChangedCallback callback);
+
   routing::RouterType GetCurrentRouterType() const { return m_currentRouterType; }
 
   std::vector<routing::RouteStepInfo> GetRouteTurnsForDisplay(std::string const & locale) const;
+  m2::PointD GetJunctionPointForUpcomingTurn(uint32_t segmentIndex) const;
+  double GetDirectionForUpcomingTurn(uint32_t segmentIndex) const;
 
-  std::vector<double> GetIntermediateStopsProgress() const
-  {
-    return m_routingSession.GetIntermediateStopsProgress();
-  }
+  std::vector<double> GetIntermediateStopsProgress() const { return m_routingSession.GetIntermediateStopsProgress(); }
 
 private:
+  void SetRouterImpl(routing::RouterType type);
+
   /// \returns true if the route has warnings.
   bool InsertRoute(routing::Route const & route);
 
@@ -380,6 +398,7 @@ private:
   void HidePreviewSegments();
 
   void SetSubroutesVisibility(bool visible);
+  void NotifyPreviewedTurnChanged() const;
 
   void CancelRecommendation(Recommendation recommendation);
 
@@ -398,6 +417,14 @@ private:
   routing::RoutingSession m_routingSession;
   Delegate & m_delegate;
 
+  /// the segment index of the currently previewed turn, or no value if no turn
+  /// is being previewd
+  std::optional<uint32_t> m_currentPreviewedTurnIndex;
+  PreviewedTurnChangedCallback m_previewedTurnChangedCallback;
+
+  struct RoadSpeedLimitState;
+  std::unique_ptr<RoadSpeedLimitState> m_roadSpeedLimit;
+
   BookmarkManager * m_bmManager = nullptr;
   extrapolation::Extrapolator m_extrapolator;
 
@@ -415,6 +442,9 @@ private:
   std::map<uint32_t, RoutePointsTransaction> m_routePointsTransactions;
   std::chrono::steady_clock::time_point m_loadRoutePointsTimestamp;
   std::map<std::string, m2::PointF> m_transitSymbolSizes;
+
+  std::shared_ptr<routing::NumMwmIds> m_numMwmIDs;
+  std::shared_ptr<m4::Tree<routing::NumMwmId>> m_numMwmTree;
 
   TransitReadManager * m_transitReadManager = nullptr;
 

@@ -847,7 +847,7 @@
     <string name="pref_backup_interval_title">Automatické zálohování</string>
     <string name="backup_interval_manual_only">Vypnuto (pouze ručně)</string>
     <string name="dialog_report_error_missing_folder">Vybrané umístění záloh není dostupné nebo zapisovatelné. Vyberte prosím jiné umístění.</string>
-    <string name="dialog_report_error_with_logs">Pošlete nám prosím hlášení o chybě:\n - „Povolit protokolování“ v nastavení\n - zopakujte problém\n - na stránce „O aplikaci a nápověda“ klepněte na tlačítko „Nahlásit chybu“ a odešlete hlášení skrze e-mail nebo chat\n - zakažte protokolování</string>
+    <string name="dialog_report_error_with_logs">Pošlete nám prosím hlášení o chybě:\n - Přejděte do Nastavení a vyberte Pokročilé\n - „Povolit protokolování“\n - zopakujte problém\n - na stránce „O aplikaci a nápověda“ klepněte na tlačítko „Nahlásit chybu“ a odešlete hlášení skrze e-mail nebo chat\n - zakažte protokolování</string>
     <string name="backup_interval_every_day">Denně</string>
     <string name="backup_interval_every_week">Týdně</string>
     <string name="open_now">Otevřeno</string>

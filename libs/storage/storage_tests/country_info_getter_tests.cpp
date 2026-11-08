@@ -128,20 +128,6 @@ UNIT_TEST(CountryInfoGetter_GetRegionsCountryIdByRect_Smoke)
   TEST_EQUAL(countries5, expected2, ());
 }
 
-UNIT_TEST(CountryInfoGetter_ValidName_Smoke)
-{
-  string buffer;
-  ReaderPtr<Reader>(GetPlatform().GetReader(COUNTRIES_FILE)).ReadAsString(buffer);
-
-  map<string, CountryInfo> id2info;
-  storage::LoadCountryFile2CountryInfo(buffer, id2info);
-
-  Storage storage;
-
-  TEST(!IsEmptyName(id2info, "Belgium_West Flanders"), ());
-  TEST(!IsEmptyName(id2info, "France_Ile-de-France_Paris"), ());
-}
-
 UNIT_TEST(CountryInfoGetter_SomeRects)
 {
   auto const getter = CreateCountryInfoGetter();
@@ -227,11 +213,8 @@ UNIT_TEST(CountryInfoGetter_RegionRects)
 
   for (size_t i = 0; i < countries.size(); ++i)
   {
-    vector<m2::RegionD> regions;
-    reader->LoadRegionsFromDisk(i, regions);
-
     m2::RectD rect;
-    for (auto const & region : regions)
+    for (auto const & region : reader->LoadRegionsFromDisk(i))
       region.ForEachPoint([&](m2::PointD const & point) { rect.Add(point); });
 
     TEST(AlmostEqualAbs(rect, countries[i].m_rect, kRectCompareEpsilon), (rect, countries[i].m_rect));
@@ -252,7 +235,7 @@ UNIT_TEST(CountryInfoGetter_Countries_And_Polygons)
 
   // Set is used here because disputed territories may occur as leaves several times.
   set<CountryId> storageLeaves;
-  storage.ForEachCountry([&](Country const & country) { storageLeaves.insert(country.Name()); });
+  storage.ForEachCountry([&](platform::CountryFile const & country) { storageLeaves.insert(country.GetName()); });
 
   TEST_EQUAL(countries.size(), storageLeaves.size(), ());
 
@@ -290,11 +273,7 @@ BENCHMARK_TEST(CountryInfoGetter_RegionsByRect)
   vector<vector<m2::RegionD>> allRegions;
   allRegions.reserve(countryDefs.size());
   for (size_t i = 0; i < countryDefs.size(); ++i)
-  {
-    vector<m2::RegionD> regions;
-    reader->LoadRegionsFromDisk(i, regions);
-    allRegions.emplace_back(std::move(regions));
-  }
+    allRegions.emplace_back(reader->LoadRegionsFromDisk(i));
 
   size_t totalPoints = 0;
   for (auto const & regs : allRegions)

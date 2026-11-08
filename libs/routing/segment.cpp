@@ -2,8 +2,7 @@
 
 #include "routing/fake_feature_ids.hpp"
 
-#include "std/boost_container_hash.hpp"  // needed despite of IDE warning
-
+#include <cstdint>
 #include <sstream>
 
 namespace routing
@@ -83,11 +82,12 @@ namespace std
 {
 size_t std::hash<routing::Segment>::operator()(routing::Segment const & segment) const
 {
-  size_t seed = 0;
-  boost::hash_combine(seed, segment.GetFeatureId());
-  boost::hash_combine(seed, segment.GetSegmentIdx());
-  boost::hash_combine(seed, segment.GetMwmId());
-  boost::hash_combine(seed, segment.IsForward());
-  return seed;
+  uint64_t h = segment.GetFeatureId();
+  h = h * 0x9E3779B97F4A7C15ULL + segment.GetSegmentIdx();
+  h = h * 0x9E3779B97F4A7C15ULL + (uint64_t{segment.GetMwmId()} << 1) + (segment.IsForward() ? 1 : 0);
+  h ^= h >> 33;
+  h *= 0xff51afd7ed558ccdULL;
+  h ^= h >> 29;
+  return static_cast<size_t>(h);
 }
 }  // namespace std

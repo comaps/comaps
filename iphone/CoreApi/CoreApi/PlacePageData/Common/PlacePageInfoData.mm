@@ -178,6 +178,7 @@ NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
 
     _atm = rawData.HasAtm() ? NSLocalizedStringFromTable(@"type.amenity.atm", @"LocalizableTypes", nil) : nil;
     _organic = [ToNSString(rawData.GetOrganic()) length] != 0 ? ToNSString(rawData.GetOrganic()) : nil;
+    _secondHand = [ToNSString(rawData.GetSecondHand()) length] != 0 ? ToNSString(rawData.GetSecondHand()) : nil;
 
     _address = rawData.GetSecondarySubtitle().empty() ? nil : @(rawData.GetSecondarySubtitle().c_str());
     _coordFormats = @[@(rawData.GetFormattedCoordinate(place_page::CoordinatesFormat::LatLonDMS).c_str()),

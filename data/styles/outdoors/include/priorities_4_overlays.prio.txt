@@ -411,6 +411,7 @@
 # === 4100
 
 # amenity-fast_food                                 # icon z15- (also has caption(optional) z15-)
+# amenity-fast_food-cafeteria                       # icon z15- (also has caption(optional) z15-)
 # amenity-food_court                                # icon z15- (also has caption(optional) z15-)
 # === 4050
 
@@ -830,6 +831,7 @@
 
 # amenity-cinema                                    # icon z17- (also has caption(optional) z17-)
 # amenity-fountain                                  # icon z16- (also has caption(optional) z16-, area z16-)
+# amenity-music_venue                               # icon z16- (also has caption(optional) z16-)
 # amenity-nightclub                                 # icon z16- (also has caption(optional) z16-)
 # amenity-post_office                               # icon z17- (also has caption(optional) z17-)
 # attraction                                        # icon z16- (also has caption(optional) z16-)
@@ -939,6 +941,8 @@
 # amenity-college                                   # icon z16- (also has caption(optional) z16-, area z13-)
 # amenity-courthouse                                # icon z17- (also has caption(optional) z17-, area z15-)
 # amenity-dentist                                   # icon z17- (also has caption(optional) z17-)
+# amenity-research_institute                        # icon z16- (also has caption(optional) z16-)
+# boundary-hazard                                   # icon z16- (also has caption(optional) z16-, area z12-)
 # landuse-military                                  # icon z16- (also has caption(optional) z17-, area z12-)
 # landuse-military-danger_area                      # icon z16- (also has caption(optional) z17-, area z10-)
 # === 2000
@@ -1060,6 +1064,7 @@
 # shop-electrical                                   # icon z18- (also has caption(optional) z18-)
 # shop-erotic                                       # icon z16- (also has caption(optional) z16-)
 # shop-furniture                                    # icon z16- (also has caption(optional) z16-)
+# shop-games                                        # icon z16- (also has caption(optional) z16-)
 # shop-garden_centre                                # icon z16- (also has caption(optional) z16-)
 # shop-gift                                         # icon z16- (also has caption(optional) z16-)
 # shop-hardware                                     # icon z16- (also has caption(optional) z16-)
@@ -1224,6 +1229,9 @@ power-line                                          # pathtext z15- (also has li
 # man_made-tower-communication                      # icon z13- (also has caption(optional) z14-)
 # === 850
 
+club-hunting                                        # icon z18- (also has caption(optional) z19-)
+club-scout                                          # icon z19- (also has caption(optional) z19-)
+club-surf_life_saving                               # icon z18- (also has caption(optional) z19-)
 # junction                                          # caption z17-
 # junction-circular                                 # caption z17-
 # junction-roundabout                               # caption z17-
@@ -1232,7 +1240,7 @@ power-line                                          # pathtext z15- (also has li
 # man_made-works                                    # icon z16- (also has caption(optional) z17-, area z13-)
 # public_transport-platform                         # caption z17- (also has area z16-)
 # waterway-lock_gate                                # icon z16-
-# === 700
+=== 700
 
 # amenity-brothel                                   # icon z18- (also has caption(optional) z18-)
 # amenity-casino                                    # icon z17- (also has caption(optional) z17-)
@@ -1287,6 +1295,7 @@ power-line                                          # pathtext z15- (also has li
 # shop-outpost                                      # icon z18- (also has caption(optional) z18-)
 # shop-pet_grooming                                 # icon z18- (also has caption(optional) z18-)
 # shop-storage_rental                               # icon z18- (also has caption(optional) z18-)
+# shop-swimming_pool                                # icon z18- (also has caption(optional) z18-)
 # shop-tool_hire                                    # icon z16- (also has caption(optional) z16-)
 # shop-trade                                        # icon z16- (also has caption(optional) z16-)
 # shop-watches                                      # icon z18- (also has caption(optional) z18-)
@@ -1295,6 +1304,30 @@ power-line                                          # pathtext z15- (also has li
 
 # amenity-shower                                    # icon z17- (also has caption(optional) z17-)
 # amenity-toilets                                   # icon z15- (also has caption(optional) z18-)
+# club-allotments                                   # icon z18- (also has caption(optional) z19-)
+# club-amateur_radio                                # icon z19- (also has caption(optional) z19-)
+# club-art                                          # icon z19- (also has caption(optional) z19-)
+# club-automobile                                   # icon z19- (also has caption(optional) z19-)
+# club-board_games                                  # icon z19- (also has caption(optional) z19-)
+# club-cadet                                        # icon z19- (also has caption(optional) z19-)
+# club-computer                                     # icon z19- (also has caption(optional) z19-)
+# club-culture                                      # icon z19- (also has caption(optional) z19-)
+# club-dog                                          # icon z19- (also has caption(optional) z19-)
+# club-fraternity                                   # icon z19- (also has caption(optional) z19-)
+# club-freemasonry                                  # icon z18- (also has caption(optional) z19-)
+# club-game                                         # icon z19- (also has caption(optional) z19-)
+# club-gardening                                    # icon z19- (also has caption(optional) z19-)
+# club-history                                      # icon z19- (also has caption(optional) z19-)
+# club-model_railway                                # icon z19- (also has caption(optional) z19-)
+# club-motorcycle                                   # icon z19- (also has caption(optional) z19-)
+# club-music                                        # icon z19- (also has caption(optional) z19-)
+# club-religion                                     # icon z19- (also has caption(optional) z19-)
+# club-social                                       # icon z18- (also has caption(optional) z19-)
+# club-student                                      # icon z19- (also has caption(optional) z19-)
+# club-theatre                                      # icon z19- (also has caption(optional) z19-)
+# club-veterans                                     # icon z19- (also has caption(optional) z19-)
+# club-youth                                        # icon z19- (also has caption(optional) z19-)
+# club-youth_movement                               # icon z19- (also has caption(optional) z19-)
 # man_made-embankment                               # pathtext z18- (also has line z16-)
 # office                                            # icon z18- (also has caption(optional) z18-)
 # office-security                                   # icon z17- (also has caption(optional) z18-)
@@ -1307,6 +1340,7 @@ power-line                                          # pathtext z15- (also has li
 # amenity-public_bookcase                           # icon z18- (also has caption(optional) z18-)
 # amenity-toilets-customers                         # icon z17- (also has caption(optional) z19-)
 # cemetery-grave                                    # icon z17- (also has caption(optional) z17-)
+# club                                              # icon z19- (also has caption(optional) z19-)
 # leisure-firepit                                   # icon z16- (also has caption(optional) z17-)
 # leisure-outdoor_seating                           # icon z18-
 # man_made-mast                                     # icon z13- (also has caption(optional) z14-)
@@ -1731,6 +1765,7 @@ power-pole                                          # icon z15-
 # === -5900
 
 # amenity-fast_food                                 # caption(optional) z15- (also has icon z15-)
+# amenity-fast_food-cafeteria                       # caption(optional) z15- (also has icon z15-)
 # amenity-food_court                                # caption(optional) z15- (also has icon z15-)
 # === -5950
 
@@ -1974,6 +2009,7 @@ power-pole                                          # icon z15-
 
 # amenity-cinema                                    # caption(optional) z17- (also has icon z17-)
 # amenity-fountain                                  # caption(optional) z16- (also has icon z16-, area z16-)
+# amenity-music_venue                               # caption(optional) z16- (also has icon z16-)
 # amenity-nightclub                                 # caption(optional) z16- (also has icon z16-)
 # amenity-post_office                               # caption(optional) z17- (also has icon z17-)
 # attraction                                        # caption(optional) z16- (also has icon z16-)
@@ -2058,6 +2094,8 @@ power-pole                                          # icon z15-
 # amenity-college                                   # caption(optional) z16- (also has icon z16-, area z13-)
 # amenity-courthouse                                # caption(optional) z17- (also has icon z17-, area z15-)
 # amenity-dentist                                   # caption(optional) z17- (also has icon z17-)
+# amenity-research_institute                        # caption(optional) z16- (also has icon z16-)
+# boundary-hazard                                   # caption(optional) z16- (also has icon z16-, area z12-)
 # landuse-military                                  # caption(optional) z17- (also has icon z16-, area z12-)
 # landuse-military-danger_area                      # caption(optional) z17- (also has icon z16-, area z10-)
 # === -8000
@@ -2165,6 +2203,7 @@ power-pole                                          # icon z15-
 # shop-electrical                                   # caption(optional) z18- (also has icon z18-)
 # shop-erotic                                       # caption(optional) z16- (also has icon z16-)
 # shop-furniture                                    # caption(optional) z16- (also has icon z16-)
+# shop-games                                        # caption(optional) z16- (also has icon z16-)
 # shop-garden_centre                                # caption(optional) z16- (also has icon z16-)
 # shop-gift                                         # caption(optional) z16- (also has icon z16-)
 # shop-hardware                                     # caption(optional) z16- (also has icon z16-)
@@ -2314,6 +2353,9 @@ power-pole                                          # icon z15-
 # man_made-tower-communication                      # caption(optional) z14- (also has icon z13-)
 # === -9150
 
+# club-hunting                                      # caption(optional) z19- (also has icon z18-)
+# club-scout                                        # caption(optional) z19- (also has icon z19-)
+# club-surf_life_saving                             # caption(optional) z19- (also has icon z18-)
 # man_made-works                                    # caption(optional) z17- (also has icon z16-, area z13-)
 # === -9300
 
@@ -2370,6 +2412,7 @@ power-pole                                          # icon z15-
 # shop-outpost                                      # caption(optional) z18- (also has icon z18-)
 # shop-pet_grooming                                 # caption(optional) z18- (also has icon z18-)
 # shop-storage_rental                               # caption(optional) z18- (also has icon z18-)
+# shop-swimming_pool                                # caption(optional) z18- (also has icon z18-)
 # shop-tool_hire                                    # caption(optional) z16- (also has icon z16-)
 # shop-trade                                        # caption(optional) z16- (also has icon z16-)
 # shop-watches                                      # caption(optional) z18- (also has icon z18-)
@@ -2378,6 +2421,30 @@ power-pole                                          # icon z15-
 
 # amenity-shower                                    # caption(optional) z17- (also has icon z17-)
 # amenity-toilets                                   # caption(optional) z18- (also has icon z15-)
+# club-allotments                                   # caption(optional) z19- (also has icon z18-)
+# club-amateur_radio                                # caption(optional) z19- (also has icon z19-)
+# club-art                                          # caption(optional) z19- (also has icon z19-)
+# club-automobile                                   # caption(optional) z19- (also has icon z19-)
+# club-board_games                                  # caption(optional) z19- (also has icon z19-)
+# club-cadet                                        # caption(optional) z19- (also has icon z19-)
+# club-computer                                     # caption(optional) z19- (also has icon z19-)
+# club-culture                                      # caption(optional) z19- (also has icon z19-)
+# club-dog                                          # caption(optional) z19- (also has icon z19-)
+# club-fraternity                                   # caption(optional) z19- (also has icon z19-)
+# club-freemasonry                                  # caption(optional) z19- (also has icon z18-)
+# club-game                                         # caption(optional) z19- (also has icon z19-)
+# club-gardening                                    # caption(optional) z19- (also has icon z19-)
+# club-history                                      # caption(optional) z19- (also has icon z19-)
+# club-model_railway                                # caption(optional) z19- (also has icon z19-)
+# club-motorcycle                                   # caption(optional) z19- (also has icon z19-)
+# club-music                                        # caption(optional) z19- (also has icon z19-)
+# club-religion                                     # caption(optional) z19- (also has icon z19-)
+# club-social                                       # caption(optional) z19- (also has icon z18-)
+# club-student                                      # caption(optional) z19- (also has icon z19-)
+# club-theatre                                      # caption(optional) z19- (also has icon z19-)
+# club-veterans                                     # caption(optional) z19- (also has icon z19-)
+# club-youth                                        # caption(optional) z19- (also has icon z19-)
+# club-youth_movement                               # caption(optional) z19- (also has icon z19-)
 # office                                            # caption(optional) z18- (also has icon z18-)
 # office-security                                   # caption(optional) z18- (also has icon z17-)
 # post_office-post_partner                          # caption(optional) z18- (also has icon z18-)
@@ -2392,6 +2459,7 @@ power-pole                                          # icon z15-
 # amenity-public_bookcase                           # caption(optional) z18- (also has icon z18-)
 # amenity-toilets-customers                         # caption(optional) z19- (also has icon z17-)
 # cemetery-grave                                    # caption(optional) z17- (also has icon z17-)
+# club                                              # caption(optional) z19- (also has icon z19-)
 # leisure-firepit                                   # caption(optional) z17- (also has icon z16-)
 # man_made-mast                                     # caption(optional) z14- (also has icon z13-)
 # man_made-silo                                     # caption(optional) z14- (also has icon z13-)

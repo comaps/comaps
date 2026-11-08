@@ -106,6 +106,8 @@ public class Framework
     nativeSetSpeedCamManagerMode(mode.ordinal());
   }
 
+  public static native void nativeRestoreDownloadQueue();
+
   public static native void nativeShowTrackRect(long track);
 
   public static native int nativeGetDrawScale();
@@ -218,6 +220,9 @@ public class Framework
   @Nullable
   public static native RoutingInfo nativeGetRouteFollowingInfo();
 
+  public static native double nativeGetRoadSpeedLimit(double lat, double lon, double bearingDeg);
+  public static native void nativeResetRoadSpeedLimit();
+
   @Nullable
   /// @param[in] maxDistM Max distance between points in meters.
   public static native JunctionInfo[] nativeGetRouteJunctionPoints(double maxDistM);
@@ -278,6 +283,12 @@ public class Framework
 
   @Nullable
   public static native RouteStepInfo[] nativeGetRouteSteps(String language);
+
+  public static native void nativePreviewTurn(int segmentIndex);
+
+  public static native void nativeClearPreviewedTurn();
+
+  public static native boolean nativeIsPreviewingTurn();
 
   @NonNull
   public static native TransitRouteInfo nativeGetTransitRouteInfo();

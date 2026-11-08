@@ -119,8 +119,6 @@ def step_preprocess(env: Env, **kwargs):
 
 
 def step_features(env: Env, **kwargs):
-    if any(x not in WORLDS_NAMES for x in env.countries):
-        kwargs.update({"generate_packed_borders": True})
     if any(x == WORLD_NAME for x in env.countries):
         kwargs.update({"generate_world": True})
     if len(env.countries) == len(get_all_countries_list(PathProvider.borders_path())):
@@ -351,6 +349,7 @@ def step_reviews(env: Env, country: AnyStr, **kwargs):
         out=env.get_subprocess_out(country),
         err=env.get_subprocess_out(country),
         data_path=env.paths.mwm_path,
+        user_resource_path=env.paths.user_resource_path,
         reviews_path=env.paths.reviews_path,
         output=country,
         generate_reviews=True,

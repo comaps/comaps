@@ -83,7 +83,7 @@ public:
    *
    * Return value is false until `SyncWithDisk()` is called.
    *
-   * @return
+   * @return true if files were found, false if no files were found, or before the first call to `SyncWithDisk()`
    */
   bool HasFiles() const;
 
@@ -109,7 +109,6 @@ public:
 
   bool ValidateIntegrity() const;
 
-  //
   /**
    * @brief Creates a `LocalCountryFile` for test purposes.
    *

@@ -89,7 +89,7 @@ public:
    * one point. If `scale` equals `FeatureType::BEST_GEOMETRY`, no such simplification takes place.
    *
    * Points are cached between calls and `scale` may not be honored if cached points are returned.
-   * To reliably enforce `scale`, call `ResetGemoetry()` immediately prior to `GetPoints()`.
+   * To reliably enforce `scale`, call `ResetGeometry()` immediately prior to `GetPoints()`.
    *
    * @param scale The map scale
    * @return The points of the feature, simplified according to `scale`.

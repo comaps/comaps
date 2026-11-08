@@ -5,15 +5,13 @@
 
 #include "platform/http_request.hpp"
 #include "platform/safe_callback.hpp"
+#include "platform/servers_list.hpp"
 
-#include <cstdint>
 #include <functional>
 #include <memory>
 #include <string>
 #include <utility>
 #include <vector>
-
-#include "platform/servers_list.hpp"
 
 class DownloadingPolicy;
 

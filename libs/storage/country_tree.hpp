@@ -10,6 +10,7 @@
 #include <map>
 #include <memory>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 namespace storage
@@ -57,6 +58,8 @@ public:
     Node const & Child(size_t index) const;
 
     size_t ChildrenCount() const { return m_children.size(); }
+
+    bool IsLeaf() const { return ChildrenCount() == 0; }
 
     /// \brief Calls |f| for each first generation descendant of the node.
     void ForEachChild(NodeCallback const & f);
@@ -119,13 +122,38 @@ private:
   std::multimap<CountryId, Node *> m_countryTreeMap;
 };
 
-/// @return version of country file or -1 if error was encountered
-int64_t LoadCountriesFromBuffer(std::string const & buffer, CountryTree & countries, Affiliations & affiliations,
-                                CountryNameSynonyms & countryNameSynonyms, MwmTopCityGeoIds & mwmTopCityGeoIds,
-                                MwmTopCountryGeoIds & mwmTopCountryGeoIds, std::string & mapSeries);
-int64_t LoadCountriesFromFile(std::string const & path, CountryTree & countries, Affiliations & affiliations,
-                              CountryNameSynonyms & countryNameSynonyms, MwmTopCityGeoIds & mwmTopCityGeoIds,
-                              MwmTopCountryGeoIds & mwmTopCountryGeoIds);
+struct CountriesInfo
+{
+  /**
+   * @brief Mapping from countryId to the list of names of
+   * geographical objects (such as countries) that encompass this countryId.
+   * @note Affiliations are inherited from ancestors of the countryId in country tree.
+   * Initialized with data of countries.txt (field "affiliations").
+   * Once filled, they are not changed.
+   */
+  Affiliations m_affiliations;
+  CountryNameSynonyms m_countryNameSynonyms;
 
-void LoadCountryFile2CountryInfo(std::string const & jsonBuffer, std::map<std::string, CountryInfo> & id2info);
+  /// @todo This containers are empty for now, but probably will be used in future.
+  /// @{
+  MwmTopCityGeoIds m_mwmTopCityGeoIds;
+  MwmTopCountryGeoIds m_mwmTopCountryGeoIds;
+  /// @}
+
+  std::unordered_map<CountryId, std::string> m_mwmToOld;
+
+  void Clear()
+  {
+    m_affiliations.clear();
+    m_countryNameSynonyms.clear();
+    m_mwmTopCityGeoIds.clear();
+    m_mwmTopCountryGeoIds.clear();
+    m_mwmToOld.clear();
+  }
+};
+
+/// @return version of country file or -1 if error was encountered
+int64_t LoadCountriesFromBuffer(std::string const & buffer, CountryTree & countries, CountriesInfo & countriesInfo,
+                                std::string & mapSeries);
+int64_t LoadCountriesFromFile(std::string const & path, CountryTree & countries, CountriesInfo & countriesInfo);
 }  // namespace storage

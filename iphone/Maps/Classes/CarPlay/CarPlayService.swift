@@ -24,6 +24,21 @@ struct CarPlayPanningInterfaceState {
   }
 }
 
+struct CarPlaySearchContextState {
+  enum Owner {
+    case phone
+    case car
+  }
+
+  private(set) var owner: Owner = .phone
+
+  mutating func transition(to newOwner: Owner?) -> Bool {
+    guard let newOwner, newOwner != owner else { return false }
+    owner = newOwner
+    return true
+  }
+}
+
 @objc(MWMCarPlayService)
 final class CarPlayService: NSObject {
   @objc static let shared = CarPlayService()
@@ -51,8 +66,14 @@ final class CarPlayService: NSObject {
       return mode == .always ? true : false
     }
   }
+  var carDisplayScale: CGFloat {
+    return interfaceController?.carTraitCollection.displayScale ?? UIScreen.main.scale
+  }
   var isKeyboardLimited: Bool {
     return sessionConfiguration?.limitedUserInterfaces.contains(.keyboard) ?? false
+  }
+  var isListLimited: Bool {
+    return sessionConfiguration?.limitedUserInterfaces.contains(.lists) ?? false
   }
   private var carplayVC: CarPlayMapViewController? {
     return window?.rootViewController as? CarPlayMapViewController
@@ -65,6 +86,7 @@ final class CarPlayService: NSObject {
     case dashboard
   }
   private var mapHost: MapHost = .none
+  private var searchContextState = CarPlaySearchContextState()
 
   private var rootTemplateDidAppear = false
   private var panningInterfaceState = CarPlayPanningInterfaceState()
@@ -102,6 +124,7 @@ final class CarPlayService: NSObject {
 
   private var pendingDashboardBookmark: MWMCarPlayBookmarkObject?
   private var pendingDashboardNavigationTrip: CPTrip?
+  private var lastTripEstimates: CarPlayEstimatesSnapshot?
 
   @objc func setup(window: CPWindow, interfaceController: CPInterfaceController) {
     if pendingTeardown != nil {
@@ -556,6 +579,7 @@ final class CarPlayService: NSObject {
       guard desired != mapHost else { return }
     }
     LOG(.info, "\(CarPlayLogging.carPlay) mapHost begin from=\(mapHost) to=\(desired) \(diagnosticConnectionContext)")
+    updateSearchContext(for: desired)
 
     switch mapHost {
     case .carplay:
@@ -588,6 +612,22 @@ final class CarPlayService: NSObject {
     engageCarFollowIfNeeded(currentPositionMode)
     logStateSnapshot("mapHost completed")
     refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "updateMapHost")
+  }
+
+  private func updateSearchContext(for host: MapHost) {
+    let owner: CarPlaySearchContextState.Owner?
+    switch host {
+    case .carplay, .dashboard:
+      owner = .car
+    case .phone:
+      owner = .phone
+    case .none:
+      owner = nil
+    }
+    let previousOwner = searchContextState.owner
+    guard searchContextState.transition(to: owner) else { return }
+    LOG(.info, "\(CarPlayLogging.carPlay) searchContext switch from=\(previousOwner) to=\(searchContextState.owner)")
+    Search.clear()
   }
 
   private func reconcileMapHostIfOrphaned() {
@@ -805,7 +845,9 @@ final class CarPlayService: NSObject {
     needsBaseMapNorthUp = false
     mapTemplate.mapDelegate = self
     setRootTemplate(mapTemplate, reason: reason)
-    router?.startNavigationSession(forTrip: trip, template: mapTemplate)
+    router?.startNavigationSession(forTrip: trip,
+                                   template: mapTemplate,
+                                   initialRouteInfo: routeInfo)
     if let estimates = createEstimates(routeInfo: routeInfo) {
       mapTemplate.tripEstimateStyle = rootTemplateStyle
       mapTemplate.updateEstimates(estimates, for: trip)
@@ -850,8 +892,6 @@ final class CarPlayService: NSObject {
   func pushTemplate(_ templateToPush: CPTemplate, animated: Bool) {
     if let interfaceController = interfaceController {
       switch templateToPush {
-      case let list as CPListTemplate:
-        list.delegate = self
       case let search as CPSearchTemplate:
         search.delegate = self
       case let map as CPMapTemplate:
@@ -989,6 +1029,16 @@ extension CarPlayService: CPInterfaceControllerDelegate {
   func templateWillAppear(_ aTemplate: CPTemplate, animated: Bool) {
     logTemplateEvent("templateWillAppear", template: aTemplate, animated: animated)
     defer { logStateSnapshot("templateWillAppear completed callbackTemplate=\(CarPlayLogging.diagnosticTemplate(aTemplate))") }
+    if let listTemplate = aTemplate as? CPListTemplate,
+       let context = listTemplate.userInfo as? BookmarkListTemplateContext {
+      if context.hasAppeared {
+        ListTemplateBuilder.refreshBookmarks(in: listTemplate,
+                                             categoryId: context.categoryId,
+                                             isListLimited: isListLimited)
+      }
+      context.hasAppeared = true
+      return
+    }
     guard let info = aTemplate.userInfo as? MapInfo else {
         return
     }
@@ -1065,7 +1115,17 @@ extension CarPlayService: CPInterfaceControllerDelegate {
 extension CarPlayService: CPSessionConfigurationDelegate {
   func sessionConfiguration(_ sessionConfiguration: CPSessionConfiguration,
                             limitedUserInterfacesChanged limitedUserInterfaces: CPLimitableUserInterface) {
-
+    let keyboardLimited = limitedUserInterfaces.contains(.keyboard)
+    let listsLimited = limitedUserInterfaces.contains(.lists)
+    let reportedMaximum = CPListTemplate.maximumItemCount
+    let effectiveMaximum = CarPlayListLimiter.effectiveMaximumItemCount(reportedMaximum,
+                                                                        isListLimited: listsLimited)
+    LOG(.info, "[CarPlayList] restrictions changed keyboard=\(keyboardLimited) lists=\(listsLimited) reportedMaximum=\(reportedMaximum) effectiveMaximum=\(effectiveMaximum)")
+    guard let listTemplate = interfaceController?.topTemplate as? CPListTemplate,
+          let context = listTemplate.userInfo as? BookmarkListTemplateContext else { return }
+    ListTemplateBuilder.refreshBookmarks(in: listTemplate,
+                                         categoryId: context.categoryId,
+                                         isListLimited: listsLimited)
   }
   @available(iOS 13.0, *)
   func sessionConfiguration(_ sessionConfiguration: CPSessionConfiguration,
@@ -1165,7 +1225,9 @@ extension CarPlayService: CPMapTemplateDelegate {
     if interfaceController.templates.count > 1 {
       interfaceController.popToRootTemplate(animated: false)
     }
-    router.startNavigationSession(forTrip: trip, template: rootMapTemplate)
+    router.startNavigationSession(forTrip: trip,
+                                  template: rootMapTemplate,
+                                  initialRouteInfo: info)
     router.startRoute()
     if let estimates = createEstimates(routeInfo: info) {
       rootMapTemplate.updateEstimates(estimates, for: trip)
@@ -1182,7 +1244,6 @@ extension CarPlayService: CPMapTemplateDelegate {
     if let type = maneuver.userInfo as? String {
       switch type {
       case CPConstants.Maneuvers.lanes: return .symbolOnly
-      case CPConstants.Maneuvers.secondary: return .trailingSymbol
       default: break
       }
     }
@@ -1210,9 +1271,9 @@ extension CarPlayService: CPMapTemplateDelegate {
 }
 
 
-// MARK: - CPListTemplateDelegate implementation
-extension CarPlayService: CPListTemplateDelegate {
-  func listTemplate(_ listTemplate: CPListTemplate, didSelect item: CPListItem, completionHandler: @escaping () -> Void) {
+// MARK: - CPListItem selection handling
+extension CarPlayService {
+  func handleListItemSelection(_ item: CPListItem, completionHandler: @escaping () -> Void) {
     if let userInfo = item.userInfo as? ListItemInfo {
       switch userInfo.type {
       case CPConstants.ListItemType.history:
@@ -1222,7 +1283,10 @@ extension CarPlayService: CPListTemplateDelegate {
           return
         }
         searchService.searchText(item.text ?? "", forInputLocale: locale, completionHandler: { [weak self] results in
-          guard let self = self else { return }
+          guard let self = self else {
+            completionHandler()
+            return
+          }
           let template = ListTemplateBuilder.buildListTemplate(for: .searchResults(results: results))
           completionHandler()
           self.pushTemplate(template, animated: true)
@@ -1239,11 +1303,13 @@ extension CarPlayService: CPListTemplateDelegate {
         completionHandler()
       case CPConstants.ListItemType.searchResults where userInfo.metadata is SearchResultInfo:
         let metadata = userInfo.metadata as! SearchResultInfo
-        preparePreviewForSearchResults(selectedRow: metadata.originalRow)
+        preparePreviewForSearchResults(metadata)
         completionHandler()
       default:
         completionHandler()
       }
+    } else {
+      completionHandler()
     }
   }
 }
@@ -1258,13 +1324,7 @@ extension CarPlayService: CPSearchTemplateDelegate {
       return
     }
     searchService.searchText(self.searchText, forInputLocale: locale, completionHandler: { results in
-      var items = [CPListItem]()
-      for object in results {
-        let item = CPListItem(text: object.title, detailText: object.address)
-        item.userInfo = ListItemInfo(type: CPConstants.ListItemType.searchResults,
-                                     metadata: SearchResultInfo(originalRow: object.originalRow))
-        items.append(item)
-      }
+      let items = ListTemplateBuilder.buildSearchResultItems(results, configureHandlers: false)
       completionHandler(items)
     })
   }
@@ -1273,7 +1333,7 @@ extension CarPlayService: CPSearchTemplateDelegate {
     searchService?.saveLastQuery()
     if let info = item.userInfo as? ListItemInfo,
       let metadata = info.metadata as? SearchResultInfo {
-      preparePreviewForSearchResults(selectedRow: metadata.originalRow)
+      preparePreviewForSearchResults(metadata)
     }
     completionHandler()
   }
@@ -1314,13 +1374,15 @@ extension CarPlayService: CarPlayRouterListener {
     if let carplayVC = carplayVC {
       carplayVC.updateCurrentSpeed(routeInfo.speedMps, speedLimitMps: routeInfo.speedLimitMps)
     }
-    guard let router = router,
-      let template = rootMapTemplate else {
-        return
+    guard let template = rootMapTemplate else {
+      return
     }
-    router.updateEstimates()
     if let estimates = createEstimates(routeInfo: routeInfo) {
-      template.updateEstimates(estimates, for: trip)
+      let snapshot = CarPlayEstimatesSnapshot(targets: [template, trip], estimates: estimates)
+      if snapshot != lastTripEstimates {
+        template.updateEstimates(estimates, for: trip)
+        lastTripEstimates = snapshot
+      }
     }
     trip.routeChoices.first?.userInfo = routeInfo
   }
@@ -1393,13 +1455,11 @@ extension CarPlayService: MWMTextToSpeechObserver {
 
 // MARK: - Alerts and Trip Previews
 extension CarPlayService {
-  func preparePreviewForSearchResults(selectedRow row: Int) {
-    var results = searchService?.lastResults ?? []
-    if let currentItemIndex = results.firstIndex(where: { $0.originalRow == row }) {
-      let item = results.remove(at: currentItemIndex)
-      results.insert(item, at: 0)
-    } else {
-      results.insert(MWMCarPlaySearchResultObject(forRow: row), at: 0)
+  func preparePreviewForSearchResults(_ selection: SearchResultInfo) {
+    guard let results = selection.selectedFirstResults else {
+      LOG(.warning,
+          "[CarPlaySearch] Ignoring selection with invalid snapshot index=\(selection.selectedIndex) count=\(selection.results.count)")
+      return
     }
     if let router = router,
       let startPoint = MWMRoutePoint(lastLocationAndType: .start,
@@ -1466,6 +1526,7 @@ extension CarPlayService {
     let estimates = CPTravelEstimates(distanceRemaining: measurement,
                                       timeRemaining: -1)
     template.updateEstimates(estimates, for: trip)
+    lastTripEstimates = nil
   }
 
   func showRerouteAlert(trips: [CPTrip]) {

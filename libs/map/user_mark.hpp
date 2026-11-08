@@ -49,54 +49,30 @@ public:
    */
   enum Type : uint32_t
   {
-    /**
-     * `Bookmark`
-     */
+    /** `Bookmark` */
     BOOKMARK,  // Should always be the first one
-    /**
-     * `ApiMarkPoint`
-     */
+    /** `ApiMarkPoint` */
     API,
-    /**
-     * `SearchMarkPoint`
-     */
+    /** `SearchMarkPoint` */
     SEARCH,
-    /**
-     * `StaticMarkPoint`
-     */
+    /** `StaticMarkPoint` */
     STATIC,
-    /**
-     * `RouteMarkPoint`
-     */
+    /** `RouteMarkPoint` */
     ROUTING,
-    /**
-     * `SpeedCameraMark`
-     */
+    /** `SpeedCameraMark` */
     SPEED_CAM,
-    /**
-     * `RoadWarningMark`
-     */
+    /** `RoadWarningMark` */
     ROAD_WARNING,
-    /**
-     * `TransitMark`
-     */
+    /** `TransitMark` */
     TRANSIT,
     LOCAL_ADS,
-    /**
-     * `TrackInfoMark`
-     */
+    /** `TrackInfoMark` */
     TRACK_INFO,
-    /**
-     * `TrackSelectionMark`
-     */
+    /** `TrackSelectionMark` */
     TRACK_SELECTION,
-    /**
-     * `DebugMarkPoint`
-     */
+    /** `DebugMarkPoint` */
     DEBUG_MARK,  // Plain "DEBUG" results in a name collision.
-    /**
-     * `ColoredMarkPoint`
-     */
+    /** `ColoredMarkPoint` */
     COLORED,
     TRAFFIC_LIGHT,
     USER_MARK_TYPES_COUNT,

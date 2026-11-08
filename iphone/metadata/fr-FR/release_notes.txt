@@ -1,7 +1,13 @@
-• Ajout du support du tableau de bord CarPlay
-• Ajout du paramètre pour un URL de serveur de cartes personnalisé
-• Choix du mode de transport rendu accessible, activation d'options supplémentaires avec un appui double/long
-• Affichage des étoiles des hôtels/restaurants comme du texte 
-• Display hotel/restaurant stars as text
-• Ajout des magasins de location et de prêt d'outils, des panneaux routiers de Roumanie et du Maroc, et correction des panneaux routiers de Chypre et Augsburg.
-• Données OpenStreetMap du 4 Octobre et mises à jour hebdomadaires.
+• Réécriture du guidage CarPlay : résoud certains bugs (lags, prochain tournant annonçant la mauvaise direction ou fonctionnant uniquement avec le TTS allumé)
+• Résolution d'un ancien problème de crash dans les résultats CarPlay.
+• Support de voitures qui limitent l'affichage de listes pendant la conuite.
+• Correction de l'icône de paramètres invisible sur iOS 27 dans CarPlay
+• Correction de la position de la flèche quand la navigation démarre depuis le tableau de bord puis change à la vue principale.
+• Meilleur contraste en thème sombre : textes et routes plus lisibles
+• Ajout des zones à risque
+• Restauration végétarienne : précision de "en option" ou "uniquement"
+• Plus de message "Allez tout droit" en traversant de grandes routes
+• Séparation de la Tanzanie, du Vietnam, de la Malaisie et du Guandong (Chine) en plus petites cartes
+• Le mot-clé "?reviews" recherche parmi les endroits avec des critiques
+• Affichage du type de point d'intérêt, des magasins de deuxième main, des salles de concert, des cafeterias et plus
+• Données OpenStreetMap du 5 Novembre et mises à jour hebdomadaires

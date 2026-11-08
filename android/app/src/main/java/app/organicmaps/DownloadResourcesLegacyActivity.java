@@ -34,8 +34,10 @@ import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.downloader.CountryItem;
 import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.location.LocationListener;
+import app.organicmaps.sdk.location.LocationHelper;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.ConnectionState;
+import app.organicmaps.sdk.util.LocationUtils;
 import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
@@ -94,6 +96,9 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
       if (TextUtils.isEmpty(mCurrentCountry))
       {
         mCurrentCountry = null;
+        mChbDownloadCountry.setChecked(false);
+        mChbDownloadCountry.setEnabled(false);
+        mChbDownloadCountry.setClickable(false);
         return;
       }
 
@@ -109,6 +114,8 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
           checkBoxText = String.format(getString(R.string.download_country_ask), item.name, fileSizeString);
 
         mChbDownloadCountry.setText(checkBoxText);
+        mChbDownloadCountry.setEnabled(true);
+        mChbDownloadCountry.setClickable(true);
         mChbDownloadCountry.animate()
                 .alpha(1f)
                 .translationY(0f)
@@ -195,6 +202,9 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
     // Set download button hidden so it can be animated in
     mChbDownloadCountry.setAlpha(0f);
     mChbDownloadCountry.setTranslationY(20f);
+    mChbDownloadCountry.setChecked(false);
+    mChbDownloadCountry.setEnabled(false);
+    mChbDownloadCountry.setClickable(false);
 
     if (prepareFilesDownload(false))
     {
@@ -227,9 +237,18 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
   @Override
   protected void onResume()
   {
-    super.onResume();
-    if (!isFinishing())
-      MwmApplication.from(this).getLocationHelper().addListener(mLocationListener);
+  super.onResume();
+  if (isFinishing())
+    return;
+
+  final LocationHelper helper = MwmApplication.from(this).getLocationHelper();
+  if (!helper.isActive() && LocationUtils.checkLocationPermission(this))
+  {
+    if (!helper.isInFirstRun())
+      helper.onEnteredIntoFirstRun();
+    helper.start();
+  }
+  helper.addListener(mLocationListener);
   }
 
   @Override

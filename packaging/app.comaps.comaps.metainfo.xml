@@ -131,8 +131,23 @@
 
 
   <releases>
+    <release version="2026.11.07" date="2026-11-07">
+     <url type="details">https://comaps.app/latest/</url>
+     <description><ul>
+<li>Improve dark mode contrast: more legible text and roads</li>
+<li>Add Hazardous Areas</li>
+<li>Distinguish Vegetarian "options" vs "only"</li>
+<li>Stop saying "go straight" when crossing large roads</li>
+<li>Split Tanzania, Vietnam, Malaysia, China Guangdong into smaller maps</li>
+<li>“?reviews” search keyword, which finds places that have reviews</li>
+<li>Show second-hand information on place page, added music venues, cafeterias and more</li>
+<li>Fix errors on map updates on macOS</li>
+<li>Fix crash on search</li>
+<li>OpenStreetMap data as of November 5 and further weekly updates</li>
+     </ul></description>
+    </release>
     <release version="2026.10.05" date="2026-10-05">
-	    <url type="details">https://comaps.app/latest</url>
+     <url type="details">https://codeberg.org/comaps/comaps/releases/tag/v2026.10.05-19</url>
      <description><ul>
 <li>Add link to add new reviews on place page</li>
 <li>Added tool hire shops and tool libraries, Romania and Morocco road shields and fixed Germany Augsburg and Cyprus A-road ones</li>

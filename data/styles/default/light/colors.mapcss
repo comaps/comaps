@@ -107,12 +107,14 @@
 @hospital: #FFDAD6;
 @industrial: #E8E8E8;
 @construction_area: #E4E3E6;
+/* TODO: Sport varibles need to be renamed according to purpose */
 @sport0: #F5EED3;
 @sport1: #E8E8C3;
 @sport2: #D4E796;
 @playground: #E4E7A2;
 @parking: #EBF0EF;
 @military: #DE2D28;
+@hazard: #DE2D28;
 @prison: #727272;
 @farmland: #E3DEAC;
 @farmyard: #E6D6AF;

@@ -31,4 +31,8 @@
     <string name="months_ago">hai %s meses</string>
     <string name="year_ago">hai %s ano</string>
     <string name="years_ago">hai %s anos</string>
+    <string name="accessibility_map_content_description_collapsed">Mapa. Desliza cara arriba ou abaixo cun dedo e expande para explorar co tacto.</string>
+    <string name="accessibility_map_content_description_expanded">Mapa. Desliza e mantén para explorar co tacto. Os lugares leranse confome o teu dedo os alcance. Para parar, desliza arriba ou abaixo cun dedo e peche.</string>
+    <string name="accessibility_map_action_expand_label">explorar tactilmente</string>
+    <string name="accessibility_map_action_collapse_label">para a exploración táctil</string>
 </resources>

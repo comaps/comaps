@@ -215,10 +215,12 @@ class StageMwm(Stage):
                 logger.info(f'Publishing generated maps to: {symlink_path}')
 
             with ThreadPoolExecutor(settings.THREADS_COUNT) as pool:
-                pool.map(
+                # Consume the iterator, otherwise a failed country looks like a success.
+                for _ in pool.map(
                     lambda c: StageMwm.make_mwm(c, env),
                     tmp_mwm_names
-                )
+                ):
+                    pass
         else:
             # TODO: list all countries that were not found?
             logger.warning(f'There are no feature data .mwm.tmp country files to process in {env.paths.intermediate_tmp_path}!')

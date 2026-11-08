@@ -2,22 +2,22 @@
 <resources>
     <string name="mb">MB</string>
     <string name="gb">GB</string>
-    <string name="core_my_position">Mia Pozicio</string>
-    <string name="core_my_places">Miaj Lokoj</string>
-    <string name="maps_storage_internal">Interna privata stokejo</string>
-    <string name="maps_storage_shared">Interna komuna konservejo</string>
+    <string name="core_my_position">Mia loko</string>
+    <string name="core_my_places">Miaj lokoj</string>
+    <string name="maps_storage_internal">Interna privata stokado</string>
+    <string name="maps_storage_shared">Interna komuna stokado</string>
     <string name="maps_storage_removable">SD-karto</string>
-    <string name="maps_storage_external">Ekstera komuna konservejo</string>
+    <string name="maps_storage_external">Ekstera komuna stokado</string>
     <string name="category_wifi">Wi-Fi</string>
     <string name="postal_code">Poŝtkodo</string>
-    <string name="core_placepage_unknown_place">Maploko</string>
+    <string name="core_placepage_unknown_place">Mappunkto</string>
     <string name="m">m</string>
     <string name="km">km</string>
     <string name="mi">mi</string>
     <string name="ft">ft</string>
     <string name="core_exit">Elirejo</string>
     <string name="core_entrance">Enirejo</string>
-    <string name="subway_data_unavailable">La mapo de la metroo ne estas disponebla</string>
+    <string name="subway_data_unavailable">La metromapo ne estas disponebla</string>
     <string name="public_access">Publika aliro</string>
     <string name="limited_access">Limigita aliro</string>
     <string name="access_rules_author_only">Reta redaktado</string>
@@ -31,4 +31,8 @@
     <string name="years_ago">antaŭ %s jaroj</string>
     <string name="not_shared">Privata</string>
     <string name="yesterday">Hieraŭ</string>
+    <string name="accessibility_map_content_description_collapsed">Mapo. Glitu supren aŭ malsupren per unu fingro kaj vastigu por esplori per tuŝo.</string>
+    <string name="accessibility_map_action_expand_label">esplori per tuŝo</string>
+    <string name="accessibility_map_action_collapse_label">fini tuŝesploradon</string>
+    <string name="accessibility_map_content_description_expanded">Mapo. Frapu kaj tenu por esplori per tuŝo. La lokoj estos laŭtlegataj dum via fingro atingas ilin. Por ĉesi, svingu supren aŭ malsupren per unu fingro kaj fermu.</string>
 </resources>

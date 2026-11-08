@@ -1400,7 +1400,7 @@
     "@cuisine_all_vegetarian": {
         "defaultMessage": "Ẩm thực chay"
     },
-    "cuisine-vegan|@cuisine_all_vegetarian": {
+    "cuisine-vegan|cuisine-vegan_only|@cuisine_all_vegetarian": {
         "defaultMessage": "Ẩm thực chay"
     }
 }

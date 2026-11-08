@@ -1545,4 +1545,13 @@
     <string name="type.building.abandoned">Opuštěná budova</string>
     <string name="type.shop.tool_hire">Půjčovna nářadí</string>
     <string name="type.amenity.parking.customers">Parkoviště pro zákazníky</string>
+    <string name="type.barrier.bus_trap">Zábrana průjezdná pouze autobusem</string>
+    <string name="type.barrier.sump_buster">Zábrana k zastavení aut</string>
+    <string name="type.second_hand.only">Pouze second-hand</string>
+    <string name="type.second_hand.yes">Možnosti second-handu</string>
+    <string name="type.second_hand.no">Žádné možnosti second-handu</string>
+    <string name="type.amenity.fast_food.cafeteria">Bufet</string>
+    <string name="type.shop.games">Obchod s hrami</string>
+    <string name="type.amenity.music_venue">Koncertní sál</string>
+    <string name="type.shop.swimming_pool">Obchod s bazény</string>
 </resources>

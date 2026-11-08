@@ -24,6 +24,10 @@
 
 namespace routing
 {
+class RouteWeight;
+
+using NumMwmId = std::uint16_t;
+
 /**
  * @brief Whether a maneuver between two segments is a U turn.
  *
