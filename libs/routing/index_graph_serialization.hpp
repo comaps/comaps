@@ -17,8 +17,9 @@
 
 #include <limits>
 #include <type_traits>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -28,7 +29,8 @@ public:
   IndexGraphSerializer() = delete;
 
   template <class Sink>
-  static void Serialize(IndexGraph const & graph, std::unordered_map<uint32_t, VehicleMask> const & masks, Sink & sink)
+  static void Serialize(IndexGraph const & graph, ankerl::unordered_dense::map<uint32_t, VehicleMask> const & masks,
+                        Sink & sink)
   {
     Header header(graph);
     JointIdEncoder jointEncoder;
@@ -281,7 +283,7 @@ private:
 
   private:
     Joint::Id m_count = 0;
-    std::unordered_map<Joint::Id, Joint::Id> m_convertedIds;
+    ankerl::unordered_dense::map<Joint::Id, Joint::Id> m_convertedIds;
   };
 
   class JointIdDecoder final
@@ -367,7 +369,7 @@ private:
 
     void AddRoad(uint32_t featureId) { m_featureIds.push_back(featureId); }
     void SortRoads() { sort(m_featureIds.begin(), m_featureIds.end()); }
-    void PreSerialize(IndexGraph const & graph, std::unordered_map<uint32_t, VehicleMask> const & masks,
+    void PreSerialize(IndexGraph const & graph, ankerl::unordered_dense::map<uint32_t, VehicleMask> const & masks,
                       JointIdEncoder & jointEncoder);
 
     template <class Sink>
@@ -383,10 +385,10 @@ private:
     std::vector<uint8_t> m_buffer;
   };
 
-  static VehicleMask GetRoadMask(std::unordered_map<uint32_t, VehicleMask> const & masks, uint32_t featureId);
+  static VehicleMask GetRoadMask(ankerl::unordered_dense::map<uint32_t, VehicleMask> const & masks, uint32_t featureId);
   static uint32_t ConvertJointsNumber(uint32_t jointsNumber);
   static void PrepareSectionSerializers(IndexGraph const & graph,
-                                        std::unordered_map<uint32_t, VehicleMask> const & masks,
+                                        ankerl::unordered_dense::map<uint32_t, VehicleMask> const & masks,
                                         std::vector<SectionSerializer> & sections);
 };
 }  // namespace routing
