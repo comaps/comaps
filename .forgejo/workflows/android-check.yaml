@@ -55,6 +55,15 @@ jobs:
           path: data/world_mwm
           key: world-mwm
 
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches/modules-2
+            ~/.gradle/wrapper
+          key: gradle-${{ hashFiles('android/gradle/libs.versions.toml', 'android/**/*.gradle.kts', 'android/gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: gradle-
+
       - name: Lint
         shell: bash
         working-directory: android
@@ -94,6 +103,15 @@ jobs:
         with:
           path: data/world_mwm
           key: world-mwm
+
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches/modules-2
+            ~/.gradle/wrapper
+          key: gradle-${{ hashFiles('android/gradle/libs.versions.toml', 'android/**/*.gradle.kts', 'android/gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: gradle-
 
       - name: Compile
         shell: bash
