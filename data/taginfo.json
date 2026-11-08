@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20261103T200418Z",
+    "data_updated": "20261108T084652Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -4623,6 +4623,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/stationery_shop-m.svg"
         },
         {
+            "description": "shop=storage_rental",
+            "key": "shop",
+            "value": "storage_rental",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/rental-m.svg"
+        },
+        {
             "description": "shop=supermarket",
             "key": "shop",
             "value": "supermarket",
@@ -5569,6 +5575,11 @@
             "description": "boundary=administrative | color: (light): #63635C, color: (dark): #555555",
             "key": "boundary",
             "value": "administrative"
+        },
+        {
+            "description": "boundary=hazard | fill-color: (light): #DE2D28, fill-color: (dark): #B71C1C",
+            "key": "boundary",
+            "value": "hazard"
         },
         {
             "description": "boundary=national_park | color: (light): #7B8F35, color: (dark): #705020",
@@ -8798,11 +8809,6 @@
             "description": "Pet Grooming",
             "key": "shop",
             "value": "pet_grooming"
-        },
-        {
-            "description": "Storage Rental",
-            "key": "shop",
-            "value": "storage_rental"
         },
         {
             "description": "Tailor",
