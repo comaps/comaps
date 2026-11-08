@@ -90,7 +90,9 @@ private:
   /**
    * @brief Regions required for building the last route.
    *
-   * This member is cleared by `GenerateAbsentRegions()` and populated by `GetAllRegions()`.
+   * This is a cached list of regions, populated by `GetAllRegions()` when there is a router thread
+   * and used by subsequent calls to that function until a new router thread is started.
+   * Calling `GenerateAbsentRegions()` clears this member.
    */
   RegionsSetT m_regions;
 };
