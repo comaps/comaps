@@ -519,11 +519,11 @@ double RoutingSession::GetCompletionPercent() const
   return percent;
 }
 
-void RoutingSession::GetAllRegions(std::set<std::string> & countries)
+AbsentRegionsFinder::RegionsSetT RoutingSession::GetAllRegions()
 {
   if (!m_router)
-    return;
-  m_router->GetAllRegions(countries);
+    return {};
+  return m_router->GetAllRegions();
 }
 
 std::vector<double> RoutingSession::GetIntermediateStopsProgress() const

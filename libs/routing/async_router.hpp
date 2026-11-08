@@ -1,5 +1,6 @@
 #pragma once
 
+#include "routing/absent_regions_finder.hpp"
 #include "routing/checkpoints.hpp"
 #include "routing/router.hpp"
 #include "routing/router_delegate.hpp"
@@ -20,8 +21,6 @@
 
 namespace routing
 {
-class AbsentRegionsFinder;
-
 /**
  * @brief The AsyncRouter class is a wrapper class to run routing routines in a different thread.
  *
@@ -67,9 +66,9 @@ public:
    *
    * Waits for the routing thread to finish and returns the list of MWM names from it.
    *
-   * @param countries Receives the list of MWM names.
+   * @return the list of MWM names.
    */
-  void GetAllRegions(std::set<std::string> & countries);
+  AbsentRegionsFinder::RegionsSetT GetAllRegions();
 
 private:
   /// Worker thread function

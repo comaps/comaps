@@ -12,6 +12,8 @@
 
 #include "platform/platform.hpp"
 
+#include "routing/absent_regions_finder.hpp"
+
 #include "traffxml/traff_model_xml.hpp"
 
 #include "base/assert.hpp"
@@ -236,7 +238,7 @@ void TrafficManager::OnChangeRoutingSessionState(routing::SessionState previous,
    * There may be cases where we first calculate the route, then subscribe to the regions and only
    * then get notified about a traffic problem on the route, requiring us to recalculate.
    */
-  std::set<std::string> mwmNames;
+  routing::AbsentRegionsFinder::RegionsSetT mwmNames;
   if (current == routing::SessionState::RouteNotStarted
       || current == routing::SessionState::OnRoute
       || current == routing::SessionState::RouteNoFollowing)
@@ -248,7 +250,7 @@ void TrafficManager::OnChangeRoutingSessionState(routing::SessionState previous,
      * Note that this method is called before the state is updated internally, thus `GetAllRegions()`
      * and any other functions would still have `previous` as their state.
      */
-    m_routingSession.GetAllRegions(mwmNames);
+    mwmNames = m_routingSession.GetAllRegions();
   else if (current == routing::SessionState::NoValidRoute)
     mwmNames.clear();
   else

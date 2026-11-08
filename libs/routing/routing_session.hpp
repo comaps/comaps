@@ -1,5 +1,6 @@
 #pragma once
 
+#include "routing/absent_regions_finder.hpp"
 #include "routing/async_router.hpp"
 #include "routing/checkpoints.hpp"
 #include "routing/position_accumulator.hpp"
@@ -267,9 +268,9 @@ public:
    *
    * Waits for the `RegionsRouter` thread to finish and returns the list of MWM names from it.
    *
-   * @param countries Receives the list of MWM names.
+   * @return the list of MWM names.
    */
-  void GetAllRegions(std::set<std::string> & countries);
+  AbsentRegionsFinder::RegionsSetT GetAllRegions();
 
 private:
   struct DoReadyCallback
