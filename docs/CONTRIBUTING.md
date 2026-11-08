@@ -24,6 +24,8 @@ CoMaps is made by a growing group of volunteers, and to ensure that we all can w
 * [Code of Conduct](https://codeberg.org/comaps/Governance/src/branch/main/CODE_OF_CONDUCT.md), for how we want to interact with each other
 * [AI usage guidelines](https://codeberg.org/comaps/Governance/src/branch/main/AI_USAGE.md), for when/how the use of AI is appropriate when contributing to CoMaps
 
+CoMaps has a community-oriented structure. As such, in general there are not formal roles and assignments. So if you want to work on something, go for it! If you want to for example, join the design team or help with issue triage, just ask.
+
 ### Bug Reports and Feature Requests
 
 [Submit an issue](https://codeberg.org/comaps/comaps/issues) and describe your feature idea or report a bug.
@@ -83,7 +85,7 @@ You can also contribute in [other ways](https://codeberg.org/comaps/Governance/s
 
 ## Submitting your changes
 
-All contributions to CoMaps repositories should be submitted via
+All code contributions to CoMaps repositories should be submitted via
 [pull requests](https://forgejo.org/docs/latest/user/pull-requests-and-git-flow/)
 and signed-off with the [Developers Certificate of Origin](#legal-requirements).
 
