@@ -24,6 +24,10 @@
 
 namespace routing
 {
+class RouteWeight;
+
+using NumMwmId = std::uint16_t;
+
 /**
  * @brief Whether a maneuver between two segments is a U turn.
  *
@@ -38,10 +42,6 @@ namespace routing
  *
  * @return True if the maneuver is a U turn on the same segment, false otherwise.
  */
-class RouteWeight;
-
-using NumMwmId = std::uint16_t;
-
 bool IsUTurn(Segment const & u, Segment const & v);
 
 enum class WorldGraphMode;
