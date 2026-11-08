@@ -1,0 +1,45 @@
+name: Setup Gradle
+description: Restores/saves Gradle dependencies from/to cache and downloads the Gradle distribution, preferring the CoMaps CDN for large downloads
+
+inputs:
+  working-directory:
+    description: Directory containing gradlew
+    default: android
+
+runs:
+  using: composite
+  steps:
+    # Maven Central rate limits runners that fetch every dependency on each run.
+    - name: Cache Gradle dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches/modules-2
+          ~/.gradle/wrapper
+        key: gradle-${{ hashFiles('android/gradle/libs.versions.toml', 'android/**/*.gradle.kts', 'android/gradle/wrapper/gradle-wrapper.properties') }}
+        restore-keys: gradle-
+
+    # GitHub and Maven Central return 5xx/429 to our runners at times, so prefer copies on the CoMaps CDN.
+    # The wrapper checks distributionSha256Sum, so the CDN can't swap in a different Gradle.
+    - name: Download Gradle
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      run: |
+        init_dir="${GRADLE_USER_HOME:-$HOME/.gradle}/init.d"
+        mkdir -p "$init_dir"
+        cp "${{ github.action_path }}/comaps-cdn.init.gradle" "$init_dir/"
+        props=gradle/wrapper/gradle-wrapper.properties
+        version=$(sed -n 's/^distributionUrl=.*gradle-\(.*\)-bin\.zip$/\1/p' "$props")
+        urls=(
+          "https://cdn-us-1.comaps.app/dependencies/gradle-$version-bin.zip"
+          "$(sed -n 's/^distributionUrl=//p' "$props" | sed 's/\\:/:/')"
+        )
+        for round in 1 2 3; do
+          for url in "${urls[@]}"; do
+            echo "Trying $url"
+            sed -i "s|^distributionUrl=.*|distributionUrl=$url|" "$props"
+            ./gradlew --version && exit 0
+          done
+          sleep $((round * 20))
+        done
+        exit 1

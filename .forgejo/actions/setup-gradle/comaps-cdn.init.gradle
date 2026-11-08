@@ -1,0 +1,17 @@
+// Maven Central rate limits our runners on large downloads, so CI fetches these from the CoMaps CDN.
+// Pinned to versions uploaded to the CDN, other versions keep coming from the regular repositories.
+beforeSettings { settings ->
+  settings.dependencyResolutionManagement.repositories {
+    exclusiveContent {
+      forRepository {
+        ivy {
+          name = 'CoMapsCdn'
+          url = 'https://cdn-us-1.comaps.app/dependencies'
+          patternLayout { artifact '[artifact]-[revision].[ext]' }
+          metadataSources { artifact() }
+        }
+      }
+      filter { includeVersion 'org.robolectric', 'nativeruntime-dist-compat', '1.0.18' }
+    }
+  }
+}
