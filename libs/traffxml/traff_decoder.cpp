@@ -252,7 +252,7 @@ void TraffDecoder::DecodeMessage(traffxml::TraffMessage & message)
   // Decode events into consolidated traffic impact
   m_trafficImpact = message.GetTrafficImpact();
 
-  LOG(LINFO, ("    Impact: ", m_trafficImpact));
+  LOG(LDEBUG, ("    Impact: ", m_trafficImpact));
 
   // Skip further processing if there is no impact
   if (!m_trafficImpact)
@@ -273,12 +273,12 @@ void TraffDecoder::DecodeMessage(traffxml::TraffMessage & message)
     {
       // cache already has a message with reusable location
 
-      LOG(LINFO, ("    Location for message", message.m_id, "can be reused from cache"));
+      LOG(LDEBUG, ("    Location for message", message.m_id, "can be reused from cache"));
 
       std::optional<traffxml::TrafficImpact> cachedImpact = it->second.GetTrafficImpact();
       if (cachedImpact.has_value() && cachedImpact.value() == m_trafficImpact.value())
       {
-        LOG(LINFO, ("    Impact for message", message.m_id, "unchanged, reusing cached coloring"));
+        LOG(LDEBUG, ("    Impact for message", message.m_id, "unchanged, reusing cached coloring"));
 
         // same impact, m_decoded can be reused altogether
         message.m_decoded = it->second.m_decoded;
@@ -1143,51 +1143,66 @@ bool RoutingTraffDecoder::InitRouter()
   return true;
 }
 
-// Copied from AsyncRouter
+// Based on AsyncRouter::LogCode
 // static
-void RoutingTraffDecoder::LogCode(routing::RouterResultCode code, double const elapsedSec)
+void RoutingTraffDecoder::LogResult(routing::RouterResultCode code, std::string const & messageId,
+                                    bool backwards, std::shared_ptr<routing::Route> route,
+                                    double const elapsedSec)
 {
   switch (code)
   {
     case routing::RouterResultCode::StartPointNotFound:
-      LOG(LWARNING, ("Can't find start or end node"));
+      LOG(LWARNING, ("Can't find start or end node for", messageId,
+          (backwards ? "(backward)" : "(forward)")));
       break;
     case routing::RouterResultCode::EndPointNotFound:
-      LOG(LWARNING, ("Can't find end point node"));
+      LOG(LWARNING, ("Can't find end point node for", messageId,
+          (backwards ? "(backward)" : "(forward)")));
       break;
     case routing::RouterResultCode::PointsInDifferentMWM:
-      LOG(LWARNING, ("Points are in different MWMs"));
+      LOG(LWARNING, ("Points for", messageId,
+          (backwards ? "(backward)" : "(forward)"), "are in different MWMs"));
       break;
     case routing::RouterResultCode::RouteNotFound:
-      LOG(LWARNING, ("Route not found"));
+      LOG(LWARNING, ("Route not found for", messageId,
+          (backwards ? "(backward)" : "(forward)")));
       break;
     case routing::RouterResultCode::RouteFileNotExist:
       LOG(LWARNING, ("There is no routing file"));
       break;
     case routing::RouterResultCode::NeedMoreMaps:
       LOG(LINFO,
-          ("Routing can find a better way with additional maps, elapsed seconds:", elapsedSec));
+          ("Decoder can find a better way for", messageId,
+              (backwards ? "(backward)" : "(forward)"),
+              "with additional maps, elapsed seconds:", elapsedSec));
       break;
     case routing::RouterResultCode::Cancelled:
-      LOG(LINFO, ("Route calculation cancelled, elapsed seconds:", elapsedSec));
+      LOG(LINFO, ("Decoding", messageId,
+          (backwards ? "(backward)" : "(forward)"),
+          "cancelled, elapsed seconds:", elapsedSec));
       break;
     case routing::RouterResultCode::NoError:
-      LOG(LINFO, ("Route found, elapsed seconds:", elapsedSec));
+      LOG(LINFO, ("Decoded", messageId,
+          (backwards ? "(backward)," : "(forward),"),
+          "length:", route->GetTotalDistanceMeters(), "meters,",
+          "elapsed seconds:", elapsedSec));
       break;
     case routing::RouterResultCode::NoCurrentPosition:
       LOG(LINFO, ("No current position"));
       break;
     case routing::RouterResultCode::InconsistentMWMandRoute:
-      LOG(LINFO, ("Inconsistent mwm and route"));
+      LOG(LINFO, ("Inconsistent mwm and route for", messageId));
       break;
     case routing::RouterResultCode::InternalError:
-      LOG(LINFO, ("Internal error"));
+      LOG(LINFO, ("Internal error decoding", messageId,
+          (backwards ? "(backward)" : "(forward)")));
       break;
     case routing::RouterResultCode::FileTooOld:
       LOG(LINFO, ("File too old"));
       break;
     case routing::RouterResultCode::IntermediatePointNotFound:
-      LOG(LWARNING, ("Can't find intermediate point node"));
+      LOG(LWARNING, ("Can't find intermediate point node for", messageId,
+          (backwards ? "(backward)" : "(forward)")));
       break;
     case routing::RouterResultCode::TransitRouteNotFoundNoNetwork:
       LOG(LWARNING, ("No transit route is found because there's no transit network in the mwm of "
@@ -1197,10 +1212,13 @@ void RoutingTraffDecoder::LogCode(routing::RouterResultCode code, double const e
       LOG(LWARNING, ("No transit route is found because pedestrian way is too long"));
       break;
     case routing::RouterResultCode::RouteNotFoundRedressRouteError:
-      LOG(LWARNING, ("Route not found because of a redress route error"));
+      LOG(LWARNING, ("Route not found because of a redress route error for", messageId,
+          (backwards ? "(backward)" : "(forward)")));
       break;
   case routing::RouterResultCode::HasWarnings:
-      LOG(LINFO, ("Route has warnings, elapsed seconds:", elapsedSec));
+      LOG(LINFO, ("Route for", messageId,
+          (backwards ? "(backward)" : "(forward)"),
+          "has warnings, elapsed seconds:", elapsedSec));
       break;
   }
 }
@@ -1531,7 +1549,7 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage const &
 
     try
     {
-      LOG(LINFO, ("Calculating the route of direct length", checkpoints.GetSummaryLengthBetweenPointsMeters(),
+      LOG(LDEBUG, ("Decoding location of direct length", checkpoints.GetSummaryLengthBetweenPointsMeters(),
                   "m. checkpoints:", checkpoints, "startDirection:", startDirection, "router name:", m_router->GetName()));
 
       // Run basic request.
@@ -1539,13 +1557,12 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage const &
                                       delegate, *route);
       m_router->SetGuides({});
       elapsedSec = timer.ElapsedSeconds(); // routing time
-      LogCode(code, elapsedSec);
-      LOG(LINFO, ("ETA:", route->GetTotalTimeSec(), "sec."));
+      LogResult(code, message.m_id, backwards, route, elapsedSec);
     }
     catch (RootException const & e)
     {
       code = routing::RouterResultCode::InternalError;
-      LOG(LERROR, ("Exception happened while calculating route:", e.Msg()));
+      LOG(LERROR, ("Exception happened while decoding location:", e.Msg()));
       return;
     }
   }

@@ -176,6 +176,8 @@ protected:
    * In decoding mode, the router considers all edges within the given radius, fenced off or not,
    * when snapping endpoints to edges.
    *
+   * Logging is less verbose in decoding mode to avoid cluttering the log.
+   *
    * Future versions may introduce additional behavior differences.
    */
   virtual Mode GetMode() const { return Mode::Navigation; }

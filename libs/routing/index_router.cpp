@@ -666,7 +666,8 @@ RouterResultCode IndexRouter::DoCalculateRoute(Checkpoints const & checkpoints, 
   if (redressResult != RouterResultCode::NoError)
     return redressResult;
 
-  LOG(LINFO, ("Route length:", route.GetTotalDistanceMeters(), "meters. ETA:", route.GetTotalTimeSec(), "seconds."));
+  if (GetMode() == Mode::Navigation)
+    LOG(LINFO, ("Route length:", route.GetTotalDistanceMeters(), "meters. ETA:", route.GetTotalTimeSec(), "seconds."));
 
   m_lastRoute = make_unique<SegmentedRoute>(checkpoints.GetStart(), checkpoints.GetFinish(), route.GetSubroutes());
   for (Segment const & segment : segments)
@@ -714,7 +715,8 @@ RouterResultCode IndexRouter::CalculateSubroute(Checkpoints const & checkpoints,
   SetupAlgorithmMode(starter, guidesActive);
 
   WorldGraphMode const mode = starter.GetGraph().GetMode();
-  LOG(LINFO, ("Routing in mode:", mode));
+  if (GetMode() == Mode::Navigation)
+    LOG(LINFO, ("Routing in mode:", mode));
 
   base::ScopedTimerWithLog timer("Route build");
   switch (mode)
@@ -1112,7 +1114,8 @@ unique_ptr<WorldGraph> IndexRouter::MakeWorldGraph()
   /// @DebugNote
   // Add avoid roads here for debug purpose.
   // routingOptions.Add(RoutingOptions::Option::Motorway);
-  LOG(LINFO, ("Avoid next roads:", routingOptions));
+  if (GetMode() == Mode::Navigation)
+    LOG(LINFO, ("Avoid next roads:", routingOptions));
 
   auto crossMwmGraph = make_unique<CrossMwmGraph>(
       m_numMwmIds, m_numMwmTree, m_vehicleType == VehicleType::Transit ? VehicleType::Pedestrian : m_vehicleType,

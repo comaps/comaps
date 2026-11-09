@@ -159,8 +159,9 @@ IndexGraphLoaderImpl::GraphPtrT IndexGraphLoaderImpl::CreateIndexGraph(NumMwmId 
     graph->SetCurrentTimeGetter(m_currentTimeGetter);
     DeserializeIndexGraph(*value, m_vehicleType, *graph);
 
-    LOG(LINFO,
-        (ROUTING_FILE_TAG, "section for", value->GetCountryFileName(), "loaded in", timer.ElapsedSeconds(), "seconds"));
+    if (m_estimator->GetMode() == EdgeEstimator::Mode::Navigation)
+      LOG(LINFO,
+          (ROUTING_FILE_TAG, "section for", value->GetCountryFileName(), "loaded in", timer.ElapsedSeconds(), "seconds"));
     return graph;
   }
   catch (RootException const & ex)

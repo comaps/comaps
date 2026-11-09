@@ -672,7 +672,9 @@ protected:
   void TruncateRouteToRamps(std::vector<routing::RouteSegment> & rsegments, Ramps ramps) const;
 
 private:
-  static void LogCode(routing::RouterResultCode code, double const elapsedSec);
+  static void LogResult(routing::RouterResultCode code, std::string const & messageId,
+                        bool backwards, std::shared_ptr<routing::Route> route,
+                        double const elapsedSec);
 
   /**
    * @brief Populates the list of candidates for junction points.

@@ -727,12 +727,12 @@ void TrafficManager::DecodeFirstMessage()
       process = (it->second.m_updateTime < message.m_updateTime);
     if (!process)
     {
-      LOG(LINFO, ("message", message.m_id, "is already in cache, skipping"));
+      LOG(LDEBUG, ("message", message.m_id, "is already in cache, skipping"));
       return;
     }
   }
 
-  LOG(LINFO, (" ", message.m_id, ":", message));
+  LOG(LDEBUG, (" ", message.m_id, ":", message));
   m_traffDecoder->DecodeMessage(message);
   {
     std::lock_guard<std::mutex> lock(m_mutex);
@@ -790,7 +790,8 @@ void TrafficManager::ThreadRoutine()
         hasUpdates |= PurgeExpiredMessagesImpl();
       }
 
-      LOG(LINFO, ("active MWMs changed:", m_activeMwmsChanged, ", poll needed:", m_isPollNeeded));
+      LOG(((m_activeMwmsChanged || m_isPollNeeded) ? LINFO : LDEBUG),
+          ("active MWMs changed:", m_activeMwmsChanged, ", poll needed:", m_isPollNeeded));
 
       // this is a no-op if active MWMs have not changed
       SubscribeOrChangeSubscription();
@@ -806,7 +807,7 @@ void TrafficManager::ThreadRoutine()
         Poll();
       }
     }
-    LOG(LINFO, (m_feedQueue.size(), "feed(s) in queue"));
+    LOG(LDEBUG, (m_feedQueue.size(), "feed(s) in queue"));
 
     // consolidate feed queue (remove older messages in favor of newer ones)
     ConsolidateFeedQueue();
@@ -852,7 +853,7 @@ bool TrafficManager::WaitForRequest()
     // if we have feeds in the queue, return immediately
     if (!m_feedQueue.empty())
     {
-      LOG(LINFO, ("feed queue not empty, returning immediately"));
+      LOG(LDEBUG, ("feed queue not empty, returning immediately"));
       return true;
     }
 
