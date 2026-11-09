@@ -222,7 +222,6 @@ line|z18-[highway=tertiary_link],
 line|z14-[highway=living_street],
 line|z14-[highway=pedestrian],
 line|z16-[highway=service],
-line|z16-[highway=service][service=busway],
 line|z16-[highway=busway],
 {text: name; text-halo-radius: 1; text-halo-color: @label_halo_medium;}
 
@@ -232,13 +231,11 @@ line|z14-15[highway=pedestrian],
 line|z16-17[highway=living_street],
 line|z16-17[highway=pedestrian],
 line|z16-17[highway=service],
-line|z16-17[highway=service][service=busway],
 line|z16-17[highway=busway],
 {font-size: 10; text-color: @label_medium; text-halo-opacity: 1; text-halo-color: @label_halo_light;}
 line|z18-[highway=living_street],
 line|z18-[highway=pedestrian],
 line|z18-[highway=service],
-line|z18-[highway=service][service=busway],
 line|z18-[highway=busway],
 {font-size: 12; text-color: @label_medium; text-halo-opacity: 1; text-halo-color: @label_halo_light;}
 

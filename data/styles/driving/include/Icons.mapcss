@@ -14,9 +14,11 @@ node|z15-[barrier=toll_booth],
 /* Charging & Fueling */
 
 node|z14-[amenity=fuel],
+/* TODO AFTER Kothic migration. Rework those rules which were ignored by Kothic2025
 node|z15-[amenity=charging_station][motorcar?][!capacity],
 node|z15-[amenity=charging_station][motorcar?][capacity=1],
 node|z15-[amenity=charging_station][motorcar?][capacity=2],
+*/
 node|z14-[amenity=charging_station][motorcar?][capacity?],
 node|z16-[amenity=charging_station],
 {text: name;text-color: @poi_label;text-offset: 1;font-size: 10;}
@@ -44,6 +46,7 @@ node|z14[amenity=charging_station][motorcar?][capacity?],
 node|z15-[amenity=charging_station][motorcar?][capacity?],
 {icon-image: charging_station-m.svg;}
 
+/* TODO AFTER Kothic migration. This was ignored by Kothic2025
 node|z14[amenity=charging_station][motorcar?][!capacity],
 node|z14[amenity=charging_station][motorcar?][capacity=1],
 node|z14[amenity=charging_station][motorcar?][capacity=2],
@@ -52,6 +55,7 @@ node|z15-[amenity=charging_station][motorcar?][!capacity],
 node|z15-[amenity=charging_station][motorcar?][capacity=1],
 node|z15-[amenity=charging_station][motorcar?][capacity=2],
 {icon-image: charging_station-small-m.svg;}
+*/
 
 node|z14[amenity=charging_station][motorcar?],
 {text-offset: 1;font-size: 10;icon-min-distance: 20;}

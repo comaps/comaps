@@ -208,49 +208,67 @@ node|z15-16[seamark:type=buoy_safe_water][seamark:buoy_safe_water:shape=spherica
 {icon-image: buoy-spherical-safe_water-s.svg;}
 
 node|z13-15[seamark:type=beacon_lateral][seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=tower],
+/* TODO AFTER Kothic migration : no match with .csv
 node|z13-15[seamark:type=beacon_lateral][seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=lattice],
 node|z13-15[seamark:type=beacon_lateral][seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=pile],
 node|z13-15[seamark:type=beacon_lateral][seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=buoyant],
+*/
 {icon-image: beacon-lateral-port-s.svg;}
 node|z13-15[seamark:type=beacon_lateral][seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=tower],
+/* TODO AFTER Kothic migration : no match with .csv
 node|z13-15[seamark:type=beacon_lateral][seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=lattice],
 node|z13-15[seamark:type=beacon_lateral][seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=pile],
 node|z13-15[seamark:type=beacon_lateral][seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=buoyant],
+*/
 {icon-image: beacon-lateral-starboard-s.svg;}
 node|z13-15[seamark:type=beacon_isolated_danger][seamark:beacon_isolated_danger:shape=tower],
+/* TODO AFTER Kothic migration : no match with .csv
 node|z13-15[seamark:type=beacon_isolated_danger][seamark:beacon_isolated_danger:shape=lattice],
 node|z13-15[seamark:type=beacon_isolated_danger][seamark:beacon_isolated_danger:shape=pile],
 node|z13-15[seamark:type=beacon_isolated_danger][seamark:beacon_isolated_danger:shape=buoyant],
+*/
 {icon-image: beacon-isolated_danger-s.svg;}
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=east][seamark:beacon_cardinal:shape=tower],
+/* TODO AFTER Kothic migration : no match with .csv
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=east][seamark:beacon_cardinal:shape=lattice],
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=east][seamark:beacon_cardinal:shape=pile],
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=east][seamark:beacon_cardinal:shape=buoyant],
+*/
 {icon-image: beacon-cardinal-east-s.svg;}
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=west][seamark:beacon_cardinal:shape=tower][seamark:beacon_cardinal:category=west],
+/* TODO AFTER Kothic migration : no match with .csv
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=west][seamark:beacon_cardinal:shape=lattice],
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=west][seamark:beacon_cardinal:shape=pile],
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=west][seamark:beacon_cardinal:shape=buoyant],
+*/
 {icon-image: beacon-cardinal-west-s.svg;}
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=south][seamark:beacon_cardinal:shape=tower],
+/* TODO AFTER Kothic migration : no match with .csv
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=south][seamark:beacon_cardinal:shape=lattice],
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=south][seamark:beacon_cardinal:shape=pile],
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=south][seamark:beacon_cardinal:shape=buoyant],
+*/
 {icon-image: beacon-cardinal-south-s.svg;}
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=north][seamark:beacon_cardinal:shape=tower],
+/* TODO AFTER Kothic migration : no match with .csv
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=north][seamark:beacon_cardinal:shape=lattice],
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=north][seamark:beacon_cardinal:shape=pile],
 node|z13-15[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=north][seamark:beacon_cardinal:shape=buoyant],
+*/
 {icon-image: beacon-cardinal-north-s.svg;}
 node|z13-15[seamark:type=beacon_special_purpose][seamark:beacon_special_purpose:shape=tower],
+/* TODO AFTER Kothic migration : no match with .csv
 node|z13-15[seamark:type=beacon_special_purpose][seamark:beacon_special_purpose:shape=lattice],
 node|z13-15[seamark:type=beacon_special_purpose][seamark:beacon_special_purpose:shape=pile],
 node|z13-15[seamark:type=beacon_special_purpose][seamark:beacon_special_purpose:shape=buoyant],
+*/
 {icon-image: beacon-special_purpose-s.svg;}
 node|z13-15[seamark:type=beacon_safe_water][seamark:beacon_safe_water:shape=tower],
+/* TODO AFTER Kothic migration : no match with .csv
 node|z13-15[seamark:type=beacon_safe_water][seamark:beacon_safe_water:shape=lattice],
 node|z13-15[seamark:type=beacon_safe_water][seamark:beacon_safe_water:shape=pile],
 node|z13-15[seamark:type=beacon_safe_water][seamark:beacon_safe_water:shape=buoyant],
+*/
 {icon-image: beacon-safe_water-s.svg;}
 
 

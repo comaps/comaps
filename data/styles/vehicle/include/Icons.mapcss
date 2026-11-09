@@ -220,6 +220,7 @@ node|z17-[historic=archaeological_site],
 node|z19-[historic=ruins][!name],
 {icon-image: remains-m.svg;}
 
+
 node|z13-14[historic=monument],
 {icon-image: monument-m.svg;}
 node|z15[historic=monument],
@@ -601,9 +602,11 @@ area|z14-[highway=rest_area],
 node|z12-[amenity=fuel],
 area|z13-[highway=services],
 area|z14-[highway=rest_area],
+/* TODO AFTER Kothic migration. Those rules were ignored by Kothic2025
 node|z14-[amenity=charging_station][motorcar?][!capacity],
 node|z14-[amenity=charging_station][motorcar?][capacity=1],
 node|z14-[amenity=charging_station][motorcar?][capacity=2],
+*/
 node|z14-[amenity=charging_station][motorcar?][capacity?],
 node|z15-[amenity=sanitary_dump_station],
 node|z16-[amenity=charging_station],
@@ -646,6 +649,7 @@ node|z14[amenity=charging_station][motorcar?][capacity?],
 node|z15-[amenity=charging_station][motorcar?][capacity?],
 {icon-image: charging_station-m.svg;}
 
+/* TODO AFTER Kothic migration. Those rules were ignored by Kothic2025
 node|z14[amenity=charging_station][motorcar?][!capacity],
 node|z14[amenity=charging_station][motorcar?][capacity=1],
 node|z14[amenity=charging_station][motorcar?][capacity=2],
@@ -654,6 +658,7 @@ node|z15-[amenity=charging_station][motorcar?][!capacity],
 node|z15-[amenity=charging_station][motorcar?][capacity=1],
 node|z15-[amenity=charging_station][motorcar?][capacity=2],
 {icon-image: charging_station-small-m.svg;}
+*/
 
 node|z14[amenity=charging_station][motorcar?],
 {text-offset: 1;font-size: 12.25;icon-min-distance: 20;}

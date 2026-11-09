@@ -31,11 +31,15 @@ line|z11-12[highway=construction],
 /* see base style for other zooms */
 
 line|z11-[highway=construction],
+/* TODO AFTER Kothic migration: rework
 line|z11-[highway=proposed]
+*/
 {color: @construction; opacity: 1;}
 
 line|z11-12[highway=construction],
+/* TODO AFTER Kothic migration: rework
 line|z11-12[highway=proposed]
+*/
 {width: 1.2; dashes: 3.6,1.8;}
 /* see base style for other zooms */
 
@@ -517,7 +521,9 @@ line|z16-[highway=ladder]::border,
 line|z16-[highway=steps]::border,
 {color: @minor_road_border; opacity: 0.2;}
 
+/* TODO AFTER Kothic migration. no match with mapping.csv
 line|z15-[highway=service][service=busway]::border,
+*/
 line|z15-[highway=service][service=parking_aisle]::border,
 line|z15-[highway=service][service=driveway]::border,
 {casing-color: @minor_road_border; casing-opacity: 0.2;}
@@ -652,7 +658,9 @@ line|z19-[highway=service],
 {width: 7;}
 
 /* Reset back to the main style, except driveways are z15- */
+/* TODO AFTER Kothic migration. no match with mapping.csv
 line|z13-14[highway=service][service=busway],
+*/
 line|z13-14[highway=service][service=driveway],
 line|z13-14[highway=service][service=parking_aisle],
 {width: 0;}
@@ -665,7 +673,9 @@ line|z16-[highway=service]::border,
 {casing-width: 1;}
 
 /* Reset back to the main style, except driveways are z15- */
+/* TODO AFTER Kothic migration. no match with mapping.csv
 line|z13-14[highway=service][service=busway]::border,
+*/
 line|z13-14[highway=service][service=driveway]::border,
 line|z13-14[highway=service][service=parking_aisle]::border,
 {casing-width: 0;}

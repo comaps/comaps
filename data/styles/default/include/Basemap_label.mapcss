@@ -677,18 +677,28 @@ node|z17-[addr:housenumber][addr:street]::int_name,
 
 node|z18-[entrance=main],
 node|z18-[emergency=emergency_ward_entrance],
-node|z19-[entrance!=emergency],
-node|z19-[entrance=entry],
+/* node|z19-[entrance!=emergency],  */
+node|z19-[entrance=entrance],
 node|z19-[entrance=exit],
-node|z19-[entrance=house],
+node|z19-[entrance=home],
 node|z19-[entrance=service],
+node|z19-[entrance=main],
+node|z19-[entrance=garage],
+node|z19-[entrance=yes],
+node|z19-[emergency=phone],
 node|z19-[amenity=loading_dock],
 node|z20-[entrance=emergency],
 {text: name; text-color: @building_label;}
+
 node|z18-[entrance=main]::flats,
-node|z19-[entrance!=emergency]::flats,
-node|z19-[entrance=entry]::flats,
+/*node|z19-[entrance!=emergency]::flats,  */
+node|z19-[entrance=entrance]::flats,
 node|z19-[entrance=exit]::flats,
+node|z19-[entrance=home]::flats,
+node|z19-[entrance=service]::flats,
+node|z19-[entrance=main]::flats,
+node|z19-[entrance=garage]::flats,
+node|z19-[entrance=yes]::flats,
 {text: int_name; text-color: @building_label; font-size: 8; text-offset: 1;}
 
 /* 8.1 Pier */
