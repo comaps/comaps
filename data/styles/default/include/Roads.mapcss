@@ -772,7 +772,7 @@ line|z15-[highway=track],
 {color: @track;opacity: 0.6;}
 line|z14-[highway=raceway],
 {color: @track;opacity: 0.7;}
-line|z15-[leisure=track][!area],
+line|z15-[leisure=track],
 {color: @sport2;opacity: 0.7;}
 line|z14-[highway=bridleway]
 {color: @bridleway;opacity: 0.6;}
@@ -967,17 +967,21 @@ line|z19-[highway=construction],
 line|z14[highway=raceway],
 {width: 1;}
 line|z15[highway=raceway],
-line|z15[leisure=track][!area]
+line|z15[leisure=track],
 {width: 1.5;}
 line|z16[highway=raceway],
-line|z16[leisure=track][!area]
+line|z16[leisure=track],
 {width: 1.8;}
 line|z17-18[highway=raceway],
-line|z17-18[leisure=track][!area]
+line|z17-18[leisure=track],
 {width:3; opacity: 0.8;}
 line|z19-[highway=raceway],
-line|z19-[leisure=track][!area]
+line|z19-[leisure=track],
 {width:4; opacity: 0.8;}
+
+/* Reset line rules for area-mapped tracks and use a color fill */
+area|z15-[leisure=track][area],
+{width: 0; fill-color: @sport2; fill-opacity: 1;}
 
 line|z15[highway=track],
 {width: 1.4; dashes: 6,2.5;}

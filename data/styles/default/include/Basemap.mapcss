@@ -510,7 +510,6 @@ area|z15-[amenity=university],
 
 area|z14-[leisure=miniature_golf],
 area|z15-[leisure=pitch],
-area|z15-[leisure=track][area?],
 area|z15-[leisure=fitness_station],
 {fill-color: @sport2; fill-opacity: 1;}
 
