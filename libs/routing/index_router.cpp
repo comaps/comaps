@@ -58,8 +58,8 @@
 #include "base/logging.hpp"
 #include "base/math.hpp"
 #include "base/scope_guard.hpp"
+#include "base/scoped_timer.hpp"
 #include "base/stl_helpers.hpp"
-#include "base/timer.hpp"
 
 #include "defines.hpp"
 
