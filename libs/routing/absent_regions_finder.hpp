@@ -32,7 +32,7 @@ public:
    * @brief Prepares the set of absent regions (MWMs) for later retrieval.
    *
    * This determines the MWMs in which the checkpoints are located. If the checkpoints are located in
-   * different MWMs, it creates new thread `m_routerThread` and starts routing in it.
+   * different MWMs, it creates a new thread `m_routerThread` and starts routing in it.
    *
    * If any of `checkpoints` is located in a missing MWM, it is added to `m_absentRegions`.
    *
@@ -78,5 +78,22 @@ private:
   DataSource & m_dataSource;
 
   std::unique_ptr<threads::Thread> m_routerThread;
+
+  /**
+   * @brief Mutex for access to member variables.
+   *
+   * Methods which access any of the non-`const` class member variables must lock this mutex while
+   * doing so.
+   */
+  std::mutex m_mutex;
+
+  /**
+   * @brief Regions required for building the last route.
+   *
+   * This is a cached list of regions, populated by `GetAllRegions()` when there is a router thread
+   * and used by subsequent calls to that function until a new router thread is started.
+   * Calling `GenerateAbsentRegions()` clears this member.
+   */
+  RegionsSetT m_regions;
 };
 }  // namespace routing

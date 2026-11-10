@@ -23,6 +23,8 @@ AbsentRegionsFinder::AbsentRegionsFinder(CountryFileGetterFn countryFileGetter, 
 RouterResultCode AbsentRegionsFinder::GenerateAbsentRegions(Checkpoints const & checkpoints,
                                                             RouterDelegate const & delegate)
 {
+  std::lock_guard<std::mutex> lock(m_mutex);
+  m_regions.clear();
   m_absentRegions.clear();
   if (m_routerThread)
   {
@@ -75,6 +77,7 @@ AbsentRegionsFinder::RegionsSetT AbsentRegionsFinder::GetAbsentRegions()
     else
       ++i;
 
+  std::lock_guard<std::mutex> lock(m_mutex);
   for (auto & country : m_absentRegions)
     regions.insert(std::move(country));
   m_absentRegions.clear();
@@ -84,16 +87,17 @@ AbsentRegionsFinder::RegionsSetT AbsentRegionsFinder::GetAbsentRegions()
 
 AbsentRegionsFinder::RegionsSetT AbsentRegionsFinder::GetAllRegions()
 {
-  if (!m_routerThread)
-    return {};
+  std::lock_guard<std::mutex> lock(m_mutex);
+  if (m_routerThread)
+  {
+    m_routerThread->Join();
 
-  m_routerThread->Join();
+    m_regions = m_routerThread->GetRoutineAs<RegionsRouter>()->MoveMwmNames();
 
-  RegionsSetT result = m_routerThread->GetRoutineAs<RegionsRouter>()->MoveMwmNames();
+    m_routerThread.reset();
+  }
 
-  m_routerThread.reset();
-
-  return result;
+  return m_regions;
 }
 
 }  // namespace routing
