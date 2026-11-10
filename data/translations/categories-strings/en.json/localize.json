@@ -18,7 +18,7 @@
         "defaultMessage": "4Shopping|shops"
     },
     "@category_hotel": {
-        "defaultMessage": "3Hotel|hotels|4Accomodations|accommodation|sleep"
+        "defaultMessage": "4Accommodation|3Hotel|hotels|4Accommodations|sleep"
     },
     "@category_tourism": {
         "defaultMessage": "3Sights|3Attractions|3Tourism"
@@ -495,10 +495,10 @@
         "defaultMessage": "4Funeral Directors|Undertakers|Mortician|Funeral Parlor|Funeral Home"
     },
     "@category_hospital": {
-        "defaultMessage": "4Hospital"
+        "defaultMessage": "3Healthcare"
     },
     "amenity-hospital|@category_hospital": {
-        "defaultMessage": "Hospital|clinic|3doctor|U+1F691|U+1F3E5|U+1F489|U+1F48A|medical center|health services|4first aid"
+        "defaultMessage": "4Hospital|clinic|3doctor|U+1F691|U+1F3E5|U+1F489|U+1F48A|medical center|health services|4first aid"
     },
     "amenity-clinic|@category_hospital": {
         "defaultMessage": "4Clinic|hospital|3doctor|U+1F3E5|U+1F489|diagnostics|health services"
@@ -2002,5 +2002,17 @@
     },
     "club-youth_movement|@club": {
         "defaultMessage": "Youth Movement|youth movement club|youth organisation"
+    },
+    "@category_picnic": {
+        "defaultMessage": "4Picnic Table"
+    },
+    "leisure-picnic_table|@category_picnic": {
+        "defaultMessage": "picnic"
+    },
+    "@category_shelter": {
+        "defaultMessage": "Shelter|refuge"
+    },
+    "amenity-shelter|amenity-shelter-basic_hut|amenity-shelter-lean_to|@category_shelter": {
+        "defaultMessage": ""
     }
 }

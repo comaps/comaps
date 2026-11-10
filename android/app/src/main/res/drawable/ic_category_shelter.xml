@@ -1,0 +1,33 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <size
+                android:width="40dp"
+                android:height="40dp" />
+            <solid android:color="@color/amenity" />
+        </shape>
+    </item>
+    <item>
+        <vector
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="12"
+            android:viewportHeight="12">
+            <group
+                android:pivotX="6"
+                android:pivotY="6"
+                >
+                <path
+                    android:strokeColor="@color/foreground_color"
+                    android:fillColor="@android:color/transparent"  
+                    android:strokeWidth="1"
+                    android:pathData="m4 9 v-5 m 4 0 v 0 5" />
+                <path
+                    android:strokeColor="@color/foreground_color"
+                    android:fillColor="@android:color/transparent"  
+                    android:strokeWidth="1"
+                    android:pathData="m2 6 l 4 -3 l 4 3" />
+            </group>
+        </vector>
+    </item>
+</layer-list>

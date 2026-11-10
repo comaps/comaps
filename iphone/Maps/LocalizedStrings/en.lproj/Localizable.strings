@@ -68,52 +68,57 @@
 "settings" = "Settings";
 /* Measurement units title in settings activity */
 "measurement_units" = "Measurement units";
-/* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
+/* Search category for cafes, bars, restaurants; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_eat! */
 "category_eat" = "Where to eat";
-/* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
+/* Search category for grocery stores; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_food! */
 "category_food" = "Groceries";
-/* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
+/* Search category for public transport; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_transport! */
 "category_transport" = "Transport";
-/* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
+/* Search category for fuel stations; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_fuel! */
 "category_fuel" = "Gas";
-/* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
+/* Search category for parking lots; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_parking! */
 "category_parking" = "Parking";
-/* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
+/* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_shopping! */
 "category_shopping" = "Shopping";
-/* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
+/* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_secondhand! */
 "category_secondhand" = "Second Hand";
-/* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
-"category_hotel" = "Hotel";
-/* Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! */
+/* Search category for places to stay; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_hotel! */
+"category_hotel" = "Accommodation";
+/* Search category sight seeings and touristic attractions; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_tourism! */
 "category_tourism" = "Sights";
-/* Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! */
+/* Search category for entertainment; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_entertainment! */
 "category_entertainment" = "Entertainment";
-/* Search category for ATMs; any changes should be duplicated in categories.txt @category_atm! */
+/* Search category for ATMs; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_atm! */
 "category_atm" = "ATM";
-/* Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! */
+/* Search category for nightclubs/bars; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_nightlife! */
 "category_nightlife" = "Nightlife";
-/* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! */
+/* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_children! */
 "category_children" = "Family holiday";
-/* Search category for banks; any changes should be duplicated in categories.txt @category_bank! */
+/* Search category for banks; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_bank! */
 "category_bank" = "Bank";
-/* Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! */
+/* Search category for pharmacies; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_pharmacy! */
 "category_pharmacy" = "Pharmacy";
-/* Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital! */
-"category_hospital" = "Hospital";
-/* Search category for toilets; any changes should be duplicated in categories.txt @category_toilet! */
+/* Search category for hospitals; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_hospital! */
+"category_hospital" = "Healthcare";
+/* Search category for toilets; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_toilet! */
 "category_toilet" = "Toilet";
-/* Search category for post offices; any changes should be duplicated in categories.txt @category_post! */
+/* Search category for post offices; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_post! */
 "category_post" = "Post";
-/* Search category for police; any changes should be duplicated in categories.txt @category_police! */
+/* Search category for police; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_police! */
 "category_police" = "Police";
-/* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
+/* Search category for WiFi access; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_wifi! */
 "category_wifi" = "WiFi";
-/* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
+/* Search category for recycling; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_recycling! */
 "category_recycling" = "Recycling";
-/* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
+/* Search category for water; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_water! also used to sort bookmarks by type */
 "category_water" = "Water";
-/* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
+/* Search category for RV facilities; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_rv! */
 "category_rv" = "RV Facilities";
+/* Search category for picnic table; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_picnic! */
+"category_picnic" = "Picnic Table";
+/* Search category for shelter; any changes should be duplicated in  data/translations/categories-strings/en.json/localize.json @category_shelter! */
+"category_shelter" = "Shelter";
+
 "share_bookmarks_email_body" = "Hello!\n\nAttached are my saved places; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
 /* message title of loading file */
 "load_kmz_title" = "Loading Favorites";

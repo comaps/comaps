@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>shelter_light</title>
+    <g id="shelter_light" >
+      <path d="m 0 7 a 7 7 0 1 1 14 0 a 7 7 0 1 1 -14 0" fill="#747E86" stroke="none"/>
+      <path d="M 1 0 m 3 10 v -4 m 6 0 v 0 4" stroke-width="2" fill="none" stroke="#FFFFFF"/>
+      <path d="M 1 0 m 2 7 l 4 -3 l 4 3" stroke-width="2"     fill="none" stroke="#FFFFFF"/>
+    </g>
+</svg>
