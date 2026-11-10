@@ -58,8 +58,8 @@
 #include "base/logging.hpp"
 #include "base/math.hpp"
 #include "base/scope_guard.hpp"
+#include "base/scoped_timer.hpp"
 #include "base/stl_helpers.hpp"
-#include "base/timer.hpp"
 
 #include "defines.hpp"
 
@@ -718,7 +718,8 @@ RouterResultCode IndexRouter::CalculateSubroute(Checkpoints const & checkpoints,
   if (GetMode() == Mode::Navigation)
     LOG(LINFO, ("Routing in mode:", mode));
 
-  base::ScopedTimerWithLog timer("Route build");
+  base::ScopedTimerWithLog timer("Route build", base::ScopedTimerWithLog::Measure::MilliSeconds,
+                                 ((GetMode() == Mode::Navigation) ? base::LogLevel::LINFO : base::LogLevel::LDEBUG));
   switch (mode)
   {
   case WorldGraphMode::Joints: return CalculateSubrouteJointsMode(starter, delegate, progress, subroute);
