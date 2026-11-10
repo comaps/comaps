@@ -491,6 +491,13 @@ void BackendRenderer::AcceptMessage(ref_ptr<Message> message)
     break;
   }
 
+  case Message::Type::RegenerateTraffic:
+  {
+    m_commutator->PostMessage(ThreadsCommutator::RenderThread, make_unique_dp<RegenerateTrafficMessage>(),
+                              MessagePriority::Normal);
+    break;
+  }
+
   case Message::Type::ClearTrafficData:
   {
     ref_ptr<ClearTrafficDataMessage> msg = message;
