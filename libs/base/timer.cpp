@@ -2,7 +2,6 @@
 
 #include "base/assert.hpp"
 #include "base/gmtime.hpp"
-#include "base/logging.hpp"
 #include "base/macros.hpp"
 #include "base/timegm.hpp"
 
@@ -169,28 +168,5 @@ uint64_t TimeTToSecondsSinceEpoch(time_t time)
 {
   auto const tpoint = std::chrono::system_clock::from_time_t(time);
   return std::chrono::duration_cast<std::chrono::seconds>(tpoint.time_since_epoch()).count();
-}
-
-ScopedTimerWithLog::ScopedTimerWithLog(std::string const & timerName, Measure measure)
-  : m_name(timerName)
-  , m_measure(measure)
-{}
-
-ScopedTimerWithLog::~ScopedTimerWithLog()
-{
-  switch (m_measure)
-  {
-  case Measure::MilliSeconds:
-  {
-    LOG(LINFO, (m_name, "time:", m_timer.ElapsedMilliseconds(), "ms"));
-    return;
-  }
-  case Measure::Seconds:
-  {
-    LOG(LINFO, (m_name, "time:", m_timer.ElapsedSeconds(), "s"));
-    return;
-  }
-  }
-  UNREACHABLE();
 }
 }  // namespace base

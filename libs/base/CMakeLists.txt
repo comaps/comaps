@@ -62,6 +62,8 @@ set(SRC
   ref_counted.hpp
   rolling_hash.hpp
   scope_guard.hpp
+  scoped_timer.cpp
+  scoped_timer.hpp
   set_operations.hpp
   shared_buffer_manager.cpp
   shared_buffer_manager.hpp
