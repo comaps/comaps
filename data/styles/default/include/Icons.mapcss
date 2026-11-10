@@ -1844,11 +1844,13 @@ node|z16-[amenity=recycling][recycling_type=centre],
 {icon-image: recycling-centre-m.svg;}
 
 node|z17-[power=plant],
-/* Skip individual solar generators, because there are a lot of mapped panels */
-node|z17-[power=generator][generator:source!=solar],
+node|z17-[power=generator],
 node|z17-[power=substation],
 {icon-image: power-m.svg;font-size: 11;}
 
+/* No icons for individual point-mapped solar generators (too many of them) */
+node|z17-[power=generator][generator:source=solar],
+{icon-image: none;}
 
 node|z15-[power=generator][generator:source=wind],
 {icon-image: dot-m.svg;}
