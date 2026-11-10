@@ -725,8 +725,8 @@ line|z16-[railway=abandoned],
 line|z17-[railway=turntable],
 {color: @railway; opacity: 0.6;}
 
-line|z13-[railway=light_rail][!tunnel],
-line|z13-[railway=subway][!tunnel],
+line|z13-[railway=light_rail],
+line|z13-[railway=subway],
 {color: @railway_light; opacity: 0.5;}
 
 line|z16-[railway=tram]::centerline,
@@ -734,8 +734,8 @@ line|z16-[railway=tram]::centerline,
 line|z16-[railway=tram]
 {color: @tram; opacity: 0.6; linecap: butt;}
 
-line|z16-[railway=subway][!tunnel]::dash,
-line|z16-[railway=light_rail][!tunnel]::dash,
+line|z16-[railway=subway]::dash,
+line|z16-[railway=light_rail]::dash,
 {color: @railway_dash; opacity: 0.7;}
 
 line|z14-[railway=rail][bridge?]::bridgewhite,
@@ -880,37 +880,45 @@ line|z18-[railway=rail][service=service]::dash,
 {width: 2.6; dashes: 8.1,8.1;}
 
 
-line|z13-[railway=subway][!tunnel],
-line|z13-[railway=light_rail][!tunnel],
+line|z13-[railway=subway],
+line|z13-[railway=light_rail],
 {width: 0.9;}
-line|z14[railway=subway][!tunnel],
-line|z14[railway=light_rail][!tunnel],
+line|z14[railway=subway],
+line|z14[railway=light_rail],
 {width: 1.15;}
-line|z15[railway=subway][!tunnel],
-line|z15[railway=light_rail][!tunnel],
+line|z15[railway=subway],
+line|z15[railway=light_rail],
 {width: 1.8;}
-line|z16[railway=subway][!tunnel],
-line|z16[railway=light_rail][!tunnel],
+line|z16[railway=subway],
+line|z16[railway=light_rail],
 {width: 2.8;}
-line|z17[railway=subway][!tunnel],
-line|z17[railway=light_rail][!tunnel],
+line|z17[railway=subway],
+line|z17[railway=light_rail],
 {width: 3.2;}
-line|z18-[railway=subway][!tunnel],
-line|z18-[railway=light_rail][!tunnel],
+line|z18-[railway=subway],
+line|z18-[railway=light_rail],
 {width: 4; opacity: 0.7;}
 
-line|z16[railway=subway][!tunnel]::dash,
-line|z16[railway=light_rail][!tunnel]::dash,
+line|z16[railway=subway]::dash,
+line|z16[railway=light_rail]::dash,
 {width: 1.5;dashes: 4.5,4.5;}
-line|z17[railway=subway][!tunnel]::dash,
-line|z17[railway=light_rail][!tunnel]::dash,
+line|z17[railway=subway]::dash,
+line|z17[railway=light_rail]::dash,
 {width: 2.4;dashes: 6.3,6.3;}
-line|z18[railway=subway][!tunnel]::dash,
-line|z18[railway=light_rail][!tunnel]::dash,
+line|z18[railway=subway]::dash,
+line|z18[railway=light_rail]::dash,
 {width: 3.3;dashes: 8.1,8.1;}
-line|z19-[railway=subway][!tunnel]::dash,
-line|z19-[railway=light_rail][!tunnel]::dash,
+line|z19-[railway=subway]::dash,
+line|z19-[railway=light_rail]::dash,
 {width: 5;dashes: 10.1,10.1;}
+
+/* Don't display underground subways and light_rail as its usually in cities and adds unnecessary noise to the map */
+line|z13-[railway=subway][tunnel],
+line|z13-[railway=light_rail][tunnel],
+{width: 0;}
+line|z16-[railway=subway][tunnel]::dash,
+line|z16-[railway=light_rail][tunnel]::dash,
+{width: 0;}
 
 
 line|z16-[railway=preserved],
