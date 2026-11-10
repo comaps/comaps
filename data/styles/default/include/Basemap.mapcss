@@ -332,7 +332,7 @@ line|z13-[natural=strait],
 
 /* 6.1 Area water(lake,pond etc.) */
 
-area|z0-[natural=water][!tunnel],
+area|z0-[natural=water],
 area|z0-[landuse=salt_pond],
 area|z0-[waterway=dock],
 area|z12-[landuse=basin],
@@ -342,6 +342,7 @@ area|z15-[natural=water][tunnel],
 area|z16-[amenity=fountain],
 {fill-color: @water;}
 
+area|z0-14[natural=water][tunnel],
 area|z0-[natural=water][water=ditch],
 area|z0-[natural=water][water=drain],
 area|z0-[natural=water][water=wastewater],
