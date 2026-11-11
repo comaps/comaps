@@ -263,7 +263,7 @@ bool DirectionsEngine::Generate(IndexRoadGraph const & graph, vector<geometry::P
       TurnItem turn;
       if (i == segsCount - 1)
         turn = TurnItem(segsCount, turns::PedestrianDirection::ReachedYourDestination);
-      routeSegments.emplace_back(segments[i], turn, path[i + 1], RouteSegment::RoadNameInfo());
+      routeSegments.emplace_back(segments[i], turn, path[i + 1], RouteSegment::RoadNameInfo(), false);
     }
     return true;
   }
@@ -353,7 +353,7 @@ void DirectionsEngine::MakeTurnAnnotation(IndexRoadGraph::EdgeVector const & rou
     for (size_t i = 0; i < loadedSegment.m_segments.size() - 1; ++i)
     {
       auto const & junction = loadedSegment.m_path[i + 1];
-      routeSegments.emplace_back(loadedSegment.m_segments[i], TurnItem(), junction, rni);
+      routeSegments.emplace_back(loadedSegment.m_segments[i], TurnItem(), junction, rni, loadedSegment.m_onRoundabout);
       if (i == 0)
         rni = {"", "", "", "", "", loadedSegment.m_isLink};
     }
@@ -369,7 +369,8 @@ void DirectionsEngine::MakeTurnAnnotation(IndexRoadGraph::EdgeVector const & rou
     else
       --skipTurnSegments;
 
-    routeSegments.emplace_back(loadedSegment.m_segments.back(), turnItem, loadedSegment.m_path.back(), rni);
+    routeSegments.emplace_back(loadedSegment.m_segments.back(), turnItem, loadedSegment.m_path.back(),
+                               rni, loadedSegment.m_onRoundabout);
   }
 
   // ASSERT_EQUAL(routeSegments.front().GetJunction(), result.GetStartPoint(), ());

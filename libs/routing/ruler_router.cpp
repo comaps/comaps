@@ -77,8 +77,8 @@ RouterResultCode RulerRouter::CalculateRoute(Checkpoints const & checkpoints, m2
     geometry::PointWithAltitude const junction = ToPointWA(points[i]);
     RouteSegment::RoadNameInfo const roadNameInfo;
 
-    auto routeSegment = RouteSegment(segment, turn, junction, roadNameInfo);
-    routeSegments.emplace_back(segment, turn, junction, roadNameInfo);
+    auto routeSegment = RouteSegment(segment, turn, junction, roadNameInfo, false);
+    routeSegments.emplace_back(segment, turn, junction, roadNameInfo, false);
     times.push_back(0);
 
     if (i == count - 1)
@@ -86,7 +86,7 @@ RouterResultCode RulerRouter::CalculateRoute(Checkpoints const & checkpoints, m2
     else if (i == 0)
       continue;
 
-    routeSegments.emplace_back(segment, turn, junction, roadNameInfo);
+    routeSegments.emplace_back(segment, turn, junction, roadNameInfo, false);
     times.push_back(0);
   }
 
