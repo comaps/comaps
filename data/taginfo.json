@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20261103T200418Z",
+    "data_updated": "20261111T133357Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -3175,6 +3175,16 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/power-m.svg"
         },
         {
+            "description": "power=generator + generator:source=solar",
+            "key": "generator:source",
+            "value": "solar"
+        },
+        {
+            "description": "power=generator + generator:source=solar",
+            "key": "power",
+            "value": "generator"
+        },
+        {
             "description": "power=generator + generator:source=wind",
             "key": "generator:source",
             "value": "wind",
@@ -3921,26 +3931,17 @@
         {
             "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=south + seamark:buoy_cardinal:shape=spherical",
             "key": "seamark:buoy_cardinal:category",
-            "value": "south"
+            "value": "south",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-south-m.svg"
         },
         {
             "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=south + seamark:buoy_cardinal:shape=spherical",
             "key": "seamark:buoy_cardinal:shape",
-            "value": "spherical"
-        },
-        {
-            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=south + seamark:buoy_cardinal:shape=spherical",
-            "key": "seamark:type",
-            "value": "buoy_cardinal"
-        },
-        {
-            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=south[seamark:buoy_cardinal:shape=spherical",
-            "key": "seamark:buoy_cardinal:category",
-            "value": "south[seamark:buoy_cardinal:shape=spherical",
+            "value": "spherical",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-south-m.svg"
         },
         {
-            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=south[seamark:buoy_cardinal:shape=spherical",
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=south + seamark:buoy_cardinal:shape=spherical",
             "key": "seamark:type",
             "value": "buoy_cardinal",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-south-m.svg"
@@ -4621,6 +4622,12 @@
             "key": "shop",
             "value": "stationery",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/stationery_shop-m.svg"
+        },
+        {
+            "description": "shop=storage_rental",
+            "key": "shop",
+            "value": "storage_rental",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/rental-m.svg"
         },
         {
             "description": "shop=supermarket",
@@ -5571,6 +5578,11 @@
             "value": "administrative"
         },
         {
+            "description": "boundary=hazard | fill-color: (light): #DE2D28, fill-color: (dark): #B71C1C",
+            "key": "boundary",
+            "value": "hazard"
+        },
+        {
             "description": "boundary=national_park | color: (light): #7B8F35, color: (dark): #705020",
             "key": "boundary",
             "value": "national_park"
@@ -6092,15 +6104,6 @@
             "description": "leisure=swimming_pool | fill-color: (light): #89CDDC, fill-color: (dark): #304054",
             "key": "leisure",
             "value": "swimming_pool"
-        },
-        {
-            "description": "leisure=track + area=* | fill-color: (light): #D4E796, fill-color: (dark): #2A2E1E",
-            "key": "area"
-        },
-        {
-            "description": "leisure=track + area=* | fill-color: (light): #D4E796, fill-color: (dark): #2A2E1E",
-            "key": "leisure",
-            "value": "track"
         },
         {
             "description": "leisure=water_park | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
@@ -7839,10 +7842,6 @@
             "value": "hydro"
         },
         {
-            "key": "generator:source",
-            "value": "solar"
-        },
-        {
             "description": "Clinic",
             "key": "healthcare",
             "value": "clinic"
@@ -8123,6 +8122,11 @@
             "description": "Resort",
             "key": "leisure",
             "value": "summer_camp"
+        },
+        {
+            "description": "Track",
+            "key": "leisure",
+            "value": "track"
         },
         {
             "description": "Oil or Gas Well",
@@ -8798,11 +8802,6 @@
             "description": "Pet Grooming",
             "key": "shop",
             "value": "pet_grooming"
-        },
-        {
-            "description": "Storage Rental",
-            "key": "shop",
-            "value": "storage_rental"
         },
         {
             "description": "Tailor",
