@@ -1,0 +1,7 @@
+/var/log/comaps-play-signer.log {
+  monthly
+  rotate 12
+  compress
+  missingok
+  notifempty
+}

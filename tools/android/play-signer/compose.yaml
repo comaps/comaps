@@ -1,0 +1,22 @@
+name: comaps-play-signer
+
+services:
+  signer:
+    image: comaps-play-signer
+    build: .
+    read_only: true
+    tmpfs:
+      - /tmp:size=1g,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    environment:
+      DRY_RUN: ${DRY_RUN:-}
+    secrets: [upload_keystore, upload_key.env, google_play_json]
+
+secrets:
+  upload_keystore:
+    file: ./secrets/upload.keystore
+  upload_key.env:
+    file: ./secrets/upload_key.env
+  google_play_json:
+    file: ./secrets/google-play.json

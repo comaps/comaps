@@ -1,0 +1,46 @@
+name: Android Google Internal Bundle
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 1'
+
+jobs:
+  android-google-internal:
+    name: Build Google release bundle
+    if: github.repository == 'comaps/comaps'
+    runs-on: comaps-android-large
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 200
+
+      - name: Update submodules
+        uses: ./.forgejo/actions/update-submodules
+
+      - name: Cache world map
+        uses: actions/cache@v4
+        with:
+          path: data/world_mwm
+          key: world-mwm
+
+      - name: Setup Gradle
+        uses: ./.forgejo/actions/setup-gradle
+
+      - name: Compile
+        shell: bash
+        working-directory: android
+        env:
+          CMAKE_C_COMPILER_LAUNCHER: ccache
+          CMAKE_CXX_COMPILER_LAUNCHER: ccache
+        run: ./gradlew bundleGoogleRelease
+
+      - name: Upload bundle
+        uses: actions/upload-artifact@v3
+        with:
+          name: google-release-bundle
+          path: |
+            android/app/build/outputs/bundle/googleRelease/*.aab
+            android/app/build/outputs/mapping/googleRelease/mapping.txt
+            android/app/src/google/play/release-notes/
+          if-no-files-found: error

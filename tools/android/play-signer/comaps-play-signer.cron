@@ -1,0 +1,1 @@
+30 8 * * 1 root cd /opt/comaps-play-signer && docker compose run --rm signer >> /var/log/comaps-play-signer.log 2>&1
