@@ -55,9 +55,7 @@ namespace decoder_model
    */
   auto constexpr kOffroadPenalty = 24;
 
-  /**
-   * @brief Penalty applied to impassable ways.
-   */
+  /** @brief Penalty applied to impassable ways. */
   auto constexpr kImpassablePenalty = 1.0E4;
 
   /**

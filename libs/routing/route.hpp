@@ -120,9 +120,7 @@ public:
     std::string m_ref;
     /** @brief Whether the road is of a link type.*/
     bool m_isLink = false;
-    /**
-     * @brief Whether the road is part of a roundabout.
-     */
+    /** @brief Whether the road is part of a roundabout. */
     bool m_onRoundabout = false;
     ftypes::HighwayClass m_highwayClass = ftypes::HighwayClass::Undefined;
 
