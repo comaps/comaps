@@ -17,9 +17,18 @@ First of all get the source code. The full CoMaps sources repository is ~3Gb in 
 
 Clone the repository including all submodules (see [Special cases options](#special-cases-options) below)
 
-(if you plan to contribute and propose pull requests then use a web interface at https://codeberg.org/comaps/comaps to fork the repository first and use your fork's URL in the command below)
-
 Follow the instructions for your OS, and afterwards the repository is prepared to build a CoMaps app!
+
+### If you plan on contributing and proposing pull requests
+
+Use the web interface at https://codeberg.org/comaps/comaps to fork the repository. Then clone the main repository (https://codeberg.org/comaps/comaps.git) first and add your fork's URL as remote. This is done to avoid you forking every git submodules as they are relative (git would expect to find submodules at your user account when cloning your fork).
+
+Do this after cloning the main repository and remember to push to this remote.
+```bash
+cd comaps
+git remote add my-origin ssh://git@codeberg.org/<yourusername>/comaps.git
+```
+
 
 ## Setting up to your OS of development
 
