@@ -94,7 +94,7 @@ node|z14-[aeroway=aerodrome]::int_name,
 
 /*check offset int_name*/
 
-node|z12[railway=station][!transport],
+node|z12[railway=station],
 {icon-image: train-s.svg;text-offset: 1;font-size: 11;}
 node|z13[railway=station],
 {icon-image: train-m.svg;text-offset: 1;font-size: 11.75;}

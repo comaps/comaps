@@ -35,24 +35,23 @@ node|z13-[railway=station][station=monorail],
 node|z15-[railway=station][station=monorail],
 {icon-image: monorail-m.svg;}
 
+node|z10-[railway=station][station=light_rail],
+node|z10-[railway=station][station=monorail],
+node|z10-[railway=station][transport=subway],
+{text-color: @public_transport_label;}
+node|z10-[railway=station][station=light_rail]::int_name,
+node|z10-[railway=station][station=monorail]::int_name,
+node|z10-[railway=station][transport=subway]::int_name,
+{text-color: @public_transport_label;}
+
 node|z14-[railway=station][transport=subway],
 node|z14-[railway=station][station=light_rail],
 node|z14-[railway=station][station=monorail],
-{text: name;text-offset: 1;font-size: 11;text-color: @label_dark;text-halo-radius: 1;text-halo-color: @label_halo_light;text-halo-opacity: 0.8;}
+{text: name;text-offset: 1;font-size: 11;text-halo-radius: 1;text-halo-color: @label_halo_light;text-halo-opacity: 0.8;}
 node|z14-[railway=station][transport=subway]::int_name,
 node|z14-[railway=station][station=light_rail]::int_name,
 node|z14-[railway=station][station=monorail]::int_name,
-{text: int_name;text-offset: 1;font-size: 9;text-color: @label_dark;text-halo-radius: 1;text-halo-color: @label_halo_light;text-halo-opacity: 0.8;}
-
-node[railway=station][station=light_rail][!city],
-node[railway=station][station=monorail],
-node[railway=station][transport=subway][!city],
-/* TODO AFTER Kothic migration : uncomment this subblock which silently ignored by Kothic2025
-node[railway=station][station=light_rail][!city]::int_name,
-node[railway=station][station=monorail]::int_name,
-node[railway=station][transport=subway][!city]::int_name,
-*/
-{text-color: @public_transport_label;}
+{text: int_name;text-offset: 1;font-size: 9;text-halo-radius: 1;text-halo-color: @label_halo_light;text-halo-opacity: 0.8;}
 
 node|z15-[railway=station][transport=subway],
 node|z15-[railway=station][station=light_rail],
@@ -80,13 +79,19 @@ node|z17-[railway=station][station=light_rail]::int_name,
 node|z17-[railway=station][station=monorail]::int_name,
 {text-halo-opacity: 0.9;}
 
+
 node|z16-[railway=subway_entrance],
 {icon-image: subway-entrance-m.svg;}
 
+node|z10-[railway=subway_entrance],
+{text-color: @label_dark;}
+node|z10-[railway=subway_entrance]::int_name,
+{text-color: @label_dark;}
+
 node|z17-[railway=subway_entrance],
-{text: name;font-size: 13;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: 0.9;text-halo-color: @label_halo_light;text-offset: 1;}
+{text: name;font-size: 13;text-halo-radius: 1;text-halo-opacity: 0.9;text-halo-color: @label_halo_light;text-offset: 1;}
 node|z17-[railway=subway_entrance]::int_name,
-{text: int_name;font-size: 11;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: 0.9;text-halo-color: @label_halo_light;text-offset: 1;}
+{text: int_name;font-size: 11;text-halo-radius: 1;text-halo-opacity: 0.9;text-halo-color: @label_halo_light;text-offset: 1;}
 
 
 /* 2. Custom Subway Station*/
@@ -359,7 +364,7 @@ node|z16-[railway=subway_entrance][city=kharkiv] {icon-image: subway-kharkiv-s.s
 node|z18-[railway=subway_entrance][city=kharkiv] {icon-image: subway-kharkiv-m.svg;}
 
 /* Kiev Subway Station */
-node|z12-13[railway=station][transport=subway][city=kiev] {icon-image: subway-kiev-s.svg;text-offset: 1;font-size: 10;text: name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+node|z12-13[railway=station][transport=subway][city=kiev] {icon-image: subway-kiev-s.svg;text-offset: 1;font-size: 10;text: name;text-halo-radius: 1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
 node|z14[railway=station][transport=subway][city=kiev] {icon-image: subway-kiev-s.svg;}
 node|z15-16[railway=station][transport=subway][city=kiev] {icon-image: subway-kiev-m.svg;}
 node|z17-[railway=station][transport=subway][city=kiev] {icon-image: none;text: none;} /*only show subway entrance past z17*/
@@ -487,7 +492,7 @@ node|z16-[railway=subway_entrance][city=milan] {icon-image: subway-milan-s.svg;}
 node|z18-[railway=subway_entrance][city=milan] {icon-image: subway-milan-m.svg;}
 
 /* Minsk Subway Station */
-node|z12-13[railway=station][transport=subway][city=minsk] {icon-image: subway-minsk-s.svg;text-offset: 1;font-size: 10;text: name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+node|z12-13[railway=station][transport=subway][city=minsk] {icon-image: subway-minsk-s.svg;text-offset: 1;font-size: 10;text: name;text-halo-radius: 1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
 node|z14[railway=station][transport=subway][city=minsk] {icon-image: subway-minsk-s.svg;}
 node|z15-16[railway=station][transport=subway][city=minsk] {icon-image: subway-minsk-m.svg;}
 node|z17-[railway=station][transport=subway][city=minsk] {icon-image: none;text: none;} /*only show subway_entrance past z17*/
@@ -497,10 +502,10 @@ node|z16-[railway=subway_entrance][city=minsk] {icon-image: subway-minsk-m.svg;}
 /* Moscow Subway Station TODO: simplify?*/
 node|z12-[railway=station][transport=subway][city=moscow],
 node|z15-[railway=subway_entrance][city=moscow],
-{text: name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
+{text: name;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
 node|z12-[railway=station][transport=subway][city=moscow]::int_name,
 node|z15-[railway=subway_entrance][city=moscow]::int_name,
-{text: int_name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
+{text: int_name;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
 
 node|z11[railway=station][transport=subway][city=moscow]
 {icon-image: subway-moscow-s.svg;}
@@ -701,10 +706,10 @@ node|z16-[railway=subway_entrance][city=sofia] {icon-image: subway-sofia-s.svg;}
 /* Saint Petersburg Subway Station TODO: simplify?*/
 node|z12-[railway=station][transport=subway][city=spb],
 node|z16-[railway=subway_entrance][city=spb],
-{text: name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
+{text: name;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
 node|z12-[railway=station][transport=subway][city=spb]::int_name,
 node|z16-[railway=subway_entrance][city=spb]::int_name,
-{text: int_name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
+{text: int_name;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
 
 node|z11[railway=station][transport=subway][city=spb]
 {icon-image: subway-spb-s.svg;}
