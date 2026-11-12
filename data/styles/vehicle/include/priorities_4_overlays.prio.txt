@@ -779,7 +779,7 @@ entrance-entry                                      # icon z19- (also has captio
 entrance-exit                                       # icon z19- (also has caption(optional) z19-)
 === 20
 
-entrance-emergency                                  # icon z19- (also has caption(optional) z19-)
+entrance-emergency                                  # icon z20- (also has caption(optional) z20-)
 === 10
 
 #
@@ -1282,7 +1282,7 @@ entrance-house                                      # icon z19- (also has captio
 # entrance-exit                                     # caption(optional) z19- (also has icon z19-)
 # === -9980
 
-# entrance-emergency                                # caption(optional) z19- (also has icon z19-)
+# entrance-emergency                                # caption(optional) z20- (also has icon z20-)
 # === -9990
 
 amenity-loading_dock                                # icon z19- (also has caption(optional) z19-)
