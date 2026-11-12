@@ -502,16 +502,23 @@ node|z18-[addr:housenumber][addr:street]::int_name,
 node|z15-[addr:housenumber][addr:street],
 {fill-color: none;}
 
+
+node|z19-[entrance],
 node|z18-[entrance=main],
 node|z18-[emergency=emergency_ward_entrance],
-node|z19-[entrance],
-node|z19-[entrance=exit],
 node|z19-[amenity=loading_dock],
 {text: name; text-color: @building_label;}
-node|z18-[entrance=main]::flats,
+
 node|z19-[entrance]::flats,
-node|z19-[entrance=exit]::flats,
+node|z18-[entrance=main]::flats,
 {text: int_name; text-color: @building_label; font-size: 8; text-offset: 1;}
+
+/* Display main label on z20 only */
+node|z19[entrance=emergency],
+{text: none;}
+node|z19-[entrance=emergency]::flats,
+{text: none;}
+
 
 /* 8.1 Pier */
 
@@ -534,15 +541,26 @@ node|z19-[addr:housenumber][addr:street],
 node|z18-[addr:housenumber][addr:street]::int_name,
 {font-size: 12;}
 
+
 node|z19-[entrance],
-node|z19-[amenity=loading_dock],
 {icon-image: entrance-m.svg; font-size: 13; text-offset: 1;}
+node|z19-[entrance=entrance],
+{icon-image: entrance-entry-m.svg; font-size: 13; text-offset: 1;}
 node|z19-[entrance=exit],
 {icon-image: entrance-exit-m.svg; font-size: 13; text-offset: 1;}
 node|z18-[entrance=main],
 {icon-image: entrance-main-m.svg; font-size: 13; text-offset: 1;}
 node|z18-[emergency=emergency_ward_entrance],
 {icon-image: entrance-emergency-m.svg; font-size: 13; text-offset: 1;}
+node|z19-[entrance=service],
+node|z19-[amenity=loading_dock],
+{icon-image: entrance-service-m.svg; font-size: 13; text-offset: 1;}
+
+node|z19[entrance=emergency],
+{icon-image: none;}
+node|z20-[entrance=emergency],
+{icon-image: emergency-exit-m.svg; font-size: 13; text-offset: 1;}
+
 
 /* 8.3 Airports */
 area|z14-[aeroway=terminal]
