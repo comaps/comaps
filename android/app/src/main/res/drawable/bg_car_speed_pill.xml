@@ -3,4 +3,7 @@
     android:shape="rectangle">
     <solid android:color="@color/car_speed_pill_background_light" />
     <corners android:radius="999dp" />
+    <stroke
+        android:width="@dimen/car_speed_pill_outline_width"
+        android:color="@color/car_speed_pill_outline_light" />
 </shape>

@@ -2,7 +2,6 @@ package app.organicmaps.car.renderer;
 
 import android.app.Presentation;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.hardware.display.DisplayManager;
 import android.hardware.display.VirtualDisplay;
@@ -15,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -270,6 +270,8 @@ class SurfaceCallback extends SurfaceCallbackBase
     final boolean nightMode = ThemeUtils.isNightMode(mCarContext);
     final int pillBackground = ContextCompat.getColor(
         mCarContext, nightMode ? R.color.car_speed_pill_background_night : R.color.car_speed_pill_background_light);
+    final int pillOutline = ContextCompat.getColor(
+        mCarContext, nightMode ? R.color.car_speed_pill_outline_night : R.color.car_speed_pill_outline_light);
     final int currentSpeedText = ContextCompat.getColor(
         mCarContext, nightMode ? R.color.car_speed_current_text_night : R.color.car_speed_current_text_light);
     final int signBackground = ContextCompat.getColor(
@@ -278,13 +280,21 @@ class SurfaceCallback extends SurfaceCallbackBase
         ContextCompat.getColor(mCarContext, nightMode ? R.color.car_speed_current_alert_text_night
                                                       : R.color.car_speed_current_alert_text_light);
 
-    final Drawable background = mSpeedPill.getBackground();
-    if (background instanceof GradientDrawable)
-      ((GradientDrawable) background.mutate()).setColor(pillBackground);
+    applyOverlayBackground(mSpeedPill, pillBackground, pillOutline);
 
     mCurrentSpeedView.setTextColor(currentSpeedText);
     mCurrentSpeedView.setAlertTextColor(currentSpeedAlertText);
     mSpeedLimitView.setSignBackgroundColor(signBackground);
+  }
+
+  private void applyOverlayBackground(@NonNull View view, @ColorInt int fill, @ColorInt int outline)
+  {
+    if (!(view.getBackground() instanceof GradientDrawable))
+      return;
+
+    final GradientDrawable shape = (GradientDrawable) view.getBackground().mutate();
+    shape.setColor(fill);
+    shape.setStroke(mCarContext.getResources().getDimensionPixelSize(R.dimen.car_speed_pill_outline_width), outline);
   }
 
   void stopPresenting()

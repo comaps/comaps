@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="car_speed_pill_outline_light">#33000000</color>
+    <color name="car_speed_pill_outline_night">#4DFFFFFF</color>
+    <dimen name="car_speed_pill_outline_width">1dp</dimen>
+</resources>
