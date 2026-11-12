@@ -110,6 +110,7 @@ private:
   void RunMetaConfigAsync(std::function<void()> && callback);
 
   /// Downloads urls[urlIndex] and falls back to the next url on failure.
+  /// calls itself recursively (with urlIndex+1) on failure.
   void DownloadAsStringFromUrls(std::vector<std::string> urls, size_t urlIndex,
                                 std::function<bool(std::string const &)> callback);
 
