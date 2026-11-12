@@ -70,14 +70,14 @@ public:
     // mvglasow: Appears to never have been used
     m_map[c.GetTypeByPath({"highway", "construction"})] = HighwayClass::Pedestrian;
 
-    // Construction types
+    // Construction types, so traffic decoder can treat them like the corresponding highway types
     m_map[c.GetTypeByPath({"highway", "construction", "motorway"})] = HighwayClass::Motorway;
     m_map[c.GetTypeByPath({"highway", "construction", "motorway_link"})] = HighwayClass::Motorway;
     m_map[c.GetTypeByPath({"highway", "construction", "trunk"})] = HighwayClass::Trunk;
     m_map[c.GetTypeByPath({"highway", "construction", "trunk_link"})] = HighwayClass::Trunk;
 
     m_map[c.GetTypeByPath({"highway", "construction", "primary"})] = HighwayClass::Primary;
-    m_map[c.GetTypeByPath({"highway", "primary_link"})] = HighwayClass::Primary;
+    m_map[c.GetTypeByPath({"highway", "construction", "primary_link"})] = HighwayClass::Primary;
 
     m_map[c.GetTypeByPath({"highway", "construction", "secondary"})] = HighwayClass::Secondary;
     m_map[c.GetTypeByPath({"highway", "construction", "secondary_link"})] = HighwayClass::Secondary;
