@@ -1487,6 +1487,9 @@ std::string DebugPrint(RoadShieldType shieldType)
   case RoadShieldType::Generic_Blue: return "blue";
   case RoadShieldType::Generic_Red: return "red";
   case RoadShieldType::Generic_Orange: return "orange";
+  case RoadShieldType::Generic_Yellow: return "yellow";
+  case RoadShieldType::Generic_Purple: return "purple";
+  case RoadShieldType::Generic_Brown: return "brown";
   case RoadShieldType::Generic_Grey: return "grey";
   case RoadShieldType::Generic_White_Bordered: return "white bordered";
   case RoadShieldType::Generic_Green_Bordered: return "green bordered";
