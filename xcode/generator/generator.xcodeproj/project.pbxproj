@@ -96,7 +96,6 @@
 		FACB7B0226B913F400810C9C /* maxspeeds_collector.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FACB79B226B913F300810C9C /* maxspeeds_collector.hpp */; };
 		FACB7B0326B913F400810C9C /* tesselator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FACB79B326B913F300810C9C /* tesselator.hpp */; };
 		FACB7B0426B913F400810C9C /* collector_building_parts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FACB79B426B913F300810C9C /* collector_building_parts.cpp */; };
-		FACB7B0526B913F400810C9C /* traffic_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FACB79B526B913F300810C9C /* traffic_generator.cpp */; };
 		FACB7B0626B913F400810C9C /* feature_emitter_iface.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FACB79B626B913F300810C9C /* feature_emitter_iface.hpp */; };
 		FACB7B0726B913F400810C9C /* intermediate_data.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FACB79B726B913F300810C9C /* intermediate_data.hpp */; };
 		FACB7B0826B913F400810C9C /* restriction_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FACB79B826B913F300810C9C /* restriction_generator.cpp */; };
@@ -266,7 +265,6 @@
 		FACB7BF826B913F400810C9C /* maxspeeds_collector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FACB7ABB26B913F400810C9C /* maxspeeds_collector.cpp */; };
 		FACB7BF926B913F400810C9C /* cities_boundaries_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FACB7ABC26B913F400810C9C /* cities_boundaries_builder.cpp */; };
 		FACB7BFB26B913F400810C9C /* filter_complex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FACB7AC026B913F400810C9C /* filter_complex.cpp */; };
-		FACB7BFD26B913F400810C9C /* traffic_generator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FACB7AC626B913F400810C9C /* traffic_generator.hpp */; };
 		FACB7BFE26B913F400810C9C /* collector_building_parts.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FACB7AC726B913F400810C9C /* collector_building_parts.hpp */; };
 		FACB7BFF26B913F400810C9C /* tesselator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FACB7AC826B913F400810C9C /* tesselator.cpp */; };
 		FACB7C0026B913F400810C9C /* centers_table_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FACB7AC926B913F400810C9C /* centers_table_builder.cpp */; };
@@ -388,7 +386,6 @@
 		FACB79B226B913F300810C9C /* maxspeeds_collector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = maxspeeds_collector.hpp; sourceTree = "<group>"; };
 		FACB79B326B913F300810C9C /* tesselator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tesselator.hpp; sourceTree = "<group>"; };
 		FACB79B426B913F300810C9C /* collector_building_parts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = collector_building_parts.cpp; sourceTree = "<group>"; };
-		FACB79B526B913F300810C9C /* traffic_generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = traffic_generator.cpp; sourceTree = "<group>"; };
 		FACB79B626B913F300810C9C /* feature_emitter_iface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = feature_emitter_iface.hpp; sourceTree = "<group>"; };
 		FACB79B726B913F300810C9C /* intermediate_data.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = intermediate_data.hpp; sourceTree = "<group>"; };
 		FACB79B826B913F300810C9C /* restriction_generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = restriction_generator.cpp; sourceTree = "<group>"; };
@@ -558,7 +555,6 @@
 		FACB7ABB26B913F400810C9C /* maxspeeds_collector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = maxspeeds_collector.cpp; sourceTree = "<group>"; };
 		FACB7ABC26B913F400810C9C /* cities_boundaries_builder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cities_boundaries_builder.cpp; sourceTree = "<group>"; };
 		FACB7AC026B913F400810C9C /* filter_complex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = filter_complex.cpp; sourceTree = "<group>"; };
-		FACB7AC626B913F400810C9C /* traffic_generator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = traffic_generator.hpp; sourceTree = "<group>"; };
 		FACB7AC726B913F400810C9C /* collector_building_parts.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = collector_building_parts.hpp; sourceTree = "<group>"; };
 		FACB7AC826B913F400810C9C /* tesselator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tesselator.cpp; sourceTree = "<group>"; };
 		FACB7AC926B913F400810C9C /* centers_table_builder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = centers_table_builder.cpp; sourceTree = "<group>"; };
@@ -918,8 +914,6 @@
 				FACB79B326B913F300810C9C /* tesselator.hpp */,
 				FACB79D926B913F300810C9C /* towns_dumper.cpp */,
 				FACB7A6026B913F300810C9C /* towns_dumper.hpp */,
-				FACB79B526B913F300810C9C /* traffic_generator.cpp */,
-				FACB7AC626B913F400810C9C /* traffic_generator.hpp */,
 				FACB7A9D26B913F300810C9C /* transit_generator_experimental.cpp */,
 				FACB798726B913F300810C9C /* transit_generator_experimental.hpp */,
 				FACB79C326B913F300810C9C /* transit_generator.cpp */,
@@ -1040,7 +1034,6 @@
 				FACB7B4526B913F400810C9C /* processor_country.hpp in Headers */,
 				FACB7B0F26B913F400810C9C /* processor_booking.hpp in Headers */,
 				FACB7ADA26B913F400810C9C /* translator_interface.hpp in Headers */,
-				FACB7BFD26B913F400810C9C /* traffic_generator.hpp in Headers */,
 				FAA6D8D32921189A00E8D50D /* water_boundary_checker.hpp in Headers */,
 				FACB7AD826B913F400810C9C /* feature_maker_base.hpp in Headers */,
 				FACB7BEE26B913F400810C9C /* place_processor.hpp in Headers */,
@@ -1288,7 +1281,6 @@
 				FACB7BBD26B913F400810C9C /* processor_country.cpp in Sources */,
 				FACB7BF826B913F400810C9C /* maxspeeds_collector.cpp in Sources */,
 				FACB7BB726B913F400810C9C /* filter_roads.cpp in Sources */,
-				FACB7B0526B913F400810C9C /* traffic_generator.cpp in Sources */,
 				FACB7B9D26B913F400810C9C /* descriptions_section_builder.cpp in Sources */,
 				FACB7B2F26B913F400810C9C /* feature_helpers.cpp in Sources */,
 				FACB7BF926B913F400810C9C /* cities_boundaries_builder.cpp in Sources */,
