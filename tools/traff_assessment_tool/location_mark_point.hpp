@@ -42,7 +42,7 @@ public:
   dp::Anchor GetAnchor() const override { return dp::Bottom; }
 
   void SetRole(Role role);
-  Role const GetRole() const { return m_role; }
+  Role GetRole() const { return m_role; }
 
 private:
   Role m_role;

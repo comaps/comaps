@@ -57,8 +57,8 @@ private:
                          std::vector<EdgeProjectionT> & res) const;
 
   m2::PointD const m_point;
-  bool m_snapToEnds;
   std::vector<Candidate> m_candidates;
   IsEdgeProjGood m_isEdgeProjGood;
+  bool m_snapToEnds;
 };
 }  // namespace routing

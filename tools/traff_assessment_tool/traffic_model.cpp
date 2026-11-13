@@ -639,9 +639,9 @@ TrafficModel::TrafficModel(Framework & framework,
   : QAbstractTableModel(parent)
   , m_framework(framework)
   , m_dataSource(framework.GetDataSource())
+  , m_drapeApi(m_framework.GetDrapeApi())
   , m_drawerDelegate(std::make_unique<TrafficDrawerDelegate>(framework))
   , m_pointsDelegate(std::make_unique<PointsControllerDelegate>(framework))
-  , m_drapeApi(m_framework.GetDrapeApi())
 {
   framework.GetTrafficManager().SetTrafficUpdateCallbackFn([this, &framework](bool final) {
     /*
@@ -691,7 +691,6 @@ bool TrafficModel::SaveSampleAs(std::string const & fileName) const
 
   pugi::xml_document result;
   result.reset(m_template);
-  auto root = result.document_element();
 
 #ifdef openlr_obsolete
   for (auto const & sc : m_segments)
