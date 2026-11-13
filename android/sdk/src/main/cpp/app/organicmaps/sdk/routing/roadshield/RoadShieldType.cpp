@@ -14,11 +14,16 @@ std::string ToJavaRoadShieldTypeName(ftypes::RoadShieldType roadShieldType)
   case Generic_Blue: return "GenericBlue";
   case Generic_Red: return "GenericRed";
   case Generic_Orange: return "GenericOrange";
+  case Generic_Yellow: return "GenericYellow";
+  case Generic_Purple: return "GenericPurple";
+  case Generic_Brown: return "GenericBrown";
+  case Generic_Grey: return "GenericWhite";
   case Generic_White_Bordered: return "GenericWhite";
   case Generic_Green_Bordered: return "GenericGreen";
   case Generic_Blue_Bordered: return "GenericBlue";
   case Generic_Red_Bordered: return "GenericRed";
   case Generic_Orange_Bordered: return "GenericOrange";
+  case Generic_Grey_Bordered: return "GenericWhite";
   case Generic_Pill_White: return "GenericWhite";
   case Generic_Pill_Green: return "GenericGreen";
   case Generic_Pill_Blue: return "GenericBlue";

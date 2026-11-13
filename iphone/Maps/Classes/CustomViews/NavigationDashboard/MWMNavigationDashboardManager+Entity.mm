@@ -161,6 +161,9 @@ MWMRoadShieldType roadShieldType(ftypes::RoadShieldType type) {
     // Romanian local (DC) road signs are black on yellow.
     case Romania_Local:
     case Generic_Pill_Orange_Bordered: return MWMRoadShieldTypeGenericOrange;
+    case Generic_Yellow: return MWMRoadShieldTypeGenericYellow;
+    case Generic_Purple: return MWMRoadShieldTypeGenericPurple;
+    case Generic_Brown: return MWMRoadShieldTypeGenericBrown;
     case US_Interstate: return MWMRoadShieldTypeUsInterstate;
     case US_Highway: return MWMRoadShieldTypeUsHighway;
     case UK_Highway: return MWMRoadShieldTypeUkHighway;

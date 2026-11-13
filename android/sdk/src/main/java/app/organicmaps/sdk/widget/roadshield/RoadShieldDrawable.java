@@ -39,31 +39,43 @@ public class RoadShieldDrawable extends Drawable
 
     @ColorInt
     int ORANGE = 0xFFFFBE00;
+
+    @ColorInt
+    int PURPLE = 0xFF8E3FA8;
+
+    @ColorInt
+    int BROWN = 0xFF996600;
   }
 
   // clang-format off
-  private static final Map<RoadShieldType, Integer> SHIELD_TEXT_COLORS = Map.of(
-    RoadShieldType.GenericWhite, ColorConstants.BLACK,
-    RoadShieldType.GenericGreen, ColorConstants.WHITE,
-    RoadShieldType.GenericBlue, ColorConstants.WHITE,
-    RoadShieldType.GenericRed, ColorConstants.WHITE,
-    RoadShieldType.GenericOrange, ColorConstants.BLACK,
-    RoadShieldType.USInterstate, ColorConstants.WHITE,
-    RoadShieldType.USHighway, ColorConstants.BLACK,
-    RoadShieldType.UKHighway, ColorConstants.YELLOW
+  private static final Map<RoadShieldType, Integer> SHIELD_TEXT_COLORS = Map.ofEntries(
+    Map.entry(RoadShieldType.GenericWhite, ColorConstants.BLACK),
+    Map.entry(RoadShieldType.GenericGreen, ColorConstants.WHITE),
+    Map.entry(RoadShieldType.GenericBlue, ColorConstants.WHITE),
+    Map.entry(RoadShieldType.GenericRed, ColorConstants.WHITE),
+    Map.entry(RoadShieldType.GenericOrange, ColorConstants.BLACK),
+    Map.entry(RoadShieldType.GenericYellow, ColorConstants.BLACK),
+    Map.entry(RoadShieldType.GenericPurple, ColorConstants.WHITE),
+    Map.entry(RoadShieldType.GenericBrown, ColorConstants.WHITE),
+    Map.entry(RoadShieldType.USInterstate, ColorConstants.WHITE),
+    Map.entry(RoadShieldType.USHighway, ColorConstants.BLACK),
+    Map.entry(RoadShieldType.UKHighway, ColorConstants.YELLOW)
   );
   // clang-format on
 
   // clang-format off
-  private static final Map<RoadShieldType, Integer> SHIELD_BACKGROUND_COLORS = Map.of(
-      RoadShieldType.GenericWhite, ColorConstants.WHITE,
-      RoadShieldType.GenericGreen, ColorConstants.GREEN,
-      RoadShieldType.GenericBlue, ColorConstants.BLUE,
-      RoadShieldType.GenericRed, ColorConstants.RED,
-      RoadShieldType.GenericOrange, ColorConstants.ORANGE,
-      RoadShieldType.USInterstate, ColorConstants.BLUE,
-      RoadShieldType.USHighway, ColorConstants.WHITE,
-      RoadShieldType.UKHighway, ColorConstants.GREEN
+  private static final Map<RoadShieldType, Integer> SHIELD_BACKGROUND_COLORS = Map.ofEntries(
+      Map.entry(RoadShieldType.GenericWhite, ColorConstants.WHITE),
+      Map.entry(RoadShieldType.GenericGreen, ColorConstants.GREEN),
+      Map.entry(RoadShieldType.GenericBlue, ColorConstants.BLUE),
+      Map.entry(RoadShieldType.GenericRed, ColorConstants.RED),
+      Map.entry(RoadShieldType.GenericOrange, ColorConstants.ORANGE),
+      Map.entry(RoadShieldType.GenericYellow, ColorConstants.YELLOW),
+      Map.entry(RoadShieldType.GenericPurple, ColorConstants.PURPLE),
+      Map.entry(RoadShieldType.GenericBrown, ColorConstants.BROWN),
+      Map.entry(RoadShieldType.USInterstate, ColorConstants.BLUE),
+      Map.entry(RoadShieldType.USHighway, ColorConstants.WHITE),
+      Map.entry(RoadShieldType.UKHighway, ColorConstants.GREEN)
   );
   // clang-format on
 

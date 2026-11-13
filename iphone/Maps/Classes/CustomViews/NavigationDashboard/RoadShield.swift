@@ -9,6 +9,9 @@ enum RoadShieldType: Int {
   case genericBlue
   case genericRed
   case genericOrange
+  case genericYellow
+  case genericPurple
+  case genericBrown
   case usInterstate
   case usHighway
   case ukHighway
@@ -22,6 +25,8 @@ enum RoadShieldType: Int {
     static let green = UIColor(red: 0x30 / 255.0, green: 0x93 / 255.0, blue: 0x02 / 255.0, alpha: 1.0)
     static let red = UIColor(red: 0xE6 / 255.0, green: 0x35 / 255.0, blue: 0x34 / 255.0, alpha: 1.0)
     static let orange = UIColor(red: 1.0, green: 0xBE / 255.0, blue: 0.0, alpha: 1.0)
+    static let purple = UIColor(red: 0x8E / 255.0, green: 0x3F / 255.0, blue: 0xA8 / 255.0, alpha: 1.0)
+    static let brown = UIColor(red: 0x99 / 255.0, green: 0x66 / 255.0, blue: 0.0, alpha: 1.0)
   }
 
   var textColor: UIColor {
@@ -31,6 +36,9 @@ enum RoadShieldType: Int {
     case .genericBlue: return Palette.white
     case .genericRed: return Palette.white
     case .genericOrange: return Palette.black
+    case .genericYellow: return Palette.black
+    case .genericPurple: return Palette.white
+    case .genericBrown: return Palette.white
     case .usInterstate: return Palette.white
     case .usHighway: return Palette.black
     case .ukHighway: return Palette.yellow
@@ -44,6 +52,9 @@ enum RoadShieldType: Int {
     case .genericBlue: return Palette.blue
     case .genericRed: return Palette.red
     case .genericOrange: return Palette.orange
+    case .genericYellow: return Palette.yellow
+    case .genericPurple: return Palette.purple
+    case .genericBrown: return Palette.brown
     case .usInterstate: return Palette.blue
     case .usHighway: return Palette.white
     case .ukHighway: return Palette.green

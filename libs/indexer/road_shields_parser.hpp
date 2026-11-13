@@ -15,8 +15,10 @@ class FeatureType;
 namespace ftypes
 {
 
-// Any new values added here must also be added to
-// android/sdk/src/main/cpp/app/organicmaps/sdk/routing/roadshield/RoadShieldType.cpp
+// Any new values added here must also be mapped in the platform navigation shields:
+//  - android/sdk/src/main/cpp/app/organicmaps/sdk/routing/roadshield/RoadShieldType.cpp
+//  - iphone/.../NavigationDashboard/MWMNavigationDashboardManager+Entity.mm (roadShieldType())
+// and, if it needs a distinct colour, in apply_feature_functors.cpp (map) and the style .mapcss files.
 enum class RoadShieldType
 {
   Default = 0,
@@ -25,6 +27,9 @@ enum class RoadShieldType
   Generic_Blue,
   Generic_Red,
   Generic_Orange,
+  Generic_Yellow,
+  Generic_Purple,
+  Generic_Brown,
   Generic_Grey,
   Generic_White_Bordered,
   Generic_Green_Bordered,
