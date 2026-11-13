@@ -127,6 +127,38 @@ When adding new strings, first check the base file of the component for existing
 2. Add the language in `localeFilters` list in [build.gradle](https://codeberg.org/comaps/comaps/src/commit/e156d21eee7debd13ce9ec775cdcb264a97aad47/android/app/build.gradle#L258) (It's necessary to add the language in this file to be sure app translations and library translations are integrated in the app).
 3. Add the language in [locales_config.xml](https://codeberg.org/comaps/comaps/src/branch/main/android/app/src/main/res/xml/locales_config.xml) (It's necessary to allow users to change app language in Android settings on most recent devices).
 
+### Add support of new language in iOS app
+Codeberg Translate generates the `.lproj` folders automatically, but they are not included in the app until they are referenced in the Xcode project ([iphone/Maps/Maps.xcodeproj/project.pbxproj](https://codeberg.org/comaps/comaps/src/branch/main/iphone/Maps/Maps.xcodeproj/project.pbxproj)).
+
+First, make sure Codeberg Translate has generated the localization files for your language in this directory: [iphone/Maps/LocalizedStrings/\*.lproj][ios_git] (`InfoPlist.strings`, `Localizable.strings`, `Localizable.stringsdict` and `LocalizableTypes.strings`). Then reference them in the Xcode project using one of the options below.
+
+#### Option 1: Edit the project file as text (no Mac needed)
+Open `project.pbxproj` in any text editor and use an existing language (e.g. `af`) as a reference:
+1. Add the language code to the `knownRegions` list (quote codes that contain a dash, e.g. `"sr-Latn"`).
+2. Add one `PBXFileReference` entry for each of the four files, e.g.:
+   ```
+   0123456789ABCDEF01234567 /* eo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = eo; path = eo.lproj/Localizable.strings; sourceTree = "<group>"; };
+   ```
+   - Each entry needs a new ID of 24 hexadecimal characters that is unique in the file (e.g. generate one with `openssl rand -hex 12 | tr a-f A-F` and make sure it doesn't already appear in the file).
+   - Use `lastKnownFileType = text.plist.stringsdict` for `Localizable.stringsdict`.
+   - For codes that contain a dash, quote the `name` and `path` values, e.g. `name = "sr-Latn"; path = "sr-Latn.lproj/Localizable.strings";`.
+3. Add each new ID to the `children` list of the matching `PBXVariantGroup` (`InfoPlist.strings`, `Localizable.strings`, `Localizable.stringsdict` and `LocalizableTypes.strings`).
+
+#### Option 2: Use Xcode (Mac needed)
+Xcode generates the IDs and entries itself, but it creates the localized files by copying a reference language, which may overwrite the existing translations.
+1. Open `iphone/Maps/Maps.xcodeproj`, select the **Maps** project (under PROJECT, not the CoMaps target) and open the **Info** tab.
+2. Under **Localizations**, click **+** and choose the language (less common languages are under **More Languages**).
+3. In the "Choose files and reference language" dialog, select only `InfoPlist.strings`, `Localizable.strings`, `Localizable.stringsdict` and `LocalizableTypes.strings`, and clear everything else. Click **Finish**.
+   - Alternatively, select each of the four files in the Project navigator, open the File inspector (⌥⌘1) and check the language under **Localization**.
+4. Restore the translated files if Xcode changed them, keeping the changes to `project.pbxproj`:
+   ```sh
+   git status iphone/Maps/LocalizedStrings/
+   git checkout -- iphone/Maps/LocalizedStrings/
+   ```
+5. Check the `project.pbxproj` diff: Xcode may also reorder or reformat unrelated parts of the file.
+
+Finally, build the app and select the language in iOS Settings → CoMaps → Language.
+
 ### Adding and changing search keywords
 
 Changing of existing category key in [data/categories-strings/en.json/localize.json](https://codeberg.org/comaps/comaps/src/branch/main/data/categories-strings/en.json/localize.json) (e.g. from `amenity-toilets` to `amenity-toilets|toilets-yes`) will effectively discard all existing original key translations in all other languages. So a key change had to be done for all languages simultaneously.
