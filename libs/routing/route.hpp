@@ -120,8 +120,6 @@ public:
     std::string m_ref;
     /** @brief Whether the road is of a link type.*/
     bool m_isLink = false;
-    /** @brief Whether the road is part of a roundabout. */
-    bool m_onRoundabout = false;
     ftypes::HighwayClass m_highwayClass = ftypes::HighwayClass::Undefined;
 
     RoadNameInfo() = default;
@@ -166,12 +164,22 @@ public:
     friend std::string DebugPrint(RoadNameInfo const & rni);
   };
 
+  /**
+   * @brief Constructs a new `RouteSegment`.
+   *
+   * @param segment The segment on the map
+   * @param turn Turn information for route description and driver instructions
+   * @param junction Coordinates of the turn maneuver described by `turn`
+   * @param roadNameInfo Cached map information about the segment, used for rendering road information
+   * @param onRoundabout Whether the segment is part of a roundabout (false for fake segments)
+   */
   RouteSegment(Segment const & segment, turns::TurnItem const & turn, geometry::PointWithAltitude const & junction,
-               RoadNameInfo const & roadNameInfo)
+               RoadNameInfo const & roadNameInfo, bool const onRoundabout)
     : m_segment(segment)
     , m_turn(turn)
     , m_junction(junction)
     , m_roadNameInfo(roadNameInfo)
+    , m_onRoundabout(onRoundabout)
     , m_transitInfo(nullptr)
   {}
 
@@ -254,6 +262,8 @@ public:
   SpeedInUnits const & GetSpeedLimit() const { return m_speedLimit; }
   void SetSpeedLimit(SpeedInUnits const & speed) { m_speedLimit = speed; }
 
+  bool IsOnRoundabout() const { return m_onRoundabout; }
+
 private:
   Segment m_segment;
 
@@ -267,6 +277,9 @@ private:
 
   /// RoadNameInfo of |m_segment| if any. Otherwise |m_roadNameInfo| is empty.
   RoadNameInfo m_roadNameInfo;
+
+  /** @brief Whether the road is part of a roundabout. */
+  bool m_onRoundabout = false;
 
   /// Speed limit of |m_segment| if any.
   SpeedInUnits m_speedLimit;

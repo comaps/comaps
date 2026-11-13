@@ -1644,7 +1644,7 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage const &
     if (!message.m_location.value().m_at)
       for (auto & rsegment : rsegments)
       {
-        if (rsegment.GetRoadNameInfo().m_onRoundabout)
+        if (rsegment.IsOnRoundabout())
           lastRoundaboutSegment = rsegment.GetSegment();
         else if ((rsegment.GetSegment().GetMwmId() != lastRoundaboutSegment.GetMwmId())
             || (rsegment.GetSegment().GetFeatureId() != lastRoundaboutSegment.GetFeatureId()))
@@ -1697,7 +1697,7 @@ void RoutingTraffDecoder::DecodeLocationDirection(traffxml::TraffMessage const &
         // Skip roundabouts to avoid side effects on crossing roads
         if (!keepRoundabouts)
         {
-          if (rsegment.GetRoadNameInfo().m_onRoundabout)
+          if (rsegment.IsOnRoundabout())
           {
             lastRoundaboutSegment = segment;
             continue;
