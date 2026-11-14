@@ -211,7 +211,7 @@ node|z9[place=city][population>=0]::int_name,
 {font-size: 10;text-halo-radius: 0.5;}
 node|z9[place=city][capital=2],
 {icon-image: star-l.svg;text-offset: 1;font-size: 13;  text-halo-radius: 0.5;}
-node|z9[place=city][capital=2],::int_name,
+node|z9[place=city][capital=2]::int_name,
 {text-offset: 1;font-size: 12;text-halo-radius: 0.5;}
 
 node|z10[place=city][population>=0],
@@ -220,7 +220,7 @@ node|z10[place=city][population>=0]::int_name,
 {font-size: 10;text-halo-radius: 0.9;}
 node|z10[place=city][capital=2],
 {icon-image: star-l.svg;text-offset: 1;font-size: 13; text-halo-radius: 1;}
-node|z10[place=city][capital=2],::int_name
+node|z10[place=city][capital=2]::int_name
 {text-offset: 1;font-size: 12; text-halo-radius: 1;}
 
 node|z11[place=city][population>=0],
@@ -229,7 +229,7 @@ node|z11[place=city][population>=0]::int_name,
 {font-size: 11;}
 node|z11[place=city][capital=2],
 {icon-image: star-l.svg;text-offset: 1;font-size: 12;}
-node|z11[place=city][capital=2],::int_name
+node|z11[place=city][capital=2]::int_name
 {text-offset: 1;font-size: 11;}
 
 node|z12[place=city][population>=0],
@@ -238,7 +238,7 @@ node|z12[place=city][population>=0]::int_name,
 {font-size: 11;text-color: @label_medium;}
 node|z12[place=city][capital=2],
 {icon-image: star-l.svg;text-offset: 1;font-size: 13; text-color: @label_dark;}
-node|z12[place=city][capital=2],::int_name
+node|z12[place=city][capital=2]::int_name
 {text-offset: 1;font-size: 11; text-color: @label_dark;}
 
 node|z13-[place=city][population<40000],
@@ -247,7 +247,7 @@ node|z13-[place=city][population<40000]::int_name,
 {font-size: 12;text-color: @label_medium;}
 node|z13-[place=city][capital=2],
 {icon-image: star-l.svg;text-offset: 1;font-size: 14;text-color: @label_medium;}
-node|z13-[place=city][capital=2],::int_name
+node|z13-[place=city][capital=2]::int_name
 {text-offset: 1;font-size: 11;text-color: @label_medium;}
 
 /* 4.2 Town */
