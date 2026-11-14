@@ -67,7 +67,22 @@ public:
     m_map[c.GetTypeByPath({"highway", "cycleway"})] = HighwayClass::Pedestrian;
     m_map[c.GetTypeByPath({"highway", "path"})] = HighwayClass::Pedestrian;
 
-    // mvglasow: Appears to never have been used
+    /*
+     * Inherited from OM.
+     * Prior to #4200, there were no construction subtypes, `highway-construction` was used for everything
+     * under construction. OM originally treated construction segments as footways, so they could still
+     * be used in pedestrian routing. This changed various times, see
+     * https://github.com/organicmaps/organicmaps/issues/3929 and CoMaps PR #4200.
+     * As of #4200, this mapping would now only be used for construction types that do not belong to
+     * any of the subtypes – that is, feature with `highway=construction` but no `construction=*` tag,
+     * or an unsupported value in that tag. Most of these are expected to be new constructions (as
+     * opposed to existing roads undergoing reconstruction) with no indication of the type of road
+     * being constructed, roads that were never intended for general motorized traffic, or the lowest
+     * tiers of the road network (driveways or parking aisles).
+     * Note that `HighwayClass` is used only for route weight and rendering; whether a particular feature
+     * can be used for routing at all is determined by its types (`highway-*` and `hwtag-*`, which are
+     * derived from the `highway=*` and access tags in OSM).
+     */
     m_map[c.GetTypeByPath({"highway", "construction"})] = HighwayClass::Pedestrian;
 
     // Construction types, so traffic decoder can treat them like the corresponding highway types
