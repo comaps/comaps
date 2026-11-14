@@ -38,11 +38,11 @@ node|z15-[railway=station][station=monorail],
 node|z10-[railway=station][station=light_rail],
 node|z10-[railway=station][station=monorail],
 node|z10-[railway=station][transport=subway],
-{text-color: @public_transport_label;}
+{text-color: @label_dark;}
 node|z10-[railway=station][station=light_rail]::int_name,
 node|z10-[railway=station][station=monorail]::int_name,
 node|z10-[railway=station][transport=subway]::int_name,
-{text-color: @public_transport_label;}
+{text-color: @label_dark;}
 
 node|z14-[railway=station][transport=subway],
 node|z14-[railway=station][station=light_rail],
