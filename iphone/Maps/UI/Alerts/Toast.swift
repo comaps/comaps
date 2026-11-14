@@ -59,6 +59,7 @@ final class Toast: NSObject {
     let toast = Toast(text)
     toasts.append(toast)
     toast.show(withAlignment: alignment, pinToSafeArea: pinToSafeArea)
+    UIAccessibility.post(notification: .announcement, argument: text)
   }
 
   @objc

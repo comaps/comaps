@@ -58,7 +58,7 @@ extension PlacePagePresenter: PlacePagePresenterProtocol {
       headerView.showShareTrackMenu()
     default:
       guard let coordinates = LocationManager.lastLocation()?.coordinate else {
-        view?.showAlert(UIAlertController.unknownCurrentPosition())
+        AlertPresenter.shared.presentUnknownCurrentPositionAlert()
         return
       }
       let activity = ActivityViewController.share(forMyPosition: coordinates)
@@ -76,7 +76,7 @@ extension PlacePagePresenter: PlacePagePresenterProtocol {
   }
 
   func showInfoAlert(title: String, message: String) {
-    MWMAlertViewController.activeAlert().presentInfoAlert(title, text: message)
+    AlertPresenter.shared.presentInfoAlert(title: title, message: message)
   }
 
   func openURL(_ path: String) {

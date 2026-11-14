@@ -9,7 +9,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateNode:(NSString *)countryId;
 - (void)updateNode:(NSString *)countryId onCancel:(nullable MWMVoidBlock)cancel;
 - (void)deleteNode:(NSString *)countryId;
-- (void)downloadNodes:(NSArray<NSString *> *)countryIds onSuccess:(nullable MWMVoidBlock)success;
+- (void)downloadNodes:(NSArray<NSString *> *)countryIds
+            onSuccess:(nullable MWMVoidBlock)success
+             onCancel:(nullable MWMVoidBlock)cancel;
 
 @end
 

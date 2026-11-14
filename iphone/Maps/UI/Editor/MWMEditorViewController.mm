@@ -1,5 +1,4 @@
 #import "MWMEditorViewController.h"
-#import "MWMAlertViewController.h"
 #import "MWMButtonCell.h"
 #import "MWMCuisineEditorViewController.h"
 #import "MWMEditorAddAdditionalNameTableViewCell.h"
@@ -273,7 +272,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
     [self.navigationController popToRootViewControllerAnimated:YES];
     break;
   case osm::Editor::SaveResult::NoFreeSpaceError:
-    [self.alertController presentNotEnoughSpaceAlert];
+    [AlertPresenter.shared presentNotEnoughSpaceAlert];
     break;
   }
 }
@@ -1110,7 +1109,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   [self.tableView reloadRowsAtIndexPaths:@[ ip ] withRowAnimation:UITableViewRowAnimationFade];
 
   auto placeDoesntExistAction = ^{
-    [self.alertController presentPlaceDoesntExistAlertWithBlock:^(NSString * additionalMessage) {
+    [AlertPresenter.shared presentPlaceDoesntExistAlertOnSend:^(NSString * additionalMessage) {
       std::string const additional = additionalMessage.length ? additionalMessage.UTF8String : "";
       GetFramework().CreateNote(self->m_mapObject, osm::Editor::NoteProblemType::PlaceDoesNotExist,
                                 additional);
@@ -1139,14 +1138,14 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
     case FeatureStatus::Untouched: placeDoesntExistAction(); break;
     case FeatureStatus::Modified:
     {
-      [self.alertController presentResetChangesAlertWithBlock:^{
+      [AlertPresenter.shared presentResetChangesAlertOnReset:^{
         revertAction(NO);
       }];
       break;
     }
     case FeatureStatus::Created:
     {
-      [self.alertController presentDeleteFeatureAlertWithBlock:^{
+      [AlertPresenter.shared presentDeleteFeatureAlertOnDelete:^{
         revertAction(YES);
       }];
       break;
@@ -1226,7 +1225,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   if ([ud boolForKey:kUDEditorPersonalInfoWarninWasShown])
     return NO;
 
-  [self.alertController presentPersonalInfoWarningAlertWithBlock:^
+  [AlertPresenter.shared presentPersonalInfoWarningAlertOnSend:^
   {
     [ud setBool:YES forKey:kUDEditorPersonalInfoWarninWasShown];
     [self onSave];
