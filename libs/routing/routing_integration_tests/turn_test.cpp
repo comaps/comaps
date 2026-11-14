@@ -7,6 +7,7 @@
 
 #include "platform/location.hpp"
 
+#include <optional>
 #include <vector>
 
 namespace turn_test
@@ -114,6 +115,37 @@ UNIT_TEST(Sweden_BarlangeRoundabout_TurnTest)
   integration::GetNthTurn(route, 1).TestValid().TestDirection(CarDirection::LeaveRoundAbout);
 
   integration::TestRouteLength(route, 255.);
+}
+
+UNIT_TEST(Sweden_BarlangeRoundabout_OnRoundaboutTest)
+{
+  TRouteResult const routeResult = integration::CalculateRoute(integration::GetVehicleComponents(VehicleType::Car),
+                                                               mercator::FromLatLon(60.48278, 15.42356), {0., 0.},
+                                                               mercator::FromLatLon(60.48462, 15.42120));
+  TEST_EQUAL(routeResult.second, RouterResultCode::NoError, ());
+
+  auto const & segments = routeResult.first->GetRouteSegments();
+  std::optional<size_t> first, last;
+  for (size_t i = 0; i < segments.size(); ++i)
+  {
+    if (segments[i].IsOnRoundabout())
+    {
+      if (!first)
+        first = i;
+      last = i;
+    }
+  }
+
+  TEST(first, ());
+  TEST_GREATER(*last, *first, ());
+  size_t continuationSegments = 0;
+  for (size_t i = *first; i <= *last; ++i)
+  {
+    TEST(segments[i].IsOnRoundabout(), (i, segments.size()));
+    if (segments[i].GetRoadNameInfo().empty())
+      ++continuationSegments;
+  }
+  TEST_GREATER(continuationSegments, 0, ());
 }
 
 UNIT_TEST(Russia_Moscow_PlanetnayaOnlyStraight_TurnTest)
