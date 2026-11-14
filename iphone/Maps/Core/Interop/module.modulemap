@@ -1,0 +1,4 @@
+module CoMapsInterop {
+    header "storage_interop.hpp"
+    requires cplusplus
+}

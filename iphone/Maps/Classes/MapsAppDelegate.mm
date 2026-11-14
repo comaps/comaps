@@ -215,7 +215,7 @@ void InitLocalizedStrings() {
   if ([MWMSettings isTrackWarningAlertShown])
     return;
 
-  [topVc.alertController presentTrackWarningAlertWithCancelBlock:^{
+  [AlertPresenter.shared presentTrackWarningAlertOnTurnOff:^{
     GpsTracker::Instance().SetEnabled(false);
   }];
 
