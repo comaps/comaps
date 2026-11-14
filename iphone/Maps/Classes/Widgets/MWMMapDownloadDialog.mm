@@ -181,7 +181,7 @@ NSString * const kOfflineMapsExplained = @"OfflineMapsExplained";
   self.downloadButton.hidden = YES;
   self.progressWrapper.hidden = NO;
   self.progress.state = MWMCircularProgressStateFailed;
-  MWMAlertViewController *avc = self.controller.alertController;
+  AlertPresenter *avc = AlertPresenter.shared;
   [self addToSuperview];
   auto const retryBlock = ^{
     [self showInQueue];
@@ -194,13 +194,13 @@ NSString * const kOfflineMapsExplained = @"OfflineMapsExplained";
     case NodeErrorCode::NoError:
       break;
     case NodeErrorCode::UnknownError:
-      [avc presentDownloaderInternalErrorAlertWithOkBlock:retryBlock cancelBlock:cancelBlock];
+      [avc presentDownloaderInternalErrorAlertOnRetry:retryBlock onCancel:cancelBlock];
       break;
     case NodeErrorCode::OutOfMemFailed:
       [avc presentDownloaderNotEnoughSpaceAlert];
       break;
     case NodeErrorCode::NoInetConnection:
-      [avc presentDownloaderNoConnectionAlertWithOkBlock:retryBlock cancelBlock:cancelBlock];
+      [avc presentDownloaderNoConnectionAlertOnRetry:retryBlock onCancel:cancelBlock];
       break;
   }
 }

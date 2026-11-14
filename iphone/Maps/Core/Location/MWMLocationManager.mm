@@ -1,5 +1,4 @@
 #import "MWMLocationManager.h"
-#import "MWMAlertViewController.h"
 #import "MWMLocationObserver.h"
 #import "MWMLocationPredictor.h"
 #import "MWMRouter.h"
@@ -379,18 +378,18 @@ void setShowLocationAlert(BOOL needShow) {
   case MWMLocationStatusNoError:
     break;
   case MWMLocationStatusNotSupported:
-    [[MWMAlertViewController activeAlertController] presentLocationServiceNotSupportedAlert];
+    [AlertPresenter.shared presentLocationServiceNotSupportedAlert];
     break;
   case MWMLocationStatusDenied:
     if (needShowLocationAlert()) {
-      [[MWMAlertViewController activeAlertController] presentLocationAlertWithCancelBlock:^{
+      [AlertPresenter.shared presentLocationAlertOnCancel:^{
         setShowLocationAlert(NO);
       }];
     }
     break;
   case MWMLocationStatusGPSIsOff:
     if (needShowLocationAlert()) {
-      [[MWMAlertViewController activeAlertController] presentLocationServicesDisabledAlert];
+      [AlertPresenter.shared presentLocationServicesDisabledAlert];
       setShowLocationAlert(NO);
     }
     break;

@@ -1,17 +1,10 @@
 #import "MapsAppDelegate.h"
 #import "MapViewController.h"
-#import "MWMAlertViewController.h"
 #import "MWMTableViewCell.h"
 #import "MWMTableViewController.h"
 #import "SwiftBridge.h"
 
 static CGFloat const kMaxEstimatedTableViewCellHeight = 100.0;
-
-@interface MWMTableViewController ()
-
-@property (nonatomic, readwrite) MWMAlertViewController * alertController;
-
-@end
 
 @implementation MWMTableViewController
 
@@ -66,13 +59,6 @@ static CGFloat const kMaxEstimatedTableViewCellHeight = 100.0;
 - (BOOL)hasNavigationBar
 {
   return YES;
-}
-
-- (MWMAlertViewController *)alertController
-{
-  if (!_alertController)
-    _alertController = [[MWMAlertViewController alloc] initWithViewController:self];
-  return _alertController;
 }
 
 @end

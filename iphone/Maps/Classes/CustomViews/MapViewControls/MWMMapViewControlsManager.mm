@@ -2,7 +2,6 @@
 #import "MWMAddPlaceNavigationBar.h"
 #import "MWMMapDownloadDialog.h"
 #import "MWMMapViewControlsManager+AddPlace.h"
-#import "MWMNetworkPolicy+UI.h"
 #import "MWMPlacePageManager.h"
 #import "MWMPlacePageProtocol.h"
 #import "MWMMapWidgetsHelper.h"
@@ -126,7 +125,7 @@ NSString *const kMapToCategorySelectorSegue = @"MapToCategorySelectorSegue";
       if ([MWMFrameworkHelper canEditMapAtViewportCenter])
         [ownerController performSegueWithIdentifier:kMapToCategorySelectorSegue sender:nil];
       else
-        [ownerController.alertController presentIncorrectFeauturePositionAlert];
+        [AlertPresenter.shared presentIncorrectFeaturePositionAlert];
 
       [self didFinishAddingPlace];
     }

@@ -50,9 +50,9 @@ final class BMCViewController: MWMViewController {
   }
 
   private func createNewCategory() {
-    alertController.presentCreateBookmarkCategoryAlert(withMaxCharacterNum: viewModel.maxCategoryNameLength,
-                                                       minCharacterNum: viewModel.minCategoryNameLength)
-    { [weak viewModel] (name: String!) -> Bool in
+    AlertPresenter.shared.presentCreateBookmarkCategoryAlert(maxCharacters: Int(viewModel.maxCategoryNameLength),
+                                                             minCharacters: Int(viewModel.minCategoryNameLength))
+    { [weak viewModel] name -> Bool in
       guard let model = viewModel else { return false }
       if model.checkCategory(name: name) {
         model.addCategory(name: name)
@@ -85,11 +85,11 @@ final class BMCViewController: MWMViewController {
           }
           shareController.present(inParentViewController: self, anchorView: anchorView)
         case .emptyCategory:
-          MWMAlertViewController.activeAlert().presentInfoAlert(L("bookmarks_error_title_share_empty"),
-                                                                text: L("bookmarks_error_message_share_empty"))
+          AlertPresenter.shared.presentInfoAlert(title: L("bookmarks_error_title_share_empty"),
+                                                message: L("bookmarks_error_message_share_empty"))
         case .fileError, .archiveError:
-          MWMAlertViewController.activeAlert().presentInfoAlert(L("dialog_routing_system_error"),
-                                                                text: L("bookmarks_error_message_share_general"))
+          AlertPresenter.shared.presentInfoAlert(title: L("dialog_routing_system_error"),
+                                                message: L("bookmarks_error_message_share_general"))
         }
       }
     }
@@ -181,14 +181,6 @@ extension BMCViewController: BMCView {
 
   func delete(at indexPaths: [IndexPath]) {
     tableView.deleteRows(at: indexPaths, with: .automatic)
-  }
-
-  func conversionFinished(success: Bool) {
-    MWMAlertViewController.activeAlert().closeAlert {
-      if !success {
-        MWMAlertViewController.activeAlert().presentBookmarkConversionErrorAlert()
-      }
-    }
   }
 }
 

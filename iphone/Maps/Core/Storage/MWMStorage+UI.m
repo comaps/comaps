@@ -1,15 +1,15 @@
 #import "MWMStorage+UI.h"
-#import "MWMAlertViewController.h"
+#import "SwiftBridge.h"
 
 @implementation MWMStorage (UI)
 
 - (void)handleError:(NSError *)error {
   if (error.code == kStorageNotEnoughSpace) {
-    [[MWMAlertViewController activeAlertController] presentNotEnoughSpaceAlert];
+    [AlertPresenter.shared presentNotEnoughSpaceAlert];
   } else if (error.code == kStorageNoConnection) {
-    [[MWMAlertViewController activeAlertController] presentNoConnectionAlert];
+    [AlertPresenter.shared presentNoConnectionAlert];
   } else if (error.code == kStorageRoutingActive) {
-    [[MWMAlertViewController activeAlertController] presentDeleteMapProhibitedAlert];
+    [AlertPresenter.shared presentDeleteMapProhibitedAlert];
   } else {
     NSAssert(NO, @"Unknown error code");
   }
@@ -25,10 +25,10 @@
   if (error) {
     if (error.code == kStorageCellularForbidden) {
       __weak __typeof(self) ws = self;
-      [[MWMAlertViewController activeAlertController] presentNoWiFiAlertWithOkBlock:^{
+      [AlertPresenter.shared presentNoWiFiAlertOnConfirm:^{
         [self enableCellularDownload:YES];
         [ws downloadNode:countryId];
-      } andCancelBlock:nil];
+      } onCancel:nil];
     } else {
       [self handleError:error];
     }
@@ -49,10 +49,10 @@
   if (error) {
     if (error.code == kStorageCellularForbidden) {
       __weak __typeof(self) ws = self;
-      [[MWMAlertViewController activeAlertController] presentNoWiFiAlertWithOkBlock:^{
+      [AlertPresenter.shared presentNoWiFiAlertOnConfirm:^{
         [self enableCellularDownload:YES];
         [ws updateNode:countryId onCancel:cancel];
-      } andCancelBlock:cancel];
+      } onCancel:cancel];
     } else {
       [self handleError:error];
       if (cancel) {
@@ -72,12 +72,12 @@
   if (error) {
     __weak __typeof(self) ws = self;
     if (error.code == kStorageCellularForbidden) {
-      [[MWMAlertViewController activeAlertController] presentNoWiFiAlertWithOkBlock:^{
+      [AlertPresenter.shared presentNoWiFiAlertOnConfirm:^{
         [self enableCellularDownload:YES];
         [ws deleteNode:countryId];
-      } andCancelBlock:nil];
+      } onCancel:nil];
     } else if (error.code == kStorageHaveUnsavedEdits) {
-      [[MWMAlertViewController activeAlertController] presentUnsavedEditsAlertWithOkBlock:^ {
+      [AlertPresenter.shared presentUnsavedEditsAlertOnDelete:^ {
         [ws deleteNode:countryId ignoreUnsavedEdits:YES];
       }];
     } else {
@@ -92,10 +92,10 @@
   if (error) {
     if (error.code == kStorageCellularForbidden) {
       __weak __typeof(self) ws = self;
-      [[MWMAlertViewController activeAlertController] presentNoWiFiAlertWithOkBlock:^{
+      [AlertPresenter.shared presentNoWiFiAlertOnConfirm:^{
         [self enableCellularDownload:YES];
         [ws downloadNodes:countryIds onSuccess:success];
-      } andCancelBlock:nil];
+      } onCancel:nil];
     } else {
       [self handleError:error];
     }

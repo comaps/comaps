@@ -9,7 +9,6 @@
 #import "MWMLocationModeListener.h"
 #import "MWMMapDownloadDialog.h"
 #import "MWMMapViewControlsManager.h"
-#import "MWMNetworkPolicy+UI.h"
 #import "MWMPlacePageProtocol.h"
 #import "MapsAppDelegate.h"
 #import "SwiftBridge.h"
@@ -351,12 +350,6 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 
 #pragma mark - ViewController lifecycle
 
-- (void)viewWillTransitionToSize:(CGSize)size
-       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-  [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-  [self.alertController viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-}
-
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
   [super traitCollectionDidChange:previousTraitCollection];
   if (self.traitCollection.verticalSizeClass != previousTraitCollection.verticalSizeClass)
@@ -606,7 +599,7 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
   [NSNotificationCenter.defaultCenter addObserverForName:MapControls.presentShareLocationNotificationName object:nil queue:nil usingBlock:^(NSNotification * _Nonnull notification) {
     dispatch_async(dispatch_get_main_queue(), ^{
       if (MWMLocationManager.lastLocation == nil)
-        [self presentViewController:[UIAlertController unknownCurrentPosition] animated:true completion:nil];
+        [AlertPresenter.shared presentUnknownCurrentPositionAlert];
       else
         [[MWMActivityViewController shareControllerForMyPosition:MWMLocationManager.lastLocation.coordinate] presentInParentViewController: self anchorView: self.mainView];
     });
@@ -722,11 +715,6 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
   }
 }
 
-#pragma mark - ShowDialog callback
-
-- (void)presentDisabledLocationAlert {
-  [self.alertController presentDisabledLocationAlert];
-}
 - (void)setDisableStandbyOnLocationStateMode:(BOOL)disableStandbyOnLocationStateMode {
   if (_disableStandbyOnLocationStateMode == disableStandbyOnLocationStateMode)
     return;
@@ -857,11 +845,11 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 
 #pragma mark - MWMBookmarksObserver
 - (void)onBookmarksFileLoadSuccess {
-  [[MWMAlertViewController activeAlertController] presentInfoAlert:L(@"load_kmz_title") text:L(@"load_kmz_successful")];
+  [AlertPresenter.shared presentInfoAlertWithTitle:L(@"load_kmz_title") message:L(@"load_kmz_successful")];
 }
 
 - (void)onBookmarksFileLoadError {
-  [[MWMAlertViewController activeAlertController] presentInfoAlert:L(@"load_kmz_title") text:L(@"load_kmz_failed")];
+  [AlertPresenter.shared presentInfoAlertWithTitle:L(@"load_kmz_title") message:L(@"load_kmz_failed")];
 }
 
 - (BOOL)canBecomeFirstResponder {

@@ -153,7 +153,7 @@ private extension iCloudSynchronizaionManager {
     guard let error else { return }
     settings.setICLoudSynchronizationEnabled(false)
     synchronizationError = error
-    MWMAlertViewController.activeAlert().presentBugReportAlert(withTitle: L("icloud_synchronization_error_alert_title"))
+    AlertPresenter.shared.presentBugReportAlert(title: L("icloud_synchronization_error_alert_title"))
   }
 
   func pauseSynchronization() {

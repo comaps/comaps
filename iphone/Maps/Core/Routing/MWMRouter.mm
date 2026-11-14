@@ -1,5 +1,4 @@
 #import "MWMRouter.h"
-#import "MWMAlertViewController+CPP.h"
 #import "MWMCoreRouterType.h"
 #import "MWMFrameworkListener.h"
 #import "MWMFrameworkObservers.h"
@@ -343,13 +342,12 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
       {
         BOOL const needToRebuild = lastLocation && [MWMLocationManager isStarted] && !p2.isMyPosition;
 
-        [[MWMAlertViewController activeAlertController]
-          presentPoint2PointAlertWithOkBlock:^{
-            [self buildFromPoint:[[MWMRoutePoint alloc] initWithLastLocationAndType:MWMRoutePointTypeStart
-                                                                  intermediateIndex:0]
-                      bestRouter:NO];
-          }
-                               needToRebuild:needToRebuild];
+        [AlertPresenter.shared presentPoint2PointAlertWithNeedToRebuild:needToRebuild
+                                                              onRebuild:^{
+          [self buildFromPoint:[[MWMRoutePoint alloc] initWithLastLocationAndType:MWMRoutePointTypeStart
+                                                                intermediateIndex:0]
+                    bestRouter:NO];
+        }];
       }
     }
   };
@@ -357,7 +355,7 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
   if ([MWMSettings routingDisclaimerApproved]) {
     doStart();
   } else {
-    [[MWMAlertViewController activeAlertController] presentRoutingDisclaimerAlertWithOkBlock:^{
+    [AlertPresenter.shared presentRoutingDisclaimerAlertOnAccept:^{
       doStart();
       [MWMSettings setRoutingDisclaimerApproved];
     }];
@@ -515,7 +513,7 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
     case routing::RouterResultCode::TransitRouteNotFoundNoNetwork:
     case routing::RouterResultCode::TransitRouteNotFoundTooLongPedestrian:
     case routing::RouterResultCode::RouteNotFoundRedressRouteError:
-      [[MWMAlertViewController activeAlertController] presentAlert:code];
+      [AlertPresenter.shared presentRoutingError:MWMRouterResultCode(code)];
       [[MWMNavigationDashboardManager sharedManager] onRouteError:L(@"routing_planning_error")];
       break;
   }
@@ -537,34 +535,30 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
 #pragma mark - Alerts
 
 - (void)presentDownloaderAlert:(routing::RouterResultCode)code countries:(storage::CountriesSet const &)countries {
-  MWMAlertViewController *activeAlertController = [MWMAlertViewController activeAlertController];
+  AlertPresenter *presenter = AlertPresenter.shared;
   if (!countries.empty()) {
-    [activeAlertController presentDownloaderAlertWithCountries:countries
-      code:code
-      cancelBlock:^{
+    NSMutableArray<NSString *> *countryIds = [NSMutableArray arrayWithCapacity:countries.size()];
+    for (auto const &cid : countries) {
+      [countryIds addObject:@(cid.c_str())];
+    }
+    [presenter presentMissingMapsAlertWithCountries:countryIds
+      code:MWMRouterResultCode(code)
+      onCancel:^{
         if (code != routing::RouterResultCode::NeedMoreMaps)
           [MWMRouter stopRouting];
       }
-      downloadBlock:^(storage::CountriesVec const &downloadCountries, MWMVoidBlock onSuccess) {
-        NSMutableArray *array = [NSMutableArray arrayWithCapacity:downloadCountries.size()];
-        for (auto const &cid : downloadCountries) {
-          [array addObject:@(cid.c_str())];
-        }
-        [[MWMStorage sharedStorage] downloadNodes:array onSuccess:onSuccess];
+      onDownload:^(NSArray<NSString *> *downloadCountries, MWMVoidBlock onSuccess) {
+        [[MWMStorage sharedStorage] downloadNodes:downloadCountries onSuccess:onSuccess];
       }
-      downloadCompleteBlock:^{
+      onComplete:^{
         [MWMRouter rebuildWithBestRouter:NO];
       }];
   } else if ([MWMRouter hasActiveDrivingOptions]) {
-    [activeAlertController presentDefaultAlertWithTitle:L(@"unable_to_calc_alert_title")
-                                                message:L(@"unable_to_calc_alert_subtitle")
-                                       rightButtonTitle:L(@"settings")
-                                        leftButtonTitle:L(@"cancel")
-                                      rightButtonAction:^{
-                                        [[MapViewController sharedController] openDrivingOptions];
-                                      }];
+    [presenter presentUnableToCalculateRouteAlertOnSettings:^{
+      [[MapViewController sharedController] openDrivingOptions];
+    }];
   } else {
-    [activeAlertController presentAlert:code];
+    [presenter presentRoutingError:MWMRouterResultCode(code)];
   }
 }
 

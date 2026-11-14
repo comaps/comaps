@@ -85,7 +85,7 @@ final class SelectBookmarkGroupViewController: MWMTableViewController {
   }
 
   private func createNewGroup() {
-    alertController.presentCreateBookmarkCategoryAlert(withMaxCharacterNum: 60, minCharacterNum: 0) {
+    AlertPresenter.shared.presentCreateBookmarkCategoryAlert(maxCharacters: 60, minCharacters: 0) {
       [unowned self] name -> Bool in
       guard BookmarksManager.shared().checkCategoryName(name) else { return false }
       let newGroupId = BookmarksManager.shared().createCategory(withName: name)

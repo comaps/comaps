@@ -261,7 +261,7 @@ extension BookmarksListViewController: IBookmarksListView {
   }
 
   func showError(title: String, message: String) {
-    MWMAlertViewController.activeAlert().presentInfoAlert(title, text: message)
+    AlertPresenter.shared.presentInfoAlert(title: title, message: message)
   }
 }
 
