@@ -2,7 +2,7 @@
  <title>survey_point-m</title>
  <g fill="none" fill-rule="evenodd">
   <g id="survey_point-m" fill-rule="nonzero">
-   <g transform="matrix(1.5049,0,0,1.5049,-6.0591,-8.1013)" fill="#777777">
+   <g transform="matrix(1.5049 0 0 1.5049 -6.0591 -8.1013)" fill="#7E8890">
     <circle cx="12" cy="10.066" r="1.1503"/>
     <rect x="9.3034" y="7.8647" width="5.3932" height="1.5362" rx=".75229" ry=".76811"/>
     <rect x="11.45" y="10.204" width="1.1003" height="8.9832" ry=".55014"/>
