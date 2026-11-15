@@ -153,6 +153,7 @@ public final class CarAppSession extends Session implements DefaultLifecycleObse
     {
       LocationState.nativeRemoveListener();
       Framework.nativeRemovePlacePageActivationListener(this);
+      Framework.nativeDeactivatePopup();
     }
     mCurrentCountryChangedListener.onStop();
   }
