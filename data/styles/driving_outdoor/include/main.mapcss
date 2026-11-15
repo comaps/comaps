@@ -8,6 +8,8 @@
  * Driving Outdoor style is supposed to be used both for map browsing and car navigation modes.
  */
 
+@import("../../default/include/Label_halos.mapcss");
+
 @import("../../default/include/Basemap.mapcss");
 @import("../../driving/include/Basemap.mapcss");
 @import("../../outdoors/include/Basemap.mapcss");

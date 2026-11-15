@@ -8,6 +8,8 @@
  * TODO: we don't need Public transport Outdoor style at all?
  */
 
+@import("../../default/include/Label_halos.mapcss");
+
 @import("../../default/include/Basemap.mapcss");
 @import("../../public-transport/include/Basemap.mapcss");
 @import("../../outdoors/include/Basemap.mapcss");

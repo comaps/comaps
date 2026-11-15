@@ -131,23 +131,23 @@ line|z10-[highway=trunk_link],
 
 line|z10-11[highway=motorway],
 line|z10-11[highway=trunk],
-{font-size: 11; text-color: @label_medium; text-halo-opacity: 0.9;}
+{font-size: 11; text-color: @label_medium; text-halo-opacity: @label_halo_opacity;}
 line|z12-13[highway=motorway],
 line|z12-13[highway=trunk],
-{font-size: 12; text-color: @label_medium; text-halo-opacity: 1;}
+{font-size: 12; text-color: @label_medium; text-halo-opacity: @label_halo_opacity;}
 line|z14-[highway=trunk],
 line|z14-[highway=motorway],
-{font-size: 14; text-color: @label_dark; text-halo-opacity: 1; text-halo-color: @label_halo_light;}
+{font-size: 14; text-color: @label_dark; text-halo-opacity: @label_halo_opacity; text-halo-color: @label_halo_light;}
 
 line|z10-13[highway=motorway_link],
 line|z10-13[highway=trunk_link],
-{font-size: 10; text-color: @label_medium; text-halo-opacity: 0.7;}
+{font-size: 10; text-color: @label_medium; text-halo-opacity: @label_halo_opacity;}
 line|z14-15[highway=motorway_link],
 line|z14-15[highway=trunk_link],
-{font-size: 11; text-color: @label_medium; text-halo-opacity: 0.9;}
+{font-size: 11; text-color: @label_medium; text-halo-opacity: @label_halo_opacity;}
 line|z16-[highway=motorway_link],
 line|z16-[highway=trunk_link],
-{font-size: 12; text-color: @label_medium; text-halo-opacity: 1; text-halo-color: @label_halo_light;}
+{font-size: 12; text-color: @label_medium; text-halo-opacity: @label_halo_opacity; text-halo-color: @label_halo_light;}
 
 /* 4.PRIMARY 10-22 ZOOM */
 
@@ -157,16 +157,16 @@ line|z11-[highway=primary_link],
 
 line|z10-13[highway=primary],
 line|z11-13[highway=primary_link],
-{font-size: 10; text-color: @label_medium; text-halo-opacity: 0.7;}
+{font-size: 10; text-color: @label_medium; text-halo-opacity: @label_halo_opacity;}
 line|z14-15[highway=primary],
-{font-size: 13; text-color: @label_dark; text-halo-opacity: 0.9;}
+{font-size: 13; text-color: @label_dark; text-halo-opacity: @label_halo_opacity;}
 line|z16-[highway=primary],
-{font-size: 14; text-color: @label_dark; text-halo-opacity: 1; text-halo-color: @label_halo_light;}
+{font-size: 14; text-color: @label_dark; text-halo-opacity: @label_halo_opacity; text-halo-color: @label_halo_light;}
 
 line|z14-15[highway=primary_link],
-{font-size: 10; text-color: @label_medium; text-halo-opacity: 0.9;}
+{font-size: 10; text-color: @label_medium; text-halo-opacity: @label_halo_opacity;}
 line|z16-[highway=primary_link],
-{font-size: 12; text-color: @label_medium; text-halo-opacity: 1; text-halo-color: @label_halo_light;}
+{font-size: 12; text-color: @label_medium; text-halo-opacity: @label_halo_opacity; text-halo-color: @label_halo_light;}
 
 /* 5.SECONDARY 10-22 ZOOM */
 
@@ -175,19 +175,19 @@ line|z16-[highway=secondary_link],
 {text: name; text-halo-radius: 1; text-halo-color: @label_halo_medium;}
 
 line|z10-13[highway=secondary],
-{font-size: 10; text-color: @label_light; text-halo-opacity: 0.7;}
+{font-size: 10; text-color: @label_light; text-halo-opacity: @label_halo_opacity;}
 line|z14-15[highway=secondary],
-{font-size: 11; text-color: @label_medium; text-halo-opacity: 0.9;}
+{font-size: 11; text-color: @label_medium; text-halo-opacity: @label_halo_opacity;}
 line|z16-[highway=secondary],
-{font-size: 14; text-color: @label_dark; text-halo-opacity: 1; text-halo-color: @label_halo_light;}
+{font-size: 14; text-color: @label_dark; text-halo-opacity: @label_halo_opacity; text-halo-color: @label_halo_light;}
 
 line|z16-[highway=secondary_link],
-{font-size: 12; text-color: @label_medium; text-halo-opacity: 1; text-halo-color: @label_halo_light;}
+{font-size: 12; text-color: @label_medium; text-halo-opacity: @label_halo_opacity; text-halo-color: @label_halo_light;}
 
 /* 6.RESIDENTAL & TERTIARY 12-22 ZOOM */
 
 line|z14-[railway=rail][usage=tourism],
-{font-size: 10; text: name; text-position: line; text-color: @label_medium; text-halo-opacity: 0.8; text-halo-radius: 1; text-halo-color: @label_halo_medium;}
+{font-size: 10; text: name; text-position: line; text-color: @label_medium; text-halo-opacity: @label_halo_opacity; text-halo-radius: 1; text-halo-color: @label_halo_medium;}
 line|z15[railway=rail][usage=tourism],
 {font-size: 11;}
 line|z16-[railway=rail][usage=tourism],
@@ -204,18 +204,18 @@ line|z18-[highway=tertiary_link],
 line|z12-13[highway=tertiary],
 line|z13[highway=unclassified],
 line|z13[highway=residential],
-{font-size: 10; text-color: @label_light; text-halo-opacity: 0.7;}
+{font-size: 10; text-color: @label_light; text-halo-opacity: @label_halo_opacity;}
 line|z14-15[highway=tertiary],
 line|z14-15[highway=unclassified],
 line|z14-15[highway=residential],
 line|z14-15[highway=road],
-{font-size: 10; text-color: @label_medium; text-halo-opacity: 0.9;}
+{font-size: 10; text-color: @label_medium; text-halo-opacity: @label_halo_opacity;}
 line|z16-[highway=tertiary],
 line|z16-[highway=unclassified],
 line|z16-[highway=residential],
 line|z16-[highway=road],
 line|z18-[highway=tertiary_link],
-{font-size: 12; text-color: @label_medium; text-halo-opacity: 1; text-halo-color: @label_halo_light;}
+{font-size: 12; text-color: @label_medium; text-halo-opacity: @label_halo_opacity; text-halo-color: @label_halo_light;}
 
 /* 7.STREETS & SERVICE 14-22 ZOOM */
 
@@ -227,17 +227,17 @@ line|z16-[highway=busway],
 
 line|z14-15[highway=living_street],
 line|z14-15[highway=pedestrian],
-{font-size: 10; text-color: @label_light; text-halo-opacity: 0.9;}
+{font-size: 10; text-color: @label_light; text-halo-opacity: @label_halo_opacity;}
 line|z16-17[highway=living_street],
 line|z16-17[highway=pedestrian],
 line|z16-17[highway=service],
 line|z16-17[highway=busway],
-{font-size: 10; text-color: @label_medium; text-halo-opacity: 1; text-halo-color: @label_halo_light;}
+{font-size: 10; text-color: @label_medium; text-halo-opacity: @label_halo_opacity; text-halo-color: @label_halo_light;}
 line|z18-[highway=living_street],
 line|z18-[highway=pedestrian],
 line|z18-[highway=service],
 line|z18-[highway=busway],
-{font-size: 12; text-color: @label_medium; text-halo-opacity: 1; text-halo-color: @label_halo_light;}
+{font-size: 12; text-color: @label_medium; text-halo-opacity: @label_halo_opacity; text-halo-color: @label_halo_light;}
 
 /* 8.OTHERS ROADS 15-22 ZOOM */
 
@@ -251,7 +251,7 @@ line|z16-[leisure=track],
 line|z16-[highway=steps],
 line|z16-[highway=ford],
 line|z16-[highway=raceway],
-{text: name;text-color: @label_medium;text-halo-opacity: 0.8;text-halo-radius: 1;text-halo-color: @label_halo_light;}
+{text: name;text-color: @label_medium;text-halo-opacity: @label_halo_opacity;text-halo-radius: 1;text-halo-color: @label_halo_light;}
 
 /* Don't display names of sidewalks and pedestrian crossings. */
 line|z15-[highway=footway][footway=sidewalk],
@@ -303,7 +303,7 @@ line|z15-[piste:type=nordic],
 line|z15-[piste:type=sled],
 line|z15-[piste:type=hike],
 line|z15-[piste:type=skitour],
-{font-size: 9; text: name; text-color: @label_dark; text-halo-radius: 1; text-halo-opacity: 0.7; text-halo-color: @label_halo_light; text-position: line;}
+{font-size: 9; text: name; text-color: @label_dark; text-halo-radius: 1; text-halo-opacity: @label_halo_opacity; text-halo-color: @label_halo_light; text-position: line;}
 
 line|z16-17[aerialway=cable_car],
 line|z16-17[aerialway=gondola],

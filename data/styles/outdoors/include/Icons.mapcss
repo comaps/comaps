@@ -42,7 +42,7 @@ node|z11-17[boundary=national_park],
 node|z11-17[boundary=protected_area],
 node|z11-17[leisure=nature_reserve],
 area|z13-[landuse=forest][name],
-{text: name;text-offset: 1;text-color: @park_label;text-halo-opacity: 0.8;text-halo-color: @label_halo_light;text-halo-radius:0.5;font-size: 10;}
+{text: name;text-offset: 1;text-color: @park_label;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;text-halo-radius:0.5;font-size: 10;}
 
 node|z10-12[natural=cave_entrance],
 {icon-image: cave-s.svg; icon-min-distance: 20;}
@@ -60,7 +60,7 @@ node|z13-17[boundary=national_park],
 node|z13-17[boundary=protected_area],
 node|z13-17[leisure=nature_reserve],
 area|z13-[landuse=forest][name],
-{icon-image: nparkf-outline-m.svg;font-size: 11;text-halo-opacity: 0.9;}
+{icon-image: nparkf-outline-m.svg;font-size: 11;text-halo-opacity: @label_halo_opacity;}
 node|z17[boundary=national_park],
 node|z17[boundary=protected_area],
 node|z17[leisure=nature_reserve],

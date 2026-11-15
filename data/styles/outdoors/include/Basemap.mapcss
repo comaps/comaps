@@ -18,7 +18,7 @@ line|z10-[waterway=river],
 line|z11-[natural=strait],
 line|z12-[waterway=stream],
 line|z12-[waterway=canal],
-{text-color: @water_label; text-halo-opacity: 0.5; text-halo-radius: 1; text-halo-color: @label_halo_light;}
+{text-color: @water_label; text-halo-opacity: @label_halo_opacity; text-halo-radius: 1; text-halo-color: @label_halo_light;}
 
 
 line|z10[waterway=river],

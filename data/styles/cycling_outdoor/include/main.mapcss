@@ -6,6 +6,8 @@
  * And optionally could include its own change files (none at the moment).
  */
 
+@import("../../default/include/Label_halos.mapcss");
+
 @import("../../default/include/Basemap.mapcss");
 @import("../../cycling/include/Basemap.mapcss");
 @import("../../outdoors/include/Basemap.mapcss");

@@ -141,10 +141,10 @@ node|z6[place=city][population>=50000],
 node|z7-8[place=city][population>=40000],
 node|z9-12[place=city],
 node|z13-[place=city][population<40000],
-{text: name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
+{text: name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 /* The [population>=0] variant has to be separate otherwise doesn't appear in drules */
 node|z4-[place=city][capital=2][population>=0],
-{text: name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
+{text: name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node|z4[place=city][population>=1000000]::int_name,
 node|z5[place=city][population>=150000]::int_name,
@@ -152,49 +152,49 @@ node|z6[place=city][population>=50000]::int_name,
 node|z7-8[place=city][population>=40000]::int_name,
 node|z9-12[place=city]::int_name,
 node|z13-[place=city][population<40000]::int_name,
-{text: int_name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
+{text: int_name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 node|z4-[place=city][capital=2][population>=0]::int_name,
-{text: int_name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
+{text: int_name;text-color: @label_dark;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node|z4[place=city][population>=1000000],
-{font-size: 9;text-halo-opacity: 0.7;}
+{font-size: 9;text-halo-opacity: @label_halo_opacity;}
 node|z4[place=city][population>=1000000]::int_name,
-{font-size: 8;text-halo-opacity: 0.7;}
+{font-size: 8;text-halo-opacity: @label_halo_opacity;}
 
 node|z4-[place=city][capital=2],
 {text-optional: false;}
 
 node|z4[place=city][capital=2],
-{icon-image: star-s.svg;text-offset: 1;font-size: 10; text-halo-opacity: 1;}
+{icon-image: star-s.svg;text-offset: 1;font-size: 10; text-halo-opacity: @label_halo_opacity;}
 node|z4[place=city][capital=2]::int_name,
-{text-offset: 1;font-size: 9; text-halo-opacity: 1;}
+{text-offset: 1;font-size: 9; text-halo-opacity: @label_halo_opacity;}
 
 node|z5[place=city][population>=150000],
-{font-size: 10;text-halo-opacity: 0.6;}
+{font-size: 10;text-halo-opacity: @label_halo_opacity;}
 node|z5[place=city][population>=150000]::int_name,
-{font-size: 9;text-halo-opacity: 0.6;}
+{font-size: 9;text-halo-opacity: @label_halo_opacity;}
 node|z5[place=city][capital=2],
-{icon-image: star-m.svg;text-offset: 1;font-size: 10.4; text-halo-opacity: 1;}
+{icon-image: star-m.svg;text-offset: 1;font-size: 10.4; text-halo-opacity: @label_halo_opacity;}
 node|z5[place=city][capital=2]::int_name,
-{text-offset: 1;font-size: 9.4; text-halo-opacity: 1;}
+{text-offset: 1;font-size: 9.4; text-halo-opacity: @label_halo_opacity;}
 
 node|z6[place=city][population>=50000],
-{font-size: 10.4;text-halo-opacity: 0.6;}
+{font-size: 10.4;text-halo-opacity: @label_halo_opacity;}
 node|z6[place=city][population>=50000]::int_name,
-{font-size: 9.4;text-halo-opacity: 0.6;}
+{font-size: 9.4;text-halo-opacity: @label_halo_opacity;}
 node|z6[place=city][capital=2],
-{icon-image: star-l.svg;text-offset: 1;font-size: 11.6; text-halo-opacity: 1;}
+{icon-image: star-l.svg;text-offset: 1;font-size: 11.6; text-halo-opacity: @label_halo_opacity;}
 node|z6[place=city][capital=2]::int_name,
-{text-offset: 1;font-size: 10.6; text-halo-opacity: 1;}
+{text-offset: 1;font-size: 10.6; text-halo-opacity: @label_halo_opacity;}
 
 node|z7[place=city][population>=40000],
-{font-size: 10;text-halo-opacity: 0.8;}
+{font-size: 10;text-halo-opacity: @label_halo_opacity;}
 node|z7[place=city][population>=40000]::int_name,
-{font-size: 9;text-halo-opacity: 0.8;}
+{font-size: 9;text-halo-opacity: @label_halo_opacity;}
 node|z7[place=city][capital=2],
-{icon-image: star-l.svg;text-offset: 1;font-size: 11; text-halo-opacity: 1;}
+{icon-image: star-l.svg;text-offset: 1;font-size: 11; text-halo-opacity: @label_halo_opacity;}
 node|z7[place=city][capital=2]::int_name,
-{text-offset: 1;font-size: 10; text-halo-opacity: 1;}
+{text-offset: 1;font-size: 10; text-halo-opacity: @label_halo_opacity;}
 
 node|z8[place=city][population>=40000],
 {font-size: 10.5;}
@@ -260,9 +260,9 @@ node|z9[place=town][population>=20000]::int_name,
 {text:int_name;text-color: @city_label;}
 
 node|z10-[place=town],
-{text: name; text-color: @city_label; text-halo-radius: 1; text-halo-opacity: 0.8; text-halo-color: @label_halo_light;}
+{text: name; text-color: @city_label; text-halo-radius: 1; text-halo-opacity: @label_halo_opacity; text-halo-color: @label_halo_light;}
 node|z10-[place=town]::int_name,
-{text:int_name; text-color: @city_label; text-halo-radius: 1; text-halo-opacity: 0.8; text-halo-color: @label_halo_light;}
+{text:int_name; text-color: @city_label; text-halo-radius: 1; text-halo-opacity: @label_halo_opacity; text-halo-color: @label_halo_light;}
 
 node|z12-[place=town],
 {text-color: @label_medium;}
@@ -295,18 +295,18 @@ node|z12[place=town]::int_name,
 {font-size: 10;}
 
 node|z13-[place=town],
-{font-size: 14; text-halo-opacity: 1;}
+{font-size: 14; text-halo-opacity: @label_halo_opacity;}
 node|z13-[place=town]::int_name,
-{font-size: 12; text-halo-opacity: 1;}
+{font-size: 12; text-halo-opacity: @label_halo_opacity;}
 
 /* 4.3 Village */
 
 node|z11-[place=village]
-{text: name;text-color: @city_label;text-halo-radius: 1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text: name;text-color: @city_label;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 node|z11-[place=village]::int_name
-{text:int_name;text-color: @city_label;text-halo-radius: 1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text:int_name;text-color: @city_label;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 node|z13-[place=hamlet]
-{text: name;text-color: @city_label;text-halo-radius: 1;text-halo-opacity: 0.6;text-halo-color: @label_halo_light;}
+{text: name;text-color: @city_label;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node|z11[place=village]
 {font-size: 10;}
@@ -335,7 +335,7 @@ node|z13-[place=neighbourhood],
 node|z14-[place=farm],
 node|z14-[place=isolated_dwelling],
 node|z17-[landuse=residential],
-{text: name;text-color: @district_label;}
+{text: name;text-color: @district_label;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_medium;}
 node|z13-14[place=suburb]::int_name,
 node|z13-[place=locality]::int_name,
 node|z13-[place=quarter]::int_name,
@@ -343,7 +343,7 @@ node|z13-[place=neighbourhood]::int_name,
 node|z14-[place=farm]::int_name,
 node|z14-[place=isolated_dwelling]::int_name,
 node|z17-[landuse=residential]::int_name,
-{text: int_name;text-color: @district_label;}
+{text: int_name;text-color: @district_label;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_medium;}
 
 node|z10[place=suburb]
 {font-size: 9;}
@@ -409,11 +409,11 @@ area|z17-[leisure],
 area|z14-[leisure=park][name],
 area|z14-[landuse=forest][name],
 area|z16-[leisure=garden][name],
-{text: name;text-color: @park_label;text-halo-color: @halo_park_label;text-halo-radius: 0.5;text-halo-opacity: 0.8;icon-min-distance: 8;text-offset: 1;font-size: 10;}
+{text: name;text-color: @park_label;text-halo-color: @halo_park_label;text-halo-radius: 0.5;text-halo-opacity: @label_halo_opacity;icon-min-distance: 8;text-offset: 1;font-size: 10;}
 area|z16-[leisure=park][name]::int_name,
 area|z16-[landuse=forest][name]::int_name,
 area|z16-[leisure=garden][name]::int_name,
-{text: int_name;text-color: @park_label;text-halo-color: @halo_park_label;text-halo-radius: 0.5;text-halo-opacity: 0.8;text-offset: 1;font-size: 10;}
+{text: int_name;text-color: @park_label;text-halo-color: @halo_park_label;text-halo-radius: 0.5;text-halo-opacity: @label_halo_opacity;text-offset: 1;font-size: 10;}
 
 /*
   If we define [name] styles, we should also define at least empty [!name] stub.
@@ -495,7 +495,7 @@ line|z16-[natural=cliff],
 line|z16-[barrier=city_wall],
 line|z16-[historic=citywalls],
 line|z18-[man_made=embankment],
-{text: name; font-size: 9; text-color: @label_light; text-halo-opacity: 0.8; text-halo-radius: 1; text-halo-color: @label_halo_medium;}
+{text: name; font-size: 9; text-color: @label_light; text-halo-opacity: @label_halo_opacity; text-halo-radius: 1; text-halo-color: @label_halo_medium;}
 line|z18-[natural=cliff],
 line|z18-[barrier=city_wall],
 line|z18-[historic=citywalls],
@@ -619,7 +619,7 @@ node|z15-[landuse=quarry],
 /* 7.3 University & Sport */
 
 area|z15-[piste:type=snow_park],
-{font-size: 9; text-position: center; text: name; text-color: @label_dark; text-halo-radius: 1; text-halo-opacity: 0.7; text-halo-color: @label_halo_light;}
+{font-size: 9; text-position: center; text: name; text-color: @label_dark; text-halo-radius: 1; text-halo-opacity: @label_halo_opacity; text-halo-color: @label_halo_light;}
 area|z16-17[piste:type=snow_park],
 {font-size: 10;}
 area|z18-[piste:type=snow_park],
@@ -645,7 +645,7 @@ area|z15-[area:highway=footway],
 {text: name;font-size: 11;text-color: @city_label;text-position: center;}
 
 area|z16-[place=square],
-{text: name;font-size: 11;text-color: @city_label;text-position: center;text-halo-color: @halo_park_label;text-halo-radius: 0.5;text-halo-opacity: 0.8;}
+{text: name;font-size: 11;text-color: @city_label;text-position: center;text-halo-color: @halo_park_label;text-halo-radius: 0.5;text-halo-opacity: @label_halo_opacity;}
 /* 	7.6 Military */
 
 node|z16[landuse=military],
