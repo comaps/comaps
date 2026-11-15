@@ -7,6 +7,8 @@
  * there is a separate Vehicle style for car navigation mode.
  */
 
+@import("../../default/include/Label_halos.mapcss");
+
 @import("../../default/include/Basemap.mapcss");
 @import("../include/Basemap.mapcss");
 

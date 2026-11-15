@@ -1,0 +1,6 @@
+*
+{text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
+*::int_name
+{text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
+*::flats
+{text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}

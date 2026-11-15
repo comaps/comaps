@@ -4,6 +4,7 @@
  * but rather its files are used as base building blocks in other styles.
  */
 
+@import("../include/Label_halos.mapcss");
 @import("../include/Basemap.mapcss");
 @import("../include/Basemap_label.mapcss");
 @import("../include/Roads.mapcss");

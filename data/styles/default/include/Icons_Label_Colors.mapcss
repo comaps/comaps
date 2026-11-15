@@ -8,7 +8,7 @@ node[amenity=internet_cafe],
 node[amenity=marketplace],
 node[amenity=motorcycle_rental],
 node[shop],
-{text-color: @shop_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text-color: @shop_label;text-halo-radius: 0.1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node[amenity=car_wash],
 node[amenity=fuel],
@@ -31,7 +31,7 @@ node[shop=trade],
 node[shop=tyres],
 node[shop=wholesale],
 node[waterway=fuel],
-{text-color: @industry_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text-color: @industry_label;text-halo-radius: 0.1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node[craft=photographer],
 node[craft=shoemaker],
@@ -47,7 +47,7 @@ node[amenity=food_court],
 node[amenity=ice_cream],
 node[amenity=pub],
 node[amenity=restaurant],
-{text-color: @food_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text-color: @food_label;text-halo-radius: 0.1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node[amenity=casino],
 node[amenity=cinema],
@@ -69,7 +69,7 @@ node[shop=lottery],
 node[tourism=aquarium],
 node[tourism=theme_park],
 node[tourism=zoo],
-{text-color: @entertainment_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text-color: @entertainment_label;text-halo-radius: 0.1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node[amenity=arts_centre],
 node[amenity=community_centre],
@@ -94,7 +94,7 @@ node[amenity=planetarium],
 node[tourism=attraction],
 node[tourism=gallery],
 node[tourism=museum],
-{text-color: @culture_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text-color: @culture_label;text-halo-radius: 0.1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node[leisure=resort],
 node[tourism=alpine_hut],
@@ -107,7 +107,7 @@ node[tourism=hostel],
 node[tourism=hotel],
 node[tourism=motel],
 node[tourism=wilderness_hut],
-{text-color: @hotel_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text-color: @hotel_label;text-halo-radius: 0.1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node[amenity=dojo],
 node[leisure=dance],
@@ -115,10 +115,10 @@ node[leisure=fitness_centre],
 node[leisure=miniature_golf],
 node[leisure=sports_centre],
 node[leisure=stadium],
-{text-color: @sport_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text-color: @sport_label;text-halo-radius: 0.1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node[landuse=plant_nursery],
-{text-color: @nature_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text-color: @nature_label;text-halo-radius: 0.1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node[amenity=public_bath],
 node[leisure=beach_resort],
@@ -126,7 +126,7 @@ node[leisure=marina],
 node[leisure=sports_centre][sport=scuba_diving],
 node[leisure=sports_centre][sport=swimming],
 node[leisure=water_park],
-{text-color: @water_light_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text-color: @water_light_label;text-halo-radius: 0.1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 area[amenity=university][name],
 node[aeroway=gate],
@@ -171,7 +171,7 @@ node[office=diplomatic],
 node[office=security],
 node[shop=money_lender],
 node[tourism=information][information=office],
-{text-color: @neutral_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text-color: @neutral_label;text-halo-radius: 0.1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 area[amenity=hospital],
 node[amenity=clinic],
@@ -182,11 +182,11 @@ node[amenity=pharmacy],
 node[amenity=veterinary],
 node[emergency=mountain_rescue],
 node[healthcare],
-{text-color: @healthcare_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text-color: @healthcare_label;text-halo-radius: 0.1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node[amenity=bicycle_rental],
 node[amenity=taxi],
-{text-color: @public_transport_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text-color: @public_transport_label;text-halo-radius: 0.1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node[emergency=access_point],
-{text-color: @emergency_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
+{text-color: @emergency_label;text-halo-radius: 0.1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}

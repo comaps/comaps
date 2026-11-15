@@ -124,6 +124,7 @@
 
 @label_halo_medium: #EDEBDB;
 @label_halo_light: #FFFFFF;
+@label_halo_opacity: 0.8;
 
 
 /* PLACE LABELS */

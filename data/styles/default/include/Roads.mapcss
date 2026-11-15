@@ -769,7 +769,7 @@ line|z15-[highway=service][bridge?]::bridgeblack,
 line|z15-[highway=busway][bridge?]::bridgeblack,
 {casing-linecap: butt;casing-color:@bridge_casing;casing-opacity: 0.7;}
 line|z15-[highway=track],
-{color: @track;opacity: 0.6;}
+{color: @track;opacity: @path_opacity;}
 line|z14-[highway=raceway],
 {color: @track;opacity: 0.7;}
 line|z15-[leisure=track],
@@ -784,9 +784,9 @@ line|z15-[highway=ladder],
 line|z15-[highway=steps],
 {color: @residential;opacity: 1;}
 line|z15-[highway=path],
-{color: @path;opacity: 0.6;}
+{color: @path;opacity: @path_opacity;}
 line|z15-[highway=path][_path_grade=expert],
-{color: @path_expert; opacity: 0.6;}
+{color: @path_expert; opacity: @path_opacity;}
 line|z15-[piste:type=hike],
 {color: @piste; opacity: 0.4;}
 line|z17-[highway=footway][tunnel?]::tunnelBackground,
@@ -990,9 +990,9 @@ line|z16[highway=track],
 line|z17[highway=track],
 {width: 2.5; dashes: 7,3;}
 line|z18[highway=track],
-{width: 3.3; dashes: 9,3.5; opacity: 0.8;}
+{width: 3.3; dashes: 9,3.5; opacity: @path_opacity_z18;}
 line|z19-[highway=track],
-{width: 4.2; dashes: 12,3.5; opacity: 0.8;}
+{width: 4.2; dashes: 12,3.5; opacity: @path_opacity_z18;}
 
 line|z15[highway=path],
 line|z15[piste:type=hike],
@@ -1004,9 +1004,9 @@ line|z17[highway=path],
 line|z17-[piste:type=hike],
 {width: 2; dashes: 4,2.5;}
 line|z18[highway=path],
-{width: 2.8; dashes: 6,3.5; opacity: 0.8;}
+{width: 2.8; dashes: 6,3.5; opacity: @path_opacity_z18;}
 line|z19-[highway=path],
-{width: 3.7; dashes: 8,4.5; opacity: 0.8;}
+{width: 3.7; dashes: 8,4.5; opacity: @path_opacity_z18;}
 
 line|z15[highway=path][bicycle=designated],
 {width: 1.1; dashes: 3.5,2.7;}
@@ -1015,9 +1015,9 @@ line|z16[highway=path][bicycle=designated],
 line|z17[highway=path][bicycle=designated],
 {width: 2; dashes: 4,3.2;}
 line|z18[highway=path][bicycle=designated],
-{width: 2.8; dashes: 6,4.7; opacity: 0.8;}
+{width: 2.8; dashes: 6,4.7; opacity: @path_opacity_z18;}
 line|z19-[highway=path][bicycle=designated],
-{width: 3.7; dashes: 8,6.2; opacity: 0.8;}
+{width: 3.7; dashes: 8,6.2; opacity: @path_opacity_z18;}
 
 line|z15[highway=path][_path_grade=difficult],
 {width: 1.1; dashes: 1,2;}

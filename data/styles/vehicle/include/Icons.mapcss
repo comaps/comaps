@@ -31,7 +31,7 @@ node|z12-[landuse=forest][name],
 node|z12-[boundary=national_park],
 node|z12-[boundary=protected_area],
 node|z12-[leisure=nature_reserve],
-{text: name;text-color: @park_label;text-halo-opacity: 0.75;text-halo-color: @label_halo_light;text-halo-radius:0.4;}
+{text: name;text-color: @park_label;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;text-halo-radius:0.4;}
 
 
 node|z14-[highway=ford]
@@ -58,12 +58,12 @@ node|z15-16[landuse=forest][name],
 node|z15-16[boundary=national_park],
 node|z15-16[boundary=protected_area],
 node|z15-16[leisure=nature_reserve],
-{icon-image: nparkf-outline-m.svg;text-offset: 1;font-size: 12.5;text-halo-opacity: 0.85;}
+{icon-image: nparkf-outline-m.svg;text-offset: 1;font-size: 12.5;text-halo-opacity: @label_halo_opacity;}
 node|z17-[landuse=forest][name],
 node|z17-[boundary=national_park],
 node|z17-[boundary=protected_area],
 node|z17-[leisure=nature_reserve],
-{icon-image: nparkf-outline-m.svg;text-offset: 1;font-size: 13.75;text-halo-opacity: 0.9;}
+{icon-image: nparkf-outline-m.svg;text-offset: 1;font-size: 13.75;text-halo-opacity: @label_halo_opacity;}
 
 node|z12-[landuse=forest][!name],
 {}
@@ -73,22 +73,22 @@ node|z12-[landuse=forest][!name],
 
 node|z13-[railway=station],
 node|z14-[railway=halt],
-{text: name;text-color: @public_transport_label;text-halo-radius: 1;text-halo-opacity: 0.6;text-halo-color: @label_halo_light;}
+{text: name;text-color: @public_transport_label;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 node|z13-[railway=station]::int_name,
 node|z14-[railway=halt]::int_name,
-{text: int_name;text-color: @public_transport_label;text-halo-radius: 1;text-halo-opacity: 0.6;text-halo-color: @label_halo_light;}
+{text: int_name;text-color: @public_transport_label;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node|z17-[railway=tram_stop],
-{text: name;text-color: @public_transport_label;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
+{text: name;text-color: @public_transport_label;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 node|z17-[railway=tram_stop]::int_name,
-{text: int_name;text-color: @public_transport_label;text-halo-radius: 1;text-halo-opacity: 1;text-halo-color: @label_halo_light;}
+{text: int_name;text-color: @public_transport_label;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;}
 
 node|z10-[aeroway=aerodrome][aerodrome=international],
 node|z14-[aeroway=aerodrome],
-{text: name;text-color: @public_transport_label;text-halo-radius: 1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;text-position: center;}
+{text: name;text-color: @public_transport_label;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;text-position: center;}
 node|z12-[aeroway=aerodrome][aerodrome=international]::int_name,
 node|z14-[aeroway=aerodrome]::int_name,
-{text: int_name;text-color: @public_transport_label;text-halo-radius: 1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;text-position: center;}
+{text: int_name;text-color: @public_transport_label;text-halo-radius: 1;text-halo-opacity: @label_halo_opacity;text-halo-color: @label_halo_light;text-position: center;}
 
 /* 3.1 Train Station */
 
@@ -102,28 +102,28 @@ node|z13[railway=station]::int_name,
 {text-offset: 1;font-size: 9;}
 node|z14[railway=station],
 node|z14[railway=halt],
-{icon-image: train-m.svg;text-offset: 1;font-size: 12.25;text-halo-opacity: 0.7;}
+{icon-image: train-m.svg;text-offset: 1;font-size: 12.25;text-halo-opacity: @label_halo_opacity;}
 node|z14[railway=station]::int_name,
 node|z14[railway=halt]::int_name,
-{text-offset: 1;font-size: 10;text-halo-opacity: 0.7;}
+{text-offset: 1;font-size: 10;text-halo-opacity: @label_halo_opacity;}
 node|z15[railway=station],
 node|z15[railway=halt],
-{icon-image: train-m.svg;text-offset: 1;font-size: 12.5;text-halo-opacity: 0.8;}
+{icon-image: train-m.svg;text-offset: 1;font-size: 12.5;text-halo-opacity: @label_halo_opacity;}
 node|z15[railway=station]::int_name,
 node|z15[railway=halt]::int_name,
-{text-offset: 1;font-size: 10;text-halo-opacity: 0.8;}
+{text-offset: 1;font-size: 10;text-halo-opacity: @label_halo_opacity;}
 node|z16[railway=station],
 node|z16[railway=halt],
-{icon-image: train-m.svg;text-offset: 1;font-size: 13.75;text-halo-opacity: 0.8;}
+{icon-image: train-m.svg;text-offset: 1;font-size: 13.75;text-halo-opacity: @label_halo_opacity;}
 node|z16[railway=station]::int_name,
 node|z16[railway=halt]::int_name,
-{text-offset: 1;font-size: 11;text-halo-opacity: 0.8;}
+{text-offset: 1;font-size: 11;text-halo-opacity: @label_halo_opacity;}
 node|z17-[railway=station],
 node|z17-[railway=halt],
-{icon-image: train-m.svg;text-offset: 1;font-size: 14;text-halo-opacity: 0.9;}
+{icon-image: train-m.svg;text-offset: 1;font-size: 14;text-halo-opacity: @label_halo_opacity;}
 node|z17-[railway=station]::int_name,
 node|z17-[railway=halt]::int_name,
-{text-offset: 1;font-size: 12;text-halo-opacity: 0.9;}
+{text-offset: 1;font-size: 12;text-halo-opacity: @label_halo_opacity;}
 
 /* 3.2 Road Icons */
 
@@ -131,11 +131,11 @@ node|z17-[railway=halt]::int_name,
 /* 3.3 Tram Station */
 
 node|z17[railway=tram_stop],
-{icon-image: tram-m.svg;text-offset: 1;font-size: 13;text-opacity: 0;text-halo-opacity: 0;}
+{icon-image: tram-m.svg;text-offset: 1;font-size: 13;text-opacity: 0;text-halo-opacity: @label_halo_opacity;}
 node|z17-[railway=tram_stop]::int_name,
-{text-offset: 1;font-size: 11;text-opacity: 0; text-halo-opacity: 0;} /*check*/
+{text-offset: 1;font-size: 11;text-opacity: 0; text-halo-opacity: @label_halo_opacity;} /*check*/
 node|z18-[railway=tram_stop],
-{icon-image: tram-m.svg;text-offset: 1;font-size: 13;text-opacity: 0; text-halo-opacity: 0;}
+{icon-image: tram-m.svg;text-offset: 1;font-size: 13;text-opacity: 0; text-halo-opacity: @label_halo_opacity;}
 
 /* 3.4 Bus Station */
 

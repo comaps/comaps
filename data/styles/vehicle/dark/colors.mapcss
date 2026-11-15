@@ -151,6 +151,7 @@
 @label_light: #666666;
 @label_halo_medium: #111100;
 @label_halo_light: #060600;
+@label_halo_opacity: 1;
 
 /* 6.2 Natural labels */
 
