@@ -97,9 +97,17 @@ public:
    */
   double GetMaxWeightSpeedMpS() const;
 
-  // Estimates time in seconds it takes to go from point |from| to point |to| along direct fake edge.
-  double CalcOffroad(ms::LatLon const & from, ms::LatLon const & to, Purpose purpose) const;
-
+  /**
+   * @brief Estimates travel time between two points along a direct fake edge.
+   *
+   * Estimates time in seconds it takes to go from point `from` to point `to` along direct fake edge.
+   *
+   * @param from The start point.
+   * @param to The destination point.
+   * @param purpose The purpose for which the result is to be used.
+   * @return Travel time in seconds.
+   */
+  virtual double CalcOffroad(ms::LatLon const & from, ms::LatLon const & to, Purpose purpose) const;
 
   /**
    * @brief Returns the travel time along a segment.
