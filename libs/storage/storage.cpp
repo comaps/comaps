@@ -330,6 +330,13 @@ void Storage::NotifyCheckUpdatesResult(storage::CheckUpdatesStatus const status)
     m_downloader->GetPendingRequests().ForEachCountry([this](QueuedCountry & country)
     { country.SetCountryFile(GetCountryFile(country.GetCountryId())); });
   }
+  else if (m_downloader->GetDataVersion() != m_currentVersion)
+  {
+    // Check Updates has failed, so retain the current "old" data version
+    LOG(LINFO, ("COUNTRIES: falling back to the current map version", m_currentVersion));
+    m_downloader->SetDataVersion(m_currentVersion);
+    m_downloader->ResetMetaConfig();
+  }
   m_downloader->StartPendingMapDownloads();
   if (m_onCheckUpdates != nullptr)
     GetPlatform().RunTask(Platform::Thread::Gui, [this, status]() { m_onCheckUpdates(status); });
@@ -377,7 +384,7 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
       return false;
     }
 
-    // Force fetch new servers list for new data version.
+    // Force fetch new servers list for new data version (it'll be reverted if Check Updates fail).
     m_downloader->SetDataVersion(dataVersion);
     m_downloader->ResetMetaConfig();
 

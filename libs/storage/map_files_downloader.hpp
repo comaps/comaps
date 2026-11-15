@@ -75,6 +75,7 @@ public:
 
   void SetDownloadingPolicy(DownloadingPolicy * policy);
   void SetDataVersion(int64_t version) { m_dataVersion = version; }
+  int64_t GetDataVersion() { return m_dataVersion; }
 
   /// Reset after changes, e.g. map download URL.
   void ResetMetaConfig();
