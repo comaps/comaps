@@ -228,8 +228,10 @@ public:
    * first segment, this is identical to the length of the segment; for the last segment, it is
    * identical to the length of the entire route.
    *
-   * Note that the first and last real (non-fake) segment on the route may not report the actual
-   * length between their endpoints, but only the part which is also part of the route.
+   * Note that real segments may not be counted in full if they are preceded or followed by a fake
+   * segment: the transition between the real and the fake segment may occur anywhere on the real segment
+   * (not just at its endpoints), so that only part of the segment is used for the route. Only that
+   * part will be counted, not necessarily the whole segment.
    */
   double GetDistFromBeginningMeters() const { return m_distFromBeginningMeters; }
   double GetDistFromBeginningMerc() const { return m_distFromBeginningMerc; }
@@ -241,9 +243,10 @@ public:
    * including the segment. For the first segment, this is identical to the travel time along the
    * segment; for the last segment, it is identical to the travel time along the entire route.
    *
-   * Note that the first and last real (non-fake) segment on the route may report time based not
-   * upon the actual length between their endpoints, but upon the part which is also part of the
-   * route.
+   * Note that real segments may not be counted in full if they are preceded or followed by a fake
+   * segment: the transition between the real and the fake segment may occur anywhere on the real segment
+   * (not just at its endpoints), so that only part of the segment is used for the route. Only that
+   * part will be counted, not necessarily the whole segment.
    */
   double GetTimeFromBeginningSec() const { return m_timeFromBeginningS; }
 
