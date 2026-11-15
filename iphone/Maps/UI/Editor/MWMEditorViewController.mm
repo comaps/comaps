@@ -528,7 +528,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     MWMEditorTextTableViewCell * tCell = static_cast<MWMEditorTextTableViewCell *>(cell);
     [tCell configWithDelegate:self
-                         icon:[UIImage imageNamed:@"ic_operator"]
+                         icon:[UIImage systemImageNamed:@"person.text.rectangle"]
                          text:ToNSString(m_mapObject.GetMetadata(static_cast<MetadataID>(cellID)))
                   placeholder:L(@"editor_operator")
                  keyboardType:UIKeyboardTypeDefault
