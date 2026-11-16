@@ -1593,7 +1593,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
     }
   };
 
-  uint32_t const borderType = classif().GetTypeByPath({"comapsapp", "mwm_border"});
+  uint32_t const borderType = classif().GetTypeByPath({"boundary", "map"});
   auto featureReadFn = [this, borderType](auto const & fn, vector<FeatureID> const & ids)
   {
     m_featuresFetcher.ReadFeatures(fn, ids);

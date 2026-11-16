@@ -494,7 +494,7 @@ IsPisteChecker::IsPisteChecker() : BaseChecker(1 /* level */)
 
 IsMwmBorderChecker::IsMwmBorderChecker() : BaseChecker(2 /* level */)
 {
-  m_types.push_back(classif().GetTypeByPath({"comapsapp", "mwm_border"}));
+  m_types.push_back(classif().GetTypeByPath({"boundary", "map"}));
 }
 
 // Used in IsPoiChecker and in IsAddressObjectChecker.
