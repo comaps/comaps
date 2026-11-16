@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>water_light</title>
-    <g id="water_light" stroke="none" fill="none" fill-rule="evenodd">
-        <path d="M14,0 C21.7319865,0 28,6.2680135 28,14 C28,21.7319865 21.7319865,28 14,28 C6.2680135,28 0,21.7319865 0,14 C0,6.2680135 6.2680135,0 14,0 Z M14,6.1251 C12.6876,7.8747 8.5482,13.3606 8.5482,16.4231 C8.5482,19.4518 11.1749,21.8749 14,21.8749 C16.825,21.8749 19.4518,19.4519 19.4518,16.4231 C19.4518,13.3606 15.3125,7.8751 14,6.1251 Z" id="Shape" fill="#54a3b6"></path>
-    </g>
+<svg version="1.1" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+ <title>water_light</title>
+ <circle cx="12" cy="12" r="12" fill="#fff" opacity=".6"/>
+ <circle cx="12" cy="12" r="11" fill="#0797B8"/>
+ <g id="glyph" transform="translate(1 1) scale(0.785714)">
+  <path d="M14,6.1251 C12.6876,7.8747 8.5482,13.3606 8.5482,16.4231 C8.5482,19.4518 11.1749,21.8749 14,21.8749 C16.825,21.8749 19.4518,19.4519 19.4518,16.4231 C19.4518,13.3606 15.3125,7.8751 14,6.1251 Z" fill="#fff" fill-rule="evenodd"/>
+ </g>
 </svg>
