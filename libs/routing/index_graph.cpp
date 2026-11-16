@@ -543,7 +543,15 @@ RouteWeight IndexGraph::CalculateEdgeWeight(EdgeEstimator::Purpose purpose, bool
   auto const & to_segment = isOutgoing ? to : from;
   auto const & from_segment = isOutgoing ? from : to;
   auto const & to_road = GetRoadGeometry(to_segment.GetFeatureId());
-  auto const weight = RouteWeight(m_estimator->CalcSegmentWeight(to_segment, to_road, purpose));
+  /*
+   * FIXME `prevWeight->GetWeight()` is weight (for least-cost routing), not ETA, but is being used as
+   * ETA despite potentially being significantly larger, resulting in potentially incorrect calculations.
+   * The clean solution would be to rewrite parts of the routing engine, calculating weight and ETA
+   * together and passing them in the same structure, so we can pass true ETA to the two functions.
+   * See issue #5506.
+   */
+  std::optional<double> weightToSegment = prevWeight ? std::optional<double>{prevWeight->GetWeight()} : std::nullopt;
+  auto const weight = RouteWeight(m_estimator->CalcSegmentWeight(to_segment, to_road, purpose, weightToSegment));
   auto const penalties = GetPenalties(purpose, isOutgoing ? from : to, isOutgoing ? to : from, prevWeight);
   auto const turn_penalty = getTurnPenalty(purpose, from_segment, to_segment);
   return weight + penalties + turn_penalty;

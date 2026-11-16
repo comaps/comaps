@@ -143,7 +143,8 @@ void TestTransitGraphLoader::AddGraph(NumMwmId mwmId, unique_ptr<TransitGraph> g
 
 // WeightedEdgeEstimator --------------------------------------------------------------
 double WeightedEdgeEstimator::CalcSegmentWeight(Segment const & segment, RoadGeometry const & /* road */,
-                                                EdgeEstimator::Purpose /* purpose */) const
+                                                EdgeEstimator::Purpose /* purpose */,
+                                                std::optional<double> const & /* weightToSegment */) const
 {
   auto const it = m_segmentWeights.find(segment);
   CHECK(it != m_segmentWeights.cend(), ());
