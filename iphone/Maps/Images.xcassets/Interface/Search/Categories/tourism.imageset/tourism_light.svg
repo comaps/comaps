@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>tourism_light</title>
-    <g id="tourism_light" stroke="none" fill="none" fill-rule="evenodd">
-        <path d="M14,0 C21.7319865,0 28,6.2680135 28,14 C28,21.7319865 21.7319865,28 14,28 C6.2680135,28 0,21.7319865 0,14 C0,6.2680135 6.2680135,0 14,0 Z M14,4.8 L11.55,10.512 L5.83333333,11.3275 L9.91666667,15.4073333 L9.1,21.1333333 L14,18.6705 L18.9,21.1181667 L18.0833333,15.4073333 L22.1666667,11.3275 L16.45,10.512 L14,4.8 Z" id="Shape" fill="#9C6136"></path>
-    </g>
+<svg version="1.1" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+ <title>tourism_light</title>
+ <g fill="none" fill-rule="evenodd">
+  <g id="tourism-m" fill-rule="nonzero">
+   <circle id="Oval" cx="12" cy="12" r="12" fill="#fff" opacity=".6"/>
+   <circle id="Oval" cx="12" cy="12" r="11" fill="#9C6136"/>
+   <polygon id="Path" points="19 9.595 14.1 8.896 12 4 9.9 8.896 5 9.595 8.5 13.092 7.8 18 12 15.889 16.2 17.987 15.5 13.092" fill="#fff"/>
+  </g>
+ </g>
 </svg>
