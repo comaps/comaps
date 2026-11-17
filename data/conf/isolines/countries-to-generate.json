@@ -9927,7 +9927,7 @@
         {
             "key": "Vietnam_North",
             "value": {
-                "profileName": "extra_small",
+                "profileName": "high_f3",
                 "tileCoordsSubset": [],
                 "tilesAreBanned": false
             }
@@ -9935,7 +9935,7 @@
         {
             "key": "Vietnam_South",
             "value": {
-                "profileName": "extra_small",
+                "profileName": "high_f3",
                 "tileCoordsSubset": [],
                 "tilesAreBanned": false
             }
