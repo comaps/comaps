@@ -213,6 +213,7 @@ private:
   void RenderMwmBorderLayer(ScreenBase const & modelView);
   void RenderBorderLayerGroups(ScreenBase const & modelView);
   void RenderMwmBorderMask(ScreenBase const & modelView, uint32_t referenceValue);
+  void ResetMwmBorderMask(ScreenBase const & modelView);
   void RenderOverlayLayer(ScreenBase const & modelView);
   void RenderOverlayUnderBuildingLayer(ScreenBase const & modelView);
   void RenderUserMarksLayer(ScreenBase const & modelView, DepthLayer layerId);
@@ -353,6 +354,8 @@ private:
   drape_ptr<TransitSchemeRenderer> m_transitSchemeRenderer;
   drape_ptr<dp::Framebuffer> m_buildingsFramebuffer;
   drape_ptr<ScreenQuadRenderer> m_screenQuadRenderer;
+  // Separate quad for non-downloaded overlay to prevent conflicts with above ScreenQuad
+  drape_ptr<ScreenQuadRenderer> m_nonDownloadedOverlayQuad;
   drape_ptr<GpsTrackRenderer> m_gpsTrackRenderer;
   drape_ptr<DrapeApiRenderer> m_drapeApiRenderer;
 

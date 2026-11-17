@@ -86,6 +86,8 @@ void ScreenQuadRenderer::RenderTexture(ref_ptr<dp::GraphicsContext> context, ref
 
 void ScreenQuadRenderer::SetTextureRect(ref_ptr<dp::GraphicsContext> context, m2::RectF const & rect)
 {
+  if (rect == m_textureRect)
+    return;
   m_textureRect = rect;
   Rebuild(context);
 }

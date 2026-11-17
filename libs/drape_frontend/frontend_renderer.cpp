@@ -84,7 +84,6 @@ double constexpr kVSyncInterval = 0.06;
 double constexpr kVSyncIntervalMetalVulkan = 0.03;
 
 // Stencil references for region overlay
-uint32_t constexpr kStencilRefNone = 0;
 uint32_t constexpr kStencilRefMask = 1;
 uint32_t constexpr kStencilRefOverlay = 2;
 
@@ -1744,15 +1743,15 @@ void FrontendRenderer::RenderMwmBorderLayer(ScreenBase const & modelView)
     dp::TextureManager::ColorRegion region;
     m_texMng->GetColorRegion(GetColorConstant(kNonDownloadedOverlay), region);
     CHECK(region.GetTexture() != nullptr, ("Texture manager is not initialized"));
-    m_screenQuadRenderer->SetTextureRect(m_context, region.GetTexRect());
+    m_nonDownloadedOverlayQuad->SetTextureRect(m_context, region.GetTexRect());
     m_context->SetStencilFunction(dp::StencilFace::FrontAndBack, dp::TestFunction::NotEqual);
     m_context->SetStencilActions(dp::StencilFace::FrontAndBack, dp::StencilAction::Keep, dp::StencilAction::Keep,
                                  dp::StencilAction::Keep);
-    m_screenQuadRenderer->RenderTexture(m_context, make_ref(m_gpuProgramManager), region.GetTexture(), 1.0f,
-                                        false /* invertV */);
+    m_nonDownloadedOverlayQuad->RenderTexture(m_context, make_ref(m_gpuProgramManager), region.GetTexture(), 1.0f,
+                                              false /* invertV */);
 
-    // Reset stencil mask and reference to leave clear state for SMAA
-    RenderMwmBorderMask(modelView, kStencilRefNone);
+    ResetMwmBorderMask(modelView);
+
     if (m_postprocessRenderer->IsEffectEnabled(PostprocessRenderer::Effect::Antialiasing))
       m_context->SetStencilReferenceValue(kStencilRefOverlay);
     m_context->SetStencilTestEnabled(false);
@@ -1778,6 +1777,18 @@ void FrontendRenderer::RenderMwmBorderMask(ScreenBase const & modelView, uint32_
   m_context->SetStencilActions(dp::StencilFace::FrontAndBack, dp::StencilAction::Keep, dp::StencilAction::Keep,
                                dp::StencilAction::Replace);
   m_context->SetStencilReferenceValue(referenceValue);
+  RenderBorderLayerGroups(modelView);
+}
+
+void FrontendRenderer::ResetMwmBorderMask(ScreenBase const & modelView)
+{
+  // clear depth so polygons can be redrawn, then zero mask pixels
+  m_context->Clear(dp::ClearBits::DepthBit, dp::kClearBitsStoreAll);
+
+  m_context->SetStencilTestEnabled(true);
+  m_context->SetStencilFunction(dp::StencilFace::FrontAndBack, dp::TestFunction::Always);
+  m_context->SetStencilActions(dp::StencilFace::FrontAndBack, dp::StencilAction::Keep, dp::StencilAction::Keep,
+                               dp::StencilAction::Zero);
   RenderBorderLayerGroups(modelView);
 }
 
@@ -2484,6 +2495,7 @@ void FrontendRenderer::OnContextDestroy()
   m_selectionShape.reset();
   m_buildingsFramebuffer.reset();
   m_screenQuadRenderer.reset();
+  m_nonDownloadedOverlayQuad.reset();
 
   m_myPositionController->ResetRenderShape();
   m_routeRenderer->ClearContextDependentResources();
@@ -2545,6 +2557,7 @@ void FrontendRenderer::OnContextCreate()
 
   // Resources recovering.
   m_screenQuadRenderer = make_unique_dp<ScreenQuadRenderer>(m_context);
+  m_nonDownloadedOverlayQuad = make_unique_dp<ScreenQuadRenderer>(m_context);
 
   m_postprocessRenderer->Init(m_context, [this]()
   {
@@ -2647,6 +2660,7 @@ void FrontendRenderer::ReleaseResources()
   m_routeRenderer.reset();
   m_buildingsFramebuffer.reset();
   m_screenQuadRenderer.reset();
+  m_nonDownloadedOverlayQuad.reset();
   m_trafficRenderer.reset();
   m_transitSchemeRenderer.reset();
   m_postprocessRenderer.reset();
