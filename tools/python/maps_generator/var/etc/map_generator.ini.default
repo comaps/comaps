@@ -1,6 +1,6 @@
 [Developer]
-# Path to the `organicmaps` source code repository:
-OMIM_PATH: ~/OM/organicmaps
+# Path to the `comaps` source code repository:
+OMIM_PATH: ~/OM/comaps
 # A path with the generator_tool binary:
 BUILD_PATH: ${Developer:OMIM_PATH}/../omim-build-release
 
@@ -75,7 +75,7 @@ PLANET_MD5_URL: ${External:PLANET_URL}.md5
 NEED_BUILD_WORLD_ROADS: false
 # Subway file location, see docs/SUBWAY_GENERATION.md if you want to generate your own file.
 # Comment to disable subway layer generation.
-#SUBWAY_URL: https://cdn.organicmaps.app/subway.json
+#SUBWAY_URL: https://cdn.comaps.app/subway.json
 
 # Location of the EXPERIMENTAL GTFS-extracted public transport transit files:
 # TRANSIT_URL:
