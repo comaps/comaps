@@ -94,7 +94,7 @@ struct hash<dp::OverlayID>
   size_t operator()(dp::OverlayID const & overlayId) const noexcept
   {
     return hash<FeatureID>()(overlayId.m_featureId) ^ std::hash<kml::MarkId>()(overlayId.m_markId) ^
-           std::hash<m2::PointI>()(overlayId.m_tileCoords) ^ std::hash<uint32_t>()(overlayId.m_index);
+           m2::PointI::Hash()(overlayId.m_tileCoords) ^ std::hash<uint32_t>()(overlayId.m_index);
   }
 };
 template <>
