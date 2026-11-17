@@ -31,7 +31,7 @@ jobs:
         shell: bash
         run: |
           cd ~/comaps
-          ./tools/unix/build_omim.sh -p ~ -R topography_generator_tool
+          ./tools/unix/build_omim.sh -p ~ -d topography_generator_tool
       - name: Backup previous isolines
         shell: bash
         run: |
@@ -45,14 +45,14 @@ jobs:
         run: |
           echo "Processing ..."
           cd ~/comaps/
-          ~/omim-build-relwithdebinfo/topography_generator_tool \
+          ~/omim-build-debug/topography_generator_tool \
           --profiles_path=./data/conf/isolines/isolines-profiles.json \
           --countries_to_generate_path=./data/conf/isolines/countries-to-generate.json \
           --tiles_isolines_out_dir=/home/planet/isolines/tmp-tiles/ \
           --countries_isolines_out_dir=/home/planet/isolines/ \
           --data_dir=./data/ \
           --srtm_path=/home/planet/SRTM-patched-europe/ \
-          --threads=56
+          --threads=1
       - name: Delete temp files
         shell: bash
         run: |
