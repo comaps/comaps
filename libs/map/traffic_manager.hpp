@@ -91,7 +91,6 @@ public:
   void UpdateViewport(ScreenBase const & screen);
   void UpdateMyPosition(MyPosition const & myPosition);
 
-  void Invalidate();
 
   void OnDestroySurface();
   void OnRecoverSurface();
@@ -104,47 +103,20 @@ public:
   bool HasSimplifiedColorScheme() const { return m_hasSimplifiedColorScheme; }
 
 private:
-  struct CacheEntry
-  {
-    CacheEntry();
-    explicit CacheEntry(std::chrono::time_point<std::chrono::steady_clock> const & requestTime);
 
-    bool m_isLoaded;
-    size_t m_dataSize;
 
-    std::chrono::time_point<std::chrono::steady_clock> m_lastActiveTime;
-    std::chrono::time_point<std::chrono::steady_clock> m_lastRequestTime;
-    std::chrono::time_point<std::chrono::steady_clock> m_lastResponseTime;
 
-    int m_retriesCount;
-    bool m_isWaitingForResponse;
 
-    traffic::TrafficInfo::Availability m_lastAvailability;
-  };
 
   void ThreadRoutine();
-  bool WaitForRequest(std::vector<MwmSet::MwmId> & mwms);
 
-  void OnTrafficDataResponse(traffic::TrafficInfo && info);
-  void OnTrafficRequestFailed(traffic::TrafficInfo && info);
 
-  /// \brief Updates |activeMwms| and request traffic data.
-  /// \param rect is a rectangle covering a new active mwm set.
-  /// \note |lastMwmsByRect|/|activeMwms| may be either |m_lastDrapeMwmsByRect/|m_activeDrapeMwms|
-  /// or |m_lastRoutingMwmsByRect|/|m_activeRoutingMwms|.
-  /// \note |m_mutex| is locked inside the method. So the method should be called without |m_mutex|.
   void UpdateActiveMwms(m2::RectD const & rect, std::vector<MwmSet::MwmId> & lastMwmsByRect,
                         std::set<MwmSet::MwmId> & activeMwms);
 
   // This is a group of methods that haven't their own synchronization inside.
-  void RequestTrafficData();
-  void RequestTrafficData(MwmSet::MwmId const & mwmId, bool force);
 
   void Clear();
-  void ClearCache(MwmSet::MwmId const & mwmId);
-  void ShrinkCacheToAllowableSize();
-
-  void UpdateState();
   void ChangeState(TrafficState newState);
 
   bool IsInvalidState() const;
@@ -163,7 +135,6 @@ private:
   }
 
   GetMwmsByRectFn m_getMwmsByRectFn;
-  traffic::TrafficObserver & m_observer;
 
   df::DrapeEngineSafePtr m_drapeEngine;
   std::atomic<int64_t> m_currentDataVersion;
@@ -177,27 +148,17 @@ private:
 
   bool m_hasSimplifiedColorScheme = true;
 
-  size_t m_maxCacheSizeBytes;
-  size_t m_currentCacheSizeBytes = 0;
-
-  std::map<MwmSet::MwmId, CacheEntry> m_mwmCache;
 
   bool m_isRunning;
   std::condition_variable m_condition;
 
   std::vector<MwmSet::MwmId> m_lastDrapeMwmsByRect;
   std::set<MwmSet::MwmId> m_activeDrapeMwms;
-  std::vector<MwmSet::MwmId> m_lastRoutingMwmsByRect;
   std::set<MwmSet::MwmId> m_activeRoutingMwms;
 
-  // The ETag or entity tag is part of HTTP, the protocol for the World Wide Web.
-  // It is one of several mechanisms that HTTP provides for web cache validation,
-  // which allows a client to make conditional requests.
-  std::map<MwmSet::MwmId, std::string> m_trafficETags;
 
   std::atomic<bool> m_isPaused;
 
-  std::vector<MwmSet::MwmId> m_requestedMwms;
   std::mutex m_mutex;
   threads::SimpleThread m_thread;
 };

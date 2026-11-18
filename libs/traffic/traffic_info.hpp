@@ -106,14 +106,6 @@ public:
   static TrafficInfo BuildForTesting(Coloring && coloring);
   void SetTrafficKeysForTesting(std::vector<RoadSegmentId> const & keys);
 
-  // Fetches the latest traffic data from the server and updates the coloring and ETag.
-  // Construct the url by passing an MwmId.
-  // The ETag or entity tag is part of HTTP, the protocol for the World Wide Web.
-  // It is one of several mechanisms that HTTP provides for web cache validation,
-  // which allows a client to make conditional requests.
-  // *NOTE* This method must not be called on the UI thread.
-  bool ReceiveTrafficData(std::string & etag);
-
   /**
    * @brief Returns the latest known speed group by a feature segment's ID.
    * @param id The road segment ID.
@@ -125,9 +117,21 @@ public:
   Coloring const & GetColoring() const { return m_coloring; }
   Availability GetAvailability() const { return m_availability; }
 
+#if 0
+  /*
+   * These were formerly used by pytraffic.
+   * Commented out as the whole construct no longer works as-is with the introduction of conditional
+   * traffic coloring.
+   */
   /**
    * @brief Extracts RoadSegmentIds from an MWM and stores them in a sorted order.
    * @param mwmPath Path to the MWM file
+   *
+   * @todo We don’t need this any longer as the API has been reworked: We no longer separate keys
+   * (segment IDs) from values (their speed groups) and no longer have a use case for retrieving a
+   * list of all possible segment IDs – rather, we decode TraFF messages into segments, or have a
+   * cached list of the segments affected by a particular message. However, pytraffic still has some
+   * references to this function. We need to clean those up first, then we can delete this function.
    */
   static void ExtractTrafficKeys(std::string const & mwmPath, std::vector<RoadSegmentId> & result);
 
@@ -152,14 +156,14 @@ public:
   // Serializes the keys of the coloring map to |result|.
   // The keys are road segments ids which do not change during
   // an mwm's lifetime so there's no point in downloading them every time.
-  // todo(@m) Document the format.
-  static void SerializeTrafficKeys(std::vector<RoadSegmentId> const & keys, std::vector<uint8_t> & result);
-
+  /*
+   * TODO We don’t need these any longer as the format is obsolete, but pytraffic still has some
+   * references to these. We need to clean those up first, then we can delete these functions.
+   */
   static void DeserializeTrafficKeys(std::vector<uint8_t> const & data, std::vector<RoadSegmentId> & result);
 
   static void SerializeTrafficValues(std::vector<SpeedGroup> const & values, std::vector<uint8_t> & result);
-
-  static void DeserializeTrafficValues(std::vector<uint8_t> const & data, std::vector<SpeedGroup> & result);
+#endif
 
 private:
   /**
@@ -176,22 +180,6 @@ private:
     /** An error prevented data from being requested, or the server responded with an error. */
     Error,
   };
-
-  friend void UnitTest_TrafficInfo_UpdateTrafficData();
-
-  // todo(@m) A temporary method. Remove it once the keys are added
-  // to the generator and the data is regenerated.
-  bool ReceiveTrafficKeys();
-
-  // Tries to read the values of the Coloring map from server into |values|.
-  // Returns result of communicating with server as ServerDataStatus.
-  // Otherwise, returns false and does not change m_coloring.
-  ServerDataStatus ReceiveTrafficValues(std::string & etag, std::vector<SpeedGroup> & values);
-
-  // Updates the coloring and changes the availability status if needed.
-  bool UpdateTrafficData(std::vector<SpeedGroup> const & values);
-
-  ServerDataStatus ProcessFailure(platform::HttpClient const & request, int64_t const mwmVersion);
 
   /** @brief The mapping from feature segments to speed groups (see speed_groups.hpp). */
   Coloring m_coloring;

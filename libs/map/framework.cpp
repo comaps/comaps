@@ -411,7 +411,6 @@ Framework::Framework(FrameworkParams const & params, bool loadMaps)
   /// @todo Uncomment when we will integrate a traffic provider.
   // m_trafficManager.SetCurrentDataVersion(m_storage.GetCurrentDataVersion());
   // m_trafficManager.SetSimplifiedColorScheme(LoadTrafficSimplifiedColors());
-  // m_trafficManager.SetEnabled(MapModeHasTraffic());
 
   m_isolinesManager.SetEnabled(HasContourLinesLayer());
 
@@ -465,7 +464,6 @@ void Framework::OnCountryFileDownloaded(storage::CountryId const &, storage::Loc
       rect = id.GetInfo()->m_bordersRect;
   }
 
-  m_trafficManager.Invalidate();
   m_transitManager.Invalidate();
   m_isolinesManager.Invalidate();
 

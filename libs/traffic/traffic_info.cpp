@@ -37,49 +37,6 @@ namespace traffic
 {
 using namespace std;
 
-namespace
-{
-bool ReadRemoteFile(string const & url, vector<uint8_t> & contents, int & errorCode)
-{
-  platform::HttpClient request(url);
-  if (!request.RunHttpRequest())
-  {
-    errorCode = request.ErrorCode();
-    LOG(LINFO, ("Couldn't run traffic request", url, ". Error:", errorCode));
-    return false;
-  }
-
-  errorCode = request.ErrorCode();
-
-  string const & result = request.ServerResponse();
-  contents.resize(result.size());
-  memcpy(contents.data(), result.data(), result.size());
-
-  if (errorCode != 200)
-  {
-    LOG(LINFO, ("Traffic request", url, "failed. HTTP Error:", errorCode));
-    return false;
-  }
-
-  return true;
-}
-
-string MakeRemoteURL(string const & name, uint64_t version)
-{
-  if (string(TRAFFIC_DATA_BASE_URL).empty())
-    return {};
-
-  stringstream ss;
-  ss << TRAFFIC_DATA_BASE_URL;
-  if (version != 0)
-    ss << version << "/";
-  ss << url::UrlEncode(name) << TRAFFIC_FILE_EXTENSION;
-  return ss.str();
-}
-
-char constexpr kETag[] = "etag";
-}  // namespace
-
 // TrafficInfo::RoadSegmentId -----------------------------------------------------------------
 TrafficInfo::RoadSegmentId::RoadSegmentId() : m_fid(0), m_idx(0), m_dir(0) {}
 
@@ -94,44 +51,8 @@ uint8_t const TrafficInfo::kLatestValuesVersion = 0;
 
 TrafficInfo::TrafficInfo(MwmSet::MwmId const & mwmId, int64_t currentDataVersion)
   : m_mwmId(mwmId)
-  , m_currentDataVersion(currentDataVersion)
 {
-  if (!mwmId.IsAlive())
-  {
-    LOG(LWARNING, ("Attempt to create a traffic info for dead mwm."));
-    return;
-  }
-  string const mwmPath = mwmId.GetInfo()->GetLocalFile().GetPath(MapFileType::Map);
-  try
-  {
-    FilesContainerR rcont(mwmPath);
-    if (rcont.IsExist(TRAFFIC_KEYS_FILE_TAG))
-    {
-      auto reader = rcont.GetReader(TRAFFIC_KEYS_FILE_TAG);
-      vector<uint8_t> buf(static_cast<size_t>(reader.Size()));
-      reader.Read(0, buf.data(), buf.size());
-      LOG(LINFO, ("Reading keys for", mwmId, "from section"));
-      try
-      {
-        DeserializeTrafficKeys(buf, m_keys);
-      }
-      catch (Reader::Exception const & e)
-      {
-        auto const info = mwmId.GetInfo();
-        LOG(LINFO,
-            ("Could not read traffic keys from section. MWM:", info->GetCountryName(), "Version:", info->GetVersion()));
-      }
-    }
-    else
-    {
-      LOG(LINFO, ("Reading traffic keys for", mwmId, "from the web"));
-      ReceiveTrafficKeys();
-    }
-  }
-  catch (RootException const & e)
-  {
-    LOG(LWARNING, ("Could not initialize traffic keys"));
-  }
+  m_availability = Availability::IsAvailable;
 }
 
 // static
@@ -148,19 +69,6 @@ void TrafficInfo::SetTrafficKeysForTesting(vector<RoadSegmentId> const & keys)
   m_availability = Availability::IsAvailable;
 }
 
-bool TrafficInfo::ReceiveTrafficData(string & etag)
-{
-  vector<SpeedGroup> values;
-  switch (ReceiveTrafficValues(etag, values))
-  {
-  case ServerDataStatus::New: return UpdateTrafficData(values);
-  case ServerDataStatus::NotChanged: return true;
-  case ServerDataStatus::NotFound:
-  case ServerDataStatus::Error: return false;
-  }
-  return false;
-}
-
 SpeedGroup TrafficInfo::GetSpeedGroup(RoadSegmentId const & id) const
 {
   auto const it = m_coloring.find(id);
@@ -169,6 +77,12 @@ SpeedGroup TrafficInfo::GetSpeedGroup(RoadSegmentId const & id) const
   return it->second;
 }
 
+#if 0
+/*
+ * These were formerly used by pytraffic.
+ * Commented out as the whole construct no longer works as-is with the introduction of conditional
+ * traffic coloring.
+ */
 // static
 void TrafficInfo::ExtractTrafficKeys(string const & mwmPath, vector<RoadSegmentId> & result)
 {
@@ -218,70 +132,6 @@ void TrafficInfo::CombineColorings(vector<TrafficInfo::RoadSegmentId> const & ke
 
   LOG(LINFO, ("Road segments: known/unknown/total =", numKnown, numUnknown, numKnown + numUnknown));
   ASSERT_EQUAL(numUnexpectedKeys, 0, ());
-}
-
-// static
-void TrafficInfo::SerializeTrafficKeys(vector<RoadSegmentId> const & keys, vector<uint8_t> & result)
-{
-  vector<uint32_t> fids;
-  vector<size_t> numSegs;
-  vector<bool> oneWay;
-  for (size_t i = 0; i < keys.size();)
-  {
-    size_t j = i;
-    while (j < keys.size() && keys[i].m_fid == keys[j].m_fid)
-      ++j;
-
-    bool ow = true;
-    for (size_t k = i; k < j; ++k)
-    {
-      if (keys[k].m_dir == RoadSegmentId::kReverseDirection)
-      {
-        ow = false;
-        break;
-      }
-    }
-
-    auto const numDirs = ow ? 1 : 2;
-    size_t numSegsForThisFid = j - i;
-    CHECK_GREATER(numDirs, 0, ());
-    CHECK_EQUAL(numSegsForThisFid % numDirs, 0, ());
-    numSegsForThisFid /= numDirs;
-
-    fids.push_back(keys[i].m_fid);
-    numSegs.push_back(numSegsForThisFid);
-    oneWay.push_back(ow);
-
-    i = j;
-  }
-
-  MemWriter<vector<uint8_t>> memWriter(result);
-  WriteToSink(memWriter, kLatestKeysVersion);
-  WriteVarUint(memWriter, fids.size());
-
-  {
-    BitWriter<decltype(memWriter)> bitWriter(memWriter);
-
-    uint32_t prevFid = 0;
-    for (auto const & fid : fids)
-    {
-      uint64_t const fidDiff = static_cast<uint64_t>(fid - prevFid);
-      bool ok = coding::GammaCoder::Encode(bitWriter, fidDiff + 1);
-      ASSERT(ok, ());
-      UNUSED_VALUE(ok);
-      prevFid = fid;
-    }
-
-    for (auto const & s : numSegs)
-    {
-      bool ok = coding::GammaCoder::Encode(bitWriter, s + 1);
-      ASSERT(ok, ());
-      UNUSED_VALUE(ok);
-    }
-
-    for (auto const val : oneWay)
-      bitWriter.Write(val ? 1 : 0, 1 /* numBits */);
-  }
 }
 
 // static
@@ -355,166 +205,7 @@ void TrafficInfo::SerializeTrafficValues(vector<SpeedGroup> const & values, vect
 
   deflate(buf.data(), buf.size(), back_inserter(result));
 }
-
-// static
-void TrafficInfo::DeserializeTrafficValues(vector<uint8_t> const & data, vector<SpeedGroup> & result)
-{
-  using Inflate = coding::ZLib::Inflate;
-
-  vector<uint8_t> decompressedData;
-
-  Inflate inflate(Inflate::Format::ZLib);
-  inflate(data.data(), data.size(), back_inserter(decompressedData));
-
-  MemReaderWithExceptions memReader(decompressedData.data(), decompressedData.size());
-  ReaderSource<decltype(memReader)> src(memReader);
-
-  auto const version = ReadPrimitiveFromSource<uint8_t>(src);
-  CHECK_EQUAL(version, kLatestValuesVersion, ("Unsupported version of traffic keys."));
-
-  auto const n = ReadVarUint<uint32_t>(src);
-  result.resize(n);
-  BitReader<decltype(src)> bitReader(src);
-  for (size_t i = 0; i < static_cast<size_t>(n); ++i)
-  {
-    // SpeedGroup's values fit into 3 bits.
-    result[i] = static_cast<SpeedGroup>(bitReader.Read(3));
-  }
-
-  ASSERT_EQUAL(src.Size(), 0, ());
-}
-
-// todo(@m) This is a temporary method. Do not refactor it.
-bool TrafficInfo::ReceiveTrafficKeys()
-{
-  if (!m_mwmId.IsAlive())
-    return false;
-  auto const & info = m_mwmId.GetInfo();
-  if (!info)
-    return false;
-
-  string const url = MakeRemoteURL(info->GetCountryName(), info->GetVersion());
-
-  if (url.empty())
-    return false;
-
-  vector<uint8_t> contents;
-  int errorCode;
-  if (!ReadRemoteFile(url + ".keys", contents, errorCode))
-    return false;
-  if (errorCode != 200)
-  {
-    LOG(LWARNING, ("Network error when reading keys"));
-    return false;
-  }
-
-  vector<RoadSegmentId> keys;
-  try
-  {
-    DeserializeTrafficKeys(contents, keys);
-  }
-  catch (Reader::Exception const & e)
-  {
-    LOG(LINFO, ("Could not read traffic keys received from server. MWM:", info->GetCountryName(),
-                "Version:", info->GetVersion()));
-    return false;
-  }
-  m_keys.swap(keys);
-  return true;
-}
-
-TrafficInfo::ServerDataStatus TrafficInfo::ReceiveTrafficValues(string & etag, vector<SpeedGroup> & values)
-{
-  if (!m_mwmId.IsAlive())
-    return ServerDataStatus::Error;
-
-  auto const & info = m_mwmId.GetInfo();
-  if (!info)
-    return ServerDataStatus::Error;
-
-  auto const version = info->GetVersion();
-  string const url = MakeRemoteURL(info->GetCountryName(), version);
-
-  if (url.empty())
-    return ServerDataStatus::Error;
-
-  platform::HttpClient request(url);
-  request.LoadHeaders(true);
-  request.SetRawHeader("If-None-Match", etag);
-
-  if (!request.RunHttpRequest() || request.ErrorCode() != 200)
-    return ProcessFailure(request, version);
-  try
-  {
-    string const & response = request.ServerResponse();
-    vector<uint8_t> contents(response.cbegin(), response.cend());
-    DeserializeTrafficValues(contents, values);
-  }
-  catch (Reader::Exception const & e)
-  {
-    m_availability = Availability::NoData;
-    LOG(LWARNING, ("Could not read traffic values received from server. MWM:", info->GetCountryName(),
-                   "Version:", info->GetVersion()));
-    return ServerDataStatus::Error;
-  }
-  // Update ETag for this MWM.
-  auto const & headers = request.GetHeaders();
-  auto const it = headers.find(kETag);
-  if (it != headers.end())
-    etag = it->second;
-
-  m_availability = Availability::IsAvailable;
-  return ServerDataStatus::New;
-}
-
-bool TrafficInfo::UpdateTrafficData(vector<SpeedGroup> const & values)
-{
-  m_coloring.clear();
-
-  if (m_keys.size() != values.size())
-  {
-    LOG(LWARNING, ("The number of received traffic values does not correspond to the number of keys:", m_keys.size(),
-                   "keys", values.size(), "values."));
-    m_availability = Availability::NoData;
-    return false;
-  }
-
-  for (size_t i = 0; i < m_keys.size(); ++i)
-    if (values[i] != SpeedGroup::Unknown)
-      m_coloring.emplace(m_keys[i], values[i]);
-
-  return true;
-}
-
-TrafficInfo::ServerDataStatus TrafficInfo::ProcessFailure(platform::HttpClient const & request,
-                                                          int64_t const mwmVersion)
-{
-  switch (request.ErrorCode())
-  {
-  case 404: /* Not Found */
-  {
-    int64_t version = 0;
-    VERIFY(strings::to_int64(request.ServerResponse().c_str(), version), ());
-
-    if (version > mwmVersion && version <= m_currentDataVersion)
-      m_availability = Availability::ExpiredData;
-    else if (version > m_currentDataVersion)
-      m_availability = Availability::ExpiredApp;
-    else
-      m_availability = Availability::NoData;
-    return ServerDataStatus::NotFound;
-  }
-  case 304: /* Not Modified */
-  {
-    m_availability = Availability::IsAvailable;
-    return ServerDataStatus::NotChanged;
-  }
-  }
-
-  m_availability = Availability::Unknown;
-
-  return ServerDataStatus::Error;
-}
+#endif
 
 string DebugPrint(TrafficInfo::RoadSegmentId const & id)
 {
