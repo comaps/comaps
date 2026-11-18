@@ -551,12 +551,11 @@ RouteWeight IndexGraph::CalculateEdgeWeight(EdgeEstimator::Purpose purpose, bool
   auto const & from_segment = isOutgoing ? from : to;
   auto const & to_road = GetRoadGeometry(to_segment.GetFeatureId());
   /*
-   * FIXME `prevWeight->GetWeight()` is weight (for least-cost routing), not ETA, but is passed as ETA
-   * to both `CalcSegmentWeight()` (for conditional traffic) and `GetPenalties()` (for conditional
-   * access restrictions). Weight and ETA may differ, especially when fake segments are present: these
-   * add a large weight, but zero ETA, resulting in potentially incorrect traffic and access information.
+   * FIXME `prevWeight->GetWeight()` is weight (for least-cost routing), not ETA, but is being used as
+   * ETA despite potentially being significantly larger, resulting in potentially incorrect calculations.
    * The clean solution would be to rewrite parts of the routing engine, calculating weight and ETA
    * together and passing them in the same structure, so we can pass true ETA to the two functions.
+   * See issue #5506.
    *
    * Note this function gets called multiple times on the same segment in different phases of route
    * calculation, we are seeing different weights:
