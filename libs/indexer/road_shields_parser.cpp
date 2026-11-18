@@ -239,9 +239,6 @@ public:
         return RoadShield();
     }
 
-    if (shieldParts.size() <= 1)
-      return RoadShield(RoadShieldType::Hidden, rawText);
-
     std::string_view const roadType = shieldParts[0];  // 'I' for interstates and kFederalCode/kStatesCode for highways.
     std::string roadNumber(shieldParts[1]);
     std::string additionalInfo;
@@ -258,16 +255,20 @@ public:
         additionalInfo = shieldParts[1];
       }
       // Special case for OR 99E Business
-      if (base::IsExist(kStatesCode, shieldParts[0]) && lowerEndModifier == "bus"){
+      if (base::IsExist(kStatesCode, shieldParts[0]) && lowerEndModifier == "bus")
+      {
         roadNumber = "B" + std::string(shieldParts[1]);
         additionalInfo = "";
       }
     } else {
       lowerEndModifier = std::string(""); // define this anyway to avoid weird issues
     }
-    if (roadType == "I"){
-      if (shieldParts.size() >= 3){
-        if (lowerEndModifier == "bus" || lowerEndModifier == "business" || lowerEndModifier == "bl" || lowerEndModifier == "bs"){
+    if (roadType == "I")
+    {
+      if (shieldParts.size() >= 3)
+      {
+        if (lowerEndModifier == "bus" || lowerEndModifier == "business" || lowerEndModifier == "bl" || lowerEndModifier == "bs")
+        {
           return RoadShield(RoadShieldType::US_Interstate_Business, roadNumber, "");
         } else {
           return RoadShield(RoadShieldType::US_Interstate, roadNumber, additionalInfo);
