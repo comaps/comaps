@@ -15,6 +15,7 @@
     <locale android:name="el" />
     <locale android:name="en-AU" />
     <locale android:name="en-GB" />
+    <locale android:name="eo" />
     <locale android:name="es" />
     <locale android:name="es-MX" />
     <locale android:name="et" />
@@ -27,6 +28,7 @@
     <locale android:name="gsw" />
     <locale android:name="he" />
     <locale android:name="hi" />
+    <locale android:name="hr" />
     <locale android:name="hu" />
     <locale android:name="id" />
     <locale android:name="in" />
@@ -36,6 +38,7 @@
     <locale android:name="ja" />
     <locale android:name="kw" />
     <locale android:name="ko" />
+    <locale android:name="lo" />
     <locale android:name="lt" />
     <locale android:name="lv" />
     <locale android:name="mr" />
