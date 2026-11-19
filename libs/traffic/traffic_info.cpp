@@ -49,7 +49,7 @@ bool Condition::IsTrueAt(IsoTime const & time) const
 
 bool Condition::IsTrueDuring(IsoTime const & start, IsoTime const & end) const
 {
-  ASSERT(start <= end, "start time cannot be greater then end time");
+  ASSERT(start <= end, ("start time cannot be greater then end time"));
   return !((end < m_startTime) || (start > m_endTime));
 }
 
