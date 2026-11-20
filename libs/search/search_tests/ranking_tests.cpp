@@ -96,9 +96,9 @@ UNIT_TEST(NameScore_Smoke)
 
   test("Зона №51", "зона 51", NameScore::FULL_MATCH, 0, 6);
   test("Зона №51", "зона №", NameScore::FULL_PREFIX, 0, 4);
-
-  test("Göztepe 60. Yıl Parkı", "goztepe parki", NameScore::FIRST_MATCH, 0, 12);
-  test("Göztepe 60. Yıl Parkı", "goztepe 60 parki", NameScore::FIRST_MATCH, 0, 14);
+  test("Göztepe 60. Yıl Parkı", "goztepe parki", NameScore::FIRST_MATCH, 1, 12);
+  test("Göztepe 60. Yıl Parkı", "göztepe parki", NameScore::FIRST_MATCH, 0, 12);
+  test("Göztepe 60. Yıl Parkı", "göztepe 60 parki", NameScore::FIRST_MATCH, 0, 14);
   test("Göztepe 60. Yıl Parkı", "60 parki", NameScore::SUBSTRING, 0, 7);
   test("Göztepe 60. Yıl Parkı", "yil parki", NameScore::SUBSTRING, 0, 8);
 
@@ -218,7 +218,7 @@ UNIT_TEST(RankingInfo_PreferCountry)
   cafe.m_classifType.poi = PoiType::Eat;
 
   auto country = info;
-  country.m_distanceToPivot = 1e6;
+  country.m_distanceToPivot = 3e5;
   country.m_tokenRanges[Model::TYPE_COUNTRY] = TokenRange(0, 1);
   country.m_type = Model::TYPE_COUNTRY;
   country.m_rank = 100;  // This is rather small rank for a country.

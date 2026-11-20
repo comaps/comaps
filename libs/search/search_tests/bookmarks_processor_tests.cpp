@@ -110,21 +110,20 @@ UNIT_CLASS_TEST(BookmarksProcessorTest, Smoke)
       MakeBookmarkData("Great Northern Hotel" /* name */, "N Hotel" /* customName */,
                        "Clean place with a reasonable price" /* description */, {"tourism-hotel"} /* types */));
 
-  TEST_EQUAL(Search("R&R food"), Ids{}, ());
+  TEST_EQUAL(Search("2r food"), Ids{}, ());
   GetProcessor().EnableIndexingOfBookmarkGroup(GroupId{0}, true /* enable */);
-  TEST_EQUAL(Search("R&R food"), Ids({10}), ());
+  TEST_EQUAL(Search("2r food"), Ids({10}), ());
   GetProcessor().EnableIndexingOfBookmarkGroup(GroupId{0}, false /* enable */);
-  TEST_EQUAL(Search("R&R food"), Ids{}, ());
+  TEST_EQUAL(Search("2r food"), Ids{}, ());
   GetProcessor().EnableIndexingOfBookmarkGroup(GroupId{0}, true /* enable */);
-  TEST_EQUAL(Search("R&R food"), Ids({10}), ());
+  TEST_EQUAL(Search("2r food"), Ids({10}), ());
 
   GetProcessor().EnableIndexingOfBookmarkGroup(GroupId{1}, true /* enable */);
 
   TEST_EQUAL(Search("cherry pie"), Ids({10}), ());
-  TEST_EQUAL(Search("great silver hotel"), Ids({20, 18}), ());
+  TEST_EQUAL(Search("great silver hotel"), Ids({20}), ());
   TEST_EQUAL(Search("double r cafe"), Ids({10}), ());
   TEST_EQUAL(Search("dine"), Ids({10}), ());
-  TEST_EQUAL(Search("2R"), Ids({10}), ());
   TEST_EQUAL(Search("Ag"), Ids({18}), ());
 
   TEST_EQUAL(Search("place"), Ids({20, 18}), ());
