@@ -123,6 +123,7 @@ jobs:
 
       - name: Upload ipa
         uses: actions/upload-artifact@v3
+        continue-on-error: true
         with:
           name: CoMaps release ipa
           path: CoMaps.ipa

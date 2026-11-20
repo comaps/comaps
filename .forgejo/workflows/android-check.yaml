@@ -112,6 +112,7 @@ jobs:
 
       - name: Upload apk
         uses: actions/upload-artifact@v3
+        continue-on-error: true
         with:
           name: android-${{ matrix.flavor }}
           path: android/app/build/outputs/apk/**/*.apk
