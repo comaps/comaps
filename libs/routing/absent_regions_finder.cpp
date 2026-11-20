@@ -77,6 +77,7 @@ AbsentRegionsFinder::RegionsSetT AbsentRegionsFinder::GetAbsentRegions()
     else
       ++i;
 
+  std::lock_guard<std::mutex> lock(m_mutex);
   for (auto & country : m_absentRegions)
     regions.insert(std::move(country));
   m_absentRegions.clear();
