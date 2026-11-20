@@ -3,6 +3,7 @@
 #include "routing/async_router.hpp"
 #include "routing/checkpoints.hpp"
 #include "routing/position_accumulator.hpp"
+#include "routing/route_step.hpp"
 #include "routing/router.hpp"
 #include "routing/routing_callbacks.hpp"
 #include "routing/routing_settings.hpp"
@@ -25,6 +26,7 @@
 #include <limits>
 #include <map>
 #include <memory>
+#include <optional>
 #include <queue>
 #include <string>
 
@@ -254,7 +256,8 @@ public:
   SpeedCameraManager & GetSpeedCamManager() { return m_speedCameraManager; }
   SpeedCameraManager const & GetSpeedCamManager() const { return m_speedCameraManager; }
 
-  std::vector<routing::RouteStepInfo> GetRouteTurnsForDisplay(std::string const & locale) const;
+  /// Returns the current route plan, if available
+  std::optional<routing::RoutePlan> GetRoutePlan(std::string const & locale) const;
 
   std::shared_ptr<Route> GetRouteForTests() const { return m_route; }
   void SetGuidesForTests(GuidesTracks guides) { m_router->SetGuidesTracks(std::move(guides)); }

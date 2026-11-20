@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import app.organicmaps.R;
 import app.organicmaps.maplayer.MapButtonsViewModel;
 import app.organicmaps.sdk.Framework;
-import app.organicmaps.sdk.routing.RouteStepInfo;
+import app.organicmaps.sdk.routing.RoutePlan;
 import app.organicmaps.sdk.util.Utils;
 
 public class RoutePreviewController
@@ -16,7 +16,7 @@ public class RoutePreviewController
   @NonNull
   private final MapButtonsViewModel mMapButtonsViewModel;
   @Nullable
-  private RouteStepInfo[] mRouteSteps;
+  private RoutePlan mRoutePlan;
   private int mPreviewedTurnPosition = -1;
 
   public RoutePreviewController(@NonNull Context context, @NonNull MapButtonsViewModel mapButtonsViewModel)
@@ -30,15 +30,15 @@ public class RoutePreviewController
     if (!isPreviewing)
     {
       mPreviewedTurnPosition = -1;
-      mRouteSteps = null;
+      mRoutePlan = null;
       mMapButtonsViewModel.setRoutePreviewControlsState(MapButtonsViewModel.RoutePreviewControlsState.none());
       return;
     }
 
-    if (mRouteSteps == null)
-      mRouteSteps = Framework.nativeGetRouteSteps(Utils.getLanguageCode());
+    if (mRoutePlan == null)
+      mRoutePlan = Framework.nativeGetRoutePlan(Utils.getLanguageCode());
 
-    if (mRouteSteps == null || mRouteSteps.length == 0)
+    if (mRoutePlan == null || mRoutePlan.steps.length == 0)
     {
       mMapButtonsViewModel.setRoutePreviewControlsState(MapButtonsViewModel.RoutePreviewControlsState.none());
       return;
@@ -46,9 +46,9 @@ public class RoutePreviewController
 
     // route step sequence numbers don't correspond to segment indexes so we must match it here
     mPreviewedTurnPosition = -1;
-    for (int i = 0; i < mRouteSteps.length; ++i)
+    for (int i = 0; i < mRoutePlan.steps.length; ++i)
     {
-      if (mRouteSteps[i].index == segmentIndex)
+      if (mRoutePlan.steps[i].index == segmentIndex)
       {
         mPreviewedTurnPosition = i;
         break;
@@ -63,17 +63,18 @@ public class RoutePreviewController
 
     mMapButtonsViewModel.setRoutePreviewControlsState(new MapButtonsViewModel.RoutePreviewControlsState(
         true,
-        mContext.getString(R.string.route_preview_turn_position, mRouteSteps[mPreviewedTurnPosition].sequence,
-                           mRouteSteps.length),
-        mPreviewedTurnPosition > 0, mPreviewedTurnPosition + 1 < mRouteSteps.length));
+        mContext.getString(R.string.route_preview_turn_position,
+                           mRoutePlan.steps[mPreviewedTurnPosition].sequence + 1,
+                           mRoutePlan.steps.length),
+        mPreviewedTurnPosition > 0, mPreviewedTurnPosition + 1 < mRoutePlan.steps.length));
   }
 
   @Nullable
   public String getPreviewedTurnInstruction()
   {
-    if (mRouteSteps == null || mPreviewedTurnPosition < 0)
+    if (mRoutePlan == null || mPreviewedTurnPosition < 0)
       return null;
-    return mRouteSteps[mPreviewedTurnPosition].textualInstruction;
+    return mRoutePlan.steps[mPreviewedTurnPosition].textualInstruction;
   }
 
   public void previewPreviousTurn()
@@ -93,9 +94,9 @@ public class RoutePreviewController
 
   private void previewTurnAtPosition(int position)
   {
-    if (mRouteSteps == null || position < 0 || position >= mRouteSteps.length)
+    if (mRoutePlan == null || position < 0 || position >= mRoutePlan.steps.length)
       return;
 
-    Framework.nativePreviewTurn(mRouteSteps[position].index);
+    Framework.nativePreviewTurn(mRoutePlan.steps[position].index);
   }
 }

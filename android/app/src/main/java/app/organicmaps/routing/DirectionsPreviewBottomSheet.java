@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import app.organicmaps.R;
 import app.organicmaps.sdk.Framework;
+import app.organicmaps.sdk.routing.RoutePlan;
 import app.organicmaps.sdk.util.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -33,8 +34,12 @@ public class DirectionsPreviewBottomSheet
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         directionsStepList.setLayoutManager(layoutManager);
 
+        RoutePlan routePlan = Framework.nativeGetRoutePlan(Utils.getLanguageCode());
+        if (routePlan == null)
+            return v; // this shouldn't be possible if the preview button is presented
+
         mDirectionsStepViewAdapter = new DirectionsStepViewAdapter(
-            getContext(), Framework.nativeGetRouteSteps(Utils.getLanguageCode()), segmentIndex -> {
+            getContext(), routePlan.steps, segmentIndex -> {
               Framework.nativePreviewTurn(segmentIndex);
               dismiss();
             });

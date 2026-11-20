@@ -608,11 +608,12 @@ std::vector<RouteStepInfo> Route::GetTurnsForDisplay(std::string const & locale)
 
     RouteStepInfo step;
     step.m_index = i;
-    step.m_sequence = k + 1;
+    step.m_sequence = k;
     step.m_turn = segment.GetTurn().m_turn;
     step.m_pedestrianTurn = segment.GetTurn().m_pedestrianTurn;
     step.m_exitNum = segment.GetTurn().m_exitNum;
     step.m_distMeters = distance;
+    step.m_distFromStartMeters = totalDistance + distance;
     step.m_fromStreetName = segment.GetRoadNameInfo().m_name;
     step.m_toRoad = GetRoadInfo(rni);
     step.m_lanes = GetStepLanes(i);
@@ -665,9 +666,9 @@ turns::lanes::LanesInfo const & Route::GetStepLanes(size_t segIdx) const
 
 std::optional<size_t> Route::GetStepSegIdx(uint32_t sequence) const
 {
-  if (sequence == 0 || sequence > m_stepSegIdxs.size())
+  if (sequence >= m_stepSegIdxs.size())
     return {};
-  return m_stepSegIdxs[sequence - 1];
+  return m_stepSegIdxs[sequence];
 }
 
 std::optional<uint32_t> Route::GetStepSequenceForTurn(uint32_t turnIndex) const
@@ -677,7 +678,7 @@ std::optional<uint32_t> Route::GetStepSequenceForTurn(uint32_t turnIndex) const
   { return m_routeSegments[segIdx].GetTurn().m_index < index; });
   if (it == m_stepSegIdxs.cend())
     return {};
-  return static_cast<uint32_t>(std::distance(m_stepSegIdxs.cbegin(), it) + 1);
+  return static_cast<uint32_t>(std::distance(m_stepSegIdxs.cbegin(), it));
 }
 
 std::optional<uint32_t> Route::GetNextStepSequence(uint32_t sequence, double maxDistM) const

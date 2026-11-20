@@ -311,7 +311,7 @@ public class NavigationService extends Service implements LocationListener
 
     final NotificationCompat.Builder notificationBuilder = getNotificationBuilder(this)
                                                                .setContentTitle(routingInfo.distToTurn.toString(this))
-                                                               .setContentText(routingInfo.nextStreet);
+                                                               .setContentText(routingInfo.getNextRoadName());
 
     final Drawable drawable = AppCompatResources.getDrawable(this, routingInfo.carDirection.getTurnRes());
     if (drawable != null)

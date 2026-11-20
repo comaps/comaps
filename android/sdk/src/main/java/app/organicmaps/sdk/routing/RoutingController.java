@@ -11,6 +11,7 @@ import app.organicmaps.sdk.Router;
 import app.organicmaps.sdk.bookmarks.data.FeatureId;
 import app.organicmaps.sdk.bookmarks.data.MapObject;
 import app.organicmaps.sdk.location.LocationHelper;
+import app.organicmaps.sdk.util.Utils;
 import app.organicmaps.sdk.util.concurrency.UiThread;
 import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.sdk.widget.placepage.CoordinatesFormat;
@@ -88,6 +89,8 @@ public class RoutingController
   @Nullable
   private RoutingInfo mCachedRoutingInfo;
   @Nullable
+  private RoutePlan mCachedRoutePlan;
+  @Nullable
   private TransitRouteInfo mCachedTransitRouteInfo;
 
   @NonNull
@@ -144,7 +147,7 @@ public class RoutingController
 
   private void onBuiltRoute()
   {
-    mCachedRoutingInfo = Framework.nativeGetRouteFollowingInfo();
+    updateCachedRoutingInfo(Framework.nativeGetRouteFollowingInfo());
     if (mLastRouterType == Router.Transit)
       mCachedTransitRouteInfo = Framework.nativeGetTransitRouteInfo();
     updateRouteGeometry();
@@ -347,6 +350,8 @@ public class RoutingController
   private void build()
   {
     Framework.nativeRemoveRoute();
+    mCachedRoutingInfo = null;
+    mCachedRoutePlan = null;
 
     Logger.d(TAG, "build");
     mLastBuildProgress = 0;
@@ -404,6 +409,8 @@ public class RoutingController
   public void prepare(final @Nullable MapObject startPoint, final @Nullable MapObject endPoint, Router routerType)
   {
     cancel();
+    mCachedRoutingInfo = null;
+    mCachedRoutePlan = null;
     setState(State.PREPARE);
 
     mLastRouterType = routerType;
@@ -429,6 +436,7 @@ public class RoutingController
     startNavigation();
 
     Framework.nativeFollowRoute();
+    updateCachedRoutingInfo(Framework.nativeGetRouteFollowingInfo());
   }
 
   public void addStop(@NonNull MapObject mapObject)
@@ -520,6 +528,8 @@ public class RoutingController
     applyRemovingIntermediatePointsTransaction();
     Framework.nativeDeleteSavedRoutePoints();
     Framework.nativeCloseRouting();
+    mCachedRoutingInfo = null;
+    mCachedRoutePlan = null;
 
     mRouteGeometry = RouteGeometry.empty(mRouteGeometry.mRevision + 1);
     notifyRouteChanged();
@@ -698,6 +708,18 @@ public class RoutingController
   public RoutingInfo getCachedRoutingInfo()
   {
     return mCachedRoutingInfo;
+  }
+
+  /**
+   * Returns the cached route plan only if it's valid.
+   */
+  @Nullable
+  public RoutePlan getCachedRoutePlan()
+  {
+    if (mCachedRoutePlan == null || mCachedRoutingInfo == null
+        || mCachedRoutePlan.routeId != mCachedRoutingInfo.routeId)
+      return null;
+    return mCachedRoutePlan;
   }
 
   @Nullable
@@ -944,5 +966,16 @@ public class RoutingController
   public void updateCachedRoutingInfo(@Nullable RoutingInfo info)
   {
     mCachedRoutingInfo = info;
+    if (info == null || info.routeId == 0)
+    {
+      mCachedRoutePlan = null;
+      return;
+    }
+
+    if (mCachedRoutePlan != null && mCachedRoutePlan.routeId == info.routeId)
+      return;
+
+    RoutePlan plan = Framework.nativeGetRoutePlan(Utils.getLanguageCode());
+    mCachedRoutePlan = plan != null && plan.routeId == info.routeId ? plan : null;
   }
 }

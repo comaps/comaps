@@ -60,7 +60,7 @@ public final class RoutingUtils
 
     // TODO (AndrewShkrob): Use real distance and time estimates
     builder.addStep(createCurrentStep(context, info), createTravelEstimate(info.distToTurn, 0));
-    if (!TextUtils.isEmpty(info.nextStreet))
+    if (!TextUtils.isEmpty(info.getNextRoadName()))
       builder.addStep(createNextStep(context, info), createTravelEstimate(Distance.EMPTY, 0));
     return builder.build();
   }
@@ -73,7 +73,7 @@ public final class RoutingUtils
                                                            context.getResources().getDisplayMetrics());
     builder.setCue(RoadShieldUtils.composeInstruction(RoutingUtils::createRoadShieldSpan, info, shieldTextSize,
                                                       /* drawOutline */ false));
-    builder.setRoad(info.nextStreet);
+    builder.setRoad(info.getNextRoadName());
     builder.setManeuver(RoutingHelpers.createManeuver(context, info.carDirection, info.exitNum));
     if (info.lanes != null)
     {

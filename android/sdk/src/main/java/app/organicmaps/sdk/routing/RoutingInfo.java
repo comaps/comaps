@@ -1,6 +1,7 @@
 package app.organicmaps.sdk.routing;
 
 import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.organicmaps.sdk.routing.roadshield.RoadShieldInfo;
 import app.organicmaps.sdk.util.Distance;
@@ -98,15 +99,17 @@ public final class RoutingInfo
   // Time & distance information to the next intermediate stop.
   public final Distance distToNextStop;
   public final int timeToNextStop;
-  // Structured (shield-resolved) components of the next turn's road.
-  // All may be empty.
-  public final String nextName;
-  public final String nextRef;
-  public final String nextJunctionRef;
-  public final String nextDestinationRef;
-  public final String nextDestination;
-  public final boolean nextIsLink;
+  // Structured road information
+  @NonNull
+  public final RoadInfo nextRoadInfo;
   public final boolean isLeftHandTraffic;
+  // The current route ID (use to invalidate route plan caches)
+  public final long routeId;
+  // The current sequence number in the route plan
+  @Nullable
+  public final Integer currentStep;
+  @Nullable
+  public final Integer nextStep;
 
   private RoutingInfo(Distance distToTarget, Distance distToTurn, String currentStreet, String nextStreet,
                       @Nullable RoadShieldInfo nextStreetRoadShields, String nextNextStreet,
@@ -115,8 +118,8 @@ public final class RoutingInfo
                       @Nullable LaneInfo[] lanes, double speedLimitMps, boolean speedLimitExceeded,
                       boolean shouldPlayWarningSignal, int routingSessionState,
                       int indexOfNextStop, Distance distToNextStop, int timeToNextStop,
-                      String nextName, String nextRef, String nextJunctionRef, String nextDestinationRef,
-                      String nextDestination, boolean nextIsLink, boolean isLeftHandTraffic)
+                      @NonNull RoadInfo nextRoadInfo, boolean isLeftHandTraffic, long routeId,
+                      @Nullable Integer currentStep, @Nullable Integer nextStep)
   {
     this.distToTarget = distToTarget;
     this.distToTurn = distToTurn;
@@ -139,13 +142,11 @@ public final class RoutingInfo
     this.indexOfNextStop = indexOfNextStop;
     this.distToNextStop = distToNextStop;
     this.timeToNextStop = timeToNextStop;
-    this.nextName = nextName;
-    this.nextRef = nextRef;
-    this.nextJunctionRef = nextJunctionRef;
-    this.nextDestinationRef = nextDestinationRef;
-    this.nextDestination = nextDestination;
-    this.nextIsLink = nextIsLink;
+    this.nextRoadInfo = nextRoadInfo;
     this.isLeftHandTraffic = isLeftHandTraffic;
+    this.routeId = routeId;
+    this.currentStep = currentStep;
+    this.nextStep = nextStep;
   }
 
   public boolean isSpeedCamLimitExceeded()
@@ -156,5 +157,11 @@ public final class RoutingInfo
   public boolean shouldPlayWarningSignal()
   {
     return shouldPlayWarningSignal;
+  }
+
+  @NonNull
+  public String getNextRoadName()
+  {
+    return nextRoadInfo.formattedName.isEmpty() ? nextStreet : nextRoadInfo.formattedName;
   }
 }

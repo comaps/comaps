@@ -5,8 +5,10 @@ import android.text.SpannableStringBuilder;
 import android.text.style.CharacterStyle;
 import android.text.style.ImageSpan;
 import androidx.annotation.NonNull;
+import app.organicmaps.sdk.routing.RoadInfo;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.routing.roadshield.RoadShield;
+import app.organicmaps.sdk.routing.roadshield.RoadShieldInfo;
 
 public class RoadShieldUtils
 {
@@ -26,94 +28,98 @@ public class RoadShieldUtils
   public static CharSequence composeInstruction(@NonNull RoadShieldSpanCreator roadShieldSpanCreator,
                                                 @NonNull RoutingInfo info, float textSize, boolean drawOutline)
   {
-    if (info.nextName.isEmpty() && info.nextRef.isEmpty() && info.nextJunctionRef.isEmpty() && info.nextDestinationRef.isEmpty() && info.nextDestination.isEmpty())
-      return info.nextStreet;
+    final RoadInfo nextRoadInfo = info.nextRoadInfo;
+    final RoadShieldInfo roadShields = nextRoadInfo.shields;
+    final String formattedRoadName = info.getNextRoadName();
+    if (nextRoadInfo.name.isEmpty() && nextRoadInfo.ref.isEmpty() && nextRoadInfo.junctionRef.isEmpty()
+        && nextRoadInfo.destinationRef.isEmpty() && nextRoadInfo.destination.isEmpty())
+      return formattedRoadName;
 
     final StringBuilder text = new StringBuilder();
-    final boolean hasExitInfo = !info.nextJunctionRef.isEmpty() || !info.nextDestinationRef.isEmpty()
-        || !info.nextDestination.isEmpty();
+    final boolean hasExitInfo = !nextRoadInfo.junctionRef.isEmpty() || !nextRoadInfo.destinationRef.isEmpty()
+        || !nextRoadInfo.destination.isEmpty();
     int junctionInsertPos = -1;
     int targetInsertPos = -1;
 
     // These follow roughly the same rules as GetRoadFullName in routing_session.cpp
-    if (info.nextIsLink || hasExitInfo)
+    if (nextRoadInfo.isLink || hasExitInfo)
     {
-      if (!info.nextJunctionRef.isEmpty())
+      if (!nextRoadInfo.junctionRef.isEmpty())
       {
-        if (info.nextStreetRoadShields != null && info.nextStreetRoadShields.hasJunctionRoadShields())
+        if (roadShields != null && roadShields.hasJunctionRoadShields())
         {
           junctionInsertPos = text.length();
-          appendShieldText(text, info.nextStreetRoadShields.junctionRoadShields);
+          appendShieldText(text, roadShields.junctionRoadShields);
         }
         else
-          text.append(info.nextJunctionRef);
+          text.append(nextRoadInfo.junctionRef);
       }
 
-      if (!info.nextDestinationRef.isEmpty())
+      if (!nextRoadInfo.destinationRef.isEmpty())
       {
         if (text.length() > 0)
           text.append(": ");
-        if (info.nextStreetRoadShields != null && info.nextStreetRoadShields.hasTargetRoadShields())
+        if (roadShields != null && roadShields.hasTargetRoadShields())
         {
           targetInsertPos = text.length();
-          appendShieldText(text, info.nextStreetRoadShields.targetRoadShields);
+          appendShieldText(text, roadShields.targetRoadShields);
         }
         else
-          text.append(info.nextDestinationRef);
+          text.append(nextRoadInfo.destinationRef);
       }
 
-      if (!info.nextDestination.isEmpty())
+      if (!nextRoadInfo.destination.isEmpty())
       {
         if (text.length() > 0)
           text.append("\n");
-        text.append(String.join(" / ", info.nextDestination.split("\\s*;\\s*")));
+        text.append(String.join(" / ", nextRoadInfo.destination.split("\\s*;\\s*")));
       }
-      else if (!info.nextName.isEmpty())
+      else if (!nextRoadInfo.name.isEmpty())
       {
-        append(text, info.nextName);
+        append(text, nextRoadInfo.name);
       }
     }
     else
     {
-      if (!info.nextRef.isEmpty())
+      if (!nextRoadInfo.ref.isEmpty())
       {
-        if (info.nextStreetRoadShields != null && info.nextStreetRoadShields.hasTargetRoadShields())
+        if (roadShields != null && roadShields.hasTargetRoadShields())
         {
           targetInsertPos = text.length();
-          appendShieldText(text, info.nextStreetRoadShields.targetRoadShields);
+          appendShieldText(text, roadShields.targetRoadShields);
         }
       }
-      if (!info.nextName.isEmpty())
+      if (!nextRoadInfo.name.isEmpty())
       {
-        append(text, info.nextName);
+        append(text, nextRoadInfo.name);
       }
     }
 
     if (text.length() == 0)
-      return info.nextStreet;
+      return formattedRoadName;
 
     final SpannableStringBuilder result = new SpannableStringBuilder(text.toString());
 
     final float shieldTextSize = textSize * 0.85f;
-    if (info.nextStreetRoadShields != null)
+    if (roadShields != null)
     {
-      if (info.nextIsLink || hasExitInfo)
+      if (nextRoadInfo.isLink || hasExitInfo)
       {
-        if (!info.nextJunctionRef.isEmpty() && info.nextStreetRoadShields.hasJunctionRoadShields())
+        if (!nextRoadInfo.junctionRef.isEmpty() && roadShields.hasJunctionRoadShields())
           insertShields(roadShieldSpanCreator, result,
-                  info.nextStreetRoadShields.junctionRoadShields,
+                  roadShields.junctionRoadShields,
                   shieldTextSize, drawOutline, true, info.isLeftHandTraffic, junctionInsertPos);
 
-        if (!info.nextDestinationRef.isEmpty() && info.nextStreetRoadShields.hasTargetRoadShields())
+        if (!nextRoadInfo.destinationRef.isEmpty() && roadShields.hasTargetRoadShields())
           insertShields(roadShieldSpanCreator, result,
-                  info.nextStreetRoadShields.targetRoadShields,
+                  roadShields.targetRoadShields,
                   shieldTextSize, drawOutline, false, false, targetInsertPos);
       }
       else
       {
-        if (!info.nextRef.isEmpty() && info.nextStreetRoadShields.hasTargetRoadShields())
+        if (!nextRoadInfo.ref.isEmpty() && roadShields.hasTargetRoadShields())
           insertShields(roadShieldSpanCreator, result,
-                  info.nextStreetRoadShields.targetRoadShields,
+                  roadShields.targetRoadShields,
                   shieldTextSize, drawOutline, false, false, targetInsertPos);
       }
     }

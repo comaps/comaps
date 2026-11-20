@@ -209,6 +209,9 @@ public:
 
   TransitRouteInfo GetTransitRouteInfo() const;
 
+  /// Returns the current route plan, if available
+  std::optional<routing::RoutePlan> GetRoutePlan(std::string const & locale) const;
+
   m2::PointD GetRouteEndPoint() const { return m_routingSession.GetEndPoint(); }
   /// Returns the most situable router engine type.
   routing::RouterType GetBestRouter(m2::PointD const & startPoint, m2::PointD const & finalPoint) const;
@@ -348,7 +351,6 @@ public:
 
   routing::RouterType GetCurrentRouterType() const { return m_currentRouterType; }
 
-  std::vector<routing::RouteStepInfo> GetRouteTurnsForDisplay(std::string const & locale) const;
   m2::PointD GetJunctionPointForUpcomingTurn(uint32_t segmentIndex) const;
   double GetDirectionForUpcomingTurn(uint32_t segmentIndex) const;
 
