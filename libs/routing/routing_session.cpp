@@ -988,9 +988,13 @@ void RoutingSession::CopyTraffic(traffic::AllMwmTrafficInfo & trafficColoring) c
   TrafficCache::CopyTraffic(trafficColoring);
 }
 
-std::vector<routing::RouteStepInfo> RoutingSession::GetRouteTurnsForDisplay(std::string const & locale) const
+std::optional<routing::RoutePlan> RoutingSession::GetRoutePlan(std::string const & locale) const
 {
-  return m_route->GetTurnsForDisplay(locale);
+  CHECK_THREAD_CHECKER(m_threadChecker, ());
+  if (!m_route || !m_route->IsValid())
+    return std::nullopt;
+
+  return routing::RoutePlan{m_route->GetRouteId(), m_route->GetTurnsForDisplay(locale)};
 }
 
 void RoutingSession::SetLocaleWithJsonForTesting(std::string const & json, std::string const & locale)

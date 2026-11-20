@@ -7,3 +7,4 @@ jobject ToJavaRouteStepInfo(JNIEnv * env, routing::RouteStepInfo const & step);
 
 jobjectArray CreateRouteStepInfoArray(JNIEnv * env, std::vector<routing::RouteStepInfo> const & steps);
 
+jobject ToJavaRoutePlan(JNIEnv * env, routing::RoutePlan const & plan);

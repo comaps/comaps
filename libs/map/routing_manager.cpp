@@ -1891,9 +1891,9 @@ bool RoutingManager::IsSpeedCamLimitExceeded() const
   return m_routingSession.IsSpeedCamLimitExceeded();
 }
 
-std::vector<routing::RouteStepInfo> RoutingManager::GetRouteTurnsForDisplay(std::string const & locale) const
+std::optional<routing::RoutePlan> RoutingManager::GetRoutePlan(std::string const & locale) const
 {
-  return m_routingSession.GetRouteTurnsForDisplay(locale);
+  return m_routingSession.GetRoutePlan(locale);
 }
 
 m2::PointD RoutingManager::GetJunctionPointForUpcomingTurn(uint32_t segmentIndex) const

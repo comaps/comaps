@@ -123,7 +123,7 @@ public class NavigationContentProvider extends ContentProvider
           row.add(column, info.currentStreet);
           break;
         case NavigationContract.Live.Columns.NEXT_STREET:
-          row.add(column, info.nextStreet);
+          row.add(column, info.getNextRoadName());
           break;
         case NavigationContract.Live.Columns.COMPLETION_PERCENT:
           row.add(column, info.completionPercent);
