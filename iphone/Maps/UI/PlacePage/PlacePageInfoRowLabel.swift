@@ -9,7 +9,7 @@ struct PlacePageInfoRowLabel: View {
     HStack(spacing: PlacePageInfoRowLayout.spacing) {
       icon
         .frame(width: iconWidth)
-        .foregroundStyle(item.isLink ? AnyShapeStyle(.tint) : AnyShapeStyle(.secondary))
+        .foregroundStyle(item.isLink ? AnyShapeStyle(.tint) : AnyShapeStyle(.primary))
         .accessibilityHidden(true)
       Text(item.text)
         .foregroundStyle(item.isLink ? AnyShapeStyle(.tint) : AnyShapeStyle(item.color ?? .primary))

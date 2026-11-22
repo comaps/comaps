@@ -10,7 +10,7 @@ struct PlacePageOpeningHoursRow: View {
     if let today = openingHours.days.first {
       HStack(alignment: .firstTextBaseline, spacing: PlacePageInfoRowLayout.spacing) {
         Image(systemName: "clock.fill")
-          .foregroundStyle(.secondary)
+          .foregroundStyle(.primary)
           .frame(width: PlacePageInfoRowLayout.iconWidth)
           .accessibilityHidden(true)
         if openingHours.days.count > 1 {
