@@ -297,6 +297,10 @@ void MainWindow::CreateNavigationBar()
     m_drivingMapMode = new PopupMenuHolder(this);
     m_drivingMapMode->setDefaultAction(QIcon(":/navig64/mode_driving.png"), tr("Driving"),
                                        std::bind(&MainWindow::OnMapModeChange, this, MapMode::Driving));
+    // icon was formerly :/navig64/traffic.png, #4687 introduced a uniform icon for all layers
+    m_drivingMapMode->addAction(QIcon(":/navig64/mode_driving.png"), tr("Traffic"),
+                                std::bind(&MainWindow::OnDrivingMapModeOptionChange, this, 0), true);
+    m_drivingMapMode->setChecked(0, m_pDrawWidget->GetFramework().DrivingMapModeHasTraffic());
     pToolBar->addWidget(m_drivingMapMode->create());
     m_drivingMapMode->setMainIcon(QIcon(":/navig64/mode_driving.png"));
 
@@ -324,11 +328,6 @@ void MainWindow::CreateNavigationBar()
     m_layers->addAction(QIcon(":/navig64/layers.png"), tr("3D buildings"),
                         std::bind(&MainWindow::OnLayers3dBuildingsChange, this, 0), true);
     m_layers->setChecked(2, m_pDrawWidget->GetFramework().HasBuildings3d());
-
-    // icon was formerly :/navig64/traffic.png, #4687 introduced a uniform icon for all layers
-    m_layers->addAction(QIcon(":/navig64/layers.png"), tr("Traffic"),
-                        std::bind(&MainWindow::OnLayersTrafficChange, this, 0), true);
-    m_layers->setChecked(3, m_pDrawWidget->GetFramework().DrivingMapModeHasTraffic());
 
     pToolBar->addWidget(m_layers->create());
     m_layers->setMainIcon(QIcon(":/navig64/layers.png"));
@@ -940,7 +939,18 @@ void MainWindow::OnCyclingMapModeOptionChange(int8_t const index)
 
 void MainWindow::OnDrivingMapModeOptionChange(int8_t const index)
 {
-  // Do nothing (yet)
+  // TODO `index` presumably is the option index (if there is more than one), document that somewhere
+  switch(index)
+  {
+    case 0:
+    {
+      auto & frm = m_pDrawWidget->GetFramework();
+      frm.DrivingMapModeSetTraffic(m_drivingMapMode->isChecked(index));
+      break;
+    }
+    default:
+      UNREACHABLE();
+  }
 }
 
 void MainWindow::OnPublicTransportMapModeOptionChange(int8_t const index)
@@ -965,12 +975,6 @@ void MainWindow::OnLayers3dBuildingsChange(int8_t const index)
 {
   auto & frm = m_pDrawWidget->GetFramework();
   frm.SetBuildings3d(m_layers->isChecked(2));
-}
-
-void MainWindow::OnLayersTrafficChange(int8_t const index)
-{
-  auto & frm = m_pDrawWidget->GetFramework();
-  frm.DrivingMapModeSetTraffic(m_layers->isChecked(3));
 }
 
 void MainWindow::OnRulerEnabled()
