@@ -144,33 +144,33 @@
 /* 5.ROADS */
 /* 5.1 All roads */
 
-@motorway0: #B38366;
-@motorway1: #AE8665;
-@trunk0: #AA8865;
-@trunk1: #A88967;
-@primary0: #A28B69;
-@primary1: #A38C65;
-@primary2: #A18C68;
-@secondary0: #9F8D67;
-@secondary1: #9D8E6C;
+@motorway0: #C67E50;
+@motorway1: #BF824E;
+@trunk0: #B48048;
+@trunk1: #AF7F4A;
+@primary0: #9D7A44;
+@primary1: #9B793B;
+@primary2: #95773F;
+@secondary0: #8E7437;
+@secondary1: #88723E;
 @tertiary: #7A7A7A;
-@residential: #7B7A7A;
-@pedestrian: #7C7B7A;
-@footway: #7C7B7A;
+@residential: #7A7A7A;
+@pedestrian: #7B7A79;
+@footway: #7B7A79;
 @cycleway: #6E6DCC;
-@construction: #8A8D93;
+@construction: #70737C;
 @track: #988F73;
 @path: #B38364;
 @path_expert: #B4A094;
 @bridleway: #8E8876;
 @path_opacity: 1;
 @path_opacity_z18: 1;
-@motorway1_border: #674628;
-@trunk1_border: #62482B;
-@primary1_border: #5E4A29;
-@primary2_border: #5C4B2D;
-@secondary0_border: #5A4C2B;
-@secondary1_border: #594C2F;
+@motorway1_border: #74410C;
+@trunk1_border: #6D4612;
+@primary1_border: #624404;
+@primary2_border: #5E440D;
+@secondary0_border: #594204;
+@secondary1_border: #554212;
 @minor_road_border: #000000;
 
 /* 5.2 Bridges */
@@ -181,17 +181,17 @@
 
 /* 5.3 Tunnels */
 
-@motorway_tunnel: #A78969;
+@motorway_tunnel: #A97E4B;
 @motorway_tunnel_casing: #535353;
-@trunk_tunnel: #A18B6C;
+@trunk_tunnel: #997948;
 @trunk_tunnel_casing: #535353;
-@primary_tunnel: #9D8D74;
+@primary_tunnel: #8C7550;
 @primary_tunnel_casing: #535353;
-@secondary_tunnel: #9B8D76;
+@secondary_tunnel: #867250;
 @secondary_tunnel_casing:  #535353;
 @tertiary_tunnel: #7A7A7A;
 @tertiary_tunnel_casing:  #535353;
-@residential_tunnel: #7B7A7A;
+@residential_tunnel: #7A7A7A;
 @residential_tunnel_casing: #535353;
 
 /* 5.4 Piste */

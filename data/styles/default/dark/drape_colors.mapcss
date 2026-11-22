@@ -95,6 +95,8 @@ colors
   LocalAdsSecondaryTextOutline-color: #000000;
   TransitBackground-color: #000000;
   TransitBackground-opacity: 0.4;
+  TransitLineCasing-color: #0A0A0A;
+  TransitLineCasing-opacity: 0.8;
   BookmarkRed-color: #E51B23;
   BookmarkPink-color: #FF4182;
   BookmarkPurple-color: #9B24B2;

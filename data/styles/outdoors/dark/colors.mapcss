@@ -8,15 +8,15 @@
 @pedestrian: #7A7A7A; /* slightly lighter than in main */
 @footway: #7A7A7A; /* slightly lighter than in main */
 
-@construction: #91918B;
+@construction: #727269;
 
 @railway: #55544A;
 @railway_dark: #5C5B51;
 @railway_dash: #121212;
 
-@motorway1_border: #5C4A39;
-@trunk1_border: #5B4B37;
-@primary1_border: #584C38;
-@primary2_border: #574C39;
-@secondary0_border: #564D39;
-@secondary1_border: #554D3A;
+@motorway1_border: #64492F;
+@trunk1_border: #634A2C;
+@primary1_border: #5F4C2C;
+@primary2_border: #5D4D2F;
+@secondary0_border: #5B4E2E;
+@secondary1_border: #5A4E31;

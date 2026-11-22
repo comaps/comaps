@@ -10,18 +10,18 @@
 
 /* ROADS */
 
-@trunk0: #AA8865;
-@trunk1: #A88967;
-@primary0:  #A28B69;
-@primary1: #A38C65;
-@primary2: #A18C68;
-@secondary0: #9F8D67;
-@residential: #7B7A7A;
-@unclassified: #7B7A7A;
-@pedestrian: #7C7B7A;
-@footway: #7C7B7A;
+@trunk0: #B48048;
+@trunk1: #AF7F4A;
+@primary0:  #9D7A44;
+@primary1: #9B793B;
+@primary2: #95773F;
+@secondary0: #8E7437;
+@residential: #7A7A7A;
+@unclassified: #7A7A7A;
+@pedestrian: #7B7A79;
+@footway: #7B7A79;
 @cycleway: #6E6DCC;
-@construction: #8A8D93;
+@construction: #70737C;
 @track: #988F73;
 @path: #B38364;
 @bridleway: #8E8876;
@@ -34,15 +34,15 @@
 
 /* tunnels */
 
-@primary_tunnel: #9D8D74;
-@trunk_tunnel: #A18B6C;
+@primary_tunnel: #8C7550;
+@trunk_tunnel: #997948;
 @primary_tunnel_casing: #535353;
 @trunk_tunnel_casing: #535353;
-@secondary_tunnel: #9B8D76;
+@secondary_tunnel: #867250;
 @secondary_tunnel_casing:  #535353;
 @tertiary_tunnel: #7A7A7A;
 @tertiary_tunnel_casing:  #535353;
-@unclassified_tunnel: #7B7A7A;
+@unclassified_tunnel: #7A7A7A;
 @unclassified_tunnel_casing: #535353;
 
 /* TRANSPORT */

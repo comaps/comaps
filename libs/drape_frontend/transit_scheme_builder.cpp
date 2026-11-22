@@ -68,8 +68,7 @@ std::string const kTransitMarkTextOutline = "TransitMarkPrimaryTextOutline";
 std::string const kTransitTransferOuterColor = "TransitTransferOuterMarker";
 std::string const kTransitTransferInnerColor = "TransitTransferInnerMarker";
 std::string const kTransitStopInnerColor = "TransitStopInnerMarker";
-/// @todo(pastk): make the casing color configurable in styles.
-auto const kCasingColor = dp::Color(255, 255, 255, 140);
+std::string const kTransitLineCasingColor = "TransitLineCasing";
 
 float constexpr kTransitMarkTextSize = 11.0f;
 
@@ -433,6 +432,7 @@ void TransitSchemeBuilder::BuildScheme(ref_ptr<dp::GraphicsContext> context, Mwm
 void TransitSchemeBuilder::GenerateLinesSubway(MwmSchemeData const & scheme, dp::Batcher & batcher,
                                                ref_ptr<dp::GraphicsContext> context)
 {
+  auto const casingColor = GetColorConstant(kTransitLineCasingColor);
   for (auto const & shape : scheme.m_shapesSubway)
   {
     size_t const linesCount = shape.second.m_forwardLines.size() + shape.second.m_backwardLines.size();
@@ -465,7 +465,7 @@ void TransitSchemeBuilder::GenerateLinesSubway(MwmSchemeData const & scheme, dp:
 
       GenerateLine(context, shape.second.m_polyline, scheme.m_pivot, colorConst, shapeOffset, kTransitLineHalfWidth,
                    depth, batcher);
-      GenerateLine(context, shape.second.m_polyline, scheme.m_pivot, kCasingColor, shapeOffset,
+      GenerateLine(context, shape.second.m_polyline, scheme.m_pivot, casingColor, shapeOffset,
                    kTransitLineHalfWidth + kTransitLineCasingHalfWidth, kCasingLineDepth, batcher);
 
       shapeOffset += shapeOffsetIncrement;
