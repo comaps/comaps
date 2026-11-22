@@ -114,6 +114,7 @@ struct MapOverlayView: View {
                         HStack {
                             MapMoreButton()
                                 .frame(width: controlHeight)
+                                .avoidingWindowControls()
                             
                             Spacer(minLength: 0)
                             
@@ -122,6 +123,12 @@ struct MapOverlayView: View {
                         }
                         .frame(height: controlHeight)
                         .fixedSize(horizontal: false, vertical: true)
+                        .background {
+                            GeometryReader { topControlsRowGeometry in
+                                Color.clear
+                                    .preference(key: MapControlsFramesKey.self, value: MapControlsFrames(top: topControlsRowGeometry.frame(in: .global)))
+                            }
+                        }
                         
                         MapModePicker(controlHeight: controlHeight, shouldTemporarilyHideLayersIfNecessary: $shouldTemporarilyHideLayersIfNecessary)
                             .frame(height: controlHeight)
@@ -165,6 +172,12 @@ struct MapOverlayView: View {
                         }
                         .frame(height: controlHeight)
                         .fixedSize(horizontal: false, vertical: true)
+                        .background {
+                            GeometryReader { bottomControlsRowGeometry in
+                                Color.clear
+                                    .preference(key: MapControlsFramesKey.self, value: MapControlsFrames(bottom: bottomControlsRowGeometry.frame(in: .global)))
+                            }
+                        }
                         
                         if !isSearchPresented {
                             MapSearchButton(controlHeight: controlHeight)
@@ -198,7 +211,7 @@ struct MapOverlayView: View {
                         .padding(.bottom, isHorizontallyTooTight && isVerticallyTooTight ? (bottomControlsHeight + 24) : 0)
                 }
             }
-            .padding(.top, geometry.safeAreaInsets.top == 0 ? (16 + windowControlsHeight) : windowControlsHeight)
+            .padding(.top, geometry.safeAreaInsets.top == 0 ? 16 : 0)
             .padding(.bottom, geometry.safeAreaInsets.bottom == 0 ? 16 : (isKeyboardPresented ? 16 : 0))
             .padding(.leading, geometry.safeAreaInsets.leading == 0 ? (16 + searchAdjustment) : searchAdjustment)
             .padding(.trailing, geometry.safeAreaInsets.trailing == 0 ? 16 : 0)
@@ -303,5 +316,18 @@ struct MapOverlayView: View {
         let trailing = (geometry.safeAreaInsets.trailing == 0 ? 16 : geometry.safeAreaInsets.trailing)
         
         MWMMapWidgetsHelper.updatePadding(forTop: top, bottom: bottom, leading: leading, trailing: trailing)
+    }
+}
+
+
+
+extension View {
+    @ViewBuilder
+    func avoidingWindowControls(sizeToFit: Bool = false) -> some View {
+        if #available(iOS 26.0, *) {
+            containerCornerOffset(.top, sizeToFit: sizeToFit)
+        } else {
+            self
+        }
     }
 }

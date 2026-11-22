@@ -5,6 +5,21 @@ extension EnvironmentValues {
   @Entry var searchPanelInset: CGFloat = 0
 }
 
+struct MapControlsFrames: Equatable {
+  var top: CGRect?
+  var bottom: CGRect?
+}
+
+struct MapControlsFramesKey: PreferenceKey {
+  static let defaultValue = MapControlsFrames()
+
+  static func reduce(value: inout MapControlsFrames, nextValue: () -> MapControlsFrames) {
+    let next = nextValue()
+    value.top = next.top ?? value.top
+    value.bottom = next.bottom ?? value.bottom
+  }
+}
+
 extension View {
   func searchPresentation(isSuspended: Bool) -> some View {
     modifier(SearchPresentation(isSuspended: isSuspended))
@@ -25,7 +40,9 @@ private struct SearchPresentation: ViewModifier {
   @Environment(\.verticalSizeClass) private var verticalSizeClass
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
   @ScaledMetric(relativeTo: .body) private var preferredPanelWidth = Constants.panelWidth
+  @ScaledMetric(relativeTo: .body) private var fieldHeight = SearchHeader.controlHeight
   @State private var containerWidth: CGFloat = 0
+  @State private var panelArea = CGRect.zero
 
   private let model = SearchModel.shared
 
@@ -36,6 +53,16 @@ private struct SearchPresentation: ViewModifier {
   private var panelWidth: CGFloat {
     guard containerWidth > 0 else { return Constants.panelWidth }
     return min(preferredPanelWidth, containerWidth * Constants.panelMaxWidthFraction)
+  }
+
+  private func panelTopInset(alignedWith controlsFrames: MapControlsFrames) -> CGFloat {
+    guard let top = controlsFrames.top else { return Constants.panelPadding }
+    return max(0, top.midY - panelArea.minY - SearchHeader.panelTopPadding - fieldHeight / 2)
+  }
+
+  private func panelBottomInset(alignedWith controlsFrames: MapControlsFrames) -> CGFloat {
+    guard let bottom = controlsFrames.bottom else { return Constants.panelPadding }
+    return max(0, panelArea.maxY - bottom.maxY)
   }
 
   private var panelInset: CGFloat {
@@ -53,10 +80,19 @@ private struct SearchPresentation: ViewModifier {
       } action: { width in
         containerWidth = width
       }
-      .overlay(alignment: .topLeading) {
-        if model.isPanelPresented {
-          panel
-            .transition(reduceMotion ? AnyTransition.opacity : .move(edge: .leading))
+      .overlayPreferenceValue(MapControlsFramesKey.self, alignment: .topLeading) { controlsFrames in
+        ZStack(alignment: .topLeading) {
+          if model.isPanelPresented {
+            panel(topInset: panelTopInset(alignedWith: controlsFrames),
+                  bottomInset: panelBottomInset(alignedWith: controlsFrames))
+              .transition(reduceMotion ? AnyTransition.opacity : .move(edge: .leading))
+          }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .onGeometryChange(for: CGRect.self) { proxy in
+          proxy.frame(in: .global)
+        } action: { frame in
+          panelArea = frame
         }
       }
       .animation(reduceMotion ? .default : .spring, value: model.isPanelPresented)
@@ -77,12 +113,15 @@ private struct SearchPresentation: ViewModifier {
       }
   }
 
-  private var panel: some View {
+  private func panel(topInset: CGFloat, bottomInset: CGFloat) -> some View {
     SearchView(model: model, placement: .panel)
       .frame(width: panelWidth)
       .clipShape(.rect(cornerRadius: Constants.panelCornerRadius))
       .panelBackground(cornerRadius: Constants.panelCornerRadius)
-      .padding(Constants.panelPadding)
+      .avoidingWindowControls(sizeToFit: true)
+      .padding(.horizontal, Constants.panelPadding)
+      .padding(.top, topInset)
+      .padding(.bottom, bottomInset)
   }
 }
 
