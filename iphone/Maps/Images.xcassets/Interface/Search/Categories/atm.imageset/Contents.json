@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "atm_dark.svg",
+      "filename" : "atm_light.svg",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "atm_light.svg",
+      "filename" : "atm_dark.svg",
       "idiom" : "universal"
     }
   ],
