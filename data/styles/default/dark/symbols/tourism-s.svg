@@ -3,8 +3,8 @@
  <g fill="none" fill-rule="evenodd">
   <g id="tourism-s" fill-rule="nonzero">
    <circle id="Oval" cx="8" cy="8" r="8" fill="#000" opacity="1"/>
-   <circle id="Oval" cx="8" cy="8" r="7" fill="#8D5327"/>
-   <polygon id="Path" points="12 6.697 9.2 6.297 8 3.5 6.8 6.297 4 6.697 6 8.695 5.6 11.5 8 10.294 10.4 11.493 10 8.695" fill="#D6D6D6"/>
+   <circle id="Oval" cx="8" cy="8" r="7" fill="#A8836B"/>
+   <polygon id="Path" points="12 6.697 9.2 6.297 8 3.5 6.8 6.297 4 6.697 6 8.695 5.6 11.5 8 10.294 10.4 11.493 10 8.695" fill="#1A1A1A"/>
   </g>
  </g>
 </svg>
