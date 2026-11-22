@@ -20,6 +20,7 @@ final class PlacePageModel {
   private(set) var isOpen = false
   private(set) var previewHeight: CGFloat?
   private(set) var contentHeight: CGFloat = 0
+  var panelFrame: CGRect?
   var stop = Stop.preview
   var placement = Placement.sheet
   var isSuspended = false

@@ -3,6 +3,7 @@ import SwiftUI
 extension EnvironmentValues {
   @Entry var mapPanelWidth: CGFloat = MapPanelStyle.width
   @Entry var mapPanelInset: CGFloat = 0
+  @Entry var mapPanelBottomInset: CGFloat = 0
 }
 
 enum MapPanelStyle {
@@ -12,6 +13,7 @@ enum MapPanelStyle {
   static let cornerRadius: CGFloat = 16
   static let controlSize: CGFloat = 44
   static let headerTopPadding: CGFloat = 12
+  static let bottomControlsClearance: CGFloat = 2 * controlSize
 }
 
 extension View {

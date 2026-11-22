@@ -89,6 +89,9 @@ struct MapOverlayView: View {
     @Environment(\.mapPanelInset) private var searchAdjustment
     
     
+    @Environment(\.mapPanelBottomInset) private var bottomAdjustment
+    
+    
     /// If the keyboard is being presented externally
     @State private var isKeyboardPresented: Bool = false
     
@@ -139,6 +142,7 @@ struct MapOverlayView: View {
                             }
                     }
                 }
+                .padding(.leading, searchAdjustment)
                 .background {
                     GeometryReader { topControlsGeometry in
                         Color.black
@@ -185,6 +189,7 @@ struct MapOverlayView: View {
                         }
                     }
                 }
+                .padding(.leading, bottomAdjustment)
                 .background {
                     GeometryReader { bottomControlsGeometry in
                         Color.black
@@ -213,28 +218,32 @@ struct MapOverlayView: View {
             }
             .padding(.top, geometry.safeAreaInsets.top == 0 ? 16 : 0)
             .padding(.bottom, geometry.safeAreaInsets.bottom == 0 ? 16 : (isKeyboardPresented ? 16 : 0))
-            .padding(.leading, geometry.safeAreaInsets.leading == 0 ? (16 + searchAdjustment) : searchAdjustment)
+            .padding(.leading, geometry.safeAreaInsets.leading == 0 ? 16 : 0)
             .padding(.trailing, geometry.safeAreaInsets.trailing == 0 ? 16 : 0)
             .animation(.spring, value: isSearchPresented)
             .animation(.spring, value: searchAdjustment)
+            .animation(.spring, value: bottomAdjustment)
             .animation(.spring.speed(7), value: isHorizontallyTooTight)
             .animation(.spring.speed(7), value: isVerticallyTooTight)
             .onAppear {
                 updateControlVisbility(with: geometry, shouldAnimate: false)
             }
-            .onChange(of: topControlsHeight) { _ in
+            .onChange(of: topControlsHeight) {
                 updatePadding(with: geometry)
             }
-            .onChange(of: bottomControlsHeight) { _ in
+            .onChange(of: bottomControlsHeight) {
                 updatePadding(with: geometry)
             }
             .onReceive(userDefaultsDidChangeNotificationPublisher) { _ in
                 updateControlVisbility(with: geometry)
             }
-            .onChange(of: isSearchPresented) { _ in
+            .onChange(of: isSearchPresented) {
                 updateControlVisbility(with: geometry)
             }
-            .onChange(of: searchAdjustment) { _ in
+            .onChange(of: searchAdjustment) {
+                updateControlVisbility(with: geometry)
+            }
+            .onChange(of: bottomAdjustment) {
                 updateControlVisbility(with: geometry)
             }
             .onReceive(keyboardWillShowNotificationPublisher) { _ in
@@ -313,9 +322,10 @@ struct MapOverlayView: View {
         let top = windowControlsHeight + topControlsHeight + (geometry.safeAreaInsets.top == 0 ? 16 : geometry.safeAreaInsets.top) + 4
         let bottom = bottomControlsHeight + (geometry.safeAreaInsets.bottom == 0 ? 16 : geometry.safeAreaInsets.bottom)
         let leading = (geometry.safeAreaInsets.leading == 0 ? (16 + searchAdjustment) : (geometry.safeAreaInsets.leading + searchAdjustment))
+        let bottomLeading = (geometry.safeAreaInsets.leading == 0 ? (16 + bottomAdjustment) : (geometry.safeAreaInsets.leading + bottomAdjustment))
         let trailing = (geometry.safeAreaInsets.trailing == 0 ? 16 : geometry.safeAreaInsets.trailing)
         
-        MWMMapWidgetsHelper.updatePadding(forTop: top, bottom: bottom, leading: leading, trailing: trailing)
+        MWMMapWidgetsHelper.updatePadding(forTop: top, bottom: bottom, leading: leading, bottomLeading: bottomLeading, trailing: trailing)
     }
 }
 

@@ -10,7 +10,10 @@
 @property(nonatomic) CGFloat top;
 @property(nonatomic) CGFloat bottom;
 @property(nonatomic) CGFloat leading;
+@property(nonatomic) CGFloat bottomLeading;
 @property(nonatomic) CGFloat trailing;
+@property(nonatomic) CGFloat placePageSheetBound;
+@property(nonatomic) CGFloat searchSheetBound;
 
 @end
 
@@ -67,21 +70,44 @@
   else
   {
     auto const height = [MapViewController sharedController].mainView.height;
+    auto const bottom = std::max(self.bottom, std::max(self.placePageSheetBound, self.searchSheetBound));
     layout[gui::WIDGET_SCALE_FPS_LABEL] = m2::PointF(self.leading * visualScale, self.top * visualScale);
-    layout[gui::WIDGET_COMPASS] = m2::PointF((self.leading + 18) * visualScale,  (height - self.bottom - 66) * visualScale);
-    layout[gui::WIDGET_COPYRIGHT] = m2::PointF(self.leading * visualScale, (height - self.bottom - 24) * visualScale);
-    layout[gui::WIDGET_RULER] = m2::PointF(self.leading * visualScale, (height - self.bottom - 24) * visualScale);
+    layout[gui::WIDGET_COMPASS] = m2::PointF((self.bottomLeading + 18) * visualScale,  (height - bottom - 66) * visualScale);
+    layout[gui::WIDGET_COPYRIGHT] = m2::PointF(self.bottomLeading * visualScale, (height - bottom - 24) * visualScale);
+    layout[gui::WIDGET_RULER] = m2::PointF(self.bottomLeading * visualScale, (height - bottom - 24) * visualScale);
   }
   GetFramework().SetWidgetLayout(std::move(layout));
 }
 
-- (void)updatePaddingForTop:(CGFloat)top bottom:(CGFloat)bottom leading:(CGFloat)leading trailing:(CGFloat)trailing
+- (void)updatePaddingForTop:(CGFloat)top
+                     bottom:(CGFloat)bottom
+                    leading:(CGFloat)leading
+              bottomLeading:(CGFloat)bottomLeading
+                   trailing:(CGFloat)trailing
 {
-  if (self.top != top || self.bottom != bottom || self.leading != leading || self.trailing != trailing) {
+  if (self.top != top || self.bottom != bottom || self.leading != leading || self.bottomLeading != bottomLeading ||
+      self.trailing != trailing) {
     self.top = top;
     self.bottom = bottom;
     self.leading = leading;
+    self.bottomLeading = bottomLeading;
     self.trailing = trailing;
+    [self updateLayout];
+  }
+}
+
+- (void)updatePlacePageSheetBound:(CGFloat)bound
+{
+  if (self.placePageSheetBound != bound) {
+    self.placePageSheetBound = bound;
+    [self updateLayout];
+  }
+}
+
+- (void)updateSearchSheetBound:(CGFloat)bound
+{
+  if (self.searchSheetBound != bound) {
+    self.searchSheetBound = bound;
     [self updateLayout];
   }
 }

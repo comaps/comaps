@@ -8,9 +8,17 @@
   [[MWMMapWidgets widgetsManager] updateLayout];
 }
 
-+ (void)updatePaddingForTop:(CGFloat)top bottom:(CGFloat)bottom leading:(CGFloat)leading trailing:(CGFloat)trailing
++ (void)updatePaddingForTop:(CGFloat)top
+                     bottom:(CGFloat)bottom
+                    leading:(CGFloat)leading
+              bottomLeading:(CGFloat)bottomLeading
+                   trailing:(CGFloat)trailing
 {
-  [[MWMMapWidgets widgetsManager] updatePaddingForTop:top bottom:bottom leading:leading trailing:trailing];
+  [[MWMMapWidgets widgetsManager] updatePaddingForTop:top
+                                               bottom:bottom
+                                              leading:leading
+                                        bottomLeading:bottomLeading
+                                             trailing:trailing];
 }
 
 @end

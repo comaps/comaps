@@ -125,6 +125,20 @@ final class SearchModel {
     interactor?.handle(.closeSearch)
   }
 
+  func sheetDidAppear() {
+    isSheetOnScreen = true
+  }
+
+  func sheetDidDisappear() {
+    isSheetOnScreen = false
+    MapViewController.shared()?.setSearchSheetTopBound(0)
+  }
+
+  func sheetTopDidChange(_ top: CGFloat) {
+    guard isSheetOnScreen, let mapViewController = MapViewController.shared() else { return }
+    mapViewController.setSearchSheetTopBound(max(0, mapViewController.view.bounds.height - top))
+  }
+
   // MARK: - Private methods
   private func reloadHistory() {
     var seen = Set<String>()

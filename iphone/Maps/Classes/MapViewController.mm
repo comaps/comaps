@@ -9,6 +9,7 @@
 #import "MWMLocationModeListener.h"
 #import "MWMMapDownloadDialog.h"
 #import "MWMMapViewControlsManager.h"
+#import "MWMMapWidgets.h"
 #import "MWMPlacePageProtocol.h"
 #import "MapsAppDelegate.h"
 #import "SwiftBridge.h"
@@ -716,6 +717,11 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 - (void)setPlacePageTopBound:(CGFloat)bound {
   self.visibleAreaBottom.constant = bound;
   self.sideButtonsAreaBottom.constant = bound;
+  [self.mapView.widgetsManager updatePlacePageSheetBound:bound];
+}
+
+- (void)setSearchSheetTopBound:(CGFloat)bound {
+  [self.mapView.widgetsManager updateSearchSheetBound:bound];
 }
 
 - (void)setPanelLeadingBound:(CGFloat)bound {

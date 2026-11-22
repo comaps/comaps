@@ -22,7 +22,7 @@ private struct PlacePagePresentation: ViewModifier {
   func body(content: Content) -> some View {
     @Bindable var model = model
     content
-      .mapPanelOverlay(isPresented: model.isPanelPresented) {
+      .mapPanelOverlay(isPresented: model.isPanelPresented, onFrameChange: { model.panelFrame = $0 }) {
         if let content = model.content {
           PlacePageView(content: content, placement: .panel)
             .id(ObjectIdentifier(content))

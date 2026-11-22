@@ -17,6 +17,8 @@ private struct SearchPresentation: ViewModifier {
   @Environment(\.verticalSizeClass) private var verticalSizeClass
   @ScaledMetric(relativeTo: .body) private var preferredPanelWidth = MapPanelStyle.width
   @State private var containerWidth: CGFloat = 0
+  @State private var searchPanelFrame: CGRect?
+  @State private var controlsFrames = MapControlsFrames()
 
   private let model = SearchModel.shared
 
@@ -37,26 +39,39 @@ private struct SearchPresentation: ViewModifier {
     model.isPanelPresented || isPlacePagePanelPresented ? panelWidth + 2 * MapPanelStyle.padding : 0
   }
 
+  private var bottomPanelInset: CGFloat {
+    let panelFrame = isPlacePagePanelPresented ? PlacePageModel.shared.panelFrame : searchPanelFrame
+    guard let panelFrame, let bottomControlsFrame = controlsFrames.bottom else { return panelInset }
+    return panelFrame.maxY + MapPanelStyle.bottomControlsClearance > bottomControlsFrame.minY ? panelInset : 0
+  }
+
   func body(content: Content) -> some View {
     @Bindable var model = model
     content
       .environment(model)
       .environment(\.isSearchPresented, model.isOpen && !model.isCollapsed)
       .environment(\.mapPanelInset, panelInset)
+      .environment(\.mapPanelBottomInset, bottomPanelInset)
       .environment(\.mapPanelWidth, panelWidth)
       .onGeometryChange(for: CGFloat.self) { proxy in
         proxy.size.width
       } action: { width in
         containerWidth = width
       }
-      .mapPanelOverlay(isPresented: model.isPanelPresented, isCovered: isPlacePagePanelPresented) {
+      .mapPanelOverlay(isPresented: model.isPanelPresented, isCovered: isPlacePagePanelPresented,
+                       onFrameChange: { searchPanelFrame = $0 }) {
         SearchView(model: model, placement: .panel)
           .frame(width: panelWidth)
       }
-      .sheet(isPresented: $model.isSheetPresented, onDismiss: { model.isSheetOnScreen = false }) {
+      .sheet(isPresented: $model.isSheetPresented, onDismiss: { model.sheetDidDisappear() }) {
         SearchView(model: model, placement: .sheet)
+          .onGeometryChange(for: CGFloat.self) { proxy in
+            proxy.frame(in: .global).minY
+          } action: { top in
+            model.sheetTopDidChange(top)
+          }
           .onAppear {
-            model.isSheetOnScreen = true
+            model.sheetDidAppear()
           }
           .presentationDetents([.medium, .large], selection: $model.detent)
           .presentationBackgroundInteraction(.enabled(upThrough: .medium))
@@ -70,6 +85,9 @@ private struct SearchPresentation: ViewModifier {
       }
       .onChange(of: panelInset, initial: true) {
         MapViewController.shared()?.setPanelLeadingBound(panelInset)
+      }
+      .onPreferenceChange(MapControlsFramesKey.self) { frames in
+        controlsFrames = frames
       }
   }
 }
