@@ -665,6 +665,21 @@ line|z19-[highway=track],
 line|z16-[highway=track][tunnel?],
 {width: 0;}
 
+/* Emergency escape lanes 16-22 ZOOM */
+
+line|z16-[highway=escape],
+{color: @construction; width: 4; dashes: 6,3;}
+line|z17[highway=escape],
+{width: 5.5; dashes: 8,4;}
+line|z18-[highway=escape],
+{width: 8; dashes: 12,6;}
+line|z16-[highway=escape]::border,
+{color: @construction_area; width: 5.5;}
+line|z17[highway=escape]::border,
+{width: 7;}
+line|z18-[highway=escape]::border,
+{width: 9.5;}
+
 line|z17-[highway=path],
 {color: @path; opacity: 0.6; width: 0.9; dashes: 3.5,2;}
 line|z18[highway=path],

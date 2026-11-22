@@ -249,6 +249,7 @@ highway-bridleway                                   # line z18-
 highway-bridleway-bridge                            # line z18-
 highway-cycleway                                    # line z18-
 highway-cycleway-bridge                             # line z18-
+highway-escape                                      # line z16- (also has line::border z16-, pathtext z16-)
 highway-footway                                     # line z18-
 highway-footway-area                                # line z18-
 highway-footway-bicycle                             # line z18-
@@ -287,6 +288,7 @@ highway-construction-track                          # line z13-
 highway-construction-trunk                          # line z13-
 highway-construction-trunk_link                     # line z13-
 highway-construction-unclassified                   # line z13-
+highway-escape::border                              # line::border z16- (also has line z16-, pathtext z16-)
 railway-abandoned                                   # line z16-
 railway-construction                                # line z16-
 railway-disused                                     # line z16-

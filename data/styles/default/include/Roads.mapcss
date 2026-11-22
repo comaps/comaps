@@ -746,6 +746,8 @@ line|z15-[highway=footway][bicycle=designated]::cycleline,
 
 line|z13-[highway=construction],
 {color: @construction;opacity: 0.8;}
+line|z16-[highway=escape],
+{color: @construction;}
 line|z13-[highway=pedestrian][bridge?]::bridgewhite,
 line|z15-[highway=footway][bridge?]::bridgewhite,
 line|z15-[highway=cycleway][bridge?]::bridgewhite,
@@ -961,6 +963,15 @@ line|z18[highway=construction],
 {width: 4;dashes: 13.5,5.4;}
 line|z19-[highway=construction],
 {width: 6;dashes: 18,6.2;}
+
+/* 8.5.1 Escape 16-22 ZOOM */
+
+line|z16[highway=escape],
+{width: 4;dashes: 6,3;}
+line|z17[highway=escape],
+{width: 5.5;dashes: 8,4;}
+line|z18-[highway=escape],
+{width: 8;dashes: 12,6;}
 
 /* 8.6 Track & Path 14-22 ZOOM */
 
@@ -1242,6 +1253,8 @@ line|z15-[highway=footway]::border,
 line|z15-[highway=ladder]::border,
 line|z15-[highway=steps]::border,
 {color: @minor_road_border; opacity: 0.1;}
+line|z16-[highway=escape]::border,
+{color: @construction_area;}
 
 line|z11-[highway=tertiary][bridge?]::border,
 line|z14-[highway=tertiary_link][bridge?]::border,
@@ -1357,6 +1370,13 @@ line|z18[highway=steps]::border,
 line|z19-[highway=ladder]::border,
 line|z19-[highway=steps]::border,
 {width: 11; dashes: 4,3.5;}
+
+line|z16[highway=escape]::border,
+{width: 5.5;}
+line|z17[highway=escape]::border,
+{width: 7;}
+line|z18-[highway=escape]::border,
+{width: 9.5;}
 
 
 /* 8.12 Runway 12-22 ZOOM */
