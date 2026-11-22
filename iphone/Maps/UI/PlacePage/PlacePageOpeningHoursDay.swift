@@ -21,7 +21,7 @@ struct PlacePageOpeningHoursDay: View {
       if isClosedNow {
         Text(L("closed_now"))
           .font(.subheadline)
-          .foregroundStyle(.red)
+          .foregroundStyle(Color.BaseColors.red)
       }
     }
     .foregroundStyle(.primary)
