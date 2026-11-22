@@ -3,6 +3,7 @@
 #include "app/organicmaps/sdk/core/jni_helper.hpp"
 #include "app/organicmaps/sdk/platform/AndroidPlatform.hpp"
 
+#include "editor/collection_times.hpp"
 #include "editor/opening_hours_ui.hpp"
 #include "editor/ui2oh.hpp"
 
@@ -300,6 +301,29 @@ JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_editor_OpeningHours_nativeTim
   std::stringstream sstr;
   sstr << MakeOpeningHours(tts).GetRule();
   return jni::ToJavaString(env, sstr.str());
+}
+
+JNIEXPORT jobjectArray JNICALL Java_app_organicmaps_sdk_editor_OpeningHours_nativeCollectionTimesFromString(
+    JNIEnv * env, jclass clazz, jstring jSource)
+{
+  auto const groups = ParseCollectionTimes(jni::ToNativeString(env, jSource));
+  if (groups.empty())
+    return nullptr;
+
+  static jclass const groupClass = jni::GetGlobalClassRef(env, "app/organicmaps/sdk/editor/data/CollectionTimes");
+  static jmethodID const groupCtor =
+      jni::GetConstructorID(env, groupClass, "([I[Lapp/organicmaps/sdk/editor/data/HoursMinutes;)V");
+
+  return jni::ToJavaArray(env, groupClass, groups, [](JNIEnv * env, CollectionTimesGroup const & group)
+  {
+    jni::TScopedLocalIntArrayRef jWeekdays(env, env->NewIntArray(static_cast<jsize>(group.m_weekdays.size())));
+    env->SetIntArrayRegion(jWeekdays.get(), 0, static_cast<jsize>(group.m_weekdays.size()), group.m_weekdays.data());
+
+    jni::TScopedLocalObjectArrayRef jTimes(
+        env, jni::ToJavaArray(env, g_clazzHoursMinutes, group.m_minutes, [](JNIEnv * env, int32_t minutes)
+    { return JavaHoursMinutes(env, minutes / 60, minutes % 60); }));
+    return env->NewObject(groupClass, groupCtor, jWeekdays.get(), jTimes.get());
+  });
 }
 
 JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_editor_OpeningHours_nativeIsTimetableStringValid(JNIEnv * env,

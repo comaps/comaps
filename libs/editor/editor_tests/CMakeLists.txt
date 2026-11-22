@@ -1,6 +1,7 @@
 project(editor_tests)
 
 set(SRC
+  collection_times_test.cpp
   config_loader_test.cpp
   editor_config_test.cpp
   editor_notes_test.cpp

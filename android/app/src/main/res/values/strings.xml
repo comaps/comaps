@@ -467,6 +467,8 @@
     <string name="twentyfour_seven">24/7</string>
     <string name="day_off_today">Closed today</string>
     <string name="day_off">Closed</string>
+    <!-- Place page title above the weekly schedule of a mailbox or other place with regular pickups -->
+    <string name="collection_times">Collection times</string>
     <string name="opens_in">Opens in %s</string>
     <string name="closes_in">Closes in %s</string>
     <string name="closed">Closed</string>

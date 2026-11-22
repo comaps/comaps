@@ -198,6 +198,11 @@ std::string_view MapObject::GetOpeningHours() const
   return m_metadata.Get(MetadataID::FMD_OPEN_HOURS);
 }
 
+std::string_view MapObject::GetCollectionTimes() const
+{
+  return m_metadata.Get(MetadataID::FMD_COLLECTION_TIMES);
+}
+
 ChargeSocketDescriptors MapObject::GetChargeSockets() const
 {
   auto s = std::string(m_metadata.Get(MetadataID::FMD_CHARGE_SOCKETS));

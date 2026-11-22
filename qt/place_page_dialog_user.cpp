@@ -5,6 +5,7 @@
 
 #include "qt/qt_common/text_dialog.hpp"
 
+#include "editor/collection_times.hpp"
 #include "editor/review.hpp"
 #include "indexer/reviews_display.hpp"
 #include "indexer/validate_and_format_contacts.hpp"
@@ -204,6 +205,13 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, place_page::Info cons
     // Opening hours fragment
     if (auto openingHours = info.GetOpeningHours(); !openingHours.empty())
       addEntry("Opening hours", std::string(openingHours));
+
+    // Collection times fragment
+    if (auto const collectionTimes = std::string(info.GetCollectionTimes()); !collectionTimes.empty())
+    {
+      auto const schedule = editor::ParseCollectionTimes(collectionTimes);
+      addEntry("Collection times", schedule.empty() ? collectionTimes : editor::ToString(schedule));
+    }
 
     // Cuisine fragment
     if (auto cuisines = info.FormatCuisines(); !cuisines.empty())

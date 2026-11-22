@@ -7,6 +7,7 @@ import static app.organicmaps.sdk.util.Utils.getTagValueLocalized;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.net.Uri;
@@ -46,6 +47,7 @@ import app.organicmaps.bookmarks.BookmarksSharingHelper;
 import app.organicmaps.bookmarks.ChooseBookmarkCategoryFragment;
 import app.organicmaps.downloader.DownloaderStatusIcon;
 import app.organicmaps.downloader.MapManagerHelper;
+import app.organicmaps.editor.data.TimeFormatUtils;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.bookmarks.data.Bookmark;
 import app.organicmaps.sdk.bookmarks.data.BookmarkCategory;
@@ -64,6 +66,8 @@ import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.editor.Editor;
 import app.organicmaps.sdk.editor.OhState;
 import app.organicmaps.sdk.editor.OpeningHours;
+import app.organicmaps.sdk.editor.data.CollectionTimes;
+import app.organicmaps.sdk.editor.data.HoursMinutes;
 import app.organicmaps.sdk.editor.data.Timetable;
 import app.organicmaps.sdk.location.LocationListener;
 import app.organicmaps.sdk.location.SensorListener;
@@ -96,6 +100,7 @@ import java.time.ZonedDateTime;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -162,6 +167,8 @@ public class PlacePageView extends Fragment
   private MaterialTextView mTvCapacityDisabled;
   private View mCapacityCharging;
   private MaterialTextView mTvCapacityCharging;
+  private View mCollectionTimes;
+  private ViewGroup mCollectionTimesRows;
   private View mDriveThrough;
   private MaterialTextView mTvDriveThrough;
   private View mSelfService;
@@ -358,6 +365,8 @@ public class PlacePageView extends Fragment
     mTvCapacityDisabled = mFrame.findViewById(R.id.tv__place_capacity_disabled);
     mCapacityCharging = mFrame.findViewById(R.id.ll__place_capacity_charging);
     mTvCapacityCharging = mFrame.findViewById(R.id.tv__place_capacity_charging);
+    mCollectionTimes = mFrame.findViewById(R.id.ll__place_collection_times);
+    mCollectionTimesRows = mFrame.findViewById(R.id.ll__place_collection_times_rows);
     mDriveThrough = mFrame.findViewById(R.id.ll__place_drive_through);
     mTvDriveThrough = mFrame.findViewById(R.id.tv__place_drive_through);
     mSelfService = mFrame.findViewById(R.id.ll__place_self_service);
@@ -389,6 +398,7 @@ public class PlacePageView extends Fragment
     mWheelchair.setOnLongClickListener(this);
     mCapacityDisabled.setOnLongClickListener(this);
     mCapacityCharging.setOnLongClickListener(this);
+    mCollectionTimes.setOnLongClickListener(this);
     mDriveThrough.setOnLongClickListener(this);
     mSelfService.setOnLongClickListener(this);
     mOutdoorSeating.setOnLongClickListener(this);
@@ -722,6 +732,62 @@ public class PlacePageView extends Fragment
       BookmarkManager.INSTANCE.updateBookmarkPlacePage(bookmarkId);
   }
 
+  private void refreshCollectionTimes()
+  {
+    mCollectionTimesRows.removeAllViews();
+    final String raw = mMapObject.getMetadata(Metadata.MetadataType.FMD_COLLECTION_TIMES);
+    if (TextUtils.isEmpty(raw))
+    {
+      UiUtils.hide(mCollectionTimes);
+      return;
+    }
+
+    final CollectionTimes[] schedule = OpeningHours.nativeCollectionTimesFromString(raw);
+    if (schedule == null)
+    {
+      addCollectionTimesRow(null, raw, false);
+    }
+    else
+    {
+      final int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+      for (CollectionTimes group : schedule)
+      {
+        final StringBuilder times = new StringBuilder();
+        for (HoursMinutes time : group.times)
+        {
+          if (times.length() > 0)
+            times.append(", ");
+          times.append(time);
+        }
+        addCollectionTimesRow(TimeFormatUtils.formatWeekdays(group.weekdays), times.toString(),
+                              group.containsWeekday(today));
+      }
+    }
+    UiUtils.show(mCollectionTimes);
+  }
+
+  private void addCollectionTimesRow(@Nullable String weekdays, @NonNull String times, boolean isToday)
+  {
+    final View row = getLayoutInflater().inflate(R.layout.place_page_opening_hours_item, mCollectionTimesRows, false);
+    final MaterialTextView weekdaysView = row.findViewById(R.id.tv__opening_hours_weekdays);
+    final ViewGroup shiftsView = row.findViewById(R.id.ll__opening_hours_shifts);
+    final MaterialTextView timesView = new MaterialTextView(requireContext());
+    timesView.setTextAppearance(R.style.MwmTextAppearance_Body3);
+    timesView.setTextAlignment(weekdays == null ? View.TEXT_ALIGNMENT_VIEW_START : View.TEXT_ALIGNMENT_VIEW_END);
+    timesView.setText(times);
+    if (weekdays == null)
+      UiUtils.hide(weekdaysView);
+    else
+      weekdaysView.setText(weekdays);
+    if (isToday)
+    {
+      weekdaysView.setTypeface(null, Typeface.BOLD);
+      timesView.setTypeface(null, Typeface.BOLD);
+    }
+    shiftsView.addView(timesView);
+    mCollectionTimesRows.addView(row);
+  }
+
   private void refreshDetails()
   {
     refreshLatLon();
@@ -785,6 +851,8 @@ public class PlacePageView extends Fragment
 		};
     }
 	refreshMetadataOrHide(capacityCharging, mCapacityCharging, mTvCapacityCharging);
+
+    refreshCollectionTimes();
 
     final String driveThrough = mMapObject.getMetadata(Metadata.MetadataType.FMD_DRIVE_THROUGH);
     refreshMetadataOrHide(driveThrough.equals("yes") ? getString(R.string.drive_through) : "", mDriveThrough,
@@ -1208,6 +1276,8 @@ public class PlacePageView extends Fragment
         items.add(mTvCapacityDisabled.getText().toString());
     else if (id == R.id.ll__place_capacity_charging)
         items.add(mTvCapacityCharging.getText().toString());
+    else if (id == R.id.ll__place_collection_times)
+      items.add(mMapObject.getMetadata(Metadata.MetadataType.FMD_COLLECTION_TIMES));
     else if (id == R.id.ll__place_drive_through)
       items.add(mTvDriveThrough.getText().toString());
     else if (id == R.id.ll__place_outdoor_seating)

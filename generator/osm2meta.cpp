@@ -678,6 +678,7 @@ void MetadataTagProcessor::operator()(std::string const & k, std::string const &
   case Metadata::FMD_CHARGE_SOCKETS: m_chargeSockets.AggregateChargeSocketKey(k, v); break;
   case Metadata::FMD_CAPACITY_DISABLED: valid = ValidateAndFormat_capacity(v); break;
   case Metadata::FMD_CAPACITY_CHARGING: valid = ValidateAndFormat_capacity(v); break;
+  case Metadata::FMD_COLLECTION_TIMES: valid = ValidateAndFormat_opening_hours(v); break;
 
   // Metadata types we do not get from OSM.
   case Metadata::FMD_CUISINE:

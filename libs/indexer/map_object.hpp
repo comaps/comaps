@@ -87,6 +87,7 @@ public:
   ChargeSocketDescriptors GetChargeSockets() const;
 
   std::string_view GetOpeningHours() const;
+  std::string_view GetCollectionTimes() const;
   feature::Internet GetInternet() const;
   int GetStars() const;
   std::string GetCapacity() const;

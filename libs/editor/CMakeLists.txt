@@ -3,6 +3,8 @@ project(editor)
 set(SRC
   changeset_wrapper.cpp
   changeset_wrapper.hpp
+  collection_times.cpp
+  collection_times.hpp
   config_loader.cpp
   config_loader.hpp
   editable_data_source.hpp

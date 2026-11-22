@@ -691,6 +691,16 @@ BOOST_AUTO_TEST_CASE(OpeningHours_RuleSequence)
 BOOST_AUTO_TEST_CASE(OpeningHoursTimerange_TestParseUnparse)
 {
   {
+    auto const rule = "17:30";
+    auto const parsedUnparsed = ParseAndUnparse<osmoh::TTimespans>(rule);
+    BOOST_CHECK_EQUAL(parsedUnparsed, rule);
+  }
+  {
+    auto const rule = "09:00, 17:30";
+    auto const parsedUnparsed = ParseAndUnparse<osmoh::TTimespans>(rule);
+    BOOST_CHECK_EQUAL(parsedUnparsed, rule);
+  }
+  {
     auto const rule = "06:00+";
     auto const parsedUnparsed = ParseAndUnparse<osmoh::TTimespans>(rule);
     BOOST_CHECK_EQUAL(parsedUnparsed, rule);
@@ -1751,6 +1761,15 @@ BOOST_AUTO_TEST_CASE(OpeningHours_TestOpeningHours)
 
   using namespace osmoh;
 
+  {
+    // collection_times syntax is valid but never makes a place open or closed.
+    OpeningHours oh("Mo-Fr 17:30; Sa 12:00");
+    BOOST_CHECK(oh.IsValid());
+
+    std::tm time = {};
+    BOOST_CHECK(GetTimeTuple("2015-11-09 17:30", fmt, time));
+    BOOST_CHECK(oh.IsUnknown(mktime(&time)));
+  }
   {
     OpeningHours oh("Su 11:00-17:00; \"Wochentags auf Anfrage\"; Tu off");
     BOOST_CHECK(oh.IsValid());

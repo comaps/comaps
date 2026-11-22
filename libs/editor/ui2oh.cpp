@@ -347,6 +347,8 @@ bool MakeTimeTableSet(osmoh::OpeningHours const & oh, ui::TimeTableSet & tts)
       tt.SetOpeningDays(kWholeWeek);
 
     auto const & times = rulePart.GetTimes();
+    if (std::any_of(times.begin(), times.end(), [](osmoh::Timespan const & span) { return span.IsPointInTime(); }))
+      return false;
 
     bool isTwentyFourHours = times.empty() || (times.size() == 1 && times.front() == kTwentyFourHours);
 

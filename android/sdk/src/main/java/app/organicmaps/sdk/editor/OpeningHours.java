@@ -3,6 +3,7 @@ package app.organicmaps.sdk.editor;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import app.organicmaps.sdk.editor.data.CollectionTimes;
 import app.organicmaps.sdk.editor.data.Timespan;
 import app.organicmaps.sdk.editor.data.Timetable;
 
@@ -55,6 +56,12 @@ public final class OpeningHours
    * @return true if timetable string is valid OSM timetable.
    */
   public static native boolean nativeIsTimetableStringValid(String source);
+
+  /**
+   * @return weekly collection schedule or null if the value cannot be shown as one.
+   */
+  @Nullable
+  public static native CollectionTimes[] nativeCollectionTimesFromString(@NonNull String source);
 
   public static native OhState nativeCurrentState(@NonNull Timetable[] timetables);
 }

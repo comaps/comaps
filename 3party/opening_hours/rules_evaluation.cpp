@@ -474,6 +474,12 @@ time_t GetNextTimeState(TRuleSequences const & rules, time_t const dateTime, Rul
 
 RuleState GetState(TRuleSequences const & rules, time_t const timestamp)
 {
+  // Points in time tell when something happens (like a mail pickup), not when a place is open.
+  for (auto const & rule : rules)
+    for (auto const & span : rule.GetTimes())
+      if (span.IsPointInTime())
+        return RuleState::Unknown;
+
   RuleSequence const * emptyRule = nullptr;
   RuleSequence const * dayMatchedRule = nullptr;
 

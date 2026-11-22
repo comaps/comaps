@@ -218,6 +218,8 @@ public:
 
   bool IsEmpty() const { return !HasStart() && !HasEnd(); }
   bool IsOpen() const { return HasStart() && !HasEnd(); }
+  // A single moment like 17:00 rather than a span of time.
+  bool IsPointInTime() const { return IsOpen() && !HasPlus(); }
   bool HasStart() const { return !GetStart().IsEmpty(); }
   bool HasEnd() const { return !GetEnd().IsEmpty(); }
   bool HasPlus() const { return m_plus; }

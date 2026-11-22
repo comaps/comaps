@@ -75,8 +75,8 @@ namespace osmoh
       [(bind(&Timespan::SetStart, _val, _1),
         bind(&Timespan::SetPlus, _val, true))]
 
-      // This rule is only used for collection_times tag wish is not in our interest.
-      // | time[bind(&Timespan::SetStart, _val, _1)]
+      // A point in time, used by collection_times and service_times.
+      | time[bind(&Timespan::SetStart, _val, _1)]
       ;
 
       main %= timespan % ',';
