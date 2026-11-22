@@ -4,10 +4,23 @@ struct PlacePageHeader: View {
   let content: PlacePageContent
   let placement: PlacePageModel.Placement
 
+  @Environment(SearchModel.self) private var searchModel: SearchModel?
   @State private var shareAnchor: UIView?
+  @ScaledMetric(relativeTo: .title3) private var titleCapHeight = UIFont.preferredFont(
+    forTextStyle: .title3,
+    compatibleWith: UITraitCollection(preferredContentSizeCategory: .large)
+  ).capHeight
+
+  private var isOverSearch: Bool {
+    placement == .panel && searchModel?.isPanelPresented == true
+  }
 
   var body: some View {
-    HStack(alignment: .top, spacing: 8) {
+    HStack(alignment: .firstTextBaseline, spacing: 8) {
+      if isOverSearch {
+        backButton
+          .alignmentGuide(.firstTextBaseline, computeValue: alignedWithTitle)
+      }
       VStack(alignment: .leading, spacing: 2) {
         Text(title)
           .font(.title3.weight(.semibold))
@@ -21,6 +34,7 @@ struct PlacePageHeader: View {
       .accessibilityAddTraits(.isHeader)
       .frame(maxWidth: .infinity, alignment: .leading)
       buttons
+        .alignmentGuide(.firstTextBaseline, computeValue: alignedWithTitle)
     }
     .padding(.horizontal)
     .padding(.top, placement == .sheet ? 20 : MapPanelStyle.headerTopPadding)
@@ -31,6 +45,10 @@ struct PlacePageHeader: View {
         content.expand()
       }
     }
+  }
+
+  private func alignedWithTitle(_ dimensions: ViewDimensions) -> CGFloat {
+    dimensions[VerticalAlignment.center] + titleCapHeight / 2
   }
 
   private var title: AttributedString {
@@ -59,9 +77,19 @@ struct PlacePageHeader: View {
     HStack(spacing: 8) {
       shareButton
         .background(PopoverAnchor(view: $shareAnchor))
-      MapPanelCloseButton(action: content.close)
-        .keyboardShortcut(.cancelAction)
+      if !isOverSearch {
+        MapPanelCloseButton(action: content.close)
+          .keyboardShortcut(.cancelAction)
+      }
     }
+  }
+
+  private var backButton: some View {
+    Button(action: content.close) {
+      MapPanelButtonLabel(systemImage: "chevron.backward")
+    }
+    .mapPanelButtonStyle()
+    .keyboardShortcut(.cancelAction)
   }
 
   @ViewBuilder

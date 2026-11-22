@@ -2,6 +2,7 @@ import SwiftUI
 
 extension EnvironmentValues {
   @Entry var mapPanelWidth: CGFloat = MapPanelStyle.width
+  @Entry var mapPanelInset: CGFloat = 0
 }
 
 enum MapPanelStyle {

@@ -155,6 +155,7 @@
                         <outlet property="placePageArea" destination="awj-9E-eBS" id="nDP-as-zc2"/>
                         <outlet property="placePageAreaKeyboard" destination="PFs-sL-oVA" id="O3P-ia-ZlX"/>
                         <outlet property="visibleAreaBottom" destination="OE7-Qb-J0v" id="isp-aT-LtA"/>
+                        <outlet property="visibleAreaLeading" destination="pc3-CW-vyV" id="vAL-Ld-Pnl"/>
                         <outlet property="visibleAreaKeyboard" destination="YUs-MJ-9w8" id="UJP-KT-2uK"/>
                         <outlet property="widgetsArea" destination="NI8-tV-i2B" id="xU3-51-vHe"/>
                         <segue destination="Lfa-Zp-orR" kind="custom" identifier="Map2EditorSegue" customClass="MWMSegue" id="OEF-kR-jKi"/>

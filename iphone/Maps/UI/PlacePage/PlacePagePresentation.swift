@@ -12,7 +12,6 @@ private struct PlacePagePresentation: ViewModifier {
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
   @Environment(\.verticalSizeClass) private var verticalSizeClass
   @Environment(\.mapPanelWidth) private var panelWidth
-  @Environment(\.searchPanelInset) private var searchPanelInset
 
   private let model = PlacePageModel.shared
 
@@ -23,7 +22,7 @@ private struct PlacePagePresentation: ViewModifier {
   func body(content: Content) -> some View {
     @Bindable var model = model
     content
-      .mapPanelOverlay(isPresented: model.isPanelPresented, leadingInset: searchPanelInset) {
+      .mapPanelOverlay(isPresented: model.isPanelPresented) {
         if let content = model.content {
           PlacePageView(content: content, placement: .panel)
             .id(ObjectIdentifier(content))

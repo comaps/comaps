@@ -2,7 +2,6 @@ import SwiftUI
 
 extension EnvironmentValues {
   @Entry var isSearchPresented = false
-  @Entry var searchPanelInset: CGFloat = 0
 }
 
 extension View {
@@ -30,8 +29,12 @@ private struct SearchPresentation: ViewModifier {
     return min(preferredPanelWidth, containerWidth * MapPanelStyle.maxWidthFraction)
   }
 
+  private var isPlacePagePanelPresented: Bool {
+    PlacePageModel.shared.isPanelPresented
+  }
+
   private var panelInset: CGFloat {
-    model.isPanelPresented ? panelWidth + 2 * MapPanelStyle.padding : 0
+    model.isPanelPresented || isPlacePagePanelPresented ? panelWidth + 2 * MapPanelStyle.padding : 0
   }
 
   func body(content: Content) -> some View {
@@ -39,14 +42,14 @@ private struct SearchPresentation: ViewModifier {
     content
       .environment(model)
       .environment(\.isSearchPresented, model.isOpen && !model.isCollapsed)
-      .environment(\.searchPanelInset, panelInset)
+      .environment(\.mapPanelInset, panelInset)
       .environment(\.mapPanelWidth, panelWidth)
       .onGeometryChange(for: CGFloat.self) { proxy in
         proxy.size.width
       } action: { width in
         containerWidth = width
       }
-      .mapPanelOverlay(isPresented: model.isPanelPresented) {
+      .mapPanelOverlay(isPresented: model.isPanelPresented, isCovered: isPlacePagePanelPresented) {
         SearchView(model: model, placement: .panel)
           .frame(width: panelWidth)
       }
@@ -64,6 +67,9 @@ private struct SearchPresentation: ViewModifier {
       }
       .onChange(of: isSuspended, initial: true) {
         model.isSuspended = isSuspended
+      }
+      .onChange(of: panelInset, initial: true) {
+        MapViewController.shared()?.setPanelLeadingBound(panelInset)
       }
   }
 }

@@ -92,6 +92,7 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 @property(nonatomic) BOOL skipForceTouch;
 
 @property(strong, nonatomic) IBOutlet NSLayoutConstraint *visibleAreaBottom;
+@property(strong, nonatomic) IBOutlet NSLayoutConstraint *visibleAreaLeading;
 @property(strong, nonatomic) IBOutlet NSLayoutConstraint *visibleAreaKeyboard;
 @property(strong, nonatomic) IBOutlet NSLayoutConstraint *placePageAreaKeyboard;
 @property(strong, nonatomic) IBOutlet NSLayoutConstraint *sideButtonsAreaBottom;
@@ -715,6 +716,10 @@ m2::PointD ToPixelPoint(UIView * view, CGPoint pt) {
 - (void)setPlacePageTopBound:(CGFloat)bound {
   self.visibleAreaBottom.constant = bound;
   self.sideButtonsAreaBottom.constant = bound;
+}
+
+- (void)setPanelLeadingBound:(CGFloat)bound {
+  self.visibleAreaLeading.constant = bound;
 }
 
 + (void)setViewport:(double)lat lon:(double)lon zoomLevel:(int)zoomLevel {

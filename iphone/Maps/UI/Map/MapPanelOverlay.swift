@@ -17,15 +17,15 @@ struct MapControlsFramesKey: PreferenceKey {
 
 extension View {
   func mapPanelOverlay<Panel: View>(isPresented: Bool,
-                                    leadingInset: CGFloat = 0,
+                                    isCovered: Bool = false,
                                     @ViewBuilder panel: @escaping () -> Panel) -> some View {
-    modifier(MapPanelOverlay(isPresented: isPresented, leadingInset: leadingInset, panel: panel))
+    modifier(MapPanelOverlay(isPresented: isPresented, isCovered: isCovered, panel: panel))
   }
 }
 
 private struct MapPanelOverlay<Panel: View>: ViewModifier {
   let isPresented: Bool
-  let leadingInset: CGFloat
+  let isCovered: Bool
   @ViewBuilder let panel: () -> Panel
 
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -41,10 +41,13 @@ private struct MapPanelOverlay<Panel: View>: ViewModifier {
               .clipShape(.rect(cornerRadius: MapPanelStyle.cornerRadius))
               .mapPanelBackground()
               .avoidingWindowControls(sizeToFit: true)
-              .padding(.leading, MapPanelStyle.padding + leadingInset)
-              .padding(.trailing, MapPanelStyle.padding)
+              .padding(.horizontal, MapPanelStyle.padding)
               .padding(.top, topInset(alignedWith: controlsFrames))
               .padding(.bottom, bottomInset(alignedWith: controlsFrames))
+              .opacity(isCovered ? 0 : 1)
+              .allowsHitTesting(!isCovered)
+              .disabled(isCovered)
+              .accessibilityHidden(isCovered)
               .transition(reduceMotion ? AnyTransition.opacity : .move(edge: .leading))
           }
         }
@@ -56,6 +59,7 @@ private struct MapPanelOverlay<Panel: View>: ViewModifier {
         }
       }
       .animation(reduceMotion ? .default : .spring, value: isPresented)
+      .animation(reduceMotion ? .default : .spring, value: isCovered)
   }
 
   private func topInset(alignedWith controlsFrames: MapControlsFrames) -> CGFloat {

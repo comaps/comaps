@@ -86,7 +86,7 @@ struct MapOverlayView: View {
 
 
     /// A necessary adjusmented need for the externally presented search
-    @Environment(\.searchPanelInset) private var searchAdjustment
+    @Environment(\.mapPanelInset) private var searchAdjustment
     
     
     /// If the keyboard is being presented externally
