@@ -9,6 +9,7 @@ import androidx.car.app.model.Header;
 import androidx.car.app.model.MessageTemplate;
 import androidx.car.app.model.Template;
 import androidx.core.graphics.drawable.IconCompat;
+import androidx.lifecycle.LifecycleOwner;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.car.screens.base.BaseScreen;
@@ -19,6 +20,14 @@ public class MapPlaceholderScreen extends BaseScreen
   public MapPlaceholderScreen(@NonNull CarContext carContext)
   {
     super(carContext);
+  }
+
+  @Override
+  public void onResume(@NonNull LifecycleOwner owner)
+  {
+    super.onResume(owner);
+    // Driving guidelines forbid any interaction with the phone while connected to a car.
+    MwmApplication.from(getCarContext()).getDisplayManager().changeDisplay(DisplayType.Car);
   }
 
   @NonNull

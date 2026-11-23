@@ -38,14 +38,4 @@
         android:textAlignment="center"
         android:textAppearance="@style/MwmTextAppearance.Body1" />
   </LinearLayout>
-
-  <com.google.android.material.button.MaterialButton
-      android:id="@+id/btn_continue"
-      style="@style/MwmWidget.M3.Button.Primary"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginEnd="32dp"
-      android:layout_marginStart="32dp"
-      android:layout_marginTop="24dp"
-      android:text="@string/car_continue_on_the_phone" />
 </LinearLayout>
