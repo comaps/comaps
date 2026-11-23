@@ -791,6 +791,16 @@ bool IsRamp(routing::HighwayType highwayType);
 std::vector<std::string> ParseRef(std::string const & ref);
 
 /**
+ * @brief Removes U-turn sections and duplicate segments from a route.
+ *
+ * This will remove consecutive identical segments on the route, keeping only one.
+ *
+ * If parts of the route that go down one or more segments, then back again on those same segments,
+ * these parts will be removed entirely.
+ */
+void PruneUTurns(std::vector<routing::RouteSegment> & rsegments);
+
+/**
  * @brief Calculates the segments to truncate at the start of the route.
  *
  * The route is not actually truncated by this function.

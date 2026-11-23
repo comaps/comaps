@@ -1252,7 +1252,6 @@ m2::PointD RoutingTraffDecoder::GetPointFromSegment(routing::Segment const & seg
     return points[segment.GetSegmentIdx() + 1];
 }
 
-
 void RoutingTraffDecoder::TruncateHiResRoute(std::vector<routing::RouteSegment> & rsegments,
                                         routing::Checkpoints const & checkpoints) const
 {
@@ -1260,6 +1259,8 @@ void RoutingTraffDecoder::TruncateHiResRoute(std::vector<routing::RouteSegment> 
   std::erase_if(rsegments, [](routing::RouteSegment & rsegment) {
     return rsegment.GetSegment().GetMwmId() == routing::kFakeNumMwmId;
   });
+
+  PruneUTurns(rsegments);
 
   if (rsegments.size() < 2)
     return;
@@ -1385,6 +1386,8 @@ void RoutingTraffDecoder::TruncateLowResRoute(std::vector<routing::RouteSegment>
   std::erase_if(rsegments, [](routing::RouteSegment & rsegment) {
     return rsegment.GetSegment().GetMwmId() == routing::kFakeNumMwmId;
   });
+
+  PruneUTurns(rsegments);
 
   if (rsegments.size() < 2)
     return;
@@ -2048,6 +2051,35 @@ std::vector<std::string> ParseRef(std::string const & ref)
   if (!curr.empty())
     res.push_back(curr);
   return res;
+}
+
+void PruneUTurns(std::vector<routing::RouteSegment> & rsegments)
+{
+  // remove duplicates
+  for (size_t i = 1; i < rsegments.size(); /* NOP */)
+  {
+    if (rsegments[i - 1].GetSegment() == rsegments[i].GetSegment())
+      // if i is the same segment as i - 1 (in the same direction), remove one
+      rsegments.erase(rsegments.begin() + i - 1, rsegments.begin() + i);
+    else
+      // else advance i
+      i++;
+  }
+  // prune U turns
+  for (size_t i = 1; i < rsegments.size(); /* NOP */)
+  {
+    if (rsegments[i - 1].GetSegment().IsInverse(rsegments[i].GetSegment()))
+    {
+      // if i is the inverse of i - 1, remove both
+      rsegments.erase(rsegments.begin() + i - 1, rsegments.begin() + i + 1);
+      // reduce i to examine the segments surrounding the ones we removed
+      if (i > 1)
+        i--;
+    }
+    else
+      // else advance i
+      i++;
+  }
 }
 
 void TruncateLowResStart(std::vector<routing::RouteSegment> & rsegments,
