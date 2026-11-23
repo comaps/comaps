@@ -85,6 +85,7 @@ jobs:
         if: ${{ failure() && steps.debug_test.outcome == 'failure' }}
         uses: actions/upload-artifact@v3
         with:
+          retention-days: 3
           name: ${{ env.DEBUG_RESULTS_BUNDLE_NAME }}-${{ github.run_number }}.xcresult
           path: ${{ env.DEBUG_RESULTS_BUNDLE_NAME }}.xcresult
           if-no-files-found: error
@@ -110,6 +111,7 @@ jobs:
         if: ${{ failure() && steps.release_build.outcome == 'failure' }}
         uses: actions/upload-artifact@v3
         with:
+          retention-days: 3
           name: ${{ env.RELEASE_RESULTS_BUNDLE_NAME }}-${{ github.run_number }}.xcresult
           path: ${{ env.RELEASE_RESULTS_BUNDLE_NAME }}.xcresult
           if-no-files-found: error
@@ -125,6 +127,7 @@ jobs:
         uses: actions/upload-artifact@v3
         continue-on-error: true
         with:
+          retention-days: 3
           name: CoMaps release ipa
           path: CoMaps.ipa
           if-no-files-found: error

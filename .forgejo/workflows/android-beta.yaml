@@ -77,4 +77,5 @@ jobs:
       - name: Upload debug symbols
         uses: actions/upload-artifact@v3
         with:
+          retention-days: 3
           name: android/app/build/intermediates/merged_native_libs
