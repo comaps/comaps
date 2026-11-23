@@ -274,6 +274,7 @@ MainWindow::MainWindow(Framework & framework)
 
   fileMenu->addSeparator();
 
+  m_framework.SwitchToMapMode(MapMode::Driving);
   m_framework.GetTrafficManager().SetEnabled(true);
 
 #ifdef openlr_obsolete
