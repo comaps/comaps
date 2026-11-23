@@ -611,6 +611,9 @@ double RoutingTraffDecoder::TraffEstimator::GetTransitionPenalty(Purpose /* purp
                                                                  routing::Segment const & v,
                                                                  double weight) const
 {
+  // if u-v is a U turn, apply impassable penalty
+  if (u.IsInverse(v))
+    return weight * decoder_model::kImpassablePenalty;
   /*
    * `weight` is weight of v, without any kind of inter-segment penalties applied.
    * This argument turned out to be unnecessary here, so we are not using it.
