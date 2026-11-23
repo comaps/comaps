@@ -65,3 +65,4 @@ All the following commands require an app restart:
 ## Search
 
 - `?wiki`: Search results for all elements with Wikipedia links
+- `?reviews`: Search for all elements/places that have Mangrove Reviews
