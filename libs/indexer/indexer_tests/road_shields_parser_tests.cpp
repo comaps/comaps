@@ -238,6 +238,10 @@ UNIT_TEST(RoadShields_MwmName)
 
 UNIT_TEST(RoadShields_US)
 {
+
+  if (shieldParts.size() <= 1)
+      return RoadShield(RoadShieldType::Default, rawText);
+  
   using namespace ftypes;
 
   // US Interstate Business highway test

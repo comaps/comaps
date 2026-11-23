@@ -239,6 +239,9 @@ public:
         return RoadShield();
     }
 
+    if (shieldParts.size() <= 1)
+      return RoadShield(RoadShieldType::Default, rawText);
+
     std::string_view const roadType = shieldParts[0];  // 'I' for interstates and kFederalCode/kStatesCode for highways.
     std::string roadNumber(shieldParts[1]);
     std::string additionalInfo;
