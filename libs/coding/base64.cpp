@@ -41,7 +41,18 @@ std::string Encode(std::string_view val)
 
 std::string EncodeUrl(std::string_view val)
 {
-  // Stub, replaced by the real base64url in the follow-up commit.
-  return {};
+  std::string out = Encode(val);
+  // RFC 4648 base64url swaps the two non-alphanumeric chars and drops padding
+  for (char & c : out)
+  {
+    if (c == '+')
+      c = '-';
+    else if (c == '/')
+      c = '_';
+  }
+  auto const pad = out.find('=');
+  if (pad != std::string::npos)
+    out.erase(pad);
+  return out;
 }
 }  // namespace base64
