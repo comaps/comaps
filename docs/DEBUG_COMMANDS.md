@@ -64,9 +64,9 @@ All the following commands require an app restart:
 
 ## Search
 
-- `?wiki`: Search results for all elements with Wikipedia links
+Unlike the other commands, search commands are implemented in the search engine itself. They are not parsed in `Framework::ParseSearchQueryCommand`, causing them to be passed to the search engine as regular serch terms.
 
-Unlike the other commands, this command is implemented in the search engine itself. It is not parsed in `Framework::ParseSearchQueryCommand`, causing it to be passed to the search engine as a regular serch term.
+- `?wiki`: Search results for all elements with Wikipedia links
 
 ## Others
 

@@ -3677,9 +3677,9 @@ bool Framework::ParseSearchQueryCommand(search::SearchParams const & params)
   }
 
   /*
-   * `?wiki` is not parsed here as it is implemented in the search engine itself.
-   * Upon encountering `?wiki`, this function will return false, causing the caller to pass it to
-   * the search engine as a regular search term.
+   * Search commands (currently `?reviews` and `?wiki`) are implemented in the search engine itself
+   * and not parsed here. Upon encountering one of them, this function will return false, causing the
+   * caller to pass the command to the search engine as a regular search term.
    */
 
   return false;
