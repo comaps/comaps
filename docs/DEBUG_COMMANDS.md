@@ -2,7 +2,7 @@
 
 CoMaps exposes debug commands to help you control the native components (engine, editor, navigation, ...). **These commands are not intended for regular users** and are only used for debug purposes. Please only use these commands if you are working on CoMaps.
 
-Each command is entered in the search input (Android and iOS) and are activated as soon as the full search keyword is entered. Unless specified, the effects triggered are discarded after a restart.
+Each command is entered in the search input (Android, iOS or desktop) and are activated as soon as the full search keyword is entered. Unless specified, the effects triggered are discarded after a restart.
 
 For more information, please see the source code at [`Framework::ParseSearchQueryCommand`](../libs/map/framework.cpp).
 
@@ -63,6 +63,8 @@ All the following commands require an app restart:
 - `?no-all-types`: Disables showing all internal types in place page
 
 ## Search
+
+Unlike the other commands, search commands are implemented in the search engine itself. They are not parsed in `Framework::ParseSearchQueryCommand`, causing them to be passed to the search engine as regular serch terms.
 
 - `?wiki`: Search results for all elements with Wikipedia links
 - `?reviews`: Search for all elements/places that have Mangrove Reviews
