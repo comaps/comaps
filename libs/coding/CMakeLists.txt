@@ -60,6 +60,8 @@ set(SRC
   serdes_json.hpp
   sha1.cpp
   sha1.hpp
+  sha256.cpp
+  sha256.hpp
   simple_dense_coding.cpp
   simple_dense_coding.hpp
   sparse_vector.hpp

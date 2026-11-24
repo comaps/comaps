@@ -38,4 +38,10 @@ std::string Encode(std::string_view val)
   auto tmp = std::string(It(std::begin(val)), It(std::end(val)));
   return tmp.append((3 - val.size() % 3) % 3, '=');
 }
+
+std::string EncodeUrl(std::string_view val)
+{
+  // Stub, replaced by the real base64url in the follow-up commit.
+  return {};
+}
 }  // namespace base64

@@ -116,4 +116,51 @@ UNIT_TEST(OAuth_FindAccessToken) {
   token = osm::FindAccessToken(R"({"token_type":"Bearer", "scope":"read_prefs", "some_other_token":"9cMyxvsOrM"})");
   TEST_EQUAL(token, std::string{}, ("access_token should not be found"));
 }
+
+UNIT_TEST(OAuth_PkceChallengeS256_RfcVector)
+{
+  // RFC 7636 Appendix B.
+  std::string const verifier = "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk";
+  TEST_EQUAL(osm::PkceChallengeS256(verifier), "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM", ());
+}
+
+UNIT_TEST(OAuth_ConsentPost_CarriesChallengeAndState)
+{
+  // The consent POST must bind the issued code to this flow or the later token exchange fails
+  std::string const verifier = osm::GeneratePkceCodeVerifier();
+  std::string const body =
+      osm::BuildConsentPostRequest("tok", "cid", "uri", "scope", verifier, "flowstate123");
+  TEST(body.find("code_challenge=" + osm::PkceChallengeS256(verifier)) != std::string::npos, (body));
+  TEST(body.find("code_challenge_method=S256") != std::string::npos, (body));
+  TEST(body.find("state=flowstate123") != std::string::npos, (body));
+
+  // A plain grant with no in-flight flow carries neither the challenge nor state
+  std::string const plain = osm::BuildConsentPostRequest("tok", "cid", "uri", "scope", "", "");
+  TEST(plain.find("code_challenge") == std::string::npos, (plain));
+  TEST(plain.find("state=") == std::string::npos, (plain));
+}
+
+UNIT_TEST(OAuth_PkceCodeVerifier_Format)
+{
+  // RFC 7636 section 4.1 wants 43 to 128 chars from the unreserved set [A-Za-z0-9-._~]
+  std::string const v = osm::GeneratePkceCodeVerifier();
+  TEST_GREATER_OR_EQUAL(v.size(), 43, ());
+  TEST_LESS_OR_EQUAL(v.size(), 128, ());
+  for (char c : v)
+  {
+    bool const ok = (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == '-' ||
+                    c == '.' || c == '_' || c == '~';
+    TEST(ok, ("non-unreserved char in verifier", c));
+  }
+  // Two successive verifiers must differ (decent randomness, not a constant).
+  TEST_NOT_EQUAL(v, osm::GeneratePkceCodeVerifier(), ());
+}
+
+UNIT_TEST(OAuth_BuildUrl_CarriesPkceChallenge)
+{
+  OsmOAuth auth("client", "read_prefs write_api", "cm://oauth2/osm/callback", "https://example.invalid", "https://example.invalid");
+  std::string const url = auth.BuildOAuth2Url();
+  TEST_NOT_EQUAL(url.find("code_challenge_method=S256"), std::string::npos, ("auth url must request S256 PKCE", url));
+  TEST_NOT_EQUAL(url.find("code_challenge="), std::string::npos, ("auth url must have a code_challenge", url));
+}
 }  // namespace osm_auth

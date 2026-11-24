@@ -66,6 +66,18 @@ string FindAccessToken(string const & json)
   return {};
 }
 
+string GeneratePkceCodeVerifier()
+{
+  // Stub, replaced in the follow-up commit.
+  return {};
+}
+
+string PkceChallengeS256(string const & codeVerifier)
+{
+  // Stub, replaced in the follow-up commit.
+  return {};
+}
+
 string BuildPostRequest(std::initializer_list<std::pair<string, string>> const & params)
 {
   string result;
@@ -76,6 +88,18 @@ string BuildPostRequest(std::initializer_list<std::pair<string, string>> const &
     result += it->first + "=" + url::UrlEncode(it->second);
   }
   return result;
+}
+
+string BuildConsentPostRequest(string const & authenticityToken, string const & clientId,
+                               string const & redirectUri, string const & scope,
+                               string const & codeVerifier, string const & state)
+{
+  // Stub, replaced by the real consent body builder in the follow-up commit.
+  return BuildPostRequest({{"authenticity_token", authenticityToken},
+                           {"client_id", clientId},
+                           {"redirect_uri", redirectUri},
+                           {"scope", scope},
+                           {"response_type", "code"}});
 }
 
 // static

@@ -26,3 +26,18 @@ UNIT_TEST(Base64_Smoke)
   TEST_EQUAL(Encode(str), encStr, ());
   TEST_EQUAL(Decode(encStr), str, ());
 }
+
+UNIT_TEST(Base64Url_Smoke)
+{
+  // Chosen so standard base64 would emit + / and = padding, which base64url must not
+  // 0xFB 0xFF 0xFE -> std "+//+", url "-__-", no padding.
+  std::string const bytes = {static_cast<char>(0xFB), static_cast<char>(0xFF), static_cast<char>(0xFE)};
+  TEST_EQUAL(Encode(bytes), "+//+", ());
+  TEST_EQUAL(EncodeUrl(bytes), "-__-", ());
+
+  // Padding stripped.
+  TEST_EQUAL(EncodeUrl("H"), "SA", ());
+  TEST_EQUAL(EncodeUrl("He"), "SGU", ());
+  TEST_EQUAL(EncodeUrl("Hel"), "SGVs", ());
+  TEST_EQUAL(EncodeUrl("Hello, World!"), "SGVsbG8sIFdvcmxkIQ", ());
+}

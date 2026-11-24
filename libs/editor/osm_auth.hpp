@@ -146,6 +146,18 @@ std::string FindOauthCode(std::string const & redirectUri);
 std::string FindAccessToken(std::string const & json);
 std::string BuildPostRequest(std::initializer_list<std::pair<std::string, std::string>> const & params);
 
+/// @name OAuth2 PKCE (RFC 7636) helpers.
+//@{
+/// A code_verifier of 43-128 unreserved characters with decent randomness.
+std::string GeneratePkceCodeVerifier();
+/// SHA-256 code challenge, base64url-encoded
+std::string PkceChallengeS256(std::string const & codeVerifier);
+/// Form body for the OAuth2 consent POST, returning the PKCE challenge and state when they are present
+std::string BuildConsentPostRequest(std::string const & authenticityToken, std::string const & clientId,
+                                    std::string const & redirectUri, std::string const & scope,
+                                    std::string const & codeVerifier, std::string const & state);
+//@}
+
 std::string DebugPrint(OsmOAuth::Response const & code);
 
 }  // namespace osm
