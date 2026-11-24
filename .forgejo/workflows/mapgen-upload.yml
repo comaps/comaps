@@ -87,9 +87,9 @@ jobs:
             fi
           fi
 
-          echo "<$(date +%T)> Uploading maps from $mapspath to $NEW_SERIES_VERSION, removing $REMOVE_3 (3-version CDNs) and $REMOVE_6 (6-version CDNs)..."
+          echo "<$(date +%T)> Uploading maps from $mapspath to $NEW_SERIES_VERSION, removing $REMOVE_6 (6-version CDNs) and $REMOVE_3 (3-version CDNs)..."
           cd ~/comaps/tools/unix/maps
-          ./upload_to_cdn.sh "$mapspath" "$SERIES" "$REMOVE_3" "$REMOVE_6"
+          ./upload_to_cdn.sh "$mapspath" "$SERIES" "$REMOVE_6" "$REMOVE_3"
           echo "<$(date +%T)> Finished uploading maps from $mapspath."
       - name: Notify Zulip
         run: |
