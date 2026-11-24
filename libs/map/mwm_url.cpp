@@ -6,6 +6,8 @@
 #include "map/place_page_info.hpp"
 #include "map/user_mark.hpp"
 
+#include "editor/osm_auth.hpp"
+
 #include "ge0/geo_url_parser.hpp"
 #include "ge0/parser.hpp"
 
@@ -187,16 +189,22 @@ ParsedMapApi::UrlType ParsedMapApi::SetUrlAndParse(std::string const & raw)
       if (url.GetPath() != "osm/callback")
         return m_requestType = UrlType::Incorrect;
 
-      url.ForEachParam([this](auto const & key, auto const & value)
+      std::string code;
+      std::string state;
+      url.ForEachParam([&code, &state](auto const & key, auto const & value)
       {
         if (key == "code")
-          m_oauth2code = value;
+          code = value;
+        else if (key == "state")
+          state = value;
       });
 
-      if (m_oauth2code.empty())
+      // reject invalid OAuth flows (prevent CSRF)
+      if (code.empty() || !osm::IsPendingOAuth2State(state))
         return m_requestType = UrlType::Incorrect;
-      else
-        return m_requestType = UrlType::OAuth2;
+
+      m_oauth2code = code;
+      return m_requestType = UrlType::OAuth2;
     }
     else if (checkForGe0Link)
     {

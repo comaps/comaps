@@ -564,17 +564,26 @@ UNIT_TEST(AppNameTest)
 
 UNIT_TEST(OAuth2Test)
 {
+  // Start an OAuth2 flow so there is a valid in-flight state to return.
+  std::string const authUrl = osm::OsmOAuth("client", "read_prefs write_api", "cm://oauth2/osm/callback", "https://example.invalid", "https://example.invalid").BuildOAuth2Url();
+  auto statePos = authUrl.find("state=");
+  TEST_NOT_EQUAL(statePos, std::string::npos, ());
+  std::string state = authUrl.substr(statePos + 6);
+  auto const amp = state.find('&');
+  if (amp != std::string::npos)
+    state.erase(amp);
+
   {
-    ParsedMapApi api("cm://oauth2/osm/callback?code=THE_MEGA_CODE");
+    ParsedMapApi api("cm://oauth2/osm/callback?code=THE_MEGA_CODE&state=" + state);
     TEST_EQUAL(api.GetRequestType(), UrlType::OAuth2, ());
     TEST_EQUAL(api.GetOAuth2Code(), "THE_MEGA_CODE", ());
   }
   {
-    ParsedMapApi api("cm://oauth2/google/callback?code=THE_MEGA_CODE");
+    ParsedMapApi api("cm://oauth2/google/callback?code=THE_MEGA_CODE&state=" + state);
     TEST_EQUAL(api.GetRequestType(), UrlType::Incorrect, ());
   }
   {
-    ParsedMapApi api("cm://oauth2/osm/callback?code=");
+    ParsedMapApi api("cm://oauth2/osm/callback?code=&state=" + state);
     TEST_EQUAL(api.GetRequestType(), UrlType::Incorrect, ());
   }
 }

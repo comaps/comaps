@@ -27,6 +27,8 @@ constexpr char const * kApiVersion = "/api/0.6";
 
 // Persist the PKCE verifier since the callback can relaunch the app
 constexpr char const * kPkceVerifierKey = "OsmOAuth2PkceVerifier";
+// Persist the random CSRF state. Checked when the callback arrives.
+constexpr char const * kOAuthStateKey = "OsmOAuth2State";
 
 
 string FindAuthenticityToken(string const & action, string body)
@@ -93,8 +95,12 @@ string PkceChallengeS256(string const & codeVerifier)
 
 bool IsPendingOAuth2State(string const & returnedState)
 {
-  // Stub, replaced in the follow-up commit.
-  return false;
+  if (returnedState.empty())
+    return false;
+  string pending;
+  if (!settings::Get(kOAuthStateKey, pending) || pending.empty())
+    return false;
+  return pending == returnedState;
 }
 
 string BuildPostRequest(std::initializer_list<std::pair<string, string>> const & params)
@@ -270,9 +276,11 @@ string OsmOAuth::SendAuthRequest(string const & requestTokenKey, SessionID const
 {
   string codeVerifier;
   settings::Get(kPkceVerifierKey, codeVerifier);
+  string state;
+  settings::Get(kOAuthStateKey, state);
   auto params = BuildConsentPostRequest(requestTokenKey, m_oauth2params.m_clientId,
                                         m_oauth2params.m_redirectUri, m_oauth2params.m_scope, codeVerifier,
-                                        string());
+                                        state);
   HttpClient request(m_baseUrl + "/oauth2/authorize");
   request.SetBodyData(std::move(params), "application/x-www-form-urlencoded")
       .SetCookies(lastSid.m_cookies)
@@ -326,9 +334,10 @@ string OsmOAuth::FetchRequestToken(SessionID const & sid) const
 
 string OsmOAuth::BuildOAuth2Url() const
 {
-  // PKCE S256 binds this authorization request to the token exchange below, defeating login-CSRF
-  // (an attacker-issued code cannot be redeemed by this app, whose verifier won't match the challenge).
+  // Bind this login to our app so unsolicited or injected callbacks are rejected
+  string const state = GeneratePkceCodeVerifier();
   string const codeVerifier = GeneratePkceCodeVerifier();
+  settings::Set(kOAuthStateKey, state);
   settings::Set(kPkceVerifierKey, codeVerifier);
 
   auto requestTokenUrl = m_baseUrl + "/oauth2/authorize";
@@ -336,6 +345,7 @@ string OsmOAuth::BuildOAuth2Url() const
                                                    {"redirect_uri", m_oauth2params.m_redirectUri},
                                                    {"scope", m_oauth2params.m_scope},
                                                    {"response_type", "code"},
+                                                   {"state", state},
                                                    {"code_challenge", PkceChallengeS256(codeVerifier)},
                                                    {"code_challenge_method", "S256"}});
   return requestTokenUrl.append("?").append(requestTokenQuery);
@@ -347,6 +357,7 @@ string OsmOAuth::FinishAuthorization(string const & oauth2code) const
   string codeVerifier;
   settings::Get(kPkceVerifierKey, codeVerifier);
   settings::Delete(kPkceVerifierKey);
+  settings::Delete(kOAuthStateKey);
 
   std::initializer_list<std::pair<string, string>> const baseParams = {
       {"grant_type", "authorization_code"},
@@ -385,9 +396,9 @@ string OsmOAuth::FetchAccessToken(SessionID const & sid) const
 
 bool OsmOAuth::AuthorizePassword(string const & login, string const & password)
 {
-  // This path authorizes without a PKCE challenge, so drop any verifier left over from an
-  // abandoned browser flow to keep the token exchange a plain code grant.
+  // Drop any leftover state and verifier from an abandoned OAuth2 flow since this path uses no PKCE
   settings::Delete(kPkceVerifierKey);
+  settings::Delete(kOAuthStateKey);
   SessionID const sid = FetchSessionId();
   if (!LoginUserPassword(login, password, sid))
     return false;
