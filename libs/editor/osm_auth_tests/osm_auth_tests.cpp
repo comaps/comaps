@@ -163,4 +163,24 @@ UNIT_TEST(OAuth_BuildUrl_CarriesPkceChallenge)
   TEST_NOT_EQUAL(url.find("code_challenge_method=S256"), std::string::npos, ("auth url must request S256 PKCE", url));
   TEST_NOT_EQUAL(url.find("code_challenge="), std::string::npos, ("auth url must have a code_challenge", url));
 }
+
+UNIT_TEST(OAuth_State_RejectsUnsolicited)
+{
+  OsmOAuth auth("client", "read_prefs write_api", "cm://oauth2/osm/callback", "https://example.invalid", "https://example.invalid");
+  std::string const url = auth.BuildOAuth2Url();
+
+  // The authorize URL must have a CSRF state.
+  auto const statePos = url.find("state=");
+  TEST_NOT_EQUAL(statePos, std::string::npos, ("auth url must have a state", url));
+  std::string state = url.substr(statePos + 6);
+  auto const amp = state.find('&');
+  if (amp != std::string::npos)
+    state.erase(amp);
+  TEST(!state.empty(), ("state must be non-empty", url));
+
+  // Unsolicited or injected callbacks are rejected
+  TEST(osm::IsPendingOAuth2State(state), ("the started flow's own state must validate"));
+  TEST(!osm::IsPendingOAuth2State(state + "x"), ("a mismatching state must be rejected"));
+  TEST(!osm::IsPendingOAuth2State(""), ("an empty state must be rejected"));
+}
 }  // namespace osm_auth

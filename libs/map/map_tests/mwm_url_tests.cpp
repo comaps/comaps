@@ -2,6 +2,8 @@
 
 #include "map/mwm_url.hpp"
 
+#include "editor/osm_auth.hpp"
+
 #include "geometry/mercator.hpp"
 
 #include "coding/url.hpp"
@@ -635,6 +637,30 @@ UNIT_TEST(100FullEnteriesRandomTest)
 UNIT_TEST(StressTestRandomTest)
 {
   generateRandomTest(10000, 100);
+}
+
+UNIT_TEST(OAuth2CallbackStateCheck)
+{
+  // Start an OAuth2 flow so a random state is stored, then read it back from the URL.
+  std::string const authUrl = osm::OsmOAuth("client", "read_prefs write_api", "cm://oauth2/osm/callback", "https://example.invalid", "https://example.invalid").BuildOAuth2Url();
+  auto statePos = authUrl.find("state=");
+  TEST_NOT_EQUAL(statePos, std::string::npos, ("auth url must have a state", authUrl));
+  std::string state = authUrl.substr(statePos + 6);
+  auto const amp = state.find('&');
+  if (amp != std::string::npos)
+    state.erase(amp);
+
+  ParsedMapApi test;
+
+  // A callback with the in-flight state is accepted.
+  TEST_EQUAL(test.SetUrlAndParse("cm://oauth2/osm/callback?code=legitcode&state=" + state), UrlType::OAuth2,
+             ("Solicited callback with matching state must be accepted"));
+
+  // An unsolicited or injected callback (wrong or missing state) is rejected, so the code is never redeemed.
+  TEST_EQUAL(test.SetUrlAndParse("cm://oauth2/osm/callback?code=attackercode&state=" + state + "x"),
+             UrlType::Incorrect, ("Callback with mismatching state must be rejected"));
+  TEST_EQUAL(test.SetUrlAndParse("cm://oauth2/osm/callback?code=attackercode"), UrlType::Incorrect,
+             ("Callback with no state must be rejected"));
 }
 
 }  // namespace mwm_url_tests

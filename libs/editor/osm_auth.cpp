@@ -91,6 +91,12 @@ string PkceChallengeS256(string const & codeVerifier)
   return base64::EncodeUrl(string(reinterpret_cast<char const *>(hash.data()), hash.size()));
 }
 
+bool IsPendingOAuth2State(string const & returnedState)
+{
+  // Stub, replaced in the follow-up commit.
+  return false;
+}
+
 string BuildPostRequest(std::initializer_list<std::pair<string, string>> const & params)
 {
   string result;

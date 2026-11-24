@@ -156,6 +156,8 @@ std::string PkceChallengeS256(std::string const & codeVerifier);
 std::string BuildConsentPostRequest(std::string const & authenticityToken, std::string const & clientId,
                                     std::string const & redirectUri, std::string const & scope,
                                     std::string const & codeVerifier, std::string const & state);
+/// True when an OAuth2 flow is pending and returnedState matches the stored random state
+bool IsPendingOAuth2State(std::string const & returnedState);
 //@}
 
 std::string DebugPrint(OsmOAuth::Response const & code);
