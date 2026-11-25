@@ -713,6 +713,8 @@ void RoutingManager::CollectTrafficSigns(vector<RouteSegment> const & segments, 
   // kDirectionalTrafficSigns in generator/osm2type.cpp.
   static std::pair<uint32_t, std::string_view> const kSigns[] = {
       {classif().GetTypeByPath({"highway", "traffic_signals"}), "traffic_signals"},
+      {classif().GetTypeByPath({"highway", "stop"}), "sign-stop"},
+      {classif().GetTypeByPath({"highway", "give_way"}), "sign-yield"},
   };
 
   double constexpr kSearchRadiusM = 0.3;  // radius (in meters)

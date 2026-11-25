@@ -1399,6 +1399,8 @@ void PostprocessElement(OsmElement * p, FeatureBuilderParams & params)
   // mappers use on signals too.
   static uint32_t const kDirectionalTrafficSigns[] = {
       classif().GetTypeByPath({"highway", "traffic_signals"}),
+      classif().GetTypeByPath({"highway", "stop"}),
+      classif().GetTypeByPath({"highway", "give_way"}),
   };
   if (base::AnyOf(kDirectionalTrafficSigns, [&params](uint32_t t) { return params.IsTypeExist(t); }))
   {

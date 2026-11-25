@@ -941,8 +941,8 @@ highway|construction|track;[highway=construction][construction=track];;name;int_
 deprecated|deprecated;806;x
 hwtag|direction_forward;807;
 hwtag|direction_backward;808;
-deprecated|deprecated;809;x
-deprecated|deprecated;810;x
+highway|stop;[highway=stop];;;;809;
+highway|give_way;[highway=give_way];;;;810;
 deprecated|deprecated;811;x
 deprecated|deprecated;812;x
 deprecated|deprecated;813;x

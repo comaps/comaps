@@ -529,6 +529,7 @@
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "Pedestrian Tunnel";
 "type.highway.ford" = "Ford";
+"type.highway.give_way" = "Yield Sign";
 "type.highway.living_street" = "Living Street";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "Bridge";
@@ -615,6 +616,7 @@
 "type.highway.steps.bridge" = "Bridge";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "Tunnel";
+"type.highway.stop" = "Stop Sign";
 "type.highway.tertiary" = "Tertiary Road";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "Bridge";

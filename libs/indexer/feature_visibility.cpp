@@ -116,6 +116,13 @@ int GetNondrawableStandaloneIndexScale(uint32_t type, GeomType geomType = GeomTy
   if ((geomType == GeomType::Point || geomType == GeomType::Undefined) && type == region)
     return scales::GetUpperWorldScale();
 
+  static uint32_t const trafficSigns[] = {
+      cl.GetTypeByPath({"highway", "stop"}),
+      cl.GetTypeByPath({"highway", "give_way"}),
+  };
+  if ((geomType == GeomType::Point || geomType == GeomType::Undefined) && base::IsExist(trafficSigns, type))
+    return scales::GetUpperScale();
+
   ftype::TruncValue(type, 1);
   static uint32_t const addr = cl.GetTypeByPath({"addr:interpolation"});
   if ((geomType == GeomType::Line || geomType == GeomType::Undefined) && type == addr)

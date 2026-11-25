@@ -536,6 +536,7 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.footway.tunnel">Pedestrian Tunnel</string>
     <string name="type.highway.ford">Ford</string>
+    <string name="type.highway.give_way">Yield Sign</string>
     <string name="type.highway.living_street">Living Street</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.living_street.bridge">Bridge</string>
@@ -623,6 +624,7 @@
     <string name="type.highway.steps.bridge">Bridge</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.steps.tunnel">Tunnel</string>
+    <string name="type.highway.stop">Stop Sign</string>
     <string name="type.highway.tertiary">Tertiary Road</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.tertiary.bridge">Bridge</string>
