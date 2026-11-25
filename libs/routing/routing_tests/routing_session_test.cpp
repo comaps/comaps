@@ -718,7 +718,9 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestFollowingInfoReference
   GetPlatform().RunTask(Platform::Thread::Gui, [&, this]()
   {
     TEST(m_session->EnableFollowMode(), ());
-    steps = m_session->GetRouteTurnsForDisplay("en");
+    auto const routePlan = m_session->GetRoutePlan("en");
+    if (routePlan)
+      steps = routePlan->m_steps;
 
     location::GpsInfo info;
     info.m_longitude = mercator::XToLon(0.0);
@@ -809,7 +811,9 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRouteStepsKeepRoundabo
   TimedSignal stepsSignal;
   GetPlatform().RunTask(Platform::Thread::Gui, [&, this]()
   {
-    steps = m_session->GetRouteTurnsForDisplay("en");
+    auto const routePlan = m_session->GetRoutePlan("en");
+    if (routePlan)
+      steps = routePlan->m_steps;
     stepsSignal.Signal();
   });
   TEST(stepsSignal.WaitUntil(steady_clock::now() + kRouteBuildingMaxDuration), ("Steps were not read."));
