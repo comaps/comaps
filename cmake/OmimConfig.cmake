@@ -2,6 +2,7 @@
 set(OMIM_WARNING_FLAGS
   $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic>
   $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wno-unused-parameter>  # We have a lot of functions with unused parameters
+  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Werror=misleading-indentation> # Turn warnings into errors.
 )
 set(3PARTY_INCLUDE_DIRS "${OMIM_ROOT}/3party/boost")
 set(OMIM_DATA_DIR "${OMIM_ROOT}/data")
