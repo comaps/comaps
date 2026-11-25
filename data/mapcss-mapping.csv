@@ -965,7 +965,7 @@ deprecated|deprecated;828;x
 deprecated|deprecated;829;x
 deprecated|deprecated;830;x
 deprecated|deprecated;831;x
-deprecated|deprecated;832;x
+entrance|staircase;[entrance=staircase][!indoor];;ref;addr:flats;832;
 deprecated|deprecated;833;x
 deprecated|deprecated;834;x
 deprecated|deprecated;835;x
@@ -1128,7 +1128,7 @@ junction|roundabout;990;
 highway|speed_camera;991;
 shop|beauty;992;
 shop|sports;993;
-entrance|house;[entrance=home][!indoor],[entrance=staircase][!indoor];;ref;addr:flats;994;
+entrance|house;[entrance=home][!indoor];;ref;addr:flats;994;
 entrance|garage;[entrance=garage][!indoor];;ref;addr:flats;995;
 hwtag|nofoot;996;
 place|city|capital|2;[place=city][capital=2],[place=city][capital?][admin_level=2];;name;int_name;997;

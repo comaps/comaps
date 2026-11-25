@@ -465,6 +465,7 @@
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Main Entrance";
 "type.entrance.house" = "House Entrance";
+"type.entrance.staircase" = "Staircase Entrance";
 "type.entrance.garage" = "Garage Entrance";
 "type.entrance.service" = "Service Entrance";
 "type.entrance.entry" = "Entry (Only)";

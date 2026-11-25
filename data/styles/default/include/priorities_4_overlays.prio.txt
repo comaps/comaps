@@ -2543,6 +2543,7 @@ tourism-information-tactile_map                     # icon z16- (also has captio
 amenity                                             # caption z19-
 amenity-telephone                                   # icon z17- (also has caption(optional) z19-)
 entrance-house                                      # icon z18- (also has caption(optional) z19-)
+entrance-staircase                                  # icon z18- (also has caption(optional) z19-)
 === -9950
 
 entrance-garage                                     # icon z19- (also has caption(optional) z19-)
@@ -2627,6 +2628,7 @@ amenity-loading_dock                                # icon z19- (also has captio
 # entrance-house                                    # caption(optional) z19- (also has icon z18-)
 entrance-service                                    # icon z19- (also has caption(optional) z19-)
 # entrance-service                                  # caption(optional) z19- (also has icon z19-)
+# entrance-staircase                                # caption(optional) z19- (also has icon z18-)
 # man_made-cairn                                    # caption(optional) z19- (also has icon z19-)
 # man_made-survey_point                             # caption(optional) z18- (also has icon z18-)
 # man_made-telescope                                # caption(optional) z18- (also has icon z18-)

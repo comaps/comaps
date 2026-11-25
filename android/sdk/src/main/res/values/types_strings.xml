@@ -470,6 +470,7 @@
     <!-- This is for main/primary entrances, for secondary entrances see type.entrance -->
     <string name="type.entrance.main">Main Entrance</string>
     <string name="type.entrance.house">House Entrance</string>
+    <string name="type.entrance.staircase">Staircase Entrance</string>
     <string name="type.entrance.garage">Garage Entrance</string>
     <string name="type.entrance.service">Service Entrance</string>
     <string name="type.entrance.entry">Entry (Only)</string>
