@@ -5,7 +5,9 @@ import android.text.SpannableStringBuilder;
 import android.text.style.CharacterStyle;
 import android.text.style.ImageSpan;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import app.organicmaps.sdk.routing.RoadInfo;
+import app.organicmaps.sdk.routing.RouteStepInfo;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.routing.roadshield.RoadShield;
 import app.organicmaps.sdk.routing.roadshield.RoadShieldInfo;
@@ -18,33 +20,80 @@ public class RoadShieldUtils
     CharacterStyle create(@NonNull RoadShieldDrawable roadShieldDrawable);
   }
 
+  public static final class RoadDescription
+  {
+    final String street;
+    @Nullable
+    final RoadShieldInfo shields;
+    final String name;
+    final String ref;
+    final String junctionRef;
+    final String destinationRef;
+    final String destination;
+    final boolean isLink;
+    final boolean isLeftHandTraffic;
+
+    public RoadDescription(String street, @Nullable RoadShieldInfo shields, String name, String ref,
+                           String junctionRef, String destinationRef, String destination, boolean isLink,
+                           boolean isLeftHandTraffic)
+    {
+      this.street = street;
+      this.shields = shields;
+      this.name = name;
+      this.ref = ref;
+      this.junctionRef = junctionRef;
+      this.destinationRef = destinationRef;
+      this.destination = destination;
+      this.isLink = isLink;
+      this.isLeftHandTraffic = isLeftHandTraffic;
+    }
+
+    @NonNull
+    public static RoadDescription forNext(@NonNull RoutingInfo info)
+    {
+      final RoadInfo r = info.nextRoadInfo;
+      return new RoadDescription(info.getNextRoadName(), r.shields, r.name, r.ref, r.junctionRef, r.destinationRef,
+                                 r.destination, r.isLink, info.isLeftHandTraffic);
+    }
+
+    @NonNull
+    public static RoadDescription forStep(@NonNull RouteStepInfo step, boolean isLeftHandTraffic)
+    {
+      final String name = step.toStreetName == null ? "" : step.toStreetName;
+      final String street = step.toFormattedRoadName.isEmpty() ? name : step.toFormattedRoadName;
+      return new RoadDescription(street, step.toRoadShields, name, step.toRef, step.toJunctionRef,
+                                 step.toDestinationRef, step.toDestination, step.toIsLink, isLeftHandTraffic);
+    }
+  }
+
   @NonNull
   public static CharSequence composeInstruction(@NonNull RoutingInfo info, float textSize)
   {
-    return composeInstruction(RoadShieldUtils::createRoadShieldSpan, info, textSize, true);
+    return composeInstruction(RoadShieldUtils::createRoadShieldSpan, RoadDescription.forNext(info), textSize, true,
+                              /* multiline */ true);
   }
 
   @NonNull
   public static CharSequence composeInstruction(@NonNull RoadShieldSpanCreator roadShieldSpanCreator,
-                                                @NonNull RoutingInfo info, float textSize, boolean drawOutline)
+                                                @NonNull RoadDescription road, float textSize, boolean drawOutline,
+                                                boolean multiline)
   {
-    final RoadInfo nextRoadInfo = info.nextRoadInfo;
-    final RoadShieldInfo roadShields = nextRoadInfo.shields;
-    final String formattedRoadName = info.getNextRoadName();
-    if (nextRoadInfo.name.isEmpty() && nextRoadInfo.ref.isEmpty() && nextRoadInfo.junctionRef.isEmpty()
-        && nextRoadInfo.destinationRef.isEmpty() && nextRoadInfo.destination.isEmpty())
+    final RoadShieldInfo roadShields = road.shields;
+    final String formattedRoadName = road.street;
+    if (road.name.isEmpty() && road.ref.isEmpty() && road.junctionRef.isEmpty() && road.destinationRef.isEmpty()
+        && road.destination.isEmpty())
       return formattedRoadName;
 
     final StringBuilder text = new StringBuilder();
-    final boolean hasExitInfo = !nextRoadInfo.junctionRef.isEmpty() || !nextRoadInfo.destinationRef.isEmpty()
-        || !nextRoadInfo.destination.isEmpty();
+    final boolean hasExitInfo =
+        !road.junctionRef.isEmpty() || !road.destinationRef.isEmpty() || !road.destination.isEmpty();
     int junctionInsertPos = -1;
     int targetInsertPos = -1;
 
     // These follow roughly the same rules as GetRoadFullName in routing_session.cpp
-    if (nextRoadInfo.isLink || hasExitInfo)
+    if (road.isLink || hasExitInfo)
     {
-      if (!nextRoadInfo.junctionRef.isEmpty())
+      if (!road.junctionRef.isEmpty())
       {
         if (roadShields != null && roadShields.hasJunctionRoadShields())
         {
@@ -52,10 +101,10 @@ public class RoadShieldUtils
           appendShieldText(text, roadShields.junctionRoadShields);
         }
         else
-          text.append(nextRoadInfo.junctionRef);
+          text.append(road.junctionRef);
       }
 
-      if (!nextRoadInfo.destinationRef.isEmpty())
+      if (!road.destinationRef.isEmpty())
       {
         if (text.length() > 0)
           text.append(": ");
@@ -65,23 +114,23 @@ public class RoadShieldUtils
           appendShieldText(text, roadShields.targetRoadShields);
         }
         else
-          text.append(nextRoadInfo.destinationRef);
+          text.append(road.destinationRef);
       }
 
-      if (!nextRoadInfo.destination.isEmpty())
+      if (!road.destination.isEmpty())
       {
         if (text.length() > 0)
-          text.append("\n");
-        text.append(String.join(" / ", nextRoadInfo.destination.split("\\s*;\\s*")));
+          text.append(multiline ? "\n" : " ");
+        text.append(String.join(" / ", road.destination.split("\\s*;\\s*")));
       }
-      else if (!nextRoadInfo.name.isEmpty())
+      else if (!road.name.isEmpty())
       {
-        append(text, nextRoadInfo.name);
+        append(text, road.name);
       }
     }
     else
     {
-      if (!nextRoadInfo.ref.isEmpty())
+      if (!road.ref.isEmpty())
       {
         if (roadShields != null && roadShields.hasTargetRoadShields())
         {
@@ -89,9 +138,9 @@ public class RoadShieldUtils
           appendShieldText(text, roadShields.targetRoadShields);
         }
       }
-      if (!nextRoadInfo.name.isEmpty())
+      if (!road.name.isEmpty())
       {
-        append(text, nextRoadInfo.name);
+        append(text, road.name);
       }
     }
 
@@ -103,24 +152,21 @@ public class RoadShieldUtils
     final float shieldTextSize = textSize * 0.85f;
     if (roadShields != null)
     {
-      if (nextRoadInfo.isLink || hasExitInfo)
+      if (road.isLink || hasExitInfo)
       {
-        if (!nextRoadInfo.junctionRef.isEmpty() && roadShields.hasJunctionRoadShields())
-          insertShields(roadShieldSpanCreator, result,
-                  roadShields.junctionRoadShields,
-                  shieldTextSize, drawOutline, true, info.isLeftHandTraffic, junctionInsertPos);
+        if (!road.junctionRef.isEmpty() && roadShields.hasJunctionRoadShields())
+          insertShields(roadShieldSpanCreator, result, roadShields.junctionRoadShields, shieldTextSize, drawOutline,
+                        true, road.isLeftHandTraffic, junctionInsertPos);
 
-        if (!nextRoadInfo.destinationRef.isEmpty() && roadShields.hasTargetRoadShields())
-          insertShields(roadShieldSpanCreator, result,
-                  roadShields.targetRoadShields,
-                  shieldTextSize, drawOutline, false, false, targetInsertPos);
+        if (!road.destinationRef.isEmpty() && roadShields.hasTargetRoadShields())
+          insertShields(roadShieldSpanCreator, result, roadShields.targetRoadShields, shieldTextSize, drawOutline,
+                        false, false, targetInsertPos);
       }
       else
       {
-        if (!nextRoadInfo.ref.isEmpty() && roadShields.hasTargetRoadShields())
-          insertShields(roadShieldSpanCreator, result,
-                  roadShields.targetRoadShields,
-                  shieldTextSize, drawOutline, false, false, targetInsertPos);
+        if (!road.ref.isEmpty() && roadShields.hasTargetRoadShields())
+          insertShields(roadShieldSpanCreator, result, roadShields.targetRoadShields, shieldTextSize, drawOutline,
+                        false, false, targetInsertPos);
       }
     }
 

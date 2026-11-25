@@ -1,7 +1,6 @@
 package app.organicmaps.car.util;
 
 import android.graphics.Bitmap;
-import android.text.TextUtils;
 import android.text.style.CharacterStyle;
 import android.util.TypedValue;
 import androidx.annotation.NonNull;
@@ -16,8 +15,12 @@ import androidx.car.app.navigation.model.TravelEstimate;
 import androidx.car.app.navigation.model.Trip;
 import androidx.core.graphics.drawable.IconCompat;
 import app.organicmaps.sdk.bookmarks.data.MapObject;
+import app.organicmaps.sdk.routing.CarDirection;
 import app.organicmaps.sdk.routing.LaneInfo;
 import app.organicmaps.sdk.routing.LaneWay;
+import app.organicmaps.sdk.routing.RoutePlan;
+import app.organicmaps.sdk.routing.RouteStepInfo;
+import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.util.Distance;
 import app.organicmaps.sdk.widget.roadshield.RoadShieldDrawable;
@@ -60,8 +63,9 @@ public final class RoutingUtils
 
     // TODO (AndrewShkrob): Use real distance and time estimates
     builder.addStep(createCurrentStep(context, info), createTravelEstimate(info.distToTurn, 0));
-    if (!TextUtils.isEmpty(info.getNextRoadName()))
-      builder.addStep(createNextStep(context, info), createTravelEstimate(Distance.EMPTY, 0));
+    final RouteStepInfo nextNext = nextNextStep(info);
+    if (nextNext != null)
+      builder.addStep(createNextStep(context, info, nextNext), createTravelEstimate(Distance.EMPTY, 0));
     return builder.build();
   }
 
@@ -69,10 +73,11 @@ public final class RoutingUtils
   private static Step createCurrentStep(@NonNull final CarContext context, @NonNull RoutingInfo info)
   {
     final Step.Builder builder = new Step.Builder();
-    final float shieldTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 42f,
+    final float shieldTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 72f,
                                                            context.getResources().getDisplayMetrics());
-    builder.setCue(RoadShieldUtils.composeInstruction(RoutingUtils::createRoadShieldSpan, info, shieldTextSize,
-                                                      /* drawOutline */ false));
+    builder.setCue(RoadShieldUtils.composeInstruction(RoutingUtils::createRoadShieldSpan,
+                                                      RoadShieldUtils.RoadDescription.forNext(info), shieldTextSize,
+                                                      /* drawOutline */ false, /* multiline */ true));
     builder.setRoad(info.getNextRoadName());
     builder.setManeuver(RoutingHelpers.createManeuver(context, info.carDirection, info.exitNum));
     if (info.lanes != null)
@@ -93,12 +98,35 @@ public final class RoutingUtils
     return builder.build();
   }
 
+  @Nullable
+  private static RouteStepInfo nextNextStep(@NonNull RoutingInfo info)
+  {
+    if (info.currentStep == null)
+      return null;
+    final RoutePlan plan = RoutingController.get().getCachedRoutePlan();
+    if (plan == null)
+      return null;
+    final int wanted = info.currentStep + 1;
+    for (final RouteStepInfo step : plan.steps)
+      if (step.sequence == wanted)
+        return step;
+    return null;
+  }
+
   @NonNull
-  private static Step createNextStep(@NonNull final CarContext context, @NonNull RoutingInfo info)
+  private static Step createNextStep(@NonNull final CarContext context, @NonNull RoutingInfo info,
+                                     @NonNull RouteStepInfo step)
   {
     final Step.Builder builder = new Step.Builder();
-    builder.setCue(info.nextNextStreet);
-    builder.setManeuver(RoutingHelpers.createManeuver(context, info.nextCarDirection, 0));
+    final float shieldTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 72f,
+                                                           context.getResources().getDisplayMetrics());
+    builder.setCue(RoadShieldUtils.composeInstruction(RoutingUtils::createRoadShieldSpan,
+                                                      RoadShieldUtils.RoadDescription.forStep(step, info.isLeftHandTraffic),
+                                                      shieldTextSize, /* drawOutline */ false, /* multiline */ false));
+    final CarDirection direction = (step.turnDirection >= 0 && step.turnDirection < CarDirection.values().length)
+        ? CarDirection.values()[step.turnDirection]
+        : CarDirection.values()[0];
+    builder.setManeuver(RoutingHelpers.createManeuver(context, direction, step.exitNum));
 
     return builder.build();
   }
