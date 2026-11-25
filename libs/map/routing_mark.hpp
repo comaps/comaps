@@ -15,6 +15,7 @@
 
 #include <functional>
 #include <string>
+#include <string_view>
 
 enum class RouteMarkType : uint8_t
 {
@@ -210,19 +211,20 @@ private:
   dp::TitleDecl m_titleDecl;
 };
 
-class TrafficLightMark : public UserMark
+class TrafficSignMark : public UserMark
 {
 public:
-  explicit TrafficLightMark(m2::PointD const & ptOrg);
+  explicit TrafficSignMark(m2::PointD const & ptOrg);
 
   bool SymbolIsPOI() const override { return true; }
   df::DepthLayer GetDepthLayer() const override { return df::DepthLayer::RoutingMarkLayer; }
-  uint16_t GetPriority() const override { return static_cast<uint16_t>(Priority::TrafficLight); }
+  uint16_t GetPriority() const override { return static_cast<uint16_t>(Priority::TrafficSign); }
   df::SpecialDisplacement GetDisplacement() const override { return df::SpecialDisplacement::SpecialModeUserMark; }
   
   void SetFeatureId(FeatureID const & featureId);
   FeatureID GetFeatureID() const override { return m_featureId; }
   
+  void SetSymbol(std::string_view name);
   drape_ptr<SymbolNameZoomInfo> GetSymbolNames() const override;
 
   int GetMinZoom() const override;

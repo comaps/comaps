@@ -40,6 +40,8 @@
 #include <mutex>
 #include <optional>
 #include <string>
+#include <string_view>
+#include <tuple>
 #include <vector>
 
 class StringsBundle;
@@ -373,14 +375,13 @@ private:
   using RoadWarningsCollection = std::map<routing::RoutingOptions::Option, std::vector<RoadInfo>>;
 
   using GetMwmIdFn = std::function<MwmSet::MwmId(routing::NumMwmId numMwmId)>;
-  void CollectFeaturesAlongRoute(std::vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,
-                                 uint32_t featureType, std::vector<std::pair<m2::PointD, FeatureID>> & outFeatures);
   void CollectRoadWarnings(std::vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,
                            double baseDistance, GetMwmIdFn const & getMwmIdFn, RoadWarningsCollection & roadWarnings);
   void CreateRoadWarningMarks(RoadWarningsCollection && roadWarnings);
-  void CollectTrafficLights(std::vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,
-                            std::vector<std::pair<m2::PointD, FeatureID>> & trafficLights);
-  void CreateTrafficLightMarks(std::vector<std::pair<m2::PointD, FeatureID>> && trafficLights);
+  using TrafficSignsCollection = std::vector<std::tuple<m2::PointD, FeatureID, std::string_view>>;
+  void CollectTrafficSigns(std::vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,
+                           TrafficSignsCollection & trafficSigns);
+  void CreateTrafficSignMarks(TrafficSignsCollection && trafficSigns);
 
   /// \returns false if the location could not be matched to the route and should be matched to the
   /// road graph. Otherwise returns true.

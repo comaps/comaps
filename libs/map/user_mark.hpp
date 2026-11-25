@@ -39,7 +39,7 @@ public:
     RoadWarningFirstDirty,
     RoadWarningFirstToll,
     RoadWarningFirstFerry,
-    TrafficLight,
+    TrafficSign,
   };
 
   /**
@@ -74,7 +74,7 @@ public:
     DEBUG_MARK,  // Plain "DEBUG" results in a name collision.
     /** `ColoredMarkPoint` */
     COLORED,
-    TRAFFIC_LIGHT,
+    TRAFFIC_SIGN,
     USER_MARK_TYPES_COUNT,
     USER_MARK_TYPES_COUNT_MAX = 1000,
   };

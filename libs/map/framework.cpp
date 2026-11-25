@@ -658,11 +658,11 @@ void Framework::FillUserMarkInfo(UserMark const * mark, place_page::Info & outIn
     break;
   }
 
-  case UserMark::Type::TRAFFIC_LIGHT:
+  case UserMark::Type::TRAFFIC_SIGN:
   {
-    auto const * tlMark = static_cast<TrafficLightMark const *>(mark);
-    if (tlMark->GetFeatureID().IsValid())
-      FillFeatureInfo(tlMark->GetFeatureID(), outInfo);
+    auto const * signMark = static_cast<TrafficSignMark const *>(mark);
+    if (signMark->GetFeatureID().IsValid())
+      FillFeatureInfo(signMark->GetFeatureID(), outInfo);
     break;
   }
 

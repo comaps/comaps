@@ -669,7 +669,7 @@ void RoutingManager::RemoveRoute(bool deactivateFollowing)
       auto es = m_bmManager->GetEditSession();
       es.ClearGroup(UserMark::Type::TRANSIT);
       es.ClearGroup(UserMark::Type::SPEED_CAM);
-      es.ClearGroup(UserMark::Type::TRAFFIC_LIGHT);
+      es.ClearGroup(UserMark::Type::TRAFFIC_SIGN);
       es.ClearGroup(UserMark::Type::ROAD_WARNING);
     }
     if (deactivateFollowing)
@@ -702,12 +702,17 @@ void RoutingManager::RemoveRoute(bool deactivateFollowing)
   }
 }
 
-void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segments, m2::PointD const & startPt,
-                                               uint32_t featureType,
-                                               vector<std::pair<m2::PointD, FeatureID>> & outFeatures)
+void RoutingManager::CollectTrafficSigns(vector<RouteSegment> const & segments, m2::PointD const & startPt,
+                                         TrafficSignsCollection & trafficSigns)
 {
   ASSERT(!segments.empty(), ());
-  ASSERT_NOT_EQUAL(featureType, Classificator::INVALID_TYPE, ());
+
+  // Traffic signs shown on the route, with the symbol drawn for each. To add a sign, add it here.
+  // If it has no drawing rules, also add it to GetNondrawableStandaloneIndexScale() in
+  // feature_visibility.cpp.
+  static std::pair<uint32_t, std::string_view> const kSigns[] = {
+      {classif().GetTypeByPath({"highway", "traffic_signals"}), "traffic_signals"},
+  };
 
   double constexpr kSearchRadiusM = 0.3;  // radius (in meters)
   double const kSearchRadiusMercator = mercator::MetersToMercator(kSearchRadiusM);
@@ -726,8 +731,8 @@ void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segm
         return;
 
       feature::TypesHolder types(ft);
-      // Does this feature match the type we passed in?
-      if (!types.Has(featureType))
+      auto const sign = base::FindIf(kSigns, [&types](auto const & s) { return types.Has(s.first); });
+      if (sign == std::end(kSigns))
         return;
 
       m2::PointD const pt = feature::GetCenter(ft);
@@ -756,7 +761,7 @@ void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segm
       if (minSqDist >= kSearchRadiusMercator * kSearchRadiusMercator)
         return;
 
-      // If the signal has a direction hwtag, only include it when it
+      // If the sign has a direction hwtag, only include it when it
       // faces the direction the route is travelling on that road.
       static uint32_t const kForwardType = classif().GetTypeByPath({"hwtag", "traffic_signals_forward"});
       static uint32_t const kBackwardType = classif().GetTypeByPath({"hwtag", "traffic_signals_backward"});
@@ -765,7 +770,7 @@ void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segm
       if (types.Has(kBackwardType) && closestSegIsForward)
         return;
 
-      outFeatures.emplace_back(pt, ft.GetID());
+      trafficSigns.emplace_back(pt, ft.GetID(), sign->second);
     }, queryRect, scales::GetUpperScale());
   };
 
@@ -785,7 +790,7 @@ void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segm
   if (currentRect.IsValid())
     processChunk(currentRect);
 
-  base::SortUnique(outFeatures);
+  base::SortUnique(trafficSigns);
 }
 
 void RoutingManager::CollectRoadWarnings(vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,
@@ -855,24 +860,18 @@ void RoutingManager::CreateRoadWarningMarks(RoadWarningsCollection && roadWarnin
   });
 }
 
-void RoutingManager::CollectTrafficLights(vector<RouteSegment> const & segments, m2::PointD const & startPt,
-                                          vector<std::pair<m2::PointD, FeatureID>> & trafficLights)
+void RoutingManager::CreateTrafficSignMarks(TrafficSignsCollection && trafficSigns)
 {
-  static uint32_t const type = classif().GetTypeByPath({"highway", "traffic_signals"});
-  CollectFeaturesAlongRoute(segments, startPt, type, trafficLights);
-}
+  ASSERT(!trafficSigns.empty(), ());
 
-void RoutingManager::CreateTrafficLightMarks(vector<std::pair<m2::PointD, FeatureID>> && trafficLights)
-{
-  ASSERT(!trafficLights.empty(), ());
-
-  GetPlatform().RunTask(Platform::Thread::Gui, [this, trafficLights = std::move(trafficLights)]()
+  GetPlatform().RunTask(Platform::Thread::Gui, [this, trafficSigns = std::move(trafficSigns)]()
   {
     auto es = m_bmManager->GetEditSession();
-    for (auto const & item : trafficLights)
+    for (auto const & [point, featureId, symbol] : trafficSigns)
     {
-      auto mark = es.CreateUserMark<TrafficLightMark>(item.first);
-      mark->SetFeatureId(item.second);
+      auto mark = es.CreateUserMark<TrafficSignMark>(point);
+      mark->SetSymbol(symbol);
+      mark->SetFeatureId(featureId);
     }
   });
 }
@@ -889,7 +888,7 @@ bool RoutingManager::InsertRoute(Route const & route)
   { return m_callbacks.m_dataSourceGetter().GetMwmIdByCountryFile(m_numMwmIDs->GetFile(numMwmId)); };
 
   RoadWarningsCollection roadWarnings;
-  vector<std::pair<m2::PointD, FeatureID>> trafficLights;
+  TrafficSignsCollection trafficSigns;
 
   bool const isTransitRoute = (m_currentRouterType == RouterType::Transit);
   shared_ptr<TransitRouteDisplay> transitRouteDisplay;
@@ -953,7 +952,7 @@ bool RoutingManager::InsertRoute(Route const & route)
 
     CollectRoadWarnings(segments, startPt, subroute->m_baseDistance, getMwmId, roadWarnings);
     if (m_currentRouterType == RouterType::Vehicle)
-      CollectTrafficLights(segments, startPt, trafficLights);
+      CollectTrafficSigns(segments, startPt, trafficSigns);
 
     auto const subrouteId =
         m_drapeEngine.SafeCallWithResult(&df::DrapeEngine::AddSubroute, df::SubrouteConstPtr(subroute.release()));
@@ -979,8 +978,8 @@ bool RoutingManager::InsertRoute(Route const & route)
   if (hasWarnings && m_currentRouterType == RouterType::Vehicle)
     CreateRoadWarningMarks(std::move(roadWarnings));
 
-  if (!trafficLights.empty() && m_currentRouterType == RouterType::Vehicle)
-    CreateTrafficLightMarks(std::move(trafficLights));
+  if (!trafficSigns.empty() && m_currentRouterType == RouterType::Vehicle)
+    CreateTrafficSignMarks(std::move(trafficSigns));
 
   return hasWarnings;
 }
