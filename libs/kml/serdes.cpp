@@ -917,7 +917,7 @@ bool KmlParser::IsProcessTrackTag() const
 bool KmlParser::IsProcessTrackCoord() const
 {
   size_t const n = m_tags.size();
-  return n >= 4 && IsTrack(m_tags[n - 2]) && IsCoord(m_tags[n - 1]);
+  return n >= 4 && IsTrack(m_tags[n - 2]) && IsCoord(m_tags[n - 1]) && !m_geometry.m_lines.empty();
 }
 
 void KmlParser::Pop(std::string_view tag)
@@ -1071,6 +1071,9 @@ void KmlParser::CharData(std::string & value)
     {
       if (!IsTrack(prevTag))
         return false;
+
+      if (m_geometry.m_lines.empty() || m_geometry.m_timestamps.empty())
+        return true;
 
       if (IsTimestamp(currTag))
       {
