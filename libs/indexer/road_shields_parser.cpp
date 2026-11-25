@@ -1429,7 +1429,7 @@ RoadShieldsSetT GetRoadShields(std::string_view mwmNameFull, std::string const &
     return MalaysiaRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Mexico")
     return MexicoRoadShieldParser(roadNumber).GetRoadShields();
-    if (mwmName == "Morocco")
+  if (mwmName == "Morocco")
     return MoroccoRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Cyprus")
     return CyprusRoadShieldParser(roadNumber).GetRoadShields();
