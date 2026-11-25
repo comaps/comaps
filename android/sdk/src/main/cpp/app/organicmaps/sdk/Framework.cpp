@@ -1005,6 +1005,12 @@ JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_Framework_nativeGetParsedOAut
   return jni::ToJavaString(env, code);
 }
 
+JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_Framework_nativeGetParsedOAuth2State(JNIEnv * env, jclass)
+{
+  std::string const & state = frm()->GetParsedOAuth2State();
+  return jni::ToJavaString(env, state);
+}
+
 JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_Framework_nativeGetParsedBackUrl(JNIEnv * env, jclass)
 {
   std::string const & backUrl = frm()->GetParsedBackUrl();

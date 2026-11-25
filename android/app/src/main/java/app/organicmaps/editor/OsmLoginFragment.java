@@ -42,26 +42,21 @@ public class OsmLoginFragment extends BaseMwmToolbarFragment
     registerButton.setOnClickListener((v) -> Utils.openUrl(requireActivity(), Constants.Url.OSM_REGISTER));
     mLoginButton.setOnClickListener((v) -> loginWithBrowser());
 
-    String code = readOAuth2CodeFromArguments();
-    if (code != null && !code.isEmpty())
-      continueOAuth2Flow(code);
+    final Bundle arguments = getArguments();
+    if (arguments != null)
+    {
+      final String code = arguments.getString(OsmLoginActivity.EXTRA_OAUTH2CODE);
+      if (code != null && !code.isEmpty())
+        continueOAuth2Flow(code, arguments.getString(OsmLoginActivity.EXTRA_OAUTH2STATE));
+    }
 
     ScrollView scrollView = view.findViewById(R.id.scrollView);
     ViewCompat.setOnApplyWindowInsetsListener(scrollView, new ScrollableContentInsetsListener(scrollView));
   }
 
-  private String readOAuth2CodeFromArguments()
-  {
-    final Bundle arguments = getArguments();
-    if (arguments == null)
-      return null;
-
-    return arguments.getString(OsmLoginActivity.EXTRA_OAUTH2CODE);
-  }
-
   private void loginWithBrowser()
   {
-    Utils.openUri(requireContext(), Uri.parse(OsmOAuth.nativeGetOAuth2Url()), R.string.browser_not_available);
+    Utils.openUri(requireContext(), Uri.parse(OsmOAuth.startOAuth2Flow()), R.string.browser_not_available);
   }
 
   private void processAuth(String oauthToken, String username)
@@ -95,18 +90,19 @@ public class OsmLoginFragment extends BaseMwmToolbarFragment
   }
 
   // This method is called by MwmActivity & UrlProcessor when "{OSM_OAUTH2_REDIRECT_URI}?code=XXX" is handled
-  private void continueOAuth2Flow(String oauth2code)
+  private void continueOAuth2Flow(@NonNull String oauth2code, @Nullable String oauth2state)
   {
     if (!isAdded())
       return;
 
-    if (oauth2code == null || oauth2code.isEmpty())
+    final String codeVerifier = OsmOAuth.consumeOAuth2CodeVerifier(oauth2state);
+    if (codeVerifier == null)
       onAuthFail();
     else
     {
       ThreadPool.getWorker().execute(() -> {
         // Finish OAuth2 auth flow and get username for UI.
-        final String oauthToken = OsmOAuth.nativeAuthWithOAuth2Code(oauth2code);
+        final String oauthToken = OsmOAuth.nativeAuthWithOAuth2Code(oauth2code, codeVerifier);
         final String username = (oauthToken == null) ? null : OsmOAuth.nativeGetOsmUsername(oauthToken);
         UiThread.run(() -> processAuth(oauthToken, username));
       });

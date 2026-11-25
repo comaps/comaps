@@ -1,3 +1,4 @@
+import CryptoKit
 import Network
 import OSMEditor
 
@@ -21,6 +22,12 @@ import OSMEditor
     static private let userDefaultsNeedsReauthorization = "AuthNeedCheck"
     
     
+    static private let userDefaultsKeyOAuth2State = "OSMOAuth2State"
+    
+    
+    static private let userDefaultsKeyOAuth2CodeVerifier = "OSMOAuth2CodeVerifier"
+    
+    
     /// The URL for registering an OpenStreetMap profile
     static var registrationUrl: URL {
         return URL(string: String(describing: osm.OsmOAuth.ServerAuth().GetRegistrationURL()))!
@@ -29,7 +36,21 @@ import OSMEditor
     
     /// The URL for letting an OpenStreetMap profile authorize this app
     static var authorizationUrl: URL {
-        return URL(string: String(describing: osm.OsmOAuth.ServerAuth().BuildOAuth2Url()))!
+        let userDefaults = UserDefaults.standard
+        let state: String
+        let codeVerifier: String
+        if let storedState = userDefaults.string(forKey: userDefaultsKeyOAuth2State),
+           let storedCodeVerifier = userDefaults.string(forKey: userDefaultsKeyOAuth2CodeVerifier) {
+            state = storedState
+            codeVerifier = storedCodeVerifier
+        } else {
+            state = randomUrlSafeString()
+            codeVerifier = randomUrlSafeString()
+            userDefaults.set(state, forKey: userDefaultsKeyOAuth2State)
+            userDefaults.set(codeVerifier, forKey: userDefaultsKeyOAuth2CodeVerifier)
+        }
+        let codeChallenge = base64UrlEncoded(Data(SHA256.hash(data: Data(codeVerifier.utf8))))
+        return URL(string: String(describing: osm.OsmOAuth.ServerAuth().BuildOAuth2Url(std.string(state), std.string(codeChallenge))))!
     }
     
     
@@ -106,10 +127,17 @@ import OSMEditor
     
     /// Save the authorization token based on a code during the Oauth process
     /// - Parameter authorizationCode: The code
-    static func saveAuthorizationToken(from authorizationCode: String) async {
+    static func saveAuthorizationToken(from authorizationCode: String, state: String?) async {
+        guard let codeVerifier = consumeCodeVerifier(for: state) else {
+            return
+        }
+        
         var serverAuth = osm.OsmOAuth.ServerAuth()
         
-        let authorizationToken = String(describing: serverAuth.FinishAuthorization(std.string(authorizationCode)))
+        let authorizationToken = String(describing: serverAuth.FinishAuthorization(std.string(authorizationCode), std.string(codeVerifier)))
+        guard !authorizationToken.isEmpty else {
+            return
+        }
         
         serverAuth.SetAuthToken(std.string(authorizationToken))
         
@@ -120,6 +148,35 @@ import OSMEditor
             userDefaults.set(Int(userPreferences.m_changesets), forKey: userDefaultsKeyNumberOfEdits)
             userDefaults.set(false, forKey: userDefaultsNeedsReauthorization)
         }
+    }
+    
+    
+    static private func consumeCodeVerifier(for state: String?) -> String? {
+        let userDefaults = UserDefaults.standard
+        guard let state,
+              let expectedState = userDefaults.string(forKey: userDefaultsKeyOAuth2State),
+              let codeVerifier = userDefaults.string(forKey: userDefaultsKeyOAuth2CodeVerifier),
+              Data(state.utf8) == Data(expectedState.utf8) else {
+            return nil
+        }
+        userDefaults.removeObject(forKey: userDefaultsKeyOAuth2State)
+        userDefaults.removeObject(forKey: userDefaultsKeyOAuth2CodeVerifier)
+        return codeVerifier
+    }
+    
+    
+    static private func randomUrlSafeString() -> String {
+        var generator = SystemRandomNumberGenerator()
+        let bytes = (0..<32).map { _ in UInt8.random(in: UInt8.min...UInt8.max, using: &generator) }
+        return base64UrlEncoded(Data(bytes))
+    }
+    
+    
+    static private func base64UrlEncoded(_ data: Data) -> String {
+        return data.base64EncodedString()
+            .replacingOccurrences(of: "+", with: "-")
+            .replacingOccurrences(of: "/", with: "_")
+            .replacingOccurrences(of: "=", with: "")
     }
     
     

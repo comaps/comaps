@@ -148,13 +148,11 @@
       // Not supported on iOS.
       return false;
     case .oAuth2:
-      var components = url.absoluteString.components(separatedBy: "cm://oauth2/osm/callback?code=")
-      components.removeAll { component in
-        component.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-      }
-      if let code = components.first {
+      let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems ?? []
+      let state = queryItems.first { $0.name == "state" }?.value
+      if let code = queryItems.first(where: { $0.name == "code" })?.value, !code.isEmpty {
         Task(priority: .userInitiated) {
-          await Profile.saveAuthorizationToken(from: code)
+          await Profile.saveAuthorizationToken(from: code, state: state)
           DispatchQueue.main.sync {
             NotificationCenter.default.post(name: SafariView.dismissNotificationName, object: nil)
           }

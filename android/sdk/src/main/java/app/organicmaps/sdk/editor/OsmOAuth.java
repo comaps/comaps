@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
+import android.util.Base64;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.Size;
@@ -20,6 +21,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 public final class OsmOAuth
 {
@@ -34,6 +39,11 @@ public final class OsmOAuth
   private static final String PREF_OSM_CHANGESETS_COUNT = "OsmChangesetsCount";
   private static final String PREF_OSM_OAUTH2_TOKEN = "OsmOAuth2Token";
   private static final String PREF_OSM_PROFILE_PICTURE_URL = "OsmProfilePictureUrl";
+  private static final String PREF_OSM_OAUTH2_STATE = "OsmOAuth2State";
+  private static final String PREF_OSM_OAUTH2_CODE_VERIFIER = "OsmOAuth2CodeVerifier";
+  private static final int OAUTH2_RANDOM_BYTES = 32;
+  private static final int BASE64_URL_FLAGS = Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP;
+  private static final SecureRandom sSecureRandom = new SecureRandom();
   private static final String PROFILE_PICTURE_FILENAME = "osm_profile_picture.png";
 
   public static final String URL_PARAM_VERIFIER = "oauth_verifier";
@@ -150,6 +160,55 @@ public final class OsmOAuth
     mPrefs.edit().putString(PREF_OSM_OAUTH2_TOKEN, oauthToken).putString(PREF_OSM_USERNAME, username).apply();
   }
 
+  @NonNull
+  public static String startOAuth2Flow()
+  {
+    final String state = generateRandomUrlSafeString();
+    final String codeVerifier = generateRandomUrlSafeString();
+    mPrefs.edit()
+        .putString(PREF_OSM_OAUTH2_STATE, state)
+        .putString(PREF_OSM_OAUTH2_CODE_VERIFIER, codeVerifier)
+        .apply();
+    return nativeBuildOAuth2Url(state, computeCodeChallenge(codeVerifier));
+  }
+
+  @Nullable
+  public static String consumeOAuth2CodeVerifier(@Nullable String state)
+  {
+    final String expectedState = mPrefs.getString(PREF_OSM_OAUTH2_STATE, null);
+    final String codeVerifier = mPrefs.getString(PREF_OSM_OAUTH2_CODE_VERIFIER, null);
+    if (state == null || expectedState == null || codeVerifier == null
+        || !MessageDigest.isEqual(expectedState.getBytes(StandardCharsets.US_ASCII),
+                                  state.getBytes(StandardCharsets.US_ASCII)))
+      return null;
+
+    mPrefs.edit().remove(PREF_OSM_OAUTH2_STATE).remove(PREF_OSM_OAUTH2_CODE_VERIFIER).apply();
+    return codeVerifier;
+  }
+
+  @NonNull
+  private static String generateRandomUrlSafeString()
+  {
+    final byte[] bytes = new byte[OAUTH2_RANDOM_BYTES];
+    sSecureRandom.nextBytes(bytes);
+    return Base64.encodeToString(bytes, BASE64_URL_FLAGS);
+  }
+
+  @NonNull
+  private static String computeCodeChallenge(@NonNull String codeVerifier)
+  {
+    try
+    {
+      final byte[] digest =
+          MessageDigest.getInstance("SHA-256").digest(codeVerifier.getBytes(StandardCharsets.US_ASCII));
+      return Base64.encodeToString(digest, BASE64_URL_FLAGS);
+    }
+    catch (NoSuchAlgorithmException e)
+    {
+      throw new IllegalStateException("SHA-256 is not available", e);
+    }
+  }
+
   public static void clearAuthorization()
   {
     mPrefs.edit()
@@ -178,6 +237,9 @@ public final class OsmOAuth
   @NonNull
   public static native String nativeGetOAuth2Url();
 
+  @NonNull
+  private static native String nativeBuildOAuth2Url(@NonNull String state, @NonNull String codeChallenge);
+
   /**
    * @return string with OAuth2 token
    */
@@ -191,7 +253,7 @@ public final class OsmOAuth
    */
   @WorkerThread
   @Nullable
-  public static native String nativeAuthWithOAuth2Code(String oauth2code);
+  public static native String nativeAuthWithOAuth2Code(String oauth2code, String codeVerifier);
 
   @WorkerThread
   @Nullable

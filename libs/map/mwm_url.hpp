@@ -138,6 +138,12 @@ public:
     return m_oauth2code;
   }
 
+  std::string const & GetOAuth2State() const
+  {
+    ASSERT_EQUAL(m_requestType, UrlType::OAuth2, ("Expected OAuth2 API"));
+    return m_oauth2state;
+  }
+
   InAppFeatureHighlightRequest const & GetInAppFeatureHighlightRequest() const
   {
     ASSERT_EQUAL(m_requestType, UrlType::Menu, ("Expected Menu API"));
@@ -163,6 +169,7 @@ private:
   std::string m_globalBackUrl;
   std::string m_appName;
   std::string m_oauth2code;
+  std::string m_oauth2state;
   ms::LatLon m_centerLatLon = ms::LatLon::Invalid();
   std::string m_routingType;
   int m_version = 0;
