@@ -280,8 +280,8 @@ public:
     SmallChargingStation,
     MotorcarChargingStation,
     CarlessChargingStation,
-    TrafficSignalForward,
-    TrafficSignalBackward,
+    DirectionForward,
+    DirectionBackward,
     Count
   };
 
@@ -327,8 +327,8 @@ public:
         {SmallChargingStation, {"amenity", "charging_station", "small"}},
         {MotorcarChargingStation, {"amenity", "charging_station", "motorcar"}},
         {CarlessChargingStation, {"amenity", "charging_station", "carless"}},
-        {TrafficSignalForward, {"hwtag", "traffic_signals_forward"}},
-        {TrafficSignalBackward, {"hwtag", "traffic_signals_backward"}},
+        {DirectionForward, {"hwtag", "direction_forward"}},
+        {DirectionBackward, {"hwtag", "direction_backward"}},
     };
 
     m_types.resize(static_cast<size_t>(Count));
@@ -1394,15 +1394,22 @@ void PostprocessElement(OsmElement * p, FeatureBuilderParams & params)
     }
   }
 
-  uint32_t const trafficSignalBase = classif().GetTypeByPath({"highway", "traffic_signals"});
-  if (params.IsTypeExist(trafficSignalBase))
+  // Traffic signs that can apply to one direction of their road only, and so get a direction hwtag.
+  // Signals are tagged with "traffic_signals:direction", other signs with "direction", which some
+  // mappers use on signals too.
+  static uint32_t const kDirectionalTrafficSigns[] = {
+      classif().GetTypeByPath({"highway", "traffic_signals"}),
+  };
+  if (base::AnyOf(kDirectionalTrafficSigns, [&params](uint32_t t) { return params.IsTypeExist(t); }))
   {
-    TagProcessor(p).ApplyRules({
-        {"traffic_signals:direction", "forward",
-         [&] { params.AddType(types.Get(CachedTypes::TrafficSignalForward)); }},
-        {"traffic_signals:direction", "backward",
-         [&] { params.AddType(types.Get(CachedTypes::TrafficSignalBackward)); }},
-    });
+    std::string direction = p->GetTag("traffic_signals:direction");
+    if (direction.empty())
+      direction = p->GetTag("direction");
+
+    if (direction == "forward")
+      params.AddType(types.Get(CachedTypes::DirectionForward));
+    else if (direction == "backward")
+      params.AddType(types.Get(CachedTypes::DirectionBackward));
   }
 }
 }  // namespace

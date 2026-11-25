@@ -700,8 +700,8 @@ power|plant|hydro;[power=plant][plant:source=hydro];;name;int_name;567;
 power|plant|wind;[power=plant][plant:source=wind];;name;int_name;568;
 power|plant|gas;[power=plant][plant:source=gas];;name;int_name;569;
 power|plant|coal;[power=plant][plant:source=coal];;name;int_name;570;
-hwtag|traffic_signals_forward;571;
-hwtag|traffic_signals_backward;572;
+deprecated:hwtag|traffic_signals_forward:11.2026;571;hwtag|direction_forward
+deprecated:hwtag|traffic_signals_backward:11.2026;572;hwtag|direction_backward
 club|art;573;
 club|automobile;574;
 aerialway|rope_tow;575;
@@ -939,8 +939,8 @@ highway|construction|living_street;[highway=construction][construction=living_st
 highway|construction|road;[highway=construction][construction=road];;name;int_name;804;
 highway|construction|track;[highway=construction][construction=track];;name;int_name;805;
 deprecated|deprecated;806;x
-deprecated|deprecated;807;x
-deprecated|deprecated;808;x
+hwtag|direction_forward;807;
+hwtag|direction_backward;808;
 deprecated|deprecated;809;x
 deprecated|deprecated;810;x
 deprecated|deprecated;811;x

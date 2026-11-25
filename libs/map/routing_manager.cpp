@@ -709,7 +709,8 @@ void RoutingManager::CollectTrafficSigns(vector<RouteSegment> const & segments, 
 
   // Traffic signs shown on the route, with the symbol drawn for each. To add a sign, add it here.
   // If it has no drawing rules, also add it to GetNondrawableStandaloneIndexScale() in
-  // feature_visibility.cpp.
+  // feature_visibility.cpp. If it can apply to one direction of its road only, also add it to
+  // kDirectionalTrafficSigns in generator/osm2type.cpp.
   static std::pair<uint32_t, std::string_view> const kSigns[] = {
       {classif().GetTypeByPath({"highway", "traffic_signals"}), "traffic_signals"},
   };
@@ -763,8 +764,8 @@ void RoutingManager::CollectTrafficSigns(vector<RouteSegment> const & segments, 
 
       // If the sign has a direction hwtag, only include it when it
       // faces the direction the route is travelling on that road.
-      static uint32_t const kForwardType = classif().GetTypeByPath({"hwtag", "traffic_signals_forward"});
-      static uint32_t const kBackwardType = classif().GetTypeByPath({"hwtag", "traffic_signals_backward"});
+      static uint32_t const kForwardType = classif().GetTypeByPath({"hwtag", "direction_forward"});
+      static uint32_t const kBackwardType = classif().GetTypeByPath({"hwtag", "direction_backward"});
       if (types.Has(kForwardType) && !closestSegIsForward)
         return;
       if (types.Has(kBackwardType) && closestSegIsForward)
