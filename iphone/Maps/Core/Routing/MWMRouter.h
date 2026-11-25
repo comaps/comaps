@@ -1,4 +1,5 @@
 #import "MWMRoutePoint.h"
+#import "MWMRoutePlan.h"
 #import "MWMRouterType.h"
 #import "MWMRouteStepInfo.h"
 
@@ -48,6 +49,8 @@ typedef void (^MWMImageHeightBlock)(UIImage *, NSString *, NSString *);
 + (void)setTurnNotificationsLocale:(NSString *)locale;
 + (NSArray<NSString *> *)routeNotifications;
 
++ (nullable MWMRoutePlan *)routePlanForLocale:(NSString *)locale;
+/** @todo remove when CarPlay route plans is are moved over to core */
 + (NSArray<MWMRouteStepInfo *> *)routeStepsForLocale:(NSString *)locale;
 
 + (void)addPoint:(MWMRoutePoint *)point;

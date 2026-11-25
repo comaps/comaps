@@ -17,7 +17,8 @@ final class DirectionsPreviewViewController: MWMViewController, UITableViewDataS
         return tv
     }()
 
-    private var steps: [MWMRouteStepInfo] = []
+    private var routePlan: MWMRoutePlan?
+    private var steps: [MWMRouteStepInfo] { routePlan?.steps ?? [] }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,7 @@ final class DirectionsPreviewViewController: MWMViewController, UITableViewDataS
         tableView.rowHeight = UITableView.automaticDimension
         
         let locale = NSLocale.preferredLanguages.first ?? "en"
-        steps = MWMRouter.routeSteps(forLocale: locale)
+        routePlan = MWMRouter.routePlan(forLocale: locale)
         tableView.reloadData()
     }
     
