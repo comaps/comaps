@@ -24,8 +24,6 @@ public class MapPlaceholderActivity extends BaseMwmFragmentActivity implements D
 
     mDisplayManager = MwmApplication.from(this).getDisplayManager();
     mDisplayManager.addListener(DisplayType.Device, this);
-
-    findViewById(R.id.btn_continue).setOnClickListener((unused) -> mDisplayManager.changeDisplay(DisplayType.Device));
   }
 
   private void switchToMwmActivity()
