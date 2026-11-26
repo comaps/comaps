@@ -995,7 +995,6 @@ IsAddressInterpolChecker::IsAddressInterpolChecker() : BaseChecker(1 /* level */
 IsMotorVehicleAccessRestrictedChecker::IsMotorVehicleAccessRestrictedChecker()
 {
   Classificator const & c = classif();
-  //m_types.push_back(c.GetTypeByPath({"emergency", "access_point"}));
   m_types.push_back(c.GetTypeByPath({"hwtag", "nocar"}));
   m_types.push_back(c.GetTypeByPath({"hwtag", "private"}));
 }
