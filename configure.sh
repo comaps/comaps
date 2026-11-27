@@ -85,11 +85,16 @@ Diff() {
 echo "Checking submodules..."
 git submodule update --init --recursive --depth 1
 
-if [ ! -d 3party/boost/boost ]; then
+# Regenerate boost's untracked header symlinks and b2 engine whenever the submodule changes
+boost_head="$(git -C 3party/boost rev-parse HEAD 2>/dev/null || true)"
+boost_stamp="$(cat 3party/boost/boost/.headers-generated-for 2>/dev/null || true)"
+if [ ! -d 3party/boost/boost ] || { [ -n "$boost_head" ] && [ "$boost_stamp" != "$boost_head" ]; }; then
   echo "Bootstrapping the boost C++ library..."
   pushd 3party/boost/
+  rm -rf boost
   ./bootstrap.sh
   ./b2 headers
+  git rev-parse HEAD > boost/.headers-generated-for 2>/dev/null || true
   popd
 fi
 
