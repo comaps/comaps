@@ -52,6 +52,11 @@ private:
    * Called when the user requests to clear the cache.
    */
   void OnClearCache();
+
+  /**
+   * @brief Called when the user requests to clear the route.
+   */
+  void OnClearRoute();
   void OnCloseTrafficSample();
   void OnSaveTrafficSample();
   void OnPathEditingStop();
@@ -67,6 +72,7 @@ private:
 #endif
   QAction * m_saveTrafficSampleAction = nullptr;
   QAction * m_closeTrafficSampleAction = nullptr;
+  QAction * m_clearRouteAction = nullptr;
 #ifdef openlr_obsolete
   QAction * m_startEditingAction = nullptr;
   QAction * m_commitPathAction  = nullptr;

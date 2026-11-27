@@ -274,8 +274,24 @@ MainWindow::MainWindow(Framework & framework)
 
   fileMenu->addSeparator();
 
+  m_clearRouteAction = fileMenu->addAction(tr("Clear route"), QKeySequence("Ctrl+R"), this, &MainWindow::OnClearRoute);
+  m_clearRouteAction->setEnabled(false);
+
   m_framework.SwitchToMapMode(MapMode::Driving);
   m_framework.GetTrafficManager().SetEnabled(true);
+
+  auto & routingManager = m_framework.GetRoutingManager();
+
+  routingManager.SetRouteBuildingListener(
+      [this](routing::RouterResultCode, storage::CountriesSet const &)
+  {
+    /*
+     * This could probably be refined by evaluating the router result code and enabling the action only
+     * if a route has actually been built.
+     * TBD: are there any other result codes than `NoError` where we would still get a route?
+     */
+    m_clearRouteAction->setEnabled(true);
+  });
 
 #ifdef openlr_obsolete
   m_goldifyMatchedPathAction = fileMenu->addAction("Goldify", QKeySequence("Ctrl+G"), [this] { m_trafficModel->GoldifyMatchedPath(); });
@@ -432,6 +448,12 @@ void MainWindow::OnClearCache()
 {
   m_trafficPanel->GetTimer().Reset();
   m_framework.GetTrafficManager().Clear();
+}
+
+void MainWindow::OnClearRoute()
+{
+  m_mapWidget->ClearRoute();
+  m_clearRouteAction->setEnabled(false);
 }
 
 void MainWindow::OnCloseTrafficSample()

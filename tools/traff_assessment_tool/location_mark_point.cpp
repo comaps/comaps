@@ -22,7 +22,7 @@ const std::string kRoleToColor[] = {
 };
 
 // TODO decide on UserMark::Type to use
-LocationMarkPoint::LocationMarkPoint(m2::PointD const & ptOrg) : UserMark(ptOrg, UserMark::Type::ROUTING) {}
+LocationMarkPoint::LocationMarkPoint(m2::PointD const & ptOrg) : UserMark(ptOrg, UserMark::Type::TRACK_INFO) {}
 
 drape_ptr<df::UserPointMark::SymbolNameZoomInfo> LocationMarkPoint::GetSymbolNames() const
 {

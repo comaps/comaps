@@ -13,8 +13,9 @@
 /**
  * @brief A marker for a TraFF location reference point.
  *
- * TraFF location marker point are of type `UserMark::Type::ROUTING` (as functionally they are
- * equivalent to route checkpoints).
+ * TraFF location marker point are of type `UserMark::Type::TRACK_INFO`. (Functionally they are
+ * equivalent to route checkpoints, which would mandate `UserMark::Type::ROUTING`, but that causes
+ * conflicts when the router is used).
  *
  * They render as a place marker with the tip at the specified coordinates. The color expresses
  * the role of the point in the location: `from` in green, `to` in red, `at` in blue, `via` in orange,

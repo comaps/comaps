@@ -671,8 +671,8 @@ TrafficModel::TrafficModel(Framework & framework,
 
         // clear markers
         auto editSession = m_framework.GetBookmarkManager().GetEditSession();
-        editSession.ClearGroup(UserMark::Type::ROUTING);
-        editSession.SetIsVisible(UserMark::Type::ROUTING, false);
+        editSession.ClearGroup(UserMark::Type::TRACK_INFO);
+        editSession.SetIsVisible(UserMark::Type::TRACK_INFO, false);
         m_drapeApi.Clear();
 
         // restore status bar
@@ -826,25 +826,25 @@ void TrafficModel::OnItemSelected(QItemSelection const & selected, QItemSelectio
   auto const row = selected.front().top();
 
   auto editSession = m_framework.GetBookmarkManager().GetEditSession();
-  editSession.ClearGroup(UserMark::Type::ROUTING);
+  editSession.ClearGroup(UserMark::Type::TRACK_INFO);
   m_drapeApi.Clear();
 
   if (static_cast<size_t>(row) >= m_messages.size())
   {
-    editSession.SetIsVisible(UserMark::Type::ROUTING, false);
+    editSession.SetIsVisible(UserMark::Type::TRACK_INFO, false);
     return;
   }
 
   auto message = &m_messages[row];
   if (!message->m_location)
   {
-    editSession.SetIsVisible(UserMark::Type::ROUTING, false);
+    editSession.SetIsVisible(UserMark::Type::TRACK_INFO, false);
     return;
   }
 
   m2::RectD rect;
 
-  editSession.SetIsVisible(UserMark::Type::ROUTING, true);
+  editSession.SetIsVisible(UserMark::Type::TRACK_INFO, true);
 
   for (auto & [coords, role] : {
        std::pair{message->m_location.value().m_from, LocationMarkPoint::Role::From},
