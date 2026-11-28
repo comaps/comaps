@@ -57,7 +57,13 @@ public:
     SEARCH,
     /** `StaticMarkPoint` */
     STATIC,
-    /** `RouteMarkPoint` */
+    /**
+     * `RouteMarkPoint`
+     *
+     * Do not use this type for any other user mark, as this type is integrated with the router.
+     * Placing a custom `UserMark` subclass instance with this type on the `ROUTING` layer may cause
+     * the router to behave incorrectly or crash.
+     */
     ROUTING,
     /** `SpeedCameraMark` */
     SPEED_CAM,
