@@ -917,3 +917,37 @@ UNIT_TEST(Kml_BadTracks)
     TEST_EQUAL(geom.m_lines[0].size(), geom.m_timestamps[0].size(), ());
   }
 }
+
+UNIT_TEST(Kml_TrackOutsidePlacemark)
+{
+  std::string_view constexpr input = R"(<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+  <Document>
+    <MultiGeometry>
+      <gx:Track>
+        <when>2020-01-01T00:00:00Z</when>
+        <gx:coord>1 2 3</gx:coord>
+      </gx:Track>
+    </MultiGeometry>
+    <Placemark>
+      <MultiGeometry>
+        <MultiGeometry>
+          <gx:Track>
+            <when>2020-01-01T00:00:00Z</when>
+            <gx:coord>1 2 3</gx:coord>
+          </gx:Track>
+        </MultiGeometry>
+      </MultiGeometry>
+    </Placemark>
+  </Document>
+</kml>)";
+
+  kml::FileData fData;
+  try
+  {
+    kml::DeserializerKml(fData).Deserialize(MemReader(input));
+  }
+  catch (kml::DeserializerKml::DeserializeException const &)
+  {}
+  TEST(fData.m_tracksData.empty(), ());
+}

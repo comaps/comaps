@@ -31,13 +31,22 @@ JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_editor_OsmOAuth_nativeGetOAut
   return ToJavaString(env, auth.BuildOAuth2Url());
 }
 
+JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_editor_OsmOAuth_nativeBuildOAuth2Url(JNIEnv * env, jclass,
+                                                                                        jstring state,
+                                                                                        jstring codeChallenge)
+{
+  auto const auth = OsmOAuth::ServerAuth();
+  return ToJavaString(env, auth.BuildOAuth2Url(ToNativeString(env, state), ToNativeString(env, codeChallenge)));
+}
+
 JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_editor_OsmOAuth_nativeAuthWithOAuth2Code(JNIEnv * env, jclass,
-                                                                                            jstring oauth2code)
+                                                                                            jstring oauth2code,
+                                                                                            jstring codeVerifier)
 {
   OsmOAuth auth = OsmOAuth::ServerAuth();
   try
   {
-    auto token = auth.FinishAuthorization(ToNativeString(env, oauth2code));
+    auto token = auth.FinishAuthorization(ToNativeString(env, oauth2code), ToNativeString(env, codeVerifier));
     if (!token.empty())
     {
       auth.SetAuthToken(token);

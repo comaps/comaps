@@ -131,7 +131,8 @@ public class Factory
         SearchEngine.INSTANCE.cancelInteractiveSearch();
 
         final String oauth2code = Framework.nativeGetParsedOAuth2Code();
-        OsmLoginActivity.OAuth2Callback(target, oauth2code);
+        final String oauth2state = Framework.nativeGetParsedOAuth2State();
+        OsmLoginActivity.OAuth2Callback(target, oauth2code, oauth2state);
 
         return true;
       }

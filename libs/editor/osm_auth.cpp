@@ -275,15 +275,30 @@ string OsmOAuth::FetchRequestToken(SessionID const & sid) const
 
 string OsmOAuth::BuildOAuth2Url() const
 {
+  return BuildOAuth2Url({}, {});
+}
+
+string OsmOAuth::BuildOAuth2Url(string const & state, string const & codeChallenge) const
+{
   auto requestTokenUrl = m_baseUrl + "/oauth2/authorize";
-  auto const requestTokenQuery = BuildPostRequest({{"client_id", m_oauth2params.m_clientId},
-                                                   {"redirect_uri", m_oauth2params.m_redirectUri},
-                                                   {"scope", m_oauth2params.m_scope},
-                                                   {"response_type", "code"}});
+  auto requestTokenQuery = BuildPostRequest({{"client_id", m_oauth2params.m_clientId},
+                                             {"redirect_uri", m_oauth2params.m_redirectUri},
+                                             {"scope", m_oauth2params.m_scope},
+                                             {"response_type", "code"}});
+  if (!state.empty())
+    requestTokenQuery.append("&").append(BuildPostRequest({{"state", state}}));
+  if (!codeChallenge.empty())
+    requestTokenQuery.append("&").append(
+        BuildPostRequest({{"code_challenge", codeChallenge}, {"code_challenge_method", "S256"}}));
   return requestTokenUrl.append("?").append(requestTokenQuery);
 }
 
 string OsmOAuth::FinishAuthorization(string const & oauth2code) const
+{
+  return FinishAuthorization(oauth2code, {});
+}
+
+string OsmOAuth::FinishAuthorization(string const & oauth2code, string const & codeVerifier) const
 {
   auto params = BuildPostRequest({
       {"grant_type", "authorization_code"},
@@ -292,6 +307,8 @@ string OsmOAuth::FinishAuthorization(string const & oauth2code) const
       {"redirect_uri", m_oauth2params.m_redirectUri},
       {"scope", m_oauth2params.m_scope},
   });
+  if (!codeVerifier.empty())
+    params.append("&").append(BuildPostRequest({{"code_verifier", codeVerifier}}));
 
   HttpClient request(m_baseUrl + "/oauth2/token");
   request.SetBodyData(std::move(params), "application/x-www-form-urlencoded").SetFollowRedirects(true);

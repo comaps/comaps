@@ -101,12 +101,14 @@ public:
   /// @name Methods for WebView-based authentication.
   //@{
   std::string FinishAuthorization(std::string const & oauth2code) const;
+  std::string FinishAuthorization(std::string const & oauth2code, std::string const & codeVerifier) const;
   std::string GetRegistrationURL() const { return m_baseUrl + "/user/new"; }
   std::string GetResetPasswordURL() const { return m_baseUrl + "/user/forgot-password"; }
   std::string GetHistoryURL(std::string const & user) const { return m_baseUrl + "/user/" + user + "/history"; }
   std::string GetNotesURL(std::string const & user) const { return m_baseUrl + "/user/" + user + "/notes"; }
   std::string GetDeleteURL() const { return m_baseUrl + "/account/deletion"; }
   std::string BuildOAuth2Url() const;
+  std::string BuildOAuth2Url(std::string const & state, std::string const & codeChallenge) const;
   //@}
 
 private:

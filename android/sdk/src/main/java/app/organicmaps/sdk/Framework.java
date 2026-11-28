@@ -178,6 +178,7 @@ public class Framework
   public static native ParsedSearchRequest nativeGetParsedSearchRequest();
   public static native @Nullable String nativeGetParsedAppName();
   public static native @Nullable String nativeGetParsedOAuth2Code();
+  public static native @Nullable String nativeGetParsedOAuth2State();
   @Nullable
   @Size(2)
   public static native double[] nativeGetParsedCenterLatLon();

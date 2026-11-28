@@ -106,6 +106,20 @@ UNIT_TEST(OAuth_FindOauthCode) {
   TEST_EQUAL(code, std::string{}, ("Code should not be found"));
 }
 
+UNIT_TEST(OAuth_BuildOAuth2Url_StateAndPkce)
+{
+  OsmOAuth const auth = OsmOAuth::ServerAuth();
+
+  auto const plainUrl = auth.BuildOAuth2Url();
+  TEST_EQUAL(plainUrl.find("state="), std::string::npos, (plainUrl));
+  TEST_EQUAL(plainUrl.find("code_challenge"), std::string::npos, (plainUrl));
+
+  auto const url = auth.BuildOAuth2Url("theState", "theChallenge");
+  TEST_NOT_EQUAL(url.find("&state=theState"), std::string::npos, (url));
+  TEST_NOT_EQUAL(url.find("&code_challenge=theChallenge"), std::string::npos, (url));
+  TEST_NOT_EQUAL(url.find("&code_challenge_method=S256"), std::string::npos, (url));
+}
+
 UNIT_TEST(OAuth_FindAccessToken) {
   auto token = osm::FindAccessToken(R"({"access_token":"vAK5XMBJeUDsF3xxFHt0", "token_type":"Bearer", "scope":"read_prefs"})");
   TEST_EQUAL(token, "vAK5XMBJeUDsF3xxFHt0", ("Invalid access_token"));

@@ -575,6 +575,16 @@ UNIT_TEST(OAuth2Test)
     ParsedMapApi api("cm://oauth2/osm/callback?code=");
     TEST_EQUAL(api.GetRequestType(), UrlType::Incorrect, ());
   }
+  {
+    ParsedMapApi api("cm://oauth2/osm/callback?code=THE_MEGA_CODE&state=THE_STATE");
+    TEST_EQUAL(api.GetRequestType(), UrlType::OAuth2, ());
+    TEST_EQUAL(api.GetOAuth2Code(), "THE_MEGA_CODE", ());
+    TEST_EQUAL(api.GetOAuth2State(), "THE_STATE", ());
+  }
+  {
+    ParsedMapApi api("cm://oauth2/osm/callback?code=THE_MEGA_CODE");
+    TEST_EQUAL(api.GetOAuth2State(), "", ());
+  }
 }
 
 namespace

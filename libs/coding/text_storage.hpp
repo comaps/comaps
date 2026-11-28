@@ -194,14 +194,16 @@ public:
     for (uint64_t i = 0; i < numBlocks; ++i)
     {
       auto const delta = ReadVarUint<uint64_t>(source);
-      CHECK_GREATER_OR_EQUAL(prevOffset + delta, prevOffset, ());
+      if (prevOffset + delta < prevOffset)
+        MYTHROW(Reader::Exception, ("Block offset overflow"));
       prevOffset += delta;
 
       auto & block = m_blocks[static_cast<size_t>(i)];
       block.m_offset = prevOffset;
       block.m_from = i == 0 ? 0 : m_blocks[static_cast<size_t>(i - 1)].To();
       block.m_subs = ReadVarUint<uint64_t>(source);
-      CHECK_GREATER_OR_EQUAL(block.m_from + block.m_subs, block.m_from, ());
+      if (block.m_from + block.m_subs < block.m_from)
+        MYTHROW(Reader::Exception, ("Block strings count overflow"));
     }
   }
 
@@ -238,7 +240,8 @@ public:
     InitializeIfNeeded(reader);
 
     auto const blockIx = m_index.GetBlockIx(stringIx);
-    CHECK_LESS(blockIx, m_index.GetNumBlockInfos(), ());
+    if (blockIx >= m_index.GetNumBlockInfos())
+      MYTHROW(Reader::Exception, ("String index", stringIx, "is out of range"));
 
     auto const & bi = m_index.GetBlockInfo(blockIx);
 
@@ -258,21 +261,24 @@ public:
         auto & sub = entry.m_subs[i];
         sub.m_offset = offset;
         sub.m_length = ReadVarUint<uint64_t>(source);
-        CHECK_GREATER_OR_EQUAL(sub.m_offset + sub.m_length, sub.m_offset, ());
+        if (sub.m_offset + sub.m_length < sub.m_offset)
+          MYTHROW(Reader::Exception, ("String length overflow"));
         offset += sub.m_length;
       }
       entry.m_value = BWTCoder::ReadAndDecodeBlock(source);
     }
 
-    ASSERT_GREATER_OR_EQUAL(stringIx, bi.From(), ());
-    ASSERT_LESS(stringIx, bi.To(), ());
+    if (stringIx < bi.From() || stringIx >= bi.To())
+      MYTHROW(Reader::Exception, ("String index", stringIx, "is out of block range", bi.From(), bi.To()));
 
     stringIx -= bi.From();
-    ASSERT_LESS(stringIx, entry.m_subs.size(), ());
+    if (stringIx >= entry.m_subs.size())
+      MYTHROW(Reader::Exception, ("String index", stringIx, "exceeds block size", entry.m_subs.size()));
 
     auto const & si = entry.m_subs[stringIx];
     auto const & value = entry.m_value;
-    ASSERT_LESS_OR_EQUAL(si.m_offset + si.m_length, value.size(), ());
+    if (si.m_offset > value.size() || si.m_length > value.size() - si.m_offset)
+      MYTHROW(Reader::Exception, ("String", stringIx, "exceeds decoded block of size", value.size()));
     auto const beg = value.begin() + si.m_offset;
     return std::string(beg, beg + si.m_length);
   }

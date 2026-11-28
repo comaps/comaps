@@ -1919,6 +1919,11 @@ std::string Framework::GetParsedOAuth2Code() const
   return m_parsedMapApi.GetOAuth2Code();
 }
 
+std::string Framework::GetParsedOAuth2State() const
+{
+  return m_parsedMapApi.GetOAuth2State();
+}
+
 std::string const & Framework::GetParsedAppName() const
 {
   return m_parsedMapApi.GetAppName();

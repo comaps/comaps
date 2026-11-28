@@ -191,6 +191,8 @@ ParsedMapApi::UrlType ParsedMapApi::SetUrlAndParse(std::string const & raw)
       {
         if (key == "code")
           m_oauth2code = value;
+        else if (key == "state")
+          m_oauth2state = value;
       });
 
       if (m_oauth2code.empty())
@@ -544,6 +546,7 @@ void ParsedMapApi::Reset()
   m_routePoints.clear();
   m_searchRequest = {};
   m_oauth2code = {};
+  m_oauth2state = {};
   m_globalBackUrl = {};
   m_appName = {};
   m_centerLatLon = ms::LatLon::Invalid();
