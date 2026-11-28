@@ -32,7 +32,7 @@ Traffic messages with a set start and/or end time are displayed on the map only 
 
 Use of traffic information can be enabled or disabled in the UI. In addition, traffic sources can be enabled or disabled individually. Traffic messages, once retrieved, are cached and remain available even after closing and restarting CoMaps, until they are updated or expire. If traffic is enabled but all sources are disabled, CoMaps will still use any traffic information it may have in its cache.
 
-TraFF has been designed to minimize the amount of personal information it transfers across the network. See **Privacy annd security concerns** for details.
+TraFF has been designed to minimize the amount of personal information it transfers across the network. See **Privacy and security concerns** for details.
 
 ## Design
 
@@ -115,7 +115,7 @@ To implement this, a `Condition` class was introduced. It represents a start and
 Processing logic was updated to deal with the new structure:
 
 * Most of the code that just moves `Coloring` without examining it did not require any changes.
-* When assembling coloring from individual TraFF mesages, information from messages without a start or end time is added to unconditional coloring. Information from messages with a start and/or end time is added to conditional coloring. Where two messages have identical start/end times, their colorings are merged under the same condition.
+* When assembling coloring from individual TraFF messages, information from messages without a start or end time is added to unconditional coloring. Information from messages with a start and/or end time is added to conditional coloring. Where two messages have identical start/end times, their colorings are merged under the same condition.
 * Copy logic for `Coloring` was adapted to handle both unconditional and conditional coloring.
 * The renderer renders conditional coloring that is currently active, along with unconditional coloring. As elsewhere, conflicts are resolved in favor of the most restrictive speed group.
 * The routing engine evaluates conditional coloring based on the time at which we are expecting to reach the segment in question. This may mean avoiding traffic situations that are not yet visible on the map, or going through situations on the map (they show because they are currentley active, but are expected to end before we get there).
@@ -256,7 +256,7 @@ Should you need to build an earlier version, either cherry-pick 17fd87a4 or run 
 
 ### Usage prerequisites
 
-Before using the TraFF Assessent tool, download the MWMs needed with the CoMaps desktop app. (The TraFF Assessment Tool lacks map download functionality so far.)
+Before using the TraFF Assessment tool, download the MWMs needed with the CoMaps desktop app. (The TraFF Assessment Tool lacks map download functionality so far.)
 
 ### Usage
 
@@ -288,7 +288,7 @@ The TraFF Assessment Tool will not delete expired messages automatically. To do 
 
 To delete all messages from the cache, select **File > Clear TraFF cache** from the menu.
 
-To save the entire cache of TraFF messages to a file, select **File > Save sample**. To save individual mesages, use the context menu from the list.
+To save the entire cache of TraFF messages to a file, select **File > Save sample**. To save individual messages, use the context menu from the list.
 
 The tool supports calculating routes to evaluate how traffic messages affect a given route. Click anywhere on the map and select **Route From** or **Route To** from the popup menu to select route endpoints. Select **File > Clear route** from the menu to clear the route and exit routing mode.
 
