@@ -4,7 +4,7 @@
 
 namespace ge0
 {
-// Max number of base64 bytes to encode a geo point.
+// Max number of custom-packed ge0 symbols per point, not standard base64 bytes.
 inline static int constexpr kMaxPointBytes = 10;
 inline static int constexpr kMaxCoordBits = kMaxPointBytes * 3;
 

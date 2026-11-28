@@ -142,6 +142,7 @@ std::string GenerateGeoUri(double lat, double lon, double zoom, std::string cons
   return oss.str();
 }
 
+// Maps a 6-bit ge0 symbol onto the base64url alphabet as custom coordinate packing rather than standard base64.
 char Base64Char(int x)
 {
   CHECK_GREATER_OR_EQUAL(x, 0, ());
