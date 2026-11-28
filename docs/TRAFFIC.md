@@ -280,7 +280,7 @@ TraFF reference points for the selected message are displayed as markers:
 * `at` in blue
 * `not_via` in purple (ignored by the decoder)
 
-The decoded segments for the selected message are displayed as a blue overlay on the map. Right-clicking on the map will give you the usual information on map items. Left-clicking currently (October 2026) does nothing.
+The decoded segments for the selected message are displayed as a blue overlay on the map. Right-clicking on the map will give you the usual information on map items. Left-clicking brings up the popup menu for routing (see below).
 
 Individual messages can be removed from the list by selecting them and pressing `Del`, or by using the context menu.
 
@@ -289,6 +289,10 @@ The TraFF Assessment Tool will not delete expired messages automatically. To do 
 To delete all messages from the cache, select **File > Clear TraFF cache** from the menu.
 
 To save the entire cache of TraFF messages to a file, select **File > Save sample**. To save individual mesages, use the context menu from the list.
+
+The tool supports calculating routes to evaluate how traffic messages affect a given route. Click anywhere on the map and select **Route From** or **Route To** from the popup menu to select route endpoints. Select **File > Clear route** from the menu to clear the route and exit routing mode.
+
+While in routing mode, you can import additional traffic feeds, delete individual messages from the list, as well as disable traffic altogether (**File > Enable traffic**), to see how these changes affect the route. The route will respond to any of these changes.
 
 ## Possible future extensions
 
