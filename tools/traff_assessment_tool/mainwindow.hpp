@@ -59,6 +59,7 @@ private:
   void OnClearRoute();
   void OnCloseTrafficSample();
   void OnSaveTrafficSample();
+  void OnToggleTraffic(bool checked);
   void OnPathEditingStop();
 
   Framework & m_framework;
@@ -72,6 +73,7 @@ private:
 #endif
   QAction * m_saveTrafficSampleAction = nullptr;
   QAction * m_closeTrafficSampleAction = nullptr;
+  QAction * m_enableTrafficAction = nullptr;
   QAction * m_clearRouteAction = nullptr;
 #ifdef openlr_obsolete
   QAction * m_startEditingAction = nullptr;

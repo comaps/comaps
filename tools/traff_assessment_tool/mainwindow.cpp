@@ -274,6 +274,12 @@ MainWindow::MainWindow(Framework & framework)
 
   fileMenu->addSeparator();
 
+  m_enableTrafficAction = fileMenu->addAction(tr("Enable traffic"), QKeySequence("Ctrl+T"), this, &MainWindow::OnToggleTraffic);
+  m_enableTrafficAction->setCheckable(true);
+  m_enableTrafficAction->setChecked(true);
+
+  fileMenu->addSeparator();
+
   m_clearRouteAction = fileMenu->addAction(tr("Clear route"), QKeySequence("Ctrl+R"), this, &MainWindow::OnClearRoute);
   m_clearRouteAction->setEnabled(false);
 
@@ -497,6 +503,12 @@ void MainWindow::OnSaveTrafficSample()
         QString("Can't save file: ") + strerror(errno));
   }
 #endif
+}
+
+void MainWindow::OnToggleTraffic(bool checked)
+{
+  LOG(LINFO, ("enable traffic:", checked));
+  m_framework.GetTrafficManager().SetEnabled(checked);
 }
 
 void MainWindow::OnPathEditingStop()

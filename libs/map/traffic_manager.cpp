@@ -129,9 +129,17 @@ void TrafficManager::SetEnabled(bool enabled)
 {
   /*
    * Whether to notify interested parties that traffic data has been updated.
-   * This is based on the return value of RestoreCache().
+   * In normal mode, this is done when we restore the cache from persistent storage and it holds messages
+   * (determined based on the return value of RestoreCache()).
+   * In test mode, we always notify when we have messages in the cache.
+   * TODO is this behavior correct? can we simplify it?
+   * We don’t send a notification in normal mode when storage has already been read (no need to restore),
+   * even when the cache has messages – is that correct (or does it have unwanted side effects, such as
+   * the messages remaining invisible until the next feed is received)?
+   * We could simplify this by sending the notification after enabling whenever the cache is not empty
+   * (after restoring from persistent storage, if this is needed).
    */
-  bool notifyUpdate = false;
+  bool notifyUpdate = IsTestMode() && !m_messageCache.empty();
   {
     std::lock_guard<std::mutex> lock(m_mutex);
     if (enabled == IsEnabled())
